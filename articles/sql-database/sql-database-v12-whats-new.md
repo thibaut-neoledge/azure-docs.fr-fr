@@ -27,7 +27,7 @@ Cette rubrique décrit les nombreux avantages de la nouvelle version 12 (V12) d
 Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par conséquent, nous vous encourageons à consulter notre page web sur les mises à jour des services pour Azure et à utiliser ses filtres :
 
 
-- Filtrez sur [Service SQL Database](http://azure.microsoft.com/updates/?service=sql-database).
+- Filtrez sur [Service SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtrez sur [annonces](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités SQL Database.
 
 
@@ -132,7 +132,7 @@ Il y a de nombreuses bonnes raisons pour lesquelles les clients doivent passer d
 Un bon moyen de voir si vous avez une base de données ou un serveur logique en cours qui s’exécute sur une version antérieure du service SQL Database est d’effectuer les opérations suivantes :
 
 
-1. Accédez au [portail Azure](http://portal.azure.com/).
+1. Accédez au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Parcourir**.
 3. Cliquez sur **Serveurs SQL**.
 4. L’icône en regard du serveur ou de la base de données vous dit tout :
@@ -159,6 +159,6 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 - Le 31 juillet 2015, toutes les régions avaient été promues en disponibilité générale.
 - La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l’état de version préliminaire.
 
-[Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

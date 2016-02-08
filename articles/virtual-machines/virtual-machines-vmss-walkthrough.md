@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
-Les groupes de machines virtuelles identiques facilitent le déploiement et la gestion de machines virtuelles identiques en tant que groupe. Les groupes de machines virtuelles identiques fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour plus d’informations sur les groupes de machines virtuelles identiques, consultez [Groupes de machines virtuelles identiques](virtual-machines-vmss-overview.md).
+Les groupes de machines virtuelles à échelle identique facilitent le déploiement et la gestion de machines virtuelles identiques en tant que groupe. Les groupes à échelle identique fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour plus d’informations sur les groupes de machines virtuelles identiques, consultez [Groupes de machines virtuelles identiques](virtual-machines-vmss-overview.md).
 
 Ce didacticiel vous montre comment créer un groupe de machines virtuelles identiques avec des machines virtuelles Windows et mettre automatiquement à l’échelle les machines du groupe. Vous pouvez le faire en créant un modèle Azure Resource Manager et en le déployant à l’aide d’Azure PowerShell. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
@@ -67,7 +67,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
 	Ajoutez ces paramètres sous l’élément parent des paramètres que vous avez ajouté au modèle :
 
-	- Nom de la machine virtuelle de changement rapide utilisée pour accéder au groupe à échelle identique.
+	- Nom de la machine virtuelle jumpbox utilisée pour accéder aux machines du groupe à échelle identique.
 	- Nom du compte de stockage dans lequel le modèle est stocké.
 	- Nombre d’instances de machines virtuelles à créer initialement dans le groupe à échelle identique.
 	- Nom et mot de passe du compte d’administrateur sur les machines virtuelles.
@@ -101,7 +101,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
 	- Noms DNS utilisés par les interfaces réseau.
 	- La taille des machines virtuelles utilisées dans le groupe à échelle identique. Pour plus d’informations sur les tailles de machines virtuelles, voir [Tailles des machines virtuelles](virtual-machines-size-specs.md).
-	- Les informations d’image de plateforme définissant le système d’exploitation qui va s’exécuter sur les machines virtuelles dans le groupe à échelle identique. Pour plus d’informations sur la sélection d’image, consultez [Rechercher et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](resource-groups-vm-searching.md).
+	- Les informations d’image de plateforme définissant le système d’exploitation qui va s’exécuter sur les machines virtuelles du groupe à échelle identique. Pour plus d’informations sur la sélection d’image, consultez [Rechercher et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](resource-groups-vm-searching.md).
 	- Les noms d’adresse IP et les préfixes destinés au réseau et aux sous-réseaux.
 	- Les noms et les identificateurs du réseau virtuel, de l’équilibreur de charge et des interfaces réseau.
 	- Les noms de compte de stockage pour les comptes associés aux machines du groupe à échelle identique.
@@ -155,7 +155,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
 	Pour plus d’informations sur les ressources de Resource Manager, consultez [Calcul, réseau et fournisseurs de stockage Azure sous Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
 
-	Ajoutez la ressource de compte de stockage sous l’élément parent de ressources que vous avez ajouté au modèle. Ce modèle utilise une boucle pour créer les 5 comptes de stockage recommandés dans lesquels les disques de système d’exploitation et les données de diagnostic sont stockés. Cet ensemble de comptes peut prendre en charge jusqu’à 100 machines virtuelles dans un groupe à échelle identique qui est la valeur maximale actuelle. Chaque compte de stockage nommé par un indicateur de lettre a été défini dans les variables combinées au suffixe que vous fournissez dans les paramètres du modèle.
+	Ajoutez la ressource de compte de stockage sous l’élément parent de ressources que vous avez ajouté au modèle. Ce modèle utilise une boucle pour créer les 5 comptes de stockage recommandés dans lesquels les disques de système d’exploitation et les données de diagnostic sont stockés. Cet ensemble de comptes peut prendre en charge jusqu’à 100 machines virtuelles dans un groupe à échelle identique, qui est la valeur maximale actuelle. Chaque compte de stockage nommé par un indicateur de lettre a été défini dans les variables combinées au suffixe que vous fournissez dans les paramètres du modèle.
 
 	```
 	{
@@ -604,4 +604,4 @@ Si vous souhaitez conserver votre groupe de ressources, vous pouvez supprimer un
 
 	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

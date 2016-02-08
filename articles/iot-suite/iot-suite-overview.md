@@ -2,13 +2,14 @@
 	pageTitle="Vue d’ensemble de la suite Microsoft Azure IoT | Microsoft Azure"
 	description="Ceci offre une vue d’ensemble d’Azure IoT Suite, notamment l’empaquetage et les solutions préconfigurées."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -69,4 +70,4 @@ Pour en savoir plus sur le service Azure IoT Hub, consultez la [documentation Io
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

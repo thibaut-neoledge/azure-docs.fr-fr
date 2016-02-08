@@ -9,29 +9,29 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Connexion de millions d’objets au cloud
  
-Les objets intelligents et connectés prolifèrent de plus en plus dans les écosystèmes technologiques modernes. Les capteurs dans les véhicules, les habitations, les infrastructures et les appareils créent de nouvelles opportunités pour fournir des produits de meilleure qualité, des services élargis et de nouveaux modèles d'engagement des clients. Microsoft Azure Service Bus peut vous aider à connecter cet « Internet des objets » émergent.
+Les objets intelligents et connectés prolifèrent de plus en plus dans les écosystèmes technologiques modernes. Les capteurs dans les véhicules, les habitations, les infrastructures et les appareils créent de nouvelles opportunités pour fournir des produits de meilleure qualité, des services élargis et de nouveaux modèles d'engagement des clients. Microsoft Azure Service Bus et Event Hubs peuvent vous aider à connecter cet « Internet des objets » émergent.
 
 ## Explorer
 
 - [Concentrateurs d'événements](event-hubs-overview.md)
 - [Modèle de partitionnement](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Service Bus et AMQP 1.0](service-bus-amqp-overview.md)
-- [Introduction à Service Bus](http://azure.microsoft.com/services/service-bus/)
+- [Introduction à Service Bus](https://azure.microsoft.com/services/service-bus/)
  
 ## Créer
 
 - [Partitionnement des entités de messagerie](service-bus-partitioning.md)
 - [Rubriques de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- [Utilisation d’Apache Qpid Proton C avec Azure Service Bus sur Linux et Windows](http://msdn.microsoft.com/library/dn235560.aspx) 
+- [Installation d'Apache Qpid Proton C avec Azure Service Bus sur Linux et Windows](service-bus-amqp-apache.md) 
  
 ## Populaire
 
@@ -40,8 +40,9 @@ Les objets intelligents et connectés prolifèrent de plus en plus dans les éco
 ## Services connexes
 
 - [Internet des objets (annonce de billet de blog Microsoft)](http://blogs.microsoft.com/iot/2015/03/16/microsoft-announces-azure-iot-suite)
-- [Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
-- [Cloud Services](http://azure.microsoft.com/services/cloud-services/) 
+- [IoT Hub](https://azure.microsoft.com/services/iot-hub/)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+- [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

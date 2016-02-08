@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # Forum aux questions sur le Cache Redis Azure
@@ -74,12 +74,12 @@ Pour optimiser les performances et la latence, placez votre Cache Redis Azure d
 <a name="cache-billing"></a>
 ## Combien me coûte le Cache Redis Azure ?
 
-La tarification du cache Redis Azure est disponible [ici](http://azure.microsoft.com/pricing/details/cache/). La page Tarifs appliqués répertorie les tarifs appliqués à un taux horaire. Les caches sont facturés à la minute, de la création du cache jusqu’à sa suppression. Aucune option ne vous permet d’arrêter ou de suspendre la facturation d'un cache.
+La tarification du cache Redis Azure est disponible [ici](https://azure.microsoft.com/pricing/details/cache/). La page Tarifs appliqués répertorie les tarifs appliqués à un taux horaire. Les caches sont facturés à la minute, de la création du cache jusqu’à sa suppression. Aucune option ne vous permet d’arrêter ou de suspendre la facturation d'un cache.
 
 <a name="cache-timeouts"></a>
 ## Pourquoi est-ce que je reçois des erreurs d’expiration du délai ?
 
-L’expiration du délai se produit dans le client que vous utilisez pour communiquer avec Redis. La plupart du temps, le serveur Redis n’expire pas. Lorsqu’une commande est envoyée au serveur Redis, elle est placée dans la file d’attente, puis le serveur Redis la récupère et l’exécute. Toutefois, le client peut expirer pendant ce processus. Si c’est le cas, une exception est levée côté appelant. Pour plus d’informations sur la résolution des problèmes de délai, consultez le billet de blog sur l’[Examen des exceptions de délai d’attente dans StackExchange.Redis pour le Cache Redis Azure](http://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
+L’expiration du délai se produit dans le client que vous utilisez pour communiquer avec Redis. La plupart du temps, le serveur Redis n’expire pas. Lorsqu’une commande est envoyée au serveur Redis, elle est placée dans la file d’attente, puis le serveur Redis la récupère et l’exécute. Toutefois, le client peut expirer pendant ce processus. Si c’est le cas, une exception est levée côté appelant. Pour plus d’informations sur la résolution des problèmes de délai, consultez le billet de blog sur l’[Examen des exceptions de délai d’attente dans StackExchange.Redis pour le Cache Redis Azure](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
 
 <a name="cache-monitor"></a>
 ## Comment surveiller l’intégrité et les performances de mon cache ?
@@ -174,6 +174,15 @@ Configuration de ce paramètre :
 
 -	En dehors d’ASP.NET, utilisez l’API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
 
+<a name="server-gc"></a>
+## Activation de Garbage Collection sur le serveur pour obtenir un meilleur début sur le client lors de l'utilisation de StackExchange.Redis
+
+L'activation de Garbage Collection sur le serveur peut optimiser le client, fournir des performances et un débit optimaux lors de l'utilisation de StackExchange.Redis. Pour plus d'informations sur Garbage Collection du serveur et son activation, consultez les articles suivants.
+
+-	[Activation de Garbage Collection sur le serveur](https://msdn.microsoft.com/library/ms229357.aspx)
+-	[Principes de base du Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
+-	[Garbage Collection et performances](https://msdn.microsoft.com/library/ee851764.aspx)
+
 <a name="cache-redis-commands"></a>
 ## Quels sont les points à prendre en compte en ce qui concerne les commandes Redis les plus courantes ?
 
@@ -229,12 +238,12 @@ Vous pouvez utiliser les commandes répertoriées dans [Commandes Redis](http://
 
 Le Cache Redis Microsoft Azure est basé sur le logiciel open source Cache Redis, ce qui vous donne accès à un cache Redis sécurisé et dédié, géré par Microsoft. Plusieurs [clients Redis](http://redis.io/clients) sont disponibles pour de nombreux langages de programmation. Chaque client possède sa propre API qui effectue des appels à l’instance de cache Redis à l’aide de [commandes Redis](http://redis.io/commands).
 
-Étant donné que chaque client est différent, il n’y a pas de référence centralisée au sujet des classes sur MSDN. Chaque client a sa propre documentation de référence. En plus de la documentation de référence, il existe plusieurs didacticiels sur Azure.com qui montrent comment débuter avec le Cache Redis Azure avec plusieurs langages et clients de cache sur la page [Documentation Cache Redis](http://azure.microsoft.com/documentation/services/redis-cache/).
+Étant donné que chaque client est différent, il n’y a pas de référence centralisée au sujet des classes sur MSDN. Chaque client a sa propre documentation de référence. En plus de la documentation de référence, il existe plusieurs didacticiels sur Azure.com qui montrent comment débuter avec le Cache Redis Azure avec plusieurs langages et clients de cache sur la page [Documentation Cache Redis](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 
 ## Quelle est l'offre Azure Cache qui me convient ?
 
->[AZURE.IMPORTANT]Microsoft recommande d’utiliser le Cache Redis Azure pour tous les nouveaux développements.
+>[AZURE.IMPORTANT] Microsoft recommande d’utiliser le Cache Redis Azure pour tous les nouveaux développements.
 
 Le Cache Azure propose actuellement trois offres :
 
@@ -273,4 +282,4 @@ In-Role Cache ne sera plus opérationnel à partir du 30 novembre 2016.
 
 [paramètre de configuration « minIoThreads »]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

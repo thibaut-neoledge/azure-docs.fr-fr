@@ -36,22 +36,22 @@ Vous devrez [inscrire une application](active-directory-b2c-app-registration.md)
 
 - Générez l’une des applications de démarrage rapide AD B2C répertoriées [ici](active-directory-b2c-overview.md#getting-started).
 - Utilisez l’application [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) préconfigurée. Si vous choisissez d'utiliser l'application Playground, vous devez inscrire une application dans votre client B2C en utilisant l'**URI de redirection** `https://aadb2cplayground.azurewebsites.net/`
-- Utilisez le bouton **Exécuter maintenant** sur votre stratégie dans le [portail Azure](https://portal.azure.com).
+- Utilisez le bouton **Exécuter maintenant** sur votre stratégie dans le [portail Azure](https://portal.azure.com/).
 
 ## Personnalisation de votre stratégie
 
 Pour personnaliser l'apparence de vos stratégies, vous devez d'abord créer les fichiers HTML et CSS en suivant les conventions spécifiques d'Azure AD B2C. Vous pouvez ensuite charger votre contenu statique vers un emplacement accessible au public afin qu’Azure AD B2C puisse y accéder. Il peut s’agir de votre propre serveur web dédié, d’un stockage d’objets blob Azure, d’Azure CDN, ou n'importe quel autre fournisseur d'hébergement de ressources statiques. Les seules conditions requises exigent que votre contenu soit disponible via le protocole HTTPS et accessible à l'aide de CORS. Après avoir publié votre contenu statique sur le web, vous pouvez modifier votre stratégie pour la pointer vers cet emplacement et présenter ce contenu à vos utilisateurs finaux. Le [principal article sur la personnalisation de l'interface utilisateur](active-directory-b2c-reference-ui-customization.md) décrit en détail la fonctionnalité de personnalisation Azure AD B2C.
 
-Dans le cadre de ce didacticiel, nous avons déjà créé quelques exemples de contenu et les avons hébergés sur un stockage d’objets blob Azure. L'exemple de contenu est une personnalisation très basique dans le thème de notre entreprise fictive, « Contoso B2C ». Pour le tester dans votre propre stratégie, procédez comme suit :
+Dans le cadre de ce didacticiel, nous avons déjà créé quelques exemples de contenu et les avons hébergés sur un stockage d’objets blob Azure. L'exemple de contenu est une personnalisation très basique dans le thème de notre entreprise fictive, « Contoso B2C ». Pour le tester dans votre propre stratégie, procédez comme suit :
 
-1. Connectez-vous à votre client dans le [portail Azure](https://portal.azure.com) et accédez au panneau de fonctionnalités B2C.
+1. Connectez-vous à votre client dans le [portail Azure](https://portal.azure.com/) et accédez au panneau de fonctionnalités B2C.
 2. Cliquez sur **Stratégies d’inscription**, puis cliquez sur votre stratégie d’inscription (par exemple, « b2c\_1\_sign\_up »).
 3. Cliquez sur **Personnalisation d’interface de page**, puis **page de sélection du fournisseur d’identité**.
 4. Placez le commutateur **Utiliser un modèle personnalisé** sur **Oui**. Dans le champ **URI de la page personnalisée**, entrez `https://contosob2c.blob.core.windows.net/static/Index.html`. Cliquez sur **OK**.
 5. Cliquez sur **page d’inscription à un compte Local**. Placez le commutateur **Utiliser un modèle personnalisé** sur **Oui**. Dans le champ **URI de la page personnalisée**, entrez `https://contosob2c.blob.core.windows.net/static/EmailVerification.html`. Cliquez deux fois sur **OK** pour fermer les panneaux de personnalisation de l'interface utilisateur.
 6. Cliquez sur **Enregistrer**.
 
-Vous pouvez maintenant tester votre stratégie personnalisée. Vous pouvez utiliser votre propre application ou l’application AAD B2C Playground si vous le souhaitez, mais vous avez aussi la possibilité de cliquer sur la commande **Exécuter maintenant** dans le panneau de la stratégie. Sélectionnez votre application dans la liste déroulante ainsi que l'URI de redirection approprié. Cliquez sur le bouton **Exécuter maintenant**. Un nouvel onglet de navigateur devrait s’ouvrir et vous pouvez vivre l’expérience utilisateur consistant à inscrire votre application avec le nouveau contenu en place !
+Vous pouvez maintenant tester votre stratégie personnalisée. Vous pouvez utiliser votre propre application ou l’application AAD B2C Playground si vous le souhaitez, mais vous avez aussi la possibilité de cliquer sur la commande **Exécuter maintenant** dans le panneau de la stratégie. Sélectionnez votre application dans la liste déroulante ainsi que l’URI de redirection approprié. Cliquez sur le bouton **Exécuter maintenant**. Un nouvel onglet de navigateur devrait s’ouvrir et vous pouvez vivre l’expérience utilisateur consistant à inscrire votre application avec le nouveau contenu en place !
 
 ## Chargement de l'exemple de contenu sur un stockage d’objets blob Azure
 
@@ -68,7 +68,8 @@ Si vous souhaitez utiliser le stockage d'objets blob Azure pour héberger le con
 7. Le conteneur que vous avez créé apparaît dans la liste sur le panneau **Objets Blob**. Notez l’URL du conteneur ; il se présente par exemple comme `https://contoso.blob.core.windows.net/b2c`. Fermez le panneau **Objets Blob**.
 8. Sur le panneau de compte de stockage, cliquez sur **Clés** et notez les valeurs des champs **Nom de compte de stockage** et **Clé d’accès primaire** champs.
 
-> [AZURE.NOTE]La **Clé d’accès primaire** est une information de sécurité importante.
+> [AZURE.NOTE]
+	La **Clé d’accès primaire** est une information de sécurité importante.
 
 #### Téléchargement de l’outil d’assistance et des fichiers exemples
 
@@ -90,4 +91,4 @@ Maintenant que vous avez chargé l'exemple de contenu sur votre propre compte de
         
 Vous pouvez à présent utiliser le bouton **Exécuter maintenant** ou votre propre application pour réexécuter votre stratégie. Le résultat devrait être quasiment identique puisque vous avez utilisé les mêmes exemples de codes HTML et CSS dans les deux cas. Cependant, vos stratégies référencent maintenant votre propre instance de stockage d'objets blob Azure, et vous êtes libre de modifier et de recharger les fichiers. Pour plus d'informations sur la personnalisation du code HTML et CSS, reportez-vous au [principal article sur la personnalisation de l'interface utilisateur](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

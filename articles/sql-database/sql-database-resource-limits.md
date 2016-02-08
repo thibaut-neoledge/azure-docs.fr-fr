@@ -59,7 +59,7 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 
 La base de données SQL Azure a un quota de DTU par serveur logique de 15 000 DTU actuellement. Ce quota représente les DTU qu’un serveur logique peut héberger, en fonction de la somme des DTU et du niveau de performance de chaque base de données sur le serveur. Par exemple, un serveur avec 5 bases de données Basique (5 x 5 DTU maximum), 2 bases de données Standard S1 (2 x 20 DTU maximum) et 3 bases de données Premium P1 (3 x 100 DTU maximum) a consommé 365 DTU sur son quota de 15 000 DTU.
 
->[AZURE.NOTE]Vous pouvez demander une augmentation de ce quota en [contactant le support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+>[AZURE.NOTE] Vous pouvez demander une augmentation de ce quota en [contactant le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
 ## Autres limites de SQL Database
 
@@ -75,4 +75,4 @@ La base de données SQL Azure a un quota de DTU par serveur logique de 15 000�
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

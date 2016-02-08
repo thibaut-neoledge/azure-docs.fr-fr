@@ -23,7 +23,7 @@
 - [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-app-frameworks.md).
+Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Vous ne pouvez pas utiliser de modèles dans le modèle de déploiement classique.
 
@@ -58,11 +58,11 @@ Vous pouvez également exécuter l'interface de ligne de commande Azure en tant 
 
 ### Configurer votre compte et votre abonnement Microsoft Azure
 
-Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement MSDN, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement MSDN, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 À présent, [connectez-vous à votre compte Azure de façon interactive](../xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis en suivant les invites pour une expérience de connexion interactive à votre compte Azure.
 
-> [AZURE.NOTE]Si vous disposez d'un ID professionnel ou scolaire et que vous savez que l'authentification à deux facteurs n'est pas activée, vous pouvez **également** utiliser `azure login -u` avec l'ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d'un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](resource-group-create-work-id-from-personal.md) pour vous connecter de la même façon.
+> [AZURE.NOTE] Si vous disposez d'un ID professionnel ou scolaire et que vous savez que l'authentification à deux facteurs n'est pas activée, vous pouvez **également** utiliser `azure login -u` avec l'ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d'un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](resource-group-create-work-id-from-personal.md) pour vous connecter de la même façon.
 
 Votre compte peut avoir plusieurs abonnements. Vous pouvez répertorier vos abonnements en tapant `azure account list`, ce qui pourrait donner ceci :
 
@@ -124,7 +124,7 @@ Commencez par créer votre groupe de ressources.
 
 Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide de l’interface de ligne de commande Azure, consultez [Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](resource-groups-vm-searching.md). Mais pour cet article, voici une brève liste d’images populaires. Nous allons utiliser l’image Stable de CoreOS pour cette création rapide.
 
-> [AZURE.NOTE]Pour l’élément ComputeImageVersion, vous pouvez simplement ajouter 'latest' en tant que paramètre dans le langage du modèle et dans l’interface de ligne de commande Azure. Ceci vous permettra de toujours utiliser la version la plus récente et corrigée de l’image, sans modifier vos scripts ou vos modèles. Consultez l’illustration ci-dessous.
+> [AZURE.NOTE] Pour l’élément ComputeImageVersion, vous pouvez simplement ajouter 'latest' en tant que paramètre dans le langage du modèle et dans l’interface de ligne de commande Azure. Ceci vous permettra de toujours utiliser la version la plus récente et corrigée de l’image, sans modifier vos scripts ou vos modèles. Consultez l’illustration ci-dessous.
 
 | PublisherName | Offer | Sku | Version |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
@@ -1171,7 +1171,7 @@ Créez un groupe de ressources pour le modèle à l’aide de `azure group creat
     data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
 
-Notez que ce modèle déploie une image Windows Server ; toutefois, vous pouvez facilement la remplacer par n’importe quelle image Linux. Vous souhaitez créer un cluster Docker avec plusieurs gestionnaires swarm ? [Vous pouvez le faire](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Notez que ce modèle déploie une image Windows Server ; toutefois, vous pouvez facilement la remplacer par n’importe quelle image Linux. Vous souhaitez créer un cluster Docker avec plusieurs gestionnaires swarm ? [Vous pouvez le faire](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 ## <a id="remove-a-resource-group"></a>Tâche : Supprimer un groupe de ressources
 
@@ -1264,7 +1264,7 @@ Ensuite, recherchez myVM1 :
     info:    vm show command OK
 
 
-> [AZURE.NOTE]Si vous souhaitez stocker et manipuler la sortie des commandes de votre console par programme, vous pouvez utiliser un outil d’analyse JSON tel que **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** ou les bibliothèques de langages adaptées à cette tâche.
+> [AZURE.NOTE] Si vous souhaitez stocker et manipuler la sortie des commandes de votre console par programme, vous pouvez utiliser un outil d’analyse JSON tel que **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** ou les bibliothèques de langages adaptées à cette tâche.
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tâche : Se connecter à une machine virtuelle Linux
 
@@ -1276,7 +1276,7 @@ Exécutez cette commande :
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Utilisez ce paramètre pour conserver l’adresse IP virtuelle du réseau virtuel s’il s’agit de la dernière machine virtuelle de ce réseau virtuel. <br><br>Si vous utilisez le paramètre `StayProvisioned`, vous êtes toujours facturé pour cette machine virtuelle.
+>[AZURE.IMPORTANT] Utilisez ce paramètre pour conserver l’adresse IP virtuelle du réseau virtuel s’il s’agit de la dernière machine virtuelle de ce réseau virtuel. <br><br>Si vous utilisez le paramètre `StayProvisioned`, vous êtes toujours facturé pour cette machine virtuelle.
 
 ## <a id="start-a-virtual-machine"></a>Tâche : Démarrer une machine virtuelle
 
@@ -1303,6 +1303,6 @@ Vous devrez ensuite monter le disque, comme vous le feriez normalement sous Linu
 
 Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d'Azure Resource Manager](../resource-group-overview.md).
 
-Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-app-frameworks.md).
+Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

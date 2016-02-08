@@ -37,8 +37,9 @@ Une règle avancée complète ressemble à ceci : (leftParameter binaryOperator
 
 Pour obtenir la liste complète des paramètres et des opérateurs de règle d’expression pris en charge, consultez les sections ci-dessous.
 
-La longueur totale du corps de votre règle avancée ne peut pas dépasser 255 caractères.
-> [AZURE.NOTE]Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant $null en tant que constante. Par exemple : user.department -eq $null. Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : "Sa`"les".
+La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 048 caractères.
+> [AZURE.NOTE]
+Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant $null en tant que constante. Par exemple : user.department -eq $null. Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : "Sa`"les".
 
 ##Opérateurs de règle d’expression pris en charge
 Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
@@ -148,16 +149,29 @@ Opérateurs autorisés
 | otherMails | Toute valeur de chaîne. | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Attributs d’extension et attributs personnalisés
+Les attributs d’extension et les attributs personnalisés sont pris en charge dans les règles d’appartenance dynamique.
+
+Les attributs d’extension sont synchronisés à partir d’un Windows Server AD et prennent le format « ExtensionAttributeX », où X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension :
+
+(user.extensionAttribute15 -eq "Marketing")
+
+Les attributs personnalisés sont synchronisés à partir d’un système AD Windows Server local ou à partir d’une application SaaS connectée et le format de la chaîne « user.extension\_[GUID]\_\_[Attribut] », où [GUID] est l’identificateur unique, dans AAD, de l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
+
+user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
+
+Vous pouvez accéder au nom de l’attribut personnalisé dans le répertoire en lançant une requête sur un attribut d’utilisateur, à l’aide de l’explorateur graphique, et en recherchant le nom d’attribut.
+
 ## Règle de collaborateurs
 Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attribut de responsable hiérarchique d’un utilisateur.
 Pour configurer un groupe en tant que groupe « Responsable »
 --------------------------------------------------------------------------------
 1. Dans le portail d’administration, cliquez sur l’onglet **Configurer** et sélectionnez **Règle avancée**.
-2. Tapez la règle avec la syntaxe suivante : Collaborateurs directs de *Collaborateurs directs de {ID\_utilisateur\_du\_responsable}*. Exemple de règle valide pour Collaborateurs directs : 
+2. Saisissez la règle en utilisant la syntaxe suivante : Collaborateurs de *Collaborateurs de {ID\_utilisateur\_du\_responsable}* Voici un exemple e règle valable pour Collaborateurs : 
 
-Collaborateurs directs de « 62e19b97-8b3d-4d4a-a106-4ce66896a863 »
+Collaborateurs directs pour « 62e19b97-8b3d-4d4a-a106-4ce66896a863 »
 
-où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable.. L’ID objet se trouve dans le portail d’administration AAD, dans l’onglet Profil de la page Utilisateur de l’utilisateur qui est responsable.
+où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable. L’ID objet se trouve dans le portail d’administration AAD, dans l’onglet Profil de la page Utilisateur de l’utilisateur qui est responsable.
 
 3. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Notez que le remplissage initial du groupe peut prendre quelques minutes.
 
@@ -173,4 +187,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

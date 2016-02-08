@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Didacticiel sur la messagerie par relais Service Bus
@@ -21,9 +21,9 @@ Ce didacticiel vous montre comment créer une application cliente et un service 
 
 Ce didacticiel vous offre une présentation des étapes requises pour créer une application client Service Bus et une application service. À l’instar de leurs homologues WCF, un service est une construction qui expose un ou plusieurs points de terminaison, chacun d’entre eux exposant une ou plusieurs opérations de service. Le point de terminaison de service spécifie une adresse où le service peut être trouvé, une liaison contenant les informations qu’un client doit communiquer avec le service et le contrat qui définit la fonctionnalité fournie par le service à ses clients. La principale différence entre un service WCF et un service Service Bus est que le point de teminaison est exposé dans le cloud en non localement sur votre ordinateur.
 
-Lorsque vous avez exécuté la suite des rubriques présentes dans ce tutoriel, vous obtenez un service en cours de fonctionnement, et un client peut invoquer les opérations du service. La première rubrique décrit comment configurer un compte. Les étapes suivantes décrivent comment définir un service utilisant un contrat, comment implémenter ledit service et comment le configurer dans le code. Elles décrivent également comment héberger et exécuter le service. Le service créé est auto hébergé et le client et le service s’exécutent sur le même ordinateur. Vous pouvez configurer le service à l’aide d’un code ou d’un fichier de configuration. Pour plus d’informations, consultez la rubrique [Configuration d’un service WCF pour une inscription auprès de Service Bus](https://msdn.microsoft.com/library/ee173579.aspx) et [Générer un service pour Service Bus](https://msdn.microsoft.com/library/ee173564.aspx).
+Lorsque vous avez exécuté la suite des rubriques présentes dans ce tutoriel, vous obtenez un service en cours de fonctionnement, et un client peut invoquer les opérations du service. La première rubrique décrit comment configurer un compte. Les étapes suivantes décrivent comment définir un service utilisant un contrat, comment implémenter ledit service et comment le configurer dans le code. Elles décrivent également comment héberger et exécuter le service. Le service créé est auto hébergé et le client et le service s’exécutent sur le même ordinateur. Vous pouvez configurer le service à l’aide d’un code ou d’un fichier de configuration.
 
-Les trois dernières étapes expliquent comment créer une application cliente, la configurer et créer et utiliser un client pouvant accéder à la fonctionnalité de l’hôte. Pour plus d’informations, consultez [Création d’une Application Client Service Bus](https://msdn.microsoft.com/library/ee173543.aspx) et [Découverte et exposition d’un service Service Bus](https://msdn.microsoft.com/library/dd582704.aspx).
+Les trois dernières étapes expliquent comment créer une application cliente, la configurer et créer et utiliser un client pouvant accéder à la fonctionnalité de l’hôte.
 
 Toutes les rubriques de cette section supposent que vous utilisez Visual Studio comme environnement de développement.
 
@@ -33,17 +33,17 @@ La première étape consiste à créer l’espace de noms de service Service Bus
 
 1. Pour créer un espace de noms de service, visitez le [portail Azure Classic][]. Cliquez sur **Service Bus** sur le côté gauche, puis sur **Créer**. Tapez un nom pour votre espace de noms, puis cochez la case.
 
-	>[AZURE.NOTE]Vous n’avez pas à utiliser le même espace de noms pour les applications client et le service.
+	>[AZURE.NOTE] Vous n’avez pas à utiliser le même espace de noms pour les applications client et le service.
 
-1. Dans la fenêtre principale du [portail Azure Classic][], cliquez sur le nom d’espace de noms du service que vous avez créé à l’étape précédente.
+1. Dans la fenêtre principale du portail, cliquez sur le nom d'espace de noms que vous avez créé à l'étape précédente.
 
-2. Cliquez sur **Configurer** pour afficher les stratégies d’accès partagé par défaut pour votre espace de noms de service.
+2. Cliquez sur **Configurer** pour afficher les stratégies d'accès partagé par défaut pour votre espace de noms.
 
-3. Notez la clé primaire de la stratégie **RootManageSharedAccessKey**, ou copiez-la dans le Presse-papier. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
+3. Notez la clé primaire de la stratégie **RootManageSharedAccessKey**, ou copiez-la dans le Presse-papiers. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
 
 ## Définition d’un contrat de service WCF à utiliser avec Service Bus
 
-Le contrat de service spécifie les opérations (terminologie du service web pour les fonctions ou méthodes) que le service prend en charge. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) doit être appliqué à chaque opération. Si une méthode présente dans une interface contenant l’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) ne comporte pas l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), cette méthode n’est pas exposée. Le code servant à effectuer ces tâches est fourni dans l’exemple qui suit la procédure. Pour plus d’informations sur la manière de définir un contrat, consultez [Conception d’un contrat WCF pour Service Bus](https://msdn.microsoft.com/library/ee173585.aspx). Pour une description plus approfondie des contrats et des services, consultez [Conception et implémentation de Services](https://msdn.microsoft.com/library/ms729746.aspx) dans la documentation WCF.
+Le contrat de service spécifie les opérations (terminologie du service web pour les fonctions ou méthodes) que le service prend en charge. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) doit être appliqué à chaque opération. Si une méthode présente dans une interface contenant l’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) ne comporte pas l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), cette méthode n’est pas exposée. Le code servant à effectuer ces tâches est fourni dans l’exemple qui suit la procédure. Pour une description plus approfondie des contrats et des services, consultez [Conception et implémentation de Services](https://msdn.microsoft.com/library/ms729746.aspx) dans la documentation WCF.
 
 ### Création d’un contrat de Service Bus avec une interface
 
@@ -65,7 +65,7 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 
 1. Changez le nom de l’espace de noms du nom par défaut **EchoService** en **Microsoft.ServiceBus.Samples**.
 
-	>[AZURE.IMPORTANT]Ce didacticiel utilise l’espace de noms Cc# Micr ** osoft.ServiceBus.Samples**, qui est l’espace de noms du contrat géré type utilisé dans le fichier de configuration à l’étape 6 : configurer le Client WCF. Vous pouvez spécifier n’importe quel espace de noms lorsque vous générez cet exemple ; toutefois, le didacticiel ne fonctionnera que si vous modifiez les espaces de noms du contrat et le service en conséquence, dans le fichier de configuration d’application de service. L’espace de noms spécifié dans le fichier App.config doit être identique à l’espace de noms spécifié dans vos fichiers C#.
+	>[AZURE.IMPORTANT] Ce didacticiel utilise l'espace de noms C# **Microsoft.ServiceBus.Samples**, qui est l'espace de noms du contrat géré type utilisé dans le fichier de configuration à l'étape [Configurer le client WCF](#configure-the-wcf-client). Vous pouvez spécifier n’importe quel espace de noms lorsque vous générez cet exemple ; toutefois, le didacticiel ne fonctionnera que si vous modifiez les espaces de noms du contrat et le service en conséquence, dans le fichier de configuration d’application de service. L’espace de noms spécifié dans le fichier App.config doit être identique à l’espace de noms spécifié dans vos fichiers C#.
 
 1. Définissez directement après la déclaration d’espace de noms `Microsoft.ServiceBus.Samples`, mais à l’intérieur de l’espace de noms, une nouvelle interface nommée `IEchoContract` et appliquez l’attribut `ServiceContractAttribute` à cette interface avec une valeur d’espace de noms de ****http://samples.microsoft.com/ServiceModel/Relay/**. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. En revanche, la valeur de l’espace de noms est utilisée comme identificateur unique pour ce contrat. Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut.
 
@@ -76,9 +76,9 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 	}
 	```
 
-	>[AZURE.NOTE]En règle générale, l’espace de noms de contrat de service contient un schéma d’affectation de noms qui inclut des informations de version. L’inclusion des informations de version dans l’espace de noms de contrat de service permet aux services d’isoler les modifications majeures en définissant un contrat de service avec un nouvel espace de noms et en l’exposant sur un point de terminaison. De cette manière, les clients peuvent continuer à utiliser l’ancien contrat de service sans avoir à procéder à la mise à jour. Les informations de version peuvent se composer d’une date ou un numéro de version. Pour plus d’informations, consultez la rubrique [Contrôle de version des services](http://go.microsoft.com/fwlink/?LinkID=180498). Dans le cadre de ce didacticiel, le schéma d’affectation de noms de l’espace de noms de contrat de service ne contient pas les informations de version.
+	>[AZURE.NOTE] En règle générale, l’espace de noms de contrat de service contient un schéma d’affectation de noms qui inclut des informations de version. L’inclusion des informations de version dans l’espace de noms de contrat de service permet aux services d’isoler les modifications majeures en définissant un contrat de service avec un nouvel espace de noms et en l’exposant sur un point de terminaison. De cette manière, les clients peuvent continuer à utiliser l’ancien contrat de service sans avoir à procéder à la mise à jour. Les informations de version peuvent se composer d’une date ou un numéro de version. Pour plus d’informations, consultez la rubrique [Contrôle de version des services](http://go.microsoft.com/fwlink/?LinkID=180498). Dans le cadre de ce didacticiel, le schéma d’affectation de noms de l’espace de noms de contrat de service ne contient pas les informations de version.
 
-1. Dans l’interface IEchoContract, déclarez une méthode pour une seule opération que le contrat `IEchoContract` expose dans l’interface, puis appliquez l’attribut `OperationContractAttribute` à la méthode que vous souhaitez exposer dans le cadre du contrat Service Bus public.
+1. Dans l’interface `IEchoContract`, déclarez une méthode pour une seule opération que le contrat `IEchoContract` expose dans l’interface, puis appliquez l’attribut `OperationContractAttribute` à la méthode que vous souhaitez exposer dans le cadre du contrat Service Bus public.
 
 	```
 	[OperationContract]
@@ -100,7 +100,7 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 
 	Un canal est l’objet WCF par le biais duquel l’hôte et le client se transmettent des informations. Par la suite , vous allez écrire du code par rapport au canal pour reprendre les informations entre les deux applications.
 
-1. Dans le menu **Générer**, cliquez sur **Générer la solution** ou appuyez sur F6 pour confirmer si votre travail est correct.
+1. Dans le menu **Générer**, cliquez sur **Générer la solution** ou appuyez sur F6 pour confirmer si votre travail est correct jusqu'à présent.
 
 ### Exemple
 
@@ -168,7 +168,7 @@ La création d’un service Service Bus nécessite la création au préalable du
 
 ### Pour définir la configuration de l’hôte de service
 
-1. Le fichier de configuration est très similaire à un fichier de configuration WCF. Il contient le nom du service, le point de terminaison (c’est-à-dire l’emplacement que Service Bus expose aux clients et aux ordinateurs hôtes afin qu’ils communiquent entre eux) et la liaison (type de protocole utilisé pour communiquer). La principale différence réside dans le fait que le point de terminaison de service configuré fait référence à [netTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), qui ne fait pas partie du framework .NET. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) est l’une des liaisons définies par Service Bus.
+1. Le fichier de configuration est très similaire à un fichier de configuration WCF. Il contient le nom du service, le point de terminaison (c’est-à-dire l’emplacement que Service Bus expose aux clients et aux ordinateurs hôtes afin qu’ils communiquent entre eux) et la liaison (type de protocole utilisé pour communiquer). La principale différence réside dans le fait que le point de terminaison de service configuré fait référence à la liaison [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), qui ne fait pas partie de .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) est l’une des liaisons définies par Service Bus.
 
 1. Dans l’**Explorateur de solutions**, cliquez sur le fichier App.config, qui contient actuellement les éléments XML suivants :
 
@@ -215,7 +215,7 @@ La création d’un service Service Bus nécessite la création au préalable du
 	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
 	```
 
-	Le point de terminaison définit l’emplacement où le client recherchera l’application hôte. Plus tard, le didacticiel utilise cette étape pour créer une URI qui expose entièrement l’hôte via Service Bus. La liaison déclare que nous utilisons TCP comme protocole pour communiquer avec Service Bus.
+	Le point de terminaison définit l’emplacement où le client recherchera l’application hôte. Plus tard, le didacticiel utilise cette étape pour créer une URI qui expose entièrement l'hôte via Service Bus. La liaison déclare que nous utilisons TCP comme protocole pour communiquer avec Service Bus.
 
 
 1. Directement après l’élément `<services>`, ajoutez l’extension de liaison suivante :
@@ -273,15 +273,7 @@ Cette étape explique comment exécuter un service Service Bus de base.
 
 ### Pour créer les informations d’identification de Service Bus
 
-1. Ajoutez une référence à Microsoft.ServiceBus.dll au projet : consultez [Utilisation du package NuGet Service Bus](https://msdn.microsoft.com/library/dn741354.aspx).
-
-	>[AZURE.NOTE]Lorsque vous utilisez un compilateur de ligne de commande, vous devez également fournir le chemin d’accès aux assemblages.
-
-1. Dans Program.cs, ajoutez une instruction `using` pour l’espace de noms Microsoft.ServiceBus.
-
-	```
-	using Microsoft.ServiceBus;
-	```
+1. Installez le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. Dans `Main()`, créez deux variables dans lesquelles stocker l’espace de noms et la clé SAS qui sont lues à partir de la fenêtre de console.
 
@@ -292,7 +284,7 @@ Cette étape explique comment exécuter un service Service Bus de base.
 	string sasKey = Console.ReadLine();
 	```
 
-	La clé SAS sera utilisée ultérieurement pour accéder à votre projet Service Bus. L’espace de noms de service est transmis en tant que paramètre à `CreateServiceUri` pour créer un URI de service.
+	La clé SAS sera utilisée ultérieurement pour accéder à votre projet Service Bus. L'espace de noms est transmis en tant que paramètre à `CreateServiceUri` pour créer une URI de service.
 
 4. À l’aide d’un objet [TransportClientEndpointBehavior](https://msdn.microsoft.com/library/microsoft.servicebus.transportclientendpointbehavior.aspx), déclarez que vous utiliserez une clé SAS en tant que type d’informations d’identification. Ajoutez le code suivant directement après le code ajouté à l’étape précédente.
 
@@ -396,7 +388,6 @@ using Microsoft.ServiceBus.Description;
 namespace Microsoft.ServiceBus.Samples
 {
     [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     public interface IEchoContract
     {
         [OperationContract]
@@ -406,7 +397,6 @@ namespace Microsoft.ServiceBus.Samples
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
     [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -514,7 +504,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -624,17 +614,11 @@ Le code suivant montre le fichier App.config correspondant au client Echo.
 Dans cette étape, vous allez mettre en oeuvre une application cliente de base qui accède au service que vous avez créé précédemment dans ce didacticiel. Comme le service, le client effectue de nombreuses opérations similaires pour accéder à Service Bus :
 
 1. Définit le mode connectivité sur.
-
 1. Crée l’URI qui localise le service hôte.
-
 1. Définit les informations d’identification de sécurité.
-
 1. Applique les informations d’identification à la connexion.
-
 1. Ouvre la connexion.
-
 1. Effectue les tâches spécifiques à l’application.
-
 1. Ferme la connexion.
 
 Toutefois, une des principales différences réside dans le fait que l’application cliente utilise un canal pour se connecter à Service Bus, tandis que le service utilise un appel à **ServiceHost**. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure.
@@ -732,15 +716,11 @@ Toutefois, une des principales différences réside dans le fait que l’applica
 
 	Voici un exemple de sortie de la fenêtre de console. Notez que les valeurs indiquées ici sont fournies à titre d’exemple uniquement.
 
-	`Your Service Namespace: myNamespace`
-
-	`Your SAS Key: <SAS key value>`
+	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
 	L’application de service démarre et imprime l’adresse sur laquelle il écoute dans la fenêtre de console, comme indiqué dans l’exemple suivant.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
 1. Exécutez l’application cliente. Vous devez maintenant avoir un fichier exécutable pour l’application cliente Echo nommé EchoClient.exe situé sous le répertoire du projet client à \\bin\\Debug\\EchoClient.exe (pour la configuration debug) ou.\\bin\\Release\\EchoClient.exe (pour la configuration de version). Double-cliquez sur ce fichier pour démarrer l’application cliente.
 
@@ -843,4 +823,4 @@ Pour en savoir plus sur Service Bus, consultez les rubriques qui suivent.
 
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

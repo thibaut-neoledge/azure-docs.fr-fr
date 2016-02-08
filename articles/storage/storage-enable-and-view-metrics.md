@@ -22,13 +22,13 @@
 
 ## Vue d’ensemble
 
-Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance par le biais du [portail Azure](portal.azure.com) ou de Windows PowerShell, ou par programme au moyen de la bibliothèque cliente de stockage.
+Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance par le biais du [portail Azure](https://portal.azure.com) ou de Windows PowerShell, ou par programme au moyen de la bibliothèque cliente de stockage.
 
 Lorsque vous activez Storage Metrics, vous devez choisir une période de rétention des données : cette période détermine combien de temps le service de stockage conserve les métriques et la durée pendant laquelle l’espace requis pour les stocker vous est facturé. En règle générale, il est recommandé d’utiliser une période de rétention plus courte pour les métriques par minute que pour les métriques par heure, en raison de l’espace supplémentaire requis. La période de rétention que vous définissez doit être suffisamment longue pour vous donner le temps d’analyser les données et de télécharger les métriques à conserver à des fins d’analyse ou de création de rapports hors connexion. N’oubliez pas que le téléchargement des données de métriques depuis votre compte de stockage est aussi facturé.
 
 ## Comment activer les métriques à l’aide du portail Azure
 
-Pour activer les métriques dans le [portail Azure](portal.azure.com), procédez comme suit :
+Pour activer les métriques dans le [portail Azure](https://portal.azure.com), procédez comme suit :
 
 1. Accédez à votre compte de stockage. 
 1. Ouvrez le panneau **Paramètres**, puis sélectionnez **Diagnostics**.
@@ -36,7 +36,7 @@ Pour activer les métriques dans le [portail Azure](portal.azure.com), procédez
 1. Sélectionnez les métriques des services que vous souhaitez surveiller.
 2. Spécifiez une stratégie de rétention pour indiquer la durée de conservation des métriques et de journalisation des données.
 
-Notez que le [portail Azure](portal.azure.com) ne vous permet pas actuellement de configurer des métriques par minute dans votre compte de stockage. Vous devez les activer avec PowerShell ou par programmation.
+Notez que le [portail Azure](https://portal.azure.com) ne vous permet pas actuellement de configurer des métriques par minute dans votre compte de stockage. Vous devez les activer avec PowerShell ou par programmation.
 
 ## Comment activer les métriques à l’aide de PowerShell
 
@@ -94,9 +94,9 @@ L’extrait de code C# suivant montre comment activer les métriques et la journ
     
 ## Affichage des métriques de stockage
 
-Après que vous avez configuré les métriques d’analyse du stockage pour surveiller votre compte de stockage, l’analyse du stockage enregistre les métriques dans des tables connues dans votre compte de stockage. Vous pouvez configurer des graphiques permettant de consulter des métriques horaires dans le [portail Azure](portal.azure.com) :
+Après que vous avez configuré les métriques d’analyse du stockage pour surveiller votre compte de stockage, l’analyse du stockage enregistre les métriques dans des tables connues dans votre compte de stockage. Vous pouvez configurer des graphiques permettant de consulter des métriques horaires dans le [portail Azure](https://portal.azure.com) :
 
-1. Accédez à votre compte de stockage dans le [portail Azure](portal.azure.com).
+1. Accédez à votre compte de stockage dans le [portail Azure](https://portal.azure.com).
 2. Dans la section **Analyse**, cliquez sur **Ajouter des vignettes** pour ajouter un nouveau graphique. Dans la **Galerie de vignettes**, sélectionnez la métrique que vous souhaitez afficher, puis faites-la glisser vers la section **Analyse**.
 3. Pour modifier les métriques affichées dans un graphique, cliquez sur le lien **Modifier**. Vous pouvez ajouter ou supprimer des métriques en les sélectionnant ou les désélectionnant.
 4. Une fois les métriques modifiées, cliquez sur **Enregistrer**.
@@ -134,7 +134,7 @@ Dans cet exemple de données de métriques par minute, la clé de partition (Par
 
 Les exemples de données ci-dessus montrent tous les enregistrements pour une seule minute (à partir de 11h00). Ainsi, la somme des demandes QueryEntities, QueryEntity et UpdateEntity est égale à sept, ce qui correspond bien au total indiqué sur la ligne user:All. De même, vous pouvez déduire la latence de bout en bout moyenne (104,4286) sur la ligne user:All en effectuant le calcul suivant : ((143,8 * 5) + 3 + 9)/7.
 
-Songez à configurer des alertes dans la page Surveiller du [portail Azure](portal.azure.com) afin que les métriques de stockage puissent vous avertir automatiquement de tout changement important de comportement de vos services de stockage. Si vous utilisez un explorateur de stockage pour télécharger ces données de métriques dans un format délimité, vous pouvez analyser les données dans Microsoft Excel. Voir le billet de blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) pour obtenir la liste des explorateurs de stockage disponibles.
+Songez à configurer des alertes dans la page Surveiller du [portail Azure](https://portal.azure.com) afin que les métriques de stockage puissent vous avertir automatiquement de tout changement important de comportement de vos services de stockage. Si vous utilisez un explorateur de stockage pour télécharger ces données de métriques dans un format délimité, vous pouvez analyser les données dans Microsoft Excel. Voir le billet de blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) pour obtenir la liste des explorateurs de stockage disponibles.
 
 
 
@@ -204,4 +204,4 @@ La capacité utilisée par les tables de métriques est également facturée ; 
 [Activation de la journalisation du stockage et accès aux données des journaux](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
    description="Découvrez comment configurer des alertes de sécurité pour l’extension Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,17 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
-# Azure Privileged Identity Management : comment configurer des alertes de sécurité
+# Azure Privileged Identity Management : Comment configurer des alertes de sécurité
+
 ## Vue d’ensemble des alertes de sécurité
-Azure Privileged Identity Management propose les alertes configurables suivantes. Les alertes de sécurité peuvent être affichées dans la section Alertes du tableau de bord de PIM.
+Azure Privileged Identity Management (PIM) propose les alertes configurables suivantes. Les alertes de sécurité peuvent être affichées dans la section Alertes du tableau de bord PIM.
 
 | Alerte | Déclencheur |
 | ------------- | ------------- |
 | **Attaque d’activation permanente suspectée** | Un administrateur a activé son rôle temporaire en dehors de PIM. |
-| **Renouvellement d’activation de rôles privilégiés suspect** | Il y a eu trop de réactivations du même rôle par rapport à la durée autorisée dans les paramètres. |
+| **Renouvellement d’activation de rôles privilégiés suspect** | Un trop grand nombre de réactivations du même rôle se sont produites par rapport à la durée autorisée dans les paramètres. |
 | **Utilisation suspecte d’un utilisateur Administrateur général auquel est associé un jeton de miel** | L’utilisation d’un utilisateur « pot de miel » a été détectée.|
 | **L’authentification faible est configurée pour l’activation du rôle** | Les paramètres comportent des rôles sans authentification MFA. |
 | **Des administrateurs redondants augmentent votre surface d’attaque** | Des administrateurs temporaires n’ont pas activé leurs rôles dans le délai en jours défini dans les paramètres. |
@@ -51,10 +52,11 @@ Cette alerte repose sur deux paramètres susceptibles de la déclencher. Le nomb
 1. Dans la section **Activité** du tableau de bord, sélectionnez **Alertes de sécurité**. Le panneau **Alertes de sécurité actives** s’affiche.
 2. Cliquez sur **Paramètres**.
 3. Définissez le **Nombre minimal d’administrateurs généraux** en ajustant le curseur ou en entrant le numéro dans le champ de texte.
-4. Définissez le **Pourcentage des administrateurs généraux** en ajustant le curseur ou en entrant le numéro dans le champ de texte.
+4. Définissez le **Pourcentage d’administrateurs généraux** en ajustant le curseur ou en entrant le nombre dans le champ de texte.
+5. Cliquez sur **Enregistrer**.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

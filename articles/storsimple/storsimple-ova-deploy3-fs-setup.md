@@ -32,7 +32,7 @@ Le processus d’installation et de configuration peut prendre jusqu’à 10 min
 
 ## Configuration requise
 
-Avant d’installer et de configurer votre appareil virtuel StorSimple, assurez-vous que :
+Avant de configurer votre appareil virtuel StorSimple, assurez-vous que :
 
 -   Vous avez configuré un appareil virtuel et vous y êtes connecté comme indiqué dans la rubrique [Configuration de StorSimple Virtual Array dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Configuration de StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md).
 
@@ -57,7 +57,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Connectez-vous à l'interface utilisateur web de votre appareil virtuel web en tant que **StorSimpleAdmin**. Entrez le mot de passe administrateur que vous avez modifié à l'étape 3 : Démarrage de l'appareil virtuel dans [Configuration de StorSimple Virtual Array dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou dans [Configuration de StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Connectez-vous à l'interface utilisateur web de votre appareil virtuel web en tant que **StorSimpleAdmin**. Entrez le mot de passe administrateur que vous avez modifié à l’étape 3 : démarrage de l’appareil virtuel dans [Configurer StorSimple Virtual Array dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou dans [Configurer StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
@@ -169,7 +169,7 @@ Les paramètres seront maintenant être mis à jour. Une fois les paramètres mi
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
-> [AZURE.NOTE]
+> [AZURE.NOTE]                                                              
 >
 > Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer**.
 
@@ -231,4 +231,4 @@ Regardez la vidéo pour découvrir comment configurer et inscrire StorSimple Vir
 
 Découvrez comment utiliser l'interface utilisateur web locale pour [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

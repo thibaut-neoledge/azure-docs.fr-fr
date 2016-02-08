@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/21/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect Sync : comprendre la configuration par défaut
@@ -143,7 +143,7 @@ Une règle de synchronisation est un objet de configuration avec un jeu d’attr
 
 En guise d’exemple, nous allons examiner la règle de synchronisation **Entrant depuis AD – Utilisateur AccountEnabled**. Nous allons marquer cette ligne dans l’outil SRE et sélectionner **Modifier**.
 
-Dans la mesure où il s’agit d’une règle par défaut, nous recevrons un avertissement à l’ouverture de la règle. Vous ne devez pas apporter de [modifications aux règles par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md), vous êtes donc invité à indiquer vos intentions. Dans ce cas, vous souhaitez uniquement afficher la règle, donc sélectionnez **Non**.
+Dans la mesure où il s’agit d’une règle par défaut, nous recevrons un avertissement à l’ouverture de la règle. Vous ne devez pas apporter de [modifications aux règles par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) vous êtes donc invité à indiquer vos intentions. Dans ce cas, vous souhaitez uniquement afficher la règle, donc sélectionnez **Non**.
 
 ![Règles de synchronisation entrante](./media/active-directory-aadconnectsync-understanding-default-configuration/warningeditrule.png)
 
@@ -217,7 +217,7 @@ Les transformations couvrent de nombreux aspects et constituent une large partie
 
 ### Précédence
 
-Nous avons maintenant vu certaines règles de synchronisation individuelles, mais les règles fonctionnent de concert dans la configuration. Dans certains cas, une valeur d’attribut est partagée à partir de plusieurs règles de synchronisation vers le même attribut cible. Dans ce cas, la précédence d’attribut est utilisée pour déterminer quel attribut l’emportera. Par exemple, examinons l’attribut sourceAnchor. Cet attribut est un important pour pouvoir se connecter à Azure AD. Nous pouvons trouver un flux d’attributs pour cet attribut dans deux règles de synchronisation différentes : **Entrant depuis AD – Utilisateur AccountEnabled** et **Entrant depuis AD – Utilisateur Common**. En raison de la précédence de la règle de synchronisation, l’attribut sourceAnchor est partagé à partir de la forêt avec un compte activé en premier lieu s’il existe plusieurs objets joints à l’objet métaverse. S’il n’y a aucun compte activé, nous allons utiliser la règle de synchronisation de type catch-all **Entrant depuis AD – Utilisateur Common**. Cela garantit que même pour les comptes qui sont désactivés, nous fournirons toujours un sourceAnchor.
+Nous avons maintenant vu certaines règles de synchronisation individuelles, mais les règles fonctionnent de concert dans la configuration. Dans certains cas, une valeur d’attribut est partagée à partir de plusieurs règles de synchronisation vers le même attribut cible. Dans ce cas, la précédence d’attribut est utilisée pour déterminer quel attribut l’emportera. Par exemple, examinons l’attribut sourceAnchor. Cet attribut est un important pour pouvoir se connecter à Azure AD. Nous pouvons trouver un flux d’attributs pour cet attribut dans deux règles de synchronisation différentes : **Entrant depuis AD – Utilisateur AccountEnabled** et **Entrant depuis AD – Utilisateur Common**. En raison de la précédence de la règle de synchronisation, l’attribut sourceAnchor est partagé à partir de la forêt avec un compte activé en premier lieu s’il existe plusieurs objets joints à l’objet métaverse. S’il n’y a aucun compte activé, nous allons utiliser la règle de synchronisation fourre-tout **Entrant depuis AD – Utilisateur Common**. Cela garantit que même pour les comptes qui sont désactivés, nous fournirons toujours un sourceAnchor.
 
 ![Règles de synchronisation entrante](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
@@ -241,4 +241,4 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

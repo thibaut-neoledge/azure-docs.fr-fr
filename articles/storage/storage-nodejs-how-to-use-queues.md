@@ -66,7 +66,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
 
-Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](portal.azure.com) pour un site web Azure, consultez la rubrique [Application web Node.js avec Storage].
+Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez la rubrique [Application web Node.js avec Storage].
 
 ## Création d'une file d'attente
 
@@ -123,7 +123,7 @@ Vous pouvez lire furtivement le message au début de la file d'attente sans l'en
 
 `result` contient le message.
 
-> [AZURE.NOTE]L’utilisation de **peekMessages** alors qu’il n’y a pas de message dans la file d’attente ne renvoie pas d’erreur, mais ne renvoie pas non plus de message.
+> [AZURE.NOTE] L’utilisation de **peekMessages** alors qu’il n’y a pas de message dans la file d’attente ne renvoie pas d’erreur, mais ne renvoie pas non plus de message.
 
 ## Suppression du message suivant dans la file d'attente
 
@@ -147,9 +147,10 @@ Pour enlever un message de la file d’attente, utilisez **getMessages**. Cela r
 	  }
 	});
 
-> [AZURE.NOTE]Par défaut, un message est masqué uniquement pendant 30 secondes avant d'être de nouveau visible pour les autres clients. Vous pouvez indiquer une autre valeur en utilisant `options.visibilityTimeout` avec **getMessages**.
+> [AZURE.NOTE] Par défaut, un message est masqué uniquement pendant 30 secondes avant d'être de nouveau visible pour les autres clients. Vous pouvez indiquer une autre valeur en utilisant `options.visibilityTimeout` avec **getMessages**.
 
-> [AZURE.NOTE]L’utilisation de **getMessages** alors qu’il n’y a pas de message dans la file d’attente ne renvoie pas d’erreur, mais ne renvoie pas non plus de message.
+> [AZURE.NOTE]
+L’utilisation de **getMessages** alors qu’il n’y a pas de message dans la file d’attente ne renvoie pas d’erreur, mais ne renvoie pas non plus de message.
 
 ## Modification du contenu d'un message en file d'attente
 
@@ -330,4 +331,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
   [Site Web avec WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

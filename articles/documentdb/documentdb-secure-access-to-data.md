@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # Sécurisation de l'accès aux données DocumentDB #
@@ -115,7 +115,7 @@ Une ressource utilisateur DocumentDB est associée à une base de données Docum
 
     docUser = await client.CreateUserAsync(database.SelfLink, docUser);
 
-> [AZURE.NOTE]Chaque utilisateur DocumentDB dispose d'une propriété PermissionsLink qui peut être utilisée pour récupérer la liste des autorisations associées à l'utilisateur.
+> [AZURE.NOTE] Chaque utilisateur DocumentDB dispose d'une propriété PermissionsLink qui peut être utilisée pour récupérer la liste des autorisations associées à l'utilisateur.
 
 Une ressource d'autorisation DocumentDB est associée à un utilisateur DocumentDB. Chaque utilisateur peut contenir zéro autorisation DocumentDB ou plus. Une ressource d'autorisation donne accès à un jeton de sécurité dont l'utilisateur a besoin lorsqu'il tente d'accéder à une ressource d'application spécifique. Il y a deux niveaux d'accès disponibles qui peuvent être fournis par une ressource d'autorisation :
 
@@ -123,7 +123,7 @@ Une ressource d'autorisation DocumentDB est associée à un utilisateur Document
 - Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, mais il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
 
 
-> [AZURE.NOTE]Pour exécuter les procédures stockées DocumentDB, l'utilisateur doit disposer de toutes les autorisations sur la collection dans laquelle la procédure stockée sera exécutée.
+> [AZURE.NOTE] Pour exécuter les procédures stockées DocumentDB, l'utilisateur doit disposer de toutes les autorisations sur la collection dans laquelle la procédure stockée sera exécutée.
 
 
 L'extrait de code suivant indique comment créer une ressource d'autorisation, lire le jeton de ressource (jeton) de la ressource d'autorisation et associer les autorisations à l'utilisateur créé ci-dessus.
@@ -154,7 +154,7 @@ Pour obtenir facilement toutes les ressources d'autorisation associées à un ut
             
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP]Les jetons de ressource ont une durée de validité par défaut d'une heure. La durée de vie du jeton peut cependant être définie de manière explicite (cinq heures maximum).
+> [AZURE.TIP] Les jetons de ressource ont une durée de validité par défaut d'une heure. La durée de vie du jeton peut cependant être définie de manière explicite (cinq heures maximum).
 
 ##<a name="NextSteps"></a>Étapes suivantes
 
@@ -163,4 +163,4 @@ Pour obtenir facilement toutes les ressources d'autorisation associées à un ut
 - Pour en savoir plus sur la construction des jetons d’autorisation DocumentDB, cliquez [ici](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

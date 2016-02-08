@@ -16,7 +16,7 @@
  
 # Notes de publication pour les adaptateurs de journalisation .NET
 
-Si vous utilisez déjà un framework de journalisation comme log4net, NLog ou System.Diagnostics.Trace, vous pouvez capturer ces journaux et les envoyer à [Application Insights](http://azure.microsoft.com/services/application-insights/), où vous pouvez associer des suivis du journal à des actions de l'utilisateur, des exceptions et autres événements.
+Si vous utilisez déjà un framework de journalisation comme log4net, NLog ou System.Diagnostics.Trace, vous pouvez capturer ces journaux et les envoyer à [Application Insights](https://azure.microsoft.com/services/application-insights/), où vous pouvez associer des suivis du journal à des actions de l’utilisateur, des exceptions et autres événements.
 
 
 #### Pour commencer
@@ -32,4 +32,4 @@ Voir [Journaux, exceptions et diagnostics personnalisés pour ASP.NET dans Appli
 ## Version 1.2.5
 - Ouvrez d’abord la version source : référence Application Insights API version 1.2.3 ou ultérieure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

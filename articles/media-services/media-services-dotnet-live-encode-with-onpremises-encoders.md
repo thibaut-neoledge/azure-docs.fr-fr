@@ -29,7 +29,7 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 
 Il est recommandé de consulter les articles suivants :
 
-- [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+- [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 - [Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md)
  
 
@@ -49,7 +49,7 @@ L’exemple de code suivant montre comment réaliser les tâches suivantes :
 - Obtenir les localisateurs pour tous vos points de terminaison de diffusion en continu
 - Arrêter des ressources
 	
-Pour plus d’informations sur la configuration d’un encodeur dynamique, voir [Prise en charge RTMP et encodeurs en direct dans Azure Media Services](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Pour plus d’informations sur la configuration d’un encodeur dynamique, voir [Prise en charge RTMP et encodeurs en direct dans Azure Media Services](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 	
 		using System;
 		using System.Collections.Generic;
@@ -385,4 +385,4 @@ Pour plus d’informations sur la configuration d’un encodeur dynamique, voir 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -33,7 +33,7 @@ Vous devez également vous abonner à [Microsoft Azure](http://azure.com). Si vo
 
 Vous avez également la possibilité de créer un nouvel abonnement. L’essai gratuit vous permet d’essayer toutes les fonctionnalités d’Azure. Après l’expiration de la période d’essai, il se peut que la formule d’abonnement proposant un paiement à l’utilisation vous semble appropriée. Celle-ci vous permet de ne pas être facturé pour les services gratuits.
 
-Dès que vous êtes abonné, connectez-vous à Application Insights à l’adresse [http://portal.azure.com](http://portal.azure.com), et utilisez votre Live ID pour vous connecter.
+Dès que vous êtes abonné, connectez-vous à Application Insights à l’adresse [http://portal.azure.com](https://portal.azure.com), et utilisez votre Live ID pour vous connecter.
 
 
 ## Création d’une ressource Application Insights dans Azure
@@ -94,4 +94,4 @@ Vous pouvez écrire un [script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

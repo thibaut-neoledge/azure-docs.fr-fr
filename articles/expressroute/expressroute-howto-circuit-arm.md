@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="01/26/2016"
    ms.author="cherylmc"/>
 
 # Créer et modifier un circuit ExpressRoute à l’aide d’Azure Resource Manager et de PowerShell
@@ -183,7 +183,7 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 
 
-5. **Vérifiez régulièrement le statut et l'état de la clé du circuit.**
+6. **Vérifiez régulièrement le statut et l'état de la clé du circuit.**
 
 	Cela vous permet de savoir quand votre fournisseur a activé votre circuit. Une fois le circuit configuré, *ServiceProviderProvisioningState* s’affiche avec l’état *Provisioned* comme indiqué dans l’exemple ci-dessous.
 
@@ -213,16 +213,12 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 		ServiceKey                       : **************************************
 		Peerings                         : []
 
-6. **Créez votre configuration de routage.**
-	
-	Pour des instructions pas à pas, reportez-vous à [Créer et modifier le routage pour un circuit ExpressRoute](expressroute-howto-routing-arm.md).
+7. **Configurer le routage et lier un réseau virtuel**
 
->[AZURE.IMPORTANT]Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. Vous ne pourrez pas créer ou gérer des homologations dans ce cas.
+	a. **Créez votre configuration de routage.** Pour des instructions pas à pas, reportez-vous à [Créer et modifier le routage pour un circuit ExpressRoute](expressroute-howto-routing-arm.md).
 
-
-7. **Liaison d’un réseau virtuel à un circuit ExpressRoute.** 
-
-	Liez ensuite un VNet à votre circuit ExpressRoute. Pour des instructions pas à pas, reportez-vous à [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md).
+		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	b. **Liaison de votre réseau virtuel à un circuit ExpressRoute.** Après avoir vérifié que le routage a été configuré, vous devez lier votre réseau virtuel à votre circuit ExpressRoute. Pour des instructions pas à pas, reportez-vous à [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 ##  Pour obtenir l'état d'un circuit ExpressRoute
 
@@ -289,14 +285,14 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
 
 ## Pour modifier un circuit ExpressRoute
 
-Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité.
+Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Reportez-vous à la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour plus d'informations sur les limites et les limitations.
 
-Vous pouvez effectuer les opérations suivantes :
+Vous pouvez modifier les paramètres suivants sans entraîner de temps d'arrêt :
 
-- Activer / désactiver le module complémentaire ExpressRoute premium pour votre circuit ExpressRoute sans aucune interruption de service.
+- Activer ou désactiver le module complémentaire ExpressRoute premium pour votre circuit ExpressRoute sans aucune interruption de service.
 - Augmenter la bande passante de votre circuit ExpressRoute sans aucune interruption de service.
 
-Reportez-vous à la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour plus d'informations sur les limites et les limitations.
+
 
 ### Activation du module complémentaire ExpressRoute premium
 
@@ -304,7 +300,7 @@ Vous pouvez activer le module complémentaire ExpressRoute premium pour votre ci
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		$ckt.Sku.Name = "Premium"
+		$ckt.Sku.Tier = "Premium"
 		$ckt.sku.Name = "Premium_MeteredData"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -314,7 +310,13 @@ Les fonctionnalités du module complémentaire ExpressRoute premium seront activ
 
 ### Désactivation du module complémentaire ExpressRoute premium
 
-Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votre circuit existant à l'aide de l’applet de commande PowerShell suivante :
+Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votre circuit existant. Lorsque vous désactivez le module complémentaire ExpressRoute premium, notez les points suivants :
+
+- Vous devez vous assurer que le nombre de réseaux virtuels liés au circuit est inférieur à 10 avant de rétrograder du niveau premium à standard. Si vous ne le faites, votre demande de mise à jour échouera et le tarif premium vous sera facturé.
+- Vous devez dissocier tous les réseaux virtuels dans d'autres régions géopolitiques. Si vous ne le faites, votre demande de mise à jour échouera et le tarif premium vous sera facturé.
+- Votre table de routage doit être inférieure à 4 000 routages pour l'homologation privée. Si la taille de la table de routage est supérieure à 4 000 routages, la session BGP s’arrêtera et ne sera pas réactivée tant que le nombre de préfixes publiés ne sera pas inférieur à 4 000.
+
+Pour désactiver le module complémentaire premium, utilisez l'exemple d'applet de commande PowerShell ci-dessous. Cette opération peut échouer si vous utilisez des ressources supérieures à ce qui autorisé pour le circuit standard.
 	
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 		
@@ -323,19 +325,13 @@ Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votr
 		
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-
-Le composant additionnel premium est maintenant désactivé pour votre circuit.
-
-Notez que cette opération peut échouer si vous utilisez des ressources supérieures à ce qui est autorisé pour le circuit standard.
-
-- Vous devez vous assurer que le nombre de réseaux virtuels liés au circuit est inférieur à 10 avant de rétrograder du niveau premium à standard. Si vous ne le faites, votre demande de mise à jour échouera et le tarif premium vous sera facturé.
-- Vous devez dissocier tous les réseaux virtuels dans d'autres régions géopolitiques. Si vous ne le faites, votre demande de mise à jour échouera et le tarif premium vous sera facturé.
-- Votre table de routage doit être inférieure à 4 000 routages pour l'homologation privée. Si la taille de la table de routage est supérieure à 4 000 routages, la session BGP s’arrêtera et ne sera pas réactivée tant que le nombre de préfixes publiés ne sera pas inférieur à 4 000.
-
-
 ### Mise à jour de la bande passante d’un circuit ExpressRoute
 
-Consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour connaître les options de bande passante prises en charge par votre fournisseur. Vous pouvez choisir n'importe quelle taille supérieure à la taille de votre circuit existant. Une fois que vous sélectionnez la taille dont vous avez besoin, vous pouvez utiliser la commande suivante pour redimensionner votre circuit.
+Consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour connaître les options de bande passante prises en charge par votre fournisseur. Vous pouvez choisir n'importe quelle taille **supérieure** à la taille de votre circuit existant sans entraîner de temps d’arrêt.
+
+>[AZURE.IMPORTANT] Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. La rétrogradation de la bande passante vous oblige à annuler le déploiement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
+
+Une fois que vous sélectionné la taille dont vous avez besoin, vous pouvez utiliser l’exemple ci-dessous pour redimensionner votre circuit. Une fois les applets de commande exécutées, votre circuit sera redimensionné du côté de Microsoft. Vous devez contacter votre fournisseur de connectivité pour mettre à jour les configurations de son côté afin de refléter cette modification. Notez que nous allons commencer à vous facturer la bande bande passante mise à jour à partir de cet instant.
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
@@ -343,24 +339,25 @@ Consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour conna
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-Votre circuit sera redimensionné du côté de Microsoft. Vous devez contacter votre fournisseur de connectivité pour mettre à jour les configurations de son côté afin de refléter cette modification. Notez que nous allons commencer à vous facturer la bande bande passante mise à jour à partir de cet instant.
-
->[AZURE.IMPORTANT]Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. La rétrogradation de la bande passante vous oblige à annuler le déploiement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
-
 ## Pour supprimer et annuler l’approvisionnement d’un circuit ExpressRoute
 
-Vous pouvez supprimer votre circuit ExpressRoute en exécutant la commande suivante :
+Vous pouvez supprimer votre circuit ExpressRoute. Lorsque vous supprimez un circuit ExpressRoute, notez les points suivants :
+
+- Vous devez dissocier tous les réseaux virtuels du circuit ExpressRoute pour que cette opération réussisse. Si cette opération échoue, vérifiez si certains de vos réseaux virtuels sont liés au circuit.
+
+- Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est activé, l’état passe de l’état activé à l’état *disabling* (désactivation). Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu'à ce que le fournisseur de services termine l'annulation de l’approvisionnement et nous envoie une notification.
+
+- Si le fournisseur de services a annulé l'approvisionnement du circuit (l'état d'approvisionnement du fournisseur de services affiche la valeur *not provisioned* (non approvisionné)) avant que vous n'exécutiez l'applet de commande, nous annulerons l'approvisionnement du circuit et cesserons la facturation.
+
+Pour supprimer votre circuit ExpressRoute, utilisez l'exemple d'applet de commande PowerShell ci-dessous.
 
 		Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
-Notez que vous devez dissocier tous les réseaux virtuels du circuit ExpressRoute pour que cette opération réussisse. Si cette opération échoue, vérifiez si certains de vos réseaux virtuels sont liés au circuit.
-
-Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est activé, l’état passe de l’état activé à l’état *disabling* (désactivation). Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu'à ce que le fournisseur de services termine l'annulation de l’approvisionnement et nous envoie une notification.
-
-Si le fournisseur de services a annulé l'approvisionnement du circuit (l'état d'approvisionnement du fournisseur de services affiche la valeur *not provisioned* (non approvisionné)) avant que vous n'exécutiez l'applet de commande ci-dessus, nous annulerons l'approvisionnement du circuit et cesserons la facturation.
-
 ## Étapes suivantes
 
-- [Configuration du routage](expressroute-howto-routing-arm.md)
+Après avoir créé votre circuit, veillez à procéder comme suit :
 
-<!---HONumber=AcomDC_0114_2016-->
+1.  [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-arm.md)
+2.  [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
+
+<!---HONumber=AcomDC_0128_2016-->

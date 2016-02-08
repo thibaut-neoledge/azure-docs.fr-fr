@@ -62,12 +62,20 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
     La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve.
+    
+    Les autorisations (attribut `permisionLevel`) peuvent être définies sur les valeurs suivantes :
+
+    | Valeur de l’autorisation | Description |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(Par défaut)** Tous les processus de rôle peuvent accéder à la clé privée. |
+    | elevated | Seuls les processus élevés peuvent accéder à la clé privée.|
 
 2.  Dans votre fichier de définition du service, ajoutez un élément **InputEndpoint** dans la section **Endpoints** pour activer HTTPS :
 
@@ -145,11 +153,11 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
 
 2.  Dans votre navigateur Web, modifiez le lien pour utiliser **HTTPS** au lieu de **HTTP**, puis accédez à la page.
 
-    >[AZURE.NOTE]si vous utilisez un certificat auto-signé, lorsque vous accédez à un point de terminaison HTTPS qui lui est associé, vous obtenez une erreur de certificat dans le navigateur. Pour remédier à ce problème, utilisez un certificat signé par une autorité de certification approuvée. En attendant, vous pouvez ignorer cette erreur. (Une autre possibilité est d'ajouter le certificat auto-signé au magasin de certificats d'autorité de certification approuvé de l'utilisateur.)
+    >[AZURE.NOTE] si vous utilisez un certificat auto-signé, lorsque vous accédez à un point de terminaison HTTPS qui lui est associé, vous obtenez une erreur de certificat dans le navigateur. Pour remédier à ce problème, utilisez un certificat signé par une autorité de certification approuvée. En attendant, vous pouvez ignorer cette erreur. (Une autre possibilité est d'ajouter le certificat auto-signé au magasin de certificats d'autorité de certification approuvé de l'utilisateur.)
 
     ![Aperçu du site](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[AZURE.TIP]Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un déploiement de production, vous devez d'abord déterminer l'URL utilisée pour le déploiement intermédiaire. Une fois le service cloud déployé, l’URL de l’environnement intermédiaire est déterminée par le GUID **ID de déploiement** au format suivant : `https://deployment-id.cloudapp.net/`
+    >[AZURE.TIP] Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un déploiement de production, vous devez d'abord déterminer l'URL utilisée pour le déploiement intermédiaire. Une fois le service cloud déployé, l’URL de l’environnement intermédiaire est déterminée par le GUID **ID de déploiement** au format suivant : `https://deployment-id.cloudapp.net/`
       
     >Créez un certificat dont le nom commun (CN) est identique à l’URL basée sur le GUID (par exemple, **328187776e774ceda8fc57609d404462.cloudapp.net**), utilisez le portail pour ajouter le certificat au service cloud intermédiaire, ajoutez les informations de certificat aux fichiers CSDEF et CSCFG, recréez le package de l’application et mettez à jour le déploiement intermédiaire pour utiliser le nouveau package et le nouveau fichier CSCFG.
 
@@ -160,4 +168,4 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

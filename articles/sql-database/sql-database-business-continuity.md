@@ -1,10 +1,11 @@
-<properties 
-   pageTitle="Vue d'ensemble de la continuité des activités de la base de données SQL Azure"
-   description="Découvrez les fonctionnalités intégrées et les options disponibles dans la base de données SQL Azure qui permettent protéger l'exécution des applications cloud essentielles à votre entreprise et vous aident dans la récupération après les pannes et les erreurs."
+<properties
+   pageTitle="Continuité des activités cloud - récupération de base de données | Microsoft Azure"
+   description="Découvrez comment Azure SQL Database prend en charge la continuité des activités cloud et la récupération de base de données et vous aide à maintenir les applications cloud opérationnelles."
+   keywords="continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données"
    services="sql-database"
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
+   documentationCenter=""
+   authors="elfisher"
+   manager="jeffreyg"
    editor="monicar"/>
 
 <tags
@@ -12,30 +13,30 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="data-management"
    ms.date="11/16/2015"
    ms.author="elfish"/>
 
-# Vue d'ensemble de la continuité des activités
+# Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database
 
-La continuité des activités concerne la conception, le déploiement et l'exécution de votre application de façon résiliente à des événements d'interruption planifiés ou non planifiés qui entraînent une perte permanente ou temporaire de la capacité de l'application à exécuter sa fonction commerciale. Les événements non planifiés vont des erreurs humaines aux pannes permanentes ou temporaires, en passant par les sinistres régionaux qui peuvent entraîner la perte à grande échelle de fonctionnalité dans une région Azure spécifique. Les événements planifiés incluent le redéploiement d'application dans une autre région, les mises à niveau d'application, etc. L'objectif de la continuité des activités est que votre application continuer de fonctionner pendant ces événements avec un impact minime sur la fonction commerciale.
+La continuité des activités concerne la conception, le déploiement et l’exécution d’une application de façon résiliente à des événements d’interruption planifiés ou non planifiés qui entraînent une perte permanente ou temporaire de la capacité de l’application à exécuter sa fonction commerciale. Les événements non planifiés vont des erreurs humaines aux pannes permanentes ou temporaires, en passant par les sinistres régionaux qui peuvent entraîner la perte à grande échelle de fonctionnalité dans une région Azure spécifique. Les événements planifiés incluent le redéploiement d’application dans une autre région et les mises à niveau d’application. L'objectif de la continuité des activités est que votre application continuer de fonctionner pendant ces événements avec un impact minime sur la fonction commerciale.
 
-Pour discuter des solutions de continuité des activités, vous devez vous familiariser avec plusieurs concepts.
+Pour discuter des solutions de continuité des activités cloud, vous devez vous familiariser avec plusieurs concepts :
 
-La **récupération d'urgence (DR) :** processus consistant à restaurer la fonction commerciale normale de l'application
+* La **récupération d'urgence (DR) :** processus consistant à restaurer la fonction commerciale normale de l'application
 
-Le **temps de récupération estimé (ERT) :** durée estimée nécessaire pour que la base de données soit entièrement disponible après une requête de restauration ou de basculement.
+* Le **temps de récupération estimé (ERT) :** durée estimée nécessaire pour que la base de données soit entièrement disponible après une requête de restauration ou de basculement.
 
-L'**objectif de délai de récupération (RTO) :** délai maximal acceptable avant la récupération complète de l'application après l'événement d'interruption. RTO mesure la perte maximale de disponibilité pendant les échecs.
+* L’**objectif de délai de récupération (RTO) :** délai maximal acceptable avant la récupération complète de l’application après l’événement d’interruption. RTO mesure la perte maximale de disponibilité pendant les échecs.
 
-L'**objectif de point de récupération (RPO) :** quantité maximale des dernières mises à jour (intervalle de temps) que l'application peut perdre jusqu'à sa récupération complète après l'événement d'interruption. RPO mesure la perte maximale de données pendant les échecs.
+* L’**objectif de point de récupération (RPO) :** quantité maximale des dernières mises à jour (intervalle de temps) que l’application peut perdre jusqu’à sa récupération complète après l’événement d’interruption. RPO mesure la perte maximale de données pendant les échecs.
 
 
-## Scénarios de continuité des activités
+## Scénarios de continuité des activités cloud
 
-La continuité des activités résout les principaux scénarios suivants.
+Voici les principaux scénarios à prendre en compte pendant la planification de la continuité des activités et de la récupération de base de données.
 
-###Conception pour la continuité des activités
+###Concevoir les applications pour la continuité des activités
 
 L'application que je crée est essentielle pour mon entreprise. Je souhaite la concevoir et la configurer afin qu'elle puisse supporter un sinistre régional de défaillance catastrophique du service. Je connais les exigences RPO et RTO pour mon application et je choisirai la configuration qui répond à ces exigences.
 
@@ -57,9 +58,9 @@ Je publie une mise à niveau majeure de mon application. Elle implique des modif
 
 ##Fonctionnalités de continuité des activités
 
-Le tableau suivant montre les différences entre les fonctionnalités de continuité des activités pour les niveaux de service :
+Le tableau suivant compare les fonctionnalités de continuité des activités cloud en fonction des niveaux de service :
 
-| Fonctionnalité | Niveau de base | Niveau standard |Niveau Premium 
+| Fonctionnalité | Niveau de base | Niveau standard |Niveau Premium
 | --- |--- | --- | ---
 | Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours | Tout point de restauration dans un délai de 14 jours | Tout point de restauration dans un délai de 35 jours
 | Restauration géographique | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h | ERT < 12 h, RPO < 1 h
@@ -68,7 +69,7 @@ Le tableau suivant montre les différences entre les fonctionnalités de continu
 
 Ces fonctionnalités sont fournies pour résoudre les scénarios répertoriés ci-dessus. Reportez-vous à la section [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour savoir comment sélectionner la fonctionnalité spécifique.
 
-> [AZURE.NOTE]Les valeurs ERT et RPO sont des objectifs d’ingénierie et sont indiquées à titre de conseil uniquement. Elles ne font pas partie du [contrat SLA pour Base de données SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+> [AZURE.NOTE] Les valeurs ERT et RPO sont des objectifs d’ingénierie et sont indiquées à titre de conseil uniquement. Elles ne font pas partie du [contrat SLA pour Base de données SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
 ###Limite de restauration dans le temps
@@ -87,8 +88,4 @@ La géo-réplication standard est disponible pour les bases de données standard
 
 La géo-réplication active est disponible pour les bases de données Premium. Elle est conçue pour les applications gourmandes en écriture avec les exigences de récupération les plus agressives. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement vers l'une des répliques secondaires de la même façon qu'avec la géo-réplication standard. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Consultez [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour plus d'informations sur la configuration de la géo-réplication et [Récupération après une panne](sql-database-disaster-recovery.md) pour plus d'informations sur le basculement vers la base de données secondaire. Consultez [Mise à niveau de l'application sans interruption de service](sql-database-business-continuity-application-upgrade.md) pour plus d'informations sur la mise en œuvre de la mise à niveau de l'application sans interruption.
 
-
-
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

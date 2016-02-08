@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Notes de publication sur Azure Data Factory
@@ -287,12 +287,12 @@ Mais, si une tranche antérieure est réexécutée, elle n’apparaît pas en ha
 -  Vous pouvez spécifier le codage pour les fichiers texte dans un objet Blob Azure. Consultez la nouvelle [propriété encodingName](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
 - Vous pouvez appeler une procédure stockée avec des paramètres supplémentaires lors de la copie dans un récepteur SQL.    
 
-Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux magasins de données](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) pour plus d’informations, notamment des exemples.
+Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux magasins de données](https://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) pour plus d’informations, notamment des exemples.
 
 ## Notes pour la version du 27/02/2015 de Data Factory
 
 ### Nouvelles améliorations
-- **Azure Data Factory Editor** Azure Data Factory Editor, qui fait partie du portail Azure, vous permet de créer, de modifier et de déployer des fichiers JSON qui définissent des services liés, des jeux de données et des pipelines. L'objectif principal de l'éditeur est de vous fournir une interface utilisateur (IU) rapide et facile d'utilisation pour créer des artefacts Azure Data Factory sans avoir à installer Azure PowerShell et accélérer l'utilisation des applets de commande PowerShell. Consultez le billet de blog [Azure Data Factory Editor - Un éditeur web compact][adf-editor-blog] pour accéder à une présentation rapide et à une vidéo sur Data Factory Editor. Pour obtenir une présentation détaillée de l’éditeur, consultez l’article [Data Factory Editor][adf-editor].          
+- **Azure Data Factory Editor** Azure Data Factory Editor, qui fait partie du portail Azure, vous permet de créer, de modifier et de déployer des fichiers JSON qui définissent des services liés, des jeux de données et des pipelines. L'objectif principal de l'éditeur est de vous fournir une interface utilisateur (IU) rapide et facile d'utilisation pour créer des artefacts Azure Data Factory sans avoir à installer Azure PowerShell et accélérer l'utilisation des applets de commande PowerShell. Consultez le billet de blog [Azure Data Factory Editor - Un éditeur web compact][adf-editor-blog] pour accéder à une présentation rapide et à une vidéo sur Data Factory Editor.  
 
 ### Changements
 
@@ -340,7 +340,6 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
 [adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-editor]: data-factory-editor.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -354,4 +353,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

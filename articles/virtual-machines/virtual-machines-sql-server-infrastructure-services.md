@@ -20,17 +20,17 @@
 # Vue d’ensemble de SQL Server dans Azure Virtual Machines
 
 ## Prise en main
-Vous pouvez héberger [SQL Server dans Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/sql-server/) de diverses manières allant de la configuration d’un serveur de base de données unique à la configuration de plusieurs machines à l’aide de groupes de disponibilité AlwaysOn et d’un réseau virtuel Azure.
+Vous pouvez héberger [SQL Server dans Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) de diverses manières allant de la configuration d’un serveur de base de données unique à la configuration de plusieurs machines à l’aide de groupes de disponibilité AlwaysOn et d’un réseau virtuel Azure.
 
->[AZURE.NOTE]L’exécution de SQL Server sur une machine virtuelle Azure est une option permettant de stocker des données relationnelles dans Azure. Vous pouvez également utiliser le service Base de données SQL Azure. Pour plus d’informations, consultez [Présentation de Base de données SQL Azure et de SQL Server dans Azure Virtual Machines](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+>[AZURE.NOTE] L’exécution de SQL Server sur une machine virtuelle Azure est une option permettant de stocker des données relationnelles dans Azure. Vous pouvez également utiliser le service Base de données SQL Azure. Pour plus d’informations, consultez [Présentation de Base de données SQL Azure et de SQL Server dans Azure Virtual Machines](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
-Pour créer une machine virtuelle SQL Server dans Azure, vous devez d’abord obtenir un abonnement à la plateforme Azure. Vous pouvez acheter un abonnement Azure sur la page [Modes d’achat d’Azure](http://azure.microsoft.com/pricing/purchase-options/). Pour un essai gratuit, consultez la page [Évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+Pour créer une machine virtuelle SQL Server dans Azure, vous devez d’abord obtenir un abonnement à la plateforme Azure. Vous pouvez acheter un abonnement Azure sur la page [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/). Pour un essai gratuit, consultez la page [Évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### Déploiement d’une instance de SQL Server sur une seule machine virtuelle
 
 Après avoir souscrit à un abonnement, le moyen le plus simple de déployer une machine virtuelle SQL Server dans Azure consiste à [approvisionner une image de la galerie de machines SQL Server du portail Azure Classic](virtual-machines-provision-sql-server.md). Ces images comprennent les frais de licence de SQL Server dans la tarification relative à la machine virtuelle.
 
->[AZURE.NOTE]Utilisez le portail Azure afin d’approvisionner et de gérer les machines virtuelles SQL Server Il utilise Premium Storage par défaut et propose des configurations de la mise à jour corrective automatisée, de la sauvegarde automatisée et AlwaysOn.
+>[AZURE.NOTE] Utilisez le portail Azure afin d’approvisionner et de gérer les machines virtuelles SQL Server Il utilise Premium Storage par défaut et propose des configurations de la mise à jour corrective automatisée, de la sauvegarde automatisée et AlwaysOn.
 
 Le tableau suivant récapitule les images liées à SQL Server actuellement disponibles dans la galerie de machines virtuelles Azure.
 
@@ -44,9 +44,9 @@ Le tableau suivant récapitule les images liées à SQL Server actuellement disp
 |SQL Server 2014 SP1|Windows Server 2012 R2|Éditions Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Évaluation|
 
->[AZURE.NOTE]Les images de machines virtuelles de la galerie pour l'entreposage de données et les charges de travail transactionnelles (non présentées ci-dessus) sont obsolètes et seront bientôt supprimées de la galerie. Utilisez des images standard du tableau précédent et optimisez les performances de votre charge de travail spécifique.
+>[AZURE.NOTE] Les images de machines virtuelles de la galerie pour l'entreposage de données et les charges de travail transactionnelles (non présentées ci-dessus) sont obsolètes et seront bientôt supprimées de la galerie. Utilisez des images standard du tableau précédent et optimisez les performances de votre charge de travail spécifique.
 
-En plus de ces images pré-configurées, vous pouvez également [créer une machine virtuelle Azure](virtual-machines-windows-tutorial.md) sans que SQL Server soit pré-installé. Vous pouvez installer n’importe quelle instance de SQL Server pour laquelle vous disposez d’une licence. Vous migrez votre licence vers Azure pour exécuter SQL Server dans une machine virtuelle Azure en utilisant [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/). Dans ce scénario, vous ne payez que pour les [coûts](http://azure.microsoft.com/pricing/details/virtual-machines) de stockage et de calcul Azure associés à la machine virtuelle.
+En plus de ces images pré-configurées, vous pouvez également [créer une machine virtuelle Azure](virtual-machines-windows-tutorial.md) sans que SQL Server soit pré-installé. Vous pouvez installer n’importe quelle instance de SQL Server pour laquelle vous disposez d’une licence. Vous migrez votre licence vers Azure pour exécuter SQL Server dans une machine virtuelle Azure en utilisant [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Dans ce scénario, vous ne payez que pour les [coûts](https://azure.microsoft.com/pricing/details/virtual-machines/) de stockage et de calcul Azure associés à la machine virtuelle.
 
 Pour déterminer les meilleurs paramètres de configuration de machine virtuelle pour votre image SQL Server, consultez les [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md). Pour les charges de travail de production, **DS3** est la taille de machine virtuelle minimale recommandée pour SQL Server Enterprise Edition, et **DS2** est la taille de machine virtuelle minimale recommandée pour Standard Edition.
 
@@ -57,7 +57,7 @@ Outre l’analyse des meilleures pratiques de performances, les autres tâches i
 
 ### Migration de vos données
 
-Une fois que votre machine virtuelle SQL Server est en cours d'exécution, vous pouvez souhaiter migrer des bases de données existantes vers la machine. Il existe plusieurs techniques, mais l'Assistant de déploiement dans SQL Server Management Studio fonctionne bien pour la plupart des scénarios. Pour en savoir plus sur les scénarios et obtenir un didacticiel sur l'Assistant, voir [Migration d'une base de données vers SQL Server sur une machine virtuelle Azure](virtual-machines-migrate-onpremises-database.md).
+Une fois que votre machine virtuelle SQL Server est en cours d'exécution, vous pouvez souhaiter migrer des bases de données existantes vers la machine. Il existe plusieurs techniques, mais l'Assistant de déploiement dans SQL Server Management Studio fonctionne bien pour la plupart des scénarios. Pour en savoir plus sur les scénarios et obtenir un didacticiel sur l’Assistant, consultez la page [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](virtual-machines-migrate-onpremises-database.md).
 
 ## Haute disponibilité
 
@@ -123,7 +123,7 @@ Les paramètres du moteur de base de données suivants sont configurés. Pour co
 |Fonctionnalité|Configuration|
 |---|---|
 |Instance|Contient une instance (sans nom) par défaut du moteur de base de données SQL Server, écoutant uniquement le protocole de mémoire partagée|
-|Authentification|Par défaut, Azure sélectionne l’authentification Windows pendant l’installation de la machine virtuelle SQL Server. Si vous souhaitez utiliser la connexion « sa » ou créer un nouveau compte SQL Server, vous devez modifier le mode d’authentification. Pour plus d'informations, voir [Considérations relatives à la sécurité de SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md).|
+|Authentification|Par défaut, Azure sélectionne l’authentification Windows pendant l’installation de la machine virtuelle SQL Server. Si vous souhaitez utiliser la connexion « sa » ou créer un nouveau compte SQL Server, vous devez modifier le mode d’authentification. Pour plus d’informations, consultez [Considérations relatives à la sécurité de SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md).|
 |administrateur système|L’utilisateur Azure qui a installé la machine virtuelle est initialement le seul membre du rôle serveur fixe sysadmin de SQL Server|
 |Mémoire|La mémoire du moteur de base de données est définie dans la configuration comme mémoire dynamique|
 |Authentification de la base de données à relation contenant-contenu|Off|
@@ -138,7 +138,7 @@ Le [Programme d'amélioration du produit (CEIP)](https://technet.microsoft.com/l
 
 Si vous créez une machine virtuelle à l'aide d'une image SQL Server fournie par la plateforme, vous trouverez les supports d'installation de SQL Server enregistrés dans le répertoire **C:\\SqlServer\_SQLMajorVersion.SQLMinorVersion\_Full** de la machine virtuelle. Vous pouvez exécuter le programme d’installation à partir de ce répertoire pour effectuer toutes les actions d’installation, notamment pour ajouter ou supprimer des fonctionnalités, ajouter une nouvelle instance, ou réparer l’instance si l’espace disque le permet.
 
->[AZURE.NOTE]Notez que les images SQL Server sont proposées dans plusieurs versions par Azure. Si la version de l’image fournie par la plateforme SQL Server a été publiée le 15 mai 2014 ou à une date ultérieure, elle contient par défaut la clé de produit. Si vous déployez une machine virtuelle à partir d’une image SQL Server fournie par la plateforme qui a été publiée avant cette date, cette machine virtuelle ne contient pas la clé de produit. En guise de meilleure pratique, nous vous recommandons de toujours sélectionner la dernière version d’image à l’occasion du déploiement d’une nouvelle machine virtuelle.
+>[AZURE.NOTE] Notez que les images SQL Server sont proposées dans plusieurs versions par Azure. Si la version de l’image fournie par la plateforme SQL Server a été publiée le 15 mai 2014 ou à une date ultérieure, elle contient par défaut la clé de produit. Si vous déployez une machine virtuelle à partir d’une image SQL Server fournie par la plateforme qui a été publiée avant cette date, cette machine virtuelle ne contient pas la clé de produit. En guise de meilleure pratique, nous vous recommandons de toujours sélectionner la dernière version d’image à l’occasion du déploiement d’une nouvelle machine virtuelle.
 
 ## Ressources
 
@@ -148,4 +148,4 @@ Si vous créez une machine virtuelle à l'aide d'une image SQL Server fournie pa
 - [Modèles d'application et stratégies de développement pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure Virtual Machines](virtual-machines-about.md) 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

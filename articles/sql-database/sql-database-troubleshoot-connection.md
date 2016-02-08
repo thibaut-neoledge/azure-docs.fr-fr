@@ -33,4 +33,4 @@ Si l’application ne peut pas du tout se connecter, cela est généralement dû
 4.	Vérifiez l’état du service dans le tableau de bord. Si vous soupçonnez une panne régionale, consultez [Restauration à la suite d’une panne](sql-database-disaster-recovery.md) pour connaître les étapes de restauration vers une nouvelle zone.
 5.	Si les problèmes de connectivité persistent, contactez l’assistance pour ouvrir un numéro d’assistance.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

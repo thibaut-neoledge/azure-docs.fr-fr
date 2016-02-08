@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="dkshir"/>
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
@@ -26,7 +26,7 @@ La connexion Bureau à distance à votre machine virtuelle Azure Windows peut é
 
 Cet article s’applique aux machines virtuelles Azure exécutant Windows. Pour les machines virtuelles Azure sous Linux, voir [Résoudre les problèmes de connexion SSH à une machine virtuelle Azure](virtual-machines-troubleshoot-ssh-connections.md).
 
-Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 
 <a id="quickfixrdp"></a>
@@ -38,38 +38,38 @@ Cette section répertorie les étapes à suivre pour corriger rapidement les pro
 
 Ces étapes peuvent résoudre la plupart des échecs de connexion Bureau à distance dans les machines virtuelles Azure créées à l’aide du modèle de déploiement classique. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
 
-- Réinitialisez le service Bureau à distance à partir du [portail Azure](https://portal.azure.com) pour résoudre les problèmes de démarrage avec le serveur RDP.<br> Cliquez sur Parcourir > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
+- Réinitialisez le service Bureau à distance à partir du [portail Azure](https://portal.azure.com) pour résoudre les problèmes de démarrage avec le serveur RDP.<br> Cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
 
-- Redémarrez la machine virtuelle pour résoudre d'autres problèmes de démarrage.<br> Cliquez sur Parcourir > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Redémarrer**.
+- Redémarrez la machine virtuelle pour résoudre d'autres problèmes de démarrage.<br> Cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Redémarrer**.
 
-- Redimensionnez la machine virtuelle pour résoudre les problèmes d'hôte.<br> Cliquez sur Parcourir > Machines virtuelles (classiques) > votre machine virtuelle Windows > Paramètres > **Redimensionner**. Pour connaître la procédure détaillée, consultez [Redimensionner la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
+- Redimensionnez la machine virtuelle pour résoudre les problèmes d'hôte.<br> Cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Paramètres** > **Redimensionner**. Pour connaître la procédure détaillée, consultez [Redimensionner la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
 
-- Passez en revue le journal de la console ou la capture d’écran de votre machine virtuelle pour corriger les problèmes de démarrage.<br> Cliquez sur Parcourir > Machines virtuelles (classiques) > votre machine virtuelle Windows > Paramètres > **Diagnostics de démarrage**.
+- Passez en revue le journal de la console ou la capture d’écran de votre machine virtuelle pour corriger les problèmes de démarrage.<br> Cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Paramètres** > **Diagnostics de démarrage**.
 
-- Vérifiez l’intégrité des ressources de la machine virtuelle afin de détecter d’éventuels problèmes liés à la plateforme.<br> Cliquez sur Parcourir > Machines virtuelles (classiques) > votre machine virtuelle Windows > Paramètres > **Vérifier l’intégrité**.
+- Vérifiez l’intégrité des ressources de la machine virtuelle pour les problèmes de plateforme.<br> Cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Paramètres** > **Vérifier l’intégrité**.
 
 ### Machines virtuelles créées à l’aide du modèle de déploiement Resource Manager
 
 Ces étapes peuvent résoudre la plupart des échecs de connexion Bureau à distance dans les machines virtuelles Azure créées à l’aide du modèle de déploiement Resource Manager. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
 
-- Réinitialisez l'accès à distance à l'aide de Powershell<br> a. Si ce n'est pas déjà fait, [installez Azure PowerShell et connectez-vous à votre abonnement Azure](../powershell-install-configure.md) à l'aide de la méthode Azure AD. Notez que vous n’avez pas besoin de passer en mode Resource Manager dans les nouvelles versions d’Azure PowerShell 1.0.x.
+- _Réinitialisez l’accès à distance_ à l’aide de Powershell<br> a. Si ce n'est pas déjà fait, [installez Azure PowerShell et connectez-vous à votre abonnement Azure](../powershell-install-configure.md) à l'aide de la méthode Azure AD. Notez que vous n’avez pas besoin de passer en mode Resource Manager dans les nouvelles versions d’Azure PowerShell 1.0.x.
 
 	b. Réinitialisez votre connexion Bureau à distance en utilisant l’une des commandes Azure PowerShell suivantes. Remplacez `myRG`, `myVM`, `myVMAccessExtension` et l’emplacement par des valeurs adaptées à votre installation.
 
 	```
 	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 	```
-	OU
+	OU<br>
 
   ```
   Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
   ```
 
-- Redémarrez la machine virtuelle pour résoudre d'autres problèmes de démarrage.<br> Cliquez sur Parcourir > Machines virtuelles > votre machine virtuelle Windows > **Redémarrer**.
+- Redémarrez la machine virtuelle pour résoudre d'autres problèmes de démarrage.<br> Cliquez sur **Parcourir** > **Machines virtuelles** > votre machine virtuelle Windows > **Redémarrer**.
 
-- Redimensionnez la machine virtuelle pour résoudre les problèmes d'hôte.<br> Cliquez sur Parcourir > Machines virtuelles > votre machine virtuelle Windows > Paramètres > **Redimensionner**.
+- Redimensionnez la machine virtuelle pour résoudre les problèmes d'hôte.<br> Cliquez sur **Parcourir** > **Machines virtuelles** > votre machine virtuelle Windows > **Paramètres** > **Redimensionner**.
 
-- Passez en revue le journal de la console ou la capture d’écran de votre machine virtuelle pour corriger les problèmes de démarrage.<br> Cliquez sur Parcourir > Machines virtuelle > votre machine virtuelle Windows > Paramètres > **Diagnostics de démarrage**.
+- Passez en revue le journal de la console ou la capture d’écran de votre machine virtuelle pour corriger les problèmes de démarrage.<br> Cliquez sur **Parcourir** > **Machines virtuelles** > votre machine virtuelle Windows > **Paramètres** > **Diagnostics de démarrage**.
 
 
 Si les étapes ci-dessus n’ont pas permis de résoudre vos échecs de connexion Bureau à distance, passez à la section suivante.
@@ -171,4 +171,4 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

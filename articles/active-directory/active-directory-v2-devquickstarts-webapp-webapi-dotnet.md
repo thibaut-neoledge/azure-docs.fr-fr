@@ -51,8 +51,8 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
 - créer un **secret d’application** du type **Mot de passe**, puis copiez sa valeur pour une utilisation ultérieure ;
-- ajouter la plateforme **Web** pour votre application ;
-- entrer l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
+- Ajoutez la plate-forme **Web** pour votre application.
+- entrer l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
 
 
 ## 2. Connexion de l’utilisateur à l’aide d’OpenID Connect
@@ -93,7 +93,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 					ClientId = clientId,
 					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
-					Scope = "openid offline_access",
+					Scope = "openid email profile offline_access",
 					RedirectUri = redirectUri,
 					PostLogoutRedirectUri = redirectUri,
 					TokenValidationParameters = new TokenValidationParameters
@@ -114,7 +114,7 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Utilisation d’ADAL afin de récupérer un jeton d’accès lors de la connexion de l’utilisateur
+## 3. Utilisation d’ADAL afin de récupérer un jeton d’accès lors de la connexion de l’utilisateur
 Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAuth 2.0 en tandem avec OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) afin d’échanger le code d’autorisation contre un jeton d’accès au service de la liste de tâches. ADAL peut vous faciliter ce processus :
 
 - Tout d’abord, installez la version d’évaluation d’ADAL :
@@ -165,7 +165,7 @@ result = await authContext.AcquireTokenSilentAsync(new string[] { Startup.client
 ...
 ```
 
-- L’exemple ajoute ensuite le jeton obtenu à la requête GET HTTP en tant qu’en-tête `Authorization`, que le service To-Do List utilise pour authentifier la requête.
+- L’exemple ajoute ensuite le jeton obtenu à la requête GET HTTP en tant qu’en-tête `Authorization`, que le service de la liste des tâches utilise pour authentifier la requête.
 - Si le service To-Do List renvoie une réponse `401 Unauthorized`, les jetons d’accès d’ADAL deviennent non valides, pour une raison indéterminée. Dans ce cas, vous devez abandonner les jetons d’accès du cache ADAL et transmettre à l’utilisateur un message lui demandant de se reconnecter. Le cas échéant, le flux d’acquisition des jetons est redémarré.
 
 ```C#
@@ -204,7 +204,7 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 ## Étapes suivantes
 
 Pour obtenir des ressources supplémentaires, consultez : 
-- [La version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -91,7 +91,7 @@ Les applications que vous ajoutez vous-même comprennent :
 ## Comment les applications sont-elles ajoutées à mon instance Azure AD ?
 Il existe de nombreuses façons dont une application peut être ajoutée à Azure AD :
 
-* Ajout d'une application à partir de la [galerie d'applications Azure Active Directory](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/) ;
+* Ajout d'une application à partir de la [galerie d'applications Azure Active Directory](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/) ;
 * Connexion à une application tierce intégrée à Azure Active Directory (par exemple : [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)) ;
     * Lors de la connexion, les utilisateurs sont invités à autoriser l'application à accéder à leur profil et à effectuer d'autres actions. La première personne à donner son consentement a pour effet qu'un principal du service qui représente l'application est ajouté au répertoire.
 * Connexion aux services en ligne de Microsoft comme [Office 365](http://products.office.com/) ;
@@ -146,4 +146,4 @@ En savoir plus sur les procédures d'ajout d'applications à Azure AD et de con
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -18,7 +18,7 @@
 
 # Comment rechercher des données StackExchange avec Azure Search
 
-Cet article est une procédure pas-à-pas qui met en évidence certaines des fonctionnalités de base de recherche en texte intégral qui peuvent être exécutées avec [Azure Search](https://azure.microsoft.com/services/search/). Les données Stack Exchange [disponibles](https://archive.org/details/stackexchange) sont utilisées par Creative Commons avec l’[attribution](http://blog.stackoverflow.com/2009/06/attribution-required/) suivante.
+Cet article est une procédure pas à pas qui met en évidence certaines des fonctionnalités de base de recherche en texte intégral qui peuvent être exécutées avec [Azure Search](https://azure.microsoft.com/services/search/). Les données Stack Exchange [disponibles](https://archive.org/details/stackexchange) sont utilisées par Creative Commons avec l’[attribution](http://blog.stackoverflow.com/2009/06/attribution-required/) suivante.
 
 ## Prise en main
 
@@ -109,4 +109,4 @@ Une fois cette opération terminée, vous pouvez utiliser le [portail Azure Clas
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

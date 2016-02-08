@@ -27,7 +27,7 @@ Pour obtenir des instructions détaillées sur l’inscription d’un compte de 
 - Assurez-vous que les intervenants du processus de publication Azure reçoivent le message électronique envoyé à cette adresse. Vous devez répondre à ce message pour pouvoir poursuivre le processus de publication.
 - Il est préférable que le compte ne soit pas associé qu’à une seule personne. Si cette personne quitte votre entreprise, elle pourrait vous empêcher d’accéder aux informations concernant vos références et de les publier.
 
-> [AZURE.IMPORTANT]Vous n’avez pas besoin de remplir les informations bancaires et fiscales de votre entreprise si vous prévoyez de ne publier que des offres gratuites (ou d’apporter votre propre licence).
+> [AZURE.IMPORTANT] Vous n’avez pas besoin de remplir les informations bancaires et fiscales de votre entreprise si vous prévoyez de ne publier que des offres gratuites (ou d’apporter votre propre licence).
 
 > L’inscription de l’entreprise doit être terminée pour pouvoir commencer. Toutefois, si votre entreprise renseigne ses informations fiscales et bancaires dans le compte de développeur Microsoft, les développeurs peuvent commencer à créer l’image de machine virtuelle dans le [portail de publication](https://publish.windowsazure.com), pour la faire certifier et la tester dans l’environnement intermédiaire Azure. Vous avez besoin de l’approbation complète du compte de vendeur uniquement pour la dernière étape de publication de votre offre dans Azure Marketplace.
 
@@ -35,10 +35,11 @@ Pour obtenir des instructions détaillées sur l’inscription d’un compte de 
 
 
 ## Acquisition d’un abonnement Azure avec « paiement à l’utilisation »
-C’est l’abonnement que vous utilisez pour créer vos images de machine virtuelle et les transférer dans [Azure Marketplace](http://azure.microsoft.com/marketplace). Si vous ne possédez pas d’abonnement existant, inscrivez-vous ici, https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+C’est l’abonnement que vous utilisez pour créer vos images de machine virtuelle et les transférer dans [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si vous ne possédez pas d’abonnement existant, inscrivez-vous ici, https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## Pays à partir duquel vous vendez
-> [AZURE.WARNING]Avant de pouvoir vendre vos services dans Azure Marketplace, assurez-vous que l’entité inscrite réside dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, consultez la Section 1b des [Politiques concernant la participation à Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]
+Avant de pouvoir vendre vos services dans Azure Marketplace, assurez-vous que l’entité inscrite réside dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, consultez la Section 1b des [Politiques concernant la participation à Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Étapes suivantes
 Vous devez ensuite remplir les conditions préalables techniques de chaque type d’offre. Cliquez sur le lien vers l’article du type d’offre que vous voulez créer pour Azure Marketplace.
@@ -50,4 +51,4 @@ Vous devez ensuite remplir les conditions préalables techniques de chaque type 
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

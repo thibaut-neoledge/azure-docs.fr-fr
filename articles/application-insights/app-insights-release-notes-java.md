@@ -16,7 +16,7 @@
 
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Java
 
-Le [Kit de développement logiciel (SDK) Application Insights pour Java](app-insights-java-get-started.md) envoie la télémétrie de votre application en direct à [Application Insights](http://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
+Le [Kit de développement logiciel (SDK) Application Insights pour Java](app-insights-java-get-started.md) envoie la télémétrie de votre application en direct à [Application Insights](https://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
 
 #### Pour installer le Kit de développement logiciel (SDK) dans votre application
 
@@ -73,4 +73,4 @@ Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plu
 - Prise en charge du suivi manuel des dépendances à l’aide d’une nouvelle API de méthode ```trackDependency```.
 - Possibilité de baliser un élément de télémétrie comme synthétique en ajoutant une propriété ```SyntheticSource``` à l’élément de rapport.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -71,7 +71,7 @@ Les entrées de configuration suivantes ont été ajoutées. ```
 
 Une application Azure AD a été créée dans le répertoire que vous avez sélectionné dans l’Assistant.
 
-[En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 ##Si j’ai coché *Désactiver l’authentification des comptes d’utilisateur individuels*, quelles autres modifications ont été apportées à mon projet ?
 Des références du package NuGet ont été supprimées, et des fichiers ont été supprimés et sauvegardés. Selon l’état de votre projet, vous pouvez avoir besoin de supprimer manuellement d’autres références ou fichiers, ou de modifier le code le cas échéant.
@@ -114,6 +114,6 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 ###Votre application Azure Active Directory a été mise à jour
 Votre application Azure Active Directory a été mise à jour pour inclure l’autorisation *Lire les données de l’annuaire*, et une clé supplémentaire a été créée pour être ensuite utilisée comme *ida:Password* dans le fichier `web.config`.
 
-[En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

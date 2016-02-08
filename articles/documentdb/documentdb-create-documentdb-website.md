@@ -18,7 +18,7 @@
 
 # Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager #
 
-Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), une application web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
+Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), une application web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
 
 Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux questions suivantes :
 
@@ -27,11 +27,11 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 
 <a id="Prerequisites"></a>
 ## Configuration requise ##
-> [AZURE.TIP]Ce didacticiel ne suppose pas d'être familiarisé avec les modèles de gestionnaire des ressources Azure, avec JSON ou avec Azure PowerShell, sauf si vous envisagez de modifier les modèles référencés ou les options de déploiement.
+> [AZURE.TIP] Ce didacticiel ne suppose pas d'être familiarisé avec les modèles de gestionnaire des ressources Azure, avec JSON ou avec Azure PowerShell, sauf si vous envisagez de modifier les modèles référencés ou les options de déploiement.
 
 Avant de suivre les instructions de ce didacticiel, assurez-vous de disposer des éléments suivants :
 
-- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement](http://azure.microsoft.com/pricing/purchase-options/), les [offres spéciales membres](http://azure.microsoft.com/pricing/member-offers/) ou la [version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement](https://azure.microsoft.com/pricing/purchase-options/), les [offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) ou la [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 - Un compte de stockage Azure. Pour obtenir des instructions, consultez [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 - Un poste de travail sur lequel est installé Azure PowerShell 0.9.8. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md). Ce didacticiel n’a pas encore été mis à jour pour la version préliminaire d’Azure PowerShell 1.0. 
 
@@ -42,7 +42,7 @@ Commençons par télécharger les fichiers d'exemple que nous utiliserons dans c
 
 2. Téléchargez [l’exemple de création d’un compte DocumentDB et de Web Apps](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) dans un dossier local (par exemple, C:\\DocumentDBTemplates), puis extrayez les fichiers. Cet exemple déploie un compte DocumentDB et une application web App Service, ainsi qu’il modifie la configuration de l’application web pour faire facilement apparaître les informations de connexion DocumentDB. Toutefois, il n’inclut pas d’application web.
 
-> [AZURE.TIP]Notez qu’en fonction des paramètres de sécurité de votre ordinateur, vous devrez débloquer les fichiers extraits en cliquant avec le bouton droit sur **Propriétés**, puis sur **Débloquer**.
+> [AZURE.TIP] Notez qu’en fonction des paramètres de sécurité de votre ordinateur, vous devrez débloquer les fichiers extraits en cliquant avec le bouton droit sur **Propriétés**, puis sur **Débloquer**.
 
 ![Capture d’écran de la fenêtre Propriétés avec le bouton Débloquer mis en surbrillance](./media/documentdb-create-documentdb-website/image1.png)
 
@@ -51,7 +51,7 @@ Commençons par télécharger les fichiers d'exemple que nous utiliserons dans c
 
 Maintenant, nous allons déployer notre premier modèle.
 
-> [AZURE.TIP]Ce modèle ne valide pas que le nom de l’application web et le nom du compte DocumentDB entrés ci-dessous sont a) corrects et b) disponibles. Il est vivement recommandé de vérifier la disponibilité des noms que vous souhaitez fournir avant d'exécuter le script de déploiement PowerShell.
+> [AZURE.TIP] Ce modèle ne valide pas que le nom de l’application web et le nom du compte DocumentDB entrés ci-dessous sont a) corrects et b) disponibles. Il est vivement recommandé de vérifier la disponibilité des noms que vous souhaitez fournir avant d'exécuter le script de déploiement PowerShell.
 
 1. Ouvrez Microsoft Azure PowerShell et accédez au dossier dans lequel vous avez téléchargé et extrait [l’exemple de création d’un compte DocumentDB, d’une application web App Service et de déploiement d’une application de démonstration](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (par exemple, C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo).
 
@@ -70,7 +70,7 @@ Maintenant, nous allons déployer notre premier modèle.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebAppTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebapp" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP]Notez que vous serez invité à entrer vos nom d'utilisateur et mot de passe de compte Azure dans le cadre de l'exécution du script. L'exécution complète du déploiement prendra entre 10 et 15 minutes.
+	> [AZURE.TIP] Notez que vous serez invité à entrer vos nom d'utilisateur et mot de passe de compte Azure dans le cadre de l'exécution du script. L'exécution complète du déploiement prendra entre 10 et 15 minutes.
 
 4. Voici un exemple de la sortie obtenue :
 
@@ -151,7 +151,7 @@ Maintenant, nous allons déployer notre premier modèle.
 
 Maintenant nous allons déployer notre deuxième modèle.
 
-> [AZURE.TIP]Ce modèle ne valide pas que le nom de l’application web et le nom du compte DocumentDB entrés ci-dessous sont a) corrects et b) disponibles. Il est vivement recommandé de vérifier la disponibilité des noms que vous souhaitez fournir avant d'exécuter le script de déploiement PowerShell.
+> [AZURE.TIP] Ce modèle ne valide pas que le nom de l’application web et le nom du compte DocumentDB entrés ci-dessous sont a) corrects et b) disponibles. Il est vivement recommandé de vérifier la disponibilité des noms que vous souhaitez fournir avant d'exécuter le script de déploiement PowerShell.
 
 1. Ouvrez Microsoft Azure PowerShell et accédez au dossier dans lequel vous avez téléchargé et extrait [l’exemple de création d’un compte DocumentDB et d’application web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (par exemple, C:\\DocumentDBTemplates\\CreateDocDBWebsite).
 
@@ -169,7 +169,7 @@ Maintenant nous allons déployer notre deuxième modèle.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebSite> .\CreateDocDBWebSite.ps1 -WebSiteName "myotherdocumentdbwebapp" -ResourceGroupName "myOtherDemoResourceGroup" -docDBAccountName "myotherdocumentdbdemoaccount" -location "East US"
 
-	> [AZURE.TIP]Notez que vous serez invité à entrer vos nom d'utilisateur et mot de passe de compte Azure dans le cadre de l'exécution du script. L'exécution complète du déploiement prendra entre 10 et 15 minutes.
+	> [AZURE.TIP] Notez que vous serez invité à entrer vos nom d'utilisateur et mot de passe de compte Azure dans le cadre de l'exécution du script. L'exécution complète du déploiement prendra entre 10 et 15 minutes.
 
 4. La sortie du déploiement sera très similaire au premier exemple de modèle.
 5. Avant d'ouvrir le portail Azure, essayons de comprendre ce que ce déploiement de modèle a effectué :
@@ -207,7 +207,7 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure Classic](http://go.microsoft.com/fwlink/?LinkId=529715).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

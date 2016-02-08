@@ -19,6 +19,10 @@
 
 #Notes de publication
 
+##4\.1.4 (26/01/2016)
+
+- Améliorations de la stabilité.
+
 ##4\.1.3 (12/9/2015)
 
 - Améliorations de la stabilité.
@@ -57,4 +61,4 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi de Google Play et SmartAd.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

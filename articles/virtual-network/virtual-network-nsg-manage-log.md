@@ -25,12 +25,12 @@ Vous pouvez utiliser différents types de journaux dans Azure pour gérer les gr
 - **Journaux des événements :** vous pouvez utiliser ces journaux pour voir quelles règles NSG sont appliquées aux machines virtuelles et les rôles d’instance en fonction de l’adresse MAC. L’état de ces règles est collecté toutes les 60 secondes. 
 - **Journaux des compteurs :** vous pouvez utiliser ces journaux pour afficher le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
 
->[AZURE.WARNING]Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, reportez-vous à l’article [Présentation du déploiement de Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
+>[AZURE.WARNING] Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, reportez-vous à l’article [Présentation du déploiement de Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 
 ##Activation de la journalisation
 La journalisation d’audit est automatiquement activée systématiquement pour chaque ressource Resource Manager. Vous devez activer la journalisation des événements et des compteurs pour commencer à collecter les données disponibles dans ces journaux. Pour activer la journalisation, procédez comme suit.
 
-1.  Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com). Si vous ne disposez pas d’un groupe de sécurité réseau existant, [créez un NSG](virtual-networks-create-nsg-arm-ps.md) avant de continuer. 
+1.  Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com). Si vous ne disposez pas d’un groupe de sécurité réseau existant, [créez un NSG](virtual-networks-create-nsg-arm-ps.md) avant de continuer. 
 
 2.  Dans le portail en version préliminaire, cliquez sur **Parcourir>** > **Groupes de sécurité réseau**.
 
@@ -43,7 +43,7 @@ La journalisation d’audit est automatiquement activée systématiquement pour 
 4. Dans le panneau **Paramètres**, cliquez sur **Diagnostics**, puis dans le volet **Diagnostics**, en regard de **État**, cliquez sur **Activé**.
 5. Dans le panneau **Paramètres**, cliquez sur **Compte de stockage**, puis sélectionnez un compte de stockage existant ou créez-en un.  
 
->[AZURE.INFORMATION]Les journaux d’audit ne nécessitent pas de compte de stockage distinct. L’utilisation du stockage pour la journalisation des événements et des règles occasionnera des frais de service.
+>[AZURE.INFORMATION] Les journaux d’audit ne nécessitent pas de compte de stockage distinct. L’utilisation du stockage pour la journalisation des événements et des règles occasionnera des frais de service.
 
 6. Dans la liste déroulante sous **Compte de stockage**, indiquez si vous souhaitez journaliser des événements et/ou des compteurs, puis cliquez sur **Enregistrer**.
 
@@ -107,11 +107,11 @@ Vous pouvez afficher et analyser les données du journal d’audit en utilisant 
 ##Afficher et analyser les journaux des compteurs et des événements 
 Vous devez vous connecter à votre compte de stockage et récupérer les entrées de journal JSON pour les journaux des événements et des compteurs. Une fois que vous avez téléchargé les fichiers JSON, vous pouvez les convertir en CSV et les afficher dans Excel, PowerBI ou tout autre outil de visualisation de données.
 
->[AZURE.TIP]Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans Github.
+>[AZURE.TIP] Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans Github.
 
 ##Ressources supplémentaires
 
 - Billet de blog [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Billet de blog [Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

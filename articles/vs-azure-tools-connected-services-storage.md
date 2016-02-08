@@ -90,8 +90,8 @@ Quand vous avez terminé la boîte de dialogue, Visual Studio ajoute des référ
 
      - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Stockage sur azure.microsoft.com](http://azure.microsoft.com/services/storage)
+     - [Stockage sur azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [Documentation du stockage sur azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
+     - [Documentation du stockage sur azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

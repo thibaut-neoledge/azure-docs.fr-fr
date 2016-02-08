@@ -45,11 +45,11 @@ Ce didacticiel présente les procédures suivantes :
 
 - [Étapes suivantes](#Next)
 
-Ce didacticiel part du principe que vous disposez déjà d’un compte Azure. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+Ce didacticiel part du principe que vous disposez déjà d’un compte Azure. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a id="Provision">Approvisionner une image de machine virtuelle SQL à partir de la galerie avec le modèle de déploiement d’Azure Resource Manager
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) avec votre compte.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte.
 1. Dans le portail Azure, cliquez sur **+Nouveau**. Le portail ouvre le panneau **Nouveau**. Les modèles de machine virtuelle SQL Server sont dans le groupe **Compute** du Marketplace.
 
 1. Dans le panneau **Nouveau**, cliquez sur **Compute**.
@@ -87,7 +87,7 @@ Dans le panneau **Créer une machine virtuelle**, sous **Paramètres**, configur
 
 - Sous **Stockage**, spécifiez un type de disque. L’option Premium Storage est recommandée pour les charges de travail de production.
 
->[AZURE.NOTE]Elle est activée par défaut. Elle redimensionne automatiquement votre ordinateur à une taille qui prend en charge Premium Storage. Si vous désactivez Premium Storage, votre sélection de taille de machine précédente est utilisée.
+>[AZURE.NOTE] Elle est activée par défaut. Elle redimensionne automatiquement votre ordinateur à une taille qui prend en charge Premium Storage. Si vous désactivez Premium Storage, votre sélection de taille de machine précédente est utilisée.
 
 - Sous **Compte de stockage**, vous pouvez accepter le nom de compte de stockage automatiquement approvisionné ou vous pouvez cliquer sur **Compte de stockage** pour choisir un compte existant et configurer le type de compte de stockage. Par défaut, Azure crée un compte de stockage avec un stockage localement redondant.
 
@@ -129,7 +129,7 @@ Si vous avez besoin de l’authentification SQL Server, cliquez sur **Activer** 
 
 Si vous activez l’authentification SQL Server, spécifiez un **nom de connexion** et un **mot de passe**. Ce nom d’utilisateur sera une connexion d’authentification SQL Server et un membre du rôle serveur fixe sysadmin. Consultez [Choisir un mode d’authentification](http://msdn.microsoft.com/library/ms144284.aspx) pour plus d’informations sur les modes d’authentification. Par défaut, SQL Server n’active pas l’authentification SQL Server. Dans ce scénario, les administrateurs locaux sur la machine virtuelle peuvent se connecter à l’instance SQL Server.
 
->[AZURE.NOTE]Si vous envisagez d’accéder à SQL Server via Internet (par exemple, avec l’option Connectivité publique), vous devez activer l’authentification SQL ici. L’accès public à SQL Server requiert l’utilisation de l’authentification SQL.
+>[AZURE.NOTE] Si vous envisagez d’accéder à SQL Server via Internet (par exemple, avec l’option Connectivité publique), vous devez activer l’authentification SQL ici. L’accès public à SQL Server requiert l’utilisation de l’authentification SQL.
 
 ### Optimisation du stockage
 Cliquez sur **Configuration du stockage** afin de spécifier les exigences de stockage. Vous pouvez spécifier des exigences comme les opérations d’entrée/sortie par seconde (E/S par seconde), le débit en Mbit/s et la taille totale de stockage. Configurez ces éléments en utilisant les échelles mobiles. Le portail calcule automatiquement le nombre de disques en fonction de ces exigences.
@@ -142,7 +142,7 @@ Par défaut, Azure optimise le stockage pour 5 000 E/S par seconde, 200 Mbit/
 
 L’illustration suivante présente le panneau de configuration de stockage. <br/>![Stockage de SQL ARM](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE]Les limites de configuration de stockage dépendent de la taille de la machine virtuelle. Pour plus d’informations, consultez [Tailles des machines virtuelles](virtual-machines-size-specs.md).
+>[AZURE.NOTE] Les limites de configuration de stockage dépendent de la taille de la machine virtuelle. Pour plus d’informations, consultez [Tailles des machines virtuelles](virtual-machines-size-specs.md).
 
 ### Application de correctifs
 La **mise à jour corrective automatisée SQL** est activée par défaut. La mise à jour corrective automatisée permet à Azure de corriger automatiquement SQL Server et le système d’exploitation. Spécifiez un jour de la semaine, une heure et une durée pour la fenêtre de maintenance. Azure effectue la mise à jour corrective dans la fenêtre de maintenance. La planification de la fenêtre de maintenance utilise les paramètres régionaux de la machine virtuelle pour l’heure. Si vous ne souhaitez pas qu’Azure corrige automatiquement SQL Server et le système d’exploitation, cliquez sur **Désactiver**.
@@ -197,7 +197,7 @@ Si vous souhaitez vous connecter à votre moteur de base de données SQL Server
 
 Si vous utilisez le portail pour approvisionner une image de machine virtuelle SQL Server avec Resource Manager, ces étapes ont été effectuées pour vous lorsque vous avez sélectionné **Public** pour l’option de connectivité SQL et activé l’authentification SQL Server. Toutefois, il reste quelques étapes à effectuer pour accéder à votre instance SQL Server sur Internet.
 
->[AZURE.NOTE]Si vous n’avez pas sélectionné Public lors de l’approvisionnement, des étapes supplémentaires sont nécessaires pour accéder à votre instance SQL Server via Internet. Pour plus d’informations, consultez [Se connecter à une machine virtuelle SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
+>[AZURE.NOTE] Si vous n’avez pas sélectionné Public lors de l’approvisionnement, des étapes supplémentaires sont nécessaires pour accéder à votre instance SQL Server via Internet. Pour plus d’informations, consultez [Se connecter à une machine virtuelle SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
 
 Les étapes suivantes ne sont pas requises si vous devez uniquement accéder à votre machine virtuelle localement ou à partir du même réseau virtuel.
 
@@ -206,4 +206,4 @@ Les étapes suivantes ne sont pas requises si vous devez uniquement accéder à 
 ##<a id="Next">Étapes suivantes
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

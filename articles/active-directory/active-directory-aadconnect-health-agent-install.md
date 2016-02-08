@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 
@@ -78,11 +78,11 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 
 1. Cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur **Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\\Local Policies\\User Rights Management**, puis double-cliquez sur Générer des audits de sécurité.
-3. Sous l’onglet **Paramètre de sécurité locale**, vérifiez que le compte de service AD FS 2.0 est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante pour activer l’audit : <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+3. Sur l’onglet **Paramètre de sécurité locale**, vérifiez que le compte de service AD FS 2.0 est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
+4. Ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante pour activer l’audit.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. Fermez Stratégie de sécurité locale, puis ouvrez le composant logiciel enfichable Gestion. Pour ouvrir le composant logiciel enfichable Gestion, cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur Gestion AD FS 2.0.
 6. Dans le volet Actions, cliquez sur Modifier les propriétés du service FS (Federation Service).
-7. Dans la boîte de dialogue **Propriétés du service de fédération**, cliquez sur l’onglet **Événements**.
+7. Dans la boîte de dialogue **Propriétés du service FS**, cliquez sur l’onglet **Événements**.
 8. Cochez les cases **Audits des succès** et **Audits des échecs**.
 9. Cliquez sur **OK**.
 
@@ -95,7 +95,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 5. Fermez **Stratégie de sécurité locale**, puis ouvrez le composant logiciel enfichable **Gestion AD FS** (dans Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
 6. Dans le volet Actions, cliquez sur **Modifier les propriétés du service de fédération**.
 7. Dans la boîte de dialogue Propriétés du service de fédération, cliquez sur l’onglet **Événements**.
-8. Cochez les cases **Audits des succès et Audits des échecs**, puis cliquez sur **OK**.
+8. Sélectionnez les cases **Audits des succès et Audits des échecs**, puis cliquez sur **OK**.
 
 
 
@@ -112,7 +112,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 
 ![Journaux d’audit AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
-> [AZURE.WARNING]Si vous disposez d’une stratégie de groupe qui désactive l’audit AD FS, l’agent Azure AD Connect Health ne pourra pas collecter les informations. Assurez-vous de ne pas disposer de stratégie de groupe susceptible de désactiver l’audit.
+> [AZURE.WARNING] Si vous disposez d’une stratégie de groupe qui désactive l’audit AD FS, l’agent Azure AD Connect Health ne pourra pas collecter les informations. Assurez-vous de ne pas disposer de stratégie de groupe susceptible de désactiver l’audit.
 
 [//]: # "Début de la section de configuration de l'agent proxy"
 
@@ -126,7 +126,7 @@ Pour vérifier que l’agent a été installé, ouvrez les services et procédez
  
 ![Vérifier Azure AD Connect Health pour la synchronisation](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE]N'oubliez pas que l'utilisation d'Azure AD Connect Health requiert Azure AD Premium. Si vous ne disposez pas d'Azure AD Premium, vous ne serez pas en mesure d'effectuer la configuration dans le portail Azure. Vous trouverez plus d'informations sur la configuration requise [ici](active-directory-aadconnect-health.md#requirements).
+>[Azure.NOTE] N'oubliez pas que l'utilisation d'Azure AD Connect Health requiert Azure AD Premium. Si vous ne disposez pas d'Azure AD Premium, vous ne serez pas en mesure d'effectuer la configuration dans le portail Azure. Vous trouverez plus d'informations sur la configuration requise [ici](active-directory-aadconnect-health.md#requirements).
 
 
 
@@ -134,12 +134,13 @@ Pour vérifier que l’agent a été installé, ouvrez les services et procédez
 ## Configuration des agents Azure AD Connect Health pour utiliser le proxy HTTP
 Vous pouvez configurer des agents Azure AD Connect Health pour utiliser un proxy HTTP.
 
->[AZURE.NOTE]- « Netsh WinHttp set ProxyServerAddress » ne fonctionnera pas car l'agent utilise System.Net pour effectuer des demandes web au lieu des services HTTP Microsoft Windows. - L'adresse du proxy HTTP configuré servira à transmettre des messages HTTPS chiffrés. - Les proxys authentifiés (à l'aide de HTTPBasic) ne sont pas pris en charge.
+>[AZURE.NOTE]
+- « Netsh WinHttp set ProxyServerAddress » ne fonctionnera pas car l'agent utilise System.Net pour effectuer des demandes web au lieu des services HTTP Microsoft Windows. - L'adresse du proxy HTTP configuré servira à transmettre des messages HTTPS chiffrés. - Les proxys authentifiés (à l'aide de HTTPBasic) ne sont pas pris en charge.
 
 ### Modification de la configuration du proxy d’un agent Health
 Vous disposez des options suivantes afin de configurer un agent Azure AD Connect Health pour utiliser un proxy HTTP.
 
->[AZURE.NOTE]Vous devez redémarrer tous les services de l’agent Azure AD Connect Health pour mettre à jour les paramètres du proxy. Exécutez la commande suivante :<br> Restart-Service AdHealth*
+>[AZURE.NOTE] Vous devez redémarrer tous les services de l’agent Azure AD Connect Health pour mettre à jour les paramètres du proxy. Exécutez la commande suivante :<br> Restart-Service AdHealth*
 
 #### Importation des paramètres de proxy existants
 
@@ -186,4 +187,4 @@ Vous pouvez utiliser la commande suivante pour lire les paramètres de proxy act
 * [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](active-directory-aadconnect-health-sync.md)
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

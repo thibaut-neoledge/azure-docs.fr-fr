@@ -25,7 +25,7 @@ Cette rubrique comprend des instructions de sécurité générales pour créer u
 
 Pour plus d’informations sur les pratiques de sécurité de SQL Server, voir [Meilleures pratiques de sécurité de SQL Server 2008 R2 - Tâches opérationnelles et administratives ](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
 
-Azure est conforme à plusieurs règlements et normes de l’industrie et vous permet de créer une solution conforme avec SQL Server exécuté dans un ordinateur virtuel. Pour plus d’informations sur les exigences réglementaires relatives à Azure, voir [Centre de gestion de la confidentialité Azure](http://azure.microsoft.com/support/trust-center/).
+Azure est conforme à plusieurs règlements et normes de l’industrie et vous permet de créer une solution conforme avec SQL Server exécuté dans un ordinateur virtuel. Pour plus d’informations sur les exigences réglementaires relatives à Azure, voir [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/).
 
 Voici la liste des recommandations de sécurité à prendre en compte lors de la configuration et de la connexion à l’instance de SQL Server dans une machine virtuelle Azure.
 
@@ -44,7 +44,7 @@ Voici la liste des recommandations de sécurité à prendre en compte lors de la
 
 - Si vous devez utiliser une connexion SA, activez-la, renommez-la et attribuez un nouveau mot de passe.
 
-- Les deux options citées précédemment exigent la modification du mode d’authentification en **Mode d’authentification SQL Server et Windows**. Pour plus d’informations, voir [Modifier le mode d’authentification du serveur](https://msdn.microsoft.com/library/ms188670.aspx).
+- Les deux options citées précédemment exigent la modification du mode d’authentification en **Mode d’authentification SQL Server et Windows**. Pour plus d’informations, consultez [Modifier le mode d’authentification du serveur](https://msdn.microsoft.com/library/ms188670.aspx).
 
 ## Considérations relatives à la sécurisation des connexions vers une machine virtuelle Azure :
 
@@ -62,4 +62,4 @@ Si vous vous intéressez également à l’optimisation des performances, voir [
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

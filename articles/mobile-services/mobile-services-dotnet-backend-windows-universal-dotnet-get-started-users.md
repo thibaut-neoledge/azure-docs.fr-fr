@@ -30,7 +30,7 @@ Cette rubrique explique comment authentifier les utilisateurs dans Azure Mobile 
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez d’abord suivre le didacticiel [Prise en main de Mobile Services] ou le didacticiel [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->[AZURE.NOTE]Ce didacticiel vous explique comment effectuer une authentification dirigée vers le serveur des utilisateurs dans les applications Windows Store et Windows Phone Store 8.1. Pour plus d’informations sur l’authentification dirigée vers le client, consultez la rubrique [Connexion à Azure Mobile Services avec les Kits de développement logiciel (SDK) Google, Microsoft et Facebook](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
+>[AZURE.NOTE]Ce didacticiel vous explique comment effectuer une authentification dirigée vers le serveur des utilisateurs dans les applications Windows Store et Windows Phone Store 8.1. Pour plus d’informations sur l’authentification dirigée vers le client, consultez la rubrique [Connexion à Azure Mobile Services avec les Kits de développement logiciel (SDK) Google, Microsoft et Facebook](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
 
 ##<a name="register"></a>Inscrire votre application pour l'authentification et configurer Mobile Services
 
@@ -75,7 +75,7 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 ##Voir aussi
 
-+ [Fonctionnalité des utilisateurs améliorée](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Vous pouvez obtenir d'autres données utilisateur gérées par le fournisseur d'identité dans votre service mobile en appelant la méthode **ServiceUser.GetIdentitiesAsync()** dans un serveur principal .NET.
++ [Fonctionnalité des utilisateurs améliorée](https://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Vous pouvez obtenir d'autres données utilisateur gérées par le fournisseur d'identité dans votre service mobile en appelant la méthode **ServiceUser.GetIdentitiesAsync()** dans un serveur principal .NET.
 
 + [Guide de fonctionnement Mobile Services .NET] <br/>En savoir plus sur l'utilisation de Mobile Services avec un client .NET.
 
@@ -103,4 +103,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/24/2016"
 	ms.author="glenga"/>
 
 # Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps
@@ -25,7 +25,7 @@
 
 Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) de serveur principal .NET dans les scénarios Azure App Service Mobile Apps. Le Kit de développement logiciel (SDK) Azure Mobile Apps vous permet de travailler avec des clients mobiles à partir de votre application ASP.NET.
 
->[AZURE.TIP]Le [Kit de développement logiciel (SDK) serveur .NET pour Azure Mobile Apps](https://github.com/Azure/azure-mobile-apps-net-server) est libre de droits sur GitHub. Le référentiel contient la suite complète de tests unitaires du Kit de développement logiciel (SDK) serveur, ainsi que quelques exemples de projets.
+>[AZURE.TIP] Le [Kit de développement logiciel (SDK) serveur .NET pour Azure Mobile Apps](https://github.com/Azure/azure-mobile-apps-net-server) est libre de droits sur GitHub. Le référentiel contient la suite complète de tests unitaires du Kit de développement logiciel (SDK) serveur, ainsi que quelques exemples de projets.
 
 ## Documentation de référence
 
@@ -184,7 +184,7 @@ Pour obtenir un exemple de contrôleur de table utilisant Entity Framework pour 
 
 ## Définir un contrôleur d’API personnalisé
 
-Le contrôleur d’API personnalisé fournit les fonctionnalités de base au serveur principal de votre application mobile en exposant un point de terminaison. Vous pouvez enregistrer un contrôleur d’API mobile spécifique à l’aide de l’attribut `MobileAppControllerAttribute`. Cet attribut enregistre l'itinéraire et définit également le sérialiseur JSON Mobile Apps.
+Le contrôleur d’API personnalisé fournit les fonctionnalités de base au serveur principal de votre application mobile en exposant un point de terminaison. Vous pouvez enregistrer un contrôleur d’API mobile spécifique à l’aide de l’attribut [MobileAppController]. Cet attribut enregistre l'itinéraire et définit également le sérialiseur JSON Mobile Apps.
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le dossier Contrôleurs, puis cliquez sur **Ajouter** > **Contrôleur**, sélectionnez **web API 2 Controller&mdash;Empty** et cliquez sur **Ajouter**.
 
@@ -194,7 +194,7 @@ Le contrôleur d’API personnalisé fournit les fonctionnalités de base au ser
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. Appliquez **MobileAppControllerAttribute** à la définition de classe de contrôleur d’API, comme indiqué dans l’exemple suivant :
+4. Appliquez l’attribut **[MobileAppController]** à la définition de classe du contrôleur d’API, comme indiqué dans l’exemple suivant :
 
 		[MobileAppController] 
 		public class CustomController : ApiController
@@ -286,13 +286,13 @@ Vous pouvez aussi simplifier le code client de façon à utiliser la méthode `l
 		
 Remplacez la chaîne « CustomAuth » ci-dessus par le nom du contrôleur hébergeant votre action de connexion.
 
->[AZURE.TIP]L’utilisation de l’approche loginAsync() est l’assurance que le jeton d’authentification est joint à chaque appel supplémentaire au service.
+>[AZURE.TIP] L’utilisation de l’approche loginAsync() est l’assurance que le jeton d’authentification est joint à chaque appel supplémentaire au service.
 
 ###<a name="user-info"></a>Récupérer des informations utilisateur authentifiées
 
 Lorsqu’un utilisateur est authentifié par App Service, vous pouvez accéder à l’ID utilisateur affecté et à d’autres informations dans votre code de serveur principal .NET. Cela est utile pour prendre des décisions d’autorisation pour un utilisateur donné dans le serveur principal, par exemple si un utilisateur spécifique peut accéder à une ligne de table ou à une autre ressource. Le code suivant indique comment obtenir l’ID utilisateur pour un utilisateur connecté :
 
-    // Get the current user SID and create a tag for the current user.
+    // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -446,4 +446,4 @@ Votre serveur exécuté localement est désormais équipé de manière appropri�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,11 +25,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Si vous êtes novice en matière de développement mobile avec Microsoft Azure, [commencez avec Azure Mobile Apps](app-service-mobile-dotnet-backend-ios-get-started-preview.md) plutôt qu’avec Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP] Si vous êtes novice en matière de développement mobile avec Microsoft Azure, [commencez avec Azure Mobile Apps](app-service-mobile-dotnet-backend-ios-get-started-preview.md) plutôt qu’avec Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Ce didacticiel présente l’ajout d’un service principal cloud à une application iOS à l’aide d’Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application _To do list_ qui stocke les données d'application dans le nouveau service mobile. Le service mobile utilise .NET et Visual Studio pour la logique métier côté serveur. Pour créer un service mobile avec une logique métier côté serveur en JavaScript, consultez la [version relative au service principal JavaScript] de cette rubrique.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F).
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](https://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F).
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
@@ -69,7 +69,7 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Ajout de l’authentification à une application existante] <br/>Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Ajout de notifications Push à votre application existante] <br/>Découvrez comment envoyer une notification Push très basique à votre application.
+* [Ajout de notifications Push à votre application existante] <br/>Découvrez comment envoyer une notification Push très basique à votre application.
 
 * [Résolution des problèmes d’un serveur principal .NET Mobile Services] <br/>Découvrez comment diagnostiquer et résoudre les problèmes qui peuvent se produire avec un serveur principal .NET Mobile Services.
 
@@ -97,10 +97,10 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 <!-- URLs. -->
 [Prise en main de la synchronisation des données hors connexion]: mobile-services-ios-get-started-offline-data.md
 [Ajout de l’authentification à une application existante]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Ajout de notifications Push à votre application existante]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Ajout de notifications Push à votre application existante]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Résolution des problèmes d’un serveur principal .NET Mobile Services]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Qu’est-ce qu’Azure Event Hubs ? | Microsoft Azure"
-	description="Vue d’ensemble d’Azure Event Hubs"
+	description="Vue d'ensemble des concentrateurs d'événements Azure"
 	services="event-hubs"
 	documentationCenter=".net"
 	authors="nberdy"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 # Nouveautés des concentrateurs d'événements Azure ?
@@ -45,4 +45,4 @@ Pour obtenir des informations détaillées sur les concentrateurs d'événements
 [didacticiel des concentrateurs d'événements]: event-hubs-csharp-ephcs-getstarted.md
 [exemple d'application complet qui utilise des concentrateurs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

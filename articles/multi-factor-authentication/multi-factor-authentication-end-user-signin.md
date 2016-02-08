@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Expérience de connexion Azure MFA avec Azure Multi-Factor Authentication" 
-	description="Cette page vous fournit des conseils pour consulter les différentes méthodes de connexion disponibles avec Azure MFA." 
+	description="Cette page vous fournit des conseils pour consulter les différentes méthodes de connexion disponibles avec Azure MFA."
+	keywords="authentification de l'utilisateur, expérience de connexion, connexion avec un téléphone mobile, connexion avec le téléphone de bureau" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Expérience de connexion avec Azure Multi-Factor Authentication
-> [AZURE.NOTE]La documentation suivante fournie sur cette page montre une expérience de connexion classique. Pour obtenir de l'aide concernant la connexion, référez-vous à [Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]  La documentation suivante fournie sur cette page montre une expérience de connexion classique. Pour obtenir de l'aide concernant la connexion, référez-vous à [Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
 
 
 
@@ -103,4 +104,4 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

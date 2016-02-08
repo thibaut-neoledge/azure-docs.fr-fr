@@ -13,13 +13,12 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/11/2015"
+	ms.topic="article"
+	ms.date="01/27/2016"
 	ms.author="jodebrui"/>
 
 
 # Prise en main de In-Memory (version préliminaire) dans la base de données SQL
-
 
 Les fonctions In-Memory améliorent considérablement la performance des charges de travail transactionnelles et analytiques dans les bonnes situations.
 
@@ -48,7 +47,7 @@ Les procédures stockées compilées en mode natif exigent moins d’instruction
 
 #### In-Memory Analytics 
 
-La fonction In-Memory [Analytics](#install_analytics_manuallink)est :
+La fonction In-Memory [Analytics](#install_analytics_manuallink) est :
 
 - Index Columnstore
 
@@ -83,7 +82,7 @@ Aperçu :
 Éléments à prendre en compte lorsque les fonctionnalités In-Memory sont décrites [plus loin dans cette rubrique](#preview_considerations_for_in_memory).
 
 
-> [AZURE.NOTE]Ces fonctionnalités en version préliminaire sont uniquement disponibles pour [*Premium*](sql-database-service-tiers.md) bases de données SQL Azure, pas pour les bases de données sur le niveau de service Standard ou de base.
+> [AZURE.NOTE] Ces fonctionnalités en version préliminaire sont uniquement disponibles pour [*Premium*](sql-database-service-tiers.md) bases de données SQL Azure, pas pour les bases de données sur le niveau de service Standard ou de base.
 
 
 
@@ -93,7 +92,7 @@ Aperçu :
 
 ## A. Installer l’exemple In-Memory OLTP
 
-Vous pouvez créer l’exemple de base de données AdventureWorksLT [V12] en quelques clics sur le [portail Azure](http://portal.azure.com/). Les étapes de cette section expliquent comment enrichir votre base de données AdventureWorksLT grâce aux éléments suivants :
+Vous pouvez créer l’exemple de base de données AdventureWorksLT [V12] en quelques clics sur le [portail Azure](https://portal.azure.com/). Les étapes de cette section expliquent comment enrichir votre base de données AdventureWorksLT grâce aux éléments suivants :
 
 - Tables In-Memory.
 - Procédure stockée compilée en mode natif.
@@ -101,7 +100,7 @@ Vous pouvez créer l’exemple de base de données AdventureWorksLT [V12] en qu
 
 #### Procédure d’installation :
 
-1. Dans le [portail Azure](http://portal.azure.com/), créez une base de données Premium sur un serveur V12. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT [V12].
+1. Dans le [portail Azure](https://portal.azure.com/), créez une base de données Premium sur un serveur V12. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT [V12].
  - Pour obtenir des instructions détaillées, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 
 2. Connectez-vous à la base de données avec [SQL Server Management Studio (SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -227,17 +226,18 @@ WHILE (@i < 20)
 begin;
 	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
 		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+	SET @i = @i + 1;
 end
 ```
 
 
-Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk* . Ces remplacements affectent les noms des tables et des procédures stockées.
+Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
 
 
 ### Installer les utilitaires RML et ostress
 
 
-Dans l’idéal, vous devez prévoir d’exécuter ostress.exe sur une machine virtuelle Azure. Vous devez créer une [machine virtuelle Azure](http://azure.microsoft.com/documentation/services/virtual-machines/) dans la même région géographique Azure que celle où se trouve votre base de données AdventureWorksLT. Vous pouvez aussi exécuter ostress.exe sur votre ordinateur portable.
+Dans l’idéal, vous devez prévoir d’exécuter ostress.exe sur une machine virtuelle Azure. Vous devez créer une [machine virtuelle Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) dans la même région géographique Azure que celle où se trouve votre base de données AdventureWorksLT. Vous pouvez aussi exécuter ostress.exe sur votre ordinateur portable.
 
 
 Sur la machine virtuelle (ou sur l’hôte que vous avez choisi d’utiliser), installez les utilitaires RML qui incluent ostress.exe.
@@ -317,10 +317,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Résultats de la comparaison attendus
 
-Les tests In-memory montrent une multiplication par **9** de l’amélioration des performances pour cette charge de travail simple, avec ostress s’exécutant sur une machine virtuelle Azure dans la même région Azure que la base de données.
-
-
-Les performances peuvent être améliorées davantage lorsque la conversion des procédures stockées compilées en mode natif est ajoutée.
+Nos tests In-memory montrent une multiplication par **9** de l’amélioration des performances pour cette charge de travail simple, avec ostress s’exécutant sur une machine virtuelle Azure dans la même région Azure que la base de données.
 
 
 ## B. Installer l’exemple In-Memory Analytics
@@ -349,7 +346,7 @@ Pour l’analyse en temps réel sur une charge de travail OLTP, il est souvent p
  - Le script peut prendre 15 minutes pour s’exécuter.
 
 3. Collez le script T-SQL dans SSMS, puis exécutez-le.
- - Le mot-clé **COLUMNSTORE** est essentiel dans l’instruction **CREATE INDEX**, comme dans l’exemple ci-dessous :<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+ - Le mot clé **COLUMNSTORE** est essentiel dans l’instruction **CREATE INDEX**, comme dans l’exemple ci-dessous :<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Définissez AdventureWorksLT sur le niveau de compatibilité 130 :<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
  - Le niveau 130 n’est pas directement lié aux fonctionnalités In-Memory. Mais le niveau 130 offre généralement des performances de requêtes supérieures que le niveau 120.
@@ -452,7 +449,7 @@ GO
 ## Considérations relatives à la version préliminaire pour OLTP In-Memory
 
 
-Les fonctionnalités OLTP In-Memory dans la base de données SQL Azure sont [disponibles en version préliminaire depuis le 28 octobre 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
+Les fonctionnalités OLTP In-Memory dans la base de données SQL Azure sont [disponibles en version préliminaire depuis le 28 octobre 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
 Pendant la phase d’évaluation précédant la mise à disposition générale, In-Memory OLTP est pris en charge uniquement pour les éléments suivants :
@@ -528,4 +525,4 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

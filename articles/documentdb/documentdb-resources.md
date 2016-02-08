@@ -32,7 +32,7 @@ En lisant cet article, vous serez en mesure de répondre aux questions suivantes
 ## Modèle de ressource hiérarchique
 Comme l'illustre le schéma suivant, le **modèle de ressources** hiérarchique de DocumentDB regroupe des ensembles de ressources dans un compte de base de données, chacun d'eux étant adressable via un URI stable et logique. Les ensembles de ressources sont désignés sous le nom de **flux** dans cet article.
 
->[AZURE.NOTE]DocumentDB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE] DocumentDB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![Modèle de ressources hiérarchique de DocumentDB][1]  
 **Modèle de ressource hiérarchique**
@@ -56,7 +56,7 @@ Pour commencer à travailler avec des ressources, vous devez [créer un compte d
 ## Ressources système ou ressources définies par l'utilisateur
 Les ressources (telles que les comptes de base de données, les bases de données, les collections, les utilisateurs, les autorisations, les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur) ont toutes un schéma fixe et sont nommées « ressources système ». Par contre, les ressources telles que les documents et les pièces jointes n'ont pas de restriction de schéma et sont des exemples de ressources définies par l'utilisateur. Dans DocumentDB, les ressources système et définies par l'utilisateur sont représentées et gérées en tant qu'éléments JSON standard. Toutes les ressources, tant système que définies par l’utilisateur, ont les propriétés communes suivantes.
 
->[AZURE.NOTE]Toutes les propriétés générées par le système dans une ressource ont comme préfixe un trait de soulignement (\_) dans leur représentation JSON.
+>[AZURE.NOTE] Toutes les propriétés générées par le système dans une ressource ont comme préfixe un trait de soulignement (\_) dans leur représentation JSON.
 
 
 Propriété |Définie par l'utilisateur ou générée par le système ?|Objectif
@@ -73,18 +73,18 @@ DocumentDB n'oblige pas les extensions propriétaires à adopter la norme JSON o
 ### Adressage d'une ressource
 Toutes les ressources sont adressables via des URI. La valeur de la propriété **\_self** d'une ressource représente l'URI relatif de la ressource. Le format de l’URI est composé des segments de chemin d’accès /<flux>/{\_rid} :
 
-|Valeur de \_self |Description
-|-------------------|-----------
-|/dbs	|Flux de bases de données sous un compte de base de données
-|/dbs/{_rid-db} |Base de données avec une propriété d’ID unique avec la valeur {_rid-db}
-|/dbs/{_rid-db}/colls/ |Flux de collections sous une base de données
-|/dbs/{_rid-db}/colls/{_rid-coll} |Collection avec la propriété d’ID unique et la valeur {_rid-coll}
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Flux de documents dans une collection
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Document avec un ID correspondant à la valeur {_rid-doc}
-|/dbs/{_rid-db}/users/ |Flux des utilisateurs sous une base de données
-|/dbs/{_rid-db}/users/{_rid-user} |Utilisateur avec la propriété d’ID unique avec la valeur {_rid-user}
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Flux d’autorisations sous une base de données
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorisation avec la propriété d’ID unique et la valeur {_rid-permission}
+|Valeur de \_self |Description 
+|-------------------|----------- 
+|/dbs |Flux de bases de données sous un compte de base de données 
+|/dbs/{_rid-db} |Base de données avec un ID correspondant à la valeur {_rid-db} 
+|/dbs/{_rid-db}/colls/ |Flux de collections sous une base de données 
+|/dbs/{_rid-db}/colls/{_rid-coll} |Collection avec un ID correspondant à la valeur {_rid-coll} 
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Flux de documents dans une collection 
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Document avec un ID correspondant à la valeur {_rid-doc} 
+|/dbs/{_rid-db}/users/ |Flux des utilisateurs sous une base de données 
+|/dbs/{_rid-db}/users/{_rid-user} |Utilisateurs avec un ID correspondant à la valeur {_rid-user} 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions |Flux d'autorisations sous un utilisateur 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorisation avec un ID correspondant à la valeur {_rid-permission}
   
 Chaque ressource a un nom défini par l'utilisateur unique exposé à l'aide de la propriété d'ID. Remarque : si l'utilisateur ne spécifie pas d'ID de documents, le système génère automatiquement un ID unique pour un document. L'ID est une chaîne de 256 caractères maximum, définie par l'utilisateur et unique dans le contexte d'une ressource parent spécifique. Par exemple, la valeur de la propriété d'ID de tous les documents d'une collection donnée est unique, mais pas systématiquement unique parmi les collections. De même, la valeur de la propriété d'ID de toutes les autorisations d'un utilisateur donné est unique, mais pas systématiquement unique parmi les utilisateurs. La propriété \_rid permet de construire le lien \_self adressable d'une ressource.
 
@@ -95,7 +95,7 @@ Les valeurs des propriétés \_self et \_rid sont des représentations secondair
 ## Comptes de base de données
 Votre abonnement Azure vous permet d'approvisionner un ou plusieurs comptes de base de données DocumentDB. Chaque compte de base de données de niveau Standard a droit à la capacité minimale d’une collection S1.
 
-Vous pouvez [créer et gérer des comptes de base de données DocumentDB](documentdb-create-account.md) via le portail Azure Classic à l’adresse [http://portal.azure.com/](http://portal.azure.com/). La création et la gestion d'un compte de base de données requièrent un accès administratif et peuvent uniquement être effectuées sous votre abonnement Azure.
+Vous pouvez [créer et gérer des comptes de base de données DocumentDB](documentdb-create-account.md) via le portail Azure Classic à l’adresse [http://portal.azure.com/](https://portal.azure.com/). La création et la gestion d'un compte de base de données requièrent un accès administratif et peuvent uniquement être effectuées sous votre abonnement Azure.
 
 ### Propriétés des comptes de base de données
 Dans le cadre de l'approvisionnement et de la gestion d'un compte de base de données, vous pouvez configurer et lire les propriétés suivantes :
@@ -154,7 +154,7 @@ Les documents d'une collection peuvent suivre des schémas arbitraires et vous p
 
 Le modèle de requête DocumentDB tente de garantir un équilibre entre les fonctionnalités, l’efficacité et la simplicité. Le moteur de base de données de DocumentDB compile et exécute de façon native les instructions de requête SQL. Vous pouvez interroger une collection en utilisant les [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l’un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). Le Kit de développement logiciel (SDK) .NET comprend un fournisseur LINQ.
 
-> [AZURE.TIP]Vous pouvez essayer DocumentDB et exécuter des requêtes SQL sur notre jeu de données dans le [Query Playground](https://www.documentdb.com/sql/demo).
+> [AZURE.TIP] Vous pouvez essayer DocumentDB et exécuter des requêtes SQL sur notre jeu de données dans le [Query Playground](https://www.documentdb.com/sql/demo).
 
 ### Transactions multi-documents
 Les transactions de bases de données offrent un modèle de programmation prédictif et sécurisé pour la gestion des modifications simultanées des données. Dans SGBDR, la méthode classique d'écriture de logique métier consiste à écrire des **procédures stockées** et/ou des **déclencheurs** puis à les expédier vers le serveur de base de données pour exécuter la transaction. Dans SGBDR, le programmateur de l'application doit gérer deux langages de programmation différents :
@@ -365,7 +365,7 @@ En étant un service de base de données véritablement ouvert, DocumentDB n'inv
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire, énumérer et interroger facilement les documents en utilisant les API REST ou l’un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). La suppression d'un document libère instantanément le quota correspondant à toutes les pièces jointes imbriquées. Le niveau de cohérence de lecture des documents respecte la stratégie de cohérence du compte de base de données. Vous pouvez remplacer cette stratégie en fonction de la demande, selon les besoins de cohérence des données de votre application. Lors d'une interrogation de documents, la cohérence de lecture respecte le mode d'indexation défini pour la collection. Par « cohérence », on entend la stratégie de cohérence du compte.
 
 ## Pièces jointes et éléments multimédias
->[AZURE.NOTE]Les pièces jointes et les ressources média sont des fonctionnalités en version préliminaire.
+>[AZURE.NOTE] Les pièces jointes et les ressources média sont des fonctionnalités en version préliminaire.
  
 DocumentDB vous permet de stocker des objets blob ou des éléments multimédias binaires dans son propre magasin ou votre magasin d'éléments multimédias distant. Il vous permet également de représenter les métadonnées d'un élément multimédia dans les termes d'un document spécifique nommé « pièce jointe ». Dans DocumentDB, une pièce jointe correspond à un document (JSON) spécifique qui référence l'objet blob ou l'élément multimédia stocké ailleurs. Une pièce jointe est tout simplement un document spécifique qui capture les métadonnées (comme l'emplacement, l'auteur, etc.) d'un élément multimédia stocké dans un magasin d'éléments multimédias distant.
 
@@ -413,4 +413,4 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

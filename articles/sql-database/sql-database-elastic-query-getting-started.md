@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
 # Prise en main des requêtes de base de données élastiques pour le partitionnement (partitionnement horizontal)
@@ -44,7 +44,7 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 ## Créez une base de données de requête élastique
 
 1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous.
-2. Créez une nouvelle base de données SQL Azure dans le même serveur que votre partition configurée. Nommez la base de données « ElasticDBQuery ». 
+2. Créez une nouvelle base de données SQL Azure dans le même serveur que votre partition configurée. Nommez la base de données « ElasticDBQuery ».
 
 	![Portail Azure et tarification][3]
 
@@ -129,7 +129,7 @@ Vous pouvez maintenant utiliser les fonctions de visualisation de données puiss
 ### Coût
 La fonction de requête de base de données élastique n’entraîne aucuns frais supplémentaires.
 
-Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

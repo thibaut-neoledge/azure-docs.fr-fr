@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/15/2016"
+     ms.date="01/26/2016"
      ms.author="hegate"/>
 
 # Compatibilité des plateformes de système d’exploitation et du matériel avec les Kits de développement logiciel (SDK)
@@ -131,11 +131,15 @@ Chaque appareil a été certifié comme fonctionnant avec notre Kit SDK dans le 
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | C, Javascript, Java|
 |[BeagleBone Green](http://beagleboard.org/green) |Debian | C, Javascript, Java|
 |[Dell Edge Gateway 5000 Series](http://www.dell.com/IoTgateway) |Ubuntu | Java|
+|[e-con Systems Almach](http://www.e-consystems.com/DM3730-development-board.asp) |Linux Yocto | C|
 |[e-con Systems Ankaa](http://www.e-consystems.com/iMX6-development-board.asp) |Ubuntu | C|
 |[systèmes intégrés LogicMachine Series](http://openrb.com/products/) |Linux personnalisé | C|
 |[Freescale FRDM K64](http://www.freescale.com/products/arm-processors/kinetis-cortex-m/k-series/k6x-ethernet-mcus/freescale-freedom-development-platform-for-kinetis-k64-k63-and-k24-mcus:FRDM-K64F) |mbed 2.0 | C|
 |[HPE Edgeline EL10](http://www8.hp.com/h20195/v2/GetPDF.aspx/c04884747.pdf) |Windows 10 | C#|
 |[HPE Edgeline EL20](http://www8.hp.com/h20195/v2/GetPDF.aspx/c04884769.pdf) |Windows 10 | C#|
+|[IEI ICECARE-10W](http://ieiworld.com/ieimobile/ICECARE-10W/UserManual/ICECARE-10W_UMN_v1.02.pdf) |Windows 10 | C#|
+|[IEI DRPC-120](http://www.ieiworld.com/product_groups/industrial/content.aspx?gid=09049552811981014603&cid=0D182494345754583862&id=0E318374091597499543#.VqW3Q_l97Dd) |Windows 10 | C#|
+|[IEI IVS-100-BT](http://tw.ieiworld.com/product_groups/industrial/content.aspx?gid=09049552811981014603&cid=0F202412454715193114&id=0F202496627608256517#.VqH1hvl97Dc) |Windows 10 | C#|
 |[Ilevia Eve Raspberry](http://www.ilevia.com/overview/) |Debian | C|
 |[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) |Yocto | C, Javascript|
 |[Libelium Meshlium Xtreme](http://www.libelium.com/products/meshlium/) |Debian | Java|
@@ -152,7 +156,9 @@ Chaque appareil a été certifié comme fonctionnant avec notre Kit SDK dans le 
 |[Toradex Colibri T20](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-2) |Linux Angstrom (Yocto) | Java|
 |[Toradex Colibri T30](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-3) |Windows 10 IoT Standard | C#|
 |[Toradex Colibri VF61](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-vybrid-vf6xx) |Linux Angstrom (Yocto) | Javascript, Java|
+|[Trex NGP](http://www.trex.com.tr/en/donanim_dcasngp8739_73.php) |Windows 10 | C#|
 |[Trueverit V4](http://www.trueverit.com/) |Linux personnalisé | C|
+|[USISH EDA8909](http://www.usish.com/) |Windows 10 | C#|
 
 [Commencez à utiliser ces appareils](https://azure.microsoft.com/develop/iot/get-started/) ou visitez notre [référentiel](https://github.com/Azure/azure-iot-sdks) GitHub et recherchez des documents sur des appareils par langage.
 
@@ -160,4 +166,4 @@ Chaque appareil a été certifié comme fonctionnant avec notre Kit SDK dans le 
 
 Découvrez plus d’informations sur le développement de solutions à l’aide des [appareils certifiés pour IoT](http://azure.com/iotdev).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@
 
 Ce didacticiel vous indique comment créer une application API ASP.NET 5 via [Visual Studio Code](http://code.visualstudio.com//Docs/whyvscode). ASP.NET 5 est une nouvelle conception importante de la fonctionnalité ASP.NET. ASP.NET 5 est une nouvelle infrastructure open source et interplateforme qui vous permet de créer des applications web modernes basées sur le Cloud, à l’aide de .NET. Pour en savoir plus, voir [Présentation de l’infrastructure ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). Pour en savoir plus sur les applications API, voir [Que sont les applications API ?](app-service-api-apps-why-best-platform.md)
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [vous inscrire pour accéder à la version d’essai gratuit](/pricing/free-trial/) ou [activer les avantages dont vous bénéficiez en tant qu’abonné MSDN](/pricing/member-offers/msdn-benefits-details/). Vous pouvez également essayer gratuitement les [exemples d’applications App Service](http://tryappservice.azure.com).
+> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [vous inscrire pour accéder à la version d’essai gratuit](/pricing/free-trial/) ou [activer les avantages dont vous bénéficiez en tant qu’abonné MSDN](/pricing/member-offers/msdn-benefits-details/). Vous pouvez également essayer gratuitement les [exemples d’applications App Service](http://tryappservice.azure.com).
 
 ## Composants requis  
 
@@ -34,7 +34,7 @@ Ce didacticiel vous indique comment créer une application API ASP.NET 5 via 
 ## Installer ASP.NET 5 et DNX
 ASP.NET 5/DNX est une pile .NET lean vous permettant de créer des applications web et cloud modernes capables de s’exécuter sur OS X, Linux et Windows. Elle a été construite intégralement pour fournir une infrastructure de développement optimisée pour les applications qui sont déployées sur le cloud ou qui sont exécutées en local. Elle inclut des composants modulaires associés à des frais généraux réduits. Ainsi, vous bénéficiez d’une certaine flexibilité lors de la création de vos solutions.
 
-> [AZURE.NOTE]ASP.NET 5 et DNX (environnement d’exécution .NET) sur OS X et Linux sont disponibles en version bêta/d’évaluation.
+> [AZURE.NOTE] ASP.NET 5 et DNX (environnement d’exécution .NET) sur OS X et Linux sont disponibles en version bêta/d’évaluation.
 
 Ce didacticiel est conçu pour vous aider à créer des applications à l’aide des dernières versions de développement de l’infrastructure ASP.NET 5 et de DNX. Si vous souhaitez une expérience officielle, plus stable, accédez à la page [http://www.asp.net/vnext](http://www.asp.net/vnext). Les instructions suivantes portent spécifiquement sur Windows. Pour consulter des instructions plus détaillées sur l’installation de cette fonction sur des systèmes OS X, Linux et Windows, voir [Installation d’ASP.NET 5 et de DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
@@ -310,9 +310,9 @@ Pour fournir un fichier de définition d’API Swagger 2.0 statique, vous deve
 
 ## Créer une application API dans la version préliminaire du portail Azure
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [vous inscrire pour accéder à la version d’essai gratuit](/pricing/free-trial/) ou [activer les avantages dont vous bénéficiez en tant qu’abonné MSDN](/pricing/member-offers/msdn-benefits-details/). Vous pouvez également essayer gratuitement les [exemples d’applications App Service](http://tryappservice.azure.com).
+> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [vous inscrire pour accéder à la version d’essai gratuit](/pricing/free-trial/) ou [activer les avantages dont vous bénéficiez en tant qu’abonné MSDN](/pricing/member-offers/msdn-benefits-details/). Vous pouvez également essayer gratuitement les [exemples d’applications App Service](http://tryappservice.azure.com).
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
+1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com/).
 
 2. Cliquez sur l’option **NOUVEAU** située dans la partie supérieure gauche du portail.
 
@@ -426,7 +426,7 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 [new branch]      master -> master
 </pre>
 
-> [AZURE.NOTE]Si vous apportez des modifications à votre application, vous pouvez la republier en cochant la case **Valider tout** dans VS Code, puis en saisissant la commande **git push azure master** dans **GitBash**.
+> [AZURE.NOTE] Si vous apportez des modifications à votre application, vous pouvez la republier en cochant la case **Valider tout** dans VS Code, puis en saisissant la commande **git push azure master** dans **GitBash**.
 
 ## Afficher la définition d'API dans le portail Azure en version préliminaire
 Maintenant que vous avez déployé une API dans votre application API, vous pouvez voir la définition de l'API dans le portail Azure en version préliminaire. Vous commencez par redémarrer la passerelle, ce qui permet à Microsoft Azure de reconnaître que la définition d’API d’une application API a été modifiée. La passerelle est une application web qui gère l'administration et les autorisations des API pour les applications API d'un groupe de ressources.
@@ -444,4 +444,4 @@ Dans le portail Microsoft Azure en version préliminaire, accédez au panneau *
 Ce didacticiel vous a montré comment créer une application API dans Visual Studio Code. Pour en savoir plus sur ce logiciel, voir [Visual Studio Code](https://code.visualstudio.com/Docs/). Pour en savoir plus sur les applications API, voir [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

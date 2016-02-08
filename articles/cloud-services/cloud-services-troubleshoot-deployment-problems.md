@@ -25,13 +25,13 @@ Vous trouverez le volet **Propriétés** comme suit :
 * Dans le portail Azure : cliquez sur le déploiement de votre service cloud, cliquez sur **Tous les paramètres**, puis sur **Propriétés**.
 * Dans le portail Azure Classic : cliquez sur le déploiement de votre service cloud, cliquez sur **TABLEAU DE BORD**, cliquez sur le coin inférieur droit de la page (sous **Aperçu rapide**). N'oubliez pas que ce volet n’affiche aucun titre « Propriétés ».
 
-> [AZURE.NOTE]Vous pouvez copier le contenu du volet Propriétés dans le Presse-papiers en cliquant sur l’icône dans le coin supérieur droit du volet.
+> [AZURE.NOTE] Vous pouvez copier le contenu du volet Propriétés dans le Presse-papiers en cliquant sur l’icône dans le coin supérieur droit du volet.
 
 ## Contacter le Support technique Azure
 
-Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/).
+Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/).
 
-Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 
@@ -80,7 +80,7 @@ Pour plus d’informations sur la façon de résoudre ce problème, consultez le
    * Si l’instance de rôle est occupée, vérifiez votre code d’application pour voir si l’événement [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) est géré. Vous devrez peut-être ajouter ou corriger le code qui gère cet événement.
    * Passez en revue les données de diagnostic et les scénarios de résolution des problèmes dans le billet de blog [Données de diagnostic de calcul PaaS Azure].
 
->[AZURE.WARNING]Si vous redémarrez votre service cloud, vous réinitialisez les propriétés de déploiement, et effacez ainsi efficacement les informations du problème d’origine.
+>[AZURE.WARNING] Si vous redémarrez votre service cloud, vous réinitialisez les propriétés de déploiement, et effacez ainsi efficacement les informations du problème d’origine.
 
 ## Étapes suivantes
 
@@ -88,4 +88,4 @@ Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-i
 
 Pour savoir comment résoudre le problème des rôles de service Cloud à l’aide des données de diagnostic d’ordinateur Azure PaaS, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

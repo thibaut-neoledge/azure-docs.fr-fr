@@ -23,9 +23,9 @@ Cet article analyse les différences et les ressemblances entre deux types de fi
 
 Microsoft Azure prend en charge deux types de mécanismes de file d'attente : **files d'attente Azure** et **files d'attente Service Bus**.
 
-Les **files d'attente Azure**, qui font partie de l'infrastructure de [stockage Azure](http://azure.microsoft.com/services/storage/), inclut une simple interface Get/Put/Peek basée sur REST, fournissant une messagerie fiable et persistante au sein des services et entre les différents services.
+Les **files d'attente Azure**, qui font partie de l'infrastructure de [stockage Azure](https://azure.microsoft.com/services/storage/), inclut une simple interface Get/Put/Peek basée sur REST, fournissant une messagerie fiable et persistante au sein des services et entre les différents services.
 
-Les **files d'attente Service Bus** font partie d'une infrastructure de [messagerie Azure](http://azure.microsoft.com/services/service-bus/) plus large prenant en charge la mise en file d'attente, ainsi que la publication/l'abonnement, l'accès distant au service Web et les modèles d'intégration. Pour plus d'informations sur les files d'attente Service Bus, les rubriques/abonnements et les relais, consultez [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md).
+Les **files d'attente Service Bus** font partie d'une infrastructure de [messagerie Azure](https://azure.microsoft.com/services/service-bus/) plus large prenant en charge la mise en file d'attente, ainsi que la publication/l'abonnement, l'accès distant au service Web et les modèles d'intégration. Pour plus d'informations sur les files d'attente Service Bus, les rubriques/abonnements et les relais, consultez [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md).
 
 Bien que les deux technologies de file d'attente coexistent, les files d'attente Azure ont été introduites en premier, en tant que mécanisme de stockage de file d'attente dédié basé sur les services de stockage Azure. Les files d’attente Service Bus sont basées sur l’infrastructure de « messagerie répartie » plus large conçue pour intégrer des applications ou des composants d’applications qui peuvent s’étendre sur plusieurs protocoles de communication, contrats de données, domaines de confiance et/ou environnements réseau.
 
@@ -273,7 +273,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
+|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
 |Opérations facturables|**Toutes**|**Envoi/réception uniquement**<br/><br/>(aucun frais pour les autres opérations)|
 |Transactions inactives|**Facturables**<br/><br/>(l'interrogation d'une file d'attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/><br/>(une réception sur une file d'attente vide est considérée comme un message facturable)|
 |Coût de stockage|**0,07 $**<br/><br/>(par Go/mois)|**0,00 $**|
@@ -289,7 +289,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Étant donné la prise en charge de l'interrogation longue, l'utilisation de files d'attente Service Bus peut être rentable dans les situations où une remise à latence faible est requise.
 
->[AZURE.NOTE]Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](http://azure.microsoft.com/pricing/). Pour plus d’informations sur la tarification Service Bus, consultez [Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](https://azure.microsoft.com/pricing/). Pour plus d’informations sur la tarification Service Bus, consultez [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 
@@ -315,4 +315,4 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 [portail Azure Classic]: http://manage.windowsazure.com
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

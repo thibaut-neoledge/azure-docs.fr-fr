@@ -33,7 +33,7 @@ Les principales différences sont répertoriées dans le tableau ci-dessous.
 
 La **messagerie Azure Service Bus Premium** isole les ressources au niveau des couches processeur et mémoire, ce qui permet d’exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé une *unité de messagerie*. Au moins une unité de messagerie est allouée à chaque espace de noms premium. Vous pouvez acheter une, deux ou quatre unités de messagerie pour chaque espace de noms Service Bus Premium. Une entité ou une charge de travail unique peut couvrir plusieurs unités de messagerie et le nombre d’unités de messagerie peut être modifié à volonté. En revanche, les frais qui vous sont facturés sont établis par période de 24 heures. Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables,
 
-mais aussi supérieures. La messagerie Azure Service Bus Premium s’appuie sur le moteur de stockage introduit dans [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/). La messagerie Premium offre des performances de pointe bien supérieures à celle de la couche Standard.
+mais aussi supérieures. La messagerie Azure Service Bus Premium s’appuie sur le moteur de stockage introduit dans [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). La messagerie Premium offre des performances de pointe bien supérieures à celle de la couche Standard.
 
 ## Différences techniques de la messagerie Premium
 
@@ -49,7 +49,7 @@ La messagerie Premium s’exécutant dans un environnement d’exécution compl�
 
 ## Étapes suivantes
 
-Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes.
+Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 
 - [Présentation de la messagerie Azure Service Bus Premium (billet de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Présentation de la messagerie Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
@@ -57,4 +57,4 @@ Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suiva
 - [Présentation de l'architecture d'Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

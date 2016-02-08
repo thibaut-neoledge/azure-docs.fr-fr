@@ -24,7 +24,7 @@ Consultez la page [Présentation du réseau virtuel](virtual-networks-overview.m
 
 ### Comment faire pour démarrer ?
 
-Voir [Documentation du réseau virtuel](http://azure.microsoft.com/documentation/services/virtual-network/)pour commencer. Cette page comporte des liens vers les étapes de configuration courantes, ainsi que des informations qui vous aideront à comprendre les éléments à prendre en considération lors de la conception du réseau virtuel.
+Voir [Documentation du réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/)pour commencer. Cette page comporte des liens vers les étapes de configuration courantes, ainsi que des informations qui vous aideront à comprendre les éléments à prendre en considération lors de la conception du réseau virtuel.
 
 ### Quels services puis-je utiliser avec les réseaux virtuels ?
 
@@ -143,7 +143,7 @@ Oui. Vous pouvez modifier la liste des serveurs DNS de votre réseau virtuel à 
 
 Le serveur DNS fourni par Azure est un serveur DNS mutualisé proposé par Microsoft. Azure enregistre toutes vos machines virtuelles et instances de rôle dans ce service. Ce service fournit la résolution de noms par nom d’hôte pour les machines virtuelles et les instances de rôles contenues dans le même service cloud et par nom de domaine complet pour les machines virtuelles et les instances de rôle du même réseau virtuel.
 
-> [AZURE.NOTE]Il existe pour l’instant une limitation aux 100 premiers services cloud du réseau virtuel pour la résolution de nom inter-clients à l’aide du serveur DNS fourni par Azure. Si vous utilisez votre propre serveur DNS, cette restriction ne s’applique pas.
+> [AZURE.NOTE] Il existe pour l’instant une limitation aux 100 premiers services cloud du réseau virtuel pour la résolution de nom inter-clients à l’aide du serveur DNS fourni par Azure. Si vous utilisez votre propre serveur DNS, cette restriction ne s’applique pas.
 
 ### Puis-je remplacer mes paramètres DNS sur la base machine virtuelle/service ?
 
@@ -193,7 +193,7 @@ Non. Vous ne devez pas modifier les propriétés d’interface des machines virt
 
 Rien. Les adresses IP (adresse virtuelle publique et adresse IP interne) sont conservées avec votre service cloud ou votre machine virtuelle.
 
-> [AZURE.NOTE]Si vous voulez simplement arrêter la machine virtuelle, n’utilisez pas le portail de gestion pour ce faire. Actuellement, le bouton d’arrêt désalloue la machine virtuelle.
+> [AZURE.NOTE] Si vous voulez simplement arrêter la machine virtuelle, n’utilisez pas le portail de gestion pour ce faire. Actuellement, le bouton d’arrêt désalloue la machine virtuelle.
 
 ### Puis-je déplacer des machines virtuelles d’un sous-réseau vers un autre sous-réseau dans un réseau virtuel sans redéploiement ?
 
@@ -224,9 +224,9 @@ Oui. Vous pouvez déployer des applications Web à l'intérieur d'un réseau vir
 
 - [Création d'applications web dans un environnement App Service](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
-- [Intégration au réseau virtuel d’applications web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Intégration au réseau virtuel d’applications web](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
-- [Utilisation de l’intégration au réseau virtuel et des connexions hybrides avec les applications web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
+- [Utilisation de l’intégration au réseau virtuel et des connexions hybrides avec les applications web](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Intégrer une application web à un réseau virtuel Azure](web-sites-integrate-with-vnet.md)
 
@@ -266,4 +266,4 @@ Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux
 
 Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

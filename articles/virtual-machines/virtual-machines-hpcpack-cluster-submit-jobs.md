@@ -39,7 +39,7 @@ Pour activer une interface REST afin d’envoyer des travaux au cluster via HTTP
 
 Pour obtenir des procédures détaillées, consultez [Installer les composants web de Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP]Certains modèles de démarrage rapide Azure installent et configurent automatiquement les composants web. Si vous utilisez le [script de déploiement du HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster, vous pouvez éventuellement installer et configurer les composants web dans le cadre du déploiement.
+>[AZURE.TIP] Certains modèles de démarrage rapide Azure installent et configurent automatiquement les composants web. Si vous utilisez le [script de déploiement du HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) pour créer le cluster, vous pouvez éventuellement installer et configurer les composants web dans le cadre du déploiement.
 
 **Pour installer les composants web**
 
@@ -66,7 +66,7 @@ Pour obtenir des procédures détaillées, consultez [Installer les composants w
 
 4. Lorsque vous êtes invité à sélectionner un certificat, choisissez le certificat qui correspond au nom DNS public du nœud principal. Par exemple, si vous utilisez le script de déploiement HPC Pack IaaS pour créer le cluster, le nom du certificat est au format CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Si vous utilisez un modèle de démarrage rapide Azure, le nom du certificat est au format CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
 
-    >[AZURE.NOTE]Vous devez sélectionner ce certificat pour envoyer des travaux ultérieurement au nœud principal à partir d’un ordinateur local. Ne sélectionnez pas ou ne configurez pas un certificat qui correspond au nom d’ordinateur du nœud principal dans le domaine Active Directory (par exemple, CN=*MyHPCHeadNode.HpcAzure.local*).
+    >[AZURE.NOTE] Vous devez sélectionner ce certificat pour envoyer des travaux ultérieurement au nœud principal à partir d’un ordinateur local. Ne sélectionnez pas ou ne configurez pas un certificat qui correspond au nom d’ordinateur du nœud principal dans le domaine Active Directory (par exemple, CN=*MyHPCHeadNode.HpcAzure.local*).
 
 5. Pour configurer le portail web de soumission de travaux, tapez la commande suivante :
 
@@ -114,7 +114,7 @@ Pour utiliser les outils clients du HPC Pack pour envoyer des travaux à la mach
 
 
 
->[AZURE.SECURITY]Un avertissement de sécurité peut s’afficher lorsque l’autorité de certification sur le nœud principal n’est pas reconnue par l’ordinateur client. À des fins de test, vous pouvez ignorer cet avertissement et terminer l’importation du certificat.
+>[AZURE.SECURITY] Un avertissement de sécurité peut s’afficher lorsque l’autorité de certification sur le nœud principal n’est pas reconnue par l’ordinateur client. À des fins de test, vous pouvez ignorer cet avertissement et terminer l’importation du certificat.
 
 ## Étape 3 : Exécuter des travaux test sur le cluster
 
@@ -134,7 +134,7 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP]Utilisez le nom DNS complet du nœud principal, et non l’adresse IP, dans l’URL du planificateur. Si vous spécifiez l’adresse IP, vous verrez une erreur du type : « Le certificat de serveur doit utiliser une chaîne de confiance valide ou être placé dans le magasin racine de confiance ».
+    >[AZURE.TIP] Utilisez le nom DNS complet du nœud principal, et non l’adresse IP, dans l’URL du planificateur. Si vous spécifiez l’adresse IP, vous verrez une erreur du type : « Le certificat de serveur doit utiliser une chaîne de confiance valide ou être placé dans le magasin racine de confiance ».
 
 3. Quand vous y êtes invité, tapez le nom d'utilisateur (au format &lt;NomDomaine&gt;\\&lt;NomUtilisateur&gt;) et le mot de passe de l'administrateur de cluster HPC ou d'un autre utilisateur de cluster que vous avez configuré. Vous pouvez choisir de stocker les informations d’identification localement pour effectuer d’autres opérations.
 
@@ -188,4 +188,4 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

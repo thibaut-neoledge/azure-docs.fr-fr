@@ -22,6 +22,11 @@ Si vous avez déjà intégré une version antérieure d'Engagement dans votre ap
 
 Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure « Migration de 0.9.0 vers 0.10.1 », puis la procédure « Migration de 0.10.1 vers 0.11.0 ».
 
+##De 3.2.0 à 3.3.0
+
+### Ressources
+Cette étape concerne uniquement les ressources personnalisées. Si vous avez personnalisé les ressources fournies par le Kit de développement logiciel (HTML, images, superposition), vous devez ensuite les sauvegarder avant de les mettre à niveau et réappliquer votre personnalisation sur les ressources mises à niveau.
+
 ##De 3.1.0 à 3.2.0
 
 ### Ressources
@@ -151,7 +156,7 @@ Cette étape concerne uniquement les ressources personnalisées. Si vous avez pe
 
 La section qui suit décrit comment migrer une intégration du SDK à partir du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement.
 
-> [Azure.IMPORTANT]Capptain et Engagement Mobile ne sont pas les mêmes services et la procédure décrite ci-dessous explique uniquement comment migrer l'application cliente. La migration du SDK dans l'application ne migre PAS vos données des serveurs Capptain vers les serveurs Engagement Mobile.
+> [Azure.IMPORTANT] Capptain et Engagement Mobile ne sont pas les mêmes services et la procédure décrite ci-dessous explique uniquement comment migrer l'application cliente. La migration du SDK dans l'application ne migre PAS vos données des serveurs Capptain vers les serveurs Engagement Mobile.
 
 Si vous migrez à partir d'une version antérieure, consultez le site web de Capptain pour migrer tout d'abord vers 1.1.1, puis appliquez la procédure suivante.
 
@@ -227,7 +232,7 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 		</engagement:EngagementPage>
 
 4. Modifications des pages de superposition
-	> [AZURE.IMPORTANT]La superposition change également. Son nouvel espace de noms est `Microsoft.Azure.Engagement.Overlay`. Il doit être utilisé dans les fichiers xaml et cs. En outre, `CapptainGrid` doit être nommé `EngagementGrid`, `capptain_notification_content` et `capptain_announcement_content` se nomment `engagement_notification_content` et `engagement_announcement_content`.
+	> [AZURE.IMPORTANT] La superposition change également. Son nouvel espace de noms est `Microsoft.Azure.Engagement.Overlay`. Il doit être utilisé dans les fichiers xaml et cs. En outre, `CapptainGrid` doit être nommé `EngagementGrid`, `capptain_notification_content` et `capptain_announcement_content` se nomment `engagement_notification_content` et `engagement_announcement_content`.
 	
 	Pour la superposition :
 	
@@ -289,4 +294,4 @@ Notez que ce changement affecte également les méthodes substituées.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

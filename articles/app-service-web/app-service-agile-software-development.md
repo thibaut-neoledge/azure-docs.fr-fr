@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/07/2016"
 	ms.author="cephalin"/>
 
 
@@ -67,23 +67,23 @@ Vous utiliserez également la stratégie de création de branchement typique, qu
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. Vous pouvez [activer les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement Visual Studio vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. Vous pouvez [activer les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
 >
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Configurer votre environnement de production ##
 
->[AZURE.NOTE]Le script utilisé dans ce didacticiel configure automatiquement la publication continue à partir de votre référentiel GitHub. Pour ce faire, vos informations d’identification GitHub doivent déjà être stockées dans Azure, sinon les scripts de déploiement échoueront lorsque vous tenterez de configurer les paramètres de contrôle de code source pour les applications web.
+>[AZURE.NOTE] Le script utilisé dans ce didacticiel configure automatiquement la publication continue à partir de votre référentiel GitHub. Pour ce faire, vos informations d’identification GitHub doivent déjà être stockées dans Azure, sinon les scripts de déploiement échoueront lorsque vous tenterez de configurer les paramètres de contrôle de code source pour les applications web.
 >
->Pour stocker vos informations d’identification GitHub dans Azure, créez une application web dans le [portail Azure](https://portal.azure.com) et [configurez le déploiement GitHub](web-sites-publish-source-control.md#Step7). Cette opération est unique.
+>Pour stocker vos informations d’identification GitHub dans Azure, créez une application web dans le [portail Azure](https://portal.azure.com/) et [configurez le déploiement GitHub](web-sites-publish-source-control.md#Step7). Cette opération est unique.
 
 Dans un scénario classique d’opérations de développement, vous disposez d’une application qui s’exécute dans Azure et vous souhaitez lui apporter des modifications par le biais de la publication continue. Dans ce scénario, vous disposez d’un modèle que vous avez développé, testé et utilisé pour déployer l’environnement de production. Vous allez le configurer dans cette section.
 
-1.	Créez votre branchement dans le référentiel [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Pour plus d’informations sur la création de votre branchement, voir [Branchement de référentiel](https://help.github.com/articles/fork-a-repo/). Une fois votre branchement créé, il est visible dans votre navigateur.
+1.	Créez votre branchement dans le référentiel [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Pour plus d’informations sur la création de votre branchement, consultez [Branchement dans un référentiel](https://help.github.com/articles/fork-a-repo/). Une fois votre branchement créé, il est visible dans votre navigateur.
  
 	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
-2.	Ouvrez une session Git Shell. Si vous n’avez pas encore Git Shell, installez [GitHub pour Windows](https://windows.github.com/).
+2.	Ouvrez une session Git Shell. Si vous n’avez pas encore Git Shell, installez [GitHub for Windows](https://windows.github.com/).
 
 3.	Créez un clone local de votre branchement en exécutant la commande suivante :
 
@@ -99,7 +99,7 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Examinez *&lt;racine\_référentiel>*\\ARMTemplates\\Deploy.ps1 pour voir comment il génère des ressources avec des ID uniques. Vous pouvez utiliser la même approche pour créer des clones de déploiement sans vous soucier des noms de ressource en conflit.
+	>[AZURE.TIP] Examinez *&lt;racine\_référentiel>*\\ARMTemplates\\Deploy.ps1 pour voir comment il génère des ressources avec des ID uniques. Vous pouvez utiliser la même approche pour créer des clones de déploiement sans vous soucier des noms de ressource en conflit.
  
 6.	De retour dans votre session Git Shell, exécutez :
 
@@ -109,7 +109,7 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
 
 7.	Lorsque le script se termine, revenez en arrière pour accéder à l’adresse du serveur frontal (http://ToDoApp*&lt;unique_string> * master.azurewebsites.net/) afin d’afficher l’application qui s’exécute en production.
  
-5.	Connectez-vous au [portail Azure](https://portal.azure.com) et observez ce qui est créé.
+5.	Connectez-vous au [portail Azure](https://portal.azure.com/) et observez ce qui est créé.
 
 	Les deux applications web doivent figurer dans le même groupe de ressources, et le nom de l’une d’elles doit comporter le suffixe `Api`. Si vous examinez l’affichage de groupe de ressources, vous pouvez voir également la base de données et le serveur SQL, le plan App Service et les emplacements intermédiaires pour les applications web. Parcourez les différentes ressources et comparez-les à *&lt;racine\_référentiel>*\\ARMTemplates\\ProdAndStage.json pour voir comment elles sont configurées dans le modèle.
 
@@ -152,7 +152,7 @@ Vous venez de configurer l’environnement de production. Vous allez lancer une 
 	-	Votre environnement de développement s’exécute dans Azure.
 	-	La suppression de l’environnement de développement est aussi simple que la suppression du groupe de ressources. Vous découvrirez [ultérieurement](#delete) comment procéder.
 
->[AZURE.NOTE]Lorsque plusieurs développeurs travaillent sur la nouvelle mise à jour, chacun d’eux peut facilement créer un environnement de branche et de développement dédié en procédant comme suit :
+>[AZURE.NOTE] Lorsque plusieurs développeurs travaillent sur la nouvelle mise à jour, chacun d’eux peut facilement créer un environnement de branche et de développement dédié en procédant comme suit :
 >
 >1.	Créez leur branchement de référentiel dans GitHub (voir [Branchement de référentiel](https://help.github.com/articles/fork-a-repo/)).
 >2.	Clonez le branchement sur leur ordinateur local.
@@ -166,7 +166,7 @@ Vous devez disposer de six applications web (trois ensembles de deux application
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
  
->[AZURE.NOTE]Notez que ProdandStage.json ordonne à l’environnement de production d’utiliser le niveau de tarification **Standard**, qui est approprié pour l’extensibilité de l’application de production.
+>[AZURE.NOTE] Notez que ProdandStage.json ordonne à l’environnement de production d’utiliser le niveau de tarification **Standard**, qui est approprié pour l’extensibilité de l’application de production.
 
 ## Générer et tester chaque validation ##
 
@@ -180,7 +180,7 @@ Les fichiers de modèle ProdAndStage.json et Dev.json comportent déjà les para
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
-	>[AZURE.NOTE]Si vous ne pouvez pas lire l’image ci-dessus :
+	>[AZURE.NOTE] Si vous ne pouvez pas lire l’image ci-dessus :
 	>
 	>- Ligne 18, remplacez `check-list` par `list-group`.
 	>- Ligne 19, remplacez `class="check-list-item"` par `class="list-group-item"`.
@@ -258,9 +258,8 @@ Comme vous avez volontairement conçu vos environnements de développement et de
 	git push origin :Dev
 	git branch -d NewUpdate
 	git push origin :NewUpdate
-	Switch-AzureMode AzureResourceManager
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## Résumé ##
 
@@ -281,4 +280,4 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

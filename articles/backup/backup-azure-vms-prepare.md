@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Préparation de votre environnement pour la sauvegarde des machines virtuelles Azure | Microsoft Azure"
-	description="Assurez-vous que votre environnement est prêt pour la sauvegarde des machines virtuelles Azure"
+	description="Assurez-vous que votre environnement est prêt pour la sauvegarde de machines virtuelles dans Azure"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="sauvegardes ; sauvegarde ;"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
-# Préparer votre environnement pour la sauvegarde des machines virtuelles Azure
-Avant de sauvegarder une machine virtuelle Azure, vous devez remplir ces conditions préalables requises pour préparer votre environnement. Si vous l’avez déjà fait, vous pouvez démarrer la [sauvegarde de vos machines virtuelles](backup-azure-vms.md). Sinon, exécutez les étapes ci-dessous pour vérifier que votre environnement est prêt.
 
+# Préparer votre environnement pour la sauvegarde des machines virtuelles Azure
+
+Avant de sauvegarder une machine virtuelle Azure, vous devez remplir ces conditions préalables. Si vous avez déjà préparé votre environnement pour les sauvegardes, vous pouvez commencer dès maintenant à [sauvegarder vos machines virtuelles](backup-azure-vms.md). Sinon, exécutez les étapes ci-dessous pour vérifier que votre environnement est prêt.
 
 ## 1\. Archivage de sauvegarde
 
@@ -79,7 +81,7 @@ Le compromis se fait entre la possibilité de gestion, le contrôle granulaire e
 ### Utilisation d’un proxy HTTP pour les sauvegardes de machine virtuelle
 Lorsque vous sauvegardez une machine virtuelle, les commandes de gestion de capture instantanée sont envoyées à partir de l’extension de sauvegarde vers le stockage Azure à l’aide d’une API HTTPS. Ce trafic doit être acheminé depuis l’extension au moyen du proxy, car seul le proxy est configuré pour avoir accès à l’Internet public.
 
->[AZURE.NOTE]Il n’existe aucune recommandation pour le logiciel de serveur proxy qui doit être utilisé. Assurez-vous de choisir un proxy compatible avec les étapes de configuration ci-dessous.
+>[AZURE.NOTE] Il n’existe aucune recommandation pour le logiciel de serveur proxy qui doit être utilisé. Assurez-vous de choisir un proxy compatible avec les étapes de configuration ci-dessous.
 
 Dans l’exemple ci-dessous, la machine virtuelle d’application doit être configurée pour utiliser la machine virtuelle de proxy pour tout le trafic HTTP pour l’Internet public. La machine virtuelle de proxy doit être configurée pour autoriser le trafic entrant depuis des machines virtuelles dans le réseau virtuel. Enfin, le groupe de sécurité réseau (nommé *verrou de sécurité réseau*) a besoin d’une nouvelle règle de sécurité qui autorise le trafic Internet sortant à partir de la machine virtuelle de proxy.
 
@@ -159,7 +161,7 @@ L’agent de machine virtuelle est déjà présent dans les machines virtuelles 
 | Validation de l’installation de l’agent de machine virtuelle | <li>Accédez au dossier *C:\\WindowsAzure\\Packages* dans la machine virtuelle Azure. <li>Le fichier WaAppAgent.exe doit être présent.<li> Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure. | - |
 
 
-En savoir plus sur l’[agent de machine virtuelle](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) et [comment l’installer](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+En savoir plus sur l’[agent de machine virtuelle](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) et [comment l’installer](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ### Extension de sauvegarde
 
@@ -176,7 +178,7 @@ L’extension de sauvegarde est installée si la machine virtuelle est en cours 
 - La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 - Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Commencez par supprimer la machine virtuelle existante et tous les disques associés, puis restaurez les données de sauvegarde.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
-- La sauvegarde de machines virtuelles à l’aide du service Azure Backup est prise en charge dans toutes les régions publiques d’Azure (voir la [liste](http://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
+- La sauvegarde de machines virtuelles à l’aide du service Azure Backup est prise en charge dans toutes les régions publiques d’Azure (voir la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est prise en charge que pour certaines versions de système d’exploitation :
   - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
   - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
@@ -195,4 +197,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Sauvegarde de machines virtuelles](backup-azure-vms.md)
 - [Gestion des sauvegardes de machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

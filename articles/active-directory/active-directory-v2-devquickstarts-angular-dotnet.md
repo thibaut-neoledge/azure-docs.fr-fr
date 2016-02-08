@@ -223,6 +223,6 @@ Pour poursuivre l’apprentissage sur la version préliminaire du modèle d’ap
 
 - [Exemples Azure sur GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD sur Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+- Documentation Azure AD sur [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

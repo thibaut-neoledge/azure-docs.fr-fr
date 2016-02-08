@@ -2,13 +2,14 @@
  pageTitle="Solutions préconfigurées IoT Azure | Microsoft Azure"
  description="Description des solutions préconfigurées IoT Azure et de leur architecture avec des liens vers des ressources supplémentaires."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -92,7 +93,7 @@ Le portail de la solution est une interface utilisateur web qui est déployée d
 - Envoyer des commandes à des appareils spécifiques.
 - Gérer les règles et les actions.
 
-> [AZURE.NOTE]Le portail de la solution assure également la synchronisation du [Registre d’identités d’appareils][lnk-identity-registry] IoT Hub avec la banque d’informations d’état d’appareils enrichie dans la base de données DocumentDB de la solution.
+> [AZURE.NOTE] Le portail de la solution assure également la synchronisation du [Registre d’identités d’appareils][lnk-identity-registry] IoT Hub avec la banque d’informations d’état d’appareils enrichie dans la base de données DocumentDB de la solution.
 
 Dans cette solution préconfigurée, le portail de la solution fait partie du *serveur principal de solution IoT* et de la *connectivité de traitement et d’entreprise* dans une [architecture de solution IoT][lnk-what-is-azure-iot] standard.
 
@@ -115,4 +116,4 @@ Explorez ces ressources pour en savoir plus sur les solutions IoT préconfiguré
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

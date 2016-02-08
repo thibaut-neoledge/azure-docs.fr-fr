@@ -158,7 +158,7 @@ Pour plus d’informations sur les valeurs de filtre possibles, consultez la doc
 
 ## Event Hubs
 
-[Event Hubs](http://azure.microsoft.com/services/event-hubs/) est un service de traitement des événements utilisé pour fournir des entrées d’événements et de télémétrie dans Azure à grande échelle, avec faible latence et fiabilité élevée. Ce service, lorsqu’il est utilisé avec d’autres services en aval, est particulièrement utile pour l’instrumentation de l’application, le traitement du workflow ou de l’expérience utilisateur, et les scénarios de l’Internet des Objets (IoT).
+[Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un service de traitement des événements utilisé pour fournir des entrées d’événements et de télémétrie dans Azure à grande échelle, avec faible latence et fiabilité élevée. Ce service, lorsqu’il est utilisé avec d’autres services en aval, est particulièrement utile pour l’instrumentation de l’application, le traitement du workflow ou de l’expérience utilisateur, et les scénarios de l’Internet des Objets (IoT).
 
 Les concentrateurs d’événements sont une construction de diffusion de message, et bien qu’ils ressemblent aux files d’attente et aux rubriques, leurs caractéristiques sont très différentes. Par exemple, les concentrateurs d’événements ne fournissent pas de message TTL, de lettres mortes, de transactions ou d’accusés de réception comme ils le sont pour les fonctions de messagerie répartie traditionnelle sans diffusion en continu. Les concentrateurs d’événements fournissent d’autres fonctionnalités de flux de données telles que le partitionnement, conservation de l’ordre et relecture du flux de données.
 
@@ -172,4 +172,4 @@ Consultez la rubrique avancée suivante pour obtenir d’autres informations et 
 - [Guide du développeur pour les concentrateurs d'événements](../event-hubs/event-hubs-programming-guide.md)
 - [Messagerie répartie : filtres avancés](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

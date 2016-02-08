@@ -1,29 +1,28 @@
-<properties 
-	pageTitle="Référence du pool de bases de données élastique SQL Microsoft Azure" 
-	description="Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Référence du pool de base de données élastique pour SQL Database | Microsoft Azure" 
+	description="Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité."
+	keywords="eDTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="12/01/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
 # Référence du pool de bases de données élastiques SQL
 
-Pour les développeurs SaaS chargés d’administrer des dizaines, des centaines, voire des milliers de bases de données, un pool de bases de données élastiques simplifie la création, la gestion et la maintenance des coûts autant que des performances, sur l’ensemble du groupe de bases de données.
+Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité. Pour les développeurs SaaS chargés d’administrer des dizaines, des centaines, voire des milliers de bases de données, un pool de bases de données élastiques simplifie la création, la gestion et la maintenance des coûts autant que des performances, sur l’ensemble du groupe de bases de données.
 
-Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité.
-
-## Vue d’ensemble
+## Vue d'ensemble
 
 Un pool de bases de données élastique est un ensemble d’unités de débit de base de données élastiques (eDTU) et d’unités de stockage (Go) qui sont partagées par plusieurs bases de données. Vous pouvez à tout moment ajouter des éléments dans les bases de données élastiques, et supprimer des bases de données dans le pool. Les bases de données élastiques du pool utilisent uniquement les ressources qu’il leur faut dans le pool, libérant les ressources disponibles à l’attention des bases de données qui les requièrent, exclusivement. Pour obtenir de l’aide pour déterminer si vos bases de données tireraient parti d’un pool de base de données élastique, consultez [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
 
@@ -45,7 +44,7 @@ Un pool de bases de données élastique est un ensemble d’unités de débit de
 
     | Niveau de service | Bases de données max. par pool* | eDTU max. par pool* |
     | :-- | :-- | :-- |
-    | De base | 200 | 1 200 | 
+    | De base | 200 | 1 200 |
     | Standard | 200 | 1 200 |
     | Premium | 50 | 1 500 |
 
@@ -102,10 +101,10 @@ La limite de stockage du pool est déterminée par le nombre d’eDTU de ce dern
 
 | Propriété | De base | Standard | Premium |
 | :-- | :-- | :-- | :-- |
-| dtu | **100**, 200, 400, 800, 1 200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
+| dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
 | databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
 | databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
-| storageMB* | **10 000 Mo**, 20 000 Mo, 40 000 Mo, 80 000 Mo, 120 000 Mo | **100 Go**, 200 Go, 400 Go, 800 Go, 1200 Go | **62,5 Go**, 125 Go, 250 Go, 500 Go, 750 Go |
+| storageMB* | **10 000 Mo**, 20 000 Mo, 40 000 Mo, 80 000 Mo, 120 000 Mo | **100 Go**, 200 Go, 400 Go, 800 Go, 1 200 Go | **62,5 GB**, 125 Go, 250 Go, 500 Go, 750 Go |
 | stockage par DTU | 100 Mo | 1 Go | 5 Go |
 | bases de données max. par pool | 200 | 200 | 50 |
 
@@ -140,8 +139,8 @@ Les serveurs de base de données SQL Azure version 12 sont situés dans des gr
 
 ## Latence des opérations du pool élastique
 
-- En général, le processus de modification du nombre d’eDTU garanti à chaque base de données (paramètre databaseDtuMin) ou du nombre maximal d’eDTU pour chaque base de données (paramètre databaseDtuMax) prend 5 minutes au maximum. 
-- Le processus de modification du nombre d’eDTU/de la limite de stockage (paramètre storageMB) dépend quant à lui de la quantité totale d’espace utilisé par toutes les bases de données du pool. Ce processus prend en moyenne 90 minutes au maximum, pour chaque tranche de 100 Go. Par exemple, si l’espace total utilisé par toutes les bases de données du pool est égal à 200 Go, une opération de modification de la limite de stockage/eDTU du pool prend 3 heures au maximum. 
+- En général, le processus de modification du nombre d’eDTU garanti à chaque base de données (paramètre databaseDtuMin) ou du nombre maximal d’eDTU pour chaque base de données (paramètre databaseDtuMax) prend 5 minutes au maximum.
+- Le processus de modification du nombre d’eDTU/de la limite de stockage (paramètre storageMB) dépend quant à lui de la quantité totale d’espace utilisé par toutes les bases de données du pool. Ce processus prend en moyenne 90 minutes au maximum, pour chaque tranche de 100 Go. Par exemple, si l’espace total utilisé par toutes les bases de données du pool est égal à 200 Go, une opération de modification de la limite de stockage/eDTU du pool prend 3 heures au maximum.
 
 
 
@@ -175,15 +174,15 @@ Vous pouvez utiliser Transact-SQL pour exécuter les tâches de gestion de la ba
 
 Les pools de bases de données élastiques sont facturés en fonction des caractéristiques suivantes :
 
-- Un pool élastique est facturé lors de sa création, même s’il n’inclut aucune base de données. 
-- Il est facturé toutes les heures. La fréquence de mesure est identique à celle des niveaux de performances associés aux bases de données uniques. 
-- Si un pool élastique est redimensionné en fonction d’un nouveau nombre d’eDTU, ce pool n’est pas facturé selon ce nouveau nombre, tant que l’opération de redimensionnement n’est pas terminée. Le processus est le même que lors de la modification du niveau de performances des bases de données autonomes. 
+- Un pool élastique est facturé lors de sa création, même s’il n’inclut aucune base de données.
+- Il est facturé toutes les heures. La fréquence de mesure est identique à celle des niveaux de performances associés aux bases de données uniques.
+- Si un pool élastique est redimensionné en fonction d’un nouveau nombre d’eDTU, ce pool n’est pas facturé selon ce nouveau nombre, tant que l’opération de redimensionnement n’est pas terminée. Le processus est le même que lors de la modification du niveau de performances des bases de données autonomes.
 
 
 - Le prix d’un pool élastique est basé sur le nombre d’eDTU de ce pool. Le prix d’un pool élastique est indépendant de l’utilisation des bases de données élastiques qu’il contient.
 - Le prix est calculé comme suit : le nombre d’eDTUs d’un pool x le prix unitaire par eDTU.
 
-Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire des DTU d’une base de données autonome au sein du même niveau de service. Pour en savoir plus, voir [Tarification de la base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire des DTU d’une base de données autonome au sein du même niveau de service. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Erreurs du pool de bases de données élastiques
 
@@ -210,4 +209,4 @@ Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire
 | 40891 | EX\_USER | Le nombre minimal de DTU par base de données (%d) ne peut pas dépasser le nombre maximal de DTU par base de données (%d). | Nombre minimal de DTU par base de données, nombre maximal de DTU par base de données. | Tentative de définition d’un nombre minimal de DTU par base de données supérieur au nombre maximal de DTU par base de données. | Vérifiez que le nombre minimal de DTU par base de données ne dépasse pas le nombre maximal de DTU par base de données. |
 | TBD | EX\_USER | La taille de l’espace de stockage d’une base de données individuelle dans un pool élastique ne peut pas dépasser la taille maximale autorisée par le pool élastique de niveau de service '%.*ls'. | Niveau de service du pool élastique | La taille maximale de la base de données dépasse la taille maximale autorisée par le niveau de service du pool élastique. | Définissez la taille maximale de la base de données dans les limites de la taille maximale autorisée par le niveau de service du pool élastique. |
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

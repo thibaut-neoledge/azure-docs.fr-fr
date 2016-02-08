@@ -36,7 +36,7 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 
 	- **Journalisation du stockage** enregistre chaque demande aux services de stockage Azure dans un journal côté serveur. Le journal assure le suivi des données détaillées de chaque demande, y compris l'opération effectuée, son statut et les informations de latence. Pour plus d’informations sur les données de demande et de réponse qui sont écrites dans les journaux par Storage Analytics, voir la page [Format de journal de Storage Analytics](http://msdn.microsoft.com/library/azure/hh343259.aspx).
 
-- **Portail Azure Classic**. Vous pouvez configurer les métriques et la journalisation pour votre compte de stockage dans le [portail Azure Classic](manage.windowsazure.com). Vous pouvez également afficher des tableaux et graphiques illustrant le fonctionnement de votre application au fil du temps, et configurer des alertes dans le portail pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
+- **Portail Azure Classic**. Vous pouvez configurer les métriques et la journalisation pour votre compte de stockage dans le [portail Azure Classic](https://manage.windowsazure.com). Vous pouvez également afficher des tableaux et graphiques illustrant le fonctionnement de votre application au fil du temps, et configurer des alertes dans le portail pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
 	
 	Pour plus d’informations sur la configuration de la surveillance sur le portail Azure Classic, consultez [Surveillance d’un compte de stockage dans le portail de gestion Azure](storage-monitor-storage-account.md).
 
@@ -88,13 +88,13 @@ Dans ce didacticiel, nous allons utiliser Message Analyzer pour travailler avec 
 
 ### Configuration de la journalisation et des métriques côté serveur
 
-Tout d’abord, nous allons devoir configurer la journalisation et les métriques Azure Storage afin d’avoir des données de l’application cliente à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : à l’aide du [portail Azure Classic](manage.windowsazure.com), de PowerShell ou par programmation. Pour plus d’informations sur la configuration de la journalisation et des métriques, voir les pages [Activation de Storage Metrics et affichage des données de métriques](http://msdn.microsoft.com/library/azure/dn782843.aspx) et [Activation de la journalisation du stockage et accès aux données de journal](http://msdn.microsoft.com/library/azure/dn782840.aspx) sur MSDN.
+Tout d’abord, nous allons devoir configurer la journalisation et les métriques Azure Storage afin d’avoir des données de l’application cliente à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : à l’aide du [portail Azure Classic](https://manage.windowsazure.com), de PowerShell ou par programmation. Pour plus d’informations sur la configuration de la journalisation et des métriques, voir les pages [Activation de Storage Metrics et affichage des données de métriques](http://msdn.microsoft.com/library/azure/dn782843.aspx) et [Activation de la journalisation du stockage et accès aux données de journal](http://msdn.microsoft.com/library/azure/dn782840.aspx) sur MSDN.
 
 **Par le biais du portail Azure Classic.**
 
 Pour configurer la journalisation et les métriques pour votre compte de stockage à l’aide du portail, suivez les instructions de la page [Surveillance d’un compte de stockage dans le portail de gestion Azure](storage-monitor-storage-account.md).
 
-> [AZURE.NOTE]Il n’est pas possible de définir des métriques par minute à l’aide du portail Azure Classic. Toutefois, nous vous recommandons de les définir dans le cadre de ce didacticiel et pour examiner les problèmes de performances de votre application. Vous pouvez définir des métriques par minute à l’aide de PowerShell, comme indiqué ci-dessous, par programmation ou via le portail Azure Classic.
+> [AZURE.NOTE] Il n’est pas possible de définir des métriques par minute à l’aide du portail Azure Classic. Toutefois, nous vous recommandons de les définir dans le cadre de ce didacticiel et pour examiner les problèmes de performances de votre application. Vous pouvez définir des métriques par minute à l’aide de PowerShell, comme indiqué ci-dessous, par programmation ou via le portail Azure Classic.
 >
 > Notez que le portail Azure Classic ne peut pas afficher les métriques par minute, mais uniquement les métriques par heure.
 
@@ -164,7 +164,7 @@ Dans le didacticiel, collectez et enregistrez d'abord un suivi réseau dans Mess
 
 7. Fermez la boîte de dialogue, puis cliquez sur **Redémarrer** pour commencer à collecter le suivi avec le filtre de nom d'hôte en place, afin que seul le trafic réseau d'Azure Storage soit inclus dans le suivi.
 
->[AZURE.NOTE]Après avoir terminé la collecte de votre suivi réseau, nous vous recommandons fortement de rétablir les paramètres que vous avez éventuellement modifiés dans Fiddler pour déchiffrer le trafic HTTPS. Dans la boîte de dialogue Options de Fiddler, désactivez les cases à cocher **Capturer les CONNECT HTTPS** et **Déchiffrer le trafic HTTPS**.
+>[AZURE.NOTE] Après avoir terminé la collecte de votre suivi réseau, nous vous recommandons fortement de rétablir les paramètres que vous avez éventuellement modifiés dans Fiddler pour déchiffrer le trafic HTTPS. Dans la boîte de dialogue Options de Fiddler, désactivez les cases à cocher **Capturer les CONNECT HTTPS** et **Déchiffrer le trafic HTTPS**.
 
 Pour plus de détails, voir la page [Utilisation des fonctionnalités de suivi réseau](http://technet.microsoft.com/library/jj674819.aspx) sur Technet.
 
@@ -172,7 +172,7 @@ Pour plus de détails, voir la page [Utilisation des fonctionnalités de suivi r
 
 Une fois que votre application a fonctionné pendant une période donnée, vous pouvez consulter les graphiques des métriques qui apparaissent dans le portail Azure Classic pour observer la façon dont votre service a fonctionné. Tout d’abord, nous allons ajouter la métrique **Pourcentage de réussite** à la page de surveillance :
 
-1. Accédez au tableau de bord de votre compte de stockage dans le [portail Azure Classic](manage.windowsazure.com), puis sélectionnez **Surveiller** pour consulter la page de surveillance.
+1. Accédez au tableau de bord de votre compte de stockage dans le [portail Azure Classic](https://manage.windowsazure.com), puis sélectionnez **Surveiller** pour consulter la page de surveillance.
 2. Cliquez sur **Ajouter des métriques** pour afficher la boîte de dialogue **Choisir des métriques**.
 3. Faites défiler la page vers le bas jusqu’au groupe **Pourcentage de réussite**, développez-le, puis sélectionnez **Agrégation**, comme illustré ci-après. Cette métrique rassemble les données de pourcentage de réussite de toutes les opérations sur des objets blob.
 
@@ -184,7 +184,7 @@ Dans le portail Azure Classic, le **Pourcentage de réussites** apparaît désor
 
 Pour plus d’informations sur l’ajout de métriques à la page de surveillance, voir la page [Ajout de mesures au tableau des mesures](storage-monitor-storage-account.md#addmonitoringmetrics).
 
-> [AZURE.NOTE]Les données de vos métriques peuvent mettre un certain temps pour apparaître dans le portail Azure Classic après que vous avez activé les métriques de stockage. Cela résulte du fait que les métriques horaires correspondant à l’heure précédente ne sont pas affichées dans le portail Azure Classic tant que l’heure courante n’est pas écoulée. En outre, le portail Azure Classic n’affiche pas les métriques par minute. Donc, selon le moment où vous activez des métriques, l’affichage des données correspondantes peut prendre jusqu’à deux heures.
+> [AZURE.NOTE] Les données de vos métriques peuvent mettre un certain temps pour apparaître dans le portail Azure Classic après que vous avez activé les métriques de stockage. Cela résulte du fait que les métriques horaires correspondant à l’heure précédente ne sont pas affichées dans le portail Azure Classic tant que l’heure courante n’est pas écoulée. En outre, le portail Azure Classic n’affiche pas les métriques par minute. Donc, selon le moment où vous activez des métriques, l’affichage des données correspondantes peut prendre jusqu’à deux heures.
 
 ## Utiliser AzCopy pour copier les journaux de serveur dans un répertoire local
 
@@ -194,7 +194,7 @@ Vous pouvez utiliser l'outil en ligne de commande AzCopy pour télécharger ces 
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy est disponible en téléchargement sur la page [Téléchargements Azure](http://azure.microsoft.com/downloads/). Pour plus d'informations sur l'utilisation d'AzCopy, consultez la page [Prise en main de l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
+AzCopy est disponible en téléchargement sur la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). Pour plus d'informations sur l'utilisation d'AzCopy, consultez la page [Prise en main de l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
 Pour plus d'informations sur le téléchargement des journaux côté serveur, consultez la rubrique [Activation de la journalisation du stockage et accès aux données de journal](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
@@ -219,7 +219,7 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 
 ![Page de démarrage de Message Analyzer](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
-> [AZURE.NOTE]Installez toutes les ressources Azure Storage indiquées dans le cadre de ce didacticiel.
+> [AZURE.NOTE] Installez toutes les ressources Azure Storage indiquées dans le cadre de ce didacticiel.
 
 ### Importation de vos fichiers journaux dans Message Analyzer
 
@@ -263,7 +263,7 @@ L'illustration ci-dessous présente cette disposition de vue appliquée à l'exe
 
 ![Disposition de vue Azure Storage](./media/storage-e2e-troubleshooting-classic-portal/view-layout-client-request-id-module.png)
 
->[AZURE.NOTE]Différents fichiers journaux ont des colonnes différentes ; par conséquent, lorsque les données de plusieurs fichiers journaux sont affichées dans la grille d'analyse, il se peut que certaines colonnes ne contiennent pas toutes les données d'une ligne particulière. lignes du journal du client n'affichent pas toutes les données des colonnes **Timestamp**, **TimeElapsed**, **Source** et **Destination**, car ces colonnes n'existent pas dans le journal du client, mais existent dans le suivi du réseau. De même, la colonne **Timestamp** affiche les données d'horodatage du journal du serveur, mais aucune donnée n'est affichée pour les colonnes **TimeElapsed**, **Source** et **Destination**, qui ne font pas partie du journal du serveur.
+>[AZURE.NOTE] Différents fichiers journaux ont des colonnes différentes ; par conséquent, lorsque les données de plusieurs fichiers journaux sont affichées dans la grille d'analyse, il se peut que certaines colonnes ne contiennent pas toutes les données d'une ligne particulière. lignes du journal du client n'affichent pas toutes les données des colonnes **Timestamp**, **TimeElapsed**, **Source** et **Destination**, car ces colonnes n'existent pas dans le journal du client, mais existent dans le suivi du réseau. De même, la colonne **Timestamp** affiche les données d'horodatage du journal du serveur, mais aucune donnée n'est affichée pour les colonnes **TimeElapsed**, **Source** et **Destination**, qui ne font pas partie du journal du serveur.
 
 Outre les dispositions de vue Azure Storage, vous pouvez également définir et enregistrer vos propres dispositions. Vous pouvez également sélectionner d'autres champs souhaités pour le regroupement des données et enregistrer le regroupement dans le cadre de votre disposition personnalisée.
 
@@ -294,7 +294,7 @@ L'illustration ci-dessous montre les résultats du regroupement et du filtre. Si
 
 Après avoir appliqué ce filtre, vous verrez que les lignes du journal du client sont exclues, ce dernier n’incluant aucune colonne **StatusCode**. Pour commencer, nous allons revoir le serveur et les journaux de suivi du réseau pour rechercher les erreurs de la plage 404, puis revenir au journal du client pour examiner les opérations du client qui ont déclenché ces erreurs.
 
->[AZURE.NOTE]Vous pouvez filtrer sur la colonne **StatusCode** et continuer d'afficher les données des trois journaux, y compris du journal du client, si vous ajoutez au filtre une expression qui inclut des entrées de journal où le code d'état a la valeur null. Pour construire cette expression de filtre, utilisez :
+>[AZURE.NOTE] Vous pouvez filtrer sur la colonne **StatusCode** et continuer d'afficher les données des trois journaux, y compris du journal du client, si vous ajoutez au filtre une expression qui inclut des entrées de journal où le code d'état a la valeur null. Pour construire cette expression de filtre, utilisez :
 >
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
 >
@@ -350,7 +350,7 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
 | Augmentation de la valeur PercentTimeoutError (tous) |    *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
+| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | 
 | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
 | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
 | 404 (all) | *StatusCode == 404 | All |
@@ -375,4 +375,4 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

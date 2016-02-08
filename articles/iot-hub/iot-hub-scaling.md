@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="10/02/2015"
+ ms.date="01/20/2016"
  ms.author="elioda"/>
 
 # Mise à l’échelle IoT Hub
@@ -32,21 +32,14 @@ Outre ces informations sur le débit, consultez les [quotas et limitations IoT H
 
 ## Débit de message Appareil vers cloud et Cloud vers appareil.
 
-La meilleure façon de dimensionner une solution IoT Hub consiste à évaluer le trafic sur une base par appareil.
+La meilleure façon de dimensionner une solution IoT Hub consiste à évaluer le trafic sur une base par unité.
 
 Les messages Appareil vers cloud respectent les recommandations de débit soutenu.
 
 | Niveau | Débit soutenu | Vitesse de transmission soutenue |
 | ---- | -------------------- | ------------------- |
-| S1 | Jusqu’à 8 Ko/h par appareil | En moyenne, 4 messages/heure par appareil |
-| S2 | Jusqu’à 4 Ko/min par appareil | En moyenne, 2 messages/min par appareil |
-
-Lors de la réception des messages appareil vers cloud, le backend d’application peut prévoir les débits maximum suivants (pour tous les lecteurs).
-
-| Niveau | Débit soutenu |
-| ---- | -------------------- |
-| S1 | Jusqu’à 120 Ko/min par unité, avec 2 Mo/s minimum |
-| S2 | Jusqu’à 4 Mo/min par unité, avec 2 Mo/s minimum |
+| S1 | Jusqu'à 1 111 Ko/minute par unité<br/>(1,5 Go/jour/unité) | Moyenne de 278 messages/minute par unité<br/>(400 000 messages/jour par unité) |
+| S2 | Jusqu'à 16 Mo/minute par unité<br/>(22,8 Go/jour/unité) | Moyenne de 4 167 messages/minute par unité<br/>(6 millions de messages/jour par unité) |
 
 La performance des échelles des messages Cloud vers appareil, où chaque appareil reçoit jusqu’à 5 messages par minute.
 
@@ -73,4 +66,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

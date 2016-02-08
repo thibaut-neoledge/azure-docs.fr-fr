@@ -25,7 +25,7 @@
 ### Qu'est-ce que Microsoft Azure DocumentDB ? 
 Microsoft Azure DocumentDB est un service de base de données NoSQL orienté documents très évolutif qui propose des requêtes enrichies plutôt que des données sans schéma. Il offre des options de configuration et des performances fiables, tout en permettant un développement rapide. Tout cela est rendu possible grâce à une plateforme gérée, soutenue par la puissance et la portée de Microsoft Azure. DocumentDB est la solution idéale pour les applications web et mobiles lorsque le débit, la faible latence et le modèle de données sans schéma sont primordiaux. DocumentDB offre une flexibilité des schémas et une indexation riche par le biais d'un modèle de données JSON natif. Il inclut également un support transactionnel multi-documents avec JavaScript intégré.
   
-Pour plus de questions, de réponses et d’instructions sur le déploiement et l’utilisation de ce service, consultez la [page de documentation de DocumentDB](http://azure.microsoft.com/documentation/services/documentdb/).
+Pour plus de questions, de réponses et d’instructions sur le déploiement et l’utilisation de ce service, consultez la [page de documentation de DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 ### Quel type de base de données est DocumentDB ?
 DocumentDB est une base de données NoSQL orientée documents qui stocke les données au format JSON. DocumentDB prend en charge les structures imbriquées et autonomes qui peuvent être interrogées grâce à une [syntaxe de requête SQL](documentdb-sql-query.md) DocumentDB enrichie. DocumentDB offre un traitement transactionnel haute performance JavaScript côté serveur par le biais de [procédures stockées, de déclencheurs et de fonctions définies par l’utilisateur](documentdb-programming.md). La base de données prend également en charge des niveaux de cohérence ajustables avec les [niveaux de performances](documentdb-performance-levels.md) associés.
@@ -52,7 +52,7 @@ Les comptes DocumentDB peuvent être mis à l’échelle en termes de stockage e
 Pour plus d’informations, consultez la page [Tarification de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317). Les frais d’utilisation de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne et le [niveau de performances](documentdb-performance-levels.md) de chaque collection.
 
 ### Existe-t-il une version d'évaluation gratuite ?
-Si vous débutez avec Azure, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), qui vous offre 30 jours et 200 USD pour essayer tous les services Azure. Ou, si vous possédez un abonnement Visual Studio, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n’importe quel service Azure.
+Si vous débutez avec Azure, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), qui vous offre 30 jours et 200 USD pour essayer tous les services Azure. Ou, si vous possédez un abonnement Visual Studio, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n’importe quel service Azure.
 
 ### Comment puis-je obtenir une aide supplémentaire avec DocumentDB ?
 Si vous avez besoin d’aide, contactez-nous sur [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), les [Forums de développeurs Azure DNS DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou planifiez une [conversation 1:1 avec l’équipe d’ingénierie de DocumentDB](http://www.askdocdb.com/). Pour vous tenir informé des dernières nouveautés et fonctionnalités de DocumentDB, suivez-nous sur [Twitter](https://twitter.com/DocumentDB).
@@ -82,7 +82,7 @@ Vous pouvez créer des utilisateurs et des autorisations en utilisant un [Kit de
 ## Questions à propos du développement avec Microsoft Azure DocumentDB
 
 ### Comment développer avec DocumentDB ?
-Des [kits de développement logiciel (SDK)](https://msdn.microsoft.com/library/azure/dn781482.aspx) sont disponibles pour .NET, Python, Node.js, JavaScript et Java. Les développeurs peuvent également utiliser les [API RESTful HTTP](https://msdn.microsoft.com/library/azure/dn781481.aspx) pour interagir avec les ressources DocumentDB sur de nombreuses plateformes et dans de nombreux langages.
+Des [Kits de développement logiciel (SDK)](https://msdn.microsoft.com/library/azure/dn781482.aspx) sont disponibles pour .NET, Python, Node.js, JavaScript et Java. Les développeurs peuvent également utiliser les [API RESTful HTTP](https://msdn.microsoft.com/library/azure/dn781481.aspx) pour interagir avec les ressources DocumentDB sur de nombreuses plateformes et dans de nombreux langages.
 
 Des exemples de kits de développement logiciel (SDK) DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples) et [Python](https://github.com/Azure/azure-documentdb-python) sont disponibles sur GitHub.
 
@@ -115,4 +115,4 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # FAQ Azure AD Connect
@@ -83,11 +83,11 @@ Non. Cette option ne récupérera pas tous les paramètres de configuration et n
 
 [Forums Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=WindowsAzureAD)
 
-- Vous pouvez parcourir et rechercher des questions et des réponses techniques de la communauté ou poser votre question en cliquant [ici](https://social.msdn.microsoft.com/Forums/azure/fr-FR/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+- Vous pouvez naviguer et rechercher des questions et des réponses techniques de la communauté ou poser votre question en cliquant [ici](https://social.msdn.microsoft.com/Forums/azure/fr-FR/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 
 [Service clientèle Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
 - Cliquez sur ce lien pour bénéficier du support par le biais du portail Azure.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

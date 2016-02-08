@@ -26,7 +26,7 @@ L'accès à votre DevTest Lab s'accorde via deux rôles :
 
  - **Propriétaire** : les utilisateurs affectés au rôle **Propriétaire** au niveau de l'abonnement Azure ont un accès complet au labo, y compris aux fonctions de gestion et de surveillance.
 
-     >[AZURE.NOTE]Les rôles **Propriétaire** qui sont affectés aux niveaux RBAC autres que le niveau de l'abonnement ne sont pas pris en charge dans DevTest Lab. L'affectation d'un utilisateur au rôle **Propriétaire** dans DevTest Lab n'est pas prise en charge.
+     >[AZURE.NOTE] Les rôles **Propriétaire** qui sont affectés aux niveaux RBAC autres que le niveau de l'abonnement ne sont pas pris en charge dans DevTest Lab. L'affectation d'un utilisateur au rôle **Propriétaire** dans DevTest Lab n'est pas prise en charge.
 
  -  **Utilisateur DevTest Lab** : les utilisateurs affectés au rôle **Utilisateur DevTest Lab** peuvent créer, mettre à jour et supprimer des machines virtuelles dans le labo spécifié. Les utilisateurs peuvent être *internes* (membres d'Azure Active Directory pour l'abonnement) ou *externes* (utilisateurs non membres d'Azure AD, par exemple membres d'une organisation partenaire).
 	-  Un rôle **Utilisateur DevTest Lab** doit être affecté avec les vignettes **Ajouter des utilisateurs** du labo.
@@ -39,7 +39,7 @@ DevTest Lab considère le(s) propriétaire(s) d'un abonnement Azure qui contient
 
 Pour ajouter un propriétaire à un abonnement Azure où vous avez déjà créé ou allez créer des labos, procédez comme suit :
 
-1. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com).
+1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
 1. Dans la partie de gauche, cliquez sur **Abonnements**.
 
@@ -71,7 +71,7 @@ Pour ajouter un propriétaire à un abonnement Azure où vous avez déjà créé
 
 Pour ajouter un utilisateur DevTest Lab à votre labo, procédez comme suit :
 
-1. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com).
+1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
 1. Cliquez sur **Parcourir**.
 
@@ -101,4 +101,4 @@ Pour ajouter un utilisateur DevTest Lab à votre labo, procédez comme suit :
 
 	1. Le panneau **Utilisateurs** affiche les rôles et les utilisateurs ajoutés.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

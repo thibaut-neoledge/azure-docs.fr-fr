@@ -27,7 +27,7 @@ Cette extension permet à SQL Server dans Azure Virtual Machines d’utiliser ce
 ## Composants requis
 Configuration requise pour l’utilisation des applets de commande PowerShell :
 
-- Le dernier Kit de développement logiciel (SDK) de ligne de commande Azure [disponible ici](http://azure.microsoft.com/downloads/)
+- Le dernier Kit de développement logiciel (SDK) de ligne de commande Azure [disponible ici](https://azure.microsoft.com/downloads/)
 
 Configuration requise pour utiliser l’extension sur votre machine virtuelle :
 
@@ -49,7 +49,7 @@ Si vous configurez votre machine virtuelle SQL Server en utilisant le [portail 
 
 Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-AutoBackupSettings <paramètres\_sauvegarde\_automatique>] [-AutoPatchingSetttings <AutoPatchingSetttings>] [-Confirm] [-WhatIf] [<paramètres\_courants>]
 
-> [AZURE.NOTE]Il est recommandé d’omettre le paramètre – Version. S’il n’est pas spécifié, la valeur par défaut est la dernière version de l’extension.
+> [AZURE.NOTE] Il est recommandé d’omettre le paramètre – Version. S’il n’est pas spécifié, la valeur par défaut est la dernière version de l’extension.
 
 ### Exemple
 	Get-AzureVM –ServiceName serviceName –Name vmName | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
@@ -65,7 +65,7 @@ Vous pouvez également utiliser l’applet de commande Azure PowerShell suivante
 
 Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<paramètres\_courants>]
 
-> [AZURE.NOTE]Vous pouvez omettre le paramètre –Version. S’il n’est pas spécifié, la valeur par défaut est la dernière version de l’extension.
+> [AZURE.NOTE] Vous pouvez omettre le paramètre –Version. S’il n’est pas spécifié, la valeur par défaut est la dernière version de l’extension.
 
 ### Exemple
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
@@ -78,4 +78,4 @@ Si vous voulez supprimer cette extension de votre machine virtuelle, vous pouvez
 ### Syntaxe
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

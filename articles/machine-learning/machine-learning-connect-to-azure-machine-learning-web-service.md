@@ -25,9 +25,9 @@ L’expérience de développeur de Microsoft Azure Machine Learning correspon
 Pour savoir comment créer et déployer un service web Microsoft Azure Machine Learning à l’aide de Studio, consultez les pages suivantes :
 
 - [Déploiement d’un service web Microsoft Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
-- [Prise en main de Microsoft Azure Machine Learning Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [Prise en main de Microsoft Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Vue d’ensemble de Microsoft Azure Machine Learning](https://studio.azureml.net/)
-- [Centre de documentation Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Centre de documentation Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Service web Microsoft Azure Machine Learning ##
 
@@ -82,7 +82,7 @@ Pour vous connecter à un service web Microsoft Azure ML, le package NuGet **
 **Installer le package NuGet Microsoft.AspNet.WebApi.Client dans Microsoft Visual Studio**
 
 1. Publiez le service web « Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 ».
-2. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**.
+2. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package.**.
 2. Choisissez l'élément **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **Pour exécuter l’exemple de code**
@@ -103,4 +103,4 @@ Pour vous connecter à un service web Azure ML, utilisez la bibliothèque **url
 2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section Obtention d’une clé d’autorisation Microsoft Azure ML.
 3. Affectez l’élément serviceUri avec l’URI de requête. Consultez la section Obtention d’un URI de requête.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

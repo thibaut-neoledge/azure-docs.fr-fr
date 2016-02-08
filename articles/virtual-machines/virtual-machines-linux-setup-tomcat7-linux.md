@@ -32,7 +32,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 -	Préparation de la machine virtuelle pour tomcat7.
 -	Installation de tomcat7.
 
-Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](http://azure.microsoft.com). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, consultez [Présentation d’Azure](http://azure.microsoft.com/overview/what-is-azure/).
+Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](https://azure.microsoft.com/). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, consultez [Présentation d’Azure](https://azure.microsoft.com/overview/what-is-azure/).
 
 Cette rubrique suppose que vous avez des connaissances de base relatives à tomcat et Linux.
 
@@ -169,7 +169,7 @@ Pour vérifier si Tomcat7 est correctement installé, recherchez le nom DNS de v
 ###Installation d’autres composants de Tomcat
 Il existe d’autres composants facultatifs de tomcat que vous pouvez également installer.
 
-Utilisez la commande ** sudo apt-cache search tomcat7** pour afficher tous les composants disponibles. Les commandes suivantes sont des exemples d’installation de certaines parties utiles.
+Utilisez la commande **sudo apt-cache search tomcat7** pour afficher tous les composants disponibles. Les commandes suivantes sont des exemples d’installation de certaines parties utiles.
 
 	sudo apt-get install tomcat7-admin      #admin web applications
 	sudo apt-get install tomcat7-user         #tools to create user instances  
@@ -306,4 +306,4 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

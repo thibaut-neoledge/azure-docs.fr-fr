@@ -26,7 +26,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser HDInsight Tools pour Visu
 
 * **EventHubReader** : lit les données à partir de Event Hubs et les stocke dans le stockage de table Azure
 
-[AZURE.NOTE]Les étapes décrites dans ce document fonctionnent uniquement avec un cluster HDInsight Windows. Pour obtenir une version Java de ce projet, qui fonctionne avec un cluster basé sur Windows ou un cluster basé sur Linux, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+[AZURE.NOTE] Les étapes décrites dans ce document fonctionnent uniquement avec un cluster HDInsight Windows. Pour obtenir une version Java de ce projet, qui fonctionne avec un cluster basé sur Windows ou un cluster basé sur Linux, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Configuration requise
 
@@ -34,7 +34,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser HDInsight Tools pour Visu
 
 * Un [Concentrateur d'événements Azure](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md).
 
-* Le [kit de développement logiciel Azure .NET](http://azure.microsoft.com/downloads/)
+* Le [kit de développement logiciel Azure .NET](https://azure.microsoft.com/downloads/)
 
 * Les [outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
@@ -42,7 +42,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser HDInsight Tools pour Visu
 
 Vous pouvez télécharger une version complète du projet créé dans ce didacticiel à partir de GitHub : [eventhub-storm-hybride](https://github.com/Blackmist/eventhub-storm-hybrid). Toutefois, vous devrez tout de même fournir des paramètres de configuration en suivant les étapes de ce didacticiel.
 
-> [AZURE.NOTE]Lors de l’utilisation du projet terminé, vous devez utiliser le **Gestionnaire de Package NuGet** pour restaurer les packages requis par cette solution.
+> [AZURE.NOTE] Lors de l’utilisation du projet terminé, vous devez utiliser le **Gestionnaire de Package NuGet** pour restaurer les packages requis par cette solution.
 
 ## Spout et bolt de concentrateurs d’événements
 
@@ -54,7 +54,7 @@ Le spout et le bolt sont distribués dans un fichier d’archive Java unique (.j
 
 La version la plus récente du fichier **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** est fournie dans le projet <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm examples</a> dans le dossier **lib**. Pour télécharger le fichier, appliquez l'une des méthodes suivantes.
 
-> [AZURE.NOTE]Le spout et le bolt ont été soumis pour inclusion dans le projet Apache Storm. Pour plus d’informations, consultez la rubrique <a href="https://github.com/apache/storm/pull/336/files">STORM-583: Initial check-in for storm-event hubs</a> dans GitHub.
+> [AZURE.NOTE] Le spout et le bolt ont été soumis pour inclusion dans le projet Apache Storm. Pour plus d’informations, consultez la rubrique <a href="https://github.com/apache/storm/pull/336/files">STORM-583: Initial check-in for storm-event hubs</a> dans GitHub.
 
 * **Téléchargement du fichier ZIP** : à partir du site <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm exemples</a>, sélectionnez le bouton **Download ZIP** dans le volet droit pour télécharger un fichier .zip contenant le projet.
 
@@ -76,7 +76,7 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 
 	![page 1 de l’assistant](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-	> [AZURE.NOTE]Vous devez sélectionner le même **emplacement** que celui de votre serveur Storm sur HDInsight pour réduire la latence et les coûts.
+	> [AZURE.NOTE] Vous devez sélectionner le même **emplacement** que celui de votre serveur Storm sur HDInsight pour réduire la latence et les coûts.
 
 2. Sur l’écran **Configurer le concentrateur d’événements**, entrez les valeurs pour **Nombre de partitions** et **Conservation des messages**. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
 
@@ -106,7 +106,7 @@ Le stockage de table sera utilisé pour conserver les valeurs lues à partir de 
 
 2. Entrez un **nom** pour le compte de stockage, sélectionnez un **emplacement**, puis cliquez sur la **coche** pour créer le compte de stockage.
 
-	> [AZURE.NOTE]Vous devez sélectionner le même **emplacement** que celui de votre concentrateur d’événements et de serveur Storm sur HDInsight pour réduire la latence et les coûts.
+	> [AZURE.NOTE] Vous devez sélectionner le même **emplacement** que celui de votre concentrateur d’événements et de serveur Storm sur HDInsight pour réduire la latence et les coûts.
 
 3. Lorsque le nouveau compte de stockage est configuré, sélectionnez le compte, puis utilisez le lien**Gérer les clés d’accès** situé en bas de page pour récupérer le **Nom du compte de stockage** et la **Clé d’accès primaire**. Enregistrez ces informations, car elles vous en aurez besoin ultérieurement.
 
@@ -228,7 +228,7 @@ Dans cette section, vous allez créer une topologie qui écrit des données vers
 
 À ce stade, vous en avez terminé avec le **Program.cs**. La topologie a été définie, mais vous devez maintenant modifier **Spout.cs** afin qu’il génère des données dans un format utilisable par le bolt de Event Hubs.
 
-> [AZURE.NOTE]Par défaut, cette topologie va créer un seul processus de travail, ce qui est suffisant pour notre exemple. Si vous l’adaptez pour un cluster de production, vous devez ajouter le code suivant pour modifier le nombre de processus de travail :
+> [AZURE.NOTE] Par défaut, cette topologie va créer un seul processus de travail, ce qui est suffisant pour notre exemple. Si vous l’adaptez pour un cluster de production, vous devez ajouter le code suivant pour modifier le nombre de processus de travail :
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -246,7 +246,7 @@ Le bolt de Event Hubs attend une valeur de chaîne unique, qu’il acheminera ve
 
 	Cela nous permettra de travailler plus facilement avec des données JSON.
     
-    > [AZURE.NOTE]Le package JSON.NET doit être déjà installé, comme requis par l'infrastructure SCP.NET utilisée pour les topologies C# Storm.
+    > [AZURE.NOTE] Le package JSON.NET doit être déjà installé, comme requis par l'infrastructure SCP.NET utilisée pour les topologies C# Storm.
 
 3. Recherchez le code suivant :
 
@@ -377,11 +377,11 @@ Dans cette section, vous allez créer une topologie qui lit des données à part
 
 	Ce code fait en sorte que la topologie utilise un bolt (défini dans Bolt.cs). Le sérialiseur personnalisé défini précédemment est utilisé ici pour que ce bolt puisse consommer les données produites par les composants Java en amont. En l’occurrence, EventHubSpout.
 
-    > [AZURE.IMPORTANT]Le dernier paramètre pour SetBolt, (dont la valeur est `true`,) active la fonctionnalité d’accusé de réception pour ce bolt. Cela est nécessaire, car le composant EventHubSpout attend un accusé de réception pour les données qu’il émet. Si les accusés de réception ne sont pas retournés par les composants en aval, le spout cesse de recevoir après le traitement de 1000 messages environ.
+    > [AZURE.IMPORTANT] Le dernier paramètre pour SetBolt, (dont la valeur est `true`,) active la fonctionnalité d’accusé de réception pour ce bolt. Cela est nécessaire, car le composant EventHubSpout attend un accusé de réception pour les données qu’il émet. Si les accusés de réception ne sont pas retournés par les composants en aval, le spout cesse de recevoir après le traitement de 1000 messages environ.
 
 À ce stade, vous en avez terminé avec **Program.cs**. La topologie a été définie, mais vous devez maintenant créer une classe d’assistance pour écrire des données dans le stockage de table, puis modifier **Bolt.cs** afin qu’il puisse comprendre les données générées par le spout.
 
-> [AZURE.NOTE]Par défaut, cette topologie va créer un seul processus de travail, ce qui est suffisant pour notre exemple. Si vous l’adaptez pour un cluster de production, vous devez ajouter le code suivant pour modifier le nombre de processus de travail :
+> [AZURE.NOTE] Par défaut, cette topologie va créer un seul processus de travail, ce qui est suffisant pour notre exemple. Si vous l’adaptez pour un cluster de production, vous devez ajouter le code suivant pour modifier le nombre de processus de travail :
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -484,7 +484,7 @@ Lors de l’écriture des données dans le stockage de table, vous devez créer 
 
     Une fois l’entité insérée dans la table, `Ack()` est appelé pour le tuple, afin d’informer le spout que les données ont été traitées correctement.
 
-    > [AZURE.IMPORTANT]Le composant EventHubSpout attend, pour chaque tuple, un accusé de réception provenant des composants en aval comme ce bolt. Si aucun accusé de réception n’est reçu, le EventHubSpout supposera que le traitement du tuple a échoué.
+    > [AZURE.IMPORTANT] Le composant EventHubSpout attend, pour chaque tuple, un accusé de réception provenant des composants en aval comme ce bolt. Si aucun accusé de réception n’est reçu, le EventHubSpout supposera que le traitement du tuple a échoué.
 
 À ce stade, vous disposez d’une topologie complète qui lit des données du concentrateur d’événements et qui les stocke dans le stockage de table dans une table nommée **events**.
 
@@ -534,7 +534,7 @@ EventHubSpout contrôle régulièrement son état au nœud Zookeeper, qui enregi
 
 Vous pouvez également exporter et importer les points de contrôle persistants vers le WASB (le stockage Azure utilisé par votre cluster HDInsight.) Les scripts qui permettent de le faire sont situés sur le cluster Storm sur HDInsight, dans **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**.
 
->[AZURE.NOTE]Le numéro de version dans le chemin d’accès peut être différent, car la version de Storm installée sur le cluster peut changer dans le futur.
+>[AZURE.NOTE] Le numéro de version dans le chemin d’accès peut être différent, car la version de Storm installée sur le cluster peut changer dans le futur.
 
 Les scripts présents dans ce répertoire sont :
 
@@ -546,7 +546,7 @@ Les scripts présents dans ce répertoire sont :
 
 L’exportation d’une importation vous permet de conserver les données du point de contrôle lorsque vous devez supprimer le cluster, mais que vous souhaitez reprendre le traitement à partir de l’offset actuel dans le concentrateur lorsque vous remettez un nouveau cluster en ligne.
 
-> [AZURE.NOTE]Dans la mesure où les données sont conservées dans le conteneur de stockage par défaut, le nouveau cluster **doit** utiliser le même compte de stockage et le même conteneur que le cluster précédent.
+> [AZURE.NOTE] Dans la mesure où les données sont conservées dans le conteneur de stockage par défaut, le nouveau cluster **doit** utiliser le même compte de stockage et le même conteneur que le cluster précédent.
 
 ## Résumé
 
@@ -557,4 +557,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

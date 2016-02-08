@@ -24,7 +24,7 @@
 
 Cet article décrit une approche méthodique pour isoler la source du problème et la corriger dans le cas où vous ne parvenez pas à accéder à une application exécutée sur une machine virtuelle Azure
 
-> [AZURE.NOTE]Pour vous aider à vous connecter à une machine virtuelle Azure, consultez la page [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) ou [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md).
+> [AZURE.NOTE]  Pour vous aider à vous connecter à une machine virtuelle Azure, consultez la page [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) ou [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md).
 
 La résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure comporte quatre domaines principaux.
 
@@ -116,8 +116,8 @@ Pour plus d'informations, consultez [Résolution des problèmes de connectivité
 
 Si vous avez suivi les étapes ci-dessus dans cet article et que vous avez besoin d’une aide supplémentaire pour corriger le problème, vous pouvez :
 
-- Obtenir l’aide des experts Azure dans le monde entier. Soumettre votre problème sur les forums MSDN Azure ou Stack Overflow. Pour plus d’informations, consultez les [forums Microsoft Azure](http://azure.microsoft.com/support/forums/).
-- Signaler un incident au support Azure Accédez au [site de support Azure](http://azure.microsoft.com/support/options/) et cliquez sur **Obtenir un support** dans la section **Support technique et sur la facturation**.
+- Obtenir l’aide des experts Azure dans le monde entier. Soumettre votre problème sur les forums MSDN Azure ou Stack Overflow. Pour plus d’informations, consultez les [forums Microsoft Azure](https://azure.microsoft.com/support/forums/).
+- Signaler un incident au support Azure Accédez au [site de support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir un support** dans la section **Support technique et sur la facturation**.
 
 ## Ressources supplémentaires
 
@@ -125,4 +125,4 @@ Si vous avez suivi les étapes ci-dessus dans cet article et que vous avez beso
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,7 +26,7 @@ Pour permettre un éventail de modèles d’application, Azure Stream Analytics 
 
 ## Base de données SQL ##
 
-Vous pouvez utiliser une [base de données SQL Azure](http://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les tâches Stream Analytics écriront dans une table existante d’une base de données SQL Azure. Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre tâche. Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
+Vous pouvez utiliser une [base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les tâches Stream Analytics écriront dans une table existante d’une base de données SQL Azure. Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre tâche. Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
 
 | Nom de la propriété | Description |
 |---------------|-------------|
@@ -118,7 +118,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche des résultats d’analyse. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par des métriques.
 
-> [AZURE.NOTE]À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
+> [AZURE.NOTE] À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
 
 ### Autorisation d’un compte Power BI
 
@@ -145,7 +145,7 @@ Une fois le compte Power BI authentifié, vous pouvez configurer les propriét�
 
 Pour une vue d'ensemble de la configuration d'un tableau de bord et d’une sortie Power BI, consultez l’article [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md).
 
-> [AZURE.NOTE]Ne créez pas explicitement le jeu de données et la table dans le tableau de bord Power BI. Le jeu de données et la table seront automatiquement remplis au démarrage de la tâche et lorsque celle-ci se mettra à extraire des sorties dans Power BI. Notez que si la requête de tâche ne génère aucun résultat, le jeu de données et la table ne seront pas créés. De même, veuillez noter que si Power BI dispose déjà d’un jeu de données et d’une table portant le même nom que celui saisi dans la tâche Stream Analytics, alors ces données seront écrasées.
+> [AZURE.NOTE] Ne créez pas explicitement le jeu de données et la table dans le tableau de bord Power BI. Le jeu de données et la table seront automatiquement remplis au démarrage de la tâche et lorsque celle-ci se mettra à extraire des sorties dans Power BI. Notez que si la requête de tâche ne génère aucun résultat, le jeu de données et la table ne seront pas créés. De même, veuillez noter que si Power BI dispose déjà d’un jeu de données et d’une table portant le même nom que celui saisi dans la tâche Stream Analytics, alors ces données seront écrasées.
 
 ### Renouvellement de l’autorisation Power BI
 
@@ -171,7 +171,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Nom de la table | Nom de la table. La table sera créée s’il n’existe pas. |
 | Partition Key | Nom de la colonne de sortie contenant la clé de partition. La clé de partition est un identificateur unique pour la partition dans une table donnée qui constitue la première partie de la clé primaire d’une entité. C’est une valeur de chaîne qui peut atteindre 1 Ko. |
 | Row Key | Nom de la colonne de sortie contenant la clé de ligne. La clé de ligne est un identificateur unique pour une entité dans une partition donnée. Elle constitue la deuxième partie de la clé primaire d’une entité. La clé de ligne est une valeur de chaîne qui peut atteindre 1 Ko. |
-| Taille du lot | Nombre d’enregistrements d’une opération par lot. En général, la valeur par défaut est suffisante pour la plupart des tâches. Pour plus d'informations sur la modification de ce paramètre, consultez [Spécifications des opérations par lot des tables](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx). |
+| Taille du lot | Nombre d’enregistrements d’une opération par lot. En général, la valeur par défaut est suffisante pour la plupart des tâches. Pour plus d’informations sur la modification de ce paramètre, consultez [Spécifications des opérations par lot des tables](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx). |
 
 ## Files d'attente Service Bus
 
@@ -210,7 +210,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 
 ## Base de données de documents
 
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d'utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables, et permet un développement rapide.
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d'utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables, et permet un développement rapide.
 
 Le tableau ci-dessous répertorie les noms et les descriptions des propriétés pour la création d’une sortie DocumentDB.
 
@@ -267,4 +267,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # Disponibilité des services Service Fabric
@@ -38,7 +38,7 @@ Ce concept de réplica, qu’il soit principal ou secondaire actif, correspond a
 ### Rôles de réplica
 Le rôle d’un réplica est utilisé pour gérer le cycle de vie de l’état géré par ce réplica. Un réplica dont le rôle est principal traite les demandes de lecture. Il traite également les demandes d’écriture en mettant à jour son état et en répliquant les modifications sur les réplicas secondaires actifs dans son jeu de réplicas. Le rôle d’un réplica secondaire actif est de recevoir les modifications de l’état que le réplica principal a répliquées et de mettre à jour sa vue de l’état.
 
->[AZURE.NOTE]Les modèles de programmation de niveau supérieur tels que l’[infrastructure d’acteurs fiables](service-fabric-reliable-actors-introduction.md) clarifient le concept de rôle de réplica par rapport au développeur.
+>[AZURE.NOTE] Les modèles de programmation de niveau supérieur tels que l’[infrastructure d’acteurs fiables](service-fabric-reliable-actors-introduction.md) clarifient le concept de rôle de réplica par rapport au développeur.
 
 ## Étapes suivantes
 
@@ -50,4 +50,4 @@ Pour plus d’informations sur les concepts propres à Service Fabric, consultez
 
 - [Définition et gestion de l'état](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

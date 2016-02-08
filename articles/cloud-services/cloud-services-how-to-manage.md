@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion d'un service cloud | Microsoft Azure" 
+	pageTitle="Tâches communes de gestion du service cloud (Classic) | Microsoft Azure" 
 	description="Découvrez comment gérer des services cloud dans le portail Azure Classic." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 
@@ -155,7 +155,7 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 5. Pour supprimer le service cloud, cliquez sur **Delete cloud service**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
 > [AZURE.NOTE]
-Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour savoir où trouver les tables de mesures, consultez la rubrique « Accès aux données de la surveillance détaillée en dehors du portail de gestion » sur la page <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Surveillance des services cloud</a>.
+Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour savoir où trouver les tables de mesures, consultez la rubrique « Accès aux données de la surveillance détaillée en dehors du portail Azure Classic » sur la page [Surveillance des services cloud](cloud-services-how-to-monitor.md).
 
 ## Étapes suivantes
 
@@ -164,4 +164,4 @@ Si la surveillance détaillée est configurée pour votre service cloud, Azure n
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

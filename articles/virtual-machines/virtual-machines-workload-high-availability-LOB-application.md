@@ -40,7 +40,7 @@ Un réseau virtuel entre sites locaux est connecté à un réseau local avec une
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
-Vous pouvez créer cet environnement de développement/test gratuitement avec votre [abonnement MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou avec un [abonnement d’évaluation Azure](http://azure.microsoft.com/pricing/free-trial/).
+Vous pouvez créer cet environnement de développement/test gratuitement avec votre [abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou avec un [abonnement d’évaluation Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 La prochaine étape est la création d’une application métier à haute disponibilité dans Azure.
 
@@ -86,4 +86,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 - Découvrez un [aperçu](virtual-machines-workload-high-availability-lob-application-overview.md) de la charge de travail de production avant de vous lancer dans la configuration.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

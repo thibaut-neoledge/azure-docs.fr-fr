@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="01/12/2016" 
 	ms.author="erikre"/>
 
 # Gérer une application web dans Azure App Service
@@ -65,7 +65,7 @@ Lorsque votre application web est en cours d’exécution, vérifiez qu’elle e
  
 ### Sauvegarde
 
-- Configurez les [sauvegardes automatiques](web-sites-backup.md) de votre application web. Pour en savoir plus sur les sauvegardes, regardez [cette vidéo](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
+- Configurez les [sauvegardes automatiques](web-sites-backup.md) de votre application web. Pour en savoir plus sur les sauvegardes, regardez [cette vidéo](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
 - Découvrez les options de [récupération de base de données](../sql-database-business-continuity.md) dans la base de données Azure SQL.
 
 ### Résolution des problèmes
@@ -103,4 +103,4 @@ Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploie
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

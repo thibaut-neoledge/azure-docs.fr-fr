@@ -17,7 +17,7 @@
  
 # Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
 
-Cet article explique comment déplacer vos données de télémétrie à partir de [Visual Studio Application Insights][start] vers une base de données SQL Azure à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics/).
+Cet article explique comment déplacer vos données de télémétrie à partir de [Visual Studio Application Insights][start] vers une base de données SQL Azure à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).
 
 L’exportation continue déplace vos données de télémétrie vers le stockage Azure au format JSON. Nous analyserons les objets JSON à l’aide d’Azure Stream Analytics et créerons des lignes dans une table de base de données.
 
@@ -35,7 +35,7 @@ Pour analyser votre application, vous [ajoutez un kit de développement logiciel
 
 Pour commencer :
 
-1. Obtenez un [compte dans Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Obtenez un [compte dans Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. Sur le [portail Azure][portal], ajoutez une nouvelle ressource Application Insights pour votre application :
 
     ![Cliquez sur Nouveau, Services de développement, Application Insights, puis choisissez le type d’application.](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
@@ -59,7 +59,7 @@ Pour commencer :
 
 Comme l’exportation continue génère toujours des données vers un compte de stockage Azure, vous devez commencer par créer ce stockage.
 
-1. Créez un compte de stockage classique dans votre abonnement sur le [portail Azure][portal].
+1. Créez un compte de stockage « classique » dans votre abonnement dans le [portail Azure][portal].
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage. Sélectionnez Classique, cliquez sur Créer. Fournissez un nom de stockage.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
@@ -219,7 +219,7 @@ Confirmez le format de sérialisation :
 
 Fermez l’assistant et attendez la fin de l’installation.
 
->[AZURE.TIP]Utilisez l’exemple de fonction pour vérifier que vous avez correctement défini le chemin d’accès d’entrée. En cas d’échec, vérifiez qu’il y a des données dans le stockage pour l’exemple de période que vous avez choisi. Modifiez la définition de l’entrée et vérifiez que vous avez correctement défini le compte de stockage, le préfixe de chemin d’accès et le format de date.
+>[AZURE.TIP] Utilisez l’exemple de fonction pour vérifier que vous avez correctement défini le chemin d’accès d’entrée. En cas d’échec, vérifiez qu’il y a des données dans le stockage pour l’exemple de période que vous avez choisi. Modifiez la définition de l’entrée et vérifiez que vous avez correctement défini le compte de stockage, le préfixe de chemin d’accès et le format de date.
 
 ## Définition d’une requête
 
@@ -315,4 +315,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -131,7 +131,7 @@ Les valeurs et types autorisés sont :
 
 Pour spécifier un paramètre comme facultatif, définissez sa valeur defaultValue sur une chaîne vide.
 
->[AZURE.NOTE]Tous les mots de passe, clés et autres secrets doivent utiliser le type **secureString**. Il est impossible de lire les paramètres du modèle dont le type est secureString après le déploiement de la ressource.
+>[AZURE.NOTE] Tous les mots de passe, clés et autres secrets doivent utiliser le type **secureString**. Il est impossible de lire les paramètres du modèle dont le type est secureString après le déploiement de la ressource.
 
 L’exemple suivant vous indique comment définir les paramètres :
 
@@ -168,6 +168,8 @@ L’exemple suivant vous indique comment définir les paramètres :
           "minValue": 1
        }
     }
+
+Pour plus d’informations sur la saisie des valeurs de paramètre au cours du déploiement, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md/#parameter-file).
 
 ## Variables
 
@@ -225,7 +227,7 @@ L'exemple suivant vous indique une variable qui est un type complexe de JSON et 
 
 ## Ressources
 
-Dans la section des ressources, vous définissez les ressources déployées ou mises à jour. C’est à ce stade que votre modèle peut gagner en complexité, car vous devez connaître les types que vous déployez pour fournir les valeurs adéquates. Pour apprendre ce que vous devez savoir sur les fournisseurs de ressources, consultez [fournisseurs de gestionnaire de ressources, régions, versions d’API et schémas](resource-manager-supported-services.md).
+Dans la section des ressources, vous définissez les ressources déployées ou mises à jour. C’est à ce stade que votre modèle peut gagner en complexité, car vous devez connaître les types que vous déployez pour fournir les valeurs adéquates. Pour apprendre ce que vous devez savoir sur les fournisseurs de ressources, consultez [Fournisseurs de gestionnaire de ressources, régions, versions d’API et schémas](resource-manager-supported-services.md).
 
 Vous définissez des ressources avec la structure suivante :
 
@@ -256,7 +258,7 @@ Vous définissez des ressources avec la structure suivante :
 | tags | Non | Balises associées à la ressource.
 | commentaires | Non | Vos commentaires pour documenter les ressources dans votre modèle
 | dependsOn | Non | Ressources desquelles dépend la ressource qui est définie. Les dépendances entre les ressources sont évaluées et les ressources sont déployées dans leur ordre dépendant. Quand les ressources ne dépendent les unes des autres, leur déploiement en parallèle est tenté. La valeur peut être une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.
-| properties | Non | Paramètres de configuration spécifiques aux ressources. Les valeurs de propriétés sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Pour accéder à la documentation du schéma de ressources ou l’API REST, voir [fournisseurs du Gestionnaire de ressources, régions, versions d’API et schémas](resource-manager-supported-services.md).
+| properties | Non | Paramètres de configuration spécifiques aux ressources. Les valeurs de propriétés sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Pour accéder à la documentation du schéma de ressources ou l’API REST, consultez [Fournisseurs du Gestionnaire de ressources, régions, versions d’API et schémas](resource-manager-supported-services.md).
 | les ressources | Non | Ressources enfants qui dépendent de la ressource qui est définie. Vous pouvez fournir uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. Le nom qualifié complet du type de ressource enfant inclut le type de ressource parente, tel que **Microsoft.Web/sites/extensions**. La dépendance à la ressource parent n’est pas induite ; vous devez la définir explicitement cette dépendance. 
 
 
@@ -470,4 +472,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour afficher les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

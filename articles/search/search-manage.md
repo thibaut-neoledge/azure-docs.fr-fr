@@ -41,6 +41,10 @@ Pour planifier la capacité nécessaire et comprendre l'impact de la facturation
 
 Quand vous êtes prêt à vous inscrire, consultez [Créer un service Search dans le portail](search-create-service-portal.md).
 
+##Analyse de recherche
+
+Vous pouvez activer la collecte de données sur l'activité de recherche des utilisateurs pour comprendre le fonctionnement de votre service de recherche, les termes qui sont utilisés et si ces termes ont renvoyé des résultats. Un pack de contenu Power BI est le meilleur moyen pour analyser et visualiser ces données. La première étape consiste à activer l'analyse du trafic de recherche. Consultez [Analyse de votre trafic Azure Search](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) pour découvrir comment procéder.
+
 <a id="sub-2"></a>
 ## Tâches d'administration
 
@@ -105,7 +109,7 @@ L'API du service Search vous permet d'obtenir le nombre de documents et d'index.
 +	[Obtention de statistiques d’index](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Nombre de documents](http://msdn.microsoft.com/library/dn798924.aspx)
 
-> [AZURE.NOTE]Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites.
+> [AZURE.NOTE] Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites.
 
 
 <a id="sub-6"></a>
@@ -145,6 +149,9 @@ Aucune méthode de détection ne vous permet d'identifier les fragments d'index 
 
 Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](http://msdn.microsoft.com/library/dn798942.aspx)) afin de connaître l'espace réellement utilisé.
 
+### Meilleures pratiques pour le déploiement de service et de mise à l'échelle dans plusieurs centres de données (vidéo)
+
+> [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
 <a id="sub-7"></a>
 ## Démarrage ou arrêt du service
@@ -193,4 +200,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -53,7 +53,7 @@ La solution compte le nombre d’occurrences d’un terme de recherche (« Micr
 
 ### Composants requis
 
-1.  **Abonnement Azure**. Si vous n’êtes pas abonné, vous pouvez créer un compte d’essai gratuit en quelques minutes. Voir [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+1.  **Abonnement Azure**. Si vous n’êtes pas abonné, vous pouvez créer un compte d’essai gratuit en quelques minutes. Voir [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 2.  **Compte de stockage Azure** Dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, voir [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). L’exemple de solution utilise un stockage d’objets blob.
 
@@ -500,7 +500,7 @@ La procédure pas à pas suivante fournit des détails supplémentaires.
 
 ### Étape 1 : Créer la fabrique de données
 
-1.  Une fois connecté au [portail Azure](http://portal.azure.com/), procédez comme suit :
+1.  Une fois connecté au [portail Azure](https://portal.azure.com/), procédez comme suit :
 
     1.  Cliquez sur **NOUVEAU** dans le menu de gauche.
 
@@ -707,7 +707,7 @@ Au cours de cette étape, vous allez créer un autre jeu de données de type Azu
 
 Au cours de cette étape, vous allez créer un pipeline comprenant une seule activité, l’activité personnalisée que vous avez créé précédemment.
 
-> [AZURE.IMPORTANT]Si vous n’avez pas chargé le fichier **file.txt** dans les dossiers d’entrée du conteneur d’objets blob, veuillez le faire avant de créer le pipeline. La propriété **isPaused** étant définie sur false dans le fichier JSON du pipeline, le pipeline s’exécute immédiatement, car la date de **début** se situe dans le passé.
+> [AZURE.IMPORTANT] Si vous n’avez pas chargé le fichier **file.txt** dans les dossiers d’entrée du conteneur d’objets blob, veuillez le faire avant de créer le pipeline. La propriété **isPaused** étant définie sur false dans le fichier JSON du pipeline, le pipeline s’exécute immédiatement, car la date de **début** se situe dans le passé.
 
 1.  Dans Data Factory Editor, cliquez sur **Nouveau pipeline** dans la barre de commandes. Si vous ne voyez pas apparaître la commande, cliquez sur **... (points de suspension)** pour l’afficher.
 
@@ -761,11 +761,11 @@ Au cours de cette étape, vous allez créer un pipeline comprenant une seule act
 
 	-   Le paramètre **AssemblyName** est défini sur le nom de la DLL **MyDotNetActivity.dll**.
 
-	-   Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement de \<namespace\>.\<classname\> dans votre code.
+	-   Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement de <namespace>.<classname> dans votre code.
 
 	-   **PackageLinkedService** est défini sur **StorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous devez créer un autre service lié Azure Storage. Cet article suppose que vous utilisez le même compte Azure Storage.
 
-	-   Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format \<containerforthezip\>/\<nameofthezip.zip\>.
+	-   Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format <containerforthezip>/<nameofthezip.zip>.
 
 	-   L’activité personnalisée utilise **InputDataset** comme entrée et **OutputDataset** comme sortie.
 
@@ -929,4 +929,4 @@ Après avoir traité des données, vous pouvez les employer avec des outils en l
 
     -   [Get started with the .NET Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

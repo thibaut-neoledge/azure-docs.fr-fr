@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Création de batteries de serveurs SharePoint
@@ -23,7 +23,7 @@
 
 Avec Microsoft Azure Marketplace du portail Azure, vous pouvez créer rapidement des batteries de serveurs SharePoint Server 2013 préconfigurées. Cela peut vous faire gagner un temps précieux lorsque vous avez besoin d'une batterie de serveurs SharePoint de base ou à haute disponibilité pour un environnement de test et de développement ou si vous envisagez l'adoption de SharePoint Server 2013 comme solution de collaboration pour votre entreprise.
 
-> [AZURE.NOTE]L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure a été supprimé.
+> [AZURE.NOTE] L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure a été supprimé.
 
 La batterie de serveurs SharePoint de base se compose de trois machines virtuelles dans cette configuration.
 
@@ -51,7 +51,7 @@ Pour créer la batterie de serveurs SharePoint à haute disponibilité (neuf ser
 3. Dans le panneau **Batterie de serveurs SharePoint 2013 hautement disponible**, cliquez sur **Créer**.
 4. Spécifiez les paramètres des 7 étapes du panneau **Créer une batterie de serveurs SharePoint 2013 hautement disponible**, puis cliquez sur **Créer**.
 
-> [AZURE.NOTE]Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d'informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d'informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Gestion des batteries de serveurs SharePoint
 
@@ -59,14 +59,10 @@ Vous pouvez gérer les serveurs de ces batteries par le biais de connexions Bure
 
 Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes sites, des applications SharePoint, ainsi que d'autres fonctionnalités. Pour plus d'informations, consultez la page [Configurer SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE]Le portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence Web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation.
+> [AZURE.NOTE] Le portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence Web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation.
 
-## Ressources supplémentaires
+## Étape suivante
 
-[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Découvrez d’autres configurations de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) dans les services d’infrastructure d’Azure.
 
-[Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

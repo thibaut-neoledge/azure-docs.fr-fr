@@ -94,7 +94,7 @@ Quand vous utilisez un fournisseur Azure Multi-Factor Authentication, vous avez 
 - **Par utilisateur**. Généralement, pour les entreprises qui veulent activer l'authentification multifacteur pour un nombre fixe d'employés qui s'authentifient régulièrement.
 - **Par authentification**. Généralement, pour les entreprises qui veulent activer l'authentification multifacteur pour un nombre important d’utilisateurs externes qui s'authentifient ponctuellement.
 
-Pour plus d’informations sur la tarification, consultez la [tarification d’Azure MFA.](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)
+Pour plus d’informations sur la tarification, consultez la [tarification d’Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
 Choisissez le modèle qui convient le mieux à votre organisation : celui basé sur le nombre d’utilisateurs ou celui basé sur la consommation. Puis, pour la prise en main, reportez-vous à [Mise en route](multi-factor-authentication-get-started.md)
 
@@ -102,4 +102,4 @@ Choisissez le modèle qui convient le mieux à votre organisation : celui basé
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

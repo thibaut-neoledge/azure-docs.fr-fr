@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : historique de publication des versions
@@ -50,7 +50,7 @@ Publié : novembre 2015
 **Nouvelles fonctionnalités préliminaires :**
 
 - [Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md).
-- Prise en charge de la synchronisation de mot de passe pour les [services de domaine Azure AD](active-directory-ds-getting-started.md).
+- Prise en charge de la synchronisation de mot de passe pour les [services de domaine Azure AD](active-directory-get-started.md).
 
 **Nouveau scénario pris en charge :**
 
@@ -209,4 +209,4 @@ Publiée : septembre 2014
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

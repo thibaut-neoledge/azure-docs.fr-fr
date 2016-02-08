@@ -54,11 +54,11 @@ Nom d’utilisateur | Oui | Entrez un nom d'utilisateur pouvant se connecter au 
 Mot de passe | Oui | Entrez le mot de passe d'utilisateur.
 Nom de la base de données | Oui | Entrez la base de données à laquelle vous vous connectez. Par exemple, vous pouvez entrer *Customers* ou *dbo/orders*.
 Local | Oui | La valeur par défaut est False. Entrez False si vous vous connectez à une base de données SQL Azure. Entrez True si vous vous connectez à un serveur SQL en local.
-Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
+Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
 Nom du serveur partenaire | Non | Si le serveur principal est indisponible, vous pouvez entrer un serveur partenaire comme serveur secondaire ou de sauvegarde.
 Tables | Non | Répertoriez les tables de base de données qui peuvent être mises à jour par le connecteur. Par exemple, entrez *OrdersTable* ou *EmployeeTable*. Si aucune table n'est entrée, toutes les tables peuvent être utilisées. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action.
 Procédures stockées | Non | Entrez une procédure stockée existante qui peut être appelée par le connecteur. Par exemple, entrez *sp\_IsEmployeeEligible* ou *sp\_CalculateOrderDiscount*. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action.
-Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table\_name.
+Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table\_name.
 Requête d’interrogation de données | Pour la prise en charge du déclencheur | Instruction SQL d’interrogation de la table de base de données SQL Server. Vous pouvez entrer plusieurs instructions SQL séparées par un point-virgule. Cette instruction est exécutée de façon transactionnelle et validée uniquement lorsque les données sont stockées en toute sécurité dans votre application logique. Exemple : SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Remarque**<br/>Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau.
 
 5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][1]
@@ -73,7 +73,7 @@ Pour utiliser le connecteur SQL comme un déclencheur, entrez les valeurs **Requ
 
 La valeur **Requête d'interrogation de données** est exécutée uniquement lorsque la requête de données disponibles indique que des données sont disponibles. Cette instruction s'exécute au sein d'une transaction et n'est validée que lorsque les données extraites sont stockées durablement dans votre flux. Il est important d'éviter d'extraire à l'infini les mêmes données. La nature transactionnelle de cette exécution peut servir à supprimer ou à mettre à jour les données pour s'assurer qu'elles ne seront pas collectées à la prochaine interrogation de données.
 
-> [AZURE.NOTE]Le schéma renvoyé par cette instruction identifie les propriétés disponibles dans votre connecteur. Toutes les colonnes doivent être nommées.
+> [AZURE.NOTE] Le schéma renvoyé par cette instruction identifie les propriétés disponibles dans votre connecteur. Toutes les colonnes doivent être nommées.
 
 #### Exemple de requête de données disponibles
 
@@ -125,11 +125,11 @@ Champs (dans une requête Select) | <ul><li>Noms de colonne valides séparés pa
 
 ## Configuration hybride (facultatif)
 
-> [AZURE.NOTE]Cette étape n'est requise que si vous utilisez SQL Server en local, derrière votre pare-feu.
+> [AZURE.NOTE] Cette étape n'est requise que si vous utilisez SQL Server en local, derrière votre pare-feu.
 
 App Service utilise le Gestionnaire de configuration hybride pour se connecter en toute sécurité à votre système local. Si votre connecteur utilise un serveur SQL en local, le Gestionnaire de connexion hybride est requis.
 
-> [AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> [AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md).
 
@@ -137,7 +137,7 @@ Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-ser
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
-Affichez la référence d'API REST Swagger sur [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -153,4 +153,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

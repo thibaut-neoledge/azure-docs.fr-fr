@@ -27,13 +27,13 @@ Cet article vous montre comment créer et télécharger un disque dur virtuel (V
 ##Composants requis##
 Cet article part du principe que vous disposez des éléments suivants :
 
-- **Un abonnement Azure** : si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'essai gratuit](http://azure.microsoft.com/pricing/free-trial/).  
+- **Un abonnement Azure** : si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'essai gratuit](https://azure.microsoft.com/pricing/free-trial/).  
 
-- **Outils Microsoft Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible ici. Vous utiliserez l’applet de commande [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
+- **Outils Microsoft Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible ici. Vous utiliserez l’applet de commande [Téléchargements Azure](https://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
 
 - **Un système d’exploitation FreeBSD installé dans un fichier .vhd** : vous avez installé un système d’exploitation FreeBSD pris en charge dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation telle que Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE]Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l’aide du Gestionnaire Hyper-V ou de l’applet de commande [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
+> [AZURE.NOTE] Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l’aide du Gestionnaire Hyper-V ou de l’applet de commande [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
 Cette tâche comprend les cinq étapes suivantes.
 
@@ -141,7 +141,7 @@ Pour télécharger vers Azure un fichier .vhd permettant de créer une machine v
 
 	![Nom du conteneur](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE]Par défaut, le conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser l'accès public en lecture aux objets blob du conteneur, mais pas à ses propriétés et ses métadonnées, utilisez l'option « Objet blob public ». Pour autoriser un accès public total en lecture pour le conteneur et les objets blob, utilisez l'option « Conteneur public ».
+    > [AZURE.NOTE] Par défaut, le conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser l'accès public en lecture aux objets blob du conteneur, mais pas à ses propriétés et ses métadonnées, utilisez l'option « Objet blob public ». Pour autoriser un accès public total en lecture pour le conteneur et les objets blob, utilisez l'option « Conteneur public ».
 
 ## Étape 3 : préparation de la connexion à Microsoft Azure ##
 
@@ -209,4 +209,4 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 
 	![image FreeBSD dans Microsoft Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

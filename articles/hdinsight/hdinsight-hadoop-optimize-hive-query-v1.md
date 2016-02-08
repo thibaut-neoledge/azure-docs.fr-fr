@@ -34,7 +34,7 @@ L’augmentation du nombre de nœuds de travail d’un cluster permet d’exploi
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 - Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre. Cette méthode est illustrée ci-dessous. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
-Pour plus d’informations sur les différentes machines virtuelles prises en charge par HDInsight, consultez la [tarification HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+Pour plus d’informations sur les différentes machines virtuelles prises en charge par HDInsight, consultez la [tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Activation de Tez
 
@@ -218,4 +218,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

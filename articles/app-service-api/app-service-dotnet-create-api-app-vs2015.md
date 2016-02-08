@@ -174,7 +174,7 @@ Pour afficher la page de test des API, procédez comme suit.
 
 ## Créer une application API dans Azure
 
-1. Créer une application API dans [le portail Azure en version préliminaire](https://portal.azure.com). 
+1. Créer une application API dans [le portail Azure en version préliminaire](https://portal.azure.com/). 
 
 	* Cliquez sur **Nouveau > Web + Mobile > Application API**.
 
@@ -256,7 +256,7 @@ Les applications API sont essentiellement des applications web pour lesquelles 
 
 Dans cette section, vous accédez au portail pour afficher la définition d'API de l'application API que vous venez de créer.
 
-1. Dans la [version préliminaire du portail Azure](https://portal.azure.com), accédez au panneau **Application API** de votre application API : cliquez sur **Parcourir > Groupes de ressources > [le groupe de ressources que vous avez créé] > [l'application API que vous avez créée]**.
+1. Dans la [version préliminaire du portail Azure](https://portal.azure.com/), accédez au panneau **Application API** de votre application API : cliquez sur **Parcourir > Groupes de ressources > [le groupe de ressources que vous avez créé] > [l'application API que vous avez créée]**.
 
 4. Cliquez sur **Définition d’API**.
 
@@ -294,4 +294,4 @@ Dans cette section, vous accédez au portail pour afficher la définition d'API 
 Vous avez maintenant créé et déployé une application API à l’aide de Visual Studio 2015 RC. Pour plus d’informations sur les applications API, consultez les entrées dans le volet de navigation qui s’affiche sur le côté gauche de la page (pour les grandes fenêtres de navigateur) ou en haut de la page (pour les fenêtres de navigateur étroites). La plupart des documents relatifs aux applications API font actuellement référence à Visual Studio 2013, mais la plus grande partie peut être utilisée avec Visual Studio 2015, car l’interface utilisateur est similaire, le code que vous écrivez est le même et l’interface utilisateur du portail est identique.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

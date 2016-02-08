@@ -20,13 +20,13 @@
 
 Cette rubrique montre comment copier des objets blob à partir d'un compte de stockage dans un nouvel élément multimédia Microsoft Azure Media Services.
 
-Vos objets blob peuvent exister dans un compte de stockage associé à un compte Media Services ou à un compte de stockage qui n'est pas associé au compte Media Services. Cette rubrique montre comment copier des objets blob à partir d'un compte de stockage dans un élément multimédia Media Services. Notez que vous pouvez également effectuer une copie entre des centres de données. Toutefois, cette opération peut être facturée. Pour plus d'informations sur la tarification, consultez [Transferts de données](http://azure.microsoft.com/pricing/#header-11).
+Vos objets blob peuvent exister dans un compte de stockage associé à un compte Media Services ou à un compte de stockage qui n'est pas associé au compte Media Services. Cette rubrique montre comment copier des objets blob à partir d'un compte de stockage dans un élément multimédia Media Services. Notez que vous pouvez également effectuer une copie entre des centres de données. Toutefois, cette opération peut être facturée. Pour plus d'informations sur la tarification, consultez [Transferts de données](https://azure.microsoft.com/pricing/#header-11).
 
->[AZURE.NOTE]Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob qui ont été générés par Media Services sans utiliser les API Media Services.
+>[AZURE.NOTE] Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob qui ont été générés par Media Services sans utiliser les API Media Services.
 
 ##Charger l’exemple
 
-Obtenez et exécutez un exemple [ici](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
 ##Composants requis
 
@@ -316,4 +316,4 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

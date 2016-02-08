@@ -47,7 +47,7 @@ Pour plus d’informations sur les options de déploiement, consultez le [Guide 
 
 ### Données recueillies par l’agent
 
-Les informations présentées dans la liste ci-dessous sont recueillies par l’agent quand des connexions sont établies à des applications web. Les informations sont recueillies uniquement pour les applications que l’administrateur a configurées pour la détection. <br> Vous pouvez modifier la liste des applications cloud surveillées par l’agent via le panneau Cloud App Discovery du [portail Azure](https://portal.azure.com), sous **Paramètres**->**Collection de données**->**Liste App Collection**. Pour plus d’informations, consultez la page [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Catégorie d’informations** : Informations sur l’utilisateur <br> **Description** : <br> Nom d’utilisateur Windows du processus qui a adressé une demande à l’application web cible (par exemple : DOMAIN\\nom\_utilisateur), ainsi que l’identificateur de sécurité Windows (SID) de l’utilisateur.
+Les informations présentées dans la liste ci-dessous sont recueillies par l’agent quand des connexions sont établies à des applications web. Les informations sont recueillies uniquement pour les applications que l’administrateur a configurées pour la détection. <br> Vous pouvez modifier la liste des applications cloud surveillées par l’agent via le panneau Cloud App Discovery du [portail Azure](https://portal.azure.com/), sous **Paramètres**->**Collection de données**->**Liste App Collection**. Pour plus d’informations, consultez la page [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Catégorie d’informations** : Informations sur l’utilisateur <br> **Description** : <br> Nom d’utilisateur Windows du processus qui a adressé une demande à l’application web cible (par exemple : DOMAIN\\nom\_utilisateur), ainsi que l’identificateur de sécurité Windows (SID) de l’utilisateur.
 
 
 **Catégorie d’informations** : Informations sur le processus <br> **Description** : <br> Nom du processus qui a adressé la demande à l’application web cible (par exemple : « iexplore.exe »).
@@ -88,7 +88,7 @@ Les informations HTTP suivantes :
 
 
 
-> [AZURE.NOTE]Les informations HTTP ci-dessus sont recueillies pour toutes les connexions non chiffrées. Pour les connexions TLS, ces informations sont capturées uniquement quand le paramètre « Inspection approfondie » est activé dans le portail. Le paramètre est activé par défaut. Pour plus d’informations, consultez la section ci-dessous, ainsi que la page [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx).
+> [AZURE.NOTE] Les informations HTTP ci-dessus sont recueillies pour toutes les connexions non chiffrées. Pour les connexions TLS, ces informations sont capturées uniquement quand le paramètre « Inspection approfondie » est activé dans le portail. Le paramètre est activé par défaut. Pour plus d’informations, consultez la section ci-dessous, ainsi que la page [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx).
 
 
 Outre les données que l'agent collecte concernant l'activité réseau, il recueille également des informations anonymes sur la configuration logicielle et matérielle, des rapports d'erreurs, ainsi que des informations sur l'utilisation de l'agent.
@@ -168,7 +168,7 @@ Dans le but de protéger les métadonnées recueillies, par défaut seuls les ad
 
 
 
-> [AZURE.NOTE]Pour plus d’informations, consultez la page [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx).
+> [AZURE.NOTE] Pour plus d’informations, consultez la page [Prise en main de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx).
 
 <br> Tout utilisateur accédant aux données dans le portail doit posséder une licence Azure AD Premium.
 
@@ -179,4 +179,4 @@ Dans le but de protéger les métadonnées recueillies, par défaut seuls les ad
 
 * [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,6 +32,6 @@ Microsoft Azure HDInsight fournit des applets de commande PowerShell pour effect
 
 ## Voir aussi
 
-* [Parcours d'apprentissage pour HDInsight](http://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+* [Parcours d'apprentissage pour HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

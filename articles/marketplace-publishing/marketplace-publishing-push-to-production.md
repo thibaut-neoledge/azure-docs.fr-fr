@@ -31,9 +31,9 @@ Lorsque vous avez finalisé votre offre (avec des scénarios clients testés, du
 
   ![dessin][img-pubportal-publish-pushproduction]
 
-> [AZURE.IMPORTANT]Vous pouvez toujours supprimer l'offre si elle a le statut **Draft** (c'est-à-dire jamais **Push to staging** ni **Push to production**). Dans l'onglet **History**, cliquez sur le bouton **Discard draft** au bas de la page pour supprimer un brouillon.
+> [AZURE.IMPORTANT] Vous pouvez toujours supprimer l'offre si elle a le statut **Draft** (c'est-à-dire jamais **Push to staging** ni **Push to production**). Dans l'onglet **History**, cliquez sur le bouton **Discard draft** au bas de la page pour supprimer un brouillon.
 
-> Pour les images de machines virtuelles, la réplication dans les centres de données peut prendre de 24 à 48 heures. Une fois la réplication terminée, votre offre sera répertoriée dans [Azure Marketplace](http://azure.microsoft.com/marketplace).
+> Pour les images de machines virtuelles, la réplication dans les centres de données peut prendre de 24 à 48 heures. Une fois la réplication terminée, votre offre sera répertoriée dans [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ## Étapes suivantes
 Une fois l'offre publiée, testez les scénarios de clients pour valider le fonctionnement correct de tous les contrats et de toutes les fonctionnalités dans l'environnement de production de la même manière qu'ils ont été testés et validés dans l'environnement intermédiaire.
@@ -45,4 +45,4 @@ Une fois l'offre publiée, testez les scénarios de clients pour valider le fonc
 [img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

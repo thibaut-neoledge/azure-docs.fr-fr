@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmon" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Gestion des enregistrements DNS à l'aide de PowerShell
@@ -32,9 +32,9 @@ Il est important de comprendre la différence entre les jeux d'enregistrements D
 
 Les jeux d'enregistrements sont créés à l'aide de l'applet de commande New-AzureRmDnsRecordSet. Vous devez indiquer le nom du jeu d’enregistrements, la zone, la durée de vie (TTL) et le type d'enregistrement.
 
->[AZURE.NOTE]Le nom du jeu d'enregistrements doit être un nom relatif, à l'exclusion du nom de la zone. Par exemple, le nom du jeu d'enregistrements « www » dans la zone « contoso.com » créera un jeu d’enregistrements avec le nom complet « www.contoso.com ».
+Le nom du jeu d'enregistrements doit être un nom relatif, à l'exclusion du nom de la zone. Par exemple, le nom du jeu d'enregistrements « www » dans la zone « contoso.com » créera un jeu d’enregistrements avec le nom complet « www.contoso.com ».
 
->Pour un jeu d'enregistrements à l'apex de la zone, utilisez "@" comme nom du jeu d'enregistrements, guillemets compris. Le nom complet du jeu d'enregistrements est donc égal au nom de la zone, dans cet exemple, « contoso.com ».
+Pour un jeu d'enregistrements à l'apex de la zone, utilisez "@" comme nom du jeu d'enregistrements, guillemets compris. Le nom complet du jeu d'enregistrements est donc égal au nom de la zone, dans cet exemple, « contoso.com ».
 
 Azure DNS prend en charge les types d'enregistrements suivants : A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Les jeux d'enregistrements de type SOA sont créés automatiquement avec chaque zone. Ils ne peuvent pas être créés séparément.
 
@@ -48,15 +48,15 @@ Dans l'exemple ci-dessus, la zone est spécifiée à l'aide d'un objet de la zon
 
 New-AzureRmDnsRecordSet renvoie un objet local qui représente le jeu d'enregistrements créé dans Azure DNS.
 
->[AZURE.NOTE]Les jeux d'enregistrements CNAME ne peuvent pas coexister avec d'autres jeux d'enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps. Étant donné que l’extrémité de la zone (nom = « @ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, cela signifie que vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité de la zone. Ces contraintes sont dues aux normes DNS, il ne s’agit pas de limites d'Azure DNS.
+>[AZURE.IMPORTANT] Les jeux d'enregistrements CNAME ne peuvent pas coexister avec d'autres jeux d'enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps. Étant donné que l’extrémité de la zone (nom = « @ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, cela signifie que vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité de la zone. Ces contraintes sont dues aux normes DNS, il ne s’agit pas de limites d'Azure DNS.
 
 ### Enregistrements génériques
 
-Azure DNS prend en charge les [enregistrements de caractères génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques).
+Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques).
 
->[AZURE.NOTE]Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
+Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
 
->Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.
+Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.
 
 ## Obtention d’un jeu d'enregistrements
 
@@ -169,7 +169,7 @@ L'applet de commande Set-AzureRmDnsRecordSet utilise des vérifications « etag
 
 ### Modification d'enregistrement SOA
 
->[AZURE.NOTE]Vous ne pouvez pas ajouter ou supprimer des enregistrements du jeu d'enregistrements SOA créé automatiquement dans l’extrémité de la zone (nom = « @ »), mais vous pouvez modifier les paramètres dans l'enregistrement SOA et la durée de vie du jeu d'enregistrements.
+>[AZURE.NOTE] Vous ne pouvez pas ajouter ou supprimer des enregistrements du jeu d'enregistrements SOA créé automatiquement dans l’extrémité de la zone (nom = « @ »), mais vous pouvez modifier les paramètres dans l'enregistrement SOA et la durée de vie du jeu d'enregistrements.
 
 L'exemple suivant montre comment modifier la propriété « Email » de l'enregistrement SOA :
 
@@ -179,7 +179,7 @@ L'exemple suivant montre comment modifier la propriété « Email » de l'enre
 
 ### Modification des enregistrements NS à l’extrémité de la zone
 
->[AZURE.NOTE]Vous ne pouvez pas ajouter, supprimer ou modifier les enregistrements dans le jeu d'enregistrements NS créé automatiquement à l’extrémité de la zone (nom = « @ »). La seule modification possible est la modification de la durée de vie du jeu d'enregistrements.
+>[AZURE.NOTE] Vous ne pouvez pas ajouter, supprimer ou modifier les enregistrements dans le jeu d'enregistrements NS créé automatiquement à l’extrémité de la zone (nom = « @ »). La seule modification possible est la modification de la durée de vie du jeu d'enregistrements.
 
 L'exemple suivant montre comment modifier la propriété de durée de vie du jeu d'enregistrement NS :
 
@@ -252,7 +252,7 @@ La séquence des opérations pour supprimer un enregistrement d’un jeu d’enr
 ## Suppression d’un jeu d'enregistrements
 Les jeux d'enregistrements peuvent être supprimés à l'aide de l'applet de commande Remove-AzureRmDnsRecordSet.
 
->[AZURE.NOTE]Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extrémité de la zone (nom = « @ ») qui sont créés automatiquement lorsque la zone est créée. Ils seront automatiquement supprimés lors de la suppression de la zone.
+>[AZURE.NOTE] Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extrémité de la zone (nom = « @ ») qui sont créés automatiquement lorsque la zone est créée. Ils seront automatiquement supprimés lors de la suppression de la zone.
 
 Utilisez l'une des trois méthodes suivantes pour supprimer un jeu d’enregistrements :
 
@@ -287,4 +287,4 @@ L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](dns-getstarted-create-recordset.md)<BR> [Réalisation d'opérations sur des zones DNS](dns-operations-dnszones.md)<BR> [Automatisation d'opérations à l'aide du Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

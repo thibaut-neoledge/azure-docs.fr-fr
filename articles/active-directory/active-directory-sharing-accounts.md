@@ -55,7 +55,7 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 - [Tableau de bord/rapports d’utilisation des applications](active-directory-passwords-get-insights.md)
 - Portails d’accès des utilisateurs finaux
 - [Proxy d’application](active-directory-application-proxy-get-started.md)
-- [Marketplace Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Marketplace Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Partage d’un compte
 Pour utiliser Azure AD pour partager un compte, vous devez effectuer les opérations suivantes :
@@ -72,4 +72,4 @@ Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authen
 - [Protection des applications avec accès conditionnel](active-directory-conditional-access.md)
 - [Gestion des groupes en libre service/accès aux applications en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

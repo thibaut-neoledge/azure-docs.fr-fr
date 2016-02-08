@@ -19,7 +19,7 @@
 	
 # Azure App Service : Mise à l’échelle des applications d’App Service
 
-Les applications hébergées dans Azure App Service peuvent [atteindre un niveau massif](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage), mais la mise à l’échelle d’une application est un problème complexe pour lequel il n’existe pas de panacée. Pour mettre à l’échelle correctement votre application, il convient de prendre en compte 3 domaines clés :
+Les applications hébergées dans Azure App Service peuvent [atteindre un niveau massif](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/), mais la mise à l’échelle d’une application est un problème complexe pour lequel il n’existe pas de solution universelle. Pour mettre à l’échelle correctement votre application, il convient de prendre en compte 3 domaines clés :
 
 1. Comprendre l’architecture de votre application et ses faiblesses.
 	* Votre application est-elle avec état ? Sans état ?
@@ -38,4 +38,4 @@ Cette section vous aidera à comprendre tous les facteurs et à concevoir une st
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

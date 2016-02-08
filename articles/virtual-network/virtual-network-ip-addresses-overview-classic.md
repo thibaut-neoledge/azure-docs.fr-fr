@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2015"
+   ms.date="01/12/2016"
    ms.author="telmos" />
 
 # Adresses IP (classiques) dans Azure
@@ -23,10 +23,10 @@ Les adresses IP publiques sont utilisées pour la communication avec Internet, y
 
 Les adresses IP privées sont utilisées pour la communication au sein d’un réseau virtuel Azure (VNet), un service cloud, et de votre réseau local lorsque vous utilisez une passerelle VPN ou un circuit ExpressRoute pour étendre votre réseau à Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Modèle de déploiement de Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 ## Adresses IP publiques
-Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et des services Azure accessibles au public, tels que le [Cache Redis Azure](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), les [bases de données SQL](sql-database-technical-overview.md) et [Azure Storage](storage-introduction.md).
+Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et des services Azure accessibles au public, tels que le [Cache Redis Azure](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), les [bases de données SQL](sql-database-technical-overview.md) et [Azure Storage](storage-introduction.md).
 
 Une adresse IP publique est associée aux types de ressources suivants :
 
@@ -39,7 +39,7 @@ Une adresse IP publique est associée aux types de ressources suivants :
 ### Méthode d’allocation
 Lorsqu'une adresse IP publique doit être affectée à une ressource Azure, elle est *dynamiquement* allouée à partir d'un pool d'adresses IP publiques disponibles dans l'emplacement où la ressource est créée. Cette adresse IP est libérée lorsque la ressource est arrêtée. Dans le cas d'un service cloud, cela se produit lorsque toutes les instances de rôle sont arrêtées, ce qui peut être évité en utilisant une adresse IP *statique* (réservée) (voir [Services cloud](#Cloud-services)).
 
->[AZURE.NOTE]La liste des plages d’adresses IP à partir desquelles les adresses IP publiques sont allouées à des ressources Azure est publiée dans [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+>[AZURE.NOTE] La liste des plages d’adresses IP à partir desquelles les adresses IP publiques sont allouées à des ressources Azure est publiée dans [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Résolution de nom d’hôte DNS
 Lorsque vous créez un service cloud ou une VM IaaS, vous devez fournir un nom DNS du service cloud unique pour toutes les ressources dans Azure. Ce processus crée un mappage dans les serveurs DNS gérés par Azure pour *dnsname*.cloudapp.net à l'adresse IP publique de la ressource. Par exemple, lorsque vous créez un service cloud avec le nom DNS de service cloud **contoso**, le nom de domaine complet (FQDN) **contoso.cloudapp.net** sera résolu en une adresse IP publique (VIP) du service cloud. Vous pouvez utiliser ce nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure.
@@ -132,14 +132,14 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 Le tableau ci-dessous présente les limites imposées sur l'adressage IP dans Azure par abonnement. Vous pouvez [contacter le support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut dans les limites maximum en fonction des besoins de votre entreprise.
 
-||Limite par défaut|Limite maximale|
+|Limite par défaut|Limite maximale|
 |---|---|---|
-|Adresses IP publiques (dynamiques)|5|contacter le support|
-|Adresses IP publiques réservées|20|contacter le support|
-|Adresse IP virtuelle publique par déploiement (service cloud)|5|contacter le support|
+|Adresses IP publiques (dynamiques)|5|contacter le support technique|
+|Adresses IP publiques réservées|20|contacter le support technique|
+|Adresse IP virtuelle publique par déploiement (service cloud)|5|contacter le support technique|
 |Adresse IP virtuelle privée (ILB) par déploiement (service cloud)|1|1|
 
-Assurez-vous de lire l'ensemble des [limite pour la mise en réseau](azure-subscription-service-limits.md#networking-limits) dans Azure.
+Assurez-vous de lire l’ensemble des [limite pour la mise en réseau](azure-subscription-service-limits.md#networking-limits) dans Azure.
 
 ## Tarification
 
@@ -148,18 +148,18 @@ Dans la plupart des cas, les adresses IP publiques sont gratuites. Il existe un
 ## Différences entre les déploiements Resource Manager et Classic
 Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager et dans le modèle de déploiement classique.
 
-||Ressource|Classic|Resource Manager|
+|Ressource|Classique|Gestionnaire de ressources|
 |---|---|---|---|
-|**Adresse IP publique**|Machine virtuelle|Appelée ILPIP (dynamique uniquement)|Appelée adresse IP publique (dynamique ou statique)|
-|||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Associée à la carte réseau de la machine virtuelle|
-||Équilibreur de charge accessible via Internet|Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique)|Appelée adresse IP publique (dynamique ou statique)|
-|||Affectée à un service cloud|Associée à la configuration frontale de l’équilibreur de charge|
-||||
-|**Adresse IP privée**|Machine virtuelle|Appelée adresse IP dédiée|Appelée adresse IP privée|
-|||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Affectée à la carte réseau de la machine virtuelle|
-||Équilibreur de charge interne (ILB)|Affectée à l’équilibreur de charge interne (dynamique ou statique)|Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique)|
+|**Adresse IP publique**|MV|Appelée adresse ILPIP (dynamique uniquement)|Appelée adresse IP publique (dynamique ou statique)|
+|Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Associée à la carte réseau de la machine virtuelle|
+|Équilibreur de charge accessible par le biais d’Internet|Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique)|Appelée adresse IP publique (dynamique ou statique)|
+|Affectée à un service cloud|Associée à la configuration frontale de l’équilibreur de charge|
+|
+|**Adresse IP privée**|MV|Appelée adresse IP dédiée|Appelée adresse IP privée|
+|Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS|Affectée à la carte réseau de la machine virtuelle|
+|Équilibreur de charge interne (ILB)|Affectée à l’équilibreur de charge interne (dynamique ou statique)|Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique)|
 
 ## Étapes suivantes
 - [Déployez une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-classic-pportal.md) à l’aide du portail classique.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

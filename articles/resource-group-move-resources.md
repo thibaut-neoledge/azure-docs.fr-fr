@@ -65,6 +65,7 @@ Les services qui ne prennent actuellement pas en charge le déplacement d’une 
 
 - Machines virtuelles
 - Storage
+- ExpressRoute
 
 Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer uniquement un plan App Service. Pour déplacer des applications web, les options disponibles sont :
 
@@ -116,4 +117,4 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

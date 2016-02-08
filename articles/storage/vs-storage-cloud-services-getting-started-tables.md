@@ -30,7 +30,7 @@ Pour commencer, vous devez créer une table dans votre compte de stockage. Nous 
 
 - Pour plus d’informations sur la manipulation des tables par programme, consultez la page [Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md).
 - Pour des informations générales sur Azure Storage, consultez la [documentation relative au stockage](https://azure.microsoft.com/documentation/services/storage/).
-- Pour des informations générales sur les services cloud Azure, consultez la [documentation Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/).
+- Pour des informations générales sur les services cloud Azure, consultez la [documentation des services cloud](https://azure.microsoft.com/documentation/services/cloud-services/).
 - Pour plus d’informations sur la programmation d’applications ASP.NET, consultez la page [ASP.NET](http://www.asp.net).
 
 ## Accès aux tables dans le code
@@ -50,7 +50,7 @@ Pour accéder aux tables dans les projets de service cloud, vous devez inclure l
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>
          _AzureStorageConnectionString"));
-> [AZURE.NOTE]Placez tout le code ci-dessus avant celui des exemples suivants.
+> [AZURE.NOTE]  Placez tout le code ci-dessus avant celui des exemples suivants.
 
 3. Obtenez un objet **CloudTableClient** pour référencer les objets de table de votre compte de stockage.
 
@@ -269,4 +269,4 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

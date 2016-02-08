@@ -22,7 +22,10 @@ Cet article explique comment utiliser l’activité de copie Data factory pour d
 
 Data Factory prend en charge la connexion vers et depuis un système de fichiers local via la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle.
 
-**Remarque :** en dehors de la passerelle de gestion des données, aucun autre fichier binaire n’a besoin d’être installé pour communiquer vers et depuis le système de fichiers local.
+> [AZURE.NOTE] 
+En dehors de la passerelle de gestion des données, aucun autre fichier binaire n’a besoin d’être installé pour communiquer vers et depuis le système de fichiers local.
+> 
+> Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Partage de fichiers Linux 
 
@@ -483,7 +486,7 @@ Format | Deux types de formats sont pris en charge : **TextFormat** et **AvroFo
 fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <p>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (un seul caractère).</p><p>Exemples 1 : "fileFilter": "*.log"</p>Exemple 2 : "fileFilter": 2014-1-?.txt"</p><p>**Remarque** : fileFilter s’applique à un jeu de données FileShare d’entrée</p> | Non
 | compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : GZip, Deflate et BZip2 ; niveaux pris en charge : Optimal et Fastest (le plus rapide). Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
-> [AZURE.NOTE]fileName et fileFilter ne peuvent pas être utilisés simultanément.
+> [AZURE.NOTE] fileName et fileFilter ne peuvent pas être utilisés simultanément.
 
 ### Utilisation de la propriété partitionedBy
 
@@ -603,4 +606,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 avec la structure
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

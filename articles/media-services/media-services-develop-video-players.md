@@ -34,7 +34,7 @@ Pour en savoir plus :
 
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Documentation d’Azure Media Player](http://aka.ms/ampdocs) 
-- [Blog de prise en main d’Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Blog de prise en main d’Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Inscrivez-vous pour vous tenir informé des dernières informations concernant Azure Media Player](http://aka.ms/ampsignup)
 - [Ajouter de nouvelles demandes de fonctionnalités, des idées et des commentaires](http://aka.ms/ampuservoice) 
 
@@ -82,4 +82,4 @@ Pour en savoir plus sur la prise en charge du sous-titrage et des publicités da
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,7 @@ Dans le cadre du déploiement dans un environnement intermédiaire, vous déploy
 
 2. Si le portail de publication vous signale des erreurs, corrigez-les.
 3.	Dans la boîte de dialogue **Who can access your staged offer?**, saisissez la liste des abonnements Azure que vous allez utiliser pour afficher un aperçu de votre offre dans le [portail Azure en version préliminaire](https://portal.azure.com).
-4. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com) à l'aide de l'un des abonnements Azure répertoriés dans l'étape précédente.
+4. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) à l'aide de l'un des abonnements Azure répertoriés dans l'étape précédente.
 5. Recherchez votre offre et validez vos points d'image de machine virtuelle :
   1. Assurez-vous que le contenu marketing s’affiche correctement sur Marketplace.
 
@@ -36,9 +36,9 @@ Dans le cadre du déploiement dans un environnement intermédiaire, vous déploy
 
   2. Déploiement de bout en bout de l'image de machine virtuelle.
 
-> [AZURE.IMPORTANT]Votre offre restera en mode Intermédiaire jusqu'à ce que vous informiez Microsoft via le portail de publication [**Publish** > **« Request Approval to Push to Production »**] que vous êtes prêt à lancer la production. À ce stade, il est souhaitable que les membres de votre équipe procèdent à des vérifications en vue de la préparation de la publication de votre offre.
+> [AZURE.IMPORTANT] Votre offre restera en mode Intermédiaire jusqu'à ce que vous informiez Microsoft via le portail de publication [**Publish** > **« Request Approval to Push to Production »**] que vous êtes prêt à lancer la production. À ce stade, il est souhaitable que les membres de votre équipe procèdent à des vérifications en vue de la préparation de la publication de votre offre.
 
-> La réplication dans les centres de données peut prendre jusqu’à 48 heures. Une fois la réplication terminée, votre offre sera répertoriée dans [Azure Marketplace](http://azure.microsoft.com/marketplace).
+> La réplication dans les centres de données peut prendre jusqu’à 48 heures. Une fois la réplication terminée, votre offre sera répertoriée dans [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ## Étapes suivantes
 Maintenant que votre offre est en mode Intermédiaire et que vous avez testé sa fonctionnalité et son contenu marketing, vous pouvez passer à la phase de publication finale, **Étape 4** : [déploiement de votre offre sur Marketplace](marketplace-publishing-push-to-production.md)
@@ -46,4 +46,4 @@ Maintenant que votre offre est en mode Intermédiaire et que vous avez testé sa
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

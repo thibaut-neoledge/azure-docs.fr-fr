@@ -30,7 +30,7 @@ Le diagramme suivant représente l’architecture du système déployé. Un admi
 
 Pour exécuter les étapes suivantes, vous aurez besoin des éléments suivants :
 
- * Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez obtenir un essai gratuit sur [azure.com](https://azure.microsoft.com).
+ * Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez obtenir une version d’essai sur [azure.com](https://azure.microsoft.com/).
  * Un ID professionnel ou scolaire afin de pouvoir utiliser des groupes de ressources Azure. Si vous avez un compte personnel et que vous vous connectez avec un ID Microsoft, vous devez [créer un ID de travail à partir de votre ID personnel](resource-group-create-work-id-from-personal.md).
  * Il vous faut également l’outil [Azure PowerShell](powershell-install-configure.md) ou la [CLI Azure pour Mac, Linux et Windows](xplat-cli-install.md) de votre système d’exploitation client.
  * [OpenSSL](https://www.openssl.org/). OpenSSL est utilisé pour générer les certificats nécessaires.
@@ -117,7 +117,7 @@ Le modèle définit les règles NAT entrantes qui mappent la valeur 2223 à l�
 
 ![Règles NAT sur l’équilibreur de charge](media/virtual-machines-deis-cluster/nat-rules.png)
 
-> [AZURE.NOTE]Actuellement, le modèle prend uniquement en charge les clusters à 3 nœuds. En effet, la définition des règles NAT des modèles Azure Resource Manager présente une limitation : elle ne prend pas en charge la syntaxe de boucle.
+> [AZURE.NOTE] Actuellement, le modèle prend uniquement en charge les clusters à 3 nœuds. En effet, la définition des règles NAT des modèles Azure Resource Manager présente une limitation : elle ne prend pas en charge la syntaxe de boucle.
 
 ## Installer et démarrer la plateforme Deis
 
@@ -128,7 +128,7 @@ Vous pouvez désormais utiliser l’outil deisctl pour installer et démarrer la
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]Le démarrage de la plate-forme peut prendre un certain temps (jusqu’à 10 minutes, parfois). En particulier, le démarrage du service de générateur peut être long. De plus, vous devrez peut-être vous y prendre à plusieurs fois. Si l’opération se fige, appuyez sur `ctrl+c` pour arrêter l’exécution de la commande et recommencer.
+> [AZURE.NOTE] Le démarrage de la plate-forme peut prendre un certain temps (jusqu’à 10 minutes, parfois). En particulier, le démarrage du service de générateur peut être long. De plus, vous devrez peut-être vous y prendre à plusieurs fois. Si l’opération se fige, appuyez sur `ctrl+c` pour arrêter l’exécution de la commande et recommencer.
 
 Vous pouvez utiliser la commande `deisctl list` pour vérifier si tous les services sont exécutés :
 
@@ -258,4 +258,4 @@ Cet article vous a présenté toutes les étapes d’approvisionnement d’un no
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

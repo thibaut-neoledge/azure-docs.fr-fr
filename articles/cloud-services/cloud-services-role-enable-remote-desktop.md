@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="10/14/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services
@@ -20,7 +20,7 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 Le Bureau à distance vous permet d'accéder au bureau d'un rôle en cours d'exécution dans Azure. Vous pouvez utiliser une connexion Bureau à distance pour dépanner et diagnostiquer les problèmes rencontrés par votre application lorsqu'elle est en cours d'exécution.
@@ -28,8 +28,8 @@ Le Bureau à distance vous permet d'accéder au bureau d'un rôle en cours d'ex�
 Vous pouvez activer une connexion Bureau à distance dans votre rôle pendant le développement en incluant les modules Bureau à distance dans votre définition de service. Vous pouvez aussi activer le Bureau à distance via l’extension Bureau à distance. Cette deuxième approche est recommandée, car elle vous permet d’activer le Bureau à distance sans avoir à redéployer votre application.
 
 
-## Configurer le Bureau à distance à partir du portail
-Le portail utilise l’approche basée sur l’extension Bureau à distance, ce qui vous permet d’activer le Bureau à distance même après déployé l’application. La page **Configurer** de votre service cloud vous permet d’activer le Bureau à distance, de changer le compte Administrateur local utilisé pour la connexion aux machines virtuelles ou le certificat employé dans l’authentification, et de définir la date d’expiration.
+## Configurer le Bureau à distance à partir du portail Azure Classic
+Le portail Azure Classic utilise l’approche basée sur l’extension Bureau à distance, ce qui vous permet d’activer le Bureau à distance même après déployé l’application. La page **Configurer** de votre service cloud vous permet d’activer le Bureau à distance, de changer le compte Administrateur local utilisé pour la connexion aux machines virtuelles ou le certificat employé dans l’authentification, et de définir la date d’expiration.
 
 
 1. Cliquez sur **Cloud Services**, cliquez sur le nom du service cloud, puis cliquez sur **Configurer**.
@@ -38,7 +38,7 @@ Le portail utilise l’approche basée sur l’extension Bureau à distance, ce 
     
     ![Services cloud à distance](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING]toutes les instances de rôle sont redémarrées lorsque vous activez pour la première fois le Bureau à distance et cliquez sur OK (coche). Pour éviter un redémarrage, le certificat utilisé pour chiffrer le mot de passe doit être installé sur le rôle. Pour éviter un redémarrage, [téléchargez un certificat pour le service cloud](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service), puis revenez à cette boîte de dialogue.
+    > [AZURE.WARNING] toutes les instances de rôle sont redémarrées lorsque vous activez pour la première fois le Bureau à distance et cliquez sur OK (coche). Pour éviter un redémarrage, le certificat utilisé pour chiffrer le mot de passe doit être installé sur le rôle. Pour éviter un redémarrage, [téléchargez un certificat pour le service cloud](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service), puis revenez à cette boîte de dialogue.
     
 
 3. Dans **Rôles**, sélectionnez le rôle que vous voulez mettre à jour ou sélectionnez **Tous** pour tous les rôles.
@@ -61,7 +61,7 @@ Le portail utilise l’approche basée sur l’extension Bureau à distance, ce 
 ## À distance dans les instances de rôle
 Une fois le Bureau à distance activé sur les rôles, vous pouvez vous connecter à distance à une instance de rôle via divers outils.
 
-Pour vous connecter à une instance de rôle à partir du portail :
+Pour vous connecter à une instance de rôle à partir du portail Azure Classic :
     
   1.   Cliquez sur **Instances** pour ouvrir la page **Instances**.
   2.   Sélectionnez une instance de rôle pour laquelle la fonctionnalité Bureau à distance est configurée.
@@ -147,4 +147,4 @@ Le fichier [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscf
 
 [Configuration des services cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

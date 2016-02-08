@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 3 : configurer l'infrastructure SQL Server
@@ -25,7 +25,7 @@ Au cours de la phase de déploiement d’une application métier à haute dispon
 
 Vous devez procéder à cette opération avant de passer à la [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). Pour découvrir toutes les phases, voir [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md).
 
-> [AZURE.NOTE]Ces instructions utilisent une image SQL Server de la galerie d’images Azure, et des coûts permanents vous sont facturés pour l’utilisation de la licence SQL Server. Vous pouvez également créer des machines virtuelles dans Azure et installer vos propres licences SQL Server, mais vous devez disposer de Software Assurance et de License Mobility pour utiliser votre licence SQL Server sur une machine virtuelle, y compris une machine virtuelle Azure. Pour plus d’informations sur l’installation de SQL Server sur une machine virtuelle, voir [Installation de SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
+> [AZURE.NOTE] Ces instructions utilisent une image SQL Server de la galerie d’images Azure, et des coûts permanents vous sont facturés pour l’utilisation de la licence SQL Server. Vous pouvez également créer des machines virtuelles dans Azure et installer vos propres licences SQL Server, mais vous devez disposer de Software Assurance et de License Mobility pour utiliser votre licence SQL Server sur une machine virtuelle, y compris une machine virtuelle Azure. Pour plus d’informations sur l’installation de SQL Server sur une machine virtuelle, voir [Installation de SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Création de machines virtuelles de cluster SQL Server dans Azure
 
@@ -41,7 +41,7 @@ Le bloc de commandes PowerShell suivant permet de créer les machines virtuelle
 
 Souvenez-vous que vous avez défini la table M au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md), et les tables V, S, ST et A au cours de la [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
 
@@ -113,7 +113,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ou d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle. Utilisez l’accessoire Connexion Bureau à distance ou un autre outil Bureau à distance pour vous connecter à la machine virtuelle à l’aide de son adresse IP privée ou de son nom DNS intranet.
+> [AZURE.NOTE] Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ou d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle. Utilisez l’accessoire Connexion Bureau à distance ou un autre outil Bureau à distance pour vous connecter à la machine virtuelle à l’aide de son adresse IP privée ou de son nom DNS intranet.
 
 ## Configurer les ordinateurs exécutant SQL Server
 
@@ -163,7 +163,7 @@ Utilisez la procédure suivante à deux reprises, une fois pour chaque machine v
 6.	Cliquez sur **OK** pour fermer la fenêtre.
 7.	Dans le volet gauche, développez le **dossier Sécurité**.
 8.	Cliquez avec le bouton droit sur **Connexions** et sélectionnez **Nouvelle connexion**.
-9.	Dans **Nom de connexion**, entrez *domain*\\sqladmin (où *domain* désigne le nom du domaine dans lequel le compte sqladmin a été créé au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md)). 
+9.	Dans **Nom de connexion**, tapez *domain*\\sqladmin (où *domain* désigne le nom du domaine dans lequel le compte sqladmin a été créé au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md)). 
 10.	Sous **Sélectionner une page**, cliquez sur **Rôles de serveur**, puis sur **sysadmin** et sur **OK**.
 11.	Fermez SQL Server 2014 Management Studio.
 
@@ -172,7 +172,7 @@ Utilisez la procédure suivante à deux reprises, une fois pour chaque serveur S
 1.	Sur l’écran d’accueil, cliquez avec le bouton droit sur **Ce PC**, puis cliquez sur **Propriétés**.
 2.	Dans la fenêtre **Système**, cliquez sur **Paramètres d’utilisation à distance**.
 3.	Dans **Bureau à distance** cliquez sur **Sélectionner les utilisateurs**, puis sur **Ajouter**.
-4.	Dans **Entrez les noms des objets à sélectionner**, entrez [domain]**\\sqladmin**, puis cliquez trois fois sur **OK**.
+4.	Dans **Entrez les noms des objets à sélectionner**, tapez [domain]**\\sqladmin**, puis cliquez trois fois sur **OK**.
 
 Le service SQL Server requiert un port permettant aux clients d'accéder au serveur de base de données. Il requiert également des ports pour la connexion à SQL Server Management Studio et la gestion du groupe à haute disponibilité. Exécutez ensuite deux fois la commande suivante à partir d'une invite de commandes Windows PowerShell de niveau administrateur (une fois pour chaque machine virtuelle SQL Server) afin d'ajouter une règle de pare-feu autorisant ce type de trafic entrant.
 
@@ -230,7 +230,7 @@ En raison du comportement actuel de DHCP dans Azure, qui n’est pas conforme au
 16.	Pour supprimer l’adresse IP du cluster, cliquez avec le bouton droit sur **Adresse IP**, cliquez sur **Supprimer**, puis cliquez sur **Oui** lorsque vous y êtes invité. La ressource de cluster ne peut plus être mise en ligne, car elle dépend de la ressource d’adresse IP. Toutefois, le bon fonctionnement d’un groupe de disponibilité ne dépend pas du nom du cluster ni de l’adresse IP. Par conséquent, le nom du cluster peut rester hors connexion.
 17.	Pour ajouter les nœuds restants au cluster, cliquez avec le bouton droit sur le nom de votre cluster dans le volet gauche, puis cliquez sur **Ajouter un nœud**.
 18.	Dans la page **Avant de commencer**, cliquez sur **Suivant**. 
-19.	Dans la page **Sélectionner les serveurs**, entrez le nom, puis cliquez sur **Ajouter** pour ajouter la machine SQL Server secondaire et le nœud majoritaire du cluster au cluster. Après avoir ajouté les deux ordinateurs, cliquez sur **Suivant**. Si une machine ne peut pas être ajoutée, et si un message d’erreur indique « Le service d’accès distant au Registre n’est pas en cours d’exécution », procédez comme suit : Connectez-vous à la machine, ouvrez le composant logiciel enfichable Services (services.msc) et activez le service d’accès distant au Registre. Pour plus d’informations, consultez [Impossible de se connecter au service Registre distant](http://technet.microsoft.com/library/bb266998.aspx). 
+19.	Dans la page **Sélectionner les serveurs**, tapez le nom, puis cliquez sur **Ajouter** pour ajouter à la fois la machine SQL Server secondaire et le nœud majoritaire du cluster au cluster. Après avoir ajouté les deux ordinateurs, cliquez sur **Suivant**. Si une machine ne peut pas être ajoutée, et si un message d’erreur indique « Le service d’accès distant au Registre n’est pas en cours d’exécution », procédez comme suit : Connectez-vous à la machine, ouvrez le composant logiciel enfichable Services (services.msc) et activez le service d’accès distant au Registre. Pour plus d’informations, consultez [Impossible de se connecter au service Registre distant](http://technet.microsoft.com/library/bb266998.aspx). 
 20.	Dans la page **Avertissement de validation**, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster.**. Cliquez sur **Suivant**. 
 21.	Dans la page **Confirmation**, cliquez sur **Suivant**.
 22.	Dans la page **Résumé**, cliquez sur **Terminer**.
@@ -259,4 +259,4 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 - Pour poursuivre la configuration de cette charge de travail, utilisez la [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

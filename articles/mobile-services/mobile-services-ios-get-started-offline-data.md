@@ -35,7 +35,7 @@ La synchronisation hors connexion présente plusieurs avantages :
 * Elle synchronise les données sur plusieurs appareils.
 * Elle détecte les conflits quand un même enregistrement est modifié par deux appareils.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d'informations, consultez la page d'[essai gratuit d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](https://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d'informations, consultez la page d'[essai gratuit d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Mobile Services], que vous devez effectuer en premier. Examinons d'abord le code lié à la synchronisation hors connexion présent dans le Démarrage rapide.
 
@@ -102,7 +102,7 @@ Le deuxième paramètre de `pullWithQuery` est un ID de requête qui est utilis�
 ```
 
 
->[AZURE.NOTE]Pour supprimer des enregistrements du magasin local de l'appareil quand ils ont été supprimés de la base de données de votre service mobile, activez la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `MSSyncTable.purgeWithQuery` pour vider le magasin local.
+>[AZURE.NOTE] Pour supprimer des enregistrements du magasin local de l'appareil quand ils ont été supprimés de la base de données de votre service mobile, activez la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `MSSyncTable.purgeWithQuery` pour vider le magasin local.
 
 
 * Dans **QSTodoService.m**, les méthodes `addItem` et `completeItem` appellent `syncData` une fois les données modifiées. Dans **QSTodoListViewController.m**, la méthode `refresh` appelle également `syncData` afin que l'interface utilisateur affiche les données les plus récentes à chaque actualisation et au lancement (`init` appelle `refresh`).
@@ -120,7 +120,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
       * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation de toutes les opérations d'extraction
       * TodoItem : pour le stockage des éléments de la tâche. Les colonnes système **ms\_createdAt**, **ms\_updatedAt** et **ms\_version** sont des propriétés système facultatives.
 
->[AZURE.NOTE]Le Kit de développement logiciel (SDK) Mobile Services réserve les noms de colonnes qui commencent par « **`ms_`** ». N'utilisez ce préfixe que sur les colonnes système. Sinon, vos noms de colonnes seront modifiés pendant l'utilisation du service distant.
+>[AZURE.NOTE] Le Kit de développement logiciel (SDK) Mobile Services réserve les noms de colonnes qui commencent par « **`ms_`** ». N'utilisez ce préfixe que sur les colonnes système. Sinon, vos noms de colonnes seront modifiés pendant l'utilisation du service distant.
 
 - Lorsque vous utilisez la fonctionnalité de synchronisation hors connexion, vous devez définir les tables système comme illustré ci-dessous.
 
@@ -275,4 +275,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

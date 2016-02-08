@@ -70,7 +70,7 @@ Authentifier avec le service principal | Après avoir inscrit votre service prin
 2. Sélectionnez **TOUS LES PARAMÈTRES**.
 3. Dans **PARAMÈTRES**, sélectionnez **STRATÉGIE** : ![][14]
 
-Cette stratégie est la même stratégie prise en charge par [Gestion des API Azure](https://azure.microsoft.com/services/api-management). La stratégie actuelle figure dans l'éditeur XML incorporé. Vous pouvez la modifier en ligne ou télécharger un nouveau fichier XML. Après avoir **enregistré** vos modifications, toutes les erreurs apparaissent dans ce panneau, y compris les problèmes liés à la stratégie de l'API.
+Cette stratégie est la même stratégie prise en charge par [Gestion des API Azure](https://azure.microsoft.com/services/api-management/). La stratégie actuelle figure dans l'éditeur XML incorporé. Vous pouvez la modifier en ligne ou télécharger un nouveau fichier XML. Après avoir **enregistré** vos modifications, toutes les erreurs apparaissent dans ce panneau, y compris les problèmes liés à la stratégie de l'API.
 
 La rubrique[Stratégies dans Gestion des API Azure](../api-management-howto-policies.md) constitue une bonne ressource pour en savoir plus sur la configuration et la signification des stratégies.
 
@@ -88,4 +88,4 @@ Pour en savoir plus sur PowerApps, consultez les rubriques et ressources suivant
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

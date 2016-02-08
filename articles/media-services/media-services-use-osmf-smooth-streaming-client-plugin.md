@@ -410,6 +410,6 @@ Pour plus d'informations sur le développement avec OSMF, consultez la page offi
 
 ##Voir aussi
 
-[Plug-in de diffusion en continu adaptative Microsoft pour la mise à jour OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
+[Plug-in de diffusion en continu adaptative Microsoft pour la mise à jour OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

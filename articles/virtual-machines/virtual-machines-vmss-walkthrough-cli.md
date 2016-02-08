@@ -41,7 +41,7 @@ Avant de commencer les étapes de ce didacticiel, [installez l’interface de li
 
 1. **Se connecter à Microsoft Azure** : dans votre interface de ligne de commande (interpréteur de commandes, terminal, invite de commandes), vérifiez que vous êtes en mode Resource Manager en tapant `azure config mode arm`. Ensuite, [connectez-vous avec votre ID professionnel ou scolaire](../xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis suivez les instructions pour vous connecter de manière interactive à votre compte Azure.
 
-	> [AZURE.NOTE]Si vous disposez d’un ID professionnel ou scolaire et que vous savez que l’authentification à deux facteurs n’est pas activée, vous pouvez utiliser `azure login -u` avec l’ID professionnel ou scolaire pour vous connecter sans session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](resource-group-create-work-id-from-personal.md).
+	> [AZURE.NOTE] Si vous disposez d’un ID professionnel ou scolaire et que vous savez que l’authentification à deux facteurs n’est pas activée, vous pouvez utiliser `azure login -u` avec l’ID professionnel ou scolaire pour vous connecter sans session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](resource-group-create-work-id-from-personal.md).
 
 2. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstest1** :
 
@@ -367,7 +367,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
 	- **capacité** : spécifie le nombre de machines virtuelles qui doivent être initialisées dans le groupe à échelle identique. Vous avez défini cette valeur en spécifiant une valeur correspondant au paramètre instanceCount.
 
-	- **upgradePolicy** : spécifie comment les mises à jour sont apportées aux machines virtuelles du groupe à échelle identique. Manuel indique que seules les nouvelles machines virtuelles sont affectées par les modifications d’un modèle lorsqu’il est redéployé. Automatique indique que toutes les machines du groupe à échelle identique sont mises à jour et redémarrées.
+	- **upgradePolicy** : spécifie comment les mises à jour sont apportées aux machines virtuelles du groupe à échelle identique. Manuel indique que seules les nouvelles machines virtuelles sont affectées par les modifications d’un modèle lorsqu’il est redéployé. Automatique indique que toutes les machines du jeu de mise à l’échelle sont mises à jour et redémarrées.
 
 	Le groupe de machines virtuelles à échelle identique n’est pas créé tant que les comptes de stockage ne sont pas tous créés, comme indiqué avec l’élément dependsOn.
 
@@ -479,14 +479,14 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
  - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension Diagnostics collecte le compteur **Processor\\PercentProcessorTime**.
  - **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
  - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
- - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles dans le groupe à échelle identique.
+ - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
  - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
  - **timeAggregation** : ce paramètre détermine la façon dont les données recueillies doivent être combinées sur la durée. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
  - **opérateur** : opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
- - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au groupe à échelle identique lorsque l’utilisation processeur moyenne entre les machines du groupe est supérieure à 50 %.
- - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le groupe à échelle identique est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
+ - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
+ - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
  - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
- - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du groupe à échelle identique. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre de machines présentes dans le groupe à échelle identique augmente de 1 lorsque le seuil est atteint.
+ - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du groupe à échelle identique. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
  - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. Elle peut être comprise entre 1 minute et 1 semaine.
 
 	```
@@ -579,7 +579,7 @@ Il doit prendre environ 15 minutes pour que toutes les ressources soient déplo
 
 ## Étape 5 : analyser les ressources
 
-Vous pouvez obtenir des informations sur les groupes de machines virtuelles à échelle identique à l’aide des méthodes suivantes :
+Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de machine virtuelle à l’aide des méthodes suivantes :
 
  - Le portail Azure : vous pouvez en obtenir une quantité limitée d’informations sur l’utilisation du portail.
  - [Azure Resource Explorer](https://resources.azure.com/) : il s’agit du meilleur outil pour déterminer l’état actuel de votre groupe à échelle identique. Suivez ce chemin d’accès. Vous devriez voir la vue de l’instance du groupe à échelle identique que vous avez créée :
@@ -604,4 +604,4 @@ Vous pouvez obtenir des informations sur les groupes de machines virtuelles à �
 
 Découvrez le modèle [Mettre à l’échelle un groupe de machines virtuelles à échelle identique exécutant une application Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) qui configure une pile LAMP pour tester la fonctionnalité de mise à l’échelle automatique des groupes de machines virtuelles à échelle identique.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -187,7 +187,7 @@ Les planifications ci-dessous supposent toutes que la valeur _interval_ est déf
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/dn528946)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
 
  [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
 
@@ -199,4 +199,4 @@ Les planifications ci-dessous supposent toutes que la valeur _interval_ est déf
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

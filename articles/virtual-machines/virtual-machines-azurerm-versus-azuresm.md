@@ -114,6 +114,6 @@ Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connect
 
 **Où puis-je trouver des exemples de modèles Azure Resource Manager ?**
 
-Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de démarrage rapide Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
+Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

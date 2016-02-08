@@ -63,9 +63,9 @@ Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se
 
 ## Considérations pour l'abonnement
 
-* **Compte Azure** : si vous voulez déployer davantage qu’un petit nombre d’instances de calcul intensif, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Vous pouvez également utiliser votre abonnement MSDN. Consultez [Avantages d’Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Si vous utilisez une [version d’essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
+* **Compte Azure** : si vous voulez déployer davantage qu’un petit nombre d’instances de calcul intensif, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Vous pouvez également utiliser votre abonnement MSDN. Consultez [Avantages d’Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Si vous utilisez une [version d’essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs dans votre abonnement Azure de la valeur par défaut de 20 cœurs par abonnement (pour les déploiements Azure Service Management) ou 20 cœurs par région (pour les déploiements Azure Resource Manager), ce qui n'est pas suffisant pour de nombreux scénarios avec des instances de 8 ou 16 cœurs. Pour les premiers tests, vous pouvez envisager de demander une augmentation du quota à 100 cœurs. Pour cela, ouvrez un ticket de support gratuit comme indiqué dans [Présentation des limites et des augmentations Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs dans votre abonnement Azure de la valeur par défaut de 20 cœurs par abonnement (pour les déploiements Azure Service Management) ou 20 cœurs par région (pour les déploiements Azure Resource Manager), ce qui n'est pas suffisant pour de nombreux scénarios avec des instances de 8 ou 16 cœurs. Pour les premiers tests, vous pouvez envisager de demander une augmentation du quota à 100 cœurs. Pour cela, ouvrez un ticket de support gratuit comme indiqué dans [Présentation des limites et des augmentations Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
     >[AZURE.NOTE]Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Vous êtes facturé seulement pour les cœurs que vous utilisez.
 
@@ -91,9 +91,9 @@ Pour plus d'informations et pour obtenir les listes de vérification afin d'util
 
 Au sein d’un même service cloud ou d’un groupe à haute disponibilité, les instances A8 et A9 peuvent accéder au réseau RDMA dans Azure pour l’exécution d’applications MPI qui utilisent les pilotes Linux RDMA pour communiquer entre les instances. Pour le moment, Azure Linux RDMA est pris en charge uniquement avec [Intel MPI Library 5](https://software.intel.com/fr-FR/intel-mpi-library/).
 
->[AZURE.NOTE]Actuellement, les pilotes Azure Linux RDMA ne sont pas disponibles pour une installation via des extensions de pilote. Ils le sont uniquement en utilisant l’image SLES 12 compatible RDMA dans Azure Marketplace.
+>[AZURE.NOTE] Actuellement, les pilotes Azure Linux RDMA ne sont pas disponibles pour une installation via des extensions de pilote. Ils le sont uniquement en utilisant l’image SLES 12 compatible RDMA dans Azure Marketplace.
 
-Consultez le tableau suivant pour connaître la configuration requise pour que les applications Linux MPI accèdent au réseau RDMA dans les clusters de nœuds de calcul (IaaS). Pour obtenir des informations sur les options de déploiement et les étapes de configuration, consultez [Configuration d'un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
+Consultez le tableau suivant pour connaître la configuration requise pour que les applications Linux MPI accèdent au réseau RDMA dans les clusters de nœuds de calcul (IaaS). Pour obtenir des informations sur les options de déploiement et les étapes de configuration, consultez la page [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
 
 Configuration requise | Machines virtuelles (IaaS)
 ------------ | -------------
@@ -126,8 +126,8 @@ MPI | MS-MPI 2012 R2 ou ultérieur, autonome ou installé via HPC Pack 2012 R2
 
 ## Étapes suivantes
 
-* Pour plus d'informations sur la disponibilité et la tarification des instances A8, A9, A10 et A11, consultez [Tarification de Virtual Machines](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification de Cloud Services](http://azure.microsoft.com/pricing/details/cloud-services/).
+* Pour plus d'informations sur la disponibilité et la tarification des instances A8, A9, A10 et A11, consultez [Tarification de Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
 * Pour déployer et configurer un cluster Linux avec des instances A8 et A9 pour accéder au réseau Azure RDMA, consultez [Configuration d'un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
 * Pour commencer à déployer et à utiliser des instances A8 et A9 avec HPC Pack sur Windows, consultez [Configuration d'un cluster RDMA Windows avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

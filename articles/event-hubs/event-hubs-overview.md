@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Vue d'ensemble des hubs d'événements Azure
@@ -21,7 +21,7 @@ De nombreuses solutions modernes ont pour but de proposer des expériences clien
 
 ![Event Hubs](./media/event-hubs-overview/IC759856.png)
 
-Les hubs d'événements Azure constituent un service de traitement des événements. Celui-ci fournit des entrées d'événements et de télémétrie vers le cloud à grande échelle, avec une faible latence et une grande fiabilité. Ce service, utilisé avec d'autres services en aval, est particulièrement utile pour l'instrumentation de l'application, le traitement du workflow ou de l'expérience utilisateur, et les scénarios de l'Internet des Objets (IoT). Event Hubs fournit une fonctionnalité de gestion du flux de messages et, bien qu'un hub d'événements soit une entité similaire aux files d'attente et aux rubriques, il présente des caractéristiques très différentes de la messagerie d'entreprise traditionnelle. Les scénarios de messagerie d'entreprise nécessitent généralement plusieurs fonctionnalités sophistiquées, comme le séquençage, la lettre morte, la prise en charge des transactions, des garanties de livraison élevées, tandis que la préoccupation principale pour l'admission d'événements est un débit élevé et la flexibilité de traitement pour les flux d'événements. Par conséquent, les capacités des hubs d'événements Azure diffèrent des rubriques Service Bus dans la mesure où elles sont fortement orientées vers le débit élevé et les scénarios de traitement des événements. Par conséquent, les hubs d'événements n'implémentent pas certaines des fonctionnalités de messagerie qui sont disponibles pour les rubriques. Si vous avez besoin de ces fonctionnalités, les rubriques constituent le meilleur choix.
+Les hubs d'événements Azure constituent un service de traitement des événements. Celui-ci fournit des entrées d'événements et de télémétrie vers le cloud à grande échelle, avec une faible latence et une grande fiabilité. Ce service, utilisé avec d'autres services en aval, est particulièrement utile pour l'instrumentation de l'application, le traitement du workflow ou de l'expérience utilisateur, et les scénarios de l'Internet des Objets (IoT). Event Hubs fournit une fonctionnalité de gestion du flux de messages et, bien qu'un hub d'événements soit une entité similaire aux files d'attente et aux rubriques, il présente des caractéristiques très différentes de la messagerie d'entreprise traditionnelle. Les scénarios de messagerie d'entreprise nécessitent généralement plusieurs fonctionnalités sophistiquées, comme le séquençage, la lettre morte, la prise en charge des transactions, des garanties de livraison élevées, tandis que la préoccupation principale pour l'admission d'événements est un débit élevé et la flexibilité de traitement pour les flux d'événements. Par conséquent, les capacités des hubs d'événements diffèrent des rubriques Service Bus dans la mesure où elles sont fortement orientées vers le débit élevé et les scénarios de traitement des événements. Par conséquent, les hubs d'événements n'implémentent pas certaines des fonctionnalités de messagerie qui sont disponibles pour les rubriques. Si vous avez besoin de ces fonctionnalités, les rubriques constituent le meilleur choix.
 
 Un hub d'événements est créé au niveau de l'espace de noms dans Service Bus, comme les files d'attente et les rubriques. Les hubs d'événements utilisent HTTP et AMQP comme interfaces API principales. Le diagramme suivant montre la relation entre les hubs d'événements et Service Bus.
 
@@ -41,7 +41,7 @@ Les partitions conservent les données pendant une durée de conservation config
 
 ![Event Hubs](./media/event-hubs-overview/IC759858.png)
 
-Le nombre de partitions est spécifié pendant la création du hub d’événements. Ce nombre doit être compris entre 2 et 32 (la valeur par défaut est 4). Les partitions constituent un mécanisme d'organisation des données. Elles sont davantage liées au degré de parallélisme en aval requis lors de la consommation des applications qu'au débit des hubs d'événements. Par conséquent, le choix du nombre de partitions dans un hub d'événements est directement lié au nombre de lecteurs simultanés que vous prévoyez d'avoir. Après la création du hub d'événements, le nombre de partitions n'est pas modifiable. Vous devez considérer ce nombre en termes d'échelle attendue à long terme. Vous pouvez augmenter la limite de 32 partitions en contactant l'équipe Azure Service Bus.
+Le nombre de partitions est spécifié pendant la création du hub d’événements. Ce nombre doit être compris entre 2 et 32 (la valeur par défaut est 4). Les partitions constituent un mécanisme d'organisation des données. Elles sont davantage liées au degré de parallélisme en aval requis lors de la consommation des applications qu'au débit des hubs d'événements. Par conséquent, le choix du nombre de partitions dans un hub d'événements est directement lié au nombre de lecteurs simultanés que vous prévoyez d'avoir. Après la création du hub d'événements, le nombre de partitions n'est pas modifiable. Vous devez considérer ce nombre en termes d'échelle attendue à long terme. Vous pouvez augmenter la limite de 32 partitions en contactant l'équipe Service Bus.
 
 Bien que les partitions soient identifiables et qu'il soit possible de leur envoyer du contenu directement, il est préférable d'éviter d'envoyer des données à des partitions spécifiques. Au lieu de cela, vous pouvez utiliser des constructions de niveau supérieur présentées dans les sections [Éditeur d'événements](#event-publisher) et [Stratégie de l'éditeur](#capacity-and-security).
 
@@ -51,7 +51,7 @@ Dans le contexte des hubs d'événements, les messages sont appelés *données d
 
 Toute entité qui envoie des événements ou des données à un hub d'événements est un *éditeur d'événements*. Les éditeurs d'événements peuvent publier des événements à l'aide de HTTPS ou AMQP 1.0. Les éditeurs d'événements utilisent un jeton SAS pour s'identifier auprès d'un hub d'événements. Ils peuvent avoir une identité unique ou utiliser un jeton SAS commun, en fonction des exigences du scénario.
 
-Pour plus d'informations sur l'utilisation de SAS, consultez [Authentification par signature d'accès partagé avec Service Bus](service-bus-shared-access-signature-authentication.md).
+Pour plus d'informations sur l'utilisation de SAS, consultez [Authentification par signature d'accès partagé avec Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md).
 
 ### Tâches courantes de l'éditeur
 
@@ -59,7 +59,7 @@ Cette section décrit des tâches courantes des éditeurs d'événements.
 
 #### Acquérir un jeton SAP
 
-La signature d'accès partagé (SAS) est le mécanisme d'authentification pour les hubs d'événements. Service Bus fournit des stratégies SAS au niveau de l'espace de noms et du hub d'événements. Un jeton SAS est généré à partir d'une clé SAS. C'est un hachage SHA d'une URL, codé dans un format spécifique. À l'aide du nom de la clé (stratégie) et du jeton, Service Bus peut régénérer le hachage et ainsi, authentifier l'expéditeur. Normalement, les jetons SAS pour les éditeurs d'événements sont créés uniquement avec des privilèges d'**envoi** sur un hub d'événements spécifique. Le mécanisme URL de ce jeton SAS constitue la base de l'identification de l'éditeur introduite dans la stratégie de l'éditeur. Pour plus d'informations sur l'utilisation de SAS, consultez [Authentification par signature d'accès partagé avec Service Bus](service-bus-shared-access-signature-authentication.md).
+La signature d'accès partagé (SAS) est le mécanisme d'authentification pour les hubs d'événements. Service Bus fournit des stratégies SAS au niveau de l'espace de noms et du hub d'événements. Un jeton SAS est généré à partir d'une clé SAS. C'est un hachage SHA d'une URL, codé dans un format spécifique. À l'aide du nom de la clé (stratégie) et du jeton, Service Bus peut régénérer le hachage et ainsi, authentifier l'expéditeur. Normalement, les jetons SAS pour les éditeurs d'événements sont créés uniquement avec des privilèges d'**envoi** sur un hub d'événements spécifique. Le mécanisme URL de ce jeton SAS constitue la base de l'identification de l'éditeur introduite dans la stratégie de l'éditeur. Pour plus d'informations sur l'utilisation de SAS, consultez [Authentification par signature d'accès partagé avec Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md).
 
 #### Publication d'un événement
 
@@ -73,7 +73,7 @@ Une clé de partition est une valeur qui est utilisée pour mapper des données 
 
 ![Event Hubs](./media/event-hubs-overview/IC759859.png)
 
-Les hubs d'événements Azure garantissent que tous les événements qui partagent la même valeur de clé de partition sont remis dans l'ordre et à la même partition. Qui plus est, si des clés de partition sont utilisées avec des stratégies d'éditeur, décrites dans la section suivante, alors l'identité de l'éditeur et la valeur de la clé de partition doivent correspondre. Sinon, une erreur se produit.
+Les hubs d'événements garantissent que tous les événements qui partagent la même valeur de clé de partition sont remis dans l'ordre et à la même partition. Qui plus est, si des clés de partition sont utilisées avec des stratégies d'éditeur, décrites dans la section suivante, alors l'identité de l'éditeur et la valeur de la clé de partition doivent correspondre. Sinon, une erreur se produit.
 
 ### Consommateur d'événements
 
@@ -136,11 +136,11 @@ L'entrée est limitée à la quantité de capacité offerte par le nombre d'unit
 
 Les partitions sont un concept d'organisation de données, alors que les unités de débit sont purement un concept de capacité. Les unités de débit sont facturées par heure et sont préalablement acquises. Une fois achetées, les unités de débit sont facturées au moins une heure. Il est possible d'acheter jusqu'à 20 unités de débit pour un espace de noms Service Bus. Un compte Azure est limité à 20 unités de débit. Ces unités de débit sont partagées par tous les hubs d'événements dans un espace de noms donné.
 
-Les unités de débit sont allouées le plus tôt possible et elles peuvent ne pas être toujours disponibles pour un achat immédiat. Si vous avez besoin d'une capacité spécifique, nous vous recommandons d'acheter ces unités de débit à l'avance. Si vous avez besoin de plus de 20 unités de débit, vous pouvez contacter le support Microsoft Azure Service Bus pour acheter davantage d'unités de débit sur une base d'engagement dans des blocs de 20, jusqu'aux 100 premières unités de débit. Ensuite, vous pouvez également acheter des blocs de 100 unités de débit.
+Les unités de débit sont allouées le plus tôt possible et elles peuvent ne pas être toujours disponibles pour un achat immédiat. Si vous avez besoin d'une capacité spécifique, nous vous recommandons d'acheter ces unités de débit à l'avance. Si vous avez besoin de plus de 20 unités de débit, vous pouvez contacter le support Service Bus pour acheter davantage d'unités de débit sur une base d'engagement dans des blocs de 20, jusqu'aux 100 premières unités de débit. Ensuite, vous pouvez également acheter des blocs de 100 unités de débit.
 
 Nous vous recommandons d'équilibrer soigneusement les partitions et les unités de débit pour atteindre une échelle optimale avec les hubs d'événements. Une partition unique a une échelle maximale d'une unité de débit. Le nombre d'unités de débit doit être inférieur ou égal au nombre de partitions dans un hub d'événements.
 
-Pour obtenir des informations de tarification détaillées, consultez [Tarification des hubs d'événements](http://azure.microsoft.com/pricing/details/event-hubs/).
+Pour obtenir des informations de tarification détaillées, consultez [Tarification des hubs d'événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### Stratégie d'éditeur
 
@@ -148,7 +148,7 @@ Event Hubs permet un contrôle granulaire sur les éditeurs d'événements par 
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-Vous n'êtes pas obligé de créer des noms d'éditeurs à l'avance, mais ils doivent correspondre au jeton SAS utilisé lors de la publication d'un événement, afin de garantir les identités de l'éditeur indépendant. Pour plus d'informations sur la signature d'accès partagé (SAS), consultez [Authentification par signature d'accès partagé avec Service Bus](service-bus-shared-access-signature-authentication.md). Lors de l'utilisation de stratégies d'éditeur, la valeur **PartitionKey** est définie sur le nom de l'éditeur. Pour fonctionner correctement, ces valeurs doivent correspondre.
+Vous n'êtes pas obligé de créer des noms d'éditeurs à l'avance, mais ils doivent correspondre au jeton SAS utilisé lors de la publication d'un événement, afin de garantir les identités de l'éditeur indépendant. Pour plus d'informations sur la signature d'accès partagé (SAS), consultez [Authentification par signature d'accès partagé avec Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md). Lors de l'utilisation de stratégies d'éditeur, la valeur **PartitionKey** est définie sur le nom de l'éditeur. Pour fonctionner correctement, ces valeurs doivent correspondre.
 
 ## Résumé
 
@@ -165,7 +165,7 @@ Les hubs d'événements Azure fournissent un service évolutif de traitement de 
 [portail Azure Classic]: http://manage.windowsazure.com
 [didacticiel des hubs d'événements]: event-hubs-csharp-ephcs-getstarted.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

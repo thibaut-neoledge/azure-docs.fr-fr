@@ -24,7 +24,7 @@
 Cette rubrique décrit la planification et la préparation nécessaires pour mettre à niveau vos bases de données SQL Azure de la version V11 vers la V12.
 
 
-Un nouveau [portail Azure](http://portal.azure.com/) est disponible pour prendre en charge la mise à jour vers la V12.
+Un nouveau [portail Azure](https://portal.azure.com/) est disponible pour prendre en charge la mise à jour vers la V12.
 
 
 Le tableau suivant répertorie les autres rubriques d’aide relatives à la version 12.
@@ -91,7 +91,7 @@ Le niveau tarifaire du service Web et Business n’est pas pris en charge dans V
 Si votre base de données SQL Azure V11 est une base de données Web ou Business, le processus de mise à jour vous propose de basculer votre base de données sur un niveau pris en charge. La mise à niveau recommande un niveau qui correspond à l’historique de la charge de travail de votre base de données. Toutefois, vous pouvez choisir n’importe quel niveau pris en charge.
 
 
-Vous pouvez réduire le nombre d’étapes nécessaires pour la mise à jour en changeant le niveau Web et Business de votre base de données V11 avant de commencer le processus. Pour ce faire, utilisez le nouveau [portail Azure](http://portal.azure.com/).
+Vous pouvez réduire le nombre d’étapes nécessaires pour la mise à jour en changeant le niveau Web et Business de votre base de données V11 avant de commencer le processus. Pour ce faire, utilisez le nouveau [portail Azure](https://portal.azure.com/).
 
 
 Si vous n’êtes pas sûr du niveau de service vers lequel basculer, nous vous recommandons le niveau S2 de l’édition Standard. Si vous choisissez un niveau inférieur, vous disposerez probablement d’un nombre de ressources moins important que ce qu’offrait le niveau « Web et Business ».
@@ -127,7 +127,7 @@ Cliquez [ici](sql-database-develop-direct-route-ports-adonet-v12.md) pour plus d
 Il existe trois portails pour Microsoft Azure ; chacun d’eux présente des capacités différentes concernant SQL Database V12.
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>Ce nouveau portail Microsoft Azure est toujours en version préliminaire. Il n’a pas encore atteint le niveau de disponibilité générale. Ce portail :
+- [http://portal.azure.com/](https://portal.azure.com/)<br/>Ce nouveau portail Microsoft Azure est toujours en version préliminaire. Il n’a pas encore atteint le niveau de disponibilité générale. Ce portail :
  - peut gérer vos serveur et base de données version 12 ;
  - peut mettre à niveau votre base de données version 11 vers la version 12.
 
@@ -155,7 +155,7 @@ Vous pouvez également vous connecter avec [Visual Studio Community 2013](https
 Dans l’ancien portail Azure Classic, sur la page des bases de données, vous pouvez cliquer sur **Ouvrir dans Visual Studio** pour lancer VS2013 sur votre ordinateur afin de vous connecter à votre base de données SQL Azure.
 
 
-Vous pouvez également utiliser SQL Server Management Studio (SSMS) 2014 avec [CU6](http://support.microsoft.com/kb/3031047/) pour vous connecter à la base de données SQL Azure. Pour en savoir plus, consultez ce billet de blog :<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
+Vous pouvez également utiliser SQL Server Management Studio (SSMS) 2014 avec [CU6](http://support.microsoft.com/kb/3031047/) pour vous connecter à la base de données SQL Azure. Pour en savoir plus, consultez ce billet de blog :<br/>[Client tooling updates for Azure SQL Database](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
 
 
 ### Limitations à prendre en compte *durant* la mise à niveau vers la version 12
@@ -184,7 +184,7 @@ La base de données V11 est toujours disponible pour l’accès aux données pen
 ### Exportation et importation *après* la mise à niveau vers la version 12
 
 
-Vous pouvez exporter ou importer une base de données V12 à l’aide du [portail Azure](http://portal.azure.com/). Vous pouvez également l’exporter ou l’importer à l’aide des outils suivants :
+Vous pouvez exporter ou importer une base de données V12 à l’aide du [portail Azure](https://portal.azure.com/). Vous pouvez également l’exporter ou l’importer à l’aide des outils suivants :
 
 
 - SQL Server Management Studio (SSMS)
@@ -200,7 +200,7 @@ Toutefois, pour utiliser les outils, vous devez d’abord installer leurs derni�
 - [Infrastructure d’application de la couche Données (DacFx) de février 2015 pour Azure SQL Database V12](http://www.microsoft.com/download/details.aspx?id=45886)
 
 
-> [AZURE.NOTE]Les liens des outils précédents ont été mis à jour le 2 mars 2015 ou après. Nous vous recommandons d’utiliser les mises à jour plus récentes de ces outils.
+> [AZURE.NOTE] Les liens des outils précédents ont été mis à jour le 2 mars 2015 ou après. Nous vous recommandons d’utiliser les mises à jour plus récentes de ces outils.
 
 
 #### Exportation automatique
@@ -247,11 +247,11 @@ Si la mise à niveau échoue pour une raison quelconque, votre base de données 
 ## Liens connexes
 
 
-- [Fonctionnalités de la version préliminaire](http://azure.microsoft.com/services/preview/) de Microsoft Azure
+- [Fonctionnalités de la version préliminaire](https://azure.microsoft.com/services/preview/) de Microsoft Azure
 
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

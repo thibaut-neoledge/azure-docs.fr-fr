@@ -26,7 +26,7 @@ Ce document fournit des conseils visant à vous aider à évaluer si l’utilisa
 - Pour en savoir plus sur les pools de bases de données élastiques, consultez [Référence de pools de bases de données élastiques Base de données SQL](sql-database-elastic-pool-reference.md).
 
 
-> [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12.
+> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12.
 
 ## Pool de bases de données élastique
 
@@ -119,7 +119,7 @@ L'heuristique suivante peut aider à estimer si un pool élastique de bases de d
 
     prix de pool = *eDTU du pool* * *prix unitaire d’eDTU du pool*
 
-    Pour plus d’informations sur la tarification, voir [Tarification des bases de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+    Pour plus d’informations sur la tarification, voir [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 4. Comparez le prix du pool trouvé à l'étape 3 avec celui de l'utilisation des niveaux de performance appropriés pour les bases de données uniques.
@@ -176,7 +176,7 @@ Un exemple de script PowerShell est fourni ici pour estimer les valeurs d’eDTU
 
 Le script collecte uniquement les données en cours d'exécution. Pour une charge de travail de production habituelle, vous devez exécuter le script pendant au moins un jour, bien qu'une semaine ou une plus longue période donne probablement une estimation plus précise. Exécutez le script pour une durée de temps qui représente votre charge de travail habituelle en ce qui concerne les bases de données.
 
-> [AZURE.IMPORTANT]Vous devez conserver la fenêtre PowerShell ouverte pendant l'exécution du script. Ne fermez pas la fenêtre PowerShell tant que vous n’avez pas exécuté le script pendant une durée suffisante et que vous n’avez pas capturé suffisamment de données pour représenter votre charge de travail habituelle couvrant la durée d'utilisation normale et la durée d’utilisation maximale.
+> [AZURE.IMPORTANT] Vous devez conserver la fenêtre PowerShell ouverte pendant l'exécution du script. Ne fermez pas la fenêtre PowerShell tant que vous n’avez pas exécuté le script pendant une durée suffisante et que vous n’avez pas capturé suffisamment de données pour représenter votre charge de travail habituelle couvrant la durée d'utilisation normale et la durée d’utilisation maximale.
 
 ### Configuration requise pour le script 
 
@@ -189,7 +189,7 @@ Installez les éléments suivants avant d'exécuter le script :
 ### Détails du script
 
 
-Vous pouvez exécuter le script à partir de votre ordinateur local ou d’un ordinateur virtuel sur le cloud. Lorsque vous l’exécutez à partir de votre ordinateur local, vous risquez de subir des frais de sortie de données, car le script a besoin de télécharger des données depuis vos bases de données cibles. Vous trouverez ci-dessous une estimation du volume de données en fonction du nombre de bases de données cibles et de la durée d'exécution du script. Pour découvrir les coûts de transfert de données Azure, voir [Détails de la tarification de transfert de données](http://azure.microsoft.com/pricing/details/data-transfers/).
+Vous pouvez exécuter le script à partir de votre ordinateur local ou d’un ordinateur virtuel sur le cloud. Lorsque vous l’exécutez à partir de votre ordinateur local, vous risquez de subir des frais de sortie de données, car le script a besoin de télécharger des données depuis vos bases de données cibles. Vous trouverez ci-dessous une estimation du volume de données en fonction du nombre de bases de données cibles et de la durée d'exécution du script. Pour les coûts de transfert de données Azure, consultez [Détails de la tarification de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     1 base de données par heure = 38 Ko
  -     1 base de données par jour = 900 Ko
@@ -216,7 +216,7 @@ Si vous rencontrez les avertissements suivants lors de l'exécution du script, v
 
 Une fois le script terminé, il génère le nombre d’eDTU estimé nécessaire pour qu’un pool élastique puisse contenir toutes les bases de données candidates sur le serveur cible. Cette estimation du nombre d’eDTU peut être utilisée pour créer et configurer un pool élastique de bases de données contenant ces bases de données. Une fois que le pool est créé et que les bases de données ont été déplacées dans le pool, il doit être étroitement surveillé pendant quelques jours et les réglages de la configuration des eDTU du pool doivent être réalisés en fonction des besoins.
 
-> [AZURE.IMPORTANT]Ce script contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+> [AZURE.IMPORTANT] Ce script contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
     
@@ -435,4 +435,4 @@ Toutes les bases de données uniques ne sont pas de parfaits candidats à un poo
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

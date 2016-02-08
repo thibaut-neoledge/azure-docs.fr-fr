@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)
@@ -35,7 +35,7 @@ Pour plus d'informations sur la gestion de l'authentification et de l'abonnement
 
 Si vous ne possédez pas de compte Azure, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][free-trial].
 
->[AZURE.NOTE]Si vous utilisez une version de l'interface de ligne de commande Azure antérieure à la version 0.9.10, vous pouvez utiliser la commande `azure login` uniquement avec des identités de comptes professionnels ou scolaires. Les ID de compte Microsoft ne fonctionnent pas. Cependant, vous pouvez utiliser une identité quelconque pour vous connecter à votre compte avec la commande `azure login` avec les versions 0.9.10 et ultérieures de l'interface de ligne de commande Azure.
+>[AZURE.NOTE] Si vous utilisez une version de l'interface de ligne de commande Azure antérieure à la version 0.9.10, vous pouvez utiliser la commande `azure login` uniquement avec des identités de comptes professionnels ou scolaires. Les ID de compte Microsoft ne fonctionnent pas. Cependant, vous pouvez utiliser une identité quelconque pour vous connecter à votre compte avec la commande `azure login` avec les versions 0.9.10 et ultérieures de l'interface de ligne de commande Azure.
 >
 Les versions 0.9.9 et ultérieures de l'interface de ligne de commande prennent en charge l'authentification multifacteur (multi-factor authentication).
 
@@ -48,7 +48,7 @@ Utilisez la commande `azure login` (sans arguments) pour vous identifier de mani
 - une identité de compte professionnel ou scolaire qui requiert une authentification multifacteur, ou
 - une identité de compte Microsoft pour accéder à la fonctionnalité Resource Manager en mode déploiement
 
-> [AZURE.NOTE]Dans les deux cas, l'authentification et l'autorisation sont effectuées à l'aide d'Azure Active Directory. Si vous utilisez une identité de compte Microsoft, le processus de connexion accède à votre domaine par défaut Azure Active Directory. (Si vous disposez d'une version d'évaluation gratuite, vous ne remarquerez peut-être pas qu'Azure Active Directory a créé un domaine par défaut pour votre compte.)
+> [AZURE.NOTE]  Dans les deux cas, l'authentification et l'autorisation sont effectuées à l'aide d'Azure Active Directory. Si vous utilisez une identité de compte Microsoft, le processus de connexion accède à votre domaine par défaut Azure Active Directory. (Si vous disposez d'une version d'évaluation gratuite, vous ne remarquerez peut-être pas qu'Azure Active Directory a créé un domaine par défaut pour votre compte.)
 
 L'établissement d'une connexion interactive est simple : saisissez `azure login`, puis suivez les invites comme indiqué ci-dessous :
 
@@ -96,11 +96,11 @@ Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de
 
 Cette commande ouvre votre navigateur par défaut et vous invite à vous connecter au [portail Azure Classic][portal]. Une fois que vous êtes connecté, un fichier `.publishsettings` se télécharge. Prenez note de son emplacement.
 
-	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
-	>
-	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+> [AZURE.NOTE] Si votre compte est associé à plusieurs clients Azure Active Directory, vous pouvez être invité à sélectionner l'annuaire Active Directory pour lequel vous voulez télécharger un fichier de paramètres de publication.
+>
+> Une fois l’annuaire Active Directory sélectionné à partir de la page de téléchargement ou par le biais du portail Azure Classic, il est utilisé par défaut par le portail Classic et par la page de téléchargement. Une fois qu'un paramètre par défaut a été défini, le texte « __cliquez ici pour revenir à la page de sélection__ » apparaît en haut de la page de téléchargement. Utilisez le lien affiché pour revenir à la page de sélection.
 
-* Exécutez la commande suivante **pour importer le fichier de paramètres de publication** :
+* **Pour importer le fichier de paramètres de publication**, exécutez la commande suivante :
 
 		azure account import <path to your .publishsettings file>
 
@@ -123,7 +123,7 @@ Dans la liste ci-dessus, la colonne **Current** indique que l’abonnement par d
 
 Cette commande sélectionne Azure-sub-2 comme abonnement par défaut.
 
-> [AZURE.NOTE]Le changement d’abonnement par défaut prend effet immédiatement et au niveau global. Les nouvelles commandes Azure CLI, qu’elles soient exécutées à partir de la même instance de ligne de commande ou d’une autre instance, utilisent le nouvel abonnement par défaut.
+> [AZURE.NOTE] Le changement d’abonnement par défaut prend effet immédiatement et au niveau global. Les nouvelles commandes Azure CLI, qu’elles soient exécutées à partir de la même instance de ligne de commande ou d’une autre instance, utilisent le nouvel abonnement par défaut.
 
 Si vous souhaitez utiliser avec Azure CLI un abonnement autre que l’abonnement par défaut, mais sans changer ce dernier, vous pouvez utiliser l’option `--subscription` et fournir le nom de l’abonnement à utiliser pour l’opération.
 
@@ -158,4 +158,4 @@ Que vous vous connectiez avec un compte professionnel ou scolaire ou que vous im
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

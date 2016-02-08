@@ -34,7 +34,7 @@ Vous pouvez mettre à niveau ou rétrograder un plan de collection de travaux à
 - Il existe déjà une collection de travaux gratuite dans l'abonnement.
 - Un travail de la collection de travaux a une périodicité supérieure à celle autorisée pour les travaux dans les collections de travaux gratuites. La périodicité maximale autorisée dans une collection de travaux gratuite est une fois par heure.
 - La collection de travaux contient plus de 5 travaux.
-- Un travail de la collection de travaux comporte une action HTTP ou HTTPS qui utilise un [objet d’autorisation sortante HTTP](scheduler-outbound-authentication.md).
+- Un travail de la collection de travaux a une action HTTP ou HTTPS qui utilise un [objet d'autorisation sortante HTTP](scheduler-outbound-authentication.md)
 
 ## Facturation et plans Azure
 
@@ -58,13 +58,13 @@ Ainsi, les collections de travaux premium ont les mêmes fonctionnalités que le
 
 ## Facturation et état Actif
 
-Les collections de travaux sont toujours actives, sauf si votre abonnement entier est dans un état temporaire désactivé en raison de problèmes de facturation. La seule façon de s’assurer qu’une collection de travaux n’est pas facturée est de la définir dans le plan _Gratuit_ ou de la supprimer.
+Les collections de travaux sont toujours actives, sauf si votre abonnement entier est dans un état temporaire désactivé en raison de problèmes de facturation. La seule façon de s'assurer qu'une collection de travaux n'est pas facturée est de la définir dans le plan _Gratuit_ ou de la supprimer.
 
 Bien que vous puissiez désactiver tous les travaux d’une collection de travaux en une seule opération, cela ne modifie pas l’état de facturation de la collection de travaux : celle-ci sera _tout de même_ facturée. De même, les collections de travaux vides sont considérées comme actives et seront facturées.
 
 ## Tarification
 
-Pour plus d’informations sur la tarification, voir l’article [Tarification d’Azure Scheduler](http://azure.microsoft.com/pricing/details/scheduler/).
+Pour plus d’informations sur la tarification, voir l’article [Tarification d’Azure Scheduler](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## Voir aussi
  
@@ -75,7 +75,7 @@ Pour plus d’informations sur la tarification, voir l’article [Tarification d
 
  [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/dn528946)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
 
  [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
 
@@ -89,4 +89,4 @@ Pour plus d’informations sur la tarification, voir l’article [Tarification d
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

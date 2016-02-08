@@ -71,9 +71,9 @@ Le tableau suivant est un graphique qui répertorie les réplicas sur l'axe vert
 <tr><td>N/A</td><td><b>1&#160;partition</b></td><td><b>2&#160;partitions</b></td><td><b>3&#160;partitions</b></td><td><b>4&#160;partitions</b></td><td><b>6&#160;partitions</b></td><td><b>12&#160;partitions</b></td></tr>
 </table>
 
-Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site Web Azure. Pour plus d’informations, consultez la rubrique [Tarification](http://azure.microsoft.com/pricing/details/search/).
+Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site Web Azure. Pour plus d'informations, consultez la rubrique [Tarification](https://azure.microsoft.com/pricing/details/search/).
 
-> [AZURE.NOTE]Le nombre de réplicas et de partitions doit être partagé en 12, de manière égale (plus précisément, 1, 2, 3, 4, 6, 12). Azure Search divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un nouvel index, chaque partition contiendra 4 partitions de l'index. Le partitionnement d’un index réalisé par Azure Search est un détail d'implémentation, susceptible d’être modifié dans les futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
+> [AZURE.NOTE] Le nombre de réplicas et de partitions doit être partagé en 12, de manière égale (plus précisément, 1, 2, 3, 4, 6, 12). Azure Search divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un nouvel index, chaque partition contiendra 4 partitions de l'index. Le partitionnement d’un index réalisé par Azure Search est un détail d'implémentation, susceptible d’être modifié dans les futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
 
 ## Choisissez une combinaison de partitions et de réplicas pour la haute disponibilité
 
@@ -88,11 +88,11 @@ Recommandations générales pour la haute disponibilité :
 
 Il n'existe actuellement aucun mécanisme intégré de récupération d'urgence. L’ajout de partitions ou de réplicas ne vous permettra pas d’atteindre les objectifs de récupération d'urgence qui ont été fixés. Au lieu de cela, vous pouvez envisager d'ajouter de la redondance au niveau du service. Pour plus d’informations sur les solutions de contournement, consultez [ce billet de forum](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE]Rappelez-vous que l'évolutivité et les contrats de niveau de service sont des fonctionnalités du service standard. Le service gratuit est proposé à un niveau de ressource fixe, avec des réplicas et des partitions partagés par plusieurs abonnés. Si vous démarrez avec le service gratuit et que vous voulez procéder à une mise à niveau, vous devrez créer un nouveau service de recherche Azure au niveau standard, puis recharger ensuite les index et les données vers le nouveau service. Pour obtenir des instructions sur l’approvisionnement du service, consultez [Créer un service Azure Search dans le portail](search-create-service-portal.md).
+> [AZURE.NOTE] Rappelez-vous que l'évolutivité et les contrats de niveau de service sont des fonctionnalités du service standard. Le service gratuit est proposé à un niveau de ressource fixe, avec des réplicas et des partitions partagés par plusieurs abonnés. Si vous démarrez avec le service gratuit et que vous voulez procéder à une mise à niveau, vous devrez créer un nouveau service de recherche Azure au niveau standard, puis recharger ensuite les index et les données vers le nouveau service. Pour obtenir des instructions sur l’approvisionnement du service, consultez [Créer un service Azure Search dans le portail](search-create-service-portal.md).
 
 ## Limites de clé API
 
-Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés administrateur sont spécifiées dans l'en-tête de la requête. Les clés de requête sont spécifiées dans l'URL. Pour plus d’informations sur la gestion des clés, consultez [Gérer votre service de recherche sur Microsoft Azure](search-manage.md).
+Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés administrateur sont spécifiées dans l'en-tête de la requête. Les clés de requête sont spécifiées dans l'URL. Pour plus d’informations sur la gestion des clés, consultez la rubrique [Gestion de votre service de recherche sur Microsoft Azure](search-manage.md).
 
 - 2 clés administrateur maximum par service
 - 50 clés de requête maximum par service
@@ -112,4 +112,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 
 <sup>1</sup> Dans Azure Search, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

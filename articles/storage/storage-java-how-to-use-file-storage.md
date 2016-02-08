@@ -50,7 +50,7 @@ Pour pouvoir utiliser le stockage de fichiers, vous devez vous connecter à votr
 	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]Remplacez your\_storage\_account\_name (nom de votre compte de stockage) et your\_storage\_account\_key (clé de votre compte de stockage) par les valeurs réelles de votre compte de stockage.
+> [AZURE.NOTE] Remplacez your\_storage\_account\_name (nom de votre compte de stockage) et your\_storage\_account\_key (clé de votre compte de stockage) par les valeurs réelles de votre compte de stockage.
 
 ## Connexion à un compte de stockage Azure
 
@@ -222,4 +222,4 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

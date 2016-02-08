@@ -3,9 +3,9 @@ Vous avez besoin d’un compte Azure pour y déployer des applications. Cet arti
 ## Création d'un compte Azure
 
 1.  Ouvrez un navigateur web et accédez à <http://azure.microsoft.com>
-2.  Si vous possédez un abonnement MSDN, accédez à la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) et suivez la procédure de création d’un compte en activant les avantages de votre abonnement MSDN.
+2.  Si vous possédez un abonnement MSDN, accédez à la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) et suivez la procédure de création d’un compte en activant les avantages de votre abonnement MSDN.
 
-   Sinon, accédez à la page [create a free trial account](http://azure.microsoft.com/pricing/free-trial/) et suivez la procédure de création d’un compte d’évaluation. Vous devrez fournir un numéro de carte de crédit et un numéro de téléphone mobile pour prouver votre identité, mais rien ne vous sera facturé.
+   Sinon, accédez à la page [create a free trial account](https://azure.microsoft.com/pricing/free-trial/) et suivez la procédure de création d’un compte d’évaluation. Vous devrez fournir un numéro de carte de crédit et un numéro de téléphone mobile pour prouver votre identité, mais rien ne vous sera facturé.
 
 ## Activer des fonctionnalités préliminaires d'Azure
 
@@ -18,4 +18,4 @@ Vous avez besoin d’un compte Azure pour y déployer des applications. Cet arti
 [2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
 [3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

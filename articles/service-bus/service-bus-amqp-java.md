@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
-# Utilisation de Service Bus à partir de Java avec AMQP 1.0
+# utilisation de Service Bus à partir de Java avec AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Java Message Service (JMS) est une API standard pour travailler avec un middleware orienté messages sur la plateforme Java. Azure Service Bus a été testé avec la bibliothèque cliente JMS basée sur AMQP 1.0, développée par le projet Apache Qpid. Cette bibliothèque prend en charge l’API JMS 1.1 complète et peut être utilisée avec n’importe quel service de messagerie compatible AMQP 1.0. Ce scénario est également pris en charge dans Service Bus pour Windows Server (Service Bus local). Pour plus d’informations, consultez [AMQP dans Service Bus pour Windows Server][].
+Java Message Service (JMS) est une API standard pour travailler avec un middleware orienté messages sur la plateforme Java. Microsoft Azure Service Bus a été testé avec la bibliothèque cliente JMS basée sur AMQP 1.0, développée par le projet Apache Qpid. Cette bibliothèque prend en charge l’API JMS 1.1 complète et peut être utilisée avec n’importe quel service de messagerie compatible AMQP 1.0. Ce scénario est également pris en charge dans [Service Bus pour Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (Service Bus local). Pour plus d’informations, consultez [AMQP dans Service Bus pour Windows Server][].
 
 ## Téléchargement de la bibliothèque cliente JMS AMQP 1.0 Apache Qpid
 
@@ -35,7 +35,7 @@ Vous devez ajouter les quatre fichiers JAR suivants de l'archive de distribution
 
 -   qpid-amqp-1-0-common-[version].jar
 
-## Utilisation des files d’attente, rubriques et abonnements Service Bus depuis JMS
+## Utilisation des files d'attente, rubriques et abonnements Service Bus à partir de JMS
 
 ### JNDI (Java Naming and Directory Interface)
 
@@ -86,7 +86,7 @@ Où `[namespace]`, `[username]` et `[password]` ont les significations suivantes
 | `[username]` | Nom de l’émetteur Service Bus obtenu auprès du [portail Azure Classic][]. | | | | |
 | `[password]` | Formulaire encodé dans une URL de la clé de l’émetteur Service Bus obtenue auprès du [portail Azure Classic][]. | | | | |
 
-> [AZURE.NOTE]vous devez encoder manuellement le mot de passe dans une URL. Un utilitaire efficace d'encodage dans une URL est disponible à l'adresse [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] vous devez encoder manuellement le mot de passe dans une URL. Un utilitaire efficace d'encodage dans une URL est disponible à l'adresse [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 Par exemple, si les informations obtenues auprès du portail sont les suivantes :
 
@@ -101,7 +101,7 @@ Pour définir ensuite un objet **ConnectionFactory** nommé `SBCONNECTIONFACTORY
 connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
 ```
 
-#### Configuration des destinations
+#### Configurer des destinations
 
 L’entrée qui définit une destination dans le fournisseur JNDI de fichier de propriétés Qpid est au format suivant :
 
@@ -130,7 +130,7 @@ Pour définir une destination JMS logique nommée TOPIC qui mappe sur une rubriq
 topic.TOPIC = topic1
 ```
 
-### Envoi de messages à l’aide de JMS
+### Envoi de messages à l'aide de JMS
 
 Le code suivant montre comment envoyer un message à une rubrique Service Bus. Il est supposé que `SBCONNECTIONFACTORY` et `TOPIC` sont définis dans un fichier de configuration **servicebus.properties**, comme décrit dans la section précédente.
 
@@ -151,9 +151,9 @@ TextMessage message = session.createTextMessage("This is a text string");
 producer.send(message);
 ```
 
-### Réception de messages à l’aide de JMS
+### Réception de messages à l'aide de JMS
 
-Le code suivant montre `how` recevoir un message d’un abonnement à une rubrique Service Bus. Il est supposé que `SBCONNECTIONFACTORY` et TOPIC sont définis dans un fichier de configuration **servicebus.properties**, comme décrit dans la section précédente. On suppose également que le nom de l’abonnement est `subscription1`.
+Le code suivant montre `how` recevoir un message d’un abonnement à une rubrique Service Bus. On part du principe que `SBCONNECTIONFACTORY` et TOPIC sont définis dans un fichier de configuration **servicebus.properties**, comme décrit dans la section précédente. On suppose également que le nom de l’abonnement est `subscription1`.
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -179,7 +179,7 @@ La spécification JMS définit comment le contrat d’exception des méthodes AP
 -   Enregistrez un **ExceptionListener** avec la connexion JMS à l’aide de **connection.setExceptionListener**. Cela permet à un client d’être averti d’un problème de façon asynchrone. Cette notification est particulièrement importante pour les connexions qui utilisent uniquement des messages, car elles n’ont aucun autre moyen de savoir que leur connexion a échoué. L’**ExceptionListener** est appelé s’il existe un problème avec la connexion AMQP sous-jacente, la session ou le lien. Dans ce cas, le programme d’application doit recréer les objets **JMS Connection**, **Session**, **MessageProducer** et **MessageConsumer** à partir de zéro.
 
 -   Pour vérifier qu’un message a été envoyé avec succès d’une entité **MessageProducer** à une entité Service Bus, assurez-vous que l’application a été configurée avec le jeu de propriétés système **qpid.sync\_publish**. Pour ce faire, démarrez le programme avec l’option **-Dqpid.sync\_publish=true** de la machine virtuelle Java définie sur la ligne de commande lors du démarrage de l’application. Le paramétrage de cette option configure la bibliothèque pour ne pas retourner depuis l’appel d’envoi jusqu’à la réception de la confirmation que le message a été accepté par Service Bus. Si un problème se produit pendant l’opération d’envoi, une exception **JMSException** est générée. Il existe deux causes possibles :
-	1. Si le problème est dû au rejet par Service Bus d’un message particulier envoyé, une exception **MessageRejectedException** est générée. Cette erreur est temporaire ou liée à un problème avec le message. La procédure recommandée consiste à effectuer plusieurs tentatives pour réessayer l’opération avec une logique de temporisation. Si le problème persiste, le message doit être abandonné avec une erreur consignée localement. Il n’est pas nécessaire de recréer les objets **JMS Connection**, **Session** ou **MessageProducer** dans ce cas. 
+	1. Si le problème est dû au rejet par Service Bus d’un message particulier envoyé, une exception **MessageRejectedException** est levée. Cette erreur est temporaire ou liée à un problème avec le message. La procédure recommandée consiste à effectuer plusieurs tentatives pour réessayer l’opération avec une logique de temporisation. Si le problème persiste, le message doit être abandonné avec une erreur consignée localement. Il n’est pas nécessaire de recréer les objets **JMS Connection**, **Session** ou **MessageProducer** dans cette situation. 
 	2. Si le problème est dû à la fermeture du lien AMQP par Service Bus, une exception **InvalidDestinationException** est générée. Cela peut être dû à un problème temporaire ou à la suppression d’une entité de message. Dans les deux cas, les objets **JMS Connection**, **Session** et **MessageProducer** doivent être recréés. Si la condition d’erreur était temporaire, cette opération finit par réussir. Si l’entité a été supprimée, l’échec est permanent.
 
 ## Messagerie entre .NET et JMS
@@ -446,4 +446,4 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

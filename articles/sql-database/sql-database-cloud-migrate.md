@@ -1,6 +1,7 @@
 <properties
-   pageTitle="Migration d’une base de données SQL Server vers une base de données SQL Azure"
-   description="Microsoft Azure SQL Database, déployer base de données, migration base de données, importer base de données, exporter base de données, assistant de migration"
+   pageTitle="Migration de base de données SQL Server vers SQL Database | Microsoft Azure"
+   description="Découvrez comment migrer une base de données SQL Server locale vers Azure SQL Database dans le cloud. Utilisez les outils de migration de base de données pour tester la compatibilité avant de procéder à la migration de la base de données."
+   keywords="migration de base de données, migration de base de données sql server, outils de migration de base de données, migrer la base de données, migrer la base de données sql"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -16,26 +17,26 @@
    ms.date="01/05/2016"
    ms.author="carlrab"/>
 
-# Migration d’une base de données SQL Server vers une base de données SQL Azure
+# Migration de base de données SQL Server vers SQL Database dans le cloud
 
-Cet article vous montre comment migrer une base de données SQL Server 2005 ou version ultérieure locale vers la base de données SQL Azure. Dans ce processus de migration, vous migrez votre schéma et vos données à partir de la base de données SQL Server dans votre environnement actuel vers la base de données SQL, à condition que la base de données existante réussisse les tests de compatibilité. Avec [la version 12 de la base de données SQL](sql-database-v12-whats-new.md), il existe très peu de problèmes de compatibilité autres que les opérations au niveau du serveur et de bases de données croisées. Les bases de données et applications qui reposent sur des [fonctions partiellement ou pas du tout prises en charge](sql-database-transact-sql-information.md) ont besoin d'une nouvelle ingénierie pour [corriger ces incompatibilités](sql-database-cloud-migrate-fix-compatibility-issues.md) avant de pouvoir migrer la base de données SQL Server.
+Cet article vous montre comment migrer une base de données SQL Server 2005 ou version ultérieure locale vers la base de données SQL Azure. Dans ce processus de migration de base de données, vous migrez votre schéma et vos données à partir de la base de données SQL Server dans votre environnement actuel vers SQL Database, à condition que la base de données existante réussisse les tests de compatibilité. Avec [la version 12 de la base de données SQL](sql-database-v12-whats-new.md), il existe très peu de problèmes de compatibilité autres que les opérations au niveau du serveur et de bases de données croisées. Les bases de données et applications qui reposent sur des [fonctions partiellement ou pas du tout prises en charge](sql-database-transact-sql-information.md) ont besoin d'une nouvelle ingénierie pour [corriger ces incompatibilités](sql-database-cloud-migrate-fix-compatibility-issues.md) avant de pouvoir migrer la base de données SQL Server.
 
-> [AZURE.NOTE]Pour migrer une base de données non SQL Server, notamment Microsoft Access, Sybase, MySQL Oracle et DB2, vers une base de données SQL Azure, consultez l’[Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/).
+> [AZURE.NOTE] Pour migrer une base de données non SQL Server, notamment Microsoft Access, Sybase, MySQL Oracle et DB2, vers une base de données SQL Azure, consultez l’[Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/).
 
-## Déterminez si une base de données SQL Server est compatible avec la migration vers une base de données SQL
+## Les outils de migration de base de données testent la compatibilité de la base de données SQL Server avec SQL Database
 
 > [AZURE.SELECTOR]
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 - [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
 
-Pour tester les problèmes de compatibilité de la base de données SQL avant de commencer le processus de migration, utilisez l’une des méthodes suivantes :
+Pour tester les problèmes de compatibilité de la base de données SQL avant de commencer le processus de migration de la base de données, utilisez l’une des méthodes suivantes :
 
 - [Utilisation de SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md) : SqlPackage est un utilitaire d’invite de commandes qui recherche d’éventuels problèmes de compatibilité et, le cas échéant, génère un rapport sur lequel figurent les problèmes détectés.
 - [Utilisation de SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md) : l’Assistant Exportation de l’application de la couche Données dans SQL Server Management Studio affiche les erreurs détectées à l'écran.
 
-## Correction des problèmes de compatibilité
+## Résoudre les problèmes de compatibilité de migration de la base de données
 
-Si des problèmes de compatibilité sont détectés, vous devez les corriger avant de procéder à la migration.
+Si des problèmes de compatibilité sont détectés, vous devez les corriger avant de procéder à la migration de la base de données SQL Server. Utilisez les outils de migration de base de données suivants :
 
 - Utilisez l’[Assistant Migration SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
 - Utilisez [SQL Server Data Tools pour Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
@@ -55,13 +56,13 @@ Pour choisir votre méthode de migration, demandez-vous d’abord si vous pouvez
 
 Pour une migration avec un temps d’arrêt minimal, utilisez la [réplication transactionnelle SQL Server](sql-database-cloud-migrate-compatible-using-transactional-replication.md) si votre base de données remplit les conditions requises pour la réplication transactionnelle. Si vous pouvez vous permettre un temps d'arrêt ou si vous effectuez un test de migration d'une base de données de production que vous envisagez de migrer, examinez l'une des trois méthodes suivantes :
 
-- [Assistant Migration SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) : Pour les petites et moyennes bases de données, la migration d’une base de données SQL Server 2005 ou version ultérieure compatible revient à exécuter l’[Assistant de déploiement de base de données dans une base de données Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) dans SQL Server Management Studio. 
+- [Assistant Migration SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) : Pour les petites et moyennes bases de données, la migration d’une base de données SQL Server 2005 ou version ultérieure compatible revient à exécuter l’[Assistant de déploiement de base de données dans une base de données Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) dans SQL Server Management Studio.
 - [Exportation vers un fichier BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) puis [Importation à partir du fichier BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) : Si vous rencontrez des problèmes de connectivité (aucune connectivité, faible bande passante ou problèmes de délai) et pour les bases de données moyennes et volumineuses, utilisez un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Avec cette méthode, vous exportez le schéma et les données SQL Server vers un fichier BACPAC puis importez le fichier BACPAC dans la base de données SQL à l'aide de l'Assistant Exportation d'une application de la couche Données dans SQL Server Management Studio ou de l’utilitaire d’invite de commandes [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
-- Utilisation simultanée de BACPAC et BCP : utilisez un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) et [BCP](https://msdn.microsoft.com/library/ms162802.aspx) pour les bases de données plus volumineuses afin de permettre une meilleure parallélisation pour améliorer les performances, avec une complexité plus importante. Avec cette méthode, migrez le schéma et les données séparément. 
+- Utilisation simultanée de BACPAC et BCP : utilisez un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) et [BCP](https://msdn.microsoft.com/library/ms162802.aspx) pour les bases de données plus volumineuses afin de permettre une meilleure parallélisation pour améliorer les performances, avec une complexité plus importante. Avec cette méthode, migrez le schéma et les données séparément.
  - [Exportez uniquement le schéma vers un fichier BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
- - [Importez uniquement le schéma à partir du fichier BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) dans la base de données SQL. 
+ - [Importez uniquement le schéma à partir du fichier BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) dans la base de données SQL.
  - Utilisez [BCP](https://msdn.microsoft.com/library/ms162802.aspx) pour extraire les données dans des fichiers plats, puis [importez ces fichiers en parallèle](https://technet.microsoft.com/library/dd425070.aspx) dans la base de données SQL Azure.
 
-	 ![Diagramme de migration de SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
+	 ![Migration de base de données SQL Server - migrer une base de données SQL vers le cloud.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

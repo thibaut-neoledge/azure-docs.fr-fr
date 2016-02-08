@@ -3,7 +3,7 @@
 	description="Prise en main de Mobile Services dans un projet JavaScript sous Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="TomArcher" 
+	authors="mlhoop" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="01/05/2016" 
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Prise en main d’une application mobile Javascript après l’ajout d’Azure Mobile Services à l’aide des services connectés Visual Studio
 
@@ -86,6 +86,6 @@ Supprimez une ligne dans une table de données. Appelez la méthode [done]() sur
 
 
 
-[En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
+[En savoir plus sur Mobile Services](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

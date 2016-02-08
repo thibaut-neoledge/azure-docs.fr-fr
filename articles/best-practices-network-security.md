@@ -28,7 +28,7 @@ Le schéma logique ci-dessous peut vous orienter vers un exemple spécifique des
 ## Conformité et protection des infrastructures Microsoft
 Microsoft joue un rôle de premier plan dans le soutien des initiatives de conformité requises par les clients d’entreprise. Voici quelques-unes des certifications de conformité pour Azure : ![Badges de conformité Azure][1]
 
-Vous trouverez plus de détails à l’adresse : [http://azure.microsoft.com/support/trust-center/compliance/](http://azure.microsoft.com/support/trust-center/compliance/)
+Vous trouverez plus de détails à l’adresse : [http://azure.microsoft.com/support/trust-center/compliance/](https://azure.microsoft.com/support/trust-center/compliance/)
 
 Microsoft a adopté une approche complète pour protéger l’infrastructure cloud nécessaire à l’exécution de services mondiaux très évolutifs. L’infrastructure cloud de Microsoft inclut les matériels, logiciels, réseaux, personnels d’administration et d’exploitation, ainsi que les centres de données physiques.
 
@@ -118,7 +118,7 @@ Pour activer ces caractéristiques, la liste suivante fournit des conseils sur l
     - Appareil VPN : action en tant que passerelles VPN entre les locaux, pour la connectivité VPN entre les locaux entre les réseaux locaux client et les réseaux virtuels Azure
     - Serveur VPN : action en tant que serveurs VPN pour accepter les clients VPN se connectant aux réseaux virtuels Azure
 
->[AZURE.TIP]Gérez les personnes autorisées à accéder au matériel de sécurité de la zone DMZ de manière complètement différente des personnes autorisées en tant qu’administrateurs de développement, de déploiement ou d’opérations d’applications. Conserver une distinction entre ces groupes permet une répartition des tâches et empêche qu’une seule personne contourne les contrôles de sécurité des applications et de sécurité réseau.
+>[AZURE.TIP] Gérez les personnes autorisées à accéder au matériel de sécurité de la zone DMZ de manière complètement différente des personnes autorisées en tant qu’administrateurs de développement, de déploiement ou d’opérations d’applications. Conserver une distinction entre ces groupes permet une répartition des tâches et empêche qu’une seule personne contourne les contrôles de sécurité des applications et de sécurité réseau.
 
 ### Questions à envisager lors de la création des limites du réseau
 Lorsque les « réseaux Azure » sont évoqués dans cette section, sauf mention contraire spécifique, tous les réseaux (réseaux, réseaux virtuels ou sous-réseaux) font référence à des réseaux virtuels Azure privés créés par un administrateur d’abonnements et ne se rapportent pas aux réseaux physiques sous-jacents dans Azure.
@@ -137,7 +137,7 @@ En premier lieu, il faut décider le nombre de limites de sécurité nécessaire
 
 Le nombre et le type des limites nécessaires varient en fonction de la tolérance au risque d’une société et du scénario spécifique qui est implémenté. C’est souvent une décision conjointe prise par plusieurs groupes au sein d’une entreprise, souvent une équipe spécialiste des risques et de la conformité, une équipe chargée du réseau/de la plateforme et une équipe de développement des applications. Les personnes ayant des connaissances en matière de sécurité, des données impliquées et des technologies utilisées doivent avoir leur mot à dire dans cette décision, afin de garantir une position de sécurité appropriée pour chaque implémentation.
 
->[AZURE.TIP]Utilisez le plus petit nombre de limites afin de répondre aux exigences de sécurité pour une situation donnée. Plus le nombre de limites est élevé, plus les opérations et le dépannage peuvent être complexes, de même que les frais généraux impliqués dans la gestion de plusieurs stratégies de limites au fil du temps. Toutefois, des limites insuffisantes augmentent les risques. Il est essentiel de trouver le juste équilibre.
+>[AZURE.TIP] Utilisez le plus petit nombre de limites afin de répondre aux exigences de sécurité pour une situation donnée. Plus le nombre de limites est élevé, plus les opérations et le dépannage peuvent être complexes, de même que les frais généraux impliqués dans la gestion de plusieurs stratégies de limites au fil du temps. Toutefois, des limites insuffisantes augmentent les risques. Il est essentiel de trouver le juste équilibre.
 
 ![Réseau hybride avec trois limites de sécurité][6]
 
@@ -184,7 +184,7 @@ Des détails supplémentaires sont disponibles pour la création de cet exemple 
 #### Description d’un groupe de sécurité réseau (NSG)
 Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
 
->[AZURE.TIP]En règle générale, vous devez d’abord créer vos règles d’« autorisation » spécifiques, puis les règles de « refus » plus génériques. La priorité donnée indique quelles sont les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic s’applique à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
+>[AZURE.TIP] En règle générale, vous devez d’abord créer vos règles d’« autorisation » spécifiques, puis les règles de « refus » plus génériques. La priorité donnée indique quelles sont les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic s’applique à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
 
 Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
@@ -230,7 +230,7 @@ Des détails supplémentaires sont disponibles pour la création de cet exemple 
 #### Description d’un groupe de sécurité réseau (NSG)
 Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
 
->[AZURE.TIP]En règle générale, vous devez d’abord créer vos règles d’« autorisation » spécifiques, puis les règles de « refus » plus génériques. La priorité donnée indique quelles sont les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic s’applique à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
+>[AZURE.TIP] En règle générale, vous devez d’abord créer vos règles d’« autorisation » spécifiques, puis les règles de « refus » plus génériques. La priorité donnée indique quelles sont les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic s’applique à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
 
 Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
@@ -307,7 +307,7 @@ Une fois que les tables de routage sont créées, elles sont liées à leurs sou
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]Il existe certaines limites à l’utilisation du routage défini par utilisateur (UDR) avec ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé dans la passerelle virtuelle Azure. En voici la liste :
+>[AZURE.NOTE] Il existe certaines limites à l’utilisation du routage défini par utilisateur (UDR) avec ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé dans la passerelle virtuelle Azure. En voici la liste :
 >
 > 1. Le routage UDR ne doit pas être appliqué au sous-réseau de passerelle auquel la passerelle virtuelle Azure liée à ExpressRoute est connectée.
 > 2. La passerelle virtuelle Azure liée à ExpressRoute ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés.
@@ -334,7 +334,7 @@ Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que 
  
 ![Affichage logique des règles de pare-feu][10]
 
->[AZURE.NOTE]Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, un pare-feu de NG Barracuda utilisant les ports 22, 801 et 807 est référencé. Veuillez consulter la documentation du fournisseur d’appliance pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
+>[AZURE.NOTE] Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, un pare-feu de NG Barracuda utilisant les ports 22, 801 et 807 est référencé. Veuillez consulter la documentation du fournisseur d’appliance pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
 
 #### Description des règles de pare-feu
 Dans le schéma logique ci-dessus, le sous-réseau de sécurité n’est pas affiché car le pare-feu est la seule ressource de ce sous-réseau, et ce schéma présente les règles de pare-feu et la façon dont elles autorisent ou refusent les flux et non les itinéraires réels. En outre, les ports externes sélectionnés pour le trafic RDP appartiennent à la plage supérieure de ports (8014 – 8026) et ont été sélectionnés pour s’aligner à peu près sur les deux derniers octets de l’adresse IP locale, pour faciliter la lecture (par exemple, l’adresse du serveur local 10.0.1.4 est associée à un port externe 8014), cependant, tous les ports supérieurs non conflictuels peuvent être utilisés.
@@ -354,7 +354,7 @@ Dans cet exemple, nous avons besoin de 7 types de règles, qui se présentent c
 - Règle de prévention de défaillance (pour le trafic ne répondant à aucun des éléments ci-dessus) :
   7.	Refuser toutes les règles de trafic : il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent, si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire.
 
->[AZURE.TIP]Sur la deuxième règle de trafic de l’application, n’importe quel port est autorisé pour simplifier cet exemple. Dans un scénario réel, le port le plus spécifique et les plages d’adresses doivent être utilisés pour réduire la surface d’attaque de cette règle.
+>[AZURE.TIP] Sur la deuxième règle de trafic de l’application, n’importe quel port est autorisé pour simplifier cet exemple. Dans un scénario réel, le port le plus spécifique et les plages d’adresses doivent être utilisés pour réduire la surface d’attaque de cette règle.
 
 Une fois que toutes les règles ci-dessus sont créées, il est important de revoir la priorité de chaque règle pour s’assurer que le trafic sera autorisé ou rejeté comme souhaité. Pour cet exemple, les règles sont dans l’ordre de priorité.
 
@@ -378,7 +378,7 @@ La mise en réseau hybride à l’aide d’une appliance virtuelle réseau (Netw
 
 Comme indiqué dans la figure ci-dessus, une connexion VPN sur Internet (de site à site) permet de connecter un réseau local à un réseau virtuel Azure via une appliance virtuelle réseau.
 
->[AZURE.NOTE]Si vous utilisez ExpressRoute avec l’option d’homologation Azure public activée, un itinéraire statique devra être créé pour les routages vers l’adresse IP VPN NVA en dehors du périmètre Internet de votre entreprise et non via le périmètre WAN ExpressRoute. Cela est dû à la traduction d’adresses réseau requise sur l’option d’homologation Azure public ExpressRoute qui arrêtera probablement la session VPN (généralement, le protocole IPSec n’aime pas la traduction d’adresses réseau).
+>[AZURE.NOTE] Si vous utilisez ExpressRoute avec l’option d’homologation Azure public activée, un itinéraire statique devra être créé pour les routages vers l’adresse IP VPN NVA en dehors du périmètre Internet de votre entreprise et non via le périmètre WAN ExpressRoute. Cela est dû à la traduction d’adresses réseau requise sur l’option d’homologation Azure public ExpressRoute qui arrêtera probablement la session VPN (généralement, le protocole IPSec n’aime pas la traduction d’adresses réseau).
 
 Une fois que la connexion VPN est en place, la NVA devient le « hub » central pour tous les réseaux et sous-réseaux. Les règles de transfert de pare-feu déterminent quels flux de trafic sont autorisés, se voient appliquer la traduction d’adresses réseau, sont redirigées ou sont abandonnés (même pour les flux de trafic entre le réseau local et Azure, si les flux sont conçus de cette façon).
 
@@ -413,7 +413,7 @@ La mise en réseau hybride à l’aide d’une passerelle VPN Azure peut être a
 
 Comme indiqué dans la figure ci-dessus, une connexion VPN sur Internet (de site à site) permet de connecter un réseau local à un réseau virtuel Azure via une passerelle VPN Azure.
 
->[AZURE.NOTE]Si vous utilisez ExpressRoute avec l’option d’homologation Azure public activée, un itinéraire statique devra être créé pour les routages vers l’adresse IP de passerelle VPN Azure en dehors du périmètre Internet de votre entreprise et non via le périmètre WAN ExpressRoute. Cela est dû à la traduction d’adresses réseau requise sur l’option d’homologation Azure public ExpressRoute qui arrêtera probablement la session VPN (généralement, le protocole IPSec n’aime pas la traduction d’adresses réseau).
+>[AZURE.NOTE] Si vous utilisez ExpressRoute avec l’option d’homologation Azure public activée, un itinéraire statique devra être créé pour les routages vers l’adresse IP de passerelle VPN Azure en dehors du périmètre Internet de votre entreprise et non via le périmètre WAN ExpressRoute. Cela est dû à la traduction d’adresses réseau requise sur l’option d’homologation Azure public ExpressRoute qui arrêtera probablement la session VPN (généralement, le protocole IPSec n’aime pas la traduction d’adresses réseau).
 
 Comme illustré ci-dessous, avec cette option, l’environnement dispose maintenant de deux périmètres réseau. Sur le premier périmètre, la NVA et les NSG contrôlent les flux de trafic pour les réseaux intra-Azure et entre Azure et Internet, tandis que le deuxième périmètre est la passerelle VPN Azure qui est un périmètre réseau totalement distinct et isolé entre le réseau local et Azure.
 
@@ -442,7 +442,7 @@ La mise en réseau hybride à l’aide d’une connexion d’homologation privé
 
 Comme indiqué dans la figure ci-dessus, l’homologation privée ExpressRoute fournit une connexion directe entre votre réseau local et le réseau virtuel Azure. Le trafic passe uniquement dans le réseau du prestataire de services et le réseau Microsoft/Azure, sans jamais toucher Internet.
 
->[AZURE.NOTE]Il existe certaines limites à l’utilisation du routage défini par utilisateur (UDR) avec ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé dans la passerelle virtuelle Azure. En voici la liste :
+>[AZURE.NOTE] Il existe certaines limites à l’utilisation du routage défini par utilisateur (UDR) avec ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé dans la passerelle virtuelle Azure. En voici la liste :
 >
 > 1. Le routage UDR ne doit pas être appliqué au sous-réseau de passerelle auquel la passerelle virtuelle Azure liée à ExpressRoute est connectée.
 > 2. La passerelle virtuelle Azure liée à ExpressRoute ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés.
@@ -451,7 +451,7 @@ Comme indiqué dans la figure ci-dessus, l’homologation privée ExpressRoute f
 
 <br />
 
->[AZURE.TIP]L’utilisation d’ExpressRoute tient le trafic du réseau d’entreprise éloigné d’Internet pour une meilleure sécurité, améliorant ainsi significativement les performances et autorisant les accords de niveau de service de votre fournisseur ExpressRoute. En ce qui concerne les performances ExpressRoute, la passerelle Azure peut transférer jusqu’à 2 Gbits/s avec ExpressRoute, tandis qu’avec les VPN de site à site, le débit maximal de la passerelle Azure est de 200 Mbits/s.
+>[AZURE.TIP] L’utilisation d’ExpressRoute tient le trafic du réseau d’entreprise éloigné d’Internet pour une meilleure sécurité, améliorant ainsi significativement les performances et autorisant les accords de niveau de service de votre fournisseur ExpressRoute. En ce qui concerne les performances ExpressRoute, la passerelle Azure peut transférer jusqu’à 2 Gbits/s avec ExpressRoute, tandis qu’avec les VPN de site à site, le débit maximal de la passerelle Azure est de 200 Mbits/s.
 
 Comme on le voit dans le schéma ci-dessous, avec cette option, l’environnement dispose maintenant de deux périmètres réseau. La NVA et le NSG contrôlent les flux de trafic pour les réseaux intra-Azure et entre Azure et Internet, tandis que la passerelle est un périmètre réseau totalement distinct et isolé entre le réseau local et Azure.
 
@@ -511,4 +511,4 @@ bientôt disponibles et liés à partir de cette page.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

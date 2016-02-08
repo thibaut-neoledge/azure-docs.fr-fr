@@ -30,7 +30,7 @@ Cloud Explorer est installé au sein de Visual Studio Tools pour le kit de déve
 - Visual Studio 2015 RTM.
 
 - Visual Studio Tools pour le kit de développement logiciel (SDK) Azure.
-- Vous devez disposer également d’un compte Azure et être connecté pour afficher les ressources Azure dans Cloud Explorer. Si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'évaluation gratuit](http://azure.microsoft.com/pricing/free-trial/).
+- Vous devez disposer également d’un compte Azure et être connecté pour afficher les ressources Azure dans Cloud Explorer. Si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'évaluation gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 - Si Cloud Explorer n'apparaît pas, vous pouvez l'afficher en sélectionnant **Affichage**, **Autres fenêtres,** **Cloud Explorer** dans la barre de menus.
 
@@ -95,4 +95,4 @@ Pour trouver des ressources portant un nom spécifique dans les abonnements de v
 
 Lorsque vous entrez des caractères dans la zone de recherche, seules les ressources qui correspondent à ces caractères apparaissent dans l'arborescence de ressources.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@ Les [**Tâches de bases de données élastiques**](sql-database-elastic-jobs-ove
 Si vous avez déjà installé **Tâches de bases de données élastiques** via le portail à partir d'un **pool élastique de bases de données** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 
 ## Composants requis
-* Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell, version 0.8.16 (ou ultérieure). Installez la dernière version (0.9.5) via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 * L'[utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d'informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
 
@@ -188,4 +188,4 @@ Vérifiez que les informations d’identification disposant des droits appropri�
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

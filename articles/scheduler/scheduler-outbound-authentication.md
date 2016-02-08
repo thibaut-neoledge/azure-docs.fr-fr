@@ -257,7 +257,7 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 
 ## Exemple de requête et de réponse pour l'authentification ActiveDirectoryOAuth
 
-L’exemple de requête suivant effectue une requête PUT qui incorpore l’authentification `ActiveDirectoryOAuth`. La requête est la suivante :
+L'exemple de requête suivant effectue une requête PUT qui incorpore l'authentification `ActiveDirectoryOAuth`. La requête est la suivante :
 
 	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
 	x-ms-version: 2013-03-01
@@ -346,7 +346,7 @@ Une fois que cette requête est envoyée, la réponse est la suivante :
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/dn528946)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
 
  [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
 
@@ -360,4 +360,4 @@ Une fois que cette requête est envoyée, la réponse est la suivante :
  
   
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

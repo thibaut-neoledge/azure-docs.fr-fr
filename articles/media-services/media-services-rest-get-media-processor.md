@@ -36,14 +36,14 @@ Encodeur multimédia Azure|Permet d’exécuter les tâches d’encodage à l’
 Media Encoder Standard|Vous permet d'exécuter des tâches d'encodage avec l'Encodeur multimédia standard.|[Encodeur multimédia Azure](media-services-encode-asset.md#media_encoder_standard)
 Media Encoder Premium Workflow|Permet d’exécuter des tâches d’encodage à l’aide de Media Encoder Premium Workflow.|[Media Encoder Premium Workflow](media-services-encode-asset.md#media_encoder_premium_wokrflow)
 Azure Media Indexer| Permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes et des mots clés de sous-titrage codé.|[Indexation de fichiers multimédias avec Azure Media Indexer](media-services-index-content.md).
-Azure Media Hyperlapse (version préliminaire)|Permet de lisser les « dégradations » dans votre vidéo avec une stabilisation vidéo. Permet également d’accélérer votre contenu dans un clip consommable.|		[Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
+Azure Media Hyperlapse (version préliminaire)|Permet de lisser les « dégradations » dans votre vidéo avec une stabilisation vidéo. Permet également d’accélérer votre contenu dans un clip consommable.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
 Storage Decryption| Vous permet de déchiffrer les éléments multimédias qui ont été chiffrés par chiffrement de stockage.|N/A
 Microsoft Azure Media Packager|Vous permet de convertir des éléments multimédias du format .mp4 vers un format de diffusion en continu. De même, il permet de convertir des éléments multimédias du format de diffusion en continu lisse au format HLS (Apple HTTP Live Streaming).|[Chaînes de présélection des tâches pour Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
 Microsoft Azure Media Encryptor|Vous permet de chiffrer des éléments multimédias avec PlayReady Protection.|[Chaînes de présélection des tâches pour Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
 
 ##Obtention de MediaProcessor
 
->[AZURE.NOTE]Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
+>[AZURE.NOTE] Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
 >
 >Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
@@ -103,4 +103,4 @@ Maintenant que vous savez comment obtenir une instance de processeur multimédia
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

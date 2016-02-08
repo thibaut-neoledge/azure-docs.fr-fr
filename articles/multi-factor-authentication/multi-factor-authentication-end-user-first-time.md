@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Première connexion Azure Multi-Factor Authentication" 
 	description="Cette page décrit l’expérience de l’utilisateur quand il se connecte pour la première fois." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="utilisation du répertoire azure, active directory dans le cloud, didacticiel sur active directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 # Configuration de l’expérience Azure Multi-Factor Authentication
 
@@ -36,4 +37,4 @@ Méthode|Description
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

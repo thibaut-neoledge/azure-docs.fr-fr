@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 
@@ -56,4 +56,10 @@ Quelques points importants à noter lorsque l’on envisage ce scénario :
 
 - Assurez-vous que l’application utilise un ensemble nom d’utilisateur/mot de passe pour l’authentification. L’authentification basée sur un certificat/carte à puce n’est pas prise en charge par les services de domaine Azure AD.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+## Azure RemoteApp
+Azure RemoteApp permet à l’administrateur de Contoso de créer une collection jointe à un domaine. Cela permet aux applications distantes prises en charge par Azure RemoteApp de s’exécuter sur les ordinateurs joints à un domaine et d’accéder à d’autres ressources à l’aide de l’authentification intégrée de Windows. Contoso peut utiliser les services de domaine Azure AD pour fournir un domaine géré utilisé par les collections jointes à un domaine Azure RemoteApp.
+
+Pour plus d’informations sur ce scénario de déploiement, consultez l’article du blog des services Bureau à distance intitulé [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (en anglais).
+
+<!---HONumber=AcomDC_0128_2016-->

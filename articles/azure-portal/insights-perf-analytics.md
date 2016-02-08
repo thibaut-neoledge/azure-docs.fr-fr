@@ -17,7 +17,7 @@
 
 # Surveillance des performances d'application web Azure
 
-Dans le [portail Azure](http://portal.azure.com), vous pouvez configurer l’analyse pour collecter des statistiques et des détails sur les dépendances de l’application dans vos [applications web Azure](../app-service-web/app-service-web-overview.md) ou vos [machines virtuelles](../virtual-machines/virtual-machines-about.md).
+Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer l’analyse pour collecter des statistiques et des détails sur les dépendances de l’application dans vos [applications web Azure](../app-service-web/app-service-web-overview.md) ou vos [machines virtuelles](../virtual-machines/virtual-machines-about.md).
 
 Azure prend en charge l’Analyse des performances des applications (*APM*) en tirant parti des *extensions*. Ces dernières sont installées dans votre application et collectent les données qu’elles renvoient aux services d’analyse.
 
@@ -83,4 +83,4 @@ Une fois que vous arrivez sur le panneau, pour Application Insights par exemple,
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

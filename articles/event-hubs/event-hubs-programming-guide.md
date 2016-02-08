@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Guide de programmation de concentrateurs d’événements
@@ -23,13 +23,13 @@ Cette rubrique décrit la programmation des concentrateurs d’événements Azur
 
 L’envoi d'événements à un concentrateur d'événements s'effectue à l'aide d'HTTP POST ou via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont analysées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec une configuration de volumes de messages plus importants fréquents et une latence inférieure lorsqu’ils fournissent un canal de messagerie permanent.
 
-Les concentrateurs d'événements sont créés et gérés à l'aide de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) et [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). La classe [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) fournit le canal de communication AMQP sur lequel les événements sont envoyés au concentrateur d'événements. La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) représente un événement et est utilisée pour publier des messages sur un concentrateur d'événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) lorsqu'il traverse un concentrateur d'événements.
+Les concentrateurs d'événements sont créés et gérés à l'aide de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) et [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) fournit le canal de communication AMQP sur lequel les événements sont envoyés au concentrateur d'événements. La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) représente un événement et est utilisée pour publier des messages sur un concentrateur d'événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) lorsqu'il traverse un concentrateur d'événements.
 
 ## Prise en main
 
-Les classes .NET qui prennent en charge les concentrateurs d'événements font partie de l'assembly Microsoft.ServiceBus.dll. Le moyen le plus simple de référencer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus est de télécharger le package NuGet Service Bus. Pour plus d'informations, consultez [Utilisation du package NuGet Service Bus](https://msdn.microsoft.com/library/azure/dn741354.aspx). Vous pouvez également utiliser la [Console du gestionnaire de package](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) dans Visual Studio. Pour cela, entrez la commande suivante dans la fenêtre de la [console du gestionnaire du package](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
+Les classes .NET qui prennent en charge les concentrateurs d'événements font partie de l'assembly Microsoft.ServiceBus.dll. Le moyen le plus simple de référencer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus est de télécharger le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Vous pouvez également utiliser la [Console du gestionnaire de package](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) dans Visual Studio. Pour cela, entrez la commande suivante dans la fenêtre de la [console du gestionnaire du package](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
-```powershell
+```
 Install-Package WindowsAzure.ServiceBus
 ```
 
@@ -37,7 +37,7 @@ Install-Package WindowsAzure.ServiceBus
 
 Vous pouvez utiliser la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) pour créer des concentrateurs d'événements. Par exemple :
 
-```c
+```
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
@@ -52,7 +52,7 @@ Toutes les opérations de création de concentrateur d'événements, y compris [
 
 La classe [EventHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubdescription.aspx) contient des détails sur un concentrateur d'événements, notamment les règles d'autorisation, l'intervalle de rétention de message, les ID de partition, l’état et le chemin d'accès. Vous pouvez utiliser cette classe pour mettre à jour les métadonnées sur un concentrateur d'événements.
 
-## Création d’un client de concentrateur d’événements
+## Création d’un client de concentrateurs d’événements
 
 La classe principale d'interaction avec les concentrateurs d’événements est [Microsoft.ServiceBus.Messaging.EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx). Cette classe fournit les fonctionnalités de l'expéditeur et du récepteur. Vous pouvez instancier cette classe à l'aide de la méthode [Create](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx), comme indiqué dans l'exemple suivant.
 
@@ -89,7 +89,7 @@ Vous pouvez envoyer des événements à un concentrateur d'événements en créa
 
 ## Sérialisation d'événement
 
-La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) possède [quatre constructeurs surchargés](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) qui prennent un grand nombre de paramètres, comme un objet et un sérialiseur, un tableau d'octets ou un flux de données. Il est également possible d'instancier la classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) et de définir le flux de données du corps par la suite. Lorsque vous utilisez JSON avec [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx), vous pouvez utiliser **Encoding.UTF8.GetBytes()** pour récupérer le tableau d'octets d'une chaîne encodée JSON.
+La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) possède [quatre constructeurs surchargés](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.eventdata.aspx) qui prennent un grand nombre de paramètres, comme un objet et un sérialiseur, un tableau d'octets ou un flux de données. Il est également possible d'instancier la classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) et de définir le flux de données du corps par la suite. Lorsque vous utilisez JSON avec [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx), vous pouvez utiliser **Encoding.UTF8.GetBytes()** pour récupérer le tableau d'octets d'une chaîne encodée JSON.
 
 ## Clé de partition
 
@@ -103,7 +103,7 @@ L’envoi d'événements par lots peut augmenter considérablement le débit. L 
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Il est important de noter qu'un seul lot ne doit pas dépasser la limite de 256 Ko d'un événement. En outre, chaque message du lot utilise la même identité d’éditeur. Il incombe à l'expéditeur de s’assurer que le lot ne dépasse pas la taille d'événement maximale. Le cas échéant, une erreur **Send** cliente est générée.
+Notez qu'un seul lot ne doit pas dépasser la limite de 256 Ko d'un événement. En outre, chaque message du lot utilise la même identité d’éditeur. Il incombe à l'expéditeur de s’assurer que le lot ne dépasse pas la taille d'événement maximale. Le cas échéant, une erreur **Send** cliente est générée.
 
 ## Envoi de manière asynchrone et envoi à l'échelle
 
@@ -148,7 +148,7 @@ while(receive)
 
 Pour une partition spécifique, les messages sont reçus dans l'ordre dans lequel ils ont été envoyés au concentrateur d'événements. Le décalage est un jeton de chaîne utilisé pour identifier un message dans une partition.
 
-Il est important de noter qu'une partition unique dans un groupe de consommateurs ne peut pas avoir plus de 5 lecteurs simultanés connectés à tout moment. Lorsque les lecteurs se connectent ou sont déconnectés, leurs sessions peuvent rester actives pendant plusieurs minutes avant que ce service ne reconnaisse qu'ils sont déconnectés. Pendant ce temps, la reconnexion à une partition peut échouer. Pour obtenir un exemple complet de l'écriture d'un récepteur direct pour les concentrateurs d’événements, consultez l’exemple [Récepteurs directs des concentrateurs d’événements de Service Bus](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6).
+Notez qu'une partition unique dans un groupe de consommateurs ne peut pas avoir plus de 5 lecteurs simultanés connectés à tout moment. Lorsque les lecteurs se connectent ou sont déconnectés, leurs sessions peuvent rester actives pendant plusieurs minutes avant que ce service ne reconnaisse qu'ils sont déconnectés. Pendant ce temps, la reconnexion à une partition peut échouer. Pour obtenir un exemple complet de l'écriture d'un récepteur direct pour les concentrateurs d’événements, consultez l’exemple [Récepteurs directs des concentrateurs d’événements de Service Bus](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6).
 
 ### Hôte du processeur d’événements
 
@@ -185,4 +185,4 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 - [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Informations de référence des API hôtes du processeur d’événements](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

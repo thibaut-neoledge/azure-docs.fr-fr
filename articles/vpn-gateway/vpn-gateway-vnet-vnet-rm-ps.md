@@ -84,7 +84,7 @@ Cet article vous guide lors de la connexion de deux réseaux virtuels : VNet1 e
 ### Avant de commencer
 
 
-- Assurez-vous de disposer d’un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
+- Assurez-vous de disposer d’un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
 - Installez les modules PowerShell. Vous aurez besoin de la dernière version des applets de commande PowerShell Azure Resource Manager pour configurer votre connexion.[AZURE.INCLUDE [VPN-gateway-ps-rm-procédure](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
@@ -143,7 +143,7 @@ Créez d’abord un groupe de ressources.
 
 	New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
 
-Ensuite, créez votre réseau virtuel L’exemple ci-dessous crée un réseau virtuel nommé *VNet1* et deux sous-réseaux respectivement nommés *GatewaySubnet* et *Subnet1*. Il est important de créer un sous-réseau nommé spécifiquement *GatewaySubnet*. Si vous le nommez autrement, la configuration de votre connexion échouera. Dans l’exemple ci-dessous, notre sous-réseau de passerelle utilise /28. Vous pouvez choisir d’utiliser un sous-réseau de passerelle jusqu’à /29. Notez que certaines fonctionnalités (comme la connexion coexistante ExpressRoute/site à site) requièrent un sous-réseau de passerelle supérieur à /27. Vous pouvez donc créer votre sous-réseau de passerelle pour prendre en charge d’autres fonctionnalités à utiliser à l’avenir.
+Ensuite, créez votre réseau virtuel L’exemple ci-dessous crée un réseau virtuel nommé *VNet1* et deux sous-réseaux, un nommé *GatewaySubnet* et l’autre *Subnet1*. Il est important de créer un sous-réseau nommé spécifiquement *GatewaySubnet*. Si vous le nommez autrement, la configuration de votre connexion échouera. Dans l’exemple ci-dessous, notre sous-réseau de passerelle utilise /28. Vous pouvez choisir d’utiliser un sous-réseau de passerelle jusqu’à /29. Notez que certaines fonctionnalités (comme la connexion coexistante ExpressRoute/site à site) requièrent un sous-réseau de passerelle supérieur à /27. Vous pouvez donc créer votre sous-réseau de passerelle pour prendre en charge d’autres fonctionnalités à utiliser à l’avenir.
 
  	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
 	$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
@@ -262,4 +262,4 @@ Après avoir vérifié que les sous-réseaux de votre passerelle sont correcteme
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -46,9 +46,9 @@ Il existe cinq phases principales de configuration de cet environnement de test 
 4.	Créer la connexion VPN de site à site
 5.	Configurer DC2. 
 
-Si vous ne disposez pas d’un abonnement Azure, vous pouvez vous inscrire pour une version d’évaluation gratuite à partir de la page permettant d’[essayer Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas d’un abonnement Azure, vous pouvez vous inscrire pour une version d’évaluation gratuite à partir de la page permettant d’[essayer Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Les machines virtuelles et les passerelles de réseau virtuel dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Afin de réduire les coûts d’exécution de cet environnement de test quand vous ne l’utilisez pas, consultez la section [Réduction des coûts récurrents de cet environnement](#costs) plus loin dans cet article.
+>[AZURE.NOTE] Les machines virtuelles et les passerelles de réseau virtuel dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Afin de réduire les coûts d’exécution de cet environnement de test quand vous ne l’utilisez pas, consultez la section [Réduction des coûts récurrents de cet environnement](#costs) plus loin dans cet article.
 
 Cette configuration nécessite un sous-réseau de test comportant jusqu’à quatre ordinateurs connectés directement à Internet à l’aide d’une adresse IP publique. Si vous ne disposez pas de ces ressources, vous pouvez également [configurer une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). L’environnement de test de cloud hybride simulé nécessite uniquement un abonnement Azure.
 
@@ -309,7 +309,7 @@ Votre environnement de cloud hybride est maintenant prêt à être testé.
 
 Afin de réduire les coûts d’exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles du réseau virtuel Test\_VNET à la fin de chaque journée. Pour plus d’informations, voir l’article [Prise en main d’Azure Automation](../automation-create-runbook-from-samples.md).
 
-La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles qui entraînent un coût continu. Pour plus d’informations, voir la page [Virtual Network - Tarification](http://azure.microsoft.com/pricing/details/virtual-network/). Pour réduire les coûts de la passerelle VPN, créez l'environnement de test et exécutez vos tests et démonstrations requis aussi rapidement que possible ou supprimez la passerelle en procédant comme suit.
+La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles qui entraînent un coût continu. Pour plus d’informations, voir la page [Virtual Network - Tarification](https://azure.microsoft.com/pricing/details/virtual-network/). Pour réduire les coûts de la passerelle VPN, créez l'environnement de test et exécutez vos tests et démonstrations requis aussi rapidement que possible ou supprimez la passerelle en procédant comme suit.
 
 1.	À partir du Portail de gestion Azure sur votre ordinateur local, cliquez sur **Réseaux** dans le volet gauche, puis sur **TestVNET**, et enfin sur **Tableau de bord**.
 2.	Dans la barre des tâches, cliquez sur **Supprimer une passerelle**. Cliquez sur **Oui** lorsque vous y êtes invité. Attendez que la passerelle soit supprimée et qu’elle prenne l’état **La passerelle n’a pas été créée**.
@@ -329,4 +329,4 @@ Ensuite, connectez-vous à RRAS1 en tant qu'administrateur local et exécutez le
 Ensuite, accédez au portail de gestion Azure sur votre ordinateur local et attendez que le réseau virtuel TestVNET affiche un état connecté.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

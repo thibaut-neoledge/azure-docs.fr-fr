@@ -123,7 +123,7 @@ Si votre infrastructure open source n’est pas prise en charge par App Service,
 
 ### <a id="lob"></a>Je possède une application métier qui doit se connecter au réseau de l’entreprise
 
-Si vous souhaitez créer une application métier, votre site Web requiert peut-être un accès direct aux services et données figurant sur le réseau de l'entreprise. C’est possible sur App Service, Cloud Services et Virtual Machines grâce au [service Azure Virtual Network](/services/virtual-network/). Sur App Service, vous pouvez utiliser la fonction d’[intégration VNET](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), qui permet à vos applications Azure de s’exécuter comme si elles se trouvaient sur votre réseau d’entreprise.
+Si vous souhaitez créer une application métier, votre site Web requiert peut-être un accès direct aux services et données figurant sur le réseau de l'entreprise. C’est possible sur App Service, Cloud Services et Virtual Machines grâce au [service Azure Virtual Network](/services/virtual-network/). Sur App Service, vous pouvez utiliser la fonction d’[intégration VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), qui permet à vos applications Azure de s’exécuter comme si elles se trouvaient sur votre réseau d’entreprise.
 
 ### <a id="mobile"></a>Je souhaite héberger une API REST ou un service web pour des clients mobiles
 
@@ -170,7 +170,8 @@ Possibilité de définir et d'exécuter des tâches de démarrage||X|X|
 Possibilité d'écouter des événements ETW||X|X|
 
 
-> [AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, où vous pouvez créer immédiatement un site de départ de courte durée gratuit dans Azure App Service. Aucune carte de crédit n’est requise, vous ne prenez aucun engagement.
+> [AZURE.NOTE]
+Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, où vous pouvez créer immédiatement un site de départ de courte durée gratuit dans Azure App Service. Aucune carte de crédit n’est requise, vous ne prenez aucun engagement.
 
 
 ## <a id="nextsteps"></a> Étapes suivantes
@@ -204,4 +205,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

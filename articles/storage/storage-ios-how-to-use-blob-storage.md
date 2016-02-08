@@ -70,13 +70,13 @@ Il existe deux manières d’authentifier votre application pour accéder aux se
 ###Clé partagée
 L’authentification par clé partagée signifie que votre application utilisera votre nom de compte et votre clé de compte pour accéder aux services de stockage. Afin de vous montrer rapidement comment utiliser le stockage d’objets blob à partir d’iOS, nous allons utiliser l’authentification par clé partagée dans cet article de prise en main.
 
-> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ]Votre nom de compte et votre clé de compte, qui donnent un accès complet en lecture/écriture au compte de stockage associé, seront distribués à chaque personne qui télécharge votre application. Ce n’est **pas** une bonne pratique car votre clé risque d’être compromise par des clients non approuvés.
+> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Votre nom de compte et votre clé de compte, qui donnent un accès complet en lecture/écriture au compte de stockage associé, seront distribués à chaque personne qui télécharge votre application. Ce n’est **pas** une bonne pratique car votre clé risque d’être compromise par des clients non approuvés.
 
 Lorsque vous utilisez une authentification par clé partagée, vous créez une chaîne de connexion. La chaîne de connexion comporte les éléments suivants :
 
 - **DefaultEndpointsProtocol** : vous avez le choix entre les protocoles HTTP et HTTPS. Toutefois, l’utilisation du protocole HTTPS est fortement recommandée.
 - **Nom du compte** : nom de votre compte de stockage.
-- **Clé de compte** : si vous utilisez le [portail Azure](portal.azure.com), accédez à votre compte de stockage, puis cliquez sur l’icône **Clés** pour rechercher ces informations. Si vous utilisez le [portail Azure Classic](manage.windowsazure.com), accédez à votre compte de stockage dans le portail, puis cliquez sur **Gérer les clés d’accès**. 
+- **Clé de compte** : si vous utilisez le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis cliquez sur l’icône **Clés** pour rechercher ces informations. Si vous utilisez le [portail Azure Classic](https://manage.windowsazure.com), accédez à votre compte de stockage dans le portail, puis cliquez sur **Gérer les clés d’accès**. 
 
 Voici l’aspect affiché dans votre application :
 
@@ -114,7 +114,7 @@ L’exemple suivant montre comment utiliser l’interface de ligne de commande 
 Comme vous pouvez le voir, lorsque vous utilisez un jeton de SAP, vous n’exposez ni votre nom de compte ni votre clé de compte dans votre application iOS. Vous pouvez en savoir plus sur les SAP en consultant le [didacticiel de signature d’accès partagé](../storage-dotnet-shared-access-signature-part-1).
 
 ##Opérations asynchrones
-> [AZURE.NOTE]Toutes les méthodes qui effectuent une demande auprès du service sont des opérations asynchrones. Dans les exemples de code, vous découvrirez que ces méthodes sont dotées d’un gestionnaire d’achèvement. Le code dans le gestionnaire d’achèvement s’exécutera **après** que la demande sera terminée. Le code suivant le gestionnaire d’achèvement s’exécute **pendant** l’exécution de la demande.
+> [AZURE.NOTE] Toutes les méthodes qui effectuent une demande auprès du service sont des opérations asynchrones. Dans les exemples de code, vous découvrirez que ces méthodes sont dotées d’un gestionnaire d’achèvement. Le code dans le gestionnaire d’achèvement s’exécutera **après** que la demande sera terminée. Le code suivant le gestionnaire d’achèvement s’exécute **pendant** l’exécution de la demande.
 
 ## Création d’un conteneur
 Chaque objet blob dans Azure Storage doit résider dans un conteneur. L’exemple suivant montre comment créer un conteneur appelé *newcontainer* dans votre compte de stockage s’il n’existe pas déjà. Lorsque vous choisissez un nom pour votre conteneur, gardez à l’esprit les règles d’affectation de noms mentionnées ci-dessus.
@@ -137,7 +137,7 @@ Chaque objet blob dans Azure Storage doit résider dans un conteneur. L’exempl
         }];
     }
 
-Vous pouvez vérifier que cela fonctionne en examinant le [portail Azure](portal.azure.com) ou tout [explorateur de stockage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) et en vérifiant que *newcontainer* figure dans la liste des conteneurs pour votre compte de stockage.
+Vous pouvez vérifier que cela fonctionne en examinant le [portail Azure](https://portal.azure.com) ou tout [explorateur de stockage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) et en vérifiant que *newcontainer* figure dans la liste des conteneurs pour votre compte de stockage.
 
 ## Définir les autorisations du conteneur
 Les autorisations d’un conteneur sont configurées pour l’accès **Privé** par défaut. Toutefois, les conteneurs fournissent d’autres options pour l’accès aux conteneurs :
@@ -202,7 +202,7 @@ L’exemple suivant montre comment charger un objet blob de blocs à partir d’
          }];
      }
 
-Vous pouvez vérifier que cela fonctionne en examinant le [portail Azure](portal.azure.com) ou tout [explorateur de stockage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx), et en vérifiant que le conteneur *containerpublic* contient l’objet blob *sampleblob*. Dans cet exemple, nous avons utilisé un conteneur public afin que vous puissiez également vérifier que cela a fonctionné en accédant à l’URI des objets blob :
+Vous pouvez vérifier que cela fonctionne en examinant le [portail Azure](https://portal.azure.com) ou tout [explorateur de stockage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx), et en vérifiant que le conteneur *containerpublic* contient l’objet blob *sampleblob*. Dans cet exemple, nous avons utilisé un conteneur public afin que vous puissiez également vérifier que cela a fonctionné en accédant à l’URI des objets blob :
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -353,10 +353,10 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, voir les l
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
 - [Blog de l'équipe Azure Storage]
 
-Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](http://feedback.azure.com/forums/217298-storage).
+Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](https://feedback.azure.com/forums/217298-storage/).
 
 [Bibliothèque iOS Azure Storage]: https://github.com/azure/azure-storage-ios
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

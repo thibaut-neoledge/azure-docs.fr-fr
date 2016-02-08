@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="andkjell"/>
 
 # Topologies pour Azure AD Connect
@@ -56,9 +56,17 @@ L’Assistant Azure AD Connect propose plusieurs options pour la consolidation d
 
 Des topologies courantes sont présentées dans la section suivante : [Topologies distinctes](#multiple-forests-separate-topologies), [Maillage complet](#multiple-forests-full-mesh-with-optional-galsync) et [Comptes-ressources](#multiple-forests-account-resource-forest).
 
-Dans la configuration par défaut fournie par Azure AD Connect Sync, il est supposé que : 1. les utilisateurs n’ont qu’un seul compte activé et la forêt où se trouve ce compte est utilisée pour authentifier l’utilisateur. Ceci vaut pour la synchronisation de mot de passe et pour la fédération ; userPrincipalName et sourceAnchor/immutableID proviendront de cette forêt. 2. les utilisateurs n’ont qu’une seule boîte aux lettres ; 3. la forêt qui héberge la boîte aux lettres d’un utilisateur a la meilleure qualité de données pour les attributs visibles dans la liste d’adresses globale Exchange. Si aucune boîte aux lettres n’est associée à l’utilisateur, n’importe quelle forêt peut être utilisée pour fournir ces valeurs d’attributs. 4. Si vous avez une boîte aux lettres liée, il existe également un autre compte dans une forêt différente de celle utilisée pour la connexion.
+Dans la configuration par défaut fournie par Azure AD Connect Sync, il est supposé que :
 
-Si votre environnement ne correspond pas à ces hypothèses, voici ce qui se produit : Si vous avez plusieurs comptes actifs ou plusieurs boîtes aux lettres, le moteur de synchronisation en choisit un et ignore les autres. Si vous avez des boîtes aux lettres liées mais pas d’autre compte, ces comptes ne sont pas exportés vers Azure AD et l’utilisateur ne sera membre d’aucun groupe. Dans DirSync, une boîte aux lettres liée est représentée comme une boîte aux lettres normale : il s’agit donc d’un comportement intentionnellement différent pour mieux prendre en charge les scénarios avec plusieurs forêts.
+1.	les utilisateurs n’ont qu’un seul compte activé et la forêt où se trouve ce compte est utilisée pour authentifier l’utilisateur. Ceci vaut pour la synchronisation de mot de passe et pour la fédération ; userPrincipalName et sourceAnchor/immutableID proviendront de cette forêt.
+2.	les utilisateurs n’ont qu’une seule boîte aux lettres ;
+3.	la forêt qui héberge la boîte aux lettres d’un utilisateur a la meilleure qualité de données pour les attributs visibles dans la liste d’adresses globale Exchange. Si aucune boîte aux lettres n’est associée à l’utilisateur, n’importe quelle forêt peut être utilisée pour fournir ces valeurs d’attributs.
+4.	Si vous avez une boîte aux lettres liée, il existe également un autre compte dans une forêt différente de celle utilisée pour la connexion.
+
+Si votre environnement ne correspond pas à ces hypothèses, voici ce qui se produit :
+
+-	Si vous avez plusieurs comptes actifs ou plusieurs boîtes aux lettres, le moteur de synchronisation en choisit un et ignore les autres.
+-	Si vous avez des boîtes aux lettres liées, mais aucun autre compte, ces comptes ne sont pas exportés vers Azure AD et l’utilisateur n’appartient à aucun groupe. Dans DirSync, une boîte aux lettres liée est représentée comme une boîte aux lettres normale : il s’agit donc d’un comportement intentionnellement différent pour mieux prendre en charge les scénarios avec plusieurs forêts.
 
 ### Plusieurs forêts, plusieurs serveurs de synchronisation connectés à un annuaire Azure AD
 ![Plusieurs forêts, synchronisation multiple – Non pris en charge](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
@@ -142,7 +150,10 @@ Dans cette topologie, il n’existe pas de « GALSync » entre les instances d
 
 Avec cette topologie, un seul des annuaires Azure AD peut activer Exchange hybride avec Active Directory local.
 
-La condition requise d’un ensemble d’objets mutuellement exclusifs s’applique également à l’écriture différée. Ainsi, certaines fonctionnalités d’écriture différée ne pas prises en charge avec cette topologie, car elles supposent une seule configuration locale. Ceci comprend l’écriture différée de groupe avec la configuration par défaut et l’écriture différée des appareils
+La condition requise d’un ensemble d’objets mutuellement exclusifs s’applique également à l’écriture différée. Ainsi, certaines fonctionnalités d’écriture différée ne pas prises en charge avec cette topologie, car elles supposent une seule configuration locale. notamment :
+
+-	Écriture différée des groupes avec la configuration par défaut
+-	Écriture différée des appareils
 
 ### Chaque objet plusieurs fois dans un annuaire Azure AD
 ![Une seule forêt, plusieurs annuaires – Non pris en charge](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Une seule forêt, plusieurs connecteurs – Non pris en charge](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
@@ -167,4 +178,4 @@ En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

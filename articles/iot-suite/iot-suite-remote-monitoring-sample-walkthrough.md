@@ -2,13 +2,14 @@
  pageTitle="Présentation de la solution préconfigurée de surveillance à distance | Microsoft Azure"
  description="Description de la solution préconfigurée de surveillance à distance Azure IoT et de son architecture"
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -144,4 +145,4 @@ Vous pouvez désactiver un appareil puis le supprimer :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

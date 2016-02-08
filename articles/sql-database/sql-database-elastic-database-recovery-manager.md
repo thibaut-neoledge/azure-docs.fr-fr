@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ddove"/>
 
 # Utilisation de la classe RecoveryManager pour résoudre les problèmes de correspondance de partitionnement
@@ -32,15 +32,13 @@ Vous trouverez les définitions des termes évoqués ici dans la page [Glossaire
 
 ## Pourquoi utiliser le Recovery Manager ?
 
-Dans un environnement de base de données partitionnée, il existe un certain nombre de serveurs de base de données. Chaque serveur contient plusieurs bases de données, une par un utilisateur dans une solution mutualisée. Chaque base de données doit être mappée afin que les appels puissent être acheminés de façon adéquate vers le serveur et la base de données corrects. Les bases de données sont suivies en selon une clé de partitionnement, et chaque serveur se voit affecter une plage de valeurs clés. Par exemple, une clé de partitionnement peut représenter les noms de clients, de « D » à « F ». Le mappage de tous les serveurs et leurs plages de clés sont contenus dans le mappage de partition global. Chaque serveur contient également un mappage des bases de données contenues dans la partition. Il est connu comme le mappage de partition locale. Le LSM est utilisé pour valider des données placées en mémoire cache. (Lorsqu’une application se connecte à une partition, le mappage est mis en cache avec l’application pour une récupération rapide. Le LSM valide le mappage.)
+Dans un environnement de base de données partitionnée, il existe plusieurs bases de données, éventuellement réparties sur plusieurs serveurs logiques. Chaque serveur contient plusieurs bases de données (une base de données par client dans une solution à client unique). Chaque base de données est mappée dans le mappage de partition, afin que les appels puissent être acheminés de façon adéquate vers le serveur et la base de données corrects. Les bases de données sont suivies selon une clé de partitionnement, et chaque partition se voit affecter une plage de valeurs clés. Par exemple, une clé de partitionnement peut représenter les noms de clients, de « D » à « F ». Le mappage de toutes les partitions (ou bases de données) et leurs plages de mappage sont contenus dans le mappage de partition global. Chaque base de données contient également un mappage des plages contenues dans la partition. Il est connu comme le mappage de partition locale. Le LSM est utilisé pour valider des données placées en mémoire cache. (Lorsqu’une application se connecte à une partition, le mappage est mis en cache avec l’application pour une récupération rapide. Le LSM valide le mappage.)
 
-Vous pouvez déplacer des données d’une seule partition vers une autre en utilisant un outil tel que la bibliothèque d’outils de base de données élastique cliente. Si un arrêt se produit lors du déplacement, le GSM et LSM peuvent se désynchroniser. Les autres raisons incluent :
+Le GSM et le LSM peuvent devenir désynchronisés pour les raisons suivantes :
 
-1. une incohérence provoquée par la suppression d’un partitionnement dont on pense que la gamme n’est plus utilisée, ou par l’attribution d’un nouveau nom au partitionnement. La suppression d’une partition se traduit par un **mappage de partition orphelin**. Une base de données renommée peut elle aussi causer un mappage de partition orpheline. Dans ce cas, l’emplacement de la partition doit simplement être mis à jour. 
-2. Un événement de géo-basculement se produit. Pour continuer, il faut mettre à jour le nom du serveur, le nom de la base de données et/ou les détails de mappage de partition pour toutes les partitions d’un mappage de la partition. En cas de basculement géographique, cette logique de récupération doit être automatisée au sein du flux de travail de basculement. 
-3. Une partition ou une base de données ShardMapManager est restaurée vers une version antérieure. 
- 
-L’automatisation des actions de récupération offre des possibilités de gestion sans friction pour les bases de données géolocalisées et évite les interventions manuelles. Elle s’avère également utile avec les scénarios de récupération dans lesquels les données sont supprimées accidentellement.
+1. une incohérence provoquée par la suppression d’un partitionnement dont on pense que la gamme n’est plus utilisée, ou par l’attribution d’un nouveau nom au partitionnement. La suppression d’une partition se traduit par un **mappage de partition orphelin**. Une base de données renommée peut elle aussi causer un mappage de partition orpheline. En fonction de l’objectif, il peut être nécessaire de supprimer la partition ou de simplement mettre à jour l’emplacement de partition. 
+2. Un événement de géo-basculement se produit. Pour continuer, il faut mettre à jour le nom du serveur, le nom de la base de données et/ou les détails de mappage de partition pour toutes les partitions d’un mappage de la partition. En cas de basculement géographique, cette logique de récupération doit être automatisée au sein du flux de travail de basculement. L’automatisation des actions de récupération offre des possibilités de gestion sans friction pour les bases de données géolocalisées et évite les interventions manuelles.
+3. Une partition ou une base de données ShardMapManager est restaurée vers une version antérieure.
 
 Pour plus d’informations sur les outils de base de données élastique de base de données SQL Azure, la géo-réplication et la restauration, veuillez voir ce qui suit :
 
@@ -157,4 +155,4 @@ Cet exemple effectue les étapes suivantes : 1 Supprimer les partitions du mapp
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Aide-mémoire PDF SQL DocumentDB | Microsoft Azure" 
-	description="Aide-mémoire SQL au format PDF imprimable qui vous aide à utiliser la grammaire de type SQL de DocumentDB pour interroger les documents JSON dans la base de données NoSQL." 
+	description="Aide-mémoire SQL au format PDF imprimable qui vous aide à utiliser la grammaire de type SQL de DocumentDB pour interroger les documents JSON dans la base de données NoSQL - référence rapide SQL" 
 	keywords="aide-mémoire sql, aide-mémoire pdf sql, aide-mémoire de requête sql"
 	services="documentdb" 
 	documentationCenter="" 
@@ -29,7 +29,7 @@ DocumentDB prend en charge les interrogations relationnelles, hiérarchiques et 
 
 **Téléchargez l’aide-mémoire ici : [aide-mémoire des requêtes Microsoft Azure DocumentDB](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![Aide-mémoire pour les requêtes SQL DocumentDB : guide de référence rapide de la grammaire SQL prise en charge par DocumentDB.][cheat-sheet]
+![Aide-mémoire de requête SQL DocumentDB : référence rapide au format PDF pour la syntaxe SQL prise en charge par DocumentDB - aide-mémoire SQL, PDF aide-mémoire SQL, référence rapide SQL][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
@@ -39,4 +39,4 @@ DocumentDB prend en charge les interrogations relationnelles, hiérarchiques et 
 - Pour obtenir des détails complets sur les options de requête disponibles dans DocumentDB, consultez [requête DocumentDB](documentdb-sql-query.md).
 - Pour obtenir la documentation de référence associée, consultez [langage de requête SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

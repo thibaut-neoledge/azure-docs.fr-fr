@@ -19,7 +19,7 @@ ms.author="eugenesh" />
 
 Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF ou Office) stockés dans le stockage d’objets blob Azure. Le nouvel indexeur d’objets blob Azure Search rend ce processus rapide et transparent.
 
-> [AZURE.IMPORTANT]Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
+> [AZURE.IMPORTANT] Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 
 ## Configuration de l’indexation d’objets blob
 
@@ -102,7 +102,7 @@ Azure Search indexe chaque document (objet blob) comme suit :
 
 Vous n’avez pas besoin de définir les champs relatifs à chacune des propriétés ci-dessus dans votre index de recherche. Il vous suffit de capturer les propriétés dont vous devez disposer pour votre application.
 
-> [AZURE.NOTE]Les noms de champ figurant dans votre index existant diffèrent généralement des noms de champ générés lors de l’extraction de document. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour mapper les noms de propriété fournis par Azure Search sur les noms de champ de votre index de recherche. Découvrez ci-dessous une exemple d’utilisation de mappage de champ.
+> [AZURE.NOTE] Les noms de champ figurant dans votre index existant diffèrent généralement des noms de champ générés lors de l’extraction de document. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour mapper les noms de propriété fournis par Azure Search sur les noms de champ de votre index de recherche. Découvrez ci-dessous une exemple d’utilisation de mappage de champ.
 
 ## Sélection du champ de clé de document et gestion des différences de nom de champ
 
@@ -116,7 +116,7 @@ Vous devez déterminer avec soin le champ extrait que vous souhaitez mapper sur 
 
 - Si aucune des solutions ci-dessus n’est adaptée à votre cas, vous pouvez en dernier recours ajouter une propriété de métadonnées personnalisée aux objets blob. Toutefois, cette approche contraint votre processus de chargement d’objets blob à ajouter cette propriété de métadonnées à tous les objets blob. Étant donné que la clé est une propriété obligatoire, tous les objets blob dépourvus de cette propriété ne seront pas indexés.
 
-> [AZURE.IMPORTANT]En l’absence de mappage explicite pour le champ de clé dans l’index, Azure Search utilisera automatiquement `metadata_storage_path` (la deuxième option ci-dessus) en guise de clé et activera le codage base 64 des clés.
+> [AZURE.IMPORTANT] En l’absence de mappage explicite pour le champ de clé dans l’index, Azure Search utilisera automatiquement `metadata_storage_path` (la deuxième option ci-dessus) en guise de clé et activera le codage base 64 des clés.
 
 Pour cet exemple, sélectionnons le champ `metadata_storage_name` en tant que clé de document. Supposons également que votre index comporte un champ de clé nommé `key` et un champ `fileSize` pour le stockage de la taille du document. Pour obtenir le résultat souhaité, spécifiez les mappages de champs ci-après lors de la création ou de la mise à jour de votre indexeur :
 
@@ -142,17 +142,17 @@ Pour regrouper tous ces éléments, utilisez le code ci-après pour ajouter des 
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
-> [AZURE.NOTE]Pour en savoir plus sur les mappages de champs, consultez [cet article](search-indexers-customization.md).
+> [AZURE.NOTE] Pour en savoir plus sur les mappages de champs, consultez [cet article](search-indexers-customization.md).
 
 ## Indexation incrémentielle et détection des suppressions
 
 Lorsque vous configurez un indexeur d’objets blob à exécuter selon une planification, ce dernier réindexe uniquement les objets blob modifiés, comme déterminé par l’horodateur `LastModified` des objets blob.
 
-> [AZURE.NOTE]Vous n’êtes pas contraint de spécifier une stratégie de détection des modifications ; l’indexation incrémentielle est activée automatiquement à votre intention.
+> [AZURE.NOTE] Vous n’êtes pas contraint de spécifier une stratégie de détection des modifications ; l’indexation incrémentielle est activée automatiquement à votre intention.
 
 Pour indiquer que certains documents doivent être supprimés de l’index, vous devez utiliser une stratégie de suppression réversible : plutôt que de supprimer les objets blob correspondants, ajoutez une propriété de métadonnées personnalisée pour signaler leur suppression, puis configurez une stratégie de détection des suppressions réversibles sur la source de données.
 
-> [AZURE.WARNING]Si vous supprimez simplement les objets blob au lieu d’utiliser une stratégie de détection des suppressions, les documents correspondants ne seront pas supprimés de l’index de recherche.
+> [AZURE.WARNING] Si vous supprimez simplement les objets blob au lieu d’utiliser une stratégie de détection des suppressions, les documents correspondants ne seront pas supprimés de l’index de recherche.
 
 Par exemple, la stratégie ci-après considère qu’un objet blob est supprimé s’il présente une propriété de métadonnées `IsDeleted` avec la valeur `true` :
 
@@ -190,7 +190,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraction du texte, y compris les pièces jointes
 ZIP (application/zip) | `metadata_content_type` | Extraction du texte de tous les documents figurant dans l’archive
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Suppression du balisage XML et extraction du texte </td>
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrayez le texte<br/>REMARQUE : si vous devez extraire plusieurs champs de document à partir d’un objet blob JSON, veuillez voter pour [cette suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrayez le texte<br/>REMARQUE : si vous devez extraire plusieurs champs de document à partir d’un objet blob JSON, veuillez voter pour [cette suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
 Texte brut (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -205,6 +205,6 @@ AzureSearch\_SkipContent | "true" | Indique à l’indexeur d’objets blob de s
 
 ## Aidez-nous à améliorer Azure Search
 
-Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

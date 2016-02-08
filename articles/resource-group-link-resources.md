@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="tomfitz"/>
 
 # Liaison des ressources dans Azure Resource Manager
@@ -57,4 +57,4 @@ Pour consulter d’autres exemples traitant notamment de la récupération d’i
 - Vous pouvez également organiser vos ressources en utilisant des balises. Pour en savoir plus sur le balisage de ressources, consultez la page [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 - Pour consulter une description de la création de modèles et définir les ressources à déployer, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

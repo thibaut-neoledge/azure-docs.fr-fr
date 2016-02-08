@@ -27,7 +27,7 @@ Actuellement, le plug-in fonctionne pour les projets Web dynamiques dans Eclipse
 Vous devez disposer des éléments suivants :
 
 * Oracle JRE 1.6 ou version ultérieure
-* Un abonnement [Microsoft Azure](http://azure.microsoft.com/). (Vous pouvez commencer par l’[essai gratuit](http://azure.microsoft.com/pricing/free-trial/).)
+* Un abonnement [Microsoft Azure](https://azure.microsoft.com/). (Vous pouvez commencer par l’[essai gratuit](https://azure.microsoft.com/pricing/free-trial/).)
 * [IDE Eclipse pour développeurs Java EE](http://www.eclipse.org/downloads/), Indigo ou version ultérieure.
 * Windows 7 ou version ultérieure ou Windows Server 2008 ou version ultérieure
 
@@ -260,4 +260,4 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -49,7 +49,7 @@ Pour ajouter une base de données secondaire, vous devez être le propriétaire 
 
 La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service. La base de données secondaire peut être accessible en lecture (niveau Premium uniquement) ou non, et il peut s’agir d’une base de données unique ou d’une base de données élastique. Pour plus d’informations, consultez [Niveaux de service](sql-database-service-tiers.md). Une fois la base de données secondaire créée et amorcée, une réplication asynchrone des données de la base de données primaire vers la base de données secondaire commence.
 
-> [AZURE.NOTE]Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géo-réplication antérieure), la commande échoue.
+> [AZURE.NOTE] Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géo-réplication antérieure), la commande échoue.
 
 
 
@@ -133,8 +133,8 @@ En cas de basculement planifié, cette séquence empêche toute perte de donnée
 
 ## Ressources supplémentaires
 
-- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
-- [Conception d’applications cloud pour la continuité des activités à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
@@ -151,4 +151,4 @@ En cas de basculement planifié, cette séquence empêche toute perte de donnée
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 
@@ -70,11 +70,10 @@ Les [cmdlets de mise en réseau Azure](https://msdn.microsoft.com/library/azure/
 - [API REST de l'équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
-## Voir aussi
+## Étapes suivantes
 
-[Configuration d’un mode de distribution d’équilibrage de charge](load-balancer-distribution-mode.md)
+Vous pouvez également [commencer par créer un équilibrage de charge accessible sur Internet](load-balancer-get-started-internet-arm-ps.md) et configurer le type de [mode de distribution](load-balancer-distribution-mode.md) pour un comportement de trafic réseau d’équilibrage de charge spécifique.
 
-[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
- 
+Si votre application doit maintenir des connexions actives pour les serveurs situés derrière un équilibreur de charge, vous pouvez obtenir plus d’informations sur les [paramètres de délai d'expiration TCP pour un équilibrage de charge](load-balancer-tcp-idle-timeout.md). Ainsi, vous en saurez plus sur le comportement d’une connexion inactive lorsque vous utilisez l'équilibreur de charge Azure.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,7 @@ Cet article décrit différentes façons d’ajouter des balises à une machine 
 
 Voyons d’abord le balisage via des modèles. [Ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) place des balises sur les ressources suivantes : Calcul (Machine virtuelle), Stockage (Compte de stockage) et Réseau (Adresse IP publique, Réseau virtuel et Interface réseau).
 
-Cliquez sur le bouton **Déployer sur Azure** à partir du [lien du modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Ceci permet d'accéder au [portail Azure](http://portal.azure.com/), où vous pouvez déployer ce modèle.
+Cliquez sur le bouton **Déployer sur Azure** à partir du [lien du modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Ceci permet d'accéder au [portail Azure](https://portal.azure.com/), où vous pouvez déployer ce modèle.
 
 ![Déploiement simple avec des balises](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -161,11 +161,11 @@ Cliquez sur **Télécharger les détails d'utilisation** pour afficher les déta
 
 ![Détails d’utilisation dans le portail Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
-Sélectionnez votre relevé de facturation et les détails d'utilisation **Version 2** :
+Sélectionnez votre relevé de facturation et les détails d’utilisation **Version 2** :
 
 ![Détails d’utilisation dans la version préliminaire 2 du portail Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
-Dans les détails d'utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
+Dans les détails d’utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
 
 ![Colonne Balises dans le portail Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
@@ -190,4 +190,4 @@ En analysant ces balises ainsi que leur utilisation, les organisations sont en m
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

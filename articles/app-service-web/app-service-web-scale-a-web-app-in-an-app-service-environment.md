@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # Mise à l'échelle des applications dans un environnement App Service #
@@ -58,7 +58,7 @@ Comme indiqué précédemment, la sélection du pool de travaux s'effectue à pa
 
 Avant de déplacer votre ASP à partir d'un pool de travaux vers un autre, il est important de vous assurer que la capacité est adaptée pour votre ASP. Dans la liste des pools de travaux, non seulement figure le nom du pool de travaux, mais également le nombre de travaux disponibles dans ce pool. Veillez à ce qu'il y ait suffisamment d'instances disponibles pour contenir votre plan App Service. Si vous avez besoin de plus de ressources de calcul dans le pool de travaux vers lequel vous souhaitez déplacer votre plan, demandez à l'administrateur de votre environnement App Service de les ajouter.
 
-> [AZURE.NOTE]Le déplacement d'un ASP d'un pool de travaux entraîne le redémarrage de vos applications dans cet ASP. Il peut en résulter une interruption de votre application dont la durée varie en fonction du temps nécessaire au redémarrage de vos applications.
+> [AZURE.NOTE] Le déplacement d'un ASP d'un pool de travaux entraîne le redémarrage de vos applications dans cet ASP. Il peut en résulter une interruption de votre application dont la durée varie en fonction du temps nécessaire au redémarrage de vos applications.
 
 ## Prise en main
 
@@ -83,4 +83,4 @@ Pour plus d'informations sur la plateforme Azure App Service, consultez la rubri
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

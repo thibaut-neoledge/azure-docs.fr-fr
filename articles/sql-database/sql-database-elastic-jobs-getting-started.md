@@ -35,7 +35,7 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 
 2.  Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez cette action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
 
-3.  Le [portail Azure](https://portal.azure.com) doit afficher trois nouvelles bases de données dans votre serveur v12 :
+3.  Le [portail Azure](https://portal.azure.com) affiche alors trois nouvelles bases de données dans votre serveur v12 :
 
 	![Confirmation Visual Studio][2]
 
@@ -418,10 +418,10 @@ Pour interrompre l'exécution d’une tâche récurrente via un déclencheur de 
 
 1. Lancez Excel 2013.
 2. 	Accédez au ruban **Données**.
-3. 	Cliquez sur **À partir d’autres sources** et sur **À partir de SQL Server**.
+3. 	Cliquez sur **À partir d’autres sources** et sur **À partir de SQL Server**.
 
 	![Importation au format Excel à partir d’autres sources][5]
-4. 	Dans l’**Assistant de connexion de données**, saisissez le nom du serveur et les informations de connexion. Cliquez ensuite sur **Suivant**.
+4. 	Dans l’**Assistant de connexion de données** saisissez le nom du serveur et les informations de connexion. Cliquez ensuite sur **Suivant**.
 5. 	Dans la boîte de dialogue **Sélectionner la base de données qui contient les données que vous souhaitez**, sélectionnez la base de données **ElasticDBQuery**.
 6. 	Sélectionnez la table **Clients** dans la liste et cliquez sur **Suivant**. Puis, cliquez sur **Terminer**.
 7. 	Dans le formulaire **Importer des données**, sous **Sélectionner le mode d’affichage des données dans votre classeur**, sélectionnez **Table** et cliquez sur **OK**.
@@ -434,7 +434,7 @@ Vous pouvez maintenant utiliser les fonctions de données puissantes d’Excel. 
 ### Coût
 La fonction de requête de base de données élastique n’entraîne aucuns frais supplémentaires. Toutefois, pour l’instant, cette fonctionnalité n’est disponible que sur les bases de données premium comme point de terminaison, mais les partitions peuvent provenir de n’importe quel niveau de service.
 
-Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -447,4 +447,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

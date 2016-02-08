@@ -28,7 +28,7 @@
 
 Cette rubrique montre comment inscrire vos applications afin d'utiliser Twitter pour l'authentification auprès d'Azure Mobile Services.
 
->[AZURE.NOTE]Ce didacticiel concerne [Azure Mobile Services](http://azure.microsoft.com/services/mobile-services/), une solution conçue pour vous aider à créer des applications mobiles évolutives pour n'importe quelle plateforme. Grâce à Mobile Services, synchronisez des données, authentifiez des utilisateurs et envoyer des notifications Push en toute simplicité. Cette page prend en charge le didacticiel d’[Ajout d’authentification à votre application](mobile-services-ios-get-started-users.md) qui montre comment permettre aux utilisateurs de se connecter à votre application. Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel [Prise en main de Mobile Services](mobile-services-ios-get-started.md).
+>[AZURE.NOTE] Ce didacticiel concerne [Azure Mobile Services](https://azure.microsoft.com/services/mobile-services/), une solution conçue pour vous aider à créer des applications mobiles évolutives pour n'importe quelle plateforme. Grâce à Mobile Services, synchronisez des données, authentifiez des utilisateurs et envoyer des notifications Push en toute simplicité. Cette page prend en charge le didacticiel d’[Ajout d’authentification à votre application](mobile-services-ios-get-started-users.md) qui montre comment permettre aux utilisateurs de se connecter à votre application. Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel [Prise en main de Mobile Services](mobile-services-ios-get-started.md).
 
 Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d'un compte Twitter avec une adresse électronique vérifiée. Pour créer un compte Twitter, consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
@@ -36,14 +36,14 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
 2. Renseignez les champs **Nom**, **Description** et **site web** pour votre application, puis entrez l’un des formats d’URL suivants dans **URL de rappel**.
 
-	+ **Backend .NET** : `https://<mobile_service>.azure-mobile.net/signin-twitter`
-	+ **Backend JavaScript** : `https://<mobile_service>.azure-mobile.net/login/twitter`
+	+ **Service principal .NET** : `https://<mobile_service>.azure-mobile.net/signin-twitter`
+	+ **Service principal JavaScript** : `https://<mobile_service>.azure-mobile.net/login/twitter`
 
-	 >[AZURE.NOTE]Assurez-vous d’utiliser le format de chemin d’accès d’URL de redirection correct pour votre type de serveur principal Mobile Services. Si ce n’est pas le cas, l’authentification échouera. &nbsp;
+	 >[AZURE.NOTE] Assurez-vous d’utiliser le format de chemin d’accès d’URL de redirection correct pour votre type de serveur principal Mobile Services. Si ce n’est pas le cas, l’authentification échouera. &nbsp;
 
    	![][2]
 
-3.  En bas de la page, lisez les conditions et acceptez-les, puis cliquez sur **Créer votre application Twitter**.
+3.  En bas de la page, lisez les conditions et acceptez-les, puis cliquez sur **Create your Twitter application**.
 
    	Cette opération inscrit l'application et affiche les détails de la demande.
 
@@ -66,4 +66,4 @@ Vous pouvez désormais utiliser une connexion Twitter pour l'authentification da
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

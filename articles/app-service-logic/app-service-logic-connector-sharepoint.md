@@ -58,7 +58,7 @@ Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la co
 Nom d’utilisateur | Non | Entrez un nom d'utilisateur valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 Mot de passe | Non | Entrez un mot de passe valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 URL relatives des bibliothèques de documents/listes | Oui | Entrez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
-Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
+Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
 
 5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
 ![][2]
@@ -98,7 +98,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Share
 ##  Déclencheurs
 Utilisez des déclencheurs pour lancer une application logique.
 
-> [AZURE.NOTE]Les déclencheurs suppriment les fichiers après lecture. Pour conserver ces fichiers, indiquez une valeur pour l'emplacement d'archivage.
+> [AZURE.NOTE] Les déclencheurs suppriment les fichiers après lecture. Pour conserver ces fichiers, indiquez une valeur pour l'emplacement d'archivage.
 
 ### 1\. Nouveau document dans les documents partagés (JSON)
 Ce déclencheur est déclenché quand un nouveau document est disponible dans Documents partagés.
@@ -456,7 +456,7 @@ XML de sortie | Message XML qui contient les valeurs des champs de l'élément d
 
 ## Configuration hybride (facultatif)
 
-> [AZURE.NOTE]Cette étape n'est requise que si vous utilisez SharePoint en local, derrière le pare-feu.
+> [AZURE.NOTE] Cette étape n'est requise que si vous utilisez SharePoint en local, derrière le pare-feu.
 
 App Service utilise le Gestionnaire de configuration hybride pour se connecter en toute sécurité à votre système local. Si votre connecteur utilise un serveur SharePoint en local, le Gestionnaire de connexion hybride est requis.
 
@@ -465,9 +465,9 @@ Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-ser
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-Affichez la référence d'API REST Swagger sur [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](app-service-api-manage-in-portal.md).
 
@@ -481,4 +481,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

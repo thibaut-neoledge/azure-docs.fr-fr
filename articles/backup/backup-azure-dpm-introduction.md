@@ -46,7 +46,7 @@ Pour sauvegarder une machine virtuelle, il est d’abord nécessaire de capturer
 
 Une fois l’instantané capturé, les données sont transférées par le service Azure Backup dans le coffre de sauvegarde. Le service se charge d'identifier et de transférer uniquement les blocs qui ont été modifiés depuis la dernière sauvegarde, ce qui garantit l'efficacité du stockage des sauvegardes et les performances du réseau. Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé. Ce point de récupération est affiché dans le portail de gestion Azure.
 
->[AZURE.NOTE]Pour les machines virtuelles Linux, seule une sauvegarde cohérente au niveau des fichiers est possible.
+>[AZURE.NOTE] Pour les machines virtuelles Linux, seule une sauvegarde cohérente au niveau des fichiers est possible.
 
 ## Composants requis
 Préparer Azure Backup pour sauvegarder des données DPM comme suit :
@@ -90,6 +90,6 @@ Et les types suivants ne sont pas pris en charge :
 - Flux compressé
 - Flux partiellement alloué
 
->[AZURE.NOTE]À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
+>[AZURE.NOTE] À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

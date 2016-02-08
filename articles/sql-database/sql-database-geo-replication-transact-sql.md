@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="11/10/2015"
+    ms.date="01/25/2015"
     ms.author="carlrab"/>
 
 # Configurer la géo-réplication pour Base de données SQL Azure avec Transact-SQL
@@ -46,9 +46,9 @@ Pour configurer la géo-réplication, vous devez disposer des éléments suivant
 
 ## Ajout d'une base de données secondaire
 
-Vous pouvez utiliser l’instruction **ALTER DATABASE** pour créer une base de données secondaire géo-répliquée sur un serveur partenaire. Vous exécutez cette instruction sur la base de données master du serveur contenant la base de données à répliquer. La base de données géo-répliquée (« base de données primaire ») aura le même nom que la base de données répliquée et aura, par défaut, le même niveau de service que la base de données primaire. La base de données secondaire peut être accessible en lecture ou non et il peut s’agir d’une base de données unique ou une base de données élastique. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/). Une fois la seconde base de données secondaire créée et semée, les données vont commencer une réplication asynchrone depuis la base de données primaire. Les étapes suivantes décrivent comment configurer la géo-réplication à l’aide de Management Studio. Vous trouverez les opérations destinées à créer des éléments secondaires avec accès en lecture ou non, soit avec une base de données unique, soit avec une base de données élastique.
+Vous pouvez utiliser l’instruction **ALTER DATABASE** pour créer une base de données secondaire géo-répliquée sur un serveur partenaire. Vous exécutez cette instruction sur la base de données master du serveur contenant la base de données à répliquer. La base de données géo-répliquée (« base de données primaire ») aura le même nom que la base de données répliquée et aura, par défaut, le même niveau de service que la base de données primaire. La base de données secondaire peut être accessible en lecture ou non et il peut s’agir d’une base de données unique ou une base de données élastique. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md). Une fois la seconde base de données secondaire créée et semée, les données vont commencer une réplication asynchrone depuis la base de données primaire. Les étapes suivantes décrivent comment configurer la géo-réplication à l’aide de Management Studio. Vous trouverez les opérations destinées à créer des éléments secondaires avec accès en lecture ou non, soit avec une base de données unique, soit avec une base de données élastique.
 
-> [AZURE.NOTE]Si la base de données secondaire existe sur le serveur partenaire spécifié (par exemple, parce qu’il existe actuellement une relation de géo-réplication ou existait déjà, la commande échoue.
+> [AZURE.NOTE] Si la base de données secondaire existe sur le serveur partenaire spécifié (par exemple, parce qu’il existe actuellement une relation de géo-réplication ou existait déjà, la commande échoue.
 
 
 ### Ajoutez une base de données non accessible en lecture secondaire non lisible (base de données unique)
@@ -57,12 +57,12 @@ Utilisez les étapes suivantes pour créer une base de données non lisible en t
 
 1. Vous devez disposer de la version 13.0.600.65 ou d’une version ultérieure de SQL Server Management Studio.
 
- 	 >[AZURE.IMPORTANT]Téléchargez la [dernière](https://msdn.microsoft.com/library/mt238290.aspx) version de SQL Server Management Studio. Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour publiées sur le portail Azure.
+ 	 >[AZURE.IMPORTANT] Téléchargez la [dernière](https://msdn.microsoft.com/library/mt238290.aspx) version de SQL Server Management Studio. Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour publiées sur le portail Azure.
 
 
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
 
-3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géo-réplication primaire avec une base de données secondaire non accessible en lecture sur <MySecondaryServer1>.
+3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géo-réplication primaire avec une base de données secondaire non accessible en lecture sur MySecondaryServer1, où MySecondaryServer1 est le nom de serveur convivial.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -96,8 +96,8 @@ Utilisez les étapes suivantes pour créer une base de données secondaire non a
 3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géo-réplication primaire avec une base de données secondaire non accessible en lecture sur un serveur secondaire dans un pool élastique.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool1);
+           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
 4. Cliquez sur **Exécuter** pour exécuter la requête.
 
@@ -113,8 +113,8 @@ Utilisez les étapes suivantes pour créer une base de données secondaire acces
 3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géo-réplication primaire avec une base de données secondaire accessible en lecture sur un serveur secondaire dans un pool élastique.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool2);
+           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
 4. Cliquez sur **Exécuter** pour exécuter la requête.
 
@@ -122,7 +122,7 @@ Utilisez les étapes suivantes pour créer une base de données secondaire acces
 
 ## Supprimer une base de données secondaire
 
-Vous pouvez utiliser l’instruction **ALTER DATABASE** pour arrêter définitivement le partenariat de réplication entre une base de données secondaire et sa base de données primaire. Cette instruction est exécutée sur la base de données master sur lequel réside la base de données primaire. Après la fin de la relation, la base de données secondaire devient une base de données accessible en lecture-écriture. Si la connectivité à la base de données secondaire est interrompue, cette commande réussit mais la base de données secondaire devient accessible en lecture-écriture une fois la connectivité rétablie. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Vous pouvez utiliser l’instruction **ALTER DATABASE** pour arrêter définitivement le partenariat de réplication entre une base de données secondaire et sa base de données primaire. Cette instruction est exécutée sur la base de données master sur lequel réside la base de données primaire. Après la fin de la relation, la base de données secondaire devient une base de données accessible en lecture-écriture. Si la connectivité à la base de données secondaire est interrompue, cette commande réussit mais la base de données secondaire devient accessible en lecture-écriture une fois la connectivité rétablie. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
 
 Utilisez les étapes suivantes pour supprimer la base de données secondaire répliquée d’un partenariat de géo-réplication.
 
@@ -130,7 +130,7 @@ Utilisez les étapes suivantes pour supprimer la base de données secondaire ré
 
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
 
-3. Utilisez l’instruction **ALTER DATABASE** suivante pour supprimer une base de données secondaire géo-répliquée.
+3. Utilisez l’instruction **ALTER DATABASE** suivant pour supprimer une base de données secondaire géo-répliquée.
 
         ALTER DATABASE <MyDB>
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
@@ -148,10 +148,10 @@ La commande exécute le flux de travail suivant :
 
 2. Inverse les rôles des deux bases de données du partenariat géo-réplication.
 
-Cette séquence garantit qu’aucune perte de données n’aura lieu. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Cette séquence garantit qu’aucune perte de données n’aura lieu. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, voir [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
 
 
-> [AZURE.NOTE]Si la base de données primaire est indisponible lorsque la commande est émise, la commande échoue avec le message d’erreur indiquant que le serveur principal n’est pas disponible. Dans de rares cas, il est possible que l’opération ne puisse pas s’achever et semble bloquée. Dans ce cas, l’utilisateur peut exécuter la commande de basculement forcé et accepter la perte de données.
+> [AZURE.NOTE] Si la base de données primaire est indisponible lorsque la commande est émise, la commande échoue avec le message d’erreur indiquant que le serveur principal n’est pas disponible. Dans de rares cas, il est possible que l’opération ne puisse pas s’achever et semble bloquée. Dans ce cas, l’utilisateur peut exécuter la commande de basculement forcé et accepter la perte de données.
 
 Utilisez les étapes suivantes pour initier un basculement planifié.
 
@@ -175,7 +175,7 @@ Cette fonctionnalité est conçue pour la récupération d’urgence lorsque la 
 
 Toutefois, étant donné que la limite de restauration n’est pas prise en charge sur les bases de données secondaires, si l’utilisateur souhaite récupérer les données validées dans l’ancienne base de données primaire qui n’ont pas été répliquées dans la nouvelle base de données primaire avant le basculement forcé, l’utilisateur devra faire appel à l’assistance technique pour récupérer les données perdues.
 
-> [AZURE.NOTE]Si la commande est émise lorsque les bases de données primaire et secondaire sont en ligne, l’ancienne base de données primaire deviendra la nouvelle base de données secondaire, mais la synchronisation des données n’aura pas lieu. Des pertes de données peuvent se produire.
+> [AZURE.NOTE] Si la commande est émise lorsque les bases de données primaire et secondaire sont en ligne, l’ancienne base de données primaire deviendra la nouvelle base de données secondaire, mais la synchronisation des données n’aura pas lieu. Des pertes de données peuvent se produire.
 
 
 Si la base de données primaire comporte plusieurs bases de données secondaires, la commande réussira uniquement sur le serveur secondaire sur lequel la commande a été exécutée. Toutefois, les autres éléments secondaires ne sauront pas que le basculement forcé s’est produit. L’utilisateur devra réparer manuellement cette configuration à l’aide d’une API « supprimer la base de données secondaire », puis reconfigurer la géo-réplication sur ces éléments secondaires supplémentaires.
@@ -223,14 +223,14 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géo-réplicati
 
 ## Étapes suivantes
 
-- [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
+- [Exercices de récupération d’urgence](sql-database-disaster-recovery-drills.md)
 
 
 ## Ressources supplémentaires
 
-- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
-- [Conception d'applications cloud pour la continuité des activités à l'aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- [Documentation sur la base de données SQL](sql-database.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

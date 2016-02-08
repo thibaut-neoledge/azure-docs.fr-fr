@@ -11,9 +11,9 @@
 
 ## Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager (ARM)
 
-Pour utiliser l’interface de ligne de commande Azure avec les commandes et modèles de Resource Manager afin de déployer des ressources et charges de travail Azure à l’aide de groupes de ressources, vous devez (bien entendu) disposer d’un compte Azure. Si vous ne disposez pas d’un compte, vous pouvez obtenir une [version d’essai gratuite d’Azure ici](http://azure.microsoft.com/pricing/free-trial/).
+Pour utiliser l’interface de ligne de commande Azure avec les commandes et modèles de Resource Manager afin de déployer des ressources et charges de travail Azure à l’aide de groupes de ressources, vous devez (bien entendu) disposer d’un compte Azure. Si vous ne disposez pas d’un compte, vous pouvez obtenir une [version d’essai gratuite d’Azure ici](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE]Si vous ne disposez pas d’un compte Azure, mais d’un abonnement MSDN, vous pouvez obtenir des crédits Azure gratuits en activant vos [avantages d’abonné MSDN ici](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou utiliser le compte gratuit. Les deux possibilités permettent d’accéder à Azure.
+> [AZURE.NOTE] Si vous ne disposez pas d’un compte Azure, mais d’un abonnement MSDN, vous pouvez obtenir des crédits Azure gratuits en activant vos [avantages d’abonné MSDN ici](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou utiliser le compte gratuit. Les deux possibilités permettent d’accéder à Azure.
 
 ### Étape 1 : vérification de la version de l’interface de ligne de commande Azure
 
@@ -62,6 +62,6 @@ Pour utiliser le mode ARM (Azure Resource Management) avec l’interface de lign
     $ azure config mode arm
     info:    New mode is arm
 
-> [AZURE.NOTE]Vous pouvez revenir en arrière pour utiliser les commandes de gestion des services Azure en tapant `azure config mode asm`.
+> [AZURE.NOTE] Vous pouvez revenir en arrière pour utiliser les commandes de gestion des services Azure en tapant `azure config mode asm`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

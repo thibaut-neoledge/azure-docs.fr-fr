@@ -25,12 +25,12 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 - SQL Server 2012 SP2 Enterprise pour les données de taille réduite ou moyenne
 - SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données pour les données de taille conséquente ou très volumineuse
 
- >[AZURE.NOTE]L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
+ >[AZURE.NOTE] L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
 
 ##<a name="Provision"></a>Se connecter au portail Azure Classic et approvisionner une machine virtuelle SQL Server
 
-1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/pricing/free-trial/).
+1.  Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 2.  Dans le portail Azure Classic, en bas à gauche de la page web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
@@ -46,7 +46,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
     -   Dans la zone **CONFIRM PASSWORD** entrez de nouveau le mot de passe.
     -   Sélectionnez la **taille** adéquate dans le menu déroulant.
 
-     >[AZURE.NOTE]La taille de la machine virtuelle est spécifiée lors de l’approvisionnement : A2 est la taille minimale recommandée pour les charges de travail de production. La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3. Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition. Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles. Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l’entreposage de données. La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour connaître les informations de tarification, consultez la page [Machines virtuelles Tarification](http://azure.microsoft.com/pricing/details/virtual-machines/).
+     >[AZURE.NOTE] La taille de la machine virtuelle est spécifiée lors de l’approvisionnement : A2 est la taille minimale recommandée pour les charges de travail de production. La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3. Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition. Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles. Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l’entreposage de données. La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour connaître les informations de tarification, consultez la page [Machines virtuelles Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Cliquez sur la flèche Suivant située en bas à droite pour continuer.
 
@@ -119,7 +119,7 @@ Un script de personnalisation spécial est mis à votre disposition pour vous pe
 
 Si l’image de machine virtuelle que vous avez sélectionnée n’inclut aucun disque de données, c’est-à-dire aucun disque autre que le lecteur C (disque du système d’exploitation) ou le lecteur D (disque temporaire), vous devez ajouter un ou plusieurs disques de données pour y stocker vos données. L’image de machine virtuelle pour SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données est préconfigurée avec des disques supplémentaires pour les fichiers de données et les fichiers journaux SQL Server.
 
- >[AZURE.NOTE]Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
+ >[AZURE.NOTE] Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
 Pour attacher des disques de données supplémentaires, suivez la procédure décrite dans l’article [Attachement d’un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md), qui explique en détail comment effectuer les opérations ci-après.
 
@@ -143,7 +143,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 	<br>
 
-	 >[AZURE.TIP]Vous pouvez changer le mode d’authentification SQL Server en effectuant une modification de clé de Registre Windows ou en utilisant SQL Server Management Studio. Pour changer le mode d’authentification à l’aide d’une modification de clé de Registre, démarrez une **Nouvelle requête** et exécutez le script suivant :
+	 >[AZURE.TIP] Vous pouvez changer le mode d’authentification SQL Server en effectuant une modification de clé de Registre Windows ou en utilisant SQL Server Management Studio. Pour changer le mode d’authentification à l’aide d’une modification de clé de Registre, démarrez une **Nouvelle requête** et exécutez le script suivant :
 
 		USE master
     	go
@@ -174,7 +174,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 Pour vous connecter au moteur de base de données à partir d’un autre ordinateur, vous devez créer au moins une connexion d’authentification SQL Server.
 
-> [AZURE.TIP]Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l’authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <nouveau nom d’utilisateur> et <nouveau mot de passe> par le nom d’utilisateur et le mot de passe de votre choix. Ajustez la stratégie de mot de passe selon vos besoins (l’exemple de code désactive la vérification de la stratégie et l’expiration du mot de passe). Pour plus d’informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
+> [AZURE.TIP] Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l’authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <nouveau nom d’utilisateur> et <nouveau mot de passe> par le nom d’utilisateur et le mot de passe de votre choix. Ajustez la stratégie de mot de passe selon vos besoins (l’exemple de code désactive la vérification de la stratégie et l’expiration du mot de passe). Pour plus d’informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
 
     USE master
     go
@@ -259,7 +259,7 @@ Dans les étapes ultérieures du Processus d’analyse avancé et technologie en
 
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)**.
 
-> [AZURE.NOTE]Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour obtenir l’assurance que vous ne continuerez pas à être facturé, arrêtez toujours les machines virtuelles à partir du [portail Azure Classic](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant ShutdownRoleOperation avec « PostShutdownAction » défini sur « StoppedDeallocated ».
+> [AZURE.NOTE] Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour obtenir l’assurance que vous ne continuerez pas à être facturé, arrêtez toujours les machines virtuelles à partir du [portail Azure Classic](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant ShutdownRoleOperation avec « PostShutdownAction » défini sur « StoppedDeallocated ».
 
 Pour arrêter et libérer la machine virtuelle :
 
@@ -298,4 +298,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

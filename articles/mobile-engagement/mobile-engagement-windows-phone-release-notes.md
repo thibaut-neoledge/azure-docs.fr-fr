@@ -18,6 +18,12 @@
 
 #Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight
 
+##3\.2.0 (22/01/2016)
+Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.3.0**
+
+-   Schémas personnalisés, ms-appx et ms-appdata disponibles sur les URL d'action.
+-   Améliorations de la stabilité.
+  
 ##3\.1.0 (20/11/2015)
 Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
 
@@ -37,4 +43,4 @@ Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
 -   Améliorations de sécurité.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

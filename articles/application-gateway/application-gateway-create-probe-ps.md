@@ -52,7 +52,7 @@ Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 
 ### Étape 4
 
-Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant).
+Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
@@ -124,7 +124,7 @@ Les paramètres utilisés sont :
 - **-Nom d'hôte et -chemin d'accès** : chemin d'accès complet à l'URL qui est appelé par Application Gateway pour déterminer l'état de l'instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.
 - **-Seuil de défaillance sur le plan de l'intégrité** : le nombre d'échecs de réponses HTTP nécessaires pour marquer l'instance de serveur principal comme *défectueuse*.
 
-
+<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
@@ -168,7 +168,7 @@ Configurez la taille d'instance de la passerelle Application Gateway.
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 
->[AZURE.NOTE]La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard\_Small, Standard\_Medium et Standard\_Large.
+>[AZURE.NOTE]  La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard\_Small, Standard\_Medium et Standard\_Large.
 
 ## Création d'une passerelle Application Gateway avec New-AzureRmApplicationGateway
 
@@ -197,14 +197,14 @@ Dans l’exemple, la sonde personnalisée est configurée pour vérifier l’URL
 
 ### Étape 3
 
-Ajouter la sonde à la configuration du paramètres du pool du serveur principal et le délai d'attente à l'aide de **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
+Ajouter la sonde à la configuration du paramètre du pool du serveur principal et le délai d'attente à l’aide de **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
 	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
 ### Étape 4
 
-Enregistrer la configuration dans la passerelle Application Gateway à l'aide de **Set-AzureRmApplicationGateway**.
+Enregistrer la configuration dans la passerelle Application Gateway à l’aide de **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
@@ -214,28 +214,28 @@ Voici les opérations qui permettent de supprimer une sonde personnalisée d’u
 
 ### Étape 1 :
 
-Chargez la ressource de passerelle Application Gateway dans une variable PowerShell avec **Get-AzureRmApplicationGateway**.
+Charger la ressource de passerelle Application Gateway dans une variable PowerShell avec **Get-AzureRmApplicationGateway**.
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ### Étape 2 :
 
-Supprimez la configuration de sonde de la passerelle Application Gateway à l'aide de **Remove-AzureRmApplicationGatewayProbeConfig**.
+Supprimer la configuration de sonde de la passerelle Application Gateway à l’aide de **Remove-AzureRmApplicationGatewayProbeConfig**.
 
 	$getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
 
 ### Étape 3
 
-Mettez à jour le paramètres de pool du serveur principal pour supprimer la sonde et le délai d'attente à l'aide de **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
+Mettre à jour le paramètre de pool du serveur principal pour supprimer la sonde et le délai d'attente à l'aide de **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
 	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
 ### Étape 4
 
-Enregistrez la configuration dans la passerelle Application Gateway à l'aide de **Set-AzureRmApplicationGateway**.
+Enregistrer la configuration dans la passerelle Application Gateway à l’aide de **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -33,7 +33,7 @@ Il existe 3 SKU de passerelle VPN :
 - Standard
 - Hautes performances
 
-Le tableau ci-dessous indique les types de passerelle et le débit total estimé. La tarification varie en fonction des différents SKU de passerelle. Pour plus d'informations sur la tarification, consultez la [tarification de passerelle VPN](http://azure.microsoft.com/pricing/details/vpn-gateway/).
+Le tableau ci-dessous indique les types de passerelle et le débit total estimé. La tarification varie en fonction des différents SKU de passerelle. Pour plus d'informations sur la tarification, consultez la [tarification de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
 | SKU | Passerelle VPN et ExpressRoute coexistants | Débit de passerelle ExpressRoute | Débit de passerelle VPN | Tunnels IPsec max de passerelle VPN |
 |-------------|-----------------------------------|---------------------------------|------------------------|-------------------------------|
@@ -83,4 +83,4 @@ Sélectionnez le périphérique VPN pour votre configuration. Consultez l’arti
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

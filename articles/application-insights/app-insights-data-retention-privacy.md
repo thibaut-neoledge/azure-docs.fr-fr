@@ -92,7 +92,7 @@ Cela est possible en écrivant un [plug-in de processeur de télémétrie](app-i
 
 ## Combien de temps sont conservées les données ? 
 
-Cela dépend de votre [plan de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
+Cela dépend de votre [plan de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Les points de données bruts (autrement dit, les éléments que vous pouvez inspecter dans Recherche de diagnostic) : entre 7 et 30 jours.
 
@@ -264,4 +264,4 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

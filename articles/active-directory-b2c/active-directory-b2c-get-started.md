@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/21/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : création d’un client Azure AD B2C
@@ -26,7 +26,8 @@ Pour commencer à utiliser Azure Active Directory (AD) B2C, suivez les 3 éta
 
 Si vous disposez déjà d’un abonnement Azure, passez à l’étape suivante. Dans le cas contraire, souscrivez [un abonnement Azure](sign-up-organization.md) et accédez à Azure AD B2C.
 
-> [AZURE.NOTE]Azure AD B2C en version préliminaire est actuellement disponible gratuitement pour une utilisation limitée (jusqu’à 50 000 utilisateurs par client). Un abonnement Azure est nécessaire pour accéder au [portail Azure Classic](http://manage.windowsazure.com/).
+> [AZURE.NOTE]
+Azure AD B2C en version préliminaire est actuellement disponible gratuitement pour une utilisation limitée (jusqu’à 50 000 utilisateurs par client). Un abonnement Azure est nécessaire pour accéder au [portail Azure Classic](http://manage.windowsazure.com/).
 
 ## Étape 2 : créer un client Azure AD B2C
 
@@ -45,7 +46,8 @@ Procédez comme suit pour créer un client Azure AD B2C. Actuellement, les fon
 
 6. Votre client est désormais créé et apparaît dans l’extension Active Directory. Vous êtes par ailleurs administrateur général du client. Vous pouvez ajouter d’autres administrateurs généraux en fonction des besoins.
 
-    > [AZURE.IMPORTANT]La création de votre client peut prendre jusqu’à deux minutes . Si vous rencontrez des problèmes lors de la création de client, consultez cet [article](active-directory-b2c-support-create-directory.md) pour obtenir des instructions.
+    > [AZURE.IMPORTANT]
+    La création de votre client peut prendre jusqu’à deux minutes . Si vous rencontrez des problèmes lors de la création de client, consultez cet [article](active-directory-b2c-support-create-directory.md) pour obtenir des instructions.
 
 ## Étape 3 : accéder au panneau de fonctionnalités B2C sur le portail Azure
 
@@ -58,16 +60,18 @@ Procédez comme suit pour créer un client Azure AD B2C. Actuellement, les fon
 
 4. Le portail Azure avec le panneau de fonctionnalités B2C s’ouvre dans un nouvel onglet ou une nouvelle fenêtre de navigateur.
 
-    > [AZURE.IMPORTANT]Il existe un problème connu dans lequel cette page ne se charge pas correctement (cela concerne un petit nombre de clients). En principe, l’actualisation du navigateur corrige le problème. Si ce n’est pas le cas, veuillez contacter le support technique.
+    > [AZURE.IMPORTANT]
+    Il existe un problème connu dans lequel cette page ne se charge pas correctement (cela concerne un petit nombre de clients). En principe, l’actualisation du navigateur corrige le problème. Si ce n’est pas le cas, veuillez contacter le support technique.
 
 5. Épinglez ce panneau (voir l’angle supérieur droit) sur votre Tableau d’accueil pour en faciliter l’accès.
 
     ![Panneau de fonctionnalités B2C](./media/active-directory-b2c-get-started/b2c-features-blade.png)
 
-    > [AZURE.NOTE]Vous pouvez gérer les utilisateurs et groupes, la configuration de la réinitialisation du mot de passe libre-service et les fonctionnalités de promotion professionnelle de votre client via le [portail Azure Classic](https://manage.windowsazure.com/).
+    > [AZURE.NOTE]
+    Vous pouvez gérer les utilisateurs et groupes, la configuration de la réinitialisation du mot de passe libre-service et les fonctionnalités de promotion professionnelle de votre client via le [portail Azure Classic](https://manage.windowsazure.com/).
 
 ## Étapes suivantes
 
 Passez à l’[inscription d’une application auprès d’Azure AD B2C et à la création d’une application de démarrage rapide](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

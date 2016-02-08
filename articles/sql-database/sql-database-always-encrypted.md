@@ -35,14 +35,14 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 - Créer une table de base de données et chiffrer quelques colonnes.
 - Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
-> [AZURE.NOTE]Le chiffrement intégral pour base de données SQL Azure est actuellement en version préliminaire.
+> [AZURE.NOTE] Le chiffrement intégral pour base de données SQL Azure est actuellement en version préliminaire.
 
 
 ## Composants requis
 
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
-- Un compte Azure et un abonnement, avant de commencer. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+- Un compte Azure et un abonnement, avant de commencer. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 13.0.700.242 ou version ultérieure.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou version ultérieure (sur l’ordinateur client).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
@@ -50,7 +50,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 
 ## Créer une base de données SQL vide
-1. Connectez-vous au [portail Azure](http://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
 3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Créer une base de données SQL en quelques minutes](sql-database-getting-started.md).
 
@@ -156,7 +156,7 @@ Vous pouvez vérifier la création des clés dans SSMS en développant **Cliniqu
 
 Maintenant que le chiffrement intégral est configuré, nous allons créer une application qui effectue des INSERTIONS et DES SÉLECTIONS sur les colonnes chiffrées. Pour exécuter correctement l'exemple d'application, vous devez l'exécuter sur le même ordinateur où vous avez exécuté l'Assistant Chiffrement intégral. Pour l'exécuter sur un autre ordinateur, vous devez déployer vos certificats de chiffrement intégral sur l'ordinateur exécutant l'application cliente.
 
-> [AZURE.IMPORTANT]Votre application doit utiliser des objets [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) lors de la transmission de données en clair vers le serveur avec des colonnes intégralement chiffrées. La transmission de valeurs littérales sans objets SqlParameter entraînera une exception.
+> [AZURE.IMPORTANT] Votre application doit utiliser des objets [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) lors de la transmission de données en clair vers le serveur avec des colonnes intégralement chiffrées. La transmission de valeurs littérales sans objets SqlParameter entraînera une exception.
 
 
 1. Ouvrez Visual Studio et créez une nouvelle application console C#. Assurez-vous que votre projet est défini sur **.NET Framework 4.6** ou version ultérieure.
@@ -176,7 +176,7 @@ Pour activer le chiffrement intégral, vous devez ajouter le mot-clé **Paramèt
 
 Vous pouvez définir cette option directement dans la chaîne de connexion, ou la définir à l'aide d'un paramètre [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). L'exemple d'application de la section suivante montre comment utiliser le paramètre**SqlConnectionStringBuilder**.
 
-> [AZURE.NOTE]Il s'agit de la seule modification nécessaire dans une application cliente spécifique au chiffrement intégral. Si vous utilisez une application qui stocke sa chaîne de connexion en externe (par exemple, dans un fichier de configuration), vous pouvez activer le chiffrement intégral sans modifier le code.
+> [AZURE.NOTE] Il s'agit de la seule modification nécessaire dans une application cliente spécifique au chiffrement intégral. Si vous utilisez une application qui stocke sa chaîne de connexion en externe (par exemple, dans un fichier de configuration), vous pouvez activer le chiffrement intégral sans modifier le code.
 
 
 ### Activation du chiffrement intégral dans la chaîne de connexion
@@ -524,7 +524,7 @@ Pour utiliser SSMS afin d’accéder aux données en clair, nous pouvons ajouter
 
 
 
-> [AZURE.NOTE]Si vous vous connectez avec SSMS (ou n'importe quel client) depuis un autre ordinateur, celui-ci ne pourra pas accéder aux clés de chiffrement et ne pourra donc pas déchiffrer les données.
+> [AZURE.NOTE] Si vous vous connectez avec SSMS (ou n'importe quel client) depuis un autre ordinateur, celui-ci ne pourra pas accéder aux clés de chiffrement et ne pourra donc pas déchiffrer les données.
 
 
 
@@ -545,4 +545,4 @@ Après avoir créé une base de données qui utilise le chiffrement intégral, v
 - [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

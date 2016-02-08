@@ -166,7 +166,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 ## Écriture différée des mots de passe
  - **Q : Comment l’écriture différée des mots de passe fonctionne-t-elle en arrière-plan ?**
  
- > **R :** Consultez la rubrique Fonctionnement de l’écriture différée des mots de passe pour obtenir une explication détaillée de ce qui se passe lorsque vous activez l’écriture différée des mots de passe et pour comprendre la manière dont les données circulent entre le système et votre environnement local. Consultez les sections Modèle de sécurité de l’écriture différée des mots de passe et Fonctionnement de l’écriture différée des mots de passe pour découvrir comment nous veillons à ce que l’écriture différée des mots de passe soit un service hautement sécurisé.
+ > **R :** Consultez la rubrique [Fonctionnement de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#how-password-writeback-works) pour obtenir une explication détaillée de ce qui se passe lorsque vous activez l’écriture différée du mot de passe et pour comprendre la manière dont les données circulent entre le système et votre environnement local. Consultez la section [Modèle de sécurité de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#password-writeback-security-model) dans Fonctionnement de l’écriture différée du mot de passe pour découvrir comment nous veillons à ce que l’écriture différée du mot de passe soit un service hautement sécurisé.
 
  - **Q : Combien de temps faut-il pour que l’écriture différée des mots de passe fonctionne ? Y a-t-il un délai de synchronisation comme avec la synchronisation du hachage de mot de passe ?**
  
@@ -182,7 +182,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
  - **Q : L’écriture différée des mots de passe est-elle sécurisée ? Comment puis-je être sûr de ne pas être piraté ?**
  
- > **R :** Oui, l’écriture différée des mots de passe est extrêmement sécurisée. Pour en savoir plus sur les 4 couches de sécurité implémentées par le service d’écriture différée des mots de passe, consultez les sections Modèle de sécurité de l’écriture différée des mots de passe et Fonctionnement de l’écriture différée des mots de passe.
+ > **R :** Oui, l’écriture différée des mots de passe est extrêmement sécurisée. Pour en savoir plus sur les 4 couches de sécurité implémentées par le service d’écriture différée du mot de passe, consultez la section [Modèle de sécurité de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#password-writeback-security-model) dans Fonctionnement de l’écriture différée du mot de passe.
 
 
 <br/> <br/> <br/>
@@ -203,4 +203,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

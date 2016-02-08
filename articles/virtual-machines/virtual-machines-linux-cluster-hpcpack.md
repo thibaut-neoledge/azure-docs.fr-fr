@@ -41,9 +41,9 @@ Pour obtenir une vue d’ensemble des options de déploiement de cluster HPC Pac
 
 * **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vous pouvez vérifier la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.0 ou ultérieure du script.
 
-* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Pour l’exemple de cet article, vous aurez besoin d’au moins 12 cœurs. Pour augmenter un quota, ouvrez [une demande de service clientèle en ligne](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Pour l’exemple de cet article, vous aurez besoin d’au moins 12 cœurs. Pour augmenter un quota, ouvrez [une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
 ### Créer le fichier de configuration
 
@@ -97,7 +97,7 @@ Voici une brève description des éléments du fichier de configuration.
 
     >[AZURE.NOTE]Vous pouvez également utiliser l’ID d’abonnement pour spécifier l’abonnement que vous voulez utiliser. Consultez le fichier Manual.rtf dans le dossier de script.
 
-* **StorageAccount** : toutes les données persistantes du cluster HPC Pack seront stockées dans le compte de stockage spécifié (allvhdsje dans cet exemple). Si le compte de stockage n’existe pas, le script le crée dans la région spécifiée dans **Location**.
+* **StorageAccount** : toutes les données persistantes pour le cluster HPC Pack seront stockées dans le compte de stockage spécifié (allvhdsje dans cet exemple). Si le compte de stockage n’existe pas, le script le crée dans la région spécifiée dans **Location**.
 
 * **Location** : région Azure où vous allez déployer le cluster HPC Pack (Est du Japon dans cet exemple).
 
@@ -123,7 +123,7 @@ Voici une brève description des éléments du fichier de configuration.
 
     Recherchez l’image dont vous avez besoin et remplacez la valeur **ImageName** dans le fichier de configuration.
 
-* Des images Linux qui prennent en charge la connectivité RDMA pour les machines virtuelles de taille A8 et A9 sont disponibles. Si vous spécifiez une image avec des pilotes Linux RDMA installés et activés, le script de déploiement HPC Pack IaaS les déploiera. Par exemple, spécifiez le nom d’image `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` pour SUSE Linux Enterprise Server 12, qui est optimisée pour l’image HPC dans le Marketplace.
+* Des images Linux qui prennent en charge la connectivité RDMA pour les machines virtuelles de taille A8 et A9 sont disponibles. Si vous spécifiez une image avec des pilotes Linux RDMA installés et activés, le script de déploiement HPC Pack IaaS les déploiera. Par exemple, spécifiez le nom d'image `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` pour SUSE Linux Enterprise Server 12, qui est optimisée pour l'image HPC dans le Marketplace.
 
 * Pour activer Linux RDMA sur des machines virtuelles Linux créées à partir d’images prises en charge pour exécuter des travaux MPI, installez et configurez une bibliothèque MPI spécifique sur les nœuds Linux après le déploiement du cluster en fonction des besoins de votre application. Pour trouver un exemple, voir [Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
 
@@ -195,7 +195,7 @@ Dans cet exemple, nous créons un partage Azure File nommé rdma sur notre compt
 
 Dans cet exemple, allvhdsje est le nom de compte de stockage, storageaccountkey est la clé du compte de stockage et rdma est le nom du partage Azure File. Le partage Azure File est monté sur Z: sur votre nœud principal.
 
-Pour monter le partage Azure File sur des nœuds Linux, exécutez une commande **clusrun** sur le nœud principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** est un outil HPC Pack utile pour effectuer des tâches d’administration sur plusieurs nœuds. (Voir aussi [Clusrun pour les nœuds Linux](#CLusrun-for-Linux-nodes) dans cet article.)
+Pour monter le partage Azure File sur des nœuds Linux, exécutez une commande **clusrun** sur le nœud principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** est un outil HPC Pack utile pour effectuer des tâches d’administration sur plusieurs nœuds. (Voir aussi [CLusrun pour les nœuds Linux](#CLusrun-for-Linux-nodes) dans cet article.)
 
 Ouvrez une fenêtre Windows PowerShell et entrez les commandes suivantes.
 
@@ -266,9 +266,9 @@ Il existe plusieurs façons de soumettre des travaux au cluster HPC Pack.
 
 * API REST
 
-La soumission de travaux au cluster via les outils de l’interface graphique utilisateur HPC Pack et via le portail web HPC est la même que pour les nœuds de calcul Windows. Consultez [Gestionnaire de travaux HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) et [Soumission de travaux à partir d’un client local](virtual-machines-hpcpack-cluster-submit-jobs.md).
+La soumission de travaux au cluster via les outils de l’interface graphique utilisateur HPC Pack et via le portail web HPC est la même que pour les nœuds de calcul Windows. Consultez [Gestionnaire de travaux HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) et [Comment soumettre des travaux depuis un client local](virtual-machines-hpcpack-cluster-submit-jobs.md).
 
-Pour soumettre des travaux via l’API REST, consultez [Création et soumission de travaux à l’aide de l’API REST dans Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Reportez-vous également à l’exemple Python dans le [Kit de développement logiciel (SDK) HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) pour soumettre des travaux à partir d’un client Linux.
+Pour soumettre des travaux via l’API REST, consultez [Création et soumission de travaux à l’aide de l’API REST dans Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Reportez-vous également à l'exemple Python dans le [Kit de développement logiciel (SDK) HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) pour soumettre des travaux à partir d'un client Linux.
 
 ## Clusrun pour les nœuds Linux
 
@@ -292,7 +292,7 @@ L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des n
     > clusrun /interleaved /nodegroup:linuxnodes echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
->[AZURE.NOTE]Il peut être nécessaire d’utiliser certains caractères d’échappement dans les commandes **clusrun**. Comme indiqué dans cet exemple, utilisez ^ dans une fenêtre de commande comme échappement pour le symbole « > ».
+>[AZURE.NOTE] Il peut être nécessaire d’utiliser certains caractères d’échappement dans les commandes **clusrun**. Comme indiqué dans cet exemple, utilisez ^ dans une fenêtre de commande comme échappement pour le symbole « > ».
 
 ## Étapes suivantes
 
@@ -316,4 +316,4 @@ L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des n
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

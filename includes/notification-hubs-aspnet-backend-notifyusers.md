@@ -9,11 +9,11 @@ Un nouveau serveur principal ASP.NET WebAPI est créé dans les sections qui sui
 Les étapes suivantes montrent comment créer le serveur principal ASP.NET WebAPI :
 
 
-> [AZURE.NOTE]**Important** : avant d’entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
+> [AZURE.NOTE] **Important** : avant d’entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
 > 
 > ![][B4]
 
-> [AZURE.NOTE]Assurez-vous que le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/downloads/) Visual Studio est installé, pour le déploiement du site web.
+> [AZURE.NOTE] Assurez-vous que le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) Visual Studio est installé, pour le déploiement du site web.
 
 1. Démarrez Visual Studio ou Visual Studio Express. Cliquez sur **Explorateur de serveurs** et connectez-vous à votre compte Azure. Visual Studio vous oblige à vous connectez pour pouvoir créer des ressources de site web sur votre compte.
 2. Dans Visual Studio, cliquez sur **Fichier**, sur **Nouveau**, puis sur **Projet**, développez **Modèles**, **Visual C#**, puis cliquez sur **Web** et **Application Web ASP.NET**, tapez le nom **AppBackend**, puis cliquez sur **OK**. 
@@ -101,7 +101,7 @@ Dans cette section, vous allez créer une classe de gestionnaire de messages nom
 	        }
 	    }
 
-	> [AZURE.NOTE]**Note de sécurité** : la classe `AuthenticationTestHandler` n’offre pas de véritable authentification. Elle sert uniquement à simuler l’authentification de base et n’est pas sécurisée. Vous devez mettre en œuvre un mécanisme d’authentification sécurisé dans vos applications de production et vos services.
+	> [AZURE.NOTE] **Note de sécurité** : la classe `AuthenticationTestHandler` n’offre pas de véritable authentification. Elle sert uniquement à simuler l’authentification de base et n’est pas sécurisée. Vous devez mettre en œuvre un mécanisme d’authentification sécurisé dans vos applications de production et vos services.
 
 4. Ajoutez le code suivant à la fin de la méthode `Register` dans la classe **App\_Start/WebApiConfig.cs** pour inscrire le gestionnaire de messages :
 
@@ -364,4 +364,4 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

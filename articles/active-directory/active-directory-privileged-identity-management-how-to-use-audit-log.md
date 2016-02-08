@@ -3,7 +3,7 @@
    description="Découvrez comment utiliser le journal d’audit dans l’extension Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,19 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
-# Azure Privileged Identity Management : comment utiliser le journal d’audit
+# Azure Privileged Identity Management : Comment utiliser le journal d’audit
 
-## Utilisation du journal d’audit
-Vous pouvez utiliser le journal d’audit Privileged Identity Management pour voir toutes les activations et affectations d’utilisateur dans un laps de temps donné.
+Vous pouvez utiliser le journal d’audit Privileged Identity Management (PIM) pour voir toutes les activations et affectations d’utilisateur dans un laps de temps donné.
 
 ## Accès au journal d’audit
-Vous pouvez accéder au journal d’audit en cliquant sur l’historique d’audit dans le tableau de bord de PIM.
+Vous pouvez accéder au journal d’audit en cliquant sur **Historique d’audit** dans le tableau de bord PIM.
 
 ## Graphique du journal d’audit
-Le journal d’audit indique le nombre total d’activations, le nombre maximal d’activations par jour et le nombre d’activations moyennes par jour dans un graphique linéaire. Vous pouvez également filtrer les données par rôle s’il existe plusieurs rôles dans l’historique d’audit.
+Le journal d’audit indique le nombre total d’activations, le nombre maximal d’activations par jour et la moyenne d’activations par jour dans un graphique linéaire. Vous pouvez également filtrer les données par rôle s’il existe plusieurs rôles dans l’historique d’audit.
 
 Triez par heure, action ou rôle à l’aide des boutons **Heure**, **Action** ou **Rôle**.
 
@@ -51,10 +50,10 @@ Modifiez la période du journal d’audit en sélectionnant un des boutons **Auj
 
 Cochez (ou décochez) la case **Rôle** en regard de chaque rôle à inclure dans le journal (ou à exclure de ce dernier).
 
-Une fois définis tous les filtres du journal d’audit, cliquez sur Mettre à jour pour filtrer les données du journal. Si les données ne s’affichent pas immédiatement, cliquez sur le bouton **Actualiser**.
+Une fois définis tous les filtres du journal d’audit, cliquez sur Mettre à jour pour filtrer les données du journal. Si les données ne s’affichent pas immédiatement, actualisez la page.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

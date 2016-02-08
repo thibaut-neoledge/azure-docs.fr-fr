@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 
@@ -58,7 +58,7 @@ Pour en savoir plus, voir [Utilisation d’Azure PowerShell avec le Gestionnaire
 
 ### Azure Resource Explorer ###
 
-Cet [outil de prévisualisation](https://resources.azure.com) vous permet d’explorer les définitions JSON de tous les groupes de ressources dans votre abonnement et les ressources individuelles. Dans cet outil, vous pouvez modifier les définitions  JSON d’une ressource, supprimer une hiérarchie entière de ressources et créer des ressources. Les informations proposées dans cet outil sont très utiles pour créer des modèles. En effet, elles vous indiquent quelles propriétés vous devez définir pour un type de ressource spécifique, ainsi que les valeurs correctes, etc. Vous pouvez même créer le groupe de ressources dans le [portail Azure](https://portal.azure.com), puis inspecter ses définitions JSON dans l’outil d’exploration, afin de pouvoir créer des modèles pour le groupe de ressources.
+Cet [outil de prévisualisation](https://resources.azure.com) vous permet d’explorer les définitions JSON de tous les groupes de ressources dans votre abonnement et les ressources individuelles. Dans cet outil, vous pouvez modifier les définitions  JSON d’une ressource, supprimer une hiérarchie entière de ressources et créer des ressources. Les informations proposées dans cet outil sont très utiles pour créer des modèles. En effet, elles vous indiquent quelles propriétés vous devez définir pour un type de ressource spécifique, ainsi que les valeurs correctes, etc. Vous pouvez même créer le groupe de ressources dans le [portail Azure](https://portal.azure.com/), puis inspecter ses définitions JSON dans l’outil d’exploration, afin de pouvoir créer des modèles pour le groupe de ressources.
 
 ### Bouton Déployer dans Azure ###
 
@@ -129,7 +129,7 @@ Commençons par une simple ressource de niveau racine dans le JSON. Dans le plan
 
 Notez que l’élément `type` spécifie la chaîne pour un plan App Service (appelé « ferme de serveurs » dans les temps anciens) ; d’autres éléments et propriétés sont remplis au moyen des paramètres définis dans le fichier JSON, et cette ressource n’inclut aucune ressource imbriquée.
 
->[AZURE.NOTE]Notez également la valeur de l’élément `apiVersion`, qui indique à Microsoft Azure la version de l’API REST avec laquelle utiliser la définition de ressource ; cela peut affecter le mode de format à appliquer à la ressource entre les `{}`.
+>[AZURE.NOTE] Notez également la valeur de l’élément `apiVersion`, qui indique à Microsoft Azure la version de l’API REST avec laquelle utiliser la définition de ressource ; cela peut affecter le mode de format à appliquer à la ressource entre les `{}`.
 
 #### SQL Server ####
 
@@ -143,7 +143,7 @@ Notez les éléments suivants concernant le code JSON en surbrillance :
 -	La ressource SQL Server inclut deux ressources imbriquées, qui présentent chacune une valeur différente pour l’élément `type`.
 -	Les ressources imbriquées dans l’élément `“resources”: […]`, dans lequel la base de données et les règles de pare-feu sont définies, incluent un élément `dependsOn` qui spécifie l’ID de la ressource SQL Server de niveau racine. Ce code indique au logiciel Microsoft Azure Resource Manager que l’autre ressource doit déjà exister avant qu’il ne crée cette ressource ; si cette autre ressource est définie dans le modèle, il doit la créer en premier.
 
-	>[AZURE.NOTE]Pour en savoir plus sur l’utilisation de la fonction `resourceId()`, voir [Azure Resource Manager Template Functions](../resource-group-template-functions.md).
+	>[AZURE.NOTE] Pour en savoir plus sur l’utilisation de la fonction `resourceId()`, voir [Azure Resource Manager Template Functions](../resource-group-template-functions.md).
 
 -	Grâce à l’élément `dependsOn`, Azure Resource Manager peut savoir quelles ressources peuvent être créées en parallèle et quelles autres doivent être créées de façon séquentielle.
 
@@ -176,7 +176,7 @@ Les chaînes de connexion sont également définies en tant que ressource imbriq
 
 Dans l’élément `properties` relatif à `config/connectionstrings`, chaque chaîne de connexion est définie comme une paire nom:valeur, avec le format spécifique de l’élément `“<name>” : {“value”: “…”, “type”: “…”}`. Pour l’élément `type`, les valeurs possibles sont les suivantes : `MySql`, `SQLServer`, `SQLAzure` et `Custom`.
 
->[AZURE.TIP]Pour obtenir une liste définitive des types de chaîne de connexion, exécutez la commande suivante dans Azure PowerShell : [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType").
+>[AZURE.TIP] Pour obtenir une liste définitive des types de chaîne de connexion, exécutez la commande suivante dans Azure PowerShell : [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType").
     
 ##### Contrôle de code source #####
 
@@ -186,13 +186,13 @@ Les paramètres de contrôle du code source sont également définis en tant que
 
 Les éléments `RepoUrl` et `branch` doivent être assez intuitifs et doivent pointer vers le référentiel Git et le nom de la branche à partir de laquelle effectuer la publication. Là encore, ces éléments sont définis par les paramètres d’entrée.
 
-Remarque : dans l’élément `dependsOn`, en plus de la ressource d’application web elle-même, `sourcecontrols/web` dépend également des éléments `config/appsettings` et `config/connectionstrings`. En effet, une fois que l’élément `sourcecontrols/web` est configuré, le processus de déploiement de Microsoft Azure tente automatiquement de déployer, de créer et de démarrer le code d’application. Par conséquent, l’insertion de cette dépendance permet de s’assurer que l’application a accès aux paramètres d’application et chaînes de connexion requis avant l’exécution du code d’application. [À FAIRE : à vérifier.]
+Remarque : dans l’élément `dependsOn`, en plus de la ressource d’application web elle-même, `sourcecontrols/web` dépend également des éléments `config/appsettings` et `config/connectionstrings`. En effet, une fois que l’élément `sourcecontrols/web` est configuré, le processus de déploiement de Microsoft Azure tente automatiquement de déployer, de créer et de démarrer le code d’application. Par conséquent, l’insertion de cette dépendance permet de s’assurer que l’application a accès aux paramètres d’application et chaînes de connexion requis avant l’exécution du code d’application.
 
->[AZURE.NOTE]Vous pouvez également voir que le paramètre `IsManualIntegration` est défini sur `true`. Cette propriété est nécessaire dans ce didacticiel, car vous ne possédez pas réellement de référentiel GitHub et, par conséquent, vous ne pouvez pas accorder d’autorisations à Microsoft Azure pour configurer la publication continue à partir de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (c’est-à-dire envoyer des mises à jour automatiques de référentiel vers Azure). Vous pouvez utiliser la valeur par défaut `false` pour le référentiel spécifié uniquement si vous avez configuré les informations d’identification GitHub du propriétaire dans le [portail Azure en version préliminaire](https://portal.azure.com), au préalable. En d’autres termes, si vous avez configuré au préalable le contrôle de code source dans GitHub ou BitBucket pour toute application dans le [portail Azure](https://portal.azure.com), en utilisant vos informations d’identification, Azure se rappelle les informations d’identification et les utilise chaque fois que vous déployez une application à partir de GitHub ou BitBucket. Toutefois, si cette opération n’est pas déjà effectuée, le déploiement du modèle JSON échoue lorsque le logiciel Microsoft Azure Resource Manager tente de configurer les paramètres de contrôle du code source de l’application web, car il ne peut pas se connecter à GitHub ou BitBucket en utilisant les informations d’identification du propriétaire du référentiel.
+>[AZURE.NOTE] Vous pouvez également voir que le paramètre `IsManualIntegration` est défini sur `true`. Cette propriété est nécessaire dans ce didacticiel, car vous ne possédez pas réellement de référentiel GitHub et, par conséquent, vous ne pouvez pas accorder d’autorisations à Microsoft Azure pour configurer la publication continue à partir de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (c’est-à-dire envoyer des mises à jour automatiques de référentiel vers Azure). Vous pouvez utiliser la valeur par défaut `false` pour le référentiel spécifié uniquement si vous avez préalablement configuré les informations d’identification GitHub du propriétaire dans le [portail Azure](https://portal.azure.com/). En d’autres termes, si vous avez configuré au préalable le contrôle de code source dans GitHub ou BitBucket pour toute application dans le [portail Azure](https://portal.azure.com/), en utilisant vos informations d’identification, Azure se rappelle les informations d’identification et les utilise chaque fois que vous déployez une application à partir de GitHub ou BitBucket. Toutefois, si cette opération n’est pas déjà effectuée, le déploiement du modèle JSON échoue lorsque le logiciel Microsoft Azure Resource Manager tente de configurer les paramètres de contrôle du code source de l’application web, car il ne peut pas se connecter à GitHub ou BitBucket en utilisant les informations d’identification du propriétaire du référentiel.
 
 ## Comparer le modèle JSON avec un groupe de ressources déployées ##
 
-Ici, vous pouvez faire défiler tous les panneaux de l’application web dans le [portail Azure](https://portal.azure.com), mais il existe un autre outil tout aussi utile, sinon plus. Accédez à l’outil de prévisualisation [Azure Resource Explorer](https://resources.azure.com), qui permet une représentation JSON de tous les groupes de ressources associés à vos abonnements, tels qu’ils existent sur le système Azure principal. Vous pouvez également voir en quoi la hiérarchie JSON du groupe de ressources dans Microsoft Azure correspond à celle du fichier du modèle utilisé pour la créer.
+Ici, vous pouvez faire défiler tous les panneaux de l’application web dans le [portail Azure](https://portal.azure.com/), mais il existe un autre outil tout aussi utile, sinon plus. Accédez à l’outil de prévisualisation [Azure Resource Explorer](https://resources.azure.com), qui permet une représentation JSON de tous les groupes de ressources associés à vos abonnements, tels qu’ils existent sur le système Azure principal. Vous pouvez également voir en quoi la hiérarchie JSON du groupe de ressources dans Microsoft Azure correspond à celle du fichier du modèle utilisé pour la créer.
 
 Par exemple, lorsque j’accède à l’outil [Azure Resource Explorer](https://resources.azure.com) et développe les nœuds dans l’explorateur, je peux afficher le groupe de ressources et les ressources de niveau racine qui sont collectés sous leur type de ressource respectif.
 
@@ -264,11 +264,11 @@ Le bouton **Déployer dans Azure** est très utile, mais il vous permet uniqueme
  
 	![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
 
-	>[AZURE.NOTE]La fonction de mise à l’échelle automatique est proposée au niveau **Standard** ou plus, et les alertes au niveau du plan sont proposées au niveau **Basic** ou plus. Vous devrez définir le paramètre **sku** sur **Standard** or **Premium** afin de mettre en surbrillance toutes vos nouvelles ressources Application Insights.
+	>[AZURE.NOTE] La fonction de mise à l’échelle automatique est proposée au niveau **Standard** ou plus, et les alertes au niveau du plan sont proposées au niveau **Basic** ou plus. Vous devrez définir le paramètre **sku** sur **Standard** or **Premium** afin de mettre en surbrillance toutes vos nouvelles ressources Application Insights.
 	
 16.	Cliquez sur **Déployer**. Si vous avez sélectionné l’option **Enregistrer les mots de passe**, le mot de passe est enregistré dans le fichier de paramètres, **en texte brut**. Dans le cas contraire, vous êtes invité à saisir le mot de passe de la base de données lors du processus de déploiement.
 
-Et voilà ! Maintenant, il vous suffit d’accéder au [portail Azure](https://portal.azure.com) et à l’outil [Explorateur de ressources Azure](https://resources.azure.com) pour afficher les nouvelles alertes et les paramètres de mise à l’échelle automatique ajoutés à votre application JSON déployée.
+Et voilà ! Maintenant, il vous suffit d’accéder au [portail Azure](https://portal.azure.com/) et à l’outil [Explorateur de ressources Azure](https://resources.azure.com) pour afficher les nouvelles alertes et les paramètres de mise à l’échelle automatique ajoutés à votre application JSON déployée.
 
 Les étapes de cette section ont permis d’accomplir les tâches principales suivantes :
 
@@ -305,4 +305,4 @@ Découvrez comment [appliquer les méthodologies agiles et publier en continu vo
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

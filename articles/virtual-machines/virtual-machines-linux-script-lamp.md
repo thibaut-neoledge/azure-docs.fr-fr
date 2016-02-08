@@ -104,10 +104,10 @@ Vous pouvez utiliser les mêmes étapes de base pour déployer des applications 
 
 Voici quelques ressources supplémentaires pour l’interface de ligne de commande Azure, Linux et l’extension CustomScript.
 
-[Automatiser les tâches de personnalisation de machine virtuelle Linux à l’aide de l’extension CustomScript](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
+[Automatiser les tâches de personnalisation de machine virtuelle Linux à l’aide de l’extension CustomScript](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Extensions Linux Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

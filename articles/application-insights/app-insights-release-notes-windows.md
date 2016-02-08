@@ -16,7 +16,7 @@
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Windows Phone et Windows Store
 
-Le [Kit de développement logiciel (SDK) Application Insights](app-insights-windows-get-started.md) envoie la télémétrie de votre application en direct à [Application Insights](http://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
+Le [Kit de développement logiciel (SDK) Application Insights](app-insights-windows-get-started.md) envoie la télémétrie de votre application en direct à [Application Insights](https://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
 
 
 #### Pour installer le Kit de développement logiciel (SDK) dans votre application
@@ -95,4 +95,4 @@ Aperçu 28/04/2015
 
 Aucune note de publication pour des versions antérieures.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

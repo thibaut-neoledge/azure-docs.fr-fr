@@ -12,18 +12,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/24/2016"
 	ms.author="robinsh"/>
 
 # Utilisation d'Azure PowerShell avec Azure Storage
 
 ## Vue d'ensemble
 
-Dans ce guide, nous allons découvrir comment utiliser les [applets de commande de gestion des services Azure pour Storage](https://msdn.microsoft.com/library/azure/dn806401.aspx) afin d’effectuer diverses tâches de développement et d’administration avec Azure Storage.
+Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Il s'agit d'un interpréteur de ligne de commande et d'un langage de script basé sur des tâches, conçu spécialement pour l'administration système. Avec PowerShell, vous pouvez facilement contrôler et automatiser l'administration de vos services et de vos applications Azure. Par exemple, les applets de commande permettent d'effectuer les mêmes tâches que celles exécutées dans le [portail Azure](https://portal.azure.com).
 
-Azure PowerShell est un module fournissant des applets de commande pour gérer Azure via Windows PowerShell. Il s'agit d'un interpréteur de ligne de commande et d'un langage de script basé sur des tâches, conçu spécialement pour l'administration système. Avec PowerShell, vous pouvez facilement contrôler et automatiser l'administration de vos services et de vos applications Azure. Par exemple, les applets de commande permettent d'effectuer les mêmes tâches que celles exécutées dans le [portail Azure](portal.azure.com).
+Dans ce guide, nous allons découvrir comment utiliser les [applets de commande Azure Storage](https://msdn.microsoft.com/library/azure/mt269418.aspx) afin d’effectuer diverses tâches de développement et d’administration avec Azure Storage.
 
-Ce guide part du principe que vous avez une certaine expérience en tant qu’utilisateur d’[Azure Storage](http://azure.microsoft.com/documentation/services/storage/) et de [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). Ce guide contient un certain nombre de scripts qui illustrent l'utilisation de PowerShell avec Azure Storage. Vous devez mettre à jour les variables du script en fonction de votre configuration avant d'exécuter chaque script.
+Ce guide part du principe que vous avez une certaine expérience en tant qu’utilisateur d’[Azure Storage](https://azure.microsoft.com/documentation/services/storage/) et de [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). Ce guide contient un certain nombre de scripts qui illustrent l'utilisation de PowerShell avec Azure Storage. Vous devez mettre à jour les variables du script en fonction de votre configuration avant d'exécuter chaque script.
 
 La première section de ce guide fournit un aperçu rapide d'Azure Storage et de PowerShell. Pour obtenir des informations et des instructions détaillées, commencez par [Conditions préalables à l’utilisation d’Azure PowerShell avec Azure Storage](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
@@ -32,7 +32,7 @@ La première section de ce guide fournit un aperçu rapide d'Azure Storage et de
 
 Cette section vous indique comment accéder à Azure Storage via PowerShell en 5 minutes.
 
-**Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Évaluation d’un mois gratuite](http://azure.microsoft.com/pricing/free-trial/), [Modes d’achat d’Azure](http://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](http://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
+**Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/), [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
 
 Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des comptes, des abonnements et des rôles d’administrateur](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
@@ -106,7 +106,7 @@ Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des c
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
 		
-		b. Pour rechercher et copier le nom de votre abonnement dans le [portail Azure](portal.azure.com), cliquez sur **Abonnements** dans le menu Hub sur la gauche. Copier le nom de l'abonnement que vous souhaitez utiliser lors de l'exécution des scripts de ce guide.
+		b. Pour rechercher et copier le nom de votre abonnement dans le [portail Azure](https://portal.azure.com), cliquez sur **Abonnements** dans le menu Hub sur la gauche. Copier le nom de l'abonnement que vous souhaitez utiliser lors de l'exécution des scripts de ce guide.
 		
 		![Portail Azure][Image2]
 		  
@@ -131,7 +131,7 @@ Après l’exécution du script, vous devez avoir un dossier local de destinatio
 ![Téléchargement d'objets blob][Image3]
 
 
-> [AZURE.NOTE]La section Prise en main d'Azure Storage et de PowerShell en 5 minutes fournit une brève introduction sur l'utilisation d'Azure PowerShell avec Azure Storage. Pour plus d'informations et d'instructions, nous vous recommandons de lire les sections suivantes :
+> [AZURE.NOTE] La section Prise en main d'Azure Storage et de PowerShell en 5 minutes fournit une brève introduction sur l'utilisation d'Azure PowerShell avec Azure Storage. Pour plus d'informations et d'instructions, nous vous recommandons de lire les sections suivantes :
 
 ## Conditions préalables à l'utilisation d'Azure PowerShell avec Azure Storage
 Vous avez besoin d’un abonnement Azure et d’un compte pour exécuter les applets de commande PowerShell présentées dans ce guide, comme expliqué plus haut.
@@ -185,7 +185,7 @@ Pour utiliser Azure Storage, vous avez besoin d’un compte de stockage. Vous po
 	    $StorageAccountName = "yourstorageaccount"
 	    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
 
-> [AZURE.IMPORTANT]Le nom de votre compte de stockage doit être unique dans Azure et être en minuscules. Pour connaître les conventions d’affectation de noms et les restrictions, consultez les pages [À propos des comptes de stockage Azure](storage-create-storage-account.md) et [Affectation de noms et références aux conteneurs, objets blob et métadonnées](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> [AZURE.IMPORTANT] Le nom de votre compte de stockage doit être unique dans Azure et être en minuscules. Pour connaître les conventions d’affectation de noms et les restrictions, consultez les pages [À propos des comptes de stockage Azure](storage-create-storage-account.md) et [Affectation de noms et références aux conteneurs, objets blob et métadonnées](http://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 ### Définition d'un compte de stockage Azure par défaut
 Vous pouvez disposer de plusieurs comptes de stockage dans votre abonnement. Vous pouvez en choisir un et le définir comme compte de stockage par défaut pour toutes les commandes de stockage de la même session de PowerShell. Cela vous permet d'exécuter les commandes de stockage d'Azure PowerShell sans spécifier de manière explicite le contexte de stockage.
@@ -244,7 +244,7 @@ Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouv
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE]Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour en avoir plus, voir [Gestion de l’accès aux ressources d’Azure Storage](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour en avoir plus, voir [Gestion de l’accès aux ressources d’Azure Storage](storage-manage-access-to-resources.md).
 
 ### Chargement d'un objet blob dans un conteneur
 Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de page. Pour en savoir plus, voir [Présentation des objets blob de blocs et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
@@ -647,7 +647,7 @@ Utilisez l'applet de commande Remove-AzureStorageTableStoredAccessPolicy pour su
 
 
 ## Utilisation d'Azure Storage pour le gouvernement des États-Unis et Azure en Chine
-Un environnement Azure est un déploiement indépendant de Microsoft Azure, par exemple [Azure Government pour le gouvernement des États-Unis](http://azure.microsoft.com/features/gov/), [AzureCloud pour Azure global](https://manage.windowsazure.com) et [AzureChinaCloud pour Azure exploité par 21Vianet en Chine](http://www.windowsazure.cn/). Vous pouvez déployer de nouveaux environnements Azure pour le gouvernement des États-Unis et Azure en Chine.
+Un environnement Azure est un déploiement indépendant de Microsoft Azure, par exemple [Azure Government pour le gouvernement des États-Unis](https://azure.microsoft.com/features/gov/), [AzureCloud pour Azure global](https://manage.windowsazure.com) et [AzureChinaCloud pour Azure exploité par 21Vianet en Chine](http://www.windowsazure.cn/). Vous pouvez déployer de nouveaux environnements Azure pour le gouvernement des États-Unis et Azure en Chine.
 
 Pour utiliser Azure Storage avec AzureChinaCloud, vous devez créer un contexte de stockage associé à AzureChinaCloud. Suivez ces étapes pour commencer :
 
@@ -663,7 +663,7 @@ Pour utiliser Azure Storage avec AzureChinaCloud, vous devez créer un contexte 
 
     	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
-Pour utiliser Azure Storage avec [Azure pour le gouvernement des États-Unis](http://azure.microsoft.com/features/gov/), vous devez définir un nouvel environnement, puis créer un contexte de stockage avec cet environnement :
+Pour utiliser Azure Storage avec [Azure pour le gouvernement des États-Unis](https://azure.microsoft.com/features/gov/), vous devez définir un nouvel environnement, puis créer un contexte de stockage avec cet environnement :
 
 1. Appelez l’applet de commande [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) pour créer un environnement Azure pour votre centre de données privé.
 
@@ -681,7 +681,7 @@ Pour plus d’informations, consultez :
 ## Étapes suivantes
 Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShell. Pour en savoir plus, consultez les articles et ressources suivants :
 
-- [Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
+- [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 - [Applets de commande Azure Storage PowerShell](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 - [Référence Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
 
@@ -730,4 +730,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

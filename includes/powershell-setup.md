@@ -48,7 +48,7 @@ Pour des instructions et un lien vers la dernière version, consultez la rubriqu
 
 ### Configuration de votre compte et de votre abonnement Microsoft Azure
 
-Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
 Ouvrez une invite de commandes PowerShell Azure et connectez-vous à Azure avec cette commande.
 
@@ -78,4 +78,4 @@ Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à 
 
 Pour plus d’informations sur les comptes et les abonnements Azure, consultez [Procédure : Connexion à votre abonnement](powershell-install-configure.md#Connect).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

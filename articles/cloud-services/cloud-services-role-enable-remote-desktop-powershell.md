@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/17/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell
@@ -20,12 +20,12 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 Le Bureau à distance vous permet d'accéder au bureau d'un rôle en cours d'exécution dans Azure. Vous pouvez utiliser une connexion Bureau à distance pour dépanner et diagnostiquer les problèmes rencontrés par votre application lorsqu'elle est en cours d'exécution.
 
-Cet article décrit comment activer Bureau à distance sur vos rôles Service Cloud à l’aide de PowerShell. Voir [Installer et configurer Azure PowerShell Azure](powershell-install-configure.md) pour connaître les conditions requises pour cet article. PowerShell utilise l’extension Bureau à distance, ce qui vous permet d’activer le Bureau à distance même après avoir déployé l’application.
+Cet article décrit comment activer Bureau à distance sur vos rôles Service Cloud à l’aide de PowerShell. Voir [Installer et configurer Azure PowerShell Azure](../powershell-install-configure.md) pour connaître les conditions requises pour cet article. PowerShell utilise l’extension Bureau à distance, ce qui vous permet d’activer le Bureau à distance même après avoir déployé l’application.
 
 
 ## Configurer le Bureau à distance à partir de PowerShell
@@ -50,7 +50,7 @@ Utilisez l’opération PowerShell suivante pour créer un fichier de mot de pas
 
 Une fois le fichier de mot de passe (password.txt) créé, vous n’aurez qu’à utiliser ce fichier et n’aurez qu’à spécifier le mot de passe en texte brut. Si vous devez mettre à jour le mot de passe, vous pouvez réexécuter le powershell ci-dessus en utilisant le nouveau mot de passe pour générer un nouveau fichier password.txt.
 
->[AZURE.IMPORTANT]Lors de la définition du mot de passe, assurez-vous que vous remplissez les [exigences de complexité](https://technet.microsoft.com/library/cc786468.aspx).
+>[AZURE.IMPORTANT] Lors de la définition du mot de passe, assurez-vous que vous remplissez les [exigences de complexité](https://technet.microsoft.com/library/cc786468.aspx).
 
 Pour créer l’objet d’informations d’identification à partir du fichier de mot de passe sécurisé, vous devez lire le contenu du fichier et le reconvertir en chaîne sécurisée à l’aide [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). En plus des informations d’identification de l’applet de commande [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) accepte également un paramètre *Expiration* qui spécifie une valeur DateTime à laquelle le compte d’utilisateur expire. Vous le définissez en spécifiant une date et une heure statique ou vous pouvez simplement choisir de définir une date d’expiration du compte quelques jours après la date réelle.
 
@@ -94,7 +94,7 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ```  
 
->[AZURE.NOTE]Le paramètre *UninstallConfiguration* va désinstaller toute configuration d’extension appliquée au service. Toutes les configurations d’extension sont associées à la configuration de service pour activer l’extension avec un déploiement. Le déploiement doit être associé à cette configuration d’extension. L’appel de l’applet de commande Remove sans *UninstallConfiguration* dissocie le déploiement de la configuration d’extension, supprimant de manière effective l’extension du déploiement. Cependant, la configuration d’extension reste associée au service. Pour supprimer complètement la configuration d’extension, vous devez appeler l’applet de commande Remove avec le paramètre *UninstallConfiguration*.
+>[AZURE.NOTE] Le paramètre *UninstallConfiguration* va désinstaller toute configuration d’extension appliquée au service. Toutes les configurations d’extension sont associées à la configuration de service pour activer l’extension avec un déploiement. Le déploiement doit être associé à cette configuration d’extension. L’appel de l’applet de commande Remove sans *UninstallConfiguration* dissocie le déploiement de la configuration d’extension, supprimant de manière effective l’extension du déploiement. Cependant, la configuration d’extension reste associée au service. Pour supprimer complètement la configuration d’extension, vous devez appeler l’applet de commande Remove avec le paramètre *UninstallConfiguration*.
 
 
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Configuration des services cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

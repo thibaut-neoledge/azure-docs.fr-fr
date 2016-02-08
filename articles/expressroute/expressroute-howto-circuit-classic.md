@@ -29,7 +29,7 @@ Cet article vous guide tout au long des étapes de création d’un circuit Expr
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le dernier module PowerShell à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
+- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le dernier module PowerShell à partir de la section PowerShell de la [page de téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md) et aux [workflows](expressroute-workflows.md) avant de commencer la configuration.
 
 ## Pour créer et approvisionner un circuit ExpressRoute
@@ -286,7 +286,7 @@ Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votr
 
 Le composant additionnel premium est maintenant désactivé pour votre circuit.
 
->[AZURE.IMPORTANT]Cette opération peut échouer si vous utilisez des ressources supérieures à ce qui autorisé pour le circuit standard.
+>[AZURE.IMPORTANT] Cette opération peut échouer si vous utilisez des ressources supérieures à ce qui autorisé pour le circuit standard.
 >
 >- Vous devez vous assurer que le nombre de réseaux virtuels liés au circuit est inférieur à 10 avant de rétrograder du niveau premium à standard. Si vous ne le faites, votre demande de mise à jour échouera et le tarif premium vous sera facturé.
 - Vous devez dissocier tous les réseaux virtuels dans d'autres régions géopolitiques. Si vous ne le faites, votre demande de mise à jour échouera et le tarif premium vous sera facturé.
@@ -310,7 +310,7 @@ Consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour conna
 
 Votre circuit sera redimensionné du côté de Microsoft. Vous devez contacter votre fournisseur de connectivité pour mettre à jour les configurations de son côté afin de refléter cette modification. Notez que nous allons commencer à vous facturer la bande bande passante mise à jour à partir de cet instant.
 
->[AZURE.IMPORTANT]Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. La rétrogradation de la bande passante vous oblige à annuler le déploiement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
+>[AZURE.IMPORTANT] Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. La rétrogradation de la bande passante vous oblige à annuler le déploiement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
 
 ##  Pour supprimer et annuler l’approvisionnement d’un circuit ExpressRoute
 
@@ -328,4 +328,4 @@ Si le fournisseur de services a annulé l'approvisionnement du circuit (l'état 
 
 - [Configuration du routage](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,11 +23,11 @@
 
 Cet article décrit les étapes de dépannage détaillées pour diagnostiquer et résoudre les erreurs complexes du Bureau à distance pour les machines virtuelles basées sur Windows.
 
-> [AZURE.IMPORTANT]Pour éliminer les erreurs du Bureau à distance plus courantes, veillez à lire l’article sur [le dépannage de base pour le Bureau à distance](virtual-machines-troubleshoot-remote-desktop-connections.md) avant de continuer.
+> [AZURE.IMPORTANT] Pour éliminer les erreurs du Bureau à distance plus courantes, veillez à lire l’article sur [le dépannage de base pour le Bureau à distance](virtual-machines-troubleshoot-remote-desktop-connections.md) avant de continuer.
 
 Si vous obtenez un message d'erreur du Bureau à distance qui ne ressemble à aucun des messages d'erreur spécifiques couverts dans [le guide de dépannage de base des problèmes du Bureau à distance](virtual-machines-troubleshoot-remote-desktop-connections.md), vous pouvez suivre ces étapes et essayer de déterminer pourquoi le client Bureau à distance (ou [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) ne parvient pas à se connecter au service RDP sur la machine virtuelle Azure.
 
-Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 ## Composants d’une connexion Bureau à distance
@@ -100,7 +100,7 @@ Pour des machines virtuelles créées à l’aide du modèle de déploiement cla
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
-> [AZURE.NOTE]Pour les machines virtuelles créées dans Resource Manager, passez à [Source 4 : groupes de sécurité réseau](#nsgs).
+> [AZURE.NOTE] Pour les machines virtuelles créées dans Resource Manager, passez à [Source 4 : groupes de sécurité réseau](#nsgs).
 
 Si vous ne disposez pas d’une autre machine virtuelle dans le même service cloud ou réseau virtuel, vous pouvez en créer une en suivant les étapes de la rubrique [Création d'une machine virtuelle exécutant Windows dans Azure](virtual-machines-windows-tutorial.md). Une fois le test terminé, supprimez la machine virtuelle supplémentaire.
 
@@ -195,4 +195,4 @@ Vérifiez que le point de terminaison du Bureau à distance de la machine virtue
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

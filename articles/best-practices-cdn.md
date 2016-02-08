@@ -56,20 +56,20 @@ Le CDN est généralement utilisé dans les cas suivants :
 La liste suivante répertorie des exemples de temps médian jusqu’au premier octet dans différentes zones géographiques. Le rôle web cible est déployé sur Azure dans l’ouest des États-Unis. Il existe un lien étroit entre la forte stimulation due au CDN et la proximité d’un nœud du CDN. Pour obtenir la liste complète des emplacements de nœuds CDN Azure, voir [Emplacements des nœuds du réseau de distribution de contenu (CDN) Azure](cdn/cdn-pop-locations.md/).
 
 
-|| Temps (ms) jusqu’au premier octet (origine) | Temps (ms) jusqu’au premier (CDN) | % d’amélioration du temps du CDN|
-|---|---|---|---|
-| * San Jose, CA| 47.5 | 46.5 | 2 % |
-| ** Dulles, VA| 109 | 40,5 | % de 169 |
-| Buenos Aires, AR| 210 | 151 | 39 % |
-| * Londres, UK| 195 | 44 | % de 343 |
-| Shanghai, CN| 242 | 206 | 17 % |
-| * Singapour | 214 | 74 | 189 % |
-| * Tokyo, JP | 163 | 48 | 204 % |
-| Séoul, KR| 190 | 190 | 0 % |
+| Temps (en ms) jusqu’au premier octet (origine) | Temps (en ms) jusqu’au premier octet (CDN) |% d’amélioration du temps CDN|
+|-------------|------------------------|--------------------|------------------|
+|*San Jose, CA| 47,5 | 46,5 | 2 % |
+|**Dulles, VA| 109 | 40,5 | 169 % |
+|Buenos Aires, AR| 210 | 151 | 39 %|
+|*Londres, Royaume-Uni| 195 | 44 | 343 %|
+|Shanghai, CN| 242 | 206 | 17 % |
+|*Singapour | 214 | 74 | 189 % |
+|*Tokyo, JP | 163 | 48 | 204 % |
+|Séoul, KR| 190 | 190 | 0 % |
 
 
-\* A un nœud de CDN Azure dans la même ville.  
-\*\* A un nœud de CDN Azure dans une ville voisine.  
+* A un nœud de CDN Azure dans la même ville. 
+** A un nœud de CDN Azure dans une ville voisine.
 
 ## Défis  
 
@@ -206,12 +206,12 @@ Incluez le CDN dans le cadre de la stratégie de surveillance de votre applicati
 
 Activez la journalisation pour le CDN et incluez-la dans vos opérations quotidiennes.
 
-Envisagez d’analyser le trafic du CDN pour les modèles d’utilisation. Le portail Azure fournit des outils qui vous permettent de surveiller
-+ la bande passante,
-+ les données transférées,
-+ les accès (codes d’état),
-+ l’état du Cache,
-+ le taux d’accès au cache et
+Envisagez d’analyser le trafic du CDN pour les modèles d’utilisation. Le portail Azure fournit des outils qui vous permettent de surveiller 
++ la bande passante, 
++ les données transférées, 
++ les accès (codes d’état), 
++ l’état du Cache, 
++ le taux d’accès au cache et 
 + le taux de requêtes IPV4/IPV6.
 
 Pour plus d’informations, voir [Modèles d’utilisation du CDN d’analyse Azure](cdn/cdn-analyze-usage-patterns.md/).
@@ -281,10 +281,10 @@ Notez que l’utilisation de la réécriture d’URL requiert que vous apportiez
 ## Plus d’informations
 
 
-+ [Azure CDN](http://azure.microsoft.com/services/cdn/)
++ [Azure CDN](https://azure.microsoft.com/services/cdn/)
 + [Documentation sur le réseau de distribution de contenu (CDN) Azure](https://azure.microsoft.com/documentation/services/cdn/)
 + [Distribution de contenu depuis Azure CDN dans votre application web](cdn/cdn-serve-content-from-cdn-in-your-web-application/)
 + [Intégration d’un service cloud à Azure CDN](cdn/cdn-cloud-service-with-cdn.md/)
-+ [Meilleures pratiques pour le réseau de distribution de contenu Microsoft Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Meilleures pratiques pour le réseau de distribution de contenu Microsoft Azure](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

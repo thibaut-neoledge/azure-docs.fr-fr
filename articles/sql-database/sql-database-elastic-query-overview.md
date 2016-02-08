@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/22/2016"
     ms.author="torsteng" />
 
 # Vue d’ensemble de la requête de base de données élastique Azure SQL Database (version préliminaire)
@@ -21,7 +21,7 @@ La fonctionnalité de requête de base de données élastique (en version préli
 
 ## Nouveautés en matière de requête de base de données élastique
 
-* Des scénarios d’interrogation sur bases de données croisées distantes uniques peuvent désormais être en totalité définis dans T-SQL. Il est ainsi possible d’interroger en lecture seule des bases de données distantes. Les clients SQL Server locaux actuels ont ainsi la possibilité de migrer des applications en utilisant des noms en trois et quatre parties ou un serveur lié à une base de données SQL. 
+* Des scénarios d’interrogation sur bases de données croisées distantes uniques peuvent désormais être en totalité définis dans T-SQL. Il est ainsi possible d’interroger en lecture seule des bases de données distantes. Les clients SQL Server locaux actuels ont ainsi la possibilité de migrer des applications en utilisant des noms en trois et quatre parties ou un serveur lié à une base de données SQL.
 * Une requête élastique est désormais prise en charge sur la couche de performance Standard en plus du niveau de performance Premium. Consultez la section sur les limitations de version préliminaire ci-dessous sur les limitations de performances pour les niveaux de performances inférieurs.
 * Les requêtes élastiques peuvent désormais distribuer les paramètres Push SQL aux bases de données distantes pour l’exécution.
 * Les appels de procédure stockés distants ou appels de fonction à distance qui utilisent sp\_execute\_fanout peuvent désormais utiliser des paramètres similaires à [sp\_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
@@ -39,9 +39,9 @@ L’objectif est de simplifier les scénarios d’interrogation dans lesquels pl
 Les scénarios clients pour une requête élastique sont caractérisés par les topologies suivantes :
 
 * **Partitionnement vertical – Requêtes de base de données croisées** (Topologie 1) : les données sont partitionnées verticalement entre plusieurs bases de données dans une couche de données. En règle générale, les différents ensembles de tables résident sur des bases de données différentes. Cela signifie que le schéma est différent sur des bases de données différentes. Par exemple, toutes les tables d’inventaire se trouvent sur une base de données alors que toutes les tables liées à la comptabilité se trouvent dans une seconde base de données. Les scénarios d’utilisation courants avec cette topologie requièrent une interrogation ou la compilation de rapports englobant des tables de plusieurs bases de données.
-* **Partitionnement horizontal - partitionnement** (topologie 2) : les données sont partitionnées horizontalement pour répartir des lignes sur une mise à l’échelle vers la couche données. Avec cette approche, le schéma est identique sur toutes les bases de données participantes. Cette approche est également appelée « partitionnement ». Ce partitionnement est effectué et géré à l’aide de (1) la bibliothèque d’outils de base de données élastique ou (2) la fonction d’auto-partitionnement. Une requête élastique est utilisée pour interroger ou compiler des rapports sur plusieurs partitions. 
+* **Partitionnement horizontal - partitionnement** (topologie 2) : les données sont partitionnées horizontalement pour répartir des lignes sur une mise à l’échelle vers la couche données. Avec cette approche, le schéma est identique sur toutes les bases de données participantes. Cette approche est également appelée « partitionnement ». Ce partitionnement est effectué et géré à l’aide de (1) la bibliothèque d’outils de base de données élastique ou (2) la fonction d’auto-partitionnement. Une requête élastique est utilisée pour interroger ou compiler des rapports sur plusieurs partitions.
 
-> [AZURE.NOTE]Une requête de base de données élastique est mieux adaptée aux scénarios de création de rapports occasionnels où la plus grande partie du traitement peut s’effectuer sur la couche données. Pour les charges de travail de création de rapports intensive ou les scénarios d’entreposage de données avec des requêtes plus complexes, pensez à utiliser [Azure SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+> [AZURE.NOTE] Une requête de base de données élastique est mieux adaptée aux scénarios de création de rapports occasionnels où la plus grande partie du traitement peut s’effectuer sur la couche données. Pour les charges de travail de création de rapports intensive ou les scénarios d’entreposage de données avec des requêtes plus complexes, pensez à utiliser [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 
 
 ## Topologies de requête de base de données élastique
@@ -74,7 +74,7 @@ L’utilisation d’une requête élastique destinée à effectuer des tâches d
 
 ![Partitionnement horizontal - Partitionnement vertical -Utilisation d’une requête élastique pour émettre des rapports sur des couches de données partitionnées][5]
 
-> [AZURE.NOTE]La base de données de requête de la base de données élastique dédiée doit être une base de données SQL DB v12. Il n’existe aucune restriction concernant les partitions.
+> [AZURE.NOTE] La base de données de requête de la base de données élastique dédiée doit être une base de données SQL DB v12. Il n’existe aucune restriction concernant les partitions.
 
 
 ## Implémentation de requêtes de base de données élastique
@@ -85,19 +85,19 @@ Les opérations servant à implémenter la requête élastique pour les scénari
 
 Les étapes suivantes servent à configurer des requêtes de base de données élastique pour des scénarios de partitionnement verticaux qui requièrent l’accès à une table située sur une base de données SQLDB distante :
 
-*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey 
+*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource de **RDBMS**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
 Après avoir exécuté les instructions DDL, vous pouvez accéder à la table distante « mytable » comme s’il s’agissait d’une table locale. Azure SQL Database ouvre automatiquement une connexion à la base de données distante, traite votre demande sur la base de données distante et retourne les résultats. Vous trouverez d’autres informations sur les opérations requises pour le scénario de partitionnement vertical dans [Requête élastique pour le partitionnement vertical](sql-database-elastic-query-vertical-partitioning.md).
 
-### Partitionnement horizontal - partitionnement 
+### Partitionnement horizontal - partitionnement
 
 Les étapes suivantes configurent des requêtes de base de données flexibles pour les scénarios de partitionnement horizontal qui requièrent l’accès à un ensemble de tables généralement situées sur plusieurs bases de données SQLDB distantes :
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential 
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    Créer un [mappage de partition](sql-database-elastic-scale-shard-map-management.md) représentant votre couche de données à l’aide d’une bibliothèque de base de données élastique cliente.   
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource de type **SHARD\_MAP\_MANAGER**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
@@ -117,7 +117,7 @@ La requête élastique est incluse dans le coût des bases de données Azure SQL
 ## Limitations de la version préliminaire
 * L’exécution de votre première requête élastique peut prendre quelques minutes sur la couche de performances Standard. Ce délai est nécessaire au chargement de la fonctionnalité de requête flexible ; les performances de chargement s’améliorent avec les couches de performance supérieures.
 * La rédaction de script de sources de données externes ou de tables externes à partir de SSMS ou SSDT n’est pas encore prise en charge.
-* L’importation/exportation de base de données de SQL ne prend pas en charge les tables et sources de données externes. Si vous devez utiliser importer/exporter, supprimez ces objets avant l’exportation, puis recréez-les après l’importation. 
+* L’importation/exportation de base de données de SQL ne prend pas en charge les tables et sources de données externes. Si vous devez utiliser importer/exporter, supprimez ces objets avant l’exportation, puis recréez-les après l’importation.
 * Une requête élastique prend actuellement en charge uniquement les accès en lecture seule à des tables externes. Vous pouvez toutefois utiliser des fonctionnalités T-SQL complètes sur la base de données dans laquelle la table externe est définie. Cela peut être utile, par exemple, pour conserver les résultats temporaires à l’aide de SELECT <column_list> INTO <local_table>, ou pour définir des procédures stockées dans la base de données de requête élastique qui fait référence à des tables externes.
 * À l’exception de nvarchar (max), les types métier ne sont pas pris en charge dans les définitions de table externes. Pour résoudre ce problème, vous pouvez créer une vue sur la base de données distante qui convertit le type LOB en nvarchar (max), définir votre table externe sur la vue au lieu de la table de base, et puis effectuer un cast vers le type LOB d’origine dans vos requêtes.
 * Les statistiques des colonnes via les tables externes ne sont pas prises en charge actuellement. Les statistiques des tables sont prises en charge, mais doivent être créées manuellement.
@@ -135,7 +135,7 @@ Vous trouverez d’autres informations sur l’interrogation des bases de donné
 
 Vous trouverez d’autres informations sur les scénarios de partitionnement horizontaux ici :
 
-* [Vue d’ensemble du partitionnement horizontal et du partitionnement](sql-database-elastic-query-horizontal-partitioning.md) 
+* [Vue d’ensemble du partitionnement horizontal et du partitionnement](sql-database-elastic-query-horizontal-partitioning.md)
 * Essayez notre didacticiel par étape et découvrez un exemple opérationnel complet en quelques minutes : [Prise en main des requêtes de base de données élastique pour le partitionnement horizontal](sql-database-elastic-query-getting-started.md).
 
 
@@ -150,4 +150,4 @@ Vous trouverez d’autres informations sur les scénarios de partitionnement hor
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

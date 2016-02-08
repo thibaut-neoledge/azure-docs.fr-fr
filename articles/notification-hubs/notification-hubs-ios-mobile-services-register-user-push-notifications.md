@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="01/19/2015" 
 	ms.author="yuaxu"/>
 
 # Inscription de l'utilisateur actif aux notifications Push à l'aide d'un service mobile
@@ -57,7 +57,7 @@ Cette rubrique vous montre comment demander une inscription aux notifications Pu
 
 	Cette action met à jour la propriété **deviceToken**.
 
-	> [AZURE.NOTE]À ce stade, il ne doit pas y avoir d'autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel [Prise en main de Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), vous devez placer l'appel en commentaire ou le supprimer.
+	> [AZURE.NOTE] À ce stade, il ne doit pas y avoir d'autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel [Prise en main de Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), vous devez placer l'appel en commentaire ou le supprimer.
 
 5.  (Facultatif) Dans le fichier QSAppDelegate.m, ajoutez la méthode de gestionnaire suivante :
 
@@ -105,7 +105,7 @@ Cette rubrique vous montre comment demander une inscription aux notifications Pu
 			    }];
 			}
 
-	> [AZURE.NOTE]Cela permet de s'assurer que l'inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude.
+	> [AZURE.NOTE] Cela permet de s'assurer que l'inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude.
 	
 Maintenant que l'application cliente est à jour, retournez au didacticiel [Notification des utilisateurs avec Notification Hubs] et mettez le service mobile à jour pour qu'il envoie des notifications à l'aide de Notification Hubs.
 
@@ -121,4 +121,4 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

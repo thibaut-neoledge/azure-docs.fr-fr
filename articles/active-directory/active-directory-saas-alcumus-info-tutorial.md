@@ -31,17 +31,17 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 
 Pour configurer l’intégration d’Azure AD avec Alcumus Info Exchange, vous avez besoin des éléments suivants :
 
-- Un abonnement [Azure AD](http://azure.microsoft.com/)
+- Un abonnement [Azure AD](https://azure.microsoft.com/)
 - Un abonnement [Alcumus Info Exchange](http://www.alcumusgroup.com/) pour lequel l’authentification unique est activée
 
 
-> [AZURE.NOTE]Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous ne disposez pas d’un environnement d’essai Azure AD, vous pouvez obtenir une version d’essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Description du scénario
@@ -83,7 +83,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Alcumus Inf
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test Alcumus Info Exchange](#creating-a-alcumus-info-exchange-test-user)** pour avoir un équivalent de Britta Simon dans Alcumus Info Exchange lié à la représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** : permet de vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD
 
@@ -99,7 +99,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
  
      3\.1 dans la zone de texte **URL de réponse**, saisissez l’URL du consommateur installé pour vous par l’équipe du support technique Exchange Info Alcumus.
 
-     >[AZURE.NOTE]Si vous ne connaissez pas la valeur adéquate, contactez l’équipe du support technique Alcumus informations Exchange via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
+     >[AZURE.NOTE] Si vous ne connaissez pas la valeur adéquate, contactez l’équipe du support technique Alcumus informations Exchange via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
      3\.2. Cliquez sur **Next**.
  
@@ -116,15 +116,15 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L'objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation de gauche du **portail de gestion Azure**, cliquez sur **Active Directory**.<br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
+1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**.<br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**. <br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png)
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.<br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png)
  
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, dans la barre d’outils en bas, cliquez sur **Ajouter un utilisateur**. <br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png)
 
@@ -168,7 +168,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 1. Dans le menu situé en haut de l’écran, cliquez sur **Utilisateurs**.<br> <br><br>![Affecter des utilisateurs][203]
 1. Dans la liste des utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils située au bas de l’écran, cliquez sur **Affecter**. <br><br>![Affecter des utilisateurs][205]
+2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**. <br><br>![Affecter des utilisateurs][205]
 
 
 
@@ -204,4 +204,4 @@ L’objectif de cette section consiste à tester la configuration de l’authent
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

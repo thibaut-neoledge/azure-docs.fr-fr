@@ -42,7 +42,7 @@ Vous pouvez également ajouter Application Insights à votre code de serveur [A
 
 ### Exécuter votre projet et consulter les premiers résultats
 
-Exécutez votre projet en mode débogage pendant quelques minutes, puis accédez au [portail Azure](http://portal.azure.com) et sélectionnez votre ressource de projet dans Application Insights.
+Exécutez votre projet en mode débogage pendant quelques minutes, puis accédez au [portail Azure](https://portal.azure.com) et sélectionnez votre ressource de projet dans Application Insights.
 
 ![Dans Azure, cliquez sur Parcourir, puis sur Application Insights, et sélectionnez votre projet.](./media/app-insights-overview-usage/00-start.png)
 
@@ -288,4 +288,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Affichage rapports d’intégrité de Service Fabric
@@ -57,16 +57,16 @@ Vue du cluster avec Service Fabric Explorer :
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
 
-> [AZURE.NOTE]En savoir plus sur [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> [AZURE.NOTE] En savoir plus sur [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Requêtes d'intégrité
 Service Fabric expose les requêtes d’intégrité pour chacun des [types d’entité](service-fabric-health-introduction.md#health-entities-and-hierarchy) pris en charge. Elles sont accessibles via l’API (les méthodes se trouvent sur **FabricClient.HealthManager**), les applets de commande PowerShell et REST. Ces requêtes renvoient des informations complètes sur l’intégrité de l’entité, notamment sur l’état d’intégrité agrégé, les événements d’intégrité signalés sur l’entité, les états d’intégrité des enfants (le cas échéant) et les évaluations de défaut d’intégrité (le cas échéant).
 
-> [AZURE.NOTE]Une entité d’intégrité est renvoyée à l’utilisateur si elle est intégralement renseignée dans le magasin d’intégrité. Elle doit être active (pas supprimée) et doit disposer d’un rapport système. Ses entités parentes dans la chaîne hiérarchique doivent également disposer de rapports système. Si l’une de ces conditions n’est pas satisfaite, les requêtes d’intégrité renvoient une exception indiquant le non-renvoi de l’entité.
+> [AZURE.NOTE] Une entité d’intégrité est renvoyée à l’utilisateur si elle est intégralement renseignée dans le magasin d’intégrité. Elle doit être active (pas supprimée) et doit disposer d’un rapport système. Ses entités parentes dans la chaîne hiérarchique doivent également disposer de rapports système. Si l’une de ces conditions n’est pas satisfaite, les requêtes d’intégrité renvoient une exception indiquant le non-renvoi de l’entité.
 
 Les requêtes d’intégrité doivent transmettre l’identificateur de l’entité, qui dépend du type d’entité. Elles acceptent des paramètres facultatifs de stratégie de contrôle d’intégrité. Si ceux-ci ne sont pas spécifiés, les [stratégies de contrôle d’intégrité](service-fabric-health-introduction.md#health-policies) du manifeste de cluster ou d’application sont utilisées pour l’évaluation. Les requêtes acceptent également des filtres pour ne renvoyer le cas échéant que des enfants ou des événements partiels.
 
-> [AZURE.NOTE]Les filtres de sortie sont appliqués côté serveur, ce qui réduit la taille de la réponse du message. Nous vous recommandons d’utiliser les filtres de sortie afin de limiter le volume de données renvoyées, plutôt que d’appliquer des filtres côté client.
+> [AZURE.NOTE] Les filtres de sortie sont appliqués côté serveur, ce qui réduit la taille de la réponse du message. Nous vous recommandons d’utiliser les filtres de sortie afin de limiter le volume de données renvoyées, plutôt que d’appliquer des filtres côté client.
 
 Les données d’intégrité d’une entité contiennent les informations suivantes :
 
@@ -700,7 +700,7 @@ HealthEvents          :
 ## Requêtes générales
 Les requêtes générales renvoient la liste des entités Service Fabric d’un type spécifié. Elles sont exposées via l’API (méthodes sur **FabricClient.QueryManager**), les applets de commande PowerShell et REST. Ces requêtes agrègent les sous-requêtes de plusieurs composants. L’un d’eux est le [magasin d’intégrité](service-fabric-health-introduction.md#health-store), qui renseigne l’état d’intégrité agrégé pour chaque résultat de requête.
 
-> [AZURE.NOTE]Les requêtes générales renvoient l’état d’intégrité agrégé de l’entité et ne contiennent pas de données d’intégrité enrichies. Si une entité n’est pas saine, vous pouvez recourir à des requêtes d’intégrité afin d’obtenir l’ensemble des informations sur son intégrité, comme les événements, l’état d’intégrité des enfants et les évaluations de défaut d’intégrité.
+> [AZURE.NOTE] Les requêtes générales renvoient l’état d’intégrité agrégé de l’entité et ne contiennent pas de données d’intégrité enrichies. Si une entité n’est pas saine, vous pouvez recourir à des requêtes d’intégrité afin d’obtenir l’ensemble des informations sur son intégrité, comme les événements, l’état d’intégrité des enfants et les évaluations de défaut d’intégrité.
 
 Si les requêtes générales renvoient un état d’intégrité inconnu pour une entité, il se peut que le magasin d’intégrité ne dispose pas des données complètes sur l’entité. Il est également possible qu’une sous-requête adressée au magasin d’intégrité ait échoué (par exemple, en cas d’erreur de communication ou de limitation du magasin d’intégrité). Recourez à une requête d’intégrité sur l’entité. Si la sous-requête a rencontré des erreurs temporaires telles que des problèmes de réseau, cette requête de suivi peut aboutir. Elle peut également vous donner plus de détails du magasin d’intégrité sur la raison pour laquelle l’entité n’est pas exposée.
 
@@ -839,4 +839,4 @@ Chaque fois qu’un problème est identifié dans le cluster ou dans une applica
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
    description="Ajouter Mobile Services à partir de la boîte de dialogue Ajouter des services connectés dans Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="mlhoop"
    manager="douge"
    editor="" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
    ms.date="12/16/2015"
-   ms.author="tarcher" />
+   ms.author="mlearned" />
 
 # Ajout de Mobile Services à l’aide des services connectés de Visual Studio
 
@@ -21,7 +21,7 @@ Avec Visual Studio 2015, vous pouvez vous connecter à Azure Mobile Services à
 
 ## Types de projet pris en charge
 
->[AZURE.NOTE]Dans Visual Studio 2015, vous ne pouvez pas ajouter Azure Mobile Services à des projets Windows Universal (Windows 10) à partir de la boîte de dialogue Ajouter des services connectés. Vous pouvez le faire en installant les packages appropriés à l’aide du gestionnaire de package NuGet pour votre projet.
+>[AZURE.NOTE] Dans Visual Studio 2015, vous ne pouvez pas ajouter Azure Mobile Services à des projets Windows Universal (Windows 10) à partir de la boîte de dialogue Ajouter des services connectés. Vous pouvez le faire en installant les packages appropriés à l’aide du gestionnaire de package NuGet pour votre projet.
 
 L’utilisation de la boîte de dialogue Services connectés vous permet de vous connecter à Azure Mobile Services pour les types de projet suivants.
 
@@ -85,10 +85,10 @@ Posez des questions et obtenez de l’aide :
 
  - [Forum MSDN : Azure Mobile Services](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 
- - [Azure Mobile Services sur le blog de l’équipe Microsoft Azure](http://azure.microsoft.com/blog/topics/mobile/)
+ - [Azure Mobile Services sur le blog de l’équipe Microsoft Azure](https://azure.microsoft.com/blog/topics/mobile/)
 
- - [Azure Mobile Services sur azure.microsoft.com](http://azure.microsoft.com/services/mobile-services/)
+ - [Azure Mobile Services sur azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
 
- - [Documentation Azure Mobile Services sur azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
+ - [Documentation Azure Mobile Services sur azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

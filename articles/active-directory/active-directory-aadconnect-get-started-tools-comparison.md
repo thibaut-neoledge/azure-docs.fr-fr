@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Comparaison des outils d’intégration de répertoire
 
 Au fil des années, les outils d’intégration de répertoire ont évolué et se sont améliorés. Ce document procure une vue d’ensemble consolidée de ces outils et compare les fonctions disponibles dans chacun d’entre eux.
 
->[AZURE.NOTE]Azure AD Connect comprend les composants et les fonctionnalités précédemment publiés sous le nom de synchronisation d’annuaires et AAD Sync. Ces outils ne sont plus commercialisés individuellement et toutes les améliorations à venir figureront dans les mises à jour d’Azure AD Connect, afin que vous sachiez toujours où obtenir les dernières fonctionnalités.
+>[AZURE.NOTE] Azure AD Connect comprend les composants et les fonctionnalités précédemment publiés sous le nom de synchronisation d’annuaires et AAD Sync. Ces outils ne sont plus commercialisés individuellement et toutes les améliorations à venir figureront dans les mises à jour d’Azure AD Connect, afin que vous sachiez toujours où obtenir les dernières fonctionnalités.
 >
 >Actuellement, Dirsync est toujours pris en charge, même si son obsolescence est programmée. Une fois qu’il sera obsolète, il sera pris en charge pendant une période limitée uniquement. À l’issue de cette période, la prise en charge de Dirsync sera interrompue.
 
@@ -91,4 +91,4 @@ Autorisation de la personnalisation avancée pour les flux d’attributs | ● |
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Environnement de test de configuration de base avec Azure Resource Manager
@@ -50,15 +50,15 @@ La configuration du sous-réseau de réseau d’entreprise de l’environnement 
 3.	Configuration d’APP1
 4.	Configuration de CLIENT1
 
-Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai gratuit sur la page [Essayer Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai gratuit sur la page [Essayer Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-> [AZURE.NOTE]Les machines virtuelles dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Pour plus d’informations sur les coûts des machines virtuelles Azure, consultez les pages [Détails de la tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Calculatrice de tarification Azure](http://azure.microsoft.com/pricing/calculator/). Afin de réduire les coûts, consultez la page [Réduction des coûts des machines virtuelles de l’environnement de test dans Azure](#costs).
+> [AZURE.NOTE] Les machines virtuelles dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Pour plus d’informations sur les coûts des machines virtuelles Azure, consultez les pages [Détails de la tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/) et [Calculatrice de tarification Azure](https://azure.microsoft.com/pricing/calculator/). Afin de réduire les coûts, consultez la page [Réduction des coûts des machines virtuelles de l’environnement de test dans Azure](#costs).
 
 ## Phase 1 : création du réseau virtuel
 
 Démarrez d'abord une invite de commandes Azure PowerShell.
 
-> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Connectez-vous à votre compte.
 
@@ -244,6 +244,8 @@ Ceci est votre configuration actuelle.
 
 CLIENT1 agit comme un ordinateur portable, une tablette ou un ordinateur de bureau classique sur l’intranet de Contoso.
 
+> [AZURE.NOTE] La commande suivante crée CLIENT1 exécutant Windows Server 2012 R2 Datacenter, opération réalisable pour tous les types d’abonnements Azure. Si vous avez un abonnement Azure MSDN, vous pouvez créer CLIENT1 exécutant Windows 10, Windows 8 ou Windows 7 à l’aide du [portail Azure](virtual-machines-windows-tutorial.md).
+
 Commencez par entrer le nom de votre groupe de ressources, de votre emplacement Azure et de votre compte de stockage et exécutez les commandes suivantes à partir de l’invite de commandes Azure PowerShell sur votre ordinateur local pour créer une machine virtuelle Azure pour CLIENT1.
 
 	$rgName="<resource group name>"
@@ -296,7 +298,7 @@ Votre configuration de base dans Azure est maintenant prête pour le développem
 
 ## Étape suivante
 
-- [Ajout d'une nouvelle machine virtuelle](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) au sous-réseau de réseau d'entreprise, par exemple une MV exécutant Microsoft SQL Server.
+- [Ajout d’une nouvelle machine virtuelle](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) au sous-réseau de réseau d’entreprise, par exemple une MV exécutant Microsoft SQL Server.
 
 
 ## <a id="costs"></a>Réduction des coûts des machines virtuelles de l’environnement de test dans Azure
@@ -326,4 +328,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

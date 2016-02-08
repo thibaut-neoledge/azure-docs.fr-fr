@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/13/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Surveiller les applications web dans Microsoft Azure App Service
@@ -24,7 +24,7 @@
 
 ##Stratégie de rétention des métriques
 
->[AZURE.NOTE]La stratégie de rétention des métriques d’application varie en fonction de la granularité.
+>[AZURE.NOTE] La stratégie de rétention des métriques d’application varie en fonction de la granularité.
 
 - Les métriques de granularité **Minute** sont conservées **24 heures**
 - Les métriques de granularité **Hour** sont conservées **7 jours**.
@@ -54,7 +54,7 @@ Lorsque l’application web est en mode **Standard**, vous pouvez recevoir des 
 
 Les applications web peuvent être configurées pour s’exécuter en mode **Partagé** ou **Standard** dans la page de gestion **Mettre à l’échelle** de l’application web du [portail Classic](https://manage.windowsazure.com). Chaque abonnement à Microsoft Azure donne accès à un pool de ressources fourni dans le but d’exécuter jusqu’à 100 applications web par région en mode **Partagé**. Le pool de ressources disponibles à cette fin pour chaque abonnement à l’application web est partagé par d’autres applications web situées dans la même région géographique et configurées pour s’exécuter en mode **Partagé**. Ces ressources étant partagées pour pouvoir être utilisées par d’autres applications web, leur exploitation par l’ensemble des abonnements est limitée. Les limites appliquées à l’utilisation de ces ressources par un abonnement sont exprimées sous la forme de quotas d’utilisation, répertoriés dans la section de présentation de l’utilisation, sur la page de gestion **Tableau de bord** de chaque application web.
 
->[AZURE.NOTE]Lorsqu’une application web est configurée pour s’exécuter en mode **Standard**, elle se voit allouer des ressources dédiées équivalentes aux valeurs **Petit** (par défaut), **Moyen** ou **Grand** associées aux tailles de machine virtuelle figurant dans le tableau situé sur la page [Tailles de machines virtuelles et de services cloud pour Microsoft Azure][vmsizes]. Aucune limite n’est fixée concernant les ressources qu’un abonnement peut utiliser pour exécuter des applications web en mode **Standard**. Toutefois, vous ne pouvez pas créer plus de 500 applications web en mode **Standard**, pour chaque région.
+>[AZURE.NOTE] Lorsqu’une application web est configurée pour s’exécuter en mode **Standard**, elle se voit allouer des ressources dédiées équivalentes aux valeurs **Petit** (par défaut), **Moyen** ou **Grand** associées aux tailles de machine virtuelle figurant dans le tableau situé sur la page [Tailles de machines virtuelles et de services cloud pour Microsoft Azure][vmsizes]. Aucune limite n’est fixée concernant les ressources qu’un abonnement peut utiliser pour exécuter des applications web en mode **Standard**. Toutefois, vous ne pouvez pas créer plus de 500 applications web en mode **Standard**, pour chaque région.
 
 ### Procédure : afficher les quotas d’utilisation des applications web configurées en mode Partagé ###
 Pour déterminer dans quelle mesure les quotas d’utilisation des ressources sont affectés par une application web, procédez comme suit :
@@ -100,7 +100,7 @@ Vous pouvez activer ou désactiver les diagnostics d'application suivants :
 
 Pour plus d’informations sur les comptes de stockage Azure, consultez la page [Gestion des comptes de stockage](/manage/services/storage/how-to-manage-a-storage-account/).
 
-> [AZURE.NOTE]La journalisation relative aux applications dans les tables ou les objets blob n'est prise en charge que pour les applications .NET.
+> [AZURE.NOTE] La journalisation relative aux applications dans les tables ou les objets blob n'est prise en charge que pour les applications .NET.
 
 La journalisation relative aux applications dans les ressources de stockage nécessitant l'utilisation d'un client de stockage pour afficher les données de journalisation, cette fonction est très utile lorsque vous prévoyez d'utiliser un service ou une application capable de lire et de traiter directement les données à partir d'une table ou du stockage d’objets blob Azure. La journalisation dans le système de fichiers génère des fichiers pouvant être téléchargés sur votre ordinateur local via FTP ou d'autres utilitaires, comme décrit plus loin dans cette section.
 
@@ -108,7 +108,7 @@ Les options **Diagnostic d'application (système de fichiers)**, **Diagnostic d'
 
 Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-> [AZURE.NOTE]La journalisation des applications s'appuie sur les informations de journalisation générées par votre application. La méthode permettant de générer ce type d’informations et le format de celles-ci sont propres au langage de votre application. Pour obtenir des informations sur le langage utilisé dans le cadre de la journalisation des applications, lisez les articles suivants :
+> [AZURE.NOTE] La journalisation des applications s'appuie sur les informations de journalisation générées par votre application. La méthode permettant de générer ce type d’informations et le format de celles-ci sont propres au langage de votre application. Pour obtenir des informations sur le langage utilisé dans le cadre de la journalisation des applications, lisez les articles suivants :
 >
 > - **.NET** - [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js** - [Débogage d'une application Node.js dans Sites Web Azure](web-sites-nodejs-debug.md)
@@ -134,7 +134,7 @@ La section **Site diagnostics** de la page d'administration **Configure** contr�
 
 Une fois la fonction de diagnostic activée pour une application web, cliquez sur l’icône **Enregistrer** en bas de la page de gestion **Configurer** pour appliquer les options que vous avez définies.
 
-> [AZURE.IMPORTANT]Les fonctionnalités Messages d’erreur détaillés et Suivi des demandes ayant échoué génèrent des demandes importantes sur une application web. Nous recommandons de désactiver ces fonctionnalités une fois que vous avez reproduit le ou les problèmes que vous devez résoudre.
+> [AZURE.IMPORTANT] Les fonctionnalités Messages d’erreur détaillés et Suivi des demandes ayant échoué génèrent des demandes importantes sur une application web. Nous recommandons de désactiver ces fonctionnalités une fois que vous avez reproduit le ou les problèmes que vous devez résoudre.
 
 ### Configuration avancée ###
 
@@ -173,7 +173,7 @@ Les fichiers journaux peuvent être téléchargés à l’aide de FTP, d’Azure
 
 1. À partir de l'**écran d'accueil** ou du **menu Démarrer**, recherchez **Azure PowerShell**. Cliquez avec le bouton droit sur l'entrée **Azure PowerShell** et sélectionnez **Exécuter en tant qu'administrateur**.
 
-	> [AZURE.NOTE]Si **Azure PowerShell** n'est pas installé, consultez la page [Mise en route des cmdlets Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) pour plus d'informations sur l'installation et la configuration.
+	> [AZURE.NOTE] Si **Azure PowerShell** n'est pas installé, consultez la page [Mise en route des cmdlets Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) pour plus d'informations sur l'installation et la configuration.
 
 2. À l'invite Azure PowerShell, entrez la commande suivante pour télécharger les fichiers journaux :
 
@@ -201,7 +201,7 @@ Vous pouvez également afficher un flux continu de journaux d'événements à l'
 
 Cette commande affiche les informations de journalisation à l’invite de commande, sur la console PowerShell, un interpréteur de commandes ou une session terminal à partir de laquelle la commande est exécutée.
 
-> [AZURE.NOTE]Si la commande **azure** n’est pas installée, consultez la page [Utilisation de la ligne de commande Azure](../virtual-machines-command-line-tools.md) pour en savoir plus sur l’installation et la configuration de cette commande.
+> [AZURE.NOTE] Si la commande **azure** n’est pas installée, consultez la page [Utilisation de la ligne de commande Azure](../virtual-machines-command-line-tools.md) pour en savoir plus sur l’installation et la configuration de cette commande.
 
 ### Lecture des fichiers journaux ###
 
@@ -263,7 +263,7 @@ Une fois que la surveillance des points de terminaison est configurée, vous pou
 7.	Vous pouvez aussi recommencer les étapes précédentes pour créer un second point de terminaison.
 8.	Cliquez sur **Save**. Il peut s'écouler un certain temps avant que les données de surveillance des points de terminaison Web soient disponibles sous les onglets **Tableau de bord** et **Monitor**.
 
-	Pour créer une règle de courrier électronique, procédez comme suit :
+Pour créer une règle de courrier électronique, procédez comme suit :
 
 9.	Dans la barre de services située à l’extrême gauche de la page, cliquez sur **Services de gestion**.
 10.	Cliquez sur **Ajouter une règle** en bas de la page.
@@ -279,7 +279,7 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 
 - [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison - avec Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -289,4 +289,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

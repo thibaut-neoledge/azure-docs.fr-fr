@@ -1,26 +1,26 @@
 <properties 
-                pageTitle="Présentation de l'accès aux ressources dans Azure" 
-                description="Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="stevenpo" 
-                editor=""/>
+    pageTitle="Présentation de l'accès aux ressources dans Azure" 
+    description="Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    editor=""/>
 
 <tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="10/30/2015" 
-                ms.author="markusvi"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="01/26/2016" 
+    ms.author="markusvi"/>
 
 
 # Présentation de l'accès aux ressources dans Azure
 
 
-> [AZURE.NOTE]Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure. Le portail Azure en version préliminaire fournit également un [contrôle des accès par rôle](role-based-access-control-configure.md) afin de permettre une gestion plus précise des ressources Microsoft Azure.
+> [AZURE.NOTE] Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure. Le portail Azure en version préliminaire fournit également un [contrôle des accès par rôle](role-based-access-control-configure.md) afin de permettre une gestion plus précise des ressources Microsoft Azure.
 
 En octobre 2013, le portail de gestion Azure et les API Service Management ont été intégrés à Azure Active Directory afin de préparer le terrain pour améliorer l'expérience utilisateur en matière de gestion de l'accès aux ressources Microsoft Azure. Azure Active Directory fournit déjà des fonctionnalités importantes telles que la gestion des utilisateurs, la synchronisation locale de répertoires, l'authentification multifacteur et le contrôle de l’accès aux applications. Naturellement, elles doivent également être mises à disposition pour la gestion générale des ressources Azure.
 
@@ -37,7 +37,7 @@ Le portail de gestion Azure comprend une fonctionnalité qui permet aux administ
 
 
 
-> [AZURE.NOTE]La commande **Modifier le répertoire** du portail de gestion Azure n'est pas disponible pour les utilisateurs connectés avec un compte professionnel ou scolaire parce que ces comptes peuvent se connecter uniquement au répertoire auquel ils appartiennent.
+> [AZURE.NOTE] La commande **Modifier le répertoire** du portail de gestion Azure n'est pas disponible pour les utilisateurs connectés avec un compte professionnel ou scolaire parce que ces comptes peuvent se connecter uniquement au répertoire auquel ils appartiennent.
 
 <br><br>![Flux de connexion utilisateur simple][3]
 
@@ -64,4 +64,4 @@ Les opérations telles que le déplacement de ressources entre des abonnements p
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Règles d'affectation des noms 
@@ -27,4 +27,4 @@ Data Factory | Unique sur Microsoft Azure. Les noms ne respectent pas la casse, 
 Services/tableaux/pipelines liés | Unique dans une fabrique de données. Les noms sont sensibles à la casse. | <ul><li>Nombre maximal de caractères dans un nom de tableau : 260.</li><li>Les noms d'objets doivent commencer par un numéro, une lettre ou un trait de soulignement (_).</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul>
 Groupe de ressources | Unique sur Microsoft Azure. Les noms ne respectent pas la casse. | <ul><li>Nombre maximal de caractères : 1000.</li><li>Un nom peut contenir des lettres, des chiffres et les caractères suivants : « - », « _ », « , » et « . ».</li></ul>
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

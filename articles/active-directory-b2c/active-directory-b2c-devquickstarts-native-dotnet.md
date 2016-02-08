@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Version préliminaire d’Azure AD B2C : création d’une application de bureau Windows
@@ -42,7 +42,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 
 Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie de chaque type, comme décrit dans l'[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
 
-- Choisir **Inscription par le biais d'un ID utilisateur** ou **Inscription par le biais d'une adresse e-mail** dans le panneau des fournisseurs d'identité.
+- Choisir **Inscription par le biais d’un ID utilisateur** ou **Inscription par le biais d’une adresse email** dans le panneau des fournisseurs d’identité.
 - Choisir le **nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
 - Choisir les revendications **nom d’affichage** et **ID objet** comme revendications d’application pour chaque stratégie. Vous pouvez également choisir d’autres revendications.
 - Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement.
@@ -61,7 +61,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 L’application terminée est également [disponible en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) ou sur la branche `complete` du même référentiel.
 
-Une fois l’exemple de code téléchargé, ouvrez le fichier Visual Studio `.sln` pour commencer. Vous remarquerez qu’il existe deux projets dans la solution : un projet `TaskClient` et un projet `TaskService`. Le projet `TaskClient` est l’application de bureau WPF avec laquelle l’utilisateur interagit. Le projet `TaskService` est l’API web du serveur principal de l’application qui stocke la liste des tâches de chaque utilisateur. Les projets `TaskClient` et `TaskService` sont représentées par un seul **ID d’application** dans ce cas, car ils comprennent toutes deux une application logique.
+Une fois l’exemple de code téléchargé, ouvrez le fichier Visual Studio `.sln` pour commencer. Vous remarquerez qu’il existe deux projets dans la solution : un projet `TaskClient` et un projet `TaskService`. Le projet `TaskClient` est l’application de bureau WPF avec laquelle l’utilisateur interagit. Le projet `TaskService` est l’API Web du serveur principal de l'application qui stocke la liste des tâches de chaque utilisateur. Les projets `TaskClient` et `TaskService` sont représentées par un seul **ID d’application** dans ce cas, car ils comprennent toutes deux une application logique.
 
 ## 5\. Configuration du service de tâches
 
@@ -79,10 +79,11 @@ Lorsque le projet `TaskService` reçoit des demandes de `TaskClient`, il recherc
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre [article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre 
+[article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## 6\. Exécuter des stratégies
 Maintenant que le `TaskService` est prêt authentifier les demandes, nous pouvons implémenter le `TaskClient`. Votre application communique avec Azure AD B2C en envoyant des demandes d’authentification HTTP, en spécifiant la stratégie qu’il souhaite exécuter dans le cadre de la demande. Pour les applications de bureau .NET, vous pouvez utiliser la **bibliothèque d’authentification Active Directory (ADAL)** pour envoyer des messages d’authentification OAuth 2.0, exécuter des stratégies et obtenir des jetons pour appeler des API web.
@@ -111,7 +112,7 @@ public static class Globals
 	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
 
 }
-``` 
+```
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
@@ -130,7 +131,7 @@ public partial class MainWindow : Window
 		base.OnInitialized(e);
 
 		// The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
-		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
 		// we've extended the ADAL TokenCache and created a simple FileCache in this app.
 		authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
 		...
@@ -158,14 +159,14 @@ private async void SignUp(object sender, RoutedEventArgs e)
 		SignUpButton.Visibility = Visibility.Collapsed;
 		EditProfileButton.Visibility = Visibility.Visible;
 		SignOutButton.Visibility = Visibility.Visible;
-		
+
 		// When the request completes successfully, you can get user information form the AuthenticationResult
 		UsernameLabel.Content = result.UserInfo.Name;
 
 		// After the sign up successfully completes, display the user's To-Do List
 		GetTodoList();
 	}
-	
+
 	// Handle any exeptions that occurred during execution of the policy.
 	catch (AdalException ex)
 	{
@@ -234,12 +235,12 @@ private async void GetTodoList()
 		TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
 		string existingPolicy = tci == null ? null : tci.Policy;
 
-		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token 
-		// could not be acquired from the cache, rather than automatically prompting the user to sign in. 
+		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token
+		// could not be acquired from the cache, rather than automatically prompting the user to sign in.
 		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
 			null, Globals.clientId, new Uri(Globals.redirectUri),
 			new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
-	
+
 	}
 
 	// If a token could not be acquired silently, we'll catch the exception and show the user a message.
@@ -272,7 +273,7 @@ private async void GetTodoList()
 	...
 ```
 
-Quand l’appel à `AcquireTokenAsync(...)` réussit et qu’un jeton est trouvé dans le cache, vous pouvez ajouter le jeton à l’en-tête `Authorization` de la requête HTTP, afin que le `TaskService` puisse authentifier la demande de lecture de la liste des tâches de l’utilisateur :
+Lorsque l'appel à `AcquireTokenAsync(...)` réussit et qu’un jeton est trouvé dans le cache, vous pouvez ajouter le jeton à l’en-tête `Authorization` de la requête HTTP, afin que le `TaskService` puisse authentifier la demande de lecture de la liste des tâches de l'utilisateur :
 
 ```C#
 	...
@@ -282,7 +283,7 @@ Quand l’appel à `AcquireTokenAsync(...)` réussit et qu’un jeton est trouv�
 	// Call the To Do list service.
 	HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
 	...
-``` 
+```
 
 Vous pouvez utiliser ce même modèle chaque fois que vous souhaitez consulter le cache de jetons sans demander à l'utilisateur de se connecter. Par exemple, quand l’application démarre, nous souhaitons vérifier le `FileCache` pour déterminer si des jetons existent, afin que la session de connexion de l’utilisateur soit conservée à chaque exécution de l’application. Vous pouvez voir le même code dans l’événement `OnInitialized` de `MainWindow`, qui gère ce cas de la première exécution.
 
@@ -314,16 +315,16 @@ Pour terminer, générez et exécutez `TaskClient` et `TaskService`. Inscrivez-v
 
 ## 10\. Ajout d’IDP sociaux
 
-Actuellement, l’application prend uniquement en charge l’inscription et la connexion d’utilisateur à l’aide de ce que l’on appelle des **comptes locaux**, c’est-à-dire des comptes stockés dans votre répertoire B2C avec un nom d’utilisateur et un mot de passe. Avec Azure AD B2C, vous pouvez ajouter la prise en charge d’autres **fournisseurs d’identité**, ou IDP, sans modifier votre code.
+Actuellement, l’application prend uniquement en charge l’inscription et la connexion d’utilisateur à l’aide de ce que l’on appelle des **comptes locaux**. Il s’agit de comptes stockés dans votre répertoire B2C avec un nom d’utilisateur et un mot de passe. Avec Azure AD B2C, vous pouvez ajouter la prise en charge d'autres **fournisseurs d'identité**, ou IDP, sans modifier votre code.
 
 Pour ajouter des IDP sociaux à votre application, commencez par suivre les instructions détaillées dans un ou plusieurs de ces articles. Pour chaque IDP que vous souhaitez prendre en charge, vous devez enregistrer une application dans le système et obtenir un ID client.
 
 - [Définir Facebook en tant qu’IDP](active-directory-b2c-setup-fb-app.md)
 - [Définir Google en tant qu’IDP](active-directory-b2c-setup-goog-app.md)
 - [Définir Amazon en tant qu’IDP](active-directory-b2c-setup-amzn-app.md)
-- [Définir LinkedIn en tant qu’IDP](active-directory-b2c-setup-li-app.md) 
+- [Définir LinkedIn en tant qu’IDP](active-directory-b2c-setup-li-app.md)
 
-Après avoir ajouté les fournisseurs d’identité à votre répertoire B2C, vous devez revenir en arrière et modifier chacune de vos trois stratégies pour inclure ces nouveaux IDP, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, réexécutez simplement l’application. Vous devez voir les nouveaux IDP ajoutés comme une option d’inscription et de connexion pour chacune de vos expériences relatives à l’identité.
+Après avoir ajouté les fournisseurs d'identité à votre répertoire B2C, vous devez revenir en arrière et modifier chacune de vos trois stratégies pour inclure ces nouveaux IDP, comme décrit dans l'[article de référence de stratégie](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, réexécutez simplement l’application. Vous devez voir les nouveaux IDP ajoutés comme une option d’inscription et de connexion pour chacune de vos expériences relatives à l’identité.
 
 Vous pouvez tester librement vos stratégies et observer l'effet sur votre application d’exemple : ajoutez/supprimez des IDP, manipulez des revendications d'application, modifiez des attributs d'inscription. Faites des essais jusqu'à ce que vous commenciez à comprendre la façon dont les stratégies, les demandes d'authentification et la bibliothèque ADAL sont liées.
 
@@ -343,4 +344,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

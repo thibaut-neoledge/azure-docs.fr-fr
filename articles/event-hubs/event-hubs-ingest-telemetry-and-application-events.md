@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="event-hubs" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Ingestion d’événements d’application et de télémétrie à grande échelle
@@ -23,7 +23,7 @@ Les applications modernes créent une énorme quantité d'informations lorsqu'el
 
 ## Explorer
 - [Concentrateurs d'événements](event-hubs-overview.md)
-- [Tarification des concentrateurs d'événements](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Tarification des concentrateurs d'événements](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [Forum Aux Questions sur la disponibilité et le support des hubs d’événements](event-hubs-availability-and-support-faq.md)
 - [Modèle d'approvisionnement en événements](http://msdn.microsoft.com/library/dn589792.aspx)
  
@@ -32,9 +32,9 @@ Les applications modernes créent une énorme quantité d'informations lorsqu'el
 - [Exemples de code des concentrateurs d'événements](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Services connexes
-- [Service Bus](http://azure.microsoft.com/services/service-bus/)
-- [Azure Storage](http://azure.microsoft.com/services/storage/)
-- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
+- [Service Bus](https://azure.microsoft.com/services/service-bus/)
+- [Azure Storage](https://azure.microsoft.com/services/storage/)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

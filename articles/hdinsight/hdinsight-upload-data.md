@@ -56,7 +56,7 @@ Microsoft fournit les utilitaires suivants pour utiliser le stockage d'objets bl
 | [AzCopy][azure-azcopy] | | | ✔ |
 | [Commande Hadoop](#commandline) | ✔ | ✔ | ✔ |
 
-> [AZURE.NOTE]Alors que l'interface CLI Azure, Azure PowerShell et AzCopy peuvent tous être utilisés en dehors d'Azure, la commande Hadoop est disponible uniquement sur le cluster HDInsight et autorise uniquement le chargement de données du système de fichiers local dans le stockage d'objets blob Azure.
+> [AZURE.NOTE] Alors que l'interface CLI Azure, Azure PowerShell et AzCopy peuvent tous être utilisés en dehors d'Azure, la commande Hadoop est disponible uniquement sur le cluster HDInsight et autorise uniquement le chargement de données du système de fichiers local dans le stockage d'objets blob Azure.
 
 ###<a id="xplatcli"></a>Interface CLI Azure
 
@@ -94,7 +94,7 @@ L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les
 
 			azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Si vous utilisez toujours le même compte de stockage, vous pouvez définir les variables d'environnement suivantes au lieu de spécifier le compte et la clé de chaque commande :
+> [AZURE.NOTE] Si vous utilisez toujours le même compte de stockage, vous pouvez définir les variables d'environnement suivantes au lieu de spécifier le compte et la clé de chaque commande :
 >
 > * **AZURE\_STORAGE\_ACCOUNT**  le nom du compte de stockage
 >
@@ -220,7 +220,7 @@ Le service Azure Data Factory est un service entièrement géré pour composer d
 
 Azure Data Factory permet de déplacer des données dans le stockage d'objets blob Azure ou de créer des pipelines de données qui utilisent directement des fonctionnalités HDInsight telles que Hive et Pig.
 
-Pour plus d'informations, consultez la [Documentation Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/).
+Pour plus d'informations, consultez la [Documentation Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -239,7 +239,7 @@ Le stockage d'objets blob Azure est également accessible à l'aide d'un kit de 
 * Python
 * Ruby
 
-Pour plus d'informations sur l'installation des kits de développement logiciel (SDK) Azure, consultez [Téléchargements Azure](http://azure.microsoft.com/downloads/)
+Pour plus d'informations sur l'installation des kits de développement logiciel (SDK) Azure, consultez [Téléchargements Azure](https://azure.microsoft.com/downloads/)
 
 
 ## Étapes suivantes
@@ -284,4 +284,4 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

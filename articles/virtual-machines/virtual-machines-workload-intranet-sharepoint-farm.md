@@ -35,7 +35,7 @@ L’hébergement d’une batterie de serveurs SharePoint intranet dans les servi
 
 L’étape suivante consiste à configurer une batterie de serveurs SharePoint intranet de développement/test hébergée dans Azure.
 
-> [AZURE.NOTE]Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Créer une batterie de serveurs SharePoint intranet de développement/test hébergée dans Azure
 
@@ -44,7 +44,7 @@ Vous disposez de deux manières de créer un environnement de développement/tes
 - Réseau virtuel cloud uniquement
 - Réseau virtuel entre sites locaux
 
-Vous pouvez créer ces environnements de développement / test gratuitement avec votre [abonnement Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou avec un [abonnement d’évaluation Azure](http://azure.microsoft.com/pricing/free-trial/).
+Vous pouvez créer ces environnements de développement / test gratuitement avec votre [abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou avec un [abonnement d’évaluation Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### Réseau virtuel cloud uniquement
 
@@ -102,4 +102,4 @@ Une fois la configuration terminée, vous pouvez développer cette batterie de s
 
 - Découvrez un [aperçu](virtual-machines-workload-intranet-sharepoint-overview.md) de la charge de travail de production avant de vous lancer dans la configuration.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

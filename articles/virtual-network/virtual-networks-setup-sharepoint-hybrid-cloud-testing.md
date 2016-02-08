@@ -44,7 +44,7 @@ Il existe trois principales étapes pour configurer cet environnement de test de
 2.	Configurer l'ordinateur du serveur SQL (SQL1).
 3.	Configuration du serveur SharePoint (SP1).
 
-Si vous ne disposez pas déjà d'un abonnement Azure, vous pouvez obtenir une évaluation gratuite sur la page [Essai d'Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas déjà d'un abonnement Azure, vous pouvez obtenir une évaluation gratuite sur la page [Essai d'Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Phase 1 : configuration de l’environnement de cloud hybride
 
@@ -54,7 +54,7 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-setup-sharepoint-hybrid-cloud-testing/CreateSPFarmHybridCloud_1.png)
 
-> [AZURE.NOTE]Pour la phase 1, vous pouvez également configurer la simulation d’environnement de test de cloud hybride. Suivez les instructions de la rubrique [Configuration d’une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+> [AZURE.NOTE] Pour la phase 1, vous pouvez également configurer la simulation d’environnement de test de cloud hybride. Suivez les instructions de la rubrique [Configuration d’une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
  
 ## Phase 2 : configurer l’ordinateur du serveur SQL (SQL1)
 
@@ -139,7 +139,7 @@ Ensuite, configurez SQL Server 2014 pour qu'il utilise le lecteur F: pour les no
 10.	Dans la page **Rôles de serveur**, cliquez sur **sysadmin**, puis sur **OK**.
 11.	Dans le volet d’arborescence de l’**Explorateur d’objets**, cliquez avec le bouton droit sur **Connexions**, puis cliquez sur **Nouvelle connexion**.
 12.	Dans la page **Général**, dans **Nom de connexion**, tapez **CORP\\SPFarmAdmin**.
-13.	Dans la page **Rôles de serveur**, sélectionnez **dbcreator**, puis cliquez sur **OK**.
+13.	Dans la page **Rôles serveur**, sélectionnez **dbcreator**, puis cliquez sur **OK**.
 14.	Fermez Microsoft SQL Server Management Studio.
 
 Ceci est votre configuration actuelle.
@@ -214,4 +214,4 @@ Votre une batterie de serveurs SharePoint intranet dans un cloud hybride est mai
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

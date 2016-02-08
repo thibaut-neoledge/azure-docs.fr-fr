@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/11/16-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### Pour installer Update 2 à partir du portail Azure
 
@@ -8,7 +8,7 @@
 
 3. Dans la section **Mises à jour logicielles** de cette page, de nouvelles mises à jour logicielles sont disponibles. Nous vous recommandons de consulter les notes de publication avant d’appliquer Update 2 sur votre appareil.
 
-    ![Installer les mises à jour logicielles](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![Installer les mises à jour logicielles](./media/storsimple-install-update2-via-portal/scanupdate1.png)
 
 4. En bas de la page, cliquez sur **Installer les mises à jour**.
 
@@ -39,7 +39,7 @@
    	 ![Échec de la vérification préalable](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE]Si vous effectuez la mise à jour à partir d’un logiciel antérieur à Update 1, toute mise à jour ultérieure à l’installation d’Update 2 sur votre appareil StorSimple ne sera pas soumise aux vérifications DATA 2, DATA 3 et de passerelle. Les autres vérifications préalables seront toujours requises. Si vous avez effectué la mise à jour à partir d’Update 1 ou version ultérieure, les vérifications préalables DATA 2, DATA 3 et de passerelle ne sont pas effectuées.
+	> [AZURE.NOTE] Si vous effectuez la mise à jour à partir d’un logiciel antérieur à Update 1, toute mise à jour ultérieure à l’installation d’Update 2 sur votre appareil StorSimple ne sera pas soumise aux vérifications DATA 2, DATA 3 et de passerelle. Les autres vérifications préalables seront toujours requises. Si vous avez effectué la mise à jour à partir d’Update 1 ou version ultérieure, les vérifications préalables DATA 2, DATA 3 et de passerelle ne sont pas effectuées.
 
 
 8. Une fois les vérifications préalables à la mise à jour terminées, une tâche de mise à jour est créée. Un message s’affiche une fois la mise à jour créée.
@@ -57,8 +57,10 @@
 12. Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. Le paramètre **Dernière date de mise à jour** doit également être modifié.
 
 
-13. Vous voyez maintenant que les mises à jour du mode Maintenance sont disponibles. Ces mises à jour entraînent des temps d'arrêt de l'appareil et ne peuvent être appliquées que par le biais de l'interface Windows PowerShell de votre appareil. Suivez les étapes répertoriées dans [Installer et vérifier le correctif logiciel en mode Maintenance](#to-install-and-verify-maintenance-mode-hotfix) pour installer ces mises à jour en mode Maintenance.
+13. Vous voyez maintenant que les mises à jour du mode Maintenance sont disponibles. Dans certains cas, quand vous exécutez la version Update 1.2, le microprogramme du disque est peut-être déjà à jour. Le portail détermine cette situation automatiquement et ne vous demande pas les mises à jour en mode de maintenance.
 
-> [AZURE.NOTE]Dans certains cas, le message indiquant que les mises à jour du mode Maintenance sont disponibles peut s'afficher 24 heures après que les mises à jour du mode Maintenance aient été correctement appliquées sur l'appareil.
+	Les mises à jour en mode maintenance entraînent des temps d’arrêt de l’appareil et ne peuvent être appliquées que par le biais de l’interface Windows PowerShell de votre appareil. Suivez les étapes répertoriées dans [Installer et vérifier le correctif logiciel en mode Maintenance](#to-install-and-verify-maintenance-mode-hotfix) pour installer ces mises à jour en mode Maintenance.
 
-<!---HONumber=AcomDC_0114_2016-->
+> [AZURE.NOTE] Dans certains cas, le message indiquant que les mises à jour du mode Maintenance sont disponibles peut s'afficher 24 heures après que les mises à jour du mode Maintenance aient été correctement appliquées sur l'appareil.
+
+<!---HONumber=AcomDC_0128_2016-->

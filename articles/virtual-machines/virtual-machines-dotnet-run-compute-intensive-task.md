@@ -83,7 +83,7 @@ Pour créer un espace de noms de service :
     ![Boîte de dialogue Création d’un espace de noms][create_namespace_dialog]
 5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez la région où votre espace de noms doit être hébergé (veillez à utiliser la région dans laquelle votre machine virtuelle est hébergée).
 
-    > [AZURE.IMPORTANT]Sélectionnez la **région** que vous utilisez ou celle que vous prévoyez d’utiliser pour votre machine virtuelle. Vous bénéficiez ainsi des meilleures performances.
+    > [AZURE.IMPORTANT] Sélectionnez la **région** que vous utilisez ou celle que vous prévoyez d’utiliser pour votre machine virtuelle. Vous bénéficiez ainsi des meilleures performances.
 
 6. Si vous disposez de plusieurs abonnements Azure pour le compte avec lequel vous vous connectez, sélectionnez celui qui utilisera l’espace de noms. (Si vous ne disposez que d’un abonnement pour le compte avec lequel vous vous connectez, vous ne voyez pas de liste déroulante contenant vos abonnements.)
 7. Cliquez sur la coche. Le système crée l’espace de noms de service et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
@@ -103,9 +103,9 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 
 ## Création d’une application .NET exécutant une tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement (qui n’est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET](http://azure.microsoft.com/develop/net/).
+1. Sur votre ordinateur de développement (qui n’est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/develop/net/).
 2. Créez une application console .NET avec le projet nommé TSPSolver. Assurez-vous que l’infrastructure cible est définie sur .**NET Framework 4** ou ultérieur (et non sur **.NET Framework 4 Client Profile**). L’infrastructure cible peut être définie après la création d’un projet des manières suivantes : dans le menu de Visual Studio, cliquez successivement sur **Projets**, **Propriétés** et sur l’onglet **Application**, puis définissez la valeur pour **Framework cible**.
-3. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sous l’onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
+3. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sur l’onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
 4. Ajoutez la bibliothèque System Runtime Serialization. Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, puis sous l’onglet **.NET**, et sélectionnez **System.Runtime.Serialization** en tant que référence.
 5. Utilisez l’exemple de code disponible à la fin de cette section pour le contenu du fichier Program.cs.
 6. Modifiez l’espace réservé **your\_connection\_string** pour utiliser votre valeur Service Bus **Chaîne de connexion**.
@@ -515,7 +515,8 @@ Exécutez l’application nécessitant beaucoup de ressources pour créer la fil
 
 Le solveur s’exécutera jusqu’à ce qu’il ait examiné tous les itinéraires.
 
-> [AZURE.NOTE]Plus le nombre spécifié est élevé, plus l’exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l’exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
+> [AZURE.NOTE]
+Plus le nombre spécifié est élevé, plus l’exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l’exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
 
 ### Exécution de la surveillance de l’application cliente
 1. Connectez-vous à l’ordinateur où vous exécuterez l’application cliente. Il ne doit pas nécessairement s’agir de l’ordinateur qui exécute l’application TSPSolver.
@@ -530,7 +531,7 @@ Le solveur s’exécutera jusqu’à ce qu’il ait examiné tous les itinérair
 
 	    TSPClient 1
 
-    Le client s’exécutera jusqu’à ce qu’il voie le message de file d’attente « Terminé ». Notez que si vous exécutez plusieurs occurrences du solveur sans exécuter le client, vous serez peut-être amené à exécuter le client plusieurs fois pour vider entièrement la file d’attente. Vous pouvez également supprimer la file d’attente puis la recréer. Pour supprimer la file d’attente, exécutez la commande TSPSolver (et non TSPClient) ci-dessous.
+    Le client s'exécutera jusqu'à ce qu'il voie le message de file d'attente « Terminé ». Notez que si vous exécutez plusieurs occurrences du solveur sans exécuter le client, vous serez peut-être amené à exécuter le client plusieurs fois pour vider entièrement la file d'attente. Vous pouvez également supprimer la file d’attente puis la recréer. Pour supprimer la file d’attente, exécutez la commande TSPSolver (et non TSPClient) ci-dessous.
 
         TSPSolver deletequeue
 
@@ -550,4 +551,4 @@ Au lieu d’utiliser TSPSolver pour créer ou supprimer la file d’attente, vou
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

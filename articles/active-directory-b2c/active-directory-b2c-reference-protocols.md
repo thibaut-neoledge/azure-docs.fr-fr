@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C en version préliminaire : protocoles d’authentification
@@ -23,12 +23,12 @@ Azure AD B2C fournit l’identité en tant que service pour vos applications en 
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
-## Concepts de base
-Chaque application qui utilise Azure AD B2C doit être inscrite dans votre annuaire B2C sur le [portail Azure](https://portal.azure.com). Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
 
-- un **ID d’application** identifiant de manière unique votre application ;
-- un **URI de redirection** ou un **identificateur de package** pouvant être utilisés pour diriger des réponses vers votre application ;
+## Concepts de base
+Chaque application qui utilise Azure AD B2C doit être inscrite dans votre annuaire B2C sur le [portail Azure](https://portal.azure.com/). Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
+
+- un **ID d'application** qui identifie de manière unique votre application ;
+- un **URI de redirection** ou un **identificateur de package** pouvant être utilisé pour diriger des réponses vers votre application ;
 - quelques valeurs spécifiques au scénario. Pour plus de détails, découvrez comment [inscrire une application](active-directory-b2c-app-registration.md).
 
 Une fois inscrite, l’application communique avec Azure AD en transmettant les requêtes au point de terminaison v2.0 :
@@ -43,8 +43,8 @@ Dans presque tous les flux OAuth et OpenID Connect, quatre parties sont concern�
 ![Rôles OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 - Le **serveur d’autorisation** est le point de terminaison Azure AD v2.0. Il est chargé de garantir l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources et l’émission de jetons. Il est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties des flux.
-- Le **propriétaire de la ressource** est généralement l’utilisateur final. Il s’agit de la partie détentrice des données, qui a le pouvoir d’autoriser les tierces parties à accéder à ces données ou à cette ressource.
-- Le **Client OAuth** est votre application, identifiée par son ID d’application. Il s’agit généralement de la partie avec laquelle l’utilisateur final interagit ; elle demande des jetons provenant du serveur d’autorisation. Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
+- Le **propriétaire de la ressource** est généralement l'utilisateur final. Il s’agit de la partie détentrice des données, qui a le pouvoir d’autoriser les tierces parties à accéder à ces données ou à cette ressource.
+- Le **Client OAuth** est votre application, identifiée par son ID d'application. Il s’agit généralement de la partie avec laquelle l’utilisateur final interagit ; elle demande des jetons provenant du serveur d’autorisation. Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
 - Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès porteurs pour garantir l’octroi de l’accès à une ressource.
 
 ## Stratégies
@@ -70,4 +70,4 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

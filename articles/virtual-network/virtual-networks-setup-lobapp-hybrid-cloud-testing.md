@@ -46,7 +46,7 @@ Il existe trois principales étapes pour configurer cet environnement de test de
 2.	Configurer l'ordinateur du serveur SQL (SQL1).
 3.	Configurer le serveur métier (LOB1).
 
-Si vous ne disposez pas déjà d'un abonnement Azure, vous pouvez obtenir une évaluation gratuite sur la page [Essai d'Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas déjà d'un abonnement Azure, vous pouvez obtenir une évaluation gratuite sur la page [Essai d'Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Phase 1 : configuration de l’environnement de cloud hybride
 
@@ -56,7 +56,7 @@ Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_1.png)
 
-> [AZURE.NOTE]Pour la phase 1, vous pouvez également configurer la simulation d’environnement de test de cloud hybride. Suivez les instructions de la rubrique [Configuration d’une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+> [AZURE.NOTE] Pour la phase 1, vous pouvez également configurer la simulation d’environnement de test de cloud hybride. Suivez les instructions de la rubrique [Configuration d’une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
  
 ## Phase 2 : configurer l’ordinateur du serveur SQL (SQL1)
 
@@ -163,13 +163,13 @@ Ensuite, configurez LOB1 pour IIS et testez l'accès à partir de CLIENT1.
 1.	Exécutez le Gestionnaire de serveur, puis cliquez sur **Ajouter des rôles et fonctionnalités**.
 2.	Dans la page Avant de commencer, cliquez sur **Suivant**.
 3.	Dans la page Sélectionner le type d’installation, cliquez sur **Suivant**.
-4.	Dans la page Sélectionner le serveur de destination, cliquez sur **Suivant**.
+4.	Sur la page Sélectionner le serveur de destination, cliquez sur **Suivant**.
 5.	Dans la page Rôles de serveur, cliquez sur **Serveur Web (IIS)** dans la liste des **rôles**.
 6.	Quand vous y êtes invité, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.
 7.	Dans la page Sélectionner des fonctionnalités, cliquez sur **Suivant**.
 8.	Dans la page Serveur Web (IIS), cliquez sur **Suivant**.
 9.	Dans la page Sélectionner des services de rôle, cochez ou décochez les cases pour les services requis pour tester votre application métier, puis cliquez sur **Suivant**.
-10.	Dans la page Confirmer les sélections pour l’installation, cliquez sur **Installer**.
+10.	Sur la page Confirmer les sélections pour l’installation, cliquez sur **Installer**.
 11.	Attendez la fin de l’installation des composants, puis cliquez sur **Fermer**.
 12.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\\User1, puis démarrez Internet Explorer.
 13.	Dans la barre d’adresses, tapez ****http://lob1/**, puis appuyez sur Entrée. Vous devez voir la page web IIS 8 par défaut.
@@ -199,4 +199,4 @@ Cet environnement est maintenant prêt pour le déploiement de votre application
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

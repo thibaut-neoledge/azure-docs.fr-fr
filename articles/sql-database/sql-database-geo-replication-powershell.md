@@ -151,7 +151,7 @@ La commande exécute le flux de travail suivant :
 Cette séquence garantit qu’aucune perte de données n’aura lieu. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, consultez [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
-> [AZURE.NOTE]Si la base de données primaire n’est pas disponible lorsque la commande est émise, elle échoue avec un message d’erreur indiquant que le serveur principal n’est pas disponible. Dans de rares cas, il est possible que l’opération ne puisse pas se terminer et apparaisse bloquée. Dans ce cas, l’utilisateur peut appeler la commande de basculement forcé (basculement non planifié) et accepter une perte de données.
+> [AZURE.NOTE] Si la base de données primaire n’est pas disponible lorsque la commande est émise, elle échoue avec un message d’erreur indiquant que le serveur principal n’est pas disponible. Dans de rares cas, il est possible que l’opération ne puisse pas se terminer et apparaisse bloquée. Dans ce cas, l’utilisateur peut appeler la commande de basculement forcé (basculement non planifié) et accepter une perte de données.
 
 
 
@@ -173,7 +173,7 @@ Cette fonctionnalité est conçue pour la récupération d’urgence lorsque la 
 
 Mais comme la limite de restauration dans le temps n’est pas prise en charge sur les bases de données secondaires, si vous souhaitez récupérer des données validées dans l’ancienne base de données primaire qui n’avait pas été répliquée sur la nouvelle base de données primaire, vous devez engager CSS pour restaurer une base de données dans la sauvegarde de journal connue.
 
-> [AZURE.NOTE]Si la commande est émise lorsque les deux bases de données primaire et secondaire sont en ligne, l’ancienne base de données primaire devient la nouvelle base de données secondaire, mais la synchronisation des données n’a pas lieu et une perte de données est possible.
+> [AZURE.NOTE] Si la commande est émise lorsque les deux bases de données primaire et secondaire sont en ligne, l’ancienne base de données primaire devient la nouvelle base de données secondaire, mais la synchronisation des données n’a pas lieu et une perte de données est possible.
 
 
 Si la base de données primaire compte plusieurs bases de données secondaires, la commande réussit partiellement. La base de données secondaire sur laquelle la commande a été exécutée deviendra la base de données primaire. L’ancienne base de données primaire reste toutefois primaire, en d’autres termes, les deux bases de données primaires sont finalement incompatibles et connectées par un lien de réplication suspendu. L’utilisateur doit alors réparer manuellement cette configuration à l’aide d’une API « suppression de base de données secondaire » sur une de ces bases de données primaires.
@@ -210,9 +210,9 @@ La commande suivante récupère l’état du lien de réplication entre la base 
 
 ## Ressources supplémentaires
 
-- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

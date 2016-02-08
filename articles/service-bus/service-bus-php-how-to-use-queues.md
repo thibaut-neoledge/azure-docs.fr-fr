@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Utilisation des files d’attente Service Bus
@@ -28,7 +28,7 @@ Ce guide vous montre comment utiliser les files d’attente Service Bus. Les exe
 
 La référence de classes dans le [Kit de développement logiciel (SDK) Azure pour PHP](../php-download-sdk.md) constitue la seule exigence pour créer une application PHP qui accède au service Blob Azure dans votre code. Vous pouvez utiliser tous les outils de développement pour créer votre application, ou Bloc-notes.
 
-> [AZURE.NOTE]L’[extension OpenSSL](http://php.net/openssl) doit également être installée et activée dans votre installation PHP.
+> [AZURE.NOTE] L’[extension OpenSSL](http://php.net/openssl) doit également être installée et activée dans votre installation PHP.
 
 Dans ce guide, vous allez utiliser les fonctionnalités du service qui peuvent être appelées dans une application PHP en local, ou dans le code s'exécutant dans un rôle web, un rôle de travail ou un site web Azure.
 
@@ -38,21 +38,21 @@ Dans ce guide, vous allez utiliser les fonctionnalités du service qui peuvent �
 
 ## Configuration de votre application pour l'utilisation de Service Bus
 
-Pour utiliser des API de file d’attente Azure Service Bus, procédez comme suit :
+Pour utiliser des API de file d'attente Service Bus, procédez comme suit :
 
 1. référencer le fichier de chargeur automatique à l’aide de l’instruction [require\_once][require_once].
 2. référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
 
-> [AZURE.NOTE]Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique **WindowsAzure.php**.
+> [AZURE.NOTE] Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique **WindowsAzure.php**.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
-Dans les exemples ci-dessous, l’instruction `require_once` s’affichera toujours, mais seules les classes nécessaires aux besoins de l’exemple à exécuter sont référencées.
+Dans les exemples ci-dessous, l'instruction `require_once` s'affichera toujours, mais seules les classes nécessaires aux besoins de l'exemple à exécuter sont référencées.
 
-## Configuration d’une connection Service Bus Azure
+## Configuration d’une connexion Service Bus
 
 Pour instancier un client Service Bus, vous devez disposer au préalable d'une chaîne de connexion valide au format suivant :
 
@@ -108,7 +108,7 @@ L’exemple suivant montre comment instancier un **ServiceBusRestProxy** et appe
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]vous pouvez utiliser la méthode `listQueues` sur les objets `ServiceBusRestProxy` pour vérifier s’il existe déjà une file d’attente d’un nom déterminé dans un espace de noms de service.
+> [AZURE.NOTE] vous pouvez utiliser la méthode `listQueues` sur les objets `ServiceBusRestProxy` pour vérifier s'il existe déjà une file d'attente d'un nom déterminé dans un espace de noms de service.
 
 ## Envoi de messages à une file d’attente
 
@@ -209,4 +209,4 @@ Pour plus d’informations, consultez aussi le [Centre pour développeurs PHP](/
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -16,7 +16,7 @@
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour .NET
 
-Le [Kit de développement logiciel (SDK) Application Insights pour .NET](app-insights-asp-net.md) envoie la télémétrie de votre application en direct à [Application Insights](http://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
+Le [Kit de développement logiciel (SDK) Application Insights pour .NET](app-insights-asp-net.md) envoie la télémétrie de votre application en direct à [Application Insights]( https://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
 
 
 #### Pour installer le Kit de développement logiciel (SDK) dans votre application
@@ -136,4 +136,4 @@ Aucune note de publication pour des versions antérieures.
 
  
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

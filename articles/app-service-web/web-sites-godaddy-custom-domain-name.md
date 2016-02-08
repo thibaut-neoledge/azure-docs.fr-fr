@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/12/2016"
 	ms.author="erikre"/>
 
 # Configurer un nom de domaine personnalisé dans Azure App Service (acheté directement sur GoDaddy)
@@ -50,7 +50,7 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 
 	Pour **modifier** un enregistrement existant, sélectionnez l'icône représentant un stylo et du papier à côté de l'enregistrement souhaité.
 
-	> [AZURE.NOTE]Avant d’ajouter de nouveaux enregistrements, notez que GoDaddy a déjà créé des enregistrements DNS pour les sous-domaines populaires (sous **Host** dans l’éditeur), par exemple **email**, **files**, **mail**, etc. Si le nom que vous souhaitez utiliser existe déjà, modifiez l'enregistrement existant plutôt que d'en créer un nouveau.
+	> [AZURE.NOTE] Avant d’ajouter de nouveaux enregistrements, notez que GoDaddy a déjà créé des enregistrements DNS pour les sous-domaines populaires (sous **Host** dans l’éditeur), par exemple **email**, **files**, **mail**, etc. Si le nom que vous souhaitez utiliser existe déjà, modifiez l'enregistrement existant plutôt que d'en créer un nouveau.
 
 4. Quand vous ajoutez un enregistrement, vous devez d'abord sélectionner son type.
 
@@ -67,7 +67,7 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 5. Cliquez sur **Ajouter**.
 6. Sélectionnez **CNAME** comme type d’enregistrement, puis spécifiez une valeur **Host** de **awverify** et une valeur **Pointe vers** de **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE]Cet enregistrement CNAME permet à Azure de confirmer que vous possédez le domaine décrit par l’enregistrement A ou le premier enregistrement CNAME. Une fois que le domaine a été mappé à l’application web dans le portail Azure, l’entrée **awverify** peut être supprimée.
+	> [AZURE.NOTE] Cet enregistrement CNAME permet à Azure de confirmer que vous possédez le domaine décrit par l’enregistrement A ou le premier enregistrement CNAME. Une fois que le domaine a été mappé à l’application web dans le portail Azure, l’entrée **awverify** peut être supprimée.
 
 5. Une fois que vous avez fini d'ajouter ou de modifier des enregistrements, cliquez sur **Finish** pour enregistrer les changements.
 
@@ -76,9 +76,9 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -6,6 +6,6 @@
 | Unités d'échelle | Illimité<sup>1</sup> |
 | Intégration d'Azure Active Directory| Comptes utilisateur illimités<sup>1</sup> |
 
-<sup>1</sup>Les limites d'API Management sont différentes pour chaque niveau de tarification. Pour consulter les niveaux de tarification et leurs limites et options de mise à l'échelle associées, consultez [Tarification API Management](http://azure.microsoft.com/pricing/details/api-management/).
+<sup>1</sup>Les limites d'API Management sont différentes pour chaque niveau de tarification. Pour consulter les niveaux de tarification et leurs limites et options de mise à l'échelle associées, consultez [Tarification API Management](https://azure.microsoft.com/pricing/details/api-management/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

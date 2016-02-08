@@ -21,11 +21,11 @@ Pour utiliser un système local, Azure App Service utilise le Gestionnaire de co
 
 Le Gestionnaire de connexion hybride (ou HCM) est un programme d'installation en un seul clic qui est installé sur un serveur IIS au sein de votre réseau, derrière le pare-feu. À l'aide d'un relais Azure Service Bus, HCM authentifie le système local avec le connecteur dans Azure.
 
-> [AZURE.NOTE]Le Gestionnaire de connexion hybride est requis uniquement si vous vous connectez à une ressource locale derrière le pare-feu. Si vous ne vous connectez pas à un système local, alors vous n'avez pas besoin du Gestionnaire de connexion hybride.
+> [AZURE.NOTE] Le Gestionnaire de connexion hybride est requis uniquement si vous vous connectez à une ressource locale derrière le pare-feu. Si vous ne vous connectez pas à un système local, alors vous n'avez pas besoin du Gestionnaire de connexion hybride.
 
 Pour commencer, vous avez besoin des éléments suivants :
 
-- Chaîne de connexion SAS de l'espace de noms du relais Azure Service Bus. Consultez [Tarification de Service Bus](http://azure.microsoft.com/pricing/details/service-bus/) pour déterminer quel niveau inclut des relais.
+- Chaîne de connexion SAS de l'espace de noms du relais Azure Service Bus. Consultez [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) pour déterminer quel niveau inclut des relais.
 - Informations de connexion au système local, y compris le nom d'utilisateur et le mot de passe. Par exemple, si vous vous connectez à un serveur SQL Server local, vous avez besoin du compte et du mot de passe de connexion à SQL Server.
 - Informations du serveur local, y compris le nom du serveur et le numéro de port. Par exemple, si vous vous connectez à un serveur SQL Server local, vous avez besoin du nom du serveur SQL Server et du numéro de port TCP.
 
@@ -56,7 +56,7 @@ Une fois l'installation terminée, les éléments suivants s'affichent : <br/> 
 
 À présent, lorsque vous accédez de nouveau au connecteur, l'état de la connexion hybride est **Connecté**. Vous devrez peut-être fermer le connecteur et le rouvrir : <br/> ![][4]
 
-> [AZURE.NOTE]Pour basculer vers la chaîne de connexion secondaire, réexécutez le programme d'installation de la connexion hybride et entrez la **chaîne de configuration secondaire**.
+> [AZURE.NOTE] Pour basculer vers la chaîne de connexion secondaire, réexécutez le programme d'installation de la connexion hybride et entrez la **chaîne de configuration secondaire**.
 
 
 ## Ports TCP et sécurité
@@ -119,7 +119,7 @@ Si votre API personnalisée utilise un port TCP ou HTTP, vous pouvez utiliser le
 
 ## En savoir plus
 
-[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/> [Tarification de Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
+[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/> [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 
@@ -133,4 +133,4 @@ Si votre API personnalisée utilise un port TCP ou HTTP, vous pouvez utiliser le
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

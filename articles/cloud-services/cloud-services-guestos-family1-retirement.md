@@ -26,7 +26,7 @@ La suppression de la famille 1 des systèmes d'exploitation a été annoncée l
 
 **3 novembre 2014** La prise en charge étendue de la famille 1 des SE invités a pris fin et a été complètement supprimée. Tous les services toujours liés à la famille 1 seront affectés. Nous pouvons arrêter ces services à tout moment. Il n'existe aucune garantie que vos services continueront de s'exécuter, sauf si vous les mettez à niveau manuellement vous-même.
 
-Si vous avez d'autres questions, consultez les [Forums de services cloud](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) ou [contactez le support Azure](http://azure.microsoft.com/support/options/).
+Si vous avez d'autres questions, consultez les [Forums de services cloud](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) ou [contactez le support Azure](https://azure.microsoft.com/support/options/).
 
 
 
@@ -81,4 +81,4 @@ Les services cloud de la famille 1 des SE invités ne sont plus pris en charge.
 ## Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

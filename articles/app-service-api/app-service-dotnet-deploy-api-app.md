@@ -46,7 +46,7 @@ Vous utilisez le même Assistant **Publier le site Web** pour déployer votre co
 
 Étant donné que vous avez activé l'interface utilisateur Swagger dans le didacticiel précédent, vous pouvez utiliser ceci pour vérifier que l'application API s'exécute dans Azure.
 
-1. Dans le [portail Azure en version préliminaire](https://portal.azure.com), accédez au panneau **Application API** de l’application API que vous avez déployée.
+1. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez au panneau **Application API** de l’application API que vous avez déployée.
 
 2. Cliquez sur l’URL de l’application API.
 
@@ -62,7 +62,7 @@ Vous utilisez le même Assistant **Publier le site Web** pour déployer votre co
 
 ## Afficher la définition d’API dans le portail
 
-1. Dans le [portail Azure en version préliminaire](https://portal.azure.com), revenez au panneau **Application API** de l’application API que vous avez déployée.
+1. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), revenez au panneau **Application API** de l’application API que vous avez déployée.
 
 4. Cliquez sur **Définition d’API**.
  
@@ -129,4 +129,4 @@ Les application API sont des applications web avec des fonctionnalités supplém
 
 Pour en savoir plus sur les fonctionnalités API Apps, consultez [Qu’est-ce qu’API Apps ?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

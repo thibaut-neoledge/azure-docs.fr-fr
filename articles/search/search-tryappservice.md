@@ -13,40 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="01/13/2016"
    ms.author="heidist"/>
 
 # Essayer Azure Search gratuitement avec Azure App Service
 
-[Azure App Service](https://tryappservice.azure.com/) est une nouvelle méthode gratuite permettant de tester des services Azure sélectionnés, y compris Azure Search, pour une durée allant jusqu’à une heure, sans avoir besoin d’un abonnement.
+[Essayer Azure App Service](https://tryappservice.azure.com/) est une session gratuite d'une heure, basée sur navigateur, ayant pour but d'essayer les services Azure, y compris **Azure Search**, sans inscription requise à un abonnement. Le site permet de choisir entre plusieurs modèles. Lorsque vous sélectionnez le modèle ASP.NET, qui inclut Azure Search, vous accédez à un site web entièrement fonctionnel, pris en charge par les services que vous avez sélectionnés.
 
-Le site permet de choisir entre plusieurs modèles. Lorsque vous sélectionnez le modèle ASP.NET, qui inclut Azure Search, vous bénéficiez d’une heure d’accès à un site web entièrement fonctionnel, pris en charge par les services que vous avez sélectionnés. Vous ne pouvez pas mettre à jour ou supprimer les données gérées par Azure Search, mais vous pouvez exécuter des requêtes et faire un certain nombre modifications sur le code afin de redéfinir l’expérience utilisateur. Si la session expire avant d’avoir terminé l’exploration, vous pouvez toujours relancer une autre session ou passer à un abonnement d’essai ou à un abonnement complet si votre objectif est de créer ou de charger un index directement.
+Dans le cadre de l'offre [Essayer Azure App Service](https://tryappservice.azure.com/), le service Azure Search est déjà créé et prêt à recevoir des requêtes de recherche. Vous ne pouvez pas télécharger ni utiliser votre index ou vos données, mais vous pouvez exécuter des requêtes et effectuer un certain nombre de modifications du code pour redéfinir l'expérience utilisateur.
 
-Sur le site [Azure App Service](https://tryappservice.azure.com/), Azure Search fait partie du modèle d’application web, et fournit une expérience enrichie de recherche en texte intégral avec une multitude de fonctionnalités centrées sur les recherches, disponibles uniquement dans ce service sur la plateforme Azure.
-
-Bien que les autres services Azure, tels que la base de données SQL permettent la recherche de texte intégral, Azure Search vous offre le contrôle du réglage, la pagination et les nombres, la mise en surbrillance des correspondances, la saisie semi-automatique, la prise en charge du langage naturel, la navigation par facettes, le filtrage, et bien plus encore. Comme le démontrent nos différents [exemples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search), il est possible de développer une application complète basée sur la recherche à l’aide d’Azure Search et d’ASP.NET.
-
-Dans le cadre de l’offre [Azure App Service](https://tryappservice.azure.com/), le service Azure Search que vous allez utiliser a déjà été créé et est prêt à recevoir des requêtes de recherche. Vous ne pouvez pas télécharger ou utiliser vos propres données ou votre propre index. Les données que vous allez utiliser proviennent du [United States Geological Survey (USGS, Institut d’études géologiques des États-Unis)](http://geonames.usgs.gov/domestic/download_data.htm) et comprennent 3 millions de monuments, de sites historiques, de bâtiments et d’autres éléments géographiques aux États-Unis.
-
-Pour vous aider à tirer le meilleur parti de votre session d’une heure, les instructions ci-dessous vous guideront en matière de requêtes et de code.
-
-Avant de commencer, vous souhaitez peut-être prendre quelques minutes pour passer en revue quelques points clés sur le code, le service et les données pouvant faire l’objet d’une recherche. Ces quelques notions de base peuvent s’avérer utiles si vous n’êtes pas familiarisé avec Azure Search.
-
-## Informations sur le code et Azure Search
-
-Azure Search est un service [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service) entièrement géré qui permet aux développeurs d’intégrer facilement des expériences de recherche performantes dans des applications web et mobiles. Les données utilisées dans les opérations de recherche sont stockées avec votre service de recherche dans Azure, où la proximité des données avec les opérations garantit une faible latence et des comportements de recherche cohérents. Regardons cela plus en détail :
-
-- Les données interrogeables sont stockées dans un index géré par Azure Search.
-- Le schéma qui définit votre index est défini par l’utilisateur et spécifie les champs pouvant faire l’objet d’une recherche, les champs ne pouvant pas faire l’objet d’une recherche qui pourraient être utiles dans une expression de filtre et les constructions, telles que les profils de score pour le paramétrage des résultats.
-- Un index de recherche contient un ou plusieurs documents (qui s’apparentent à des lignes de tableau) qui peuvent être interrogés et récupérés.
-- La plupart des index sont chargés à partir d’un groupe de données unique, préparé à l’avance par vous-même pour inclure uniquement les champs utiles dans le cadre des opérations de recherche. 
-- Les données peuvent être chargées automatiquement par un indexeur (pris en charge pour la base de données SQL Azure ou Azure DocumentDB uniquement) ou transmises à un index de recherche vis des API Azure Search. Lorsque vous utilisez les API, vous pouvez envoyer des données à partir de n’importe quelle source de données, du moment qu’elles sont au format JSON.
-
-Dans l’option [Azure App Service](https://tryappservice.azure.com/), le modèle « Site ASP.NET + Azure Search » fournit le code source pour l’application web, modifiable dans Visual Studio Team Services (disponible dans le cadre de la session d’une heure). Aucun outil de développement distinct n’est requis pour afficher ou modifier le code.
-
-Le code est écrit en C#, à l’aide de la [bibliothèque cliente Azure Search .NET](https://msdn.microsoft.com/library/dn951165.aspx) pour exécuter des requêtes sur l’index, fournir une navigation par facettes, ainsi qu’afficher des nombres et des résultats de recherche dans une page web.
-
-Un autre code, non inclus dans le modèle, a été utilisé pour créer et charger l’index de recherche USGS. Dans la mesure où le service est en lecture seule, toutes les opérations qui requièrent un accès en écriture doivent être effectuées à l’avance. Vous pourrez voir une [copie du schéma](#schema) utilisé pour générer le schéma à la fin de cet article.
+Les données de recherche proviennent du [United States Geological Survey (USGS, Institut d'études géologiques des États-Unis)](http://geonames.usgs.gov/domestic/download_data.htm) et comprennent 3 millions de lignes de repères, de sites historiques, de bâtiments et autres éléments géographiques aux États-Unis.
 
 ## Prise en main
 
@@ -100,7 +76,7 @@ Azure Search comporte une propriété **searchMode** configurable que vous pouve
 - **searchMode.Any** stipule que toute correspondance sur un terme de recherche est suffisante pour inclure un élément dans les résultats de recherche. Si votre expression de recherche est `Yellowstone visitor center`, tout document contenant un de ces termes est inclus dans les résultats de recherche. Ce mode est orienté vers le *rappel*.
 - **searchModel.All**, utilisé dans cet exemple, requiert que tous les termes spécifiés soient présents dans le document. Ce mode est plus strict que **searchMode.Any**, mais si vous recherchez avant tout la *précision* plutôt que le rappel, il s’agit probablement du bon choix pour votre application. 
 
-> [AZURE.NOTE]**searchMode.Any** fonctionne de manière optimale lorsque la construction de la requête se compose principalement d’expressions, avec un minimum d’opérateurs. La règle générale est que les utilisateurs à la recherche d’applications consommateur, telles que les sites de commerce électronique, ont tendance à utiliser uniquement des termes, alors que les personnes effectuant des recherches sur le contenu ou les données sont plus susceptibles d’inclure des opérateurs dans l’expression à rechercher. Si vous pensez que les recherches sont susceptibles d’inclure des opérateurs, en particulier l’opérateur `NOT (-)`, commencez avec **searchModel.All**. En revanche, **searchMode.Any** changera en `OR` l’opérateur `NOT` avec d’autres termes de recherche, ce qui peut considérablement augmenter le nombre de résultats. L’exemple ci-dessous peut vous aider à comprendre la différence.
+> [AZURE.NOTE] **searchMode.Any** fonctionne de manière optimale lorsque la construction de la requête se compose principalement d’expressions, avec un minimum d’opérateurs. La règle générale est que les utilisateurs à la recherche d’applications consommateur, telles que les sites de commerce électronique, ont tendance à utiliser uniquement des termes, alors que les personnes effectuant des recherches sur le contenu ou les données sont plus susceptibles d’inclure des opérateurs dans l’expression à rechercher. Si vous pensez que les recherches sont susceptibles d’inclure des opérateurs, en particulier l’opérateur `NOT (-)`, commencez avec **searchModel.All**. En revanche, **searchMode.Any** changera en `OR` l’opérateur `NOT` avec d’autres termes de recherche, ce qui peut considérablement augmenter le nombre de résultats. L’exemple ci-dessous peut vous aider à comprendre la différence.
 
 Dans cette tâche, vous allez modifier **searchMode** et comparer les résultats de recherche selon le mode.
 
@@ -173,7 +149,7 @@ Lorsque vous exécutez cet exemple de code, les entrées de terme de recherche q
 
 Vous souhaiterez peut-être enregistrer une copie du fichier **Search.cshtml** d’origine pour pouvoir comparer les deux versions.
 
-> [AZURE.NOTE]Les commentaires ont été tronqués pour réduire la taille du fichier.
+> [AZURE.NOTE] Les commentaires ont été tronqués pour réduire la taille du fichier.
  
     @using System.Collections.Specialized
     @using System.Configuration
@@ -307,6 +283,9 @@ Vous souhaiterez peut-être enregistrer une copie du fichier **Search.cshtml** d
     }
     }
 
+## Pourquoi choisir Azure Search ?
+
+Bien que les autres services Azure, tels que la base de données SQL permettent la recherche de texte intégral, Azure Search vous offre le contrôle du réglage, la pagination et les nombres, la mise en surbrillance des correspondances, la saisie semi-automatique, la prise en charge du langage naturel, la navigation par facettes, le filtrage, et bien plus encore. Comme le démontrent nos différents [exemples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search), il est possible de développer une application complète basée sur la recherche à l’aide d’Azure Search et d’ASP.NET.
 
 ## Étapes suivantes
 
@@ -318,7 +297,23 @@ Si vous utilisez le service en lecture seule fourni sur le site [Essayer Azure A
 
 Pour effectuer toutes ces tâches, vous aurez besoin d’un abonnement Azure afin de pouvoir créer et remplir des index dans un service. Pour plus d’informations sur la façon de s’inscrire à un essai gratuit, visitez le site [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Pour en savoir plus sur Azure Search, visitez notre [page de documentation](http://azure.microsoft.com/documentation/services/search/) sur [http://azure.microsoft.com](http://azure.microsoft.com) ou découvrez des [exemples et des vidéos](search-video-demo-tutorial-list.md) qui explorent toute la gamme des fonctionnalités Azure Search.
+Pour en savoir plus sur Azure Search, visitez notre [page de documentation](https://azure.microsoft.com/documentation/services/search/) sur [http://azure.microsoft.com](https://azure.microsoft.com/) ou découvrez des [exemples et des vidéos](search-video-demo-tutorial-list.md) qui explorent toute la gamme des fonctionnalités Azure Search.
+
+## Informations sur le code et Azure Search
+
+Azure Search est un service [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service) entièrement géré qui permet aux développeurs d’intégrer facilement des expériences de recherche performantes dans des applications web et mobiles. Les données utilisées dans les opérations de recherche sont stockées avec votre service de recherche dans Azure, où la proximité des données avec les opérations garantit une faible latence et des comportements de recherche cohérents. Regardons cela plus en détail :
+
+- Les données interrogeables sont stockées dans un index géré par Azure Search.
+- Le schéma qui définit votre index est défini par l’utilisateur et spécifie les champs pouvant faire l’objet d’une recherche, les champs ne pouvant pas faire l’objet d’une recherche qui pourraient être utiles dans une expression de filtre et les constructions, telles que les profils de score pour le paramétrage des résultats.
+- Un index de recherche contient un ou plusieurs documents (qui s'apparentent à des lignes de tableau) qui peuvent être interrogés et récupérés.
+- La plupart des index sont chargés à partir d’un groupe de données unique, préparé à l’avance par vous-même pour inclure uniquement les champs utiles dans le cadre des opérations de recherche. 
+- Les données peuvent être chargées automatiquement par un indexeur (pris en charge pour la base de données SQL Azure ou Azure DocumentDB uniquement) ou transmises à un index de recherche vis des API Azure Search. Lorsque vous utilisez les API, vous pouvez envoyer des données à partir de n’importe quelle source de données, du moment qu’elles sont au format JSON.
+
+Dans l’option [Azure App Service](https://tryappservice.azure.com/), le modèle « Site ASP.NET + Azure Search » fournit le code source pour l’application web, modifiable dans Visual Studio Team Services (disponible dans le cadre de la session d’une heure). Aucun outil de développement distinct n’est requis pour afficher ou modifier le code.
+
+Le code est écrit en C#, à l’aide de la [bibliothèque cliente Azure Search .NET](https://msdn.microsoft.com/library/dn951165.aspx) pour exécuter des requêtes sur l’index, fournir une navigation par facettes, ainsi qu’afficher des nombres et des résultats de recherche dans une page web.
+
+Un autre code, non inclus dans le modèle, a été utilisé pour créer et charger l’index de recherche USGS. Dans la mesure où le service est en lecture seule, toutes les opérations qui requièrent un accès en écriture doivent être effectuées à l’avance. Vous pourrez voir une [copie du schéma](#schema) utilisé pour générer le schéma à la fin de cet article.
 
 <a name="Schema"></a>
 ## À propos du schéma
@@ -528,4 +523,4 @@ La capture d’écran suivante montre le schéma utilisé pour créer l’index 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

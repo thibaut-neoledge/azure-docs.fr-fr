@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X :
@@ -25,7 +25,7 @@
 
 [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) vous permet d’effectuer des opérations à distance sur des clusters HDInsight sous Linux à l’aide d’une interface de ligne de commande. Ce document donne des informations sur l'utilisation de SSH avec HDInsight à partir des clients Linux, Unix ou OS X.
 
-> [AZURE.NOTE]Les étapes de cet article partent du principe que vous utilisez un client Linux, Unix ou OS X. Bien que ces étapes puissent être effectuées sur un client Windows si vous avez installé un package qui fournit `ssh`et `ssh-keygen` (tel que Git pour Windows,) nous recommandons aux clients Windows de suivre les étapes décrites dans [Utilisation de SSH avec HDInsight (Hadoop) sous Linux à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+> [AZURE.NOTE] Les étapes de cet article partent du principe que vous utilisez un client Linux, Unix ou OS X. Bien que ces étapes puissent être effectuées sur un client Windows si vous avez installé un package qui fournit `ssh`et `ssh-keygen` (tel que Git pour Windows,) nous recommandons aux clients Windows de suivre les étapes décrites dans [Utilisation de SSH avec HDInsight (Hadoop) sous Linux à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ##Configuration requise
 
@@ -77,7 +77,7 @@ Utilisez les informations suivantes si vous envisagez d'utiliser les clés SSH a
 	* l’emplacement du fichier : par défaut dans ~/.ssh/id\_rsa ;
 	* une phrase secrète : il vous sera demander de la saisir à nouveau.
 
-		> [AZURE.NOTE]Nous vous recommandons vivement d'utiliser une phrase secrète sûre pour cette clé. Toutefois, si vous oubliez cette phrase secrète, il sera impossible de la récupérer.
+		> [AZURE.NOTE] Nous vous recommandons vivement d'utiliser une phrase secrète sûre pour cette clé. Toutefois, si vous oubliez cette phrase secrète, il sera impossible de la récupérer.
 
 	Une fois la commande exécutée, vous obtenez deux nouveaux fichiers, la clé privée (par exemple, **id\_rsa**) et la clé publique (par exemple, **id\_rsa.pub**).
 
@@ -99,7 +99,7 @@ Si vous sélectionnez **CLÉ PUBLIQUE SSH**, vous pouvez coller la clé publique
 
 ![Image du formulaire de demande de clé publique](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
-> [AZURE.NOTE]Le fichier de clé est simplement un fichier texte. Le contenu doit être identique à ce qui suit :```
+> [AZURE.NOTE] Le fichier de clé est simplement un fichier texte. Le contenu doit être identique à ce qui suit :```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KGz90pgMk3VRJk4PEUSELfXKxP3NtsVwLVPN1l09utI/tKHQ6WL3qy89WVVVLiwzL7tfJ2B08Gmcw8mC/YoieT/YG+4I4oAgPEmim+6/F9S0lU2I2CuFBX9JzauX8n1Y9kWzTARST+ERx2hysyA5ObLv97Xe4C2CQvGE01LGAXkw2ffP9vI+emUM+VeYrf0q3w/b1o/COKbFVZ2IpEcJ8G2SLlNsHWXofWhOKQRi64TMxT7LLoohD61q2aWNKdaE4oQdiuo8TGnt4zWLEPjzjIYIEIZGk00HiQD+KCB5pxoVtp user@system
 > ```
 
@@ -127,7 +127,7 @@ Si vous avez utilisé un mot de passe pour le compte d'utilisateur, il vous sera
 
 Si vous avez utilisé une clé SSH sécurisée avec une phrase secrète, vous devez entrer la phrase secrète. Dans le cas contraire, SSH tente une authentification automatique avec l’une des clés privées locales sur votre client.
 
-> [AZURE.NOTE]Si SSH n’effectue pas l’authentification automatique avec la bonne clé privée, utilisez le paramètre **-i** et indiquez le chemin d’accès de la clé privée. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+> [AZURE.NOTE] Si SSH n’effectue pas l’authentification automatique avec la bonne clé privée, utilisez le paramètre **-i** et indiquez le chemin d’accès de la clé privée. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
@@ -166,7 +166,7 @@ Si vous utilisez une clé SSH pour authentifier votre compte d’utilisateur, vo
 
 Utilisez les étapes suivantes pour vous connecter aux nœuds de travail de votre cluster.
 
-> [AZURE.IMPORTANT]Si vous utilisez une clé SSH pour authentifier votre compte, vous devez effectuer les étapes précédentes pour vérifier que le transfert de l’agent fonctionne.
+> [AZURE.IMPORTANT] Si vous utilisez une clé SSH pour authentifier votre compte, vous devez effectuer les étapes précédentes pour vérifier que le transfert de l’agent fonctionne.
 
 1. Connectez-vous au cluster HDInsight via SSH comme décrit précédemment.
 
@@ -184,7 +184,7 @@ Utilisez les étapes suivantes pour vous connecter aux nœuds de travail de votr
 
     Remplacez *USERNAME* par votre nom d’utilisateur SSH et *FQDN* par le nom de domaine complet du nœud de travail. Par exemple : `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`.
 
-    > [AZURE.NOTE]Si vous utilisez un mot de passe pour l’authentification de votre session SSH, vous devez entrer à nouveau le mot de passe. Si vous utilisez une clé SSH, la connexion doit se terminer sans invite de commandes.
+    > [AZURE.NOTE] Si vous utilisez un mot de passe pour l’authentification de votre session SSH, vous devez entrer à nouveau le mot de passe. Si vous utilisez une clé SSH, la connexion doit se terminer sans invite de commandes.
 
 4. Une fois la session établie, l’invite de commandes du terminal passe de `username@hn0-clustername` à `username@wk0-clustername` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
 
@@ -194,7 +194,7 @@ Utilisez les étapes suivantes pour vous connecter aux nœuds de travail de votr
 
 1. Générez de nouvelles clés publique et privée pour le nouveau compte d’utilisateur, comme décrit dans la section [Création d’une clé SSH](#create-an-ssh-key-optional).
 
-	> [AZURE.NOTE]Vous devez générer la clé privée sur le client à partir duquel l’utilisateur se connectera au cluster ou vous devez la transférer de manière sécurisée vers ce client après sa création.
+	> [AZURE.NOTE] Vous devez générer la clé privée sur le client à partir duquel l’utilisateur se connectera au cluster ou vous devez la transférer de manière sécurisée vers ce client après sa création.
 
 1. Depuis une session SSH vers le cluster, ajoutez le nouvel utilisateur avec la commande suivante :
 
@@ -222,7 +222,7 @@ Utilisez les étapes suivantes pour vous connecter aux nœuds de travail de votr
 
 Vous pouvez utiliser SSH pour transférer des requêtes locales, telles que des demandes web, vers le cluster HDInsight. La requête sera ensuite acheminée vers la ressource demandée comme si elle provenait du nœud principal du cluster HDInsight.
 
-> [AZURE.IMPORTANT]Un tunnel SSH est requis pour accéder à l’interface utilisateur web de certains services Hadoop. Par exemple, l'interface utilisateur de l'historique des travaux ou de l'interface utilisateur du Gestionnaire de ressources est uniquement accessible à l'aide d'un tunnel SSH.
+> [AZURE.IMPORTANT] Un tunnel SSH est requis pour accéder à l’interface utilisateur web de certains services Hadoop. Par exemple, l'interface utilisateur de l'historique des travaux ou de l'interface utilisateur du Gestionnaire de ressources est uniquement accessible à l'aide d'un tunnel SSH.
 
 Pour plus d’informations sur la création et l’utilisation d’un tunnel SSH, consultez [Utiliser le tunneling SSH pour accéder à l’interface utilisateur web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -238,4 +238,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

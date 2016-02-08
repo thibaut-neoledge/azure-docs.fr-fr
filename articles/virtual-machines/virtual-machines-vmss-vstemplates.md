@@ -23,7 +23,7 @@
 Cet article vous indique comment déployer un jeu de mise à l’échelle de machines virtuelles Azure à l'aide d'un déploiement de groupe de ressources Visual Studio.
 
 
-Les [jeux de mise à l’échelle de machines virtuelles Azure](azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) représentent une ressource de calcul Azure qui permet de déployer et de gérer une collection de machines virtuelles similaires via des options de mise à l'échelle automatique et d'équilibrage de charge facilement intégrées. Vous pouvez configurer et déployer des jeux de mise à l'échelle de machines virtuelles à l'aide de [modèles Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates). Les modèles ARM peuvent être déployés à l'aide de l’interface de ligne de commande (CLI) Azure, de PowerShell, de REST et directement à partir de Visual Studio. Visual Studio fournit des exemples de modèles qui peuvent être déployés dans le cadre d'un projet de déploiement de groupe de ressources Azure.
+Les [jeux de mise à l’échelle de machines virtuelles Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) représentent une ressource de calcul Azure qui permet de déployer et de gérer une collection de machines virtuelles similaires via des options de mise à l'échelle automatique et d'équilibrage de charge facilement intégrées. Vous pouvez configurer et déployer des jeux de mise à l'échelle de machines virtuelles à l'aide de [modèles Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates). Les modèles ARM peuvent être déployés à l'aide de l’interface de ligne de commande (CLI) Azure, de PowerShell, de REST et directement à partir de Visual Studio. Visual Studio fournit des exemples de modèles qui peuvent être déployés dans le cadre d'un projet de déploiement de groupe de ressources Azure.
 
 Les déploiements de groupe de ressources Azure vous permettent de regrouper et de publier un ensemble de ressources Azure connexes dans une même opération de déploiement. Pour en savoir plus, consultez la rubrique [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/)
 
@@ -108,4 +108,4 @@ Une fois les jeux de mise à l'échelle de machines virtuelles déployés avec s
 [output_window]: ./media/virtual-machines-vmss-vstemplates/9-Output.png
 [cloud_explorer]: ./media/virtual-machines-vmss-vstemplates/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

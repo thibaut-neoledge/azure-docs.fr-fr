@@ -44,9 +44,9 @@ La configuration de l’environnement de test de cloud hybride comprend quatre g
 3.	Créer la connexion VPN de réseau virtuel à réseau virtuel.
 4.	Configurer DC2. 
 
-Si vous ne disposez pas d’un abonnement Azure, vous pouvez vous inscrire pour une version d’évaluation gratuite à partir de la page permettant d’[essayer Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas d’un abonnement Azure, vous pouvez vous inscrire pour une version d’évaluation gratuite à partir de la page permettant d’[essayer Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Les machines virtuelles et les passerelles de réseau virtuel dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Afin de réduire les coûts d'exécution de cet environnement de test quand vous ne l'utilisez pas, consultez la section [Réduction des coûts récurrents de cet environnement](#costs) plus loin dans cet article.
+>[AZURE.NOTE] Les machines virtuelles et les passerelles de réseau virtuel dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Afin de réduire les coûts d'exécution de cet environnement de test quand vous ne l'utilisez pas, consultez la section [Réduction des coûts récurrents de cet environnement](#costs) plus loin dans cet article.
 
 
 ## Phase 1 : configuration du réseau virtuel TestLab
@@ -231,7 +231,7 @@ Configurer les charges de travail suivantes dans le réseau virtuel TestVNET :
 
 Afin de réduire les coûts d’exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles dans les réseaux virtuels TestLab et Test\_VNET à la fin de chaque journée de travail. Pour plus d’informations, voir l’article [Prise en main d’Azure Automation](../automation-create-runbook-from-samples.md). Lorsque vous redémarrez les machines virtuelles sur le sous-réseau du réseau d’entreprise, commencez par DC1.
 
-La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles qui entraînent des frais récurrents. Pour plus d’informations, voir la page [Virtual Network - Tarification](http://azure.microsoft.com/pricing/details/virtual-network/). Pour réduire les coûts des deux passerelles VPN (une pour TestLab et l’autre pour TestVNET), créez l’environnement de test et exécutez vos tests et démonstrations aussi rapidement que possible ou supprimez les passerelles en suivant ces étapes.
+La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles qui entraînent des frais récurrents. Pour plus d’informations, voir la page [Virtual Network - Tarification](https://azure.microsoft.com/pricing/details/virtual-network/). Pour réduire les coûts des deux passerelles VPN (une pour TestLab et l’autre pour TestVNET), créez l’environnement de test et exécutez vos tests et démonstrations aussi rapidement que possible ou supprimez les passerelles en suivant ces étapes.
  
 1.	Dans le portail de gestion Azure sur votre ordinateur local, cliquez sur **Réseaux** dans le volet gauche, cliquez sur **TestLab**, puis sur **Tableau de bord**.
 2.	Dans la barre des tâches, cliquez sur **Supprimer une passerelle**. Cliquez sur **Oui** lorsque vous y êtes invité. Attendez que la passerelle soit supprimée et qu’elle prenne l’état **La passerelle n’a pas été créée**.
@@ -266,4 +266,4 @@ Ensuite, vous configurez la clé prépartagée pour que les deux passerelles uti
 Ensuite, dans la page Réseau du portail de gestion Azure, cliquez sur le réseau virtuel **TestLab**, puis sur **Connexion** dans la barre des tâches. Attendez que le réseau virtuel TestLab soit connecté au réseau local TestVNET.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

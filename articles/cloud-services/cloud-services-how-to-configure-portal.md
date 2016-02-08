@@ -29,11 +29,11 @@ Vous pouvez configurer les paramètres les plus couramment utilisés pour un ser
 
 Vous pouvez également activer une connexion Bureau à distance à l'un ou l'ensemble des rôles en cours d'exécution dans votre service cloud. Le Bureau à distance vous permet d'accéder au bureau de votre application lorsqu'elle est en cours d'exécution, et de dépanner et diagnostiquer les problèmes. Vous pouvez activer une connexion Bureau à distance à votre rôle, même si vous n'avez pas configuré le fichier de définition de service (.csdef) pour le Bureau à distance pendant le développement de l'application. Il n'est pas nécessaire de redéployer votre application pour activer une connexion Bureau à distance.
 
-Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mises à jour de la configuration si vous avez au moins deux instances de rôle pour chaque rôle. Cela permet à une machine virtuelle de traiter les demandes du client pendant que l'autre est mise à jour. Pour plus d'informations, consultez la page [Contrats de niveau de service](http://azure.microsoft.com/support/legal/sla/).
+Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mises à jour de la configuration si vous avez au moins deux instances de rôle pour chaque rôle. Cela permet à une machine virtuelle de traiter les demandes du client pendant que l'autre est mise à jour. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
 
 ## Modification d'un service cloud
 
-1. Dans le [portail Azure](http://portal.azure.com/), accédez à votre service cloud.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre service cloud.
 
 2. Cliquez sur l’icône **Paramètres** ou le lien **Essentials/All settings** pour ouvrir le panneau **Paramètres**.
 
@@ -53,13 +53,14 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mis
     
     ![Boutons d’instance de service cloud](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
->[AZURE.NOTE]Le système d'exploitation utilisé pour le service cloud ne peut pas être modifié à l'aide du **portail Azure**, vous pouvez modifier ce paramètre uniquement via le [portail Azure Classic](http://manage.windowsazure.com/). Cela est détaillé [ici](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
+>[AZURE.NOTE]
+Le système d'exploitation utilisé pour le service cloud ne peut pas être modifié à l'aide du **portail Azure**, vous pouvez modifier ce paramètre uniquement via le [portail Azure Classic](http://manage.windowsazure.com/). Cela est détaillé [ici](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
 
 ## Mise à jour d'un fichier de configuration de service cloud
 
 1. Tout d'abord, téléchargez le fichier de configuration de service cloud existant (.cscfg).
 
-    1. Dans le [portail Azure](http://portal.azure.com/), accédez à votre service cloud.
+    1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre service cloud.
 
     2. Cliquez sur l’icône **Paramètres** ou le lien **Essentials/All settings** pour ouvrir le panneau **Paramètres**.
 
@@ -94,4 +95,4 @@ L’accès à distance ne peut pas être configuré à l'aide du **portail Azure
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

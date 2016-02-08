@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2015"
+   ms.date="01/08/2016"
    ms.author="telmos" />
 
 # Déployer une machine virtuelle avec une adresse IP publique statique à l’aide du portail Azure
@@ -31,7 +31,7 @@
 
 Pour créer une machine virtuelle avec une adresse IP publique statique dans le portail Azure, procédez comme suit.
 
-1. Dans un navigateur, accédez au [portail Azure](http://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
+1. Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
 2. Dans le coin supérieur gauche du portail, cliquez sur **Nouveau**>>**Calculer**>**Windows Server 2012 R2 Datacenter**.
 3. Dans la liste **Sélectionner un modèle de déploiement**, sélectionnez **Resource Manager**, puis cliquez sur **Créer**.
 4. Dans le panneau **De base**, entrez les informations de la machine virtuelle comme indiqué ci-dessous, puis cliquez sur **OK**.
@@ -59,4 +59,4 @@ Pour créer une machine virtuelle avec une adresse IP publique statique dans le
 
 	![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

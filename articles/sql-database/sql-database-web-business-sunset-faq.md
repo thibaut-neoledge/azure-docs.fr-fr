@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Forum aux questions sur la disparition des éditions Web et Business des bases de données SQL Azure | Microsoft Azure"
    description="Découvrez les fonctionnalités des nouveaux niveaux de service qui remplacent les bases de données Azure SQL Web et Business."
    services="sql-database"
@@ -6,13 +6,13 @@
    authors="stevestein"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/01/2015"
    ms.author="sstein" />
 
 # Forum aux questions sur la disparition des éditions Web et Business
@@ -26,7 +26,7 @@ Pour vous aider lors de la mise à niveau des bases de données Web et Business,
 - [Mise à niveau vers SQL Database V12 à l’aide du portail Azure](sql-database-upgrade-server-portal.md)
 - [Mise à niveau vers SQL Database V12 à l’aide de PowerShell](sql-database-upgrade-server-powershell.md)
 - [Modifier le niveau tarifaire d’une base de données Web ou Business](sql-database-service-tier-advisor.md)
- 
+
 
 
 ## Pourquoi le portail Azure indique-t-il que mes bases de données des éditions Web et Business sont supprimées ?
@@ -45,7 +45,7 @@ Suite aux commentaires des clients, nous avons introduit de nouveaux niveaux de 
 
 ## Où puis-je obtenir plus d’informations sur les nouveaux niveaux de service ?
 
-Pour obtenir des informations détaillées sur les nouveaux niveaux de service et sur le modèle de performance, consultez [Niveaux de service](sql-database-service-tiers.md). Pour obtenir des informations détaillées sur la tarification des nouveaux niveaux de service, consultez [Tarification de SQL Database](http://azure.microsoft.com/pricing/details/sql-database/).
+Pour obtenir des informations détaillées sur les nouveaux niveaux de service et sur le modèle de performance, consultez [Niveaux de service](sql-database-service-tiers.md). Pour obtenir des informations détaillées sur la tarification des nouveaux niveaux de service, consultez [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Quelles sont les fonctionnalités qui ne seront pas disponibles dans les niveaux De base, Standard et Premium ?
 
@@ -55,7 +55,7 @@ Microsoft modifie également l’expérience de copie de base de données avec l
 
 ## En quoi les niveaux De base, Standard et Premium améliorent-ils mes opérations de facturation ?
 
-Les bases de données SQL Azure De base, Standard et Premium sont facturées à l’heure et peuvent être augmentées ou réduites quatre fois par période de 24 heures. Vous êtes facturé à un taux fixe basé sur le niveau de service et le niveau de performances les plus élevés que vous choisissez pour chaque heure. En outre, les niveaux de performances (par exemple De base, S1 et P2) sont détaillés sur la facture. Ainsi, il est plus facile de voir le nombre de jours/heures de base de données que vous avez accumulés durant un mois pour chaque niveau de performances. Les bases de données Web et Business continuent à être facturées à l’aide d’Unités de bases de données, en fonction de la taille de la base de données. Pour en savoir plus sur la tarification et sur les différences entre les nouveaux niveaux de service, consultez la [page sur la tarification de SQL Database](http://azure.microsoft.com/pricing/details/sql-database/).
+Les bases de données SQL Azure De base, Standard et Premium sont facturées à l’heure et peuvent être augmentées ou réduites quatre fois par période de 24 heures. Vous êtes facturé à un taux fixe basé sur le niveau de service et le niveau de performances les plus élevés que vous choisissez pour chaque heure. En outre, les niveaux de performances (par exemple De base, S1 et P2) sont détaillés sur la facture. Ainsi, il est plus facile de voir le nombre de jours/heures de base de données que vous avez accumulés durant un mois pour chaque niveau de performances. Les bases de données Web et Business continuent à être facturées à l’aide d’Unités de bases de données, en fonction de la taille de la base de données. Pour en savoir plus sur la tarification et sur les différences entre les nouveaux niveaux de service, consultez la [page sur la tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 ## Voir aussi
@@ -68,4 +68,4 @@ Les bases de données SQL Azure De base, Standard et Premium sont facturées à 
 
 [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

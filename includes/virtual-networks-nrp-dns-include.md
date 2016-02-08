@@ -85,6 +85,6 @@ Exemple de zone DNS au format Json :
 
 Lisez la [documentation API REST pour les zones DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx) pour plus d'informations.
 
-Lisez la [documentation API REST pour les jeux d'enregistrements DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx) pour plus d'informations.
+Lisez la [documentation API REST pour les jeux d'enregistrements DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) pour plus d'informations.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

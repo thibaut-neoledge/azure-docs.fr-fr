@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configurez votre première ou prochaine batterie de serveurs SharePoint de développement/test ou de production dans les services d’infrastructure Microsoft Azure, où vous pouvez tirer parti de la facilité de configuration et de la possibilité d’étendre rapidement la batterie de serveurs afin d’inclure de nouvelles capacités ou d’optimiser la fonctionnalité clé.
+Configurez votre première ou prochaine batterie de serveurs SharePoint Server 2013 de développement/test ou de production dans les services d’infrastructure Microsoft Azure, où vous pouvez tirer parti de la facilité de configuration et de la possibilité d’étendre rapidement la batterie de serveurs afin d’inclure de nouvelles capacités ou d’optimiser la fonctionnalité clé.
 
-> [AZURE.NOTE]Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Batterie de serveurs de développement/test SharePoint de base
 
@@ -33,7 +33,7 @@ Consultez l’élément [Batterie de serveurs SharePoint 2013 non hautement dis
 
 Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez [Déployer une batterie de serveurs SharePoint à trois serveurs](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-> [AZURE.NOTE]L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure a été supprimé.
+> [AZURE.NOTE] L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure a été supprimé.
 
 ## Batterie de serveurs de développement/test SharePoint haute disponibilité
 
@@ -43,7 +43,7 @@ Consultez l'élément [Batterie de serveurs SharePoint 2013 hautement disponibl
 
 Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez [Déployer une batterie de serveurs SharePoint à neuf serveurs](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-> [AZURE.NOTE]L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure a été supprimé.
+> [AZURE.NOTE] L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure a été supprimé.
 
 ## Batterie de serveurs de développement/test de cloud hybride
 
@@ -57,16 +57,8 @@ Le déploiement de [SharePoint 2013 avec des groupes de disponibilité AlwaysOn
 
 Cette configuration utilise le modèle de déploiement classique.
 
-## Ressources supplémentaires
+## Étape suivante
 
-[Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
+- Découvrez d’autres configurations de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) dans les services d’infrastructure d’Azure.
 
-[Sites Internet dans Microsoft Azure qui utilisent SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
-
-[Récupération d’urgence SharePoint Server 2013 dans Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
-
-[Utilisation de Microsoft Azure Active Directory pour l’authentification SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
-
-[Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

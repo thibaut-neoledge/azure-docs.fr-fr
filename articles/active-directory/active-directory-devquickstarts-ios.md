@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Intégration d’Azure AD dans une application iOS
@@ -47,7 +47,7 @@ Le format iOS d’un URI de redirection est le suivant :
 
 - 	**aap-scheme** : il est enregistré dans votre projet XCode. Cela permet aux autres applications de vous appeler. Vous trouverez cela sous Info.plist -> Types d’URL -> Identificateur d’URL. Vous devez en créer une si vous n’en avez pas encore au moins une configurée.
 - 	**bundle-id** : il s’agit de l’identificateur d’offre groupée se trouvant sous « identité » dans les paramètres de votre projet XCode.
-	
+
 Voici un exemple de code de démarrage rapide : ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Inscription de l’application DirectorySearcher*
@@ -107,12 +107,12 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         completionBlock(data.userItem.accessToken, nil);
         return;
     }
-    
+
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
     authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-    
+
     [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
@@ -121,7 +121,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                    userId:data.userItem.userInformation.userId
                      extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
                           completionBlock:^(ADAuthenticationResult *result) {
-                              
+
                               if (result.status != AD_SUCCEEDED)
                               {
                                   completionBlock(nil, result.error);
@@ -147,68 +147,68 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     {
         [self readApplicationSettings];
     }
-    
+
     AppData* data = [AppData getInstance];
-    
+
     NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
 
-    
+
     [self craftRequest:[self.class trimString:graphURL]
                 parent:parent
      completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-         
+
          if (error != nil)
          {
              completionBlock(nil, error);
          }
          else
          {
-             
+
              NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-             
+
              [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                 
+
                  if (error == nil && data != nil){
-                     
+
                      NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                     
+
                      // We can grab the top most JSON node to get our graph data.
                      NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
-                     
+
                      // Don't be thrown off by the key name being "value". It really is the name of the
                      // first node. :-)
-                     
+
                      //each object is a key value pair
                      NSDictionary *keyValuePairs;
                      NSMutableArray* Users = [[NSMutableArray alloc]init];
-                     
+
                      for(int i =0; i < graphDataArray.count; i++)
                      {
                          keyValuePairs = [graphDataArray objectAtIndex:i];
-                         
+
                          User *s = [[User alloc]init];
                          s.upn = [keyValuePairs valueForKey:@"userPrincipalName"];
                          s.name =[keyValuePairs valueForKey:@"givenName"];
-                         
+
                          [Users addObject:s];
                      }
-                     
+
                      completionBlock(Users, nil);
                  }
                  else
                  {
                      completionBlock(nil, error);
                  }
-                 
+
              }];
          }
      }];
-    
+
 }
 
 ```
 - Lorsque votre application demande un jeton en appelant `getToken(...)`, la bibliothèque ADAL tente de renvoyer un jeton sans demander à l’utilisateur ses informations d’identification. Si la bibliothèque ADAL détermine que l’utilisateur doit se connecter pour obtenir un jeton, elle affiche une boîte de dialogue de connexion, récupère les informations d’identification de l’utilisateur et renvoie un jeton après une authentification réussie. Si la bibliothèque ADAL ne peut pas renvoyer un jeton pour une raison quelconque, `AdalException` est renvoyé.
-- Notez que l’objet `AuthenticationResult` contient un objet `tokenCacheStoreItem` qui peut être utilisé pour collecter des informations dont votre application peut avoir besoin. Dans le guide de démarrage rapide, `tokenCacheStoreItem` est utilisé pour déterminer si authentification a déjà eu lieu. 
+- Notez que l’objet `AuthenticationResult` contient un objet `tokenCacheStoreItem` qui peut être utilisé pour collecter des informations dont votre application peut avoir besoin. Dans le guide de démarrage rapide, `tokenCacheStoreItem` est utilisé pour déterminer si authentification a déjà eu lieu.
 
 
 ## Étape 5 : génération et exécution de l’application
@@ -225,4 +225,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

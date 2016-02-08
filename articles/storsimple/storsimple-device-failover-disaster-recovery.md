@@ -77,7 +77,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
-		>[AZURE.NOTE]**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
+		>[AZURE.NOTE] **Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
 
 	1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante.
 
@@ -103,7 +103,7 @@ Procédez comme suit si vous disposez d’un seul appareil et devez effectuer un
 
 1. Effectuez tout d’abord la configuration minimale du nouvel appareil.
 												
-	>[AZURE.IMPORTANT]**Si vous n’effectuez pas cette action en premier, la récupération d’urgence échoue en raison d’un bogue dans l’implémentation actuelle. Ce problème sera résolu dans une version ultérieure.**
+	>[AZURE.IMPORTANT] **Si vous n’effectuez pas cette action en premier, la récupération d’urgence échoue en raison d’un bogue dans l’implémentation actuelle. Ce problème sera résolu dans une version ultérieure.**
 
 1. Sélectionnez l’ancien appareil (état hors connexion) et cliquez sur **Basculement**. Dans l’Assistant qui s’affiche, basculez cet appareil et spécifiez l’appareil cible en tant qu’appareil nouvellement inscrit. Pour obtenir des instructions détaillées, reportez-vous à la section [Basculer vers un autre appareil physique](#fail-over-to-another-physical-device).
 
@@ -131,7 +131,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 													
 	a. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
-	>[AZURE.NOTE]**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
+	>[AZURE.NOTE] **Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
 
 	b. Sous **Choisir un périphérique cible pour les volumes dans les conteneurs sélectionnés**, sélectionnez un appareil virtuel StorSimple dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité suffisante sont affichés dans la liste déroulante.
 	
@@ -146,7 +146,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 ![Vidéo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo expliquant comment restaurer un appareil physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Pour visionner une vidéo expliquant comment restaurer un appareil physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR)
 
@@ -162,4 +162,4 @@ S’il existe des appareils StorSimple inscrits juste avant un incident, ces pé
 - Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

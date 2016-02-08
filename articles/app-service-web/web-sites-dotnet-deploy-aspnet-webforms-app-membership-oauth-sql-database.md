@@ -22,7 +22,8 @@
 ##Vue d'ensemble
 Ce didacticiel vous montre comment créer une application web ASP.NET 4.5 Web Forms sécurisée qui intègre une base de données SQL et comment la déployer vers Azure.
 
->[AZURE.NOTE]Pour obtenir une version MVC de ce didacticiel, consultez [Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+>[AZURE.NOTE] 
+Pour obtenir une version MVC de ce didacticiel, consultez [Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
 Vous pouvez ouvrir gratuitement un compte Azure. Si vous n'avez pas déjà Visual Studio 2013, le Kit de développement logiciel (SDK) installe automatiquement Visual Studio Express 2013 pour le Web. Vous pouvez commencer vos développement Azure gratuitement.
 
@@ -39,9 +40,10 @@ Vous apprendrez ce qui suit :
 
 Vous allez développer une simple application web de liste de contacts basée sur ASP.NET 4.5 Web Forms qui utilise Entity Framework pour accéder à la base de données. L'image suivante représente la page Web Forms qui permet d'accéder en lecture et en écriture à la base de données :
 
-	![Contacts - Edit Page](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
+![Contacts - Edit Page](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activer les avantages de votre abonnement Visual Studio</a> ou <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">obtenir un essai gratuit</a>. Si vous voulez prendre en main Azure avant de créer un compte, accédez à [Essayer App Service](https://tryappservice.azure.com/), où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure. Aucune carte de crédit n’est requise, vous ne prenez aucun engagement.
+>[AZURE.NOTE] 
+Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activer les avantages de votre abonnement Visual Studio</a> ou <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">obtenir un essai gratuit</a>. Si vous voulez prendre en main Azure avant de créer un compte, accédez à [Essayer App Service](https://tryappservice.azure.com/), où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure. Aucune carte de crédit n’est requise, vous ne prenez aucun engagement.
 
 ##Configuration de l'environnement de développement 
 Pour commencer, configurez l'environnement de développement en installant Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure pour .NET.
@@ -687,7 +689,8 @@ Maintenant que l'application web est terminée, vous pouvez la publier sur Azure
 
 10. Cliquez ensuite sur **Publier**. Votre application est publiée dans Azure.
 
->[AZURE.NOTE]Si vous avez fermé puis rouvert Visual Studio après avoir créé le profil de publication, il est possible que la chaîne de connexion ne figure pas dans la liste déroulante. Dans ce cas, au lieu de modifier le profil de publication créé précédemment, créez-en un autre comme auparavant, puis suivez la procédure sous l’onglet **Paramètres**.
+>[AZURE.NOTE]
+Si vous avez fermé puis rouvert Visual Studio après avoir créé le profil de publication, il est possible que la chaîne de connexion ne figure pas dans la liste déroulante. Dans ce cas, au lieu de modifier le profil de publication créé précédemment, créez-en un autre comme auparavant, puis suivez la procédure sous l’onglet **Paramètres**.
 
 ###Révision de l'application dans Azure 
 1. Dans le navigateur, cliquez sur le lien **Contact Demo**. La liste de contacts s’affiche.  
@@ -741,10 +744,11 @@ Précédemment dans ce didacticiel, vous avez utilisé du code pour ajouter des 
 3. Dans la table **dbo.AspNetUsers**, recherchez l'utilisateur que vous voulez affecter au rôle et copiez l'*Id* associé.
 4. Collez l'*Id* copié dans le champ **UserId** du nouveau rôle dans la table **AspNetUserRoles**.  
 
->[AZURE.NOTE]Nous développons actuellement un outil qui facilitera la gestion des utilisateurs et des rôles.
+>[AZURE.NOTE]  
+Nous développons actuellement un outil qui facilitera la gestion des utilisateurs et des rôles.
 
 ##Étapes suivantes
-Pour plus d’informations sur ASP.NET Web Forms, consultez la page [Présentation d’ASP.NET Web Forms](http://www.asp.net/web-forms) (en anglais) sur l’application Web ASP.NET et la page dédiée aux [didacticiels et guides de Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/#net).
+Pour plus d’informations sur ASP.NET Web Forms, consultez la page [Présentation d’ASP.NET Web Forms](http://www.asp.net/web-forms) (en anglais) sur l’application Web ASP.NET et la page dédiée aux [didacticiels et guides de Microsoft Azure](https://azure.microsoft.com/documentation/services/web-sites/#net).
 
 Ce didacticiel a été réalisé à partir du didacticiel MVC [Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) rédigé par Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)), assisté de Tom Dykstra et Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 
@@ -752,4 +756,4 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="09/21/2015"
+ ms.date="01/21/2015"
  ms.author="danlep"/>
 
 # Configuration d’un cluster Linux RDMA pour exécuter des applications MPI
@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 Cet article vous montre comment configurer un cluster Linux RDMA dans Azure avec [des machines virtuelles de taille A8 et A9](virtual-machines-a8-a9-a10-a11-specs.md) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des machines virtuelles Linux de taille A8 et A9 pour exécuter une implémentation MPI prise en charge, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA) .
 
->[AZURE.NOTE]Le RDMA Linux Azure est actuellement pris en charge par la bibliothèque Intel MPI version 5 s'exécutant sur SUSE Linux Enterprise Server 12 (SLES 12). Cet article est basé sur Intel MPI version 5.0.3.048.
+>[AZURE.NOTE] Le RDMA Linux Azure est actuellement pris en charge par la bibliothèque Intel MPI version 5 s’exécutant sur une image SUSE Linux Enterprise Server 12 (SLES 12) dans Azure Marketplace. Cet article est basé sur Intel MPI version 5.0.3.048.
 >
 > Azure fournit également des instances à calcul intensif A10 et A11, avec des fonctionnalités de traitement identiques aux instances A8 et A9, mais sans connexion à un réseau de serveur principal RDMA. Pour exécuter des charges de travail MPI dans Azure, vous obtenez généralement des performances optimales avec les instances A8 et A9.
 
@@ -32,27 +32,27 @@ Cet article vous montre comment configurer un cluster Linux RDMA dans Azure avec
 
 Voici des méthodes que vous pouvez utiliser pour créer un cluster Linux RDMA avec ou sans planificateur de tâches.
 
-* **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure et ajoutez des nœuds de calcul qui exécutent des distributions Linux prises en charge (la prise en charge de nœud de calcul Linux démarre à partir de HPC Pack 2012 R2 Mise à jour 2). Certains nœuds Linux peuvent être configurés pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-cluster.md).
+* **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure et ajouter des nœuds de calcul qui exécutent des distributions Linux prises en charge. Certains nœuds Linux peuvent être configurés pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-cluster.md).
 
-* **Scripts CLI azure** : comme indiqué dans les étapes dans le reste de cet article, utilisez l'[Interface de ligne de commande Azure](../xplat-cli-install.md) (CLI) pour Mac, Linux et Windows pour créer des scripts afin de déployer un réseau virtuel et les autres composants nécessaires pour la création d'un cluster Linux. La CLI en mode de déploiement classique (Service Management) crée les nœuds de cluster en série : si vous déployez un grand nombre de nœuds de calcul, plusieurs minutes peuvent être nécessaires pour terminer le déploiement.
+* **Scripts CLI azure** : comme indiqué dans les étapes dans le reste de cet article, utilisez l’[Interface de ligne de commande Azure](../xplat-cli-install.md) (CLI) pour Mac, Linux et Windows pour créer des scripts afin de déployer un réseau virtuel et les autres composants nécessaires pour la création d’un cluster Linux. La CLI en mode de déploiement classique (Service Management) crée les nœuds de cluster en série : si vous déployez un grand nombre de nœuds de calcul, plusieurs minutes peuvent être nécessaires pour terminer le déploiement.
 
-* **Modèles Azure Resource Manager** : en créant un simple fichier de modèle JSON Azure Resource Manager et en exécutant des commandes de l’interface de ligne de commande (CLI) Azure pour Resource Manager ou à l'aide du portail Azure, déployez plusieurs machines virtuelles Linux A8 et A9 et définissez des réseaux virtuels, des adresses IP statiques, des paramètres DNS et d'autres ressources pour créer un cluster de calcul qui peut tirer parti du réseau RDMA pour exécuter des charges de travail MPI. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la [page Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager fournissent généralement le moyen le plus rapide et le plus fiable de déploiement d’un cluster Linux.
+* **Modèles Azure Resource Manager** : utilisez le modèle de déploiement Resource Manager pour déployer plusieurs machines virtuelles Linux A8 et A9 et définir des réseaux virtuels, des adresses IP statiques, des paramètres DNS et d’autres ressources pour un cluster de calcul qui peut tirer parti du réseau RDMA pour exécuter des charges de travail MPI. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la [page Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager peuvent fournir un moyen rapide et fiable pour déployer un cluster Linux.
 
 ## Déploiement dans Azure Service Management avec des scripts CLI Azure
 
-Les étapes suivantes vous aident à utiliser la CLI Azure pour déployer une machine virtuelle SLES 12, à installer la bibliothèque Intel MPI et d'autres personnalisations, à créer une image de machine virtuelle personnalisée, puis à générer un script de déploiement d’un cluster de machines virtuelles A8 ou A9.
+Les étapes suivantes vous aident à utiliser la CLI Azure pour déployer une machine virtuelle SUSE Linux Enterprise Server 12, à installer la bibliothèque Intel MPI et d’autres personnalisations, à créer une image de machine virtuelle personnalisée, puis à générer un script de déploiement d’un cluster de machines virtuelles A8 ou A9.
 
 ### Composants requis
 
 *   **Ordinateur client** : vous aurez besoin d'un ordinateur client Mac, Linux ou Windows pour communiquer avec Azure. Ces étapes supposent que vous utilisez un client Linux.
 
-*   **Un abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+*   **Un abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-*   **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs pour déployer un cluster de machines virtuelles A8 ou A9. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
+*   **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs pour déployer un cluster de machines virtuelles A8 ou A9. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
 *   **CLI azure** : [installez](../xplat-cli-install.md) la CLI Azure et [configurez-la](../xplat-cli-connect.md) pour vous connecter à votre abonnement Azure sur l'ordinateur client.
 
-*   **MPI Intel** : dans le cadre de la personnalisation d'une image de machine virtuelle Linux pour votre cluster (voir les détails plus loin dans cet article), vous devez télécharger et installer le runtime Intel MPI Library 5 à partir du [site Intel.com](https://software.intel.com/fr-FR/intel-mpi-library/) sur une machine virtuelle Azure Linux que vous approvisionnez. Pour vous y préparer, après votre inscription auprès d'Intel, suivez le lien dans le message de confirmation vers la page web associée et copiez le lien de téléchargement du fichier .tgz pour la version appropriée d'Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.
+*   **MPI Intel** : dans le cadre de la personnalisation d’une image de machine virtuelle Linux pour votre cluster (voir les détails plus loin dans cet article), vous devez télécharger et installer le runtime Intel MPI Library 5 à partir du [site Intel.com](https://software.intel.com/fr-FR/intel-mpi-library/). Pour vous y préparer, après votre inscription auprès d'Intel, suivez le lien dans le message de confirmation vers la page web associée et copiez le lien de téléchargement du fichier .tgz pour la version appropriée d'Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.
 
 ### Mise en service d’une machine virtuelle SLES 12
 
@@ -176,7 +176,7 @@ Pour capturer l'image, exécutez d’abord la commande suivante dans la machine 
 sudo waagent -deprovision
 ```
 
-Puis, depuis votre ordinateur client, exécutez les commandes CLI Azure suivantes pour capturer l’image. Consultez la page [Capture d'une machine virtuelle Linux à utiliser comme modèle](virtual-machines-linux-capture-image.md) pour plus d'informations.
+Puis, depuis votre ordinateur client, exécutez les commandes CLI Azure suivantes pour capturer l’image. Pour plus d’informations, consultez la page [Capture d’une machine virtuelle Linux classique en tant qu’image](virtual-machines-linux-capture-image.md).
 
 ```
 azure vm shutdown <vm-name>
@@ -221,8 +221,64 @@ for (( i=11; i<19; i++ )); do
         azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
-# Save this script with a name like makecluster.sh and run it in your shell environnment to provision your cluster
+# Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
 ```
+
+## Mettre à jour les pilotes Linux RDMA pour SLES 12
+
+Après avoir créé votre cluster Linux RDMA basé sur une image SLES 12 HPC, vous devrez peut-être mettre à jour les pilotes RDMA sur les machines virtuelles pour assurer la connectivité réseau RDMA.
+
+>[AZURE.IMPORTANT]Actuellement, cette étape est **obligatoire** pour les déploiements de cluster Linux RDMA dans la plupart des régions Azure. **Les seules machines virtuelles SLES 12 que vous ne devez pas mettre à jour sont celles créées dans les régions Azure suivantes : Ouest des États-Unis, Europe de l’Ouest et Japon de l’Est.**
+
+Avant de mettre à jour les pilotes, arrêtez tous les processus **zypper** ou tous les processus qui verrouillent les bases de données de référentiel SUSE sur la machine virtuelle. Sinon, la mise à jour des pilotes risque de ne pas se dérouler correctement.
+
+
+Mettez à jour les pilotes RDMA Linux sur chaque machine virtuelle en exécutant sur votre ordinateur client l’un des ensembles suivants de commandes CLI Azure.
+
+**Pour une machine virtuelle configurée dans l’API de gestion des services Azure**
+
+```
+azure config mode asm
+
+azure vm extension set <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+```
+
+**Pour une machine virtuelle configurée dans Azure Resource Manager**
+
+```
+azure config mode arm
+
+azure vm extension set <resource-group> <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+```
+
+>[AZURE.NOTE]L’installation des pilotes peut prendre un certain temps, et la commande ne retourne aucune sortie. Après la mise à jour, votre machine virtuelle redémarre et doit être opérationnelle en quelques minutes.
+
+Vous pouvez exécuter la mise à jour des pilotes sur tous les nœuds de votre cluster à l’aide d’un script. Par exemple, le script suivant met à jour les pilotes dans le cluster à 8 nœuds créé par le script à l’étape précédente.
+
+```
+
+#!/bin/bash -x
+
+# Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
+
+vmname=cluster
+
+# Plug in appropriate numbers in the for loop below.
+
+for (( i=11; i<19; i++ )); do
+
+# For ASM VMs use the following command in your script.
+
+azure vm extension set $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+
+# For ARM VMs use the following command in your script.
+
+# azure vm extension set <resource-group> $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+
+done
+
+```
+
 ## Configuration et exécution d’Intel MPI
 
 Pour exécuter des applications MPI sur RDMA Azure Linux, vous devez configurer certaines variables d'environnement spécifiques à Intel MPI. Voici un exemple de script Bash pour configurer les variables et exécuter une application.
@@ -370,4 +426,4 @@ Vous devez voir une sortie similaire à ce qui suit sur un cluster opérationnel
 
 * Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/fr-FR/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

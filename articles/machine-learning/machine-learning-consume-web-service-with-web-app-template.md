@@ -56,7 +56,7 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 	![URI de demande][image4]
 
-3. Dans [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/), cliquez sur **Créer une application web**. Le modèle vous redirige vers le portail Microsoft Azure Classic où est créée la nouvelle application web.
+3. Accédez à [Portail Azure](https://portal.azure.com), **Connexion**, cliquez sur **Nouveau**, recherchez et sélectionnez **Azure ML Request-Response Service Web App**, puis cliquez sur **Créer**.
 
 	- Donnez un nom unique à votre application Web. L’URL de l’application web sera ce nom suivi de `.azurewebsites.net.` (par exemple, `http://carprediction.azurewebsites.net.`).
 
@@ -78,7 +78,7 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 6. L’application web affiche la page **Configuration de l’application web** avec les paramètres du service web actif. Vous pouvez ici modifier les paramètres utilisés par l’application Web.
 
-	> [AZURE.NOTE]Une modification des paramètres à ce stade n’affecte que l’application Web concernée. Les paramètres par défaut de votre service Web ne seront pas modifiés. Par exemple, si vous modifiez ici la **Description**, l’opération n’aura aucun effet sur la description affichée sur le tableau de bord du service web dans Machine Learning Studio.
+	> [AZURE.NOTE] Une modification des paramètres à ce stade n’affecte que l’application Web concernée. Les paramètres par défaut de votre service Web ne seront pas modifiés. Par exemple, si vous modifiez ici la **Description**, l’opération n’aura aucun effet sur la description affichée sur le tableau de bord du service web dans Machine Learning Studio.
 
 	Quand vous avez terminé, cliquez sur **Enregistrer les modifications**, puis cliquez sur **Atteindre la page de démarrage**.
 
@@ -125,4 +125,4 @@ Pour en savoir plus sur...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

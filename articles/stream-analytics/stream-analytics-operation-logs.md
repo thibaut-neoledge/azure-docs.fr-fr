@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Débogage des travaux Stream Analytics à l'aide des journaux des opérations et de service
+# Débogage des travaux Stream Analytics à l’aide des journaux des opérations et de service
 
 Tous les services Azure fournissent des messages de journalisation opérationnelle aux utilisateurs pour enregistrer les détails relatifs aux opérations de gestion. Dans Azure Stream Analytics, ces informations peuvent être utilisées à des fins de débogage, comme les messages sur l'affichage de l'état d'une tâche, la progression de la tâche et l'échec pour suivre la progression d'une tâche au fil du temps, depuis son démarrage, jusqu'à son traitement et sa sortie.
 
@@ -83,7 +83,7 @@ Vous pouvez sélectionner l’une des erreurs et cliquer sur **Détails** pour o
 
   ![Détails de l'opération](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-Si vous devez contacter le [support technique](http://azure.microsoft.com/support/options/) ou fournir des informations à l’équipe par le biais du [forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics), notez les détails de l’opération, en particulier l’**ID de corrélation**.
+Si vous devez contacter le [support technique](https://azure.microsoft.com/support/options/) ou fournir des informations à l’équipe par le biais du [forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics), notez les détails de l’opération, en particulier l’**ID de corrélation**.
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
@@ -96,4 +96,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,11 +3,18 @@
    description="Découvrez comment restaurer des fichiers à partir d’un serveur/client Windows."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/25/2016"
+	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows
 Cet article présente les étapes requises pour effectuer deux types d’opérations de restauration :
@@ -64,7 +71,7 @@ Les termes ci-après sont utilisés pour cette procédure :
 - *Ordinateur cible* : ordinateur sur lequel les données sont récupérées.
 - *Exemple d’archivage* : archivage de sauvegarde dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
 
-> [AZURE.NOTE]Les sauvegardes effectuées à partir d’un ordinateur ne peuvent pas être restaurées sur un ordinateur qui exécute une version antérieure du système d’exploitation. Par exemple, si les sauvegardes sont effectuées à partir d’un ordinateur Windows 7, elles peuvent être restaurées sur un ordinateur Windows 8 ou supérieur. Toutefois l’inverse n’est pas vrai.
+> [AZURE.NOTE] Les sauvegardes effectuées à partir d’un ordinateur ne peuvent pas être restaurées sur un ordinateur qui exécute une version antérieure du système d’exploitation. Par exemple, si les sauvegardes sont effectuées à partir d’un ordinateur Windows 7, elles peuvent être restaurées sur un ordinateur Windows 8 ou supérieur. Toutefois l’inverse n’est pas vrai.
 
 1. Ouvrez le composant logiciel enfichable **Microsoft Azure Backup** sur l’*ordinateur cible*.
 2. Vérifiez que l’*ordinateur cible* et l’*ordinateur source* sont inscrits auprès du même archivage de sauvegarde.
@@ -109,4 +116,4 @@ Les termes ci-après sont utilisés pour cette procédure :
 - [Sauvegarde des machines virtuelles Azure](backup-azure-vms-introduction.md)
 - [Sauvegarde des charges de travail Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

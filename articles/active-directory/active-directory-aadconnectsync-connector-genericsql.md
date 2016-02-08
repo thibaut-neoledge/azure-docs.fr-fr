@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Synchronisation Azure AD Connect : connecteur SQL générique"
+   pageTitle="Azure AD Connect Sync : connecteur SQL générique | Microsoft Azure"
    description="Cet article explique comment configurer le connecteur SQL générique de Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Référence technique du connecteur SQL générique
@@ -295,4 +295,4 @@ Si l’utilisateur choisit l’option de requête SQL, l’exportation nécessit
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

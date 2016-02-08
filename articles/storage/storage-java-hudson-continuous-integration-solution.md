@@ -86,11 +86,11 @@ Pour utiliser le service BLOB avec Hudson, vous devez installer le plug-in Azure
 2. Sur la page **Manage Hudson**, cliquez sur **Configure System**.
 3. Dans la section **Configuration du compte Microsoft Azure Storage** :
 
-    a. Entrez le nom de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](portal.azure.com).
+    a. Entrez le nom de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](https://portal.azure.com).
 
-    b. Entrez la clé de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](portal.azure.com).
+    b. Entrez la clé de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](https://portal.azure.com).
 
-    c. Utilisez la valeur par défaut pour **Blob Service Endpoint URL** si vous vous servez du cloud public Azure. Si vous vous servez d’un autre cloud Azure, utilisez le point de terminaison spécifié dans le [portail Azure](portal.azure.com) pour votre compte de stockage.
+    c. Utilisez la valeur par défaut pour **Blob Service Endpoint URL** si vous vous servez du cloud public Azure. Si vous vous servez d’un autre cloud Azure, utilisez le point de terminaison spécifié dans le [portail Azure](https://portal.azure.com) pour votre compte de stockage.
 
     d. Cliquez sur **Valider les informations d'identification de stockage** pour valider votre compte de stockage.
 
@@ -129,7 +129,7 @@ Pour les besoins de la formation, nous devons d’abord créer une tâche qui cr
 13. Dans le tableau de bord Hudson, cliquez sur **Build Now** pour exécuter **MyJob**. Examinez l'état dans la sortie de la console. Les messages d'état du stockage Azure sont inclus dans la sortie de la console lorsque l'action post-build commence à télécharger les artefacts de build.
 14. Une fois la tâche terminée correctement, vous pouvez examiner les artefacts de build en ouvrant l’objet blob public.
 
-    a. Connectez-vous au [portail Azure](portal.azure.com).
+    a. Connectez-vous au [portail Azure](https://portal.azure.com).
 
     b. Cliquez sur **Stockage**.
 
@@ -166,7 +166,7 @@ La section suivante présente les composants du service BLOB.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
 
-    Le format ci-dessus s’applique au cloud public Azure. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le [portail Azure](portal.azure.com) pour déterminer votre URL de point de terminaison.
+    Le format ci-dessus s’applique au cloud public Azure. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le [portail Azure](https://portal.azure.com) pour déterminer votre URL de point de terminaison.
 
     Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d'accès, séparés par une barre oblique (**/**). Dans ce didacticiel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L'URL de l'objet blob a donc la forme suivante :
 
@@ -177,4 +177,4 @@ La section suivante présente les composants du service BLOB.
   [Création d'un compte de stockage]: http://go.microsoft.com/fwlink/?LinkId=279823
   [présentation d'Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

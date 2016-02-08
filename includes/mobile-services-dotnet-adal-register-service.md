@@ -5,7 +5,7 @@ Dans cette section, vous allez inscrire votre service mobile auprès d'Azure Act
 
 1. Inscrivez votre application auprès d'Azure Active Directory en suivant la rubrique [Inscription auprès d'Azure Active Directory].
 
-2. Sur le [portail Azure Classic](https://manage.windowsazure.com/), revenez à l'extension Azure Active Directory et cliquez sur votre annuaire actif.
+2. Sur le [portail Azure Classic](https://manage.windowsazure.com/), revenez à l’extension Azure Active Directory et cliquez sur votre annuaire actif.
 
 3. Cliquez sur l'onglet **Applications**, puis sur votre application.
 
@@ -38,4 +38,4 @@ Dans cette section, vous allez inscrire votre service mobile auprès d'Azure Act
 <!-- URLs. -->
 [Inscription auprès d'Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

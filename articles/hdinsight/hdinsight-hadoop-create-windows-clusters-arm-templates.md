@@ -27,7 +27,7 @@ Apprenez à créer des clusters HDInsight à l’aide des modèles Azure Resourc
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
-- [Abonnement Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) et/ou [CLI Azure](xplat-cli-install.md). 
 
 ## Modèles ARM
@@ -444,4 +444,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
 	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

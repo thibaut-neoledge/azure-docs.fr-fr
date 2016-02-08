@@ -28,7 +28,7 @@ Microsoft Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud
 - Connectivité globale aux services de Microsoft dans toutes les régions grâce au module complémentaire ExpressRoute premium.
 - Routage dynamique entre votre réseau et Microsoft via des protocoles standard (BGP).
 - Redondance intégrée dans chaque emplacement d'homologation pour une plus grande fiabilité.
-- [SLA](http://azure.microsoft.com/support/legal/sla/) de disponibilité de la connexion.
+- [SLA](https://azure.microsoft.com/support/legal/sla/) de disponibilité de la connexion.
 - QoS et prise en charge de plusieurs classes de service pour les applications spéciales, notamment Skype Entreprise.
 
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md).
@@ -55,7 +55,7 @@ Microsoft utilise le protocole de routage dynamique standard (BGP) pour échange
 
 ### Redondance
 
-Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Microsoft Enterprise Edge (MSEE) entre le fournisseur de connectivité et le périmètre de votre réseau. Microsoft nécessite une double connexion BGP entre le fournisseur de connectivité et vous : une pour chaque MSEE. Vous pouvez choisir ne pas de déployer des appareils redondants/circuits Ethernet de votre côté. Cependant, les fournisseurs de connectivité utilisent des appareils redondants pour garantir que vos connexions sont transmises à Microsoft de manière redondante. Une configuration de connectivité de couche 3 redondante est nécessaire à la validité de notre [SLA](http://azure.microsoft.com/support/legal/sla/).
+Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Microsoft Enterprise Edge (MSEE) entre le fournisseur de connectivité et le périmètre de votre réseau. Microsoft nécessite une double connexion BGP entre le fournisseur de connectivité et vous : une pour chaque MSEE. Vous pouvez choisir ne pas de déployer des appareils redondants/circuits Ethernet de votre côté. Cependant, les fournisseurs de connectivité utilisent des appareils redondants pour garantir que vos connexions sont transmises à Microsoft de manière redondante. Une configuration de connectivité de couche 3 redondante est nécessaire à la validité de notre [SLA](https://azure.microsoft.com/support/legal/sla/).
 
 ### Connectivité aux services de cloud Microsoft
 
@@ -124,4 +124,4 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

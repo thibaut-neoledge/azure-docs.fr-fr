@@ -28,7 +28,7 @@ Sortie max.<sup>2</sup> par compte de stockage (régions des États-Unis)|20 Gb
 Entrée max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|5 Gbit/s si GRS/ZRS<sup>3</sup> est activé, 10 Gbit/s pour LRS
 Sortie max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|10 Gbit/s si RA-GRS/GRS/ZRS<sup>3</sup> est activé, 15 Gbit/s pour LRS
 
-<sup>1</sup>Si vous avez besoin de plus de 100 comptes de stockage, contactez le [Support Azure](http://azure.microsoft.com/support/faq/) pour obtenir une assistance.
+<sup>1</sup>Si vous avez besoin de plus de 100 comptes de stockage, contactez le [Support Azure](https://azure.microsoft.com/support/faq/) pour obtenir une assistance.
 
 <sup>2</sup>*Entrée* désigne toutes les données (requêtes) envoyées à un compte de stockage. *Sortie* désigne toutes les données (réponses) reçues d'un compte de stockage.
 
@@ -39,4 +39,4 @@ Sortie max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|10�
 - **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs. 
 - **LRS** : stockage localement redondant. 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

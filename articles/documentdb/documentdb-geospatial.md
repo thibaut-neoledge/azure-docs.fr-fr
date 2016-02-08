@@ -18,7 +18,7 @@
     
 # Utilisation de données géospatiales dans Azure DocumentDB
 
-Cet article est une introduction aux fonctionnalités géospatiales dans [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
+Cet article est une introduction aux fonctionnalités géospatiales dans [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
 - Comment puis-je stocker des données spatiales dans Azure DocumentDB ?
 - Comment puis-je interroger des données géographiques dans Azure DocumentDB dans SQL et LINQ ?
@@ -43,7 +43,7 @@ Un **point** désigne une position unique dans l'espace. Dans les données géog
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE]La spécification GeoJSON spécifie la longitude d’abord, puis la latitude. Comme dans d'autres applications de mappage, la longitude et la latitude sont des angles et sont exprimées en degrés. Les valeurs de longitude sont mesurées à partir du premier méridien et sont comprises entre -180 et 180 degrés. Les valeurs de latitude sont mesurées à partir de l'Équateur et sont comprises entre -90 et 90 degrés.
+>[AZURE.NOTE] La spécification GeoJSON spécifie la longitude d’abord, puis la latitude. Comme dans d'autres applications de mappage, la longitude et la latitude sont des angles et sont exprimées en degrés. Les valeurs de longitude sont mesurées à partir du premier méridien et sont comprises entre -180 et 180 degrés. Les valeurs de latitude sont mesurées à partir de l'Équateur et sont comprises entre -90 et 90 degrés.
 >
 > DocumentDB interprète les coordonnées représentées par le système de référence WGS-84. Voir ci-dessous pour plus d'informations sur les systèmes de coordonnées de référence.
 
@@ -77,7 +77,7 @@ En plus des points, GeoJSON prend en charge les polygones et LineStrings. Les **
        ]
     }
 
->[AZURE.NOTE]La spécification GeoJSON nécessite que, pour les polygones valides, la dernière paire de coordonnées fournie soit identique à la première, pour créer une forme fermée.
+>[AZURE.NOTE] La spécification GeoJSON nécessite que, pour les polygones valides, la dernière paire de coordonnées fournie soit identique à la première, pour créer une forme fermée.
 >
 >Les points dans un polygone doivent être spécifiés dans le sens antihoraire. Un polygone spécifié dans le sens horaire représente l'inverse de la région qu'il contient.
 
@@ -198,7 +198,7 @@ Les arguments de polygone dans ST\_WITHIN peuvent contenir un seul cercle, cela
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l'emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
+>[AZURE.NOTE] Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l'emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
 
 ST\_ISVALID et ST\_ISVALIDDETAILED peuvent être utilisés pour vérifier si un objet spatial est valide. Par exemple, la requête suivante vérifie la validité d'un point avec une valeur de latitude hors limites (-132.8). ST\_ISVALID retourne simplement une valeur booléenne et ST\_ISVALIDDETAILED renvoie la valeur booléenne et une chaîne contenant la raison pour laquelle il est non valide.
 
@@ -345,7 +345,7 @@ Voici comment vous pouvez modifier un regroupement existant pour tirer parti de 
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-> [AZURE.NOTE]Si la valeur GeoJSON d'emplacement dans le document est incorrecte ou non valide, elle n’est pas indexée pour les requêtes spatiales. Vous pouvez valider les valeurs d'emplacement à l'aide de ST\_ISVALID et ST\_ISVALIDDETAILED.
+> [AZURE.NOTE] Si la valeur GeoJSON d'emplacement dans le document est incorrecte ou non valide, elle n’est pas indexée pour les requêtes spatiales. Vous pouvez valider les valeurs d'emplacement à l'aide de ST\_ISVALID et ST\_ISVALIDDETAILED.
 
 ## Étapes suivantes
 Maintenant que vous avez appris à utiliser la prise en charge géographique dans DocumentDB, vous pouvez :
@@ -355,4 +355,4 @@ Maintenant que vous avez appris à utiliser la prise en charge géographique dan
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

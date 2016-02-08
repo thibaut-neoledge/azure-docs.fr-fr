@@ -14,12 +14,12 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="01/05/2016" 
+  ms.date="01/22/2016" 
   ms.author="tamram"/>
 
 # Réplication Azure Storage
 
-Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour garantir une durabilité et une haute disponibilité, conformément au [contrat de niveau de service (SLA) Azure Storage](http://azure.microsoft.com/support/legal/sla/), même en cas de défaillances matérielles temporaires.
+Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour garantir une durabilité et une haute disponibilité, conformément au [contrat de niveau de service (SLA) Azure Storage](https://azure.microsoft.com/support/legal/sla/), même en cas de défaillances matérielles temporaires.
 
 Lorsque vous créez un compte de stockage, vous devez sélectionner une des options de réplication suivantes :
 
@@ -31,11 +31,11 @@ Lorsque vous créez un compte de stockage, vous devez sélectionner une des opti
 Le tableau suivant fournit une vue d’ensemble rapide des différences entre LRS, ZRS, GRS et RA-GRS, tandis que les sections suivantes décrivent chaque type de réplication plus en détail.
 
 
-|Stratégie de réplication|LRS|ZRS|GRS|RA-GRS
-|--------------------|---|---|---|------
-|Les données sont répliquées entre plusieurs installations.|Non|Oui|Oui|Oui|
-|Les données peuvent être lues à partir de l’emplacement secondaire et principal.|Non|Non|Non|Oui
-|Nombre de copies de données conservées sur des nœuds distincts.|3|3|6|6
+| Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
+|:-----------------------------------------------------------------------------------|:----|:----|:----|:-------|
+| Les données sont répliquées entre plusieurs installations. | Non | Oui | Oui | Oui |
+| Les données peuvent être lues à partir de l’emplacement secondaire et principal. | Non | Non | Non | Oui |
+| Nombre de copies de données conservées sur des nœuds distincts. | 3 | 3 | 6 | 6 |
 
 
 ## Stockage localement redondant
@@ -56,7 +56,7 @@ Même si le stockage géo-redondant (GRS) est recommandé pour la plupart des ap
 Le stockage redondant dans une zone (ZRS) réplique vos données dans deux ou trois installations au sein d’une même région ou dans deux régions distinctes, ce qui confère aux données une durabilité supérieure à celle offerte par le stockage LRS. Si le ZRS est activé pour votre compte de stockage, vos données restent durables, même en cas de défaillance de l’une des installations.
 
 
->[AZURE.NOTE]ZRS est actuellement disponible uniquement pour les objets BLOB de blocs et est pris en charge uniquement dans les versions 2014-02-14 et versions ultérieures. Notez qu’une fois votre compte de stockage créé et la réplication ZRS sélectionnée, vous ne pouvez pas revenir en arrière et utiliser un autre type de réplication (et vice-versa).
+>[AZURE.NOTE]  ZRS est actuellement disponible uniquement pour les objets BLOB de blocs et est pris en charge uniquement dans les versions 2014-02-14 et versions ultérieures. Notez qu’une fois votre compte de stockage créé et la réplication ZRS sélectionnée, vous ne pouvez pas revenir en arrière et utiliser un autre type de réplication (et vice-versa).
 
 
 ## Stockage géo-redondant
@@ -66,32 +66,30 @@ Le stockage géo-redondant (GRS) réplique vos données vers une région seconda
 Pour un compte de stockage avec GRS activé, une mise à jour est d’abord appliquée dans la région primaire, où elle est répliquée trois fois. La mise à jour est ensuite répliquée trois fois également dans la région secondaire, dans des domaines d’erreur et de mise à niveau distincts.
 
 
-> [AZURE.NOTE]Avec GRS, les demandes d’écriture de données sont répliquées de manière asynchrone dans la région secondaire. Le mode de stockage GRS n’affecte pas la latence des demandes formulées dans la région primaire. Toutefois, étant donné que la réplication asynchrone implique un délai, il est possible que, en cas de sinistre régional, les modifications n’ayant pas encore été répliquées dans la région secondaire soient perdues, si les données ne peuvent pas être récupérées à partir de la région primaire.
+> [AZURE.NOTE] Avec GRS, les demandes d’écriture de données sont répliquées de manière asynchrone dans la région secondaire. Le mode de stockage GRS n’affecte pas la latence des demandes formulées dans la région primaire. Toutefois, étant donné que la réplication asynchrone implique un délai, il est possible que, en cas de sinistre régional, les modifications n’ayant pas encore été répliquées dans la région secondaire soient perdues, si les données ne peuvent pas être récupérées à partir de la région primaire| Quand vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La région secondaire est déterminée en fonction de la région primaire et ne peut pas être modifiée. Le tableau suivant montre les paires de régions primaires et secondaires | Primaire | Secondaire |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|
+| Nord du centre des États-Unis | États-Unis - partie centrale méridionale |
+| États-Unis - partie centrale méridionale | États-Unis - partie centrale septentrionale |
+| Est des États-Unis | Ouest des États-Unis |
+| Ouest des États-Unis | Est des États-Unis |
+| Est des États-Unis 2 | Centre des États-Unis |
+| Centre des États-Unis | Est des États-Unis 2 |
+| Europe du Nord | Europe de l'Ouest |
+| Europe de l'Ouest | Europe du Nord |
+| Asie du Sud-Est | Est de l'Asie |
+| Est de l'Asie | Asie du Sud-Est |
+| Chine orientale | Chine du Nord |
+| Chine du Nord | Chine orientale |
+| Est du Japon | Ouest du Japon |
+| Ouest du Japon | Est du Japon |
+| Sud du Brésil | États-Unis - partie centrale méridionale |
+| Est de l’Australie | Sud-est de l’Australie |
+| Sud-est de l’Australie | Est de l’Australie |
+| Sud de l'Inde | Inde-Centre |
+| Inde-Centre | Sud de l'Inde |
+ |
+Sud
 
-Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La région secondaire est déterminée en fonction de la région primaire et ne peut pas être modifiée. Le tableau suivant montre les paires de régions primaires et secondaires.
-
-|Primaire |Secondaire
-| ---------------   |----------------
-|États-Unis - partie centrale septentrionale |États-Unis - partie centrale méridionale
-|États-Unis - partie centrale méridionale |États-Unis - partie centrale septentrionale
-|Est des États-Unis |Ouest des États-Unis
-|Ouest des États-Unis |Est des États-Unis
-|Est des États-Unis 2 |Centre des États-Unis
-|Centre des États-Unis |Est des États-Unis 2
-|Europe du Nord |Europe de l'Ouest
-|Europe de l'Ouest |Europe du Nord
-|Asie du Sud-Est |Est de l'Asie
-|Est de l'Asie |Asie du Sud-Est
-|Chine orientale |Chine du Nord
-|Chine du Nord |Chine orientale
-|Est du Japon |Ouest du Japon
-|Ouest du Japon |Est du Japon
-|Sud du Brésil |États-Unis - partie centrale méridionale
-|Est de l’Australie |Sud-est de l’Australie
-|Sud-est de l’Australie|Est de l’Australie
-|Sud de l'Inde |Inde-Centre
-|Inde-Centre |Sud de l'Inde
-  
 
 ## Stockage géo-redondant avec accès en lecture
 
@@ -101,9 +99,10 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 
 ## Étapes suivantes
 
+- [À propos des comptes de stockage Azure](storage-create-storage-account)
 - [Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md)
 - [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
 - [Émulateur de stockage Microsoft Azure 3.1 avec RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Document SOSP sur Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

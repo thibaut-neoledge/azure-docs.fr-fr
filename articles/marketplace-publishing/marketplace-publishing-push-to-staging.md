@@ -40,7 +40,7 @@ Sous l’onglet **Links** (Liens) de la barre de gauche, entrez des liens utiles
 ![dessin](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### Images d’exemple (facultatif)
-> [AZURE.NOTE]L’ajout d’une image d’exemple est une étape facultative. Le contenu marketing suffit à remplir les conditions pour l’envoi vers l’environnement intermédiaire.
+> [AZURE.NOTE] L’ajout d’une image d’exemple est une étape facultative. Le contenu marketing suffit à remplir les conditions pour l’envoi vers l’environnement intermédiaire.
 
 Sous l’onglet **Sample Images** (Images d’exemple) dans le menu de gauche, cliquez sur **Télécharger une nouvelle image** pour télécharger une image. Si vous avez déjà chargé une image que vous voulez remplacer, cliquez sur **Remplacer l’image**.
 
@@ -52,7 +52,7 @@ Sous l’onglet **Sample Images** (Images d’exemple) dans le menu de gauche, c
 ### Informations juridiques
 Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre politique ou vos conditions d’utilisation. Entrez ou collez les conditions d’utilisation dans la grande zone **Conditions d’utilisation**.
 
-> [AZURE.IMPORTANT]Tous les champs doivent avoir des entrées, y compris les images, pour que vous puissiez procéder au déploiement dans un environnement intermédiaire.
+> [AZURE.IMPORTANT] Tous les champs doivent avoir des entrées, y compris les images, pour que vous puissiez procéder au déploiement dans un environnement intermédiaire.
 
 
 ## Étape 2 : Définir vos tarifs
@@ -67,7 +67,7 @@ Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre p
 
 **Modèles de tarification disponibles par type d’offre**
 
-> [AZURE.IMPORTANT]La disponibilité de certains modèles de tarification varie en fonction du type d’offre. Consultez le tableau ci-dessous.
+> [AZURE.IMPORTANT] La disponibilité de certains modèles de tarification varie en fonction du type d’offre. Consultez le tableau ci-dessous.
 
 | | De base uniquement | Consommation uniquement | De base + Consommation |
 |---|---|---|---|
@@ -76,14 +76,14 @@ Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre p
 | Service de données | Oui | Non | Non |
 
 ### 2\.1. Définir les prix de votre machine virtuelle
-> [AZURE.NOTE]BYOL est uniquement pris en charge pour les machines virtuelles.
+> [AZURE.NOTE] BYOL est uniquement pris en charge pour les machines virtuelles.
 
 1.	Les marchés pris en charge apparaissent sous l’onglet **Pricing** (Tarifs). Sélectionnez le marché adapté pour ouvrir les champs de tarification.
 2.	Le lien fourni sur le portail de publication indiquera les informations de tarification pour vous aider à déterminer les tarifs de vos références SKU.
 3.	Si votre référence SKU est BYOL, cochez la case correspondant à la disponibilité des produits dotés d’une licence externe (« Externally-licensed (BYOL) SKU availability »).
 4.	Si votre produit est payable à l’heure, entrez le prix de votre logiciel. Les références SKU sans prix ne pourront pas être achetées ou utilisées.
 
-  >[AZURE.NOTE]Si vous avez des références SKU BYOL et horaires, veillez à ce que les conditions requises soient remplies pour chacune : case à cocher BYOL et valeurs de prix pour Horaire.
+  >[AZURE.NOTE] Si vous avez des références SKU BYOL et horaires, veillez à ce que les conditions requises soient remplies pour chacune : case à cocher BYOL et valeurs de prix pour Horaire.
 
 5.	Un Assistant de tarification s’ouvre. Complétez-en les étapes pour indiquer vos tarifs, y compris les tarifs pour les autres pays, si vous choisissez d’autoriser les achats en dehors du marché que vous avez spécifié.
 6.	Certains pays sont des pays de remise ISV. Pour vendre dans un pays de remise ISV, vous devez facturer et collecter les taxes sur vos références SKU, puis calculer et payer celles-ci auprès de l’administration fiscale du pays. Microsoft n’est pas en position de fournir des conseils juridiques ou fiscaux. Consultez la section « Pays de vente de l’offre » sous l’introduction de ce document pour en savoir plus sur les pays de vente.
@@ -115,7 +115,7 @@ Certaines de ces informations auront été complétées pendant l’étape de ce
 L’onglet **Categories** (Catégories) offre diverses options. Votre offre peut appartenir à l’une d’elles et vous pouvez sélectionner jusqu’à cinq catégories.
 
 ## Présentation de votre contenu marketing
-Voici une vue détaillée de l’utilisation des informations marketing de l’offre sur le [site web Azure Marketplace](http://azure.microsoft.com/marketplace) et dans le [portail Azure en version préliminaire](https://ms.portal.azure.com).
+Voici une vue détaillée de l’utilisation des informations marketing de l’offre sur le [site web Azure Marketplace](https://azure.microsoft.com/marketplace/) et dans le [portail Azure en version préliminaire](https://ms.portal.azure.com).
 
 ### Site web Azure Marketplace
 ![dessin](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -144,9 +144,9 @@ Voici une vue détaillée de l’utilisation des informations marketing de l’o
 ## Étapes suivantes
 Votre contenu Marketplace étant chargé, nous allons maintenant tester votre offre dans l’environnement intermédiaire. Vous devez toutefois sélectionner le type d’offre approprié dans la liste ci-dessous, car les étapes diffèrent selon le type d’offre.
 
-||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
+|Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
 |----|----|----|----|----|
-| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Tester votre offre de service de développement dans un environnement intermédiaire | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Étape 3. Déployer votre offre dans un environnement intermédiaire** | [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | [Tester votre offre de service de développement dans un environnement intermédiaire] (marketplace-publishing-dev-service-test-in-staging.md) | [Tester votre offre de service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans un environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Voir aussi
 - [Mise en route : Publication d’une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +160,4 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

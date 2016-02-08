@@ -28,6 +28,8 @@ Bien qu’il soit possible d’installer la passerelle sur le même ordinateur l
 
 En dehors de la passerelle de gestion des données, vous devez également installer le pilote ODBC pour le magasin de données de l’ordinateur de passerelle.
 
+> [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+
 ## Exemple : copie des données depuis un magasin de données ODBC vers un objet Blob Azure
 
 L’exemple ci-dessous présente les éléments suivants :
@@ -42,7 +44,7 @@ L’exemple copie toutes les heures les données de résultat d’une requête d
 
 Dans un premier temps, configurez la passerelle de gestion des données en suivant les instructions de l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Service lié ODBC** Cet exemple utilise l’authentification Windows. Consultez la section [Service lié ODBC](#odbc-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié ODBC** Cet exemple utilise l’authentification de base. Consultez la section [Service lié ODBC](#odbc-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -51,10 +53,10 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -221,8 +223,8 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | type | Le type de propriété doit être défini sur : **OnPremisesOdbc** | Oui |
 | connectionString | Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Voir les exemples ci-dessous. | Oui
 | credential | Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote, par exemple « Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>; ». | Non
-| authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont : Anonyme, De base et Windows. | Oui | 
-| username | Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. | Non | 
+| authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont : Anonyme et De base. | Oui | 
+| username | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Non | 
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Non | 
 | gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au magasin de données ODBC. | Oui |
 
@@ -263,24 +265,6 @@ Vous pouvez chiffrer les informations d’identification à l’aide de l’appl
 	        }
 	    }
 	}
-
-### Utilisation de l’authentification Windows
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
 
 
 ### Utilisation de l’authentification anonyme
@@ -340,4 +324,4 @@ Lors du déplacement de données à partir de magasins de données ODBC, les typ
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

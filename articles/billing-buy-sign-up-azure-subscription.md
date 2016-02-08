@@ -24,7 +24,7 @@
 
 Pour souscrire un abonnement à un essai gratuit d’Azure, vous devez fournir un numéro de téléphone, une carte de crédit et un compte Microsoft. Votre compte Microsoft correspond à l’adresse de messagerie et au mot de passe que vous utilisez pour vous connecter à un des programmes ou services Windows Live (par exemple, Outlook, Hotmail ou OneDrive). Vous pouvez configurer un compte Microsoft en utilisant l’une de vos adresses de messagerie personnelles, y compris la messagerie de votre entreprise. Pour plus d’informations, consultez [FAQ relatif au compte Microsoft](https://www.microsoft.com/fr-FR/account/faq.aspx).
 
->[AZURE.NOTE]Votre numéro de téléphone et les informations de votre carte de crédit sont uniquement utilisés pour vérifier votre identité. Même si votre carte de crédit n'est pas débitée, Microsoft effectuera une retenue d'autorisation d'un montant minimal pour vérifier que la carte de crédit est valide. Cette retenue sera validée dans les 3 à 5 jours ouvrés en fonction des politiques de votre institution financière.
+>[AZURE.NOTE] Votre numéro de téléphone et les informations de votre carte de crédit sont uniquement utilisés pour vérifier votre identité. Même si votre carte de crédit n'est pas débitée, Microsoft effectuera une retenue d'autorisation d'un montant minimal pour vérifier que la carte de crédit est valide. Cette retenue sera validée dans les 3 à 5 jours ouvrés en fonction des politiques de votre institution financière.
 
 1. Ouvrez la [page de version d’essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/), puis sélectionnez **Essayez dès maintenant**.
 2. Connectez-vous avec votre compte Microsoft ou à un compte scolaire/professionnel.
@@ -62,7 +62,7 @@ Si vous avez acheté des crédits Azure dans Open auprès d’un revendeur, proc
 
 1. Accédez à la [page Résumé de l’abonnement](https://account.windowsazure.com/subscriptions) sur azure.com.
 
-2. Sélectionnez **Azure dans Open**. Dans [Clé de licence Azure dans Open](http://azure.microsoft.com/offers/ms-azr-0111p/), sélectionnez **Activer un nouvel abonnement ou un abonnement existant**.
+2. Sélectionnez **Azure dans Open**. Dans [Clé de licence Azure dans Open](https://azure.microsoft.com/offers/ms-azr-0111p/), sélectionnez **Activer un nouvel abonnement ou un abonnement existant**.
 
 3. Entrez la clé de produit, puis activez l’option indiquant votre consentement.
 
@@ -74,7 +74,7 @@ Par le biais du canal de votre programme d’avantages, vérifiez si vous êtes 
 - [Comparer les avantages de l’abonnement](https://www.visualstudio.com/fr-FR/products/msdn-subscriptions-vs/#AdditionalPageSections_1)
 - Vérifiez l’état de votre éligibilité dans votre [page de compte MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
 - Si vous ne pouvez pas vérifier votre état, contactez l’un des [Centres de service client des Abonnements MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
-- Offre [Dev MSDN/Tester le paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Offre Dev MSDN/Tester le paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 ### MPN
 
@@ -92,4 +92,4 @@ Par le biais du canal de votre programme d’avantages, vérifiez si vous êtes 
 
 - [Portail Microsoft BizSpark Plus](http://www.microsoft.com/bizspark/plus/default.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

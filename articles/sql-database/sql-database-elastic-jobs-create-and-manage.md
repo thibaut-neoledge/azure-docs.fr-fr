@@ -27,7 +27,7 @@
 
 ## Composants requis
 
-* Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](http://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un pool élastique de bases de données. Voir [À propos des pools élastiques de bases de données](sql-database-elastic-pool.md)
 * Installation des composants du service de tâches de bases de données élastiques. Voir [Installation du service de tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md).
 
@@ -115,4 +115,4 @@ Si une tâche échoue, un journal détaillant son exécution est créé. Cliquez
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

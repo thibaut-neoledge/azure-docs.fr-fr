@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>J'utilise Mobile Services. Comment App Service peut-il m'aider ?
@@ -44,7 +44,7 @@ Dans *Azure App Service*, le code de backend de la fonctionnalité *Applications
 
 
 ##Connectez votre *application mobile* à des API SaaS
-*Azure App Service* facilite la connexion de votre application mobile à des API SaaS, notamment Office 365, Dynamics, Salesforce, SAP, entre autres. *Azure App Service* propose une authentification clé en main de la part de l'utilisateur et vous permet d'effectuer une véritable authentification unique sur l'ensemble des API SaaS que vous utilisez en associant des jetons pour les API SaaS individuelles à votre identité principale.
+*Azure App Service* facilite la connexion de votre application mobile à des API SaaS, notamment Office 365, Dynamics, Salesforce, SAP, entre autres. *Azure App Service* propose une authentification clé en main de la part de l’utilisateur et vous permet d’effectuer une véritable authentification unique sur l’ensemble des API SaaS que vous utilisez en associant des jetons pour les API SaaS individuelles à votre identité principale.
 
 ##Accédez aux données locales à l'aide de VNet
 Aujourd'hui, avec Mobile Services, vous pouvez déjà utiliser des connexions hybrides pour accéder à des ressources locales. Toutefois, dans certaines situations, une solution VPN est préférée. Avec *Azure App Service*, vous pouvez utiliser Azure VNet pour votre code de backend d'application mobile.
@@ -53,7 +53,7 @@ Aujourd'hui, avec Mobile Services, vous pouvez déjà utiliser des connexions hy
 *Azure App Service* offre une prise en charge plus large et plus complète pour les plateformes de développement, notamment Java, PHP et Python, en plus de .NET et Node.js pris en charge dans Mobile Services.
 
 ##Configurez la mise à l'échelle automatique
-Avec Mobile Services, toutes les instances de votre code de backend s'exécutaient sur de petites machines virtuelles. *Azure App Service* vous permet de sélectionner la taille des machines virtuelles à partir d'un ensemble d'options beaucoup plus complet. Vous pouvez également augmenter rapidement la taille ou le nombre de vos machines virtuelles pour vous adapter à n'importe quelle charge cliente entrante, en fonction de diverses mesures de performances.
+Avec Mobile Services, toutes les instances de votre code de backend s'exécutaient sur de petites machines virtuelles. *Azure App Service* vous permet de sélectionner la taille des machines virtuelles à partir d'un ensemble d'options beaucoup plus complet. Vous pouvez également augmenter rapidement la taille ou le nombre de vos machines virtuelles pour vous adapter à n’importe quelle charge cliente entrante, en fonction de diverses mesures de performances.
 
 ##Restez dans la connaissance
 Réagissez en temps réel aux problèmes avec la surveillance et les alertes qui vous informent automatiquement vous et votre équipe. Intégrez les fonctionnalités avancées de surveillance et d'analyse d'application de New Relic et AppInsights afin d'enrichir encore votre vision des performances de votre application mobile. Avec *Azure App Service*, vous pouvez maintenant configurer par programmation et via le portail des alertes basées sur diverses mesures de performances.
@@ -64,9 +64,7 @@ Sauvegardez automatiquement votre backend et votre base de données. Votre code 
 ##À vos marques, prêt, partez !
 *Azure App Service* vous permet désormais de créer plusieurs environnements intermédiaires et de test privés pour vos applications mobiles. Utilisez-les pour réaliser des tests avant un déploiement. Basculez en production sans interruption de service. Les applications web sont préchargées, ce qui garantit une expérience client optimale.
 
-
-
-D'ici à ce que la fonctionnalité *Azure App Service Mobile Apps* devienne disponible pour tous, nous vous fournirons une expérience de migration transparente pour vos applications Mobile Services vers App Service, si vous choisissez d'effectuer une migration. En attendant, vous pouvez commencer à explorer *App Service* et à tirer parti d'*App Service* pour votre application Mobile Service existante en suivant ce [didacticiel](app-service-mobile-migrating-from-mobile-services.md).
+Vous pouvez commencer à tirer parti d’*App Service* pour votre application Mobile Service existante en suivant ce [didacticiel](app-service-mobile-migrating-from-mobile-services.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

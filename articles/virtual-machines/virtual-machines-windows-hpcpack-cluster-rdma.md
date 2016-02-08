@@ -39,10 +39,10 @@ Cet article présente deux scénarios pour déployer les instances A8 et A9 en
 * **Consultez les [informations et les considérations générales](virtual-machines-a8-a9-a10-a11-specs.md)** sur les instances nécessitant beaucoup de ressources système.
 
 
-* **Abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs pour déployer un cluster de machines virtuelles A8 ou A9. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 instances A9 avec HPC Pack. Pour augmenter un quota, ouvrez [une demande de service clientèle en ligne](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs pour déployer un cluster de machines virtuelles A8 ou A9. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 instances A9 avec HPC Pack. Pour augmenter un quota, ouvrez [une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
 ## Scénario 1 Déployer des instances de rôle de travail nécessitant beaucoup de ressources système (PaaS)
 
@@ -51,7 +51,7 @@ Cet article présente deux scénarios pour déployer les instances A8 et A9 en
 
 Voici les considérations et les étapes pour l'intégration aux instances Azure A8 ou A9 à partir d'un cluster existant (généralement local). Utilisez des procédures similaires pour ajouter des instances de rôle de travail à un nœud principal HPC Pack déployé dans une machine virtuelle Azure.
 
->[AZURE.NOTE]Pour obtenir un didacticiel sur l’intégration à Azure avec HPC Pack, consultez [Configurer un cluster hybride avec HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Tenez compte des considérations dans les étapes suivantes qui s’appliquent spécifiquement aux nœuds Azure de taille A8 et A9.
+>[AZURE.NOTE] Pour obtenir un didacticiel sur l’intégration à Azure avec HPC Pack, consultez [Configurer un cluster hybride avec HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Tenez compte des considérations dans les étapes suivantes qui s’appliquent spécifiquement aux nœuds Azure de taille A8 et A9.
 
 ![Intégration à Azure][burst]
 
@@ -226,7 +226,7 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 
 * Pour exécuter des applications MPI sur des instances Azure, enregistrez chaque application MPI sur les instances avec le pare-feu Windows en exécutant la commande **hpcfwutil**. Cela permet aux communications MPI d’avoir lieu sur un port affecté dynamiquement par le pare-feu.
 
-    >[AZURE.NOTE]Pour des déploiements d’intégration à Azure, vous pouvez également configurer une commande d’exception de pare-feu pour qu’elle s’exécute automatiquement sur tous les nouveaux nœuds Azure ajoutés à votre cluster. Après avoir exécuté la commande **hpcfwutil** et vérifié que votre application fonctionne, ajoutez la commande à un script de démarrage pour vos nœuds Azure. Pour plus d'informations, consultez [Utiliser un script de démarrage pour les nœuds Azure](https://technet.microsoft.com/library/jj899632.aspx).
+    >[AZURE.NOTE] Pour des déploiements d’intégration à Azure, vous pouvez également configurer une commande d’exception de pare-feu pour qu’elle s’exécute automatiquement sur tous les nouveaux nœuds Azure ajoutés à votre cluster. Après avoir exécuté la commande **hpcfwutil** et vérifié que votre application fonctionne, ajoutez la commande à un script de démarrage pour vos nœuds Azure. Pour plus d'informations, consultez [Utiliser un script de démarrage pour les nœuds Azure](https://technet.microsoft.com/library/jj899632.aspx).
 
 
 
@@ -249,4 +249,4 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

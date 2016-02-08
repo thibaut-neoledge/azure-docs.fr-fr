@@ -80,7 +80,7 @@ Pour configurer votre environnement de science des données Azure :
 
 3. [Approvisionnez une machine virtuelle de science des données](machine-learning-data-science-setup-sql-server-virtual-machine.md), qui fera office de serveur SQL Server et de serveur Notebook IPython.
 
-	> [AZURE.NOTE]Les exemples de scripts et de notebooks IPython seront téléchargés sur votre machine virtuelle de science des données lors du processus de configuration. À l’issue du script de post-installation de la machine virtuelle, les exemples figureront dans la bibliothèque Documents de votre machine virtuelle : `C:\Users<user_name>\Documents\Data Science Scripts` Exemples de notebooks IPython : `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`, où `<user_name>` est le nom de connexion de votre machine virtuelle Windows. Nous désignerons les dossiers d’exemples sous la forme **Exemples de scripts** et **Exemples de notebooks IPython**.
+	> [AZURE.NOTE] Les exemples de scripts et de notebooks IPython seront téléchargés sur votre machine virtuelle de science des données lors du processus de configuration. À l’issue du script de post-installation de la machine virtuelle, les exemples figureront dans la bibliothèque Documents de votre machine virtuelle : `C:\Users<user_name>\Documents\Data Science Scripts` Exemples de notebooks IPython : `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`, où `<user_name>` est le nom de connexion de votre machine virtuelle Windows. Nous désignerons les dossiers d’exemples sous la forme **Exemples de scripts** et **Exemples de notebooks IPython**.
 
 
 Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario n° 5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
@@ -612,7 +612,7 @@ Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de 
 
 2. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net).
 
-3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation d’Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/).
+3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation d’Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Une expérience d’apprentissage classique se déroule comme suit :
 
@@ -649,7 +649,7 @@ La figure ci-après illustre un exemple d’expérience de classification binair
 
 ![Formation Azure Machine Learning][10]
 
-> [AZURE.IMPORTANT]Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
+> [AZURE.IMPORTANT] Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
 >
 > Pour exclure les colonnes superflues et/ou les fuites cibles, vous pouvez utiliser le module [Colonnes de projet][project-columns] ou l’[Éditeur de métadonnées][metadata-editor]. Pour plus d’informations, voir les pages de référence des modules [Colonnes de projet][project-columns] et [Éditeur de métadonnées][metadata-editor].
 
@@ -714,4 +714,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

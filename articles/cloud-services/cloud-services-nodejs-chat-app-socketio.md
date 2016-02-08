@@ -129,17 +129,17 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
-	> [AZURE.IMPORTANT]Veillez à utiliser un nom unique, sans quoi le processus de publication échoue. Une fois le déploiement terminé, le navigateur s'ouvre et accède au service déployé.
+	> [AZURE.IMPORTANT] Veillez à utiliser un nom unique, sans quoi le processus de publication échoue. Une fois le déploiement terminé, le navigateur s'ouvre et accède au service déployé.
 	> 
-	> Si vous recevez une erreur indiquant que le nom d'abonnement fourni n'existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+	> Si vous recevez une erreur indiquant que le nom d'abonnement fourni n'existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
     ![Fenêtre de navigateur affichant le service hébergé sur Azure][completed-app]
 
-	> [AZURE.NOTE]Si vous recevez une erreur indiquant que le nom d'abonnement fourni n'existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+	> [AZURE.NOTE] Si vous recevez une erreur indiquant que le nom d'abonnement fourni n'existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
 Votre application s'exécute à présent dans Azure, et peut transmettre des messages de conversation instantanée entre différents clients en utilisant Socket.IO.
 
-> [AZURE.NOTE]Par souci de simplification, cet exemple présente simplement une conversation instantanée entre des utilisateurs connectés à la même instance. Cela veut dire que si le service cloud crée deux instances de rôle de travail, un utilisateur pourra utiliser la conversation instantanée pour communiquer uniquement avec les autres utilisateurs connectés à la même instance de rôle de travail. Pour mettre à l'échelle l'application afin d'utiliser plusieurs instances de rôle, vous pouvez utiliser une technologie telle que Service Bus pour partager l'état de stockage Socket.IO entre plusieurs instances. Pour en savoir plus, consultez les exemples d'utilisation des files d'attente et rubriques de Service Bus dans le [référentiel GitHub Kit de développement logiciel (SDK) Azure pour Node.js](https://github.com/WindowsAzure/azure-sdk-for-node).
+> [AZURE.NOTE] Par souci de simplification, cet exemple présente simplement une conversation instantanée entre des utilisateurs connectés à la même instance. Cela veut dire que si le service cloud crée deux instances de rôle de travail, un utilisateur pourra utiliser la conversation instantanée pour communiquer uniquement avec les autres utilisateurs connectés à la même instance de rôle de travail. Pour mettre à l'échelle l'application afin d'utiliser plusieurs instances de rôle, vous pouvez utiliser une technologie telle que Service Bus pour partager l'état de stockage Socket.IO entre plusieurs instances. Pour en savoir plus, consultez les exemples d'utilisation des files d'attente et rubriques de Service Bus dans le [référentiel GitHub Kit de développement logiciel (SDK) Azure pour Node.js](https://github.com/WindowsAzure/azure-sdk-for-node).
 
 ##Étapes suivantes
 
@@ -170,4 +170,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
   
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

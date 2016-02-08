@@ -1,9 +1,9 @@
 <properties
    pageTitle="Création et déploiement de projets de groupe de ressources Azure à l’aide de Visual Studio | Microsoft Azure"
    description="Utilisez Visual Studio pour créer un projet de groupe de ressources Azure et déployer les ressources dans Azure."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="tfitzmac"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
@@ -39,7 +39,7 @@ Au cours de cette procédure, vous apprendrez à créer un projet du groupe de r
 
     Vous pouvez également ajouter ultérieurement des ressources au groupe de ressources.
 
-    >[AZURE.NOTE]La liste des modèles disponibles est récupérée en ligne et peut être modifiée.
+    >[AZURE.NOTE] La liste des modèles disponibles est récupérée en ligne et peut être modifiée.
 
     Visual Studio crée un projet de déploiement de groupe de ressources Azure pour une application web.
 
@@ -92,7 +92,7 @@ Lorsque vous déployez un projet de groupe de ressources Azure, faites-le dans u
 
     ![Boîte de dialogue Créer un groupe de ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796674.png)
 
-    >[AZURE.NOTE]En général, lorsque vous démarrez un nouveau projet de déploiement, vous commencez par créer un nouveau groupe de ressources dans lequel effectuer le déploiement.
+    >[AZURE.NOTE] En général, lorsque vous démarrez un nouveau projet de déploiement, vous commencez par créer un nouveau groupe de ressources dans lequel effectuer le déploiement.
 
 1. Entrez un nom et un emplacement pour le groupe de ressources, puis choisissez le bouton **Créer**.
 
@@ -108,17 +108,17 @@ Lorsque vous déployez un projet de groupe de ressources Azure, faites-le dans u
 
     - Le paramètre *siteName* correspond à la première partie de l’URL de la page web. Par exemple, dans l’URL nomdemonsiteweb.azurewebsites.net, le nom du site est **nomdemonsiteweb**.
 
-    - Le paramètre *hostingPlanName* spécifie votre plan d’hébergement. Dans cet exemple, vous pouvez utiliser « Gratuit ». Pour plus d’informations sur les plans d’hébergement, voir [Présentation détaillée des plans Azure App Service](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
+    - Le paramètre *hostingPlanName* spécifie votre plan d’hébergement. Dans cet exemple, vous pouvez utiliser « Gratuit ». Pour plus d’informations sur les plans d’hébergement, voir [Présentation détaillée des plans Azure App Service](https://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
 
-    - Le paramètre *siteLocation* fait référence à la région Azure dans laquelle le site doit être hébergé, par exemple, « Ouest des États-Unis ». Pour obtenir la liste des régions disponibles, voir [Régions Azure](http://azure.microsoft.com/regions/).
+    - Le paramètre *siteLocation* fait référence à la région Azure dans laquelle le site doit être hébergé, par exemple, « Ouest des États-Unis ». Pour obtenir la liste des régions disponibles, voir [Régions Azure](https://azure.microsoft.com/regions/).
 
 1. Sélectionnez le bouton **Déployer** pour déployer le projet dans Azure.
 
     Vous pouvez suivre la progression du déploiement dans la fenêtre **Sortie**. Le déploiement peut prendre quelques minutes. Sa durée dépend de votre configuration.
 
-    >[AZURE.NOTE]Il se peut que vous soyez invité à installer les applets de commande Microsoft Azure PowerShell. Ces applets de commande étant nécessaires pour déployer des groupes de ressources Azure, vous devez les installer.
+    >[AZURE.NOTE] Il se peut que vous soyez invité à installer les applets de commande Microsoft Azure PowerShell. Ces applets de commande étant nécessaires pour déployer des groupes de ressources Azure, vous devez les installer.
 
-1. Dans un navigateur, ouvrez le [portail Azure en version préliminaire](https://portal.azure.com/). Dans la mesure où il s’agit d’une nouvelle modification, un nouveau message de notification doit apparaître dans l’onglet **Notifications**. Sélectionnez-le pour afficher des détails concernant le nouveau groupe de ressources Azure. Pour visualiser la liste de tous les groupes de ressources disponibles, accédez à l’onglet **Parcourir**, puis sélectionnez **Groupes de ressources**.
+1. Dans un navigateur, ouvrez le [portail Azure en version préliminaire](https://portal.azure.com/). Dans la mesure où il s’agit d’une nouvelle modification, un nouveau message de notification doit être disponible dans l’onglet **Notifications**. Sélectionnez-le pour afficher des détails concernant le nouveau groupe de ressources Azure. Pour visualiser la liste de tous les groupes de ressources disponibles, accédez à l’onglet **Parcourir**, puis sélectionnez **Groupes de ressources**.
 
     ![Le groupe de ressources Azure approvisionné](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796676.png)
 
@@ -196,4 +196,4 @@ Des ajustements ont été également apportés à un certain nombre de noms de v
 
 Pour découvrir comment ajouter des ressources à votre groupe de ressources Azure dans Visual Studio, voir [Ajout de ressources à un groupe de ressources Azure](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

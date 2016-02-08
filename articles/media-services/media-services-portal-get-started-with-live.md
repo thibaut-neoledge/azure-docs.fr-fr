@@ -64,7 +64,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 
 L’allocation de nouvelles unités prend environ 20 minutes.
 
->[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
+>[AZURE.NOTE] Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
 >
 > C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -92,11 +92,11 @@ Pour plus d’informations sur les URL de réception, voir [Utilisation d’enc
 
 ## Configurer un encodeur dynamique et recevoir un flux dynamique
 
->[AZURE.NOTE]Cette étape nécessite l’URL de réception du canal qui a été indiquée à l’étape précédente.
+>[AZURE.NOTE] Cette étape nécessite l’URL de réception du canal qui a été indiquée à l’étape précédente.
 
-Pour plus d’informations sur la configuration de Wirecast et le démarrage de la réception du flux, voir [Configuration de Wirecast](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Pour plus d’informations sur la configuration de Wirecast et le démarrage de la réception du flux, voir [Configuration de Wirecast](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE]Si, pour une raison quelconque, vous arrêtez l’encodeur, puis devez le redémarrer, vous devez d’abord réinitialiser le canal en cliquant sur la commande **RESET** dans le portail Azure Classic.
+>[AZURE.NOTE] Si, pour une raison quelconque, vous arrêtez l’encodeur, puis devez le redémarrer, vous devez d’abord réinitialiser le canal en cliquant sur la commande **RESET** dans le portail Azure Classic.
 
 
 ## Créer et gérer un programme
@@ -205,11 +205,11 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 
 ## Ressources supplémentaires
-- [Prise en main de la vidéo en flux continu à l’aide du portail Azure Classic](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Prise en main de la vidéo en flux continu à l’aide du portail Azure Classic](https://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
 [Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

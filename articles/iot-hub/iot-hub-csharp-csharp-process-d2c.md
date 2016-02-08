@@ -41,7 +41,7 @@ Service Bus est un excellent moyen d’assurer un traitement fiable des messages
 * **ProcessDeviceToCloudMessages**, qui utilise la classe [EventProcessorHost] pour récupérer les messages sur le point de terminaison compatible avec Event Hubs avant de stocker de manière fiable les messages de point de données dans un objet blob Azure et de transférer les messages interactifs vers une file d’attente Service Bus.
 * **ProcessD2CInteractiveMessages**, qui extrait les messages interactifs de la file d’attente Service Bus.
 
-> [AZURE.NOTE]IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et de plusieurs langages (y compris C, Java et Javascript). Pour obtenir des instructions étape par étape expliquant comment remplacer l’appareil simulé de ce didacticiel par un appareil physique et comment connecter en général vos appareils à Azure IoT Hub, consultez le [Centre de développement Azure IoT].
+> [AZURE.NOTE] IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et de plusieurs langages (y compris C, Java et Javascript). Pour obtenir des instructions étape par étape expliquant comment remplacer l’appareil simulé de ce didacticiel par un appareil physique et comment connecter en général vos appareils à Azure IoT Hub, consultez le [Centre de développement Azure IoT].
 
 Ce didacticiel s’applique directement à d’autres manières de consommer des messages compatibles avec Event Hubs, par exemple des projets [HDInsight (Hadoop)]. Reportez-vous au [Guide du développeur Azure IoT Hub - Appareil vers cloud] pour plus d’informations.
 
@@ -49,7 +49,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015.
 
-+ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
 Vous devez avoir une connaissance de base des services [Azure Storage] et [Azure Service Bus].
 
@@ -69,7 +69,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
   ![][50]
 
-> [AZURE.NOTE]Pour afficher les mises à jour dans votre fichier blob, vous devrez peut-être définir la constante **MAX\_BLOCK\_SIZE** dans la classe **StoreEventProcessor** sur une valeur inférieure, telle que **1024**. En effet, il faudra peut-être un certain temps pour atteindre la limite de taille de bloc avec les données envoyées par l’appareil simulé. Avec une plus petite taille de bloc, vous n’aurez pas attendre si longtemps avant la création et la mise à jour de l’objet blob. Sachez toutefois qu’une plus grande taille de bloc favorise l’évolutivité de l’application.
+> [AZURE.NOTE] Pour afficher les mises à jour dans votre fichier blob, vous devrez peut-être définir la constante **MAX\_BLOCK\_SIZE** dans la classe **StoreEventProcessor** sur une valeur inférieure, telle que **1024**. En effet, il faudra peut-être un certain temps pour atteindre la limite de taille de bloc avec les données envoyées par l’appareil simulé. Avec une plus petite taille de bloc, vous n’aurez pas attendre si longtemps avant la création et la mise à jour de l’objet blob. Sachez toutefois qu’une plus grande taille de bloc favorise l’évolutivité de l’application.
 
 ## Étapes suivantes
 
@@ -98,7 +98,6 @@ Informations supplémentaires sur IoT Hub :
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
-[Gestion des erreurs temporaires]: https://msdn.microsoft.com/fr-FR/library/hh680901(v=pandp.50).aspx
 
 [Guide du développeur Azure IoT Hub - Appareil vers cloud]: https://azure.microsoft.com/fr-FR/documentation/articles/iot-hub-devguide/#d2c
 
@@ -108,7 +107,6 @@ Informations supplémentaires sur IoT Hub :
 
 
 [Envoyer des messages du cloud vers des appareils avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
 [Téléchargement de fichiers à partir d’appareils]: iot-hub-csharp-csharp-file-upload.md
 
 [Vue d’ensemble d’IoT Hub]: iot-hub-what-is-iot-hub.md
@@ -119,4 +117,4 @@ Informations supplémentaires sur IoT Hub :
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,8 @@
 
 Les applications qui s’intègrent à Azure AD respectent un modèle particulier d’autorisation, qui permet aux utilisateurs de contrôler le mode d’accès d’une application à leurs données. Dans le modèle d’application v2.0, l’implémentation de ce modèle d’autorisation a été mise à jour ; le mode d’interaction des applications avec Azure AD est aujourd’hui différent. Cette rubrique aborde les concepts de base de ce modèle d’autorisation, notamment les étendues, les autorisations et les consentements.
 
-> [AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD mis à la disposition générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD mis à la disposition générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
 ## Étendues et autorisations
 
@@ -100,20 +101,29 @@ Le jeton d’accès résultant peut ensuite être utilisé dans les requêtes H
 
 Pour en savoir plus sur le protocole OAuth 2.0 et sur le mode d’acquisition des jetons d’accès, consultez la page de [référence sur les protocoles du modèle d’application v2.0](active-directory-v2-protocols.md).
 
-## OpenId et Offline\_Access
 
-Le modèle d’application v2.0 présente deux étendues bien définies, qui ne s’appliquent pas à une ressource particulière : `openid` et `offline_access`.
+## Étendues OpenId Connect
+
+L’implémentation v2.0 d’OpenID Connect comprend quelques étendues bien définies qui ne s’appliquent pas à une ressource particulière : `openid`, `email`, `profile` et `offline_access`.
 
 #### OpenId
 
-Si une application exécute la connexion à l’aide d’[OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), elle doit solliciter l’étendue `openid`. L’étendue `openid` s’affiche sur la page de consentement de l’écran de travail, en tant qu’autorisation de connexion, et sur la page de consentement du compte Microsoft personnel en tant qu’autorisation « Afficher votre profil et se connecter aux applications et aux services à l’aide de votre compte Microsoft ». Grâce à cette autorisation, une application peut accéder au point de terminaison des informations sur l’utilisateur OpenID Connect. Aussi, elle nécessite l’approbation de l’utilisateur. L’étendue `openid` peut également être utilisée sur le point de terminaison de jeton v2.0 afin d’acquérir des jetons id\_token, qui peuvent être sollicités pour sécuriser les appels HTTP entre différents composants d’une application.
+Si une application exécute la connexion à l’aide d’[OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), elle doit solliciter l’étendue `openid`. L’étendue `openid` s’affiche sur la page de consentement de l’écran de travail, en tant qu’autorisation de connexion, et sur la page de consentement du compte Microsoft personnel en tant qu’autorisation « Afficher votre profil et se connecter aux applications et aux services à l’aide de votre compte Microsoft ». Cette autorisation permet à une application de recevoir un identifiant utilisateur unique sous la forme de la revendication `sub`. Elle permet également l’application d’accéder au point de terminaison des informations utilisateur. L’étendue `openid` peut également être utilisée sur le point de terminaison de jeton v2.0 afin d’acquérir des jetons id\_token, qui peuvent être sollicités pour sécuriser les appels HTTP entre différents composants d’une application.
 
-#### Offline\_Access
+#### Email
 
-L’étendue `offline_access` permet à votre application d’accéder aux ressources pour le compte de l’utilisateur, pendant une période prolongée. Sur l’écran de consentement du compte de travail, cette étendue apparaît en tant qu’autorisation d’« Accéder à vos données à tout moment ». Sur l’écran de consentement du compte Microsoft personnel, elle apparaît en tant qu’autorisation « Accéder à vos informations à tout moment ». Lorsqu’un utilisateur approuve l’étendue `offline_access`, votre application est configurée pour recevoir les jetons d’actualisation du point de terminaison des jetons v2.0. Les jetons d’actualisation, durables, sont mis à profit par votre application pour acquérir de nouveaux jetons d’accès lors de l’expiration des anciens.
+L’étendue `email` peut être incluse avec l’étendue `openid` ainsi que d’autres. Elle permet à l’application d’accéder à l’adresse de messagerie principale de l’utilisateur sous la forme de la revendication `email`. La revendication `email` ne figurera dans les jetons que si une adresse de messagerie est associée au compte d’utilisateur, ce qui n’est pas toujours le cas. Si vous utilisez l’étendue `email`, votre application doit être préparée à faire face à l’éventualité où la revendication `email` n’existerait pas dans le jeton.
+
+#### Profil
+
+L’étendue `profile` peut être incluse avec l’étendue `openid` ainsi que d’autres. Elle permet à l’application d’accéder à une foule d’informations sur l’utilisateur, notamment le prénom de l’utilisateur, son nom de famille, son nom d’utilisateur privilégié, l’ID d’objet, etc. Pour obtenir une liste complète des revendications de profil disponibles dans les jetons id\_token pour un utilisateur donné, consultez la page [Informations de référence sur les jetons v2.0](active-directory-v2-tokens.md).
+
+#### Offline\_access
+
+L’[étendue `offline_access`](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) permet à votre application d’accéder aux ressources pour le compte de l’utilisateur, pendant une période prolongée. Sur l’écran de consentement du compte de travail, cette étendue apparaît en tant qu’autorisation d’« Accéder à vos données à tout moment ». Sur l’écran de consentement du compte Microsoft personnel, elle apparaît en tant qu’autorisation « Accéder à vos informations à tout moment ». Lorsqu’un utilisateur approuve l’étendue `offline_access`, votre application est configurée pour recevoir les jetons d’actualisation du point de terminaison des jetons v2.0. Les jetons d’actualisation, durables, sont mis à profit par votre application pour acquérir de nouveaux jetons d’accès lors de l’expiration des anciens.
 
 Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas les jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), vous recevez uniquement un jeton d’accès du point de terminaison `/token`. Ce jeton d’accès demeure valide pendant une courte période (généralement une heure), avant d’arriver à expiration. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, il peut être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou d’accepter une nouvelle fois les autorisations, en fonction du type d’application.
 
-Pour en savoir plus sur la récupération et l’utilisation des jetons d’actualisation, consultez la page de [référence sur les protocoles du modèle d’application v2.0](active-directory-v2-protocols.md).
+Pour en savoir plus sur la récupération et l’utilisation des jetons d’actualisation, consultez la page de [référence sur les protocoles v2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

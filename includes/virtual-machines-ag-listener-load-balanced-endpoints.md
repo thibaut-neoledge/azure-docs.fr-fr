@@ -6,7 +6,7 @@ Vous devez créer un point de terminaison avec équilibrage de charge pour chaqu
 
 1. Vérifiez que le **Nom** et le **Public Port** du point de terminaison de l'écouteur ne sont pas déjà utilisés. Dans l'exemple ci-dessous, le nom est « MyEndpoint » et le port est « 1433 ».
 
-1. Sur votre client local, téléchargez et installez [le dernier module PowerShell](http://azure.microsoft.com/downloads/).
+1. Sur votre client local, téléchargez et installez [le dernier module PowerShell](https://azure.microsoft.com/downloads/).
 
 1. Lancez **Azure PowerShell**. Une nouvelle session PowerShell s'ouvre avec les modules d'administration Azure chargés.
 
@@ -18,4 +18,4 @@ Vous devez créer un point de terminaison avec équilibrage de charge pour chaqu
 
 	Une fois le fichier de paramètres de publication importé, vous pouvez gérer votre abonnement Azure dans la session PowerShell.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

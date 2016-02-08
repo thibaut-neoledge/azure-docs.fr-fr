@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/30/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell;billmath"/>
 
 # Plus de détails sur les fonctionnalités de la version préliminaire
@@ -46,22 +46,22 @@ Ce groupe est représenté comme un groupe de distribution dans les versions loc
 - Seuls les déploiements d’entreprise basés sur une seule forêt Exchange sont actuellement pris en charge. Si vous avez plusieurs organisations Exchange en local, vous aurez besoin d’une solution GALSync locale pour que ces groupes s’affichent dans vos autres forêts.
 - La fonctionnalité d’écriture différée de groupe ne prend pas en charge les groupes de sécurité ou les groupes de distribution pour l’instant.
 
->[AZURE.NOTE]L’écriture différée sur un groupe nécessite un abonnement Azure AD Premium.
+>[AZURE.NOTE] L’écriture différée sur un groupe nécessite un abonnement Azure AD Premium.
 
 ## Écriture différée de l’utilisateur
-> [AZURE.IMPORTANT]La fonctionnalité d’écriture différée utilisateur en version préliminaire a été provisoirement supprimée lors de la mise à jour d’Azure AD Connect en août 2015. Si vous l'avez activée, vous devez désactiver cette fonctionnalité.
+> [AZURE.IMPORTANT] La fonctionnalité d’écriture différée utilisateur en version préliminaire a été provisoirement supprimée lors de la mise à jour d’Azure AD Connect en août 2015. Si vous l'avez activée, vous devez désactiver cette fonctionnalité.
 
 L’écriture différée de l’utilisateur est actuellement en version préliminaire. Elle peut être utilisée uniquement si Azure AD est la source de tous les objets utilisateur et si l’annuaire Active Directory local est vide avant d’activer la fonctionnalité (déploiement en mode champ vert).
 
-> [AZURE.WARNING]Cette fonctionnalité doit être testée uniquement dans un environnement de test et ne doit pas être utilisée dans un annuaire Azure AD destiné à une utilisation en production.
+> [AZURE.WARNING] Cette fonctionnalité doit être testée uniquement dans un environnement de test et ne doit pas être utilisée dans un annuaire Azure AD destiné à une utilisation en production.
 
 .
 
->[AZURE.NOTE]L’écriture différée utilisateur sur un appareil exige un abonnement Azure AD Premium.
+>[AZURE.NOTE] L’écriture différée utilisateur sur un appareil exige un abonnement Azure AD Premium.
 
 ## Étapes suivantes
 Poursuivez votre [installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

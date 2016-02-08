@@ -71,7 +71,7 @@ Ajoutez le code suivant en haut du fichier **server.js** dans votre application�
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **TableService**.
 
-Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](portal.azure.com) pour un site web Azure, consultez la rubrique [Application web Node.js avec Storage].
+Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez la rubrique [Application web Node.js avec Storage].
 
 ## Création d’une table
 
@@ -125,7 +125,7 @@ Voici un exemple de définition d'une entité. Notez que **dueDate** est défini
 	  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 	};
 
-> [AZURE.NOTE]Il existe également un champ **Timestamp** pour chaque enregistrement, qui est défini par Azure quand une entité est insérée ou mise à jour.
+> [AZURE.NOTE] Il existe également un champ **Timestamp** pour chaque enregistrement, qui est défini par Azure quand une entité est insérée ou mise à jour.
 
 Vous pouvez également utiliser **entityGenerator** pour créer des entités. L'exemple suivant crée la même entité de tâche en utilisant **entityGenerator**.
 
@@ -151,7 +151,7 @@ Exemple de réponse :
 
 	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
-> [AZURE.NOTE]Par défaut, **insertEntity** ne renvoie pas l’entité insérée dans le cadre des informations `response`. Si vous prévoyez d’exécuter d’autres opérations sur cette entité, ou si vous voulez mettre en cache les informations, il peut être utile de la faire renvoyer dans le cadre de `result`. Pour ce faire, activez **echoContent** comme suit :
+> [AZURE.NOTE] Par défaut, **insertEntity** ne renvoie pas l’entité insérée dans le cadre des informations `response`. Si vous prévoyez d’exécuter d’autres opérations sur cette entité, ou si vous voulez mettre en cache les informations, il peut être utile de la faire renvoyer dans le cadre de `result`. Pour ce faire, activez **echoContent** comme suit :
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -175,7 +175,7 @@ L'exemple suivant illustre la mise à jour d'une entité avec **updateEntity** 
       }
     });
 
-> [AZURE.NOTE]Par défaut, la mise à jour d'une entité ne vérifie pas si les données en cours de mise à jour ont déjà été modifiées par un autre processus. Pour activer la prise en charge de mises à jour simultanées :
+> [AZURE.NOTE] Par défaut, la mise à jour d'une entité ne vérifie pas si les données en cours de mise à jour ont déjà été modifiées par un autre processus. Pour activer la prise en charge de mises à jour simultanées :
 >
 > 1. Obtenez l'ETag de l'objet mis à jour. Il est renvoyé dans la `response` d’une opération sur une entité et peut être extrait dans `response['.metadata'].etag`.
 >
@@ -302,7 +302,7 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
 	  }
 	});
 
-> [AZURE.NOTE]Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez [Mise à jour d’une entité](#update-an-entity) pour plus d’informations sur l’utilisation des ETags.
+> [AZURE.NOTE] Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez [Mise à jour d’une entité](#update-an-entity) pour plus d’informations sur l’utilisation des ETags.
 
 ## Suppression d'une table
 
@@ -448,4 +448,4 @@ Pour plus d’informations, consultez les ressources suivantes.
   [Application web Node.js avec Storage]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

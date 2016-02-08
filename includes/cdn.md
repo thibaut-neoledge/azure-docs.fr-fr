@@ -22,7 +22,7 @@ Utilisez la procédure suivante pour créer un compte de stockage pour un abonne
 
 Pour créer un compte de stockage, vous devez être l’administrateur de service ou un co-administrateur de l’abonnement associé.
 
-> [AZURE.NOTE]Pour plus d’informations sur l’exécution de cette opération à l’aide de l’API de gestion des services Azure, consultez la rubrique de référence [Création d’un compte de stockage](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx).
+> [AZURE.NOTE] Pour plus d’informations sur l’exécution de cette opération à l’aide de l’API de gestion des services Azure, consultez la rubrique de référence [Création d’un compte de stockage](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx).
 
 **Pour créer un compte de stockage pour un abonnement Azure**
 
@@ -43,9 +43,9 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 
 	Cette valeur est également utilisée comme nom pour ce compte de stockage dans le portail ou lors de l’accès à ce compte par programme.
 
-5.  Dans la liste déroulante **Groupe de régions ou d'affinités**, sélectionnez un groupe de régions ou d'affinités pour le compte de stockage. Sélectionnez un groupe d'affinités plutôt qu'une zone pour que vos services de stockage soient hébergés dans le même centre de données que les autres services Azure que vous utilisez. Ce choix peut améliorer les performances et n’entraîne aucun frais supplémentaire.
+5.  Dans la liste déroulante **Groupe de régions ou d'affinités**, sélectionnez un groupe de régions ou d'affinités pour le compte de stockage. Sélectionnez un groupe d’affinités plutôt qu’une région pour que vos services de stockage soient hébergés dans le même centre de données que les autres services Microsoft Azure que vous utilisez. Ce choix peut améliorer les performances et n’entraîne aucun frais supplémentaire.
 
-    **Remarque :** pour créer un groupe d’affinités, ouvrez la zone **Paramètres** du portail de gestion, cliquez sur **Groupes d’affinités**, puis sur **Ajouter un groupe d’affinités** ou **Ajouter**. Vous pouvez également créer et gérer des groupes d’affinités par le biais de l’API de gestion des services Azure. Pour plus d'informations, consultez [Opérations sur les groupes d'affinités].
+    **Remarque :** pour créer un groupe d’affinités, ouvrez la zone **Paramètres** du portail de gestion, cliquez sur **Groupes d’affinités**, puis sur **Ajouter un groupe d’affinités** ou **Ajouter**. Vous pouvez également créer et gérer des groupes d’affinités par le biais de l’API de gestion des services Microsoft Azure. Pour plus d'informations, consultez [Opérations sur les groupes d'affinités].
 
 6. Dans la liste déroulante **Subscription**, sélectionnez l’abonnement à utiliser avec le compte de stockage.
 7.  Cliquez sur **Create Storage Account**. Le processus de création du compte de stockage peut durer quelques minutes.
@@ -70,7 +70,7 @@ Dès que vous activez un accès au CDN pour un compte de stockage ou un service 
 	Le domaine d’origine est l’emplacement à partir duquel le CDN met le contenu en cache. Il peut s’agir d’un compte de stockage ou d’un service cloud. Cet exemple utilise un compte de stockage. Le contenu de stockage est mis en cache dans les serveurs Edge en fonction d’un paramètre de contrôle du cache que vous avez spécifié ou de la méthode heuristique par défaut du réseau de mise en cache.
 
 
-    > [AZURE.NOTE]La configuration créée pour le point de terminaison ne sera pas disponible immédiatement, car la propagation de l’enregistrement sur le CDN peut prendre jusqu’à 60 minutes. Les utilisateurs qui tentent d’utiliser immédiatement le nom de domaine CDN peuvent recevoir le code d’état 400 (Requête incorrecte) jusqu’à ce que le contenu soit disponible via le CDN.
+    > [AZURE.NOTE] La configuration créée pour le point de terminaison ne sera pas disponible immédiatement, car la propagation de l’enregistrement sur le CDN peut prendre jusqu’à 60 minutes. Les utilisateurs qui tentent d’utiliser immédiatement le nom de domaine CDN peuvent recevoir le code d’état 400 (Requête incorrecte) jusqu’à ce que le contenu soit disponible via le CDN.
 
 <a id="Step3"> </a> <h2>Étape 3 : accès au contenu du CDN</h2>
 
@@ -83,13 +83,13 @@ http://<*EspaceDeNomsCDN*>.vo.msecnd.net/<*monConteneurPublic*>/<*NomObjetBlob*>
 Si vous ne souhaitez plus mettre en cache un objet dans le réseau de distribution de contenu (CDN) Azure, vous pouvez procéder comme suit :
 
 -   S’il s’agit d’un objet blob Azure, vous pouvez le supprimer du conteneur public.
--   Vous pouvez changer le statut du conteneur de public à privé. Pour plus d’informations, consultez la page [Limiter l’accès aux conteneurs et aux objets BLOB](http://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs).
+-   Vous pouvez changer le statut du conteneur de public à privé. Pour plus d’informations, consultez la page [Limiter l’accès aux conteneurs et aux objets BLOB](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs).
 -   Vous pouvez désactiver ou supprimer le point de terminaison CDN à l’aide du portail de gestion.
 -   Vous pouvez modifier votre service hébergé pour qu’il ne réponde plus aux demandes de l’objet.
 
 Un objet déjà mis en cache dans le CDN y reste jusqu’à ce que sa durée de vie expire. Après cela, le CDN vérifie si le point de terminaison CDN est encore valide et si l’objet est encore accessible de manière anonyme. S’il ne l’est pas, l’objet n’est plus mis en cache.
 
-La capacité à purger immédiatement le contenu n’est actuellement pas prise en charge sur le portail de gestion Azure. Si vous devez supprimer immédiatement et définitivement le contenu, contactez le [support technique Azure](http://azure.microsoft.com/support/options/).
+La capacité à purger immédiatement le contenu n’est actuellement pas prise en charge sur le portail de gestion Azure. Si vous devez supprimer immédiatement et définitivement le contenu, contactez le [support technique Azure](https://azure.microsoft.com/support/options/).
 
 ## Ressources supplémentaires
 
@@ -111,4 +111,4 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

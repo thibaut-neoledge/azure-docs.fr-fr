@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 4 : configurer des serveurs Web
@@ -31,9 +31,9 @@ Il existe deux serveurs Web virtuels dans lesquels vous pouvez déployer des app
 
 Tout d'abord, vous configurez l'équilibrage de charge interne de manière à ce qu'Azure répartisse le trafic client vers l'application métier de manière équitable entre les deux serveurs Web. Pour cela, vous devez spécifier une instance d'équilibrage de charge interne comportant un nom et une adresse IP propre qui sont affectés à partir de l'espace d'adressage du sous-réseau que vous avez affecté à votre réseau virtuel Azure.
 
-> [AZURE.NOTE]Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] Les jeux de commandes suivants font appel à Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-Spécifiez les valeurs des variables en supprimant les caractères < and >. Notez que les jeux de commandes PowerShell suivants utilisent les valeurs des tables suivantes :
+Spécifiez les valeurs des variables en supprimant les caractères < and >. Les jeux de commandes Azure PowerShell suivants utilisent les valeurs des tables suivantes :
 
 - Table M pour les machines virtuelles ;
 - Table V pour les paramètres du réseau virtuel ;
@@ -109,7 +109,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ou d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle.
+> [AZURE.NOTE] Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ou d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle.
 
 Utilisez le client Bureau à distance de votre choix et créez une connexion Bureau à distance à chaque machine virtuelle de serveur Web. Utilisez son nom d'ordinateur ou DNS intranet et les informations d'identification du compte d'administrateur local.
 
@@ -128,7 +128,7 @@ Ensuite, installez et configurez IIS pour chaque serveur Web.
 1. Exécutez le Gestionnaire de serveur, puis cliquez sur **Ajouter des rôles et fonctionnalités**.
 2. Dans la page Avant de commencer, cliquez sur **Suivant**.
 3. Dans la page Sélectionner le type d’installation, cliquez sur **Suivant**.
-4. Dans la page Sélectionner le serveur de destination, cliquez sur **Suivant**.
+4. Sur la page Sélectionner le serveur de destination, cliquez sur **Suivant**.
 5. Dans la page Rôles de serveur, cliquez sur **Serveur Web (IIS)** dans la liste des **rôles**.
 6. Quand vous y êtes invité, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.
 7. Dans la page Sélectionner des fonctionnalités, cliquez sur **Suivant**.
@@ -151,4 +151,4 @@ Ce diagramme représente la configuration résultant de l'exécution de cette ph
 
 - Pour terminer la configuration de cette charge de travail, utilisez la [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

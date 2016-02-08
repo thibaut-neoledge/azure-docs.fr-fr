@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Installation d’une forêt Active Directory sur un réseau virtuel Azure | Microsoft Azure" 
 	description="Didacticiel qui explique comment créer une forêt Active Directory sur une machine virtuelle dans Azure Virtual Network." 
-	services="active-directory, virtual-network" 
+	services="active-directory, virtual-network"
+    keywords="machine virtuelle active directory, installer une forêt active directory, vidéos azure active directory"
 	documentationCenter="" 
 	authors="markusvi" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="01/05/2016" 
+	ms.date="01/25/2016" 
 	ms.author="markusvi"/>
 
 
@@ -31,7 +32,7 @@ Les rubriques suivantes peuvent également vous intéresser :
 
 Dans ce scénario, des utilisateurs externes doivent accéder à des applications qui s'exécutent sur des serveurs appartenant à un domaine. Les machines virtuelles qui exécutent les serveurs d'applications et les machines virtuelles qui exécutent des contrôleurs de domaine sont installées dans leur propre service cloud dans un réseau virtuel Azure. Elles sont également incluses dans un groupe à haute disponibilité pour une meilleure tolérance de panne.
 
-![][1] 7
+![Forêt Active Directory sur une machine virtuelle dans Azure Virtual Network][1] 7
 ## Quelles sont les différences par rapport à une installation locale ?
 
 Les différences entre l'installation d'un contrôleur de domaine dans Azure ou localement sont minimes. Le tableau suivant répertorie les principales différences.
@@ -137,4 +138,4 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

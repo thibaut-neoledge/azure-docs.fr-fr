@@ -136,7 +136,6 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 | Intitulé | Description |
 | :-- | :-- |
-| [Azure Data Factory Editor](data-factory-editor.md) | Décrit Azure Data Factory Editor, qui vous permet de créer, modifier et déployer des définitions JSON de services liés, de tables et de pipelines à l’aide d’une interface utilisateur web légère. |
 | [Azure Data Factory - Forum aux Questions](data-factory-faq.md) | Forum aux Questions sur Azure Data Factory. |
 | [Azure Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) | Décrit les règles d'affectation de noms pour les entités Data Factory. |
 | [Notes de publication sur Azure Data Factory](data-factory-release-notes.md) | Data Factory release notes |
@@ -145,10 +144,10 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 #### Extras
 
-- [Graphique du parcours d’apprentissage de Data Factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-- [Recherche dans la documentation de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-- [Autre recherche dans la documentation de Microsoft Azure](http://azure.microsoft.com/searchresults/?query=)
-- [Affichage des dernières mises à jour du service data-factory](http://azure.microsoft.com/updates/?service=data-factory)
-- [Graphique du parcours d’apprentissage des services Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
+- [Graphique du parcours d’apprentissage de Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- [Recherche dans la documentation de Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+- [Autre recherche dans la documentation de Microsoft Azure](https://azure.microsoft.com/searchresults/?query=)
+- [Affichage des dernières mises à jour du service data-factory](https://azure.microsoft.com/updates/?service=data-factory)
+- [Graphique du parcours d’apprentissage des services Microsoft Azure](https://azure.microsoft.com/documentation/learning-paths/)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

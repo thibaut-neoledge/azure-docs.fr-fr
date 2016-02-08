@@ -26,17 +26,17 @@ Ce guide décrit la prise en main rapide de la gestion de vos services web Azure
 
 ##Qu’est-ce que Gestion des API Azure ?
 
-Gestion des API Azure est un service Azure qui vous permet de gérer vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord. Cliquez [ici](http://azure.microsoft.com/services/api-management/) pour plus d’informations sur Gestion des API Azure. Cliquez [ici](api-management/api-management-get-started.md) pour débuter avec Gestion des API Azure. Cet autre guide, sur lequel ce guide est basé, couvre plus de rubriques, notamment les configurations de notification, la tarification, la gestion des réponses, l’authentification des utilisateurs, la création de produits, les abonnements pour développeur et le tableau de bord d’utilisation.
+Gestion des API Azure est un service Azure qui vous permet de gérer vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord. Cliquez [ici](https://azure.microsoft.com/services/api-management/) pour plus d’informations sur Gestion des API Azure. Cliquez [ici](api-management/api-management-get-started.md) pour débuter avec Gestion des API Azure. Cet autre guide, sur lequel ce guide est basé, couvre plus de rubriques, notamment les configurations de notification, la tarification, la gestion des réponses, l’authentification des utilisateurs, la création de produits, les abonnements pour développeur et le tableau de bord d’utilisation.
 
 ##Présentation d’AzureML
 
-AzureML est un service Azure d’apprentissage automatique qui vous permet de facilement générer, déployer et partager des solutions d’analyse avancée. Cliquez [ici](http://azure.microsoft.com/services/machine-learning/) pour plus d’informations sur AzureML.
+AzureML est un service Azure d’apprentissage automatique qui vous permet de facilement générer, déployer et partager des solutions d’analyse avancée. Cliquez [ici](https://azure.microsoft.com/services/machine-learning/) pour plus d’informations sur AzureML.
 
 ##Conditions préalables
 
 Pour utiliser ce guide, il vous faut :
 
-* Un compte Azure. Si vous n’avez pas de compte Azure, cliquez [ici](http://azure.microsoft.com/pricing/free-trial/) pour plus d’informations sur la création d’un compte d’essai gratuit.
+* Un compte Azure. Si vous n’avez pas de compte Azure, cliquez [ici](https://azure.microsoft.com/pricing/free-trial/) pour plus d’informations sur la création d’un compte d’essai gratuit.
 * Un compte AzureML. Si vous n’avez pas de compte AzureML, cliquez [ici](https://studio.azureml.net/) pour plus d’informations sur la création d’un compte d’essai gratuit.
 * L’espace de travail, le service et l’api\_key pour l’expérience AzureML déployés sous forme de service web. Cliquez [ici](machine-learning/machine-learning-create-experiment.md) pour plus d’informations sur la création d’une expérience AzureML. Cliquez [ici](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur le déploiement d’une expérience AzureML comme service web. L’annexe A contient également des instructions sur la façon de créer et de tester une expérience AzureML simple et de la déployer en tant que service web.
 
@@ -72,7 +72,7 @@ Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **Ajout
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Tapez **API de démonstration AzureML** comme **nom de l’API web**. Tapez ****https://ussouthcentral.services.azureml.net** comme **URL du service web**. Saisissez **azureml-demo** comme **suffixe d’URL de l’API Web**. Cochez **HTTPS** comme schéma d’**URL de l’API Web**. Sélectionnez **Starter** comme **produit**. Quand vous avez terminé, cliquez sur **Enregistrer** pour créer l’API.
+Tapez **API de démonstration AzureML** comme **nom de l’API web**. Tapez ****https://ussouthcentral.services.azureml.net** comme **URL du service web**. Saisissez **azureml-demo** comme **suffixe d’URL de l’API web**. Cochez **HTTPS** comme schéma d’**URL de l’API Web**. Sélectionnez **Starter** comme **produit**. Quand vous avez terminé, cliquez sur **Enregistrer** pour créer l’API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -228,7 +228,7 @@ Le résultat suivant doit s’afficher :
 
 Vous pouvez également tester votre RRS à partir de votre code client. Si vous cliquez sur **Requête/réponse** sur le tableau de bord et faites défiler la liste vers le bas, vous trouverez des exemples de code pour C#, Python et R. Vous trouverez également la syntaxe de la requête RRS, y compris l’URI, les en-têtes et le corps de la requête.
 
-Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec les **espace de travail**, **service** et **api\_key** de votre expérience.
+Ce guide fournit un exemple Python opérationnel. Vous devrez le modifier avec les **espace de travail**, **service** et **api\_key** de votre expérience.
 
 	import urllib2
 	import json
@@ -384,4 +384,4 @@ Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec le
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

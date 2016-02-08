@@ -68,7 +68,7 @@ Les passerelles des applications API peuvent être configurées pour activer CO
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-Le paramètre d'application **MS_CrossDomainOrigins** est décrit en détail dans le billet de blog [Mises à jour de .NET pour Azure Mobile Services](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Consultez donc ce billet pour plus d'informations sur les détails du paramètre.
+Le paramètre d'application **MS_CrossDomainOrigins** est décrit en détail dans le billet de blog [Mises à jour de .NET pour Azure Mobile Services](https://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Consultez donc ce billet pour plus d'informations sur les détails du paramètre.
 
 ### Activation de CORS dans du code Web API
 
@@ -314,7 +314,7 @@ Dans cette section, vous allez créer une nouvelle application web vide, install
 
 1, Dans le code que vous venez d’ajouter dans le fichier index.html, remplacez le numéro de port de l’URL de base (`http://localhost:1578`) par le numéro de port réel de votre projet d’API.
 
->[AZURE.NOTE]**Remarque** N'utilisez pas le numéro de port du projet client HTML. Pour ouvrir une fenêtre de navigateur indiquant le numéro de port, cliquez avec le bouton droit sur le projet d'API, puis cliquez sur **Déboguer > Démarrer une nouvelle instance**.
+>[AZURE.NOTE] **Remarque** N'utilisez pas le numéro de port du projet client HTML. Pour ouvrir une fenêtre de navigateur indiquant le numéro de port, cliquez avec le bouton droit sur le projet d'API, puis cliquez sur **Déboguer > Démarrer une nouvelle instance**.
 
 1. Assurez-vous que le projet d’application API est également en cours d’exécution lorsque vous lancez le client HTML. Dans le cas contraire, le code HTML JavaScript ne fonctionnera pas correctement. Cliquez avec le bouton droit sur la solution et sélectionnez **Propriétés**. Spécifiez que les deux projets web doivent s'**Exécuter sans débogage** et que le projet d'API doit s'exécuter en premier. 
 
@@ -373,4 +373,4 @@ Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme Ja
 
 Cet exemple illustre un accès non authentifié à une application API. Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

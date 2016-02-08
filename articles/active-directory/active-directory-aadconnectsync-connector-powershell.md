@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Synchronisation Azure AD Connect : connecteur PowerShell"
+   pageTitle="Azure AD Connect Sync : connecteur PowerShell | Microsoft Azure"
    description="Cet article décrit comment configurer le connecteur Windows PowerShell de Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Référence technique du connecteur PowerShell Windows
@@ -96,7 +96,7 @@ Le script de validation reçoit les paramètres suivants de la part du connecteu
 | --- | --- | --- |
 | ConfigParameterPage | [ConfigParameterPage][cpp] | Boîte de dialogue ou l’onglet de configuration qui a déclenché la demande de validation. |
 | ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Tableau des paramètres de configuration pour le connecteur. |
-| Informations d'identification | [PSCredential][pscred] | Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
+| Informations d’identification | [PSCredential][pscred] | Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
 
 Le script de validation doit renvoyer un seul objet ParameterValidationResult au pipeline.
 
@@ -370,4 +370,4 @@ Remplacez le nom du connecteur Windows PowerShell de l’espace réservé <Conne
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

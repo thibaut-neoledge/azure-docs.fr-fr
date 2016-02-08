@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à ServiceNow | Microsoft Azure" 
     description="Découvrez comment utiliser ServiceNow avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,12 +11,13 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/02/2015" 
-    ms.author="markvi" />
+    ms.date="01/26/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à ServiceNow
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et ServiceNow. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et ServiceNow. 
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire dans ServiceNow
@@ -37,7 +38,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ###Pour activer l’intégration d’applications pour ServiceNow, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-servicenow-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +71,7 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **ServiceNow** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **ServiceNow** du portail Azure AD Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configurer l’authentification unique")
 
@@ -78,7 +79,7 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configurer l’authentification unique")
 
-3.  Sur la page **Configurer les paramètres de l’application**, procédez comme suit :
+3.  Dans la page **Configurer les paramètres de l’application**, procédez comme suit :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configurer l’URL de l’application")
 
@@ -94,7 +95,7 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
 
 
-4.  Sur la page **Configurer l’authentification unique à ServiceNow**, cliquez sur **Télécharger le certificat**, enregistrez le fichier de certificat en local sur votre ordinateur, puis cliquez sur **Suivant**.
+4.  Dans la page **Configurer l’authentification unique à ServiceNow**, cliquez sur **Télécharger le certificat**, enregistrez le fichier de certificat en local sur votre ordinateur, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configurer l’authentification unique")
 
@@ -144,7 +145,7 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
     e. Pour **Type**, sélectionnez **Trust Store Cert**.
 
     f. Créez un fichier codé en Base 64 à partir du certificat téléchargé.
-    > [AZURE.NOTE]Pour plus d’informations, consultez la section [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+    > [AZURE.NOTE] Pour plus d’informations, consultez la section [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
     
     g. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **PEM Certificate**.
 
@@ -174,15 +175,15 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
     b. Dans la zone de texte **User Field**, entrez **email**.
 
-    c. Dans le portail Azure AD, copiez la valeur de l’**ID de fournisseur d’identité** et collez-la dans la zone de texte **URL de fournisseur d’identité**.
+    c. Dans le portail Azure AD Classic, copiez la valeur de l’**ID de fournisseur d’identité**, puis collez-la dans la zone de texte **URL de fournisseur d’identité**.
 
-    d. Dans le portail Azure AD, copiez la valeur de l’**URL de demande d’authentification** et collez-la dans la zone de texte **Demande d’authentification du fournisseur d’identité**.
+    d. Dans le portail Azure AD Classic, copiez la valeur de l’**URL de la demande d’authentification**, puis collez-la dans la zone de texte **Demande d’authentification du fournisseur d’identité**.
 
-    e. Dans le portail Azure AD, copiez la valeur de l’**URL du service de déconnexion unique** et collez-la dans la zone de texte **Demande de déconnexion unique du fournisseur d’identité**.
+    e. Dans le portail Azure AD Classic, copiez la valeur de l’**URL du service de déconnexion unique**, puis collez-la dans la zone de texte **Demande de déconnexion unique du fournisseur d’identité**.
 
     f. Dans la zone de texte **Page d’accueil ServiceNow**, entrez l’URL de la page d’accueil de votre instance ServiceNow.
 
-    > [AZURE.NOTE]La page d’accueil de l’instance ServiceNow est une concaténation de votre **URL de locataire ServiceNow** et de **/navpage.do** (p. ex., **https://fabrikam.service-now.com/navpage.do*).
+    > [AZURE.NOTE] La page d’accueil de l’instance ServiceNow est une concaténation de votre **URL de locataire ServiceNow** et de **/navpage.do** (p. ex., **https://fabrikam.service-now.com/navpage.do*).
  
 
     g. Dans la zone de texte **ID de l’entité / Émetteur**, entrez l’URL de votre locataire ServiceNow.
@@ -207,7 +208,7 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
 
 
-6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Azure AD Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configurer l’authentification unique")
 
@@ -224,24 +225,24 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 ### Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1. Dans le portail de gestion Azure, sur la page d’intégration d’application **ServiceNow**, cliquez sur **Configurer l’approvisionnement des utilisateurs** .<br><br> ![Approvisionnement d'utilisateurs](./media/active-directory-saas-servicenow-tutorial/IC769498.png "Approvisionnement d'utilisateurs")
+1. Dans la page d’intégration d’applications **ServiceNow** du portail de gestion Azure Classic, cliquez sur **Configurer l’approvisionnement d’utilisateurs**. <br><br> ![Approvisionnement d'utilisateurs](./media/active-directory-saas-servicenow-tutorial/IC769498.png "Approvisionnement d'utilisateurs")
 
 
 2. Sur la page **Saisissez vos identifiants ServiceNow pour permettre l’approvisionnement automatique des utilisateurs**, indiquez les paramètres de configuration suivants : Configurer l’approvisionnement des utilisateurs.
 
-     2\.1. Dans la zone de texte **Nom de l’instance ServiceNow**, entrez le nom de l’instance ServiceNow.
+     2.1. Dans la zone de texte **Nom de l'Instance ServiceNow**, tapez le nom d'instance ServiceNow.
 
-     2\.2. Dans la zone de texte **Nom d’utilisateur admin ServiceNow**, entrez le nom du compte d’administrateur ServiceNow.
+     2.2. Dans la zone de texte **Nom d’utilisateur admin ServiceNow**, entrez le nom du compte d’administrateur ServiceNow.
 
-     2\.3. Dans la zone de texte **Mot de passe de l’admin ServiceNow**, entrez le mot de passe de ce compte.
+     2.3. Dans la zone de texte **Mot de passe de l’admin ServiceNow**, entrez le mot de passe de ce compte.
 
-     2\.4. Cliquez sur **Valider** pour vérifier votre configuration.
+     2.4. Cliquez sur **Valider** pour vérifier votre configuration.
 
-     2\.5. Cliquez sur le bouton **Suivant** pour ouvrir la page **Étapes suivantes**.
+     2.5. Cliquez sur le bouton **Suivant** pour ouvrir la page **Étapes suivantes**.
 
-     2\.6. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes du répertoire dans cette application** ». <br><br> ![Étapes suivantes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Étapes suivantes")
+     2.6. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes du répertoire dans cette application** ». <br><br> ![Étapes suivantes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Étapes suivantes")
 
-     2\.7. Sur la page **Étapes suivantes**, cliquez sur **Terminer** pour enregistrer votre configuration.
+     2.7. Sur la page **Étapes suivantes**, cliquez sur **Terminer** pour enregistrer votre configuration.
 
 
 
@@ -259,7 +260,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à ServiceNow, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure AD Classic, créez un compte de test.
 
 2.  Sur la page d’intégration d’application **ServiceNow**, cliquez sur **Affecter des utilisateurs**.
 
@@ -277,4 +278,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

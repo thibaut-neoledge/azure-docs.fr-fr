@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="01/19/2016"
    ms.author="seanmck"/>
 
 
@@ -42,7 +42,7 @@ ASP.NET 5 est une infrastructure légère de développement web inter-plateforme
 
     Une fois votre projet d’API web créé, vous aurez deux services dans votre application. Lorsque vous continuez à générer votre application, vous allez ajouter davantage de services exactement de la même façon. Chacun peut être mis à niveau et faire l'objet d'un contrôle de version indépendamment.
 
->[AZURE.NOTE]Depuis la version préliminaire publique de novembre de Service Fabric, il existe des problèmes connus avec les chemins d'accès longs lorsque vous utilisez des projets ASP.NET. Lors de la création de ce type de projets, il est préférable de choisir des noms courts pour les types d'applications et de services, ainsi que pour les noms de package de code et de configuration, afin d'éviter les problèmes.
+>[AZURE.NOTE] Depuis la version préliminaire publique de novembre de Service Fabric, il existe des problèmes connus avec les chemins d'accès longs lorsque vous utilisez des projets ASP.NET. Lors de la création de ce type de projets, il est préférable de choisir des noms courts pour les types d'applications et de services, ainsi que pour les noms de package de code et de configuration, afin d'éviter les problèmes.
 
 ## Exécution de l'application
 
@@ -139,7 +139,7 @@ Maintenant que nous avons défini l'interface, nous devons la mettre en œuvre d
 
 Avec l'interface `ICounter` mise en œuvre, l'étape finale de l'activation du service avec état à appeler à partir d'autres services consiste à ouvrir un canal de communication. Pour les services avec état, Service Fabric fournit une méthode substituable appelée `CreateServiceReplicaListeners`. Avec cette méthode, vous pouvez spécifier un ou plusieurs écouteurs de communication, en fonction du type de communication que vous voulez activer pour votre service.
 
->[AZURE.NOTE]La méthode équivalente pour ouvrir un canal de communication sur des services sans état est appelée `CreateServiceInstanceListeners`.
+>[AZURE.NOTE] La méthode équivalente pour ouvrir un canal de communication sur des services sans état est appelée `CreateServiceInstanceListeners`.
 
 Dans ce cas, nous remplaçons la méthode `CreateServiceReplicaListeners` existante et vous proposons une instance de `ServiceRemotingListener`, ce qui crée un point de terminaison RPC pouvant être appelé à partir de clients par le biais de `ServiceProxy`.
 
@@ -189,7 +189,7 @@ Notre service avec état est maintenant prêt à recevoir le trafic provenant d'
 
     La première ligne de code est la clé. Pour créer le proxy ICounter sur le service avec état, vous devez fournir deux informations : un ID de partition et le nom du service.
 
-    Vous pouvez utiliser le partitionnement pour mettre à l'échelle des services avec état en les fractionnant dans différents groupes en fonction de la clé définie, comme l'ID client ou le code postal. Dans notre exemple d'application, le service avec état ne dispose que d'une seule partition, donc la clé importe peu. N'importe quelle clé fournie aboutira à la même partition. Pour en savoir plus sur le partitionnement des services, consultez [Comment partitionner les services fiables (Reliable Services) de Service Fabric](service-fabric-concepts-partitioning).
+    Vous pouvez utiliser le partitionnement pour mettre à l'échelle des services avec état en les fractionnant dans différents groupes en fonction de la clé définie, comme l'ID client ou le code postal. Dans notre exemple d'application, le service avec état ne dispose que d'une seule partition, donc la clé importe peu. N'importe quelle clé fournie aboutira à la même partition. Pour en savoir plus sur le partitionnement des services, consultez [Comment partitionner les services fiables (Reliable Services) de Service Fabric](service-fabric-concepts-partitioning.md).
 
     Le nom du service est un URI de la structure de formulaire :/&lt;nom\_application&gt;/&lt;nom\_service&gt
 
@@ -237,4 +237,4 @@ Pour apprendre à configurer des valeurs différentes pour un environnement diff
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

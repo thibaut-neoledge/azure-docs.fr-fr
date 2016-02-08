@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="10/28/2015"
 	ms.author="jodebrui"/>
 
@@ -32,7 +32,7 @@ Notez que la table et les lignes de variable de table, ainsi que les index, sont
 
 ## Surveillance et alerte
 
-Vous pouvez surveiller l’utilisation du stockage en mémoire sous forme de pourcentage de la [capacité de stockage de votre niveau de performances](sql-database-service-tiers.md#service-tiers-for-single-databases) dans le [portail](http://portal.azure.com/) Azure :
+Vous pouvez surveiller l’utilisation du stockage en mémoire sous forme de pourcentage de la [capacité de stockage de votre niveau de performances](sql-database-service-tiers.md#service-tiers-for-single-databases) dans le [portail](https://portal.azure.com/) Azure :
 
 - Sur le panneau Base de données, recherchez la zone Utilisation de ressources, puis cliquez sur Modifier.
 - Sélectionnez ensuite la métrique du pourcentage de stockage en mémoire XTP.
@@ -58,4 +58,4 @@ Pour résoudre cette erreur, deux possibilités s’offrent à vous :
 ## Étapes suivantes
 En savoir plus sur l’[Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

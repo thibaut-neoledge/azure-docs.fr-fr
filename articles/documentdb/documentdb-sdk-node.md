@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="01/25/2016" 
 	ms.author="ryancraw"/>
 
 # Kit de développement logiciel (SDK) DocumentDB
@@ -36,6 +36,10 @@
 </table></br>
 
 ##Notes de publication
+
+###<a name="1.5.2"/>1.5.2</a>
+
+- Résolution du problème [n°95](https://github.com/Azure/azure-documentdb-node/issues/95) - Avertissement de fuite de l’écouteur EventEmitter
 
 ###<a name="1.5.1"/>1.5.1</a>
 
@@ -105,23 +109,24 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.5.1](#1.5.1) | 4 janvier 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 décembre 2015 |--- 
-| [1\.4.0](#1.4.0) | 6 octobre 2015 |--- 
-| [1\.3.0](#1.3.0) | 6 octobre 2015 |--- 
-| [1\.2.2](#1.2.2) | 10 septembre 2015 |--- 
-| [1\.2.1](#1.2.1) | 15 août 2015 |---
-| [1\.2.0](#1.2.0) | 5 août 2015 |--- 
-| [1\.1.0](#1.1.0) | 9 juillet 2015 |--- 
-| [1\.0.3](#1.0.3) | 4 juin 2015 |--- 
-| [1\.0.2](#1.0.2) | 23 mai 2015 |---
-| [1\.0.1](#1.0.1) | 15 mai 2015 |--- 
-| [1\.0.0](#1.0.0) | 8 avril 2015 |--- 
-| 0.9.4-version préliminaire | 6 avril 2015 | 29 février 2016 
-| 0.9.3-version préliminaire | 14 janvier 2015 | 29 février 2016 
-| 0.9.2-version préliminaire | 18 décembre 2014 | 29 février 2016 
-| 0.9.1-version préliminaire | 22 août 2014 | 29 février 2016 
-| 0.9.0-version préliminaire | 21 août 2014 | 29 février 2016
+| [1\.5.2](#1.5.2) | 22 janvier 2016 |--- 
+| [1\.5.1](#1.5.1) | 4 janvier 2016 |--- 
+| [1\.5.0](#1.5.0) | 31 décembre 2015 |--- 
+| [1\.4.0](#1.4.0) | 6 octobre 2015 |--- 
+| [1\.3.0](#1.3.0) | 6 octobre 2015 |--- 
+| [1\.2.2](#1.2.2) | 10 septembre 2015 |--- 
+| [1\.2.1](#1.2.1) | 15 août 2015 |--- 
+| [1\.2.0](#1.2.0) | 5 août 2015 |--- 
+| [1\.1.0](#1.1.0) | 9 juillet 2015 |--- 
+| [1\.0.3](#1.0.3) | 4 juin 2015 |--- 
+| [1\.0.2](#1.0.2) | 23 mai 2015 |--- 
+| [1\.0.1](#1.0.1) | 15 mai 2015 |--- 
+| [1\.0.0](#1.0.0) | 8 avril 2015 |--- 
+| 0.9.4-version préliminaire | 6 avril 2015 | 29 février 2016 
+| 0.9.3-version préliminaire | 14 janvier 2015 | 29 février 2016 
+| 0.9.2-version préliminaire | 18 décembre 2014 | 29 février 2016 
+| 0.9.1-version préliminaire | 22 août 2014 | 29 février 2016 
+| 0.9.0-version préliminaire | 21 août 2014 | 29 février 2016
 
 
 ## Forum Aux Questions
@@ -131,4 +136,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

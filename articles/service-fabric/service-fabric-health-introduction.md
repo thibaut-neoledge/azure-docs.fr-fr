@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Présentation du contrôle d’intégrité de Service Fabric
@@ -21,7 +21,7 @@ Azure Service Fabric introduit un modèle d’intégrité qui fournit une évalu
 
 Les composants Service Fabric utilisent ce modèle d'intégrité pour signaler leur état actuel. Vous pouvez utiliser le même mécanisme pour établir des rapports sur l’intégrité de vos applications. La qualité et la richesse des rapports d’intégrité propres à vos conditions personnalisées déterminent la facilité avec laquelle vous pourrez détecter et résoudre les problèmes de votre application en cours d’exécution.
 
-> [AZURE.NOTE]Nous avons créé le sous-système d’intégrité pour répondre au besoin des mises à niveau surveillées. Service Fabric inclut des mises à niveau surveillées qui permettent de mettre à niveau un cluster ou une application sans temps d’arrêt, avec une intervention de l’utilisateur minimale, voire nulle, et une disponibilité complète du cluster et des applications. Pour ce faire, la mise à niveau vérifie l’intégrité en fonction des stratégies de mise à niveau configurées et autorise l’installation uniquement si l’intégrité respecte les seuils souhaités. Sinon, la mise à niveau est automatiquement annulée ou suspendue pour offrir aux administrateurs la possibilité de corriger les problèmes. Pour en savoir plus sur les mises à niveau d’application, consultez [cet article](service-fabric-application-upgrade.md).
+> [AZURE.NOTE] Nous avons créé le sous-système d’intégrité pour répondre au besoin des mises à niveau surveillées. Service Fabric inclut des mises à niveau surveillées qui permettent de mettre à niveau un cluster ou une application sans temps d’arrêt, avec une intervention de l’utilisateur minimale, voire nulle, et une disponibilité complète du cluster et des applications. Pour ce faire, la mise à niveau vérifie l’intégrité en fonction des stratégies de mise à niveau configurées et autorise l’installation uniquement si l’intégrité respecte les seuils souhaités. Sinon, la mise à niveau est automatiquement annulée ou suspendue pour offrir aux administrateurs la possibilité de corriger les problèmes. Pour en savoir plus sur les mises à niveau d’application, consultez [cet article](service-fabric-application-upgrade.md).
 
 ## Magasin d’intégrité
 Le magasin d’intégrité conserve des informations sur l’intégrité des entités du cluster pour faciliter la récupération et l’évaluation. Il est implémenté en tant que service Service Fabric persistant avec état pour garantir un haut niveau de disponibilité et d'extensibilité. Il fait partie de l’application **fabric:/System** et est disponible dès que le cluster est opérationnel.
@@ -79,7 +79,7 @@ Les états d'intégrité possibles sont les suivants :
 ## Stratégies d'intégrité
 Le magasin d’intégrité applique des stratégies d’intégrité pour déterminer si une entité est saine en fonction de ses rapports et de ses enfants.
 
-> [AZURE.NOTE]Les stratégies d’intégrité peuvent être spécifiées dans le manifeste de cluster (pour l’évaluation de l’intégrité des clusters et des nœuds) ou dans le manifeste d’application (pour l’évaluation de l’application et de tous ses enfants). Les demandes d’évaluation d’intégrité peuvent également transmettre des stratégies d’évaluation d’intégrité personnalisées, utilisées uniquement pour cette évaluation.
+> [AZURE.NOTE] Les stratégies d’intégrité peuvent être spécifiées dans le manifeste de cluster (pour l’évaluation de l’intégrité des clusters et des nœuds) ou dans le manifeste d’application (pour l’évaluation de l’application et de tous ses enfants). Les demandes d’évaluation d’intégrité peuvent également transmettre des stratégies d’évaluation d’intégrité personnalisées, utilisées uniquement pour cette évaluation.
 
 Par défaut, Service Fabric applique des règles strictes (tous les éléments doivent être sains) pour la relation hiérarchique parent-enfant. Si au moins un des enfants comporte un événement défectueux, le parent est considéré comme défectueux.
 
@@ -334,4 +334,4 @@ Le modèle d’intégrité est très utilisé pour la surveillance et le diagnos
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

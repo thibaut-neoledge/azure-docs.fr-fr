@@ -19,7 +19,8 @@
 # Déplacer des données vers et depuis Azure Data Lake Store à l’aide d’Azure Data Factory
 Cet article explique comment vous pouvez utiliser l’activité de copie dans la fabrique de données Azure pour déplacer des données vers Azure Data Lake Store depuis autre un magasin de données et déplacer des données depuis un magasin Azure Data Lake Store vers un autre magasin de données. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasin de données prises en charge.
 
-> [AZURE.NOTE]Vous devez créer un compte Azure Data Lake Store avant de créer un pipeline avec l’activité de copie pour déplacer des données vers/depuis Azure Data Lake Store. Pour plus d’informations sur Azure Data Lake Store, consultez [Prise en main d’Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
+> [AZURE.NOTE]
+Vous devez créer un compte Azure Data Lake Store avant de créer un pipeline avec l’activité de copie pour déplacer des données vers/depuis Azure Data Lake Store. Pour plus d’informations sur Azure Data Lake Store, consultez [Prise en main d’Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
 > Veuillez consulter le [didacticiel Générer votre premier pipeline](data-factory-build-your-first-pipeline.md) pour connaître les étapes détaillées de la création d’une fabrique de données, de services liés, de jeux de données et d’un pipeline. Utilisez les extraits de code JSON avec Data Factory Editor, Visual Studio ou Azure PowerShell pour créer les entités Data Factory.
 
@@ -74,7 +75,7 @@ La procédure qui suit décrit les étapes nécessaires à la création d’un s
 5. (facultatif) Spécifiez les valeurs des paramètres facultatifs tels que **accountName**, **subscriptionID** et **resourceGroupName** dans JSON (ou) supprimer ces propriétés à partir de JSON.
 6. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
-> [AZURE.IMPORTANT]Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Vous devrez **accorder une nouvelle autorisation** à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Pour plus d’informations, consultez la section [Service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties).
+> [AZURE.IMPORTANT] Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Vous devrez **accorder une nouvelle autorisation** à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Pour plus d’informations, consultez la section [Service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties).
 
 
 
@@ -238,7 +239,7 @@ L’exemple copie des données appartenant à une série horaire depuis un magas
 	    }
 	}
 
-> [AZURE.NOTE]Consultez les étapes de l’exemple précédent pour obtenir l’URL d’autorisation.
+> [AZURE.NOTE] Consultez les étapes de l’exemple précédent pour obtenir l’URL d’autorisation.
 
 **Service lié Azure Storage :**
 
@@ -414,8 +415,8 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
 | Utilisateur non AAD (@hotmail.com, @live.com, etc.). | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données de l’utilisateur. | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données de l’utilisateur. | <p> Valeur maximale de 90 jours si l’utilisateur exécute des tranches en fonction de sa source de service lié OAuth au moins une fois tous les 14 jours. </p><p>Au cours des 90 jours attendus, dès lors que l’utilisateur n’a pas exécuté de tranches en fonction de cette source pendant une période de 14 jours, les informations d’identification expirent immédiatement 14 jours après la dernière tranche.</p> |
+| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données. | 12 heures |
+| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données. | 14 jours |
 
 Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
 
@@ -604,4 +605,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

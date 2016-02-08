@@ -110,7 +110,7 @@ Cette erreur est susceptible de se produire pendant le test et si vous utilisez 
 Si vous ne parvenez pas à résoudre le problème vous-même, vous pouvez :
 
 1. Recherchez votre problème dans les threads existants sur le forum StackOverflow et le [forum MSDN](https://social.msdn.microsoft.com/Forums/windows/fr-FR/home?forum=azuremobileengagement) et, s’il n’y en a pas, posez une question. 
-2. Si vous trouvez une fonctionnalité manquante, ajoutez / votez pour la demande sur notre [forum UserVoice](http://feedback.azure.com/forums/285737-mobile-engagement)
+2. Si vous trouvez une fonctionnalité manquante, ajoutez / votez pour la demande sur notre [forum UserVoice](https://feedback.azure.com/forums/285737-mobile-engagement/)
 3. Si vous bénéficiez d’une assistance Microsoft, ouvrez un incident de support en fournissant les détails suivants : 
 	- ID d’abonnement Azure
 	- Plate-forme (par exemple, iOS, Android etc.)
@@ -120,4 +120,4 @@ Si vous ne parvenez pas à résoudre le problème vous-même, vous pouvez :
 	- Version du kit de développement logiciel Mobile Engagement (par exemple, le kit de développement logiciel Android v2.1.0)
 	- Détails de l’erreur avec message d’erreur exact et scénario
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

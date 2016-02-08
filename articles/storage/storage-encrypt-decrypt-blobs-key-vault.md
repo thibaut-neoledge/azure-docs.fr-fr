@@ -136,7 +136,7 @@ Dans la fonction Main, ajoutez le code suivant.
 	KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 
-> [AZURE.NOTE]Modèles d'objet Key Vault
+> [AZURE.NOTE] Modèles d'objet Key Vault
 >
 >Il est important de comprendre qu'il n'y a que deux modèles d'objet Key Vault à connaître : l’un est basé sur l'API REST (espace de noms KeyVault) et l'autre est une extension pour le chiffrement côté client.
 
@@ -167,11 +167,11 @@ Ajoutez le code suivant pour chiffrer un objet blob et le télécharger sur votr
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-Voici une capture d’écran du [portail Azure Classic](manage.windowsazure.com) pour un objet blob qui a été chiffré à l’aide du chiffrement côté client avec une clé stockée dans Key Vault. La propriété **KeyId** est l’URI de la clé dans Key Vault qui fait office de clé de chiffrement de clés (KEK). La propriété **EncryptedKey** contient la version chiffrée de la clé de chiffrement de contenu (CEK).
+Voici une capture d’écran du [portail Azure Classic](https://manage.windowsazure.com) pour un objet blob qui a été chiffré à l’aide du chiffrement côté client avec une clé stockée dans Key Vault. La propriété **KeyId** est l’URI de la clé dans Key Vault qui fait office de clé de chiffrement de clés (KEK). La propriété **EncryptedKey** contient la version chiffrée de la clé de chiffrement de contenu (CEK).
 
 ![Capture d'écran présentant des métadonnées d'objets blob qui incluent des métadonnées de chiffrement][1]
 
-> [AZURE.NOTE]Si vous examinez le constructeur BlobEncryptionPolicy, vous remarquerez qu'il peut accepter une clé et/ou un programme de résolution. Rappelez-vous que vous ne pouvez pas utiliser un programme de résolution pour le chiffrement, car celui-ci ne prend pour l’instant pas en charge de clé par défaut.
+> [AZURE.NOTE] Si vous examinez le constructeur BlobEncryptionPolicy, vous remarquerez qu'il peut accepter une clé et/ou un programme de résolution. Rappelez-vous que vous ne pouvez pas utiliser un programme de résolution pour le chiffrement, car celui-ci ne prend pour l’instant pas en charge de clé par défaut.
 
 
 
@@ -191,7 +191,7 @@ Ajoutez le code suivant pour déchiffrer l’objet blob que vous venez de télé
 	    blob.DownloadToStream(np, null, options, null);
 
 
-> [AZURE.NOTE]Il existe deux autres genres de programmes de résolution vous permettant de gérer plus facilement vos clés, à savoir : AggregateKeyResolver et CachingKeyResolver.
+> [AZURE.NOTE] Il existe deux autres genres de programmes de résolution vous permettant de gérer plus facilement vos clés, à savoir : AggregateKeyResolver et CachingKeyResolver.
 
 
 ## Utiliser les secrets Key Vault
@@ -235,4 +235,4 @@ Pour obtenir les dernières informations sur Microsoft Azure Storage, consulte
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

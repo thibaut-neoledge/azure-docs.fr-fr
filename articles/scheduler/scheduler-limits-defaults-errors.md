@@ -49,13 +49,7 @@ Par exemple, une erreur HTTP 404 peut se produire pour de nombreuses raisons. Di
 |ConflictError|Conflit (409)|Un conflit s'est produit pour empêcher l'opération de se terminer.|
 |TemporaryRedirect|Redirection temporaire (307)|L'objet demandé n'est pas disponible. Une URI temporaire pour le nouvel emplacement de l'objet peut être obtenue à partir du champ Emplacement de la réponse. La requête d'origine peut être répétée sur la nouvelle URI.|
 
-Les opérations API peuvent également retourner des informations d'erreur supplémentaires définies par le service de gestion. Ces informations d'erreur supplémentaires sont retournées dans le corps de la réponse. Le corps de la réponse d'erreur suit le format de base ci-dessous.
-
-		<?xml version="1.0" encoding="utf-8"?>  
-		<Error>  
-			<Code>string-code</Code>  
-			<Message>detailed-error-message</Message>  
-		</Error>  
+Les opérations API peuvent également retourner des informations d'erreur supplémentaires définies par le service de gestion. Ces informations d'erreur supplémentaires sont retournées dans le corps de la réponse.
 
 ## Voir aussi
 
@@ -68,7 +62,7 @@ Les opérations API peuvent également retourner des informations d'erreur suppl
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/dn528946)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
 
  [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
 
@@ -78,4 +72,4 @@ Les opérations API peuvent également retourner des informations d'erreur suppl
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
@@ -34,7 +34,7 @@ En règle générale, chaque requête concurrente consomme un ou plusieurs empla
 2. **Classe de ressource** à laquelle appartient l’utilisateur
 3. Si la requête ou l'opération est régie par le modèle d'emplacement d'accès concurrentiel ou non 
 
-> [AZURE.NOTE]Il est important de noter que toutes les requêtes ne sont pas régies par la règle de requête d'emplacement d'accès concurrentiel. Toutefois, la plupart des requêtes utilisateur le sont. Certaines requêtes et opérations n'utilisent pas les emplacements de concurrence. Ces requêtes et opérations restent limitées par la limite de requêtes simultanées, c'est pourquoi les deux règles sont décrites. Reportez-vous à la section [exceptions de classe de ressource](#exceptions) ci-dessous pour plus de détails.
+> [AZURE.NOTE] Il est important de noter que toutes les requêtes ne sont pas régies par la règle de requête d'emplacement d'accès concurrentiel. Toutefois, la plupart des requêtes utilisateur le sont. Certaines requêtes et opérations n'utilisent pas les emplacements de concurrence. Ces requêtes et opérations restent limitées par la limite de requêtes simultanées, c'est pourquoi les deux règles sont décrites. Reportez-vous à la section [exceptions de classe de ressource](#exceptions) ci-dessous pour plus de détails.
 
 Le tableau ci-dessous décrit les limites de requêtes simultanées et d’emplacements de concurrence ; en supposant que votre requête est régie par les ressources.
 
@@ -75,7 +75,7 @@ SQL Data Warehouse implémente les classes de ressource au moyen de rôles de 
 
 Vous pouvez ajouter ou supprimer votre nom au niveau du rôle de base de données de gestion des charges de travail en utilisant les procédures `sp_addrolemember` et `sp_droprolemember`. Notez que vous devez disposer d’une autorisation `ALTER ROLE` pour effectuer cette opération. Vous n’avez pas la possibilité d’utiliser la syntaxe DDL ALTER ROLE. Vous devez utiliser les procédures stockées mentionnées ci-dessus. Un exemple complet montrant comment créer des connexions et des utilisateurs est fourni dans la section [gestion des utilisateurs)[#gestion-des-utilisateurs] à la fin de cet article.
 
-> [AZURE.NOTE]Plutôt que d’ajouter ou de supprimer un utilisateur dans un groupe de gestion des charges de travail, il est souvent plus simple de lancer ces opérations plus intensives par le biais d’une connexion ou d’un utilisateur distincts affectés en permanence à la classe de ressource supérieure.
+> [AZURE.NOTE] Plutôt que d’ajouter ou de supprimer un utilisateur dans un groupe de gestion des charges de travail, il est souvent plus simple de lancer ces opérations plus intensives par le biais d’une connexion ou d’un utilisateur distincts affectés en permanence à la classe de ressource supérieure.
 
 ### Allocation de mémoire
 
@@ -183,7 +183,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE 
 -->
-> [AZURE.NOTE]Il est important de souligner que les requêtes `SELECT` s'exécutant exclusivement sur les affichages catalogue et de gestion dynamique ne sont **pas** régies par les classes de ressource.
+> [AZURE.NOTE] Il est important de souligner que les requêtes `SELECT` s'exécutant exclusivement sur les affichages catalogue et de gestion dynamique ne sont **pas** régies par les classes de ressource.
 
 Il est important de noter que la majorité des requêtes utilisateur sont susceptibles d'être régies par les classes de ressource. La règle générale est que la charge de travail de la requête active doit respecter les seuils de requêtes simultanées et d’emplacement d’accès concurrentiel, sauf si elle a été spécifiquement exclue par la plateforme. En tant qu'utilisateur final, vous ne pouvez pas choisir d'exclure une requête du modèle d'emplacement d'accès concurrentiel. Dès que l’un de ces seuils est dépassé, les requêtes sont placées en file d’attente. Les requêtes mises en file d’attente sont alors traitées dans l’ordre de priorité suivi par l’heure de la requête.
 
@@ -267,7 +267,7 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE]La requête ci-dessus permet également d’analyser l’utilisation active et de l’historique des groupes de charges de travail lors du dépannage.
+> [AZURE.NOTE] La requête ci-dessus permet également d’analyser l’utilisation active et de l’historique des groupes de charges de travail lors du dépannage.
 
 ## Exemples de gestion des charges de travail
 
@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]Il est judicieux de créer des utilisateurs pour vos connexions dans la base de données MASTER lorsque vous utilisez la base de données SQL Azure et SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans la base de données SQL Azure].
+> [AZURE.NOTE] Il est judicieux de créer des utilisateurs pour les connexions dans la base de données MASTER, au sein d’Azure SQL Database et d’Azure SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans la base de données SQL Azure].
 
 Une fois que la connexion a été créée, un compte d’utilisateur doit être ajouté.
 
@@ -323,7 +323,7 @@ Pour supprimer un utilisateur d’un rôle de gestion des charges de travail, ut
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
 
-> [AZURE.NOTE]Il n’est pas possible de supprimer un utilisateur dans la classe smallrc.
+> [AZURE.NOTE] Il n’est pas possible de supprimer un utilisateur dans la classe smallrc.
 
 Pour afficher les utilisateurs membres d’un rôle donné, utilisez la requête suivante :
 
@@ -452,4 +452,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

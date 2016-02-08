@@ -34,7 +34,7 @@ Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte �
 
 #### Connexion au service :
 
-1. Accédez à [http://azure.microsoft.com](http://azure.microsoft.com/)
+1. Accédez à [http://azure.microsoft.com](https://azure.microsoft.com/)
 
 1. À l’aide de votre compte Microsoft, connectez-vous au portail Microsoft Azure Classic (situé dans l’angle supérieur droit du volet).
 
@@ -57,15 +57,15 @@ La hiérarchie de navigation de l’interface utilisateur du service StorSimple 
 |Page d’accueil|Pages de niveau de service|Pages de niveau appareil|Pages de niveau appareil|
 |---|---|---|---|
 |Service StorSimple Manager|Tableau de bord du service|Page du tableau de bord d’un appareil||
-||Appareils →|Surveiller|
-||Catalogue de sauvegarde|Conteneurs de volume →|Volumes|
-||Configurer (Service)|Stratégies de sauvegarde||
-||Travaux|Configurer (Appareil)|
-||Alertes|Maintenance|
+|Appareils →|Surveiller|
+|Catalogue de sauvegarde|Conteneurs de volume →|Volumes|
+|Configurer (Service)|Stratégies de sauvegarde||
+|Travaux|Configurer (Appareil)|
+|Alertes|Maintenance|
 
 ![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo qui vous guide à travers l’interface utilisateur du service StorSimple Manager, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
+Pour visionner une vidéo qui vous guide à travers l’interface utilisateur du service StorSimple Manager, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Gestion d’un appareil StorSimple via le service StorSimple Manager
 
@@ -113,7 +113,6 @@ Si vous rencontrez des problèmes de fonctionnement quotidien de votre appareil 
 - [Utilisation des indicateurs de surveillance de StorSimple](storsimple-monitoring-indicators.md)
 
 Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une demande d’intervention, consultez :
-
 -  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

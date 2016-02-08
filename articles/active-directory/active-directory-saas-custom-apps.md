@@ -15,13 +15,13 @@
 
 #Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.
 
-La galerie d'applications Azure Active Directory contient une liste d'applications qui prennent en charge une forme d'authentification unique avec Azure Active Directory, conformément à la description dans [cet article](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/). Une fois que vous (spécialiste informatique ou intégrateur système de votre organisation) avez trouvé l'application que vous voulez connecter, vous pouvez commencer par suivre les instructions détaillées présentées dans le portail de gestion pour activer l'authentification unique.
+La galerie d'applications Azure Active Directory contient une liste d'applications qui prennent en charge une forme d'authentification unique avec Azure Active Directory, conformément à la description dans [cet article]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/). Une fois que vous (spécialiste informatique ou intégrateur système de votre organisation) avez trouvé l'application que vous voulez connecter, vous pouvez commencer par suivre les instructions détaillées présentées dans le portail de gestion pour activer l'authentification unique.
 
 Les clients titulaires de licences [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) bénéficient de ces fonctionnalités supplémentaires, qui peuvent être appelées à partir de la catégorie **Personnalisé** de la galerie d'applications Azure AD :
 
 * Connexion libre-service de toute application prenant en charge les fournisseurs d'identité SAML 2.0
 * Connexion libre-service de n'importe quelle application Web qui a une page de connexion basée sur HTML utilisant une SSO basée sur le mot de passe
-* Possibilité d'ajouter des liens à n'importe quelle application dans le [Lanceur d'application Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users)
+* Possibilité d'ajouter des liens à n'importe quelle application dans le [Lanceur d'application Office 365]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)
 * Connexion libre-service des applications qui utilisent le protocole SCIM pour l'affectation d'utilisateurs ([description ici](active-directory-scim-provisioning))
 
 Ceci peut inclure non seulement les applications SaaS que vous utilisez, mais qui n'ont pas encore été embarquées dans la galerie d'applications Azure AD, mais encore les applications Web tierces que votre organisation a déployées sur les serveurs que vous contrôlez, dans le cloud ou localement.
@@ -105,7 +105,7 @@ Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application
 
 Sélectionnez cette option pour ajouter un lien au panneau d'accès Azure AD ou au portail Office 365 de votre organisation. Vous pouvez utiliser ceci pour ajouter des liens à des applications Web personnalisées qui utilisent actuellement des services de fédération Azure Active Directory (ou un autre service de fédération) au lieu d'Azure AD pour l'authentification. Ou bien, vous pouvez ajouter des liens ciblés vers des pages SharePoint spécifiques ou d'autres pages Web dont vous souhaitez qu'elles s'affichent uniquement sur vos panneaux d'accès d'utilisateurs.
 
-Après avoir sélectionné **Suivant**, on vous demandera d'entrer l'URL de l'application à lier. Une fois l'opération terminée, les utilisateurs et les groupes peuvent être affectés à l'application, qui s'affiche alors dans le [Lanceur d'applications Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) pour ces utilisateurs.
+Après avoir sélectionné **Suivant**, on vous demandera d'entrer l'URL de l'application à lier. Une fois l'opération terminée, les utilisateurs et les groupes peuvent être affectés à l'application, qui s'affiche alors dans le [Lanceur d'applications Office 365]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/) pour ces utilisateurs.
 
 Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application.
 
@@ -118,4 +118,4 @@ Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

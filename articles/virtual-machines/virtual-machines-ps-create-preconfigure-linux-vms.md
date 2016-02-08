@@ -268,7 +268,7 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 ## Ressources supplémentaires
 
-[Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [FAQ sur les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
@@ -280,4 +280,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

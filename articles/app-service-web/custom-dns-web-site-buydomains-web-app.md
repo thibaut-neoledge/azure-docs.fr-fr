@@ -39,14 +39,14 @@ Pour une application web de production, vous souhaitez probablement afficher un 
 
 ## Vue d'ensemble
 
-> [AZURE.NOTE]N'essayez pas d'acheter un domaine avec un abonnement qui n'est pas associé à une carte de crédit active. Cela pourrait entraîner la désactivation de votre abonnement.
+> [AZURE.NOTE] N'essayez pas d'acheter un domaine avec un abonnement qui n'est pas associé à une carte de crédit active. Cela pourrait entraîner la désactivation de votre abonnement.
 
-Si vous n’avez pas de nom de domaine pour votre application web, vous pouvez facilement en acheter un sur le [portail Azure](https://portal.azure.com). Pendant le processus d'achat, vous pouvez choisir de mapper automatiquement les enregistrements DNS du domaine racine et WWW à votre application web. Vous pouvez également gérer votre domaine directement dans le portail Azure.
+Si vous n’avez pas de nom de domaine pour votre application web, vous pouvez facilement en acheter un sur le [portail Azure](https://portal.azure.com/). Pendant le processus d'achat, vous pouvez choisir de mapper automatiquement les enregistrements DNS du domaine racine et WWW à votre application web. Vous pouvez également gérer votre domaine directement dans le portail Azure.
 
 
 Procédez comme suit pour acheter des noms de domaine et les attribuer à votre application web.
 
-1. Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com).
+1. Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com/).
 
 2. Sous l’onglet **Web Apps**, cliquez sur le nom de votre application web et sélectionnez **Paramètres**, puis **Domaines personnalisés et SSL**.
 
@@ -64,7 +64,7 @@ Procédez comme suit pour acheter des noms de domaine et les attribuer à votre 
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)
 
-> [AZURE.NOTE]Il est très important de remplir tous les champs obligatoires aussi précisément que possible, notamment l'adresse de messagerie. Si vous achetez un domaine sans « Protection de confidentialité », vous devrez peut-être vérifier votre adresse de messagerie avant l'activation du domaine. Dans certains cas, l'inexactitude des informations de contact fournies peuvent empêcher l'achat des domaines.
+> [AZURE.NOTE] Il est très important de remplir tous les champs obligatoires aussi précisément que possible, notamment l'adresse de messagerie. Si vous achetez un domaine sans « Protection de confidentialité », vous devrez peut-être vérifier votre adresse de messagerie avant l'activation du domaine. Dans certains cas, l'inexactitude des informations de contact fournies peuvent empêcher l'achat des domaines.
 
 6. À présent, vous pouvez choisir l'une des options suivantes :
 
@@ -76,7 +76,7 @@ Procédez comme suit pour acheter des noms de domaine et les attribuer à votre 
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
-> [AZURE.NOTE]L'option C configure automatiquement les liaisons DNS et de nom d'hôte. De cette façon, votre application web est accessible à l'aide du domaine personnalisé dès que l'achat est terminé (sous réserve des délais de propagation DNS dans certains cas). Si votre application web se trouve derrière Azure Traffic Manager, l'option permettant d'attribuer un domaine racine n'est pas affichée, car les enregistrements A ne fonctionnent pas avec Traffic Manager.
+> [AZURE.NOTE] L'option C configure automatiquement les liaisons DNS et de nom d'hôte. De cette façon, votre application web est accessible à l'aide du domaine personnalisé dès que l'achat est terminé (sous réserve des délais de propagation DNS dans certains cas). Si votre application web se trouve derrière Azure Traffic Manager, l'option permettant d'attribuer un domaine racine n'est pas affichée, car les enregistrements A ne fonctionnent pas avec Traffic Manager.
 >
 >Vous pouvez toujours attribuer les domaines/sous-domaines que vous avez achetés pour une application web à une autre, et vice versa. Consultez l'étape 8 pour plus d'informations.
 
@@ -91,11 +91,11 @@ Procédez comme suit pour acheter des noms de domaine et les attribuer à votre 
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
 
-> [AZURE.NOTE]Vous pouvez « Annuler l'achat » dans les 5 jours pour obtenir un remboursement intégral. Au bout de 5 jours, vous ne pouvez plus « Annuler l'achat », mais vous pouvez « Supprimer » le domaine. La suppression du domaine le retire de votre abonnement sans remboursement, et le domaine devient disponible.
+> [AZURE.NOTE] Vous pouvez « Annuler l'achat » dans les 5 jours pour obtenir un remboursement intégral. Au bout de 5 jours, vous ne pouvez plus « Annuler l'achat », mais vous pouvez « Supprimer » le domaine. La suppression du domaine le retire de votre abonnement sans remboursement, et le domaine devient disponible.
 
 Une fois la configuration terminée, le nom de domaine personnalisé est répertorié dans la section **Liaisons de nom d'hôte** de votre application web.
 
 À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
  
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0128_2016-->

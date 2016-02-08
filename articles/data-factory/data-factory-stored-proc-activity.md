@@ -53,13 +53,15 @@ name | Nom de l’activité | Oui
 description | Texte décrivant la raison motivant l’activité. | Non
 type | SqlServerStoredProcedure | Oui
 inputs | Jeux de données d’entrée qui doivent être disponibles (à l’état Prêt) pour l’activité de procédure stockée à exécuter. Les entrées pour l’activité de procédure stockée sont utilisées uniquement pour la gestion des dépendances lors du chaînage de cette activité avec d’autres activités. Les jeux de données d’entrée ne peuvent pas être utilisés dans la procédure stockée en tant que paramètres. | Non
-outputs | Jeux de données de sortie produits par l’activité de procédure stockée. Vérifiez que la table de sortie utilise un service lié qui lie une base de données SQL Azure ou un entrepôt Azure SQL Data Warehouse à la fabrique de données. Les sorties de l’activité de la procédure stockée peuvent servir à valider le résultat de l’activité de la procédure stockée à des fins de traitement ultérieur ou pour la gestion des dépendances lors du chaînage de cette activité avec d’autres activités | Oui
+outputs | Jeux de données de sortie produits par l’activité de procédure stockée. Vérifiez que la table de sortie utilise un service lié qui lie une base de données SQL Azure, un entrepôt Azure SQL Data Warehouse ou une base de données SQL Server à la fabrique de données. Les sorties de l’activité de la procédure stockée peuvent servir à valider le résultat de l’activité de la procédure stockée à des fins de traitement ultérieur ou pour la gestion des dépendances lors du chaînage de cette activité avec d’autres activités | Oui
 storedProcedureName | Spécifiez le nom de la procédure stockée dans la base de données SQL Azure ou l'entrepôt Azure SQL Data Warehouse qui est représenté(e) par le service lié utilisé par la table de sortie. | Oui
 storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. | Non
 
 ## Exemple de procédure pas à pas
 
 ### Exemple de table et de procédure stockée
+> [AZURE.NOTE] Cet exemple utilise la base de données SQL Azure mais fonctionne de la même manière pour un entrepôt Azure SQL Data Warehouse et une base de données SQL Server.
+
 1. Créez la **table** suivante dans votre base de données SQL Azure à l’aide de SQL Server Management Studio ou d’un autre outil que vous maîtrisez. La colonne datetimestamp affiche la date et l’heure auxquelles l’ID correspondant est généré. 
 
 		CREATE TABLE dbo.sampletable
@@ -84,10 +86,10 @@ storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure
 		    VALUES (newid(), @DateTime)
 		END
 
-	> [AZURE.IMPORTANT]Le **nom** et la **casse** du paramètre (DateTime dans cet exemple) doivent correspondre à ceux du paramètre spécifié dans le script JSON de l’activité/du pipeline. Dans la définition de procédure stockée, vérifiez que **@** est utilisé en tant que préfixe pour le paramètre.
+	> [AZURE.IMPORTANT] Le **nom** et la **casse** du paramètre (DateTime dans cet exemple) doivent correspondre à ceux du paramètre spécifié dans le script JSON de l’activité/du pipeline. Dans la définition de procédure stockée, vérifiez que **@** est utilisé en tant que préfixe pour le paramètre.
 	
 ### Créer une fabrique de données  
-4. Après la connexion au [portail Azure](http://portal.azure.com/), procédez comme suit :
+4. Après la connexion au [portail Azure](https://portal.azure.com/), procédez comme suit :
 	1.	Cliquez sur **NOUVEAU** dans le menu de gauche. 
 	2.	Cliquez sur **Analyse des données** dans le panneau **Créer**.
 	3.	Cliquez sur **Data Factory** dans le panneau **Données + analyse**.
@@ -177,7 +179,7 @@ Nous allons maintenant créer un pipeline avec une activité SqlServerStoredProc
 
 	Consultez [Surveiller le pipeline](data-factory-monitor-manage-pipelines.md) pour plus d’informations sur la surveillance des pipelines Azure Data Factory.
 
-> [AZURE.NOTE]Dans l’exemple ci-dessus, l’activité SprocActivitySample est dépourvue d’entrées. Si vous souhaitez chaîner cette activité avec une activité en amont (par exemple, un traitement antérieur), les sorties de cette dernière peuvent servir d’entrées dans cette activité. Dans ce cas, cette activité n’est pas exécutée tant que l’activité en amont n’est pas terminée, et les sorties des activités en amont sont disponibles (à l’état Prêt). Les entrées ne peuvent pas servir directement de paramètres pour l’activité de procédure stockée.
+> [AZURE.NOTE] Dans l’exemple ci-dessus, l’activité SprocActivitySample est dépourvue d’entrées. Si vous souhaitez chaîner cette activité avec une activité en amont (par exemple, un traitement antérieur), les sorties de cette dernière peuvent servir d’entrées dans cette activité. Dans ce cas, cette activité n’est pas exécutée tant que l’activité en amont n’est pas terminée, et les sorties des activités en amont sont disponibles (à l’état Prêt). Les entrées ne peuvent pas servir directement de paramètres pour l’activité de procédure stockée.
 
 ## Transmission d’une valeur statique 
 À présent, ajoutons une autre colonne nommée « Scénario » dans la table contenant une valeur statique appelée « Exemple de document ».
@@ -205,4 +207,4 @@ Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité
 		}
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

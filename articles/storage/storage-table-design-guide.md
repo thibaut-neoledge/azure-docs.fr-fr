@@ -28,7 +28,7 @@ Cette section présente certaines des principales fonctionnalités du service de
 
 Qu'est-ce que le service de Table ? Comme le laisse entendre son nom, le service de Table utilise un format tabulaire pour stocker des données. Selon la terminologie standard, chaque ligne de la table représente une entité et les colonnes stockent les différentes propriétés de cette entité. Le service de Table identifie chaque entité de façon unique en utilisant une paire de clés. Il procède au suivi de mise à jour des entités en utilisant une colonne d'horodatage (cela se produit automatiquement et vous ne pouvez pas remplacer manuellement l'horodatage par une valeur de votre choix). Le service de Table utilise le dernier horodatage modifié (ou LMT, pour Last Modified Timestamp) afin de gérer l’accès concurrentiel optimiste.
 
->[AZURE.NOTE]Les opérations d’API REST du service de Table renvoient également une valeur **ETag** dérivée du dernier horodatage modifié (LMT). Dans ce document, nous allons utiliser indifféremment les termes ETag et LMT, car ils font référence aux mêmes données sous-jacentes.
+>[AZURE.NOTE] Les opérations d’API REST du service de Table renvoient également une valeur **ETag** dérivée du dernier horodatage modifié (LMT). Dans ce document, nous allons utiliser indifféremment les termes ETag et LMT, car ils font référence aux mêmes données sous-jacentes.
 
 L'exemple suivant présente la conception d'une table simple pour stocker des entités relatives à des employés (Employee) ainsi qu'à leurs services (Department). Plusieurs des exemples présentés ultérieurement dans ce guide sont basés sur cette conception simple.
 
@@ -154,7 +154,7 @@ Le tableau suivant présente certaines des valeurs de clés à connaître lorsqu
 Pour plus d’informations, consultez la page [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx) sur MSDN.
 
 ### Considérations relatives au coût  
-Le stockage de table est relativement peu coûteux, mais vous devez y inclure les estimations de coût pour l'utilisation des capacités et la quantité de transactions dans le cadre de l'évaluation d'une solution qui utilise le service de Table. Toutefois, dans de nombreux scénarios, le stockage de données dénormalisées ou dupliquées afin d'améliorer les performances ou l'extensibilité de votre solution est une approche appropriée. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
+Le stockage de table est relativement peu coûteux, mais vous devez y inclure les estimations de coût pour l'utilisation des capacités et la quantité de transactions dans le cadre de l'évaluation d'une solution qui utilise le service de Table. Toutefois, dans de nombreux scénarios, le stockage de données dénormalisées ou dupliquées afin d'améliorer les performances ou l'extensibilité de votre solution est une approche appropriée. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ### Comparaison des tables Azure et SQL Azure  
 Pour consulter une comparaison entre Base de données SQL Azure (service de base de données relationnelle) et le service de Table, accédez à la page [Stockage de tables Azure et base de données SQL Microsoft Azure - comparaison et différences](http://msdn.microsoft.com/library/azure/jj553018.aspx) sur MSDN.
@@ -185,7 +185,7 @@ Les solutions de service de Table peuvent lire ou écrire de façon intensive, o
 
 Un bon point de départ pour concevoir votre solution de service de Table afin de vous permettre de lire les données efficacement consiste à vous demander quelles requêtes votre application devra exécuter pour extraire du service de Table les données dont elle aura besoin.
 
->[AZURE.NOTE]Avec le service de Table, il est important de mettre en place une conception efficace dès le début, car il est difficile et coûteux de la modifier ultérieurement. Par exemple, dans une base de données relationnelle, il est souvent possible de résoudre les problèmes de performances simplement en ajoutant des index à une base de données existante : cela n'est pas possible avec le service de Table.
+>[AZURE.NOTE] Avec le service de Table, il est important de mettre en place une conception efficace dès le début, car il est difficile et coûteux de la modifier ultérieurement. Par exemple, dans une base de données relationnelle, il est souvent possible de résoudre les problèmes de performances simplement en ajoutant des index à une base de données existante : cela n'est pas possible avec le service de Table.
 
 Cette section se concentre sur les problèmes à traiter lors de la conception de vos tables pour l'interrogation. Les sujets abordés dans cette section sont les suivants :
 
@@ -240,7 +240,7 @@ D'un côté, vous pouvez stocker toutes vos entités dans une seule partition, m
 
 Une **PartitionKey** idéale vous permet d’utiliser des requêtes efficaces et possède assez de partitions pour garantir l’extensibilité de votre solution. En règle générale, vous trouverez que vos entités auront une propriété appropriée qui les distribue sur des partitions suffisantes.
 
->[AZURE.NOTE]Par exemple, dans un système qui stocke des informations sur des utilisateurs ou des employés, l’ID utilisateur peut être une bonne PartitionKey. Vous pouvez avoir plusieurs entités qui utilisent un ID utilisateur donné comme clé de partition. Les différentes entités qui stockent des données relatives à un utilisateur sont regroupées en une seule partition et sont ainsi accessibles via des transactions de groupe d’entités, tout en étant hautement évolutives.
+>[AZURE.NOTE] Par exemple, dans un système qui stocke des informations sur des utilisateurs ou des employés, l’ID utilisateur peut être une bonne PartitionKey. Vous pouvez avoir plusieurs entités qui utilisent un ID utilisateur donné comme clé de partition. Les différentes entités qui stockent des données relatives à un utilisateur sont regroupées en une seule partition et sont ainsi accessibles via des transactions de groupe d’entités, tout en étant hautement évolutives.
 
 Il existe des considérations supplémentaires sur le choix de **PartitionKey** qui sont liées à la façon dont vous allez insérer, mettre à jour et supprimer des entités : pour en savoir plus, consultez la section [Conception pour la modification de données](#design-for-data-modification) ci-dessous.
 
@@ -559,7 +559,7 @@ Dans cet exemple, l’étape 4 permet d’insérer l’employé dans la table *
 
 #### Récupération après échec  
 
-Il est important que les opérations des étapes **4** et **5** soient *idempotentes* au cas où le rôle de travail nécessite un redémarrage de l’opération d’archivage. Si vous utilisez le service de Table, à l’étape **4**, vous devez utiliser une opération « insérer ou remplacer » (insert or replace) ; à l’étape **5**, vous devez faire appel à une opération « supprimer si existe » (delete if exists) dans la bibliothèque cliente que vous utilisez. Si vous utilisez un autre système de stockage, vous devez utiliser une opération idempotent appropriée.
+Il est important que les opérations des étapes **4** et **5** soient *idempotentes* au cas où le rôle de travail nécessite un redémarrage de l’opération d’archivage. Si vous utilisez le service de Table, à l’étape **4**, vous devez utiliser une opération « insérer ou remplacer »  ; à l’étape **5**, vous devez faire appel à une opération « supprimer si existe » dans la bibliothèque cliente que vous utilisez. Si vous utilisez un autre système de stockage, vous devez utiliser une opération idempotent appropriée.
 
 Si le rôle de travail ne termine jamais l’étape **6**, après un délai d’attente, le message réapparaît dans la file d’attente, prêt pour le rôle de travail qui tentera de le retraiter. Le rôle de travail peut vérifier le nombre de fois où un message de file d'attente a été lu et, si nécessaire, l'indiquer comme message « incohérent » en vue d'une investigation en l'envoyant vers une file d'attente distincte. Pour plus d’informations sur la lecture des messages de la file d’attente et la vérification du nombre de retraits, consultez [Obtention des messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).
 
@@ -576,11 +576,11 @@ Prenez en compte les points suivants lorsque vous choisissez comment implémente
 Utilisez ce modèle lorsque vous souhaitez maintenir une cohérence entre des entités qui existent dans différentes partitions ou tables. Vous pouvez étendre ce modèle pour garantir la cohérence des opérations entre le service de Table, le service BLOB et d'autres sources de données différentes d'Azure Storage, comme une base de données ou un système de fichiers.
 
 #### Conseils et modèles connexes  
-Les modèles et les conseils suivants peuvent également être pertinents au moment de l’implémentation de ce modèle :  
--	[Transactions de groupe d’entités](#entity-group-transactions)  
--	[Fusion ou remplacement](#merge-or-replace)  
+Les modèles et les conseils suivants peuvent également être pertinents au moment de l’implémentation de ce modèle :
+-	[Transactions de groupe d’entités](#entity-group-transactions) 
+-	[Fusion ou remplacement](#merge-or-replace)
 
->[AZURE.NOTE]Si l'isolation des transactions est importante pour votre solution, vous devez envisager de redéfinir vos tables pour pouvoir utiliser des EGT.
+>[AZURE.NOTE] Si l'isolation des transactions est importante pour votre solution, vous devez envisager de redéfinir vos tables pour pouvoir utiliser des EGT.
 
 ### Modèle d'entités d'index
 Permet de mettre à jour des entités d'index pour mener des recherches efficaces renvoyant des listes d'entités.
@@ -613,10 +613,10 @@ Pour la seconde méthode, utilisez les entités d'index stockant les données su
 
 La propriété **EmployeeIDs** contient une liste des ID d’employés pour les employés portant le nom stocké dans la **RowKey**.
 
-Les étapes suivantes décrivent le processus à suivre lorsque vous ajoutez un nouvel employé si vous utilisez la deuxième option. Dans cet exemple, nous ajoutons au service des ventes un employé ayant l’ID 000152 et dont le nom de famille est Jones :  
-1.	Récupérez l’entité de l’index par la valeur de **PartitionKey** « Sales » et la valeur de **RowKey** « Jones ». Enregistrez l’ETag de cette entité pour l’utiliser lors de l’étape 2.  
-2.	Créez une transaction de groupe d’entités (c’est-à-dire une opération par lots) qui insère la nouvelle entité d’employé (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « 000152 ») et met à jour l’entité d’index (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « Jones ») en ajoutant l’ID d’employé à la liste du champ EmployeeIDs. Pour plus d’informations sur les transactions de groupe d’entités, consultez [Transactions de groupe d’entités](#entity-group-transactions). 
-3.	Si la transaction de groupe d’entités échoue en raison d’une erreur d’accès concurrentiel optimiste (quelqu’un d’autre vient de modifier l’entité d’index), vous devez recommencer à l’étape 1.  
+Les étapes suivantes décrivent le processus à suivre lorsque vous ajoutez un nouvel employé si vous utilisez la deuxième option. Dans cet exemple, nous ajoutons au service des ventes un employé ayant l’ID 000152 et dont le nom de famille est Jones : 
+1.	Récupérez l’entité de l’index par la valeur de **PartitionKey** « Sales » et la valeur de **RowKey** « Jones ». Enregistrez l’ETag de cette entité pour l’utiliser lors de l’étape 2. 
+2	Créez une transaction de groupe d’entités (c’est-à-dire une opération par lots) qui insère la nouvelle entité d’employé (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « 000152 ») et met à jour l’entité d’index (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « Jones ») en ajoutant l’ID d’employé à la liste du champ EmployeeIDs. Pour plus d’informations sur les transactions de groupe d’entités, consultez [Transactions de groupe d’entités](#entity-group-transactions). 
+3.	Si la transaction de groupe d’entités échoue en raison d’une erreur d’accès concurrentiel optimiste (quelqu’un d’autre vient de modifier l’entité d’index), vous devez recommencer à l’étape 1.
 
 Vous pouvez utiliser une approche similaire pour supprimer un employé si vous utilisez la deuxième option. La modification du nom d’un employé est légèrement plus complexe, car vous devrez exécuter une transaction de groupe d’entités qui met à jour trois entités : l’entité d’employé, l’entité d’index pour l’ancien nom et l’entité d’index pour le nouveau nom. Vous devez récupérer chaque entité avant d'apporter des modifications afin de récupérer les valeurs ETag que vous pouvez ensuite utiliser pour effectuer les mises à jour à l'aide de l'accès concurrentiel optimiste.
 
@@ -638,7 +638,7 @@ Dans la troisième méthode, vous ne pouvez pas utiliser des EGT pour maintenir 
 
 #### Problèmes et considérations  
 
-Prenez en compte les points suivants quand vous choisissez comment implémenter ce modèle :  
+Prenez en compte les points suivants quand vous choisissez comment implémenter ce modèle : 
 -	Cette solution nécessite au moins deux requêtes pour récupérer des entités correspondantes : une pour interroger les entités d’index pour obtenir la liste des valeurs de **RowKey**, puis des requêtes pour récupérer chaque entité dans la liste.  
 -	Étant donné qu’une entité a une taille maximale de 1 Mo, l’utilisation des méthodes nº 2 et nº 3 dans la solution suppose que la liste des ID d’employés pour n’importe quel nom donné n’est jamais supérieure à 1 Mo. Si la liste des ID d’employés est susceptible d’être supérieure à 1 Mo, utilisez la méthode nº 1 et stockez les données d’index dans le stockage d’objet blob.  
 -	Si vous utilisez la méthode nº 2 (à l’aide des EGT pour gérer l’ajout et la suppression des employés et la modification du nom d’un employé), vous devez déterminer si le volume des transactions atteint les limites de l’extensibilité dans une partition donnée. Si c’est le cas, vous devez envisager une solution cohérente (méthode nº 1 ou nº 3) qui utilisera des files d’attente pour gérer les demandes de mise à jour et vous permettra de stocker vos entités d’index dans une partition distincte à partir des entités d’employés.  
@@ -1055,7 +1055,7 @@ L’exemple de code suivant montre une fonctionnalité équivalente faisant appe
 	var employees = employeeTable.ExecuteQuery(employeeQuery);  
 
 
->[AZURE.NOTE]L’exemple imbrique plusieurs méthodes **CombineFilters** pour inclure les trois conditions de filtre.
+>[AZURE.NOTE] L’exemple imbrique plusieurs méthodes **CombineFilters** pour inclure les trois conditions de filtre.
 
 #### Récupération d'un grand nombre d'entités à partir d'une requête  
 
@@ -1104,7 +1104,7 @@ En utilisant des jetons de continuation de manière explicite, vous pouvez contr
 -	Elle vous permet d'effectuer des E/S asynchrones dans .NET.  
 -	Elle vous permet de sérialiser le jeton de continuation dans un stockage permanent, pour que vous puissiez continuer même si l'application tombe en panne.  
 
->[AZURE.NOTE]En général, un jeton de liaison retourne un segment contenant 1 000 entités, bien qu'il puisse y en avoir moins. C’est également le cas si vous limitez le nombre d’entrées qu’une requête renvoie à l’aide de l’instruction **Take** (prendre) pour renvoyer les n premières entités qui correspondent à vos critères de recherche : le service de Table peut renvoyer un segment contenant moins de n entités avec un jeton de liaison pour vous permettre de récupérer les entités restantes.
+>[AZURE.NOTE] En général, un jeton de liaison retourne un segment contenant 1 000 entités, bien qu'il puisse y en avoir moins. C’est également le cas si vous limitez le nombre d’entrées qu’une requête renvoie à l’aide de l’instruction **Take** (prendre) pour renvoyer les n premières entités qui correspondent à vos critères de recherche : le service de table peut renvoyer un segment contenant moins de n entités avec un jeton de liaison pour vous permettre de récupérer les entités restantes.
 
 Le code C# suivant montre comment modifier le nombre d'entités renvoyées à l'intérieur d'un segment :
 
@@ -1146,7 +1146,7 @@ La méthode de **remplacement** (Replace) de la classe **TableOperation** rempla
 
 Vous pouvez utiliser la méthode de **fusion** (Merge) de la classe **TableOperation** pour réduire la quantité de données que vous envoyez au service de Table quand vous souhaitez mettre à jour une entité. La méthode de **fusion** remplace toutes les propriétés de l’entité stockée par les valeurs de propriété de l’entité incluse dans la demande, mais ne modifie pas les propriétés de l’entité stockée qui ne sont pas incluses dans la demande. Cela est utile si vous avez des entités volumineuses et que vous avez seulement besoin de mettre à jour un petit nombre de propriétés dans une demande.
 
->[AZURE.NOTE]Les méthodes de **remplacement** et de **fusion** échouent si l’entité n’existe pas. Comme alternative, vous pouvez utiliser les méthodes **InsertOrReplace** et **InsertOrMerge** qui créent une entité si elle n’existe pas.
+>[AZURE.NOTE] Les méthodes de **remplacement** et de **fusion** échouent si l’entité n’existe pas. Comme alternative, vous pouvez utiliser les méthodes **InsertOrReplace** et **InsertOrMerge** qui créent une entité si elle n’existe pas.
 
 ### Utilisation des types d'entités hétérogènes  
 
@@ -1343,7 +1343,7 @@ La première option, qui consiste à ajouter un préfixe de type d’entité à 
 
 Les techniques présentées dans cette section sont particulièrement adaptées à la discussion [Relations d’héritage](#inheritance-relationships) plus haut dans ce guide, dans la section [Modélisation des relations](#modelling-relationships).
 
->[AZURE.NOTE]Pensez à inclure un numéro de version dans la valeur de type d'entité pour permettre aux applications clientes de faire évoluer des objets POCO et de travailler avec différentes versions.
+>[AZURE.NOTE] Pensez à inclure un numéro de version dans la valeur de type d'entité pour permettre aux applications clientes de faire évoluer des objets POCO et de travailler avec différentes versions.
 
 Le reste de cette section décrit certaines des fonctionnalités de la bibliothèque cliente de stockage qui facilitent l'utilisation de plusieurs types d'entités dans la même table.
 
@@ -1585,4 +1585,4 @@ Nous aimerions également remercier les MVP Microsoft suivants pour leurs préci
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

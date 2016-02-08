@@ -26,7 +26,7 @@
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot.
 
->[AZURE.IMPORTANT]Lors de l’indexation de contenu, veillez à utiliser des fichiers multimédias avec des mots clairs (sans musique de fond, bruit, effets ou sifflement du microphone). Voici quelques exemples de contenu approprié : des réunions, des conférences ou des présentations enregistrées. Le contenu suivant peut ne pas convenir à l’indexation : des films, des émissions de télévision, des fichiers avec du son et des effets sonores mélangés, du contenu mal enregistré avec un bruit de fond (sifflement).
+>[AZURE.IMPORTANT] Lors de l’indexation de contenu, veillez à utiliser des fichiers multimédias avec des mots clairs (sans musique de fond, bruit, effets ou sifflement du microphone). Voici quelques exemples de contenu approprié : des réunions, des conférences ou des présentations enregistrées. Le contenu suivant peut ne pas convenir à l’indexation : des films, des émissions de télévision, des fichiers avec du son et des effets sonores mélangés, du contenu mal enregistré avec un bruit de fond (sifflement).
 
 
 Une tâche d’indexation peut générer les sorties suivantes :
@@ -37,7 +37,7 @@ Une tâche d’indexation peut générer les sorties suivantes :
 - Un fichier de mot-clé(XML).
 - Un fichier blob d’indexation audio (AIB) à utiliser avec SQL Server.
 
-	Pour plus d’informations, consultez [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+	Pour plus d’informations, consultez [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 Cette rubrique explique comment créer des tâches d’indexation pour **indexer un élément multimédia** et **indexer plusieurs fichiers**.
@@ -50,7 +50,7 @@ Vous pouvez définir plus de détails pour vos tâches d’indexation en utilisa
 
 Vous pouvez également traiter plusieurs fichiers multimédias à la fois à l’aide d’un fichier manifeste.
 
-Pour plus d’informations, consultez [Présélection de tâches pour Indexeur multimédia](#).
+Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](#).
 
 ## Indexation d’une ressource
 
@@ -278,7 +278,7 @@ autres | Erreurs internes | Veuillez contacter l’équipe du support technique.
 
 ## <a id="supported_languages"></a>Langues prises en charge
 
-Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Pour plus d’informations, consultez [ce billet de blog de v1.2](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Pour plus d’informations, consultez [ce billet de blog de v1.2](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
 ##Parcours d’apprentissage de Media Services
@@ -293,7 +293,7 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 
 ## Liens connexes
 
-[Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -301,4 +301,4 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

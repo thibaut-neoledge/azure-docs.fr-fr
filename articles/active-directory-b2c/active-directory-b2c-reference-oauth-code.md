@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Version préliminaire d’Azure AD B2C : flux de code d'autorisation OAuth 2.0
@@ -74,8 +74,8 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com) a affecté à votre application. |
-| response\_type | requis | Il doit inclure `code` pour le flux de code d’autorisation. |
+| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| response\_type | requis | Doit inclure `code` pour le flux de code d’autorisation. |
 | redirect\_uri | requis | L’URI de redirection de votre application, vers lequel où votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
 | scope | required | Une liste d’étendues séparées par des espaces. Une valeur d'étendue unique indique à Azure AD les deux autorisations demandées. L’étendue `openid` indique une autorisation pour connecter l'utilisateur et obtenir des données relatives à l'utilisateur sous la forme de jetons **id\_tokens** (plus d’informations à venir à ce sujet). L’étendue `offline_access` indique que votre application a besoin d’un **jeton d’actualisation** pour un accès durable aux ressources. |
 | response\_mode | recommandé | Spécifie la méthode à utiliser pour envoyer le code d’autorisation résultant à votre application. Il peut s’agir de « query », « form\_post » ou de « fragment ».
@@ -134,8 +134,8 @@ Content-Type: application/json
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | required | La stratégie qui a été utilisée pour obtenir le code d'autorisation. Vous ne pouvez pas utiliser une autre stratégie dans cette demande. **Notez que ce paramètre est ajouté à la chaîne de requête**, et non dans le corps POST. |
-| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com) a affecté à votre application. |
-| grant\_type | required | Doit être `authorization_code` pour le flux de code d’autorisation. |
+| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| grant\_type | required | Doit être `authorization_code` pour le flux de code d'autorisation. |
 | scope | required | Une liste d’étendues séparées par des espaces. Une valeur d'étendue unique indique à Azure AD les deux autorisations demandées. L’étendue `openid` indique une autorisation pour connecter l'utilisateur et obtenir des données relatives à l'utilisateur sous la forme de jetons **id\_tokens**. Elle peut être utilisée afin d’obtenir des jetons pour l’API Web principale de votre application, représentée par le même Id d’application que le client. L’étendue `offline_access` indique que votre application a besoin d’un **jeton d’actualisation** pour un accès durable aux ressources. |
 | code | required | Le code d’autorisation acquis dans le premier tronçon du flux. |
 | redirect\_uri | required | Le redirect\_uri de l'application où vous avez reçu le code d’autorisation. |
@@ -165,7 +165,8 @@ Une réponse de jeton réussie se présente ainsi :
 | refresh\_token | Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons supplémentaires après l’expiration du jeton actuel. Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. Pour plus d’informations, consultez la page de [référence des jetons B2C](active-directory-b2c-reference-tokens.md). |
 | refresh\_token\_expires\_in | La durée maximale pendant laquelle un jeton d'actualisation peut être valide (en secondes). Le jeton d'actualisation peut toutefois devenir non valide à tout moment. |
 
-> [AZURE.NOTE]Si, à ce stade, vous vous dites : « Où est le jeton d’accès ? », prenez en considération les éléments suivants. Lorsque vous demandez l’étendue `openid`, Azure AD émet un `id_token` JWT dans la réponse. Bien que ce `id_token` ne soit pas techniquement un jeton d’accès OAuth 2.0, il peut être utilisé en tant que tel lors de la communication avec le service principal de votre application, représenté par le même client\_id que le client. Le `id_token` est toujours un jeton du porteur JWT signé qui peut être envoyé à une ressource dans un en-tête d'autorisation HTTP et utilisé pour authentifier les demandes. La différence est qu'un `id_token` n'a pas de mécanisme permettant de limiter l’étendue de l’accès qu’une application cliente spécifique peut avoir. Toutefois, lorsque votre application cliente est le seul client qui est en mesure de communiquer avec votre service principal (comme c'est le cas avec la version préliminaire d’Azure AD B2C), un tel mécanisme d’étendue est inutile. Lorsque la version préliminaire d'Azure AD B2C ajoute la possibilité pour les clients de communiquer avec des ressources supplémentaires de premier plan ou tierces, des jetons d’accès sont introduits. Cependant, même dans ce cas, il est toujours recommandé d’utiliser `id_tokens` pour communiquer avec le service principal de votre application. Pour plus d'informations sur les types d'applications que vous pouvez créer avec la version préliminaire d'Azure AD B2C, consultez [cet article](active-directory-b2c-apps.md).
+> [AZURE.NOTE]
+	Si, à ce stade, vous vous dites : « Où est le jeton d’accès ? », prenez en considération les éléments suivants. Lorsque vous demandez l’étendue `openid`, Azure AD émet un `id_token` JWT dans la réponse. Bien que ce `id_token` ne soit pas techniquement un jeton d’accès OAuth 2.0, il peut être utilisé en tant que tel lors de la communication avec le service principal de votre application, représenté par le même client\_id que le client. Le `id_token` est toujours un jeton du porteur JWT signé qui peut être envoyé à une ressource dans un en-tête d'autorisation HTTP et utilisé pour authentifier les demandes. La différence est qu'un `id_token` n'a pas de mécanisme permettant de limiter l’étendue de l’accès qu’une application cliente spécifique peut avoir. Toutefois, lorsque votre application cliente est le seul client qui est en mesure de communiquer avec votre service principal (comme c'est le cas avec la version préliminaire d’Azure AD B2C), un tel mécanisme d’étendue est inutile. Lorsque la version préliminaire d'Azure AD B2C ajoute la possibilité pour les clients de communiquer avec des ressources supplémentaires de premier plan ou tierces, des jetons d’accès sont introduits. Cependant, même dans ce cas, il est toujours recommandé d’utiliser `id_tokens` pour communiquer avec le service principal de votre application. Pour plus d'informations sur les types d'applications que vous pouvez créer avec la version préliminaire d'Azure AD B2C, consultez [cet article](active-directory-b2c-apps.md).
 
 Les réponses d’erreur se présentent comme suit :
 
@@ -210,8 +211,8 @@ Content-Type: application/json
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | -------- |
 | p | required | La stratégie qui a été utilisée pour obtenir le jeton d’actualisation d’origine. Vous ne pouvez pas utiliser une autre stratégie dans cette demande. **Notez que ce paramètre est ajouté à la chaîne de requête**, et non dans le corps POST. |
-| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com) a affecté à votre application. |
-| grant\_type | required | Doit inclure `refresh_token` pour ce tronçon du flux de code d’autorisation. |
+| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| grant\_type | required | Doit inclure `refresh_token` pour ce tronçon du flux de code d'autorisation. |
 | scope | required | Une liste d’étendues séparées par des espaces. Une valeur d'étendue unique indique à Azure AD les deux autorisations demandées. L’étendue `openid` indique une autorisation pour connecter l'utilisateur et obtenir des données relatives à l'utilisateur sous la forme de jetons **id\_tokens**. Elle peut être utilisée afin d’obtenir des jetons pour l’API Web principale de votre application, représentée par le même Id d’application que le client. L’étendue `offline_access` indique que votre application a besoin d’un **jeton d’actualisation** pour un accès durable aux ressources. |
 | redirect\_uri | required | Le redirect\_uri de l'application où vous avez reçu le code d’autorisation. |
 | refresh\_token | required | Le jeton d’actualisation d’origine que vous avez acquis dans le second tronçon du flux. |
@@ -256,11 +257,11 @@ Les réponses d’erreur se présentent comme suit :
 | error\_description | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
 
-<!-- 
+<!--
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 -->
 
@@ -272,4 +273,4 @@ Si vous souhaitez tester ces demandes par vous-même, vous devez suivre ces troi
 - [Créez une application](active-directory-b2c-app-registration.md) pour obtenir un Id d'application et un redirect\_uri. Vous pouvez inclure un **client natif** dans votre application.
 - [Créez vos stratégies](active-directory-b2c-reference-policies.md) pour obtenir les noms de vos stratégies.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

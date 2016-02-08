@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="01/21/2016"
     ms.author="adegeo"/>
 
 # Qu’est-ce que le modèle Cloud Service, et comment en créer un package ?
@@ -138,7 +138,7 @@ Vous pouvez vous reporter au [schéma de configuration de service](https://msdn.
 
 <p/>
 
- >[AZURE.NOTE]L’empreinte numérique du certificat peut être ajoutée au fichier de configuration à l’aide d’un éditeur de texte. Cette valeur peut également être ajoutée dans l’onglet **Certificats** de la page **Propriétés** du rôle dans Visual Studio.
+ >[AZURE.NOTE] L’empreinte numérique du certificat peut être ajoutée au fichier de configuration à l’aide d’un éditeur de texte. Cette valeur peut également être ajoutée dans l’onglet **Certificats** de la page **Propriétés** du rôle dans Visual Studio.
 
 
 
@@ -190,16 +190,16 @@ Vous pouvez mettre à jour la configuration du service cloud pendant son exécut
 - **Modification de l’empreinte de certificat** Vous ne pouvez mettre à jour un certificat que lorsqu’une instance de rôle est hors connexion. Si un certificat est ajouté, supprimé ou modifié pendant qu’une instance de rôle est en ligne, Azure la met normalement hors connexion pour mettre à jour le certificat avant de la remettre en ligne une fois la modification effectuée.
 
 ### Gestion des modifications de configuration à l’aide des événements de service Runtime
-La [bibliothèque Runtime Azure](https://msdn.microsoft.com/library/azure/dn511024.aspx) inclut l’espace de noms [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), qui fournit des classes pour interagir avec l’environnement Azure à partir du code exécuté dans l’instance d’un rôle. La classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) définit les événements suivants qui sont déclenchés avant et après une modification de la configuration :
+La [bibliothèque Runtime Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) inclut l’espace de noms [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), qui fournit des classes pour interagir avec l’environnement Azure à partir du code exécuté dans l’instance d’un rôle. La classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) définit les événements suivants qui sont déclenchés avant et après une modification de la configuration :
 
 - **Événement [Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)** Se produit avant que la modification de la configuration ne soit appliquée à une instance spécifiée d’un rôle, ce qui vous permet de supprimer les instances de rôle si nécessaire.
 - **Événement [Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx)** Se produit après l’application de la modification de la configuration à l’instance spécifiée d’un rôle.
 
-> [AZURE.NOTE]Comme les modifications de certificat placent toujours les instances d’un rôle hors connexion, elles ne déclenchent pas les événements RoleEnvironment.Changing ou RoleEnvironment.Changed.
+> [AZURE.NOTE] Comme les modifications de certificat placent toujours les instances d’un rôle hors connexion, elles ne déclenchent pas les événements RoleEnvironment.Changing ou RoleEnvironment.Changed.
 
 <a name="cspkg"></a>
 ## ServicePackage.cspkg
-Pour déployer une application en tant que service cloud dans Azure, vous devez d’abord créer un package de l’application dans le format approprié. Vous pouvez utiliser l’outil de ligne de commande **CSPack** (installé avec le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/downloads/)) pour créer le fichier de package en tant qu’alternative à Visual Studio.
+Pour déployer une application en tant que service cloud dans Azure, vous devez d’abord créer un package de l’application dans le format approprié. Vous pouvez utiliser l’outil de ligne de commande **CSPack** (installé avec le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/)) pour créer le fichier de package en tant qu’alternative à Visual Studio.
 
 **CSPack** utilise le contenu du fichier de définition de service et du fichier de configuration de service pour définir le contenu du package. **CSPack** génère un fichier de package de l’application (.cspkg) que vous pouvez charger vers Azure à l’aide du [portail Azure Classic](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Par défaut, le package est nommé `[ServiceDefinitionFileName].cspkg`, mais vous pouvez indiquer un autre nom à l’aide de l’option `/out` de **CSPack**.
 
@@ -209,13 +209,15 @@ Pour déployer une application en tant que service cloud dans Azure, vous devez 
 | 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[versions-sdk]\\bin\\ |
 | &lt;1.6 | C:\\Program Files\\Azure SDK\\[version-sdk]\\bin\\ |
 
->[AZURE.NOTE]Le fichier CSPack.exe (sur Windows) est disponible en exécutant le raccourci de l’**invite de commandes Microsoft Azure**, qui est installé avec le Kit de développement logiciel (SDK).
+>[AZURE.NOTE]
+Le fichier CSPack.exe (sur Windows) est disponible en exécutant le raccourci de l’**invite de commandes Microsoft Azure**, qui est installé avec le Kit de développement logiciel (SDK).
 >  
 >Exécutez le programme CSPack.exe pour consulter la documentation relative à l’ensemble des commutateurs et commandes possibles.
 
 <p />
 
->[AZURE.TIP]Exécutez le service cloud localement dans l’**émulateur de calcul Microsoft Azure** et utilisez l’option **/copyonly**. Cette option copie les fichiers binaires de l’application dans une disposition de répertoire d’où ils peuvent être exécutés dans l’émulateur de calcul.
+>[AZURE.TIP]
+Exécutez le service cloud localement dans l’**émulateur de calcul Microsoft Azure** et utilisez l’option **/copyonly**. Cette option copie les fichiers binaires de l’application dans une disposition de répertoire d’où ils peuvent être exécutés dans l’émulateur de calcul.
 
 ### Exemple de commande pour créer un package de service cloud
 L’exemple suivant crée un package d’application qui contient les informations relatives à un rôle web. La commande spécifie le fichier de définition de service à utiliser, le répertoire dans lequel les fichiers binaires se trouvent, et le nom du fichier de package.
@@ -262,12 +264,11 @@ J’utilise Visual Studio et souhaite...
 * [Déployer un projet de service cloud][vs_deploy]
 * [Configurer un Bureau à distance pour une instance de service cloud][vs_remote]
 
-
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
-[vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
+[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
+[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
+[vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

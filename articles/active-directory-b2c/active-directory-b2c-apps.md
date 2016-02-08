@@ -23,7 +23,7 @@ Azure AD B2C prend en charge l'authentification pour de multiples architectures 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Concepts de base
-Chaque application qui utilise Azure AD B2C devra être enregistrée dans votre [répertoire B2C](active-directory-b2c-get-started.md) via le [portail Azure Classic](https://portal.azure.com). Le processus d’inscription des applications collecte quelques valeurs et les affecte pour vos applications :
+Chaque application qui utilise Azure AD B2C devra être enregistrée dans votre [répertoire B2C](active-directory-b2c-get-started.md) via le [portail Azure](https://portal.azure.com/). Le processus d’inscription des applications collecte quelques valeurs et les affecte pour vos applications :
 
 - un **ID d’application** qui identifie de manière unique votre application ;
 - un **URI de redirection** pouvant être utilisé pour diriger les réponses vers votre application ;
@@ -93,7 +93,8 @@ Accept: application/json
 
 L'API Web peut ensuite utiliser le jeton pour vérifier l'identité de l'appelant de l'API et extraire les informations à son sujet, à partir des revendications encodées dans le jeton. Pour en savoir plus sur les différents types de jetons et de revendications disponibles pour une application, consultez la page de [référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-> [AZURE.NOTE]Actuellement, la version préliminaire d'Azure AD B2C prend en charge uniquement les API Web qui sont accessibles par leurs clients connus. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API Web principale. Cette architecture est entièrement prise en charge. Ce qui n'est actuellement pas pris en charge c'est d'autoriser un client tiers, comme une autre application iOS, à accéder également à la même API Web. En effet, tous les composants de votre application complète doivent partager un ID d'application unique.
+> [AZURE.NOTE]
+	Actuellement, la version préliminaire d'Azure AD B2C prend en charge uniquement les API Web qui sont accessibles par leurs clients connus. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API Web principale. Cette architecture est entièrement prise en charge. Ce qui n'est actuellement pas pris en charge c'est d'autoriser un client tiers, comme une autre application iOS, à accéder également à la même API Web. En effet, tous les composants de votre application complète doivent partager un ID d'application unique.
 
 Une API Web peut recevoir des jetons de tous types de clients, notamment des applications Web, des applications de bureau et mobiles, des applications de page unique, des démons côté serveur, et même d'autres API Web. Par exemple, examinons le flux complet d'une application Web appelant une API Web.
 
@@ -108,7 +109,8 @@ Les applications installées sur un appareil, comme les applications de bureau e
 
 Dans ce flux, l'application exécute des [stratégies](active-directory-b2c-reference-policies.md) et reçoit un code d'autorisation d'Azure AD lorsque l'utilisateur exécute la stratégie. Le code d'autorisation représente l'autorisation de l'application d'appeler les services principaux pour le compte de l'utilisateur actuellement connecté. L'application peut ensuite échanger le code d'autorisation dans l'arrière-plan, contre un jeton d'ID et un jeton d'actualisation. L'application peut utiliser le jeton d'ID pour s'authentifier sur une API Web principale dans les requêtes HTTP et solliciter le jeton d'actualisation afin de récupérer de nouveaux jetons d'ID une fois les anciens expirés.
 
-> [AZURE.NOTE]Actuellement, la version préliminaire d'AD B2C Azure prend en charge uniquement l'obtention de jetons d'ID qui sont utilisés pour accéder au service web de l'application. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API Web principale. Cette architecture est entièrement prise en charge. Ce qui n'est actuellement pas pris en charge c'est d'autoriser votre application iOS à accéder à une API web tierce à l'aide de jetons d'accès OAuth 2.0. En effet, tous les composants de votre application complète doivent partager un ID d'application unique.
+> [AZURE.NOTE]
+	Actuellement, la version préliminaire d'AD B2C Azure prend en charge uniquement l'obtention de jetons d'ID qui sont utilisés pour accéder au service web de l'application. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API Web principale. Cette architecture est entièrement prise en charge. Ce qui n'est actuellement pas pris en charge c'est d'autoriser votre application iOS à accéder à une API web tierce à l'aide de jetons d'accès OAuth 2.0. En effet, tous les composants de votre application complète doivent partager un ID d'application unique.
 
 ![Images de couloirs d’application native](./media/active-directory-b2c-apps/native.png)
 
@@ -128,4 +130,4 @@ De nombreuses architectures incluent une API Web qui doit appeler une autre API
 
 Ce scénario d'API Web chaînée peut être pris en charge à l'aide de la concession des informations d'identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n'est pas actuellement implémenté dans la version préliminaire d'Azure AD B2C.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

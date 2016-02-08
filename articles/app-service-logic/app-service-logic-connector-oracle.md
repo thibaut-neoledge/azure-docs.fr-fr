@@ -51,7 +51,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 Source de données | Oui | Nom d'une source de données (service net) spécifié dans le fichier tnsnames.ora de l'ordinateur où le client Oracle est installé. Pour plus d'informations sur les noms de source de données et le fichier tnsnames.ora, consultez la rubrique [Configuration du client Oracle](http://msdn.microsoft.com/library/dd787872.aspx).
 Nom d’utilisateur | Oui | Entrez un nom d'utilisateur pour vous connecter au serveur Oracle.
 Mot de passe | Oui | Entrez le mot de passe utilisateur.
-Chaîne de connexion Service Bus | Oui | Si vous vous connectez sur site, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
+Chaîne de connexion Service Bus | Oui | Si vous vous connectez sur site, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
 Tables | Non | Entrez les tables de la base de données que le connecteur est autorisé à modifier. Par exemple, entrez *OrdersTable,EmployeeTable*.
 Procédures stockées | Non | Entrez les procédures stockées dans la base de données que le connecteur peut appeler. Par exemple, entrez *IsEmployeeEligible,CalculateOrderDiscount*.
 Fonctions | Non | Entrez les fonctions dans la base de données que le connecteur peut appeler. Par exemple, entrez *IsEmployeeEligible,CalculateOrderDiscount*.
@@ -91,7 +91,7 @@ Vous pouvez tester l'application logique en ajoutant un nouvel enregistrement da
 
 ## Configuration hybride
 
-> [AZURE.NOTE]Cette étape n'est requise que si vous utilisez Oracle en local, derrière votre pare-feu.
+> [AZURE.NOTE] Cette étape n'est requise que si vous utilisez Oracle en local, derrière votre pare-feu.
 
 App Service utilise le Gestionnaire de configuration hybride pour se connecter en toute sécurité à votre système local. Si votre connecteur utilise Oracle en local, le Gestionnaire de connexion hybride est requis.
 
@@ -100,9 +100,9 @@ Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-ser
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-Affichez la référence d'API REST Swagger sur [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -118,4 +118,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

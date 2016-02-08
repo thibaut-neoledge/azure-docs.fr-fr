@@ -1,15 +1,15 @@
-## Azure Storage Linked Service
+## Service lié Azure Storage
 
-The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**. This provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
+Le **service lié Azure Storage** vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide de la **clé de compte**. Ainsi, la fabrique de données dispose d’un accès global à Azure Storage. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure Storage.
 
-| Property | Description | Required |
+| Propriété | Description | Requis |
 | :-------- | :----------- | :-------- |
-| type | The type property must be set to: **AzureStorage** | Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. | Yes |
+| type | La propriété de type doit être définie sur : **AzureStorage** | Oui |
+| connectionString | Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. | Oui |
 
-See the following article for steps to view/copy the account key for an Azure Storage: [View, copy, and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Consultez l’article suivant pour savoir comment afficher ou copier la clé de compte pour un stockage Azure : [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
-**Example:**  
+**Exemple :**
   
 	{  
 		"name": "StorageLinkedService",  
@@ -22,18 +22,18 @@ See the following article for steps to view/copy the account key for an Azure St
 	}  
 
 
-## Azure Storage Sas Linked Service  
-A shared access signature (SAS) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all of the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For detailed information about SAS, see [Shared Access Signatures: Understanding the SAS Model](../storage/storage-dotnet-shared-access-signature-part-1.md)
+## Service lié SAP Azure Storage  
+Une signature d’accès partagé (SAP) fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte. La signature d'accès partagé est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d'accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié. Pour plus d’informations sur SAP, consultez [Signatures d’accès partagé : présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md).
   
-The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). This provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. The following table provides description for JSON elements specific to Azure Storage SAS linked service. 
+Le service lié Azure Storage SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure Storage SAS.
 
-| Property | Description | Required |
+| Propriété | Description | Requis |
 | :-------- | :----------- | :-------- |
-| type | The type property must be set to: **AzureStorageSas**  | Yes |
-| sasUri | Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. See the notes below for details. | Yes | 
+| type | La propriété de type doit être définie sur : **AzureStorageSas**. | Oui |
+| sasUri | Spécifiez l’URI de signature d’accès partagé des ressources Azure Storage, telles qu’un objet blob, un conteneur ou une table. Pour plus d’informations, consultez les remarques ci-dessous. | Oui | 
 
 
-**Example:**
+**Exemple :**
   
 	{  
 		"name": "StorageSasLinkedService",  
@@ -45,9 +45,11 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 		}  
 	}  
 
-When creating an **SAS URI**, considering the following:  
+Quand vous créez un **URI SAP**, prenez en compte les points suivants :
 
-- Azure Data Factory supports only **Service SAS**, not Account SAS. See [Types of Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) for details about these two types.
-- Appropriate read/write **permissions** need to be set on objects based on how the linked service (read, write, read/write) will be used in your data factory.
-- **Expiry time** needs to be set appropriately. Make sure that the access to Azure Storage objects does not expire within the active period of the pipeline.
-- Uri should be created at the right container/blob or Table level based on the need. A SAS Uri to an Azure blob allows the Data Factory service to access that particular blob. A SAS Uri to an Azure blob container allows the Data Factory service to iterate through blobs in that container. If you need to provide access more/fewer objects later, or update the SAS URI, remember to update the linked service with the new URI.   
+- Azure Data Factory prend uniquement en charge les **SAP de service**, pas les SAP de compte. Pour plus d’informations sur ces deux types, consultez [Types de signatures d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures).
+- Des **autorisations** de lecture/écriture appropriées doivent être définies sur les objets en fonction de l’utilisation du service lié (lecture, écriture, lecture/écriture) dans votre fabrique de données.
+- Une **heure d’expiration** doit être définie de manière appropriée. Assurez-vous que l’accès aux objets Azure Storage n’expire pas pendant la période active du pipeline.
+- L’URI doit être créé au niveau table ou objet blob/conteneur approprié en fonction des besoins. Un URI SAP vers un objet blob Azure rend ce dernier accessible au service Data Factory. Un URI SAP vers un conteneur d’objets blob Azure permet au service Data Factory de parcourir les objets blob dans ce conteneur. Si vous êtes amené à accorder l’accès à plus ou moins d’objets ou à mettre à jour l’URI SAP, mettez à jour le service lié avec le nouvel URI.   
+
+<!---HONumber=AcomDC_0128_2016-->

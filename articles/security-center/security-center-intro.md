@@ -20,7 +20,7 @@
 
 Découvrez le Centre de sécurité Azure, ses fonctionnalités principales et son fonctionnement.
 
-> [AZURE.NOTE]Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure. Ce document constitue une présentation du service et utilise un exemple de déploiement.
+> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure. Ce document constitue une présentation du service et utilise un exemple de déploiement.
 
 ## Qu’est-ce que le Centre de sécurité Azure ?
 Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
@@ -42,7 +42,7 @@ Le Centre de sécurité Azure propose des fonctions faciles d’utilisation et e
 | | Suggère des manières d’empêcher l’attaque en cours et d’empêcher des attaques futures |
 
 ## Introduction pas à pas
-Le Centre de sécurité Azure est accessible à partir du [portail Azure](http://azure.microsoft.com/features/azure-portal/). Pour y accéder, [connectez-vous au portail](https://portal.azure.com), sélectionnez **Parcourir**, et faites défiler jusqu’à l’option **Centre de sécurité**, ou sélectionnez la mosaïque **Centre de sécurité** préalablement épinglée au tableau de bord du portail.
+Le Centre de sécurité Azure est accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). Pour y accéder, [connectez-vous au portail](https://portal.azure.com), sélectionnez **Parcourir**, et faites défiler jusqu’à l’option **Centre de sécurité**, ou sélectionnez la mosaïque **Centre de sécurité** préalablement épinglée au tableau de bord du portail.
 
 ![][1]
 
@@ -52,7 +52,7 @@ Dans le Centre de sécurité Azure, vous pouvez définir des stratégies de séc
 
 Vous devez définir des stratégies pour vos abonnements Azure en fonction des exigences de sécurité de votre société et du type d’applications ou du niveau de confidentialité des données de chaque abonnement Azure. Par exemple, les ressources utilisées pour le développement ou le test peuvent avoir des exigences de sécurité différentes de celles utilisées pour les applications de production. De même, les applications dont les données sont réglementées telles que les informations d’identification personnelle (PII)) peuvent nécessiter un niveau de sécurité plus élevé.
 
-> [AZURE.NOTE]Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné.
+> [AZURE.NOTE] Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné.
 
 Cliquez sur la mosaïque **Stratégie de sécurité** pour obtenir une liste de vos abonnements et choisissez un abonnement pour afficher les détails de la stratégie.
 
@@ -102,9 +102,9 @@ Si vous sélectionnez une alerte, des informations supplémentaires sur l’atta
 ![][6]
 
 ## Prise en main
-Pour utiliser le Centre de sécurité Azure, vous devez disposer d’un abonnement à Microsoft Azure. Le Centre de sécurité Azure est activé avec votre abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
+Pour utiliser le Centre de sécurité Azure, vous devez disposer d’un abonnement à Microsoft Azure. Le Centre de sécurité Azure est activé avec votre abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-Le Centre de sécurité Azure est accessible à partir du [portail Azure](http://azure.microsoft.com/features/azure-portal/). Pour en savoir plus, consultez la [documentation sur le portail](https://azure.microsoft.com/documentation/services/azure-portal/).
+Le Centre de sécurité Azure est accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). Pour en savoir plus, consultez la [documentation sur le portail](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 La rubrique [Prise en main du Centre de sécurité Azure](security-center-get-started.md) vous guide à travers les composants de surveillance de sécurité et de gestion des stratégies de sécurité du Centre de sécurité Azure.
 
@@ -126,4 +126,4 @@ Ce document vous a donné un aperçu du Centre de sécurité Azure et de sa mise
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

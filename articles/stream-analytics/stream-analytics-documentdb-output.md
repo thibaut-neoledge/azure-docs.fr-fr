@@ -19,7 +19,7 @@
 
 # Cibler Azure DocumentDB pour la sortie JSON à partir de Stream Analytics
 
-Stream Analytics peut cibler [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) pour la sortie JSON, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur des données JSON non structurées. Découvrez comment implémenter au mieux cette intégration.
+Stream Analytics peut cibler [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) pour la sortie JSON, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur des données JSON non structurées. Découvrez comment implémenter au mieux cette intégration.
 
 Pour ceux qui ne connaissent pas DocumentDB, commencez par suivre le [parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
@@ -62,4 +62,4 @@ Lorsque vous créez une sortie DocumentDB dans Stream Analytics, vous devez four
 -   **Clé de partition** : nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
 -   **ID de document** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

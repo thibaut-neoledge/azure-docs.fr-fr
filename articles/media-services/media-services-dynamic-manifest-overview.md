@@ -192,7 +192,7 @@ Pour combiner des filtres, vous devez définir les noms de filtre dans l’URL d
 
 Vous pouvez combiner jusqu’à 3 filtres.
 
-Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 ##Problèmes connus et limitations
@@ -236,4 +236,4 @@ Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

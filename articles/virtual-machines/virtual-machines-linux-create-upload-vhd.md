@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 # Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
@@ -26,7 +26,7 @@ Cet article vous montre comment créer et télécharger un disque dur virtuel po
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-Une machine virtuelle Azure exécute le système d'exploitation basé sur l'image que vous avez choisie lors de sa création. Vos images sont conservées au format VHD, dans des fichiers .vhd au sein de votre compte de stockage. Pour plus d'informations, consultez les pages relatives aux [disques dans Azure](virtual-machines-disks-vhds.md) et aux [images dans Azure](virtual-machines-images.md).
+Une machine virtuelle Azure exécute le système d’exploitation basé sur l’image que vous choisissez pendant la création. Ces images sont conservées au format VHD, dans des fichiers .vhd au sein de votre compte de stockage. Pour plus d'informations, consultez les pages relatives aux [disques dans Azure](virtual-machines-disks-vhds.md) et aux [images dans Azure](virtual-machines-images.md).
 
 Lors de la création de la machine virtuelle, vous pouvez personnaliser certains paramètres du système d'exploitation pour qu'ils correspondent à l'application que vous souhaitez exécuter. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée](virtual-machines-create-custom.md).
 
@@ -46,7 +46,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 - **Interface de ligne de commande Azure** : si vous utilisez un système d'exploitation Linux pour créer votre image, utilisez l’[interface de ligne de commande Azure](../virtual-machines-command-line-tools.md) pour charger le fichier VHD.
 
-- **Outils Azure Powershell** : l’applet de commande `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger les applets de commande Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
+- **Outils Azure Powershell** : l’applet de commande `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](https://azure.microsoft.com/downloads/) pour télécharger les applets de commande Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 <a id="prepimage"> </a>
 ## Étape 1 : préparation de l'image pour le téléchargement
@@ -107,7 +107,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Où `<PathToFile>` est le chemin d'accès complet au fichier .publishsettings.
 
-	Pour plus d’informations, lisez [Se connecter à Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
+	Pour plus d’informations, consultez [Se connecter à Azure avec la CLI Azure](../xplat-cli-connect.md).
 
 
 ### En cas d’utilisation d’Azure PowerShell
@@ -122,7 +122,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Quand vous y êtes invité, entrez votre ID et votre mot de passe d’entreprise.
 
-**OU** utilisez les fichiers PublishSettings à la place :
+**OU**, utilisez les fichiers PublishSettings :
 
 1. Ouvrez une fenêtre Azure PowerShell.
 
@@ -142,33 +142,36 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Pour plus d’informations, consultez la rubrique [Comment installer et configurer Azure PowerShell](powershell-install-configure.md).
 
-> [AZURE.NOTE]Nous vous recommandons d’utiliser la nouvelle méthode Azure Active Directory pour vous connecter à votre abonnement Azure, à partir de l’interface CLI Azure ou d’Azure PowerShell.
+> [AZURE.NOTE] Nous vous recommandons d’utiliser la nouvelle méthode Azure Active Directory pour vous connecter à votre abonnement Azure, à partir de l’interface CLI Azure ou d’Azure PowerShell.
 
-## <a id="upload"> </a>Étape 3 : chargement de l’image dans Azure ##
+<a id="upload"> </a>
+## Étape 3 : chargement de l’image dans Azure
+
+Vous aurez besoin d’un compte de stockage pour charger votre fichier de disque dur virtuel. Vous pouvez en choisir un existant ou en créer un. Pour créer un compte de stockage, consultez [Création d’un compte de stockage](../storage-create-storage-account.md).
+
+Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n’importe où dans votre stockage d’objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous prévoyez d’utiliser ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l’étiquette affichée dans le [portail Azure](http://portal.azure.com) ou dans le [portail Azure Classic](http://manage.windowsazure.com) pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d’accès complet et le nom du fichier .vhd sur votre machine.
+
 
 ### En cas d’utilisation de l’interface de ligne de commande Azure
 
-Utilisez l’interface de ligne de commande Azure pour charger l'image. La commande suivante permet de télécharger une image :
+Utilisez l’interface de ligne de commande Azure pour charger l’image, à l’aide de la commande suivante :
 
-		azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
+		azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
+
+Pour plus d’informations, consultez [Informations de référence sur l’interface de ligne de commande Azure pour la gestion des services Azure](virtual-machines-command-line-tools.md).
+
 
 ### En cas d’utilisation de PowerShell
 
-Vous aurez besoin d’un compte de stockage pour charger votre fichier de disque dur virtuel. Vous pouvez en choisir un existant ou en créer un. Pour créer un compte de stockage, consultez [Création d’un compte de stockage](../storage-create-storage-account.md)
-
-Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous prévoyez d’utiliser ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l’étiquette affichée dans le [portail Azure Classic](http://manage.windowsazure.com) pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd.
-
-Depuis la fenêtre Azure PowerShell utilisée lors de l'étape précédente, tapez :
+Depuis la fenêtre Azure PowerShell utilisée lors de l’étape précédente, tapez :
 
 		Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
 
 Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
-
-> [AZURE.NOTE]La [version préliminaire d’Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) modifie de manière significative la façon dont les applets de commande sont traitées pour les modèles de déploiement classiques et Resource Manager. Cet article n'utilise pas encore la version préliminaire.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,7 +30,7 @@ Découvrez comment créer un cluster Apache Spark dans HDInsight à l’aide de
 
 **Configuration requise :**
 
-Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##<a name="storage"></a>Création d'un compte de stockage Azure
 
@@ -44,7 +44,7 @@ Lors de la création d’un cluster HDInsight dans HDInsight, vous devez spécif
 
 	![Portail Azure où vous pouvez utiliser l’option Création rapide pour configurer un nouveau compte de stockage](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.storageaccount.quickcreate.png "Portail Azure où vous pouvez utiliser l’option Création rapide pour configurer un nouveau compte de stockage")
 
->[AZURE.NOTE]Veillez à créer le compte de stockage à un emplacement pris en charge pour le cluster.
+>[AZURE.NOTE]  Veillez à créer le compte de stockage à un emplacement pris en charge pour le cluster.
 
 Sélectionnez le nouveau compte de stockage dans la liste et cliquez sur **GÉRER LES CLÉS D'ACCÈS** au bas de la page. Notez la **CLÉ D'ACCÈS PRIMAIRE** (ou la **CLÉ D'ACCÈS SECONDAIRE**, les deux peuvent être utilisées). Vous en aurez besoin plus tard dans le didacticiel. Pour plus d'informations, consultez [Création d'un compte de stockage][azure-create-storageaccount].
 	
@@ -52,7 +52,7 @@ Sélectionnez le nouveau compte de stockage dans la liste et cliquez sur **GÉRE
 
 Dans cette section, vous allez créer un cluster HDInsight version 3.2, qui est basé sur la version 1.3.1 de Spark. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
 
->[AZURE.NOTE]Les étapes décrites dans cet article permettent de créer un cluster Apache Spark dans HDInsight à l’aide des paramètres de configuration de base. Pour plus d’informations sur les autres paramètres de configuration de cluster (comme l’utilisation d’un espace de stockage supplémentaire, d’un réseau virtuel Azure ou d’un metastore pour Hive), consultez [Créer des clusters HDInsight à l’aide d’options personnalisées](hdinsight-apache-spark-provision-clusters.md).
+>[AZURE.NOTE] Les étapes décrites dans cet article permettent de créer un cluster Apache Spark dans HDInsight à l’aide des paramètres de configuration de base. Pour plus d’informations sur les autres paramètres de configuration de cluster (comme l’utilisation d’un espace de stockage supplémentaire, d’un réseau virtuel Azure ou d’un metastore pour Hive), consultez [Créer des clusters HDInsight à l’aide d’options personnalisées](hdinsight-apache-spark-provision-clusters.md).
 
 
 **Pour créer un cluster Spark**
@@ -68,15 +68,15 @@ Dans cette section, vous allez créer un cluster HDInsight version 3.2, qui est
 
 Après avoir créé un cluster, vous pouvez utiliser un bloc-notes Zeppelin basé sur le web pour exécuter des requêtes Spark SQL interactives sur le cluster HDInsight Spark. Dans cette section, nous allons utiliser un fichier exemple de données (hvac.csv), qui est disponible par défaut sur le cluster pour exécuter des requêtes Spark SQL interactives.
 
->[AZURE.NOTE]Le bloc-notes que vous créez en suivant les instructions ci-dessous est également disponible par défaut sur le cluster. Une fois Zeppelin lancé, vous pouvez trouver le bloc-notes en lançant une recherche sur le nom **Zeppelin HVAC tutorial**.
+>[AZURE.NOTE] Le bloc-notes que vous créez en suivant les instructions ci-dessous est également disponible par défaut sur le cluster. Une fois Zeppelin lancé, vous pouvez trouver le bloc-notes en lançant une recherche sur le nom **Zeppelin HVAC tutorial**.
 
 1. Dans le volet gauche [Portail Azure][azure-management-portal], cliquez sur **HDInsight**, puis sur le cluster Spark que vous avez créé. Dans la page de cluster Spark, dans le volet inférieur, cliquez sur **Bloc-notes Zeppelin**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-	> [AZURE.NOTE]Vous pouvez également atteindre le bloc-notes Zeppelin pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster :
+	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Zeppelin pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. Créer un nouveau bloc-notes. Dans le volet d’en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
+2. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
 
 	![Créer un bloc-notes Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.createnewnote.png "Créer un nouveau bloc-notes Zeppelin")
 
@@ -109,7 +109,7 @@ Après avoir créé un cluster, vous pouvez utiliser un bloc-notes Zeppelin bas�
 		// Register as a temporary table called "hvac"
 		hvac.registerTempTable("hvac")
 		
-	Appuyez sur **MAJ + ENTRÉE** ou cliquez sur le bouton **Play** pour que le paragraphe exécute l’extrait. L’état indiqué dans le coin supérieur droit du paragraphe doit progresser de READY, PENDING, RUNNING à FINISHED. Le résultat s’affiche au bas du même paragraphe. La capture d’écran ressemble à ceci :
+	Appuyez sur **MAJ + ENTRÉE** ou cliquez sur le bouton **Lire** pour que le paragraphe exécute l'extrait de code. L’état indiqué dans le coin supérieur droit du paragraphe doit progresser de READY, PENDING, RUNNING à FINISHED. Le résultat s’affiche au bas du même paragraphe. La capture d’écran ressemble à ceci :
 
 	![Créer une table temporaire à partir de données brutes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.loaddataintotable.png "Créer une table temporaire à partir de données brutes")
 
@@ -122,13 +122,13 @@ Après avoir créé un cluster, vous pouvez utiliser un bloc-notes Zeppelin bas�
 		from hvac
 		where date = "6/1/13" 
 
-	L’instruction **%sql** du début indique au bloc-notes d’utiliser l’interpréteur Spark SQL. Vous pouvez consulter les interpréteurs définis dans l’onglet **Interpreter** dans l’en-tête du bloc-notes.
+	L'instruction **%sql** du début indique au bloc-notes d'utiliser l'interpréteur Spark SQL. Vous pouvez consulter les interpréteurs définis dans l'onglet **Interpreter** dans l'en-tête du bloc-notes.
 
 	La capture d’écran qui suit présente le résultat.
 
 	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
-	 Cliquez sur les options d’affichage (mis en exergue dans un rectangle) pour basculer entre les différentes représentations du même résultat. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d’écran ci-dessus utilise la clé **buildingID** et la moyenne **temp\_diff** comme valeur.
+	 Cliquez sur les options d’affichage (mis en exergue dans un rectangle) pour basculer entre les différentes représentations du même résultat. Cliquez sur **Paramètres** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d'écran ci-dessus utilise la clé **buildingID** et la moyenne **temp\_diff** comme valeur.
 
 	
 6. Vous pouvez également exécuter des instructions Spark SQL à l’aide de variables dans la requête. L’extrait suivant montre comment définir la variable **Temp** dans la requête avec les valeurs possibles d’interrogation. Lors de la première exécution de la requête, une liste déroulante est automatiquement renseignée avec les valeurs que vous avez spécifiées pour la variable.
@@ -142,7 +142,7 @@ Après avoir créé un cluster, vous pouvez utiliser un bloc-notes Zeppelin bas�
 
 	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
-	Pour les requêtes suivantes, vous pouvez sélectionner une nouvelle valeur dans la liste déroulante et réexécuter la requête. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d’écran ci-dessus utilise la clé **buildingID**, la moyenne **temp\_diff** comme valeur, et le groupe **targettemp**.
+	Pour les requêtes suivantes, vous pouvez sélectionner une nouvelle valeur dans la liste déroulante et réexécuter la requête. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d'écran ci-dessus utilise la clé **buildingID**, la moyenne **temp\_diff** comme valeur, et le groupe **targettemp**.
 
 7. Redémarrez l’interpréteur Spark SQL pour quitter l’application. Cliquez sur l’onglet **Interpreter** en haut de l’écran et, pour l’interpréteur Spark, cliquez sur **Restart**.
 
@@ -152,11 +152,11 @@ Après avoir créé un cluster, vous pouvez utiliser un bloc-notes Zeppelin bas�
 
 Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des requêtes Spark SQL sur un cluster Spark.
 
->[AZURE.NOTE]Le bloc-notes que vous créez en suivant les instructions ci-dessous est également disponible par défaut sur le cluster. Une fois Jupyter lancé, vous trouverez le bloc-notes en lançant une recherche sur **HVACTutorial.ipynb**.
+>[AZURE.NOTE] Le bloc-notes que vous créez en suivant les instructions ci-dessous est également disponible par défaut sur le cluster. Une fois Jupyter lancé, vous trouverez le bloc-notes en lançant une recherche sur **HVACTutorial.ipynb**.
 
 1. Dans le volet gauche [Portail Azure][azure-management-portal], cliquez sur **HDInsight**, puis sur le cluster Spark que vous avez créé. Dans la page de cluster Spark, dans le volet inférieur, cliquez sur **Bloc-notes Zeppelin**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-	> [AZURE.NOTE]Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster :
+	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -168,7 +168,7 @@ Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des
 
 	![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.jupyter.notebook.name.png "Fournir un nom pour le bloc-notes")
 
-4. Importez les modules requis et créez les contextes Spark et SQL. Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+4. Importez les modules requis et créez les contextes Spark et SQL. Collez l'extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
 		from pyspark import SparkContext
 		from pyspark.sql import SQLContext
@@ -256,4 +256,4 @@ Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

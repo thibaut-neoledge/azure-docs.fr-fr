@@ -14,24 +14,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="02/26/2015" 
 	ms.author="larryfr"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
 
 Découvrez comment analyser les données sur les retards de vol à l'aide de Hive sur HDInsight Linux, puis exporter les données vers Azure SQL Database à l'aide de Sqoop.
 
-> [AZURE.NOTE]Bien que des éléments individuels de ce document puissent être utilisés avec des clusters HDInsight Windows (Python et Hive, par exemple), plusieurs étapes sont spécifiques aux clusters Linux. Pour les étapes fonctionnant avec un cluster Windows, consultez la rubrique [Analyse des données sur les retards de vol avec Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
+> [AZURE.NOTE] Bien que des éléments individuels de ce document puissent être utilisés avec des clusters HDInsight Windows (Python et Hive, par exemple), plusieurs étapes sont spécifiques aux clusters Linux. Pour les étapes fonctionnant avec un cluster Windows, consultez la rubrique [Analyse des données sur les retards de vol avec Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
 
 ###Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Un cluster HDInsight__. Consultez la rubrique [Prise en main de Hadoop avec Hive dans HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md) pour connaître les étapes de création d’un cluster HDInsight Linux.
 
-- __Base de données SQL Azure__. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous ne disposez pas déjà d’une base de données SQL, consultez la rubrique [Comment créer une base de données SQL Azure](../sql-database/sql-database-create.md).
+- __Base de données SQL Azure__. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous n'avez pas déjà une base de données SQL, consultez [Didacticiel sur la base de données SQL : Créer une base de données SQL en quelques minutes](../sql-database/sql-database-get-started.md).
 
 - __Interface de ligne de commande Azure__. Si vous n'avez pas installé l'interface de ligne de commande Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli-install.md) pour connaître la procédure.
 
@@ -53,7 +53,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 	Remplacez __FILENAME__ par le nom du fichier zip. Remplacez __USERNAME__ par la connexion SSH du cluster HDInsight. Remplacez CLUSTERNAME par le nom du cluster HDInsight.
 	
-	> [AZURE.NOTE]Si vous utilisez un mot de passe pour authentifier votre connexion SSH, vous serez invité à le saisir. Si vous utilisez une clé publique, vous devrez peut-être utiliser le paramètre `-i` et spécifier le chemin d’accès de la clé privée correspondante. Par exemple, `scp -i ~/.ssh/id_rsa FILENAME.csv USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+	> [AZURE.NOTE] Si vous utilisez un mot de passe pour authentifier votre connexion SSH, vous serez invité à le saisir. Si vous utilisez une clé publique, vous devrez peut-être utiliser le paramètre `-i` et spécifier le chemin d’accès de la clé privée correspondante. Par exemple, `scp -i ~/.ssh/id_rsa FILENAME.csv USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Une fois le téléchargement terminé, connectez-vous au cluster à l'aide de SSH :
 
@@ -179,7 +179,7 @@ Pour créer une base de données SQL Azure, procédez comme suit : Cette procé
 		data:    Server Name i1qwc540ts
 		info:    sql server create command OK
 
-> [AZURE.IMPORTANT]Notez le nom de serveur renvoyé par cette commande. Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est `<shortname>.database.windows.net`.
+> [AZURE.IMPORTANT] Notez le nom de serveur renvoyé par cette commande. Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est `<shortname>.database.windows.net`.
 
 2. Utilisez la commande suivante pour créer une base de données nommée **sqooptest** sur le serveur de base de données SQL :
 
@@ -187,13 +187,13 @@ Pour créer une base de données SQL Azure, procédez comme suit : Cette procé
 
     Un message « OK » s’affiche à la fin de l’opération.
 
-	> [AZURE.NOTE]Si une erreur indiquant un problème d’accès s’affiche, vous devez ajouter l’adresse IP de votre station de travail cliente au pare-feu de la base de données SQL à l’aide de la commande suivante :
+	> [AZURE.NOTE] Si une erreur indiquant un problème d’accès s’affiche, vous devez ajouter l’adresse IP de votre station de travail cliente au pare-feu de la base de données SQL à l’aide de la commande suivante :
 	>
 	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##Création d’une table de base de données SQL
 
-> [AZURE.NOTE]Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
+> [AZURE.NOTE] Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
 
 1. Utilisez le protocole SSH pour vous connecter au cluster HDInsight Linux et exécutez les étapes suivantes à partir de la session SSH.
 
@@ -304,4 +304,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

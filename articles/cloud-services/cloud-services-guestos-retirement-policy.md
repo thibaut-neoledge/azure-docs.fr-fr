@@ -85,9 +85,9 @@ Vous devez utiliser la famille la plus récente de SE invités pour concevoir vo
 
 **Que se passe-t-il si mon application Web nécessite une intégration plus avancée au système d'exploitation ?**
 
-Si l’architecture de votre application web nécessite une intégration plus avancée au système d’exploitation sous-jacent, utilisez les fonctionnalités de plateforme prises en charge telles que les « [tâches de démarrage](cloud-services-startup-tasks.md) » ou d’autres mécanismes d’extensibilité qui peuvent exister par la suite. Sinon, vous pouvez également utiliser les [machines virtuelles Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure en tant que Service), qui vous permettent d'être responsable de la maintenance du système d'exploitation sous-jacent.
+Si l’architecture de votre application web nécessite une intégration plus avancée au système d’exploitation sous-jacent, utilisez les fonctionnalités de plateforme prises en charge telles que les « [tâches de démarrage](cloud-services-startup-tasks.md) » ou d’autres mécanismes d’extensibilité qui peuvent exister par la suite. Sinon, vous pouvez également utiliser les [machines virtuelles Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure en tant que Service), qui vous permettent d'être responsable de la maintenance du système d'exploitation sous-jacent.
  
 ## Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->
