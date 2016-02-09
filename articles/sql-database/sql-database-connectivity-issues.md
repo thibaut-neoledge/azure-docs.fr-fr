@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/06/2016"
+	ms.date="02/02/2016"
 	ms.author="daleche"/>
 
 
@@ -32,7 +32,11 @@ Si votre programme client utilise ADO.NET, votre programme est informé de l’
 
 ### Connexion ou commande
 
-Vous allez procéder à une nouvelle tentative de connexion SQL ou la réétablir en fonction des éléments suivants : * **Une erreur temporaire se produit lors d’une tentative de connexion **: la tentative de connexion doit être renouvelée après une attente de plusieurs secondes. * **Une erreur temporaire se produit pendant une commande de requête SQL** : la commande ne doit pas être réessayée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
+Vous allez réessayer la connexion SQL ou la rétablir, en fonction de ce qui suit :
+
+* **Une erreur temporaire survient pendant une tentative de connexion** : la connexion doit être retentée après un délai de quelques secondes.
+
+* **Une erreur temporaire se produit pendant une commande de requête SQL** : cette dernière ne doit pas être retentée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -136,7 +140,7 @@ La chaîne de connexion nécessaire à la connexion à la base de données SQL A
 ### Paramètres de connexion .NET Sql pour les nouvelles tentatives de connexion
 
 
-Si votre programme client se connecte à Base de données SQL Azure à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, vous devez utiliser .NET 4.6.1 ou une version ultérieure afin de pouvoir tirer parti de la fonctionnalité de nouvelle tentative de connexion. Les détails de la fonctionnalité sont disponibles [ici](http://go.microsoft.com/fwlink/?linkid=393996).
+Si votre programme client se connecte à la base de données SQL Azure à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, vous devez utiliser .NET 4.6.1 ou une version ultérieure afin de pouvoir tirer parti de la fonctionnalité de nouvelle tentative de connexion. Les détails de la fonctionnalité sont disponibles [ici](http://go.microsoft.com/fwlink/?linkid=393996).
 
 
 <!--
@@ -223,7 +227,7 @@ Pour obtenir des informations générales sur la configuration des ports et l’
 ## Connexion : ADO.NET 4.6.1
 
 
-Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à Base de données SQL Azure, nous vous recommandons d’utiliser .NET Framework version 4.6.1 ou ultérieure.
+Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à la base de données SQL Azure, nous vous recommandons d’utiliser .NET Framework version 4.6.1 ou ultérieure.
 
 
 ADO.NET 4.6.1 : ajoute la prise en charge du protocole TDS 7.4. Cela inclut des améliorations de connexion au-delà de ceux dans 4.0. Prend en charge le regroupement de connexions. Cela contribue à garantir que l’objet de connexion qu’il donne à votre programme fonctionne.
@@ -403,7 +407,7 @@ Voici des liens vers des informations sur EntLib60 :
 
 - [Livre électronique : Guide du développeur de Microsoft Enterprise Library, 2e édition](http://www.microsoft.com/download/details.aspx?id=41145) gratuit.
 
-- Meilleures pratiques : [Conseils généraux sur les nouvelles tentatives](best-practices-retry-general.md) comprend une excellente présentation approfondie de la logique de nouvelle tentative.
+- Meilleures pratiques : [Conseils généraux sur les nouvelles tentatives](../best-practices-retry-general.md) comprend une excellente présentation approfondie de la logique de nouvelle tentative.
 
 - Téléchargement NuGet de [Bibliothèque d’entreprise - Bloc applicatif de gestion des erreurs 6.0 temporaires de Microsoft](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -506,4 +510,4 @@ public bool IsTransient(Exception ex)
 
 - [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant à ajouter des comportements de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

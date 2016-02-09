@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok" />
 
 
@@ -102,7 +102,7 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 ### Spécification d'une entrée de travail
 1.	En haut de la page de votre travail Stream Analytics, cliquez sur **Entrées**, puis sur **Ajouter une entrée**. La boîte de dialogue qui s’ouvre vous guidera le long d’une procédure de configuration de votre entrée.
 2.	Sélectionnez **Flux de données**, puis cliquez avec le bouton droit.
-3.	Sélectionnez **Concentrateur d’événements**, puis cliquez avec le bouton droit.
+3.	Sélectionnez **Hub d’événements**, puis cliquez avec le bouton droit.
 4.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
 	* **Alias d'entrée** : entrez un nom convivial pour cette entrée de travail, comme *CallStream*. Notez que vous utiliserez ce nom dans la requête par la suite.
@@ -110,7 +110,7 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 
 	Si votre concentrateur d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le concentrateur d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du concentrateur d’événements**, le **nom de la stratégie du concentrateur d’événements**, la **clé de stratégie du concentrateur d’événements** et le **nombre de partitions du concentrateur d’événements**.
 
-	* **Nom du hub d’événements** : sélectionnez le nom du concentrateur d’événements.
+	* **Nom du concentrateur d'événements** : sélectionnez le nom du concentrateur d'événements.
 
 	* **Nom de la stratégie du concentrateur d'événements** : sélectionnez la stratégie de concentrateur d’événements créée précédemment dans ce didacticiel.
 
@@ -219,7 +219,7 @@ Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, proc�
 3.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
 	* **ALIAS DE SORTIE** : entrez un nom convivial pour cette sortie de travail.
-	* **ABONNEMENT** : si le stockage d’objets blobs que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l’abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
+	* **ABONNEMENT** : si le stockage d'objets blob que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l'abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
 	* **COMPTE DE STOCKAGE** : sélectionnez le nom du compte de stockage.
 	* **CONTENEUR** : sélectionnez le nom du conteneur.
 	* **PRÉFIXE DU NOM DE FICHIER** : entrez un préfixe de fichier à utiliser lors de l’écriture de la sortie de l’objet blob.
@@ -251,10 +251,10 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

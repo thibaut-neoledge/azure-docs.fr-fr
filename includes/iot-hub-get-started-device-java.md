@@ -16,7 +16,7 @@ Dans cette section, vous allez créer une application console Java qui simule un
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.0-preview.9</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -158,4 +158,4 @@ Dans cette section, vous allez créer une application console Java qui simule un
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/fr-FR/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

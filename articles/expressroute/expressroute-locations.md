@@ -43,7 +43,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|---|
-|**Cloud du gouvernement des États-Unis**|Gouvernement américain - Iowa, Gouvernement américain - Virginie|Iowa, Virginie|Chicago, Washington DC|
+|**Cloud du gouvernement des États-Unis**|Gouvernement américain - Iowa, Gouvernement américain - Virginie|Chicago, Washington DC|
 |**Cloud de Chine**|Chine du Nord, Chine orientale|Pékin, Shanghai +|
 
 
@@ -94,8 +94,8 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Non pris en charge | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Non pris en charge | Chicago+, Washington DC |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Chicago+, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Non pris en charge | Chicago, Washington DC |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Chicago, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Non pris en charge | Chicago, Washington DC |
 
 #### Cloud de Chine
@@ -133,12 +133,12 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 |---|---|
 |**[Nimbo](http://www.nimbo.com/)**|FR||
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europe/Moyen-Orient/Afrique|
-|**[Project Leadership](http://www.projectleadership.net/azure)** | FR |
-|**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
+|**[Direction de projet](http://www.projectleadership.net/azure)** | FR |
+|**[Efficacité](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | FR |
 
 ## Étapes suivantes
 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

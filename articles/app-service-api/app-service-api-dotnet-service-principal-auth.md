@@ -18,9 +18,9 @@
 
 # Authentification de principal du service pour API Apps dans Azure App Service
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [sélecteur](../../includes/app-service-api-auth-selector.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Cet article portera sur les points suivants :
 
@@ -371,12 +371,12 @@ Pour plus d’informations sur la création d’une application monopage Angular
 
 ## Résolution de problèmes
 
-Si vous exécutez correctement l’application sans authentification, mais qu’elle ne fonctionne pas lorsque vous implémentez l’authentification, le problème est généralement dû à des paramètres de configuration erronés ou incohérents. Commencez par vérifier soigneusement tous les paramètres Azure App Service et Azure Active Directory. Voici quelques suggestions spécifiques :
+Si vous exécutez correctement l’application sans authentification, puis qu’elle ne fonctionne pas lorsque vous implémentez l’authentification, la plupart du temps, le problème est dû à des paramètres de configuration erronés et incohérents. Commencez par vérifier soigneusement tous les paramètres Azure App Service et Azure Active Directory. Voici quelques suggestions spécifiques :
 
 * Après avoir configuré le code dans un projet, assurez-vous que vous avez redéployé ce projet et non un des autres.
 * Pour les paramètres configurés dans le panneau **Paramètres de l’application** du portail Azure, vérifiez que vous avez bien sélectionné l’application API ou web appropriée lors de la saisie des paramètres.
 * Assurez-vous que vous accédez aux URL HTTPS dans votre navigateur, et non aux URL HTTP.
-* Assurez-vous que CORS (Partage des ressources cross-origin) est toujours activé sur l’application API de niveau intermédiaire, ce qui permet des appels à l’URL HTTPS frontale depuis la couche intermédiaire. En cas de doute sur la nature du problème (s’il est lié ou non à CORS), essayez d’utiliser « * » en tant qu’URL d’origine autorisée. **Important :** certains messages d’erreur de la Console des outils de développement du navigateur peuvent signaler une erreur CORS là où l’authentification de la couche de données est finalement en cause. Pour le vérifier, désactivez temporairement l’authentification de l’application API ToDoListDataAPI.
+* Assurez-vous que CORS (Partage des ressources cross-origin) est toujours activé sur l’application API de niveau intermédiaire, ce qui permet des appels à l’URL HTTPS frontale depuis le niveau intermédiaire. En cas de doute sur la nature du problème (s’il est lié ou non à CORS), essayez d’utiliser « * » en tant qu’URL d’origine autorisée. **Important :** certains messages d’erreur de la Console des outils de développement du navigateur peuvent signaler une erreur CORS là où l’authentification de la couche de données est finalement en cause. Pour le vérifier, désactivez temporairement l’authentification de l’application API ToDoListDataAPI.
 * Assurez-vous d’obtenir le plus d’informations possible dans les messages d’erreur en [désactivant le mode customErrors](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
 * Si les autres méthodes échouent, essayez une [session de débogage à distance](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) et examinez les valeurs des variables transmises au code qui acquiert le jeton du porteur dans ToDoListAPI, ainsi que celles transmises au code qui valide les valeurs Azure AD reçues dans ToDoListDataAPI. Notez que, dans la mesure où votre code peut prendre des valeurs de configuration de nombreuses sources différentes, cette approche peut produire des résultats surprenants. Par exemple, si `ida:ClientId` est nommé par erreur `ida:ClientID` lors de la configuration des paramètres d’App Service, le code peut obtenir la valeur `ida:ClientId` qu’il recherche dans le fichier Web.config, en ignorant le paramètre App Service. 
 
@@ -392,4 +392,4 @@ Pour plus d’informations sur Azure Active Directory, consultez les ressources 
 
 Pour plus d’informations sur les autres méthodes de déploiement de projets Visual Studio dans des applications API, à l’aide de Visual Studio ou en [automatisant le déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) à partir d’un [système de contrôle de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consultez [Déploiement de votre application dans Azure App Service](web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

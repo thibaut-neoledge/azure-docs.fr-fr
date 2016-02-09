@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Didacticiel sur l'apprentissage automatique : création de votre première expérience dans Azure Machine Learning Studio
@@ -29,7 +29,7 @@ Dans Machine Learning Studio, saisissez [https://studio.azureml.net](https://stu
 
 Pour obtenir des informations générales sur Machine Learning Studio, consultez [Présentation de Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
->[AZURE.TIP]Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 
 ## Cinq étapes pour créer une expérience
@@ -58,7 +58,7 @@ Vous avez le choix entre plusieurs exemples de jeux de données sont inclus dans
 
 1. Démarrez une nouvelle expérience en cliquant sur l’option **+ NOUVEAU** située en bas de la fenêtre de Machine Learning Studio, sélectionnez **EXPÉRIENCE**, puis **Expérience vide**. Sélectionnez le nom d’expérience par défaut, situé en haut de la zone de dessin, et remplacez-le par un nom significatif, par exemple : **Prédiction de prix d’une voiture**.
 
-2. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Saisissez la valeur **automobile** dans la zone de recherche se trouvant en haut de cette palette afin de rechercher le jeu de données intitulé **Automobile price data (Raw)**.
+2. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Saisissez la valeur **automobile** dans la zone de recherche se trouvant en haut de cette palette, afin de rechercher le jeu de données **Données sur le prix des véhicules automobiles (brutes)**.
 
 	![Palette search][screen1a]
 
@@ -76,7 +76,7 @@ Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dan
 
 Pour pouvoir être analysé, un jeu de données nécessite généralement un traitement préalable. Vous avez peut-être remarqué l'absence de certaines valeurs dans les colonnes des différentes lignes. Pour que vous puissiez analyser les données correctement, ces valeurs manquantes doivent être nettoyées. Dans le cas qui nous occupe, nous allons supprimer toutes les lignes dans lesquelles des valeurs sont manquantes. De plus, la colonne **normalized-losses** contient une grande quantité de valeurs manquantes. Nous allons donc l’exclure du modèle.
 
-> [AZURE.TIP]Le nettoyage des valeurs manquantes des données d’entrée est un prérequis pour l’utilisation de la plupart des modules.
+> [AZURE.TIP] Le nettoyage des valeurs manquantes des données d’entrée est un prérequis pour l’utilisation de la plupart des modules.
 
 Commençons par supprimer la colonne **normalized-losses**, puis chaque ligne ayant des données manquantes.
 
@@ -94,7 +94,7 @@ Commençons par supprimer la colonne **normalized-losses**, puis chaque ligne ay
 
     ![Project Columns properties][screen4]
 
-    > [AZURE.TIP]Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d’un seul coup d’œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Project Columns][project-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
+    > [AZURE.TIP] Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d’un seul coup d’œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Project Columns][project-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
 
 3. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] vers la zone de dessin de l’expérience et connectez-le au module [Project Columns][project-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**, afin de nettoyer les données en supprimant les lignes contenant des valeurs manquantes. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 
@@ -124,7 +124,7 @@ Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnal
 
 3. Dans le sélecteur de colonne, choisissez la valeur **Aucune colonne** pour **Commencer par**, puis sélectionnez **Inclure** et **Noms des colonnes** dans la ligne de filtre. Entrez votre liste de noms de colonnes. Vous indiquez aussi au module qu’il doit transmettre les colonnes spécifiées uniquement.
 
-	> [AZURE.TIP]Étant donné que nous avons exécuté l’expérience, les définitions de colonne de nos données ont été transmises à partir du jeu de données d’origine, via le module [Nettoyer les données manquantes][clean-missing-data]. Lorsque vous connectez le module [Project Columns][project-columns] au module [Nettoyer les données manquantes][clean-missing-data], le module [Project Columns][project-columns] prend connaissance des définitions de colonne dans les données. Lorsque vous cliquez sur la zone **Noms des colonnes**, une liste de colonnes s’affiche, vous permettant de sélectionner celles que vous voulez ajouter à la liste.
+	> [AZURE.TIP] Étant donné que nous avons exécuté l’expérience, les définitions de colonne de nos données ont été transmises à partir du jeu de données d’origine, via le module [Nettoyer les données manquantes][clean-missing-data]. Lorsque vous connectez le module [Project Columns][project-columns] au module [Nettoyer les données manquantes][clean-missing-data], le module [Project Columns][project-columns] prend connaissance des définitions de colonne dans les données. Lorsque vous cliquez sur la zone **Noms des colonnes**, une liste de colonnes s’affiche, vous permettant de sélectionner celles que vous voulez ajouter à la liste.
 
 4. Cliquez sur le bouton en forme de coche (OK) pour continuer.
 
@@ -142,7 +142,7 @@ Nous voulons prévoir le prix d’une automobile, qui peut être de n’importe 
 
 1. Nous pouvons utiliser nos données pour la formation et le test en les divisant en jeux distincts de formation et de test. Sélectionnez et faites glisser le module [Fractionner][split] sur le canevas d’expérience et connectez-le à la sortie du dernier module [Colonnes de projet][project-columns]. Définissez **Fraction de lignes dans le premier jeu de données de sortie** sur 0.75. Ainsi, nous allons utiliser 75 % des données pour former le modèle, et 25 % pour le tester.
 
-	> [AZURE.TIP]En modifiant le paramètre **Valeur de départ aléatoire**, vous pouvez produire différents échantillons aléatoires pour la formation et le test. Ce paramètre contrôle la valeur de départ du générateur de nombres pseudo-aléatoire.
+	> [AZURE.TIP] En modifiant le paramètre **Valeur de départ aléatoire**, vous pouvez produire différents échantillons aléatoires pour la formation et le test. Ce paramètre contrôle la valeur de départ du générateur de nombres pseudo-aléatoire.
 
 2. Exécutez l’expérience. Cela permet aux modules [Project Columns][project-columns] et [Split Data][split] de transmettre des définitions de colonne aux modules que nous allons ajouter par la suite.
 
@@ -196,7 +196,7 @@ Au final, l’expérience doit ressembler à ceci :
 
 À présent que vous avez terminé un premier didacticiel sur l'apprentissage automatique et que vous avez configuré votre expérience, vous pouvez répéter l'expérience pour essayer d'améliorer le modèle. Par exemple, vous pouvez modifier les fonctionnalités que vous utilisez pour votre prévision. Ou vous pouvez modifier les propriétés de l'algorithme [Régression linéaire][linear-regression], ou essayer un autre algorithme. Vous pouvez même ajouter plusieurs algorithmes d'apprentissage automatique à la fois à votre expérience et les comparer (deux par deux) à l'aide du module [Evaluate Model][evaluate-model].
 
-> [AZURE.TIP]Utilisez le bouton **ENREGISTRER SOUS** qui figure sous la zone de dessin de l’expérience afin de copier toute itération de votre expérience. Vous pouvez afficher toutes les itérations de votre expérience en cliquant sur l’option **AFFICHER L’HISTORIQUE D’EXÉCUTION**, sous la zone de dessin. Pour en savoir plus, consultez la section [Gérer les itérations des expériences dans Microsoft Azure Machine Learning Studio][runhistory].
+> [AZURE.TIP] Utilisez le bouton **ENREGISTRER SOUS** qui figure sous la zone de dessin de l’expérience afin de copier toute itération de votre expérience. Vous pouvez afficher toutes les itérations de votre expérience en cliquant sur l’option **AFFICHER L’HISTORIQUE D’EXÉCUTION**, sous la zone de dessin. Pour en savoir plus, consultez la section [Gérer les itérations des expériences dans Microsoft Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -234,4 +234,4 @@ Pour obtenir un guide pas à pas plus complet et détaillé des techniques de mo
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

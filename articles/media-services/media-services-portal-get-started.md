@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,8 @@
 
 Ce didacticiel vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) de base à l’aide du portail Azure Classic.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+
 
 Ce didacticiel comprend les tâches suivantes :
 
@@ -91,7 +92,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 
 	L’allocation de nouvelles unités prend environ 20 minutes.
 
-	>[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
+	>[AZURE.NOTE] Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
 	>
 	> C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -120,6 +121,7 @@ Si la valeur relative à la taille du fichier n’est pas mise à jour après l�
 ## Encodage de contenu
 
 ### Vue d’ensemble
+
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Media Services propose un encodeur multimédia qui vous permet de spécifier comment vous souhaitez que votre contenu soit encodé (par exemple, le codec à utiliser, le format du fichier, la résolution et le débit).
 
 Lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
@@ -145,16 +147,7 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec Azur
 
 	![Process2][process2]
 
-	La rubrique [Chaînes de présélection des tâches pour Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) explique ce que signifie chaque présélection des catégories **Présélections pour la diffusion en continu adaptative (empaquetage dynamique)**, **Présélections pour le téléchargement progressif** et **Présélections héritées pour la diffusion en continu adaptative**.
-
-	Les **Autres** configurations sont décrites ci-après :
-
-	+ **Encodage avec la protection de contenu PlayReady**. Cette présélection produit un élément encodé avec la protection de contenu PlayReady.  
-
-		Le service de licences PlayReady de Media Services est utilisé par défaut. Si vous souhaitez spécifier un autre service à partir duquel les clients puissent obtenir une licence pour lire le contenu chiffré avec PlayReady, utilisez les API REST ou les API du Kit de développement logiciel (SDK) Media Services pour .NET. Pour plus d’informations, consultez la page [Utilisation du chiffrement statique pour protéger votre contenu]() et définissez la propriété **licenseAcquisitionUrl** dans la présélection de Media Encryptor. Vous pouvez également utiliser le chiffrement dynamique et définir la propriété **PlayReadyLicenseAcquisitionUrl** comme décrit sur la page [Utilisation du chiffrement dynamique PlayReady et du service de distribution de licences](http://go.microsoft.com/fwlink/?LinkId=507720).
-	+ **Lecture sur PC/Mac (via Flash/Silverlight)**. Cette présélection produit un élément multimédia de diffusion en continu lisse doté des caractéristiques suivantes : CBR audio stéréo 44,1 kHz 16 bits/échantillon encodé à 96 Kbit/s via AAC, et CBR vidéo 720p encodé selon 6 débits binaires allant de 3 400 Kbit/s à 400 Kbit/s via le profil principal H.264, et GOP de deux secondes.
-	+ **Lecture via HTML5 (IE/Chrome/Safari)**. Cette présélection produit un fichier MP4 doté des caractéristiques suivantes : CBR audio stéréo 44,1 kHz 16 bits/échantillon encodé à 128 Kbit/s via AAC, et CBR vidéo 720p encodé à 4500 Kbit/s via le profil principal H.264.
-	+ **Lecture sur appareils iOS et PC/Mac**. Cette présélection produit un élément multimédia doté des mêmes caractéristiques que l’élément multimédia de diffusion en continu lisse (décrit précédemment), mais sous un format qui peut être utilisé pour fournir des flux HLS Apple sur les appareils iOS.
+	La rubrique [Chaînes de présélection de tâche pour Media Encoder Standard](https://msdn.microsoft.com/fr-FR/library/mt269960) explique ce que chaque prédéfinition signifie.
 
 5. Ensuite, entrez un nom convivial pour le contenu de sortie ou acceptez le nom par défaut. Cliquez ensuite sur le bouton de vérification pour lancer l’opération d’encodage et suivez la progression en bas du portail.
 6. Sélectionnez **OK**.
@@ -193,7 +186,7 @@ Pour créer une URL de diffusion en continu MPEG DASH, ajoutez (format=mpd-time-
 
 Les localisateurs ont une date d’expiration. Quand vous utilisez le portail pour publier vos éléments multimédias, des localisateurs présentant une date d’expiration de 100 ans sont créés.
 
->[AZURE.NOTE]Si vous avez utilisé le portail pour créer des localisateurs avant mars 2015, des localisateurs présentant une date d’expiration de deux ans ont été créés.
+>[AZURE.NOTE] Si vous avez utilisé le portail pour créer des localisateurs avant mars 2015, des localisateurs présentant une date d’expiration de deux ans ont été créés.
 
 Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
 
@@ -260,4 +253,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

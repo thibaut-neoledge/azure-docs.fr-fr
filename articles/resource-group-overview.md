@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
@@ -87,7 +87,7 @@ Pour plus d’informations sur l’utilisation d’un modèle pour le déploieme
 
 Pour obtenir des instructions sur la façon de structurer vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
-Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
 
 ## Balises
 
@@ -119,7 +119,7 @@ Resource Manager fournit des opérations entièrement compatibles par le biais d
 
 Pour plus d’informations sur PowerShell, voir [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md) et [Cmdlets Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-Pour plus d’informations sur l’interface de ligne de commande Azure, voir [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](./virtual-machines/xplat-cli-azure-resource-manager.md).
+Pour plus d’informations sur l’interface de ligne de commande Azure, voir [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 
 Pour plus d’informations sur l’API REST, voir [Référence sur l’API REST du gestionnaire des ressources Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
@@ -138,4 +138,4 @@ Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

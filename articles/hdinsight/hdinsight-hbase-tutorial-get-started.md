@@ -14,21 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
 
 
-# Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight (Windows)
+# Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Windows
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-
 Découvrez comment créer un cluster HBase dans HDInsight, créer des tables HBase et les interroger à l’aide d’Apache Hive. Pour obtenir des informations générales sur HBase, consultez la page [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview].
 
-> [AZURE.NOTE] Les informations de ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d’informations sur les clusters Linux, consultez [Didacticiel HBase : prise en main d’Apache HBase avec Hadoop dans HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
->
-> HBase (version 0.98.0) sous HDInsight Windows peut uniquement être utilisé avec des clusters HDInsight 3.1 (basé sur Apache Hadoop et YARN 2.4.0). Pour obtenir des informations de version, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions]
+Les informations de ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d’informations sur les clusters Windows, utilisez le sélecteur d’onglets en haut de la page pour basculer.
+
+> [AZURE.NOTE] HBase (version 0.98.0) sous HDInsight Windows peut uniquement être utilisé avec des clusters HDInsight 3.1 (basé sur Apache Hadoop et YARN 2.4.0). Pour obtenir des informations de version, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions]
 
 ###Configuration requise
 
@@ -67,7 +66,8 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 
 >[AZURE.NOTE] Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même compte de stockage par défaut et du conteneur d’objets blob par défaut. Le nouveau cluster utilisera les tables HBase créées dans le cluster d'origine.
 
-## Utilisation de l’interpréteur de commandes HBase
+## Créer des tables et insérer des données
+
 Actuellement, il existe deux méthodes pour accéder à HBase. Cette section couvre l’utilisation de l’interpréteur de commandes HBase. La section suivante décrit l’utilisation du Kit de développement logiciel (SDK) .NET.
 
 Pour la plupart des utilisateurs, les données s’affichent sous la forme tabulaire :
@@ -331,4 +331,4 @@ Pour plus d'informations, consultez les pages suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

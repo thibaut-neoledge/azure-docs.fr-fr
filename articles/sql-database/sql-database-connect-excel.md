@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/04/2016"
 	ms.author="joseidz"/>
 
 
@@ -46,7 +46,7 @@ Vous aurez besoin d’une copie d’Excel. Cet article utilise [Microsoft Excel�
 
 4.	Dans la section **Références de connexion**, cliquez sur **Utiliser le nom d’utilisateur et le mot de passe suivants :**, saisissez le **Nom d’utilisateur** et le **Mot de passe** que vous avez configuré pour le serveur de base de données SQL lorsque vous l’avez créé, puis cliquez sur **Suivant**.
 
-	> [AZURE.TIP]Les deux compléments pour Excel, [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) et [Power Query](https://www.microsoft.com/download/details.aspx?id=39379), ont des expériences similaires.
+	> [AZURE.TIP] Les deux compléments pour Excel, [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) et [Power Query](https://www.microsoft.com/download/details.aspx?id=39379), ont des expériences similaires.
 
 5. Dans la boîte de dialogue **Sélection d’une base de données et d’une table**, sélectionnez la base de données **AdventureWorks** dans le menu déroulant, puis **vGetAllCategories** dans la liste des tables et des vues, et cliquez sur **Suivant**.
 
@@ -77,4 +77,4 @@ Si vous êtes développeur de SaaS (Software as a Service), découvrez les [Poo
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

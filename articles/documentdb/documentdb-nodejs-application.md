@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="01/26/2015" 
+	ms.date="02/03/2016" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
@@ -569,4 +569,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

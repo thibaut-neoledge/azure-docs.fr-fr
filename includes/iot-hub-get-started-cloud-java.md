@@ -16,7 +16,7 @@ Dans cette section, vous allez créer une application console Java qui crée une
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.0-preview.9</version>
+      <version>1.0.0</version>
     </dependency>
     ```
     
@@ -228,4 +228,4 @@ Dans cette section, vous allez créer une application console Java qui lit les m
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

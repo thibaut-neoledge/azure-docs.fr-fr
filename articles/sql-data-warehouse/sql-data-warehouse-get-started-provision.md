@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Créer un entrepôt de données SQL
@@ -31,7 +31,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 - Créer un serveur qui héberge votre base de données.
 - Créer une base de données qui contient l’exemple de base de données AdventureWorksDW.
 
-Si vous essayez de migrer une base de données existante vers SQL Data Warehouse, consultez le [vue d’ensemble de la Migration](./sql-data-warehouse-get-started-overview-migrate.md) ou utilisez [utilitaire de Migration de](./sql-data-warehouse-migrate-migration-utility.md).
+Si vous essayez de migrer une base de données existante vers SQL Data Warehouse, consultez le [vue d’ensemble de la Migration](./sql-data-warehouse-overview-migrate.md) ou utilisez [utilitaire de Migration de](./sql-data-warehouse-migrate-migration-utility.md).
 
 Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse](./sql-data-warehouse-overview-load.md).
 
@@ -54,11 +54,11 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 
 Dans la base de données SQL et SQL Data Warehouse, chaque base de données est affectée à un serveur, et chaque serveur est affecté à un emplacement géographique. Le serveur est appelé serveur SQL logique.
 
-> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique :
+> [AZURE.NOTE] <a name="note"></a>Un serveur logique SQL :
   >
   > + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique.
-  > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pour cette raison que nous l’appelons *serveur logique*. 
-  > + Peut héberger plusieurs bases de données sans affecter leurs performances.
+  > + N’est pas un matériel physique, contrairement à un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous utilisons le terme *serveur logique*.
+  > + Peut héberger plusieurs bases de données sans affecter les performances.
   > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
 
 1. Cliquez sur **Serveur** > **Créer un serveur**. Aucuns frais ne s’appliquent pour le serveur. Si vous avez déjà un serveur SQL logique V12 que vous souhaitez utiliser, sélectionnez votre serveur existant et passez à l’étape suivante. 
@@ -74,7 +74,7 @@ Dans la base de données SQL et SQL Data Warehouse, chaque base de données est 
 	- **Créer le serveur V12**. OUI est la seule option disponible pour SQL Data Warehouse. 
 	- **Autoriser les services Azure à accéder au serveur**. Cette option est toujours activée pour SQL Data Warehouse.
 
-    >[AZURE.NOTE]Veillez à stocker le nom du serveur, le nom de l’administrateur du serveur et le mot de passe quelque part. Vous aurez besoin de ces informations pour vous connecter au serveur.
+    >[AZURE.NOTE] Veillez à stocker le nom du serveur, le nom de l’administrateur du serveur et le mot de passe quelque part. Vous aurez besoin de ces informations pour vous connecter au serveur.
 
 1. Cliquez sur **OK** pour enregistrer les paramètres de configuration du serveur SQL logique et revenir au panneau SQL Data Warehouse.
 
@@ -90,7 +90,7 @@ Maintenant que vous avez sélectionné votre serveur SQL logique, vous êtes pr�
     
     - **Performances** : nous vous recommandons de commencer par 400 DWU. Vous pouvez déplacer le curseur vers la gauche ou vers la droite pour ajuster le niveau de performances de votre base de données, avant et après la création de la base de données. 
 
-        > [AZURE.NOTE]SQL Data Warehouse mesure les performances en DWU (Data Warehouse Units). À mesure que vous augmentez les DWU, SQL Data Warehouse augmente les ressources informatiques disponibles pour vos opérations de base de données. Lorsque vous exécutez votre charge de travail, vous pouvez voir les relations entre les DWU et les performances de votre charge de travail.
+        > [AZURE.NOTE] SQL Data Warehouse mesure les performances en DWU (Data Warehouse Units). À mesure que vous augmentez les DWU, SQL Data Warehouse augmente les ressources informatiques disponibles pour vos opérations de base de données. Lorsque vous exécutez votre charge de travail, vous pouvez voir les relations entre les DWU et les performances de votre charge de travail.
         > 
         > Vous pouvez modifier rapidement et facilement le niveau de performance après avoir créé la base de données. Par exemple, si vous n’utilisez pas la base de données, déplacez le curseur vers la gauche pour réduire les coûts. Vous pouvez aussi améliorer les performances quand davantage de ressources sont nécessaires. Pour ne pas encourir de frais, vous pouvez suspendre la base de données. Là réside toute la puissance d’extensibilité de SQL Data Warehouse.
 
@@ -123,7 +123,7 @@ Pour vous connecter au serveur à partir de votre adresse IP actuelle, ajoutez 
 
 1. Créer une règle de pare-feu avec une plage d’adresses IP. Vous pouvez effectuer cette opération maintenant ou ultérieurement.
 
-	>[AZURE.IMPORTANT]Votre adresse IP est susceptible de changer de temps à autre, et vous ne serez peut-être pas en mesure d’accéder à votre serveur jusqu’à ce que vous créiez une nouvelle règle de pare-feu. Pour garantir un accès permanent, nous vous recommandons d’ajouter une plage d’adresses IP. Voir [Configuration des paramètres du pare-feu](../sql-database/sql-database-configure-firewall-settings.md) pour plus de détails.
+	>[AZURE.IMPORTANT] Votre adresse IP est susceptible de changer de temps à autre, et vous ne serez peut-être pas en mesure d’accéder à votre serveur jusqu’à ce que vous créiez une nouvelle règle de pare-feu. Pour garantir un accès permanent, nous vous recommandons d’ajouter une plage d’adresses IP. Voir [Configuration des paramètres du pare-feu](../sql-database/sql-database-configure-firewall-settings.md) pour plus de détails.
 
     Pour créer une règle, saisissez un nom et la plage d’adresses IP, puis cliquez sur **Enregistrer**.
 
@@ -135,4 +135,4 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

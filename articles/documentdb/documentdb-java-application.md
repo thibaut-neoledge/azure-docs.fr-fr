@@ -6,7 +6,7 @@
 	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="10/20/2015" 
+	ms.date="01/29/2015" 
 	ms.author="andrl"/>
 
 # Créer une application web Java avec DocumentDB
@@ -34,7 +34,7 @@ Ce didacticiel d’application Java vous montre comment créer une application d
 
 ![Application Java My ToDo List](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]Ce didacticiel de développement d’applications part du principe que vous avez déjà utilisé Java. Si vous débutez avec Java ou avec les [outils requis](#Prerequisites), nous vous recommandons de télécharger l’ensemble du projet [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) à partir de GitHub et de le générer à l’aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.
+> [AZURE.TIP] Ce didacticiel de développement d’applications part du principe que vous avez déjà utilisé Java. Si vous débutez avec Java ou avec les [outils requis](#Prerequisites), nous vous recommandons de télécharger l’ensemble du projet [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) à partir de GitHub et de le générer à l’aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.
 
 ##<a id="Prerequisites"></a>Conditions préalables à l’exécution de ce didacticiel d’application web Java
 Avant de commencer ce didacticiel de développement d’applications, vous devez disposer des éléments suivants :
@@ -95,7 +95,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 4. Dans la fenêtre **Select Dependency** (Sélectionner une dépendance), procédez comme suit :
  - Dans la zone **GroupId** (ID de groupe), entrez com.microsoft.azure.
  - Dans la zone **Artifact Id** (ID d'artefact), entrez azure-documentdb.
- - Dans la zone **Version**, saisissez 1.4.0.
+ - Dans la zone **Version**, saisissez 1.5.1.
 
 	![Installation du Kit de développement logiciel (SDK) d’applications Java DocumentDB](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.4.0</version>
+		    <version>1.5.1</version>
 	    </dependency>
 
 5. Cliquez sur **Ok** et Maven installe le Kit de développement logiciel (SDK) Java de DocumentDB.
@@ -786,4 +786,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -207,6 +207,20 @@ Les plug-ins de test web vous permettent d'y parvenir.
 
 Maintenant, téléchargez votre test sur le portail. Il va utiliser les valeurs dynamiques à chaque exécution du test.
 
+## Connexion à OAuth
+
+Si vos utilisateurs se connectent à votre application en utilisant leur mot de passe OAuth (par exemple, Microsoft, Google ou Facebook), vous pouvez simuler l’authentification dans votre test web à plusieurs étapes en utilisant le plug-in SAML.
+
+![Test web d’échantillon pour OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+
+L’exemple de test exécute les étapes suivantes :
+
+1. Demandez à l’application web testée l’adresse du point de terminaison OAuth.
+2. Connectez-vous à l’aide du plug-in SAML.
+3. Effectuer le reste du test à l’état connecté.
+
+Le plug-in SAML définit une variable `Assert` qui est utilisée à l’étape 2.
+
 ## <a name="edit"></a>Modification ou désactivation d’un test
 
 Ouvrez un test à modifier ou à désactiver.
@@ -249,4 +263,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

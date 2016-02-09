@@ -18,7 +18,7 @@
 
 # Authentification utilisateur pour API Apps dans Azure App Service
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [sélecteur](../../includes/app-service-api-auth-selector.md)]
 
 ## Vue d’ensemble
 
@@ -365,7 +365,7 @@ Apportez les modifications suivantes au projet ToDoListAPI.
 	![](./media/app-service-api-dotnet-user-principal-auth/todolistapiauth.png)
 
 
-## Génération de projets à partir de 0
+## Génération de projets de toutes pièces
 
 Les deux projets d’API Web ont été créés à l’aide du modèle de projet **application API Azure** et par remplacement du contrôleur de valeurs par défaut par un contrôleur ToDoList.
 
@@ -391,4 +391,4 @@ Si vous exécutez correctement l’application sans authentification, puis qu’
 
 Ce didacticiel vous a montré comment utiliser l’authentification du Service d’application pour une application API et comment appeler l’application API à l’aide de la bibliothèque ADAL JS. Dans le didacticiel suivant, vous allez découvrir comment [sécuriser l’accès à votre application API pour les scénarios de service à service](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

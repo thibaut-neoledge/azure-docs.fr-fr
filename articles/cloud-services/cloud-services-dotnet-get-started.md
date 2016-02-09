@@ -38,7 +38,7 @@ L'application utilise le [modèle de travail centré sur les files d'attente](ht
 
 ## Autre architecture : Sites Web et WebJobs
 
-Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le composant frontal dans un [site web Azure](/services/web-sites/) et à utiliser la fonctionnalité [Tâches web](http://go.microsoft.com/fwlink/?LinkId=390226) (actuellement en version préliminaire) pour le composant principal. Pour un didacticiel qui utilise Tâches web, reportez-vous à la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches web](../websites-dotnet-webjobs-sdk-get-started.md). Pour plus d'informations sur le choix des meilleurs services pour votre scénario, reportez-vous à la rubrique [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines](../choose-web-site-cloud-service-vm.md).
+Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le composant frontal dans un [site web Azure](/services/web-sites/) et à utiliser la fonctionnalité [Tâches web](http://go.microsoft.com/fwlink/?LinkId=390226) (actuellement en version préliminaire) pour le composant principal. Pour un didacticiel qui utilise Tâches web, reportez-vous à la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches web](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Pour plus d'informations sur le choix des meilleurs services pour votre scénario, reportez-vous à la rubrique [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines](../app-service-web/choose-web-site-cloud-service-vm.md).
 
 ## Ce que vous allez apprendre
 
@@ -57,8 +57,8 @@ Vous pouvez exécuter l'application localement sans abonnement Azure, mais il vo
 
 Les instructions du didacticiel sont valables pour les produits suivants :
 
-* Visual Studio 2013
-* Visual Studio 2015
+* Visual Studio 2013
+* Visual Studio 2015
 
 En l’absence d’un de ces produits, Visual Studio 2015 sera automatiquement installé à l’occasion de l’installation du kit de développement logiciel Azure.
 
@@ -219,7 +219,7 @@ Le projet web et le projet de rôle de travail ont chacun leur chaîne de connex
 
 Utilisez une [transformation Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) pour le rôle web et un paramètre d'environnement de service cloud pour le rôle de travail.
 
->[AZURE.NOTE]Dans cette section et la suivante, vous allez stocker des informations d'identification dans des fichiers projet. [Ne stockez pas d'informations confidentielles dans des référentiels de code source publics](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+>[AZURE.NOTE] Dans cette section et la suivante, vous allez stocker des informations d'identification dans des fichiers projet. [Ne stockez pas d'informations confidentielles dans des référentiels de code source publics](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 
 1. Dans le projet ContosoAdsWeb, ouvrez le fichier de transformation *Web.Release.config* pour le fichier d'application *Web.config*, supprimez le bloc de commentaires qui contient un élément `<connectionStrings>`, puis collez le code suivant à la place.
 
@@ -290,9 +290,9 @@ Les chaînes de connexion au compte de stockage Azure pour le projet de rôle w
 
 Les paramètres d'environnement de rôle configurés à l'aide de l'interface utilisateur de Visual Studio sont stockés dans les fichiers suivants du projet ContosoAdsCloudService :
 
-* *ServiceDefinition.csdef* : définit les noms des paramètres.
-* *ServiceConfiguration.Cloud.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute dans le cloud.
-* *ServiceConfiguration.Local.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute localement.
+* *ServiceDefinition.csdef* : définit les noms des paramètres.
+* *ServiceConfiguration.Cloud.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute dans le cloud.
+* *ServiceConfiguration.Local.cscfg* : fournit des valeurs utilisées lorsque l'application s'exécute localement.
 
 Par exemple, le fichier ServiceDefinition.csdef inclut les définitions suivantes.
 
@@ -347,12 +347,11 @@ Le paramètre `<Instances>` spécifie le nombre de machines virtuelles sur lesqu
 
 9. À ce stade, vous pouvez tester l'application en créant, affichant et modifiant des publicités, comme lorsque vous avez exécuté l'application localement.
 
->[AZURE.NOTE]À l'issue du test, supprimez ou arrêtez le service cloud. Même si vous n'utilisez pas le service cloud, il accumule des frais, car les ressources de la machine virtuelle lui sont réservées. Si vous le laissez s'exécuter, toute personne qui trouve votre URL peut créer et afficher des publicités. Dans le [portail Azure Classic](http://manage.windowsazure.com), ouvrez l’onglet **Tableau de bord** de votre service cloud, puis cliquez sur le bouton **Supprimer** en bas de la page. Si vous voulez juste empêcher temporairement l'accès au site, cliquez sur **Arrêter**. Dans ce cas, les frais continuent de s'accumuler. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
+>[AZURE.NOTE] À l'issue du test, supprimez ou arrêtez le service cloud. Même si vous n'utilisez pas le service cloud, il accumule des frais, car les ressources de la machine virtuelle lui sont réservées. Si vous le laissez s'exécuter, toute personne qui trouve votre URL peut créer et afficher des publicités. Dans le [portail Azure Classic](http://manage.windowsazure.com), ouvrez l’onglet **Tableau de bord** de votre service cloud, puis cliquez sur le bouton **Supprimer** en bas de la page. Si vous voulez juste empêcher temporairement l'accès au site, cliquez sur **Arrêter**. Dans ce cas, les frais continuent de s'accumuler. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
 
 ## Créer l’application à partir de zéro
 
-Si vous n'avez pas encore téléchargé
-[l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
+Si vous n'avez pas encore téléchargé [l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
 
 La création de l'application Contoso Ads implique les étapes suivantes :
 
@@ -472,10 +471,10 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 3. Dans le projet ContosoAdsWeb, ajoutez les fichiers suivants du projet téléchargé.
 	- *Global.asax.cs*.  
-	- Dans le dossier *Views\Shared* : <em>\_Layout.cshtml</em>.
-	- Dans le dossier *Views\Home* : *Index.cshtml*.
-	- Dans le dossier *Controllers* : *AdController.cs*.
-	- Dans le dossier *Views\Ad* (à créer) : cinq fichiers *.cshtml*.
+	- Dans le dossier *Views\\Shared* : <em>\_Layout.cshtml</em>.
+	- Dans le dossier *Views\\Home* : *Index.cshtml*.
+	- Dans le dossier *Controllers* : *AdController.cs*.
+	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
 
 3. Dans le projet ContosoAdsWorker, ajoutez le fichier *WorkerRole.cs* du projet téléchargé.
 
@@ -578,11 +577,11 @@ Du code similaire obtient une référence à la file d'attente *images* et crée
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Le fichier *_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
+Le fichier *\_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-Le fichier *Views\Home\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
+Le fichier *Views\\Home\\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -770,7 +769,7 @@ Il arrive que le contenu d'un message de file d'attente provoque une erreur de t
 
 Ce code lit la base de données pour obtenir l'URL de l'image, convertit l'image en vignette, enregistre la vignette dans un objet blob, met à jour la base de données avec l'URL de l'objet blob de la vignette et supprime le message de la file d'attente.
 
->[AZURE.NOTE]Pour plus de simplicité, le code de la méthode `ConvertImageToThumbnailJPG` utilise des classes dans l’espace de noms System.Drawing. Cependant, les classes de cet espace de noms ont été conçues pour être utilisées avec Windows Forms. Elles ne sont pas prises en charge dans un service Windows ou ASP.NET. Pour plus d'informations sur les options de traitement d'images, consultez les rubriques [Génération d'images dynamiques](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) et [Redimensionnement d'images approfondi ](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+>[AZURE.NOTE] Pour plus de simplicité, le code de la méthode `ConvertImageToThumbnailJPG` utilise des classes dans l’espace de noms System.Drawing. Cependant, les classes de cet espace de noms ont été conçues pour être utilisées avec Windows Forms. Elles ne sont pas prises en charge dans un service Windows ou ASP.NET. Pour plus d'informations sur les options de traitement d'images, consultez les rubriques [Génération d'images dynamiques](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) et [Redimensionnement d'images approfondi ](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ## Résolution de problèmes
 
@@ -816,4 +815,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

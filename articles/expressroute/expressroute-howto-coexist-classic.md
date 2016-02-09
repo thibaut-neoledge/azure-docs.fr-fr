@@ -18,7 +18,7 @@
 
 # Configurer des connexions ExpressRoute et VPN de site à site pour qu’elles coexistent pour un réseau virtuel
 
-La possibilité de configurer des connexions VPN de site à site et ExpressRoute présente plusieurs avantages. Vous pouvez configurer un VPN de site à site comme un chemin d’accès de basculement sécurisé pour ExpressRoute, ou utiliser des VPN de site à site pour vous connecter à des sites qui ne font pas partie de votre réseau, mais qui sont connectés via ExpressRoute. Dans cet article, nous décrirons les étapes de configuration des deux scénarios. Cet article s’applique aux connexions créées à l’aide du mode de déploiement classique.
+La possibilité de configurer des connexions VPN de site à site et ExpressRoute présente plusieurs avantages. Vous pouvez configurer un VPN de site à site comme un chemin d’accès de basculement sécurisé pour ExpressRoute, ou utiliser des VPN de site à site pour vous connecter à des sites qui ne font pas partie de votre réseau, mais qui sont connectés via ExpressRoute. Dans cet article, nous décrirons les étapes de configuration des deux scénarios. Actuellement, vous pouvez créer uniquement cette configuration à l’aide du modèle de déploiement classique. En présence d’une documentation concernant le modèle de déploiement du Gestionnaire de ressources, nous allons l’associer à ce dernier à partir d’ici.
 
 >[AZURE.IMPORTANT] Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
 
@@ -211,4 +211,4 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

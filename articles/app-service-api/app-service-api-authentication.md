@@ -18,7 +18,7 @@
 
 # Authentification et autorisation pour API Apps dans Azure App Service
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [sélecteur](../../includes/app-service-api-auth-selector.md)]
 
 ## Vue d’ensemble 
 
@@ -53,16 +53,14 @@ App Service peut empêcher les requêtes HTTP anonymes d’atteindre votre appli
 
 1. Autoriser uniquement les demandes authentifiées à accéder à votre application API.
 
-	Si une demande anonyme est reçue depuis un navigateur, l’application de service est redirigée vers une page d’ouverture de session.
+	Si une demande anonyme est reçue depuis un navigateur, App Service la redirige vers la page de connexion vers le fournisseur d’authentification (Azure AD, Google, Twitter, etc.) de votre choix.
 
-	Si vous connaissez à l’avance le fournisseur d’authentification (Google, Twitter, etc.) que vous souhaitez utiliser, vous pouvez configurer le App Service afin qu’il gère le processus d’ouverture de session à votre place. Vous pouvez également spécifier votre URL et faire en sorte qu’App Service redirige vers elle les demandes anonymes. Vous pouvez ensuite offrir aux utilisateurs un choix de fournisseurs d’authentification.
-
-	Avec cette option, vous n’avez pas besoin d’écrire de code d’authentification dans votre application, et l’autorisation est simplifiée parce que les revendications les plus importantes sont fournies dans les en-têtes HTTP.
+	Avec cette option, vous n’avez pas besoin d’écrire de code d’authentification dans votre application, et le code d’autorisation est simplifié parce que les revendications les plus importantes sont fournies dans les en-têtes HTTP.
 
 2. Autorise toutes les demandes à atteindre votre application API, mais valide les demandes authentifiées et transmet les informations d’authentification dans les en-têtes HTTP.
 
-	Cette option offre davantage de souplesse dans le traitement des demandes anonymes et facilite l’écriture de code nécessitant l’accès aux revendications les plus courantes. Contrairement à l’option 1, vous devez écrire un programme si vous souhaitez empêcher les utilisateurs anonymes d’utiliser votre API.
-
+	Cette option offre plus de souplesse pour le traitement des demandes anonymes, mais vous devez écrire du code si vous souhaitez empêcher que des utilisateurs anonymes se servent de votre API. Étant donné que les revendications les plus populaires sont transmises dans les en-têtes des demandes HTTP, le code d’autorisation est relativement simple.
+	
 3. Autoriser toutes les demandes à atteindre votre API, sans recours aux informations d’authentification dans les requêtes.
 
 	Cette option laisse la gestion des tâches d’authentification et d’autorisation au code d’application.
@@ -71,7 +69,7 @@ Dans le [portail Azure](https://portal.azure.com/), vous sélectionnez l’optio
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-Pour les options 1 et 2, activez l’**authentification App Service** puis, dans la liste déroulante **Action à entreprendre lorsque la demande n’est pas authentifiée**, choisissez **Connecter** ou **Autoriser la requête (aucune action)**. Si vous choisissez **Se connecter**, vous devez sélectionner un fournisseur d’authentification et le configurer.
+Pour les options 1 et 2, activez l’**authentification App Service** puis, dans la liste déroulante **Action à exécuter quand une demande n’est pas authentifiée**, choisissez **Se connecter** ou **Autoriser la requête (aucune action)**. Si vous choisissez **Se connecter**, vous devez sélectionner un fournisseur d’authentification et le configurer.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
@@ -118,4 +116,4 @@ Si vous suivez la série des didacticiels de prise en main pour ASP.NET et API A
 
 Pour plus d’informations sur l’utilisation du nœud et Java dans Azure App Service, consultez le [Centre de développement Node.js](/develop/nodejs/) et le [centre de développement Java](/develop/java/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
