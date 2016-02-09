@@ -22,7 +22,7 @@ Dans cette section, vous allez créer une application console Java qui crée une
     
 4. Enregistrez et fermez le fichier pom.xml.
 
-5. À l’aide d’un éditeur de texte, ouvrez le fichier create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. À l’aide d’un éditeur de texte, ouvrez le fichier create-device-identity\src\main\java\com\mycompany\app\App.java.
 
 6. Ajoutez les instructions **import** ci-après au fichier :
 
@@ -110,7 +110,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
 
 4. Enregistrez et fermez le fichier pom.xml.
 
-5. À l’aide d’un éditeur de texte, ouvrez le fichier read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. À l’aide d’un éditeur de texte, ouvrez le fichier read-d2c-messages\src\main\java\com\mycompany\app\App.java.
 
 6. Ajoutez les instructions **import** ci-après au fichier :
 

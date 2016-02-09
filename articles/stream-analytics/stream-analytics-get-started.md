@@ -28,7 +28,9 @@ Stream Analytics est un service entièrement géré permettant de traiter des é
 
 ## Scénario : détection des fraudes de télécommunication et SIM en temps réel
 
-Une société de télécommunication dispose d’un volume important de données pour les appels entrants. Elle souhaite effectuer les opérations suivantes sur ses données : * Les réduire en une quantité gérable pour dégager des informations sur l'utilisation des clients au fil du temps et dans différentes régions géographiques. * Détecter les fraudes SIM (plusieurs appels provenant de la même identité quasiment au même moment mais dans des zones géographiques différentes) en temps réel afin d'y répondre facilement en avertissant les clients ou en arrêtant le service.
+Une société de télécommunication dispose d’un volume important de données pour les appels entrants. Elle souhaite effectuer les opérations suivantes sur ses données : 
+* Les réduire en une quantité gérable pour dégager des informations sur l'utilisation des clients au fil du temps et dans différentes régions géographiques. 
+* Détecter les fraudes SIM (plusieurs appels provenant de la même identité quasiment au même moment mais dans des zones géographiques différentes) en temps réel afin d'y répondre facilement en avertissant les clients ou en arrêtant le service.
 
 Dans les scénarios de type Internet des objets où des tonnes de données télémétriques ou de capteur sont générées, les clients veulent les agréger ou être alertés en cas d’anomalie en temps réel.
 

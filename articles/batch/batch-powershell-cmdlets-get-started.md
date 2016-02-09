@@ -44,7 +44,7 @@ Pour obtenir une liste complète des applets de commande Batch et la syntaxe dé
 New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <*account\_name*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
+Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <*account_name*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
 
 ```
 New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup

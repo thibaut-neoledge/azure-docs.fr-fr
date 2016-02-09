@@ -104,25 +104,40 @@ Pour tester la logique de nouvelle tentative, vous devez simuler ou provoquer un
 ### Test par le biais de la déconnexion du réseau
 
 
-Pour tester votre logique de nouvelle tentative, vous pouvez déconnecter votre ordinateur client du réseau pendant l’exécution du programme. L’erreur sera la suivante : **SqlException.Number** = 11001 - Message : « hôte inconnu »
+Pour tester votre logique de nouvelle tentative, vous pouvez déconnecter votre ordinateur client du réseau pendant l’exécution du programme. L’erreur sera la suivante :
+- **SqlException.Number** = 11001 
+- Message : « hôte inconnu »
 
 
 Dans le cadre de la première nouvelle tentative, votre programme peut corriger les fautes d’orthographe et tenter de se connecter.
 
 
-Pour concrétiser cela, vous pouvez débrancher votre ordinateur du réseau avant lancer votre programme. Votre programme reconnaît alors un paramètre d’exécution qui fait en sorte que le programme : 1. Ajoute temporairement 11001 à sa liste d’erreurs à considérer comme provisoire. 2. Tente sa première connexion comme d’habitude. 3. Une fois l’erreur détectée, supprime 11001 de sa liste. 4. Affiche un message indiquant à l’utilisateur de connecter l’ordinateur au réseau. -Interrompt la suite de l’exécution en utilisant la méthode **Console.ReadLine** ou une boîte de dialogue avec un bouton OK. L’utilisateur appuie sur la touche Entrée après la connexion de l’ordinateur au réseau. 5. Essaie de nouveau de se connecter, et attend la réussite.
+Pour concrétiser cela, vous pouvez débrancher votre ordinateur du réseau avant lancer votre programme. Votre programme reconnaît alors un paramètre d’exécution qui fait en sorte que le programme : 
+1. Ajoute temporairement 11001 à sa liste d’erreurs à considérer comme provisoire. 
+2. Tente sa première connexion comme d’habitude.
+3. Une fois l’erreur détectée, supprime 11001 de sa liste. 
+4. Affiche un message indiquant à l’utilisateur de connecter l’ordinateur au réseau.
+ -Interrompt la suite de l’exécution en utilisant la méthode **Console.ReadLine** ou une boîte de dialogue avec un bouton OK. L’utilisateur appuie sur la touche Entrée après la connexion de l’ordinateur au réseau. 
+5. Essaie de nouveau de se connecter, et attend la réussite.
 
 
 ### Teste en fournissant un nom de base de données mal orthographié au moment de la connexion
 
 
-Votre programme peut délibérément mal orthographier le nom d’utilisateur avant la première tentative de connexion. L’erreur renvoyée sera :- **SqlException.Number** = 18456 - Message : « Échec de la connexion pour l’utilisateur ’WRONG\_MyUserName’.»
+Votre programme peut délibérément mal orthographier le nom d’utilisateur avant la première tentative de connexion. L’erreur renvoyée sera :
+- **SqlException.Number** = 18456 
+- Message : « Échec de la connexion pour l’utilisateur ’WRONG_MyUserName’.»
 
 
 Dans le cadre de la première nouvelle tentative, votre programme peut corriger les fautes d’orthographe et tenter de se connecter.
 
 
-Pour mettre cela en pratique, votre programme peut reconnaître un paramètre d’exécution, qui fait en sorte que le programme 1. Ajoute temporairement 18456 à sa liste d’erreurs à prendre en compte comme provisoire. 2. Ajoute volontairement ’WRONG\_’ au nom d’utilisateur. 3. Une fois l’erreur détectée, supprime 18456 de la liste. 4. Supprime ’WRONG\_’ du nom d’utilisateur. 5. Essaie de nouveau de se connecter, et attend la réussite.
+Pour mettre cela en pratique, votre programme peut reconnaître un paramètre d’exécution, qui fait en sorte que le programme 
+1. Ajoute temporairement 18456 à sa liste d’erreurs à prendre en compte comme provisoire. 
+2. Ajoute volontairement ’WRONG_’ au nom d’utilisateur. 
+3. Une fois l’erreur détectée, supprime 18456 de la liste. 
+4. Supprime ’WRONG_’ du nom d’utilisateur. 
+5. Essaie de nouveau de se connecter, et attend la réussite.
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -247,7 +262,9 @@ Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandon
 Si votre programme ne peut pas se connecter à la base de données SQL Azure, une option de diagnostic consiste à essayer de se connecter à un programme utilitaire. Dans l’idéal, l’utilitaire se connecte à l’aide de la bibliothèque que votre programme utilise.
 
 
-Sur un ordinateur Windows, vous pouvez essayer les utilitaires suivants : - SQL Server Management Studio (ssms.exe), qui se connecte à l’aide d’ADO.NET. - sqlcmd.exe, qui se connecte à l’aide d’[ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
+Sur un ordinateur Windows, vous pouvez essayer les utilitaires suivants : 
+- SQL Server Management Studio (ssms.exe), qui se connecte à l’aide d’ADO.NET. 
+- sqlcmd.exe, qui se connecte à l’aide d’[ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
 
 
 Une fois connecté, faites un test avec une courte requête SQL SELECT.
@@ -261,14 +278,17 @@ Une fois connecté, faites un test avec une courte requête SQL SELECT.
 Supposons que vous soupçonnez que les tentatives de connexion échouent en raison de problèmes de port. Depuis votre ordinateur, vous pouvez exécuter un utilitaire qui génère des rapports sur les configurations de port.
 
 
-Sous Linux, les utilitaires suivants peuvent s’avérer utiles : - `netstat -nap` - `nmap -sS -O 127.0.0.1` - (remplacez la valeur de l’exemple par votre adresse IP).
+Sous Linux, les utilitaires suivants peuvent s’avérer utiles : 
+- `netstat -nap` 
+- `nmap -sS -O 127.0.0.1` 
+- (remplacez la valeur de l’exemple par votre adresse IP).
 
 
 Sous Windows, l’utilitaire [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) peut s’avérer utile. Voici une exécution de l’exemple qui demandé l’état d’un port sur un serveur de base de données SQL Azure, et qui a été exécuté sur un ordinateur portable :
 
 
 ```
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
 
 Querying target system called:
@@ -280,7 +300,7 @@ Name resolved to 23.100.117.95
 querying...
 TCP port 1433 (ms-sql-s service): LISTENING
 
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >>
 ```
 
@@ -296,7 +316,8 @@ Un problème intermittent est parfois mieux diagnostiqué par la détection d’
 Votre client peut aider à consigner toutes les erreurs qu’il rencontre un diagnostic. Vous pourrez mettre en corrélation les entrées de journal avec des informations sur les erreurs de base consignées en interne par la base de données SQL Azure elle-même.
 
 
-Enterprise Library 6 (EntLib60) offre des classes gérées .NET afin de faciliter la journalisation : - [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6 (EntLib60) offre des classes gérées .NET afin de faciliter la journalisation : 
+- [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -309,8 +330,8 @@ Voici certaines instructions Transact-SQL SELECT qui permettent d’interroger l
 
 | Interrogation de journaux | Description |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vue [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) affiche des informations sur des événements individuels, notamment sur les événements à l’origine d’erreurs temporaires ou de problèmes de connectivité.<br/><br/>Dans l’idéal, vous pouvez établir une corrélation entre les valeurs **start\_time** ou **end\_time** et les données relatives au moment où votre programme client a rencontré des problèmes.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | L’écran [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) agrège des nombres de différents types d’événements, pour permettre des diagnostics supplémentaires.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vue [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) affiche des informations sur des événements individuels, notamment sur les événements à l’origine d’erreurs temporaires ou de problèmes de connectivité.<br/><br/>Dans l’idéal, vous pouvez établir une corrélation entre les valeurs **start_time** ou **end_time** et les données relatives au moment où votre programme client a rencontré des problèmes.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | L’écran [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) agrège des nombres de différents types d’événements, pour permettre des diagnostics supplémentaires.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
 
 
 ### Diagnostics : Rechercher les événements liés aux problèmes dans le journal de base de données SQL
@@ -345,7 +366,7 @@ ORDER BY
 ```
 
 
-#### quelques-unes d’entre elles ont renvoyé des lignes de sys.fn\_xe\_telemetry\_blob\_target\_read\_file
+#### quelques-unes d’entre elles ont renvoyé des lignes de sys.fn_xe_telemetry_blob_target_read_file
 
 
 Vous trouverez plus loin une ligne renvoyée qui ressemble à ce qui suit . Les valeurs null indiquées ne sont en général pas nulles dans d’autres lignes.
@@ -363,13 +384,16 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) est une infrastructure de classes .NET qui vous permet d’implémenter des clients de cloud fiables, et notamment le service Azure SQL Database. Vous pouvez rechercher des rubriques dédiées à chaque zone dans laquelle EntLib60 peut aider en visitant dans un premier temps : - [Enterprise Library 6 – avril 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) est une infrastructure de classes .NET qui vous permet d’implémenter des clients de cloud fiables, et notamment le service Azure SQL Database. Vous pouvez rechercher des rubriques dédiées à chaque zone dans laquelle EntLib60 peut aider en visitant dans un premier temps : 
+- [Enterprise Library 6 – avril 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
-La logique de nouvelle tentative pour la gestion des erreurs temporaires est un domaine dans lequel EntLib60 peut s’avérer utile : - [4 Persévérance, secret de la réussite : Utilisation du bloc applicatif de gestion des erreurs temporaires](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+La logique de nouvelle tentative pour la gestion des erreurs temporaires est un domaine dans lequel EntLib60 peut s’avérer utile : 
+- [4 Persévérance, secret de la réussite : Utilisation du bloc applicatif de gestion des erreurs temporaires](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-Un court exemple de code C# qui utilise EntLib60 dans sa logique de nouvelle tentative est disponible à l’adresse : - [Exemple de code : logique de nouvelle tentative Enterprise Library 6 en C# pour la connexion à la base de données SQL](sql-database-develop-entlib-csharp-retry-windows.md)
+Un court exemple de code C# qui utilise EntLib60 dans sa logique de nouvelle tentative est disponible à l’adresse : 
+- [Exemple de code : logique de nouvelle tentative Enterprise Library 6 en C# pour la connexion à la base de données SQL](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 > [AZURE.NOTE] Le code source pour EntLib60 est disponible au public en [téléchargement](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft ne prévoit pas d’apporter des mises à jour de maintenance ou de fonctionnalité supplémentaires à EntLib.

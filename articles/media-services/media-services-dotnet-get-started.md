@@ -153,7 +153,7 @@ L’allocation de nouvelles unités prend environ 20 minutes.
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		
 
-6. Créez un dossier sous le répertoire de projets et copiez-y le fichier .mp4 ou .wmv à encoder et à diffuser en continu ou télécharger. Dans cet exemple, le chemin d'accès « C:\\VideoFiles » est utilisé.
+6. Créez un dossier sous le répertoire de projets et copiez-y le fichier .mp4 ou .wmv à encoder et à diffuser en continu ou télécharger. Dans cet exemple, le chemin d'accès « C:\VideoFiles » est utilisé.
 
 ##Se connecter au compte Media Services
 

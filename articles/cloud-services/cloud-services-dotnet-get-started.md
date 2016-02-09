@@ -88,7 +88,7 @@ Lorsqu'un utilisateur télécharge une image, l'application frontale qui s'exéc
 
 3. Dans l'**Explorateur de solutions**, assurez-vous que **ContosoAdsCloudService** est sélectionné comme projet de démarrage.
 
-2. Si vous utilisez Visual Studio 2015, modifiez la chaîne de connexion SQL Server dans le fichier d’application *Web.config* du projet ContosoAdsWeb et dans le fichier *ServiceConfiguration.Local.cscfg* du projet ContosoAdsCloudService. Dans tous les cas, changez « (localdb) \\v11.0 » en « (localdb) \\MSSQLLocalDB ».
+2. Si vous utilisez Visual Studio 2015, modifiez la chaîne de connexion SQL Server dans le fichier d’application *Web.config* du projet ContosoAdsWeb et dans le fichier *ServiceConfiguration.Local.cscfg* du projet ContosoAdsCloudService. Dans tous les cas, changez « (localdb) \v11.0 » en « (localdb) \MSSQLLocalDB ».
 
 1. Appuyez sur Ctrl+F5 pour exécuter l’application.
 
@@ -351,7 +351,8 @@ Le paramètre `<Instances>` spécifie le nombre de machines virtuelles sur lesqu
 
 ## Créer l’application à partir de zéro
 
-Si vous n'avez pas encore téléchargé [l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
+Si vous n'avez pas encore téléchargé
+[l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
 
 La création de l'application Contoso Ads implique les étapes suivantes :
 
@@ -471,10 +472,10 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 3. Dans le projet ContosoAdsWeb, ajoutez les fichiers suivants du projet téléchargé.
 	- *Global.asax.cs*.  
-	- Dans le dossier *Views\\Shared* : <em>\_Layout.cshtml</em>.
-	- Dans le dossier *Views\\Home* : *Index.cshtml*.
-	- Dans le dossier *Controllers* : *AdController.cs*.
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
+	- Dans le dossier *Views\Shared* : <em>\_Layout.cshtml</em>.
+	- Dans le dossier *Views\Home* : *Index.cshtml*.
+	- Dans le dossier *Controllers* : *AdController.cs*.
+	- Dans le dossier *Views\Ad* (à créer) : cinq fichiers *.cshtml*.
 
 3. Dans le projet ContosoAdsWorker, ajoutez le fichier *WorkerRole.cs* du projet téléchargé.
 
@@ -577,11 +578,11 @@ Du code similaire obtient une référence à la file d'attente *images* et crée
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Le fichier *\_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
+Le fichier *_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-Le fichier *Views\\Home\\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
+Le fichier *Views\Home\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -670,7 +671,7 @@ L'exemple suivant illustre le code qui supprime les objets blob lorsque vous sup
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml et Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml et Details.cshtml
 
 Le fichier *Index.cshtml* affiche des vignettes avec les autres données de publicité.
 
@@ -680,7 +681,7 @@ Le fichier *Details.cshtml* affiche l'image intégrale.
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml et Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml et Edit.cshtml
 
 Les fichiers *Create.cshtml* et *Edit.cshtml* spécifient l’encodage de formulaire qui permet au contrôleur d’obtenir l’objet `HttpPostedFileBase`.
 

@@ -505,7 +505,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 	
 	Ceci devrait être suffisant pour que notre application puisse fonctionner.
 
-5. Ouvrez le fichier **style.css** dans le répertoire **public\\stylesheets** et remplacez le code par le suivant :
+5. Ouvrez le fichier **style.css** dans le répertoire **public\stylesheets** et remplacez le code par le suivant :
 
 		body {
 		  padding: 50px;

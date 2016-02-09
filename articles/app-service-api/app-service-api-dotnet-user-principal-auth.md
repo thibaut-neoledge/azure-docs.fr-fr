@@ -88,7 +88,7 @@ Si vous n’avez pas suivi les premier et deuxième didacticiels, mais que vous 
 
 2. Déployez le projet ToDoListDataAPI sur une nouvelle application API
 
-	a. Dans le projet ToDoListDataAPI, ouvrez le fichier *App\_Start/Swaggerconfig.cs* et supprimez les commentaires du code **EnableSwaggerUi**.
+	a. Dans le projet ToDoListDataAPI, ouvrez le fichier *App_Start/Swaggerconfig.cs* et supprimez les commentaires du code **EnableSwaggerUi**.
 
 	b. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet ToDoListDataAPI, puis cliquez sur **Publier**.
 
@@ -110,7 +110,7 @@ Si vous n’avez pas suivi les premier et deuxième didacticiels, mais que vous 
 
 3. Déployez le projet ToDoListAPI sur la nouvelle application API.
 
-	a. Dans le projet ToDoListAPI, ouvrez *Controllers\\ToDoListController.cs* et changez `http://localhost:45914` en `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
+	a. Dans le projet ToDoListAPI, ouvrez *Controllers\ToDoListController.cs* et changez `http://localhost:45914` en `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
 
 	b. Pour le déploiement, suivez la procédure que vous avez utilisée pour le projet ToDoListDataAPI. N’oubliez pas de modifier le type en **Application API**.
 

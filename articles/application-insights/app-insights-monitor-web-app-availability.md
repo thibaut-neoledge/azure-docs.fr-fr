@@ -129,7 +129,7 @@ Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l'aid
 
 Notez que vous ne pouvez pas utiliser de fonctions codées dans vos tests : les étapes du scénario doivent figurer sous forme de script dans le fichier .webtest.
 
-#### 1\. Enregistrement d’un scénario
+#### 1. Enregistrement d’un scénario
 
 Utilisez Visual Studio Enterprise ou Ultimate pour enregistrer une session web.
 
@@ -160,7 +160,7 @@ Utilisez Visual Studio Enterprise ou Ultimate pour enregistrer une session web.
     ![Dans Visual Studio, ouvrez le fichier .webtest et cliquez sur Exécuter.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2\. Chargement du test web dans Application Insights
+#### 2. Chargement du test web dans Application Insights
 
 1. Dans le portail Application Insights, créez un test web.
 

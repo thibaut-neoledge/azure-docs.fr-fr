@@ -305,7 +305,7 @@ Dans ce didacticiel, vous allez ajouter un code qui valide l’ID de l’applica
 
 Apportez les modifications suivantes au projet ToDoListDataAPI.
 
-2. Ouvrez le fichier *Controllers\\ToDoListController.cs*.
+2. Ouvrez le fichier *Controllers/ToDoListController.cs*.
 
 3. Supprimez les commentaires des lignes qui définissent `trustedCallerClientId` et `trustedCallerServicePrincipalId`.
 
