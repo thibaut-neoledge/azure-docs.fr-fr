@@ -98,7 +98,8 @@ La prochaine étape dans `Main` consiste à remplir l'index créé. Cette opéra
 
         try
         {
-            indexClient.Documents.Index(IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc))));
+            var batch = IndexBatch.Upload(sitecoreItems);
+            indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
         {
@@ -107,7 +108,7 @@ La prochaine étape dans `Main` consiste à remplir l'index créé. Cette opéra
             // retrying. For this simple demo, we just log the failed document keys and continue.
             Console.WriteLine(
                 "Failed to index some of the documents: {0}",
-                String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
+                String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
         }
 
         // Wait a while for indexing to complete.
@@ -118,10 +119,10 @@ Cette méthode présente quatre parties. La première crée un tableau d’obje
 
 La deuxième partie crée un `IndexAction` pour chaque `Hotel`, puis les regroupe dans un nouveau `IndexBatch`. Le lot est ensuite chargé dans l'index Azure Search par la méthode `Documents.Index`.
 
-> [AZURE.NOTE]Dans cet exemple, nous allons simplement charger les documents. Si vous souhaitez fusionner les modifications dans un document ou supprimer un document, vous pouvez créer un `IndexAction` avec le `IndexActionType` correspondant. Il est inutile de spécifier `IndexActionType` dans cet exemple, car la valeur par défaut est `Upload`.
+> [AZURE.NOTE] Dans cet exemple, nous allons simplement charger les documents. Si vous souhaitez fusionner les modifications dans un document existant ou supprimer un document, vous pouvez utiliser les méthodes `Merge`, `MergeOrUpload` ou `Delete` correspondantes.
 
 La troisième partie de cette méthode est un bloc catch qui gère un cas d'erreur important pour l'indexation. Si votre service Azure Search ne parvient pas à indexer certains documents du lot, `Documents.Index` génère un `IndexBatchException`. Cela peut se produire si vous indexez des documents lorsque votre service est surchargé. **Nous vous recommandons vivement de prendre en charge explicitement ce cas de figure dans votre code.** Vous pouvez retarder puis relancer l'indexation des documents qui ont échoué, ouvrir une session et continuer comme dans l’exemple, ou faire autre chose selon la cohérence des données requise par votre application.
 
 Enfin, la méthode retarde son exécution de deux secondes. L'indexation s’exécutant en mode asynchrone dans votre service Azure Search, l'exemple d'application doit attendre quelque temps afin de s'assurer que les documents sont disponibles pour la recherche. Ce genre de retard n’est nécessaire que dans les démonstrations, les tests et les exemples d'applications.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

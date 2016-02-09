@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="01/21/2015"
+   ms.date="01/21/2016"
    ms.author="danlep"/>
 
 # Prise en main des applets de commande Azure Batch PowerShell
@@ -44,7 +44,7 @@ Pour obtenir une liste complète des applets de commande Batch et la syntaxe dé
 New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <*account\_name*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
+Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <*account_name*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
 
 ```
 New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -166,4 +166,4 @@ Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $con
 * [Informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Interroger efficacement le service Batch](batch-efficient-list-queries.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

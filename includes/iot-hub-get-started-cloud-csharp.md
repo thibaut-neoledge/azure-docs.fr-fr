@@ -8,7 +8,7 @@ Dans cette section, vous allez créer une application console Windows qui crée 
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **CreateDeviceIdentity**, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans la fenêtre **Gestionnaire de packages NuGet**, assurez-vous que l’option **Inclure la version préliminaire** est activée. Ensuite, recherchez les **Appareils Microsoft Azure**, cliquez sur **Installer** et installez le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation.
+3. Dans la fenêtre **Gestionnaire de package NuGet**, recherchez les **Appareils Microsoft Azure**, cliquez sur **Installer**, puis installez le package **Microsoft.Azure.Devices** et acceptez les conditions d’utilisation.
 
 	![][11]
 
@@ -53,7 +53,7 @@ Dans cette section, vous allez créer une application console Windows qui crée 
 
     ![][12]
 
-> [AZURE.NOTE]Le registre d’identité IoT Hub stocke uniquement les identités des appareils pour permettre un accès sécurisé à IoT Hub. Il stocke les ID des appareils et les clés à utiliser comme informations d’identification de sécurité. Par ailleurs, un indicateur activé/désactivé vous permet de désactiver l’accès pour un appareil individuel. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations.
+> [AZURE.NOTE] Le registre d’identité IoT Hub stocke uniquement les identités des appareils pour permettre un accès sécurisé à IoT Hub. Il stocke les ID des appareils et les clés à utiliser comme informations d’identification de sécurité. Par ailleurs, un indicateur activé/désactivé vous permet de désactiver l’accès pour un appareil individuel. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations.
 
 ## Recevoir des messages des appareils vers le cloud
 
@@ -65,7 +65,7 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ReadDeviceToCloudMessages**, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans la fenêtre **Gestionnaire de packages NuGet**, assurez-vous que la case **Inclure la version préliminaire** est cochée. Recherchez ensuite **WindowsAzure.ServiceBus**, cliquez sur **Installer** et acceptez les conditions d’utilisation.
+3. Dans la fenêtre **Gestionnaire de package NuGet**, recherchez **WindowsAzure.ServiceBus**, cliquez sur **Installer** et acceptez les conditions d’utilisation.
 
     Cette opération lance le téléchargement, l’installation et ajoute une référence à [Azure Service Bus][lnk-servicebus-nuget] avec toutes ses dépendances.
 
@@ -125,4 +125,4 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

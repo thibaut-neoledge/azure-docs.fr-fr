@@ -41,8 +41,8 @@ L’extrait de code suivant crée une méthode qui transmet une entrée de chaî
 			sp.Filter = filter;
 		}
 	
-		DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-		foreach (SearchResult<Hotel> result in response)
+		DocumentSearchResult<Hotel> documentSearchResult = indexClient.Documents.Search<Hotel>(searchText, sp);
+		foreach (SearchResult<Hotel> result in documentSearchResult.Results)
 		{
 			Console.WriteLine(result.Document);
 		}
@@ -63,4 +63,4 @@ Dans le premier appel, nous recherchons tous les documents contenant les termes 
 
 Le deuxième appel utilise une expression OData $filter, équivalant à la catégorie « Luxury ». Celle-ci limite la recherche pour ne renvoyer que les documents dont le champ de catégorie correspond exactement à la chaîne « Luxury ». Pour plus d’informations sur la syntaxe OData, consultez [Syntaxe des expressions OData pour Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

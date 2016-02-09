@@ -32,7 +32,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 - Utilisez le portail Azure pour créer un hub IoT.
 - Créer une identité de l’appareil dans votre hub IoT.
-- Créer un périphérique simulé qui envoie les données de télémétrie au serveur principal de votre service cloud.
+- Créer un périphérique simulé qui envoie les données de télémétrie au serveur back-end de votre service cloud.
 
 À la fin de ce didacticiel, vous disposerez de trois applications de console Java :
 
@@ -40,7 +40,7 @@ Ce didacticiel vous explique les procédures suivantes :
 * **read-d2c-messages**, qui affiche les données de télémétrie envoyées par votre périphérique simulé ;
 * **simulated-device**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde.
 
-> [AZURE.NOTE] L’article [Kits de développement logiciel (SDK) IoT Hub][lnk-hub-sdks] fournit des informations sur les différents Kits de développement logiciels que vous pouvez utiliser pour générer les applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
+> [AZURE.NOTE] L’article [kit de développement logiciel IoT Hub][lnk-hub-sdks] fournit des informations sur les différents kits de développement logiciels que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
@@ -141,4 +141,4 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

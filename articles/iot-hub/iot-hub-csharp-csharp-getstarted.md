@@ -32,7 +32,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 - Utilisez le portail Azure pour créer un hub IoT.
 - Créer une identité de l’appareil dans votre hub IoT.
-- Créer un appareil simulé qui envoie des données de télémétrie vers votre serveur principal de cloud et reçoit des commandes de ce dernier.
+- Créer un périphérique simulé qui envoie des données de télémétrie vers votre serveur principal de cloud et reçoit des commandes de ce dernier.
 
 À la fin de ce didacticiel, vous disposerez de trois applications de console Windows :
 
@@ -40,7 +40,7 @@ Ce didacticiel vous explique les procédures suivantes :
 * **ReadDeviceToCloudMessages**, qui affiche les données de télémétrie envoyées par votre périphérique simulé ;
 * **SimulatedDevice**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de télémétrie chaque seconde.
 
-> [AZURE.NOTE] L’article [Kits de développement logiciel (SDK) IoT Hub](lnk-hub-sdks) fournit des informations sur les différents Kits de développement logiciels que vous pouvez utiliser pour générer les applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
+> [AZURE.NOTE] L’article [kit de développement logiciel IoT Hub][lnk-hub-sdks] fournit des informations sur les différents kits de développement logiciels que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
@@ -117,7 +117,7 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 
 <!-- Links -->
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
@@ -125,4 +125,4 @@ Dans ce didacticiel, vous avez configuré un nouveau concentrateur IoT dans le p
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

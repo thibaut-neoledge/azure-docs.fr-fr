@@ -18,15 +18,13 @@
 
 # Consommer une application API à partir de JavaScript à l’aide de CORS
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
-
-## Vue d'ensemble
+## Vue d’ensemble
 
 Cet article contient deux sections :
 
 * La section [Configuration de CORS](#corsconfig) explique comment configurer CORS pour n’importe quelle application API en général. Elle s’applique également à toutes les infrastructures prises en charge par App Service, notamment .NET, Node.js et Java. 
 
-* Le [reste de l’article](#tutorialstart) vous aide à déployer un exemple d’application .NET et à configurer CORS afin que le serveur frontal JavaScript puisse appeler le serveur principal de l’API web.
+* Le [reste de l’article](#tutorialstart) vous aide à déployer un exemple d’application .NET et à configurer CORS afin que le serveur back-end JavaScript puisse appeler le serveur principal de l’API web.
 
 ## <a id="corsconfig"></a> Configuration de CORS dans Azure App Service
 
@@ -125,9 +123,9 @@ Avant de déployer le programme frontal dans Azure, vous devez modifier le point
 
 ### Créer une application web pour le projet ToDoListAngular
 
-La création d’une application web et le déploiement d’un projet dans cette application suivent une procédure identique à celle que vous avez vue dans le premier didacticiel de cette série, à ceci près que vous n’avez pas à remplacer le type **App web** par le type **Application API**.
+La procédure de création d’une application web et de déploiement d’un projet dans cette application est identique à celle que vous avez vue dans le premier didacticiel de cette série, à ceci près que vous n’avez pas à remplacer le type **Application web** par le type **Application API**.
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet ToDoListAngular, puis cliquez sur **Publier**.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet ToDoListAngular, puis cliquez sur **Publier**.
 
 3.  Sous l’onglet **Profil** de l’Assistant **Publier le site web**, cliquez sur **Microsoft Azure App Service**.
 
@@ -204,7 +202,7 @@ La prise en charge de CORS dans l’API web est plus flexible que celle offerte 
 
 Les étapes suivantes résument le processus d’activation de la prise en charge de CORS dans l’API web. Pour plus d’informations, consultez la section [Activation des demandes multi-origines dans l’API web ASP.NET 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
-1. Dans un projet d’API web, comprennent une ligne de code `config.EnableCors()` dans la méthode d’**inscription** de la classe **WebApiConfig**, comme dans l’exemple suivant. 
+1. Dans un projet d’API web, elles comprennent une ligne de code `config.EnableCors()` dans la méthode d’**inscription** de la classe **WebApiConfig**, comme dans l’exemple suivant. 
 
 		public static class WebApiConfig
 	    {
@@ -240,4 +238,4 @@ Les étapes suivantes résument le processus d’activation de la prise en charg
 
 Dans ce didacticiel, vous avez vu deux façons d’activer la prise en charge de CORS afin que le code JavaScript client puisse appeler une API dans un autre domaine. Dans l’article suivant de la série de prise en main d’API Apps, vous allez découvrir l’[authentification d’App Service API Service](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

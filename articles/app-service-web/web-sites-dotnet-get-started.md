@@ -42,7 +42,7 @@ Vous apprendrez ce qui suit :
 * Utilisation de l’**Explorateur de serveurs** Visual Studio pour ouvrir des fichiers distants et démarrer une session de débogage à distance. 
 * utiliser le [portail Azure](/overview/preview-portal/) pour surveiller et gérer votre application web.
 
-> [AZURE.NOTE]Ce didacticiel porte sur l’utilisation d’ASP.NET avec Azure App Service. Il n’explique pas comment développer une application web ASP.NET. Pour une présentation d’ASP.NET MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) sur le site [ASP.NET](http://asp.net/). Pour des liens vers d’autres articles plus détaillés sur l’utilisation d’Azure App Service, consultez la section [Étapes suivantes](#next-steps).
+> [AZURE.NOTE] Ce didacticiel porte sur l’utilisation d’ASP.NET avec Azure App Service. Il n’explique pas comment développer une application web ASP.NET. Pour une présentation d’ASP.NET MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) sur le site [ASP.NET](http://asp.net/). Pour des liens vers d’autres articles plus détaillés sur l’utilisation d’Azure App Service, consultez la section [Étapes suivantes](#next-steps).
 > 
 > Aidez-nous à améliorer la portée et l’approche de ce didacticiel. Si vous aimeriez que d’autres thèmes soient traités dans un didacticiel de prise en main, n’hésitez pas à laisser un [commentaire](#comments) en bas de cette page.
 
@@ -177,7 +177,7 @@ Dans cette section, vous déployez le projet web dans l’application web, comme
 
 	Vous pouvez accepter les valeurs par défaut pour **Configuration** et **Options de publication des fichiers**.
 
-	Vous pouvez utiliser la liste déroulante **Configuration** pour déployer une version Debug pour le débogage à distance. La section [Étapes suivantes](#next-steps) renvoie vers un didacticiel qui explique comment exécuter Visual Studio en mode de débogage à distance.
+	Vous pouvez utiliser la liste déroulante **Configuration** pour déployer une version de débogage pour le débogage distant. La section [Étapes suivantes](#next-steps) renvoie vers un didacticiel qui explique comment exécuter Visual Studio en mode de débogage à distance.
 
 	![Onglet Paramètres](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
@@ -267,7 +267,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 * Ajout d’une fonctionnalité de base de données et d’autorisation
 
-	Pour suivre un didacticiel expliquant comment accéder aux bases de données et limiter certaines fonctions d’application aux utilisateurs autorisés, consultez la page [Déploiement d’une application ASP.NET MVC avec une fonctionnalité d’appartenance, OAuth et une base de données SQL Database vers une application web Azure](/develop/net/tutorials/web-site-with-sql-database/). L’utilisation de ce didacticiel implique une certaine connaissance de MVC 5. Si vous ne connaissez pas MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
+	Pour suivre un didacticiel expliquant comment accéder aux bases de données et limiter certaines fonctions d’application aux utilisateurs autorisés, consultez la page [Déploiement d’une application ASP.NET MVC avec une fonctionnalité d’appartenance, OAuth et une base de données SQL Database vers une application web Azure](/develop/net/tutorials/web-site-with-sql-database/). L’utilisation de ce didacticiel implique des connaissances de MVC 5 ; si vous débutez avec MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 
 * Autres méthodes de déploiement d’un projet web
 
@@ -296,9 +296,9 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 * [Comment choisir ou créer un plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-* [Comment choisir ou créer un groupe de ressources](../azure-preview-portal-using-resource-groups.md)
+* [Comment choisir ou créer un groupe de ressources](../azure-portal/resource-group-portal.md)
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->
