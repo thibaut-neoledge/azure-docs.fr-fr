@@ -20,7 +20,7 @@
 
 # Utilisez le coordinateur Oozie basé sur le temps avec Hadoop dans HDInsight pour définir des workflows et coordonner des tâches
 
-Dans cet article, vous découvrirez comment définir des workflows et des coordinateurs, et comment déclencher les tâches du coordinateur en fonction de l'heure. Il est utile de lire l’article [Utilisation d'Oozie avec HDInsight][hdinsight-use-oozie] avant cet article-ci. Pour en savoir plus sur Azure Data Factory, consultez la rubrique [Utilisation de Pig et Hive avec Data Factory](../data-factory/data-factory-pig-hive-activities.md).
+Dans cet article, vous découvrirez comment définir des workflows et des coordinateurs, et comment déclencher les tâches du coordinateur en fonction de l'heure. Il est utile de lire l’article [Utilisation d'Oozie avec HDInsight](hdinsight-use-oozie.md) avant cet article-ci. Pour en savoir plus sur Azure Data Factory, consultez la rubrique [Utilisation de Pig et Hive avec Data Factory](../data-factory/data-factory-pig-hive-activities.md).
 
 > [AZURE.NOTE] Cet article requiert un cluster HDInsight basé sur Windows. Pour plus d’informations sur l’utilisation d’Oozie, notamment sur les travaux à durée définie sur un cluster basé sur Linux, consultez [Utiliser Oozie avec Hadoop pour définir et exécuter un flux de travail dans HDInsight basé sur Linux](hdinsight-use-oozie-linux-mac.md).
 
@@ -30,7 +30,7 @@ Apache Oozie est un système de workflow/coordination qui gère les tâches Hado
 
 L’image suivante montre le workflow que vous allez implémenter :
 
-![Diagramme du workflow][img-workflow-diagram]
+![Diagramme du workflow](./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Workflow.Diagram.png)
 
 Le workflow contient deux actions :
 
@@ -50,11 +50,11 @@ Le workflow contient deux actions :
 		[TRACE] 816
 		[WARN]  4
 
-	Pour plus d'informations sur Hive, consultez l'article [Utilisation de Hive avec HDInsight][hdinsight-use-hive].
+	Pour plus d'informations sur Hive, consultez l'article [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md).
 
-2.  Une action Sqoop exporte la sortie de l'action HiveQL vers une table dans la base de données SQL Azure. Pour plus d'informations sur Sqoop, consultez la rubrique [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop].
+2.  Une action Sqoop exporte la sortie de l'action HiveQL vers une table dans la base de données SQL Azure. Pour plus d'informations sur Sqoop, consultez la rubrique [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop.md)
 
-> [AZURE.NOTE] Pour obtenir la liste des versions Oozie prises en charge sur les clusters HDInsight, consultez la rubrique [Nouveautés des versions de cluster fournies par HDInsight][hdinsight-versions].
+> [AZURE.NOTE] Pour obtenir la liste des versions Oozie prises en charge sur les clusters HDInsight, consultez la rubrique [Nouveautés des versions de cluster fournies par HDInsight](hdinsight-component-versioning.md).
 
 > [AZURE.NOTE] Ce didacticiel traite du cluster HDInsight versions 2.1 et 3.0. Cet article n'a pas été testé sur l'émulateur HDInsight.
 
@@ -63,8 +63,8 @@ Le workflow contient deux actions :
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d’Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour exécuter des scripts Windows PowerShell, vous devez exécuter Azure PowerShell en tant qu’administrateur et définir la stratégie d’exécution sur *RemoteSigned*. Pour plus d’informations, consultez la rubrique [Exécution des scripts Windows PowerShell][powershell-script].
-- **Un cluster HDInsight**. Pour plus d'informations sur la création d'un cluster HDInsight, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision] ou [Prise en main de HDInsight][hdinsight-get-started]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d’Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour exécuter des scripts Windows PowerShell, vous devez exécuter Azure PowerShell en tant qu’administrateur et définir la stratégie d’exécution sur *RemoteSigned*. Pour plus d’informations, consultez la rubrique [Exécution des scripts Windows PowerShell](http://technet.microsoft.com/library/ee176949.aspx).
+- **Un cluster HDInsight**. Pour plus d'informations sur la création d'un cluster HDInsight, consultez la rubrique [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md) ou [Prise en main de HDInsight](../hdinsight-get-started.md). Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
 	<table border = "1">
 <tr><th>Propriété du cluster</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
@@ -75,7 +75,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 <tr><td>Nom du conteneur d'objets blob Azure</td><td>$containerName</td><td></td><td>Dans cet exemple, utilisez le conteneur de stockage d'objets blob Azure utilisé pour le système de fichiers de cluster HDInsight par défaut. Par défaut, il porte le même nom que le cluster HDInsight.</td></tr>
 </table>
 
-- **Une base de données SQL Azure**. Vous devez configurer une règle de pare-feu pour que le serveur de base de données SQL autorise l'accès à partir de votre station de travail. Pour des instructions sur la création d'une base de données SQL Azure et la configuration d'un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. Cet article inclut un script Windows PowerShell pour la création de la table de base de données SQL Azure dont vous avez besoin pour ce didacticiel.
+- **Une base de données SQL Azure**. Vous devez configurer une règle de pare-feu pour que le serveur de base de données SQL autorise l'accès à partir de votre station de travail. Pour des instructions sur la création d'une base de données SQL Azure et la configuration d'un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure](../sql-database-get-started.md). Cet article inclut un script Windows PowerShell pour la création de la table de base de données SQL Azure dont vous avez besoin pour ce didacticiel.
 
 	<table border = "1">
 <tr><th>Propriété de base de données&#160;SQL</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
@@ -84,7 +84,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 <tr><td>Mot de passe de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Mot de passe de connexion à la base de données&#160;SQL.</td></tr>
 <tr><td>Nom de la base de données&#160;SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de données SQL Azure vers laquelle Sqoop exporte des données. </td></tr>
 </table>
-> [AZURE.NOTE] Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL][sqldatabase-create-configure].
+> [AZURE.NOTE] Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL](sqldatabase-create-configure.md).
 
 
 > [AZURE.NOTE] Remplissez les valeurs dans les tables. Cela vous sera utile pour ce didacticiel.
@@ -101,7 +101,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 3.  **L'emplacement du fichier journal log4j**. Le séparateur de champ est « , ». Le séparateur de ligne par défaut est « \\n ». La table externe Hive est utilisée pour éviter que le fichier de données soit supprimé de son emplacement d'origine au cas où vous souhaiteriez exécuter à plusieurs reprises le workflow Oozie.
 3. **L'instruction INSERT OVERWRITE** compte les occurrences de chaque type de niveau de journalisation à partir de la table Hive log4j et enregistre la sortie dans un emplacement de stockage d’objets blob Azure.
 
-**Remarque** : il existe un problème connu de chemin d'accès à Hive. Vous le rencontrez lors de l'envoi d'une tâche Oozie. Les instructions permettant d'y remédier sont disponibles dans le Wiki TechNet : [Erreur Hive HDInsight : impossible de renommer][technetwiki-hive-error].
+**Remarque** : il existe un problème connu de chemin d'accès à Hive. Vous le rencontrez lors de l'envoi d'une tâche Oozie. Les instructions permettant d'y remédier sont disponibles dans le Wiki TechNet : [Erreur Hive HDInsight : impossible de renommer](http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx).
 
 **Définition du fichier de script HiveQL appelé par le workflow**
 
@@ -202,7 +202,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 <tr><td>${sqlDatabaseTableName}</td><td>Table de la base de données SQL&#160;Azure vers laquelle les données sont exportées.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Dossier de sortie pour l'instruction INSERT OVERWRITE de Hive. Il s'agit du même dossier pour Sqoop Export (export-dir).</td></tr>
 </table>
-Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
+Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0](http://oozie.apache.org/docs/4.0.0) (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2](http://oozie.apache.org/docs/3.3.2) (pour la version 2.1 du cluster HDInsight).
 
 2. Enregistrez le fichier sous **C:\\Tutorials\\UseOozie\\workflow.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
 
@@ -242,15 +242,15 @@ Exécutez un script Azure PowerShell pour effectuer les opérations suivantes :
 
 **Présentation du stockage HDInsight**
 
-HDInsight utilise le stockage d’objets blob Azure pour stocker les données. wasb:// est l'implémentation Microsoft du système de fichiers distribués Hadoop (HDFS) dans le stockage d’objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
+HDInsight utilise le stockage d’objets blob Azure pour stocker les données. wasb:// est l'implémentation Microsoft du système de fichiers distribués Hadoop (HDFS) dans le stockage d’objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md).
 
-Lors de l'approvisionnement d'un cluster HDInsight, un compte Azure Storage et un conteneur spécifique de ce compte sont désignés en tant que système de fichiers par défaut, comme dans HDFS. En plus de ce compte de stockage, pendant le processus d’approvisionnement, vous pouvez ajouter des comptes de stockage supplémentaires à partir du même abonnement Azure ou à partir d'autres abonnements Azure. Pour plus d'instructions sur l’ajout des comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision]. Pour simplifier le script Azure PowerShell utilisé dans ce didacticiel, tous les fichiers sont stockés dans le conteneur de système de fichiers par défaut, à l'emplacement */tutorials/useoozie*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight. La syntaxe est :
+Lors de l'approvisionnement d'un cluster HDInsight, un compte Azure Storage et un conteneur spécifique de ce compte sont désignés en tant que système de fichiers par défaut, comme dans HDFS. En plus de ce compte de stockage, pendant le processus d’approvisionnement, vous pouvez ajouter des comptes de stockage supplémentaires à partir du même abonnement Azure ou à partir d'autres abonnements Azure. Pour plus d'instructions sur l’ajout des comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md). Pour simplifier le script Azure PowerShell utilisé dans ce didacticiel, tous les fichiers sont stockés dans le conteneur de système de fichiers par défaut, à l'emplacement */tutorials/useoozie*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight. La syntaxe est :
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
 > [AZURE.NOTE] Seule la syntaxe **wasb://* est prise en charge dans la version 3.0 du cluster HDInsight. L'ancienne syntaxe **asv://* est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais elle n’est pas prise en charge dans les clusters HDInsight 3.0.
 
-> [AZURE.NOTE] Le chemin d'accès wasb:// est un chemin d'accès virtuel. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
+> [AZURE.NOTE] Le chemin d'accès wasb:// est un chemin d'accès virtuel. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md).
 
 Vous pouvez accéder à un fichier stocké dans le conteneur du système de fichiers par défaut à partir de HDInsight en utilisant l'un des URI suivants (workflow.xml est utilisé comme exemple) :
 
@@ -272,11 +272,11 @@ Voici quelques éléments à connaître sur les tables interne et externe Hive 
 - La commande CREATE EXTERNAL TABLE ne déplace pas le fichier de données.
 - La commande CREATE EXTERNAL TABLE n'autorise aucun sous-dossier dans le dossier spécifié dans la clause LOCATION. C'est la raison pour laquelle le didacticiel réalise une copie du fichier sample.log.
 
-Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux tables interne et externe Hive][cindygross-hive-tables].
+Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux tables interne et externe Hive](http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx).
 
 **Préparation du didacticiel**
 
-1. Ouvrez Windows PowerShell ISE (dans l'écran d'accueil Windows 8, tapez **PowerShell\_ISE**, puis cliquez sur **Windows PowerShell ISE**. Pour plus d'informations, consultez la page [Démarrage de Windows PowerShell sur Windows 8 et Windows][powershell-start]).
+1. Ouvrez Windows PowerShell ISE (dans l'écran d'accueil Windows 8, tapez **PowerShell\_ISE**, puis cliquez sur **Windows PowerShell ISE**. Pour plus d'informations, consultez la page [Démarrage de Windows PowerShell sur Windows 8 et Windows](http://technet.microsoft.com/library/hh847889.aspx)).
 2. Dans le volet inférieur, exécutez la commande suivante pour vous connecter à votre abonnement Azure :
 
 		Add-AzureAccount
@@ -365,15 +365,15 @@ Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux t
 
 4. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script. La sortie doit ressembler à ceci :
 
-	![Sortie de la préparation du didacticiel][img-preparation-output]
+	![Sortie de la préparation du didacticiel](./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Preparation.Output1.png)
 
 ##<a id="run"></a>Exécution du projet Oozie
 
-Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de tâches Oozie. Vous pouvez utiliser la cmdlet **Invoke-RestMethod** pour appeler les services web Oozie. L'API des services web Oozie est une API JSON REST HTTP. Pour plus d'informations sur l'API des services web Oozie, consultez la page [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
+Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de tâches Oozie. Vous pouvez utiliser la cmdlet **Invoke-RestMethod** pour appeler les services web Oozie. L'API des services web Oozie est une API JSON REST HTTP. Pour plus d'informations sur l'API des services web Oozie, consultez la page [Documentation sur Apache Oozie 4.0](http://oozie.apache.org/docs/4.0.0) (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2](http://oozie.apache.org/docs/3.3.2) (pour la version 2.1 du cluster HDInsight).
 
 **Envoi d'une tâche Oozie**
 
-1. Ouvrez Windows PowerShell ISE (dans l'écran d'accueil Windows 8, tapez **PowerShell\_ISE**, puis cliquez sur **Windows PowerShell ISE**. Pour plus d'informations, consultez la page [Démarrage de Windows PowerShell sur Windows 8 et Windows][powershell-start]).
+1. Ouvrez Windows PowerShell ISE (dans l'écran d'accueil Windows 8, tapez **PowerShell\_ISE**, puis cliquez sur **Windows PowerShell ISE**. Pour plus d'informations, consultez la page [Démarrage de Windows PowerShell sur Windows 8 et Windows](http://technet.microsoft.com/library/hh847889.aspx)).
 
 3. Copiez le script qui suit dans le volet de script et définissez les quatorze premières variables (sauf la variable **$storageUri**).
 
@@ -631,13 +631,13 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 
 7. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script. La sortie doit ressembler à ceci :
 
-	![Sortie du workflow exécuté par le didacticiel][img-runworkflow-output]
+	![Sortie du workflow exécuté par le didacticiel](./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png)
 
 8. Connectez-vous à votre base de données SQL pour voir les données exportées.
 
 **Vérification du journal des erreurs de la tâche**
 
-Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log depuis le nœud principal du cluster. Pour plus d'informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l'aide de la version préliminaire du portail Azure][hdinsight-admin-portal].
+Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log depuis le nœud principal du cluster. Pour plus d'informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l'aide de la version préliminaire du portail Azure](hdinsight-administer-use-management-portal.md).
 
 **Réexécution du didacticiel**
 
@@ -678,16 +678,16 @@ Voici un exemple d'un script Windows PowerShell que vous pouvez utiliser :
 ##<a id="nextsteps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordinateur Oozie, et à exécuter une tâche de coordinateur Oozie en utilisant Azure PowerShell. Pour en savoir plus, consultez les articles suivants :
 
-- [Prise en main de HDInsight][hdinsight-get-started]
-- [Prise en main de l'émulateur HDInsight][hdinsight-get-started-emulator]
-- [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]
-- [Administration de HDInsight à l'aide d'Azure PowerShell][hdinsight-admin-powershell]
-- [Téléchargement de données vers HDInsight][hdinsight-upload-data]
-- [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop]
-- [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
-- [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
-- [Développement de tâches de diffusion Hadoop en C# pour HDInsight][hdinsight-develop-streaming-jobs]
-- [Développement de programmes MapReduce en Java pour HDInsight][hdinsight-develop-java-mapreduce]
+- [Prise en main de HDInsight](../hdinsight-get-started.md)
+- [Prise en main de l'émulateur HDInsight](../hdinsight-get-started-emulator.md)
+- [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md)
+- [Administration de HDInsight à l'aide d'Azure PowerShell](hdinsight-administer-use-powershell.md)
+- [Téléchargement de données vers HDInsight](hdinsight-upload-data.md)
+- [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop.md)
+- [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
+- [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
+- [Développement de tâches de diffusion Hadoop en C# pour HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [Développement de programmes MapReduce en Java pour HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 
 
 
@@ -736,4 +736,4 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->
