@@ -1,4 +1,13 @@
-<properties pageTitle="Configurer le tunneling forcé pour les passerelles VPN à l’aide de Resource Manager" | Microsoft Azure" description="Si vous disposez d’un réseau virtuel avec passerelle réseau entre sites, vous pouvez rediriger ou "forcer" l’ensemble du trafic lié à votre emplacement local. Cet article concerne le modèle de déploiement du Gestionnaire de ressources. "services ="passerelle vpn"documentationCenter ="na"authors ="cherylmc"manager ="carolz"editor = » « balises = « Gestionnaire de Ressources azure » / > <tags 
+<properties 
+   pageTitle="Configurer le tunneling forcé pour les passerelles VPN à l’aide de Resource Manager" | Microsoft Azure"
+   description="Si vous disposez d’un réseau virtuel avec passerelle réseau entre sites, vous pouvez rediriger ou "forcer" l’ensemble du trafic lié à votre emplacement local. Cet article concerne le modèle de déploiement du Gestionnaire de ressources. "
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager"/>
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
