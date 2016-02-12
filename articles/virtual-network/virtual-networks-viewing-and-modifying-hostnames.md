@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # Affichage et modification des noms d'hôtes
@@ -55,7 +55,7 @@ Une fois que vous avez activé le Bureau à distance (Windows), l’accès dist
 
 1. Recherchez l’élément **HostName** associé à chaque élément **RoleInstance**.
 
->[AZURE.WARNING]Pour afficher le suffixe de domaine interne de votre service cloud à partir d’une réponse d’appel REST, sélectionnez l’élément **InternalDnsSuffix** ou exécutez ipconfig /all à partir d’une invite de commandes dans une session Bureau à distance (Windows) ou exécutez cat /etc/resolv.conf à partir d’un terminal SSH (Linux).
+>[AZURE.WARNING] Pour afficher le suffixe de domaine interne de votre service cloud à partir d’une réponse d’appel REST, sélectionnez l’élément **InternalDnsSuffix** ou exécutez ipconfig /all à partir d’une invite de commandes dans une session Bureau à distance (Windows) ou exécutez cat /etc/resolv.conf à partir d’un terminal SSH (Linux).
 
 ## Modification d’un nom d’hôte
 
@@ -71,4 +71,4 @@ Pour modifier le nom d’hôte associé à une machine virtuelle ou à une insta
 
 [Définir les paramètres DNS à l'aide de fichiers de configuration réseau](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

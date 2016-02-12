@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/01/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # Requête sur plusieurs partitions
@@ -26,7 +26,7 @@ Avec les [outils des bases de données élastiques](sql-database-elastic-scale-i
 
 Vous pouvez gérer les partitions en utilisant la [bibliothèque cliente des bases de données élastiques](sql-database-elastic-database-client-library.md). La bibliothèque inclut un espace de noms appelé **Microsoft.Azure.SqlDatabase.ElasticScale.Query** qui permet d'interroger plusieurs partitions à l'aide d'une requête et d'un résultat uniques. Elle fournit une abstraction de requête sur une collection de partitions. Elle fournit également des stratégies d'exécution alternatives, en particulier des résultats partiels, permettant de gérer les échecs d'interrogation sur plusieurs partitions.
 
-Le point d'entrée principal de la requête sur plusieurs partitions est la classe **MultiShardConnection**. Comme avec le routage dépendant des données, l'API suit l'expérience familière des classes et méthodes ****[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)**. Avec la bibliothèque **SqlClient**, la première étape consiste à créer un objet **SqlConnection**, puis à créer une commande **SqlCommand** pour la connexion et enfin, à exécuter la commande via l'une des méthodes **Exécuter**. Enfin, **SqlDataReader** effectue une itération sur les jeux de résultats retournés à partir de l'exécution de la commande. L'expérience avec les API de requête sur plusieurs partitions suit les étapes suivantes :
+Le point d’entrée principal de la requête sur plusieurs partitions est la classe **MultiShardConnection**. Comme avec le routage dépendant des données, l'API suit l'expérience familière des classes et méthodes ****[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)**. Avec la bibliothèque **SqlClient**, la première étape consiste à créer un objet **SqlConnection**, puis à créer une commande **SqlCommand** pour la connexion et enfin, à exécuter la commande via l'une des méthodes **Exécuter**. Enfin, **SqlDataReader** effectue une itération sur les jeux de résultats retournés à partir de l'exécution de la commande. L'expérience avec les API de requête sur plusieurs partitions suit les étapes suivantes :
 
 1. Créez une **MultiShardConnection**.
 2. Créez une commande **MultiShardCommand** pour une **MultiShardConnection**.
@@ -75,4 +75,4 @@ Les requêtes sur plusieurs partitions ne vérifient pas si les shardlets de la 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

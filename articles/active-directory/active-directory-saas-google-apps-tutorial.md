@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Didacticiel : intégration de Google Apps avec Azure Active Directory | Microsoft Azure"
-   description="Apprenez à utiliser Google Apps avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Google Apps | Microsoft Azure"
+    description="Apprenez à utiliser Google Apps avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/01/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Didacticiel : intégration de Google Apps avec Azure Active Directory
 
@@ -52,7 +52,7 @@ Comment activer l'authentification unique pour Google Apps en 2 minutes :
 
 	![Cliquez sur Ajouter une application à partir de la galerie.][3]
 
-6. Dans la zone **Rechercher**, entrez **Google Apps**. Ensuite, sélectionnez **Google Apps** dans les résultats et cliquez sur **Terminer** pour ajouter l'application.
+6. Dans la zone **Rechercher**, entrez **Google Apps**. Puis sélectionnez **Google Apps** dans les résultats et cliquez sur **Terminer** pour ajouter l’application.
 
 	![Ajoutez Google Apps.][4]
 
@@ -70,7 +70,7 @@ Comment activer l'authentification unique pour Google Apps en 2 minutes :
 
 	![Sélectionner l’authentification unique Azure AD][7]
 
-	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d'authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Pour en savoir plus sur les différentes options d'authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Sur la page **Configurer les paramètres de l'application**, entrez votre URL de client Google Apps dans le champ **URL de connexion** en respectant le format suivant : `https://mail.google.com/a/<yourdomain>`
 
@@ -80,7 +80,7 @@ Comment activer l'authentification unique pour Google Apps en 2 minutes :
 
 	![Saisissez votre nom de domaine, puis cliquez sur Configurer.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
 
-	> [AZURE.NOTE]Si vous préférez configurer l'authentification unique manuellement, consultez [Étape facultative : configurer l'authentification unique manuellement](#optional-step-manually-configure-single-sign-on)
+	> [AZURE.NOTE] Si vous préférez configurer l'authentification unique manuellement, consultez [Étape facultative : configurer l'authentification unique manuellement](#optional-step-manually-configure-single-sign-on)
 
 5. Connectez-vous à votre compte d'administrateur Google Apps. Cliquez ensuite sur **Autoriser** afin de permettre à Azure Active Directory de modifier la configuration dans votre abonnement Google Apps.
 
@@ -106,7 +106,7 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 
 	![Sélectionner l’authentification unique Azure AD][7]
 
-	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d'authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Pour en savoir plus sur les différentes options d'authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Sur la page **Configurer les paramètres de l'application**, entrez votre URL de client Google Apps dans le champ **URL de connexion** en respectant le format suivant : `https://mail.google.com/a/<yourdomain>`
 
@@ -120,7 +120,7 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 
 	![Téléchargez le certificat.][9]
 
-5. Ouvrez un nouvel onglet dans votre navigateur et utilisez votre compte d'administrateur pour vous connecter à la [Console d'administration de Google Apps](http://admin.google.com/).
+5. Ouvrez un nouvel onglet dans votre navigateur et utilisez votre compte d’administrateur pour vous connecter à la [Console d’administration de Google Apps](http://admin.google.com/).
 
 6. Cliquez sur **Sécurité**. Si le lien ne s'affiche pas, il est peut-être masqué par le menu **Autres contrôles** situé en bas de l'écran.
 
@@ -140,7 +140,7 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 
 	- Dans Azure AD, copiez la valeur du champ **URL du service de déconnexion unique** et collez-la dans le champ **URL de la page de déconnexion** de Google Apps.
 
-	- Dans Azure AD, copiez la valeur du champ **Modifier l'URL de mot de passe**, puis collez-la dans le champ **Modifier l'URL de mot de passe** de Google Apps.
+	- Dans Azure AD, copiez la valeur du champ **Modifier l’URL de mot de passe**, puis collez-la dans le champ **Modifier l’URL de mot de passe** de Google Apps.
 
 	- Dans Google Apps, chargez le certificat que vous avez téléchargé à l'étape 4 pour le **Certificat de vérification**.
 
@@ -158,7 +158,7 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 
 ##Étape 3 : activation de l’approvisionnement automatique des utilisateurs
 
-> [AZURE.NOTE]Il existe une autre option pour automatiser l'approvisionnement des utilisateurs avec Google Apps : il s'agit d'utiliser [Google Apps Active Sync (GADS)](https://support.google.com/a/answer/106368?hl=en), qui approvisionne vos identités Active Directory en local pour Google Apps. En revanche, la solution proposée dans ce didacticiel approvisionne vos utilisateurs Azure Active Directory (cloud) et vos groupes à extension messagerie pour Google Apps.
+> [AZURE.NOTE] Il existe une autre option pour automatiser l’approvisionnement des utilisateurs avec Google Apps : il s’agit d’utiliser [Google Apps Active Sync (GADS)](https://support.google.com/a/answer/106368?hl=en), qui approvisionne vos identités Active Directory en local pour Google Apps. En revanche, la solution proposée dans ce didacticiel approvisionne vos utilisateurs Azure Active Directory (cloud) et vos groupes à extension messagerie pour Google Apps.
 
 1. Connectez-vous à la [Console d'administration de Google Apps](http://admin.google.com/) avec votre compte d'administrateur, puis cliquez sur **Sécurité**. Si le lien ne s'affiche pas, il est peut-être masqué par le menu **Autres contrôles** situé en bas de l'écran.
 
@@ -172,7 +172,7 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 
 	![Cliquez sur Référence d’API.][16]
 
-	> [AZURE.IMPORTANT]Le nom d'utilisateur Azure Active Directory de chaque utilisateur que vous souhaitez approvisionner pour Google Apps *doit* être associé à un domaine personnalisé. Par exemple, les noms d'utilisateur qui ressemblent à bob@contoso.onmicrosoft.com ne sont pas acceptés par Google Apps, tandis que ceux ressemblant à bob@contoso.com sont acceptés. Vous pouvez modifier le domaine d’un utilisateur existant en modifiant ses propriétés dans Azure AD. Vous trouverez ci-dessous des instructions sur la configuration d’un domaine personnalisé pour Azure Active Directory et Google Apps.
+	> [AZURE.IMPORTANT] Le nom d'utilisateur Azure Active Directory de chaque utilisateur que vous souhaitez approvisionner pour Google Apps *doit* être associé à un domaine personnalisé. Par exemple, les noms d'utilisateur qui ressemblent à bob@contoso.onmicrosoft.com ne sont pas acceptés par Google Apps, tandis que ceux ressemblant à bob@contoso.com sont acceptés. Vous pouvez modifier le domaine d’un utilisateur existant en modifiant ses propriétés dans Azure AD. Vous trouverez ci-dessous des instructions sur la configuration d’un domaine personnalisé pour Azure Active Directory et Google Apps.
 
 4. Si vous n’avez pas encore ajouté un nom de domaine personnalisé pour Azure Active Directory, suivez la procédure ci-dessous :
 
@@ -210,17 +210,17 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 
 	- Répétez la procédure précédente pour tous les domaines que vous souhaitez ajouter à Google Apps.
 
-	> [AZURE.WARNING]Si vous modifiez le domaine principal pour votre client Google Apps tout en ayant déjà configuré l'authentification unique avec Azure AD, vous devez répéter l'étape 3 sous [Étape 2 : activation de l'authentification unique](#step-two-enable-single-sign-on).
+	> [AZURE.WARNING] Si vous modifiez le domaine principal pour votre client Google Apps tout en ayant déjà configuré l’authentification unique avec Azure AD, vous devez répéter l’étape 3 sous [Étape 2 : activation de l’authentification unique](#step-two-enable-single-sign-on).
 
 6. Dans la [Console d'administration de Google Apps](http://admin.google.com/), cliquez sur **Rôles d'administrateur**.
 
 	![Cliquer sur Google Apps][26]
 
-7. Déterminez le compte d’administrateur à utiliser pour gérer l’approvisionnement de l’utilisateur. Pour le **rôle d'administrateur** de ce compte, modifiez les **privilèges** pour ce rôle. Vérifiez qu'il possède tous **Privilèges d'administrateur d'API** pour que ce compte puisse être utilisé pour l'approvisionnement.
+7. Déterminez le compte d’administrateur à utiliser pour gérer l’approvisionnement de l’utilisateur. Pour le **rôle d’administrateur** de ce compte, modifiez les **privilèges** pour ce rôle. Vérifiez qu'il possède tous **Privilèges d'administrateur d'API** pour que ce compte puisse être utilisé pour l'approvisionnement.
 
 	![Cliquer sur Google Apps][27]
 
-	> [AZURE.NOTE]Si vous configurez un environnement de production, nous vous recommandons de créer un compte d’administrateur dans Google Apps spécialement pour cette étape. Ce compte doit avoir un rôle d’administrateur associé qui possède les privilèges d’API nécessaires.
+	> [AZURE.NOTE] Si vous configurez un environnement de production, nous vous recommandons de créer un compte d’administrateur dans Google Apps spécialement pour cette étape. Ce compte doit avoir un rôle d’administrateur associé qui possède les privilèges d’API nécessaires.
 
 8. Dans le menu principal d'Azure Active Directory, cliquez sur **Applications**, puis sur **Google Apps**.
 
@@ -248,7 +248,7 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 
 	![Cliquer sur Affecter des utilisateurs][29]
 
-3. Sélectionnez votre utilisateur de test, puis cliquez sur le bouton **Affecter** situé en bas de l'écran :
+3. Sélectionnez votre utilisateur de test, puis cliquez sur le bouton **Affecter** situé en bas de l’écran :
 
  - Si vous n’avez pas activé l’approvisionnement automatique des utilisateurs, le message de confirmation suivant s’affiche :
 
@@ -292,4 +292,4 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

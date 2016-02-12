@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD B2C en version préliminaire | Microsoft Azure"
+	pageTitle="Version préliminaire d'Azure AD B2C | Microsoft Azure"
 	description="Création d’applications directement à l’aide des protocoles pris en charge par Azure AD B2C en version préliminaire."
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C en version préliminaire : protocoles d’authentification
@@ -23,9 +23,9 @@ Azure AD B2C fournit l’identité en tant que service pour vos applications en 
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
+	
 ## Concepts de base
-Chaque application qui utilise Azure AD B2C doit être inscrite dans votre annuaire B2C sur le [portail Azure](https://portal.azure.com/). Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
+Chaque application qui utilise Azure AD B2C doit être inscrite dans votre annuaire B2C sur le [portail Azure](https://portal.azure.com). Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
 
 - un **ID d'application** qui identifie de manière unique votre application ;
 - un **URI de redirection** ou un **identificateur de package** pouvant être utilisé pour diriger des réponses vers votre application ;
@@ -68,6 +68,4 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 - Obtention de jetons à l’aide d’un nom d’utilisateur et d’un mot de passe avec le flux d’informations d’identification de mot de passe de propriétaire de ressource OAuth 2.0 (prochainement)
 - Obtention de jetons dans une API web avec le flux De la part de d’OAuth 2.0 (prochainement)
 
-<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -24,7 +24,7 @@ L'**aide-mémoire d'algorithme Microsoft Azure Machine Learning** vous aide à c
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre d'algorithmes d'apprentissage automatique pour vos solutions d'analyse prédictive. Ces algorithmes appartiennent aux catégories générales d’apprentissage automatique de ***régression***, de ***classification***, de ***clustering*** et de ***détection d’anomalie***. Chacun d’eux est conçu pour résoudre un type de problème d’apprentissage automatique différent.
 
-> [AZURE.NOTE]Consultez l’article [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) pour effectuer une visite guidée avec cet aide-mémoire.
+> [AZURE.NOTE] Consultez l’article [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) pour effectuer une visite guidée avec cet aide-mémoire.
 
 ## Télécharger l'aide-mémoire d'algorithme d'apprentissage automatique
 
@@ -79,7 +79,7 @@ Téléchargez l'aide-mémoire d'algorithme d'apprentissage automatique qui peut 
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
--->
+--> \\
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@ Téléchargez l'aide-mémoire d'algorithme d'apprentissage automatique qui peut 
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

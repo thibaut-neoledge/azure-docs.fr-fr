@@ -1,9 +1,9 @@
-<properties 
+<properties
 	pageTitle="Présentation de SQL Server sur des machines virtuelles | Microsoft Azure"
-	description="Cet article fournit une vue d’ensemble de l’hébergement de SQL Server sur des machines virtuelles Azure. Il comporte des liens vers des contenus approfondis." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
+	description="Cet article fournit une vue d’ensemble de l’hébergement de SQL Server sur des machines virtuelles Azure. Il comporte des liens vers des contenus approfondis."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
 	manager="jeffreyg"
 	editor=""
 	tags="azure-service-management"/>
@@ -13,8 +13,8 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="11/12/2015"
+	ms.workload="infrastructure-services"
+	ms.date="02/03/2016"
 	ms.author="jroth"/>
 
 # Vue d’ensemble de SQL Server dans Azure Virtual Machines
@@ -28,9 +28,11 @@ Pour créer une machine virtuelle SQL Server dans Azure, vous devez d’abord ob
 
 ### Déploiement d’une instance de SQL Server sur une seule machine virtuelle
 
-Après avoir souscrit à un abonnement, le moyen le plus simple de déployer une machine virtuelle SQL Server dans Azure consiste à [approvisionner une image de la galerie de machines SQL Server du portail Azure Classic](virtual-machines-provision-sql-server.md). Ces images comprennent les frais de licence de SQL Server dans la tarification relative à la machine virtuelle.
+Après avoir souscrit un abonnement, le moyen le plus simple de déployer une machine virtuelle SQL Server dans Azure consiste à [mettre en service une image de la galerie de machines SQL Server du portail Azure](virtual-machines-sql-server-provision-resource-manager.md). Ces images comprennent les frais de licence de SQL Server dans la tarification relative à la machine virtuelle.
 
->[AZURE.NOTE] Utilisez le portail Azure afin d’approvisionner et de gérer les machines virtuelles SQL Server Il utilise Premium Storage par défaut et propose des configurations de la mise à jour corrective automatisée, de la sauvegarde automatisée et AlwaysOn.
+Il est important de noter qu’il existe deux modèles pour créer et gérer les machines virtuelles Azure : le modèle classique et Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Une partie de la documentation SQL Server pour les machines virtuelles Azure continue de faire exclusivement référence au modèle classique. Ces rubriques sont mises à jour au fil du temps pour utiliser le nouveau portail Azure et le modèle Resource Manager. Pour plus d’informations, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
+
+>[AZURE.NOTE] Si possible, utilisez le [portail Azure](https://portal.azure.com/) pour mettre en service et gérer les machines virtuelles SQL Server. Il utilise Premium Storage par défaut et propose des configurations de la mise à jour corrective automatisée, de la sauvegarde automatisée et AlwaysOn.
 
 Le tableau suivant récapitule les images liées à SQL Server actuellement disponibles dans la galerie de machines virtuelles Azure.
 
@@ -44,8 +46,6 @@ Le tableau suivant récapitule les images liées à SQL Server actuellement disp
 |SQL Server 2014 SP1|Windows Server 2012 R2|Éditions Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Évaluation|
 
->[AZURE.NOTE] Les images de machines virtuelles de la galerie pour l'entreposage de données et les charges de travail transactionnelles (non présentées ci-dessus) sont obsolètes et seront bientôt supprimées de la galerie. Utilisez des images standard du tableau précédent et optimisez les performances de votre charge de travail spécifique.
-
 En plus de ces images pré-configurées, vous pouvez également [créer une machine virtuelle Azure](virtual-machines-windows-tutorial.md) sans que SQL Server soit pré-installé. Vous pouvez installer n’importe quelle instance de SQL Server pour laquelle vous disposez d’une licence. Vous migrez votre licence vers Azure pour exécuter SQL Server dans une machine virtuelle Azure en utilisant [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Dans ce scénario, vous ne payez que pour les [coûts](https://azure.microsoft.com/pricing/details/virtual-machines/) de stockage et de calcul Azure associés à la machine virtuelle.
 
 Pour déterminer les meilleurs paramètres de configuration de machine virtuelle pour votre image SQL Server, consultez les [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md). Pour les charges de travail de production, **DS3** est la taille de machine virtuelle minimale recommandée pour SQL Server Enterprise Edition, et **DS2** est la taille de machine virtuelle minimale recommandée pour Standard Edition.
@@ -53,7 +53,7 @@ Pour déterminer les meilleurs paramètres de configuration de machine virtuelle
 Outre l’analyse des meilleures pratiques de performances, les autres tâches initiales sont les suivantes :
 
 - [Vérification des meilleures pratiques relatives à la sécurité de SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md)
-- [Configuration de la connectivité](virtual-machines-sql-server-connectivity.md)
+- [Configuration de la connectivité](virtual-machines-sql-server-connectivity-resource-manager.md)
 
 ### Migration de vos données
 
@@ -63,11 +63,10 @@ Une fois que votre machine virtuelle SQL Server est en cours d'exécution, vous 
 
 Si vous avez besoin d’une haute disponibilité, envisagez de configurer les groupes de disponibilité AlwaysOn de SQL Server. Cela implique la présence de plusieurs machines virtuelles Azure dans un réseau virtuel. Le portail Azure dispose d'un modèle qui définit cette configuration pour vous. Pour plus d'informations, consultez [Offre AlwaysOn SQL Server dans la galerie Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
-Si vous souhaitez configurer manuellement votre groupe de disponibilité et l’écouteur associé, consultez les articles suivants :
+Si vous souhaitez configurer manuellement votre groupe de disponibilité et l’écouteur associé, consultez les articles suivants basés sur le modèle de déploiement classique :
 
 - [Configuration de groupes de disponibilité AlwaysOn dans Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [Configuration d'un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
-- [Déployer SQL Server AlwaysOn à l’aide d’un modèle Azure Resource Manager](virtual-machines-workload-template-sql-alwayson.md)
 - [Extension des groupes de disponibilité AlwaysOn locaux à Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 Pour plus d’informations sur la haute disponibilité, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
@@ -142,10 +141,10 @@ Si vous créez une machine virtuelle à l'aide d'une image SQL Server fournie pa
 
 ## Ressources
 
-- [Configuration d'une machine virtuelle SQL Server sur Azure](virtual-machines-provision-sql-server.md)
+- [Mise en service d’une machine virtuelle SQL Server sur Azure (Resource Manager)](virtual-machines-sql-server-provision-resource-manager.md)
 - [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md)
 - [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 - [Modèles d'application et stratégies de développement pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
-- [Azure Virtual Machines](virtual-machines-about.md) 
+- [Azure Virtual Machines](virtual-machines-about.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

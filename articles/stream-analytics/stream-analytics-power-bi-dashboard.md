@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/11/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 	
 #  Stream Analytics et Power BI : tableau de bord d'analyse en temps réel pour les données de diffusion en continu
@@ -25,7 +25,7 @@ Utilisez [Microsoft Power BI](https://powerbi.com/) pour générer rapidement un
 
 Dans cet article, découvrez comment créer vos propres outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos tâches Azure Stream Analytics comment utiliser un tableau de bord en temps réel.
 
-> [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics. À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
+> [AZURE.NOTE] La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics. À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
 
 ## Composants requis
 
@@ -47,7 +47,7 @@ Dans le volet gauche, cliquez sur **Stream Analytics** pour afficher une liste d
 
 ![graphic1][graphic1]
 
-> [AZURE.TIP]Le nouveau travail est affiché avec l’état **Non démarré**. Notez que le bouton **Démarrer** situé en bas de la page est désactivé. Cela est dû au fait qu’avant de pouvoir démarrer le travail, vous devez configurer son entrée, sa sortie, sa requête, etc.
+> [AZURE.TIP] Le nouveau travail est affiché avec l’état **Non démarré**. Notez que le bouton **Démarrer** situé en bas de la page est désactivé. Cela est dû au fait qu’avant de pouvoir démarrer le travail, vous devez configurer son entrée, sa sortie, sa requête, etc.
 
 ## Spécification d'une entrée de travail
 
@@ -62,7 +62,7 @@ Pour ce didacticiel, nous partons du principe que vous utilisez Event Hub comme 
   * **Hub d’événements** - si le hub d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le hub d’événements.
 *	Si votre hub d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le hub d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du hub d’événements**, le **nom de la stratégie du hub d’événements**, la **clé de stratégie du hub d’événements** et le **nombre de partitions du hub d’événements**.
 
-> [AZURE.NOTE]Cet exemple utilise le nombre de partitions par défaut : 16.
+> [AZURE.NOTE]	Cet exemple utilise le nombre de partitions par défaut : 16.
 
 * **Nom du hub d’événements** – sélectionnez le nom du hub d’événements Azure que vous avez.
 * **Nom de la stratégie du hub d’événements** – sélectionnez la stratégie pour le hub d’événements que vous utilisez. Assurez-vous que cette stratégie a des autorisations de gestion.
@@ -232,4 +232,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

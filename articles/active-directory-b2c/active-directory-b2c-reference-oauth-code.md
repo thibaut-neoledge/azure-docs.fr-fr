@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Version préliminaire d’Azure AD B2C : flux de code d'autorisation OAuth 2.0
@@ -26,7 +26,7 @@ L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications q
 
 Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 de la spécification OAuth 2.0](http://tools.ietf.org/html/rfc6749). Il est possible de l’utiliser pour exécuter les activités d’authentification et d’autorisation avec la majorité des types d’applications, notamment les [applications Web](active-directory-b2c-apps.md#web-apps) et les [applications installées de façon native](active-directory-b2c-apps.md#mobile-and-native-apps). Il permet aux applications d’acquérir de manière sûre les **jetons d’accès** pouvant être utilisés pour accéder aux ressources sécurisées à l’aide d’un [serveur d’autorisation](active-directory-b2c-reference-protocols.md#the-basics). Ce guide décrit un aspect particulier du flux de code d'autorisation OAuth 2.0 : **les clients publics**. Un client public est une application cliente qui ne peut pas être approuvée pour maintenir de façon sécurisée l'intégrité d’un mot de passe secret. Cela inclut les applications mobiles, les applications de bureau et quasiment n'importe quelle application qui s'exécute sur un périphérique et a besoin d'obtenir des jetons d’accès. Si vous souhaitez ajouter la gestion des identités à une application Web à l'aide d'Azure AD B2C, vous devez utiliser [OpenID Connect](active-directory-b2c-reference-oidc.md) au lieu d’OAuth 2.0.
 
-Azure AD B2C étend les flux OAuth 2.0 standard pour proposer plus qu’une simple authentification et une simple autorisation. Il introduit le [**paramètre de stratégie**](active-directory-b2c-reference-poliices.md), qui vous permet d'utiliser OAuth 2.0 pour ajouter des expériences utilisateur à votre application comme l’inscription, la connexion et la gestion des profils. Ici, nous allons découvrir comment utiliser OAuth 2.0 et des stratégies pour implémenter chacune de ces expériences dans vos applications natives, et obtenir des jetons d’accès afin d’accéder à des API Web.
+Azure AD B2C étend les flux OAuth 2.0 standard pour proposer plus qu’une simple authentification et une simple autorisation. Il introduit le [**paramètre de stratégie**](active-directory-b2c-reference-policies.md), qui vous permet d'utiliser OAuth 2.0 pour ajouter des expériences utilisateur à votre application comme l’inscription, la connexion et la gestion des profils. Ici, nous allons découvrir comment utiliser OAuth 2.0 et des stratégies pour implémenter chacune de ces expériences dans vos applications natives, et obtenir des jetons d’accès afin d’accéder à des API Web.
 
 Les demandes HTTP d'exemple ci-dessous utilisent notre répertoire B2C d’exemple **fabrikamb2c.onmicrosoft.com**, ainsi que notre applications et nos stratégies d’exemple. Vous êtes libre de tester ces demandes vous-même à l'aide de ces valeurs, ou de les remplacer par les vôtres. Découvrez comment [obtenir votre propre répertoire B2C, votre application et vos stratégies](#use-your-own-b2c-directory).
 
@@ -74,7 +74,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com) a affecté à votre application. |
 | response\_type | requis | Doit inclure `code` pour le flux de code d’autorisation. |
 | redirect\_uri | requis | L’URI de redirection de votre application, vers lequel où votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
 | scope | required | Une liste d’étendues séparées par des espaces. Une valeur d'étendue unique indique à Azure AD les deux autorisations demandées. L’étendue `openid` indique une autorisation pour connecter l'utilisateur et obtenir des données relatives à l'utilisateur sous la forme de jetons **id\_tokens** (plus d’informations à venir à ce sujet). L’étendue `offline_access` indique que votre application a besoin d’un **jeton d’actualisation** pour un accès durable aux ressources. |
@@ -134,7 +134,7 @@ Content-Type: application/json
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | required | La stratégie qui a été utilisée pour obtenir le code d'autorisation. Vous ne pouvez pas utiliser une autre stratégie dans cette demande. **Notez que ce paramètre est ajouté à la chaîne de requête**, et non dans le corps POST. |
-| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com) a affecté à votre application. |
 | grant\_type | required | Doit être `authorization_code` pour le flux de code d'autorisation. |
 | scope | required | Une liste d’étendues séparées par des espaces. Une valeur d'étendue unique indique à Azure AD les deux autorisations demandées. L’étendue `openid` indique une autorisation pour connecter l'utilisateur et obtenir des données relatives à l'utilisateur sous la forme de jetons **id\_tokens**. Elle peut être utilisée afin d’obtenir des jetons pour l’API Web principale de votre application, représentée par le même Id d’application que le client. L’étendue `offline_access` indique que votre application a besoin d’un **jeton d’actualisation** pour un accès durable aux ressources. |
 | code | required | Le code d’autorisation acquis dans le premier tronçon du flux. |
@@ -211,7 +211,7 @@ Content-Type: application/json
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | -------- |
 | p | required | La stratégie qui a été utilisée pour obtenir le jeton d’actualisation d’origine. Vous ne pouvez pas utiliser une autre stratégie dans cette demande. **Notez que ce paramètre est ajouté à la chaîne de requête**, et non dans le corps POST. |
-| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| client\_id | required | L’Id d'application que le [portail Azure](https://portal.azure.com) a affecté à votre application. |
 | grant\_type | required | Doit inclure `refresh_token` pour ce tronçon du flux de code d'autorisation. |
 | scope | required | Une liste d’étendues séparées par des espaces. Une valeur d'étendue unique indique à Azure AD les deux autorisations demandées. L’étendue `openid` indique une autorisation pour connecter l'utilisateur et obtenir des données relatives à l'utilisateur sous la forme de jetons **id\_tokens**. Elle peut être utilisée afin d’obtenir des jetons pour l’API Web principale de votre application, représentée par le même Id d’application que le client. L’étendue `offline_access` indique que votre application a besoin d’un **jeton d’actualisation** pour un accès durable aux ressources. |
 | redirect\_uri | required | Le redirect\_uri de l'application où vous avez reçu le code d’autorisation. |
@@ -257,11 +257,11 @@ Les réponses d’erreur se présentent comme suit :
 | error\_description | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
 
-<!--
+<!-- 
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
 -->
 
@@ -273,4 +273,4 @@ Si vous souhaitez tester ces demandes par vous-même, vous devez suivre ces troi
 - [Créez une application](active-directory-b2c-app-registration.md) pour obtenir un Id d'application et un redirect\_uri. Vous pouvez inclure un **client natif** dans votre application.
 - [Créez vos stratégies](active-directory-b2c-reference-policies.md) pour obtenir les noms de vos stratégies.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

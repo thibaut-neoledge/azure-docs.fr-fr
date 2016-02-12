@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test
@@ -195,23 +195,8 @@ Ceci est votre configuration actuelle.
  
 Votre une batterie de serveurs SharePoint intranet dans un cloud hybride est maintenant prêt pour les tests.
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-[SharePoint Server sur les services d’infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+- Configurez la [charge de travail de production](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md).
 
-[Batterie de serveurs SharePoint](../virtual-machines/virtual-machines-sharepoint-farm-azure-preview.md)
-
-[Configuration d’un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Configuration d’une application métier web dans un cloud hybride à des fins de test](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Configuration de la synchronisation d’annuaires (DirSync) Office 365 dans un cloud hybride pour le test](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Configuration d’une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Environnements de test de cloud hybride Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

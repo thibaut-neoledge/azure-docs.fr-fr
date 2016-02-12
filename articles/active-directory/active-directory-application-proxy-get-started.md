@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="kgremban"/>
 
 # Offrir un accès à distance sécurisé aux applications locales
 
-> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Vous voulez fournir un accès à distance aux utilisateurs de toutes sortes d’appareils : gérés ou non gérés, tablettes, smartphones et ordinateurs portables. Or, fournir un accès sécurisé à une multitude de ressources peut être complexe. Ces dernières années, les proxys inverses ont été largement utilisés pour fournir un accès à distance sécurisé, mais ils doivent se trouver derrière des pare-feu difficiles à sécuriser et difficiles à rendre hautement disponibles.
 
@@ -59,7 +59,7 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Ressources supplémentaires
-* [Inscription à Azure en tant qu’organisation](../sign-up-organization.md)
-* [Identité Azure](../fundamentals-identity.md)
+* [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
+* [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

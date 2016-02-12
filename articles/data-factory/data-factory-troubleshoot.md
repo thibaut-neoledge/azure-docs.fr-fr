@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Résolution des problèmes liés à Data Factory
@@ -97,7 +97,7 @@ Pour en savoir plus :
 1. Lancez le Gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur sur lequel la passerelle est installée. Vérifiez que le **nom de la passerelle** a pour valeur le nom de passerelle logique dans le **portail Azure Classic**, que l’**état de la clé de la passerelle** est **inscrite** et que l’**état du service** est **Démarré**. 
 2. Lancez l’**Observateur d’événements**. Développez **Journaux des applications et des services**, puis cliquez sur **Passerelle de gestion des données**. Recherchez les erreurs liées à la passerelle de gestion des données. 
 
-## Problème : échec de l’approvisionnement HDInsight à la demande avec erreur
+## Problème : échec de l’approvisionnement HDInsight à la demande, avec une erreur
 
 Lorsque vous utilisez un service lié de type HDInsightOnDemandLinkedService, vous devez spécifier un linkedServiceName qui pointe vers le stockage d’objets blob Azure. Ce compte de stockage permet de copier tous les journaux et les fichiers de prise en charge pour votre cluster HDInsight à la demande. Parfois, l’activité qui effectue l’approvisionnement à la demande sur HDInsight peut échouer avec l’erreur suivante :
 
@@ -374,4 +374,4 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

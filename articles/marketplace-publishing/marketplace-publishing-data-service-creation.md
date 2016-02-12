@@ -13,11 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="01/28/2016"
       ms.author="hascipio; avikova" />
 
 # Guide de publication d’un service de données pour Azure Marketplace
-Après avoir effectué l’étape 1, [Création et inscription d’un compte][link-acct-creation], nous vous avons guidé dans les [exigences générales non techniques](marketplace-publishing-prerequisites.md) et les [exigences techniques](marketplace-publishing-data-service-creation-prerequisites.md) d’une offre de service de données sur Azure Marketplace. À présent, nous allons vous guider dans la procédure de création d’une offre de service de données sur le [portail de publication][link-pubportal] pour Azure Marketplace.
+Après avoir effectué l’étape 1, [Création et inscription d’un compte][link-acct-creation], nous vous avons guidé dans les [exigences générales non techniques](marketplace-publishing-pre-requisites.md) et les [exigences techniques](marketplace-publishing-data-service-creation-prerequisites.md) d’une offre de service de données sur Azure Marketplace. À présent, nous allons vous guider dans la procédure de création d’une offre de service de données sur le [portail de publication][link-pubportal] pour Azure Marketplace.
 
 ## 1\. Connectez-vous au portail de publication.
 
@@ -41,7 +41,7 @@ Remplissez le titre de votre nouvelle offre de service de données, puis cliquez
 
 Cliquez sur l’onglet **Procédure pas à pas** et passez en revue toutes les étapes nécessaires pour publier correctement le service de données sur Azure Marketplace.
 
-> [AZURE.TIP]Vous pouvez toujours cliquer sur les liens affichés dans la page « Procédure pas à pas » ou utiliser les onglets du sous-menu de l’offre de service de données situé à gauche.
+> [AZURE.TIP] Vous pouvez toujours cliquer sur les liens affichés dans la page « Procédure pas à pas » ou utiliser les onglets du sous-menu de l’offre de service de données situé à gauche.
 
 ## 5\. Créez un plan.
 
@@ -55,7 +55,7 @@ Chaque transaction est généralement définie sous la forme d’un nombre d’e
 
 Il incombe à la couche de service d’Azure Marketplace pour surveiller (compter) le nombre de transactions utilisées par chaque requête.
 
-> [AZURE.IMPORTANT]Les utilisateurs finaux ayant atteint la limite de transactions au cours du mois ne peuvent pas continuer à utiliser le service jusqu’à la fin de leur cycle d’abonnement mensuel.
+> [AZURE.IMPORTANT] Les utilisateurs finaux ayant atteint la limite de transactions au cours du mois ne peuvent pas continuer à utiliser le service jusqu’à la fin de leur cycle d’abonnement mensuel.
 
 > Le plan ou l’un des plans peut (mais ne doit pas nécessairement) inclure un nombre illimité de transactions.
 
@@ -68,7 +68,7 @@ Il incombe à la couche de service d’Azure Marketplace pour surveiller (compte
 
     Le portail de publication suggère également un « identificateur de plan ». Cet identificateur sera utilisé pour communiquer aux utilisateurs finaux le nom du plan dans l’interface utilisateur. Il sera également utilisé par le service Marketplace pour identifier le plan. Vous pouvez modifier l’« identificateur de plan », si vous le souhaitez.
 
-    > [AZURE.NOTE]L’« identificateur de plan » doit être unique dans l’étendue de chaque offre. Comme de nombreux autres identificateurs utilisés dans l’identificateur de plan du portail de publication seront verrouillés après la première publication en production, vous ne pourrez pas modifier cet identificateur.
+    > [AZURE.NOTE] L’« identificateur de plan » doit être unique dans l’étendue de chaque offre. Comme de nombreux autres identificateurs utilisés dans l’identificateur de plan du portail de publication seront verrouillés après la première publication en production, vous ne pourrez pas modifier cet identificateur.
 
 3. Cliquez pour valider votre choix.
 
@@ -81,13 +81,13 @@ Il incombe à la couche de service d’Azure Marketplace pour surveiller (compte
 |----|----|
 |**Ce plan est gratuit et disponible dans le monde entier**|Vous pouvez créer un plan entièrement gratuit. Si c’est le seul plan de cette offre, cela signifie que vous publiez une « Offre gratuite » dans Marketplace. Si c’est applicable à un seul plan (parmi plusieurs), cela vous permet de proposer aux utilisateurs finaux d’en savoir plus sur votre service avec un nombre assez restreint de transactions par mois. Si la réponse est « Oui », vous n’aurez à répondre à aucune autre question.|
 
-> [AZURE.NOTE]Les utilisateurs finaux peuvent toujours effectuer une mise à niveau vers les plans payants.
+> [AZURE.NOTE] Les utilisateurs finaux peuvent toujours effectuer une mise à niveau vers les plans payants.
 
 |Question|Signification|
 |----|----|
 |**Existe-t-il un essai gratuit ?**|Vous pouvez choisir entre absolument « Aucune version d’évaluation » ou proposer une option pour utiliser votre plan pendant « Un mois ». Les éditeurs aiment utiliser cette option pour permettre aux utilisateurs finaux de comprendre gratuitement les avantages de l’offre gratuite pendant un mois.|
 
-> [AZURE.IMPORTANT]Les utilisateurs finaux ne pourront acheter un essai gratuit que s’ils disposent d’un moyen de paiement reconnus, tel qu’une carte de crédit ou un contrat d’entreprise.
+> [AZURE.IMPORTANT] Les utilisateurs finaux ne pourront acheter un essai gratuit que s’ils disposent d’un moyen de paiement reconnus, tel qu’une carte de crédit ou un contrat d’entreprise.
 
 > Après un mois d’essai gratuit, Azure Marketplace commence à faire payer le prix aux clients à compter de la date de l’abonnement, sauf si le client a entamé l’annulation de l’abonnement. Aucune notification spéciale n’est fournie aux utilisateurs finaux.
 
@@ -131,7 +131,7 @@ Dans le cas d’un service web
 
   ![dessin](media/marketplace-publishing-data-service-creation/step-7.7.png)
 
-> [AZURE.IMPORTANT]Pour obtenir des instructions détaillées et des exemples sur la création d’un service web CSDL, lisez [Mappage d’un service web existant à OData via le langage CSDL](marketplace-publishing-data-service-creation-odata-mapping.md).
+> [AZURE.IMPORTANT] Pour obtenir des instructions détaillées et des exemples sur la création d’un service web CSDL, lisez [Mappage d’un service web existant à OData via le langage CSDL](marketplace-publishing-data-service-creation-odata-mapping.md).
 
 ## Étapes suivantes
 Maintenant que vous avez créé votre offre de service de données, assurez-vous de suivre les instructions du [Guide du contenu marketing d’Azure Marketplace](marketplace-publishing-push-to-staging.md) avant de passer au [test de votre service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md).
@@ -146,4 +146,4 @@ Maintenant que vous avez créé votre offre de service de données, assurez-vous
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

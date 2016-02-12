@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="yurid"/>
 
 #Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
@@ -41,7 +41,7 @@ Les stratégies de sécurité qui sont activées ont un impact sur les types de 
 ###Machine virtuelle
 Quand vous cliquez sur **Machines virtuelles** dans la mosaïque **Intégrité des ressources**, le panneau **Machines virtuelles** s’ouvre et affiche des informations détaillées sur les étapes d’intégration et de prévention, ainsi que la liste de toutes les machines virtuelles surveillées par le Centre de sécurité Azure, comme indiqué ci-dessous :
 
-![Mise à jour système manquante par machine virtuelle](./media/security-center-monitoring/security-center-monitoring-fig2-new.png)
+![Mise à jour système manquante par machine virtuelle](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
 Le panneau comprend trois sections :
 
@@ -60,7 +60,7 @@ Cette section indique la quantité totale de machines virtuelles qui ont été i
 ####Recommandations pour machines virtuelles
 Cette section contient une série de recommandations pour chaque machine virtuelle contrôlée par le Centre de sécurité Azure. La première colonne contient la description de la recommandation, la deuxième colonne contient la quantité totale de machines virtuelles qui sont affectées par ces recommandations et la troisième colonne contient la gravité, comme indiqué ci-dessous :
 
-![Recommandations pour les machines virtuelles](./media/security-center-monitoring/security-center-monitoring-fig4-new.png)
+![Recommandations pour les machines virtuelles](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
 Chaque recommandation dispose d'un ensemble d'actions qui peuvent être effectuées lorsque vous cliquez dessus. Par exemple, si vous cliquez sur **Mises à jour système manquantes**, le panneau **Mises à jour système manquantes** s'ouvre et affiche la liste des machines virtuelles auxquelles il manque des correctifs, ainsi que le niveau de gravité, comme indiqué ci-dessous :
 
@@ -173,4 +173,4 @@ Dans ce document, vous avez vu comment utiliser les fonctionnalités de surveill
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) – Recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

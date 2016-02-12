@@ -31,7 +31,7 @@ Les avantages de l'utilisation du CDN pour mettre en cache des données Azure so
 - Une diffusion à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple au début de l'événement du lancement d'un produit. 
 
 
->[AZURE.IMPORTANT]Quand vous créez ou activez un point de terminaison CDN, sa propagation dans le monde entier peut prendre jusqu’à 90 minutes.
+>[AZURE.IMPORTANT] Quand vous créez ou activez un point de terminaison CDN, sa propagation dans le monde entier peut prendre jusqu’à 90 minutes.
  
 Quand une demande d’objet est effectuée pour la première fois au CDN, l’objet est récupéré directement de son emplacement d’origine source. Cette origine peut être un compte de stockage Azure, une application web, un service cloud ou toute origine personnalisée qui accepte les demandes web publiques. Quand une demande est effectuée à l'aide de la syntaxe CDN, elle est redirigée vers le point de terminaison CDN le plus proche de l'emplacement à partir duquel elle a été faite pour fournir l'accès à l'objet. Si l'objet est introuvable sur ce point de terminaison, il est récupéré du service et mis en cache au point de terminaison, où un paramètre de durée de vie est géré pour l'objet mis en cache.
 
@@ -44,7 +44,7 @@ Le niveau Standard de CDN inclut les fonctionnalités suivantes :
 - [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md)
 - [Filtrage par pays](cdn-restrict-access-by-country.md)
 - [Analyse principale](cdn-analyze-usage-patterns.md)
-- [Origines de contenu personnalisées](cdn-map-content-to-custom-domain.md)
+- [Origines de contenu personnalisées](cdn-how-to-use-cdn.md#caching-content-from-custom-origins)
 - [Prise en charge de HTTPS](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Équilibrage de la charge
 - Protection DDOS
@@ -61,4 +61,4 @@ Le niveau Premium de CDN comprend toutes les fonctionnalités du niveau Standard
 - [Rapports HTTP avancés](cdn-advanced-http-reports.md)
 - [Statistiques en temps réel](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

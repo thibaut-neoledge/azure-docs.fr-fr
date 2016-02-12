@@ -7,13 +7,16 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2016" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/28/2016" ms.author="aashishr";"trinadhk" />
 
 
 # Déploiement et gestion de la sauvegarde pour les machines virtuelles Azure à l’aide de PowerShell
 Cet article vous montre comment utiliser Azure PowerShell pour la sauvegarde et la restauration des machines virtuelles IaaS de Azure.
 
 ## Concepts
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 [Découvrez la sauvegarde de machines virtuelles IaaS Azure](backup-azure-vms-introduction.md) dans la documentation Azure Backup.
 
 > [AZURE.WARNING] Avant de commencer, assurez-vous de connaître les [conditions préalables](backup-azure-vms-prepare.md) de base nécessaires pour travailler avec Azure Backup et les [limitations](backup-azure-vms-prepare.md#limitations) de la solution actuelle de sauvegarde de la machines virtuelles.
@@ -70,7 +73,7 @@ Les tâches de configuration et d’inscription ci-après peuvent être automati
 
 ### Créer un coffre de sauvegarde
 
-> [AZURE.WARNING] Pour les clients utilisant Azure Backup pour la première fois, vous devez enregistrer le fournisseur Azure Backup à utiliser avec votre abonnement. Pour cela, exécutez la commande suivante : Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] Pour les clients utilisant Azure Backup pour la première fois, vous devez enregistrer le fournisseur Azure Backup à utiliser avec votre abonnement. Pour ce faire, exécutez la commande suivante : Register-AzureRMResourceProvider -ProviderNamespace "Microsoft.Backup"
 
 Vous pouvez créer un coffre de sauvegarde en utilisant l’applet de commande **New-AzureRMBackupVault**. Le coffre de sauvegarde constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Dans une console Azure PowerShell avec élévation de privilèges, exécutez les commandes suivantes :
 
@@ -327,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Si vous souhaitez ajouter des fonctionnalités graphiques à ce rapport, consultez le blog TechNet sur [Fonctionnalités graphiques avec PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

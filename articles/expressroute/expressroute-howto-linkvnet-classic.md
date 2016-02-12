@@ -23,7 +23,7 @@
 - [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)  
 - [Template - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-Cet article vous donne une vue d'ensemble de la façon de lier des réseaux virtuels à des circuits ExpressRoute. Les réseaux virtuels peuvent appartenir au même abonnement, ou faire partie d’un autre abonnement. Cet article s'applique aux réseaux virtuels déployés à l'aide du modèle de déploiement classique. Si vous souhaitez lier un réseau virtuel déployé à l'aide de la méthode de déploiement Azure Resource Manager, vous pouvez utiliser un modèle. Consultez l'onglet ci-dessus pour accéder au modèle.
+Cet article vous donne une vue d'ensemble de la façon de lier des réseaux virtuels à des circuits ExpressRoute. Les réseaux virtuels peuvent appartenir au même abonnement, ou faire partie d’un autre abonnement. Cet article s'applique aux réseaux virtuels déployés à l'aide du modèle de déploiement classique. Pour lier un réseau virtuel déployé à l’aide du modèle de déploiement Azure Resource Manager, voir [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -150,4 +150,4 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
-	description="Create a new virtual machine with Artifacts in DevTest Lab."
+<properties
+	pageTitle="Ajout d’une machine virtuelle avec des artefacts à un DevTest Lab | Microsoft Azure"
+	description="Créez un ordinateur virtuel à l’aide des artefacts dans le DevTest Lab."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Ajout d'une machine virtuelle avec des artefacts à un laboratoire de test et développement Azure DevTest Lab
@@ -98,4 +98,4 @@ Suivez ces étapes pour afficher ou modifier les paramètres de vos artefacts s�
 
 Découvrez comment [créer des artefacts personnalisés pour votre machine virtuelle](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+	ms.date="01/28/2016"   
 	ms.author="juliako"/>
 
 
 # Utilisation d'Azure Media Packager pour effectuer des tâches d'empaquetage statique
 
->[AZURE.NOTE]Windows Azure Media Packager et Windows Azure Media Encryptor atteindront leur fin de vie le 1er mars 2016. Ces composants ne seront alors plus disponibles. Les fonctionnalités de chiffrement et de conversion de format seront disponibles via l'empaquetage dynamique et le chiffrement dynamique.
+>[AZURE.NOTE] La date de fin de vie de Microsoft Azure Media Packager et Microsoft Azure Media Encryptor a été repoussée au 1er mars 2017. Avant cette date, les fonctionnalités de ces processeurs seront ajoutées à Media Encoder Standard (MES). Les clients recevront des instructions sur la façon de migrer leurs flux de travail pour envoyer des travaux à MES. Des fonctionnalités de chiffrement et de conversion de format peuvent éventuellement être disponibles par le biais de l’empaquetage dynamique et du chiffrement dynamique.
 
 ## Vue d’ensemble
 
-Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les périphériques de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia. Une fois qu'une vidéo a été encodée, elle peut être placée dans différents conteneurs de fichiers. Le processus destiné à placer des médias encodés dans un conteneur s'appelle « empaquetage ». Par exemple, vous pouvez prendre un fichier MP4 et le convertir en contenu Smooth Streaming ou HLS à l'aide d'Azure Media Packager. Pour plus d'informations, voir [Encodage versus Empaquetage](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les appareils de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia. Une fois qu'une vidéo a été encodée, elle peut être placée dans différents conteneurs de fichiers. Le processus destiné à placer des médias encodés dans un conteneur s'appelle « empaquetage ». Par exemple, vous pouvez prendre un fichier MP4 et le convertir en contenu Smooth Streaming ou HLS à l'aide d'Azure Media Packager. Pour plus d'informations, voir [Encodage versus Empaquetage](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
 
 Media Services prend en charge l'empaquetage dynamique et statique. Lorsque vous utilisez l'empaquetage statique, vous devez créer une copie de votre contenu dans chaque format requis par vos clients. Avec l'empaquetage dynamique, il vous suffit de créer un élément multimédia contenant un ensemble de fichiers MP4 ou de fichiers Smooth Streaming à débit adaptatif. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de streaming à la demande s'assure que vos utilisateurs reçoivent le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients.
 
@@ -968,7 +968,7 @@ L'exemple de cette section encode un fichier mezzanine (en l'occurrence MP4) en 
 
 Si vous souhaitez protéger votre contenu avec PlayReady, vous pouvez choisir d'utiliser le [chiffrement dynamique](media-services-protect-with-drm.md) (option recommandée) ou le chiffrement statique (comme décrit dans cette section).
 
->[AZURE.NOTE]Pour protéger votre contenu à l'aide de PlayReady, vous devez tout d'abord convertir/encoder votre contenu au format Smooth Streaming.
+>[AZURE.NOTE] Pour protéger votre contenu à l'aide de PlayReady, vous devez tout d'abord convertir/encoder votre contenu au format Smooth Streaming.
 
 L'exemple de cette section encode un fichier mezzanine (en l'occurrence MP4) en plusieurs fichiers MP4 multidébit. Il conditionne ensuite les fichiers MP4 en contenus Smooth Streaming puis les chiffre avec PlayReady. Pour produire du contenu HTTP Live Streaming (HLS) chiffré avec PlayReady, l'élément multimédia Smooth Streaming PlayReady doit être empaqueté au format HLS. Cette rubrique montre comment effectuer toutes ces étapes.
 
@@ -1447,4 +1447,4 @@ Veillez à mettre à jour le code suivant pour pointer vers le dossier où se tr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

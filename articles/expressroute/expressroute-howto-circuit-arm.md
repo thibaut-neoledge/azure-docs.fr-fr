@@ -215,10 +215,9 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 7. **Configurer le routage et lier un réseau virtuel**
 
-	a. **Créez votre configuration de routage.** Pour des instructions pas à pas, reportez-vous à [Créer et modifier le routage pour un circuit ExpressRoute](expressroute-howto-routing-arm.md).
-
-		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
-	b. **Liaison de votre réseau virtuel à un circuit ExpressRoute.** Après avoir vérifié que le routage a été configuré, vous devez lier votre réseau virtuel à votre circuit ExpressRoute. Pour des instructions pas à pas, reportez-vous à [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md).
+	a. **Créez votre configuration de routage.** Pour des instructions pas à pas, reportez-vous à [Créer et modifier le routage pour un circuit ExpressRoute](expressroute-howto-routing-arm.md). Notez que ces instructions de routage s’appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. Vous ne pourrez pas créer ou gérer des homologations dans ce cas.
+	
+	b. **Liaison de votre réseau virtuel à un circuit ExpressRoute.** Après avoir vérifié que le routage a été configuré, vous devez lier votre réseau virtuel à votre circuit ExpressRoute. Pour obtenir des instructions pas à pas, voir [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 ##  Pour obtenir l'état d'un circuit ExpressRoute
 
@@ -327,7 +326,7 @@ Pour désactiver le module complémentaire premium, utilisez l'exemple d'applet 
 
 ### Mise à jour de la bande passante d’un circuit ExpressRoute
 
-Consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour connaître les options de bande passante prises en charge par votre fournisseur. Vous pouvez choisir n'importe quelle taille **supérieure** à la taille de votre circuit existant sans entraîner de temps d’arrêt.
+Consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour connaître les options de bande passante prises en charge par votre fournisseur. Vous pouvez choisir n’importe quelle taille **supérieure** à la taille de votre circuit existant sans entraîner de temps d’arrêt.
 
 >[AZURE.IMPORTANT] Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. La rétrogradation de la bande passante vous oblige à annuler le déploiement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
 
@@ -345,9 +344,9 @@ Vous pouvez supprimer votre circuit ExpressRoute. Lorsque vous supprimez un circ
 
 - Vous devez dissocier tous les réseaux virtuels du circuit ExpressRoute pour que cette opération réussisse. Si cette opération échoue, vérifiez si certains de vos réseaux virtuels sont liés au circuit.
 
-- Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est activé, l’état passe de l’état activé à l’état *disabling* (désactivation). Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu'à ce que le fournisseur de services termine l'annulation de l’approvisionnement et nous envoie une notification.
+- Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est activé, le système passe de l’état d’activation à l’état *disabling* (désactivation). Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu'à ce que le fournisseur de services termine l'annulation de l’approvisionnement et nous envoie une notification.
 
-- Si le fournisseur de services a annulé l'approvisionnement du circuit (l'état d'approvisionnement du fournisseur de services affiche la valeur *not provisioned* (non approvisionné)) avant que vous n'exécutiez l'applet de commande, nous annulerons l'approvisionnement du circuit et cesserons la facturation.
+- Si le fournisseur de services a annulé l’approvisionnement du circuit avant que vous n’exécutiez l’applet de commande (l’état d’approvisionnement du fournisseur de services affichant la valeur *not provisioned* (non approvisionné)), nous annulerons l’approvisionnement du circuit et cesserons la facturation.
 
 Pour supprimer votre circuit ExpressRoute, utilisez l'exemple d'applet de commande PowerShell ci-dessous.
 
@@ -360,4 +359,4 @@ Après avoir créé votre circuit, veillez à procéder comme suit :
 1.  [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-arm.md)
 2.  [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -165,10 +165,10 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 [Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-password.md)
 
-[Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
+[Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

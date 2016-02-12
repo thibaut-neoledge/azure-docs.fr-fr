@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 
@@ -23,7 +23,7 @@ Cette rubrique montre comment installer des contrôleurs de domaine supplémenta
 
 Les rubriques suivantes peuvent également vous intéresser :
 
--  Vous pouvez, si vous le souhaitez, installer une nouvelle forêt Active Directory sur un réseau virtuel Azure. Dans ce cas, consultez la page [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](../active-directory-new-forest-virtual-machine.md).
+-  Vous pouvez, si vous le souhaitez, installer une nouvelle forêt Active Directory sur un réseau virtuel Azure. Dans ce cas, consultez la page [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](../active-directory/active-directory-new-forest-virtual-machine.md).
 -  Pour obtenir des recommandations sur l'installation des services de domaine Active Directory (AD DS) sur un réseau virtuel Azure, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 
@@ -31,7 +31,7 @@ Les rubriques suivantes peuvent également vous intéresser :
 
 Dans ce scénario, des utilisateurs externes doivent accéder à des applications qui s'exécutent sur des serveurs appartenant à un domaine. Les machines virtuelles qui exécutent les serveurs d'applications et les contrôleurs de domaine de réplication sont installées sur un réseau virtuel Azure. Le réseau virtuel peut être connecté au réseau local par une connexion [VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md), comme illustré dans le schéma suivant, ou vous pouvez utiliser [ExpressRoute](../../services/expressroute/) pour obtenir une connexion plus rapide.
 
-Les serveurs d’applications et les contrôleurs de domaine sont déployés dans des [services cloud](../cloud-services-what-is.md) distincts afin de distribuer la charge de traitement et dans des [groupes à haute disponibilité](../virtual-machines/virtual-machines-manage-availability.md) pour améliorer la tolérance aux pannes. Les contrôleurs de domaine répliquent entre eux et avec les contrôleurs de domaine locaux à l'aide de la réplication Active Directory. Aucun outil de synchronisation n'est nécessaire.
+Les serveurs d’applications et les contrôleurs de domaine sont déployés dans des services cloud distincts afin de distribuer la charge de traitement et dans des [groupes à haute disponibilité](../virtual-machines/virtual-machines-manage-availability.md) pour améliorer la tolérance aux pannes. Les contrôleurs de domaine répliquent entre eux et avec les contrôleurs de domaine locaux à l'aide de la réplication Active Directory. Aucun outil de synchronisation n'est nécessaire.
 
 ![][1]
 
@@ -121,4 +121,4 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

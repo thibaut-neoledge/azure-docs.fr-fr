@@ -20,7 +20,8 @@
 
 Dans un monde basé sur la mobilité, avec des utilisateurs qui accèdent à des données et à des applications dans le cloud et à partir de n'importe quel périphérique, la sécurisation de ces informations est devenue prééminente. On entend parler chaque jour de nouvelles failles de sécurité. Bien qu'il n'existe aucune garantie contre ces violations, l'authentification multifacteur (Multi-Factor Authentication), fournit une couche supplémentaire de sécurité afin de les empêcher. Commencez par évaluer les besoins des organisations pour en matière d'authentification multifacteur. Il s'agit de comprendre ce que l'organisation veut sécuriser. Cette version d'évaluation est importante pour définir les exigences techniques pour la configuration et l'actualisation des utilisateurs de l'organisation pour l'authentification multifacteur.
 
->[AZURE.NOTE]Si vous n'êtes pas familiarisé avec l'authentification multifacteur (MFA) et ses fonctionnalités, il est fortement recommandé de lire l'article [Présentation d'Azure Multi-Factor Authentication](multi-factor-authentication.md) avant de poursuivre la lecture de cette section.
+>[AZURE.NOTE]
+Si vous n'êtes pas familiarisé avec l'authentification multifacteur (MFA) et ses fonctionnalités, il est fortement recommandé de lire l'article [Présentation d'Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) avant de poursuivre la lecture de cette section.
 
 Veillez à répondre aux questions suivantes :
 
@@ -57,4 +58,4 @@ Après avoir répondu à ces questions, vous serez en mesure de déterminer s'il
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

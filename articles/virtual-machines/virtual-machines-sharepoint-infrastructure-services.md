@@ -31,7 +31,7 @@ L'environnement créé automatiquement se compose de trois serveurs sur un rése
 
 Consultez l’élément [Batterie de serveurs SharePoint 2013 non hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace du portail Azure. Cela crée une batterie de serveurs de développement/test de base pour un site web SharePoint sur Internet. Consultez [Création de batteries de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) pour plus de détails.
 
-Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez [Déployer une batterie de serveurs SharePoint à trois serveurs](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez [SharePoint](virtual-machines-app-frameworks.md).
 
 > [AZURE.NOTE] L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure a été supprimé.
 
@@ -61,4 +61,4 @@ Cette configuration utilise le modèle de déploiement classique.
 
 - Découvrez d’autres configurations de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) dans les services d’infrastructure d’Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

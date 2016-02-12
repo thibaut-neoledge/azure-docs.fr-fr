@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jgao"/>
 
 #Connexion d'Excel à Hadoop à l'aide du pilote ODBC Microsoft Hive
@@ -25,7 +25,7 @@ La solution de données volumineuses de Microsoft intègre des composants BI (Bu
 
 Il est également possible de connecter les données associées à un cluster HDInsight et d'autres sources de données, y compris d'autres clusters Hadoop (non HDInsight), à partir d'Excel au moyen du complément Microsoft Power Query pour Excel. Pour plus d'informations sur l'installation et l'utilisation de Power Query, consultez la page [Connexion d'Excel à HDInsight à l'aide de Power Query][hdinsight-power-query].
 
-> [AZURE.NOTE]Même si les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight basé sur Linux ou Windows, Windows est requis pour le poste de travail client.
+> [AZURE.NOTE] Même si les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight basé sur Linux ou Windows, Windows est requis pour le poste de travail client.
 
 **Conditions préalables** :
 
@@ -55,35 +55,35 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
 
 5. Tapez ou sélectionnez les valeurs suivantes :
 
-Propriété|Description
----|---
-Data Source Name|Donnez un nom à votre source de données
-Hôte|Entrez <HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net
-Port|Utilisez <strong>443</strong>. (ce port est passé de 563 à 443).
-Base de données|Utilisez <strong>Default</strong>.
-Hive Server Type|Sélectionnez <strong>Hive Server 2</strong>.
-Mechanism|Sélectionnez <strong>Azure HDInsight Service</strong>.
-HTTP Path|Laissez cette valeur vide.
-User Name|Entrez le nom d'utilisateur du cluster HDInsight. Il s'agit du nom d'utilisateur créé au cours du processus d'approvisionnement de cluster. Si vous avez utilisé l’option de création rapide, le nom d’utilisateur par défaut est <strong>admin</strong>.
-Mot de passe|Entrez le mot de passe du cluster HDInsight.
-</table>
+    Propriété|Description
+    ---|---
+    Data Source Name|Donnez un nom à votre source de données
+    Hôte|Entrez <HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net
+    Port|Utilisez <strong>443</strong>. (ce port est passé de 563 à 443).
+    Base de données|Utilisez <strong>Default</strong>.
+    Hive Server Type|Sélectionnez <strong>Hive Server 2</strong>.
+    Mechanism|Sélectionnez <strong>Azure HDInsight Service</strong>.
+    HTTP Path|Laissez cette valeur vide.
+    User Name|Entrez le nom d'utilisateur du cluster HDInsight. Il s'agit du nom d'utilisateur créé au cours du processus d'approvisionnement de cluster. Si vous avez utilisé l’option de création rapide, le nom d’utilisateur par défaut est <strong>admin</strong>.
+    Mot de passe|Entrez le mot de passe du cluster HDInsight.
+    </table>
 
-Certains paramètres importants sont à prendre en compte lorsque vous cliquez sur **Options avancées** :
+    Certains paramètres importants sont à prendre en compte lorsque vous cliquez sur **Options avancées** :
 
-Paramètre|Description
----|---
-Use Native Query|Si cette option est sélectionnée, le pilote ODBC n'essaiera PAS de convertir TSQL en HiveQL. À utiliser uniquement si vous êtes sûr à 100 % que vous envoyez des instructions HiveQL pures. Si vous effectuez une connexion à SQL Server ou Base de données SQL Azure, ne sélectionnez pas cette option.
-Rows fetched per block|Lors de la récupération d'une grande quantité d'enregistrements, la définition de ce paramètre peut être nécessaire pour garantir des performances optimales.
-Default string column length, Binary column length, Decimal column scale|Les précisions et longueurs des types de données peuvent affecter la façon dont les données sont renvoyées. Elles peuvent entraîner le renvoi d'informations incorrectes en raison d'une perte de précision et/ou de troncations.
+    Paramètre|Description
+    ---|---
+    Use Native Query|Si cette option est sélectionnée, le pilote ODBC n'essaiera PAS de convertir TSQL en HiveQL. À utiliser uniquement si vous êtes sûr à 100 % que vous envoyez des instructions HiveQL pures. Si vous effectuez une connexion à SQL Server ou Base de données SQL Azure, ne sélectionnez pas cette option.
+    Rows fetched per block|Lors de la récupération d'une grande quantité d'enregistrements, la définition de ce paramètre peut être nécessaire pour garantir des performances optimales.
+    Default string column length, Binary column length, Decimal column scale|Les précisions et longueurs des types de données peuvent affecter la façon dont les données sont renvoyées. Elles peuvent entraîner le renvoi d'informations incorrectes en raison d'une perte de précision et/ou de troncations.
 
 
-	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
+	![Options avancées][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. Cliquez sur **Tester** pour tester la source de données. Une fois que la source de données est configurée correctement, le message suivant apparaît *TESTS COMPLETED SUCCESSFULLY!*.
 7. Cliquez sur **OK** pour fermer la boîte de dialogue de test. La nouvelle source de données doit à présent figurer dans la boîte de dialogue **Administrateur de sources de données ODBC**.
 8. Cliquez sur **OK** pour quitter l'Assistant.
 
-##Importation de données dans Excel à partir d'un cluster HDInsight
+##Importation de données dans Microsoft Excel à partir de HDInsight
 
 La procédure ci-dessous décrit la façon d'importer les données d'une table hive dans un classeur Excel au moyen de la source de données ODBC que vous avez créée dans la procédure ci-dessus.
 
@@ -131,4 +131,4 @@ Dans cet article, vous avez appris à utiliser le pilote Microsoft Hive ODBC pou
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

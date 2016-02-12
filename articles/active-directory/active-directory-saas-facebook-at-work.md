@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="02/02/2016"
 	ms.author="asmalser"/>
 
 
@@ -51,7 +51,7 @@ Pour configurer l’intégration de Facebook at Work avec Azure AD, vous devez 
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut. <br><br>![Applications][2]<br>
+3. Pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut. <br><br>![Applications][2]<br>
 
 4. Cliquez sur **Ajouter** en bas de la page. <br><br>![Applications][3]<br>
 
@@ -114,4 +114,4 @@ Pour que les utilisateurs AAD approvisionnés puissent voir Facebook at Work sur
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

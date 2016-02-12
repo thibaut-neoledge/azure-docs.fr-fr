@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,8 +64,7 @@ Pour configurer l’intégration de Nomadesk à Azure AD, vous devez ajouter No
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, tapez **Nomadesk**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_01.png)<br>
-7. Dans le volet de résultats, sélectionnez **Nomadesk**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>
-
+7. Dans le volet de résultats, sélectionnez **Nomadesk**, puis cliquez sur **Terminé** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_02.png)<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Nomadesk, avec un utilisateur de test appelé « Britta Simon ».
@@ -75,9 +74,9 @@ Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l
 Pour configurer et tester l’authentification unique Azure AD avec Nomadesk, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test Nomadesk](#creating-a-Nomadesk-test-user)** pour avoir un équivalent de Britta Simon dans Nomadesk, lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Création d’un utilisateur de test Nomadesk](#creating-a-nomadesk-test-user)** pour avoir un équivalent de Britta Simon dans Nomadesk, lié à la représentation Azure AD associée.
+5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD
@@ -94,7 +93,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 3. Dans la page **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png) <br>
 
-	a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Nomadesk, au format suivant : **« https://mynomadesk.com/logon/saml/TENANTID »**. Lors du référencement d’un nom générique, la partie **TENANTID** doit être remplacée par un ID de locataire réel.
+	a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Nomadesk, au format suivant : **« https://mynomadesk.com/logon/saml/TENANTID »**. Lors du référencement d’un nom générique, la partie **TENANTID** doit être remplacée par un ID de client réel.
 
 4. Dans la page **Configurer l’authentification unique sur Nomadesk**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png) <br>
 
@@ -103,7 +102,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     b. Cliquez sur **Next**.
 
 
-5. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Nomadesk via [mailto:support@nomadesk.com](support@nomadesk.com). Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe Nomadesk pour configurer l’authentification unique de son côté.
+5. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Nomadesk à l’adresse [mailto:support@nomadesk.com](support@nomadesk.com). Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe Nomadesk pour configurer l’authentification unique de son côté.
 
 
 6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
@@ -212,4 +211,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-nomadesk-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-nomadesk-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

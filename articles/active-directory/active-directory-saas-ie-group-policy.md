@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe | Microsoft Azure"
-   description="Comment utiliser la stratégie de groupe pour déployer le module complémentaire Internet Explorer du portail Mes applications."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe | Microsoft Azure"
+    description="Comment utiliser la stratégie de groupe pour déployer le module complémentaire Internet Explorer du portail Mes applications."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/18/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
 
@@ -62,7 +62,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 
 3. Dans le volet gauche de la fenêtre **Gestion des stratégies de groupe**, affichez votre hiérarchie des unités d’organisation (UO) et déterminez l’étendue selon laquelle vous aimeriez appliquer la stratégie de groupe. Par exemple, vous pouvez décider de sélectionner une petite UO à déployer pour quelques utilisateurs à des fins de test. Vous pouvez également choisir une UO de niveau supérieur à déployer dans toute votre organisation.
 
-	> [AZURE.NOTE]Si vous souhaitez créer ou modifier vos unités d’organisation (UO), revenez au Gestionnaire de serveur et accédez à **Outils** > **Utilisateurs et ordinateurs Active Directory**.
+	> [AZURE.NOTE] Si vous souhaitez créer ou modifier vos unités d’organisation (UO), revenez au Gestionnaire de serveur et accédez à **Outils** > **Utilisateurs et ordinateurs Active Directory**.
 
 4. Une fois que vous avez sélectionné une UO, cliquez dessus avec le bouton droit et sélectionnez **Créer un objet GPO dans ce domaine, et le lier ici...**
 
@@ -90,7 +90,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 
 4. Accédez au dossier partagé qui contient le package d’installation dans [Étape 1 : Créer le point de distribution](#step-1-create-the-distribution-point), sélectionnez le fichier .msi, puis cliquez sur **Ouvrir**.
 
-	> [AZURE.IMPORTANT]Si le partage se trouve sur le même serveur, vérifiez que vous accédez au fichier .msi via le chemin d’accès du fichier réseau, et non via le chemin d’accès du fichier local.
+	> [AZURE.IMPORTANT] Si le partage se trouve sur le même serveur, vérifiez que vous accédez au fichier .msi via le chemin d’accès du fichier réseau, et non via le chemin d’accès du fichier local.
 
 	![Sélectionnez le package d’installation à partir du dossier partagé.](./media/active-directory-saas-ie-group-policy/select-package.png)
 
@@ -141,7 +141,7 @@ Si vous ne souhaitez pas que les utilisateurs puissent accéder à ce message, s
 
 2. Recherchez le paramètre nommé **Activer la saisie semi-automatique des noms d'utilisateur et des mots de passe dans les formulaires**.
 
-	> [AZURE.NOTE]Les versions précédentes d'Active Directory peuvent répertorier ce paramètre via le nom **Ne pas autoriser la saisie semi-automatique à enregistrer des mots de passe**. La configuration de ce paramètre diffère du paramètre décrit dans ce didacticiel.
+	> [AZURE.NOTE] Les versions précédentes d'Active Directory peuvent répertorier ce paramètre via le nom **Ne pas autoriser la saisie semi-automatique à enregistrer des mots de passe**. La configuration de ce paramètre diffère du paramètre décrit dans ce didacticiel.
 
 	![N'oubliez pas de le rechercher sous Paramètres utilisateur.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
 
@@ -155,7 +155,7 @@ Si vous ne souhaitez pas que les utilisateurs puissent accéder à ce message, s
 
 Les utilisateurs ne seront plus en mesure d’enregistrer leurs informations d'identification ou d’utiliser la saisie semi-automatique pour accéder aux informations d'identification enregistrées précédemment. Toutefois, cette stratégie permet aux utilisateurs de continuer à utiliser la saisie semi-automatique pour les autres types de champs de formulaire, tels que les champs de recherche.
 
-> [AZURE.WARNING]Si cette stratégie est activée après que les utilisateurs aient choisi de stocker certaines informations d'identification, cette stratégie n’effacera *pas* les informations d'identification qui ont déjà été enregistrées.
+> [AZURE.WARNING] Si cette stratégie est activée après que les utilisateurs aient choisi de stocker certaines informations d'identification, cette stratégie n’effacera *pas* les informations d'identification qui ont déjà été enregistrées.
 
 ##Étape 6 : tester le déploiement
 
@@ -177,4 +177,4 @@ Suivez les étapes ci-dessous pour vérifier si le déploiement de l’extension
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

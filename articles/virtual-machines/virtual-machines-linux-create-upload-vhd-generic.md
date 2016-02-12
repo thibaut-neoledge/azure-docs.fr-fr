@@ -22,14 +22,14 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**Important** : le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](virtual-machines-../linux-endorsed-distributions.md) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
+**Important** : le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](virtual-machines-linux-endorsed-distributions.md) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
 
-- [Linux sur Azure : Distributions approuvées](virtual-machines-../linux-endorsed-distributions.md)
+- [Linux sur Azure : Distributions approuvées](virtual-machines-linux-endorsed-distributions.md)
 - [Prise en charge d’images Linux dans Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
 Toutes les distributions exécutées sur Azure doivent remplir les conditions suivantes pour fonctionner correctement sur la plateforme. Cet article n'est pas exhaustif, car chaque distribution est différente. Il est également possible que, même en répondant à tous les critères ci-dessous, il s'avère nécessaire de modifier votre système Linux pour garantir son fonctionnement correct sur la plateforme.
 
-C'est pourquoi nous recommandons de commencer avec une de nos [distributions Linux approuvées sur Azure](../linux-endorsed-distributions.md) dans la mesure du possible. Les articles suivants vous montrent comment préparer les diverses distributions Linux approuvées prises en charge dans Azure :
+C'est pourquoi nous recommandons de commencer avec une de nos [distributions Linux approuvées sur Azure](virtual-machines-linux-endorsed-distributions.md) dans la mesure du possible. Les articles suivants vous montrent comment préparer les diverses distributions Linux approuvées prises en charge dans Azure :
 
 - **[Distributions CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
@@ -109,7 +109,7 @@ Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à 
 
 ## Conditions requises pour le noyau Linux ##
 
-Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont directement liés au noyau Linux en amont. Ces pilotes sont déjà disponibles dans de nombreuses distributions qui comprennent une version récente du noyau Linux (3.x et supérieures). Sinon, ces distributions fournissent des versions rétroportées de ces pilotes avec leurs noyaux. Ces pilotes sont mis à jour en permanence dans le noyau en amont avec de nouveaux correctifs et de nouvelles fonctionnalités. Aussi, dans la mesure du possible, il est recommandé d'exécuter une [distribution approuvée](../linux-endorsed-distributions.md) comportant ces correctifs et ces modifications.
+Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont directement liés au noyau Linux en amont. Ces pilotes sont déjà disponibles dans de nombreuses distributions qui comprennent une version récente du noyau Linux (3.x et supérieures). Sinon, ces distributions fournissent des versions rétroportées de ces pilotes avec leurs noyaux. Ces pilotes sont mis à jour en permanence dans le noyau en amont avec de nouveaux correctifs et de nouvelles fonctionnalités. Aussi, dans la mesure du possible, il est recommandé d'exécuter une [distribution approuvée](virtual-machines-linux-endorsed-distributions.md) comportant ces correctifs et ces modifications.
 
 Si vous exécutez une variante des versions Red Hat Enterprise Linux **6.0-6.3**, vous devez installer les pilotes LIS les plus récents pour Hyper-V. Les pilotes sont disponibles [ici](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Pour RHEL **6.4+** (et les distributions dérivées), les pilotes LIS sont déjà inclus dans le noyau ; aucun package d'installation supplémentaire n'est donc nécessaire pour exécuter ces systèmes sur Azure.
 
@@ -195,4 +195,4 @@ L'[Agent Linux Azure](virtual-machines-linux-agent-user-guide.md) (waagent) es
 
 - Vous devez ensuite arrêter la machine virtuelle et télécharger le disque dur virtuel dans Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

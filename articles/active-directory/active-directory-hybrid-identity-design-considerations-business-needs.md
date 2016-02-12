@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Déterminer les besoins d’identité pour votre solution d’identités hybrides
@@ -47,7 +47,8 @@ Maintenant que vous avez une idée des exigences de votre entreprise, vous devez
 Vous devez également connaître les services cloud dont votre entreprise dispose. Il est très important d’effectuer une évaluation pour comprendre l’intégration actuelle avec les modèles SaaS, IaaS ou PaaS dans votre environnement. Assurez-vous de répondre aux questions suivantes lors de cette évaluation : Votre entreprise dispose-t-elle d’une intégration avec un fournisseur de services cloud ? - Si oui, quels services sont utilisés ? - Cette intégration est-elle actuellement en production ou s’agit-il d’un pilote ?
 
 
->[AZURE.NOTE]Si vous ne disposez pas d’un mappage précis de l’ensemble de vos applications et services cloud, vous pouvez utiliser l’outil Cloud App Discovery. Cet outil peut fournir à votre service informatique une visibilité sur toutes les applications cloud d’entreprise et clientes de votre organisation. Il est ainsi plus facile de faire émerger les données informatiques de votre organisation, notamment les informations concernant les tendances d’utilisation et les utilisateurs qui accèdent à vos applications cloud. Pour accéder à cet outil, rendez-vous à l’adresse [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+>[AZURE.NOTE]
+Si vous ne disposez pas d’un mappage précis de l’ensemble de vos applications et services cloud, vous pouvez utiliser l’outil Cloud App Discovery. Cet outil peut fournir à votre service informatique une visibilité sur toutes les applications cloud d’entreprise et clientes de votre organisation. Il est ainsi plus facile de faire émerger les données informatiques de votre organisation, notamment les informations concernant les tendances d’utilisation et les utilisateurs qui accèdent à vos applications cloud. Pour accéder à cet outil, rendez-vous à l’adresse [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
 
 ## Évaluer les exigences d’intégration des identités
 Ensuite, vous devez évaluer les exigences d’intégration des identités. Cette évaluation revêt une importance capitale à l’heure de définir les exigences techniques sur la manière dont les utilisateurs vont s’authentifier, sur l’aspect de la présence de l’organisation dans le cloud, sur la manière dont l’organisation va gérer les autorisations et sur le type d’expérience de l’utilisateur. Veillez à répondre aux questions suivantes :
@@ -94,6 +95,6 @@ Vous devez également évaluer les exigences des utilisateurs. Cette évaluation
 [Déterminer les exigences de synchronisation de répertoire](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception]((active-directory-hybrid-identity-design-considerations-overview.md)
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

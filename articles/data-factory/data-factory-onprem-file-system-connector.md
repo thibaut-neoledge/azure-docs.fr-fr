@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Déplacement de données vers et depuis le système de fichiers local à l’aide d’Azure Data Factory
@@ -27,16 +27,18 @@ En dehors de la passerelle de gestion des données, aucun autre fichier binaire 
 > 
 > Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
-## Partage de fichiers Linux 
+## Partage de fichiers Linux 
 
 Effectuez les deux étapes suivantes pour utiliser un partage de fichiers Linux avec le service lié de serveur de fichiers :
 
 - Installez [Samba](https://www.samba.org/) sur votre serveur Linux.
 - Installez et configurez la passerelle de gestion des données sur un serveur Windows. L’installation de la passerelle sur un serveur Linux n'est pas prise en charge. 
  
-## exemple : copie de données depuis un système de fichiers local vers un objet blob Azure
+## Exemple : Copie de données depuis un système de fichiers local vers un système Blob Storage Azure
 
-L’exemple ci-dessous présente les éléments suivants :
+Cet exemple indique comment copier des données depuis un système de fichiers local vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+ 
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
@@ -247,7 +249,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	   }
 	}
 
-##Exemple : copie de données depuis Azure SQL vers un système de fichiers local 
+##Exemple : Copie de données depuis Microsoft Azure SQL vers un système de fichiers local 
 
 L’exemple ci-dessous présente les éléments suivants :
 
@@ -427,7 +429,7 @@ Les données sont copiées vers un nouveau fichier toutes les heures. Le chemin 
 	   }
 	}
 
-## Propriétés du service lié OnPremisesFileServer
+## Propriétés du service lié OnPremisesFileServer
 
 Vous pouvez lier un système de fichiers local à une fabrique de données Azure avec un service lié Serveur de fichiers local. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Serveur de fichiers local.
 
@@ -566,7 +568,7 @@ Pour utiliser AvroFormat dans une table Hive suivante, reportez-vous au [didacti
 
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
-## Propriétés de type d'activité de copie de partage de fichiers
+## Propriétés du type d’activité de copie de partage de fichiers
 
 **FileSystemSource** prend en charge les propriétés suivantes :
 
@@ -606,4 +608,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 avec la structure
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/06/2016"
+   ms.date="02/01/2016"
    ms.author="mbaldwin"/>
 
 
@@ -72,7 +72,7 @@ Ces articles décrivent comment effectuer des tâches spécifiques avec Azure Ac
 - [Créer une application avec les API Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Envoyer des applications web pour Office 365 à Mon tableau de bord vendeur](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Version préliminaire : comment créer des applications qui connectent les utilisateurs avec à la fois des comptes personnels et des comptes professionnels ou scolaires](active-directory-appmodel-v2-overview.md)
-- [Version préliminaire : création d’applications qui inscrivent et connectent les consommateurs](active-directory-b2c-overview.md)
+- [Version préliminaire : création d’applications qui inscrivent et connectent les consommateurs](../active-directory-b2c/active-directory-b2c-overview.md)
 
 
 ## Référence
@@ -141,4 +141,4 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

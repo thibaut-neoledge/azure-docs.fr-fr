@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Solution Azure Automation : démarrage et arrêt de machines virtuelles
@@ -28,11 +28,11 @@ Cette solution Azure Automation inclut des runbooks pour démarrer et arrêter d
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-Il s'agit de la version graphique du Runbook de cette solution. Elle est également disponible en utilisant des [Runbooks de workflow PowerShell](automation-solutions-startstopvm-psworkflow.md).
+Il s'agit de la version graphique du Runbook de cette solution. Elle est également disponible en utilisant des [Runbooks de workflow PowerShell](automation-solution-startstopvm-psworkflow.md).
 
 ## Obtenir la solution
 
-Cette solution se compose de deux Runbooks graphiques que vous pouvez télécharger à partir des liens suivants. Consultez la [version du workflow PowerShell](automation-solutions-startstopvm-psworkflow.md) de cette solution pour obtenir des liens vers les Runbooks du workflow PowerShell.
+Cette solution se compose de deux Runbooks graphiques que vous pouvez télécharger à partir des liens suivants. Consultez la [version du workflow PowerShell](automation-solution-startstopvm-psworkflow.md) de cette solution pour obtenir des liens vers les Runbooks du workflow PowerShell.
 
 
 | Runbook | Lien | Type | Description |
@@ -67,8 +67,8 @@ Les Runbooks ont tous les [paramètres d’entrée](automation-starting-a-runboo
 | Paramètre | Type | Obligatoire | Description |
 |:---|:---|:---|:---|
 | ServiceName | string | Non | Si une valeur est fournie, toutes les machines virtuelles portant ce nom de service sont démarrées ou arrêtées. Si aucune valeur n’est fournie, toutes les machines virtuelles classiques dans l’abonnement Azure sont démarrées ou arrêtées. |
-| AzureSubscriptionIdAssetName | string | Non | Contient le nom de la [ressource variable](#installing-the-solution) qui contient l'ID d'abonnement de votre abonnement Azure. Si vous ne spécifiez aucune valeur, la valeur *AzureSubscriptionId* est utilisée. |
-| AzureCredentialAssetName | string | Non | Contient le nom de la [ressource d'informations d'identification](#installing-the-solution) qui contient les informations d'identification pour le Runbook à utiliser. Si vous ne spécifiez aucune valeur, la valeur *AzureCredential* est utilisée. |
+| AzureSubscriptionIdAssetName | string | Non | Contient le nom de la [ressource variable](#installing-the-solution) qui contient l’ID d’abonnement de votre abonnement Azure. Si vous ne spécifiez aucune valeur, la valeur *AzureSubscriptionId* est utilisée. |
+| AzureCredentialAssetName | string | Non | Contient le nom de la [ressource d’informations d’identification](#installing-the-solution) qui contient les informations d’identification pour le runbook à utiliser. Si vous ne spécifiez aucune valeur, la valeur *AzureCredential* est utilisée. |
 
 ### Démarrage des runbooks
 
@@ -85,7 +85,7 @@ Les Runbooks [généreront un message](automation-runbook-output-and-messages.md
 
 | Runbook | Condition | Message |
 |:---|:---|:---|
-| StartAzureClassicVM | Machine virtuelle déjà en cours d'exécution | MyVM déjà en cours d'exécution |
+| StartAzureClassicVM | Machine virtuelle déjà en cours d'exécution | MyVM déjà en cours d’exécution |
 | StartAzureClassicVM | Demande de démarrage de la machine virtuelle envoyée avec succès | MyVM démarrée |
 | StartAzureClassicVM | Échec de la demande de démarrage de la machine virtuelle | MyVM n'a pas pu démarrer |
 | StopAzureClassicVM | Machine virtuelle déjà en cours d'exécution | MyVM déjà arrêtée |
@@ -153,4 +153,4 @@ La dernière étape du Runbook consiste à envoyer la sortie si la demande de d�
 - [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) 
 - [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

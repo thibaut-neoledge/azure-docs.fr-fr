@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="10/16/2015"  
+ 	ms.date="02/01/2015"  
  	ms.author="stevenpo"/>
 
 # Partage de comptes avec Azure AD
@@ -44,7 +44,7 @@ Les utilisateurs se connectent une fois avec leur compte professionnel. Il s’a
 
 Outre accroître la supervision et améliorer la facilité d’utilisation, les comptes partagés renforcent votre sécurité. Les utilisateurs autorisés à utiliser les informations d’identification ne voient pas le mot de passe partagé, mais plutôt obtiennent l’autorisation d’utiliser le mot de passe dans le cadre d’un flux d’authentification orchestré. De plus, dans le cas de certaines applications d’authentification unique avec mot de passe, vous pouvez configurer Azure AD pour que le mot de passe fasse périodiquement l’objet d’une substitution (mise à jour) à l’aide de mots de passe complexes et volumineux, ce qui améliore la sécurité des comptes. L’administrateur peut facilement accorder ou révoquer l’accès à une application et également savoir qui a accès au compte et qui y a accédé dans le passé.
 
-Azure AD prend en charge les comptes partagés pour tous les utilisateurs détenteurs d’une licence Enterprise Mobility Suite (EMS), Premium ou De base, quel que le soit le type d’applications d’authentification unique avec mot de passe. Vous pouvez partager des comptes pour des milliers d’applications déjà intégrées dans la galerie d’applications et vous pouvez ajouter votre propre application d’authentification avec mot de passe aux [applications d’authentification unique personnalisées](active-directory-single-sign-on-newly-acquired-saas-apps.md).
+Azure AD prend en charge les comptes partagés pour tous les utilisateurs détenteurs d’une licence Enterprise Mobility Suite (EMS), Premium ou De base, quel que le soit le type d’applications d’authentification unique avec mot de passe. Vous pouvez partager des comptes pour des milliers d’applications déjà intégrées dans la galerie d’applications et vous pouvez ajouter votre propre application d’authentification avec mot de passe aux [applications d’authentification unique personnalisées](active-directory-sso-integrate-saas-apps.md).
 
 Les fonctionnalités Azure AD qui permettent le partage de compte sont les suivantes :
 
@@ -72,4 +72,4 @@ Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authen
 - [Protection des applications avec accès conditionnel](active-directory-conditional-access.md)
 - [Gestion des groupes en libre service/accès aux applications en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

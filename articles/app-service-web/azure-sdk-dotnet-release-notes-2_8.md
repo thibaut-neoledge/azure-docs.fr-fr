@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="01/31/2016"
    ms.author="juliako"/>
 
 # Kit de développement logiciel (SDK) Azure pour .NET 2.8, 2.8.1 et 2.8.2
@@ -91,6 +91,8 @@ Après avoir installé les outils de la version 2.8.2, les clients peuvent renc
 - Si vous utilisez Windows 10 et que vous n’avez pas installé Internet Explorer, vous pouvez obtenir l’erreur « Internet Explorer est introuvable ». Pour résoudre ce problème, installez Internet Explorer à l’aide de la boîte de dialogue Ajouter/Supprimer des composants Windows.
 
 Si vous rencontrez ce problème, utilisez la fonctionnalité Envoyer un sourire pour le signaler.
+
+Pour plus d’informations, consultez [ce billet](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-2-for-net/).
 ##Autres mises à jour
 
 Pour les autres mises à jour, consultez [Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
@@ -101,4 +103,4 @@ Pour les autres mises à jour, consultez [Billet d’annonce du Kit de développ
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

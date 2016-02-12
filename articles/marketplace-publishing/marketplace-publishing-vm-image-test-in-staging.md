@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="02/01/2016"
    ms.author="hascipio" />
 
 # Test de votre offre de machine virtuelle pour Azure Marketplace en mode intermédiaire
@@ -30,11 +30,13 @@ Dans le cadre du déploiement dans un environnement intermédiaire, vous déploy
 3.	Dans la boîte de dialogue **Who can access your staged offer?**, saisissez la liste des abonnements Azure que vous allez utiliser pour afficher un aperçu de votre offre dans le [portail Azure en version préliminaire](https://portal.azure.com).
 4. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) à l'aide de l'un des abonnements Azure répertoriés dans l'étape précédente.
 5. Recherchez votre offre et validez vos points d'image de machine virtuelle :
-  1. Assurez-vous que le contenu marketing s’affiche correctement sur Marketplace.
-
+  - Assurez-vous que le contenu marketing s’affiche correctement sur Marketplace.
+  - Déploiement de bout en bout de l'image de machine virtuelle.
+  
       ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-  2. Déploiement de bout en bout de l'image de machine virtuelle.
+
+
 
 > [AZURE.IMPORTANT] Votre offre restera en mode Intermédiaire jusqu'à ce que vous informiez Microsoft via le portail de publication [**Publish** > **« Request Approval to Push to Production »**] que vous êtes prêt à lancer la production. À ce stade, il est souhaitable que les membres de votre équipe procèdent à des vérifications en vue de la préparation de la publication de votre offre.
 
@@ -46,4 +48,4 @@ Maintenant que votre offre est en mode Intermédiaire et que vous avez testé sa
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

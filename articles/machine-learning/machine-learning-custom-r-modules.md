@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="12/11/2015" 
+	ms.date="02/03/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -114,7 +114,8 @@ Dans l’élément **Module**, vous pouvez spécifier un élément **Owner**, qu
 * Le contenu de l’élément **Description** ne doit pas dépasser 128 caractères.
 * Le contenu de l’élément **Owner** ne doit pas dépasser 32 caractères.
 
-** Indiquant si les résultats d’un module sont déterministes ou non déterministes
+
+**Indiquant si les résultats d’un module sont déterministes ou non déterministes**
 
 Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de paramètres qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Microsoft Azure Machine Learning Studio ne réexécute pas les modules marqués comme étant déterministes, sauf si un paramètre ou les données d’entrée ont été modifiés. Les résultats mis en cache sont retournés, ce qui permet d’exécuter l’expérience plus rapidement.
 
@@ -170,8 +171,6 @@ Pour les modules R personnalisés, l’ID d'un port Zip ne doit pas forcément 
 	</Output>
 
 Pour les sorties dans des modules personnalisés R, la valeur de l’attribut **id** ne doit pas forcément correspondre à un élément du script R, mais elle doit être unique. Pour une sortie de module unique, la valeur de retour de la fonction R doit être un *data.frame*. Pour créer une sortie portant sur plusieurs objets qui présentent un type de données pris en charge, vous devez spécifier les ports de sortie appropriés dans le fichier de définition XML et les objets doivent être renvoyés dans une liste. Les objets de la sortie seront attribués à des ports de sortie, de gauche à droite, selon l’ordre dans lequel les objets sont placés dans la liste renvoyée.
- 
-Par exemple, si vous souhaitez générer les éléments dataset, Dataset1 et Dataset2 aux ports de sortie dataset, dataset1 et dataset2 de gauche à droite, respectivement, définissez les ports de sortie dans le fichier « myAddRows.xml », comme suit :
 
 Par exemple, si vous souhaitez modifier le module **Custom Add Rows** pour sortir les deux jeux de données d’origine, *dataset1* et *dataset2*, en plus du nouveau jeu de données joint *dataset* (dans l’ordre suivant, de gauche à droite : *dataset*, *dataset1*, *dataset2*), vous devez définir les ports de sortie dans le fichier CustomAddRows.xml comme suit :
 
@@ -203,7 +202,7 @@ Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéqu
 	return (list(dataset, dataset1, dataset2)) 
 	} 
 	
-**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization* qui affiche la sortie de la console et du périphérique graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de port de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
+**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization* qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de port de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
 
 	<Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -363,4 +362,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

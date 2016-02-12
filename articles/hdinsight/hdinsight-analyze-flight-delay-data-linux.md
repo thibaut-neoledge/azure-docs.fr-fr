@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="02/03/2016" 
 	ms.author="larryfr"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
@@ -304,4 +304,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

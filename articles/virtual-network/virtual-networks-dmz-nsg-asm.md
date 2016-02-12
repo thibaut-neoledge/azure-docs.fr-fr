@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Exemple 1 : Créer une zone DMZ simple à l’aide de groupes de sécurité réseau
@@ -51,7 +51,7 @@ Les sections suivantes fournissent une description détaillée des groupes de s�
 ## Groupes de sécurité réseau (NSG)
 Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
 
->[AZURE.TIP]En règle générale, vous devez d’abord créer les règles d’« autorisation » spécifiques, puis les règles de « refus » plus générales. La priorité établit les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic répond à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
+>[AZURE.TIP] En règle générale, vous devez d’abord créer les règles d’« autorisation » spécifiques, puis les règles de « refus » plus générales. La priorité établit les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic répond à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
 
 Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
@@ -248,7 +248,7 @@ Ce script, en fonction des variables définies par l’utilisateur, exécutera 
 
 Ce script PowerShell doit être exécuté localement sur un PC ou un serveur connecté à Internet.
 
->[AZURE.IMPORTANT]Lorsque ce script est exécuté, des avertissements ou autres messages d’information peuvent s’afficher dans PowerShell. Seuls les messages d’erreur affichés en rouge sont source de préoccupation.
+>[AZURE.IMPORTANT] Lorsque ce script est exécuté, des avertissements ou autres messages d’information peuvent s’afficher dans PowerShell. Seuls les messages d’erreur affichés en rouge sont source de préoccupation.
 
 
 	<# 
@@ -550,4 +550,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

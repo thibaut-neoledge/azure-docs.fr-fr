@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Ouvrir des applications Big Data open source qui fonctionnent avec le magasin Azure Data Lake
@@ -41,4 +41,4 @@ Cet article répertorie les applications Big Data open source qui fonctionnent a
 - [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/27/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
     
 # Utilisation de données géospatiales dans Azure DocumentDB
@@ -137,7 +137,7 @@ Si vous n'avez pas les informations de latitude et de longitude, mais disposez d
 
 Maintenant que nous avons vu comment insérer des données géographiques, examinons comment interroger ces données à l'aide de DocumentDB avec SQL et LINQ.
 
-### Fonctions spatiales SQL intégrées
+### Fonctions spatiales SQL intégrées
 DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. Pour plus d'informations sur l'ensemble complet de fonctions intégrées dans le langage SQL, reportez-vous à [Requête DocumentDB](documentdb-sql-query.md).
 
 <table>
@@ -350,9 +350,9 @@ Voici comment vous pouvez modifier un regroupement existant pour tirer parti de 
 ## Étapes suivantes
 Maintenant que vous avez appris à utiliser la prise en charge géographique dans DocumentDB, vous pouvez :
 
-- Commencer à coder avec les [exemples de code .NET Geospatial sur Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)
+- Commencer à coder avec les [exemples de code .NET Geospatial sur Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
 - Découvrir l’interrogation géographique sur le [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

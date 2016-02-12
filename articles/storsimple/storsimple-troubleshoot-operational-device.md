@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/29/2016"
    ms.author="v-sharos" />
 
 # Résolution des problèmes d'un appareil StorSimple opérationnel
@@ -67,4 +67,4 @@ Si vous ne pouvez pas résoudre le problème, [contactez le support technique Mi
 [1]: https://technet.microsoft.com/fr-FR/%5Clibrary/Dn688135(v=WPS.630).aspx
 [2]: https://technet.microsoft.com/fr-FR/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

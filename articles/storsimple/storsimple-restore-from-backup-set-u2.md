@@ -31,7 +31,7 @@ Vous pouvez restaurer un volume à partir d’une sauvegarde locale ou sur le cl
 
 Avant de lancer une opération de restauration, prenez connaissance des éléments suivants :
 
-- **Vous devez mettre le volume hors connexion** – Placez le volume hors connexion sur l’hôte et sur l’appareil avant de lancer une opération de restauration. Bien que l’opération de restauration mette automatiquement le volume en ligne sur l’appareil, vous devez le faire manuellement sur l’hôte. Vous pouvez mettre le volume en ligne sur l’hôte dès que le volume est en ligne sur l’appareil. (Il est inutile d’attendre la fin de l’opération de restauration.) Pour connaître les procédures, consultez [Mise hors connexion d’un volume](storsimple-manage-volumes.md#take-a-volume-offline)
+- **Vous devez mettre le volume hors connexion** – Placez le volume hors connexion sur l’hôte et sur l’appareil avant de lancer une opération de restauration. Bien que l’opération de restauration mette automatiquement le volume en ligne sur l’appareil, vous devez le faire manuellement sur l’hôte. Vous pouvez mettre le volume en ligne sur l’hôte dès que le volume est en ligne sur l’appareil. (Il est inutile d’attendre la fin de l’opération de restauration.) Pour connaître les procédures, consultez [Mise hors connexion d’un volume](storsimple-manage-volumes-u2.md#take-a-volume-offline)
 
 - **Type de volume après restauration** – Les volumes supprimés sont restaurés en fonction du type dans l’instantané. Ainsi, les volumes qui étaient épinglés localement sont restaurés comme tels et les volumes à plusieurs niveaux de même.
 
@@ -45,7 +45,7 @@ Avant de lancer une opération de restauration, prenez connaissance des élémen
 
 - **Vous pouvez effectuer une sauvegarde lorsque vous restaurez un volume local** – Pour connaître les procédures, accédez à [Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde](storsimple-manage-backup-policies.md).
 
-- **Vous pouvez annuler une opération de restauration** – Si vous annulez le travail de restauration, le volume sera restauré à l’état où il se trouvait avant le lancement de l’opération de restauration. Pour connaître les procédures, consultez la page [Annuler un travail](storsimple-manage-jobs.md#cancel-a-job).
+- **Vous pouvez annuler une opération de restauration** – Si vous annulez le travail de restauration, le volume sera restauré à l’état où il se trouvait avant le lancement de l’opération de restauration. Pour connaître les procédures, consultez la page [Annuler un travail](storsimple-manage-jobs-u2.md#cancel-a-job).
 
 ## Utilisation du catalogue de sauvegarde
 
@@ -113,6 +113,6 @@ Pour terminer l’opération de restauration, mettez le volume hors connexion su
 
 - Découvrez comment [gérer des volumes StorSimple](storsimple-manage-volumes-u2.md).
 
-- Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration-u2.md).
+- Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

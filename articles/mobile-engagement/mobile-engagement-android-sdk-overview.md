@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="piyushjo" />
 
 
@@ -35,7 +35,7 @@ Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engageme
 
 ##Notes de publication
 
-##4\.1.4 (26/01/2016)
+##4\.1.5 (01/02/2016)
 
 - Améliorations de la stabilité.
 
@@ -52,4 +52,4 @@ Pour les versions antérieures, consultez les [notes de publication complètes](
 
 Si vous avez déjà intégré une version plus ancienne de notre kit de développement logiciel (SDK) dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

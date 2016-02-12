@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/03/2016"
 	ms.author="haining;garye" />
 
 
@@ -26,7 +26,7 @@ Le diagramme **Vue d’ensemble des capacités de Microsoft Azure Machine Learni
 
 Ce diagramme illustre l’imbrication de tous ces éléments.
 
-> [AZURE.NOTE]Voir [Aide-mémoire d’algorithme d’apprentissage automatique pour Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) pour obtenir une aide supplémentaire pendant la navigation et la sélection entre les algorithmes d’apprentissage automatisé disponibles dans Machine Learning Studio.
+> [AZURE.NOTE] Voir [Aide-mémoire d’algorithme d’apprentissage automatique pour Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) pour obtenir une aide supplémentaire pendant la navigation et la sélection entre les algorithmes d’apprentissage automatisé disponibles dans Machine Learning Studio.
 
 ## Téléchargez le diagramme de vue d’ensemble de Machine Learning Studio
 
@@ -47,4 +47,4 @@ Téléchargez le diagramme **Vue d’ensemble des capacités de Microsoft Azure 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

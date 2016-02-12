@@ -13,45 +13,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/08/2016"
+   ms.date="01/29/2016"
    ms.author="maroche"/>
 
 # Nouveautés d'Azure Data Catalog
 
 Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, chaque version ne contient pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente de nouvelles fonctionnalités orientées utilisateur ajoutées au service **Azure Data Catalog**.
 
+## Nouveautés de la version de la semaine du 29 janvier 2016
+
+Depuis la semaine du 29 janvier 2016, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
+
+- Prise en charge de l’inscription manuelle de sources de données supplémentaires. Les utilisateurs peuvent désormais utiliser Créer une entrée manuelle dans le portail **Azure Data Catalog** ou l’API REST **Azure Data Catalog** pour inscrire les sources de données suivantes :
+   + OData : fonction, jeu d’entités et conteneur d’entités
+   + HTTP : fichier, point de terminaison, rapport et site
+   + Système de fichiers : fichier
+   + SharePoint : liste
+   + FTP : fichier et répertoire
+   + Salesforce.com : objet
+   + DB2 : table, vue et base de données
+   + PostgreSQL : table, vue et base de données
+- Prise en charge de la fonction « Ouvrir dans SQL Server Data Tools » pour les sources de données SQL Server (y compris Base de données SQL Azure et Azure SQL Data Warehouse).  
+
+> [AZURE.NOTE] L’installation de la fonction « Ouvrir dans SQL Server Data Tools » requiert Visual Studio 2013 avec Update 4 et les outils SQL Server. Pour installer la dernière version de SQL Server Data Tools, visitez [Télécharger SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+
+## Nouveautés de la version de la semaine du 22 janvier 2016
+
+Depuis la semaine du 22 janvier 2016, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
+
+- Prise en charge de l’inscription et de la découverte des vues et packages SAP HANA. Les utilisateurs peuvent inscrire des sources de données SAP HANA à l’aide de l’outil d’inscription des sources de données **Azure Data Catalog** ainsi qu’annoter et découvrir des sources de données SAP HANA inscrites à l’aide du portail **Azure Data Catalog**.
+
 ## Nouveautés de la version de la semaine du 8 janvier 2016
 
-Depuis la semaine du 8 janvier 2016, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
+Depuis la semaine du 8 janvier 2016, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
 - Possibilité d’épingler et de désépingler des ressources de données dans le portail **Azure Data Catalog**. Les utilisateurs peuvent choisir d’épingler des ressources de données pour faciliter leur redécouverte et leur réutilisation.
 - Une page d’accueil revue récemment dans le portail **Azure Data Catalog**. Cette nouvelle page d’accueil fournit des informations sur l’activité actuelle des utilisateurs, notamment les ressources publiées, les ressources épinglées et les recherches enregistrées dernièrement, mais aussi des informations sur l’activité à l’échelle de Catalog.
 - Prise en charge des paramètres utilisateur persistants dans le portail **Azure Data Catalog**. Les paramètres d’expérience utilisateur, notamment la vue grille ou mosaïque, le nombre de résultats par page, l’activation ou la désactivation de la mise en surbrillance des correspondances, sont conservés entre les sessions utilisateur.
-- **Azure Data Catalog** est maintenant disponible dans deux nouvelles régions Azure. Les clients peuvent configurer **Azure Data Catalog** dans les régions Europe du Nord et Asie du Sud-Est, en plus de l’Est des États-Unis, l’Ouest des États-Unis, l’Europe de l’Ouest et l’Est de l’Australie. Pour plus d’informations, consultez [Régions Azure](https://azure.microsoft.com/regions/).
+- **Azure Data Catalog** est maintenant disponible dans deux nouvelles régions Azure. Les clients peuvent approvisionner **Azure Data Catalog** dans les régions Europe du Nord et Asie du Sud-Est, outre l’Est des États-Unis, l’Ouest des États-Unis, l’Europe de l’Ouest et l’Est de l’Australie. Pour plus d’informations, consultez l’article [Régions Azure](https://azure.microsoft.com/regions/).
 
 ## Nouveautés de la version de la semaine du 18 décembre 2015
 
-Depuis la semaine du 18 décembre 2015, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
+Depuis la semaine du 18 décembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
 - Prise en charge de profils de données pour les sources de données Azure SQL Data Warehouse. Lors de l'enregistrement des tables et vues Azure SQL Data Warehouse, les utilisateurs peuvent choisir d'inclure les mesures de profil de données avec les métadonnées extraites de la source de données.
 - Prise en charge de l’inscription et de la découverte des bases de données et des objets MySQL. Les utilisateurs peuvent inscrire des sources de données MySQL à l'aide de l’outil d’inscription de sources de données **Azure Data Catalog** ainsi qu’annoter et découvrir des sources de données MySQL inscrites à l'aide du portail **Azure Data Catalog**.
 
 ## Nouveautés de la version de la semaine du 4 décembre 2015
 
-Depuis la semaine du 4 décembre 2015, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
+Depuis la semaine du 4 décembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
 - Prise en charge de l’authentification SPNEGO et Windows pour les sources de données Teradata. Lors de l’inscription de tables et vues Teradata, les utilisateurs peuvent choisir de se connecter à Teradata à l’aide de SPNEGO et de Windows, ainsi que de l’authentification LDAP et TD2.
 - Prise en charge des sources de données Azure Data Lake Store. Les utilisateurs peuvent désormais inscrire et découvrir des sources de données Azure Data Lake Store à l’aide d'Azure Data Catalog.
 - Prise en charge de la spécification manuelle des paramètres de proxy réseau dans l'outil d'inscription de sources de données Azure Data Catalog. Les utilisateurs peuvent sélectionner « Modifier les paramètres de proxy » à partir de la page d'accueil de l'outil et spécifier l'adresse du proxy et le port qui doivent être utilisés par l'outil.
-
-> [AZURE.NOTE] « Ouvrir dans Power BI Desktop » requiert l’installation d’une version actuelle de l’application Power BI Desktop. Si vous rencontrez des problèmes ou des erreurs en utilisant cette fonctionnalité, vérifiez que vous disposez de la dernière version de Power BI Desktop à la page [PowerBI.com](https://powerbi.com/).
 
 
 ## Nouveautés de la version de la semaine du 20 novembre 2015
 
 Depuis la semaine du 20 novembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
-- Possibilité d'afficher et de copier des chaînes de connexion depuis le portail **Azure Data Catalog** pour des sources de données SQL Server (notamment Azure SQL Database) et Oracle. Les utilisateurs peuvent cliquer sur le lien « Afficher les chaînes de connexion » dans les informations de connexion d'une table, vue ou base de données SQL Server ou Oracle pour voir les chaînes de connexion utilisées pour se connecter à la source de données. Les chaînes de connexion ADO.NET, ODBC, OLEDB et JDBC sont fournies pour les sources de données SQL Server. Les chaînes de connexion ODBC et OLEDB sont fournies pour les sources de données Oracle.
+- Possibilité d'afficher et de copier des chaînes de connexion depuis le portail **Azure Data Catalog** pour des sources de données SQL Server (notamment base de données SQL Azure) et Oracle. Les utilisateurs peuvent cliquer sur le lien « Afficher les chaînes de connexion » dans les informations de connexion d'une table, vue ou base de données SQL Server ou Oracle pour voir les chaînes de connexion utilisées pour se connecter à la source de données. Les chaînes de connexion ADO.NET, ODBC, OLEDB et JDBC sont fournies pour les sources de données SQL Server. Les chaînes de connexion ODBC et OLEDB sont fournies pour les sources de données Oracle.
 - Prise en charge de l’inclusion des profils de données lors de l’inscription des tables et vues Teradata.
 - Prise en charge de la fonction « Ouvrir dans Power BI Desktop » pour les sources SQL Server (notamment Azure SQL Database et Azure SQL Data Warehouse), SQL Server Analysis Services, Azure Storage et HDFS.  
 
@@ -174,4 +195,4 @@ Depuis la semaine du 28 août 2015, les fonctionnalités suivantes ont été a
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

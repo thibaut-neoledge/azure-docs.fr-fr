@@ -22,7 +22,10 @@ Cet article explique comment vous pouvez utiliser l’activité de copie dans la
 > [AZURE.NOTE]
 Vous devez créer un compte Azure Data Lake Store avant de créer un pipeline avec l’activité de copie pour déplacer des données vers/depuis Azure Data Lake Store. Pour plus d’informations sur Azure Data Lake Store, consultez [Prise en main d’Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
-> Veuillez consulter le [didacticiel Générer votre premier pipeline](data-factory-build-your-first-pipeline.md) pour connaître les étapes détaillées de la création d’une fabrique de données, de services liés, de jeux de données et d’un pipeline. Utilisez les extraits de code JSON avec Data Factory Editor, Visual Studio ou Azure PowerShell pour créer les entités Data Factory.
+> Veuillez consulter le [didacticiel Générer votre premier pipeline](data-factory-build-your-first-pipeline.md) pour connaître les étapes détaillées de la création d’une fabrique de données, de services liés, de jeux de données et d’un pipeline. Utilisez les extraits de code JSON avec Data Factory Editor ou Visual Studio ou Azure PowerShell pour créer les entités Data Factory.
+
+Les exemples suivants indiquent comment copier des données vers et depuis Azure Data Lake Store et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+
 
 ## Exemple : copie de données depuis un objet Blob Azure vers Azure Data Lake Store
 L’exemple ci-dessous présente les éléments suivants :
@@ -75,7 +78,7 @@ La procédure qui suit décrit les étapes nécessaires à la création d’un s
 5. (facultatif) Spécifiez les valeurs des paramètres facultatifs tels que **accountName**, **subscriptionID** et **resourceGroupName** dans JSON (ou) supprimer ces propriétés à partir de JSON.
 6. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
-> [AZURE.IMPORTANT] Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Vous devrez **accorder une nouvelle autorisation** à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Pour plus d’informations, consultez la section [Service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties).
+> [AZURE.IMPORTANT] Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** arrive à expiration au bout d’un certain temps. Vous devrez **autoriser à nouveau** à l’aide du bouton **Autoriser** à l’**expiration du jeton**, puis redéployer le service lié. Pour plus d’informations, consultez la section [Service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties).
 
 
 
@@ -409,13 +412,13 @@ Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide
 | subscriptionId | ID d’abonnement Azure | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
 | nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
 
-Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** arrive à expiration au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Le message d’erreur suivant peut s’afficher à l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
 
 
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
 | Utilisateur non AAD (@hotmail.com, @live.com, etc.). | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données. | 12 heures |
+| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données. | 12 heures |
 | L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données. | 14 jours |
 
 Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
@@ -605,4 +608,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

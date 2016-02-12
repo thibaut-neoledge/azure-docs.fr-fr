@@ -22,7 +22,7 @@ Les objets intelligents et connectés prolifèrent de plus en plus dans les éco
 
 ## Explorer
 
-- [Concentrateurs d'événements](event-hubs-overview.md)
+- [Concentrateurs d'événements](../event-hubs/event-hubs-overview.md)
 - [Modèle de partitionnement](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Service Bus et AMQP 1.0](service-bus-amqp-overview.md)
 - [Introduction à Service Bus](https://azure.microsoft.com/services/service-bus/)
@@ -45,4 +45,4 @@ Les objets intelligents et connectés prolifèrent de plus en plus dans les éco
 - [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

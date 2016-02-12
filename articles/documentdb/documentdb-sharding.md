@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Partitionnement des données dans DocumentDB avec le Kit de développement logiciel (SDK) .NET
 
-Azure DocumentDB est un service de base de données de document qui vous permet de mettre à l’échelle votre compte en toute transparence grâce à l’approvisionnement de collections à l'aide des [Kits de développement logiciel (SDK)](https://msdn.microsoft.com/library/azure/dn781482.aspx) et des [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (également appelé **partitionnement**). Afin de rendre le développement d’applications partitionnées plus facile et de réduire la quantité de code standard requis pour les tâches de partitionnement, nous avons ajouté des fonctionnalités dans le Kit de développement logiciel (SDK) .NET qui facilitent la génération d'applications mises à l’échelle entre plusieurs partitions.
+Azure DocumentDB est un service de base de données de document qui vous permet de mettre à l’échelle votre compte en toute transparence grâce à l’approvisionnement de collections à l'aide des [Kits de développement logiciel (SDK)](https://msdn.microsoft.com/library/azure/dn781482.aspx) et des [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (également appelé **partitionnement**). Afin de faciliter le développement d’applications partitionnées et de réduire la quantité de code réutilisable requis pour les tâches de partitionnement, nous avons ajouté des fonctionnalités dans les Kits de développement logiciel (SDK) Java, .NET et Node.js, qui optimisent la génération d’applications mises à l’échelle entre plusieurs partitions.
 
 Dans cet article, nous allons examiner les classes et les interfaces du Kit de développement (SDK) .NET et voir comment les utiliser pour développer des applications partitionnées.
 
@@ -141,10 +141,6 @@ DocumentDB prend en charge le partitionnement côté client pour plusieurs raiso
 - Il est très difficile de reprendre le concept d'une collection auprès des développeurs sans compromettre une des trois garanties d’indexation/d’interrogation cohérente, de haute disponibilité et de transaction ACID. 
 - Les bases de données de document nécessitent souvent une flexibilité en termes de définition de stratégies de partitionnement, ce qu’une approche côté serveur n’est pas forcément en mesure de faire. 
 
-**Pourquoi le partitionnement n’est pas pris en charge sur d'autres plateformes (Node.js, Java ou Python) ?**
-
-Nous allons développer progressivement la prise en charge du partitionnement sur d'autres plateformes en fonction des commentaires des clients du Kit de développement logiciel (SDK) .NET.
-
 **Comment puis-je ajouter ou supprimer une collection à mon modèle de partitionnement ?**
 
 Consultez l'implémentation de DocumentClientHashPartitioningManager dans les exemples de projet pour obtenir un exemple d’implémentation de repartitionnement.
@@ -167,4 +163,4 @@ Vous pouvez associer PartitionResolvers en implémentant votre propre IPartition
 * [Blog de DocumentDB avec des conseils relatifs aux performances](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

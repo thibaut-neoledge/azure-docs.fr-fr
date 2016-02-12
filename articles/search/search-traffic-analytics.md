@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/17/2015" 
+	ms.date="01/26/2016" 
 	ms.author="betorres"
 />
 
@@ -27,7 +27,7 @@ La fonctionnalité Rechercher l’analyse du trafic disponible dans Azure Search
 ## Activation de la fonctionnalité Rechercher l’analyse du trafic
 
 ### 1\. Utiliser le portail
-Ouvrez votre service Azure Search dans le [portail Azure](https://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
+Ouvrez votre service Azure Search dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
 
 ![][1]
 
@@ -131,26 +131,32 @@ Mesures disponibles :
 
 Les données sont situées dans votre propre compte de stockage et nous vous encourageons à les explorer de la manière qui vous convient le mieux.
 
-Comme point de départ, nous vous recommandons d’utiliser [Power BI Desktop](https://powerbi.microsoft.com/fr-FR/desktop) pour explorer et visualiser vos données. Vous pouvez facilement vous connecter à votre compte Azure Storage et rapidement commencer à analyser vos données.
+Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://powerbi.microsoft.com) pour explorer et visualiser vos données. Vous pouvez facilement vous connecter à votre compte Azure Storage et rapidement commencer à analyser vos données.
 
-Consultez l’exemple de requête suivant qui permet de créer vos propres rapports dans Power BI Desktop.
+#### Power BI en ligne
 
-### Instructions
+[Pack de contenu Power BI](https://app.powerbi.com/getdata/services/azure-search) : créez un tableau de bord Power BI et un ensemble de rapports Power BI qui affichent automatiquement vos données et fournissent un éclairage visuel sur votre service de recherche. Consultez la [page d’aide du pack de contenu](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-search/).
+
+![][3]
+
+#### Power BI Desktop
+
+[Power BI Desktop](https://powerbi.microsoft.com/fr-FR/desktop) : explorez vos données et créez vos propres visualisations pour vos données. Nous fournissons ci-après une requête de démarrage pour vous aider.
 
 1. Ouvrez un nouveau rapport Power BI Desktop.
 2. Sélectionnez Obtention des données -> Plus...
 
-	![][3]
+	![][4]
 
 3. Sélectionnez Stockage d’objets blob Microsoft Azure et Se connecter.
 
-	![][4]
+	![][5]
 
 4. Entrez le nom et la clé de votre compte de stockage.
 5. Sélectionnez « insight-journaux-operationlogs » et « insights-metrics-pt1m », puis cliquez sur Modifier
 6. L’éditeur de requête s’ouvre, vérifiez que « insight-logs-operationlogs » est sélectionnée sur la gauche. Ouvrez maintenant l’éditeur avancé en sélectionnant Afficher -> Éditeur avancé
 
-	![][5]
+	![][6]
 
 7. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
 
@@ -217,8 +223,9 @@ En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, 
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/GetData.png
-[4]: ./media/search-traffic-analytics/BlobStorage.png
-[5]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/Dashboard.png
+[4]: ./media/search-traffic-analytics/GetData.png
+[5]: ./media/search-traffic-analytics/BlobStorage.png
+[6]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

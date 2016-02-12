@@ -66,7 +66,7 @@ Lorsque votre application web est en cours d’exécution, vérifiez qu’elle e
 ### Sauvegarde
 
 - Configurez les [sauvegardes automatiques](web-sites-backup.md) de votre application web. Pour en savoir plus sur les sauvegardes, regardez [cette vidéo](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Découvrez les options de [récupération de base de données](../sql-database-business-continuity.md) dans la base de données Azure SQL.
+- Découvrez les options de [récupération de base de données](../sql-database/sql-database-business-continuity.md) dans la base de données Azure SQL.
 
 ### Résolution des problèmes
 
@@ -87,8 +87,8 @@ Envisagez d'utiliser le [déploiement intermédiaire](web-sites-staged-publishin
 
 Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploiement continu depuis le contrôle de la source :
 
-- [Utilisation de TFVC (Team Foundation Version Control)](../cloud-services-continuous-delivery-use-vso.md) 
-- [Utilisation de Git](../cloud-services-continuous-delivery-use-vso-git.md)
+- [Utilisation de TFVC (Team Foundation Version Control)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Utilisation de Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,4 +103,4 @@ Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploie
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

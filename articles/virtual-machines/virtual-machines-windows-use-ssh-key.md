@@ -47,10 +47,10 @@ La configuration SSH de base pour Azure inclut une paire de clés publiques et p
 
 Voici les scénarios de déploiement et les types de fichiers que vous utilisez dans chacun d'eux
 
-1. Les clés **ssh rsa** sont requises pour tout déploiement à l'aide du [portail en version préliminaire](https://portal.azure.com), quel que soit le modèle de déploiement.
+1. Les clés **ssh rsa** sont requises pour tout déploiement à l’aide du [portail Azure](https://portal.azure.com), quel que soit le modèle de déploiement.
 2. Les fichiers .pem sont nécessaires pour créer des machines virtuelles à l'aide du [portail classique](https://manage.windowsazure.com). Les fichiers .pem sont également pris en charge dans les déploiements classiques qui utilisent l'[interface de ligne de commande Azure](../xplat-cli-install.md).
 
-> [AZURE.NOTE]Si vous prévoyez de gérer des services déployés avec le modèle de déploiement classique, vous pouvez également créer un fichier au format **.cer** à télécharger sur le portail, bien que cela n'implique pas **ssh** ni la connexion à des machines virtuelles Linux (l'objet de cet article). Pour créer ces fichiers sur Linux ou Mac, saisissez
+> [AZURE.NOTE] Si vous prévoyez de gérer des services déployés avec le modèle de déploiement classique, vous pouvez également créer un fichier au format **.cer** à télécharger sur le portail, bien que cela n'implique pas **ssh** ni la connexion à des machines virtuelles Linux (l'objet de cet article). Pour créer ces fichiers sur Linux ou Mac, saisissez
 
 ## Obtenez ssh keygen et openssl sur Windows ##
 
@@ -68,7 +68,7 @@ Voici les scénarios de déploiement et les types de fichiers que vous utilisez 
 1.	Téléchargez et installez GitHub pour Windows à partir de l’emplacement suivant : [http://windows.github.com/](http://windows.github.com/).
 2.	Exécutez Git Shell à partir du menu Démarrer > Tous les programmes > GitHub, Inc
 
-> [AZURE.NOTE]L'erreur suivante peut être générée lors de l'exécution des commandes `openssl` ci-dessus :
+> [AZURE.NOTE] L'erreur suivante peut être générée lors de l'exécution des commandes `openssl` ci-dessus :
 
         Unable to load config info from /usr/local/ssl/openssl.cnf
 
@@ -155,4 +155,4 @@ Le moyen le plus simple de résoudre le problème est de définir la variable d�
 5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,15 +26,15 @@ Apprenez à utiliser Apache Oozie pour définir un flux de travail qui utilise H
 
 Apache Oozie est un système de workflow/coordination qui gère les tâches Hadoop. Il est intégré à la pile Hadoop et prend en charge les tâches Hadoop pour Apache MapReduce, Apache Pig, Apache Hive et Apache Sqoop. Il peut également être utilisé pour planifier des travaux propres à un système comme des programmes Java ou des scripts shell.
 
-> [AZURE.NOTE]Une autre option pour définir des flux de travail avec HDInsight consiste à utiliser Azure Data Factory. Pour en savoir plus sur Azure Data Factory, consultez la page [Utilisation de Pig et Hive avec Data Factory][azure-data-factory-pig-hive].
+> [AZURE.NOTE] Une autre option pour définir des flux de travail avec HDInsight consiste à utiliser Azure Data Factory. Pour en savoir plus sur Azure Data Factory, consultez la page [Utilisation de Pig et Hive avec Data Factory][azure-data-factory-pig-hive].
 
 ##Conditions préalables
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Une interface de ligne de commande Azure** : consultez la page [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md).
+- **Une interface de ligne de commande Azure** : consultez la page [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 - **Un cluster HDInsight** : consultez la page [Prise en main de HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -58,7 +58,7 @@ Le flux de travail que vous allez implémenter en suivant les instructions de ce
 
 2.  Une action Sqoop exporte le contenu de la nouvelle table Hive vers une table dans la base de données SQL Azure. Pour plus d'informations sur Sqoop, consultez la rubrique [Utilisation de Hadoop Sqoop avec HDInsight][hdinsight-use-sqoop].
 
-> [AZURE.NOTE]Pour obtenir la liste des versions Oozie prises en charge sur les clusters HDInsight, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions].
+> [AZURE.NOTE] Pour obtenir la liste des versions Oozie prises en charge sur les clusters HDInsight, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions].
 
 ##Création du répertoire de travail
 
@@ -66,7 +66,7 @@ Oozie s’attend à ce que les ressources requises pour un travail soient stock�
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
-> [AZURE.NOTE]Le paramètre `-p` a provoqué la création de tous les répertoires dans le chemin d’accès s’ils n’existent pas déjà. Le répertoire **data** sera utilisé pour contenir les données utilisées par le script **useooziewf.hql**.
+> [AZURE.NOTE] Le paramètre `-p` a provoqué la création de tous les répertoires dans le chemin d’accès s’ils n’existent pas déjà. Le répertoire **data** sera utilisé pour contenir les données utilisées par le script **useooziewf.hql**.
 
 Exécutez également la commande suivante, qui garantit que Oozie peut emprunter l’identité de votre compte d'utilisateur lors de l’exécution de travaux Hive et Sqoop. Remplacez **USERNAME** par votre nom de connexion :
 
@@ -185,7 +185,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 	- **RunSqoopExport** : cette action exporte les données créées à partir du script Hive vers la base de données SQL à l’aide de Sqoop. Elle n’est exécutée que si l’action **RunHiveScript** a abouti.
 
-		> [AZURE.NOTE]Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 de HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 de HDInsight).
+		> [AZURE.NOTE] Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 de HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 de HDInsight).
 
 	Notez que le flux de travail a plusieurs entrées telles que `${jobTracker}`, qui seront remplacées par les valeurs que vous utiliserez dans la définition de travail, plus loin dans ce document.
 
@@ -201,7 +201,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 Les étapes suivantes créent la base de données SQL Azure vers laquelle les données seront exportées.
 
-> [AZURE.IMPORTANT]Avant d’exécuter cette procédure, vous devez [installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md). Vous pouvez installer l’interface de ligne de commande et suivre les étapes de création d’une base de données à partir du cluster HDInsight ou votre station de travail locale.
+> [AZURE.IMPORTANT] Avant d’exécuter cette procédure, vous devez [installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md). Vous pouvez installer l’interface de ligne de commande et suivre les étapes de création d’une base de données à partir du cluster HDInsight ou votre station de travail locale.
 
 1. Utilisez la commande suivante pour créer un serveur de base de données SQL Azure :
 
@@ -216,7 +216,7 @@ Les étapes suivantes créent la base de données SQL Azure vers laquelle les do
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Notez le nom de serveur retourné par cette commande (**i1qwc540ts** dans l’exemple ci-dessus.) Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**. Dans l’exemple ci-dessus, le nom de domaine complet serait **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT] Notez le nom de serveur retourné par cette commande (**i1qwc540ts** dans l’exemple ci-dessus.) Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**. Dans l’exemple ci-dessus, le nom de domaine complet serait **i1qwc540ts.database.windows.net**.
 
 2. Utilisez la commande suivante pour créer une base de données nommée **oozietest** sur le serveur de base de données SQL :
 
@@ -224,13 +224,13 @@ Les étapes suivantes créent la base de données SQL Azure vers laquelle les do
 
     Un message « OK » s’affiche à la fin de l’opération.
 
-	> [AZURE.NOTE]Si vous recevez une erreur indiquant que vous n’avez pas l’accès, vous devrez peut-être ajouter l’adresse IP du système pour le pare-feu de base de données SQL à l’aide de la commande suivante :
+	> [AZURE.NOTE] Si vous recevez une erreur indiquant que vous n’avez pas l’accès, vous devrez peut-être ajouter l’adresse IP du système pour le pare-feu de base de données SQL à l’aide de la commande suivante :
     >
     > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ###Créer la table
 
-> [AZURE.NOTE]Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
+> [AZURE.NOTE] Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
 
 3. Utilisez la commande suivante pour installer FreeTDS sur le cluster HDInsight :
 
@@ -363,7 +363,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 
 	* Remplacez toutes les instances de ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment.
 
-	> [AZURE.WARNING]Vous devez utiliser le chemin d’accès WASB complet, avec le conteneur et le compte de stockage inclus dans le chemin d’accès. L’utilisation du format court (wasb:///) provoque l’échec de l’action RunHiveScript lorsque le travail est démarré.
+	> [AZURE.WARNING] Vous devez utiliser le chemin d’accès WASB complet, avec le conteneur et le compte de stockage inclus dans le chemin d’accès. L’utilisation du format court (wasb:///) provoque l’échec de l’action RunHiveScript lorsque le travail est démarré.
 
 	* Remplacez **JOBTRACKERADDRESS** par l’adresse de JobTracker/ResourceManager reçue précédemment.
 
@@ -373,7 +373,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 
 	La plupart des informations de ce fichier sont utilisées pour remplir les valeurs utilisées dans les fichiers workflow.xml ou ooziewf.hql (comme ${nameNode}).
 
-	> [AZURE.NOTE]L’entrée **oozie.wf.application.path** définit l’emplacement du fichier workflow.xml, qui contient le flux de travail exécuté par ce travail.
+	> [AZURE.NOTE] L’entrée **oozie.wf.application.path** définit l’emplacement du fichier workflow.xml, qui contient le flux de travail exécuté par ce travail.
 
 2. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
 
@@ -381,7 +381,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 
 Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des flux de travail Oozie sur le cluster. La commande Oozie est une interface conviviale sur l’[API REST Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-> [AZURE.IMPORTANT]Lorsque vous utilisez la commande Oozie, vous devez utiliser le nom de domaine complet pour le nœud principal HDInsight. Ce nom de domaine complet est uniquement accessible à partir du cluster, ou, si le cluster se trouve sur un réseau virtuel Azure, à partir des autres ordinateurs sur le même réseau.
+> [AZURE.IMPORTANT] Lorsque vous utilisez la commande Oozie, vous devez utiliser le nom de domaine complet pour le nœud principal HDInsight. Ce nom de domaine complet est uniquement accessible à partir du cluster, ou, si le cluster se trouve sur un réseau virtuel Azure, à partir des autres ordinateurs sur le même réseau.
 
 1. Utilisez la commande suivante pour obtenir l’URL du service Oozie :
 
@@ -640,7 +640,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 	sudo adduser USERNAME users
 
-> [AZURE.NOTE]Il peut se passer plusieurs minutes avant que HDInsight reconnaisse que l'utilisateur a été ajouté au groupe.
+> [AZURE.NOTE] Il peut se passer plusieurs minutes avant que HDInsight reconnaisse que l'utilisateur a été ajouté au groupe.
 
 ###Launcher ERROR (Sqoop) (Erreur du lanceur, Sqoop)
 
@@ -721,4 +721,4 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

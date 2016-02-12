@@ -69,7 +69,7 @@ Le tableau suivant compare les fonctionnalités de continuité des activités cl
 
 Ces fonctionnalités sont fournies pour résoudre les scénarios répertoriés ci-dessus. Reportez-vous à la section [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour savoir comment sélectionner la fonctionnalité spécifique.
 
-> [AZURE.NOTE] Les valeurs ERT et RPO sont des objectifs d’ingénierie et sont indiquées à titre de conseil uniquement. Elles ne font pas partie du [contrat SLA pour Base de données SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+> [AZURE.NOTE] Les valeurs ERT et RPO sont des objectifs d’ingénierie et sont indiquées à titre de conseil uniquement. Elles ne font pas partie du [contrat SLA pour Base de données SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
 ###Limite de restauration dans le temps
@@ -88,4 +88,4 @@ La géo-réplication standard est disponible pour les bases de données standard
 
 La géo-réplication active est disponible pour les bases de données Premium. Elle est conçue pour les applications gourmandes en écriture avec les exigences de récupération les plus agressives. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement vers l'une des répliques secondaires de la même façon qu'avec la géo-réplication standard. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Consultez [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour plus d'informations sur la configuration de la géo-réplication et [Récupération après une panne](sql-database-disaster-recovery.md) pour plus d'informations sur le basculement vers la base de données secondaire. Consultez [Mise à niveau de l'application sans interruption de service](sql-database-business-continuity-application-upgrade.md) pour plus d'informations sur la mise en œuvre de la mise à niveau de l'application sans interruption.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,20 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Déplacer des données vers et depuis Azure SQL à l’aide d’Azure Data Factory
+# Déplacer des données vers et depuis Base de données SQL Azure à l’aide d’Azure Data Factory
 
-Cet article décrit comment vous pouvez utiliser l'activité de copie dans une fabrique Azure Data Factory pour déplacer des données vers SQL Azure à partir d'un magasin de données et vice versa. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasin de données prises en charge.
+Cet article décrit comment vous pouvez utiliser l'activité de copie dans une fabrique Azure Data Factory pour déplacer des données vers SQL Azure à partir d'un magasin de données et vice versa. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
 
-## Exemple : copie de données à partir de SQL Azure vers un objet Blob Azure
+Les exemples suivants indiquent comment copier des données vers et depuis Base de données SQL Azure et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+
+
+## Exemple : Copie de données depuis Base de données SQL Azure vers un objet blob Azure
 
 L’exemple ci-dessous présente les éléments suivants :
 
 1. Un service lié de type [AzureSqlDatabase](#azure-sql-linked-service-properties).
 2. Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Un [jeu de données](data-factory-create-datasets.md) d'entrée de type [AzureSqlTable](#azure-sql-dataset-type-properties). 
+3. Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureSqlTable](#azure-sql-dataset-type-properties). 
 4. Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [SqlSource](#azure-sql-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -200,7 +203,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	   }
 	}
 
-> [AZURE.NOTE]Dans l'exemple ci-dessus, **sqlReaderQuery** est spécifié pour SqlSource. L'activité de copie exécute cette requête sur la source Azure SQL Database pour obtenir les données.
+> [AZURE.NOTE] Dans l'exemple ci-dessus, **sqlReaderQuery** est spécifié pour SqlSource. L'activité de copie exécute cette requête sur la source Azure SQL Database pour obtenir les données.
 >  
 > Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
 >  
@@ -210,12 +213,12 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 Consultez la section [Sql Source](#sqlsource) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) pour obtenir la liste des propriétés prises en charge par SqlSource et BlobSink.
 
 
-## Exemple : copie de données à partir d'un objet Blob Azure vers SQL Azure
+## Exemple : Copie de données d’un objet blob Azure vers Base de données SQL Azure
 
-L'exemple ci-dessous présente les éléments suivants :
+L’exemple ci-dessous présente les éléments suivants :
 
 1.	Un service lié de type [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
-2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
@@ -393,7 +396,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 Consultez la section [Sql Sink](#sqlsink) et [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) pour obtenir la liste des propriétés prises en charge par SqlSink et BlobSource.
 
 
-## Propriétés du service lié SQL Azure
+## Propriétés du service lié SQL Azure
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Azure.
 
@@ -404,9 +407,9 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 **Remarque :** vous devez configurer le pare-feu [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Vous devez configurer le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers SQL Azure à partir d'un emplacement situé en dehors d'Azure, y compris à partir de sources de données sur site avec la passerelle Data Factory, vous devez configurer la plage d'adresses IP appropriée pour l'ordinateur qui envoie des données à SQL Azure.
 
-## Propriétés de type du jeu de données SQL Azure
+## Propriétés de type du jeu de données SQL Azure
 
-Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, objet Blob Azure, table Azure, etc...).
+Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, objet Blob Azure, table Azure, etc...).
 
 La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section **typeProperties** pour le jeu de données de type **AzureSqlTable** a les propriétés suivantes.
 
@@ -414,11 +417,11 @@ La section typeProperties est différente pour chaque type de jeu de données et
 | -------- | ----------- | -------- |
 | tableName | Nom de la table dans l'instance de base de données SQL Azure à laquelle le service lié fait référence. | Oui |
 
-## Propriétés de type de l'activité de copie SQL Azure
+## Propriétés de type d’activité de copie SQL Azure
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
-> [AZURE.NOTE]L'activité de copie accepte uniquement une entrée et produit une seule sortie.
+> [AZURE.NOTE] L'activité de copie accepte uniquement une entrée et produit une seule sortie.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
@@ -504,9 +507,9 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Mappage de type pour SQL Server et SQL Azure
+### Mappage de type pour SQL Server et Base de données SQL Azure
 
-Comme mentionné dans l'article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l'activité de copie convertit automatiquement des types source en types récepteur à l'aide de l'approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion à partir de types de source natifs en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
@@ -560,4 +563,4 @@ Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 
 	 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

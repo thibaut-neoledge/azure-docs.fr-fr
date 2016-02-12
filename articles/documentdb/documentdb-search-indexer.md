@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="10/28/2015" 
+    ms.date="02/01/2016" 
     ms.author="anhoh"/>
 
 #Connexion de DocumentDB à Azure Search à l'aide d'indexeurs
@@ -88,7 +88,7 @@ Lorsque des lignes sont supprimées de la table source, vous devez également su
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-> [AZURE.NOTE]Vous devez inclure la propriété à votre clause SELECT si vous utilisez une projection personnalisée.
+> [AZURE.NOTE] Vous devez inclure la propriété à votre clause SELECT si vous utilisez une projection personnalisée.
 
 ###<a id="CreateDataSourceExample"></a>Exemple de corps de requête
 
@@ -121,7 +121,7 @@ Vous recevrez une réponse HTTP 201 Créé si la source de données a été cré
 
 ##<a id="CreateIndex"></a>Étape 2 : Création d’un index
 
-Créez un index Azure Search cible si vous n'en possédez pas déjà un. Pour ce faire, vous pouvez utiliser l’[interface utilisateur du portail Azure Classic](../search/search-get-started.md#test-service-operations) ou l’[API Création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Créez un index Azure Search cible si vous n'en possédez pas déjà un. Pour ce faire, vous pouvez utiliser l’[interface utilisateur du portail Azure](../search/search-get-started.md#test-service-operations) ou l’[API Création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -267,7 +267,7 @@ Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure
 
  - Pour en savoir plus sur Azure DocumentDB, consultez la [page du service DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/services/search/).
+ - Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0204_2016-->

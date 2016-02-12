@@ -165,7 +165,7 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40512|16|La fonctionnalité déconseillée '%ls' n'est pas prise en charge dans cette version de SQL Server.|
 |40513|16|La variable de serveur '%.&#x2a;ls' n'est pas prise en charge dans cette version de SQL Server.|
 |40514|16|'%.ls' n'est pas pris en charge dans cette version de SQL Server.|
-|40515|16|La référence au nom de base de données et/ou serveur dans '%.&#x2a;ls' n'est pase pris en charge dans cette version de SQL Server.|
+|40515|16|La référence au nom de base de données et/ou serveur dans '%.&#x2a;ls' n'est pas pris en charge dans cette version de SQL Server.|
 |40516|16|Les objets temporaires globaux ne sont pas pris en charge dans cette version de SQL Server.|
 |40517|16|Le mot clé ou l'option d'instruction '%.&#x2a;ls' n'est pas pris en charge dans cette version de SQL Server.|
 |40518|16|La commande DBCC '%.&#x2a;ls' n'est pas prise en charge dans cette version de SQL Server.|
@@ -221,4 +221,4 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 - [Consignes et limitations générales de base de données SQL Azure](sql-database-general-limitations.md)
 - [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

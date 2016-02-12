@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # Gestion du Cache Redis Azure avec Azure PowerShell
@@ -60,6 +60,46 @@ Par exemple, pour obtenir de l’aide sur l’applet de commande `New-AzureRmRed
 
 	Get-Help New-AzureRmRedisCache -Detailed
 
+## Comment se connecter au cloud Azure Government ou au cloud Azure de Chine
+
+Par défaut, l’environnement Azure est `AzureCloud`, qui représente l’instance globale du cloud Azure. Pour vous connecter à une autre instance, utilisez la commande `Add-AzureRmAccount` avec le commutateur de ligne de commande `-Environment` ou -`EnvironmentName` accompagné de l’environnement ou du nom d’environnement désiré.
+
+Pour afficher la liste des environnements disponibles, exécutez l’applet de commande `Get-AzureRmEnvironment`.
+
+### Pour vous connecter au cloud Azure Government
+
+Pour vous connecter au cloud Azure Government, utilisez une des commandes suivantes.
+
+	Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+
+ou
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+
+Pour créer un cache dans le cloud Azure Government, utilisez un des emplacements suivants.
+
+-	Gouvernement américain - Virginie
+-	Gouvernement américain - Iowa
+
+Pour plus d’informations sur le cloud Azure Government, consultez [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) et [Guide du développeur Microsoft Azure Government](azure-government-developer-guide.md).
+
+### Pour vous connecter au cloud Azure de Chine
+
+Pour vous connecter au cloud Azure de Chine, utilisez une des commandes suivantes.
+
+	Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+ou
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+Pour créer un cache dans le cloud Azure de Chine, utilisez un des emplacements suivants.
+
+-	Chine orientale
+-	Chine du Nord
+
+Pour plus d’informations sur le cloud Azure de Chine, consultez [AzureChinaCloud pour Azure géré par 21Vianet en Chine](http://www.windowsazure.cn/).
+
 ## Propriétés utilisées pour le cache Redis Azure PowerShell
 
 Le tableau suivant contient les propriétés et les descriptions pour les paramètres fréquemment utilisés lors de la création et de la gestion de vos instances de cache Redis Azure avec Azure PowerShell.
@@ -85,7 +125,7 @@ Le tableau suivant contient les propriétés et les descriptions pour les param�
 
 Les nouvelles instances de cache Redis Azure sont créées à l’aide de l’applet de commande [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
 
->[AZURE.IMPORTANT]La première fois que vous créez un cache Redis dans un abonnement à l’aide du portail Azure, le portail inscrit l’espace de noms `Microsoft.Cache` pour cet abonnement. Si vous tentez de créer le premier cache Redis dans un abonnement à l’aide de PowerShell, vous devez d’abord inscrire cet espace de noms à l’aide de la commande suivante. Dans le cas contraire, les applets de commande comme `New-AzureRmRedisCache` et `Get-AzureRmRedisCache` échoueront.
+>[AZURE.IMPORTANT] La première fois que vous créez un cache Redis dans un abonnement à l’aide du portail Azure, le portail inscrit l’espace de noms `Microsoft.Cache` pour cet abonnement. Si vous tentez de créer le premier cache Redis dans un abonnement à l’aide de PowerShell, vous devez d’abord inscrire cet espace de noms à l’aide de la commande suivante. Dans le cas contraire, les applets de commande comme `New-AzureRmRedisCache` et `Get-AzureRmRedisCache` échoueront.
 >
 >`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
@@ -247,14 +287,14 @@ La commande suivante met à jour le paramètre maxmemory-policy du cache Redis a
 
 `Set-AzureRmRedisCache` peut être utilisé pour mettre à l’échelle une instance de cache Redis Azure quand les propriétés `Size`, `Sku` ou `ShardCount` sont modifiées.
 
->[AZURE.NOTE]La mise à l’échelle d’un cache à l’aide de PowerShell est soumise aux mêmes limites et recommandations que la mise à l’échelle d’un cache à l’aide du portail Azure. Vous pouvez choisir un niveau de tarification différent avec les restrictions suivantes.
+>[AZURE.NOTE]La mise à l’échelle d’un cache à l’aide de PowerShell est soumise aux mêmes limites et recommandations que la mise à l’échelle d’un cache à l’aide du portail Azure. Vous pouvez choisir un niveau tarifaire différent avec les restrictions suivantes.
 >
->-	Vous ne pouvez pas effectuer une mise à l’échelle vers ou depuis un cache **Premium**.
+>-	Vous ne pouvez pas mettre à l'échelle vers ou depuis un cache **Premium**.
 >-	Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base**.
 >-	Vous pouvez passer d’un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
 >-	Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)**.
 >
->Pour plus d’informations, consultez [Comment mettre l’échelle un cache Redis Azure](cache-how-to-scale.md).
+>Pour plus d’informations, voir [Mise à l’échelle du cache Redis Azure](cache-how-to-scale.md).
 
 L’exemple suivant montre comment mettre à l’échelle un cache nommé `myCache` vers un cache de 2,5 Go. Notez que cette commande fonctionne pour un cache De base ou un cache Standard.
 
@@ -372,7 +412,7 @@ Pour retourner des informations sur un cache spécifique, exécutez `Get-AzureRm
 
 ## Récupération des clés d'accès d’un cache Redis
 
-Pour récupérer les clés d’accès de votre cache, vous pouvez utiliser l’applet de commande [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx).
+Pour récupérer les clés d'accès de votre cache, vous pouvez utiliser l’applet de commande [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx).
 
 Pour afficher la liste des paramètres disponibles et leurs descriptions pour `Get-AzureRmRedisCacheKey`, exécutez la commande suivante.
 
@@ -569,4 +609,4 @@ Pour en savoir plus sur l’utilisation de Windows PowerShell avec Azure, report
 - [Blog Windows PowerShell](http://blogs.msdn.com/powershell) : découvrez les nouvelles fonctionnalités de Windows PowerShell.
 - [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

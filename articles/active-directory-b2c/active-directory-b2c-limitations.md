@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d'Azure Active Directory B2C : limites et restrictions
@@ -28,7 +28,7 @@ Si vous rencontrez ces problèmes lors de la [création d’un client Azure Acti
 
 ## Problèmes de marque sur le courrier électronique de vérification
 
-Le message de vérification par défaut contient la marque « Microsoft ». Nous allons la supprimer dans un futur proche. Pour le moment, vous pouvez la supprimer en utilisant la [fonctionnalité de marque de votre société](./active-directory/active-directory-add-company-branding.md).
+Le message de vérification par défaut contient la marque « Microsoft ». Nous allons la supprimer dans un futur proche. Pour le moment, vous pouvez la supprimer en utilisant la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md).
 
 ## Prise en charge des applications de production
 
@@ -68,7 +68,7 @@ La version préliminaire d'Azure AD B2C prend en charge OpenID Connect et OAuth�
 
 ## Restriction sur les jetons
 
-La plupart des jetons émis par la version préliminaire d'Azure AD B2C sont implémentés en tant que jetons Web JSON (JWT). Toutefois, toutes les informations contenues dans les jetons Web JSON (appelées « revendications ») ne sont pas tout à fait correctes ou elles sont manquantes. Certains exemples incluent les revendications « sub » et « preferred\_username ». Attendez-vous à de grandes modifications par rapport à la version préliminaire. Pour mieux comprendre les jetons émis actuellement par le service Azure AD B2C, lisez la page de [référence sur les jetons](active-directory-b2c-tokens.md).
+La plupart des jetons émis par la version préliminaire d'Azure AD B2C sont implémentés en tant que jetons Web JSON (JWT). Toutefois, toutes les informations contenues dans les jetons Web JSON (appelées « revendications ») ne sont pas tout à fait correctes ou elles sont manquantes. Certains exemples incluent les revendications « sub » et « preferred\_username ». Attendez-vous à de grandes modifications par rapport à la version préliminaire. Pour mieux comprendre les jetons émis actuellement par le service Azure AD B2C, lisez la page de [référence sur les jetons](active-directory-b2c-reference-tokens.md).
 
 ## Problèmes de gestion des utilisateurs sur le portail Classic Azure
 
@@ -96,4 +96,4 @@ Actuellement, vous ne pouvez pas vérifier un domaine avec succès sur le [Porta
 
 Lorsque vous accédez au panneau des paramètres B2C sur le portail Azure, vous pouvez voir un message d’avertissement sous Notifications (dans le coin supérieur droit) ; il affichera : « vous n’avez aucun abonnement dans le répertoire <B2CTenantName>. Vous avez d’autres répertoires sur lesquels vous pouvez basculer. », où <B2CTenantName> est le nom de votre client B2C. Vous pouvez sans risque ignorer ce message et continuer d’accéder à vos fonctionnalités B2C. Nous travaillons avec l’équipe du portail Azure à élaborer un correctif pour résoudre ce problème.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

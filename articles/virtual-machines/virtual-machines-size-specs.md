@@ -64,10 +64,10 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 |[Standard\_A1-4 (petite à grande)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
 |[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 | 
-|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| 
-|[DS1-14](#standard-tier-ds-series) |160 | 
-|[G1-5](#standard-tier-g-series) |180 - 240 *| 
+|[D1-14](#standard-tier-d-series) |160 |
+|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *|
+|[DS1-14](#standard-tier-ds-series) |160 |
+|[G1-5](#standard-tier-g-series) |180 - 240 *|
 |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
@@ -160,7 +160,7 @@ Remarque : pour plus d’informations et pour connaître les éléments à pren
 |Standard\_DS13 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 256 Mo par seconde |
 |Standard\_DS14 |16|112|8|Disque SSD local = 224 Go |32|576| 50 000 512 Mo par seconde |
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d'informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d'informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
 
 ## Niveau standard : série G
 
@@ -189,4 +189,4 @@ Remarque : pour plus d’informations et pour connaître les éléments à pren
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

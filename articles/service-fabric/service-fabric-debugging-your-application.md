@@ -1,6 +1,6 @@
 <properties
    pageTitle="Débogage de votre application dans Visual Studio | Microsoft Azure"
-   description="Améliorez la fiabilité et les performances de vos services en les développant et en procédant à leur débogage dans Visual Studio et un cluster de développement local."
+   description="Améliorez la fiabilité et les performances de vos services en les développant et en procédant à leur débogage dans Visual Studio sur un cluster de développement local."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # Débogage de votre application Service Fabric à l’aide de Visual Studio
@@ -28,7 +28,7 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
 
 3. Définissez des points d’arrêt dans votre code et parcourez l’application en cliquant sur les commandes du menu **Déboguer**.
 
-    > [AZURE.NOTE]Visual Studio s'attache à toutes les instances de votre application. Pendant le parcours du code, les points d’arrêt peuvent être visités par plusieurs processus résultant de sessions simultanées. Essayez de désactiver les points d’arrêt une fois qu’ils ont été atteints en définissant le point d’arrêt comme étant conditionnel sur l’ID de thread ou en utilisant les événements de diagnostic.
+    > [AZURE.NOTE] Visual Studio s'attache à toutes les instances de votre application. Pendant le parcours du code, les points d’arrêt peuvent être visités par plusieurs processus résultant de sessions simultanées. Essayez de désactiver les points d’arrêt une fois qu’ils ont été atteints en définissant le point d’arrêt comme étant conditionnel sur l’ID de thread ou en utilisant les événements de diagnostic.
 
 4. La fenêtre **Événements de diagnostic** s’ouvre automatiquement et affiche les événements de diagnostic en temps réel.
 
@@ -65,4 +65,4 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -32,6 +32,28 @@ Par exemple, pour envoyer une requête JSON à une API personnalisée nommée «
 	     parameters:emailHeader
 	     headers:nil
 	     completion:completion ];
+	    
+Pour que les données soient retournées, vous pouvez utiliser quelque chose comme ceci :
+
+	[self.client invokeAPI:apiName
+                 body:yourBody
+           HTTPMethod:httpMethod
+           parameters:parameters
+              headers:headers
+           completion:  ^(NSData *result,
+                          NSHTTPURLResponse *response,
+                          NSError *error){
+               // error is nil if no error occured
+               if(error) { 
+                   NSLog(@"ERROR %@", error);
+               } else {
+                   
+		// do something with the result
+               }
+               
+               
+           }];
+
 		
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

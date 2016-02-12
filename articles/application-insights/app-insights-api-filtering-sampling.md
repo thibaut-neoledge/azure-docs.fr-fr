@@ -80,7 +80,7 @@ Cette technique vous offre un contrôle plus direct sur ce qui est inclus ou exc
 
 Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l'enregistrez avec le Kit de développement logiciel (SDK). Toute la télémétrie passe par votre processeur et vous pouvez choisir de la supprimer du flux ou d'ajouter des propriétés. Cela inclut les données de télémétrie fournies par les modules standard tels que le collecteur de demandes HTTP et le collecteur de dépendances, ainsi que les données de télémétrie que vous avez écrites vous-même. Vous pouvez, par exemple, exclure la télémétrie concernant les demandes émanant de robots ou les appels de dépendance réussis.
 
-> [AZURE.WARNING]Filtrer la télémétrie envoyée depuis le Kit de développement logiciel (SDK) à l’aide de processeurs peut fausser les statistiques que vous voyez dans le portail et rendre difficile le suivi des éléments associés.
+> [AZURE.WARNING] Filtrer la télémétrie envoyée depuis le Kit de développement logiciel (SDK) à l’aide de processeurs peut fausser les statistiques que vous voyez dans le portail et rendre difficile le suivi des éléments associés.
 > 
 > Envisagez plutôt d'utiliser l'[échantillonnage](#sampling).
 
@@ -154,7 +154,7 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
 
 Vous pouvez transférer des valeurs de chaîne depuis le fichier .config en fournissant des propriétés publiques nommées dans votre classe.
 
-> [AZURE.WARNING]Veillez à faire correspondre le nom de type et les noms de propriété dans le fichier .config aux noms de classe et de propriété dans le code. Si le fichier .config fait référence à un type ou à une propriété qui n'existe pas, le kit de développement peut échouer lors de l'envoi d'une télémétrie quelconque.
+> [AZURE.WARNING] Veillez à faire correspondre le nom de type et les noms de propriété dans le fichier .config aux noms de classe et de propriété dans le code. Si le fichier .config fait référence à un type ou à une propriété qui n'existe pas, le kit de développement peut échouer lors de l'envoi d'une télémétrie quelconque.
 
  
 Vous pouvez **également** initialiser le filtre dans le code. Dans une classe d’initialisation appropriée (par exemple, AppStart dans Global.asax.cs), insérez votre processeur dans la chaîne :
@@ -217,7 +217,7 @@ public void Process(ITelemetry item)
 
 Si vous souhaitez uniquement diagnostiquer les appels lents, excluez les appels rapides.
 
-> [AZURE.NOTE]Cela faussera les statistiques que vous voyez dans le portail. Le graphique de dépendance s’affichera comme si les appels de dépendance avaient tous échoué.
+> [AZURE.NOTE] Cela faussera les statistiques que vous voyez dans le portail. Le graphique de dépendance s’affichera comme si les appels de dépendance avaient tous échoué.
 
 ``` C#
 
@@ -358,7 +358,7 @@ Insérer un initialiseur de télémétrie immédiatement après le code d’init
     </script>
 ```
 
-Pour obtenir un résumé des propriétés non personnalisées disponibles dans le telemetryItem, consultez le [modèle de données](app-insights-export-data-model.md/#lttelemetrytypegt).
+Pour obtenir un résumé des propriétés non personnalisées disponibles dans le telemetryItem, consultez le [modèle de données](app-insights-export-data-model.md#lttelemetrytypegt).
 
 Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
@@ -404,4 +404,4 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

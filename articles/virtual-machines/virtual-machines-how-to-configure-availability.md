@@ -31,7 +31,7 @@ Dans le modèle de déploiement classique, vous pouvez placer des machines virtu
 - [Option 1: Créer simultanément une machine virtuelle et un groupe à haute disponibilité][]. Ensuite, ajouter de nouvelles machines virtuelles à l’ensemble lorsque vous créez ces ordinateurs virtuels.
 - [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité][].
 
->[AZURE.NOTE]Dans le modèle classique, les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.
+>[AZURE.NOTE] Dans le modèle classique, les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.
 
 ## <a id="createset"> </a>Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité.##
 
@@ -96,7 +96,7 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE]Il se peut que la machine virtuelle doive être redémarrée pour terminer son ajout au groupe à haute disponibilité.
+>[AZURE.NOTE] Il se peut que la machine virtuelle doive être redémarrée pour terminer son ajout au groupe à haute disponibilité.
 
 ## Ressources supplémentaires
 
@@ -110,6 +110,6 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 [Gestion de la disponibilité des machines virtuelles]: virtual-machines-manage-availability.md
 [Création d'une machine virtuelle exécutant Windows]: virtual-machines-windows-tutorial.md
 [Vue d’ensemble d’Azure Virtual Network]: virtual-networks-overview.md
-[Articles pour les machines virtuelles dans la gestion des services]: virtual-machines-service-management-articles.md
+[Articles pour les machines virtuelles dans la gestion des services]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

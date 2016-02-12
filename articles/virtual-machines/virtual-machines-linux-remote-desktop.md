@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="02/01/2016"
 	ms.author="mingzhan"/>
 
 
@@ -32,7 +32,7 @@ Ce guide vous donne la réponse ! Il vous aidera à installer et à configurer 
 Xrdp est un serveur RDP open source, qui vous permet de connecter votre serveur Linux avec le Bureau à distance à partir d’un ordinateur Windows. Il fonctionne beaucoup mieux que VNC (Virtual Network Computing). VNC a cette tendance à la qualité « JPEG » et un comportement lent, alors que RDP est rapide et parfaitement net.
 
 
-> [AZURE.NOTE]Vous devez déjà disposer d’une machine virtuelle Microsoft Azure exécutant Linux. Pour créer et configurer une machine virtuelle Linux, voir le [Didacticiel sur les machines virtuelles Linux Azure](virtual-machines-linux-tutorial.md).
+> [AZURE.NOTE] Vous devez déjà disposer d’une machine virtuelle Microsoft Azure exécutant Linux. Pour créer et configurer une machine virtuelle Linux, voir le [Didacticiel sur les machines virtuelles Linux Azure](virtual-machines-linux-tutorial.md).
 
 
 ##Créer un point de terminaison pour le Bureau à distance
@@ -67,7 +67,7 @@ Pour Ubantu, procédez comme suit :
 
 Pour OpenSUSE, utilisez :
 
-> [AZURE.NOTE]Mettez à jour la version d’OpenSUSE avec la version que vous utilisez dans la commande suivante. Voici un exemple de commande pour `OpenSUSE 13.2`.
+> [AZURE.NOTE] Mettez à jour la version d’OpenSUSE avec la version que vous utilisez dans la commande suivante. Voici un exemple de commande pour `OpenSUSE 13.2`.
 
 	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
@@ -116,4 +116,4 @@ Connectez-vous avec le `user` et le `password` de votre machine virtuelle Linux,
 ##Suivant
 Pour plus d’informations sur l’utilisation de xrdp, voir [ici](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

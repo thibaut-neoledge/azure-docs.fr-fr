@@ -18,7 +18,7 @@
 # Runbooks enfants dans Azure Automation
 
 
-Dans Azure Automation, il est recommandé d’écrire des Runbooks réutilisables et modulaires avec une fonction discrète qui peut être utilisée par d’autres Runbooks. Un Runbook parent appelle souvent un ou plusieurs Runbooks enfants pour exécuter la fonctionnalité requise. Il existe deux méthodes pour appeler un runbook enfant. Vous devez comprendre leurs spécificités afin de déterminer celle répondant le mieux aux exigences de vos scénarios.
+Dans Azure Automation, il est recommandé d’écrire des Runbooks réutilisables et modulaires avec une fonction discrète qui peut être utilisée par d’autres Runbooks. Un Runbook parent appelle souvent un ou plusieurs Runbooks enfants pour exécuter la fonctionnalité requise. Il existe deux méthodes pour appeler un Runbook enfant. Vous devez comprendre leurs spécificités afin de déterminer celle répondant le mieux aux exigences de chacun de vos scénarios.
 
 ##  Appeler un Runbook enfant à l’aide de l’exécution en ligne
 
@@ -53,7 +53,7 @@ Voici le même exemple utilisant un runbook PowerShell en tant qu’enfant.
 
 Vous pouvez utiliser l’applet de commande [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx) pour démarrer un runbook, comme décrit dans [Pour démarrer un runbook avec Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Lorsque vous démarrez un Runbook enfant à partir d’une applet de commande, le Runbook parent passe à la ligne suivante dès que la tâche est créée pour le Runbook enfant. Si vous devez récupérer une sortie du runbook, vous devez accéder à la tâche à l’aide de l’applet de commande [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx).
 
-La tâche issue d’un Runbook enfant démarré avec une applet de commande est exécutée dans une tâche distincte du Runbook parent. Cela entraîne davantage de tâches que l’appel de script en ligne et rend leur suivi plus complexe. Le parent peut démarrer plusieurs Runbooks enfants sans attendre la fin de leur exécution. Pour ce même type d’exécution en parallèle avec appel des runbooks enfants en ligne, le runbook parent doit utiliser le [mot clé parallèle](automation-powershell-workflow.md#parallel-processing).
+La tâche issue d’un Runbook enfant démarré avec une applet de commande est exécutée dans une tâche distincte du Runbook parent. Cela entraîne davantage de tâches que l’appel de runbook en ligne et rend leur suivi plus complexe. Le parent peut démarrer plusieurs Runbooks enfants sans attendre la fin de leur exécution. Pour ce même type d’exécution en parallèle avec appel des runbooks enfants en ligne, le runbook parent doit utiliser le [mot clé parallèle](automation-powershell-workflow.md#parallel-processing).
 
 Les paramètres d’un runbook enfant démarré avec une applet de commande sont fournis sous forme de table de hachage, comme décrit dans [Paramètres du runbook](automation-starting-a-runbook.md#runbook-parameters). Seuls les types de données simples peuvent être utilisés. Si le Runbook possède un paramètre avec un type de données complexe, il doit être appelé en ligne.
 
@@ -62,7 +62,7 @@ Les paramètres d’un runbook enfant démarré avec une applet de commande sont
 Dans l’exemple suivant, un Runbook enfant avec paramètres est démarré et exécuté. À l’issue de l’exécution du Runbook, sa sortie est collectée à partir de la tâche par le Runbook parent.
 
 	$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test- ChildRunbook" –Parameters $params
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" –Parameters $params
 	
 	$doLoop = $true
 	While ($doLoop) {
@@ -94,4 +94,4 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 - [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 - [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

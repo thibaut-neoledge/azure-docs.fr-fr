@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Tirer parti d’autres services avec SQL Data Warehouse
@@ -32,14 +32,14 @@ L’intégration de Power BI vous permet de tirer parti de la puissance de calc
 + **Connexion directe** : une connexion plus avancée avec un menu déroulant logique dans SQL Data Warehouse. Ainsi, les analyses sont plus rapides à une plus grande échelle.
 + **Ouvrir dans Power BI** : ce bouton transmet les informations d’instance à Power BI, permettant une connexion plus fluide. 
 
-Pour plus d’informations, consultez [Intégrer à Power BI](../sql-data-warehouse-integrate-power-bi.md) ou la [documentation Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
+Pour plus d’informations, consultez [Intégrer à Power BI](./sql-data-warehouse-integrate-power-bi.md) ou la [documentation Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
 ##Azure Data Factory
 Azure Data Factory offre aux utilisateurs une plateforme gérée pour créer des pipelines d’extraction-chargement complexes. L’intégration de SQL Data Warehouse à Azure Data Factory inclut les éléments suivants :
 
 + **Procédures stockées** : orchestrez l’exécution de procédures stockées dans SQL Data Warehouse.
 
-Pour plus d’informations, consultez [Intégrer à Azure Data Factory](../sql-data-warehouse-integrate-azure-data-factory.md) ou la [documentation Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+Pour plus d’informations, consultez [Intégrer à Azure Data Factory](./sql-data-warehouse-integrate-azure-data-factory.md) ou la [documentation Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ##Azure Machine Learning
 Azure Machine Learning est un service d’analyse entièrement géré qui permet aux utilisateurs de créer des modèles complexes exploitant un large ensemble d’outils prédictifs. SQL Data Warehouse est pris en charge à la fois comme source et destination de ces modèles avec les fonctionnalités suivantes :
@@ -47,14 +47,14 @@ Azure Machine Learning est un service d’analyse entièrement géré qui perm
 + **Lire les données :** pilotez des modèles à l’échelle à l’aide de T-SQL dans SQL Data Warehouse. 
 + **Écrire des données :** validez les modifications d’un modèle dans SQL Data Warehouse.
 
-Pour plus d’informations, consultez [Intégrer à Azure Machine Learning](../sql-data-warehouse-integrate-azure-machine-learning.md) ou la [documentation Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
+Pour plus d’informations, consultez [Intégrer à Azure Machine Learning](./sql-data-warehouse-integrate-azure-machine-learning.md) ou la [documentation Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
 ##Azure Stream Analytics
 Azure Stream Analytics est une infrastructure complexe, entièrement gérée pour le traitement et l’utilisation des données d’événement générées à partir d’Azure Event Hubs. L’intégration à SQL Data Warehouse permet de traiter efficacement et de stocker les données de diffusion en continu avec des données relationnelles, ce qui permet une analyse plus approfondie et plus avancée.
 
 + **Sortie de la tâche :** envoyez une sortie des tâches Stream Analytics directement à SQL Data Warehouse.
 
-Pour plus d’informations, consultez [Intégrer à Azure Stream Analytics](../sql-data-warehouse-integrate-azure-stream-analytics.md) ou la [documentation Azure Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/).
+Pour plus d’informations, consultez [Intégrer à Azure Stream Analytics](./sql-data-warehouse-integrate-azure-stream-analytics.md) ou la [documentation Azure Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/).
 
 <!--Image references-->
 
@@ -71,4 +71,4 @@ Pour plus d’informations, consultez [Intégrer à Azure Stream Analytics](..
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

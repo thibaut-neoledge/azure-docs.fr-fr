@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="garye"/>
 
 
@@ -73,10 +73,10 @@ Une fois les données converties au format CSV, nous devons les télécharger ve
 
 Les données sont téléchargées dans un module de jeu de données utilisable dans une expérience.
 
-Pour plus d'informations sur l'importation de différents types de données dans une expérience, consultez [Importez vos données d'apprentissage dans Azure Machine Learning Studio](machine-learning-import-data.md).
+Pour plus d'informations sur l'importation de différents types de données dans une expérience, consultez [Importez vos données d'apprentissage dans Azure Machine Learning Studio](machine-learning-data-science-import-data.md).
 
 **Étape suivante : [créer une expérience](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

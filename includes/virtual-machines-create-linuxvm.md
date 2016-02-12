@@ -1,4 +1,4 @@
-1. Connectez-vous à votre abonnement Azure en suivant les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../articles/xplat-cli-connect.md).
+1. Connectez-vous à votre abonnement Azure en suivant les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
 
 2. Assurez-vous que vous êtes en mode de gestion des services, en utilisant :
 
@@ -25,9 +25,9 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE]Pour une machine virtuelle Linux, vous devez fournir l’option `-e` dans `vm create` ; il n’est pas possible d’activer SSH une fois la machine virtuelle créée. Pour plus d’informations sur SSH, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md).
+    >[AZURE.NOTE] Pour une machine virtuelle Linux, vous devez fournir l’option `-e` dans `vm create` ; il n’est pas possible d’activer SSH une fois la machine virtuelle créée. Pour plus d’informations sur SSH, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-use-ssh-key.md).
 
-    Notez que l’image *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* est celle que nous avons choisie dans la liste d’images lors de l’étape ci-dessus. *MyTestVM* est le nom de notre nouvelle machine virtuelle et *adminUser* est le nom d’utilisateur pour la connexion SSH à la machine virtuelle. Vous pouvez remplacer ces variables selon vos besoins. Pour plus d’informations sur cette commande, consultez [Utilisation de l’interface de ligne de commande Azure avec la gestion des services Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+    Notez que l'image *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* est celle que nous avons choisie dans la liste d'images lors de l'étape ci-dessus. *MyTestVM* est le nom de notre nouvelle machine virtuelle et *adminUser* est le nom d’utilisateur pour la connexion SSH à la machine virtuelle. Vous pouvez remplacer ces variables selon vos besoins. Pour plus d’informations sur cette commande, consultez [Utilisation de l’interface de ligne de commande Azure avec la gestion des services Azure](virtual-machines-command-line-tools.md).
 
 5. La machine virtuelle Linux nouvellement créée s'affiche dans la liste donnée par :
 
@@ -39,6 +39,6 @@
 
 7. La machine virtuelle nouvellement créée est prête à démarrer avec la commande `azure vm start`.
 
-Pour plus d’informations sur toutes les commandes des machines virtuelles de l’interface de ligne de commande Azure, consultez [Utilisation de l’interface de ligne de commande Azure avec l’API de gestion des services](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+Pour plus d’informations sur toutes les commandes des machines virtuelles de l’interface de ligne de commande Azure, consultez [Utilisation de l’interface de ligne de commande Azure avec l’API de gestion des services](virtual-machines-command-line-tools.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

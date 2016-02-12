@@ -87,7 +87,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
 
 	> [AZURE.NOTE] Parfois, l'applet de commande indique `False` lorsque la mise à jour est encore en cours d'exécution. Pour vous assurer que le correctif logiciel est terminé, patientez quelques minutes, exécutez à nouveau cette commande et vérifiez que `RunInProgress` est `False`. Dans ce cas, le correctif logiciel est terminé.
 	
-8. Une fois la mise à jour logicielle terminée, répétez les étapes 3 à 5 pour installer et surveiller les agents SaaS et MDS à l’aide de `CisMdsAgentUpdateBundle.exe`. Veillez à installer `HcsMdsSoftwareUpdate.exe` avant `CisMdsAgentUpdateBundle.exe`.
+8. Une fois la mise à jour logicielle terminée, répétez les étapes 3 à 5 pour installer et surveiller les agents SaaS et MDS. Veillez à installer `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe` avant `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`.
 
 9. Vérifiez les versions des logiciels système. Entrez :
 
@@ -103,15 +103,15 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
     
 9. Répétez les étapes 3 à 5 pour installer et surveiller les correctifs logiciels restants en mode Normal :
 
-	- le pilote LSI à l’aide du package `HcsLsiUpdate.exe` (KB3121900) ;
-	- le correctif Storport à l’aide du package `Storport-KB3080728-x64.msu` (KB3080728) ;
-	- le correctif Spaceport à l’aide du package `spaceport-KB3090322-x64.msu` (KB3090322).
+	- Le pilote LSI via l’article KB3121900
+	- Le correctif Storport via l’article KB3080728
+	- Le correctif Spaceport via l’article KB3090322
 
 #### Pour installer et vérifier le correctif logiciel en mode Maintenance
 
-Utilisez le package `DiskFirmwarePackage.exe` (KB3121899) pour installer les mises à jour du microprogramme de disque. Ces mises à jour, qui entraînent des perturbations, nécessitent environ 30 minutes. Vous pouvez choisir de les installer dans une fenêtre de maintenance planifiée en vous connectant à la console série du périphérique.
+Utilisez l’article KB3121899 pour installer les mises à jour du microprogramme de disque. Ces mises à jour, qui entraînent des perturbations, nécessitent environ 30 minutes. Vous pouvez choisir de les installer dans une fenêtre de maintenance planifiée en vous connectant à la console série de l’appareil.
 
-Notez que si votre microprogramme de disque est déjà à jour, vous n’aurez pas à installer ces mises à jour. Exécuter l’applet de commande `Get-HcsUpdateAvailability` à partir de la console série de l’appareil. Le système vous indique si des mises à jour sont disponibles et si elles risquent de provoquer une interruption de service (mises en jour en mode maintenance) ou non (périodiques).
+Notez que si votre microprogramme de disque est déjà à jour, vous n’aurez pas à installer ces mises à jour. Exécutez l’applet de commande `Get-HcsUpdateAvailability` à partir de la console série de l’appareil. Le système vous indique si des mises à jour sont disponibles et si elles risquent de provoquer une interruption de service (mises en jour en mode maintenance) ou non (périodiques).
  
 Pour installer les mises à jour du microprogramme de disque, suivez les instructions ci-dessous.
 
@@ -239,4 +239,4 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

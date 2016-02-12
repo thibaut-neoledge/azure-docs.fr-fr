@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Débogage d'un service cloud ou d'une machine virtuelle Azure dans Visual Studio | Microsoft Azure"
-   description="Débogage d’un service cloud ou d’une machine virtuelle dans Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
-   editor="tlee" />
+	pageTitle="Débogage d'un service cloud ou d'une machine virtuelle Azure dans Visual Studio | Microsoft Azure"
+	description="Débogage d’un service cloud ou d’une machine virtuelle dans Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="TomArcher"
+	manager="douge"
+	editor="tlee" />
 <tags 
-   ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="10/28/2015"
-   ms.author="tarcher" />
+	ms.service="visual-studio-online"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="02/03/2016"
+	ms.author="tarcher" />
 
 # Débogage d'un service cloud ou d'une machine virtuelle Azure dans Visual Studio
 
@@ -48,7 +48,7 @@ Pour déboguer un service cloud à partir d’une machine distante, vous devez a
 
 L’activation du débogage distant pour un service cloud n’entraîne pas de baisse des performances, ni de coûts supplémentaires. Vous ne devez pas utiliser le débogage distant pour un service de production, car cela peut avoir un impact pour les clients qui utilisent ce service.
 
->[AZURE.NOTE]Quand vous publiez un service cloud à partir de Visual Studio, vous pouvez activer **IntelliTrace** pour tous les rôles de ce service qui ciblent .NET Framework 4 ou .NET Framework 4.5. Avec **IntelliTrace**, vous pouvez examiner des événements qui se sont déjà produits dans une instance de rôle et reproduire le contexte de ce moment-là. Consultez [Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) et [Utilisation d’IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
+>[AZURE.NOTE] Quand vous publiez un service cloud à partir de Visual Studio, vous pouvez activer **IntelliTrace** pour tous les rôles de ce service qui ciblent .NET Framework 4 ou .NET Framework 4.5. Avec **IntelliTrace**, vous pouvez examiner des événements qui se sont déjà produits dans une instance de rôle et reproduire le contexte de ce moment-là. Consultez [Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) et [Utilisation d’IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
 
 ### Pour activer le débogage distant pour un service cloud
 
@@ -82,7 +82,7 @@ L’activation du débogage distant pour un service cloud n’entraîne pas de b
 
     ![Processus de débogage](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
->[AZURE.WARNING]Évitez les arrêts longs aux points d'arrêt avec le débogage à distance. Azure considère qu’un processus arrêté depuis plusieurs minutes ne répond pas, et cesse d’envoyer du trafic vers cette instance. Si l’arrêt est trop long, msvsmon.exe est détaché du processus.
+>[AZURE.WARNING] Évitez les arrêts longs aux points d'arrêt avec le débogage à distance. Azure considère qu’un processus arrêté depuis plusieurs minutes ne répond pas, et cesse d’envoyer du trafic vers cette instance. Si l’arrêt est trop long, msvsmon.exe est détaché du processus.
 
 Pour détacher le débogueur de tous les processus dans votre instance ou rôle, ouvrez le menu contextuel pour le rôle ou l’instance que vous déboguez, puis cliquez sur Détacher le débogueur.
 
@@ -102,7 +102,7 @@ Pour détacher le débogueur de tous les processus dans votre instance ou rôle,
 
 Vous pouvez déboguer des programmes exécutés sur des machines virtuelles Azure à l’aide de l’Explorateur de serveurs dans Visual Studio. Quand vous activez le débogage distant sur une machine virtuelle Azure, Azure installe l’extension de débogage distant sur cette machine virtuelle. Vous pouvez ensuite l’attacher aux processus sur la machine virtuelle et procéder au débogage normalement.
 
->[AZURE.NOTE]Les machines virtuelles créées via la pile Azure Resource Manager peuvent être déboguées à distance à l’aide de Cloud Explorer dans Visual Studio 2015. Pour plus d’informations, consultez [Gestion des ressources Azure avec Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
+>[AZURE.NOTE] Les machines virtuelles créées via la pile Azure Resource Manager peuvent être déboguées à distance à l’aide de Cloud Explorer dans Visual Studio 2015. Pour plus d’informations, consultez [Gestion des ressources Azure avec Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
 
 ### Pour déboguer une machine virtuelle Azure
 
@@ -190,4 +190,4 @@ Les projets Visual Studio ASP.NET permettent de créer une machine virtuelle que
 - Utilisez **IntelliTrace** pour collecter un journal des appels et des événements d’un serveur de publication. Consultez [Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Utilisez les **Diagnostics Azure** pour collecter des informations détaillées du code actuellement exécuté dans des rôles qui sont eux-mêmes exécutés dans l’environnement de développement ou dans Azure. Consultez [Collecter des données de journalisation avec les diagnostics Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

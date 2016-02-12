@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Prise en main des outils de base de données élastiques
@@ -75,7 +75,7 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 ## Étapes suivantes
 Pour plus d’informations sur les outils de bases de données élastiques, consultez :
 
-* [Table de documentation des outils des bases de données élastiques](sql-database-elastic-scale-documentation-map.md) 
+* [Table de documentation des outils des bases de données élastiques](../learning-paths/sql-database-elastic-scale.md) 
 -    Exemples de code : 
     -    [Base de données élastique avec Azure SQL - Prise en main](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Base de données élastique avec Azure SQL - Intégration avec Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
@@ -98,4 +98,4 @@ Pour plus d’informations sur les outils de bases de données élastiques, cons
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

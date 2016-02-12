@@ -131,7 +131,7 @@ Segments quotidiens qui démarrent à 6h au lieu de minuit, la valeur par défau
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
@@ -208,4 +208,4 @@ Si vous avez besoin d’exécuter un pipeline tous les mois à une date et une h
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

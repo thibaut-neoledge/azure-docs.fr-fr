@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/28/2015"
    ms.author="sstein"/>
 
 # Recommandations relatives aux niveaux tarifaires des bases de données SQL
 
  Bénéficiez de recommandations sur les niveaux tarifaires, notamment les niveaux de service et de performances les mieux adaptés à l’exécution d’une charge de travail d’une base de données SQL Azure existante.
 
-> [AZURE.NOTE]Ces recommandations sont disponibles uniquement pour les bases de données Web et Business et les pools de bases de données élastiques. Elles sont disponibles uniquement sur le [portail Azure](https://portal.azure.com/).
+> [AZURE.NOTE] Ces recommandations sont disponibles uniquement pour les bases de données Web et Business et les pools de bases de données élastiques. Elles sont disponibles uniquement sur le [portail Azure](https://portal.azure.com/).
 
 
 Obtenez des recommandations en termes de niveau tarifaire lors des tâches suivantes :
@@ -56,7 +56,7 @@ Selon l’utilisation de votre base de données, vous pouvez actuellement rencon
 
 ## Obtenir des recommandations sur les niveaux tarifaires
 
-Accédez à des recommandations sur les niveaux tarifaires en sélectionnant une base de données « Web ou Business » existante et en cliquant sur la vignette **Niveau tarifaire**. (Des recommandations sur les niveaux tarifaires sont également disponibles quand vous [mettez à niveau Azure SQL Server vers la version 12](sql-database-v12-upgrade.md).)
+Pour accéder à des recommandations sur les niveaux tarifaires, sélectionnez une base de données « Web ou Business » existante, cliquez sur **Tous les paramètres**, puis cliquez sur **Niveau tarifaire (mise à l’échelle de DTU)**. (Des recommandations sur les niveaux tarifaires sont également disponibles quand vous [mettez à niveau Azure SQL Server vers la version 12](sql-database-v12-upgrade.md).)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **PARCOURIR** > **Bases de données SQL**.
@@ -64,16 +64,14 @@ Accédez à des recommandations sur les niveaux tarifaires en sélectionnant une
 
     ![Sélectionner la base de données][1]
 
-5. Dans le panneau de la base de données, sélectionnez la vignette **Niveau tarifaire**.
-
-    ![Niveau tarifaire][2]
+5. Dans le panneau de la base de données, sélectionnez **Tous les paramètres**, puis sélectionnez **Niveau tarifaire (mise à l’échelle de DTU)**.
 
 
-7. Lorsque vous cliquez sur **Niveau de tarification**, le panneau **Niveaux de tarification recommandés** s’affiche, dans lequel vous pouvez cliquer sur le niveau suggéré, puis sur le bouton **Sélectionner** pour le modifier.
+7. Dans la fenêtre **Niveaux tarifaires recommandés** qui s’ouvre, cliquez sur le niveau recommandé, puis cliquez sur le bouton **Sélectionner** pour changer le niveau.
 
     ![S’inscrire à la version préliminaire][4]
 
-8. Si vous le voulez, vous pouvez cliquer sur **Afficher les informations sur l’utilisation** pour ouvrir le panneau **Détails des recommandations en matière de niveau de tarification**, dans lequel vous pouvez afficher le niveau recommandé pour la base de données, comparer les fonctionnalités entre le niveau actuel et le niveau recommandé et afficher un graphique d’analyse de l’utilisation des ressources sur une période donnée.
+8. Si vous le voulez, vous pouvez cliquer sur **Afficher les informations sur l’utilisation** pour ouvrir le panneau **Détails des recommandations en matière de niveau tarifaire**, dans lequel vous pouvez afficher le niveau recommandé pour la base de données, comparer les fonctionnalités entre le niveau actuel et le niveau recommandé et afficher un graphique d’analyse de l’utilisation des ressources sur une période donnée.
 
     ![S’inscrire à la version préliminaire][5]
 
@@ -81,7 +79,7 @@ Accédez à des recommandations sur les niveaux tarifaires en sélectionnant une
 
 ## Résumé
 
-Les recommandations relatives aux niveaux de tarification sont le fruit d’une opération automatisée de rassemblement des données de télémétrie pour chaque base de données SQL, et de recommandation du niveau de performances/de service le plus adapté, en fonction des besoins réels de la base de données en termes de performances et de fonctionnalités. Cliquez sur la vignette **Niveau de tarification** figurant sur le panneau d’une base de données pour afficher les recommandations relatives aux niveaux de tarification.
+Les recommandations relatives aux niveaux tarifaires sont le fruit d’une opération automatisée de collecte des données de télémétrie pour chaque base de données SQL, et de recommandation du niveau de performances/de service le plus adapté, en fonction des besoins réels de la base de données en termes de performances et de fonctionnalités. Dans le panneau Paramètres, cliquez sur **Niveau tarifaire (mise à l’échelle de DTU)** pour afficher les recommandations concernant les niveaux tarifaires des bases de données Web et Business.
 
 
 
@@ -92,12 +90,10 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
-[2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

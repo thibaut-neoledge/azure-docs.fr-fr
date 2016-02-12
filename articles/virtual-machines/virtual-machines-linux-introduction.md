@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="02/01/2016"
 	ms.author="szark"/>
 
 #Présentation de Linux sous Azure
@@ -29,7 +29,7 @@ Lorsque vous créez une machine virtuelle Linux avec le portail Azure Classic, 
 
 
  - Consultez la page [Création d’une machine virtuelle exécutant Linux](virtual-machines-linux-tutorial.md)
- - Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](../linux-use-ssh-key.md).
+ - Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-use-ssh-key.md).
 
 
 ## Obtention de privilèges de superutilisateur avec `sudo`
@@ -99,4 +99,4 @@ Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et 
 
  - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2015"
+   ms.date="01/07/2016"
    ms.author="alkohli"/>
 
 # Configuration système requise pour StorSimple Virtual Array (version préliminaire)
@@ -102,4 +102,4 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 
 -   [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

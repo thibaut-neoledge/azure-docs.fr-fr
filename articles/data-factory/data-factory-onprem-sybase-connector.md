@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données depuis Sybase à l’aide d’Azure Data Factory 
@@ -33,8 +33,9 @@ Pour que la passerelle de gestion des données puisse se connecter à la base de
 > [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Exemple : copie de données de Sybase vers Azure Blob
-
-L’exemple ci-dessous présente les éléments suivants :
+Cet exemple indique comment copier des données à partir d’une base de données Sybase locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+ 
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -212,7 +213,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	}
 
 
-## Propriétés du service lié Sybase
+## Propriétés du service lié Sybase
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Sybase.
 
@@ -229,7 +230,7 @@ gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pou
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données Sybase locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
 
-## Propriétés de type du jeu de données Sybase
+## Propriétés de type du jeu de données Sybase
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
@@ -239,7 +240,7 @@ Propriété | Description | Requis
 -------- | ----------- | --------
 TableName | Nom de la table dans l'instance de base de données Sybase à laquelle le service lié fait référence. | Non (si la **requête** de **RelationalSource** est spécifiée)
 
-## Propriétés de type de l'activité de copie Sybase 
+## Propriétés de type de l’activité de copie Sybase 
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
@@ -266,4 +267,4 @@ Sybase prend en charge les types T-SQL et T-SQL. Pour une table de mappage de ty
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

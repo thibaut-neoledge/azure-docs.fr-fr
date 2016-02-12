@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données depuis DB2 à l’aide d’Azure Data Factory
@@ -36,7 +36,9 @@ Des problèmes connus ont été signalés par IBM lors de l'installation du pilo
 
 ## Exemple : copie de données de DB2 vers Azure Blob
 
-L’exemple ci-dessous présente les éléments suivants :
+Cet exemple indique comment copier des données à partir d’une base de données DB2 locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+ 
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
@@ -212,7 +214,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	}
 
 
-## Propriétés du service lié DB2
+## Propriétés du service lié DB2
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié DB2.
 
@@ -230,7 +232,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 Pour plus d’informations sur la définition des informations d’identification pour une source de données DB2 locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
 
 
-## Propriétés de type du jeu de données DB2
+## Propriétés de type du jeu de données DB2
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
@@ -240,7 +242,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 | -------- | ----------- | -------- | 
 | TableName | Nom de la table dans l'instance de base de données DB2 à laquelle le service lié fait référence. | Non (si la **requête** de **RelationalSource** est spécifiée) |
 
-## Propriétés de type de l'activité de copie DB2.
+## Propriétés de type de l’activité de copie DB2.
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
@@ -312,4 +314,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

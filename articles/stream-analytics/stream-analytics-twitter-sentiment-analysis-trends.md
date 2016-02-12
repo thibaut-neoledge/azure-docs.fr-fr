@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 
@@ -34,7 +34,7 @@ Un site web de médias souhaite obtenir un avantage sur ses concurrents en prés
 
 ## Création d’une entrée de hub d’événements et d’un groupe de consommateurs
 
-L’exemple d’application génère des événements et les transmet vers une instance de hub d’événements (ou simplement « hub d’événement » pour faire plus court). Les hubs d’événements Service Bus constituent la méthode la plus efficace pour la réception d’événements dans Stream Analytics. Consultez la documentation relative aux hubs d’événements dans la [documentation de Service Bus](/documentation/services/service-bus/)
+L’exemple d’application génère des événements et les transmet vers une instance de hub d’événements (ou simplement « hub d’événement » pour faire plus court). Les hubs d’événements Service Bus constituent la méthode la plus efficace pour la réception d’événements dans Stream Analytics. Consultez la documentation relative aux concentrateurs d’événements dans la [documentation de Service Bus](/documentation/services/service-bus/)
 
 Procédez comme suit pour créer un hub d’événements.
 
@@ -229,11 +229,11 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

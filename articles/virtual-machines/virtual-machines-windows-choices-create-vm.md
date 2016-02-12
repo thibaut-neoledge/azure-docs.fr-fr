@@ -67,7 +67,7 @@ Choisissez une image basée sur le système d’exploitation que vous souhaitez 
 [Création et préconfiguration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Déploiement et gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Créer une machine virtuelle Windows avec Resource Manager et PowerShell]: virtual-machines-create-windows-powershell-resource-manager.md
-[Création d’une machine virtuelle Windows avec un modèle Resource Manager et PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template-simple.md
+[Création d’une machine virtuelle Windows avec un modèle Resource Manager et PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template.md
 
 
 [Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure]: resource-groups-vm-searching.md
@@ -79,4 +79,4 @@ Choisissez une image basée sur le système d’exploitation que vous souhaitez 
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

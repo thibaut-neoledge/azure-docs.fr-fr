@@ -3,7 +3,7 @@
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et Fuse."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Didacticiel : Intégration d’Azure Active Directory avec Fuse
@@ -35,7 +35,7 @@ Pour configurer l’intégration d’Azure AD avec Fuse, vous avez besoin des �
 - Un abonnement Fuse pour lequel l’authentification unique est activée
 
 
-> [AZURE.NOTE]Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -214,4 +214,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Runbooks Workers hybrides Azure Automation
@@ -60,7 +60,7 @@ Configuration du pare-feu requise :
 La procédure suivante décrit comment installer et configurer un Runbook Worker hybride. Effectuez les deux premières étapes une fois pour votre environnement Automation, puis répétez les étapes restantes pour chaque ordinateur Worker.
 
 ### 1\. Création d’un espace de travail Operations Management Suite
-Si vous ne disposez pas déjà d'un espace de travail Operations Management Suite, créez-en un en suivant les instructions mentionnées dans la page [Configuration de votre espace de travail Operational Insights (en anglais)](../operational-insights/operational-insights-onboard-in-minutes.md). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
+Si vous ne disposez pas déjà d’un espace de travail Operations Management Suite, créez-en un en suivant les instructions mentionnées dans la page [Configuration de votre espace de travail (en anglais)](https://technet.microsoft.com/library/mt484119.aspx). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
 
 ### 2\. Ajout de la solution Automation à l’espace de travail Operations Management Suite
 Les solutions ajoutent des fonctionnalités à Operations Management Suite. La solution Automation ajoute des fonctionnalités à Azure Automation, notamment la prise en charge des Runbooks Workers hybrides. Lorsque vous ajoutez la solution à votre espace de travail, les composants Worker sont automatiquement transférés à l’ordinateur agent que vous installerez à l’étape suivante.
@@ -190,4 +190,4 @@ Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation
 - [Modification d'un Runbook dans Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

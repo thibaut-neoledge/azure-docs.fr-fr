@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Activité de diffusion en continu Hadoop
 Vous pouvez utiliser l’activité HDInsightStreamingActivity pour appeler une tâche de diffusion en continu Hadoop à partir d’un pipeline Azure Data Factory. L’extrait de code JSON suivant illustre la syntaxe pour l’utilisation de HDInsightStreamingActivity dans un fichier JSON de pipeline.
 
-L’activité de diffusion en continu HDInsight dans un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des programmes de diffusion en continu Hadoop sur votre cluster HDInsight [propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) sous Windows ou Linux. Cet article s’appuie sur l’article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d’ensemble de la transformation des données et les activités de transformation prises en charge.
+L’activité de diffusion en continu HDInsight dans un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des programmes de diffusion en continu Hadoop sur votre cluster HDInsight [propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
-## Exemple JSON
+## Exemple JSON
 Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) et les exemples de programmes (wc.exe et cat.exe). Par défaut, le nom du conteneur utilisé par le cluster HDInsight est le nom du cluster lui-même. Par exemple, si votre nom de cluster est myhdicluster, le nom du conteneur d’objets blob associé est myhdicluster.
 
 	{
@@ -81,7 +81,7 @@ Notez les points suivants :
 9. Pour la propriété **arguments**, spécifiez les arguments de la tâche de diffusion en continu.
 10. La propriété **getDebugInfo** est un élément facultatif. Si sa valeur est Failure, les journaux ne sont téléchargés qu’en cas d’échec. Si sa valeur est All, les journaux sont toujours téléchargés, quel que soit l’état de l’exécution.
 
-> [AZURE.NOTE]Comme le montre l’exemple, vous devrez spécifier un jeu de données en sortie pour l’activité de diffusion en continu Hadoop pour la propriété **sorties**. Il s'agit simplement d'un ensemble de données factice qui est nécessaire au fonctionnement de la planification de pipeline. Il est inutile de spécifier un jeu de données en entrée pour l’activité de la propriété **entrées**.
+> [AZURE.NOTE] Comme le montre l’exemple, vous devrez spécifier un jeu de données en sortie pour l’activité de diffusion en continu Hadoop pour la propriété **sorties**. Il s'agit simplement d'un ensemble de données factice qui est nécessaire au fonctionnement de la planification de pipeline. Il est inutile de spécifier un jeu de données en entrée pour l’activité de la propriété **entrées**.
 
 	
 ## Exemple
@@ -89,8 +89,8 @@ Le pipeline dans cette procédure pas à pas exécute le programme de diffusion 
 
 ### Services liés
 
-#### Service lié Storage
-Tout d’abord, vous créez un service lié pour lier le stockage Azure qui est utilisé par le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, n’oubliez pas de remplacer le nom de compte et la clé de compte par le nom et la clé de votre stockage Azure.
+#### Service lié Azure Storage
+Tout d'abord, vous créez un service lié pour lier le stockage Azure qui est utilisé par le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, n’oubliez pas de remplacer le nom de compte et la clé de compte par le nom et la clé de votre stockage Azure.
 
 	{
 	    "name": "StorageLinkedService",
@@ -102,8 +102,8 @@ Tout d’abord, vous créez un service lié pour lier le stockage Azure qui est 
 	    }
 	}
 
-#### Service lié Azure HDInsight
-Ensuite, vous créez un service lié pour lier le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, remplacez le nom du cluster HDInsight par le nom de votre cluster HDInsight et modifiez le nom d’utilisateur et le mot de passe.
+#### Service lié Azure HDInsight
+Tout d'abord, vous créez un service lié pour lier le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, remplacez le nom du cluster HDInsight par le nom de votre cluster HDInsight et modifiez le nom d’utilisateur et le mot de passe.
 	
 	{
 	    "name": "HDInsightLinkedService",
@@ -192,4 +192,4 @@ Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) 
 	    }
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

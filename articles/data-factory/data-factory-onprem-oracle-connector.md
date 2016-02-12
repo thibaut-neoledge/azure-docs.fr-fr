@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données à partir d’Oracle en local à l’aide d’Azure Data Factory 
@@ -29,8 +29,9 @@ Pour permettre au service Azure Data Factory de se connecter à votre base de do
 > [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Exemple : copie de données d’Oracle vers Azure Blob
-
-L’exemple ci-dessous présente les éléments suivants :
+Cet exemple indique comment copier des données à partir d’une base de données Oracle locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+ 
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -206,7 +207,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	   }
 	}
 
-## Propriétés du service lié Oracle
+## Propriétés du service lié Oracle
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Oracle.
 
@@ -217,7 +218,7 @@ connectionString | Spécifier les informations requises pour la connexion à l�
 gatewayName | Nom de la passerelle qui sera utilisée pour se connecter au serveur Oracle local | Oui
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données Oracle locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
-## Propriétés de type du jeu de données Oracle
+## Propriétés de type du jeu de données Oracle
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (Oracle, Azure Blob, Azure Table, etc.).
  
@@ -227,7 +228,7 @@ Propriété | Description | Requis
 -------- | ----------- | --------
 TableName | Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | Non (si **oracleReaderQuery** de **SqlSource** est spécifié)
 
-## Propriétés de type de l'activité de copie Oracle
+## Propriétés de type de l’activité de copie Oracle
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
@@ -244,7 +245,7 @@ Par exemple : select * from MyTable <p>Si non spécifié, l’instruction SQL e
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Mappage de type pour Oracle
+### Mappage de type pour Oracle
 
 Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
@@ -301,4 +302,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

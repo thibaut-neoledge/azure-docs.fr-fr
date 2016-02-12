@@ -271,7 +271,7 @@ Pour déterminer les valeurs possibles de la chaîne de taille de machine virtue
 	$avName="<availability set name>"
 	Get-AzureRmVMSize -ResourceGroupName $rgName -AvailabilitySetName $avName | Select Name
 
-> [AZURE.NOTE]Actuellement, avec Resource Manager, vous pouvez ajouter une machine virtuelle à un groupe à haute disponibilité seulement lors de sa création.
+> [AZURE.NOTE] Actuellement, avec Resource Manager, vous pouvez ajouter une machine virtuelle à un groupe à haute disponibilité seulement lors de sa création.
 
 Pour ajouter un disque de données supplémentaire à la machine virtuelle, copiez ces lignes dans votre jeu de commandes et spécifiez les paramètres du disque.
 
@@ -391,8 +391,8 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 
 [Déployer et gérer des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Création d’une machine virtuelle Windows avec un modèle Resource Manager et PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[Création d’une machine virtuelle Windows avec un modèle Resource Manager et PowerShell](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
+[Installation et configuration d’Azure PowerShell](powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

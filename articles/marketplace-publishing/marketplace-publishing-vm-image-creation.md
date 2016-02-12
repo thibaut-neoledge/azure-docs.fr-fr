@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="02/02/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide à la création d’une image de machine virtuelle pour Azure Marketplace
@@ -45,7 +45,7 @@ Une fois que vous avez ajouté une offre, vous devez définir/identifier vos ré
 
 1. **Ajoutez une référence SKU.** La référence SKU requiert un identificateur qui est utilisé dans l’URL. L’identificateur doit être unique dans votre profil de publication. Il n’y a pas de risque de conflit avec les identificateurs d’autres éditeurs.
 
-> [AZURE.NOTE]Les identificateurs de l’offre et de la référence SKU s’afficheront dans l’URL de l’offre sur Marketplace.
+> [AZURE.NOTE] Les identificateurs de l’offre et de la référence SKU s’afficheront dans l’URL de l’offre sur Marketplace.
 
 2. **Ajoutez une description de votre référence SKU.** Des descriptions résumées sont visibles pour les clients, donc, vous devez les rendre facilement lisibles. Ces informations ne doivent pas être verrouillées jusqu’à la phase « Envoi vers staging »/ intermédiaire.
 3. Si vous utilisez des références SKU basées sur Windows, suivez les liens suggérés pour acquérir les versions approuvées de Windows Server.
@@ -53,7 +53,7 @@ Une fois que vous avez ajouté une offre, vous devez définir/identifier vos ré
 ## 2\. Créer un disque dur virtuel compatible avec Azure (Linux)
 Cette section se concerne sur les meilleures pratiques pour la création d’une image de machine virtuelle Linux pour Azure Marketplace. Pour consulter la procédure détaillée, consultez la documentation suivante : [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux][link-azure-vm-1]
 
-> [AZURE.TIP]La plupart des étapes suivantes (installation de l’agent, paramètres de démarrage du noyau) sont déjà prises en charge pour les images Linux disponibles à partir de la galerie d’images de Microsoft Azure. Par conséquent, vous pouvez gagner du temps en travaillant à partir de l’une de ces images sans avoir à configurer une image Linux ne connaissant pas Azure.
+> [AZURE.TIP] La plupart des étapes suivantes (installation de l’agent, paramètres de démarrage du noyau) sont déjà prises en charge pour les images Linux disponibles à partir de la galerie d’images de Microsoft Azure. Par conséquent, vous pouvez gagner du temps en travaillant à partir de l’une de ces images sans avoir à configurer une image Linux ne connaissant pas Azure.
 
 ### 2\.1 Choisir la taille du disque dur virtuel
 Les références SKU publiées (images de machine virtuelle) doivent être compatibles avec toutes les tailles de machine virtuelle prenant en charge le nombre de disques pour la référence SKU. Vous pouvez fournir des instructions en matière de taille. Celles-ci seront toutefois traitées comme des recommandations et leur application ne sera pas obligatoire.
@@ -104,7 +104,7 @@ Les spécifications réseau suivantes sont requises pour une image de machine vi
 
         rm /etc/resolv.conf
 
-- Le périphérique réseau doit être monté au démarrage et utiliser le protocole DHCP.
+- L’appareil réseau doit être monté au démarrage et utiliser le protocole DHCP.
 - Le protocole IPv6 n’est pas pris en charge sur Azure. Si cette propriété est activée, il ne fonctionnera pas.
 
 ### 2\.8 S’assurer que les meilleures pratiques de sécurité sont en place
@@ -150,7 +150,7 @@ Pour commencer, créez une machine virtuelle à partir d’une des images suivan
 
 Ces liens sont également disponibles dans le Portail de publication sous la page des références SKU.
 
-> [AZURE.TIP]Si vous utilisez le portail Azure actuel ou PowerShell, les images Windows Server publiées à compter du 8 septembre 2014 sont approuvées.
+> [AZURE.TIP] Si vous utilisez le portail Azure actuel ou PowerShell, les images Windows Server publiées à compter du 8 septembre 2014 sont approuvées.
 
 
 ### 3\.2 Créer votre machine virtuelle Windows
@@ -195,7 +195,7 @@ Ces liens sont également disponibles dans le Portail de publication sous la pag
 ### 3\.3 Développer votre disque dur virtuel dans le cloud
 Il est vivement recommandé de développer votre disque dur virtuel dans le cloud à l’aide du protocole RDP (Remote Desktop Protocol). Vous pouvez vous connecter au bureau à distance à l’aide des nom d’utilisateur et mot de passe spécifiés pendant l’approvisionnement.
 
-> [AZURE.IMPORTANT]Si vous développez votre disque dur virtuel sur site (ce qui n’est pas recommandé), consultez la page [Création d’une image de machine virtuelle sur site](marketplace-publishing-vm-image-creation-on-premise.md). Il est inutile de télécharger votre disque dur virtuel si vous développez dans le cloud.
+> [AZURE.IMPORTANT] Si vous développez votre disque dur virtuel sur site (ce qui n’est pas recommandé), consultez la page [Création d’une image de machine virtuelle sur site](marketplace-publishing-vm-image-creation-on-premise.md). Il est inutile de télécharger votre disque dur virtuel si vous développez dans le cloud.
 
 
 **Se connecter via RDP à l’aide du [Portail Microsoft Azure][link-azure-portal]**
@@ -580,14 +580,11 @@ Une fois que vous avez créé votre offre et votre référence SKU, vous devez r
 2. Sélectionnez l’onglet **VM Images** (Images de machine virtuelle)
 3. L’identificateur figurant en haut de la page est en fait l’identificateur de l’offre et non l’identificateur de la référence SKU.
 4. Renseignez les propriétés sous la section **SKU** (Références SKU).
-
-    ![dessin][img-pubportal-vm-skus]
-
 5. Sous **Famille de système d’exploitation**, sélectionnez le type de système d’exploitation associé au disque dur virtuel du système d’exploitation.
 6. Sous **Système d’exploitation**, décrivez le système d’exploitation. Envisagez un format du type Famille de systèmes d’exploitation, Type, Version et Mises à jour, Par exemple, « Windows Server Datacenter 2014 R2 ».
-7. Sélectionnez trois tailles de machine virtuelle recommandées. Ces recommandations sont présentées à l’utilisateur dans le panneau Niveau de tarification du Portail de gestion Azure s’il décide d’acheter et de déployer votre image.
+7. Sélectionnez jusqu’à six tailles de machine virtuelle recommandées. Ces recommandations sont présentées à l’utilisateur dans le panneau Niveau tarifaire du Portail de gestion Azure s’il décide d’acheter et de déployer votre image.
 
-  >[AZURE.NOTE]Il s’agit uniquement de recommandations. Le client peut sélectionner n’importe quelle taille de machine virtuelle prenant en charge les disques spécifiés dans votre image.
+  > [AZURE.NOTE] Il s’agit uniquement de recommandations. Le client peut sélectionner n’importe quelle taille de machine virtuelle prenant en charge les disques spécifiés dans votre image.
 
 8. Indiquez la version. Le champ version encapsule une version sémantique pour identifier le produit et ses mises à jour :
   -	Les versions doivent être au format X.Y.Z, où X, Y et Z sont des entiers.
@@ -596,14 +593,11 @@ Une fois que vous avez créé votre offre et votre référence SKU, vous devez r
 9. Dans la zone **URL de disque dur virtuel de système d’exploitation**, saisissez la signature d’accès partagé créée pour le disque dur virtuel du système d’exploitation.
 10. Si des disques de données sont associés à cette référence SKU, sélectionnez le numéro d’unité logique que vous voulez utiliser pour le montage de ce disque de données lors du déploiement.
 11. Dans la zone **URL de disque dur virtuel LUN X** entrez la signature d’accès partagé créée pour les données du premier disque dur virtuel.
-12.	Cliquez sur **Charger les résultats des tests**.
-13.	Cliquez sur **Request Certification** (Demander la certification).
-14.	Répétez les étapes 11, 12 et 13 pour chaque disque dur virtuel de disque de données supplémentaire.
 
     ![dessin][img-pubportal-vm-skus-2]
 
 ## Étape suivante
-Après avoir demandé la certification de vos références SKU d’image de machine virtuelle, vous pouvez aller plus loin en consultant le [guide de création de contenu marketing sur Azure Marketplace][link-pushstaging]. Dans cette étape du processus de publication, vous devez fournir le contenu marketing, la tarification et d’autres informations nécessaires avant l’**étape 3 : test de votre machine virtuelle en mode intermédiaire**, où vous testez divers scénarios de cas d’utilisation avant de déployer l’offre sur Azure Marketplace pour une visibilité publique et l’achat.
+Une fois que vous avez terminé avec les détails de la référence SKU, vous pouvez consulter le [Guide de contenu marketing Azure Marketplace][link-pushstaging]. Dans cette étape du processus de publication, vous devez fournir le contenu marketing, la tarification et d’autres informations nécessaires avant l’**étape 3 : test de votre machine virtuelle en mode intermédiaire**, où vous testez divers scénarios de cas d’utilisation avant de déployer l’offre sur Azure Marketplace pour une visibilité publique et l’achat.
 
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -635,7 +629,7 @@ Après avoir demandé la certification de vos références SKU d’image de mach
 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-github-waagent]: https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]: https://azurestorageexplorer.codeplex.com/
+[link-azure-codeplex]: http://storageexplorer.com/
 [link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]: http://www.microsoft.com/download/details.aspx?id=44299
@@ -660,4 +654,4 @@ Après avoir demandé la certification de vos références SKU d’image de mach
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

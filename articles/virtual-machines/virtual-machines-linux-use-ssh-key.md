@@ -23,7 +23,7 @@
 - [Windows](../articles/virtual-machines/virtual-machines-windows-use-ssh-key.md)
 - [Linux/Mac](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)
 
-Cette rubrique explique comment utiliser **ssh-keygen** et **openssl** sous Linux et Mac pour créer et utiliser les fichiers aux formats **ssh-rsa** et **.pem** pour sécuriser la communication avec des machines virtuelles Azure basées sur Linux. La création de machines virtuelles Azure basées sur Linux à l'aide du modèle de déploiement du gestionnaire de ressources est recommandée pour les nouveaux déploiements et s'appuie sur une chaîne ou un fichier de clé publique *ssh rsa* (en fonction du client de déploiement). La [version préliminaire du portail](https://portal.azure.com) n'accepte actuellement que les chaînes de format **ssh-rsa**, que ce soit pour les déploiements classiques ou du gestionnaire de ressources.
+Cette rubrique explique comment utiliser **ssh-keygen** et **openssl** sous Linux et Mac pour créer et utiliser les fichiers aux formats **ssh-rsa** et **.pem** pour sécuriser la communication avec des machines virtuelles Azure basées sur Linux. La création de machines virtuelles Azure basées sur Linux à l'aide du modèle de déploiement du gestionnaire de ressources est recommandée pour les nouveaux déploiements et s'appuie sur une chaîne ou un fichier de clé publique *ssh rsa* (en fonction du client de déploiement). Le [portail Azure](https://portal.azure.com) n’accepte actuellement que les chaînes de format **ssh-rsa**, que ce soit pour les déploiements classiques ou les déploiements Azure Resource Manager.
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Pour créer ces types de fichiers à utiliser sur un ordinateur Windows afin de communiquer en toute sécurité avec des machines virtuelles Linux dans Azure, consultez [Utiliser des clés SSH sous Windows](virtual-machines-windows-use-ssh-key.md).
 
@@ -33,7 +33,7 @@ La configuration SSH de base pour Azure inclut une paire de clés publiques et p
 
 Voici les scénarios de déploiement et les types de fichiers que vous utilisez dans chacun d'eux
 
-1. Les clés **ssh rsa** sont requises pour tout déploiement à l'aide du [portail en version préliminaire](https://portal.azure.com), quel que soit le modèle de déploiement.
+1. Les clés **ssh rsa** sont requises pour tout déploiement à l’aide du [portail Azure](https://portal.azure.com), quel que soit le modèle de déploiement.
 2. Les fichiers .pem sont nécessaires pour créer des machines virtuelles à l'aide du [portail classique](https://manage.windowsazure.com). Les fichiers .pem sont également pris en charge dans les déploiements classiques qui utilisent l'[interface de ligne de commande CLI](xplat-cli-install.md). 
 
 ## Création de clés à utiliser avec SSH
@@ -72,7 +72,7 @@ Si vous avez besoin de créer les fichiers :
 
 	Si vous souhaitez créer un fichier .pem à partir d'un autre fichier de clé privée, modifiez l'argument `-key`.
 
-> [AZURE.NOTE]Si vous prévoyez de gérer des services déployés avec le modèle de déploiement classique, vous pouvez également créer un fichier au format **.cer** à télécharger sur le portail, bien que cela n'implique pas **ssh** ni la connexion à des machines virtuelles Linux (l'objet de cet article). Pour créer ces fichiers sous Linux ou Mac, tapez : <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
+> [AZURE.NOTE] Si vous prévoyez de gérer des services déployés avec le modèle de déploiement classique, vous pouvez également créer un fichier au format **.cer** à télécharger sur le portail, bien que cela n'implique pas **ssh** ni la connexion à des machines virtuelles Linux (l'objet de cet article). Pour créer ces fichiers sous Linux ou Mac, tapez : <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
 
 Pour convertir votre fichier .pem en un fichier de certificat DER X509 codé.
 
@@ -296,4 +296,4 @@ Vous pouvez lire les suggestions de la rubrique [Dépannage SSH connexions](virt
  
 Maintenant que vous êtes connecté à votre machine virtuelle, veillez à mettre à jour la distribution que vous avez choisie avant de continuer à l'utiliser.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

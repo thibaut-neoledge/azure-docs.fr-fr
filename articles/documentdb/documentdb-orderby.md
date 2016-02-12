@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Tri de données DocumentDB à l'aide de la clause Order By
@@ -79,7 +79,7 @@ DocumentDB prend en charge le tri avec une chaîne numérique unique ou une prop
 
 Rappelez-vous que DocumentDB prend en charge deux types d'index (le hachage et la plage), qui peuvent être définis pour des chemins d'accès ou des propriétés spécifiques, des types de données (chaînes ou numéros) et à des valeurs de précision différentes (précision maximale ou une valeur de précision fixe). Étant donné que DocumentDB utilise le hachage indexation par défaut, vous devez créer une nouvelle collection avec une stratégie d'indexation personnalisée avec une plage de nombres, de chaînes ou les deux, pour pouvoir utiliser Order By.
 
->[AZURE.NOTE]Les index de plage de chaîne ont été introduits le 7 juillet 2015 avec la version 2015-06-03 de l'API REST. Pour créer des stratégies pour Order By sur les chaînes, vous devez utiliser la version 1.2.0 du Kit de développement logiciel (SDK) .NET ou la version 1.1.0 du Kit de développement logiciel (SDK) Python, Node.js ou Java.
+>[AZURE.NOTE] Les index de plage de chaîne ont été introduits le 7 juillet 2015 avec la version 2015-06-03 de l'API REST. Pour créer des stratégies pour Order By sur les chaînes, vous devez utiliser la version 1.2.0 du Kit de développement logiciel (SDK) .NET ou la version 1.1.0 du Kit de développement logiciel (SDK) Python, Node.js ou Java.
 >
 >Avant la version 2015-06-03 de l'API REST, la stratégie d'indexation de la collection par défaut était le hachage des chaînes et des nombres. Désormais, la stratégie est définie par le hachage pour les chaînes et la plage pour les nombres.
 
@@ -100,7 +100,7 @@ Voici comment vous pouvez créer une collection avec l’indexation « Toutes l
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
 
->[AZURE.NOTE]Notez que Order By retourne uniquement des résultats des types de données (chaîne et nombre) qui sont indexés avec un RangeIndex. Par exemple, si vous disposez d'une stratégie d’indexation par défaut qui ne possède qu’une RangeIndex pour les nombres, une clause Order By sur un chemin d'accès avec des valeurs de chaîne ne retournera aucun document.
+>[AZURE.NOTE] Notez que Order By retourne uniquement des résultats des types de données (chaîne et nombre) qui sont indexés avec un RangeIndex. Par exemple, si vous disposez d'une stratégie d’indexation par défaut qui ne possède qu’une RangeIndex pour les nombres, une clause Order By sur un chemin d'accès avec des valeurs de chaîne ne retournera aucun document.
 
 ### Indexation pour la clause Order By d'une propriété unique
 Voici comment vous pouvez créer une collection avec une indexation pour la clause Order By pour la propriété Title qui est une chaîne. Il existe deux chemins d'accès, un pour la propriété Title ("/Titre/?") avec l'indexation de plage, et l'autre pour toutes les autres propriétés avec le modèle d'indexation par défaut, qui est le hachage pour les chaînes et la plage pour les nombres.
@@ -126,13 +126,6 @@ Voici comment vous pouvez créer une collection avec une indexation pour la clau
 
 ## Exemples
 Examinez ce [projet d'exemples Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) qui montre comment utiliser la clause Order By, y compris la création de stratégies d'indexation et de pagination à l'aide de la clause Order By. Les exemples sont open source et nous vous invitons à envoyer des requêtes d'extraction avec des contributions qui permettront aux autres développeurs DocumentDB de les exploiter. Veuillez vous reporter aux [instructions de contribution](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) pour obtenir des conseils sur la façon de contribuer.
-
-## Quelles sont les étapes suivantes ?
-
-Les mises à jour futures du service développeront davantage la prise en charge de la clause Order By présentée ici. Nous travaillons sur les ajouts suivants et la publication de ces améliorations sera basée sur vos commentaires :
-
-- Stratégies d’indexation dynamique : prise en charge permettant de modifier la stratégie d’indexation après la création de la collection dans le portail Azure Classic
-- Prise en charge des index composés pour une clause Order By plus efficace et une clause Order By sur plusieurs propriétés.
 
 ## Forum Aux Questions
 
@@ -177,4 +170,4 @@ Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-document
 * [Exemples Order By de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

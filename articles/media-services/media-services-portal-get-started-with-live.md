@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ Dans ce didacticiel, le portail Azure Classic permet d’effectuer les tâches s
 ## Composants requis
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-- Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
+- Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 - Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-create-account.md).
 - Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire multiple.
 
@@ -88,7 +88,7 @@ Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Pour plus d’informations sur les URL de réception, voir [Utilisation d’encodeurs locaux pour envoyer un flux dynamique à débit binaire multiple vers un canal](../media-services-channels-overview.md).
+Pour plus d’informations sur les URL de réception, voir [Utilisation d’encodeurs locaux pour envoyer un flux dynamique à débit binaire multiple vers un canal](media-services-channels-overview.md).
 
 ## Configurer un encodeur dynamique et recevoir un flux dynamique
 
@@ -212,4 +212,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

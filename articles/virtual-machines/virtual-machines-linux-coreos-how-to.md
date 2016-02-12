@@ -58,7 +58,7 @@ Cette section décrit la création d’un service cloud Azure comportant trois 
 
 Suivez les instructions fournies dans la rubrique [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-use-ssh-key.md) pour créer une clé SSH privée et publique. (La procédure de base figure dans les instructions ci-dessous). Vous allez utiliser ces clés pour vous connecter aux machines virtuelles du cluster et vérifier qu'elles fonctionnent et communiquent entre elles.
 
-> [AZURE.NOTE]Cette rubrique part du principe que vous ne disposez pas de ces clés et vous impose de créer les fichiers `myPrivateKey.pem` et `myCert.pem` pour des raisons de clarté. Si vous avez déjà une paire clé publique/clé privée enregistrée dans `~/.ssh/id_rsa`, il vous suffit de taper `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` pour obtenir le fichier .pem nécessaire au chargement vers Azure.
+> [AZURE.NOTE] Cette rubrique part du principe que vous ne disposez pas de ces clés et vous impose de créer les fichiers `myPrivateKey.pem` et `myCert.pem` pour des raisons de clarté. Si vous avez déjà une paire clé publique/clé privée enregistrée dans `~/.ssh/id_rsa`, il vous suffit de taper `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` pour obtenir le fichier .pem nécessaire pour le chargement vers Azure.
 
 1. Dans un répertoire de travail, tapez `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` pour créer la clé privée et le certificat X.509 associé.
 
@@ -79,7 +79,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 Toujours dans le même répertoire de travail, créez avec l’éditeur de texte de votre choix un fichier contenant le texte ci-dessous et enregistrez-le sous le nom `cloud-config.yaml`. (Vous pouvez l’enregistrer sous n’importe quel nom, mais quand vous créerez des machines virtuelles à l’étape suivante, vous devrez référencer le nom de ce fichier dans l’option **--custom-data** de la commande **azure vm create**.)
 
-> [AZURE.NOTE]N’oubliez pas de taper `cat etcdid` pour obtenir l’ID de découverte etcd dans le fichier `etcdid` créé précédemment. Remplacez `<token>` dans le fichier `cloud-config.yaml` suivant par le nombre généré à partir de votre fichier `etcdid`. Si vous ne pouvez pas finalement valider votre cluster, vous avez peut-être oublié ces étapes !
+> [AZURE.NOTE] N’oubliez pas de taper `cat etcdid` pour obtenir l’ID de découverte etcd dans le fichier `etcdid` créé précédemment. Remplacez `<token>` dans le fichier `cloud-config.yaml` suivant par le nombre généré à partir de votre fichier `etcdid`. Si vous ne pouvez pas finalement valider votre cluster, vous avez peut-être oublié ces étapes !
 
 ```
 #cloud-config
@@ -110,7 +110,7 @@ Pour en savoir plus sur le fichier cloud-config, consultez la rubrique [Utilisa
 
 3. Créez un service cloud pour votre cluster de base : tapez `azure service create <cloud-service-name>` où <*cloud-service-name*> est le nom de votre service cloud CoreOS. Cet exemple utilise le nom **`coreos-cluster`** ; vous devrez réutiliser le nom que vous avez choisi pour créer les instances CoreOS de vos machines virtuelles dans le service cloud.
 
-	Remarque : si vous examinez votre travail dans la [version préliminaire du portail](https://portal.azure.com), vous constaterez que le nom de votre service cloud est à la fois celui d’un groupe de ressources et d’un domaine (voir l’image suivante) :
+	Remarque : si vous examinez votre travail dans le [portail Azure](https://portal.azure.com), vous constaterez que le nom de votre service cloud est à la fois celui d’un groupe de ressources et d’un domaine, comme l’illustre l’image suivante :
 
 	![][CloudServiceInNewPortal]
 
@@ -146,7 +146,7 @@ Quand vous êtes connecté, tapez `sudo fleetctl list-machines` pour savoir si l
 
 ### Testez votre cluster CoreOS à partir de localhost.
 
-Pour finir, testons votre cluster CoreOS à partir de votre client Linux local. Vous pouvez installer **fleetctl** à l’aide de **npm**. Vous pouvez également installer **fleet** et générer **fleetctl** vous-même sur votre ordinateur client local. **fleet** requiert **golang**, vous devrez donc peut-être l’installer d’abord en tapant ce qui suit :
+Pour finir, testons votre cluster CoreOS à partir de votre client Linux local. Vous pouvez installer **fleetctl** à l’aide de **npm**. Vous pouvez également installer **fleet** et générer **fleetctl** vous-même sur votre ordinateur client local. **fleet** requiert **golang**, vous devrez donc d’abord l’installer en tapant ce qui suit :
 
 `sudo apt-get install golang`
 
@@ -166,7 +166,7 @@ Vérifiez que **fleet** dispose de l’accès à votre `myPrivateKey.key` dans l
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE]Si vous utilisez déjà la clé `~/.ssh/id_rsa`, ajoutez-la avec `ssh-add ~/.ssh/id_rsa`.
+> [AZURE.NOTE] Si vous utilisez déjà la clé `~/.ssh/id_rsa`, ajoutez-la avec `ssh-add ~/.ssh/id_rsa`.
 
 Vous êtes maintenant prêt à effectuer un test à distance en utilisant la même commande **fleetctl** que vous avez utilisée sur **node-1**, mais en transmettant certains arguments de connexion à distance :
 
@@ -209,4 +209,4 @@ Vous devez avoir un cluster CoreOS exécutant trois nœuds sur Azure. À ce st
 [YAML]: http://yaml.org/
 [Prise en main de fleet avec CoreOS sur Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

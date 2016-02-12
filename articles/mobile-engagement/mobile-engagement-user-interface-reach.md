@@ -23,7 +23,7 @@ Cet article décrit l’onglet **REACH** du portail **Mobile Engagement**. Le po
 
 La section Reach de l'interface utilisateur est l'outil de gestion des campagnes Push qui vous permet de créer, modifier, activer, terminer ou surveiller et obtenir des statistiques relatives aux campagnes de notifications Push et des fonctionnalités. Vous pouvez accéder à celles-ci via l'API Reach (ainsi que certains éléments de l'API Push de bas niveau). Que vous utilisiez ces API ou l'interface utilisateur, il vous faudra intégrer Azure Mobile Engagement et Reach à votre application pour chaque plateforme à l'aide du Kit de développement logiciel (SDK) avant de pouvoir utiliser les campagnes Reach.
 
->[AZURE.NOTE]De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+>[AZURE.NOTE] De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 
 ## Quatre types de notifications Push
 1.    Annonces : elles vous permettent d'envoyer aux utilisateurs des messages publicitaires qui les redirigent vers un autre emplacement dans votre application ou les envoient vers une page Web ou un Store en dehors de votre application. 
@@ -49,10 +49,11 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 	1. Si l'utilisateur a désinstallé l'application de l'appareil mais le service PNS ne le sait pas au moment où nous envoyons la notification Push au service PNS, alors le message est supprimé.
 	2. Si l'appareil dispose de l'application mais que les appareils eux-mêmes étaient hors ligne pendant de longues périodes, alors la remise du message à l'appareil par le service PNS échoue. 
 	3. Si le message est remis à l'appareil mais que le Kit de développement logiciel (SDK) Mobile Engagement dans l'application ne reconnaît pas le contenu du message, alors le message est supprimé. Cela peut se produire si la personnalisation de la notification dans l'application génère une exception relevée dans le Kit de développement logiciel (SDK) et supprime le message. Cela peut également se produire si l'application sur l'appareil utilise une version du Kit de développement logiciel (SDK) Engagement Mobile qui n'est pas en mesure de comprendre la version la plus récente du message Push envoyé à partir de la plateforme. Cela ne s'applique que lorsque l'application a été mise à niveau après la distribution de la notification par la plateforme de services. L'onglet **Avancé** indique le nombre de messages supprimés. 
+	4. Sur les appareils iOS, la remise des messages peut parfois échouer si la batterie de l’appareil est faible ou que l’application consomme trop d’énergie pendant le traitement des notifications distantes. Il s’agit d’une limitation des appareils iOS.   
 
-3.	**Affichés** : indique le nombre de messages qui sont affichés correctement à l'utilisateur de l'application sur l'appareil sous la forme d'une notification système Push/hors application dans le centre de notification ou une notification dans l'application au sein de l'application mobile. L'onglet **Avancé** indique le nombre de notifications système et le nombre de notifications dans l'application.
+3.	**Affichés** : indique le nombre de messages qui sont affichés correctement à l’utilisateur de l’application sur l’appareil sous la forme d’une notification système Push/hors application dans le centre de notification ou une notification dans l’application au sein de l’application mobile. L’onglet **Avancé** indique le nombre de notifications système et le nombre de notifications dans l’application.
 
-4.	**Interactions utilisateur** : indique le nombre de messages avec lesquels l'utilisateur de l'application a eu une interaction et inclut les messages font l'objet d'une action ou qui sont abandonnés.
+4.	**Interactions utilisateur** : indique le nombre de messages avec lesquels l’utilisateur de l’application a eu une interaction et inclut les messages qui font l’objet d’une action ou qui sont abandonnés.
 
 	- *L'utilisateur de l'application peut agir sur une notification de l'une des manières suivantes :*
 			
@@ -66,9 +67,9 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 		2. En balayant ou en supprimant la notification. 
 		3. Les notifications dans l'application avec du texte/contenu web et les sondages sont généralement affichées à l'utilisateur de l'application dans un processus en deux étapes. L'utilisateur reçoit tout d'abord une notification et lorsqu'il clique dessus, le contenu du texte/web/sondage s'affiche. L'utilisateur de l'application peut quitter une notification dans n'importe laquelle de ces étapes et les détails dans la vue Avancée indiquent cela. 
 
-5.	**Actionnés** : indique le nombre de messages qui ont explicitement fait l'objet d'une action par l'utilisateur de l'application. Il s'agit du nombre le plus intéressant car il indique le nombre d'utilisateurs de l'application intéressés par le message transmis dans la notification.
+5.	**Actionnés** : indique le nombre de messages qui ont explicitement fait l’objet d’une action par l’utilisateur de l’application. Il s'agit du nombre le plus intéressant car il indique le nombre d'utilisateurs de l'application intéressés par le message transmis dans la notification.
  
-> [AZURE.NOTE]Sur les plateformes iOS et Windows, si l'utilisateur dispose de l'application ouverte et que la campagne était du type « À tout moment », il est possible que les notifications hors application et dans l'application s'affichent en même temps. Cela peut entraîner un nombre plus élevé pour le paramètre Affichés que pour le paramètre Remis. Si l'utilisateur interagit avec la notification ou qu'il exécute une action dessus, alors même le nombre Interactions utilisateur/Actionnés peut être supérieur au nombre Remis.
+> [AZURE.NOTE] Sur les plateformes iOS et Windows, si l'utilisateur dispose de l'application ouverte et que la campagne était du type « À tout moment », il est possible que les notifications hors application et dans l'application s'affichent en même temps. Cela peut entraîner un nombre plus élevé pour le paramètre Affichés que pour le paramètre Remis. Si l'utilisateur interagit avec la notification ou qu'il exécute une action dessus, alors même le nombre Interactions utilisateur/Actionnés peut être supérieur au nombre Remis.
 
 
 ![Reach2][19]
@@ -170,4 +171,4 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

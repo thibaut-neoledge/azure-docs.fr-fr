@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 
-Cet article décrit comment vous pouvez utiliser l'activité de copie dans Data Factory pour déplacer des données vers Azure SQL Data Warehouse à partir d'un autre magasin de données et vice versa. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasin de données prises en charge.
+Cet article décrit comment vous pouvez utiliser l'activité de copie dans Data Factory pour déplacer des données vers Azure SQL Data Warehouse à partir d'un autre magasin de données et vice versa. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
+
+Les exemples suivants indiquent comment copier des données vers et depuis Azure SQL Data Warehouse et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+
 
 ## Exemple : copie de données depuis Azure SQL Data Warehouse vers un objet Blob Azure
 
@@ -193,7 +196,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	   }
 	}
 
-> [AZURE.NOTE]Dans l’exemple ci-dessus, **sqlReaderQuery** est spécifié pour SqlDWSource. L’activité de copie exécute cette requête sur la source Azure SQL Data Warehouse pour obtenir les données.
+> [AZURE.NOTE] Dans l’exemple ci-dessus, **sqlReaderQuery** est spécifié pour SqlDWSource. L’activité de copie exécute cette requête sur la source Azure SQL Data Warehouse pour obtenir les données.
 >  
 > Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
 >  
@@ -373,7 +376,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 Vous trouverez une procédure pas à pas dans l'article [Téléchargement de données avec Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) dans la documentation Azure SQL Data Warehouse.
 
-## Propriétés du service lié Azure SQL Data Warehouse
+## Propriétés du service lié Azure SQL Data Warehouse
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure SQL Data Warehouse.
 
@@ -384,7 +387,7 @@ type | La propriété de type doit être définie sur **AzureSqlDW**. | Oui
 
 Remarque : vous devez configurer le [pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Vous devez configurer le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Data Warehouse à partir d'un emplacement situé en dehors d'Azure, y compris à partir de sources de données sur site avec la passerelle Data Factory, vous devez configurer la plage d'adresses IP appropriée pour l'ordinateur qui envoie des données à Azure SQL Data Warehouse.
 
-## Propriétés de type du jeu de données Azure SQL Data Warehouse
+## Propriétés de type du jeu de données Azure SQL Data Warehouse
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, objet Blob Azure, table Azure, etc...).
 
@@ -394,17 +397,17 @@ La section typeProperties est différente pour chaque type de jeu de données et
 | -------- | ----------- | -------- |
 | tableName | Nom de la table dans la base de données Azure SQL Data Warehouse à laquelle le service lié fait référence. | Oui |
 
-## Propriétés de type de l'activité de copie Azure SQL Data Warehouse
+## Propriétés de type d’activité de copie Azure SQL Data Warehouse
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
-**Remarque :** l'activité de copie accepte uniquement une entrée et produit une seule sortie.
+**Remarque :** l’activité de copie accepte uniquement une entrée et produit une seule sortie.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
 ### SqlDWSource
 
-Dans le cas d'une activité de copie, si la source est de type **SqlDWSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, quand la source est de type **SqlDWSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -471,9 +474,9 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Mappage de type pour Azure SQL Data Warehouse
+### Mappage de type pour Azure SQL Data Warehouse
 
-Comme mentionné dans l'article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l'activité de copie convertit automatiquement des types source en types récepteur à l'aide de l'approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion à partir de types de source natifs en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
@@ -523,4 +526,4 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

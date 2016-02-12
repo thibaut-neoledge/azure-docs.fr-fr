@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
@@ -24,9 +24,9 @@ Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les donné
 
 ## Configuration requise
 
-* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Un [cluster Apache Storm sur HDInsight](../hdinsight-storm-getting-started.md)
+* Un [cluster Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
 * [Node.js](http://nodejs.org/): utilisé pour le tableau de bord Web et pour envoyer des données de capteur à Event Hub.
 
@@ -256,7 +256,7 @@ Dans votre environnement de développement, procédez comme suit pour exécuter 
 
 ### Publication du tableau de bord du site Web
 
-1. Pour déployer le tableau de bord sur un site Web Azure, suivez les étapes de la section [Création et déploiement d’un site Web Node.js dans Azure](../web-sites-nodejs-develop-deploy-mac.md). Notez l'URL du site Web, qui doit être similaire à **mywebsite.azurewebsites.net**.
+1. Pour déployer le tableau de bord sur un site Web Azure, suivez les étapes de la section [Création et déploiement d’un site Web Node.js dans Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md). Notez l'URL du site Web, qui doit être similaire à **mywebsite.azurewebsites.net**.
 
 2. Une fois le site web créé, accédez au site via le portail Azure Classic et sélectionnez l’onglet **Configurer**. Activez les **ports Web**, puis cliquez sur **Enregistrer** en bas de la page.
 
@@ -422,4 +422,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

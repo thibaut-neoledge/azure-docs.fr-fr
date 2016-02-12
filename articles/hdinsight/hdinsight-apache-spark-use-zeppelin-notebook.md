@@ -212,7 +212,7 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 		http://hn0-myspar:9995
 
 	* **hn0** correspond à headnode0
-	* **myspar** correspond aux cinq premières lettres du cluster Spark.
+	* **myspar** correspond aux six premières lettres du nom du cluster Spark.
 	* **9995** est le port sur lequel le bloc-notes Zeppelin est accessible.
 
 2. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
@@ -330,4 +330,4 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

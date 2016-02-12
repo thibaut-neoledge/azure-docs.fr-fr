@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -38,7 +38,7 @@ Le diagramme suivant illustre le flux d'empaquetage dynamique.
 
 ##Scénario courant
 
-1. Téléchargez un fichier d'entrée (appelé fichier mezzanine). Par exemple, H.264, MP4 ou WMV (pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par l’encodeur Media Services](media-services-azure-media-encoder-formats)).
+1. Téléchargez un fichier d'entrée (appelé fichier mezzanine). Par exemple, H.264, MP4 ou WMV (pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par Media Encoder Standard](media-services-media-encoder-standard-formats.md)).
 
 1. Encodez votre fichier mezzanine en ensembles de fichiers MP4 à vitesse de transmission adaptative H.264.
 
@@ -46,56 +46,31 @@ Le diagramme suivant illustre le flux d'empaquetage dynamique.
 
 1. Générez les URL de diffusion en continu pour accéder à votre contenu et le diffuser en continu.
 
->[AZURE.NOTE]Tous les formats de fichiers MP4 ne sont pas pris en charge par l'empaquetage dynamique. Pour plus d'informations, consultez [Formats non pris en charge pour l'empaquetage dynamique](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Préparation des éléments multimédias pour une diffusion en continu dynamique
 
 Pour préparer un élément multimédia pour sa diffusion en continu dynamique, vous disposez de deux options :
 
-- Télécharger un fichier maître et produire des ensembles de fichiers MP4 à vitesse de transmission adaptative H.264 à l'aide de l'encodeur multimédia Azure
-- Télécharger les ensembles de fichiers à vitesse de transmission adaptative existants et les valider à l'aide de Media Packager
+1. [Chargez un fichier maître](media-services-dotnet-upload-files.md).
+2. [Utilisez l’encodeur Media Encoder Standard pour produire des ensembles de fichiers MP4 à vitesse de transmission adaptative H.264](media-services-dotnet-encode-with-media-encoder-standard.md).
+3. [Diffusez votre contenu](media-services-deliver-content-overview.md).
 
-###Télécharger un fichier maître et produire des ensembles de fichiers MP4 à vitesse de transmission adaptative H.264 à l'aide de l'encodeur multimédia Azure
+OU
+ 
+1. Chargez des fichiers MP4 pré-encodés. 
 
-Pour plus d'informations sur le téléchargement et l'encodage d'éléments multimédias, consultez les articles suivants :
-
-
-Téléchargez vos fichiers à l’aide du **portail Azure Classic**, de **.NET** ou de l’**API REST**
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-Procédez à l’encodage à l’aide d’**Azure Media Encoder** en utilisant le **portail Azure Classic**, **.NET** ou l’**API REST**.
-
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-
-###Télécharger les ensembles de fichiers à vitesse de transmission adaptative existants et les valider à l'aide de Media Packager
-
-Cette tâche est généralement souhaitable si vous téléchargez un ensemble de fichiers MP4 à vitesse de transmission adaptative qui n'ont pas été encodés à l'aide de l'encodeur Media Services. La rubrique [Validation de fichiers MP4 à vitesse de transmission adaptative encodés avec des encodeurs externes](https://msdn.microsoft.com/library/azure/dn750842.aspx) montre comment effectuer cette tâche.
-
-##Diffusion en continu de votre contenu aux clients
-
-Une fois que vous disposez des ensembles de fichiers à vitesse de transmission adaptative, vous pouvez publier votre élément multimédia en créant un localisateur à la demande et composer les URL de diffusion en continu pour le contenu Smooth Streaming, MPEG DASH, HLS et HDS (pour les titulaires d'une licence Adobe PrimeTime/Access uniquement).
-
-Pour plus d'informations sur la création de localisateurs et l'utilisation de l'empaquetage dynamique pour diffuser en continu votre contenu, consultez les rubriques suivantes :
-
-[Vue d'ensemble de la distribution de contenu aux clients](media-services-deliver-content-overview.md)
-
-Configurer la stratégie de remise d'éléments multimédias à l'aide de **.NET** ou de l'**API REST**
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publiez des éléments multimédias (en créant des localisateurs) à l’aide du **portail Azure Classic** ou de **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+	>[AZURE.NOTE] Cette option n’est pas recommandée.
+	
+2. [Validez vos fichiers pré-encodés](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
+3. [Diffusez votre contenu](media-services-deliver-content-overview.md).
 
 
 ##<a id="unsupported_formats"></a>Formats non pris en charge pour l'empaquetage dynamique
 
 Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaquetage dynamique.
 
-- Fichiers MP4 Dolby Digital Plus
-- Fichiers Smooth Streaming Dolby Digital Plus.
+- Fichiers MP4 Dolby Digital
+- Fichiers Smooth Streaming Dolby Digital
 
 ##Parcours d’apprentissage de Media Services
 
@@ -105,4 +80,4 @@ Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaqu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

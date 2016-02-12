@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="piyushjo" />
 
 
 #Notes de publication
+
+##4\.1.5 (01/02/2016)
+
+- Améliorations de la stabilité.
 
 ##4\.1.4 (26/01/2016)
 
@@ -57,8 +61,8 @@
 -   Version initiale d'Azure Engagement Mobile
 -   La configuration d'appId est remplacée par la configuration d'une chaîne de connexion.
 -   Suppression de l'API pour envoyer et recevoir des messages XMPP arbitraires d'entités XMPP arbitraires.
--   Suppression de l'API pour envoyer et recevoir des messages entre périphériques.
+-   Suppression de l'API pour envoyer et recevoir des messages entre appareils.
 -   Améliorations de sécurité.
 -   Suppression du suivi de Google Play et SmartAd.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Activité pig
@@ -100,7 +100,7 @@ Pour exécuter ce script pig dans un pipeline Data Factory, vous devez effectuer
 3.	Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « PigSampleIn » et le jeu de données de sortie « PigSampleOut ».
 4.	Copiez la requête pig en tant que fichier vers le stockage d'objets blob Azure configuré à l'étape 2 ci-dessus. Si le service lié pour l'hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service de stockage Azure lié distinct et référencez-le dans la configuration de l'activité. Utilisez **scriptPath** pour spécifier le chemin d'accès au fichier de requête pig et à **scriptLinkedService** afin de spécifier le stockage Azure qui contient le fichier de script.
 	
-	> [AZURE.NOTE]Vous pouvez également fournir le script en ligne pig dans la définition d'activité à l'aide de la propriété **script**, mais cela n'est pas recommandé car tous les caractères spéciaux du script au sein du document JSON doivent être placés dans une séquence d'échappement, ce qui risque d’entraîner des problèmes de débogage. La meilleure pratique consiste à suivre l’étape 4.
+	> [AZURE.NOTE] Vous pouvez également fournir le script en ligne pig dans la définition d'activité à l'aide de la propriété **script**, mais cela n'est pas recommandé car tous les caractères spéciaux du script au sein du document JSON doivent être placés dans une séquence d'échappement, ce qui risque d’entraîner des problèmes de débogage. La meilleure pratique consiste à suivre l’étape 4.
 5. Créez le pipeline ci-dessous avec l'activité HDInsightPig pour traiter les données.
 
 		{
@@ -186,4 +186,4 @@ Pour paramétrer le script pig, procédez comme suit :
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

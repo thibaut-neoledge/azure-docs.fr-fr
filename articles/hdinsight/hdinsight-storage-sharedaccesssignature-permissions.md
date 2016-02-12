@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/15/2016"
+ms.date="02/01/2016"
 ms.author="larryfr"/>
 
 #Utiliser des signatures d’accès partagé Azure Storage pour restreindre l’accès aux données avec HDInsight
@@ -34,7 +34,7 @@ Les signatures d’accès partagé (SAP) sont une fonctionnalité des comptes de
 
 * Cluster HDInsight basé sur Linux OU [Azure PowerShell][powershell] : si vous avez un cluster existant basé sur Linux, vous pouvez utiliser Ambari pour ajouter une signature d’accès partagé au cluster. Si ce n’est pas le cas, vous pouvez utiliser Azure PowerShell pour créer un cluster et ajouter une signature d’accès partagé lors de la création du cluster.
 
-* Fichiers d’exemple disponibles sur [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas). Ce référentiel comprend les éléments suivants :
+* Fichiers d’exemple à l’adresse [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Ce référentiel comprend les éléments suivants :
 
     * Un projet Visual Studio permettant de créer un conteneur de stockage, une stratégie stockée et une SAP pour une utilisation avec HDInsight.
     
@@ -60,7 +60,7 @@ La différence entre les deux formes est importante pour un scénario clé : la
 
 4. La clé de compte qui a été utilisée pour créer la signature d'accès partagé est régénérée. Notez que cela provoquera un échec d'authentification pour tous les composants de l'application qui utilisent cette clé de compte jusqu'à ce qu'ils soient mis à jour afin d'utiliser soit l'autre clé de compte valide soit la clé de compte nouvellement régénérée.
 
-> [AZURE.IMPORTANT]L’URI d’une signature d’accès partagé est associé à la clé du compte utilisée pour créer la signature et à la stratégie d’accès stockée correspondante (le cas échéant). Si aucune stratégie d’accès stockée n’est spécifiée, la seule façon de révoquer une signature d’accès partagé consiste à modifier la clé du compte.
+> [AZURE.IMPORTANT] L’URI d’une signature d’accès partagé est associé à la clé du compte utilisée pour créer la signature et à la stratégie d’accès stockée correspondante (le cas échéant). Si aucune stratégie d’accès stockée n’est spécifiée, la seule façon de révoquer une signature d’accès partagé consiste à modifier la clé du compte.
 
 Il est recommandé de toujours utiliser les stratégies d’accès stockées, afin de pouvoir révoquer des signatures ou étendre la date d’expiration si nécessaire. Les étapes décrites dans ce document utilisent les stratégies d’accès stockées pour générer des SAP.
 
@@ -68,7 +68,7 @@ Pour plus d’informations sur les SAP, voir [Présentation du modèle SAP](../s
 
 ##Créer une stratégie stockée et générer une SAP
 
-Actuellement, vous devez créer une stratégie stockée par programme. Vous trouverez un exemple C# et Python de création d’une stratégie stockée et d’une SAP sous [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas).
+Actuellement, vous devez créer une stratégie stockée par programme. Vous trouverez un exemple C# et Python de création d’une stratégie stockée et SAS à l’adresse [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
 
 ###Créer une stratégie stockée et une SAP à l’aide de C#
 
@@ -169,7 +169,7 @@ Un exemple de création de cluster HDInsight utilisant les SAP est inclus dans l
     
     Si vous créez un cluster basé sur Linux, vous serez également invité à saisir un nom et un mot de passe de compte d’utilisateur SSH. Ce dernier est utilisé pour la connexion à distance au cluster.
     
-    > [AZURE.IMPORTANT]Lorsque vous êtes invité à saisir le nom d’utilisateur et le mot de passe HTTP/s ou SSH, vous devez fournir un mot de passe qui répond aux critères suivants :
+    > [AZURE.IMPORTANT] Lorsque vous êtes invité à saisir le nom d’utilisateur et le mot de passe HTTP/s ou SSH, vous devez fournir un mot de passe qui répond aux critères suivants :
     >
     > - Il doit contenir au moins 10 caractères.
     > - Il doit contenir au moins un chiffre.
@@ -201,7 +201,7 @@ Si vous disposez d’un cluster existant basé sur Linux, vous pouvez ajouter la
 
     Cliquez sur __OK__ lorsque les modifications ont été effectuées.
 
-    > [AZURE.IMPORTANT]Cette opération enregistre les modifications de configuration, mais vous devrez redémarrer plusieurs services pour que la modification prenne effet.
+    > [AZURE.IMPORTANT] Cette opération enregistre les modifications de configuration, mais vous devrez redémarrer plusieurs services pour que la modification prenne effet.
 
 6. Dans l’interface utilisateur web Ambari, sélectionnez __HDFS__ dans la liste sur la gauche, puis sélectionnez __Redémarrer tout__ dans la liste déroulante __Actions de service__ située à droite. Lorsque vous y êtes invité, sélectionnez __Activer le mode de maintenance__, puis sélectionnez \_\_Conform Restart All".
 
@@ -290,4 +290,4 @@ Maintenant que vous avez appris comment ajouter un stockage à accès limité à
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

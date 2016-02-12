@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="02/01/2016"
    ms.author="v-darmi"/>
 
 
@@ -21,7 +21,7 @@
 
 Les stratégies disponibles dans le service de gestion des API Azure permettent de réaliser un large éventail de tâches utiles purement selon la requête entrante, la réponse sortante et les informations de configuration de base. En revanche, la possibilité d’interagir avec des services externes à partir des stratégies de gestion des API ouvre bien davantage d’opportunités.
 
-Nous avons vu précédemment comment interagir avec le service [Azure Event Hub pour la journalisation, la surveillance et l’analyse](api-management-sample-logtoeventhub.md). Dans cet article, nous allons décrire les stratégies qui vous permettent d’interagir avec n’importe quel service HTTP externe. Ces stratégies peuvent être utilisées pour déclencher des événements à distance ou récupérer des informations servant à manipuler la requête d’origine et la réponse d’une certaine façon.
+Nous avons vu précédemment comment interagir avec le service [Azure Event Hub pour la journalisation, la surveillance et l’analyse](api-management-log-to-eventhub-sample.md). Dans cet article, nous allons décrire les stratégies qui vous permettent d’interagir avec n’importe quel service HTTP externe. Ces stratégies peuvent être utilisées pour déclencher des événements à distance ou récupérer des informations servant à manipuler la requête d’origine et la réponse d’une certaine façon.
 
 ## Send-One-Way-Request (Envoyer une requête à sens unique)
 L’interaction externe la plus simple est peut-être le style « fire and forget » d’une demande qui permet à un service externe d’être notifié d’un type d’événement important. Nous pouvons utiliser la stratégie de flux de contrôle `choose` pour détecter tout type de condition qui nous intéresse et puis, si la condition est remplie, nous pouvons effectuer une requête HTTP externe à l’aide de la stratégie [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Il peut s’agir d’une requête destinée à un système de messagerie comme Hipchat ou Slack, ou encore à une API de messagerie telle que SendGrid ou MailChimp, ou à quelque chose comme PagerDuty pour les incidents de support critiques. Tous ces systèmes de messagerie ont des API HTTP simples que nous pouvons facilement appeler.
@@ -269,4 +269,4 @@ Pour plus d'informations sur les stratégies [send-one-way-request](https://msdn
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

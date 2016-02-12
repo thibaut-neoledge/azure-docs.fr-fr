@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="12/22/2015"
+  ms.date="01/29/2015"
   ms.author="andrl"/>
 
 # Portail de la communauté
@@ -64,7 +64,7 @@ Extraire sur [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/Doc
 
 <br/><br/>
 
-*Retrouvez d’autres projets open source DocumentDB sur [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
+*Retrouvez d’autres projets Open source DocumentDB sur [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
 <br/><br/>
 
@@ -79,6 +79,8 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 <br/>
 
 **Publications de la Communauté :**
+
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *par Robert Sheldon*
 
 * [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *par Jan Hentschel*
 
@@ -124,6 +126,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Nom de l'événement | Intervenant | Emplacement | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, État du Washington, États-Unis | 3 mars 2016 | n/a
 | SQLBits XV | tbd | Liverpool, Royaume-Uni | 4-7 mai 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
 *Vous accueillez un événement ou y participez ? [Dites-nous](mailto:askdocdb@microsoft.com) en quoi nous pouvons vous aider !*
@@ -132,6 +135,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Nom de l'événement | Intervenant | Emplacement | Date | Enregistrement |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, État du Texas, États-Unis | 28 janvier 2016 | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montréal, QC, Canada | 1er décembre 2015 | n/a |
 | [Meetup : SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 novembre 2015 | n/a |
 | [Sommet PASS 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | Du 27 au 30 octobre 2015 | n/a |
@@ -213,14 +217,6 @@ Suivez-nous sur twitter [@DocumentDB](https://twitter.com/DocumentDB) et tenez-v
 
 <br/><br/>
 
-### Internet Relay Chat + horaires de bureau
-
-Vous pouvez discuter avec nous en temps réel via IRC sur `chat.freenode.net` dans le canal `#documentdb` avec un [client IRC](http://www.irchelp.org/) ou en vous connectant à votre canal web sur le canal en utilisant l’application [WebChat](http://webchat.freenode.net/?channels=documentdb) de Freenode.
-
-Nous recevons les appels aux horaires de bureau sur IRC chaque vendredi, de 11 h 00 à 12 h 00 heure du pacifique.
-
-<br/><br/>
-
 <hr/>
 
 ## Contactez l’équipe
@@ -271,4 +267,4 @@ Les assistants DocumentDB sont des responsables de la communauté qui ont fait p
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

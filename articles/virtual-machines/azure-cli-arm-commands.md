@@ -19,7 +19,7 @@
 
 # Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
 
 Cet article décrit comment utiliser l’interface de ligne de commande Azure (interface CLI Azure) dans le mode Azure Resource Manager pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer la plupart de ces tâches à l’aide des différentes bibliothèques des kits de développement logiciel (SDK) Azure, avec Azure PowerShell, et dans le portail Azure.
 
@@ -1879,4 +1879,4 @@ Options de paramètre :
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

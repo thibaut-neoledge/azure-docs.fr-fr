@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Gestion des itérations d'expériences dans Azure Machine Learning Studio
@@ -24,7 +24,7 @@ Le développement d'un modèle d'analyse prédictive est un processus itératif�
 
 Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes. Quand vous exécutez une expérience, Machine Learning Studio conserve un historique de l’exécution, y compris l’ensemble de données, le module, les connexions de port et les paramètres. Cet historique capture également les résultats, les informations d'exécution telles que les heures de démarrage et d'arrêt, les messages de journal et l'état d'exécution. Vous pouvez réexaminer, à tout moment, l'une de ces exécutions pour consulter la chronologie de votre expérience et les résultats intermédiaires. Vous pouvez même utiliser une exécution précédente de votre expérience pour entamer une nouvelle phase de recherche et de découverte sur votre chemin d'accès pour la création de solutions de modélisation simples, complexes ou même d'ensemble.
 
-> [AZURE.NOTE]Lorsque vous affichez une exécution précédente de l'expérience, cette version de l'expérience est verrouillée et ne peut pas être modifiée. Vous pouvez, toutefois, en enregistrer une copie en cliquant sur **ENREGISTRER SOUS** et en fournissant un nouveau nom à cette copie. Machine Learning Studio ouvre la nouvelle copie, que vous pouvez ensuite modifier et exécuter. Cette copie de votre expérience est disponible dans la liste **EXPÉRIENCES**, avec vos autres expériences.
+> [AZURE.NOTE] Lorsque vous affichez une exécution précédente de l'expérience, cette version de l'expérience est verrouillée et ne peut pas être modifiée. Vous pouvez, toutefois, en enregistrer une copie en cliquant sur **ENREGISTRER SOUS** et en fournissant un nouveau nom à cette copie. Machine Learning Studio ouvre la nouvelle copie, que vous pouvez ensuite modifier et exécuter. Cette copie de votre expérience est disponible dans la liste **EXPÉRIENCES**, avec vos autres expériences.
 
 ## Affichage de l'exécution précédente
 
@@ -51,7 +51,7 @@ Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, une liste de toutes 
 
 Cliquez sur une de ces exécutions pour afficher un instantané de l'expérience lorsque vous l'exécutiez. La configuration, les valeurs de paramètre, les commentaires et les résultats sont tous conservés pour vous fournir un enregistrement complet de l'exécution de votre expérience.
 
-> [AZURE.TIP]Pour documenter les itérations de votre expérience, vous pouvez modifier le titre à chaque fois que vous l'exécutez, mettre à jour le **Résumé** de l'expérience dans le volet Propriétés et ajouter ou mettre à jour des commentaires sur les modules individuels pour enregistrer vos modifications. Le titre, le résumé et les commentaires du module sont enregistrés chaque fois que l'expérience est exécutée.
+> [AZURE.TIP] Pour documenter les itérations de votre expérience, vous pouvez modifier le titre à chaque fois que vous l'exécutez, mettre à jour le **Résumé** de l'expérience dans le volet Propriétés et ajouter ou mettre à jour des commentaires sur les modules individuels pour enregistrer vos modifications. Le titre, le résumé et les commentaires du module sont enregistrés chaque fois que l'expérience est exécutée.
 
 La liste des expériences de l’onglet **EXPÉRIENCES** dans Machine Learning Studio affiche toujours la version la plus récente d’une expérience. Si vous ouvrez une exécution précédente de l'expérience (via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION**), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l'**ÉTAT** est défini sur **Modifiable**.
 
@@ -84,4 +84,4 @@ Vous pouvez maintenant continuer à modifier et exécuter cette version de votre
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

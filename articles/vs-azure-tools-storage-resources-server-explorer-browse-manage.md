@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/27/2016"
    ms.author="tarcher" />
 
 # Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs
@@ -50,7 +50,7 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
 
     ![Ajout d’un conteneur d’objets blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
-    >[AZURE.NOTE]Le nom du conteneur d’objets blob doit commencer par un chiffre (0-9) ou une lettre minuscule (a-z).
+    >[AZURE.NOTE] Le nom du conteneur d’objets blob doit commencer par un chiffre (0-9) ou une lettre minuscule (a-z).
 
 ### Pour supprimer un conteneur d’objets blob
 
@@ -72,9 +72,9 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
 
     - Charger un fichier
 
-    - Supprimer un blob.
+    - Supprimer un objet blob
 
-      >[AZURE.NOTE]Si vous supprimez un fichier du conteneur d’objets blob, le fichier sous-jacent ne sera pas supprimé. Il sera uniquement supprimé du conteneur d’objets blob.
+      >[AZURE.NOTE] Si vous supprimez un fichier du conteneur d’objets blob, le fichier sous-jacent ne sera pas supprimé. Il sera uniquement supprimé du conteneur d’objets blob.
 
     - Ouvrir un objet blob
 
@@ -98,7 +98,7 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
 
  - Supprimer tous les fichiers d’un dossier
 
-    >[AZURE.NOTE]Étant donné que les dossiers des conteneurs d’objets blob sont des dossiers virtuels, vous ne pouvez pas créer de dossier vide, ni supprimer un dossier pour supprimer son contenu. Pour supprimer un dossier, vous devez d’abord supprimer tout son contenu.
+    >[AZURE.NOTE] Étant donné que les dossiers des conteneurs d’objets blob sont des dossiers virtuels, vous ne pouvez pas créer de dossier vide, ni supprimer un dossier pour supprimer son contenu. Pour supprimer un dossier, vous devez d’abord supprimer tout son contenu.
 
 ### Pour filtrer les objets blob d’un conteneur
 
@@ -109,7 +109,7 @@ Par exemple, si vous entrez le préfixe `hello` dans la zone de texte de filtre,
 ![VST\_SE\_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
 
->[AZURE.NOTE]Le champ de filtre respecte la casse et ne prend pas en charge le filtrage à l’aide de caractères génériques. Les objets blob ne peuvent être filtrés que par préfixe. Le préfixe peut inclure un délimiteur si vous utilisez des délimiteurs pour organiser les objets blob en hiérarchie virtuelle. Par exemple, un filtrage à l’aide du préfixe HelloFabric/ retournera tous les objets blob commençant par cette chaîne.
+>[AZURE.NOTE] Le champ de filtre respecte la casse et ne prend pas en charge le filtrage à l’aide de caractères génériques. Les objets blob ne peuvent être filtrés que par préfixe. Le préfixe peut inclure un délimiteur si vous utilisez des délimiteurs pour organiser les objets blob en hiérarchie virtuelle. Par exemple, un filtrage à l’aide du préfixe HelloFabric/ retournera tous les objets blob commençant par cette chaîne.
 
 ### Pour télécharger les données des objets blob
 
@@ -141,7 +141,7 @@ Par exemple, si vous entrez le préfixe `hello` dans la zone de texte de filtre,
 
     Le fichier est téléchargé vers un emplacement temporaire et ouvert sur l’ordinateur local. Vous devez charger de nouveau l’objet blob chaque fois que vous y apportez des modifications.
 
-### Utiliser des ressources de file d’attente
+## Utiliser des ressources de file d’attente
 
 Les files d’attente des services de stockage sont hébergées dans un compte de stockage Azure. Vous pouvez les utiliser pour permettre à vos rôles de service cloud de communiquer entre eux et avec d’autres services par un mécanisme de transmission de messages. Vous pouvez accéder par programmation à la file d’attente via un service cloud et via un service web pour les clients externes. Vous pouvez également accéder à la file d’attente directement à l’aide de l’Explorateur de serveurs dans Visual Studio.
 
@@ -163,9 +163,9 @@ L’illustration suivante montre une file d’attente contenant deux messages.
 
 Pour plus d’informations sur les files d’attente des services de stockage, consultez [Comment : utiliser le service de File d’attente](http://go.microsoft.com/fwlink/?LinkID=264702). Pour plus d’informations sur le service web des files d’attente des services de stockage, consultez [Concepts de File d’attente](http://go.microsoft.com/fwlink/?LinkId=264788). Pour plus d’informations sur la façon d’envoyer des messages vers une file d’attente des services de stockage à l’aide de Visual Studio, consultez [Envoi de messages à une file d’attente de services de stockage](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
->[AZURE.NOTE]Les files d’attente de services de stockage sont différentes des files d’attente Service Bus. Pour plus d’informations sur les files d’attente Service Bus, consultez « Files d’attente, rubriques et abonnements Service Bus ».
+>[AZURE.NOTE] Les files d’attente de services de stockage sont différentes des files d’attente Service Bus. Pour plus d’informations sur les files d’attente Service Bus, consultez « Files d’attente, rubriques et abonnements Service Bus ».
 
-### Utiliser des ressources de table
+## Utiliser des ressources de table
 
 Le service de stockage Table Azure stocke de grandes quantités de données structurées. Il s’agit d’une banque de données NoSQL qui accepte les appels authentifiés provenant de l’intérieur et de l’extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
 
@@ -213,7 +213,7 @@ La table est organisée en entités (lignes) et propriétés (colonnes). Par exe
 
     Entrez les valeurs avec précaution, car vous ne pourrez pas les modifier après avoir fermé la boîte de dialogue, sauf si vous supprimez l’entité, puis l’ajoutez de nouveau.
 
-## Pour filtrer des entités
+### Pour filtrer des entités
 
 Vous pouvez personnaliser les entités qui s’affichent dans une table à l’aide du Générateur de requêtes.
 
@@ -235,35 +235,35 @@ Vous pouvez personnaliser les entités qui s’affichent dans une table à l’a
 
     ![VST\_SE\_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
-## Actualiser les données de stockage
+### Actualiser les données de stockage
 
 Les opérations de connexion aux données et de récupération des données entre l’Explorateur de serveurs et le compte de stockage peuvent prendre jusqu’à une minute. Si la connexion est impossible, l’opération peut expirer. Vous pouvez continuer à travailler dans d’autres parties de Visual Studio pendant la récupération des données. Pour annuler une opération si elle prend trop de temps, choisissez le bouton **Arrêter l’actualisation** dans la barre d’outils de l’Explorateur de serveurs.
 
-### Pour actualiser les données d’un conteneur d’objets blob
+#### Pour actualiser les données d’un conteneur d’objets blob
 
 - Sélectionnez le nœud **Objets blob** sous **Storage**, puis choisissez le bouton **Actualiser** dans la barre d’outils de l’Explorateur de serveurs.
 
 - Pour actualiser la liste des objets blob, choisissez le bouton **Exécuter**.
 
-### Pour actualiser les données d’une table
+#### Pour actualiser les données d’une table
 
 - Sélectionnez le nœud **Table** sous **Storage**, puis choisissez le bouton **Actualiser**.
 
 - Pour actualiser la liste des entités qui s’affiche dans le **Concepteur de tables**, choisissez le bouton **Exécuter** dans le **Concepteur de tables**.
 
-### Pour actualiser les données d’une file d’attente
+#### Pour actualiser les données d’une file d’attente
 
 - Sélectionnez le nœud **Files d’attente**, puis choisissez le bouton **Actualiser**.
 
-### Pour actualiser tous les éléments d’un compte de stockage
+#### Pour actualiser tous les éléments d’un compte de stockage
 
 - Choisissez le nom du compte, puis le bouton **Actualiser** dans la barre d’outils de l’Explorateur de serveurs.
 
-## Ajouter des comptes de stockage à l’aide de l’Explorateur de serveurs
+### Ajouter des comptes de stockage à l’aide de l’Explorateur de serveurs
 
 Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Explorateur de serveurs. Vous pouvez créer un compte de stockage dans votre abonnement Azure, ou vous pouvez attacher un compte de stockage existant.
 
-### Pour créer un compte de stockage à l’aide de l’Explorateur de serveurs
+#### Pour créer un compte de stockage à l’aide de l’Explorateur de serveurs
 
 1. Dans l’Explorateur de solutions, ouvrez le menu contextuel du nœud Storage, puis sélectionnez Créer un compte de stockage.
 
@@ -283,7 +283,7 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
     Le nouveau compte de stockage s’affiche dans la liste **Stockage** de l’Explorateur de solutions.
 
-### Pour attacher un compte de stockage existant à l’aide de l’Explorateur de serveurs
+#### Pour attacher un compte de stockage existant à l’aide de l’Explorateur de serveurs
 
 1. Dans l’Explorateur de solutions, ouvrez le menu contextuel du nœud Azure Storage, puis sélectionnez **Attacher un stockage externe**.
 
@@ -307,10 +307,10 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
 - Dans l’Explorateur de serveurs, ouvrez le menu contextuel du compte, puis choisissez **Supprimer**. Si vous supprimez un compte de stockage, toutes les informations de clé enregistrées pour ce compte seront également supprimées.
 
-    >[AZURE.NOTE]Si vous supprimez un compte de stockage à partir de l’Explorateur de serveurs, cela n’affectera pas votre compte de stockage ni les données qu’il contient. Cela supprimera simplement sa référence dans l’Explorateur de serveurs. Pour supprimer définitivement un compte de stockage, utilisez le Portail de gestion Azure.
+    >[AZURE.NOTE] Si vous supprimez un compte de stockage à partir de l’Explorateur de serveurs, cela n’affectera pas votre compte de stockage ni les données qu’il contient. Cela supprimera simplement sa référence dans l’Explorateur de serveurs. Pour supprimer définitivement un compte de stockage, utilisez le Portail de gestion Azure.
 
 ## Étapes suivantes
 
 Pour en savoir plus sur l’utilisation des services de stockage Azure, consultez la page [Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

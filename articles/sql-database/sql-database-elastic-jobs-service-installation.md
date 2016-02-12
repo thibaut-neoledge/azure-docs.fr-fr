@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Vue d’ensemble de l’installation de Tâches de bases de données élastiques
@@ -24,7 +24,7 @@ Si vous avez déjà installé **Tâches de bases de données élastiques** via l
 
 ## Composants requis
 * Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, version 0.8.16 (ou ultérieure). Installez la dernière version (0.9.5) via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
+* Azure PowerShell, version 0.8.16 (ou ultérieure). Installez la dernière version (0.9.5) via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 * L'[utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d'informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Téléchargez et importez le package Tâches de bases de données élastiques PowerShell
@@ -167,7 +167,7 @@ Une fois que vous avez [créé un pool de bases de données élastique](sql-data
 
 	![Créer le nom d'utilisateur et le mot de passe][2]
 
-6. Cliquez sur le bouton OK. Les composants sont créés pour vous en quelques minutes dans un nouveau [groupe de ressources](../resource-group-portal.md). Le nouveau groupe de ressources est épinglé au panneau de démarrage, comme illustré ci-dessous. Les tâches de bases de données élastiques (Service Cloud, Base de données SQL, Service Bus et Storage) sont toutes créées dans le groupe.
+6. Cliquez sur le bouton OK. Les composants sont créés pour vous en quelques minutes dans un nouveau [groupe de ressources](../azure-portal/resource-group-portal.md). Le nouveau groupe de ressources est épinglé au panneau de démarrage, comme illustré ci-dessous. Les tâches de bases de données élastiques (Service Cloud, Base de données SQL, Service Bus et Storage) sont toutes créées dans le groupe.
 
 	![groupe de ressources dans le panneau de démarrage][3]
 
@@ -188,4 +188,4 @@ Vérifiez que les informations d’identification disposant des droits appropri�
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

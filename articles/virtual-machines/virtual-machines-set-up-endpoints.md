@@ -19,7 +19,8 @@
 
 # Comment configurer des points de terminaison sur une machine virtuelle Azure classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager Pour un déploiement Resource Manager, consultez [Prise en main de la configuration d’un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md) et [À propos des groupes de sécurité réseau](virtual-networks-nsg.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Toutes les machines virtuelles créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer sur un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle.
 
@@ -66,7 +67,7 @@ Pour configurer ce paramètre à l’aide d’une applet de commande Azure Power
 
 Pour définir l'ensemble des ordinateurs qui peuvent envoyer du trafic, l'ACL sur un point de terminaison peut restreindre le trafic basé sur l'adresse IP source. Suivez cette procédure pour ajouter, modifier ou supprimer l’ACL sur un point de terminaison.
 
-> [AZURE.NOTE]si le point de terminaison fait partie d’un jeu d’équilibrage de charge, chaque modification faite sur l’ACL pour un point de terminaison est appliquée à tous les points de terminaison du jeu.
+> [AZURE.NOTE] si le point de terminaison fait partie d’un jeu d’équilibrage de charge, chaque modification faite sur l’ACL pour un point de terminaison est appliquée à tous les points de terminaison du jeu.
 
 Si la machine virtuelle se trouve dans un réseau virtuel Azure, nous vous recommandons d’utiliser les groupes de sécurité réseau à la place des ACL. Pour plus d’informations, consultez [À propos des groupes de sécurité réseau](virtual-networks-nsg.md).
 
@@ -88,8 +89,9 @@ Les règles sont évaluées dans l’ordre, en commençant par la première règ
 
 Pour effectuer cette configuration avec une applet de commande Azure PowerShell, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
+
 ## Ressources supplémentaires
 
-[Équilibrage de charge pour les services d’infrastructure Azure](virtual-machines-load-balance.md)
+[Création d’un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

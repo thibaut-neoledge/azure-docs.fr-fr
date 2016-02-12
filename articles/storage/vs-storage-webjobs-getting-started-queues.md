@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 
 ## Vue d’ensemble
 
-Cet article explique comment prendre en main le stockage de files d'attente Azure dans un projet WebJob Visual Studio Azure après avoir créé ou référencé un compte de stockage Azure à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Quand vous ajoutez un compte de stockage à un projet de tâche web à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d'Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
+Cet article explique comment prendre en main le stockage de files d’attente Azure dans un projet WebJob Visual Studio Azure après avoir créé ou référencé un compte de stockage Azure à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
 
 Cet article fournit des exemples de code C# qui indiquent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de files d’attente Azure.
 
@@ -259,7 +259,7 @@ L'interface **IBinder** peut également être utilisée avec les attributs **Tab
 
 ## Lecture et écriture d'objets blob et de tables pendant le traitement d'un message de file d'attente
 
-Les attributs **Blob** et **Table** vous permettent de lire et d'écrire des objets blob et des tables. Les exemples de cette section s’appliquent aux objets blob. Pour obtenir des exemples de code qui lisent et écrivent des tables, voir [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), et pour obtenir des exemples de code qui indiquent comment déclencher des processus lors de la création ou de la mise à jour d’objets blob, voir [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Les attributs **Blob** et **Table** vous permettent de lire et d'écrire des objets blob et des tables. Les exemples de cette section s’appliquent aux objets blob. Pour obtenir des exemples de code qui lisent et écrivent des tables, voir [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), et pour obtenir des exemples de code qui indiquent comment déclencher des processus lors de la création ou de la mise à jour d’objets blob, voir [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Messages en file d’attente de chaîne déclenchant des opérations d’objet blob
 
@@ -543,4 +543,4 @@ Dans une table Azure, les journaux **Console.Out** et **Console.Error** ressembl
 
 Cet article fournit des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des files d’attente Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

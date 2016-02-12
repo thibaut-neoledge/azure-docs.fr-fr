@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="kenazk"/>
+	ms.date="02/02/2016"
+	ms.author="cjiang"/>
 
 
 
 # Résoudre les problèmes d’allocation pendant la création, le redémarrage ou le redimensionnement de machines virtuelles dans Azure
 
-Quand vous créez une machine virtuelle, redémarrez des machines virtuelles ayant été arrêtées (désallouées) ou redimensionnez une machine virtuelle, Microsoft Azure alloue des ressources de calcul à votre abonnement. Vous pouvez parfois recevoir des erreurs lorsque vous effectuez ces opérations avant même d’avoir atteint les limites de votre abonnement Azure. Cet article explique les causes de certains échecs d’allocation courants et propose des solutions possibles. Les informations qu’il contient peuvent également vous être utiles dans le cadre de la planification du déploiement de vos services.
+Quand vous créez une machine virtuelle, redémarrez des machines virtuelles ayant été arrêtées (désallouées) ou redimensionnez une machine virtuelle, Microsoft Azure alloue des ressources de calcul à votre abonnement. Vous pouvez parfois recevoir des erreurs lorsque vous effectuez ces opérations, avant même d’avoir atteint les limites de votre abonnement Azure. Cet article explique les causes de certains échecs d’allocation courants et propose des solutions possibles. Les informations qu’il contient peuvent également vous être utiles dans le cadre de la planification du déploiement de vos services.
+
+La section « Étapes de dépannage générales » répertorie les étapes permettant de résoudre les problèmes courants. La section « Étapes de dépannage détaillées » fournit les étapes de résolution pour chaque message d’erreur spécifique. Avant de commencer, voici quelques informations contextuelles qui vous permettront de comprendre le fonctionnement de l’allocation et pourquoi des échecs d’allocation se produisent.
 
 Si votre problème avec Azure n’est pas traité dans cet article, parcourez les [forums Azure sur MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou sur Twitter (@AzureSupport). Vous pouvez également créer une demande de support Azure en sélectionnant **Obtenir une assistance** sur le site du [support Azure](https://azure.microsoft.com/support/options/).
-
-Dans cet article, les sections « Résoudre les problèmes courants liés à l’allocation » répertorient les étapes permettant de résoudre les problèmes courants. Les sections « Résoudre des scénarios d’échec d’allocation spécifiques » indiquent une procédure de résolution pour des messages d’erreur spécifiques. Avant de commencer, voici quelques informations contextuelles qui vous permettront de comprendre le fonctionnement de l’allocation et pourquoi des échecs d’allocation se produisent.
 
 ## Informations contextuelles
 ### Fonctionnement de l’allocation
@@ -72,7 +72,7 @@ Deux scénarios d’échec courants sont liés aux groupes d’affinités. Le gr
 
 La Figure 5 ci-dessous présente la taxonomie des scénarios d’allocation (épinglés). ![Taxonomie d’une allocation épinglée](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] L’erreur répertoriée dans chaque scénario d’allocation est une forme abrégée. Reportez-vous à l’[Annexe](#appendix) pour obtenir les chaînes d’erreur détaillées.
+> [AZURE.NOTE] L’erreur répertoriée dans chaque scénario d’allocation est une forme abrégée. Reportez-vous à la [Recherche de chaîne d’erreur](Recherche de chaîne #Error) pour les chaînes d’erreur détaillées.
 
 #### Scénario d’allocation : redimensionner une machine virtuelle ou ajouter des machines virtuelles ou des instances de rôle à un service cloud existant
 **Erreur**
@@ -119,7 +119,7 @@ S’il est possible d’utiliser une autre adresse IP virtuelle, supprimez les m
 #### Scénario d’allocation : déploiements en environnement intermédiaire ou de production (PaaS uniquement)
 **Erreur**
 
-New\_General ou New\_VMSizeNotSupported
+New\_General* ou New\_VMSizeNotSupported*
 
 **Cause de l’épinglage au cluster**
 
@@ -132,7 +132,7 @@ Supprimez le premier déploiement et le service cloud d’origine, puis redéplo
 #### Scénario d’allocation : groupe d’affinités (proximité entre la machine virtuelle et le service)
 **Erreur**
 
-New\_General ou New\_VMSizeNotSupported
+New\_General* ou New\_VMSizeNotSupported*
 
 **Cause de l’épinglage au cluster**
 
@@ -145,9 +145,9 @@ Si un groupe d’affinités n’est pas nécessaire, n’utilisez pas de groupe 
 #### Scénario d’allocation : réseau virtuel par groupe d’affinités
 **Erreur**
 
-New\_General ou New\_VMSizeNotSupported
+New\_General* ou New\_VMSizeNotSupported*
 
-**Cause de l’épinglage au cluster**
+<**Cause de l’épinglage à un cluster**
 
 Avant l’introduction des réseaux virtuels régionaux, vous avez dû associer un réseau virtuel à un groupe d’affinités. Les ressources de calcul placées dans un groupe d’affinités sont donc liées aux mêmes contraintes que celles décrites dans le « scénario d’allocation : groupe d’affinités (proximité entre la machine virtuelle et le service) » ci-dessus. Les ressources de calcul sont liées à un cluster.
 
@@ -171,7 +171,7 @@ En règle générale, tant que l’erreur n’indique pas que la taille de machi
 #### Scénario d’allocation : redimensionner une machine virtuelle ou ajouter des machines virtuelles à un groupe à haute disponibilité existant
 **Erreur**
 
-Upgrade\_VMSizeNotSupported ou GeneralError
+Upgrade\_VMSizeNotSupported* ou GeneralError*
 
 **Cause de l’épinglage au cluster**
 
@@ -209,8 +209,7 @@ Une désallocation complète signifie que vous avez arrêté (désalloué) toute
 
 Sélectionnez une nouvelle taille de machine virtuelle à allouer. Si cette opération ne fonctionne pas, réessayez ultérieurement.
 
-## Annexe
-### Recherche de chaîne d’erreur
+## Recherche de chaîne d’erreur
 **New\_VMSizeNotSupported***
 
 « La taille de machine virtuelle (ou une combinaison de tailles de machines virtuelles) requise par ce déploiement ne peut pas être mise en service en raison des contraintes de la demande de déploiement. Si possible, essayez de relâcher les contraintes telles que les liaisons de réseau virtuel, de déployer vers un service hébergé sans aucun autre déploiement et vers un autre groupe d’affinités ou sans groupe d’affinités, ou essayez de déployer vers une autre région. »
@@ -227,4 +226,4 @@ Sélectionnez une nouvelle taille de machine virtuelle à allouer. Si cette opé
 
 « Le serveur a rencontré une erreur interne. Relancez la demande. » Ou « Impossible de produire une allocation pour le service. »
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

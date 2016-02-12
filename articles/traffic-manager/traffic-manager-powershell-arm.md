@@ -43,9 +43,9 @@ Il existe actuellement un petit nombre de limitations dans la prise en charge AR
 
 - Les profils Traffic Manager créés à l’aide de l’API (non ARM) de gestion des services (ASM), des outils et du portail classique ne sont pas disponibles dans ARM et inversement. La migration des profils d’API ASM vers ARM n’est pas actuellement pas prise en charge. La seule possibilité consiste à supprimer puis recréer le profil.
 
-
 - Les points de terminaison Traffic Manager « imbriqués » sont pris en charge via l’API ARM, PowerShell ARM et l’interface de ligne de commande Azure en mode ARM. Ils ne sont pas actuellement pris en charge dans le portail Azure (qui utilise également l’API ARM).
 
+- Dans le cadre d’une référence à une application web, les points de terminaison Traffic Manager de type « AzureEndpoints » ne peuvent référencer que l’[emplacement d’application web](../app-service-web/web-sites-staged-publishing.md) par défaut (production). Les emplacements personnalisés ne sont pas encore pris en charge. Pour contourner ce problème, vous pouvez configurer des emplacements personnalisés à l’aide du type « ExternalEndpoints ».
 
 ## Configuration d’Azure PowerShell
 
@@ -192,7 +192,7 @@ Traffic Manager vous permet de configurer un profil Traffic Manager (que nous ap
 
 L’imbrication de Traffic Manager vous permet de créer des schémas de routage du trafic et de basculement plus souples et plus puissants pour répondre aux besoins des déploiements plus vastes et plus complexes. [Ce billet de blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) donne plusieurs exemples.
 
-Les points de terminaison imbriqués sont configurés sur le profil parent, à l’aide d’un type de point de terminaison spécifique, « NestedEndpoints ». Quand vous spécifiez des points de terminaison imbriqués : - le point de terminaison (c’est-à-dire, le profil enfant) doit être spécifié à l’aide du paramètre « targetResourceId ». - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée (sinon, il est facultatif). La valeur doit être un [nom de région Azure valide](http://azure.microsoft.com/regions/).- « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure. - le paramètre « MinChildEndpoints » est facultatif (sa valeur par défaut est 1). Si le nombre de points de terminaison disponibles dans le profil enfant tombe sous ce seuil, le profil parent considère le profil enfant comme étant « dégradé » et dirige le trafic vers les autres points de profil parents.
+Les points de terminaison imbriqués sont configurés sur le profil parent, à l’aide d’un type de point de terminaison spécifique, « NestedEndpoints ». Quand vous spécifiez des points de terminaison imbriqués : - le point de terminaison (c’est-à-dire, le profil enfant) doit être spécifié à l’aide du paramètre « targetResourceId ». - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée (sinon, il est facultatif). La valeur doit être un [nom de région Azure valide](http://azure.microsoft.com/regions/).- « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure. - le paramètre « MinChildEndpoints » est facultatif (sa valeur par défaut est 1). Si le nombre de points de terminaison disponibles dans le profil enfant tombe sous ce seuil, le profil parent considère le profil enfant comme étant « dégradé » et dirige le trafic vers les autres points de profil parents.
 
 
 #### Exemple 1 : ajout de points de terminaison imbriqués à l’aide d’Add-AzureRmTrafficManagerEndpointConfig et Set-AzureRmTrafficManagerProfile
@@ -285,4 +285,4 @@ Cette séquence peut également être canalisée :
 [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

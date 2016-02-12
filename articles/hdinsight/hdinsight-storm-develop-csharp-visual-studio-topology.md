@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Développement de topologies C# pour Apache Storm sur HDInsight à l’aide des outils Hadoop pour Visual Studio
@@ -37,13 +37,13 @@ Vous apprendrez également à créer des topologies hybrides qui utilisent des c
 
 -	Azure SDK 2.5.1 ou version ultérieure
 
--	Outils HDInsight pour Visual Studio : consultez la page [Prise en main des outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) pour installer et configurer les outils HDInsight pour Visual Studio.
+-	HDInsight Tools pour Visual Studio : consultez la page [Prise en main de HDInsight Tools pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) pour installer et configurer les outils HDInsight pour Visual Studio.
 
-    > [AZURE.NOTE]Les outils HDInsight pour Visual Studio ne sont pas pris en charge sur Visual Studio Express.
+    > [AZURE.NOTE] Les outils HDInsight pour Visual Studio ne sont pas pris en charge sur Visual Studio Express.
 
--	Cluster Apache Storm sur HDInsight : consultez [Prise en main d'Apache Storm sur HDInsight](hdinsight-storm-getting-started.md) pour connaître les étapes de création d'un cluster.
+-	Cluster Apache Storm sur HDInsight : consultez [Prise en main d'Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-getting-started.md) pour connaître les étapes de création d'un cluster.
 
-	> [AZURE.NOTE]Les outils HDInsight pour Visual Studio n'acceptent actuellement que Storm sur les versions de cluster HDInsight 3.2.
+	> [AZURE.NOTE] Les outils HDInsight pour Visual Studio n'acceptent actuellement que Storm sur les versions de cluster HDInsight 3.2.
 
 ##Modèles
 
@@ -62,7 +62,7 @@ Les outils HDInsight pour Visual Studio fournissent les modèles suivants :
 | Exemple Storm hybride | Utilisation d’un composant Java |
 | Exemple Storm | Une topologie de base des statistiques |
 
-> [AZURE.NOTE]Les exemples de lecteur et d’enregistreur HBase utilisent l’API REST HBase pour communiquer avec un cluster HBase sur HDInsight, pas l’API Java HBase.
+> [AZURE.NOTE] Les exemples de lecteur et d’enregistreur HBase utilisent l’API REST HBase pour communiquer avec un cluster HBase sur HDInsight, pas l’API Java HBase.
 
 Dans les étapes de ce document, vous allez utiliser le type de projet Application Storm de base pour créer une topologie.
 
@@ -84,7 +84,7 @@ Dans les étapes de ce document, vous allez utiliser le type de projet Applicati
 
 	-	**Bolt.cs** : un bolt d’exemple qui conserve un décompte des nombres émis par le spout.
 
-	Dans le cadre de la création du projet, les [packages SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) les plus récents sont téléchargés à partir de NuGet.
+	Dans le cadre de la création du projet, les [packages SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) les plus récents seront téléchargés à partir de NuGet.
 
 Dans les sections suivantes, vous allez modifier ce projet en une application de statistiques de base.
 
@@ -179,7 +179,7 @@ Dans les sections suivantes, vous allez modifier ce projet en une application de
 
 	-	**Counter.cs**: implémente un bolt qui compte chaque mot et émet un nouveau flux de mots ainsi que le décompte de chaque mot.
 
-	> [AZURE.NOTE]Bien que ces bolts lisent et écrivent simplement dans des flux, vous pouvez également utiliser un bolt pour communiquer avec une base de données, un service, etc.
+	> [AZURE.NOTE] Bien que ces bolts lisent et écrivent simplement dans des flux, vous pouvez également utiliser un bolt pour communiquer avec une base de données, un service, etc.
 
 3.	Ouvrez **Splitter.cs**. Notez qu’il n’a qu’une seule méthode par défaut : **Execute**. Elle est appelée lorsque le bolt reçoit un tuple à traiter. Ici, vous pouvez lire et traiter des tuples entrants et émettre des tuples sortants.
 
@@ -378,19 +378,19 @@ Prenez un moment pour lire les commentaires afin de comprendre ce que fait ce co
 
 1.	Dans l’**Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le projet et sélectionnez **Envoyer à Storm sur HDInsight**.
 
-	> [AZURE.NOTE]Si vous y êtes invité, entrez les informations d'identification de connexion à votre abonnement Azure. Si vous disposez de plusieurs abonnements, connectez-vous à celui qui contient votre cluster Storm dans HDInsight.
+	> [AZURE.NOTE] Si vous y êtes invité, entrez les informations d'identification de connexion à votre abonnement Azure. Si vous disposez de plusieurs abonnements, connectez-vous à celui qui contient votre cluster Storm dans HDInsight.
 
 2.	Sélectionnez votre Storm sur le cluster HDInsight dans la liste déroulante **Cluster Storm**, puis sélectionnez **Envoyer**. Vous pouvez contrôler si l’envoi est réussi ou non à l’aide de la fenêtre **Sortie**.
 
 3.	Une fois la topologie envoyée avec succès, les **Topologies Storm** du cluster doivent apparaître. Sélectionnez la topologie **WordCount** à partir de la liste pour afficher des informations sur la topologie en cours d’exécution.
 
-	> [AZURE.NOTE]Vous pouvez également afficher les **Topologies Storm** à partir de l’**Explorateur de serveurs** en développant **Azure** > **HDInsight**, puis en cliquant avec le bouton droit sur Storm dans un cluster HDInsight et en sélectionnant **Afficher les topologies Storm**.
+	> [AZURE.NOTE] Vous pouvez également afficher les **Topologies Storm** à partir de l’**Explorateur de serveurs** en développant **Azure** > **HDInsight**, puis en cliquant avec le bouton droit sur Storm dans un cluster HDInsight et en sélectionnant **Afficher les topologies Storm**.
 
 	Utilisez les liens pour les spouts et les bolts pour afficher des informations sur ces composants. Une nouvelle fenêtre s’ouvre pour chaque élément sélectionné.
 
 4.	À partir de l’affichage **Résumé de la topologie**, cliquez sur **Supprimer** pour arrêter la topologie.
 
-	> [AZURE.NOTE]Les topologies Storm poursuivent leur exécution jusqu'à ce qu'elles soient désactivées ou que le cluster soit supprimé.
+	> [AZURE.NOTE] Les topologies Storm poursuivent leur exécution jusqu'à ce qu'elles soient désactivées ou que le cluster soit supprimé.
 
 ##Topologie transactionnelle
 
@@ -428,11 +428,11 @@ Pour un exemple de topologie hybride, créez un nouveau projet, puis sélectionn
 
 	-	Une version transactionnelle est définie dans **HybridTopologyTx\_csharpSpout\_javaBolt**
 
-		> [AZURE.NOTE]Cette version montre également comment utiliser le code Clojure à partir d’un fichier texte en tant que composant Java.
+		> [AZURE.NOTE] Cette version montre également comment utiliser le code Clojure à partir d’un fichier texte en tant que composant Java.
 
 Pour basculer entre la topologie utilisée lorsque le projet est soumis, il suffit de déplacer l’instruction `[Active(true)]` sur la topologie que vous souhaitez utiliser avant de l’envoyer au cluster.
 
-> [AZURE.NOTE]Tous les fichiers Java requis sont fournis, dans le cadre de ce projet dans le dossier **JavaDependency**.
+> [AZURE.NOTE] Tous les fichiers Java requis sont fournis, dans le cadre de ce projet dans le dossier **JavaDependency**.
 
 Les éléments suivants sont utilisés lors de la création et de la soumission d'une topologie hybride :
 
@@ -450,7 +450,7 @@ SCP.Net 0.9.4.203 introduit une classe et une méthode inédites propres à l�
 
 -	Méthode **TopologyBuilder.SetEventHubSpout** : ajoute le composant spout Event Hubs à la topologie
 
-> [AZURE.NOTE]Bien qu’il soit plus facile d’utiliser le spout Event Hubs que les autres composants Java, vous devez toujours utiliser CustomizedInteropJSONSerializer pour sérialiser les données produites par spout.
+> [AZURE.NOTE] Bien qu’il soit plus facile d’utiliser le spout Event Hubs que les autres composants Java, vous devez toujours utiliser CustomizedInteropJSONSerializer pour sérialiser les données produites par spout.
 
 ##Mise à jour de SCP.NET
 
@@ -460,7 +460,7 @@ Les dernières versions de SCP.NET prennent en charge la mise à niveau du pack
 
 2. Dans le Gestionnaire de package, sélectionnez **Mises à jour**. Si une mise à jour est disponible, elle est affichée. Cliquez sur le bouton **Mettre à jour** du package pour l'installer.
 
-> [AZURE.IMPORTANT]Si votre projet a été créé avec l’une des versions précédentes de SCP.NET qui n’utilisaient pas NuGet pour les mises à jour de package, vous devez procéder comme suit pour effectuer la mise à jour vers la nouvelle version :
+> [AZURE.IMPORTANT] Si votre projet a été créé avec l’une des versions précédentes de SCP.NET qui n’utilisaient pas NuGet pour les mises à jour de package, vous devez procéder comme suit pour effectuer la mise à jour vers la nouvelle version :
 >
 > 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
 > 2. Dans le champ **Rechercher**, recherchez, puis ajoutez **Microsoft.SCP.Net.SDK** au projet.
@@ -471,13 +471,13 @@ Les dernières versions de SCP.NET prennent en charge la mise à niveau du pack
 
 Bien qu’il soit facile de déployer une topologie sur un cluster, dans certains cas, il sera peut-être nécessaire de tester une topologie localement. Utilisez les étapes suivantes pour exécuter et tester localement l’exemple de topologie de ce didacticiel localement dans votre environnement de développement.
 
-> [AZURE.WARNING]Le test local fonctionne uniquement pour les topologies de base en C#. N’employez pas le test local pour les topologies hybrides ou celles qui utilisent plusieurs flux de données, car vous recevrez des erreurs.
+> [AZURE.WARNING] Le test local fonctionne uniquement pour les topologies de base en C#. N’employez pas le test local pour les topologies hybrides ou celles qui utilisent plusieurs flux de données, car vous recevrez des erreurs.
 
 1.	Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Propriétés**. Dans les propriétés du projet, modifiez le **Type de sortie** sur **Application Console**.
 
 	![type de sortie](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
-	> [AZURE.NOTE]N’oubliez pas de modifier le **Type de sortie** sur **Bibliothèque de classes** avant de déployer la topologie sur un cluster.
+	> [AZURE.NOTE] N’oubliez pas de modifier le **Type de sortie** sur **Bibliothèque de classes** avant de déployer la topologie sur un cluster.
 
 2.	Dans l’**Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le projet, puis sélectionnez **Ajouter** > **Nouvel élément**. Sélectionnez **Classe** et entrez **LocalTest.cs** comme nom de classe. Enfin, cliquez sur **Ajouter**.
 
@@ -600,11 +600,11 @@ Bien qu’il soit facile de déployer une topologie sur un cluster, dans certain
 
 7.	Utilisez l’**Explorateur Windows** pour accéder au répertoire qui contient votre projet, par exemple, **C:\\Users < votre\_nom\_utilisateur > \\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**. Dans ce répertoire, ouvrez **Bin**, puis cliquez sur **Débogage**. Vous devez voir les fichiers texte produits lors de l’exécution de tests : sentences.txt, counter.txt et splitter.txt. Ouvrez chaque fichier texte et inspectez les données.
 
-	> [AZURE.NOTE]Les chaînes de données sont conservées sous forme de tableau de valeurs décimales dans ces fichiers. Par exemple, le résultat [[97,103,111]] dans le fichier **splitter.txt** correspond au mot « and ».
+	> [AZURE.NOTE] Les chaînes de données sont conservées sous forme de tableau de valeurs décimales dans ces fichiers. Par exemple, le résultat [[97,103,111]] dans le fichier **splitter.txt** correspond au mot « and ».
 
 Le test local d'une application de statistiques de base est relativement simple. Toutefois la valeur réelle apparaît lorsque vous disposez d'une topologie complexe qui communique avec des sources de données externes ou effectue l'analyse de données complexes. Lorsque vous travaillez sur un tel projet, vous devrez peut-être définir des points d’arrêt et parcourir le code de vos composants afin d’isoler les problèmes.
 
-> [AZURE.NOTE]Veillez à définir le **Type de projet** sur **Bibliothèque de classes** avant le déploiement vers un Storm sur un cluster HDInsight.
+> [AZURE.NOTE] Veillez à définir le **Type de projet** sur **Bibliothèque de classes** avant le déploiement vers un Storm sur un cluster HDInsight.
 
 ###Enregistrement d’informations
 
@@ -616,7 +616,7 @@ Context.Logger.Info("Component started");
 
 Les informations enregistrées peuvent être affichées dans le **journal du service Hadoop**, qui se trouve dans l’**Explorateur de serveurs**. Développez l’entrée pour votre Storm sur le cluster HDInsight , puis le **journal du service Hadoop**. Enfin, sélectionnez le fichier journal à afficher.
 
-> [AZURE.NOTE]Les journaux sont stockés dans le compte de stockage Azure utilisé par votre cluster. S’il s’agit d’un abonnement différent de celui avec lequel vous êtes connecté à Visual Studio, vous devez vous ouvrir une session dans l’abonnement contenant le compte de stockage pour afficher ces informations.
+> [AZURE.NOTE] Les journaux sont stockés dans le compte de stockage Azure utilisé par votre cluster. S’il s’agit d’un abonnement différent de celui avec lequel vous êtes connecté à Visual Studio, vous devez vous ouvrir une session dans l’abonnement contenant le compte de stockage pour afficher ces informations.
 
 ###Afficher les informations relatives aux erreurs
 
@@ -656,6 +656,6 @@ Pour plus d’informations sur l’utilisation de HDInsight, ou pour obtenir dav
 
 **Apache HBase sur HDInsight**
 
--	[Prise en main de HBase sur HDInsight](hdinsight-hbase-get-started.md)
+-	[Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -24,7 +24,7 @@
 
 Vous pouvez utiliser l’[API REST du fournisseur de ressources IoT Hub][lnk-rest-api] pour créer et gérer des IoT Hubs Azure par programme. Ce didacticiel vous montre comment utiliser l’API REST du fournisseur de ressources pour créer un IoT Hub à partir d’un programme C#.
 
-> [AZURE.NOTE]Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
+> [AZURE.NOTE] Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -40,7 +40,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans le gestionnaire de packages NuGet, activez **INCLURE LA VERSION PRÉLIMINAIRE** et recherchez **Microsoft.Azure.Management.Resources**. Sélectionnez la version **2.18.11-preview**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS** cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter les licences.
+3. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.Azure.Management.Resources**. Sélectionnez la version **2.18.11-preview**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
 
 4. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory**. Sélectionnez la version **2.19.208020213**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS**, cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter la licence.
 
@@ -180,7 +180,7 @@ Vous pouvez maintenant terminer l’application en appelant les méthodes **Crea
 
 4. Vous pouvez vérifier que votre application a ajouté le nouveau IoT Hub en accédant au [portail][lnk-azure-portal] et en affichant votre liste de ressources, ou en utilisant l’applet de commande PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE]Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous sera facturé. Lorsque vous avez terminé, vous pouvez supprimer le IoT Hub par le biais du [portail][lnk-azure-portal] ou à l’aide de l’applet de commande PowerShell **Remove-AzureRmResource**.
+> [AZURE.NOTE] Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous sera facturé. Lorsque vous avez terminé, vous pouvez supprimer le IoT Hub par le biais du [portail][lnk-azure-portal] ou à l’aide de l’applet de commande PowerShell **Remove-AzureRmResource**.
 
 ## Étapes suivantes
 
@@ -194,4 +194,4 @@ Vous pouvez maintenant terminer l’application en appelant les méthodes **Crea
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

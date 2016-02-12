@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/25/2015"
+   ms.date="02/01/2016"
    ms.author="rickbyh"/>
 
 # Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données  
@@ -27,6 +27,8 @@ Découvrez la gestion de la sécurité SQL Database, en particulier la façon de
 Dans la base de données SQL Azure de Microsoft, lorsque vous vous inscrivez pour bénéficier du service, le processus d’approvisionnement crée un serveur de base de données SQL Azure, une base de données nommée **master**, et une connexion, qui est le principal au niveau du serveur de votre serveur de base de données SQL Azure. Cette connexion est semblable au principal au niveau du serveur (**sa**), d’une instance locale de SQL Server.
 
 Le compte principal au niveau du serveur de base de données SQL Azure est autorisé à gérer l’ensemble de la sécurité au niveau du serveur et au niveau de la base de données. Cette rubrique explique comment utiliser le principal au niveau du serveur et d’autres comptes pour gérer les connexions et bases de données dans la base de données SQL
+
+Les utilisateurs Azure qui accèdent à la Base de données SQL par le biais du contrôle d’accès en fonction du rôle Azure et de l’API REST Azure Resource Manager reçoivent les autorisations de leurs rôles Azure. Les actions des membres de rôle Azure sont exécutées pour eux par le moteur de base de données. Celles-ci ne sont pas affectées par le modèle d’autorisations du moteur de base de données et ne sont pas abordées dans cette rubrique. Pour plus d’informations, consultez [RBAC : rôles intégrés]( https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor).
 
 > [AZURE.IMPORTANT] La base de données SQL V12 permet aux utilisateurs de s’authentifier pour la base de données à l’aide des utilisateurs de base de données contenu. Les utilisateurs de base de données contenu n’exige pas de connexion. Cela rend les bases de données plus portables, mais réduit la capacité du principal de niveau serveur à contrôler l’accès à la base de données. L’activation des utilisateurs contenus dans la base de données à des impacts de sécurité. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx), [Bases de données à relation contenant-contenu](https://technet.microsoft.com/library/ff929071.aspx), [CRÉER UN UTILISATEUR (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
 
@@ -174,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md) [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

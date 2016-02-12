@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Azure Machine Learning Studio - De quoi s'agit-il ?
@@ -31,7 +31,7 @@ Pour développer un modèle d'analyse prédictive, vous utilisez généralement 
 
 **Azure Machine Learning Studio** offre un espace de travail visuel et interactif qui vous permet de générer, tester et répéter facilement un modèle d'analyse prédictive. Vous faites glisser des ***jeux de données*** et des ***modules*** d'analyse sur un ***canevas*** interactif, en les connectant ensemble pour former une ***expérience***, que vous ***exécutez*** sous Machine Learning Studio. Pour affiner votre modèle, vous ***modifiez*** l'expérience, ***enregistrez*** une copie si vous le souhaitez et l'exécutez de nouveau. Quand vous êtes prêt, vous pouvez convertir votre ***expérience de formation*** en une ***expérience prédictive***, puis la ***publier*** en tant que ***service web*** afin que votre modèle soit accessible à d’autres.
 
->[AZURE.TIP]Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 Aucune programmation n'est nécessaire : il suffit de visualiser la connexion des jeux de données et des modules pour construire votre modèle d'analyse prédictive.
 
@@ -48,7 +48,7 @@ Trois onglets apparaissent en haut de la page : **Accueil** (votre point de dé
 Cliquez sur l’onglet **Studio** et vous serez invité à vous connecter à l’aide de votre compte Microsoft, professionnel ou scolaire. Une fois que vous êtes connecté, les onglets suivants apparaissent sur la gauche :
 
 - **EXPÉRIENCES** : expériences qui ont été créées, exécutées et enregistrées comme brouillons
-- **SERVICES WEB** : services que vous avez déployés à partir de vos expériences web
+- **SERVICES WEB** : services que vous avez déployés à partir de vos expériences web
 - **NOTEBOOKS** : notebooks Jupyter que vous avez créés
 - **JEUX DE DONNÉES** : jeux de données que vous avez téléchargés dans Studio
 - **MODÈLES FORMÉS** : modèles que vous avez formés dans les expériences, puis enregistrés dans Studio
@@ -93,7 +93,7 @@ Pour obtenir une liste des exemples de jeux de données inclus dans Machine Lear
 Un module est un algorithme que vous appliquez à vos données. Machine Learning Studio comporte divers modules, allant de fonctions de saisie des données à des procédures de formation, de notation et de validation. Voici quelques exemples de modules fournis :
 
 - [Conversion au format ARFF][convert-to-arff] : convertit un jeu de données sérialisé .NET au format ARFF (Attribute-Relation File Format)
-- [Statistiques élémentaires][elementary-statistics] : calcule des statistiques élémentaires (ex. moyenne, écart-type, etc.).
+- [Statistiques de calcul élémentaires][elementary-statistics] : calcule des statistiques élémentaires (ex. moyenne, écart-type, etc.).
 - [Régression linéaire][linear-regression] : crée en ligne un modèle de régression linéaire à gradient décroissant.
 - [Noter le modèle][score-model] : note une classification formée ou un modèle de régression.
 
@@ -101,7 +101,7 @@ Lorsque vous créez une expérience, vous pouvez utiliser la liste des modules �
 
 Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet **Propriétés** à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle.
 
-Pour obtenir de l’aide sur la navigation dans la vaste bibliothèque d’algorithmes d’apprentissage automatique, consultez [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+Pour obtenir de l’aide sur la navigation dans la vaste bibliothèque d’algorithmes disponibles dans Machine Learning, consultez [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 ## Déploiement d'un service web d'analyse prédictive
 
@@ -115,4 +115,4 @@ Une fois votre modèle d'analyse prédictive prêt, vous pouvez le déployer com
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

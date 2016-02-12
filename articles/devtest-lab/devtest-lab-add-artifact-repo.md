@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
+<properties
+	pageTitle="Ajouter un référentiel d’artefacts Git à votre instance du service DevTest Lab | Microsoft Azure"
+	description="Ajoutez un référentiel Git pour GitHub ou Visual Studio Team Services à votre labo pour vos artefacts personnalisés"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Ajouter un référentiel d’artefacts Git à votre instance du service DevTest Lab
@@ -115,4 +115,4 @@ Pour ajouter un référentiel d’artefacts Git Visual Studio à votre laboratoi
     3. Entrez le **Jeton d’accès personnel** enregistré dans le référentiel d’artefacts.
     4. Appuyez sur **Enregistrer**.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

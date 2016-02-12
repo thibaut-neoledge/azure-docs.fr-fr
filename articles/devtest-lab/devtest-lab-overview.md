@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="What is the DevTest Lab service? | Microsoft Azure"
-	description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines"
+<properties 
+	pageTitle="Qu’est-ce que le service DevTest Lab ? | Microsoft Azure"
+	description="Découvrez comment un DevTest Lab peut faciliter la création, la gestion et le suivi des machines virtuelles de Microsoft Azure"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 #Présentation de DevTest Lab
@@ -52,7 +52,7 @@ Les **artefacts** sont utilisés pour déployer et configurer votre application 
 - des actions que vous souhaitez exécuter sur la machine virtuelle, telles que le clonage d’un référentiel ;
 - des applications que vous voulez tester.
 
-Les artefacts sont des fichiers JSON basés sur Azure Resource Manager (ARM) qui contiennent des instructions pour effectuer le déploiement et appliquer la configuration. Pour obtenir plus d’informations sur ARM, consultez la rubrique [Présentation d’Azure Resource Manager](resource-group-overview.md).
+Les artefacts sont des fichiers JSON basés sur Azure Resource Manager (ARM) qui contiennent des instructions pour effectuer le déploiement et appliquer la configuration. Pour obtenir plus d’informations sur ARM, consultez la rubrique [Présentation d’Azure Resource Manager](/resource-group-overview.md).
 
 Les **référentiels d’artefact** sont des référentiels Git dans lesquels les artefacts sont archivés. Vous pouvez ajouter un même référentiel d’artefact à plusieurs laboratoires de votre organisation pour les réutiliser et les partager.
 
@@ -66,4 +66,4 @@ Les **stratégies** vous aident à contrôler les coûts dans votre laboratoire.
 
 Pour commencer à utiliser DevTest Lab, suivez le didacticiel étape par étape [Création d’une instance du service Azure DevTest Lab](devtest-lab-create-lab.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

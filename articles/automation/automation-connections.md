@@ -21,11 +21,11 @@ Une ressource de connexion Automation contient les informations nécessaires pou
 
 Lorsque vous créez une connexion, vous devez spécifier un *type de connexion*. Le type de connexion est un modèle qui définit un ensemble de propriétés. La connexion définit des valeurs pour chaque propriété définie dans son type de connexion. Des types de connexion sont ajoutés à Azure Automation dans les modules d’intégration ou créés avec l’[API Azure Automation](http://msdn.microsoft.com/library/azure/mt163818.aspx). Les seuls types de connexion disponibles lorsque vous créez une connexion sont ceux installés dans votre compte Automation.
 
->[AZURE.NOTE] Les ressources sécurisées dans Azure Automation incluent les informations d’identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
+>[AZURE.NOTE] Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
 
 ## Applets de commande Windows PowerShell
 
-Les applets de commande du tableau suivant sont utilisées pour créer et gérer des connexions Automation avec Windows PowerShell. Elles font partie du [module Azure PowerShell](../powershell-install-configure.md) qui est disponible dans les Runbooks Automation et dans les configurations DSC.
+Les applets de commande du tableau suivant permettent de créer et de gérer les connexions Automation avec Windows PowerShell. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md), utilisable dans les Runbooks Automation et les configurations DSC.
 
 |Applet de commande|Description|
 |:---|:---|
@@ -40,13 +40,13 @@ Les activités du tableau suivant sont utilisées pour accéder aux connexions d
 
 |Activités|Description|
 |---|---|
-|Get-AutomationConnection|Obtient une connexion à utiliser. Retourne une table de hachage avec les propriétés de la connexion.|
+|Get-AutomationConnection|Obtient une connexion à utiliser. Renvoie une table de hachage avec les propriétés de la connexion.|
 
 >[AZURE.NOTE] Évitez d’utiliser des variables dans le paramètre –Name de **Get- AutomationConnection**, car cela complique la découverte des dépendances entre les Runbooks ou les configurations DSC et les ressources de connexion au moment de la conception.
 
 ## Création d’une connexion
 
-### Pour créer une connexion avec le portail Azure
+### Pour créer une connexion avec le portail Azure Classic
 
 1. À partir de votre compte Automation, cliquez sur **Ressources** en haut de la fenêtre.
 1. En bas de la fenêtre, cliquez sur **Ajouter un paramètre**.
@@ -55,7 +55,7 @@ Les activités du tableau suivant sont utilisées pour accéder aux connexions d
 1. Terminez l’Assistant et activez la case à cocher pour enregistrer la nouvelle connexion.
 
 
-### Pour créer une connexion avec le portail Azure en version préliminaire
+### Pour créer une connexion avec le portail Azure
 
 1. À partir de votre compte Automation, cliquez sur la partie **Ressources** afin d’ouvrir le panneau **Ressources**.
 1. Cliquez sur la partie **Connexions** afin d’ouvrir le panneau **Connexions**.
@@ -95,7 +95,7 @@ Les exemples de commandes suivants montrent comment utiliser la connexion Twilio
 	Send-TwilioSMS -Connection $Con -From $NumFrom -To $NumTo -Body $Body
 
 	#Send text with connection properties.
-	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken $Con -From $NumFrom -To $NumTo -Body $Body
+	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken -From $NumFrom -To $NumTo -Body $Body
 
 ### Exemples de Runbook graphique
 
@@ -120,4 +120,4 @@ L’image ci-dessous montre le même exemple que plus haut, mais utilise le jeu 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

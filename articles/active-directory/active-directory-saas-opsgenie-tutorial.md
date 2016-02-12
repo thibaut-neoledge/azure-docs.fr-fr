@@ -3,7 +3,7 @@
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et OpsGenie."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Didacticiel : Intégration d’Azure Active Directory à OpsGenie
@@ -35,7 +35,7 @@ Pour configurer l’intégration d’Azure AD à OpsGenie, vous avez besoin des
 - Un abonnement OpsGenie pour lequel l’authentification unique est activée
 
 
-> [AZURE.NOTE]Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -60,7 +60,7 @@ Pour configurer l’intégration de OpsGenie à Azure AD, vous devez ajouter Op
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
+3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, entrez **OpsGenie**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_01.png)<br>
@@ -77,7 +77,7 @@ Pour configurer et tester l’authentification unique Azure AD avec OpsGenie, v
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test OpsGenie](#creating-a-opsgenie-test-user)** pour avoir un équivalent de Britta Simon dans OpsGenie lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD
@@ -97,7 +97,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application OpsGenie, au format suivant : **« https://app.opsgenie.com/auth/login »**.
 
-    > [AZURE.NOTE]Contactez votre [équipe de support technique OpsGenie](mailto:support@opsgenie.com) si vous avez de besoin de votre URL d’authentification.
+    > [AZURE.NOTE] Contactez votre [équipe de support OpsGenie](mailto:support@opsgenie.com) si vous avez de besoin de votre URL d’authentification.
 
     b. Cliquez sur **Next**.
 
@@ -111,7 +111,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 5. Ouvrez une autre instance de navigateur, puis connectez-vous à OpsGenie en tant qu’administrateur.
 
-6. Cliquez sur **Paramètres**, puis sur l’onglet **Authentification unique**. <br><br>![Authentification unique OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png) <br>
+6. Cliquez sur **Paramètres**, puis cliquez sur l’onglet **Authentification unique**. <br><br>![Authentification unique OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png) <br>
 
 7. Pour activer l’authentification unique, sélectionnez **Activé**. <br><br>![Paramètres OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) <br>
    
@@ -119,11 +119,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     
 9. Dans la page de boîte de dialogue Azure Active Directory, procédez comme suit : <br><br>![Paramètres OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png) <br>
 
-    a. Dans la page de boîte de dialogue **Configurer l’authentification unique sur OpsGenie** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **SAML 2.0 Endpoint**.
+    a. Dans la page **Configurer l’authentification unique sur OpsGenie** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Point de terminaison SAML 2.0**.
 
     b. Créez un fichier codé en base 64 à partir du certificat téléchargé.
     
-    > [AZURE.NOTE]Pour plus d’informations, consultez [How to convert a binary certificate into a text file](https://www.youtube.com/watch?v=PlgrzUZ-Y1o&feature=youtu.be).
+    > [AZURE.NOTE] Pour plus d’informations, consultez [How to convert a binary certificate into a text file](https://www.youtube.com/watch?v=PlgrzUZ-Y1o&feature=youtu.be).
 
     c. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat X.500**.
 
@@ -138,7 +138,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L'objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
@@ -158,11 +158,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_06.png) <br>
+6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_06.png) <br>
 
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
-    b. Dans la zone de texte **Nom**, entrez **Simon**.
+    b. Dans la zone de texte **Nom**, tapez **Simon**.
 
     c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
 
@@ -248,4 +248,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -48,22 +48,22 @@ Si vous ne disposez pas de Visual Studio sur votre ordinateur, le Kit de dévelo
 
 Les rubriques suivantes vous permettent d'utiliser Sites Web Azure :
 
-* [Publication de projets web sur Sites Web Azure](web-sites-dotnet-get-started.md)
-* [Publication de projets d'application console sur Tâches web Azure](websites-dotnet-deploy-webjobs.md)
-* [Création de ressources Sites Web Azure et Base de données SQL lors de la création ou de la publication d'un projet web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
+* [Publication de projets web sur Sites Web Azure](app-service-web/web-sites-dotnet-get-started.md)
+* [Publication de projets d'application console sur Tâches web Azure](app-service-web/websites-dotnet-deploy-webjobs.md)
+* [Création de ressources Sites Web Azure et Base de données SQL lors de la création ou de la publication d'un projet web](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
 * [Création de scripts de déploiement PowerShell lors de la création de nouveaux sites web](http://msdn.microsoft.com/library/dn642480.aspx)
-* [Gestion et dépannage de Sites Web Azure dans l'Explorateur de serveurs](web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement)
-* [Exécution en mode débogage à distance pour les sites et les tâches web](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) 
+* [Gestion et dépannage de Sites Web Azure dans l'Explorateur de serveurs](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement)
+* [Exécution en mode débogage à distance pour les sites et les tâches web](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) 
 
->[AZURE.NOTE]Il n'est pas nécessaire d'installer le Kit de développement logiciel (SDK) Azure pour .NET pour pouvoir utiliser ces fonctionnalités ; celles-ci sont également incluses dans les mises à jour Visual Studio.
+>[AZURE.NOTE] Il n'est pas nécessaire d'installer le Kit de développement logiciel (SDK) Azure pour .NET pour pouvoir utiliser ces fonctionnalités ; celles-ci sont également incluses dans les mises à jour Visual Studio.
 
 ###<a id="tools"></a>Outils Microsoft Azure pour Microsoft Visual Studio
 
 Ces rubriques vous permettent d'utiliser les ressources Azure, principalement Cloud Services et Virtual Machines :
 
-* [Création, ouverture et publication de projets de service cloud](cloud-services-dotnet-get-started.md)
+* [Création, ouverture et publication de projets de service cloud](cloud-services/cloud-services-dotnet-get-started.md)
 * [Création de packages de déploiement pour les projets de service cloud](http://msdn.microsoft.com/library/ff683672.aspx)
-* [Création de machines virtuelles Azure lors de la création de projets web](virtual-machines-dotnet-create-visual-studio-powershell.md)
+* [Création de machines virtuelles Azure lors de la création de projets web](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md)
 * [Création de scripts PowerShell lors de la création de machines virtuelles](http://msdn.microsoft.com/library/dn642480.aspx)
 * [Affichage et gestion des paramètres de projet de service cloud dans les fenêtres Propriétés du projet Visual Studio](http://msdn.microsoft.com/library/ee405486.aspx)
 * Affichage et gestion des [services cloud](http://msdn.microsoft.com/library/ff683675.aspx), des [machines virtuelles](http://msdn.microsoft.com/library/jj131259.aspx) et de [Service Bus](http://msdn.microsoft.com/library/jj149828.aspx) dans l'Explorateur de serveurs 
@@ -99,11 +99,11 @@ Les éléments suivants sont inclus :
 
 ###<a id="hdinsight"></a>Outils HDInsight pour Visual Studio et pilote ODBC Hive de Microsoft
 
-Les outils HDInsight dans l'Explorateur de serveurs vous permettent de naviguer dans les bases de données Hive et de lier des comptes de stockage pour les clusters HDInsight, de créer des tables ainsi que de créer et d'envoyer des requêtes Hive. Pour plus d'informations, consultez la page [Prise en main de HDInsight Hadoop Tools pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+Les outils HDInsight dans l'Explorateur de serveurs vous permettent de naviguer dans les bases de données Hive et de lier des comptes de stockage pour les clusters HDInsight, de créer des tables ainsi que de créer et d'envoyer des requêtes Hive. Pour plus d'informations, consultez la page [Prise en main de HDInsight Hadoop Tools pour Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ###<a id="mobile">Kit de développement logiciel (SDK) de Microsoft Azure Mobile App
 
-Outils permettant de travailler avec [Azure App Service Mobile Apps](app-service-mobile-value-prop-preview.md).
+Outils permettant de travailler avec [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop-preview.md).
 
 ###<a id="ps"></a>Microsoft Azure PowerShell
 
@@ -119,9 +119,9 @@ Voici quelques éléments qui peuvent vous intéresser pour le développement d'
 
   	**Copies locales de bibliothèques clientes.** Le Kit de développement logiciel (SDK) Azure pour .NET copie les packages NuGet sur votre ordinateur pour certaines bibliothèques clientes Azure, telles que Storage, Service Bus et Mise en cache. Ces dernières sont automatiquement incluses dans les nouveaux projets de service cloud, de sorte que les packages NuGet locaux permettent à Visual Studio de créer des projets même si vous n'êtes pas connecté à Internet. Les bibliothèques clientes sont généralement mises à jour à un rythme plus rapide que celui de la publication de nouvelles versions du Kit de développement logiciel (SDK), de sorte que les bibliothèques clientes sur NuGet.org sont souvent plus récentes que celles obtenues avec le Kit de développement logiciel (SDK).
 
-	**Modèles de projet incluant des bibliothèques clientes** Seuls les modèles de projet [Azure Cloud Services](cloud-services-dotnet-get-started.md) et [Azure Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) incluent automatiquement certaines bibliothèques clientes. Pour accéder à d'autres bibliothèques ou modèles, installez les [packages NuGet de bibliothèques clientes](http://go.microsoft.com/fwlink/?LinkId=510472) dont vous avez besoin.
+	**Modèles de projet incluant des bibliothèques clientes** Seuls les modèles de projet [Azure Cloud Services](cloud-services/cloud-services-dotnet-get-started.md) et [Azure Mobile Services](mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) incluent automatiquement certaines bibliothèques clientes. Pour accéder à d'autres bibliothèques ou modèles, installez les [packages NuGet de bibliothèques clientes](http://go.microsoft.com/fwlink/?LinkId=510472) dont vous avez besoin.
 
-* [Modèles de projet Azure Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md).
+* [Modèles de projet Azure Mobile Services](mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md).
 
 	Les modèles Mobile Services sont uniquement disponibles dans Visual Studio 2013 Update 2 et versions ultérieures. Ils ne sont pas disponibles dans Visual Studio 2012 ou versions antérieures, ni dans Visual Studio 2013 Update 1 ou versions antérieures, même si vous installez le Kit de développement logiciel (SDK) Azure pour .NET.
 
@@ -186,4 +186,4 @@ Pour le code source du Kit de développement logiciel (SDK) Azure pour .NET, y c
 
 Pour la documentation de référence de la bibliothèque cliente Azure, consultez [Référence Azure .NET](/documentation/api/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

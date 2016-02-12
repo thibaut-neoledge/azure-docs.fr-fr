@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Publication d’un service cloud à l’aide des outils Azure
@@ -21,7 +21,7 @@ Grâce aux outils Azure pour Microsoft Visual Studio, vous pouvez publier votre 
 
 Avant de pouvoir publier une application Azure, vous devez disposer d'un abonnement Azure. Vous devez également configurer un service cloud et un compte de stockage utilisable par votre application. Vous pouvez les définir dans le [portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
->[AZURE.IMPORTANT]Lorsque vous publiez, vous pouvez sélectionner l'environnement de déploiement pour votre service cloud. Vous devez également sélectionner un compte de stockage permettant de stocker le package de l'application pour le déploiement. Après le déploiement, le package de l’application est supprimé du compte de stockage. Pour plus d'informations sur la configuration de ces services, consultez [Configuration des services nécessaires pour publier un service cloud à partir de Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md).
+>[AZURE.IMPORTANT] Lorsque vous publiez, vous pouvez sélectionner l'environnement de déploiement pour votre service cloud. Vous devez également sélectionner un compte de stockage permettant de stocker le package de l'application pour le déploiement. Après le déploiement, le package de l’application est supprimé du compte de stockage.
 
 Lorsque vous développez et testez une application Azure, vous pouvez utiliser Web Deploy pour publier des modifications de façon incrémentielle pour vos rôles web. Une fois que vous publiez votre application dans un environnement de déploiement, Web Deploy vous permet de déployer des modifications directement sur la machine virtuelle qui exécute le rôle web. Il est inutile de créer un package et de publier votre application Azure complète chaque fois que vous souhaitez mettre à jour votre rôle web pour tester les modifications. Avec cette approche, vos modifications de rôle web sont disponibles dans le cloud et vous pouvez donc les tester sans attendre que votre application soit publiée dans un environnement de déploiement.
 
@@ -61,7 +61,7 @@ Lorsque vous publiez votre application Azure, vous pouvez effectuer l'une des t�
 
 1. (Facultatif) Pour annuler le processus de déploiement, dans le menu contextuel de cette ligne dans le journal d'activité, choisissez **Annuler et supprimer**. Cela arrête le processus de déploiement et supprime l'environnement de déploiement d'Azure.
 
-    >[AZURE.NOTE]Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le portail de gestion Azure.
+    >[AZURE.NOTE] Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le portail de gestion Azure.
 
 1. (Facultatif) Une fois vos instances de rôle démarrées, Visual Studio affiche automatiquement l'environnement de déploiement dans le nœud **Services cloud** de l'Explorateur de serveurs. À partir de là, vous pouvez voir l'état de chaque instance de rôle. Consultez [Gestion des ressources Azure avec Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). L'illustration suivante montre les instances de rôle toujours à l'état d'initialisation :
 
@@ -97,7 +97,7 @@ La procédure suivante suppose que vous utilisez l’Assistant **Publication d�
 
     Le service cloud est publié. La machine virtuelle créée comporte des connexions à distance activées pour IIS, de sorte que Web Deploy peut être utilisé pour mettre à jour vos rôles web sans les republier.
 
-    >[AZURE.NOTE]Si vous avez plusieurs instances configurées pour un rôle web, un message d'avertissement s'affiche, indiquant que chaque rôle web sera limité à une seule instance dans le package créé pour publier votre application. Cliquez sur OK pour continuer. Comme indiqué dans la section Configuration requise, vous pouvez avoir plusieurs rôles web, mais une seule instance de chaque rôle.
+    >[AZURE.NOTE] Si vous avez plusieurs instances configurées pour un rôle web, un message d'avertissement s'affiche, indiquant que chaque rôle web sera limité à une seule instance dans le package créé pour publier votre application. Cliquez sur OK pour continuer. Comme indiqué dans la section Configuration requise, vous pouvez avoir plusieurs rôles web, mais une seule instance de chaque rôle.
 
 ### Pour mettre à jour votre rôle web à l'aide de Web Deploy
 
@@ -131,7 +131,7 @@ La procédure suivante suppose que vous utilisez l’Assistant **Publication d�
 
   1. Pour ajouter un certificat SSL, ouvrez le service de gestion dans le Gestionnaire des services IIS. Dans le Gestionnaire des services IIS, activez SSL en ouvrant le lien **Liaisons** dans le volet **Action**. La boîte de dialogue **Ajouter la liaison de Site** s'affiche. Choisissez **Ajouter**, puis sélectionnez HTTPS dans la liste déroulante **Type**. Dans la liste **Certificat SSL**, sélectionnez le certificat SSL signé par une autorité de certification et que vous avez téléchargé sur le portail de gestion Azure. Pour plus d'informations, consultez [Configurer des paramètres de connexion pour le service de gestion](http://go.microsoft.com/fwlink/?LinkId=215824).
 
-      >[AZURE.NOTE]Si vous ajoutez un certificat SSL approuvé, le triangle d'avertissement jaune n'apparaît plus dans l’**Assistant Publication**.
+      >[AZURE.NOTE] Si vous ajoutez un certificat SSL approuvé, le triangle d'avertissement jaune n'apparaît plus dans l’**Assistant Publication**.
 
 ## Inclure des fichiers dans le package de services
 
@@ -173,4 +173,4 @@ Vous devrez peut-être inclure des fichiers spécifiques dans votre package de s
 
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0204_2016-->
