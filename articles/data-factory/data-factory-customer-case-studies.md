@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Études de cas client | Microsoft Azure" 
+	pageTitle="Études de cas clients | Microsoft Azure" 
 	description="Découvrez comment certains de nos clients utilisent Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Études de cas client
+# Études de cas clients
 
 Data Factory est un service de gestion des informations dans le cloud qui automatise le déplacement et la transformation des données. Des clients répartis dans plusieurs secteurs utilisent Data Factory et d’autres services Azure pour générer leurs pipelines d’analyse et résoudre des problèmes commerciaux. Découvrez directement auprès de nos clients comment et pourquoi ils utilisent Data Factory.
 
@@ -36,7 +36,7 @@ Data Factory est un service de gestion des informations dans le cloud qui automa
 
 [Cette compagnie aérienne utilise des tablettes et des services cloud pour offrir une expérience de vol plus attrayante](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-## Tacoma Public Schools
+## Écoles publiques de Tacoma
 
 [Prédiction des risques de décrochage scolaire par les élèves, augmentation du taux d'obtention grâce aux analyses cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
@@ -48,4 +48,4 @@ Data Factory est un service de gestion des informations dans le cloud qui automa
 
 [Recherche d'une meilleure relation avec les clients par le biais du service Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

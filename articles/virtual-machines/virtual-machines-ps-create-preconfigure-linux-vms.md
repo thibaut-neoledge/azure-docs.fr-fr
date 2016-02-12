@@ -35,7 +35,7 @@ Pour plus d’informations sur les machines virtuelles Windows, voir l’article
 
 ## Installation d'Azure PowerShell
 
-Si vous ne l'avez pas déjà fait, [installez et configurez Azure PowerShell](../install-configure-powershell.md). Ouvrez ensuite une invite de commande Azure PowerShell.
+Si vous ne l'avez pas déjà fait, [installez et configurez Azure PowerShell](powershell-install-configure.md). Ouvrez ensuite une invite de commande Azure PowerShell.
 
 ## Configuration de votre compte d'abonnement et de stockage
 
@@ -274,10 +274,10 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Vue d’ensemble des machines virtuelles Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
+[Installation et configuration d’Azure PowerShell](powershell-install-configure.md)
 
 [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
 
 [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

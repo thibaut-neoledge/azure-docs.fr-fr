@@ -8,13 +8,13 @@ Pour écrire des messages dans Azure Storage de manière fiable, l’exemple uti
 
 Le processeur d’événements utilise les décalages des messages des concentrateurs d’événements comme ID de bloc. Cela lui permet d’effectuer une vérification de la déduplication avant de valider le nouveau bloc dans le stockage, en tenant compte d’un possible incident entre un bloc et le point de contrôle.
 
-> [AZURE.NOTE]Ce didacticiel utilise un même compte de stockage pour enregistrer tous les messages récupérés d’IoT Hub. Reportez-vous aux [Instructions d’évolutivité d’Azure Storage] pour décider si vous avez besoin d’utiliser plusieurs comptes Azure Storage dans votre solution.
+> [AZURE.NOTE] Ce didacticiel utilise un même compte de stockage pour enregistrer tous les messages récupérés d’IoT Hub. Reportez-vous aux [Instructions d’évolutivité d’Azure Storage] pour décider si vous avez besoin d’utiliser plusieurs comptes Azure Storage dans votre solution.
 
 L’application utilise la fonctionnalité de déduplication de Service Bus afin d’éviter les doublons lorsqu’elle traite les messages interactifs. L’appareil simulé marque chaque message interactif avec une propriété **MessageId** unique pour permettre à Service Bus de garantir que la fenêtre de temps de déduplication spécifiée ne remettra jamais deux messages possédant la même propriété **MessageId** aux récepteurs. Cette déduplication, conjointement avec la sémantique d’achèvement par message fournie par les files d’attente Service Bus, facilite le traitement fiable des messages interactifs.
 
 Pour vous assurer qu’aucun message n’est renvoyé en dehors de la fenêtre de déduplication, le code synchronise le mécanisme de contrôle d’**EventProcessorHost** avec la fenêtre de déduplication de la file d’attente Service Bus. Pour cela, vous devez forcer un point de contrôle au moins une fois par écoulement de fenêtre de déduplication (une heure dans ce didacticiel).
 
-> [AZURE.NOTE]Ce didacticiel utilise une file d’attente Service Bus partitionnée unique pour traiter tous les messages interactifs récupérés d’IoT Hub. Reportez-vous à la [documentation de Service Bus] pour plus d’informations sur l’utilisation des files d’attente Service Bus pour répondre aux exigences d’évolutivité de votre solution.
+> [AZURE.NOTE] Ce didacticiel utilise une file d’attente Service Bus partitionnée unique pour traiter tous les messages interactifs récupérés d’IoT Hub. Reportez-vous à la [documentation de Service Bus] pour plus d’informations sur l’utilisation des files d’attente Service Bus pour répondre aux exigences d’évolutivité de votre solution.
 
 ### Approvisionner un compte Azure Storage et une file d’attente Service Bus
 Pour pouvoir utiliser la classe [EventProcessorHost], vous devez disposer d’un compte Azure Storage pour permettre à l’**EventProcessorHost** d’enregistrer les informations de point de contrôle. Vous pouvez utiliser un compte de stockage existant, ou suivre les instructions figurant dans [À propos d’Azure Storage] pour en créer un. Notez la chaîne de connexion du compte de stockage.
@@ -200,7 +200,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
 
     La méthode **AppendAndCheckpoint** génère d’abord un ID de bloc pour le bloc à ajouter. Azure Storage requiert que tous les ID de bloc aient la même longueur, la méthode remplit donc le décalage avec des zéros non significatifs - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Ensuite, si un bloc avec cet ID se trouve déjà dans l’objet blob, la méthode le remplace par le contenu actuel de la mémoire tampon.
 
-    > [AZURE.NOTE]Pour simplifier le code, ce didacticiel utilise un fichier blob unique par partition pour stocker les messages. La solution serait d’implémenter une substitution de fichier, en créant des fichiers supplémentaires lorsqu’ils atteignent une certaine taille (notez qu’un objet blob de blocs Azure est limité à 195 Go), ou après un certain laps de temps.
+    > [AZURE.NOTE] Pour simplifier le code, ce didacticiel utilise un fichier blob unique par partition pour stocker les messages. La solution serait d’implémenter une substitution de fichier, en créant des fichiers supplémentaires lorsqu’ils atteignent une certaine taille (notez qu’un objet blob de blocs Azure est limité à 195 Go), ou après un certain laps de temps.
 
 8. Dans la classe **Programme**, ajoutez les instructions **using** suivantes en haut :
 
@@ -229,7 +229,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
     }
     ```
     
-    > [AZURE.NOTE]Par souci de simplicité, ce didacticiel utilise une seule instance de la classe [EventProcessorHost]. Reportez-vous au [Guide de programmation Event Hubs] pour plus d’informations.
+    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel utilise une seule instance de la classe [EventProcessorHost]. Reportez-vous au [Guide de programmation Event Hubs] pour plus d’informations.
 
 ## Recevoir des messages interactifs
 Dans cette section, vous écrirez une application de console Windows qui reçoit les messages interactifs à partir de la file d’attente Service Bus. Pour plus d’informations sur la construction d’une solution à l’aide de Service Bus, consultez [Créer des applications multiniveaux avec Service Bus][].
@@ -293,7 +293,6 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guide de programmation Event Hubs]: ../event-hubs/event-hubs-programming-guide.md
-[Azure preview portal]: https://portal.azure.com/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portail Azure]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
@@ -313,4 +312,4 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

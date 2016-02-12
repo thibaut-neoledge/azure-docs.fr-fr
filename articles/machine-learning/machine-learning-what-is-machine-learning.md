@@ -5,7 +5,7 @@
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
-    manager="neerajkh"
+    manager="paulettm"
     editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/20/2015"
+    ms.date="02/02/2016"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -40,7 +40,7 @@ Azure Machine Learning fournit non seulement des outils pour modeler les analyse
 
 Les analyses prédictives utilisent diverses techniques statistiques (l’apprentissage automatique, dans ce cas) pour analyser les données collectées ou actuelles des schémas ou des tendances afin de prévoir des événements futurs.
 
-Azure Machine Learning est particulièrement efficace pour effectuer des analyses prédictives : vous pouvez travailler à partir d’une bibliothèque d’algorithmes prête à l’emploi, créer des modèles sur un ordinateur connecté à Internet sans acheter d’équipement ou d’infrastructure supplémentaire et déployer rapidement votre solution prédictive. Vous pouvez également trouver des exemples et des solutions prêts à l'emploi dans [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) ou dans la [Galerie Cortana Analytics](http://gallery.azureml.net/).
+Azure Machine Learning est particulièrement efficace pour effectuer des analyses prédictives : vous pouvez travailler à partir d’une bibliothèque d’algorithmes prête à l’emploi, créer des modèles sur un ordinateur connecté à Internet sans acheter d’équipement ou d’infrastructure supplémentaire et déployer rapidement votre solution prédictive. Vous pouvez également trouver des exemples et des solutions prêts à l’emploi dans [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) ou dans la [Galerie Cortana Analytics](http://gallery.azureml.net/) (anciennement, Galerie Azure Machine Learning).
 
 ## Génération de solutions complètes d’apprentissage automatique sur le cloud
 
@@ -53,9 +53,9 @@ Créez des modèles prédictifs dans [Machine Learning Studio](machine-learning-
 ![Qu’est-ce que l’analyse prédictive : exemple d’une expérience d’analyse prédictive dans Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Utilisez une volumineuse bibliothèque d'[algorithmes et de modules Machine Learning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) dans Machine Learning Studio afin de lancer vos modèles prédictifs. À partir d’une bibliothèque d’exemples d’expériences, choisissez les packages R et Python, ainsi que les meilleurs algorithmes Microsoft tels que Xbox et Bing. Développez les modules Studio avec vos propres scripts personnalisés [R](machine-learning-r-quickstart.md) et [Python](machine-learning-execute-python-scripts.md).
-* Dans la [galerie Cortana Analytics](machine-learning-gallery-how-to-use-contribute-publish.md), vous pouvez prendre en main Azure Machine Learning et apprendre auprès d'autres personnes de la communauté. Tentez de reproduire des expériences créées par d’autres utilisateurs, posez des questions, publiez des commentaires à propos d’expériences ou publiez vos propres expériences. Vous pouvez également partager des liens vers des expériences via des réseaux sociaux tels que LinkedIn et Twitter.  
+* Dans la [Galerie Cortana Analytics](machine-learning-gallery-how-to-use-contribute-publish.md), vous pouvez essayer les solutions d’analyse créées par d’autres personnes ou proposer la vôtre à l’aide des services Azure, notamment Machine Learning, HDInsight (Hadoop), Stream Analytics et Data Lake Analytics, ainsi que les services de gestion de données et les magasins Big Data Azure. Publiez vos questions ou commentaires sur vos expériences à l’intention de la communauté, ou partagez des liens vers des expériences via les réseaux sociaux tels que LinkedIn et Twitter.  
 
-	![Essayez des exemples d’expérimentation prédictive ou proposez le vôtre dans la galerie Azure Cortana Analytics](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
+	![Essayez des expériences prédictives ou proposez la vôtre dans la galerie Azure Cortana Analytics](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
 
 ### Mise en service de solutions d’analyse prédictive : achat de services web ou publication de vos propres services web
 
@@ -100,7 +100,7 @@ Une fois que votre modèle est formé, évaluez-le en utilisant les autres donn�
 * **Données catégorielles** : données organisées en catégories et pouvant être divisées en groupes. Par exemple, un jeu de données catégorielles relatif à des véhicules peut spécifier l’année, la marque, le modèle et le prix.
 * **Classification** : modèle d'organisation des points de données en catégories basées sur un jeu de données dont les groupes de catégorie sont déjà connus.
 * **Conception de caractéristiques** : processus d'extraction ou de sélection des caractéristiques liées à un jeu de données afin d'améliorer ce dernier et les résultats. Par exemple, les données relatives aux prix des billets d’avion peuvent être améliorées par jour de la semaine et par période de vacance. Consultez la page [Ingénierie et sélection de caractéristiques dans Azure Machine Learning](machine-learning-feature-selection-and-engineering.md).
-* **Module** : élément fonctionnel dans un modèle de Machine Learning Studio, tel que le module Données d'entrée qui permet d'entrer et de modifier de petits jeux de données. Un algorithme est également un type de module dans Machine Learning Studio.
+* **Module** : élément fonctionnel dans un modèle de Machine Learning Studio, tel que le module Données d’entrée qui permet d’entrer et de modifier de petits jeux de données. Un algorithme est également un type de module dans Machine Learning Studio.
 * **Modèle** : dans le cadre d'un apprentissage supervisé, un modèle est le produit d'une expérience d'apprentissage automatique constituée d'un jeu de données formé, d'un module d'algorithme et de modules fonctionnels, tels qu'un module d'évaluation.
 * **Données numériques** : données qui ont une signification sous forme de mesures (données continues) ou de compteurs (données discrètes). Également appelées *données quantitatives*.
 * **Partition** : méthode permettant de diviser les données en échantillons. Consultez la page [Partition et échantillon](https://msdn.microsoft.com/library/azure/dn905960.aspx) pour plus d'informations.
@@ -118,4 +118,4 @@ Vous pouvez apprendre les principes fondamentaux de l’analyse prédictive et d
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -17,13 +17,13 @@
 
 # Planifications dans Azure Automation
 
-Les planifications Automation permettent de planifier les Runbooks pour qu'ils s'exécutent automatiquement. Il peut s'agir d'une seule date et heure pour que le Runbook s'exécute une seule fois. Ou il peut s'agir d'une planification récurrente pour démarrer le Runbook plusieurs fois. Les planifications ne sont généralement pas accessibles à partir des Runbooks.
+Les planifications Automation permettent de planifier les Runbooks pour qu'ils s'exécutent automatiquement. Il peut s'agir d'une seule date et heure pour que le Runbook s'exécute une seule fois. Ou il peut s’agir d’une planification récurrente pour démarrer le Runbook plusieurs fois. Les planifications ne sont généralement pas accessibles à partir des Runbooks.
 
 >[AZURE.NOTE]  Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
 
 ## Applets de commande Windows PowerShell
 
-Les applets de commande du tableau suivant permettent de créer et de gérer les variables avec Windows PowerShell dans Azure Automation. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md).
+Les applets de commande du tableau suivant permettent de créer et de gérer les planifications avec Windows PowerShell dans Azure Automation. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md).
 
 |Applets de commande|Description|
 |:---|:---|
@@ -37,15 +37,15 @@ Les applets de commande du tableau suivant permettent de créer et de gérer les
 
 ## Création d'une planification
 
-### Pour créer une planification avec le portail Azure
+### Pour créer une planification avec le portail Azure Classic
 
 
 1. À partir de votre compte Automation, cliquez sur **Ressources** en haut de la fenêtre.
 1. En bas de la fenêtre, cliquez sur **Ajouter un paramètre**.
 1. Cliquez sur **Ajouter une planification**.
-1. Terminez l'Assistant et cochez la case pour enregistrer la nouvelle variable.
+1. Terminez l’Assistant et cochez la case pour enregistrer la nouvelle planification.
 
-### Pour créer une planification avec le portail Azure en version préliminaire
+### Pour créer une planification avec le portail Azure
 
 1. À partir de votre compte Automation, cliquez sur la partie **Ressources** afin d'ouvrir le panneau **Ressources**.
 1. Cliquez sur la partie **Planifications** afin d'ouvrir le panneau **Planifications**.
@@ -68,4 +68,4 @@ L'applet de commande [New-AzureAutomationSchedule](http://msdn.microsoft.com/lib
 - [Planification d'un Runbook dans Azure Automation](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

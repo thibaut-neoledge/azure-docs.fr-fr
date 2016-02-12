@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : création d’un client Azure AD B2C
@@ -24,7 +24,7 @@ Pour commencer à utiliser Azure Active Directory (AD) B2C, suivez les 3 éta
 
 ## Étape 1 : souscrire un abonnement Azure
 
-Si vous disposez déjà d’un abonnement Azure, passez à l’étape suivante. Dans le cas contraire, souscrivez [un abonnement Azure](sign-up-organization.md) et accédez à Azure AD B2C.
+Si vous disposez déjà d’un abonnement Azure, passez à l’étape suivante. Dans le cas contraire, souscrivez [un abonnement Azure](../active-directory/sign-up-organization.md) et accédez à Azure AD B2C.
 
 > [AZURE.NOTE]
 Azure AD B2C en version préliminaire est actuellement disponible gratuitement pour une utilisation limitée (jusqu’à 50 000 utilisateurs par client). Un abonnement Azure est nécessaire pour accéder au [portail Azure Classic](http://manage.windowsazure.com/).
@@ -74,4 +74,4 @@ Procédez comme suit pour créer un client Azure AD B2C. Actuellement, les fon
 
 Passez à l’[inscription d’une application auprès d’Azure AD B2C et à la création d’une application de démarrage rapide](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

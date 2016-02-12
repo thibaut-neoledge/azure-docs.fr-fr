@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données depuis Teradata à l’aide d’Azure Data Factory
@@ -34,7 +34,9 @@ Pour que la passerelle de gestion des données puisse se connecter à la base de
 
 ### Exemple : copie de données de Teradata vers Azure Blob
 
-L’exemple ci-dessous présente les éléments suivants :
+Cet exemple indique comment copier des données à partir d’une base de données Teradata locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+ 
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -218,7 +220,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	}
 
 
-## Propriétés du service lié Teradata
+## Propriétés du service lié Teradata
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Teradata.
 
@@ -235,7 +237,7 @@ gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pou
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données Teradata locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
 
-## Propriétés de type du jeu de données Teradata
+## Propriétés de type du jeu de données Teradata
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
@@ -245,7 +247,7 @@ Propriété | Description | Requis
 -------- | ----------- | --------
 TableName | Nom de la table dans l'instance de base de données Teradata à laquelle le service lié fait référence. | Non (si la **requête** de **RelationalSource** est spécifiée) 
 
-## Propriétés de type de l'activité de copie Teradata
+## Propriétés de type de l’activité de copie Teradata
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
@@ -314,4 +316,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

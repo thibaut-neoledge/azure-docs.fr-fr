@@ -14,30 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
-# Accéder aux journaux des applications YARN sur Hadoop dans HDInsight par programmation
+# Accéder aux journaux des applications YARN dans HDInsight sous Windows
 
-Cette rubrique explique comment énumérer par programme les applications YARN (Yet Another Resource Negotiator) terminées sur un cluster Hadoop dans Azure HDInsight et comment accéder aux journaux d’application par programme sans devoir se connecter aux cluster en utilisant le protocole RDP (Remote Desktop Protocol). Plus précisément, un nouveau composant et une nouvelle API sont ajoutés :
+Cette rubrique explique comment accéder aux journaux des applications YARN (Yet Another Resource Negotiator) ayant terminé leur exécution sur un cluster Hadoop dans Azure HDInsight.
 
-  1. Le serveur d’historique des applications génériques sur les clusters HDInsight est activé. Il s'agit d'un composant du serveur YARN Timeline qui gère le stockage et la récupération d'informations génériques sur les applications terminées.
-  2. Des API sont ajoutées au le Kit de développement logiciel (SDK) .Net Azure HDInsight pour vous permettre d’énumérer par programme les applications exécutées sur vos clusters et de télécharger les journaux propres à des applications ou à des conteneurs (au format texte brut) en vue du débogage de problèmes éventuels.
+> [AZURE.NOTE] Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d'informations sur l'accès aux journaux YARN sur les clusters HDInsight sous Linux, consultez [Accès aux journaux d'application YARN basés sur Hadoop Linux sous HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-> [AZURE.NOTE]Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d'informations sur l'accès aux journaux YARN sur les clusters HDInsight sous Linux, consultez [Accès aux journaux d'application YARN basés sur Hadoop Linux sous HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+### Configuration requise
 
-## Configuration requise
-
-Le Kit de développement logiciel (SDK) Azure HDInsight est requis pour utiliser le code présenté dans cette rubrique dans une application .NET Framework. La dernière version publiée du Kit de développement logiciel (SDK) est disponible sur le site [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started).
-
-Pour installer le Kit de développement logiciel (SDK) HDInsight à partir d’une application Visual Studio, accédez au menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis sur **Console du gestionnaire de package**. Exécutez la commande suivante dans la console pour installer les packages :
-
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-Cette commande ajoute les bibliothèques .NET pour HDInsight et les références à celles-ci au projet Visual Studio actuel.
+- Un cluster HDInsight Windows Voir [Création de clusters Hadoop basés sur Windows dans HDInsight](hdinsight-provision-clusters.md).
 
 
-## <a name="YARNTimelineServer"></a>YARN Timeline Server
+## YARN Timeline Server
 
 Le serveur <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> fournit des informations génériques sur les applications terminées, ainsi que des informations sur les applications spécifiques à l’infrastructure, via deux interfaces différentes. Plus précisément :
 
@@ -56,9 +47,8 @@ Sur les clusters HDInsight, ces informations sont stockées par Azure Resource M
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
-Nous avons ajouté de nouvelles API au Kit de développement logiciel (SDK) .Net HDInsight pour faciliter la récupération de ces données par programme. Vous pouvez aussi récupérer les données génériques en exécutant les commandes CLI YARN directement sur vos nœuds de cluster (après connexion au cluster via RDP).
 
-## <a name="YARNAppsAndLogs"></a>Applications et journaux YARN
+## Applications et journaux YARN
 
 YARN (Yet Another Resource Negotiator) prend en charge plusieurs modèles de programmation (dont MapReduce) en séparant la gestion des ressources de la planification et de l’analyse des applications. YARN se compose d’un gestionnaire de ressources (RM, *Resource Manager*) global, de gestionnaires de nœuds (NM, *Node Manager*) pour chaque nœud de travail, ainsi que de maîtres d’application (AM, *Application Master*) pour chaque application. Le maître d'application, propre à chaque application, négocie les ressources nécessaires (processeur, mémoire, disque, réseau) pour exécuter l'application avec le gestionnaire de ressources. Le gestionnaire de ressources fonctionne avec les gestionnaires de nœuds pour octroyer ces ressources sous forme de *conteneurs*. Le maître d'application est chargé de suivre la progression des conteneurs qui lui sont assignés par le gestionnaire de ressources. Selon la nature de l'application, celle-ci peut nécessiter de nombreux conteneurs.
 
@@ -75,96 +65,16 @@ Les journaux agrégés ne sont pas lisibles directement, car ils sont écrits da
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-La section suivante examine comment accéder par programmation à des journaux propres à des applications ou à des conteneurs, sans recourir à RDP pour accéder à vos clusters HDInsight.
 
-## <a name="enumerate-and-download"></a>Énumération d’applications et téléchargement de journaux par programme
+## Interface utilisateur de ResourceManager YARN
 
-Pour utiliser les exemples de code suivants, vous devez télécharger la dernière version du Kit de développement logiciel (SDK) .NET HDInsight pour répondre à la configuration requise indiquée ci-dessus. Consultez les instructions fournies.
+L’IU ResourceManager de YARN s’exécute sur le nœud principal du cluster et est accessible via le tableau de bord du portail Azure :
 
-Le code ci-dessous montre comment utiliser les nouvelles API pour énumérer les applications et télécharger les journaux des applications terminées.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/). 
+2. Dans le menu de gauche, cliquez sur **Parcourir**, puis sur **Clusters HDInsight**. Cliquez ensuite sur le cluster Windows sur lequel vous souhaitez accéder aux journaux d’application YARN.
+3. Cliquez sur **Tableau de bord** dans le menu du haut. Une page appelée **Console de requête HDInsight** s’ouvre dans un nouvel onglet.
+4. À partir de la **Console de requête HDInsight**, cliquez sur l’**interface utilisateur YARN**.
 
-> [AZURE.NOTE]Les API ci-dessous ne fonctionnent que sur les clusters Hadoop « en cours d’exécution » avec la version 3.1.1.374 ou une version ultérieure. Ajoutez les directives suivantes :
-
-	using Microsoft.Hadoop.Client;
-	using Microsoft.WindowsAzure.Management.HDInsight;
-
-Celles-ci font référence aux API nouvellement définies dans le code ci-dessous. L’extrait de code suivant crée un client de l’historique des applications sur votre cluster « en cours d’exécution » dans votre abonnement :
-
-	string subscriptionId = "<your-subscription-id>";
-	string clusterName = "<your-cluster-name>";
-	string certName = "<your-subscription-management-cert-name>";
-
-	// Create an HDInsight client
-	X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-	store.Open(OpenFlags.ReadOnly);
-	X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>()
-	                            .Single(x => x.FriendlyName == certName);
-
-	HDInsightCertificateCredential creds =
-				new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
-
-	IHDInsightClient client = HDInsightClient.Connect(creds);
-
-	// Get the cluster on which your applications were run
-	// The cluster needs to be in the "Running" state
-	ClusterDetails cluster = client.GetCluster(clusterName);
-
-	// Create an Application History client against your cluster
-	IHDInsightApplicationHistoryClient appHistoryClient =
-				cluster.CreateHDInsightApplicationHistoryClient(TimeSpan.FromMinutes(5));
-
-
-Vous pouvez à présent utiliser le client de l’historique des applications pour répertorier les applications terminées, filtrer les applications en fonction de vos propres critères et télécharger les journaux d’applications appropriés. L’extrait de code suivant montre comment procéder par programmation :
-
-	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
-
-	// List completed applications on your cluster that were submitted in the last 24 hours but failed
-	// Search for applications based on application name
-	string appNamePrefix = "your-app-name-prefix";
-	DateTime endTime = DateTime.UtcNow;
-	DateTime startTime = endTime.AddHours(-24);
-	IEnumerable<ApplicationDetails> applications = appHistoryClient
-	                .ListCompletedApplications(startTime, endTime)
-	                .Where(app =>
-	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed
-	                    && app.Name.StartsWith(appNamePrefix));
-
-	// Download logs for failed or killed applications
-	// This will generate one log file for each application
-	foreach (ApplicationDetails application in applications)
-	{
-	    appHistoryClient.DownloadApplicationLogs(application, downloadLocation);
-	}
-
-Le code ci-dessus répertorie/trouve les applications qui vous intéressent à l’aide du client de l’historique des applications, puis télécharge les journaux de ces applications dans un dossier local.
-
-L’extrait de code ci-dessous télécharge également les journaux d’une application dont l’ID d’application est connu. L’ID d’application est l’identificateur global unique d’une application qui est assigné par le gestionnaire de ressources. Il est construit à l’aide de l’heure de début du gestionnaire de ressources et d’un compteur croissant monotone pour les applications envoyées au gestionnaire de ressources. L’ID d’application se présente sous la forme suivante : "application\_&lt;Heure-de-début-du-gestionnaire-de-ressource&gt;\_&lt;Compteur&gt;". Notez que l’ID d’application et l’ID de travail sont distincts. L’ID de travail est un concept propre à l’infrastructure MapReduce, tandis que l’ID d’application est un concept YARN indépendant de l’infrastructure. Dans YARN, un ID de travail identifie un travail MapReduce spécifique comme étant géré par le maître d’application d’une application MapReduce envoyée au gestionnaire de ressources.
-
-	// Download application logs for an application whose application ID is known
-	string applicationId = "application_1416017767088_0028";
-	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-	appHistoryClient.DownloadApplicationLogs(someApplication, downloadLocation);
-
-Si nécessaire, vous pouvez également télécharger des journaux pour chaque conteneur (ou pour un conteneur spécifique) utilisé par une application, comme illustré ci-dessous.
-
-	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-
-	// Download logs separately for each container of application(s) of interest
-	// This will generate one log file per container
-	IEnumerable<ApplicationAttemptDetails> applicationAttempts =
-				appHistoryClient.ListApplicationAttempts(someApplication);
-
-	ApplicationAttemptDetails finalAttempt = applicationAttempts
-	    		.Single(x => x.ApplicationAttemptId == someApplication.LatestApplicationAttemptId);
-
-	IEnumerable<ApplicationContainerDetails> containers =
-				appHistoryClient.ListApplicationContainers(finalAttempt);
-
-	foreach (ApplicationContainerDetails container in containers)
-	{
-	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
-	}
 
 
 
@@ -174,4 +84,4 @@ Si nécessaire, vous pouvez également télécharger des journaux pour chaque co
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

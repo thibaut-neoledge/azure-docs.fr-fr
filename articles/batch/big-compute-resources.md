@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Big Compute : ressources techniques pour Batch et HPC (calcul haute performance) | Microsoft Azure"
+   pageTitle="Ressources pour les charges de travail par lots et HPC dans le cloud | Microsoft Azure"
    description="Répertorie des ressources techniques pour vous aider à exécuter vos charges de travail à grande échelle en parallèle, par lots et HPC (calculs complexes) dans Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/26/2016"
    ms.author="danlep"/>
 
 # Big Compute dans Azure : ressources techniques pour Batch et HPC (calcul haute performance)
@@ -34,11 +34,11 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 * [Documentation](https://azure.microsoft.com/documentation/services/batch/)
 
-* [Informations de référence sur l'API](https://msdn.microsoft.com/library/azure/dn820177.aspx)
+* Informations de référence sur les API [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) et [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
 * [Didacticiel : prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md)
 
-* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurebatch)
 
 * [Vidéos sur Azure Batch](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -50,7 +50,7 @@ Déployez ou étendez votre cluster HPC Windows ou Linux existant dans Azure pou
 
 HPC Pack est la solution HPC gratuite de Microsoft construite autour des technologies Microsoft Azure et Windows Server, capable d'exécuter des charges de travail HPC Windows et Linux.
 
-* [Téléchargez la mise à jour 3 de HPC Pack 2012 R2](https://www.microsoft.com/fr-FR/download/details.aspx?id=49922)
+* [Téléchargez la mise à jour 3 de HPC Pack 2012 R2](https://www.microsoft.com/download/details.aspx?id=49922)
 
 * [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -62,7 +62,7 @@ HPC Pack est la solution HPC gratuite de Microsoft construite autour des technol
 * [Intégration à Azure Batch avec HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Forums Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
+* [Forums Windows HPC](https://social.microsoft.com/Forums/fr-FR/home?category=windowshpc)
 
 ### Solutions de cluster Linux et OSS
 
@@ -81,12 +81,12 @@ Utilisez ces modèles de démarrage rapide Azure pour déployer des clusters HPC
 
 * [Informations de référence sur MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Forum MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [Forum MPI](https://social.microsoft.com/Forums/fr-FR/home?forum=windowshpcmpi)
 
 
 ## Instances de calcul intensif
 
-Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-specs.md), y compris des [instances A8, A9, A10 et A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) nécessitant beaucoup de ressources système pour exécuter vos charges de travail HPC Linux et Windows.
+Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-specs.md), y compris des instances [A8 et A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) nécessitant beaucoup de ressources système et capables de se connecter à un réseau RDMA principal pour exécuter vos charges de travail HPC Linux et Windows.
 
 * [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -94,7 +94,7 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 
 ## Plans d'architecture
 
-* Microsoft Azure Batch et Azure Data Factory : architecture de traitement des données à grande échelle ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) et [article](../data-factory/data-factory-data-processing-using-batch.md)) illustre comment Data Factory orchestre le déplacement et le traitement des données et comment Azure Batch traite les données de manière parallèle.
+* [HPC et orchestration de données à l’aide des services Azure Batch et Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) et [article](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Exemples et démonstrations
 
@@ -121,4 +121,4 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](https://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

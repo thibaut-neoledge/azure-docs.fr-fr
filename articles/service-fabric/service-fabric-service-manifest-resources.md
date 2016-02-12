@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Spécifier des ressources dans un manifeste de service
@@ -92,7 +92,7 @@ Les points de terminaison HTTP sont automatiquement répertoriés dans la liste 
 
 Le protocole HTTPS assure l'authentification du serveur et est également utilisé pour le chiffrement des communications client-serveur. Pour activer cela sur votre service Service Fabric, quand vous définissez le service, spécifiez le protocole dans la section *Ressources -> Points de terminaison -> Point de terminaison* du manifeste de service, comme indiqué plus haut pour le point de terminaison *ServiceEndpoint3*.
 
->[AZURE.NOTE]Il est impossible de modifier le protocole d'un service lors de la mise à niveau de l'application, dans la mesure où il s'agit d'une modification avec rupture.
+>[AZURE.NOTE] Il est impossible de modifier le protocole d'un service lors de la mise à niveau de l'application, dans la mesure où il s'agit d'une modification avec rupture.
 
 
 Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. (Vous devrez fournir l’empreinte numérique de votre certificat.) EndpointRef est une référence à EndpointResource dans ServiceManifest, pour lequel vous définissez le protocole HTTPS. Vous pouvez ajouter plusieurs Endpointcertificate.
@@ -137,4 +137,4 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. (Vous 
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

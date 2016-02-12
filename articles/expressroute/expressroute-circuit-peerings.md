@@ -33,7 +33,7 @@ Chaque circuit offre une bande passante fixe (50 Mbps, 100 Mbps, 200 Mbps, 500 M
 
 ### Quotas, limites et limitations
 
-Des limites et quotas par défaut s'appliquent à chaque circuit ExpressRoute. Consultez la page [Limites, quotas et contraintes applicables à l’abonnement et au service Azure](../../includes/expressroute-limits.md) pour obtenir des informations actualisées sur les quotas.
+Des limites et quotas par défaut s'appliquent à chaque circuit ExpressRoute. Consultez la page [Limites, quotas et contraintes applicables à l’abonnement et au service Azure](../azure-subscription-service-limits.md) pour obtenir des informations actualisées sur les quotas.
 
 ## Domaines de routage ExpressRoute
 
@@ -47,7 +47,7 @@ Un circuit ExpressRoute est associé à plusieurs domaines de routage : public A
 
 Les services de calcul Azure, à savoir les machines virtuelles (IaaS) et les services cloud (PaaS) déployés au sein d’un réseau virtuel peuvent être connectés via le domaine d’homologation privée. Celui-ci est considéré comme une extension de confiance de votre réseau de base dans Microsoft Azure. Vous pouvez configurer une connectivité bidirectionnelle entre votre réseau de base et les réseaux virtuels Azure. Cela vous permet de vous connecter aux machines virtuelles et services cloud directement sur leurs adresses IP privées.
 
-Vous pouvez connecter plusieurs réseaux virtuels au domaine d’homologation privée. Pour plus d’informations sur les limitations, consultez le [Forum Aux Questions](expressroute-faqs.md). Vous pouvez consulter la page [Limites, quotas et contraintes applicables à l’abonnement et au service Azure](../../includes/expressroute-limits.md) pour obtenir des informations actualisées sur les limites. Reportez-vous à la page [Routage](expressroute-routing.md) pour plus d'informations sur la configuration du routage.
+Vous pouvez connecter plusieurs réseaux virtuels au domaine d’homologation privée. Pour plus d’informations sur les limitations, consultez le [Forum Aux Questions](expressroute-faqs.md). Vous pouvez consulter la page [Limites, quotas et contraintes applicables à l’abonnement et au service Azure](../azure-subscription-service-limits.md) pour obtenir des informations actualisées sur les limites. Reportez-vous à la page [Routage](expressroute-routing.md) pour plus d'informations sur la configuration du routage.
 
 ### Homologation publique
 
@@ -69,7 +69,7 @@ Pour plus d’informations sur les services pris en charge, les coûts et les d�
 
 Le tableau ci-dessous compare les trois domaines de routage.
 
-||**Homologation privée**|**Homologation publique**|**Homologation Microsoft**|
+|**Homologation privée**|**Homologation publique**|**Homologation Microsoft**|
 |---|---|---|---|
 |**Nb max. de préfixes pris en charge par homologation**|4 000 par défaut, 10 000 avec ExpressRoute Premium|200|200|
 |**Plages d’adresses IP prises en charge**|Toute adresse IPv4 valide au sein de votre réseau étendu.|Adresses IPv4 publiques détenues par vous ou par votre fournisseur de connectivité.|Adresses IPv4 publiques détenues par vous ou par votre fournisseur de connectivité.|
@@ -90,4 +90,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez di
 	- [Configuration d’un routage (homologations de circuit)](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

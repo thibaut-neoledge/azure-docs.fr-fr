@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="hascipio"/>
 
 # Créer un compte de développeur Microsoft
@@ -24,7 +24,7 @@ Cet article décrit la procédure de création de compte et d’inscription que 
 
 L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique (par exemple, publishing@example.com)). Les paiements, informations fiscales et rapports seront envoyés via ce compte.
 
-  >[AZURE.WARNING] Les termes tels qu'« Azure » et « Microsoft » ne sont pas pris en charge pour l'enregistrement d'un compte Microsoft. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
+  > [AZURE.WARNING] Les termes tels qu'« Azure » et « Microsoft » ne sont pas pris en charge pour l'enregistrement d'un compte Microsoft. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
 
 ### Instructions
 
@@ -93,7 +93,7 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
 
 10. Entrez vos informations de paiement pour le paiement de votre compte. Si vous disposez d’un code promotionnel qui couvre le coût de l’inscription, vous pouvez le saisir ici. Sinon, fournissez vos informations de carte de crédit (PayPal est pris en charge pour certains marchés). Lorsque vous avez terminé, cliquez sur **Suivant** pour passer à la **« section Vérification »**.
 
-11. Vérifiez vos informations de compte et confirmez que tout est correct. Ensuite, lisez et acceptez les conditions du **Contrat d’éditeur Microsoft Azure Marketplace**. Cochez la case pour indiquer vous avez lu et que vous acceptez ces conditions.
+11. Vérifiez vos informations de compte et confirmez que tout est correct. Ensuite, lisez et acceptez les conditions du [Contrat d’éditeur Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Cochez la case pour indiquer vous avez lu et que vous acceptez ces conditions.
 
 12. Cliquez sur **Terminer** pour confirmer votre inscription. Nous enverrons un message de confirmation à votre adresse de messagerie de développeur.
 
@@ -120,7 +120,7 @@ Si vous préférez mettre à jour les informations fiscales et bancaires ultéri
 
     > [AZURE.IMPORTANT] Si vous devez mettre à jour ou modifier votre compte de paiement, suivez les mêmes étapes ci-dessus, en remplaçant les informations actuelles par les nouvelles informations. La modification de votre compte de paiement peut retarder vos paiements jusqu’à un cycle de paiement. Ce retard se produit parce que nous devons vérifier le changement de compte, comme nous l’avons fait lorsque vous avez configuré le compte de paiement pour la première fois. Vous serez payé pour le montant total une fois que votre compte aura été vérifié. Tout paiement dû dans le cycle de paiement actuel sera ajouté au cycle suivant
 
-4. Cliquez sur **Next**.
+4. Cliquez sur **Suivant**.
 
 **Informations fiscales**
 
@@ -128,7 +128,7 @@ Si vous préférez mettre à jour les informations fiscales et bancaires ultéri
 
 2. Cliquez sur **Profil fiscal** dans le menu de gauche.
 
-3. Sur la page **Établir votre déclaration d’impôts**, sélectionnez le pays ou la région où vous avez une résidence permanente, puis sélectionnez le pays ou la région dont vous êtes ressortissant. Cliquez sur **Next**.
+3. Sur la page **Établir votre déclaration d’impôts**, sélectionnez le pays ou la région où vous avez une résidence permanente, puis sélectionnez le pays ou la région dont vous êtes ressortissant. Cliquez sur **Suivant**.
 
 4. Saisissez vos informations fiscales, puis cliquez sur **Suivant**.
 
@@ -145,13 +145,9 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 
 3.	Connectez-vous avec votre compte Microsoft utilisé pour l’enregistrement de la société (c’est-à-dire marketplace@example.com)) et ajoutez des co-administrateurs si vous le souhaitez.
 
-  >[AZURE.TIP] Les politiques concernant la participation sont décrites sur le [site web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  > [AZURE.TIP] Les politiques concernant la participation sont décrites sur le [site web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Si vous rencontrez des problèmes pendant l’inscription au Centre de développement, ouvrez un ticket de support comme indiqué ci-dessous :
-  1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286).
-  2. Choisissez **Centre de développement**.
-  3. Choisissez **Profil**.
-  4. Choisissez une méthode de contact.
+  > Si vous rencontrez des problèmes pendant l’inscription au Centre de développement, ouvrez un ticket de support comme indiqué ci-dessous : 1. Contactez le [support technique](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=fr-FR&pesid=15635&ccsid=635847950577064286). 2. Choisissez **Centre de développement**. 3. Choisissez **Profil**. 4. Choisissez une méthode de contact.
 
 
 
@@ -198,4 +194,4 @@ Maintenant que votre compte est créé et enregistré, cliquez sur le type d'art
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

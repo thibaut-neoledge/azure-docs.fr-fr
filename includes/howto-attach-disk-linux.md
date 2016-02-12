@@ -1,5 +1,5 @@
 
-Pour en savoir plus sur les disques, consultez la section [À propos des disques et VHD pour machines virtuelles](../articles/virtual-machines-disks-vhds.md).
+Pour en savoir plus sur les disques, consultez la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Association d'un disque vide
@@ -62,7 +62,7 @@ Pour attacher un disque existant, vous devez disposer d’un fichier .vhd dans u
 		uploaded successfully
 		info:    vm disk create command OK
 
-	Vous pouvez également utiliser la commande `azure vm disk upload` pour télécharger un disque dur virtuel dans un compte de stockage spécifique. Vous trouverez plus d'informations sur les commandes de gestion de vos disques de données de machine virtuelle Azure [ici](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+	Vous pouvez également utiliser la commande `azure vm disk upload` pour télécharger un disque dur virtuel dans un compte de stockage spécifique. Vous trouverez plus d'informations sur les commandes de gestion de vos disques de données de machine virtuelle Azure [ici](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
 
 5.  Saisissez la commande suivante pour attacher le disque dur virtuel chargé souhaité à votre machine virtuelle :
 
@@ -90,6 +90,7 @@ Pour attacher un disque existant, vous devez disposer d’un fichier .vhd dans u
 		info:    vm disk list command OK
 
 
-> [AZURE.NOTE]Après avoir ajouté un disque de données, vous devez vous connecter à la machine virtuelle et initialiser le disque. La machine virtuelle pourra alors utiliser ce disque pour le stockage.
+> [AZURE.NOTE]
+Après avoir ajouté un disque de données, vous devez vous connecter à la machine virtuelle et initialiser le disque. La machine virtuelle pourra alors utiliser ce disque pour le stockage.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

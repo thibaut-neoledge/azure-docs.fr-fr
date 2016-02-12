@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="billmath"/>
 
 # Ports et protocoles nécessaires à l’identité hybride
@@ -46,7 +46,13 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 Pour obtenir la liste des ports et des adresses IP Office 365, consultez [URL et plages d’adresses IP Office 365.](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 
 ## Tableau 3 - Azure AD Connect et serveurs de fédération/WAP
-Ce tableau décrit les ports et les protocoles nécessaires à la communication entre le serveur Azure AD Connect et les serveurs de fédération/WAP. Bientôt disponible !
+Ce tableau décrit les ports et les protocoles nécessaires à la communication entre le serveur Azure AD Connect et les serveurs de fédération/WAP.
+
+| Protocole |Ports |Description
+| --------- | --------- |--------- |
+| HTTP|80 (TCP/UDP)|Utilisé pour télécharger des listes de révocation de certificats en vue de vérifier les certificats SSL.
+|HTTPS|443(TCP/UDP)|Utilisé pour établir une synchronisation avec Azure AD.
+|WinRM|5985| Écouteur WinRM
 
 ## Tableau 4 - Serveurs de fédération et WAP
 Ce tableau décrit les ports et les protocoles nécessaires à la communication entre les serveurs de fédération et les serveurs WAP.
@@ -77,6 +83,6 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 |Azure Service Bus|5671 (TCP/UDP)|
 
 ### 6b - Points de terminaison pour l’agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
-Pour obtenir la liste des points de terminaison, consultez la [section Configuration requise pour l’agent Azure AD Connect Health](active-directory-aadconnect-health.md#requirements).
+Pour obtenir la liste des points de terminaison, consultez la [section Configuration requise pour l’agent Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

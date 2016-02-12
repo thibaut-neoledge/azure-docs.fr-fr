@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor"/>
 
 # Exemple d’application à utiliser avec des environnements comprenant des limites de sécurité
@@ -148,7 +148,7 @@ Ce script configure le serveur principal pour cette application simple. Ce scrip
 4.	affecte au répertoire et au fichier des autorisations Anonyme pour autoriser l’accès ;
 5.	désactive la sécurité renforcée d’Internet Explorer pour faciliter la navigation à partir de ce serveur. 
 
->[AZURE.IMPORTANT]**Meilleure pratique** : ne désactivez jamais la sécurité renforcée d’Internet Explorer sur un serveur de production, et sachez qu’il est généralement déconseillé de surfer sur le web à partir d’un serveur de production. Sachez aussi que l’ouverture de partages de fichiers en vue d’un accès anonyme, bien que déconseillée, est effectuée ici par souci de simplicité.
+>[AZURE.IMPORTANT] **Meilleure pratique** : ne désactivez jamais la sécurité renforcée d’Internet Explorer sur un serveur de production, et sachez qu’il est généralement déconseillé de surfer sur le web à partir d’un serveur de production. Sachez aussi que l’ouverture de partages de fichiers en vue d’un accès anonyme, bien que déconseillée, est effectuée ici par souci de simplicité.
 
 Ce script PowerShell doit être exécuté localement, l’accès à AppVM01 s’effectuant via RDP. PowerShell doit être exécuté avec des autorisations d’administrateur pour garantir la réussite de l’exécution.
 	
@@ -188,4 +188,4 @@ Aucun script n’est inclus dans cet exemple d’application pour configurer le 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

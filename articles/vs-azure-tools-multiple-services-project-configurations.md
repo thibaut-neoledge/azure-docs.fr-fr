@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Configuration de votre projet Azure à l'aide de plusieurs configurations de service
@@ -27,7 +27,7 @@ Les outils Azure pour Microsoft Visual Studio fournissent des pages de propriét
 
 ![VS\_Solution\_Explorer\_Roles\_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Pour plus d'informations sur les schémas sous-jacents des fichiers de définition et de configuration de service, consultez la [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398.aspx). Pour plus d'informations sur la configuration de service, consultez [Configuration de Cloud Services](cloud-services-how-to-configure.md).
+Pour plus d'informations sur les schémas sous-jacents des fichiers de définition et de configuration de service, consultez la [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398.aspx). Pour plus d'informations sur la configuration de service, consultez [Configuration de Cloud Services](/cloud-services/cloud-services-how-to-configure.md).
 
 ## Configuration des propriétés de rôle
 
@@ -43,7 +43,7 @@ Sur la page **Configuration**, vous pouvez définir ces propriétés :
 
 Définir la propriété count de l’**Instance** au nombre d'instances que le service doit exécuter pour ce rôle.
 
-Définir la propriété **Taille de la machine virtuelle** sur **Très petite**, **Petite**, **Moyenne**, **Grande** ou **Très grande**. Pour en savoir plus, consultez la rubrique [Tailles de services cloud](cloud-services-sizes-specs.md).
+Définir la propriété **Taille de la machine virtuelle** sur **Très petite**, **Petite**, **Moyenne**, **Grande** ou **Très grande**. Pour en savoir plus, consultez la rubrique [Tailles de services cloud](/cloud-services/cloud-services-sizes-specs.md).
 
 **Action de démarrage** (rôle web uniquement)
 
@@ -55,7 +55,7 @@ Si vous avez déjà ajouté un point de terminaison HTTPS, l'option point de ter
 
 **Diagnostics**
 
-Par défaut, le diagnostic est activé pour le rôle web. Le projet de service cloud Azure et le compte de stockage sont configurés pour utiliser l'émulateur de stockage local. Lorsque vous êtes prêt à déployer sur Azure, vous pouvez cliquer sur le bouton de génération (**...**) pour que le compte de stockage utilise Azure Storage dans le cloud. Vous pouvez transférer les données de diagnostic au compte de stockage à la demande ou à intervalles planifiés automatiquement. Pour plus d'informations sur les diagnostics Azure, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](cloud-services-dotnet-diagnostics.md).
+Par défaut, le diagnostic est activé pour le rôle web. Le projet de service cloud Azure et le compte de stockage sont configurés pour utiliser l'émulateur de stockage local. Lorsque vous êtes prêt à déployer sur Azure, vous pouvez cliquer sur le bouton de génération (**...**) pour que le compte de stockage utilise Azure Storage dans le cloud. Vous pouvez transférer les données de diagnostic au compte de stockage à la demande ou à intervalles planifiés automatiquement. Pour plus d'informations sur les diagnostics Azure, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](/cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Page Paramètres
 
@@ -65,11 +65,11 @@ Sur la page **Paramètres**, vous pouvez ajouter des paramètres de configuratio
 
 Une chaîne de connexion est un paramètre de configuration qui fournit des informations de connexion et d'authentification à l'émulateur de stockage ou à un compte de stockage Azure. Chaque fois que votre code doit accéder aux données de services de stockage Azure (données Blob, File d'attente ou Table) à partir du code en cours d’exécution dans un rôle, vous devez définir une chaîne de connexion pour ce compte de stockage.
 
-Une chaîne de connexion qui pointe vers un compte de stockage Azure doit utiliser un format défini. Pour plus d’informations sur la création de chaînes de connexion, consultez [Configuration des chaînes de connexion Azure Storage](storage-configure-connection-string.md).
+Une chaîne de connexion qui pointe vers un compte de stockage Azure doit utiliser un format défini. Pour plus d’informations sur la création de chaînes de connexion, consultez [Configuration des chaînes de connexion Azure Storage](/storage/storage-configure-connection-string.md).
 
-Lorsque vous êtes prêt à tester votre service avec les services de stockage Azure, ou lorsque vous êtes prêt à déployer votre service cloud dans Azure, vous pouvez modifier la valeur des chaînes de connexion pour qu’elles pointent vers votre compte de stockage Azure. Cliquez sur (**…**) et sélectionnez **Entrer les informations d’identification du compte de stockage**. Entrez vos informations de compte, notamment le nom et la clé de votre compte. Dans la boîte de dialogue **Chaîne de connexion au compte de stockage**, vous pouvez également indiquer si vous souhaitez utiliser des points de terminaison HTTPS par défaut (option par défaut), des points de terminaison HTTP par défaut ou des points de terminaison personnalisés. Vous pouvez décider d’utiliser des points de terminaison personnalisés si vous avez inscrit un nom de domaine personnalisé pour votre service, comme décrit dans [Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure](storage-custom-domain-name.md).
+Lorsque vous êtes prêt à tester votre service avec les services de stockage Azure, ou lorsque vous êtes prêt à déployer votre service cloud dans Azure, vous pouvez modifier la valeur des chaînes de connexion pour qu’elles pointent vers votre compte de stockage Azure. Cliquez sur (**…**) et sélectionnez **Entrer les informations d’identification du compte de stockage**. Entrez vos informations de compte, notamment le nom et la clé de votre compte. Dans la boîte de dialogue **Chaîne de connexion au compte de stockage**, vous pouvez également indiquer si vous souhaitez utiliser des points de terminaison HTTPS par défaut (option par défaut), des points de terminaison HTTP par défaut ou des points de terminaison personnalisés. Vous pouvez décider d’utiliser des points de terminaison personnalisés si vous avez inscrit un nom de domaine personnalisé pour votre service, comme décrit dans [Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure](/storage/storage-custom-domain-name.md).
 
->[AZURE.IMPORTANT]Vous devez modifier vos chaînes de connexion pour qu’elles pointent vers un compte de stockage Azure avant de déployer votre service. Dans le cas contraire, le rôle pourrait ne pas démarrer, ou alterner entre les états initialisation, occupé et arrêt.
+>[AZURE.IMPORTANT] Vous devez modifier vos chaînes de connexion pour qu’elles pointent vers un compte de stockage Azure avant de déployer votre service. Dans le cas contraire, le rôle pourrait ne pas démarrer, ou alterner entre les états initialisation, occupé et arrêt.
 
 ## Page des points de terminaison
 
@@ -85,7 +85,7 @@ Un rôle de travail peut avoir un nombre quelconque de points de terminaison HTT
 
 ## Page de stockage local
 
-Vous pouvez utiliser la page de propriétés du **Stockage local** pour réserver une ou plusieurs ressources de stockage local pour un rôle. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle Azure dans lequel s’exécute l’instance d’un rôle. Pour plus d’informations sur l’utilisation des ressources de stockage local, consultez [Configurer les ressources de stockage local](cloud-services-configure-local-storage-resources.md).
+Vous pouvez utiliser la page de propriétés du **Stockage local** pour réserver une ou plusieurs ressources de stockage local pour un rôle. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle Azure dans lequel s’exécute l’instance d’un rôle. Pour plus d’informations sur l’utilisation des ressources de stockage local, consultez [Configurer les ressources de stockage local](/cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Page Certificats
 
@@ -110,4 +110,4 @@ Pour configurer les paramètres qui s'appliquent à un projet de service cloud A
 |Développement|Sur cette page, vous pouvez spécifier des instructions de configuration de build et les conditions dans lesquelles les événements post-build s’exécutent.|
 |Web|Sur cette page, vous pouvez configurer les paramètres relatifs au serveur web.|
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

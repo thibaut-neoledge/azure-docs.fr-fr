@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="01/29/2016"
     ms.author="elizapo" />
 
 
@@ -37,13 +37,12 @@ Cet article s’applique à une collection cloud ou hybride Azure RemoteApp dép
 J’entends par clients les bureaux, appareils, etc. que les personnes utilisent pour se connecter aux applications déployées dans la collection Azure RemoteApp.
 
 -  https://telemetry.remoteapp.windowsazure.com  
--  https://**.remoteapp.windowsazure.com (les ports UDP facultatifs se rapportent à cette adresse) 
+-  https://*.remoteapp.windowsazure.com (les ports UDP facultatifs se rapportent à cette adresse) 
 -  https://login.windows.net  
 -  https://login.microsoftonline.com  
 -  https://www.remoteapp.windowsazure.com 
--  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  Sortant : TCP : 443  
 -  Facultatif - UDP : 3391 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

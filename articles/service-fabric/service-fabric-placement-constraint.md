@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
-   ms.author="abhic"/>
+   ms.date="02/03/2016"
+   ms.author="masnider"/>
 
 # Vue d’ensemble des contraintes de placement
 
@@ -24,9 +24,9 @@ Azure Service Fabric permet aux développeurs de contraindre le placement des r�
 ## Fonctionnalités
 Les contraintes de placement vous permettent d’effectuer les opérations suivantes :
 
-- Limiter différents types de services sur différents types de nœuds via la définition de NodeProperties sur les nœuds.
+- Limiter différents types de services sur différents types de nœuds en définissant des NodeProperties sur les nœuds.
 
-- Appliquer certaines contraintes aux réplicas principaux, mais pas aux secondaires.
+- Cibler les contraintes à appliquer à la fois aux réplicas principaux et aux réplicas secondaires d’un service, ou cibler les contraintes à appliquer uniquement aux réplicas principaux.
 
 
 ## Concepts clés
@@ -38,4 +38,4 @@ NodeProperty : mappage défini par l’utilisateur ou le système d’une chaî
 
 Pour plus d’informations, consultez [Scénarios d’application](../service-fabric-application-scenarios).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

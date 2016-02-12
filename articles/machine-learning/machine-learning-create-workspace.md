@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/03/2016" 
 	ms.author="garye;bradsev"/>
 
 
@@ -29,7 +29,7 @@ Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace d
 
 ## Pour créer un espace de travail
 
-1. Connectez-vous à votre compte Microsoft Azure.
+1. Connectez-vous au [portail Microsoft Azure Classic](https://manage.windowsazure.com/).
 2. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
 
     ![Service Machine Learning][1]
@@ -41,7 +41,7 @@ Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace d
 
 5. Entrez un **NOM DE L’ESPACE DE TRAVAIL** pour votre espace de travail et spécifiez le **PROPRIÉTAIRE DE L’ESPACE DE TRAVAIL**. Le propriétaire de l’espace de travail doit être un compte Microsoft valide (par exemple, name@outlook.com).)
 
-    > [AZURE.NOTE]Ensuite, vous pouvez partager les expériences sur lesquelles vous travaillez en invitant d’autres personnes dans votre espace de travail. Pour cela, dans Machine Learning Studio, ouvrez la page **PARAMÈTRES**. Vous avez simplement besoin du compte Microsoft ou du compte professionnel de chaque utilisateur.
+    > [AZURE.NOTE] Ensuite, vous pouvez partager les expériences sur lesquelles vous travaillez en invitant d’autres personnes dans votre espace de travail. Pour cela, dans Machine Learning Studio, ouvrez la page **PARAMÈTRES**. Vous avez simplement besoin du compte Microsoft ou du compte professionnel de chaque utilisateur.
 
 6. Spécifiez l’**EMPLACEMENT** Azure, puis entrez un **COMPTE DE STOCKAGE** Azure existant ou sélectionnez **Créer un compte de stockage** pour en créer un.
 7. Cliquez sur **CRÉER UN ESPACE DE TRAVAIL ML**.
@@ -67,4 +67,4 @@ Pour plus d’informations sur la gestion de votre espace de travail, consultez 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

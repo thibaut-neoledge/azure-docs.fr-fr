@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Prise en main d’Azure AD
@@ -28,7 +28,7 @@ Vous êtes prêt à commencer ? Venez essayer les fonctionnalités les plus int
 > [AZURE.NOTE] Azure AD est disponible pour tous, gratuitement. Inscrivez-vous maintenant pour un abonnement d'évaluation Azure : votre répertoire vous attend. L'annuaire est à vous, même si vous n'achetez rien. [Essayez Azure AD maintenant](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##Sécurisez l'accès à votre organisation
-Protégez les données d'identité de votre organisation dans le cloud à l'aide de Multi-Factor Authentication pour garantir un accès local et distant sécurisé. [En savoir plus sur l’authentification multifacteur](../multi-factor-authentication.md)
+Protégez les données d'identité de votre organisation dans le cloud à l'aide de Multi-Factor Authentication pour garantir un accès local et distant sécurisé. [En savoir plus sur l’authentification multifacteur](../multi-factor-authentication/multi-factor-authentication.md)
 
 ##Modification et réinitialisation des mots de passe
 Réduisez les coûts et les appels au support technique en permettant aux utilisateurs de modifier ou de réinitialiser leurs mots de passe Active Directory ou Azure Active Directory à partir de n'importe quel périphérique et à n'importe quel emplacement. Un administrateur peut gérer les stratégies de mot de passe et de notification et peut voir l'activité d'audit détaillée de ces opérations de réinitialisation de mot de passe au moment où elles se produisent. [En savoir plus sur la gestion des mots de passe dans Azure Active Directory](active-directory-manage-passwords.md)
@@ -44,4 +44,4 @@ Azure AD fournit plusieurs rapports pour les administrateurs. Des rapports supp
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 * [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

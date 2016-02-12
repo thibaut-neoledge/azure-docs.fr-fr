@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création ou modification d’utilisateurs dans Azure Active Directory | Microsoft Azure"
-	description="Explique comment créer ou modifier des comptes d’utilisateurs dans Azure Active Directory."
+	description="Une rubrique expliquant comment créer ou modifier des comptes d’utilisateurs dans Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,22 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
-	ms.author="curtand"/>
+	ms.date="09/21/2015"
+	ms.author="curtand;viviali"/>
 
-# Création ou modification d’utilisateurs dans Azure Active Directory
+# Création ou modification d’utilisateurs dans Azure AD
 
-Vous devez créer un compte dans Azure Active Directory (Azure AD) pour chaque utilisateur ayant besoin d’accéder à un service cloud Microsoft. Vous pouvez également modifier des comptes d’utilisateurs ou les supprimer lorsqu’ils ne sont plus nécessaires. Par défaut, les utilisateurs ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez éventuellement leur affecter de telles autorisations.
+Vous devez créer un compte pour chaque utilisateur ayant besoin d’accéder à un service cloud Microsoft. Vous pouvez également modifier des comptes d’utilisateurs ou les supprimer lorsqu’ils ne sont plus nécessaires. Par défaut, les utilisateurs ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez éventuellement leur affecter de telles autorisations.
 
 ## Créer un utilisateur
 
-1. Cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
+1. Cliquez sur **Active Directory**, puis sélectionnez le nom du répertoire de votre organisation.
 2. Dans la page **Utilisateurs**, cliquez sur **Ajouter un utilisateur**.
 3. Dans la page **Dites-nous en plus sur cet utilisateur**, pour **Type d’utilisateur**, sélectionnez l’une des options suivantes :
-	1. **Nouvel utilisateur dans votre organisation** : indique que vous souhaitez créer et gérer un compte d’utilisateur dans votre annuaire.
-	2. **Utilisateur avec un compte Microsoft existant** : indique que vous souhaitez ajouter un compte Microsoft existant à votre client d’annuaire afin de collaborer sur des ressources Microsoft Azure avec un co-administrateur qui accède à Microsoft Azure avec un compte Microsoft.
-	3. **Utilisateur dans un autre annuaire Azure AD** : indique que vous souhaitez ajouter un compte d’utilisateur à votre annuaire à partir d’un autre annuaire Azure AD. Pour sélectionner un utilisateur appartenant à un autre annuaire, vous devez être membre de celui-ci.
-4. Selon l’option sélectionnée, tapez un nom d’utilisateur ou un nom de compte Microsoft à l’aide duquel cet utilisateur se connectera.
+	
+	- **Nouvel utilisateur dans votre organisation** : pour créer un nouveau compte d’utilisateur dans votre répertoire
+	- **Utilisateur avec un compte Microsoft existant** : pour ajouter un compte consommateur Microsoft à votre répertoire (par exemple, un compte Outlook)
+	- **Utilisateur dans un autre répertoire Azure AD** : pour ajouter un compte d’utilisateur à votre répertoire à partir d’un autre répertoire Azure AD (Remarque : vous devez être membre de l’autre répertoire pour y sélectionner un utilisateur)
+	- **Utilisateurs d’entreprises partenaires** : pour inviter et autoriser les utilisateurs d’entreprises partenaires dans votre répertoire ([Voir Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md))
+	
+
+4. Selon l’option sélectionnée, entrez un nom d’utilisateur, une adresse de messagerie, ou téléchargez un fichier CSV pour les utilisateurs partenaires.
 5. Dans la page **Profil** d’utilisateur, entrez les nom et prénom de l’utilisateur, un nom convivial et un rôle d’utilisateur à partir du menu déroulant Rôles. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md). Spécifiez si vous voulez **Activer l’authentification multifacteur**.
 6. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
 
@@ -39,53 +43,69 @@ Si votre organisation utilise plusieurs domaines, vous devez avoir connaissance 
 
 ## Modifier un utilisateur
 
-Si l’utilisateur que vous essayez de modifier est synchronisé avec votre service Active Directory, un message d’erreur s’affiche et vous ne pouvez pas modifier l’utilisateur à l’aide de cette procédure. Pour modifier l’utilisateur, utilisez vos outils de gestion Active Directory locaux.
-
 Pour modifier un utilisateur dans le portail Azure Classic :
 
 1. Cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
-2. Dans la page **Utilisateurs**, cliquez sur le nom complet de l’utilisateur à modifier.
+2. Sur la page **Utilisateurs**, cliquez sur le nom d’affichage de l’utilisateur à modifier.
 3. Apportez les modifications nécessaires, puis cliquez sur **Enregistrer**.
+
+Si l’utilisateur que vous essayez de modifier est synchronisé avec votre service Active Directory, un message d’erreur s’affiche et vous ne pouvez pas modifier l’utilisateur à l’aide de cette procédure. Pour modifier l’utilisateur, utilisez vos outils de gestion Active Directory locaux.
 
 ## Réinitialiser le mot de passe de l’utilisateur
 
 1. Cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
-2. Dans la page **Utilisateurs**, cliquez sur le nom complet de l’utilisateur à modifier.
+2. Sur la page **Utilisateurs**, cliquez sur le nom d’affichage de l’utilisateur à modifier.
 3. En bas de la fenêtre du portail de gestion, cliquez sur **Réinitialiser le mot de passe**.
 4. Dans la boîte de dialogue de réinitialisation du mot de passe, cliquez sur **Réinitialiser**.
 5. Cliquez sur la case à cocher pour confirmer que le mot de passe a été réinitialisé.
 
-## Créer un utilisateur externe
+## Créer des utilisateurs externes
 
-Dans Azure AD, vous pouvez également ajouter des utilisateurs à un annuaire Azure AD à partir d’un autre annuaire Azure AD ou un utilisateur avec un compte Microsoft. Un utilisateur peut être membre de 20 annuaires différents.
+Dans Azure AD, vous pouvez également ajouter des utilisateurs à un répertoire Azure AD avec un compte Microsoft, à partir d’un autre répertoire Azure AD auquel vous appartenez, ou depuis des sociétés partenaires en téléchargeant un fichier CSV. Pour créer un utilisateur externe, créez un utilisateur dans le portail et pour **Type d’utilisateur**, sélectionnez **Utilisateur dans un autre répertoire Azure AD** ou **Utilisateurs d’entreprises partenaires**.
 
-Les utilisateurs qui sont ajoutés à partir d’un autre annuaire sont des utilisateurs externes. Les utilisateurs externes peuvent collaborer avec des utilisateurs qui existent déjà dans un annuaire, comme dans un environnement de test, sans avoir à se connecter avec de nouveaux comptes et informations d’identification. Les utilisateurs externes sont authentifiés par leur annuaire principal lorsqu’ils se connectent et cette authentification fonctionne pour tous les autres annuaires dont ils sont membres.
-
-Pour créer un utilisateur externe, créez un utilisateur dans le portail Azure Classic et pour **Type d’utilisateur**, sélectionnez **Utilisateur dans un autre annuaire Azure AD**.
+Dans les deux cas, les utilisateurs créés sont issus d’un autre répertoire et sont créés en tant qu’**utilisateurs externes**. Les utilisateurs externes peuvent collaborer avec les utilisateurs qui existent déjà dans un répertoire à l’aide de leur compte uniquement, sans avoir à créer de nouveaux comptes ni d’informations d’identification. Lorsqu’ils se connectent, les utilisateurs externes sont authentifiés par leur répertoire de base, et cette authentification fonctionne pour tous les autres répertoires dont ils font partie.
 
 ## Gestion des utilisateurs externes et limitations
 
-Lorsque vous ajoutez l’utilisateur d’un annuaire dans un nouvel annuaire, cet utilisateur est un utilisateur externe dans le nouvel annuaire. Initialement, le nom complet et le nom d’utilisateur sont copiés à partir de l’« annuaire principal » de l’utilisateur et appliqués à l’utilisateur externe dans l’autre annuaire. Ceux-ci, ainsi que les autres propriétés de l’objet utilisateur externe, sont dès lors totalement indépendants : si vous apportez des modifications à l’utilisateur dans l’annuaire principal (modification du nom de l’utilisateur, ajout d’une fonction, etc.), celles-ci ne sont pas propagées au compte de l’utilisateur externe dans l’autre annuaire.
+Lorsque vous ajoutez à votre répertoire un utilisateur provenant d’un autre répertoire, cet utilisateur est ajouté à votre répertoire en tant qu’utilisateur externe. Initialement, le nom d’affichage et le nom d’utilisateur sont copiés à partir du « répertoire de base » de l’utilisateur et appliqués à l’utilisateur externe dans votre répertoire. Ceux-ci, ainsi que les autres propriétés de l’objet utilisateur externe, sont dès lors totalement indépendants : si des modifications sont apportées à l’utilisateur dans son répertoire de base (modification du nom de l’utilisateur, ajout d’une fonction, etc.), celles-ci ne sont pas propagées à l’objet utilisateur externe dans votre répertoire.
 
-Le seul lien entre les deux objets est que l’utilisateur s’authentifie toujours auprès de l’annuaire principal ou à l’aide de son compte Microsoft. Par conséquent, vous ne verrez jamais d’option pour réinitialiser le mot de passe ou activer l’authentification multifacteur pour un compte d’utilisateur externe : pour le moment, la stratégie d’authentification de l’annuaire principal ou du compte Microsoft est la seule évaluée quand l’utilisateur se connecte.
+Le seul lien entre les deux objets est que l’utilisateur s’authentifie toujours auprès du répertoire de base ou à l’aide de son compte Microsoft. Par conséquent, vous ne verrez jamais d’option pour réinitialiser le mot de passe ou activer l’authentification multifacteur pour un utilisateur externe : pour le moment, la stratégie d’authentification du répertoire de base ou du compte Microsoft est la seule évaluée quand l’utilisateur se connecte.
 
-> [AZURE.NOTE]Vous pouvez quand même désactiver l’utilisateur externe dans l’annuaire afin de l’empêcher d’accéder à votre annuaire.
+> [AZURE.NOTE]
+Vous pouvez quand même désactiver l’utilisateur externe dans l’annuaire afin de l’empêcher d’accéder à votre annuaire.
 
-Si un utilisateur est supprimé de son annuaire principal ou s’il annule son compte Microsoft, l’utilisateur externe existe toujours dans l’annuaire. Cependant, l’utilisateur ne peut pas accéder aux ressources de l’annuaire étant donné qu’il ne peut plus s’authentifier auprès de son annuaire principal ni à l’aide de son compte Microsoft.
+Si un utilisateur est supprimé de son répertoire de base ou s’il annule son compte Microsoft, l’utilisateur externe existe toujours dans votre répertoire. Cependant, l’utilisateur ne peut pas accéder aux ressources de votre répertoire étant donné qu’il ne peut plus s’authentifier auprès de son répertoire de base ni à l’aide de son compte Microsoft.
 
-Un utilisateur administrateur de plusieurs annuaires peut gérer ceux-ci individuellement dans le portail Azure Classic. Cependant, d’autres applications telles qu’Office 365 ne permettent pas pour le moment d’affecter des services ou d’accéder à des services en tant qu’utilisateur externe dans un autre annuaire. À partir de maintenant, nous fournirons aux développeurs des recommandations sur le fonctionnement de leurs applications avec les utilisateurs membres de plusieurs annuaires.
+Voici les services auxquels peuvent avoir accès les utilisateurs externes Azure AD :
 
-Certaines restrictions existent actuellement dans le sens où un administrateur peut seulement donner son consentement à une application mutualisée dans son annuaire principal et être configuré pour les applications SaaS et l’authentification unique (SSO) via le panneau d’accès de son annuaire principal. Les utilisateurs de compte Microsoft sont soumis aux mêmes restrictions étant donné qu’ils ne peuvent pas donner leur consentement à une application mutualisée ou utiliser le panneau d’accès pour le moment.
+- Portail Azure Classic : permet aux utilisateurs externes administrant plusieurs répertoires de gérer chacun d’entre eux
+- SharePoint Online : permet aux utilisateurs externes d’accéder aux ressources autorisées SharePoint Online si le partage externe est activé
+- Dynamics CRM : permet aux utilisateurs externes d’accéder aux ressources autorisées Dynamics CRM s’ils sont sous licence via PowerShell
+
+Voici les limitations connues des utilisateurs externes d’Azure AD :
+
+- les utilisateurs externes qui sont administrateurs ne peuvent pas ajouter des utilisateurs d’entreprises partenaires à des répertoires (B2B) en dehors de leur répertoire de base
+- les utilisateurs externes ne peuvent pas donner leur consentement aux applications mutualisées dans des répertoires en dehors de leur répertoire de base
+- pour l’instant, les utilisateurs externes ne peuvent pas accéder à Visual Studio Online
+- pour l’instant, les utilisateurs externes ne peuvent pas accéder à PowerBI 
+- les utilisateurs externes ne peuvent pas avoir de licences pour le portail Office
 
 ## Invités
 
-Un **invité** est un utilisateur de votre annuaire dont le type d’utilisateur est défini sur « Invité ». Le type d’utilisateur des utilisateurs habituels est « Membre », ce qui permet d’indiquer qu’ils sont membres de votre annuaire. Vous créez des invités lorsque vous partagez une ressource avec une personne externe par rapport à votre annuaire, par exemple quand vous ajoutez un compte Microsoft à votre abonnement Azure ou quand vous partagez un document dans SharePoint avec un utilisateur externe.
+Un **invité** est un utilisateur de votre répertoire dont l’attribut UserType (type d’utilisateur) est défini sur « Invité ». L’attribut UserType des utilisateurs habituels est « Membre », ce qui indique qu’ils sont membres de votre répertoire. Les invités représentent les utilisateurs d’autres répertoires qui ont été invités dans votre répertoire pour accéder à une ressource spécifique comme une application, un document SharePoint ou une ressource Azure.
 
-Au sein de l’annuaire, les invités disposent de droits limités. Ces droits ont pour but de limiter leur capacité à découvrir des informations sur les autres utilisateurs de l’annuaire tout en leur permettant d’interagir avec les utilisateurs et les groupes associés aux ressources sur lesquelles ils travaillent. Par exemple, un invité affecté à un abonnement Azure est en mesure de voir les autres utilisateurs et groupes associés à cet abonnement. Il peut également trouver les autres utilisateurs de l’annuaire qui doivent être autorisés à accéder à l’abonnement, à condition de connaître leur adresse de messagerie. Un invité n’est en mesure de voir qu’un nombre limité de propriétés des autres utilisateurs, à savoir le nom d’affichage, l’adresse de messagerie, le nom d’utilisateur principal (UPN) et la photo miniature.
+Au sein de l’annuaire, les invités disposent de droits limités. Ces droits ont pour but de limiter leur capacité à découvrir des informations sur les autres utilisateurs de l’annuaire tout en leur permettant d’interagir avec les utilisateurs et les groupes associés aux ressources sur lesquelles ils travaillent. Les invités ont accès aux fonctionnalités suivantes :
+
+- voir les autres utilisateurs et groupes associés à l’abonnement Azure auquel ils sont affectés
+- voir les membres des groupes auxquels ils appartiennent
+- rechercher d’autres utilisateurs dans le répertoire à condition de connaître leur adresse électronique complète
+- voir un ensemble d’attributs limité au nom complet, à l’adresse de messagerie, au nom d’utilisateur principal (UPN) et à la photo miniature des utilisateurs qu’ils recherchent 
+- obtenir la liste des domaines vérifiés du client
+- donner leur consentement aux applications, en leur accordant le même accès que dans votre répertoire
 
 ## Configurer les stratégies d’accès utilisateur
 
-L'onglet **Configurer** d'un annuaire inclut des options de contrôle d'accès des utilisateurs externes. Ces options peuvent être modifiées uniquement dans l’interface utilisateur (il n’existe aucune méthode Windows PowerShell ou API) dans le portail Azure Classic complet par un administrateur global de l’annuaire. Pour ouvrir l’onglet **Configurer** dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire.
+L'onglet **Configurer** d'un annuaire inclut des options de contrôle d'accès des utilisateurs externes. Ces options ne peuvent être modifiées que dans l’interface utilisateur (il n’existe aucune méthode Windows PowerShell ou API) dans le portail Azure Classic et par un administrateur général du répertoire. Pour ouvrir l’onglet **Configurer** dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire.
 
 ![][1]
 
@@ -93,13 +113,6 @@ Vous pouvez ensuite modifier les options de contrôle d'accès des utilisateurs 
 
 ![][2]
 
-Par défaut, les invités ne peuvent pas énumérer les éléments de contenu de l'annuaire ; ils ne peuvent donc pas afficher les utilisateurs ou groupes dans la **Liste des membres**. Ils peuvent rechercher un utilisateur en entrant son adresse e-mail complète, puis accorder l'accès. Voici l'ensemble des restrictions par défaut pour les invités :
-
-- Ils ne peuvent pas énumérer les utilisateurs ou groupes dans l'annuaire.
-- Ils ne peuvent accéder qu'à certaines informations limitées d'un utilisateur s'ils ne connaissent pas son adresse e-mail.
-- Ils peuvent accéder à certaines informations limitées d'un groupe s'ils connaissent son nom.
-
-La capacité des invités à n'accéder qu'à certaines informations limitées d'un utilisateur ou d'un groupe les autorise à inviter d'autres personnes et afficher certains détails des personnes avec qui ils collaborent.
 
 ## Étapes suivantes
 
@@ -111,4 +124,4 @@ La capacité des invités à n'accéder qu'à certaines informations limitées d
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Notes de publication de StorSimple série 8000 Update 2  
@@ -21,7 +21,7 @@
 
 Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple série 8000 Update 2. Elles contiennent également une liste des mises à jour du logiciel, du pilote et du microprogramme de disque StorSimple incluses dans cette version.
 
-La solution Update 2 peut être appliquée à n'importe quel appareil StorSimple exécutant le logiciel Release (GA), des versions Update 0.1 à Update 1.2.
+La solution Update 2 peut être appliquée à n'importe quel appareil StorSimple exécutant le logiciel Release (GA), des versions Update 0.1 à Update 1.2. La version d’appareil associée à Update 2 est 6.3.9600.17673.
 
 Lisez les informations contenues dans les notes de publication avant de déployer la mise à jour dans votre solution StorSimple.
 
@@ -38,10 +38,10 @@ La solution Update 2 présente les nouvelles fonctionnalités suivantes :
 
 - **Volumes épinglés localement** : dans les versions précédentes du StorSimple série 8000, les blocs de données étaient hiérarchisées vers le cloud selon leur utilisation. Il n'y avait aucun moyen de garantir que ces blocs resteraient locaux. Dans la solution Update 2, lorsque vous créez un volume, vous pouvez désigner un volume comme étant épinglé localement. Les données primaires de ce volume ne seront alors pas hiérarchisées vers le cloud. Les snapshots des volumes épinglés localement sont toujours copiés vers le cloud pour une sauvegarde ; ainsi, le cloud peut être utilisé à des fins de récupération d'urgence et de mobilité des données. En outre, vous pouvez modifier le type de volume (autrement dit, convertir des volumes hiérarchisés en volumes épinglés localement, et inversement). 
 
-- **Améliorations des appareils virtuels StorSimple** : auparavant, les appareils StorSimple série 8000 faisaient de l’appareil virtuel une solution de développement/test ou de récupération d'urgence. Il n’existait alors qu’un seul modèle de périphérique virtuel (modèle 1100). La solution Update 2 propose deux modèles d’appareil virtuel :
+- **Améliorations des appareils virtuels StorSimple** : auparavant, les appareils StorSimple série 8000 faisaient de l’appareil virtuel une solution de développement/test ou de récupération d'urgence. Il n’existait alors qu’un seul modèle d’appareil virtuel (modèle 1100). La solution Update 2 propose deux modèles d’appareil virtuel :
 
-     - Le modèle 8010 (anciennement le modèle 1100) : il ne présente aucune modification, dispose d’une capacité de 30 To et utilise Azure Standard Storage.
-     - Le modèle 8020 : il dispose d’une capacité de 64 To et utilise Azure Premium Storage pour de meilleures performances.
+     - Le modèle 8010 (anciennement le modèle 1100) : il ne présente aucune modification, dispose d’une capacité de 30 To et utilise le stockage standard d’Azure.
+     - Le modèle 8020 : il dispose d’une capacité de 64 To et utilise le stockage Premium d’Azure pour de meilleures performances.
 
     Il existe un seul disque dur virtuel pour les deux modèles d’appareil virtuel (8010/8020). Lorsque vous démarrez l’appareil virtuel, il détecte les paramètres de plateforme et applique la version de modèle approprié.
 
@@ -76,7 +76,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 
 Le tableau suivant récapitule les problèmes connus de cette version.
 
-| N° | Fonctionnalité | Problème | Commentaires/solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
+| N° | Fonctionnalité | Problème | Commentaires/Solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Disque quorum | Dans de rares cas, si la majorité des disques du boîtier EBOD d’un appareil 8600 sont déconnectés, ce qui signifie qu’il n’y a pas de disque quorum, le pool de stockage est hors connexion. Il reste hors connexion même si les disques sont reconnectés. | Vous devez redémarrer l’appareil. Si le problème persiste, contactez le support technique Microsoft. | Oui | Non |
 | 2 | ID de contrôleur incorrect | Lorsqu’un contrôleur est remplacé, le contrôleur 0 peut apparaître comme contrôleur 1. Pendant le remplacement du contrôleur, lorsque l’image est chargée à partir du nœud homologue, l’ID du contrôleur peut s’afficher initialement comme l’ID du contrôleur homologue. Dans de rares cas, ce comportement peut également se produire après un redémarrage du système. | Aucune action utilisateur n’est requise. Cette situation se résout automatiquement une fois le contrôleur remplacé. | Oui | Non |
@@ -113,4 +113,8 @@ Cette version met à jour le pilote et le microprogramme du disque sur votre app
 
 Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. De nouveaux appareils virtuels devront être créés.
 
-<!---HONumber=AcomDC_0121_2016-->
+## Étape suivante
+
+Découvrez comment [installer Update 2](storsimple-install-update-2.md) sur votre appareil StorSimple.
+
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 #Rotation des informations d'identification pour les entrées et les sorties dans des travaux Stream Analytics
@@ -58,7 +58,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 
 ###Base de données SQL
 
->[AZURE.NOTE]Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail de gestion Azure, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
+>[AZURE.NOTE] Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail de gestion Azure, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
 
 1.  Accédez à l’extension Bases de données SQL dans le portail de gestion Azure : ![graphic14][graphic14]
 2.  Recherchez la base de données SQL utilisée par votre travail et **cliquez sur le lien du serveur** sur la même ligne : ![graphic15][graphic15]
@@ -194,4 +194,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

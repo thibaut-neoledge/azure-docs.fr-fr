@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="liviodlc"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="02/02/2016"
 	ms.author="liviodlc"/>
 
 #Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory
@@ -72,10 +72,10 @@ Dans l’idéal, les étapes de renouvellement ci-dessous ne doivent pas entraî
 
 	- Dans Azure AD, activez le nouveau certificat en cochant la case de confirmation située en bas de la boîte de dialogue, puis cliquez sur **Suivant** pour l’envoyer.
 
-	> [AZURE.IMPORTANT]L’authentification unique pour l’application est alors désactivée au moment où l’une de ces étapes est terminée, mais elle est réactivée une fois la deuxième étape terminée. Par conséquent, pour réduire le temps d’arrêt, veuillez vous préparer à mener ces deux étapes en très peu de temps.
+	> [AZURE.IMPORTANT] L’authentification unique pour l’application est alors désactivée au moment où l’une de ces étapes est terminée, mais elle est réactivée une fois la deuxième étape terminée. Par conséquent, pour réduire le temps d’arrêt, veuillez vous préparer à mener ces deux étapes en très peu de temps.
 
 	![Télécharger, puis charger le certificat](./media/active-directory-sso-certs/renew-config-app.PNG)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

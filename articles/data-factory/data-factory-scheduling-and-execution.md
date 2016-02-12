@@ -35,7 +35,7 @@ Comme indiqué précédemment, la spécification d’un calendrier pour l'activi
  
 Pour la fenêtre d’activité en cours d’exécution, l’intervalle de temps associé à la fenêtre d’activité est accessible par le biais des variables système **WindowStart** et **WindowEnd** de l’activité de JSON. Vous pouvez utiliser ces variables à d’autres fins dans votre activité JSON et les scripts associés à l’activité, notamment pour la sélection des données dans les jeux de données d’entrée et de sortie représentant les données de séries chronologiques.
 
-Pour plus d’informations sur les différentes propriétés à la disposition du planificateur, notamment la programmation d’un décalage chronologique pour faire coïncider le traitement avec le début ou la fin de l’intervalle de fenêtre d'activité, reportez-vous à l’article [Création de Pipelines](data-factory-create-pipelines.md).
+La propriété **scheduler** prend en charge les mêmes sous-propriétés que la propriété **availability** dans un jeu de données. Pour en savoir plus sur les différentes propriétés disponibles pour le planificateur, notamment la programmation selon un décalage chronologique spécifique (dans le but de définir le mode de manière à faire coïncider le traitement avec le début ou la fin de l’intervalle de la fenêtre d’activité), voir [Disponibilité du jeu de données](data-factory-create-datasets.md#Availability).
 
 ## Jeux de données et tranches de données de série chronologique
 
@@ -577,6 +577,8 @@ Texte | Format(X) | X : variable de chaîne | Met en forme le texte.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
+Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](https://msdn.microsoft.com/library/8kb3ddd4.aspx), qui décrit les différentes options de formatage que vous pouvez utiliser (par exemple : aa et aaaa).
+
 > [AZURE.NOTE] Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format(’PartitionKey eq \\’my\_pkey\_filter\_value\\’ et RowKey ge \\’{0:yyyy-MM-dd HH:mm:ss}\\’’, Time.AddHours(SliceStart, -6)).. Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**.
   
 
@@ -678,4 +680,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

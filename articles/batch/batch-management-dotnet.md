@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="11/10/2015"
-	ms.author="v-marsma"/>
+	ms.date="01/28/2016"
+	ms.author="marsma"/>
 
 # Gérer les quotas et les comptes Azure Batch avec Batch Management .NET
 
@@ -30,7 +30,7 @@ Vous pouvez réduire la surcharge de maintenance dans vos applications Azure Bat
 - **Vérifiez les quotas des comptes** et déterminez quels comptes Batch possèdent quelles limites sans avoir à tâtonner. En vérifiant les quotas de vos comptes avant de commencer les tâches, de créer des pools ou d'ajouter des nœuds de calcul, vous pouvez ajuster de façon proactive l'endroit et le moment où ces ressources de calcul sont créées. Vous pouvez déterminer quels comptes requièrent des augmentations de quota avant d'allouer des ressources supplémentaires à ces comptes.
 - **Combinez les fonctionnalités d’autres services Azure** pour une expérience de gestion complète en tirant parti conjointement de Batch Management .NET, d’[Azure Active Directory][aad_about] et d’[Azure Resource Manager][resman_overview] dans la même application. En utilisant ces fonctionnalités et leurs API, vous pouvez fournir une expérience d’authentification transparente, une fonction de création et de suppression des groupes de ressources ainsi que les fonctionnalités décrites ci-dessus, pour une solution de gestion de bout en bout.
 
-> [AZURE.NOTE]Si cet article se concentre sur la gestion par programme de vos comptes, clés et quotas Batch, vous pouvez effectuer la plupart de ces activités avec le [portail Azure][azure_portal]. Consultez [Créer et gérer un compte Azure Batch dans le portail Azure](batch-account-create-portal.md) et [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour plus d’informations.
+> [AZURE.NOTE] Si cet article se concentre sur la gestion par programme de vos comptes, clés et quotas Batch, vous pouvez effectuer la plupart de ces activités avec le [portail Azure][azure_portal]. Consultez [Créer et gérer un compte Azure Batch dans le portail Azure](batch-account-create-portal.md) et [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour plus d’informations.
 
 ## Créer et supprimer des comptes Batch
 
@@ -52,7 +52,7 @@ AccountResource account = getResponse.Resource;
 await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
-> [AZURE.NOTE]Les applications qui utilisent la bibliothèque Batch Management .NET et sa classe BatchManagementClient nécessitent un accès **administrateur de services fédérés** ou **coadministrateur** à l’abonnement qui possède le compte Batch à gérer. Consultez la section [Azure Active Directory](#aad) ci-dessous et l’exemple de code [AccountManagement][acct_mgmt_sample] pour plus d’informations.
+> [AZURE.NOTE] Les applications qui utilisent la bibliothèque Batch Management .NET et sa classe BatchManagementClient nécessitent un accès **administrateur de services fédérés** ou **coadministrateur** à l’abonnement qui possède le compte Batch à gérer. Consultez la section [Azure Active Directory](#aad) ci-dessous et l’exemple de code [AccountManagement][acct_mgmt_sample] pour plus d’informations.
 
 ## Récupérer et régénérer des clés de compte
 
@@ -71,7 +71,7 @@ BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts
 	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
 ```
 
-> [AZURE.TIP]Vous pouvez créer un flux de travail de connexion rationalisé pour vos applications de gestion. Commencez par récupérer une clé de compte pour le compte Batch que vous souhaitez gérer avec [ListKeysAsync][net_list_keys]. Utilisez ensuite cette clé lors de l’initialisation de la classe [BatchSharedKeyCredentials][net_sharedkeycred] de la bibliothèque .NET de Batch, qui est utilisée lors de l’initialisation de [BatchClient][net_batch_client].
+> [AZURE.TIP] Vous pouvez créer un flux de travail de connexion rationalisé pour vos applications de gestion. Commencez par récupérer une clé de compte pour le compte Batch que vous souhaitez gérer avec [ListKeysAsync][net_list_keys]. Utilisez ensuite cette clé lors de l’initialisation de la classe [BatchSharedKeyCredentials][net_sharedkeycred] de la bibliothèque .NET de Batch, qui est utilisée lors de l’initialisation de [BatchClient][net_batch_client].
 
 ## Vérifier les quotas d'un abonnement Azure et d'un compte Batch
 
@@ -119,7 +119,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT]Bien qu’il y ait des quotas par défaut pour les abonnements et services Azure, la plupart de ces limites peuvent être relevées en émettant une demande dans le [portail Azure][azure_portal]. Par exemple, consultez [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour obtenir des instructions sur l’augmentation des quotas de vos comptes Batch.
+> [AZURE.IMPORTANT] Bien qu’il y ait des quotas par défaut pour les abonnements et services Azure, la plupart de ces limites peuvent être relevées en émettant une demande dans le [portail Azure][azure_portal]. Par exemple, consultez [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour obtenir des instructions sur l’augmentation des quotas de vos comptes Batch.
 
 ## Batch Management .NET, Azure AD et Resource Manager
 
@@ -139,15 +139,23 @@ Lorsque vous créez des comptes Batch avec la bibliothèque Batch Management .NE
 
 Découvrez l'exemple de projet [AccountManagment][acct_mgmt_sample] sur GitHub pour voir la bibliothèque Batch Management .NET en pratique. Cette application de console illustre la création et l’utilisation de [BatchManagementClient][net_mgmt_client] et [ResourceManagementClient][resman_client]. Elle montre également l’utilisation de la [bibliothèque d’authentification Azure Active Directory][aad_adal] (ADAL) dont ont besoin les deux clients.
 
-> [AZURE.IMPORTANT]Pour exécuter avec succès cet exemple d’application, vous devez tout d’abord l’enregistrer dans Azure AD à l’aide du portail Azure. Consultez la section « Ajout d’une application » de l’article [Intégration d’applications dans Azure Active Directory][aad_integrate]. Suivez ensuite les étapes décrites dans l’article pour enregistrer l’exemple d’application dans votre propre compte.
+Pour exécuter avec succès cet exemple d’application, vous devez tout d’abord l’enregistrer dans Azure AD à l’aide du portail Azure. Consultez la section « Ajout d’une application » de l’article [Intégration d’applications à Azure Active Directory][aad_integrate], puis suivez les étapes décrites dans l’article pour enregistrer l’exemple d’application dans le répertoire par défaut de votre propre compte. Veillez à sélectionner « Application cliente native » pour le type d’application. Vous pouvez également spécifier tout URI valide (comme `http://myaccountmanagementsample`) comme « URI de redirection » : inutile qu’il s’agisse d’un point de terminaison réel.
 
-L'exemple d'application illustre les opérations suivantes :
+Après avoir ajouté votre application, déléguez l’autorisation « Accéder à la gestion des services Azure en tant qu’organisation » à l’application *API de gestion des services Windows Azure* dans les paramètres de l’application, dans le portail :
 
-1. Acquérir un jeton de sécurité dans Azure AD avec [ADAL][aad_adal]. Si l’utilisateur n’est pas encore connecté, il sera invité à entrer ses informations d’identification Azure.
-2. À l’aide du jeton de sécurité obtenu avec Azure AD, créez une classe [SubscriptionClient][resman_subclient] qui demande à Azure la liste des abonnements associés au compte. Cela permet à l’utilisateur de sélectionner un abonnement lorsque plusieurs abonnements sont identifiés.
+![Autorisations sur les applications dans le portail Azure][2]
+
+Une fois que vous avez ajouté l’application conformément à la description ci-dessus, mettez à jour `Program.cs` dans l’exemple de projet [AccountManagment][acct_mgmt_sample] avec l’URI de redirection et l’ID client de votre application. Vous pouvez trouver ces valeurs dans l’onglet Configurer de votre application :
+
+![Configuration des applications dans le portail Azure][3]
+
+L’exemple d’application [AccountManagment][acct_mgmt_sample] illustre les opérations suivantes :
+
+1. Acquérir un jeton de sécurité d’Azure AD avec [ADAL][aad_adal]. Si l’utilisateur n’est pas encore connecté, il sera invité à entrer ses informations d’identification Azure.
+2. À l’aide du jeton de sécurité obtenu à partir d’Azure AD, créer une classe [SubscriptionClient][resman_subclient] pour demander à Azure la liste des abonnements associés au compte. Cela permet à l’utilisateur de sélectionner un abonnement lorsque plusieurs abonnements sont identifiés.
 3. Créer un nouvel objet d’informations d’identification associé à l’abonnement sélectionné
-4. Créer une classe [ResourceManagementClient][resman_client] avec les nouvelles informations d’identification
-5. Utiliser [ResourceManagementClient][resman_client] pour créer un nouveau groupe de ressources
+4. Créer une classe [ResourceManagementClient][resman_client] avec les nouvelles informations d’identification.
+5. Utiliser [ResourceManagementClient][resman_client] pour créer un groupe de ressources.
 6. Utiliser [BatchManagementClient][net_mgmt_client] pour effectuer un certain nombre d’opérations de compte Batch :
   - Créer un nouveau compte Batch dans le groupe de ressources créé
   - Récupérer le compte créé dans le service Batch
@@ -189,5 +197,7 @@ Avant de supprimer le compte Batch et le groupe de ressources créés, vous pouv
 [resman_overview]: ../resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
+[2]: ./media/batch-management-dotnet/portal-02.png
+[3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

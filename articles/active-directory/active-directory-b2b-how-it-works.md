@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Version préliminaire d’Azure Active Directory (Azure AD) B2B Collaboration : fonctionnement
+# Version préliminaire d’Azure AD B2B Collaboration : Fonctionnement
 Azure AD B2B Collaboration repose sur un modèle d’invitation et d’échange. Vous fournissez les adresses de messagerie des parties avec lesquelles vous souhaitez travailler, ainsi que les applications qu’elles doivent utiliser. Azure AD leur envoie une invitation par courrier électronique avec un lien. L’utilisateur partenaire suit le lien et est invité à se connecter en utilisant son compte Azure AD ou à s’inscrire pour obtenir un nouveau compte Azure AD.
 
 1. Votre administrateur invite les utilisateurs partenaires en téléchargeant [un fichier .csv structuré](active-directory-b2b-references-csv-file-format.md) à l’aide du portail Azure.
@@ -42,4 +42,4 @@ Bien qu’un abonnement Azure AD payant (De base ou Premium) ne soit pas nécess
  - [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

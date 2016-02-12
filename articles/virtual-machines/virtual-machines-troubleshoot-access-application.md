@@ -86,7 +86,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les éléments suiv
 - Pour les machines virtuelles créées à l’aide de l’API Service Management, que la configuration de points de terminaison pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 - Pour les machines virtuelles à l’aide de l’API Service Management, que les listes de contrôle d’accès sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 - Pour les machines virtuelles créées dans Resource Manager, que la configuration de règles NAT entrantes pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
-- Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes. Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](virtual-networks-nsg.md).
+- Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes. Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 Si la machine virtuelle ou le point de terminaison est membre d’un jeu à charge équilibrée :
 
@@ -125,4 +125,4 @@ Si vous avez suivi les étapes ci-dessus dans cet article et que vous avez beso
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

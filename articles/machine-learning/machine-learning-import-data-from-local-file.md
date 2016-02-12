@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/03/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -40,4 +40,4 @@ Pendant le téléchargement, vous verrez un message indiquant que votre fichier 
 
 Une fois que vos données sont téléchargées, elles sont stockées dans un module de jeu de données et sont disponibles pour n'importe quelle expérience dans votre espace de travail. Vous trouverez le jeu de données ainsi que tous les exemples de jeu de données préchargés dans la liste des **Jeux de données enregistrés** dans la palette des modules lorsque vous éditez une expérience. Vous pouvez glisser-déplacer le jeu de données dans le canevas de l’expérience en vue d’affiner une analyse et l’apprentissage automatique.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

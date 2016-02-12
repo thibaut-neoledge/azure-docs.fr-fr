@@ -25,7 +25,7 @@ Le modèle de sécurité Event Hubs remplit les conditions suivantes :
 
 ## Authentification des appareils
 
-Le modèle de sécurité du hub d'événements est basé sur une combinaison de jetons de [signature d'accès partagé (SAS)](service-bus-shared-access-signature-authentication.md) et d'éditeurs d'événements. Un éditeur d'événements définit un point de terminaison virtuel pour un hub d'événements. L'éditeur ne peut être utilisé que pour envoyer des messages à un hub d'événements. Il n'est pas possible de recevoir des messages à partir de l'éditeur.
+Le modèle de sécurité du hub d'événements est basé sur une combinaison de jetons de [signature d'accès partagé (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) et d'éditeurs d'événements. Un éditeur d'événements définit un point de terminaison virtuel pour un hub d'événements. L'éditeur ne peut être utilisé que pour envoyer des messages à un hub d'événements. Il n'est pas possible de recevoir des messages à partir de l'éditeur.
 
 En règle générale, un hub d'événements utilise un seul éditeur par appareil. Tous les messages qui sont envoyés à un éditeur d'un hub d'événements sont empilés dans celui-ci. Les éditeurs permettent un contrôle d'accès précis et une limitation.
 
@@ -154,4 +154,4 @@ Pour plus d'informations sur les hubs d'événements, consultez les rubriques su
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

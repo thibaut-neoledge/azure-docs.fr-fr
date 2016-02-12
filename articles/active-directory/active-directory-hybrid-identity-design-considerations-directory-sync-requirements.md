@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considérations relatives à la conception d'identités hybrides Azure Active Directory : déterminer les exigences en matière de synchronisation d'annuaire | Microsoft Azure"
+	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de synchronisation de répertoire | Microsoft Azure"
 	description="Identifier les exigences nécessaires pour la synchronisation de tous les utilisateurs entre en local et cloud pour l'entreprise."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Déterminer les exigences de synchronisation de répertoire
@@ -39,7 +39,7 @@ Veillez à répondre aux questions suivantes :
   - Votre entreprise utilise-t-elle Microsoft Exchange ?
     - Le déploiement d'Exchange hybride est-il prévu ? 
    
-Maintenant que vous avez une idée des exigences de votre entreprise en termes de synchronisation, vous devez évaluer les applications qui utilisent ces services d'annuaire. Cette évaluation est importante pour définir les exigences techniques qui permettront d'intégrer ces applications dans le cloud. Veillez à répondre aux questions suivantes :
+Maintenant que vous avez une idée des exigences de votre entreprise en termes de synchronisation, vous devez évaluer les applications qui utilisent ces services d'annuaire. Cette évaluation est importante pour définir les exigences techniques qui permettront d’intégrer ces applications dans le cloud. Veillez à répondre aux questions suivantes :
 
 - Ces applications migreront-elles vers le cloud et utiliseront-elles l'annuaire ?
 - Existe-t-il des attributs spéciaux qui doivent être synchronisées vers le cloud afin que ces applications puissent les utiliser correctement ?
@@ -57,12 +57,13 @@ Vous devez également déterminer la synchronisation des annuaires d'exigences e
  - Si votre entreprise ne connaît pas la réponse à cette question, consultez la section « Autorisations pour la synchronisation de mot de passe » dans l'article [Installer le Service de synchronisation Azure Active Directory](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) et déterminez si vous avez déjà un compte disposant de ces autorisations, ou si vous devez en créer un.
 - Si vous disposez d'une synchronisation à forêts multiples, le serveur de synchronisation est-il en mesure d'atteindre chaque forêt ?
  
->[AZURE.NOTE]Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. La section [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) passe en revue les options disponibles. En répondant à ces questions, vous sélectionnerez l’option la mieux adaptée à vos besoins métier.
+>[AZURE.NOTE]
+Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. La section [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) passe en revue les options disponibles. En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
 
 ## Étapes suivantes
 [Déterminer les exigences d’authentification multifacteur](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

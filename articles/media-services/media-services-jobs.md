@@ -45,7 +45,7 @@ Un travail est une entité qui contient des métadonnées sur un ensemble de tâ
 
 ##Encodage
 
-Procédez à l’encodage à l’aide d’**Azure Media Encoder** en utilisant le **portail Azure Classic**, **.NET** ou l’**API REST**.
+Procédez à l’encodage à l’aide de **Media Encoder Standard** en utilisant le **portail Azure Classic**, **.NET** ou l’**API REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -80,4 +80,4 @@ Vous pouvez surveiller la progression des travaux à l’aide du **portail Azure
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

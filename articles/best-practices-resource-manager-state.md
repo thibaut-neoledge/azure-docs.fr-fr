@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="01/26/2016"
 	ms.author="mmercuri"/>
 
 # Partage d’état dans les modèles Azure Resource Manager
@@ -154,7 +154,7 @@ Nom | Valeur | Description
 ---- | ----- | -----------
 location | Chaîne obtenue à partir d’une liste contrainte des régions Azure | Il s’agit de l’emplacement de déploiement des ressources.
 storageAccountNamePrefix | Chaîne | Il s’agit du nom DNS unique du compte de stockage où sont placés les disques de la machine virtuelle.
-domainName | Chaîne | Il s'agit du nom de domaine de la machine virtuelle jumpbox publique, dont le format est : **{Nom\_de\_domaine}.{emplacement}.cloudapp.com**. Par exemple : **monnomdedomaine.westus.cloudapp.azure.com**
+domainName | Chaîne | Il s’agit du nom de domaine de la machine virtuelle jumpbox publique, dont le format est : **{Nom\_de\_domaine}.{emplacement}.cloudapp.com**. Par exemple : **monnomdedomaine.westus.cloudapp.azure.com**
 adminUsername | Chaîne | Il s’agit du nom d’utilisateur des machines virtuelles
 adminPassword | Chaîne | Il s’agit du mot de passe des machines virtuelles
 tshirtSize | Chaîne obtenue à partir d’une liste contrainte des propositions de tailles de t-shirt | Il s’agit de la taille d’unité d’échelle nommée à approvisionner. Par exemple, « Petit », « Moyen », « Grand »
@@ -259,7 +259,7 @@ Le préfixe du nom de compte de stockage est extrait d’un paramètre fourni pa
       }
     }
 
-La variable *tshirtSize* apparaît plus bas dans la section des variables. La fin de la taille de t-shirt que vous avez entrée (*Petit*, *Moyen*, *Grand*) est concaténée avec le texte *tshirtSize* pour récupérer la variable d'objet complexe associée à cette taille de t-shirt :
+La variable *tshirtSize* apparaît plus bas dans la section des variables. La fin de la taille de t-shirt que vous avez entrée (*Petit*, *Moyen*, *Grand*) est concaténée avec le texte *tshirtSize* pour récupérer la variable d’objet complexe associée à cette taille de t-shirt :
 
     "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
 
@@ -314,7 +314,7 @@ Les détails du stockage sont souvent partagés avec les modèles liés. Dans l'
 
 Si vous utilisez des modèles liés, vous devrez peut-être transmettre des paramètres de système d’exploitation à différents types de nœuds entre les différents types de configurations connus. Un objet complexe est pratique pour stocker et partager facilement des informations de système d’exploitation et facilite également la prise en charge de plusieurs options de système d’exploitation pour le déploiement.
 
-L'exemple suivant montre un objet pour *osSettings* :
+L’exemple suivant montre un objet pour *osSettings* :
 
     "osSettings": {
       "imageReference": {
@@ -389,4 +389,4 @@ Dans le modèle principal, vous pouvez utiliser ces données avec la syntaxe sui
 - [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 - [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

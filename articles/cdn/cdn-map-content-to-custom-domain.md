@@ -25,8 +25,8 @@ Il existe deux façons de mapper votre domaine personnalisé à un point de term
 	Un enregistrement CNAME est une fonctionnalité DNS qui mappe un domaine source à un domaine cible. Dans cet exemple, le domaine source est votre domaine personnalisé et son sous-domaine (le sous-domaine est dans tous les cas indispensable). Le domaine cible est le point de terminaison de votre CDN.
 
 	Le processus consistant à mapper votre domaine personnalisé à votre point de terminaison CDN peut entraîner un problème d’indisponibilité de courte durée du service au moment où vous enregistrez le domaine dans le portail Azure.
-     
-2. [Ajoutez une étape d’inscription intermédiaire avec **cdnverify**] ((#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
+	 
+2. [Ajouter une étape d’inscription intermédiaire avec **cdnverify**](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	Si votre domaine personnalisé prend actuellement en charge une application visée par un contrat de niveau de service (SLA) interdisant toute interruption de service, vous pouvez utiliser le sous-domaine **cdnverify** Azure en tant qu'étape d'enregistrement intermédiaire pour permettre aux utilisateurs d'accéder à votre domaine pendant que vous procédez au mappage DNS.
 
@@ -83,4 +83,4 @@ Après avoir enregistré votre domaine personnalisé à l’aide de l»une des p
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

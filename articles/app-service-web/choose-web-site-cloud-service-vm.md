@@ -50,7 +50,7 @@ Voici quelques scénarios d'application courants avec des recommandations sur l'
 
 ### <a id="onprem"></a> J’ai besoin d’un site web frontal avec traitement en arrière-plan et base de données principale pour exécuter des applications métier intégrées à des ressources locales.
 
-Azure App Service est une excellente solution pour l’hébergement d’applications métier complexes. Elle vous permet de développer des applications automatiquement mises à l'échelle sur les plateformes avec équilibrage de la charge. Elles sont aussi sécurisées grâce à Active Directory et se connectent à vos ressources locales. Elle simplifie la gestion de ces applications grâce au portail et aux API et vous permet de savoir comment vos clients les utilisent avec les outils d'analyse. La fonctionnalité [Webjobs][] vous permet d'exécuter des processus et des tâches en arrière-plan dans le cadre de votre niveau de service. La connectivité hybride et les [fonctionnalités VNET](../fundamentals-introduction-to-azure.md#networking/) simplifient la connexion aux ressources locales. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
+Azure App Service est une excellente solution pour l’hébergement d’applications métier complexes. Elle vous permet de développer des applications automatiquement mises à l'échelle sur les plateformes avec équilibrage de la charge. Elles sont aussi sécurisées grâce à Active Directory et se connectent à vos ressources locales. Elle simplifie la gestion de ces applications grâce au portail et aux API et vous permet de savoir comment vos clients les utilisent avec les outils d'analyse. La fonctionnalité [Webjobs][] vous permet d’exécuter des processus et des tâches en arrière-plan dans la couche web. La connectivité hybride et les fonctionnalités VNET simplifient la connexion aux ressources locales. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
 
 * Exécution fiable de vos applications sur une plateforme cloud avec corrections et mises à jour automatiques.
 * Extension automatique sur un réseau mondial de centres de données.
@@ -176,10 +176,7 @@ Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un co
 
 ## <a id="nextsteps"></a> Étapes suivantes
 
-Pour plus d'informations sur les trois options d'hébergement web, consultez les ressources suivantes :
-
-* [Présentation d’Azure](../fundamentals-introduction-to-azure.md)
-* [Calcul des options d’hébergement fournies par Azure](../fundamentals-application-models.md)
+Pour en savoir plus sur les trois options d’hébergement web, voir [Présentation d’Azure](../fundamentals-introduction-to-azure.md).
 
 Pour choisir une ou plusieurs de ces options pour votre application, consultez les ressources suivantes :
 
@@ -205,4 +202,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

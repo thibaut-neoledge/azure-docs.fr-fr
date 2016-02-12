@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/29/2016" 
 	ms.author="johnmac"/>
 
 #Niveaux de performances dans DocumentDB
@@ -31,7 +31,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 
 Chaque collection DocumentDB créée sous un compte d'utilisateur Standard est configurée avec un niveau de performances associé. Les niveaux de performances sont désignés comme suit : S1, S2 ou S3 (du niveau le plus faible au plus élevé). Le niveau de performances de la collection détermine la quantité de ressources de traitement de requête réservée pour votre application. Chaque collection dans une base de données peut avoir un niveau de performances différent, ce qui vous permet de désigner davantage de débit pour les collections fréquemment sollicitées et moins de débit pour les collections rarement sollicitées. Le niveau de performances minimal pour toute collection est S1.
 
-À chaque niveau de performances est associé un taux limite d'unités de demande. Il s'agit du débit qui sera réservé pour une collection en fonction de son niveau de performances et qui sera disponible exclusivement pour cette collection. Des collections peuvent être créées via le [portail Azure Classic](https://portal.azure.com) ou l’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Les API DocumentDB vous permettent de spécifier le niveau de performances d'une collection.
+À chaque niveau de performances est associé un taux limite d'unités de demande. Il s'agit du débit qui sera réservé pour une collection en fonction de son niveau de performances et qui sera disponible exclusivement pour cette collection. Vous pouvez créer des collections via le [portail Microsoft Azure](https://portal.azure.com) ou l’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Les API DocumentDB vous permettent de spécifier le niveau de performances d'une collection.
 
 Niveau de performances de collection|Débit réservé
 ---|---
@@ -41,7 +41,7 @@ S3|2 500 unités de demande/seconde
 
 DocumentDB permet un ensemble complet d'opérations de base de données, notamment des requêtes, des requêtes avec des fonctions définies par l'utilisateur, des procédures stockées et des déclencheurs. Le coût de traitement associé à chacune de ces opérations varie selon le processeur, les E/S et la mémoire nécessaires à l'exécution de l'opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de demande comme une mesure unique des ressources nécessaires à l'exécution des opérations de base de données et à la réponse à une demande de l'application.
 
-> [AZURE.NOTE] Les niveaux de performances sont mesurés en unités de demande. À chaque niveau de performances est associé un taux maximum d'unités de demande par seconde. Le niveau de performances d’une collection peut être ajusté via les API ou le [portail Azure Classic](https://portal.azure.com/).
+> [AZURE.NOTE] Les niveaux de performances sont mesurés en unités de demande. À chaque niveau de performances est associé un taux maximum d'unités de demande par seconde. Le niveau de performances d’une collection peut être ajusté via les API ou le [portail Microsoft Azure](https://portal.azure.com/). Les modifications au niveau des performances sont censées se terminer en 3 minutes.
 
 ##Définition des niveaux de performances pour les collections
 Lorsqu'une collection est créée, l'affectation complète des unités de demande est réservée pour la collection, en fonction du niveau de performances désigné. Par exemple, si une collection est définie en tant que S3, elle est en mesure de traiter 2 500 unités de demande/seconde. Chaque collection réserve son débit affecté et 10 Go de stockage de base de données. Le prix de la collection varie selon le niveau de performances choisi (S1, S2, S3). Notez que DocumentDB fonctionne sur la base d'une réservation de capacité ; en créant une collection, une application réserve un débit et un stockage de base de données, et elle est facturée en fonction de ces derniers, quelle que soit la quantité de stockage et de débit réellement utilisée.
@@ -71,7 +71,7 @@ Il est recommandé que votre application utilise un petit nombre de collections 
 
 Le portail Azure est une option qui est mise à votre disposition lorsque vous gérez les niveaux de performances de vos collections. Pour modifier le niveau de performances d’une collection à partir du portail Azure Classic, procédez comme suit.
 
-1. Accédez au [**portail Azure**](https://portal.azure.com) à partir de votre navigateur.
+1. Accédez au [**portail Microsoft Azure**](https://portal.azure.com) depuis votre navigateur.
 2. Dans la barre d’index de gauche, cliquez sur **Parcourir**.
 3. Dans le hub **Parcourir**, cliquez sur **Comptes DocumentDB** sous l’étiquette **Filtrer par**.
 4. Dans le panneau **Comptes DocumentDB**, cliquez sur le compte DocumentDB qui contient la collection souhaitée.
@@ -122,4 +122,4 @@ Pour en savoir plus sur DocumentDB, consultez la [documentation](https://azure.m
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

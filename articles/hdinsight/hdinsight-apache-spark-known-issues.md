@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2016" 
-	ms.author="jgao"/>
+	ms.date="02/01/2016" 
+	ms.author="nitinme"/>
 
 # Problèmes connus d’Apache Spark dans Azure HDInsight (Linux)
 
@@ -54,6 +54,23 @@ Le serveur d’historique Spark ne démarre pas automatiquement après la créat
 
 Démarrez manuellement le serveur d’historique à partir d’Ambari.
 
+##Erreur lors du chargement d’un bloc-notes de plus de 2 Mo
+
+**Symptôme :**
+
+Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez de charger un bloc-notes de plus de 2 Mo.
+
+**Atténuation :**
+
+Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues. Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`, et vous pouvez exécuter SSH dans le cluster pour y accéder. Vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle. À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire la taille du bloc-notes au minimum.
+
+Pour éviter cette erreur à l’avenir, gardez en tête les conseils suivants :
+
+* Il est important que la taille du bloc-notes reste réduite. Aucune sortie de vos travaux sous Spark qui est envoyée à Jupyter n’est conservée dans le bloc-notes. Pour Jupyter, il est en général recommandé d’éviter l’exécution de l’élément `.collect()` sur des RDD ou trames de données larges ; en revanche, si vous souhaitez lire le contenu d’un RDD, pensez à exécuter `.take()` ou `.sample()` afin que votre sortie ne devienne pas trop volumineuse.
+* En outre, lorsque vous enregistrez un bloc-notes, supprimez toutes les cellules de sortie pour réduire sa taille.
+
+
+
 ##Démarrage du bloc-notes plus long que prévu 
 
 **Symptôme :**
@@ -63,16 +80,6 @@ La première instruction du bloc-notes Jupyter à l’aide de Spark Magic peut n
 **Atténuation :**
  
 Aucune solution de contournement. Cela nécessite parfois du temps.
-
-##Impossible de personnaliser les configurations principales/de mémoire
-
-**Symptôme :**
- 
-Vous ne pouvez pas spécifier d’autres configurations principales/de mémoire que la valeur par défaut des noyaux Spark/Pyspark.
-
-**Atténuation :**
- 
-Cette fonctionnalité sera bientôt disponible.
 
 ##Délai d’attente du bloc-notes Jupyter lors de la création de la session
 
@@ -121,6 +128,16 @@ Ce problème sera résolu dans une version ultérieure.
 
     La première cellule ne parvient pas à enregistrer la méthode sc.stop() à appeler lorsque le bloc-notes se ferme. Dans certaines circonstances, cela peut entraîner une divulgation des ressources Spark. Vous pouvez éviter cela en vous veillant à exécuter l’importation de atexit; atexit.register(lambda: sc.stop()) dans ces blocs-notes avant de les arrêter. Si vous avez perdu accidentellement des ressources, suivez les instructions ci-dessus pour arrêter mettre fin aux applications YARN divulguées.
      
+##Impossible de personnaliser les configurations principales/de mémoire
+
+**Symptôme :**
+ 
+Vous ne pouvez pas spécifier d’autres configurations principales/de mémoire que la valeur par défaut des noyaux Spark/Pyspark.
+
+**Atténuation :**
+ 
+Cette fonctionnalité sera bientôt disponible.
+
 ## Problème d’autorisation dans le répertoire des journaux Spark 
 
 **Symptôme :**
@@ -139,4 +156,4 @@ Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.i
 - [Vue d’ensemble : Apache Spark sur Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Prise en main : approvisionner Apache Spark sur HDInsight (Linux) et exécuter des requêtes interactives à l’aide de Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Configuration d’une application métier web dans un cloud hybride pour le test
@@ -180,23 +180,8 @@ Ceci est votre configuration actuelle.
  
 Cet environnement est maintenant prêt pour le déploiement de votre application web sur LOB1 et le test des fonctionnalités et des performances à partir du sous-réseau de réseau d'entreprise.
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-[Diagrammes et modèles de l’architecture logicielle Microsoft](http://msdn.microsoft.com/dn630664)
+- Configurez l’[environnement de production](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
 
-[Plateforme de serveur adaptée à l’hébergement Web (IIS)](http://technet.microsoft.com/library/hh831818)
-
-[Configuration d’un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Configuration de la synchronisation d’annuaires (DirSync) Office 365 dans un cloud hybride pour le test](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Configuration d’une simulation d’environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Environnements de test de cloud hybride Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

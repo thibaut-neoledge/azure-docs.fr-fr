@@ -14,19 +14,18 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/05/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
 
 
 # Stratégies d’indexation de DocumentDB
 
-Bien que de nombreux clients soient ravis de laisser DocumentDB gérer automatiquement [tous les aspects d’indexation](documentdb-indexing.md), DocumentDB prend également en charge la spécification d’une **stratégie d’indexation** personnalisée pour les collections pendant la création. Les stratégies d’indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données d’indexation, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans DocumentDB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écriture et de requêtes et la cohérence des requêtes.
+Bien que de nombreux clients soient ravis de laisser DocumentDB gérer automatiquement [tous les aspects d’indexation](documentdb-indexing.md), DocumentDB prend également en charge la spécification d’une **stratégie d'indexation** personnalisée pour les collections lors de la création. Les stratégies d’indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans DocumentDB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écriture et de requêtes et la cohérence des requêtes.
 
 Dans cet article, nous examinons en détail les stratégies d’indexation de DocumentDB, la personnalisation d’une stratégie d'indexation et les compromis associés.
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
-- Comment DocumentDB prend-il en charge l'indexation automatique par défaut ?
 - Comment puis-je remplacer les propriétés à inclure ou à exclure de l'indexation ?
 - Comment puis-je configurer l'index pour des mises à jour éventuelles ?
 - Comment puis-je configurer l'indexation afin d'effectuer des requêtes Order By ou de plage ?
@@ -59,7 +58,7 @@ L’extrait de code .NET suivant montre comment définir une stratégie d’inde
     await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
 
 
->[AZURE.NOTE]Le schéma JSON de la stratégie d’indexation a été modifié avec la version de l’API REST 2015-06-03 pour prendre en charge les index de plage dans des chaînes. Le Kit de développement logiciel (SDK) .NET 1.2.0 et les Kits de développement logiciel (SDK) Java, Python et Node.js 1.1.0 prennent en charge le nouveau schéma de stratégie. Des Kits de développement (SDK) plus anciens utilisent la version 2015-04-08 de l'API REST et prennent en charge le schéma de stratégie d'indexation plus ancien.
+>[AZURE.NOTE] Le schéma JSON de la stratégie d’indexation a été modifié avec la version de l’API REST 2015-06-03 pour prendre en charge les index de plage dans des chaînes. Le Kit de développement logiciel (SDK) .NET 1.2.0 et les Kits de développement logiciel (SDK) Java, Python et Node.js 1.1.0 prennent en charge le nouveau schéma de stratégie. Des Kits de développement (SDK) plus anciens utilisent la version 2015-04-08 de l'API REST et prennent en charge le schéma de stratégie d'indexation plus ancien.
 >
 >Par défaut, DocumentDB indexe régulièrement toutes les propriétés de chaîne au sein des documents avec un index de hachage, et les propriétés numériques avec un index de plage.
 
@@ -67,13 +66,13 @@ L’extrait de code .NET suivant montre comment définir une stratégie d’inde
 
 DocumentDB prend en charge trois modes d'indexation qui peuvent être configurés via la stratégie d'indexation sur une collection DocumentDB : le mode Cohérent, le mode Différé et le mode Aucun.
 
-**Cohérent** : si la stratégie d’une collection DocumentDB est désignée comme « cohérente », les requêtes sur une collection DocumentDB donnée suivent le même niveau de cohérence que celui spécifié pour les lectures de point (c.-à-d., fort, en fonction de l’obsolescence, session ou éventuel). L’index est mis à jour de façon synchrone dans le cadre de la mise à jour du document (par ex. l’insertion, le remplacement, la mise à jour et la suppression d’un document dans une collection DocumentDB). L’indexation cohérente prend en charge des requêtes cohérentes au détriment de la réduction éventuelle du débit d'écriture. Cette réduction dépend des chemins d'accès uniques qui doivent être indexés et du « niveau de cohérence ». Le mode d’indexation Cohérent est conçu pour les charges de travail « écrire rapidement, interroger immédiatement ».
+**Cohérent** : si la stratégie d’une collection DocumentDB est désignée comme « cohérente », les requêtes sur une collection DocumentDB donnée suivent le même niveau de cohérence que celui spécifié pour les lectures de point (c.-à-d., fort, en fonction de l’obsolescence, session ou éventuel). L’index est mis à jour de façon synchrone dans le cadre de la mise à jour du document (par ex. l’insertion, le remplacement, la mise à jour et la suppression d’un document dans une collection DocumentDB). L’indexation cohérente prend en charge des requêtes cohérentes au détriment de la réduction éventuelle du débit d'écriture. Cette réduction dépend des chemins d'accès uniques qui doivent être indexés et du « niveau de cohérence ». Le mode d’indexation Cohérent est conçu pour les charges de travail « écrire rapidement, interroger immédiatement ».
 
 **Différé** : pour offrir un débit maximal d’ingestion de documents, une collection DocumentDB peut être configurée avec une cohérence différée, ce qui veut dire que les requêtes sont cohérentes. L'index est mis à jour de façon asynchrone lorsqu'une collection DocumentDB est inactive. En d’autres termes, la capacité du débit de la collection n'est pas entièrement exploitée pour traiter les requêtes de l'utilisateur. Pour les charges de travail « ingérer maintenant, interroger plus tard » nécessitant une ingestion libre des documents, le mode d'indexation « différé » peut être approprié.
 
-**Aucun** : une collection en mode « Aucun » ne comporte aucun index associé. La configuration de la stratégie d'indexation en mode « Aucun » a pour effet secondaire de supprimer un index existant.
+**Aucun** : une collection en mode « Aucun » ne comporte aucun index associé. Ce mode est souvent utilisé si DocumentDB est utilisé en tant que stockage clé-valeur, et les documents sont accessibles uniquement via leur propriété ID.
 
->[AZURE.NOTE]La configuration de la stratégie d’indexation en mode « Aucun » a pour effet secondaire de supprimer un index existant. Utilisez-la si vos modèles d'accès ne requièrent que l’attribut « id » et/ou « self-link » (lien réflexif).
+>[AZURE.NOTE] La configuration de la stratégie d’indexation en mode « Aucun » a pour effet secondaire de supprimer un index existant. Utilisez-la si vos modèles d'accès ne requièrent que l’attribut « id » et/ou « self-link » (lien réflexif).
 
 L'exemple suivant montre comment utiliser le Kit de développement logiciel (SDK) .NET de DocumentDB pour créer une collection DocumentDB avec une indexation automatique cohérente de toutes les insertions de document.
 
@@ -168,7 +167,7 @@ Le tableau suivant indique la cohérence des requêtes en fonction du mode d'ind
     </tbody>
 </table>
 
-Par défaut, une erreur est renvoyée pour toutes les requêtes si la collection est configurée avec le mode d'indexation Aucun, afin de signaler qu'une analyse peut être requise pour traiter la requête. Les requêtes peuvent être effectuées sans index de plage à l’aide de l’en-tête `x-ms-documentdb-enable-scans` dans l’API REST ou de l’option de requête `EnableScanInQuery` avec le Kit de développement logiciel (SDK) .NET. Certaines requêtes qui utilisent, par exemple, ORDER BY (TRIER PAR) ne sont pas autorisées en mode Aucun, même avec `EnableScanInQuery`.
+DocumentDB renvoie une erreur pour les requêtes effectuées sur les collections en mode d’indexation « Aucun ». Les requêtes peuvent toujours être exécutées comme des analyses via l’en-tête explicite `x-ms-documentdb-enable-scans` dans l’API REST ou l’option de demande `EnableScanInQuery` à l’aide du Kit de développement logiciel (SDK) .NET. Certaines fonctions de requêtes, telles que ORDER BY, ne sont pas prises en charge en tant qu’analyses avec `EnableScanInQuery`.
 
 Le tableau suivant indique la cohérence des requêtes en fonction du mode d'indexation (Cohérent, Différé et Aucun) qui a été configuré lorsque EnableScanInQuery est spécifié.
 
@@ -440,7 +439,7 @@ Voici les modèles courants de spécification des chemins d'index :
     </tbody>
 </table>
 
->[AZURE.NOTE]Lors de la définition des chemins d’accès de l’index personnalisé, il est nécessaire de spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin d’accès spécial « /* ».
+>[AZURE.NOTE] Lors de la définition des chemins d’accès de l’index personnalisé, il est nécessaire de spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin d’accès spécial « /* ».
 
 L’exemple suivant configure un chemin d’accès spécifique avec l’indexation de plage et une valeur personnalisée de précision de 20 octets :
 
@@ -480,7 +479,7 @@ DocumentDB prend en charge les types d'index de hachage et de plage pour chaque 
 - **Hachage** prend en charge les requêtes d’égalité efficaces et JOIN. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de 3 octets.
 - **Plage** prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <, >=, <=, !=) et les requêtes Trier par. Par défaut, les requêtes Trier par nécessitent également une précision d’index maximale (-1).
 
-DocumentDB prend également en charge le type d’index spatial pour chaque chemin d’accès, qui peut être spécifié pour le type de données de point. La valeur dans le chemin d’accès spécifié doit être un point GeoJSON valide, comme `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+DocumentDB prend également en charge le type d’index spatial pour chaque chemin d’accès, qui peut être spécifié pour le type de données de point. La valeur dans le chemin d'accès spécifié doit être un point GeoJSON valide, comme `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Spatial** prend en charge les requêtes spatiales efficaces (within et distance)
 
@@ -569,7 +568,7 @@ L’exemple suivant montre comment augmenter la précision des index de plage d�
     await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
 
 
-> [AZURE.NOTE]DocumentDB retourne une erreur lorsqu’une requête utilise Trier par, mais n’a pas d’index de plage par rapport au chemin d’accès de requête avec la précision maximale.
+> [AZURE.NOTE] DocumentDB retourne une erreur lorsqu’une requête utilise Trier par, mais n’a pas d’index de plage par rapport au chemin d’accès de requête avec la précision maximale.
 
 De même, des chemins d’accès peuvent être exclus complètement de l’indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « * ».
 
@@ -663,7 +662,7 @@ Quand pouvez-vous apporter des modifications de stratégie d'indexation à vos c
 - Sélectionner les propriétés à indexer et les modifier au fil du temps
 - Ajuster la précision d'indexation pour améliorer les performances de requête ou réduire le stockage utilisé
 
->[AZURE.NOTE]Pour modifier la stratégie d'indexation à l'aide de ReplaceDocumentCollectionAsync, vous devez utiliser la version 1.3.0 (ou une version ultérieure) du Kit de développement logiciel (SDK) .NET
+>[AZURE.NOTE] Pour modifier la stratégie d'indexation à l'aide de ReplaceDocumentCollectionAsync, vous devez utiliser la version 1.3.0 (ou une version ultérieure) du Kit de développement logiciel (SDK) .NET
 >
 > Pour que la transformation d’index se déroule correctement, vous devez vous assurer qu’il existe suffisamment d’espace libre sur la collection. Si la collection atteint son quota de stockage, la transformation d’index est interrompue. La transformation d’index reprend automatiquement dès que de l’espace de stockage est disponible, par exemple, si vous supprimez certains documents.
 
@@ -769,4 +768,4 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure Backup - Forum aux questions | Microsoft Azure"
-   description="Forum aux questions sur la solution Azure Backup – agent de sauvegarde, sauvegarde et rétention, récupération, sécurité et autres questions générales sur le service Azure Backup."
+   description="Réponses aux questions fréquemment posées sur l’agent de sauvegarde, la sauvegarde et la rétention, la récupération, la sécurité et d’autres questions courantes sur la solution Azure Backup."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="solution de sauvegarde ; service de sauvegarde"/>
 
@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/26/2016"
+	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Service Azure Backup – Forum aux questions
@@ -104,7 +104,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 ## Sauvegarde et rétention
 **Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis août 2015, la taille maximale de la source de données est comme indiqué ci-dessous pour les différents systèmes d’exploitation.
 
-|N|	Système d’exploitation |	Taille maximale de la source de données |
+|N° |	Système d’exploitation |	Taille maximale de la source de données |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 ou version ultérieure| 54 400 Go|
 |2| Windows 8 ou version ultérieure| 54 400 Go|
@@ -183,4 +183,4 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

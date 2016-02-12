@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Prise en main du stockage d'objets blob et des services connectés de Visual Studio (ASP.NET)
@@ -50,7 +50,7 @@ Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez a
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    > [AZURE.NOTE]Utilisez l’ensemble du code précédent devant le code des sections suivantes.
+    > [AZURE.NOTE] Utilisez l’ensemble du code précédent devant le code des sections suivantes.
 
 3. Obtenez un objet **CloudBlobClient** pour référencer un conteneur existant dans votre compte de stockage.
 
@@ -60,7 +60,7 @@ Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez a
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]Parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx).
+> [AZURE.NOTE] Parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx).
 
 
 ## Création d’un conteneur d’objets blob dans le code
@@ -86,7 +86,7 @@ Pour télécharger un fichier vers un objet blob de blocs, obtenez une référen
 
 ## Création d'une liste d'objets blob dans un conteneur
 
-Pour répertorier les objets blob dans un conteneur, utilisez la méthode **ListBlobs** pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre comment récupérer et générer l’URI de chaque élément du conteneur **photos**.
+Pour répertorier les objets blob dans un conteneur, utilisez la méthode **ListBlobs** pour récupérer les objets blob et/ou les répertoires qu'il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre comment récupérer et générer l’URI de chaque élément du conteneur **photos**.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
 
@@ -237,4 +237,4 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

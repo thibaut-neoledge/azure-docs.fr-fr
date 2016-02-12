@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="01/25/2016"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 
@@ -168,7 +168,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	HAVING
 		[Count] >= 3
 
-**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque*: vous pouvez également réutiliser des résultats d'expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l'avantage supplémentaire d’ouvrir moins de lecteurs à la source d'entrée par exemple.
+**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d'expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l'avantage supplémentaire d’ouvrir moins de lecteurs à la source d'entrée par exemple.
 
 	WITH AllRedCars AS (
 		SELECT
@@ -466,4 +466,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

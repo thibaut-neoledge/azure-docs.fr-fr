@@ -26,7 +26,7 @@ Ce didacticiel s’appuie sur le code illustré dans le didacticiel [Prise en ma
 
 - Le stockage fiable des messages envoyés de l’appareil vers le cloud dans le [stockage d’objets blob Azure]. Ce scénario est très courant lorsque vous implémentez des analyses *à froid*, dans lesquelles vous stockez des données dans des objets blob que vous utiliserez comme entrées dans les processus d’analyse à l’aide d’outils tels que [Azure Data Factory] ou la pile [HDInsight (Hadoop)].
 
-- Le traitement fiable des messages *interactifs* des appareils vers le cloud. Les messages d’appareils vers le cloud sont considérés comme interactifs lorsqu’ils agissent comme déclencheurs immédiats d’un ensemble d’actions sur le serveur d’applications principal, par opposition aux messages de *point de données* qui sont chargés dans un moteur d’analyse. Par exemple, une alerte provenant d’un appareil qui doit déclencher l’insertion d’un ticket dans un système CRM est un message interactif de l’appareil vers le cloud, contrairement à un message de télémétrie (échantillons de température, par exemple) qui est considéré comme un message de point de données de l’appareil vers le cloud.
+- Le traitement fiable des messages *interactifs* des appareils vers le cloud. Les messages envoyés de l’appareil vers le cloud sont considérés comme interactifs lorsqu’ils agissent comme déclencheurs immédiats d’un ensemble d’actions sur le système principal de l’application, par opposition aux messages de *point de données* qui sont chargés dans un moteur d’analyse. Par exemple, une alerte provenant d’un appareil qui doit déclencher l’insertion d’un ticket dans un système CRM est un message interactif de l’appareil vers le cloud, contrairement à un message de télémétrie (échantillons de température, par exemple) qui est considéré comme un message de point de données de l’appareil vers le cloud.
 
 Étant donné qu’IoT Hub expose un point de terminaison compatible avec Event Hubs pour recevoir des messages des appareils vers le cloud, ce didacticiel utilise une instance [EventProcessorHost] qui :
 
@@ -117,4 +117,4 @@ Informations supplémentaires sur IoT Hub :
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

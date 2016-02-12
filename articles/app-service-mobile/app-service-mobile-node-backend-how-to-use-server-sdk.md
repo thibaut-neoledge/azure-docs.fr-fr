@@ -22,8 +22,6 @@
 
 Cet article fournit des informations détaillées ainsi que des exemples sur l’utilisation d’un serveur principal Node.js dans Azure App Service Mobile Apps.
 
-> [AZURE.NOTE] Ce Kit de développement logiciel est disponible en VERSION PRÉLIMINAIRE. En conséquence, nous ne vous recommandons pas de l’utiliser en production. Les exemples de ce document utilisent la version v2.0.0-rc2 d’[azure-mobile-apps].
-
 ## <a name="Introduction"></a>Introduction
 
 Azure App Service Mobile Apps offre la possibilité d’ajouter à une application Web une API Web d’accès aux données optimisé pour les plateformes mobiles. Le Kit de développement logiciel (SDK) Azure App Service Mobile Apps est fourni pour les applications web ASP.NET et Node.js. Le Kit offre les opérations suivantes :
@@ -161,7 +159,7 @@ Avant le déploiement, vous devriez prendre connaissance des recommandations sui
 - Comment [spécifier la version de Node]
 - Comment [utiliser les modules Node]
 
-### <a name="howto-enable-homepage"></a>Procédure : activation de la page d’accueil de votre application
+### <a name="howto-enable-homepage"></a>Procédure : activation d’une page d’accueil pour votre application
 
 De nombreuses applications regroupent à la fois des applications web et des applications mobiles ; l’infrastructure ExpressJS vous permet de combiner ces deux facettes. Il peut cependant être préférable, parfois, d’implémenter uniquement une interface mobile. Il est utile de fournir une page d’accueil pour obtenir la garantie que le service d’application fonctionne correctement. Vous pouvez soit fournir votre propre page d’accueil, soit activer une page d’accueil temporaire. Pour activer une page d’accueil temporaire, configurez le constructeur Mobile App comme suit :
 
@@ -436,10 +434,10 @@ Si la propriété d’accès n’est pas définie, l’accès non authentifié e
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read* : opération GET RESTful sur la table
+  - *insert* : opération POST RESTful sur la table
+  - *update* : opération PATCH RESTful sur la table
+  - *delete* : opération DELETE RESTful sur la table
 
 Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
 
@@ -559,11 +557,11 @@ Une fois l’installation effectuée, vous pouvez activer la prise en charge de 
 
     var mobile = azureMobileApps({ swagger: true });
 
-Vous préférerez probablement activer la prise en charge de Swagger uniquement dans les éditions de développement. Pour cela, utilisez le paramètre d’application `NODE_ENV` :
+Vous préférerez probablement activer la prise en charge de Swagger uniquement dans les éditions de développement. Pour ce faire, vous pouvez utiliser le paramètre d’application `NODE_ENV` :
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Le point de terminaison swagger se trouve dans http://\_yoursite\_.azurewebsites.net/swagger. Vous pouvez accéder à l’interface utilisateur Swagger via le point de terminaison `/swagger/ui`. Notez que Swagger génère une erreur pour le point de terminaison / si vous décidez de demander une authentification sur l’ensemble de votre application. Pour de meilleurs résultats, autorisez les demandes non authentifiées via les paramètres d’authentification et d’autorisation d’Azure App Service. Vous pouvez ensuite contrôler l’authentification en utilisant la propriété `table.access`.
+Le point de terminaison swagger se trouve dans http://\_yoursite\_.azurewebsites.net/swagger. Vous pouvez accéder à l’interface utilisateur Swagger via le point de terminaison `/swagger/ui`. Notez que Swagger génère une erreur pour le point de terminaison / si vous décidez de demander une authentification sur l’ensemble de votre application. Pour obtenir de meilleurs résultats, autorisez les demandes non authentifiées via les paramètres d’authentification et d’autorisation d’Azure App Service. Vous pouvez ensuite contrôler l’authentification en utilisant la propriété `table.access`.
 
 Vous pouvez également ajouter l’option Swagger à votre fichier `azureMobile.js` si vous voulez activer la prise en charge de Swagger uniquement dans le cadre d’un développement en local.
 
@@ -747,4 +745,4 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

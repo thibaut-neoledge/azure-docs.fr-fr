@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Appeler des programmes MapReduce à partir de Data Factory
@@ -103,7 +103,7 @@ Le pipeline dans cet exemple exécute le programme Map/Reduce du nombre de mots 
 ### Services liés
 Tout d'abord, vous créez un service lié pour lier le stockage Azure qui est utilisé par le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, n'oubliez pas de remplacer **nom de compte** et **clé de compte** par le nom et la clé de votre stockage Azure.
 
-#### Service lié Storage
+#### Service lié Azure Storage
 
 	{
 	    "name": "StorageLinkedService",
@@ -115,7 +115,7 @@ Tout d'abord, vous créez un service lié pour lier le stockage Azure qui est ut
 	    }
 	}
 
-#### Service lié Azure HDInsight
+#### Service lié Azure HDInsight
 Tout d'abord, vous créez un service lié pour lier le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, remplacez **le nom du cluster HDInsight** par le nom de votre cluster HDInsight et modifiez le nom d’utilisateur et le mot de passe.
 
 	{
@@ -220,4 +220,4 @@ linkedServiceName | fait référence au service HDInsight lié créé précédem
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

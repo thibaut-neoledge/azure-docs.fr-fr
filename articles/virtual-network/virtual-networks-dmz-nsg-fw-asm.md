@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Exemple 2 : Créer une zone démilitarisée (DMZ) pour protéger les applications avec un pare-feu et des groupes de sécurité réseau
@@ -30,14 +30,14 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants 
 - deux services cloud : « FrontEnd001 », « BackEnd001 »,
 - Un réseau virtuel « CorpNetwork » avec deux sous-réseaux « FrontEnd » et « BackEnd »
 - Un groupe de sécurité réseau unique qui est appliqué aux deux sous-réseaux
-- Un équipement virtuel du réseau, dans cet exemple un pare-feu Barracuda NG Firewall, connecté au sous-réseau Frontend
-- Un serveur Windows Server qui représente un serveur web d’application (« IIS01 »)
+- Une appliance virtuelle du réseau, dans cet exemple un pare-feu Barracuda NextGen Firewall, connectée au sous-réseau Frontend
+- un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
 - Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
 - Un serveur Windows Server qui représente un serveur DNS (« DNS01 »)
 
->[AZURE.NOTE]Bien que cet exemple utilise un pare-feu Barracuda NG Firewall, de nombreuses appliances virtuelles réseau différentes pourraient être utilisées pour cet exemple.
+>[AZURE.NOTE] Bien que cet exemple utilise un pare-feu Barracuda NextGen Firewall, différentes appliances virtuelles du réseau peuvent être utilisées pour cet exemple.
 
-Dans la section Références ci-dessous figure un script PowerShell qui générera une grande partie de l’environnement décrit ci-dessus. La création de machines virtuelles et de réseaux virtuels, bien qu’effectuée par l’exemple de script, ne figure pas en détail dans ce document.
+Dans la section Références ci-dessous figure un script PowerShell qui générera une grande partie l’environnement décrit ci-dessus. La création de machines virtuelles et de réseaux virtuels, bien qu’effectuée par l’exemple de script, ne figure pas en détail dans ce document.
  
 Pour créer l’environnement :
 
@@ -57,7 +57,7 @@ La section suivante explique la plupart des instructions de scripts relatives au
 ## Groupes de sécurité réseau (NSG)
 Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
 
->[AZURE.TIP]En règle générale, vous devez d’abord créer les règles d’« autorisation » spécifiques, puis les règles de « refus » plus générales. La priorité établit les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic répond à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
+>[AZURE.TIP] En règle générale, vous devez d’abord créer les règles d’« autorisation » spécifiques, puis les règles de « refus » plus générales. La priorité établit les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic répond à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
 
 Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
@@ -79,7 +79,7 @@ Un client de gestion devra être installé sur un ordinateur pour gérer le pare
 
 Les instructions de téléchargement client et de connexion à Barracuda utilisées dans cet exemple se trouvent ici : [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
-Sur le pare-feu, vous devrez créer des règles de transfert. Étant donné que cet exemple achemine uniquement le trafic Internet entrant vers le pare-feu, puis vers le serveur web, seule une règle NAT de transfert est requise. Sur le pare-feu Barracuda NG Firewall utilisé dans cet exemple, la règle serait une règle NAT de destination (« Dst NAT ») pour autoriser ce trafic.
+Sur le pare-feu, vous devrez créer des règles de transfert. Étant donné que cet exemple achemine uniquement le trafic Internet entrant vers le pare-feu, puis vers le serveur web, seule une règle NAT de transfert est requise. Sur le pare-feu Barracuda NextGen Firewall utilisé dans cet exemple, la règle serait une règle NAT de destination (« Dst NAT ») pour autoriser ce trafic.
 
 Pour créer la règle suivante (ou vérifier les règles par défaut existantes), sur le tableau de bord du client administrateur de Barracuda NG, accédez à l’onglet Configuration. Dans la section Configuration opérationnelle, cliquez sur Ensemble de règles. Une grille nommée « Règles principales » affiche les règles actives et désactivées sur le pare-feu. Dans le coin supérieur droit de cette grille se trouve un petit bouton « + » vert. Cliquez dessus pour créer une nouvelle règle (Remarque : votre pare-feu peut être « verrouillé » contre les modifications. Si vous voyez un bouton marqué « Verrouiller » et que vous ne pouvez pas créer ou modifier les règles, cliquez dessus pour « déverrouiller » l’ensemble de règles et autoriser la modification). Si vous souhaitez modifier une règle existante, sélectionnez cette règle, cliquez avec le bouton droit et sélectionnez Modifier la règle.
 
@@ -108,7 +108,7 @@ Dans le coin supérieur droit du client de gestion se trouve un ensemble de bout
 
 Avec l’activation de l’ensemble de règles de pare-feu, la création de l’environnement de cet exemple est terminée. Les scripts post-build de la section Références peuvent si nécessaire être exécutés pour ajouter une application à cet environnement afin de tester les scénarios de trafic ci-dessous.
 
->[AZURE.IMPORTANT]Il est essentiel de comprendre que vous n’atteindrez pas le serveur web directement. Lorsqu'un navigateur demande une page HTTP à FrontEnd001.CloudApp.Net, le point de terminaison HTTP (port 80) transmet ce trafic au pare-feu et non au serveur web. Ensuite, le pare-feu, en fonction de la règle créée ci-dessus, exécute la traduction NAT de cette demande sur le serveur Web.
+>[AZURE.IMPORTANT] Il est essentiel de comprendre que vous n’atteindrez pas le serveur web directement. Lorsqu'un navigateur demande une page HTTP à FrontEnd001.CloudApp.Net, le point de terminaison HTTP (port 80) transmet ce trafic au pare-feu et non au serveur web. Ensuite, le pare-feu, en fonction de la règle créée ci-dessus, exécute la traduction NAT de cette demande sur le serveur Web.
 
 ## Scénarios de trafic
 
@@ -227,7 +227,7 @@ Ce script, en fonction des variables définies par l’utilisateur, exécutera 
 
 Ce script PowerShell doit être exécuté localement sur un PC ou un serveur connecté à Internet.
 
->[AZURE.IMPORTANT]Lorsque ce script est exécuté, des avertissements ou autres messages d’information peuvent s’afficher dans PowerShell. Seuls les messages d’erreur affichés en rouge sont source de préoccupation.
+>[AZURE.IMPORTANT] Lorsque ce script est exécuté, des avertissements ou autres messages d’information peuvent s’afficher dans PowerShell. Seuls les messages d’erreur affichés en rouge sont source de préoccupation.
 
 
 	<# 
@@ -239,7 +239,7 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
 	   - A default storage account for VM disks
 	   - Two new cloud services
 	   - Two Subnets (FrontEnd and BackEnd subnets)
-	   - A Network Virtual Appliance (NVA), in this case a Barracuda NG Firewall
+	   - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
 	   - One server on the FrontEnd Subnet (plus the NVA on the FrontEnd subnet)
 	   - Three Servers on the BackEnd Subnet
 	   - Network Security Groups to allow/deny traffic patterns as declared
@@ -303,7 +303,7 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
 	
 	  # VM Base Disk Image Details
 	    $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
-	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NG Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
+	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NextGen Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
 	
 	  # NSG Details
 	    $NSGName = "MyVNetSG"
@@ -566,4 +566,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

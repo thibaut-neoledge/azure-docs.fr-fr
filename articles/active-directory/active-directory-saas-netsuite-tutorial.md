@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Didacticiel : intégration de NetSuite avec Azure Active Directory | Microsoft Azure"
-   description="Apprenez à utiliser NetSuite avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Didacticiel : Intégration d’Azure AD à NetSuite | Microsoft Azure"
+    description="Apprenez à utiliser NetSuite avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Didacticiel : intégration de NetSuite avec Azure Active Directory
 
@@ -64,7 +64,7 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 
 	![Sélectionner l’authentification unique Azure AD][7]
 
-	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Dans la page **Configurer les paramètres de l’application**, entrez votre URL de client NetSuite dans le champ **URL de réponse** en respectant l’un des formats suivants :
 	- `https://<tenant-name>.netsuite.com/saml2/acs`
@@ -186,7 +186,7 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 
 ##Étape 3 : activation de l’approvisionnement automatique des utilisateurs
 
-> [AZURE.NOTE]Par défaut, vos utilisateurs approvisionnés sont ajoutés à la filiale racine de votre environnement NetSuite.
+> [AZURE.NOTE] Par défaut, vos utilisateurs approvisionnés sont ajoutés à la filiale racine de votre environnement NetSuite.
 
 1. Dans Azure Active Directory, dans la page Démarrage rapide de NetSuite, cliquez sur **Configurer l’approvisionnement des utilisateurs**.
 
@@ -256,4 +256,4 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

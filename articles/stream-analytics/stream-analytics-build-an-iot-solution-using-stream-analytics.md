@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/27/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"
 />
 
@@ -417,10 +417,10 @@ Afin d’évaluer l’efficacité et l’expérience client, nous souhaitons dé
 
 Pour cela, nous devons joindre le flux contenant EntryTime au flux contenant ExitTime. Nous joignons les flux sur les colonnes TollId et LicencePlate. L’opérateur JOIN nécessite de spécifier une marge de manœuvre temporelle décrivant la différence de temps acceptable entre les événements joints. Nous allons utiliser la fonction DATEDIFF pour spécifier que les événements ne doivent pas être séparés de plus de 15 minutes. Nous allons également appliquer la fonction DATEDIFF aux heures de sortie et d’entrée pour calculer le temps réel qu’un véhicule passe au péage. Notez que la fonction DATEDIFF n’est pas utilisée de la même façon dans une instruction SELECT et dans une condition JOIN.
 
-    SELECT EntryStream.TollId, EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream .ExitTime) AS Duration InMinutes
+    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
     FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTim e
-    ON (Entry Stream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+    JOIN ExitStream TIMESTAMP BY ExitTime
+    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 Pour tester cette requête, mettez à jour la requête sous l’onglet Requête de votre travail :
@@ -445,7 +445,7 @@ Si un véhicule commercial est inscrit auprès de l’entreprise de péage, il f
     FROM EntryStream TIMESTAMP BY EntryTime
     JOIN Registration
     ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = ‘1’
+    WHERE Registration.Expired = '1'
 
 Notez que le test d’une requête avec des données de référence nécessite la définition d’une source d’entrée pour ces données, ce que nous avons fait à l’étape 5.
 
@@ -534,4 +534,4 @@ Notez que les ressources sont identifiées par leur nom. Assurez-vous de vérifi
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

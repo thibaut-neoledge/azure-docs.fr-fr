@@ -30,7 +30,7 @@ Une machine virtuelle Azure exécute le système d’exploitation basé sur l’
 
 Lors de la création de la machine virtuelle, vous pouvez personnaliser certains paramètres du système d'exploitation pour qu'ils correspondent à l'application que vous souhaitez exécuter. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée](virtual-machines-create-custom.md).
 
-**Important** : l'accord de niveau de service de la plateforme Azure s'applique aux machines virtuelles exécutant le système d'exploitation Linux uniquement lorsqu'une des distributions reconnues est utilisée avec les détails de configuration définis sous « Versions prises en charge » dans [Linux dans les distributions approuvées par Azure](virtual-machines-../linux-endorsed-distributions.md). Toutes les distributions Linux de la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
+**Important** : l'accord de niveau de service de la plateforme Azure s'applique aux machines virtuelles exécutant le système d'exploitation Linux uniquement lorsqu'une des distributions reconnues est utilisée avec les détails de configuration définis sous « Versions prises en charge » dans [Linux dans les distributions approuvées par Azure](virtual-machines-linux-endorsed-distributions.md). Toutes les distributions Linux de la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
 
 
 ## Conditions préalables
@@ -42,16 +42,16 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 	**Important** : Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de l’applet de commande convert-vhd.
 
-	Pour accéder à la liste des distributions approuvées, consultez la page [Linux dans les distributions approuvées par Azure](../linux-endorsed-distributions.md). Pour accéder à la liste générale des distributions Linux, consultez [Informations concernant les distributions non approuvées](virtual-machines-linux-create-upload-vhd-generic.md).
+	Pour accéder à la liste des distributions approuvées, consultez la page [Linux dans les distributions approuvées par Azure](virtual-machines-linux-endorsed-distributions.md). Pour accéder à la liste générale des distributions Linux, consultez [Informations concernant les distributions non approuvées](virtual-machines-linux-create-upload-vhd-generic.md).
 
-- **Interface de ligne de commande Azure** : si vous utilisez un système d'exploitation Linux pour créer votre image, utilisez l’[interface de ligne de commande Azure](../virtual-machines-command-line-tools.md) pour charger le fichier VHD.
+- **Interface de ligne de commande Azure** : si vous utilisez un système d'exploitation Linux pour créer votre image, utilisez l’[interface de ligne de commande Azure](virtual-machines-command-line-tools.md) pour charger le fichier VHD.
 
 - **Outils Azure Powershell** : l’applet de commande `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](https://azure.microsoft.com/downloads/) pour télécharger les applets de commande Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 <a id="prepimage"> </a>
 ## Étape 1 : préparation de l'image pour le téléchargement
 
-Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](../linux-endorsed-distributions.md)). Les articles suivants vous montrent comment préparer les diverses distributions de Linux prises en charge dans Azure :
+Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](virtual-machines-linux-endorsed-distributions.md)). Les articles suivants vous montrent comment préparer les diverses distributions de Linux prises en charge dans Azure :
 
 - **[Distributions CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
@@ -147,7 +147,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 <a id="upload"> </a>
 ## Étape 3 : chargement de l’image dans Azure
 
-Vous aurez besoin d’un compte de stockage pour charger votre fichier de disque dur virtuel. Vous pouvez en choisir un existant ou en créer un. Pour créer un compte de stockage, consultez [Création d’un compte de stockage](../storage-create-storage-account.md).
+Vous aurez besoin d’un compte de stockage pour charger votre fichier de disque dur virtuel. Vous pouvez en choisir un existant ou en créer un. Pour créer un compte de stockage, consultez [Création d’un compte de stockage](../storage/storage-create-storage-account.md).
 
 Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n’importe où dans votre stockage d’objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous prévoyez d’utiliser ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l’étiquette affichée dans le [portail Azure](http://portal.azure.com) ou dans le [portail Azure Classic](http://manage.windowsazure.com) pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d’accès complet et le nom du fichier .vhd sur votre machine.
 
@@ -174,4 +174,4 @@ Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microsof
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

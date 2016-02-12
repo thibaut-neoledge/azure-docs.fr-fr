@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configuration d’un cluster Service Fabric à l’aide d’un modèle ARM | Microsoft Azure"
-   description="Configuration d’un cluster Service Fabric à l’aide d’un modèle ARM."
+   pageTitle="Configurer un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager | Microsoft Azure"
+   description="Configurez un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,48 +13,54 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="01/29/2016"
    ms.author="chackdan"/>
 
-# Configuration d’un cluster Service Fabric à l’aide d’un modèle ARM
 
-Cette page vous permet de configurer un cluster Service Fabric à l’aide d’un modèle ARM. Cela suppose que votre abonnement a suffisamment de cœurs pour déployer les machines virtuelles IaaS qui composeront ce cluster
+# Configurer un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager
+
+Cette page vous aide à configurer un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager. Pour ce faire, votre abonnement doit avoir suffisamment de cœurs pour déployer les machines virtuelles IaaS qui composeront ce cluster.
 
 ## Composants requis
 
-- Si vous souhaitez configurer un cluster sécurisé, assurez-vous d'avoir téléchargé un certificat X509 sur votre coffre de clés. Vous aurez besoin de l'URL du coffre source, de l’URL du certificat et de l'empreinte numérique du certificat.
--  Reportez-vous à [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md) pour plus d'informations sur la procédure à suivre.
+- Pour configurer un cluster sécurisé, vous devez d’abord charger un certificat X.509 sur votre coffre de clés. Vous devez connaître l’URL du coffre source, l’URL du certificat et l’empreinte numérique du certificat.
+- Reportez-vous à [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md) pour plus d’informations sur la configuration d’un cluster sécurisé.
 
-## Acquisition d'un modèle ARM d’exemple
+## Obtenir un modèle Resource Manager d’exemple
 
-1. Des modèles ARM d’exemple sont disponibles dans [la galerie de modèles de démarrage rapide Azure sur github](https://github.com/Azure/azure-quickstart-templates). Tous les noms de modèles de Service Fabric commencent par « service-fabric ». Vous pouvez rechercher « fabric » dans le dépôt ou simplement faire défiler l’ensemble des modèles d’exemple.
-2. Pour vous aider à trouver rapidement ce que vous cherchez, les modèles ont été nommés comme suit :
-	1. [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) pour indiquer un modèle de cluster non sécurisé de nœud individuel 5 nœuds. 
-	3. [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) pour indiquer un modèle de cluster sécurisé de nœud individuel 5 nœuds compatible WAD. 
-	4. [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925) pour indiquer un modèle de cluster sécurisé deux nœuds 10 nœuds compatible WAD. 
-	
+Des modèles Resource Manager d’exemple sont disponibles dans [la galerie de modèles de démarrage rapide Azure sur GitHub](https://github.com/Azure/azure-quickstart-templates). Tous les noms de modèle Service Fabric commencent par « service-fabric ». Vous pouvez explorer le référentiel à partir du terme « fabric » ou faire défiler jusqu’à l’ensemble des modèles d’exemple. Pour vous aider à trouver rapidement ce que vous cherchez, les modèles ont été nommés comme suit :
 
-## Création d’un modèle ARM personnalisé
+- [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) pour indiquer un modèle de cluster non sécurisé de nœud individuel cinq nœuds.
 
-2. Deux choix s’offrent à vous 
-	1. Vous pouvez récupérer un modèle d’exemple à partir de la [galerie de modèles de démarrage rapide Azure sur github](https://github.com/Azure/azure-quickstart-templates) et le modifier.
-	2. Connectez-vous au portail Azure et utilisez les pages du portail Service Fabric pour générer le modèle que vous souhaitez personnaliser. La procédure à suivre est décrite ci-dessous.
-3. Connectez-vous au portail Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
-2. Passez en revue la procédure de création du cluster, comme décrite dans [Création d’un cluster Service Fabric par le biais du portail](service-fabric-cluster-creation-via-portal.md), mais ne cliquez pas sur ****créer**. À la place, accédez au résumé et téléchargez le modèle.
+- [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) pour indiquer un modèle de cluster sécurisé de nœud individuel cinq nœuds compatible WAD.
 
- ![DownloadTemplate][DownloadTemplate]
+- [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925) pour indiquer un modèle de cluster sécurisé deux nœuds dix nœuds compatible WAD.
 
-## Déploiement du modèle ARM sur Azure à l'aide d'Azure PS
+## Créer un modèle Resource Manager personnalisé
 
-Consultez [Déploiement de modèles ARM à l’aide de PS](resource-group-template-deploy.md) pour obtenir des instructions détaillées sur la façon de déployer le modèle à l’aide de PowerShell.
+Vous pouvez créer un modèle Resource Manager personnalisé de deux façons :
+
+1. Vous pouvez récupérer un modèle d’exemple à partir de la [galerie de modèles de démarrage rapide Azure sur GitHub](https://github.com/Azure/azure-quickstart-templates) et le modifier.
+
+2. Vous pouvez vous connecter au portail Azure et utiliser les pages du portail Service Fabric pour générer le modèle que vous souhaitez personnaliser. Pour ce faire, procédez comme suit :
+
+    a. Connectez-vous au [portail Azure](https://portal.azure.com/).
+
+    b. Passez en revue la procédure de création du cluster, comme décrite dans [Créer un cluster Azure Service Fabric par le biais du portail](service-fabric-cluster-creation-via-portal.md), mais ne cliquez pas sur **Créer**. À la place, accédez à **Résumé** et téléchargez le modèle, comme illustré dans la capture d’écran suivante.
+
+ ![Capture d’écran de la page Cluster Service Fabric montrant le lien qui permet de télécharger un modèle Resource Manager][DownloadTemplate]
+
+## Déployer le modèle Resource Manager sur Azure à l’aide d’Azure PowerShell
+
+Consultez [Déploiement de modèles Resource Manager à l’aide de PowerShell](resource-group-template-deploy.md) pour obtenir des instructions détaillées sur la façon de déployer le modèle à l’aide de PowerShell.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-- [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md) 
+- [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md)
 - [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md)
+- [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

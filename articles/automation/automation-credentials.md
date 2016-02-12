@@ -45,7 +45,7 @@ Les activités dans le tableau suivant sont utilisées pour accéder aux informa
 ## Création d’informations d’identification
 
 
-### Pour créer une variable avec le portail Azure
+### Pour créer une variable avec le portail Azure Classic
 
 1. À partir de votre compte Automation, cliquez sur **Ressources** en haut de la fenêtre.
 1. En bas de la fenêtre, cliquez sur **Ajouter un paramètre**.
@@ -54,7 +54,7 @@ Les activités dans le tableau suivant sont utilisées pour accéder aux informa
 1. Terminez l’Assistant et activez la case à cocher pour enregistrer les nouvelles informations d’identification.
 
 
-### Pour créer des informations d’identification avec le portail Azure en version préliminaire
+### Pour créer des informations d’identification avec le portail Azure
 
 1. À partir de votre compte Automation, cliquez sur la partie **Ressources** afin d’ouvrir le panneau **Ressources**.
 1. Cliquez sur la partie **Informations d’identification** afin d’ouvrir le panneau **Informations d’identification**.
@@ -92,12 +92,12 @@ Vous ajoutez une activité **Get-AutomationPSCredential** à un Runbook graphiqu
 
 ![Ajout d’informations d’identification à la zone de dessin](media/automation-credentials/credential-add-canvas.png)
 
-L’image suivante montre un exemple d’utilisation d’informations d’identification dans un Runbook graphique. Dans ce cas, il est utilisé pour l’authentification d’un Runbook auprès des ressources Azure, comme décrit dans [Configuration de l’authentification aux ressources Azure](#automation-configuring.md). La première activité récupère les informations d’identification ayant accès à l’abonnement Azure. L’activité **Add-AzureAccount** utilise ensuite ces informations d’identification pour fournir l’authentification pour toutes les activités qui la suivent. C’est un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow), étant donné que **Get-AutomationPSCredential** attend un objet unique.
+L’image suivante montre un exemple d’utilisation d’informations d’identification dans un Runbook graphique. Dans ce cas, il est utilisé pour l’authentification d’un Runbook auprès des ressources Azure, comme décrit dans [Configuration de l’authentification aux ressources Azure](automation-configuring.md). La première activité récupère les informations d’identification ayant accès à l’abonnement Azure. L’activité **Add-AzureAccount** utilise ensuite ces informations d’identification pour fournir l’authentification pour toutes les activités qui la suivent. C’est un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow), étant donné que **Get-AutomationPSCredential** attend un objet unique.
 
 ![Ajout d’informations d’identification à la zone de dessin](media/automation-credentials/get-credential.png)
 
 ## Utilisation des informations d’identification PowerShell dans une configuration DSC
-Bien que les configurations DSC dans Azure Automation puissent se rapporter à des ressources d’informations d’identification utilisant **Get-AutomationPSCredential**, les ressources d’information d’identification peuvent également être transmises par le biais de paramètres, si vous le souhaitez. Pour plus d’informations, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md#credential-assets).
+Bien que les configurations DSC dans Azure Automation puissent se rapporter à des ressources d’informations d’identification utilisant **Get-AutomationPSCredential**, les ressources d’information d’identification peuvent également transmises via des paramètres, si vous le souhaitez. Pour plus d’informations, consultez [Compilation de configurations dans Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
 ## Articles connexes
 
@@ -105,4 +105,4 @@ Bien que les configurations DSC dans Azure Automation puissent se rapporter à d
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

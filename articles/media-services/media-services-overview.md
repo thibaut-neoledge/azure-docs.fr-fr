@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016"
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Vue d’ensemble d’Azure Media Services et scénarios courants
@@ -31,10 +31,12 @@ Pour créer des solutions Media Services, vous pouvez utiliser les composants su
 - [API REST Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Un des Kits de développement logiciel (SDK) de client disponibles : 
 	- [Kit de développement logiciel (SDK) Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services), 
-	- [Azure SDK pour Java](https://github.com/Azure/azure-sdk-for-java), [SDK PHP Azure](https://github.com/Azure/azure-sdk-for-php), 
-	- [Azure Media Services pour Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (il s’agit d’une version non Microsoft du kit de développement logiciel Node.js. Il est géré par une communauté et ne fournit pas une couverture à 100 % des API AMS). 
-- Outils existants : [Portail Azure Classic](http://manage.windowsazure.com/) ou [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
-
+	- [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java), 
+	- [Kit de développement logiciel (SDK) Azure pour PHP](https://github.com/Azure/azure-sdk-for-php), 
+	- [Azure Media Services pour Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (il s’agit d’une version non Microsoft du Kit de développement logiciel (SDK) Node.js. Il est géré par une communauté et ne fournit pas une couverture à 100 % des API AMS). 
+- Outils existants : 
+	- [Portail Azure Classic](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) est une application Winforms/C# pour Windows)
 
 ##Parcours d’apprentissage de Media Services
 
@@ -44,7 +46,6 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 - [Workflow de streaming à la demande AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Affiche
-
 
 Vous pouvez [ici](https://azure.microsoft.com/documentation/infographics/media-services/) consulter l'affiche Azure Media Services qui présente les flux de travail AMS, de la création des médias à leur consommation.
 
@@ -59,10 +60,11 @@ Pour commencer à utiliser Azure Media Services, vous devez disposer des éléme
 	En outre, découvrez comment [vous connecter](media-services-dotnet-connect_programmatically.md) par programmation.
 4. (Recommandé) Allocation d’une ou de plusieurs unités d’échelle. Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu](media-services-manage-origins.md).
 
-##Concepts
+##Concepts et vue d’ensemble
 
-Pour plus d’informations, consultez [Concepts](media-services-concepts.md).
+Pour les concepts Azure Media Services, consultez [Concepts](media-services-concepts.md).
 
+Pour découvrir une série de procédures qui présente tous les principaux composants d’Azure Media Services, consultez les [didacticiels pas à pas Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Cette série constitue une excellente présentation des concepts, et utilise l’outil AMSE pour effectuer les tâches AME. Notez que l’outil AMSE est un outil Windows. Cet outil prend en charge la plupart des tâches que vous pouvez obtenir par programmation avec le [Kit de développement logiciel (SDK) AMS pour .NET](https://github.com/Azure/azure-sdk-for-media-services), le [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java) ou le [Kit de développement logiciel (SDK) Azure pour PHP](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarions courants
 
@@ -234,4 +236,4 @@ Le [support Azure](https://azure.microsoft.com/support/options/) propose des opt
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -96,15 +96,15 @@ Certreq.exe est un utilitaire Windows pour la création de demandes de certifica
 
 	![insérer l’image du gestionnaire de certificat ici][certmgr]
 
-9. Cliquez avec le bouton droit sur le certificat, sélectionnez **Toutes les tâches**, puis **Exporter**. Dans l’**Assistant Exportation de certificat**, cliquez sur **Suivant**, puis sélectionnez **Oui, exporter la clé privée**. Cliquez sur **Next**.
+9. Cliquez avec le bouton droit sur le certificat, sélectionnez **Toutes les tâches**, puis **Exporter**. Dans l’**Assistant Exportation de certificat**, cliquez sur **Suivant**, puis sélectionnez **Oui, exporter la clé privée**. Cliquez sur **Suivant**.
 
 	![Exporter la clé privée][certwiz1]
 
-10. Sélectionnez **Échange d’informations personnelles - PKCS #12 **, **Inclure tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez sur **Next**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12 **, **Inclure tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez sur **Suivant**.
 
 	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
-11. Sélectionnez **Mot de passe**, puis entrez et confirmez le mot de passe. Cliquez sur **Next**.
+11. Sélectionnez **Mot de passe**, puis entrez et confirmez le mot de passe. Cliquez sur **Suivant**.
 
 	![spécifier un mot de passe][certwiz3]
 
@@ -388,17 +388,25 @@ Pour créer un certificat de test à partir du système Windows sur lequel Visua
 <a name="bkmk_standardmode"></a>
 ## 2\. Configuration d’un niveau tarifaire Standard ou Premium
 
-L’activation du protocole HTTPS pour un domaine personnalisé est disponible uniquement avec les niveaux tarifaires **Standard** et **Premium** dans Azure App Service. Procédez comme suit pour basculer votre plan App Service vers le niveau de tarification **Standard**.
+L’activation du protocole HTTPS pour un domaine personnalisé est disponible uniquement avec les niveaux tarifaires **Standard** et **Premium** dans Azure App Service. Procédez comme suit pour basculer votre plan App Service vers le niveau tarifaire **Standard**.
 
-> [AZURE.NOTE] Avant de basculer une application du niveau **Gratuit** au niveau **Standard**, vous devez supprimer les limites de dépense mises en place pour l’abonnement de votre application, sans quoi cette dernière risque d’être indisponible si vous atteignez la limite avant la fin de la période de facturation. Pour plus d’informations sur les niveaux de tarification Partagé et **Standard**, consultez la page [Tarification][pricing].
+> [AZURE.NOTE] Avant de basculer une application du niveau **Gratuit** au niveau **Standard**, vous devez supprimer les limites de dépense mises en place pour l’abonnement de votre application, sans quoi cette dernière risque d’être indisponible si vous atteignez la limite avant la fin de la période de facturation. Pour plus d’informations sur les niveaux tarifaires Partagé et **Standard**, consultez la page [Tarification][pricing].
 
 1.	Dans votre navigateur, ouvrez le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+	
 2.	Cliquez sur l’option **Parcourir** sur le côté gauche de la page.
+
 3.	Cliquez sur le panneau **Web Apps**.
+
 4.	Cliquez sur le nom de votre application.
+
 5.	Dans la page **Essentials**, cliquez sur **Paramètres**.
-6.	Cliquez sur **Mettre à l’échelle**.![L’onglet Mettre à l’échelle][scale]
-7.	Dans la section **Mettre à l’échelle**, définissez le mode de plan App Service en cliquant sur **Sélectionner**. ![Le niveau de tarification][sslreserved]
+
+6.	Cliquez sur **Mettre à l’échelle**.
+	
+	![L’onglet Mettre à l’échelle][scale]
+
+7.	Dans la section **Mettre à l’échelle**, définissez le mode de plan App Service en cliquant sur **Sélectionner**.
 
 	> [AZURE.NOTE] Si un message indiquant une erreur de mise à l’échelle pour l’application web &lt;nom de l’application&gt; s’affiche, vous pouvez cliquer sur le bouton de détails pour obtenir plus d’informations. Une erreur indiquant que le nombre de serveurs d’instances disponibles est insuffisant pour répondre à la demande peut s’afficher. Dans ce cas, contactez le [support technique Azure](/support/options/).
 
@@ -408,13 +416,25 @@ L’activation du protocole HTTPS pour un domaine personnalisé est disponible u
 Avant de suivre les étapes de cette section, vous devez avoir associé un nom de domaine personnalisé à votre application. Pour plus d’informations, consultez la page [Configuration d’un nom de domaine personnalisé pour une application web][customdomain].
 
 1.	Dans votre navigateur, ouvrez le [portail de gestion Azure](https://portal.azure.com).
+
 2.	Cliquez sur l’option **Parcourir** sur le côté gauche de la page.
+
 3.	Cliquez sur le panneau **Web Apps**.
+
 4.	Cliquez sur le nom de votre application.
+
 5.	Dans la page **Essentials**, cliquez sur **Paramètres**.
-6.	Cliquez sur **Personnalisation des domaines et SSL**. ![L’onglet de configuration] [sslconfig]
+
+6.	Cliquez sur **Domaines personnalisés et SSL**.
+
+	![Onglet Configurer][configure]
+
 7.	Dans la section **Certificats**, cliquez sur **Charger**.
-8.	Dans la boîte de dialogue **Upload a certificate**, sélectionnez le fichier de certificat .pfx créé plus tôt à l’aide du gestionnaire des services Internet ou d’OpenSSL. Spécifiez le mot de passe utilisé pour sécuriser le fichier .pfx, le cas échéant. Pour finir, cliquez sur **Enregistrer** pour télécharger le certificat. [téléchargement ssl][ssluploadcert]
+
+8.	Dans la boîte de dialogue **Upload a certificate**, sélectionnez le fichier de certificat .pfx créé plus tôt à l’aide du gestionnaire des services Internet ou d’OpenSSL. Spécifiez le mot de passe utilisé pour sécuriser le fichier .pfx, le cas échéant. Pour finir, cliquez sur **Enregistrer** pour charger le certificat.
+
+	![téléchargement SSL][uploadcert]
+
 9. Dans la section **Liaisons SSL** de l’onglet **Paramètres SSL**, utilisez les listes déroulantes pour sélectionner le nom de domaine à sécuriser avec le chiffrement SSL, et le certificat à utiliser. Vous pouvez également indiquer si vous utilisez l’extension [SNI (Indication du nom du serveur)][sni] ou le protocole SSL basé sur IP.
 
 	![liaisons SSL][sslbindings]
@@ -545,4 +565,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

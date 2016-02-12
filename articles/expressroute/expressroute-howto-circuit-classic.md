@@ -43,7 +43,7 @@ Cet article vous guide tout au long des étapes de création d’un circuit Expr
 
 2. **Récupérez la liste des fournisseurs, des emplacements et des bandes passantes pris en charge.**
 
-	Avant de créer un circuit ExpressRoute, vous aurez besoin d’une liste des fournisseurs de services, des emplacements pris en charge et des options de bande passante. L’applet de commande PowerShell *Get-AzureDedicatedCircuitServiceProvider* retourne ces informations, que vous utiliserez dans les étapes ultérieures.
+	Avant de créer un circuit ExpressRoute, vous aurez besoin d’une liste des fournisseurs de services, des emplacements pris en charge et des options de bande passante. L’applet de commande PowerShell *Get-AzureDedicatedCircuitServiceProvider* retourne ces informations, que vous utiliserez dans les étapes ultérieures. Lorsque vous exécutez l’applet de commande, votre résultat ressemble à l’exemple ci-dessous.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -197,7 +197,7 @@ Cet article vous guide tout au long des étapes de création d’un circuit Expr
 
 7. **Liaison d’un réseau virtuel à un circuit ExpressRoute.**
 
-	Liez ensuite un VNet à votre circuit ExpressRoute. Reportez-vous à la rubrique [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-classic.md) pour obtenir des instructions étape par étape. Si vous avez besoin de créer un réseau virtuel pour ExpressRoute, consultez la rubrique [Création d’un réseau virtuel pour ExpressRoute](expressroute-howto-createvnet-classic.md) afin d’obtenir des instructions.
+	Liez ensuite un VNet à votre circuit ExpressRoute. Reportez-vous à la rubrique [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-classic.md) pour obtenir des instructions étape par étape. Si vous avez besoin de créer un réseau virtuel à l’aide du modèle de déploiement classique d’ExpressRoute, consultez la rubrique [Configurer un réseau virtuel pour ExpressRoute](expressroute-howto-vnet-portal-classic.md) afin d’obtenir des instructions.
 
 ##  Pour obtenir l'état d'un circuit ExpressRoute
 
@@ -328,4 +328,4 @@ Si le fournisseur de services a annulé l'approvisionnement du circuit (l'état 
 
 - [Configuration du routage](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

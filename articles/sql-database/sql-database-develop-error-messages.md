@@ -165,7 +165,7 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40512|16|La fonctionnalité déconseillée '%ls' n'est pas prise en charge dans cette version de SQL Server.|
 |40513|16|La variable de serveur '%.&#x2a;ls' n'est pas prise en charge dans cette version de SQL Server.|
 |40514|16|'%.ls' n'est pas pris en charge dans cette version de SQL Server.|
-|40515|16|La référence au nom de base de données et/ou serveur dans '%.&#x2a;ls' n'est pase pris en charge dans cette version de SQL Server.|
+|40515|16|La référence au nom de base de données et/ou serveur dans '%.&#x2a;ls' n'est pas pris en charge dans cette version de SQL Server.|
 |40516|16|Les objets temporaires globaux ne sont pas pris en charge dans cette version de SQL Server.|
 |40517|16|Le mot clé ou l'option d'instruction '%.&#x2a;ls' n'est pas pris en charge dans cette version de SQL Server.|
 |40518|16|La commande DBCC '%.&#x2a;ls' n'est pas prise en charge dans cette version de SQL Server.|
@@ -211,9 +211,7 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40651|16|Impossible de créer le serveur, car l’abonnement <subscription-id> est désactivé.|
 |40652|16|Impossible de déplacer ou de créer le serveur. L'abonnement <subscription-id> va dépasser le quota du serveur.|
 |40671|17|Échec de la communication entre la passerelle et le service de gestion. Veuillez réessayer ultérieurement.|
-|40852|16|Impossible d’ouvrir la base de données. *ls’ on server ’%.*ls’ demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet ’nom de serveur’.database.windows.net doit être transformé en nom de serveur’.database.`secure`.windows.net.| 
-|45168|16| Le système SQL Azure est sous charge et place une limite supérieure sur les opérations DB CRUD simultanées pour un seul serveur (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.| 
-|45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.
+|40852|16|Impossible d’ouvrir la base de données. *ls’ on server ’%.*ls’ demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet ’nom de serveur’.database.windows.net doit être transformé en nom de serveur’.database.`secure`.windows.net.| |45168|16| Le système SQL Azure est sous charge et place une limite supérieure sur les opérations DB CRUD simultanées pour un seul serveur (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.| |45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.
 
 
 ## Liens connexes
@@ -221,4 +219,4 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 - [Consignes et limitations générales de base de données SQL Azure](sql-database-general-limitations.md)
 - [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

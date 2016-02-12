@@ -35,7 +35,7 @@ Si nous connaissons le nom du groupe de ressources qui contient l’application 
 
 Pour créer un plan App Service, nous pouvons utiliser la commande New-AzureRmAppServicePlan comme dans l’exemple suivant :
 
-	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan
+	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 
 À l’aide de la commande New-AzureRmWebApp, nous pouvons créer l’application web dans la région Nord du centre des États-Unis et la lier à un plan App Service existant de niveau Premium. Par ailleurs, nous pouvons utiliser le même groupe de ressources que l’application web source ou en définir un nouveau, comme le montre le code suivant :
 
@@ -77,7 +77,7 @@ Le code suivant illustre la création d’un clone de l’application web source
 
 ## Configuration de Traffic Manager lors du clonage d’une application ##
 
-En configurant Traffic Manager lors de la création d’une application web tout en en clonant une à partir d’une application existante, vous pouvez connecter les deux applications web à un profil Trafic Manager nouveau ou existant. Notez que seule la version ARM de Traffic Manager est prise en charge.
+La création d’applications web sur plusieurs régions et la configuration d’Azure Traffic Manager pour acheminer le trafic vers toutes les applications web constituent un scénario contribuant largement à garantir que les applications client sont hautement disponibles. Au moment de cloner une application web existante, vous avez la possibilité de connecter les deux applications web à un nouveau profil de gestionnaire de trafic ou à un profil existant. Notez que seule la version ARM de Traffic Manager est prise en charge.
 
 ### Création d’un profil Traffic Manager lors du clonage d’une application ###
 
@@ -114,4 +114,4 @@ Cette fonctionnalité en est actuellement à sa version préliminaire. Nous nous
 - [Présentation de l'environnement App Service](app-service-app-service-environment-intro.md)
 - [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

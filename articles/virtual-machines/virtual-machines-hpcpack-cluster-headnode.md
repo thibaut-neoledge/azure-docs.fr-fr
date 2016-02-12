@@ -26,7 +26,7 @@ Cet article vous montre comment utiliser l’[image de machine virtuelle Microso
 
 ![Nœud principal HPC Pack][headnode]
 
->[AZURE.NOTE]Actuellement, l’image de machine virtuelle HPC Pack est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 2 préinstallé. Microsoft SQL Server 2014 Express est également préinstallé.
+>[AZURE.NOTE] Actuellement, l’image de machine virtuelle HPC Pack est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 2 préinstallé. Microsoft SQL Server 2014 Express est également préinstallé.
 
 
 Pour un déploiement de production d’un cluster HPC Pack dans Azure, nous vous recommandons une méthode de déploiement automatisé, telle que le [script de déploiement du HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) ou un [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/) du gestionnaire de ressources Azure.
@@ -42,7 +42,7 @@ Pour un déploiement de production d’un cluster HPC Pack dans Azure, nous vous
 Voici les étapes principales pour créer une machine virtuelle Azure pour le nœud principal HPC Pack. Vous pouvez utiliser divers outils Azure pour effectuer ces étapes dans le modèle de déploiement classique (Service Management) Azure.
 
 
-1. Si vous envisagez de créer un réseau virtuel pour la machine virtuelle du nœud principal, consultez la rubrique [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. Si vous envisagez de créer un réseau virtuel pour la machine virtuelle du nœud principal, consultez la rubrique [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-networks/virtual-networks-create-vnet-classic-portal.md).
 
     **Considérations**
 
@@ -102,4 +102,4 @@ Voici les étapes principales pour créer une machine virtuelle Azure pour le n�
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

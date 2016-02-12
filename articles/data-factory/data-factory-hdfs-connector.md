@@ -21,6 +21,7 @@ Cet article explique comment utiliser l’activité de copie d’une fabrique de
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données de HDFS en local vers d’autres magasins de données, mais pas l’inverse.
 
+
 ## Activation de la connectivité
 Le service Data Factory prend en charge la connexion à des sources HDFS locales à l’aide de la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle. Vous devez utiliser la passerelle pour vous connecter à HDFS même si elle est hébergée sur des machines virtuelles IaaS Azure.
 
@@ -28,7 +29,9 @@ Bien qu’il soit possible d’installer la passerelle sur le même ordinateur l
 
 ## Exemple : copie de données entre un système HDFS local et un objet blob Azure
 
-L’exemple ci-dessous présente les éléments suivants :
+Cet exemple indique comment copier des données depuis un système HDFS local vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+ 
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesHdfs](#hdfs-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -40,7 +43,7 @@ L’exemple copie toutes les heures les données de résultat d’une requête d
 
 Dans un premier temps, configurez la passerelle de gestion des données en suivant les instructions de l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Service lié de HDFS** Cet exemple utilise l’authentification Windows. Consultez la section [Service lié HDFS](#hdfs-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié de HDFS** : cet exemple utilise l’authentification Windows. Consultez la section [Service lié HDFS](#hdfs-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
 	{
 	    "name": "HDFSLinkedService",
@@ -70,7 +73,7 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	  }
 	}
 
-**Jeu de données d’entrée HDFS** Ce jeu de données fait référence au dossier HDFS DataTransfer/UnitTest/. Le pipeline copie tous les fichiers de son dossier vers la destination.
+**Jeu de données d’entrée HDFS** : ce jeu de données fait référence au dossier HDFS DataTransfer/UnitTest/. Le pipeline copie tous les fichiers de son dossier vers la destination.
 
 La définition de « external » : « true » et la spécification de la stratégie externalData (facultative) informent le service Data Factory qu’il s’agit d’une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
 	
@@ -209,7 +212,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | authenticationType | Windows ou anonyme. | Oui |
 | gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. | Oui |   
 
-Pour plus d’informations sur la définition des informations d’identification pour un système HDFS local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
+Pour en savoir plus sur la définition des informations d’identification pour un système HDFS local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
 
 ### Utilisation de l’authentification anonyme
 
@@ -253,7 +256,7 @@ Pour plus d’informations sur la définition des informations d’identificatio
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **FileShare** (comprenant le jeu de données HDFS) a les propriétés suivantes.
+La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **FileShare** (comprenant le jeu de données HDFS) présente les propriétés suivantes.
 
 Propriété | Description | Requis
 -------- | ----------- | --------
@@ -265,7 +268,7 @@ fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensembl
 | format | Deux types de formats sont pris en charge : **TextFormat**, **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de ces valeurs. Lorsque le format est TextFormat, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section [Définition de TextFormat](#specifying-textformat) ci-dessous pour plus de détails. | Non
 
 
-> [AZURE.NOTE]fileName et fileFilter ne peuvent pas être utilisés simultanément.
+> [AZURE.NOTE] fileName et fileFilter ne peuvent pas être utilisés simultanément.
 
 
 ### Utilisation de la propriété partitionedBy
@@ -362,4 +365,4 @@ Dans le cas d’une activité de copie, quand la source est de type **FileSystem
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

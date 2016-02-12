@@ -19,7 +19,7 @@
 
 La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) permet aux applications ADO.Net de détecter et corriger facilement les incohérences entre le mappage de partitionnement global (GSM) et le mappage de partition local (LSM) dans un environnement de base de données partitionné.
 
-Le GSM et LSM assurent le suivi de mappage de chaque base de données dans un environnement partitionné. Parfois, une interruption se produit entre le GSM et le LSM. Dans ce cas, utilisez la classe RecoveryManager pour détecter et réparer le l’interruption.
+Le GSM et LSM assurent le suivi de mappage de chaque base de données dans un environnement partitionné. Il arrive qu’un arrêt se produise entre le GSM et le LSM. Dans ce cas, utilisez la classe RecoveryManager pour détecter et résoudre l’arrêt.
 
 La classe RecoveryManager fait partie de la [Bibliothèque de client de base de données élastique](sql-database-elastic-database-client-library.md).
 
@@ -155,4 +155,4 @@ Cet exemple effectue les étapes suivantes : 1 Supprimer les partitions du mapp
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

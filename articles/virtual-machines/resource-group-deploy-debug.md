@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="01/06/2016"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure
@@ -23,7 +23,7 @@ Lorsque vous rencontrez un problème lors du déploiement, vous devez découvrir
 
 Cette rubrique se concentre principalement sur l'utilisation de commandes de déploiement pour résoudre les problèmes de déploiement. Pour plus d'informations sur l’utilisation des journaux d'audit pour effectuer le suivi de toutes les opérations sur vos ressources, consultez [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
 
-Cette rubrique montre comment récupérer des informations de dépannage via PowerShell Azure, Azure CLI et API REST. Pour plus d’informations sur l’utilisation du portail en version préliminaire pour résoudre les problèmes de déploiement, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
+Cette rubrique montre comment récupérer des informations de dépannage via PowerShell Azure, Azure CLI et API REST. Pour plus d’informations sur l’utilisation du portail pour résoudre les problèmes de déploiement, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
 
 Les solutions aux erreurs courantes que rencontrent les utilisateurs sont également décrites dans cette rubrique.
 
@@ -137,7 +137,7 @@ La commande **azure group log show** risque de renvoyer un grand nombre d'inform
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -160,7 +160,7 @@ L’API REST de Resource Manager fournit l'URI permettant de récupérer des inf
 
 Votre déploiement échouera si vos informations d'identification Azure ont expiré ou si vous n'êtes pas connecté à votre compte Azure. Vos informations d'identification peuvent expirer si votre session reste ouverte trop longtemps. Vous pouvez actualiser vos informations d'identification avec les options suivantes :
 
-- Pour PowerShell, utilisez l'applet de commande **AzureRmAccount de connexion** (ou **Add-AzureAccount** pour les versions de PowerShell antérieures à 1.0 en version préliminaire). Les informations d'identification que contient un fichier de paramètres de publication ne sont pas suffisantes pour les applets de commande du module AzureResourceManager.
+- Pour PowerShell, utilisez l’applet de commande **Login-AzureRmAccount**. Les informations d'identification que contient un fichier de paramètres de publication ne sont pas suffisantes pour les applets de commande du module AzureResourceManager.
 - Pour l’interface de ligne de commande Azure, utilisez **azure login**. Pour obtenir de l'aide sur les erreurs d'authentification, assurez-vous que vous avez [correctement configuré l'interface de ligne de commande Azure](../xplat-cli-connect.md).
 
 ## Vérification du format des modèles et des paramètres
@@ -169,7 +169,7 @@ Si le format de fichier de modèle ou de paramètre n'est pas correct, le déplo
 
 ### PowerShell
 
-Pour PowerShell, utilisez **Test-AzureRmResourceGroupDeployment** (ou **Test-AzureResourceGroupTemplate** pour les versions de PowerShell antérieures à 1.0 en version préliminaire).
+Pour PowerShell, utilisez **Test-AzureRmResourceGroupDeployment**.
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
@@ -201,7 +201,7 @@ Lorsque vous spécifiez l’emplacement d’une ressource, vous devez utiliser u
 
 ### PowerShell
 
-Pour les versions de PowerShell antérieures à 1.0 en version préliminaire, vous pouvez consulter la liste complète des ressources et des emplacements à l'aide de la commande **Get-AzureLocation**.
+Pour les versions de PowerShell antérieures à 1.0, vous pouvez consulter la liste complète des ressources et des emplacements à l’aide de la commande **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -222,7 +222,7 @@ Vous pouvez spécifier un type de ressource particulier avec :
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-Pour PowerShell 1.0 en version préliminaire, utilisez **Get-AzureRmResourceProvider** pour obtenir les emplacements pris en charge.
+Pour PowerShell 1.0, utilisez **Get-AzureRmResourceProvider** pour obtenir les emplacements pris en charge.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -260,7 +260,7 @@ Pour l’interface de ligne de commande Azure, vous pouvez utiliser **azure loca
     }
 
 ### API REST
-        
+
 Pour l'API REST, consultez [Obtention d'informations sur un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Création de noms de ressources uniques
@@ -275,7 +275,7 @@ Mais avec Azure Active Directory, vous ou votre administrateur pouvez contrôler
 
 Il est possible que vous rencontriez également des problèmes lorsqu’un déploiement atteint un quota par défaut, ce qui peut être par groupe de ressources, par abonnement, par compte, et pour d’autres étendues également. Vérifiez, à votre convenance, que vous disposez des ressources disponibles pour effectuer correctement le déploiement. Pour obtenir des informations complètes sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
-Pour examiner vos propres quotas de mémoire à tores magnétiques de votre abonnement, vous devez utiliser la commande `azure vm list-usage` dans l’interface de ligne de commande Azure et l'applet de commande **Get-AzureVMUsage** dans PowerShell. Ce qui suit présente la commande dans l’interface de ligne de commande Azure et indique que le quota de cœurs d’un compte d’évaluation gratuit est de 4 :
+Pour examiner les quotas de votre abonnement concernant les cœurs, vous devez utiliser la commande `azure vm list-usage` dans l’interface de ligne de commande Azure et l’applet de commande **Get-AzureRmVMUsage** dans PowerShell. Ce qui suit présente la commande dans l’interface de ligne de commande Azure et indique que le quota de cœurs d’un compte d’évaluation gratuit est de 4 :
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -293,25 +293,7 @@ Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest
 
 Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
 
-> [AZURE.NOTE]N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
-<!-- -->
-Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE] N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions. <!-- --> Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json. <!-- --> azure provider show Microsoft.Compute --json | jq ’.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}’ { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## Vérification de l’inscription du fournisseur de ressources
@@ -320,7 +302,7 @@ Les ressources sont gérées par les fournisseurs de ressources, et un compte ou
 
 ### PowerShell
 
-Pour obtenir une liste de fournisseurs de ressources et l'état de votre inscription, utilisez **Get-AzureProvider** pour les versions de PowerShell antérieures à 1.0 en version préliminaire.
+Pour obtenir une liste de fournisseurs de ressources et l’état de votre inscription, utilisez **Get-AzureProvider** pour les versions de PowerShell antérieures à 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -333,7 +315,7 @@ Pour obtenir une liste de fournisseurs de ressources et l'état de votre inscrip
 
 Pour inscrire un fournisseur, utilisez **Register-AzureProvider**.
 
-Pour PowerShell 1.0 en version préliminaire, utilisez **Get-AzureRmResourceProvider**.
+Pour PowerShell 1.0, utilisez **Get-AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -435,4 +417,4 @@ Pour maîtriser la création de modèles, lisez le document [Création de modèl
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

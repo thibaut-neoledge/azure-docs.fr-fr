@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cloud Services sur Azure est-il l'option de calcul que je veux ?" 
+	pageTitle="L’option de calcul Azure Cloud Services m’est-elle destinée ? | Microsoft Azure" 
 	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines" 
 	services="cloud-services"
     documentationCenter=""
@@ -32,8 +32,8 @@ Azure propose différents modèles d’hébergement d’applications. Chaque mod
 ## Étapes suivantes
 [Création d’une application de service cloud dans .NET](cloud-services-dotnet-get-started.md)<br/> [Création d’une application de service cloud dans Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Création d’une application de service cloud dans PHP](../cloud-services-php-create-web-role.md)<br/> [Création d’une application de service cloud dans Python](../cloud-services-python-ptvs.md)<br/>
 
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: ../virtual-machines-about.md
+[App Service]: ../app-service-web/app-service-web-overview.md
+[Virtual Machines]: ../virtual-machines/virtual-machines-about.md
 [Cloud Services]: #tellmecs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

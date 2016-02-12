@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/29/2015" 
 	ms.author="anhoh"/>
 
 # Modèle de ressources hiérarchiques et concepts de DocumentDB
@@ -34,8 +34,7 @@ Comme l'illustre le schéma suivant, le **modèle de ressources** hiérarchique 
 
 >[AZURE.NOTE] DocumentDB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modèle de ressources hiérarchique de DocumentDB][1]  
-**Modèle de ressource hiérarchique**
+![Modèle de ressources hiérarchique de DocumentDB][1] **Modèle de ressource hiérarchique**
 
 Pour commencer à travailler avec des ressources, vous devez [créer un compte de base de données DocumentDB](documentdb-create-account.md) à l’aide de votre abonnement Azure. Un compte de base de données peut être composé d'un jeu de **bases de données**. Chacune d'elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l'utilisateur, des documents** et des **pièces jointes** associées (fonctionnalité en version préliminaire). La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble d’**autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l'utilisateur.
 
@@ -61,11 +60,7 @@ Les ressources (telles que les comptes de base de données, les bases de donnée
 
 Propriété |Définie par l'utilisateur ou générée par le système ?|Objectif
 ---|---|---
-_rid|Générée par le système|identifiant unique, hiérarchique et généré par le système de la ressource.
-_etag|Générée par le système|etag de la ressource nécessaire pour le contrôle d’accès concurrentiel optimiste.
-_ts|Générée par le système|Dernier horodatage mis à jour de la ressource.
-_self|Générée par le système|URI adressable unique de la ressource.
-id|Définie par l’utilisateur|Nom unique défini par l'utilisateur de la ressource.
+_\_rid|Générée par le système|identifiant unique, hiérarchique et généré par le système de la ressource. \_etag|Générée par le système|etag de la ressource nécessaire pour le contrôle d’accès concurrentiel optimiste. \_ts|Générée par le système|Dernier horodatage mis à jour de la ressource. \_self|Générée par le système|URI adressable unique de la ressource. id|Définie par l'utilisateur|Nom unique défini par l'utilisateur de la ressource. Si l'utilisateur ne spécifie pas d'ID, un ID sera généré par le système
 
 ### Représentation en réseau des ressources
 DocumentDB n'oblige pas les extensions propriétaires à adopter la norme JSON ou des codages spéciaux ; l'application fonctionne avec les documents JSON standard.
@@ -73,18 +68,7 @@ DocumentDB n'oblige pas les extensions propriétaires à adopter la norme JSON o
 ### Adressage d'une ressource
 Toutes les ressources sont adressables via des URI. La valeur de la propriété **\_self** d'une ressource représente l'URI relatif de la ressource. Le format de l’URI est composé des segments de chemin d’accès /<flux>/{\_rid} :
 
-|Valeur de \_self |Description 
-|-------------------|----------- 
-|/dbs |Flux de bases de données sous un compte de base de données 
-|/dbs/{_rid-db} |Base de données avec un ID correspondant à la valeur {_rid-db} 
-|/dbs/{_rid-db}/colls/ |Flux de collections sous une base de données 
-|/dbs/{_rid-db}/colls/{_rid-coll} |Collection avec un ID correspondant à la valeur {_rid-coll} 
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Flux de documents dans une collection 
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Document avec un ID correspondant à la valeur {_rid-doc} 
-|/dbs/{_rid-db}/users/ |Flux des utilisateurs sous une base de données 
-|/dbs/{_rid-db}/users/{_rid-user} |Utilisateurs avec un ID correspondant à la valeur {_rid-user} 
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Flux d'autorisations sous un utilisateur 
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorisation avec un ID correspondant à la valeur {_rid-permission}
+|Valeur de \_self |Description |-------------------|----------- |/dbs |Flux de bases de données sous un compte de base de données |/dbs/{\_rid-db} |Base de données avec un ID correspondant à la valeur {\_rid-db} |/dbs/{\_rid-db}/colls/ |Flux de collections sous une base de données |/dbs/{\_rid-db}/colls/{\_rid-coll} |Collection avec un ID correspondant à la valeur {\_rid-coll} |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Flux de documents dans une collection |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Document avec un ID correspondant à la valeur {\_rid-doc} |/dbs/{\_rid-db}/users/ |Flux des utilisateurs sous une base de données |/dbs/{\_rid-db}/users/{\_rid-user} |Utilisateurs avec un ID correspondant à la valeur {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Flux d'autorisations sous un utilisateur |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorisation avec un ID correspondant à la valeur {\_rid-permission}
   
 Chaque ressource a un nom défini par l'utilisateur unique exposé à l'aide de la propriété d'ID. Remarque : si l'utilisateur ne spécifie pas d'ID de documents, le système génère automatiquement un ID unique pour un document. L'ID est une chaîne de 256 caractères maximum, définie par l'utilisateur et unique dans le contexte d'une ressource parent spécifique. Par exemple, la valeur de la propriété d'ID de tous les documents d'une collection donnée est unique, mais pas systématiquement unique parmi les collections. De même, la valeur de la propriété d'ID de toutes les autorisations d'un utilisateur donné est unique, mais pas systématiquement unique parmi les utilisateurs. La propriété \_rid permet de construire le lien \_self adressable d'une ressource.
 
@@ -95,7 +79,7 @@ Les valeurs des propriétés \_self et \_rid sont des représentations secondair
 ## Comptes de base de données
 Votre abonnement Azure vous permet d'approvisionner un ou plusieurs comptes de base de données DocumentDB. Chaque compte de base de données de niveau Standard a droit à la capacité minimale d’une collection S1.
 
-Vous pouvez [créer et gérer des comptes de base de données DocumentDB](documentdb-create-account.md) via le portail Azure Classic à l’adresse [http://portal.azure.com/](https://portal.azure.com/). La création et la gestion d'un compte de base de données requièrent un accès administratif et peuvent uniquement être effectuées sous votre abonnement Azure.
+Vous pouvez [créer et gérer des comptes de base de données DocumentDB](documentdb-create-account.md) via le portail Azure, à l’adresse [http://portal.azure.com/](https://portal.azure.com/). La création et la gestion d'un compte de base de données requièrent un accès administratif et peuvent uniquement être effectuées sous votre abonnement Azure.
 
 ### Propriétés des comptes de base de données
 Dans le cadre de l'approvisionnement et de la gestion d'un compte de base de données, vous pouvez configurer et lire les propriétés suivantes :
@@ -107,7 +91,7 @@ Clé principale et clé secondaire|Les clés principales et secondaires fourniss
 MaxMediaStorageUsageInMB (READ)|Quantité maximale d'espace de stockage multimédia disponible pour le compte de base de données.
 MaxMediaStorageUsageInMB (READ)|Utilisation actuelle de l'espace de stockage multimédia disponible pour le compte de base de données.
 
-Notez qu’en plus d’approvisionner, de configurer et de gérer votre compte de base de données à partir du portail Azure Classic, vous pouvez également créer et gérer des comptes de base de données DocumentDB par programme en utilisant les [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx), ainsi que des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Notez qu’en plus d’approvisionner, de configurer et de gérer votre compte de base de données à partir du portail Azure, vous pouvez également créer et gérer des comptes de base de données DocumentDB par programme, en utilisant les [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx), ainsi que des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Bases de données
 Une base de données DocumentDB est un conteneur logique d'une ou plusieurs collections et d'un ou plusieurs utilisateurs, comme l'illustre le schéma suivant. Vous pouvez créer n'importe quel nombre de bases de données sous un compte de base de données DocumentDB en fonction des limites de l'offre.
@@ -143,7 +127,7 @@ La stratégie d'indexation de chaque collection vous permet d'établir des compr
 -	Sélectionnez l'inclusion ou l'exclusion de chemins d'accès ou de modèles spécifiques dans vos documents à partir de l'index. Pour ce faire, définissez les paramètres includedPaths et excludedPaths à partir du paramètre indexingPolicy d'une collection. Vous pouvez également configurer les compromis de performances et de stockage pour les requêtes de plage de données et de hachage pour certains formats de chemin d'accès. 
 -	Choisissez entre des mises à jour d'index synchrones (cohérentes) ou asynchrones (différées). Par défaut, l'index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d'un document au niveau de la collection. Cela permet aux requêtes de fournir le même niveau de cohérence que celui des lectures de document. Alors que DocumentDB est optimisé pour les écritures et prend en charge des volumes soutenus d'écritures de documents, la maintenance d'index synchrone et les requêtes cohérentes, vous pouvez configurer certaines collections de manière à ce que la mise à jour de l'index soit effectuée en différé. L'indexation en différé dynamise les performances en termes d'écriture. Cela est idéal pour les scénarios d'ingestion en bloc pour les collections comportant principalement beaucoup de lectures.
 
-La stratégie d'indexation peut être modifiée en exécutant une commande PUT dans la collection. Pour cela, vous pouvez utiliser le [Kit de développement logiciel client](https://msdn.microsoft.com/library/azure/dn781482.aspx), le [portail Azure Classic](https://portal.azure.com) ou les [API REST DocumentDB Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+La stratégie d'indexation peut être modifiée en exécutant une commande PUT dans la collection. Pour cela, vous pouvez utiliser le [kit de développement logiciel client](https://msdn.microsoft.com/library/azure/dn781482.aspx), le [portail Azure](https://portal.azure.com) ou les [API REST DocumentDB Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Interrogation d'une collection
 Les documents d'une collection peuvent suivre des schémas arbitraires et vous pouvez les interroger sans fournir de schéma ou d'index secondaires à l'avance. Vous pouvez interroger une collection en utilisant la [syntaxe SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), qui fournit des opérateurs relationnels et hiérarchiques enrichis ainsi qu'une extensibilité à l'aide de fonctions JavaScript définies par l'utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes, comme les nœuds d'arborescence. Cette capacité est exploitée par les techniques d'indexation automatique de DocumentDB et par le dialecte SQL de DocumentDB. Le langage de requête DocumentDB est caractérisé par trois aspects principaux :
@@ -413,4 +397,4 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/09/2015"   
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 
 - [Problèmes actuellement connus](#issues)
 - [Historique des versions de l’API REST](#rest_version_history)
+- [Version de janvier 2016](#jan_changes_16)
 - [Version de décembre 2015](#dec_changes_15)
 - [Version de novembre 2015](#nov_changes_15)
 - [Version d'octobre 2015](#oct_changes_15)
@@ -76,6 +77,13 @@ Les objets Media Services dans le Kit de développement logiciel (SDK) ne peuven
 ##<a id="rest_version_history"></a>Historique des versions de l’API REST
 
 Pour des informations sur l'historique des versions de l'API REST, consultez la page [Référence de l'API REST d'Azure Media Services].
+
+
+##<a id="jan_changes_16"></a>Version de janvier 2016
+
+Unités réservées d’encodage renommées pour éviter la confusion avec les noms d’encodeur.
+
+Les unités réservées d’encodage De base, Standard et Premium sont renommées S1, S2 et S3, respectivement. Les clients qui utilisaient des unités réservées d’encodage De base, Standard ou Premium verront respectivement S1, S2 ou S3 comme étiquette dans le portail Azure (et dans la facture).
 
 ##<a id="dec_changes_15"></a>Version de décembre 2015
 
@@ -635,4 +643,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -18,7 +18,10 @@
 
 # Déplacer des données vers et depuis Azure Table à l’aide d’Azure Data Factory
 
-Cet article décrit comment vous pouvez utiliser l’activité de copie dans une fabrique Azure Data Factory pour déplacer des données à partir d’un autre magasin de données vers Table Azure et vice versa. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasins de données prises en charge.
+Cet article décrit comment vous pouvez utiliser l’activité de copie dans une fabrique Azure Data Factory pour déplacer des données à partir d’un autre magasin de données vers Table Azure et vice versa. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
+
+Les exemples suivants indiquent comment copier des données vers et depuis Azure Table Storage et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+
 
 ## Exemple : copie de données à partir de Table Azure vers un objet Blob Azure
 
@@ -43,7 +46,7 @@ L'exemple copie des données appartenant à la partition par défaut dans une Ta
 	  }
 	}
 
-Azure Data Factory prend en charge deux types de services liés Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
+Azure Data Factory prend en charge deux types de service lié Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
 
 **Jeu de données d'entrée Table Azure :**
 
@@ -205,7 +208,7 @@ L'exemple copie des données appartenant à une série horaire à partir d'un ob
 	  }
 	}
 
-Azure Data Factory prend en charge deux types de services liés Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
+Azure Data Factory prend en charge deux types de service lié Azure Storage : **AzureStorage** et **AzureStorageSas**. Pour le premier, vous spécifiez la chaîne de connexion qui inclut la clé de compte, et pour le second, vous spécifiez l'Uri de signature d’accès partagé (SAP). Pour plus d’informations, consultez la section [Services liés](#linked-services).
 
 **Jeu de données d'entrée d'objet Blob Azure :**
 
@@ -515,4 +518,4 @@ Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

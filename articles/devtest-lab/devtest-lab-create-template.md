@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Créer des modèles de machines virtuelles
 
 ## Vue d'ensemble
 
-Après avoir [créé un laboratoire](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md) à partir d’une liste de modèles de machines virtuelles. Cet article explique comment télécharger et configurer un fichier d’image de disque dur virtuel (VHD) qui servira de modèle pour créer vos machines virtuelles. Si vous n’êtes pas familiarisé avec les images VHD, consultez l’article [Création et téléchargement d’un VHD Windows Server dans Azure](../virtual-machines-create-upload-vhd-windows-server.md) pour apprendre à créer une image VHD. Lorsque vous aurez créé ou que vous pourrez accéder à une image de disque dur virtuel, cet article vous aidera à télécharger et à créer un modèle à partir de cette image.
+Après avoir [créé un laboratoire](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md) à partir d’une liste de modèles de machines virtuelles. Cet article explique comment télécharger et configurer un fichier d’image de disque dur virtuel (VHD) qui servira de modèle pour créer vos machines virtuelles. Si vous n’êtes pas familiarisé avec les images VHD, consultez l’article [Création et téléchargement d’un VHD Windows Server dans Azure](/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) pour apprendre à créer une image VHD. Lorsque vous aurez créé ou que vous pourrez accéder à une image de disque dur virtuel, cet article vous aidera à télécharger et à créer un modèle à partir de cette image.
 
 ## Créer un modèle de machine virtuelle
 
@@ -86,4 +86,4 @@ Pour ajouter une nouvelle image de modèle, vous devez avoir accès à un fichie
 
 Lorsque vous avez ajouté un modèle de machine virtuelle à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [Ajouter une machine virtuelle à votre instance du service DevTest Lab](devtest-lab-add-vm-with-artifacts).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

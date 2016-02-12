@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add owners and users to a DevTest Lab | Microsoft Azure"
-	description="Securely add a user who is not in your subscription to your Azure DevTest Lab."
+<properties
+	pageTitle="Ajouter des propriétaires et des utilisateurs à un DevTest Lab | Microsoft Azure"
+	description="Ajoutez en toute sécurité un utilisateur non inclus dans votre abonnement à votre DevTest Lab Microsoft Azure."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Ajouter des propriétaires et des utilisateurs à un DevTest Lab
@@ -26,7 +26,7 @@ L'accès à votre DevTest Lab s'accorde via deux rôles :
 
  - **Propriétaire** : les utilisateurs affectés au rôle **Propriétaire** au niveau de l'abonnement Azure ont un accès complet au labo, y compris aux fonctions de gestion et de surveillance.
 
-     >[AZURE.NOTE] Les rôles **Propriétaire** qui sont affectés aux niveaux RBAC autres que le niveau de l'abonnement ne sont pas pris en charge dans DevTest Lab. L'affectation d'un utilisateur au rôle **Propriétaire** dans DevTest Lab n'est pas prise en charge.
+     > [AZURE.NOTE] Les rôles **Propriétaire** qui sont affectés aux niveaux RBAC autres que le niveau de l'abonnement ne sont pas pris en charge dans DevTest Lab. L'affectation d'un utilisateur au rôle **Propriétaire** dans DevTest Lab n'est pas prise en charge.
 
  -  **Utilisateur DevTest Lab** : les utilisateurs affectés au rôle **Utilisateur DevTest Lab** peuvent créer, mettre à jour et supprimer des machines virtuelles dans le labo spécifié. Les utilisateurs peuvent être *internes* (membres d'Azure Active Directory pour l'abonnement) ou *externes* (utilisateurs non membres d'Azure AD, par exemple membres d'une organisation partenaire).
 	-  Un rôle **Utilisateur DevTest Lab** doit être affecté avec les vignettes **Ajouter des utilisateurs** du labo.
@@ -101,4 +101,4 @@ Pour ajouter un utilisateur DevTest Lab à votre labo, procédez comme suit :
 
 	1. Le panneau **Utilisateurs** affiche les rôles et les utilisateurs ajoutés.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

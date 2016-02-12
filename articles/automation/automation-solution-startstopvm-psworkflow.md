@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Solution Azure Automation : démarrage et arrêt de machines virtuelles
@@ -28,11 +28,11 @@ Cette solution Azure Automation inclut des runbooks pour démarrer et arrêter d
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-Il s’agit de la version de runbook du Workflow PowerShell de cette solution. Elle est également disponible à l’aide des [runbooks graphiques](automation-solutions-startstopvm-graphical.md).
+Il s’agit de la version de runbook du Workflow PowerShell de cette solution. Elle est également disponible à l’aide des [runbooks graphiques](automation-solution-startstopvm-graphical.md).
 
 ## Obtention de la solution
 
-Cette solution se compose de deux runbooks Workflow PowerShell que vous pouvez télécharger à partir des liens suivants. Consultez la [version graphique](automation-solutions-startstopvm-graphical.md) de cette solution pour des liens vers les runbooks graphiques.
+Cette solution se compose de deux runbooks Workflow PowerShell que vous pouvez télécharger à partir des liens suivants. Consultez la [version graphique](automation-solution-startstopvm-graphical.md) de cette solution pour des liens vers les runbooks graphiques.
 
 | Runbook | Lien | Type | Description |
 |:---|:---|:---|:---|
@@ -80,7 +80,7 @@ Les exemples de commandes suivants utilisent Windows PowerShell pour exécuter *
 
 ### Sortie
 
-Les runbooks [généreront un message](automation-runbook-output-and-messages.md) pour chaque machine virtuelle, indiquant si l’instruction de démarrage ou d’arrêt a été correctement envoyée. Vous pouvez rechercher une chaîne spécifique dans la sortie afin de déterminer le résultat pour chaque runbook. Les chaînes de sortie possibles sont répertoriées dans le tableau suivant.
+Les Runbooks [généreront un message](automation-runbook-output-and-messages.md) pour chaque machine virtuelle, indiquant si l'instruction de démarrage ou d'arrêt a été correctement envoyée. Vous pouvez rechercher une chaîne spécifique dans la sortie afin de déterminer le résultat pour chaque runbook. Les chaînes de sortie possibles sont répertoriées dans le tableau suivant.
 
 | Runbook | Condition | Message |
 |:---|:---|:---|
@@ -193,4 +193,4 @@ Les lignes suivantes passent en revue chaque machine virtuelle. Premièrement, l
 - [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) 
 - [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

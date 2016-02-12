@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Format de jeton utilisateur externe pour la version préliminaire d’Azure Active Directory (Azure AD) B2B Collaboration
+# Version préliminaire d’Azure AD B2B Collaboration : Format de jeton utilisateur externe
+
 Les revendications pour un jeton Azure AD standard sont décrites dans l’article [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md) sur azure.microsoft.com.
 
 Les revendications différentes pour un utilisateur externe authentifié de collaboration B2B sont les suivantes :<br/> - **OID :** ID d’objet du locataire ressource<br/> - **TID** : ID de locataire à partir du client de la ressource<br/> - **Issuer** : client de la ressource<br/> - **IDP** : client de base de l’utilisateur<br/> - **AltSecId** : autre ID de sécurité, qui vous est caché<br/>
@@ -31,4 +32,4 @@ Consultez les autres articles sur Azure B2B Collaboration :
 - [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

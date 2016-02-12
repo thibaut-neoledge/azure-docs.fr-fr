@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Limites actuelles de la version préliminaire d’Azure Active Directory (Azure AD) B2B Collaboration
+# Version préliminaire d’Azure AD B2B Collaboration : Limites actuelles de la version préliminaire
 
 - L’authentification multifacteur (MFA) n’est pas prise en charge sur les utilisateurs externes. Par exemple, si Contoso dispose de l’authentification MFA, mais que ce n’est pas le cas de l’organisation partenaire, les utilisateurs de celle-ci ne peuvent pas bénéficier de l’authentification multifacteur par le biais de B2B Collaboration.
 - Les invitations ne sont possibles que par l’intermédiaire de la fonctionnalité CSV ; les invitations individuelles et l’accès aux API ne sont pas pris en charge.
@@ -30,11 +30,11 @@
 ## Articles connexes
 Consultez les autres articles sur Azure B2B Collaboration :
 
-- [Présentation d’Azure AD B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Fonctionnement](active-directory-b2b-how-it-works.md)
 - [Procédure pas à pas](active-directory-b2b-detailed-walkthrough.md)
 - [Référence du format de fichier CSV](active-directory-b2b-references-csv-file-format.md)
 - [Format du jeton utilisateur externe](active-directory-b2b-references-external-user-token-format.md)
 - [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

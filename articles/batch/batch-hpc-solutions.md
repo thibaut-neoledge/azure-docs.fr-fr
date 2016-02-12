@@ -98,7 +98,7 @@ Voici des informations supplémentaires sur les services de calcul, de données,
 
 ### Services de calcul
 
-Les services de calcul Azure sont au cœur d'une solution Big Compute, et les divers services de calcul offrent des avantages pour différents scénarios. Ces services offrent des modes différents pour que les applications s’exécutent sur des instances de calcul basées sur une machine virtuelle qu’Azure fournit à l'aide de la technologie Hyper-V de Windows Server. Ces instances peuvent exécuter une variété de systèmes d'exploitation et d’outils Linux et Windows, standard et personnalisés. Azure vous propose un choix de [tailles d'instance](../virtual-machines/virtual-machines-sizes-specs.md) avec différentes configurations de cœurs de CPU, de mémoire, de capacité de disque et d'autres caractéristiques. Selon vos besoins, vous pouvez mettre à l'échelle les instances à des milliers de cœurs et les réduire lorsque vous avez besoin de moins de ressources.
+Les services de calcul Azure sont au cœur d'une solution Big Compute, et les divers services de calcul offrent des avantages pour différents scénarios. Ces services offrent des modes différents pour que les applications s’exécutent sur des instances de calcul basées sur une machine virtuelle qu’Azure fournit à l'aide de la technologie Hyper-V de Windows Server. Ces instances peuvent exécuter une variété de systèmes d'exploitation et d’outils Linux et Windows, standard et personnalisés. Azure vous propose un choix de [tailles d’instance](../virtual-machines/virtual-machines-size-specs.md) avec différentes configurations de cœurs d’UC, de mémoire, de capacité de disque, et d’autres caractéristiques. Selon vos besoins, vous pouvez mettre à l'échelle les instances à des milliers de cœurs et les réduire lorsque vous avez besoin de moins de ressources.
 
 >[AZURE.NOTE] Tirez parti des instances A8-A11 pour améliorer les performances de certaines charges de travail HPC, y compris des applications MPI parallèles qui nécessitent une faible latence et un réseau d'application haut débit. Consultez la page [À propos des instances de calcul intensif A8, A9, A10 et A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -155,4 +155,4 @@ Votre solution Big Compute peut devoir inclure d'autres services Azure pour se 
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

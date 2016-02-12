@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016"  
+	ms.date="02/02/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services
@@ -40,13 +40,13 @@ Les rubriques traitées dans cet article sont les suivantes :
 	- [Qu’en est-il de la diffusion en continu ?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
 	- [Qu’en est-il des serveurs de licences hors Azure Media Services ?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
 	- [Que se passe-t-il si je souhaite utiliser un STS personnalisé ?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-	- [Note technique](media-services-cenc-with-multidrm-access-control.md#tech-note)
 - [Le système et le test terminé](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
 	- [Connexion utilisateur](media-services-cenc-with-multidrm-access-control.md#user-login)
 	- [Utilisation de Encrypted Media Extensions pour PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
 	- [Utilisation d’EME pour Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
 	- [Utilisateurs sans intitulé](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
 	- [Exécution d’un Service d’émission de jeton sécurisé personnalisé](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+- [Résumé](media-services-cenc-with-multidrm-access-control.md#summary)
 
 ##Introduction
 
@@ -62,7 +62,7 @@ Les avantages de CENC avec multi-DRM sont les suivants :
 1. réduction du coût de la gestion des ressources chiffrées, car une seule copie de ces dernières est nécessaire ;
 1. élimination les coûts de licence de client DRM natif, car ce dernier est généralement proposé gratuitement sur sa plate-forme d’origine.
 
-Microsoft a joué le rôle de promoteur actif de DASH et de CENC, tout comme d’autres acteurs majeurs du secteur. Microsoft Azure Media Services offre la prise en charge de DASH et CENC. Pour les dernières annonces, consultez les blogs de Mingfei : [Annonce d’une version préliminaire publique de distribution de licence Google Widevine dans Azure Media Services](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/), et [Azure Media Services ajoute un package Gooble Windevine pour la distribution de flux multi-DRM](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+Microsoft a joué le rôle de promoteur actif de DASH et de CENC, tout comme d’autres acteurs majeurs du secteur. Microsoft Azure Media Services offre la prise en charge de DASH et CENC. Pour les dernières annonces, consultez les blogs de Mingfei : [Annonce d’une distribution de licence Google Widevine dans Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/) et [Azure Media Services ajoute un package Gooble Windevine pour la distribution de flux multi-DRM](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
 ### Présentation de cet article
 
@@ -406,7 +406,7 @@ Il existe deux types de clés de sécurité :
 1.	Clé symétrique : la même clé est utilisée pour générer et vérifier un jeton JWT ;
 2.	Clé asymétrique : une paire de clés publique-privée dans un certificat X 509 est utilisée avec une clé privée pour chiffrer/générer un jeton JWT et la clé publique pour vérifier le jeton.
 
-###Note technique
+####Note technique
 
 Si vous utilisez .NET Framework / C# en tant que plate-forme de développement, le certificat X509 utilisé pour la clé de sécurité asymétrique doit avoir une clé d’une longueur d’au moins 2048 bits. Il s’agit d’une exigence de la classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey dans .NET Framework. Dans le cas contraire, l’exception suivante est générée :
 
@@ -520,6 +520,6 @@ Dans ce document, nous avons abordé les sujets des DRM natives multiples, et un
 
 ###Remerciements 
 
-William Zhang, Mingfei Yan, Kilroy Hughes, Roland Le Franc, Julia Kornich
+William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

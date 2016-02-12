@@ -18,7 +18,10 @@
 
 # Déplacer des données vers et depuis DocumentDB à l’aide d’Azure Data Factory
 
-Cet article décrit comment vous pouvez utiliser l'activité de copie dans Azure Data Factory pour déplacer des données vers DocumentDB Azure à partir d'un magasin de données et vice versa. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasin de données prises en charge.
+Cet article décrit comment vous pouvez utiliser l'activité de copie dans Azure Data Factory pour déplacer des données vers DocumentDB Azure à partir d'un magasin de données et vice versa. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
+
+Les exemples suivants indiquent comment copier des données vers et depuis Azure DocumentDB et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+
 
 ## Exemple : copie de données à partir de DocumentDB vers un objet Blob Azure
 
@@ -378,7 +381,7 @@ Exemple :
 
 ## Propriétés de type de l'activité de copie DocumentDB Azure
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
  
 **Remarque :** l’activité de copie accepte uniquement une entrée et produit une seule sortie.
 
@@ -416,4 +419,4 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 	**Réponse :** non. Il n’est possible d’indiquer qu’une collection pour le moment.
      
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

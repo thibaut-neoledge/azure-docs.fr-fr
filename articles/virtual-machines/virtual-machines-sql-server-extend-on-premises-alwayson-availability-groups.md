@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Extension de groupes de disponibilité AlwaysOn locaux à Azure | Microsoft Azure"
 	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité AlwaysOn dans Azure."
 	services="virtual-machines"
@@ -8,13 +8,13 @@
 	editor="monicar"
 	tags="azure-service-management"/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Étendre des groupes de disponibilité AlwaysOn locaux à Azure
@@ -65,7 +65,7 @@ Cette section vous montre comment utiliser l’**Assistant Ajout d’un réplica
 |**Nom d’utilisateur de la machine virtuelle**|Spécifiez un nom d’utilisateur qui deviendra le compte d’administrateur sur la machine virtuelle|
 |**Mot de passe administrateur de la machine virtuelle**|Indiquez un mot de passe pour le nouveau compte|
 |**Confirmer le mot de passe**|Confirmez le mot de passe du nouveau compte|
-|**Réseau virtuel**|Indiquez le réseau virtuel Azure que la nouvelle machine virtuelle doit utiliser. Pour plus d’informations sur les réseaux virtuels, voir [Présentation du réseau virtuel](..\virtual-network\virtual-networks-overview.md).|
+|**Réseau virtuel**|Indiquez le réseau virtuel Azure que la nouvelle machine virtuelle doit utiliser. Pour plus d’informations sur les réseaux virtuels, voir [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).|
 |**Sous-réseau de réseau virtuel**|Indiquez le sous-réseau de réseau virtuel que la nouvelle machine virtuelle doit utiliser|
 |**Domaine**|Confirmez que la valeur par défaut indiquée pour le domaine est correcte|
 |**Nom d’utilisateur de domaine**|Spécifiez un compte qui se trouve dans le groupe d’administrateurs local sur les nœuds du cluster local|
@@ -91,7 +91,7 @@ Cette section vous montre comment utiliser l’**Assistant Ajout d’un réplica
 
 1. Le processus d’approvisionnement commence. Lorsque l’Assistant a terminé, cliquez sur **Fermer** pour quitter l’Assistant.
 
->[AZURE.NOTE] L’Assistant Ajout d’un réplica Azure crée un fichier journal dans <Users><nom\_utilisateur>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Ce fichier journal peut servir à résoudre les déploiements de réplica Azure ayant échoué. Si l’Assistant ne parvient pas à exécuter une action, toutes les opérations précédentes sont annulées, y compris la suppression de la machine virtuelle approvisionnée.
+>[AZURE.NOTE] L’Assistant Ajout d’un réplica Azure crée un fichier journal dans Users\\nom\_utilisateur\\AppData\\Local\\SQL Server\\AddReplicaWizard. Ce fichier journal peut servir à résoudre les déploiements de réplica Azure ayant échoué. Si l’Assistant ne parvient pas à exécuter une action, toutes les opérations précédentes sont annulées, y compris la suppression de la machine virtuelle approvisionnée.
 
 ## Créer un écouteur de groupe de disponibilité
 
@@ -103,4 +103,4 @@ En plus d’utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

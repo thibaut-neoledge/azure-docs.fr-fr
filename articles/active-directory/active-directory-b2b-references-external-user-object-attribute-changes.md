@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Changement d’attribut d’objet d’utilisateur externe pour la version préliminaire d’Azure Active Directory (Azure AD) B2B Collaboration
+# Version préliminaire d’Azure AD B2B Collaboration : changement d’attribut d’objet utilisateur externe
+
 Chaque utilisateur d’un annuaire Azure AD est représenté par un objet utilisateur. L’objet utilisateur dans Azure AD subit des modifications d’attribut aux différentes étapes du flux d’échange d’invités de la collaboration B2B. L’objet utilisateur qui représente l’utilisateur partenaire dans l’annuaire possède des attributs qui changent au moment de l’échange lorsque le partenaire utilisateur clique sur le lien dans le message électronique d’invitation. Plus précisément :
 
 - Les attributs **SignInName** et **AltSecId** sont remplis.
@@ -34,4 +35,4 @@ Consultez les autres articles sur Azure B2B Collaboration :
 - [Format du jeton utilisateur externe](active-directory-b2b-references-external-user-token-format.md)
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

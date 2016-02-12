@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,7 +25,7 @@
 4. Cliquez sur **Activer** ou sur **Désactiver** selon que vous souhaitez ou non que des notifications relatives à l’activation soient envoyées aux administrateurs.
 5. Cliquez sur **Activer** ou **Désactiver** selon que vous souhaitez ou non autoriser les administrateurs à entrer des informations de billetterie dans leur demande d’activation.
 6. Cliquez sur **Activer** ou **Désactiver** selon que vous souhaitez ou non exiger l’application de la solution Multi-Factor Authentication (MFA) pour une demande d’activation. Pour plus d’informations sur l’utilisation de la solution MFA avec Privileged Identity Management, voir [Exigence de l’application de la solution MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
-7. Cliquez sur **Activer** ou **Désactiver** selon que vous voulez autoriser ou non que les administrateurs généraux soient temporaires. 
+7. Cliquez sur **Activer** ou **Désactiver** selon que vous voulez autoriser ou non que les administrateurs généraux soient temporaires.
 8. Cliquez sur **Enregistrer**.
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
@@ -34,4 +34,4 @@
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

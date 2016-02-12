@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Présentation de la surveillance des tâches Stream Analytics et des requêtes
@@ -35,7 +35,8 @@ Lors de la première création d’une tâche Stream Analytics dans une région,
 
   ![Configurer les diagnostics des requêtes dans le portail Azure en version préliminaire](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
-## Mesures disponibles pour Stream Analytics  
+## Mesures disponibles pour Stream Analytics
+
 
 | Mesure | Définition |
 |--------|-------------|
@@ -45,7 +46,9 @@ Lors de la première création d’une tâche Stream Analytics dans une région,
 | Événements de sortie | Quantité de données envoyées par la tâche Stream Analytics à la cible de sortie, en termes de nombre d’événements. |
 | Événements non ordonnés | Nombre d’événements reçus dans le désordre qui ont été supprimés ou dont l’horodatage a été réglé, en fonction de la stratégie de classement des événements. Cela peut être affecté par la configuration du paramètre de la plage de tolérance pour les événements en désordre. |
 | Erreurs de conversion de données | Nombre d’erreurs de conversion de données générées par une tâche Stream Analytics. |
+| Erreurs d’exécution | Nombre d’erreurs qui se produisent pendant l’exécution d’une tâche Stream Analytics. |
 | Événements d’entrée tardifs | Nombre d’événements qui arrivent en retard de la source qui ont été supprimés ou dont l’horodatage a été réglé, en fonction de la configuration de la stratégie de classement des événements du paramètre de la plage de tolérance d’arrivée tardive. |
+
 ## Personnalisation de la surveillance dans le portail de gestion Azure ##
 
 6 mesures maximum peuvent être affichées sur un graphique
@@ -98,10 +101,10 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 ## Étapes suivantes
 
-- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

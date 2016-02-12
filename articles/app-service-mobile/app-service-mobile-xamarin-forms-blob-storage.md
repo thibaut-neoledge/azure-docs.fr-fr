@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="01/21/2015"
+	ms.date="02/03/2015"
     ms.author="donnam"/>
 
 #Se connecter à Azure Storage dans votre application Xamarin.Forms
@@ -119,7 +119,7 @@ La nouvelle classe `TodoItemStorageController` expose deux sous-ressources sous 
 
 Notez que la classe `TodoItemStorageController` ne dispose *pas* d’une route précise permettant de transférer ou télécharger un objet blob. Pour effectuer ces opérations, en effet, un client mobile interagit *directement* avec le stockage d’objets après avoir obtenu un jeton de signature d’accès partagé (SAS) pour pouvoir accéder en toute sécurité à un objet blob ou conteneur donné. Il s’agit d’un aspect de conception architecturale important, car dans d’autres circonstances, l’accès au stockage serait limité par l’évolutivité et la disponibilité du backend mobile. Mais grâce à une connexion directe à Azure Storage, le client mobile peut tirer parti de certaines de ses fonctionnalités, telles que le partitionnement automatique et la distribution géographique.
 
-Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte. Pour plus d’informations, consultez la [présentation des signatures d’accès partagé].
+Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte. Pour plus d’informations, consultez [Présentation des signatures d’accès partagé].
 
 Le schéma ci-dessous illustre les interactions entre le client et le serveur. Avant de télécharger un fichier, le client demande un jeton SAP au service. Le service utilise la chaîne de connexion du stockage pour générer un nouveau jeton SAS, qu’il renvoie ensuite au client. Le jeton SAS a une durée de vie limitée et limite les autorisations à un fichier ou conteneur particulier. Le client mobile utilise ensuite cette signature d’accès partagé et le SDK du client Azure Storage pour télécharger le fichier dans le stockage d’objets blob.
 
@@ -678,7 +678,7 @@ Ajoutez au projet iOS le code spécifique à la plateforme.
 
 Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fichiers dans les SDK client et serveur Azure Mobile pour garantir leur compatibilité avec Azure Storage.
 
-- Créer un compte de stockage et ajouter une chaîne de connexion à votre backend Mobile App. Seul le backend possède la clé d’accès à Azure Storage : le client mobile doit demander un jeton de signature d’accès partagé (SAS) chaque fois qu’il doit accéder à Azure Storage. Pour en savoir plus sur les jetons SAS dans Azure Storage, consultez la [présentation des signatures d’accès partagé].
+- Créer un compte de stockage et ajouter une chaîne de connexion à votre backend Mobile App. Seul le backend possède la clé d’accès à Azure Storage : le client mobile doit demander un jeton de signature d’accès partagé (SAS) chaque fois qu’il doit accéder à Azure Storage. Pour en savoir plus sur les jetons SAS dans Azure Storage, consultez [Présentation des signatures d’accès partagé].
 
 - Créer un contrôleur qui sous-classe `StorageController` afin de gérer les demandes de jeton SAS et d’obtenir les fichiers associés à un enregistrement. Par défaut, les fichiers sont associés à un enregistrement en utilisant l’ID d’enregistrement dans le nom du conteneur ; le comportement peut être personnalisé en spécifiant une implémentation de `IContainerNameResolver`. La stratégie de jeton SAS peut également être personnalisée.
 
@@ -718,7 +718,7 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[présentation des signatures d’accès partagé]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[Création d’un compte Azure Storage]: https://azure.microsoft.com/fr-FR/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[Présentation des signatures d’accès partagé]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Création d’un compte Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

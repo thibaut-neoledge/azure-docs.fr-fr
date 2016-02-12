@@ -1,9 +1,9 @@
 <a name="tellmecs"></a>
 ## En savoir plus sur Cloud Services
 
-Cloud Services est un exemple de plateforme en tant que service (PaaS). Tout comme [App Services](app-service-web-overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Tout comme [App Services](app-service-web-overview.md), Cloud Services est hébergé sur des machines virtuelles, bien que celui-ci vous permette de mieux les contrôler. Vous pouvez installer votre logiciel sur des machines virtuelles de Cloud Service et vous y connecter à distance.
+Cloud Services est un exemple de plateforme en tant que service (PaaS). Tout comme [App Service](../articles/app-service-web/app-service-web-overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Tout comme App Service, Cloud Services est hébergé sur des machines virtuelles, bien que celui-ci vous permette de mieux les contrôler. Vous pouvez installer votre logiciel sur des machines virtuelles de Cloud Service et vous y connecter à distance.
 
-![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
+![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
 Plus de contrôle signifie également moins de facilité d’utilisation. Si vous n’avez pas besoin d’options de contrôle supplémentaires, il est généralement plus rapide et plus facile de faire fonctionner une application Web dans Web Apps dans App Services qu’avec Cloud Services.
 
@@ -11,12 +11,10 @@ La technologie fournit deux options de machine virtuelle légèrement différent
 
 Toutes les combinaisons de ces deux options d’hébergement de machines virtuelles légèrement différentes sont disponibles dans un service cloud :
 
-* **Rôle Web**  
-  exécute Windows Server avec votre application Web automatiquement déployée sur IIS.
-* **Rôle de travail**  
-  exécute Windows Server sans IIS.
+* **Rôle Web** exécute Windows Server avec votre application Web automatiquement déployée sur IIS.
+* **Rôle de travail** exécute Windows Server sans IIS.
 
-Par exemple, une application simple peut utiliser uniquement un rôle Web, tandis qu'une plus complexe utilisera un rôle de travail pour traiter les requêtes entrantes des utilisateurs, puis transmettre le travail créé par ces requêtes à un rôle de travail pour le traitement. (Cette communication pourrait utiliser [Service Bus](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) ou les [files d’attente Azure](../articles/storage/storage-introduction.md).)
+Par exemple, une application simple peut utiliser uniquement un rôle Web, tandis qu'une plus complexe utilisera un rôle de travail pour traiter les requêtes entrantes des utilisateurs, puis transmettre le travail créé par ces requêtes à un rôle de travail pour le traitement. (Cette communication pourrait utiliser [Service Bus](../articles/service-bus/service-bus-fundamentals-hybrid-solutions.md) ou les [files d’attente Azure](../articles/storage/storage-introduction.md).)
 
 Comme le suggère la figure ci-dessus, toutes les machines virtuelles d’une même application s’exécutent dans le même service cloud. Pour cette raison, les utilisateurs accèdent à l'application par le biais d'une seule adresse IP publique, avec un équilibrage automatique de la charge des requêtes entre les machines virtuelles de l'application. La plateforme [mettra à l’échelle et déploiera](../articles/cloud-services/cloud-services-how-to-scale.md) les machines virtuelles dans une application Cloud Services de manière à éviter un unique point de défaillance matérielle.
 
@@ -32,4 +30,4 @@ Cloud Services fournit également la surveillance. À l'instar d'Azure Virtual M
 
 La nature PaaS de Cloud Services a également d'autres implications. L'une des principales est le fait que les applications basées sur cette technologie doivent être écrites pour s'exécuter correctement en cas d'échec d'un rôle Web ou de travail. Cela nécessite qu'une application Cloud Services ne conserve pas l'état dans le système de fichiers de ses propres machines virtuelles. Les écritures dans les machines virtuelles Cloud Services ne sont pas persistantes, comme elles le sont dans les machines virtuelles créées avec Azure Virtual Machines ; il n'existe rien de tel qu'un disque de données des machines virtuelles. En revanche, une application Cloud Services doit écrire explicitement tous les états dans la base de données SQL, les objets blob, les tables ou un autre stockage externe. Les applications créées de la sorte sont plus faciles à mettre à l'échelle et davantage résistantes aux défaillances, deux objectifs importants de Cloud Services.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

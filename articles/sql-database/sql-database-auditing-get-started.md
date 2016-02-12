@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jeffreyg; ronitr"/>
  
 # Prise en main de l’audit de base de données SQL
@@ -62,7 +62,7 @@ Avant de configurer l’audit, vérifiez que vous utilisez bien un [« Client d
 
 ##<a id="subheading-2"></a>Configuration de l’audit pour votre base de données
 
-1. Accédez au [portail Azure](https://portal.azure.com) à l’adresse https://portal.azure.com. Vous pouvez également accéder au [portail Azure Classic](https://manage.windowsazure.com/) à l’adresse https://manage.windowsazure.com/. Voir les détails ci-dessous.
+1. Accédez au [portail Azure](https://portal.azure.com) à l’adresse https://portal.azure.com. Vous pouvez également accéder au [portail Azure Classic](https://manage.windowsazure.com/) à l’adresse suivante : https://manage.windowsazure.com/. Voir les détails ci-dessous.
 
 2. Accédez au panneau des paramètres de Base de données SQL/SQL Server que vous voulez auditer. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**.
 
@@ -101,7 +101,7 @@ Vous pouvez importer vos journaux d’audit dans le modèle Excel directement à
 
 ##<a id="subheading-4"></a>Configurer l’audit pour votre base de données à partir du portail Azure Classic
 
-1. Accédez au [portail Azure Classic](https://manage.windowsazure.com/) à l’adresse https://manage.windowsazure.com/.
+1. Lancez le [portail Azure Classic](https://manage.windowsazure.com/) à l’adresse suivante : https://manage.windowsazure.com/.
 
 2. Cliquez sur la base de données SQL/le SQL Server que vous voulez auditer, puis sur l’onglet **AUDIT ET SÉCURITÉ**
 
@@ -178,4 +178,4 @@ Vous pouvez utiliser différentes applets de commande PowerShell pour configurer
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

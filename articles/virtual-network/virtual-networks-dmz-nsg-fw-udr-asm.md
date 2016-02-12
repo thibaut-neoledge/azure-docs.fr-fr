@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Exemple 3 : créer un réseau de périmètre DMZ pour protéger les réseaux avec un pare-feu, un réseau défini sur l’utilisateur et un groupe de réseau
@@ -80,7 +80,7 @@ S’il existe deux préfixes identiques dans la table d’itinéraires, voici l�
 2.	« VPNGateway » = un itinéraire dynamique ( BGP en cas d’utilisation avec des réseaux hybrides), ajouté par un protocole réseau dynamique. Ces itinéraires peuvent changer au fil du temps, le protocole dynamique reflétant automatiquement les modifications intervenues dans le réseau associé
 3.	« Default » = les itinéraires du système, le réseau local virtuel et les entrées statiques, comme indiqué dans la table d’itinéraires.
 
->[AZURE.NOTE]Il existe une limite à l’utilisation du routage défini par utilisateur (UDR) et ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé sur la passerelle virtuelle Azure. L’UDR ne doit pas être appliqué aux sous-réseaux communiquant avec la passerelle Azure et fournissant la connexion ExpressRoute. La passerelle Azure ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés. La possibilité d’intégrer entièrement UDR et ExpressRoute sera activée dans une future version d’Azure.
+>[AZURE.NOTE] Il existe une limite à l’utilisation du routage défini par utilisateur (UDR) et ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé sur la passerelle virtuelle Azure. L’UDR ne doit pas être appliqué aux sous-réseaux communiquant avec la passerelle Azure et fournissant la connexion ExpressRoute. La passerelle Azure ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés. La possibilité d’intégrer entièrement UDR et ExpressRoute sera activée dans une future version d’Azure.
 
 #### Création d’itinéraires locaux
 
@@ -139,7 +139,7 @@ Le transfert IP est associé à UDR. Il s’agit d’un paramètre d’appliance
 
 Par exemple, si le trafic à partir d’AppVM01 fait une demande au serveur DNS01, l’UDR l’achemine vers le pare-feu. Lorsque le transfert IP est activé, le trafic de la destination de DNS01 (10.0.2.4) est accepté par l’appliance (10.0.0.4), puis transféré vers sa destination finale (10.0.2.4). Si le routage IP n’est pas activé sur le pare-feu, le trafic ne sera pas accepté par l’équipement, même si le tronçon suivant de la table d’itinéraires est le pare-feu.
 
->[AZURE.IMPORTANT]Il est essentiel de ne pas oublier d’activer le transfert IP en conjonction avec l’utilisateur défini.
+>[AZURE.IMPORTANT] Il est essentiel de ne pas oublier d’activer le transfert IP en conjonction avec l’utilisateur défini.
 
 La configuration du transfert IP est une commande unique et peut être exécutée au moment de la création d’une machine virtuelle. Pour le flux de cet exemple, l’extrait de code se trouve vers la fin du script et regroupé avec les commandes UDR :
 
@@ -179,7 +179,7 @@ Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que 
  
 ![Affichage logique des règles de pare-feu][2]
 
->[AZURE.NOTE]Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, un pare-feu de NG Barracuda utilisant les ports 22, 801 et 807 est référencé. Veuillez consulter la documentation du fournisseur d’équipement pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
+>[AZURE.NOTE] Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, il est fait référence à un pare-feu Barracuda NextGen Firewall utilisant les ports 22, 801 et 807. Veuillez consulter la documentation du fournisseur d’appliance pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
 
 ### Description de la logique de règle
 Dans le diagramme logique ci-dessus, le sous-réseau de sécurité n’est pas affiché car le pare-feu est la seule ressource de ce sous-réseau, et ce diagramme présente les règles de pare-feu et la façon dont elles autorisent ou refusent les flux et non les itinéraires réels. En outre, les ports externes sélectionnés pour le trafic RDP appartiennent à la plage supérieure de ports (8014 – 8026) et ont été sélectionnés pour s’aligner à peu près sur les deux derniers octets de l’adresse IP locale, pour faciliter la lecture (par exemple, l’adresse du serveur local 10.0.1.4 est associée à un port externe 8014), cependant, tous les ports supérieurs non conflictuels peuvent être utilisés.
@@ -199,16 +199,16 @@ Dans cet exemple, nous avons besoin de 7 types de règles, qui se présentent c
 - Règle de prévention de défaillance (pour le trafic ne répondant à aucun des éléments ci-dessus) :
   7.	Refuser toutes les règles de trafic : il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent, si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire.
 
->[AZURE.TIP]La deuxième règle de trafic de l’application autorise n’importe quel port dans cet exemple. Dans un scénario réel le port et les plages d’adresses les plus spécifiques permettent de réduire la surface d’attaque de cette règle.
+>[AZURE.TIP] La deuxième règle de trafic de l’application autorise n’importe quel port dans cet exemple. Dans un scénario réel le port et les plages d’adresses les plus spécifiques permettent de réduire la surface d’attaque de cette règle.
 
 <br />
 
->[AZURE.IMPORTANT]Une fois que toutes les règles ci-dessus sont créées, il est important de revoir la priorité de chaque règle pour s’assurer que le trafic sera autorisé ou rejeté comme souhaité. Pour cet exemple, les règles sont classées par ordre de priorité. Il est facile d’être bloqué hors du pare-feu si les règles ne sont pas dans l’ordre. Vous devez au minimum vous assurer que la gestion du pare-feu lui-même est la priorité absolue.
+>[AZURE.IMPORTANT] Une fois que toutes les règles ci-dessus sont créées, il est important de revoir la priorité de chaque règle pour s’assurer que le trafic sera autorisé ou rejeté comme souhaité. Pour cet exemple, les règles sont classées par ordre de priorité. Il est facile d’être bloqué hors du pare-feu si les règles ne sont pas dans l’ordre. Vous devez au minimum vous assurer que la gestion du pare-feu lui-même est la priorité absolue.
 
 ### Préalable en matière de règles
 Condition préalable pour que la machine virtuelle exécute le pare-feu : les points de terminaison publics. Pour que le pare-feu traite le trafic, les points de terminaison publics appropriés doivent être ouverts. Cet exemple comporte trois types de trafic : 1) Trafic de gestion pour contrôler le pare-feu et les règles de pare-feu, 2)Trafic RDP pour contrôler les serveurs Windows et 3) Trafic d’application. Voici les trois colonnes de types de trafic situées dans la partie supérieure des règles de la vue logique des règles de pare-feu ci-dessus.
 
->[AZURE.IMPORTANT]Il ne faut surtout pas oublier que **tout** le trafic passe par le pare-feu. Donc, depuis le bureau du serveur IIS01, même s’il se trouve dans le Service cloud du serveur frontal et sur le sous- réseau frontal, pour accéder à ce serveur, nous aurons besoin d’établir une connexion RDP vers le pare-feu sur le port 8014, puis nous devrons autoriser le pare-feu à acheminer la requête RDP en interne vers le port RDP IIS01. Le bouton « Se connecter » du portail Azure ne fonctionne pas car il n’existe pas d’itinéraire RDP vers IIS01 (du point de vue du portail). En d’autres termes, toutes les connexions à partir d’Internet seront établies avec le service de sécurité et un Port, par exemple, secscv001.cloudapp.net:xxxx (se reporter au schéma ci-dessus mapper le port externe et l’adresse et le port IP interne).
+>[AZURE.IMPORTANT] Il ne faut surtout pas oublier que **tout** le trafic passe par le pare-feu. Donc, depuis le bureau du serveur IIS01, même s’il se trouve dans le Service cloud du serveur frontal et sur le sous- réseau frontal, pour accéder à ce serveur, nous aurons besoin d’établir une connexion RDP vers le pare-feu sur le port 8014, puis nous devrons autoriser le pare-feu à acheminer la requête RDP en interne vers le port RDP IIS01. Le bouton « Se connecter » du portail Azure ne fonctionne pas car il n’existe pas d’itinéraire RDP vers IIS01 (du point de vue du portail). En d’autres termes, toutes les connexions à partir d’Internet seront établies avec le service de sécurité et un Port, par exemple, secscv001.cloudapp.net:xxxx (se reporter au schéma ci-dessus mapper le port externe et l’adresse et le port IP interne).
 
 Un point de terminaison peut être ouvert au moment de la création de la machine virtuelle ou après sa création (comme dans le script d’exemple), et affiché ci-dessous dans cet extrait de code (Remarque : tout élément qui est précédé du signe dollar (par exemple, $VMName[$i]), est une variable définie par l’utilisateur à partir du script de la section Références de ce document. Le « $I » entre crochets, [$i], représente le nombre de tableaux d’une machine virtuelle dans un tableau de machines virtuelles) :
 
@@ -246,7 +246,7 @@ Les valeurs peuvent ensuite être modifiées pour représenter le service RDP d�
  
 Ce processus doit être répété pour créer des Services RDP pour les serveurs restants (AppVM02, DNS01 et IIS01). La création de ces services facilite la création de règles et la rend plus évidente dans la section suivante.
 
->[AZURE.NOTE]Un service de protocole RDP pour le pare-feu est inutile pour deux raisons. 1) tout d’abord, la machine virtuelle pare-feu est une image Linux, et SSH sera utilisé sur le port 22 de gestion de machine virtuelle et non sur RDP et 2) port 22 et deux autres ports de gestion sont autorisés dans la première règle de gestion décrite ci-dessous. Ils permettent de gérer la connectivité de gestion.
+>[AZURE.NOTE] Un service de protocole RDP pour le pare-feu est inutile pour deux raisons. 1) tout d’abord, la machine virtuelle pare-feu est une image Linux, et SSH sera utilisé sur le port 22 de gestion de machine virtuelle et non sur RDP et 2) port 22 et deux autres ports de gestion sont autorisés dans la première règle de gestion décrite ci-dessous. Ils permettent de gérer la connectivité de gestion.
 
 ### Création de règles de pare-feu
 Il existe trois types de règles de pare-feu utilisées dans cet exemple, et elles sont toutes représentées par des icônes distinctes :
@@ -265,11 +265,11 @@ Une fois que vos règles sont créées et/ou modifiées, elles doivent être tra
 
 Les caractéristiques de chaque règle nécessaire pour compléter cet exemple sont décrites comme suit :
 
-- **Règle de gestion de pare-feu** : cette règle de redirection de l’application autorise le trafic franchir les ports de gestion de l’appliance virtuelle du réseau, dans cet exemple, un pare-feu Barracuda NG. Les ports de gestion sont 801, 807 et éventuellement, 22. Les ports interne et externe sont identiques (pas de transfert de port). Cette règle SETUP-MGMT-ACCESS, est une règle par défaut et elle est activée par défaut (dans la version 6.1 du pare-feu Barracuda NG).
+- **Règle de gestion de pare-feu** : cette règle de redirection de l’application autorise le trafic à franchir les ports de gestion de l’appliance virtuelle du réseau (dans cet exemple, un pare-feu Barracuda NextGen Firewall). Les ports de gestion sont 801, 807 et éventuellement, 22. Les ports interne et externe sont identiques (pas de transfert de port). Cette règle, SETUP-MGMT-ACCESS, est une règle par défaut et elle est activée par défaut (dans la version 6.1 du pare-feu Barracuda NextGen Firewall).
 
 	![Règle de gestion de pare-feu][10]
 
->[AZURE.TIP]L’espace d’adresse de cette règle est « Tout » si les plages d’adresses IP de gestion sont connues. La réduction de la portée se traduit par la réduction de la surface d’attaque des ports de gestion.
+>[AZURE.TIP] L’espace d’adresse de cette règle est « Tout » si les plages d’adresses IP de gestion sont connues. La réduction de la portée se traduit par la réduction de la surface d’attaque des ports de gestion.
 
 - **Règles RDP** : ces règles NAT de destination permettent la gestion des serveurs individuels via RDP. Il existe quatre champs critiques nécessaires à la création de cette règle :
   1.	Source : pour permettre l’exécution de RDP depuis n’importe quel endroit, la référence « Tout » est utilisée dans le champ Source.
@@ -288,7 +288,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
     | RDP 0 AppVM01 | AppVM01 | RDP AppVM01 | 10\.0.2.5:3389 |
     | RDP-vers-AppVM02 | AppVM02 | AppVm02 RDP | 10\.0.2.6:3389 |
   
->[AZURE.TIP]Affiner la portée des champs Source et Service réduira la surface d’attaque. Vous devez utiliser la portée la plus limitée possible, qui permet toutefois d’utiliser la fonctionnalité.
+>[AZURE.TIP] Affiner la portée des champs Source et Service réduira la surface d’attaque. Vous devez utiliser la portée la plus limitée possible, qui permet toutefois d’utiliser la fonctionnalité.
 
 - **Règles de trafic d’application** : elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture du réseau sur lequel sont placés vos serveurs et des flux de trafic (sens du flux de trafic et les ports utilisés).
 
@@ -312,13 +312,13 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
 
 	**Remarque**: le réseau Source de cette règle correspond à n’importe quelle ressource du sous-réseau du serveur frontal s’il n’y en a qu’un, ou s’il s’agit d’un nombre spécifique de serveurs web, une ressource d’objet réseau peut être créée pour préciser ces adresses IP exactes et non l’ensemble du sous-réseau du serveur frontal.
 
->[AZURE.TIP]Cette règle utilise le service « Any » pour faciliter l’installation et l’utilisation. Cela permet d’exécuter une commande ICMPv4 (ping) dans une seule règle. Toutefois, cela n’est pas recommandé. Les ports et protocoles (« Services ») doivent être réduits au minimum, tout en permettant le fonctionnement de l’application, et ce, afin de réduire la surface d’attaque au-delà de cette limite.
+>[AZURE.TIP] Cette règle utilise le service « Any » pour faciliter l’installation et l’utilisation. Cela permet d’exécuter une commande ICMPv4 (ping) dans une seule règle. Toutefois, cela n’est pas recommandé. Les ports et protocoles (« Services ») doivent être réduits au minimum, tout en permettant le fonctionnement de l’application, et ce, afin de réduire la surface d’attaque au-delà de cette limite.
 
 <br />
 
->[AZURE.TIP]Bien que cette règle indique une référence explicite-dest utilisée, une approche cohérente doit être utilisée tout au long de la configuration du pare-feu. Il est recommandé d’utiliser l’objet réseau nommé tout au long de la prise en charge pour faciliter la lisibilité et la prise en charge. L’élément explicit-dest est utilisé ici uniquement pour montrer une méthode de référence alternative et est en général déconseillé (en particulier pour des configurations complexes).
+>[AZURE.TIP] Bien que cette règle indique une référence explicite-dest utilisée, une approche cohérente doit être utilisée tout au long de la configuration du pare-feu. Il est recommandé d’utiliser l’objet réseau nommé tout au long de la prise en charge pour faciliter la lisibilité et la prise en charge. L’élément explicit-dest est utilisé ici uniquement pour montrer une méthode de référence alternative et est en général déconseillé (en particulier pour des configurations complexes).
 
-- **Règle de sortie vers Internet** : cette règle Pass autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux de destination sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu Barracuda NG, mais à l’état désactivé. Un clic droit sur cette règle peut permettre d’accéder à la commande Activer la règle. La règle affichée ici a été modifiée pour y ajouter les deux sous-réseaux locaux créés en tant que références dans la section Configuration requise de ce document à l’attribut Source de cette règle.
+- **Règle de sortie vers Internet** : cette règle Pass autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux de destination sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu Barracuda NextGen Firewall, mais à l’état désactivé. Un clic droit sur cette règle peut permettre d’accéder à la commande Activer la règle. La règle affichée ici a été modifiée pour y ajouter les deux sous-réseaux locaux créés en tant que références dans la section Configuration requise de ce document à l’attribut Source de cette règle.
 
 	![Règle de trafic sortant de pare-feu][14]
 
@@ -338,7 +338,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
 
 	![Règle de refus de pare-feu][17]
 
->[AZURE.IMPORTANT]Une fois que toutes les règles ci-dessus sont créées, il est important de revoir la priorité de chaque règle pour s’assurer que le trafic sera autorisé ou rejeté comme souhaité. Pour cet exemple, les règles sont dans l’ordre, dans lequel elles doivent apparaître dans la grille principale des règles de transfert du Client de gestion Barracuda.
+>[AZURE.IMPORTANT] Une fois que toutes les règles ci-dessus sont créées, il est important de revoir la priorité de chaque règle pour s’assurer que le trafic sera autorisé ou rejeté comme souhaité. Pour cet exemple, les règles sont dans l’ordre, dans lequel elles doivent apparaître dans la grille principale des règles de transfert du Client de gestion Barracuda.
 
 ## Activation d’une règle
 Une fois l’ensemble de règles modifié en fonction de la spécification du schéma logique, il doit être téléchargé sur le pare-feu et ensuite activé.
@@ -350,7 +350,7 @@ Dans le coin supérieur droit du client de gestion se trouve un ensemble de bout
 Avec l’activation de l’ensemble de règles de pare-feu, la création de l’environnement de cet exemple est terminée.
 
 ## Scénarios de trafic
->[AZURE.IMPORTANT]Il ne faut pas oublier que **tout** le trafic passe par le pare-feu. Donc, depuis le bureau du serveur IIS01, même s’il se trouve dans le Service cloud du serveur frontal et sur le sous- réseau frontal, pour accéder à ce serveur, nous aurons besoin d’établir une connexion RDP vers le pare-feu sur le port 8014, puis nous devrons autoriser le pare-feu à acheminer la requête RDP en interne vers le port RDP IIS01. Le bouton « Se connecter » du portail Azure ne fonctionne pas car il n’existe pas d’itinéraire RDP vers IIS01 (du point de vue du portail). Cela signifie que toutes les connexions à partir d’Internet seront orientées vers le Service Sécurité et un port, par exemple, secscv001.cloudapp.net:xxxx.
+>[AZURE.IMPORTANT] Il ne faut pas oublier que **tout** le trafic passe par le pare-feu. Donc, depuis le bureau du serveur IIS01, même s’il se trouve dans le Service cloud du serveur frontal et sur le sous- réseau frontal, pour accéder à ce serveur, nous aurons besoin d’établir une connexion RDP vers le pare-feu sur le port 8014, puis nous devrons autoriser le pare-feu à acheminer la requête RDP en interne vers le port RDP IIS01. Le bouton « Se connecter » du portail Azure ne fonctionne pas car il n’existe pas d’itinéraire RDP vers IIS01 (du point de vue du portail). Cela signifie que toutes les connexions à partir d’Internet seront orientées vers le Service Sécurité et un port, par exemple, secscv001.cloudapp.net:xxxx.
 
 Pour ces scénarios, les règles de pare-feu suivantes doivent être en place :
 
@@ -546,7 +546,7 @@ Ce script, en fonction des variables définies par l’utilisateur, exécutera 
 
 Ce script PowerShell doit être exécuté localement sur un PC ou un serveur connecté à Internet.
 
->[AZURE.IMPORTANT]Lorsque ce script est exécuté, des avertissements ou autres messages d’information peuvent s’afficher dans PowerShell. Seuls les messages d’erreur affichés en rouge sont source de préoccupation.
+>[AZURE.IMPORTANT] Lorsque ce script est exécuté, des avertissements ou autres messages d’information peuvent s’afficher dans PowerShell. Seuls les messages d’erreur affichés en rouge sont source de préoccupation.
 
 	<# 
 	 .SYNOPSIS
@@ -557,7 +557,7 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
 	   - A default storage account for VM disks
 	   - Three new cloud services
 	   - Three Subnets (SecNet, FrontEnd, and BackEnd subnets)
-	   - A Network Virtual Appliance (NVA), in this case a Barracuda NG Firewall
+	   - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
 	   - One server on the FrontEnd Subnet
 	   - Three Servers on the BackEnd Subnet
 	   - IP Forwading from the FireWall out to the internet
@@ -627,7 +627,7 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
 	
 	  # VM Base Disk Image Details
 	    $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
-	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NG Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
+	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NextGen Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
 	
 	  # UDR Details
 	    $FERouteTableName = "FrontEndSubnetRouteTable"
@@ -941,4 +941,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

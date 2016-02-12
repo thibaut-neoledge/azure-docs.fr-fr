@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Prise en main d’Azure Storage (projets de tâche web Azure)
 
 ## Vue d'ensemble
 
-Cet article fournit des exemples de code C# qui montrent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de tables Azure. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) version 1.x.
+Cet article fournit des exemples de code C# qui montrent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de tables Azure. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](/app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x.
 
 Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles. Pour plus d’informations, voir l’article [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Utilisation du stockage de tables à partir de .NET").
 
@@ -142,7 +142,7 @@ L’exemple de code suivant utilise un objet **CloudTable** pour ajouter une ent
 		    tableBinding.Execute(insertOperation);
 		}
 
-Pour en savoir plus sur l’utilisation de l’objet **CloudTable**, consultez [Utilisation du stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables.md).
+Pour en savoir plus sur l’utilisation de l’objet **CloudTable**, consultez [Utilisation du stockage de tables à partir de .NET](./storage-dotnet-how-to-use-tables.md).
 
 ## Sujets connexes traités dans l’article de procédure relatif aux files d’attente
 
@@ -154,4 +154,4 @@ Pour en savoir plus sur la gestion du traitement de tables déclenché par un me
 
 Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

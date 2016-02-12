@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/01/2016"
     ms.author="curtand"/>
 
 # Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ?
@@ -43,7 +43,7 @@ En général, les informations d’abonnement Azure AD sont gérées par l’in
 
 > [AZURE.IMPORTANT] Les abonnements Azure AD Premium et Standard, ainsi que les abonnements Enterprise Mobility Suite, sont confinés à leur annuaire/client alloué. Les abonnements ne peuvent pas être fractionnés entre plusieurs annuaires, ni utilisés pour habiliter des utilisateurs à exploiter d’autres annuaires. Le déplacement d’un abonnement entre annuaires est possible, mais nécessite l’envoi d’un ticket de support ou une annulation et un rachat dans le cas des achats directs.
 
-> [AZURE.IMPORTANT] Lors de l'achat d'Azure AD ou Enterprise Mobility Suite via la licence en volume, l’activation de l'abonnement se produit automatiquement lorsque l'accord comprend d’autres services Microsoft Online, comme Office 365.
+> Lors de l'achat d'Azure AD ou Enterprise Mobility Suite via la licence en volume, l’activation de l'abonnement se produit automatiquement lorsque l'accord comprend d’autres services Microsoft Online, comme Office 365.
 
 Les fonctionnalités Azure AD payantes couvrent l’étendue de l’annuaire. Exemples : - Fonctionnalité d’attribution par groupe aux applications, activée sous l’application que vous gérez. - Fonctionnalités de gestion de groupe avancées et en libre service, disponibles sous la configuration du répertoire ou au sein du groupe concerné. - Rapports de sécurité Premium, accessibles dans l’onglet Génération de rapports. - Découverte des applications cloud, accessible dans le portail Azure sous Identité.
 
@@ -129,7 +129,7 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 - [Gestion des groupes en libre service](active-directory-accessmanagement-self-service-group-management.md)
 - [Azure AD Connect Health](active-directory-aadconnect-health.md)
 - [Attribution de groupe aux applications](active-directory-manage-groups.md)
-- [Azure Multi-Factor Authentication](multi-factor-authentication.md)
+- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

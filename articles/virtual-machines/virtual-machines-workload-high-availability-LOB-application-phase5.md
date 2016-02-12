@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 5 : création du groupe de disponibilité et ajout des bases de données d'application
@@ -41,7 +41,7 @@ Pour activer la sauvegarde et la restauration, les fichiers de sauvegarde (.bak)
 1.	Connectez-vous au serveur de base de données primaire en tant que **[domain]\\sqladmin**. 
 2.	Accédez au disque F:\\. 
 3.	Cliquez avec le bouton droit sur le dossier **Backup**, puis cliquez sur **Partager avec**et sur **Des personnes spécifiques**.
-4.	Dans la boîte de dialogue **Partage de fichiers**, tapez **domain\\sqlservice**, puis cliquez sur **Ajouter**.
+4.	Dans la boîte de dialogue **Partage de fichiers**, entrez **domain\\sqlservice**, puis cliquez sur **Ajouter**.
 5.	Cliquez sur la colonne **Niveau d’autorisation** correspondant au compte **sqlservice**, puis cliquez sur **Lecture/Écriture**. 
 6.	Cliquez sur **Partager**, puis sur **Terminé**.
 
@@ -99,8 +99,8 @@ Secondaire | Secondaire lisible | Oui
 		
 9.	Cliquez sur **Next**.
 10.	Dans la page **Sélectionner la synchronisation de données initiale**, cliquez sur **Joindre uniquement**, puis sur **Suivant**. La synchronisation des données s’exécute manuellement par le biais des sauvegardes complètes et de transactions sur le serveur principal, puis de la restauration effectuée à partir de la sauvegarde. Vous pouvez également sélectionner **Complet** pour permettre à l’Assistant Nouveau groupe de disponibilité d’effectuer la synchronisation des données à votre place. Toutefois, la synchronisation n’est pas recommandée pour les grandes bases de données de certaines entreprises.
-11.	Dans la page **Validation**, cliquez sur **Suivant**. Un avertissement concernant la configuration de l’écouteur manquant s’affiche, car un écouteur du groupe de disponibilité n’est pas configuré. 
-12.	Dans la page **Résumé**, cliquez sur **Terminer**. Une fois l’Assistant terminé, examinez la page **Résultats** afin de vérifier la création du groupe de disponibilité. Si le groupe de disponibilité a bien été créé, cliquez sur **Fermer** pour quitter l’Assistant. 
+11.	Sur la page **Validation**, cliquez sur **Suivant**. Un avertissement concernant la configuration de l’écouteur manquant s’affiche, car un écouteur du groupe de disponibilité n’est pas configuré. 
+12.	Sur la page **Résumé**, cliquez sur **Terminer**. Une fois l’Assistant terminé, examinez la page **Résultats** afin de vérifier la création du groupe de disponibilité. Si le groupe de disponibilité a bien été créé, cliquez sur **Fermer** pour quitter l’Assistant. 
 13.	Sur l’écran d’accueil, entrez **Basculement**, puis cliquez sur **Gestionnaire du cluster de basculement**. Dans le volet gauche, ouvrez votre cluster, puis cliquez sur **Rôles**. Un nouveau rôle portant le nom de votre groupe de disponibilité doit s’afficher.
 
 Vous avez configuré un groupe de disponibilité SQL Server AlwaysOn pour vos bases de données d'applications.
@@ -119,4 +119,4 @@ Une fois l'écouteur configuré, vous devez configurer toutes les machines virtu
 
 - Consultez ces [recommandations](virtual-machines-infrastructure-services-implementation-guidelines.md) si vous déployez votre propre charge de travail informatique dans Azure.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

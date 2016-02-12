@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="02/04/2016"
 	ms.author="larryfr"/>
 
 # Didacticiel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning
@@ -238,13 +238,24 @@ L’entrée de script groupé permet de transmettre le contenu d’un fichier zi
 	source("src/yourfile.R") # Reads a zipped R script
 	load("src/yourData.rdata") # Reads a zipped R data file
 
-> [AZURE.NOTE]Azure Machine Learning traite les fichiers contenus dans le zip comme s’ils se trouvaient dans le répertoire src/. Il est donc nécessaire de faire précéder les noms des fichiers du nom de ce répertoire.
+> [AZURE.NOTE] Azure Machine Learning traite les fichiers contenus dans le zip comme s’ils se trouvaient dans le répertoire src/. Il est donc nécessaire de faire précéder les noms des fichiers du nom de ce répertoire. Par exemple, si le fichier zip contient les fichiers `yourfile.R` et `yourData.rdata` à sa racine, vous devez les traiter en tant que `src/yourfile.R` et `src/yourData.rdata` quand vous utilisez `source` et `load`.
 
 Nous avons déjà abordé la question du chargement des jeux de données dans la section [Chargement du jeu de données](#loading). Dès que vous avez créé et testé le script R présenté dans la section précédente, procédez comme suit :
 
-1. Enregistrez le script R dans un fichier .R. J'appelle mon fichier de script « simpleplot.R ».  
+1. Enregistrez le script R dans un fichier .R. J'appelle mon fichier de script « simpleplot.R ». Voici le contenu.
 
-2.  Créez un fichier zip et copiez votre script dans ce fichier.
+        ## Only one of the following two lines should be used
+        ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+        ## If in RStudio, use the second line with read.csv()
+        cadairydata <- maml.mapInputPort(1)
+        # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
+        str(cadairydata)
+        pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
+        ## The following line should be executed only when running in
+        ## Azure Machine Learning Studio
+        maml.mapOutputPort('cadairydata')
+
+2.  Créez un fichier zip et copiez votre script dans ce fichier. Dans Windows, vous pouvez cliquer avec le bouton droit sur le fichier et sélectionner __Envoyer vers__, puis __Dossier compressé__. Vous créez ainsi un fichier zip contenant le fichier « simpleplot.R ».
 
 3.	Ajoutez ce dernier aux **jeux de données** dans Machine Learning Studio en spécifiant le type **zip**. Le fichier zip doit dès lors figurer dans vos jeux de données.
 
@@ -252,7 +263,7 @@ Nous avons déjà abordé la question du chargement des jeux de données dans la
 
 5.	Reliez la sortie de l’icône des **données zip** à l’entrée de **script groupé** du module d’[exécution de script R][execute-r-script].
 
-6.	Tapez la fonction `source()` avec le nom de votre fichier zip dans la fenêtre de code du module d’[exécution de script R][execute-r-script]. Dans mon cas, j’ai saisi `source("src/SimplePlot.R")`.
+6.	Tapez la fonction `source()` avec le nom de votre fichier zip dans la fenêtre de code du module d’[exécution de script R][execute-r-script]. Dans mon cas, j’ai saisi `source("src/simpleplot.R")`.
 
 7.	Pensez à cliquer sur **Save** (Enregistrer).
 
@@ -279,7 +290,7 @@ Exécutez votre expérimentation en cliquant sur le bouton **Run** (Exécuter). 
     [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
     [ModuleOutput] }
 
-Un double-clic sur la page chargera des données supplémentaires qui ressembleront à ce qui suit.
+Plus bas dans la page, vous trouverez des informations détaillées sur les colonnes, qui ressemblent à ce qui suit.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -305,7 +316,7 @@ Un double-clic sur la page chargera des données supplémentaires qui ressembler
 
 Pour l'essentiel, ces résultats sont conformes aux attentes, avec 228 observations et 9 colonnes dans le tableau de données. Nous pouvons voir les noms de colonnes, le type de données R et un exemple de chaque colonne.
 
-> [AZURE.NOTE]Pratique, cette même sortie imprimée est disponible depuis la sortie du périphérique R du module d’[exécution de script R][execute-r-script]. Nous évoquerons les sorties du module d’[exécution de script R][execute-r-script] dans la section suivante.
+> [AZURE.NOTE] Pratique, cette même sortie imprimée est disponible depuis la sortie de l’appareil R du module d’[exécution de script R][execute-r-script]. Nous évoquerons les sorties du module d’[exécution de script R][execute-r-script] dans la section suivante.
 
 ####Jeu de données 2
 
@@ -327,21 +338,21 @@ Après avoir exécuté l’expérimentation, cliquez sur le port de sortie du Je
 
 Cette sortie est identique à l'entrée, exactement comme nous l'attendions.
 
-###	Sortie du périphérique R
+###	Sortie de l’appareil R
 
-La sortie du périphérique du module d’[exécution de script R][execute-r-script] contient des messages et une sortie graphique. La sortie et les messages d'erreur standard de R sont envoyés au port de sortie du périphérique R.
+La sortie de l’appareil du module d’[exécution de script R][execute-r-script] contient des messages et une sortie graphique. La sortie et les messages d'erreur standard de R sont envoyés au port de sortie de l’appareil R.
 
-Pour afficher la sortie du périphérique R, cliquez sur le port, puis sur **Visualize** (Visualiser). La sortie et l'erreur standard du script R sont présentées dans la figure 7.
+Pour afficher la sortie de l’appareil R, cliquez sur le port, puis sur **Visualize** (Visualiser). La sortie et l'erreur standard du script R sont présentées dans la figure 7.
 
-![sortie et erreur standard du port du périphérique R][8]
+![sortie et erreur standard du port de l’appareil R][8]
 
-*Figure 7 : sortie et erreur standard du port du périphérique R.*
+*Figure 7 : sortie et erreur standard du port de l’appareil R.*
 
 En faisant défiler l'écran vers le bas, nous voyons la sortie graphique de notre script R, qui est présentée dans la figure 8.
 
-![sortie graphique du port du périphérique R][9]
+![sortie graphique du port de l’appareil R][9]
 
-*Figure 8 : sortie graphique du port de périphérique R.*
+*Figure 8 : sortie graphique du port d’appareil R.*
 
 ##<a id="filtering"></a>Filtrage et transformation des données
 
@@ -462,7 +473,7 @@ Les tableaux de données R prennent en charge des fonctionnalités de filtrage e
 
 Notre jeu de données a besoin d'être filtré. En effet, si l’on examine les colonnes du tableau de données cadiarydata, on constate qu’il y a deux colonnes inutiles. La première colonne contient seulement un numéro de ligne, ce qui n'est pas très utile. La deuxième colonne, Year.Month, contient des informations redondantes. Nous pouvons facilement exclure ces colonnes à l’aide du code R suivant.
 
-> [AZURE.NOTE]À partir de maintenant, dans cette section, je ne vous montrerai que le code supplémentaire que j’ajoute dans le module d’[exécution de script R][execute-r-script]. Chaque nouvelle ligne sera ajoutée **avant** la fonction `str()`. J’utilise cette fonction pour vérifier les résultats dans Azure Machine Learning Studio.
+> [AZURE.NOTE] À partir de maintenant, dans cette section, je ne vous montrerai que le code supplémentaire que j’ajoute dans le module d’[exécution de script R][execute-r-script]. Chaque nouvelle ligne sera ajoutée **avant** la fonction `str()`. J’utilise cette fonction pour vérifier les résultats dans Azure Machine Learning Studio.
 
 J’ajoute la ligne suivante à mon code R dans le module d’[exécution de script R][execute-r-script].
 
@@ -644,8 +655,7 @@ Le code complet de cette section se trouve dans le fichier zip que vous avez té
 
 Comme nous l'avons déjà vu, une série chronologique est une série de valeurs de données indexées par le temps. Les objets de série chronologique R servent à créer et gérer l'index chronologique. Il y a plusieurs avantages à utiliser des objets de série chronologique. Les objets de série chronologique vous affranchissent de nombreuses tâches de gestion qu’imposent les valeurs d’index chronologique qui sont encapsulées dans les objets. De plus, ils vous permettent d'utiliser les diverses méthodes associées aux séries chronologiques, comme le traçage, l'impression, la modélisation, etc.
 
-La classe de série chronologique POSIXct est couramment utilisée et relativement simple. Cette classe de série chronologique mesure le temps à partir du début de l'époque, soit le 1er janvier 1970. Nous utiliserons dans cet exemple des objets de série chronologique POSIXct. Parmi les autres classes d’objet de série chronologique R souvent utilisées, citons zoo et xts, qui concernent les séries chronologiques extensibles.
-<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+La classe de série chronologique POSIXct est couramment utilisée et relativement simple. Cette classe de série chronologique mesure le temps à partir du début de l'époque, soit le 1er janvier 1970. Nous utiliserons dans cet exemple des objets de série chronologique POSIXct. Parmi les autres classes d’objet de série chronologique R souvent utilisées, citons zoo et xts, qui concernent les séries chronologiques extensibles.<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Exemple d’objet de série chronologique
 
@@ -734,7 +744,7 @@ Examinons certaines variables de ce jeu de données. Une matrice de nuage de poi
 
 	pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata, main = "Pairwise Scatterplots of dairy time series")
 
-Exécutez ce code et regardez ce qu'il se passe. Le graphique généré au niveau du port du périphérique R doit être similaire à la figure 16.
+Exécutez ce code et regardez ce qu'il se passe. Le graphique généré au niveau du port de l’appareil R doit être similaire à la figure 16.
 
 ![matrice de nuage de points des variables sélectionnées][17]
 
@@ -993,7 +1003,7 @@ Après avoir construit le tableau de données, nous devons maintenant créer un 
 
 	Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 
-L'exécution du code génère la série de graphiques chronologiques à partir de la sortie du périphérique R présentée dans la figure 22. Notez que l'axe du temps est exprimé en unités de dates, avantage appréciable de la méthode de graphique chronologique.
+L'exécution du code génère la série de graphiques chronologiques à partir de la sortie de l’appareil R présentée dans la figure 22. Notez que l'axe du temps est exprimé en unités de dates, avantage appréciable de la méthode de graphique chronologique.
 
 ![premier graphique chronologique des données de production et de prix des produits laitiers californiens](./media/machine-learning-r-quickstart/unnamed-chunk-161.png)
 
@@ -1347,4 +1357,4 @@ Quelques ressources Internet particulièrement utiles :
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

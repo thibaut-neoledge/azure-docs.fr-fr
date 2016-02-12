@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/20/2016"
+   ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Créer un cluster HDInsight avec Data Lake Store à l'aide du portail Azure
@@ -29,14 +29,8 @@ Apprenez à utiliser le portail Azure pour créer un cluster HDInsight (Hadoop, 
 
 * **Pour les clusters Storm (Windows et Linux)**, le Data Lake Store peut être utilisé pour écrire des données à partir d’une topologie Storm. Le Data Lake Store peut également servir à stocker des données de référence qui peuvent ensuite être lues par une topologie Storm.
 
-* **Pour les clusters HBase (Windows et Linux)**, vous pouvez utiliser Data Lake Store comme stockage par défaut ou comme stockage supplémentaire.
+* **Pour les clusters HBase (Windows et Linux)**, vous pouvez utiliser Data Lake Store comme stockage par défaut ou comme stockage supplémentaire. L’option permettant de créer des clusters HBase avec accès au Data Lake Store est disponible uniquement si vous utilisez HDI version 3.1 ou 3.2 (pour Windows) ou 3.2 (pour Windows et Linux).
 
-
-Dans cet article, nous approvisionnons un cluster Hadoop avec Data Lake Store comme stockage supplémentaire. Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide du portail Azure, la procédure est la suivante :
-
-* Créer un cluster HDInsight avec authentification à un principal du service Azure Active Directory
-* Configurer l'accès Data Lake Store à l'aide du même principal du service
-* Lancer une tâche de test sur le cluster
 
 ## Configuration requise
 
@@ -44,9 +38,13 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
+- **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d'Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md). Une fois que vous avez créé le compte, effectuez les tâches suivantes pour télécharger des exemples de données. Vous aurez besoin de ces données plus tard dans ce didacticiel, pour exécuter des tâches à partir d’un cluster HDInsight ayant accès au Data Lake Store. 
+
+	* [Créer un dossier dans votre Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
+	* [Charger un fichier dans votre Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 
-## Créer un cluster HDInsight avec authentification à un principal du service Azure Active Directory
+## Créer un cluster HDInsight ayant accès au Data Lake Store.
 
 Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data Lake Store comme stockage supplémentaire. Dans cette version, pour un cluster Hadoop, Data Lake Store ne peut être utilisé que comme stockage supplémentaire pour le cluster. Le stockage par défaut sera toujours les objets blob Azure Storage (WASB). Par conséquent, nous allons tout d'abord créer le compte de stockage et les conteneurs de stockage requis par le cluster.
 
@@ -60,71 +58,40 @@ Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data 
 
 4. Dans le panneau **Identité AAD de cluster**, vous pouvez sélectionner un principal du service existant ou en créer un.
 	
-	* **Créer un principal du service**. Dans le panneau **Identité AAD de cluster**, cliquez sur **Nouveau**. Cliquez sur **Principal du service** puis, dans le panneau **Créer un principal du service**, fournissez les valeurs pour créer un nouveau principal du service. Dans ce cadre, un certificat et une application Azure Active Directory sont également créés. Cliquez sur **Create**.
+	* **Créer un principal du service**.
+	
+		* Dans le panneau **Identité AAD de cluster**, cliquez sur **Nouveau**. Cliquez sur **Principal du service** puis, dans le panneau **Créer un principal du service**, fournissez les valeurs pour créer un nouveau principal du service. Dans ce cadre, un certificat et une application Azure Active Directory sont également créés. Cliquez sur **Create**.
 
-		![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "Ajouter un principal du service à un cluster HDInsight")
+			![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Ajouter un principal du service à un cluster HDInsight")
 
-		Dans le panneau **Identité AAD de cluster**, cliquez sur **Sélectionner** pour poursuivre la création du principal du service.
+		* Dans le panneau **Identité AAD de cluster**, cliquez sur **Gérer l’accès ADLS**. Le panneau affiche les comptes Data Lake Store associés à l’abonnement. Toutefois, vous pouvez uniquement affecter des autorisations au compte que vous avez créé. Sélectionnez les autorisations de lecture/écriture/exécution (READ/WRITE/EXECUTE) pour le compte auquel vous souhaitez associer le cluster HDInsight, puis cliquez sur **Enregistrer les autorisations**.
 
-		![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Ajouter un principal du service à un cluster HDInsight")
+			![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Ajouter un principal du service à un cluster HDInsight")
+
+		* Dans le panneau **Identité AAD de cluster**, cliquez sur **Télécharger le certificat** pour télécharger le certificat associé au principal du service que vous avez créé. Cela est utile si vous souhaitez utiliser le même principal du service à l’avenir, tout en créant des clusters HDInsight supplémentaires. Cliquez sur **Sélectionner**.
+
+			![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "Ajouter un principal du service à un cluster HDInsight")
 
 
-	* **Choisir un principal du service existant**. Dans le panneau **Identité AAD de cluster**, cliquez sur **Existant**. Cliquez sur **Principal du service** puis, dans le panneau **Sélectionner un principal du service**, recherchez un principal du service existant. Cliquez sur un nom de principal du service, puis sur **Sélectionner**.
+	* **Choisir un principal du service existant**.
 
-		![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Ajouter un principal du service à un cluster HDInsight")
+		* Dans le panneau **Identité AAD de cluster**, cliquez sur **Existant**, puis sur **Principal du service**. Dans le panneau **Sélectionner un principal du service**, recherchez un principal du service existant. Cliquez sur un nom de principal du service, puis sur **Sélectionner**.
 
-		Dans le panneau **Identité AAD de cluster**, téléchargez le certificat (.pfx) que vous avez créé précédemment et fournissez le mot de passe que vous avez utilisé pour créer le certificat. Cliquez sur **Sélectionner**. La configuration d'Azure Active Directory pour le cluster HDInsight est terminée.
+			![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Ajouter un principal du service à un cluster HDInsight")
 
-		![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Ajouter un principal du service à un cluster HDInsight")
+		* Dans le panneau **Identité AAD de cluster**, chargez le certificat (.pfx) associé au principal du service que vous avez sélectionné, puis saisissez le mot de passe du certificat.
+		
+		* Cliquez sur **Gérer l’accès ADLS**. Le panneau affiche les comptes Data Lake Store associés à l’abonnement. Toutefois, vous pouvez uniquement affecter des autorisations au compte que vous avez créé. Sélectionnez les autorisations de lecture/écriture/exécution (READ/WRITE/EXECUTE) pour le compte auquel vous souhaitez associer le cluster HDInsight, puis cliquez sur **Enregistrer les autorisations**.
+
+			![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.existing.save.png "Ajouter un principal du service à un cluster HDInsight")
+
+		* Cliquez sur **Enregistrer les autorisations**, puis sur **Sélectionner**.
 
 6. Cliquez sur **Sélectionner** dans le panneau **Source des données** et poursuivez l'approvisionnement du cluster comme décrit dans [Création de clusters Hadoop dans HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal).
 
 7. Une fois le cluster approvisionné, vous pouvez vérifier que le principal du service est associé au cluster HDInsight. Pour ce faire, cliquez sur **Paramètres** dans le panneau du cluster, puis sur **Identité AAD de cluster**. Vous devez alors voir le principal du service associé.
 
 	![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Ajouter un principal du service à un cluster HDInsight")
-
-## <a name="acl"></a>Configurer le principal du service pour qu'il accède au système de fichiers Data Lake Store
-
-1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
-
-2. Si vous ne disposez pas d'un compte Data Lake Store, créez-en un. Suivez les instructions de [Prise en main d'Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md).
-
-	Si vous disposez déjà d'un compte Data Lake Store, cliquez sur **Parcourir** dans le volet gauche, puis sur **Data Lake Store**, et enfin sur le nom du compte auquel vous souhaitez accorder l'accès.
-
-	Effectuez les tâches suivantes sous votre compte Data Lake Store.
-
-	* [Créer un dossier dans votre Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
-	* [Charger un fichier dans votre Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
-
-	Vous utiliserez ultérieurement les fichiers téléchargés, lorsque vous testerez le compte Data Lake Store avec le cluster HDInsight.
-
-3. Dans le panneau Data Lake Store, cliquez sur **Explorateur de données**.
-
-	![Explorateur de données](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.start.data.explorer.png "Explorateur de données")
-
-4. Dans le panneau **Explorateur de données**, cliquez sur la racine de votre compte puis, dans le panneau de votre compte, cliquez sur l'icône **Accès**.
-
-	![Définir des ACL sur le système de fichiers Data Lake](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.1.png "Définir des ACL sur le système de fichiers Data Lake")
-
-5. Le panneau **Accès** répertorie les accès standard et personnalisés déjà affectés à la racine. Cliquez sur l'icône **Ajouter** pour ajouter des ACL de niveau personnalisé et inclure le principal du service que vous avez créé précédemment.
-
-	![Lister les accès standard et personnalisés](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.2.png "Lister les accès standard et personnalisés")
-
-6. Cliquez sur l'icône **Ajouter** pour ouvrir le panneau **Ajouter un accès personnalisé**. Dans ce panneau, cliquez sur **Sélectionner un utilisateur ou un groupe** puis, dans le panneau **Sélectionner un utilisateur ou un groupe**, recherchez le principal du service créé précédemment dans Azure Active Directory. Le nom du principal du service créé précédemment est **HDIADL**. Cliquez sur le nom du principal du service, puis sur **Sélectionner**.
-
-	![Ajouter un groupe](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.3.png "Ajouter un groupe")
-
-7. Cliquez sur **Sélectionner des autorisations**, sélectionnez les autorisations que vous souhaitez attribuer au principal du service, puis cliquez sur **OK**.
-
-	![Affecter des autorisations à un groupe](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.4.png "Affecter des autorisations à un groupe")
-
-8. Dans le panneau **Ajouter un accès personnalisé**, cliquez sur **OK**. Le groupe récemment créé, avec les autorisations associées, sera désormais répertorié dans le panneau **Accès**.
-
-	![Affecter des autorisations à un groupe](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.5.png "Affecter des autorisations à un groupe")
-
-7. Si nécessaire, vous pouvez également modifier les autorisations d'accès après avoir ajouté le principal du service. Cochez ou décochez la case de chaque type d'autorisation (lecture, écriture, exécution) selon que vous souhaitez retirer ou affecter cette autorisation. Cliquez sur **Enregistrer** pour enregistrer les modifications, ou sur **Ignorer** pour annuler les modifications.
-
-
 
 ## Exécuter des tâches de test sur le cluster HDInsight pour utiliser Azure Data Lake Store
 
@@ -136,7 +103,7 @@ Après avoir configuré un cluster HDInsight, vous pouvez exécuter des tâches 
 
 	![Tableau de bord du cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Tableau de bord du cluster")
 
-	Vous pouvez également accéder directement à Ambari en accédant à https://CLUSTERNAME.azurehdinsight.net dans un navigateur Web (où **CLUSTERNAME** est le nom de votre cluster HDInsight).
+	Vous pouvez également ouvrir directement Ambari en accédant à https://CLUSTERNAME.azurehdinsight.net dans un navigateur web (où **CLUSTERNAME** est le nom de votre cluster HDInsight).
 
 2. Ouvrez la vue Hive. Sélectionnez l’ensemble de carrés dans le menu de la page (en regard du lien **Admin** et du bouton à droite de la page) pour répertorier les vues disponibles. Sélectionnez la vue **Hive**.
 
@@ -215,7 +182,7 @@ Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data L
 
 Dans cette section, vous allez utiliser SSH dans le cluster et exécuter les commandes HDFS. Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Pour en savoir plus sur l’utilisation de PuTTY, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Une fois connecté, utilisez la commande du système de fichiers HDFS suivante pour répertorier les fichiers dans le Data Lake Store.
 
@@ -254,18 +221,10 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 	Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fichiers dans Data Lake Store, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été chargés avec succès.
 
-## Considérations sur l'approvisionnement d'un cluster HBase qui utilise Data Lake Store comme stockage par défaut
-
-Pour les clusters HBase, vous pouvez utiliser des comptes Data Lake Store comme stockage par défaut. Dans ce cas, le principal du service associé au cluster **doit** avoir accès au compte Data Lake Store pour que le cluster soit approvisionné. Vous pouvez vous en assurer de deux manières :
-
-* **Si vous utilisez un principal du service existant**, vous devez vous assurer que le principal du service est ajouté à la liste de contrôle d'accès à la racine du système de fichiers Data Lake Store avant de lancer l'approvisionnement du cluster.
-* **Si vous choisissez de créer un nouveau principal du service** dans le cadre de l'approvisionnement du cluster, vous devez ajouter le principal du service nouvellement créé à la racine du système de fichiers Data Lake Store dès le début de l'approvisionnement du cluster. Dans le cas contraire, le cluster sera approvisionné mais les services HBase ne pourront pas démarrer. Pour contourner ce problème, vous devez ajouter le principal du service à l'ACL du compte Data Lake Store, puis redémarrer les services HBase avec l'interface utilisateur web Ambari.
-
-Pour obtenir des instructions sur l'ajout d'un principal du service à un système de fichiers Data Lake Store, consultez [Configurer le principal du service pour qu'il accède au système de fichiers Data Lake Store](#acl).
 
 ## Utiliser Data Lake Store dans une topologie Storm
 
-Vous pouvez utiliser le Data Lake Store pour écrire des données à partir d’une topologie Storm. Pour obtenir des instructions sur la réalisation de ce scénario, consultez la page [Utilisation d’Azure Data Lake Store avec Apache Storm à l’aide de HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+Vous pouvez utiliser le Data Lake Store pour écrire des données à partir d’une topologie Storm. Pour obtenir des instructions sur la réalisation de ce scénario, consultez la page [Utilisation d’Azure Data Lake Store avec Apache Storm sur HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
 ## Voir aussi
 
@@ -274,4 +233,4 @@ Vous pouvez utiliser le Data Lake Store pour écrire des données à partir d’
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

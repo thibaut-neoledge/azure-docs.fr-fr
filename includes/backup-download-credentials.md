@@ -27,6 +27,6 @@ Le fichier d’informations d’identification de coffre est téléchargé via u
 - Vérifiez que les informations d’identification de coffre sont enregistrées dans un emplacement accessible à partir de votre ordinateur. Si elles sont stockées dans un partage de fichiers/SMB, vérifiez les autorisations d’accès.
 - Le fichier d’informations d’identification de coffre est utilisé uniquement pendant le flux de travail d’inscription.
 - Le fichier d’informations d’identification de coffre expire au bout de 48 heures et peut être téléchargé à partir du portail.
-- Reportez-vous au [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question sur le flux de travail.
+- Pour toute question sur le flux de travail, reportez-vous au Forum Aux Questions sur Azure Backup (](../articles/backup/backup-azure-backup-faq.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

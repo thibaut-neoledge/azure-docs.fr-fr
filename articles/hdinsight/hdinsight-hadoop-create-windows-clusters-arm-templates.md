@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="02/02/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Windows dans HDInsight à l’aide de modèles ARM
@@ -128,7 +128,7 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 - Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, voir [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](arm-template-deployment.md).
 - Pour obtenir un exemple détaillé de déploiement d’une application, voir [Approvisionner et déployer des microservices de manière prévisible dans Azure](app-service-deploy-complex-application-predictably.md).
-- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
 - Pour en savoir plus sur les sections du modèle Azure Resource Manager, voir [Création de modèles](resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, voir [Fonctions des modèles](resource-group-template-functions.md).
 
@@ -444,4 +444,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

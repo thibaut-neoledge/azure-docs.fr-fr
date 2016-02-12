@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/21/2016"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Différences dans le langage Transact-SQL Azure SQL Database.
@@ -95,6 +95,7 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 - Déclencheurs : déclencheurs au niveau du serveur ou de connexion
 - Instruction USE
 
+
 ## Référence complète Transact-SQL
 
 Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
@@ -107,4 +108,4 @@ La référence sur Transact-SQL comprend des rubriques relatives aux versions de
 
 Dans certains cas, le sujet général d'une rubrique peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans la rubrique comme il convient.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

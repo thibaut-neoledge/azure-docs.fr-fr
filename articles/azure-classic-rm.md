@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager,azure-service-management"/>
 
@@ -68,4 +68,4 @@ Vous pouvez créer et configurer des ressources Azure à partir d'ordinateurs Wi
 - Découvrez comment [concevoir des modèles](/best-practices-resource-manager-design-templates.md).
 - Utilisez les [meilleures pratiques](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

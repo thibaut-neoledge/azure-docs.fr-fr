@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher" />
 
 # Vue d’ensemble du script de déploiement du projet de groupe de ressources Azure
@@ -35,7 +35,7 @@ La première partie du script charge les fichiers et artefacts pour le déploiem
 
 Voici une description des opérations permises par certaines sections du script Azure PowerShell Deploy-AzureResourceGroup.ps1.
 
->[AZURE.NOTE]Cette section décrit la version 1.0 du script Deploy-AzureResourceGroup.ps1.
+>[AZURE.NOTE] Cette section décrit la version 1.0 du script Deploy-AzureResourceGroup.ps1.
 
 1.	Déclarez les paramètres requis par le projet de déploiement Azure Resource Manager. Certains paramètres ont des valeurs par défaut qui ont été définies lors de la création du projet. Vous pouvez modifier ces valeurs par défaut dans le script ou ajouter d’autres valeurs de paramètre avant d’exécuter le script.
 
@@ -209,7 +209,7 @@ Voici une description des opérations permises par certaines sections du script 
 
     ![][3]
 
-	>[AZURE.NOTE]Si un paramètre requis a besoin de valeurs, cette boîte de dialogue s’affiche automatiquement lors du déploiement.
+	>[AZURE.NOTE] Si un paramètre requis a besoin de valeurs, cette boîte de dialogue s’affiche automatiquement lors du déploiement.
 
     ![][4]
 
@@ -264,4 +264,4 @@ En savoir plus sur Azure Resource Manager en consultant [Présentation d’Azure
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

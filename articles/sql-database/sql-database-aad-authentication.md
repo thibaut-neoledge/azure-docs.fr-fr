@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/09/2015"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connexion à la base de données SQL avec l’authentification Azure Active Directory
@@ -65,7 +65,7 @@ Pour créer un utilisateur de base de données à relation contenant-contenu dan
 
 ## Limitations et fonctionnalités azure AD
 
-Les membres suivants d’Azure Active Directory peuvent être configurés dans le serveur SQL Azure:-membres natifs : un membre créé dans Azure AD dans le domaine géré ou dans un domaine de client. Pour plus d’informations, consultez [Ajouter votre propre nom de domaine Azure AD](active-directory-add-domain.md).-Membres de domaine fédéré : membre créé dans Azure AD avec un domaine fédéré. Pour plus d’informations, consultez la section [Microsoft Azure prend désormais en charge la fédération avec Active Directory Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - membres importés à partir d’autres annuaires Azure Active Directory membres d’un domaine natif ou fédéré. - Groupes Active Directory créés en tant que groupes de sécurité.
+Les membres suivants d’Azure Active Directory peuvent être configurés dans le serveur SQL Azure:-membres natifs : un membre créé dans Azure AD dans le domaine géré ou dans un domaine de client. Pour plus d’informations, consultez [Ajouter votre propre nom de domaine Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).-Membres de domaine fédéré : membre créé dans Azure AD avec un domaine fédéré. Pour plus d’informations, consultez la section [Microsoft Azure prend désormais en charge la fédération avec Active Directory Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - membres importés à partir d’autres annuaires Azure Active Directory membres d’un domaine natif ou fédéré. - Groupes Active Directory créés en tant que groupes de sécurité.
 
 Les comptes Microsoft (par exemple outlook.com, hotmail.com, live.com) ou d’autres comptes d’invité (par exemple gmail.com, yahoo.com) ne sont pas pris en charge. Si vous pouvez vous connecter à [https://login.live.com](https://login.live.com) à l’aide du compte et du mot de passe, c’est que vous utilisez un compte Microsoft qui n’est pas pris en charge pour l’authentification Azure AD pour la base de données SQL Azure.
 
@@ -86,8 +86,9 @@ Créer un annuaire Azure Active Directory et le renseigner avec les utilisateurs
 
 - Créer le domaine Azure AD géré initial.
 - Fédérer les Services de domaine Active Directory local avec Azure Active Directory.
+- À l’aide de l’outil **AD FS**, dans la section **Service**, **Points de terminaison**, activez **WS-Trust 1.3** pour le chemin d’URL **/adfs/services/trust/13/windowstransport**.
 
-Pour plus d’informations, consultez [Ajouter votre propre nom de domaine à Azure AD](active-directory-add-domain.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), et [Gérer Azure Active Directory à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Pour plus d’informations, consultez [Ajouter votre propre nom de domaine à Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), et [Gérer Azure Active Directory à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Vérifier que votre base de données se trouve bien dans Azure SQL Database V12
 
@@ -103,7 +104,7 @@ Vous pouvez également créer une base de données dans SQL Database V12 en ex�
 
 Pour associer votre base de données à l’annuaire Azure AD de votre organisation, faites de l’annuaire un annulaire approuvé pour l’abonnement Azure qui héberge la base de données. Pour plus d’informations, consultez la page [Comment sont associés les abonnements Azure et Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
 
-**Additional information :** chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les périphériques. Plusieurs abonnements peuvent approuver le même répertoire, mais un abonnement n’approuve qu’un seul répertoire. Vous pouvez découvrir quel répertoire est approuvé par votre abonnement dans l’onglet **Paramètres**, à l’adresse [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Cette relation de confiance qu’un abonnement possède avec un répertoire est contraire à celle établie entre un abonnement et toutes les autres ressources Azure (sites Web, bases de données, etc.), qui se rapprochent plus des ressources enfants d'un abonnement. Lorsqu’un abonnement expire, les autres ressources associées à l'abonnement deviennent également inaccessibles. Mais le répertoire reste dans Azure, et vous pouvez associer un autre abonnement à ce répertoire et continuer à gérer les utilisateurs du répertoire. Pour plus d’informations sur les ressources, consultez [Comprendre l’accès aux ressources dans Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+**Additional information :** chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même répertoire, mais un abonnement n’approuve qu’un seul répertoire. Vous pouvez découvrir quel répertoire est approuvé par votre abonnement dans l’onglet **Paramètres**, à l’adresse [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Cette relation de confiance qu’un abonnement possède avec un répertoire est contraire à celle établie entre un abonnement et toutes les autres ressources Azure (sites Web, bases de données, etc.), qui se rapprochent plus des ressources enfants d'un abonnement. Lorsqu’un abonnement expire, les autres ressources associées à l'abonnement deviennent également inaccessibles. Mais le répertoire reste dans Azure, et vous pouvez associer un autre abonnement à ce répertoire et continuer à gérer les utilisateurs du répertoire. Pour plus d’informations sur les ressources, consultez [Comprendre l’accès aux ressources dans Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
 
 Les procédures suivantes fournissent des instructions étape par étape sur la façon de comment modifier l’annuaire associé à un abonnement donné.
 
@@ -199,8 +200,7 @@ L’exemple suivant renvoie des informations sur l’administrateur Azure AD adm
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-L’exemple suivant supprime un administrateur Azure AD : 
-```
+L’exemple suivant supprime un administrateur Azure AD : ```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
@@ -244,7 +244,7 @@ Utilisez cette méthode lors de la connexion avec un nom principal Azure AD à l
 Utilisez cette méthode si vous êtes connecté à Windows à l’aide des informations d’identification d’un domaine qui n’est pas fédéré avec Azure, ou lorsque vous utilisez l’authentification Azure AD à l’aide d’Azure AD sur le domaine initial ou le domaine client.
 
 1. Démarrez Management Studio et dans la boîte de dialogue **Se connecter au moteur de base de données** (ou **Se connecter à la base de données**), dans la zone **Authentification**, sélectionnez **Authentification par mot de passe Active Directory**.
-2. Dans la zone **Nom d’utilisateur** saisissez votre nom d’utilisateur Azure Active Directory au format **username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
+2. Dans la zone **Nom d’utilisateur** saisissez votre nom d’utilisateur Azure Active Directory au format ****username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
 3. Dans la zone **Mot de passe**, saisissez votre mot de passe utilisateur pour le compte Azure Active Directory ou le compte de domaine fédéré.
 4. Cliquez sur le bouton **Options** puis, sur la page **Propriétés de connexion**, dans la zone **Se connecter à la base de données**, saisissez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter.
 
@@ -314,6 +314,7 @@ Pour obtenir des exemples de code spécifiques associés à l’authentification
 
 [CRÉER UN UTILISATEUR (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
+
 <!--Image references-->
 
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
@@ -327,4 +328,4 @@ Pour obtenir des exemples de code spécifiques associés à l’authentification
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

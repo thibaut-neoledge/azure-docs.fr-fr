@@ -1,5 +1,5 @@
 
-Pour en savoir plus sur les disques, consultez la section [À propos des disques et VHD pour machines virtuelles](../articles/virtual-machines-disks-vhds.md).
+Pour en savoir plus sur les disques, consultez la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
 
 ##<a id="attachempty"></a>Association d’un disque vide
 
@@ -29,8 +29,9 @@ Pour ajouter un disque de données, le plus simple consiste à attacher un disqu
 4.	Une fois créé et attaché, le disque de données est répertorié dans le tableau de bord de la machine virtuelle.
 
 	![Disque de données vide correctement attaché](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
-	
-> [AZURE.NOTE]Après avoir ajouté un disque de données, vous devez vous connecter à la machine virtuelle et initialiser le disque. La machine virtuelle pourra alors utiliser ce disque pour le stockage.
+
+> [AZURE.NOTE]
+Après avoir ajouté un disque de données, vous devez vous connecter à la machine virtuelle et initialiser le disque. La machine virtuelle pourra alors utiliser ce disque pour le stockage.
 
 ##<a id="attachexisting"></a>Association d’un disque existant
 
@@ -58,4 +59,4 @@ Pour attacher un disque existant, vous devez disposer d’un fichier .vhd dans u
 
 	![Disque de données correctement attaché](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

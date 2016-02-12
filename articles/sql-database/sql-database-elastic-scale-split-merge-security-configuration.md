@@ -12,8 +12,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/04/2016" 
     ms.author="torsteng;sidneyh" />
+
 
 # Configuration de la sécurité de la fusion et du fractionnement  
 
@@ -23,8 +24,8 @@ Pour utiliser le service de fusion et de fractionnement, vous devez configurer c
 
 Les certificats sont configurés de deux manières.
 
-1. [Pour configurer le certificat SSL](To#Configure#the#SSL#Certificate)
-2. [Pour configurer des certificats clients](To#Configure#Client#Certificates) 
+1. [Pour configurer le certificat SSL](#To-Configure-the-SSL#Certificate)
+2. [Pour configurer des certificats clients](#To-Configure-Client-Certificates) 
 
 ## Pour obtenir des certificats
 
@@ -52,45 +53,45 @@ Un certificat SSL est nécessaire pour chiffrer les communications et authentif
 
 ### Création d’un certificat auto-signé
 
-1.    [Création d’un certificat auto-signé](Create#a#Self-Signed#Certificate)
-2.    [Création d’un fichier PFX pour un certificat SSL auto-signé](Create#PFX#file#for#Self-Signed#SSL#Certificate)
-3.    [Téléchargement du certificat SSL vers le service cloud](Upload#SSL#Certificate#to#Cloud#Service)
-4.    [Mise à jour du certificat SSL dans le fichier de configuration de service](Update#SSL#Certificate#in#Service#Configuration#File)
-5.    [Importation de l’autorité de certification SSL](Import#SSL#Certification#Authority)
+1.    [Création d’un certificat auto-signé](#Create-a-Self-Signed-Certificate)
+2.    [Création d’un fichier PFX pour un certificat SSL auto-signé](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
+3.    [Téléchargement du certificat SSL vers le service cloud](#Upload-SSL-Certificate-to-Cloud-Service)
+4.    [Mise à jour du certificat SSL dans le fichier de configuration de service](#Update-SSL-Certificate-in-Service-Configuration-File)
+5.    [Importation de l’autorité de certification SSL](#Import-SSL-Certification-Authority)
 
 ### Pour utiliser un certificat existant du magasin de certificats
-1. [Exportation d’un certificat SSL à partir du magasin de certificats](Export#SSL#Certificate#From#Certificate#Store)
-2. [Téléchargement du certificat SSL vers le service cloud](Upload#SSL#Certificate#to#Cloud#Service)
-3. [Mise à jour du certificat SSL dans le fichier de configuration de service](Update#SSL#Certificate#in#Service#Configuration#File)
+1. [Exportation d’un certificat SSL à partir du magasin de certificats](#Export-SSL-Certificate-From-Certificate-Store)
+2. [Téléchargement du certificat SSL vers le service cloud](#Upload-SSL-Certificate-to-Cloud-Service)
+3. [Mise à jour du certificat SSL dans le fichier de configuration de service](#Update-SSL-Certificate-in-Service-Configuration-File)
 
 ### Pour utiliser un certificat existant dans un fichier PFX
 
-1. [Téléchargement du certificat SSL vers le service cloud](Upload#SSL#Certificate#to#Cloud#Service)
-2. [Mise à jour du certificat SSL dans le fichier de configuration de service](Update#SSL#Certificate#in#Service#Configuration#File)
+1. [Téléchargement du certificat SSL vers le service cloud](#Upload-SSL-Certificate-to-Cloud-Service)
+2. [Mise à jour du certificat SSL dans le fichier de configuration de service](#Update-SSL-Certificate-in-Service-Configuration-File)
 
 ## Pour configurer des certificats clients
 Les certificats clients sont requis pour authentifier les demandes au service. Choisissez le plus approprié des trois scénarios ci-dessous et exécutez toutes les étapes associées :
 
 ### Désactivation des certificats clients
-1.    [Désactivation de l’authentification par certificat client](Turn#Off#Client#Certificate-Based#Authentication)
+1.    [Désactivation de l’authentification par certificat client](#Turn-Off-Client-Certificate-Based-Authentication)
 
 ### Émission de nouveaux certificats clients auto-signés
-1.    [Création d’une autorité de certification auto-signée](Create#a#Self-Signed#Certification#Authority)
-2.    [Téléchargement du certificat CA vers le service cloud](Upload#CA#Certificate#to#Cloud#Service)
-3.    [Mise à jour du certificat CA dans le fichier de configuration de service](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [Émission de certificats clients](Issue#Client#Certificates)
-5.    [Création de fichiers PFX pour les certificats clients](Create#PFX#files#for#Client#Certificates)
-6.    [Importation d’un certificat client](Import#Client#Certificate)
-7.    [Copie des empreintes numériques des certificats clients](Copy#Client#Certificate#Thumbprints)
-8.    [Configuration des clients autorisés dans le fichier de configuration de service](Configure#Allowed#Clients#in#the#Service#Configuration#File)
+1.    [Création d’une autorité de certification auto-signée](#Create-a-Self-Signed-Certification-Authority)
+2.    [Téléchargement du certificat CA vers le service cloud](#Upload-CA-Certificate-to-Cloud-Service)
+3.    [Mise à jour du certificat CA dans le fichier de configuration de service](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Émission de certificats clients](#Issue-Client-Certificates)
+5.    [Création de fichiers PFX pour les certificats clients](#Create-PFX-files-for-Client-Certificates)
+6.    [Importation d’un certificat client](#Import-Client-Certificate)
+7.    [Copie des empreintes numériques des certificats clients](#Copy-Client-Certificate-Thumbprints)
+8.    [Configuration des clients autorisés dans le fichier de configuration de service](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
 
 ### Utilisation de certificats clients existants
-1.    [Recherche de la clé publique de l’autorité de certification] (Find#CA#Public Key)
-2.    [Téléchargement du certificat CA vers le service cloud](Upload#CA#certificate#to#cloud#service)
-3.    [Mise à jour du certificat CA dans le fichier de configuration de service](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [Copie des empreintes numériques des certificats clients](Copy#Client#Certificate#Thumbprints)
-5.    [Configuration des clients autorisés dans le fichier de configuration de service] (Fichier Configure#Allowed#Clients#in#the#Service#Configuration)
-6.    [Configuration de la vérification de révocation des certificats clients](Configure#Client#Certificate#Revocation#Check)
+1.    [Recherche de la clé publique de l’autorité de certification] (#Find-CA-Public Key)
+2.    [Téléchargement du certificat CA vers le service cloud](#Upload-CA-certificate-to-cloud-service)
+3.    [Mise à jour du certificat CA dans le fichier de configuration de service](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Copie des empreintes numériques des certificats clients](#Copy-Client-Certificate-Thumbprints)
+5.    [Configuration des clients autorisés dans le fichier de configuration de service] (#Configure-Allowed-Clients-in-the-Service-Configuration File)
+6.    [Configuration de la vérification de révocation des certificats clients](#Configure-Client-Certificate-Revocation-Check)
 
 ## Adresses IP autorisées
 
@@ -102,21 +103,21 @@ Un certificat est nécessaire pour chiffrer les informations d’identification 
 
 ### Utilisation d’un nouveau certificat auto-signé
 
-1.     [Création d’un certificat auto-signé](Create#a#Self-Signed#Certificate)
-2.     [Création d’un fichier PFX pour un certificat de chiffrement auto-signé](Create#PFX#file#for#Self-Signed#Encryption#Certificate)
-3.     [Téléchargement du certificat de chiffrement vers le service cloud](Upload#Encryption#Certificate#to#Cloud#Service)
-4.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Création d’un certificat auto-signé](#Create-a-Self-Signed-Certificate)
+2.     [Création d’un fichier PFX pour un certificat de chiffrement auto-signé](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
+3.     [Téléchargement du certificat de chiffrement vers le service cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
+4.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### Utilisation d’un certificat existant du magasin de certificats
 
-1.     [Exportation d’un certificat de chiffrement à partir du magasin de certificats](Export#Encryption#Certificate#From#Certificate#Store)
-2.     [Téléchargement du certificat de chiffrement vers le service cloud](Upload#Encryption#Certificate#to#Cloud#Service)
-3.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Exportation d’un certificat de chiffrement à partir du magasin de certificats](#Export-Encryption-Certificate-From-Certificate-Store)
+2.     [Téléchargement du certificat de chiffrement vers le service cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
+3.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### Utilisation d’un certificat existant dans un fichier PFX
 
-1.     [Téléchargement du certificat de chiffrement vers le service cloud](Upload#Encryption#Certificate#to#Cloud#Service)
-2.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Téléchargement du certificat de chiffrement vers le service cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
+2.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ## Configuration par défaut
 
@@ -417,16 +418,16 @@ Procédez comme suit :
 ## Exportation du certificat
 Dans l’**Assistant Exportation de certificat** :
 
-1. Cliquez sur **Next**.
+1. Cliquez sur **Suivant**.
 2. Sélectionnez l’option **Oui**, puis **Exporter la clé privée**.
-3. Cliquez sur **Next**.
+3. Cliquez sur **Suivant**.
 4. Sélectionnez le format de fichier de sortie souhaité.
 5. Vérifiez les options de votre choix.
 6. Vérifiez le **mot de passe**.
 7. Entrez un mot de passe fort et confirmez-le.
-8. Cliquez sur **Next**.
+8. Cliquez sur **Suivant**.
 9. Tapez ou sélectionnez un nom de fichier dans lequel stocker le certificat (utilisez une extension .PFX).
-10. Cliquez sur **Next**.
+10. Cliquez sur **Suivant**.
 11. Cliquez sur **Terminer**.
 12. Cliquez sur **OK**.
 
@@ -438,7 +439,7 @@ Dans l'Assistant Importation de certificat :
 
     * Sélectionnez **Utilisateur actuel** si seuls les processus s’exécutant sous l’utilisateur actuel accèdent au service.
     * Sélectionnez **Ordinateur local** si d’autres processus de cet ordinateur accèdent au service
-2. Cliquez sur **Next**.
+2. Cliquez sur **Suivant**.
 3. Si vous importez depuis un fichier, vérifiez le chemin d’accès.
 4. Si vous importez depuis un fichier .PFX :
     1.     Entrez le mot de passe protégeant la clé privée
@@ -448,12 +449,12 @@ Dans l'Assistant Importation de certificat :
 7.     Sélectionnez le magasin de votre choix.
 8.     Cliquez sur **Terminer**.
        
-	* Si le magasin racine des autorités de certification approuvées a été choisi, cliquez sur **Oui**.
+    * Si le magasin racine des autorités de certification approuvées a été choisi, cliquez sur **Oui**.
 9.     Cliquez sur **OK** dans toutes les fenêtres des boîtes de dialogue.
 
 ## Téléchargement d’un certificat
 
-Dans le [portail Azure Classic](https://portal.azure.com/)
+Dans le [portail Azure](https://portal.azure.com/)
 
 1. Sélectionnez **Services Cloud**.
 2. Sélectionnez le service cloud.
@@ -473,4 +474,4 @@ Les informations d’identification stockées dans cette base de données sont c
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

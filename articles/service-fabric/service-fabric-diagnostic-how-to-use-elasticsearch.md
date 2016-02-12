@@ -24,11 +24,9 @@ ETW est utilisé par le runtime Service Fabric pour sourcer les informations de 
 
 Pour que les traces s’affichent dans Elasticsearch, elles doivent être capturées en temps réel sur les nœuds de cluster Service Fabric (pendant l’exécution de l’application) et envoyées à un point de terminaison Elasticsearch. Il existe deux options principales pour la capture de traces :
 
-+ **Capture de traces dans le processus** :  
-l’application, ou plus précisément, le processus de service est responsable de l’envoi des données de diagnostic dans le magasin de trace (ElasticSearch).
++ **Capture de traces dans le processus** : l’application, ou plus précisément, le processus de service est responsable de l’envoi des données de diagnostic dans le magasin de trace (Elasticsearch).
 
-+ **Capture de traces hors processus** :  
-un agent séparé capture les traces à partir du ou des processus de service et les envoie au magasin de trace.
++ **Capture de traces hors processus** : un agent séparé capture les traces à partir du ou des processus de service et les envoie au magasin de trace.
 
 Ci-après, nous expliquons comment configurer Elasticsearch sur Azure, présentons les avantages et inconvénients pour les deux options de capture, et expliquons comment configurer un service Service Fabric pour envoyer des données à Elasticsearch.
 
@@ -248,4 +246,4 @@ Et voilà ! Chaque fois que le service est exécuté, il commence à envoyer de
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Didacticiel : intégration de Salesforce avec Azure Active Directory | Microsoft Azure"
-   description="Apprenez à utiliser Salesforce avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Salesforce | Microsoft Azure"
+    description="Apprenez à utiliser Salesforce avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Didacticiel : intégration de Salesforce avec Azure Active Directory
 
@@ -26,7 +26,7 @@ Ce didacticiel explique comment connecter votre environnement Salesforce à Azur
 
 2. Vous devez avoir un client valide dans [Salesforce.com](https://www.salesforce.com/).
 
-> [AZURE.IMPORTANT]Si vous utilisez un compte d’**essai** Salesforce.com, vous ne pouvez pas configurer l’approvisionnement automatique des utilisateurs. Les comptes d’essai n’ont pas l’accès d’API requis tant qu’ils ne sont pas achetés.
+> [AZURE.IMPORTANT] Si vous utilisez un compte d’**essai** Salesforce.com, vous ne pouvez pas configurer l’approvisionnement automatique des utilisateurs. Les comptes d’essai n’ont pas l’accès d’API requis tant qu’ils ne sont pas achetés.
 > 
 > Vous pouvez contourner cette limitation en utilisant un [compte de développeur gratuit](https://developer.salesforce.com/signup) pour suivre ce didacticiel.
 
@@ -84,7 +84,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 	![Sélectionner l’authentification unique Azure AD][7]
 
-	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. Sur la page **Configurer les paramètres de l’application**, remplissez le champ **URL de connexion** en entrant l’URL de votre domaine Salesforce au format suivant :
  - Compte d’entreprise : `https://<domain>.my.salesforce.com`
@@ -106,7 +106,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 	![Cliquer sur le bouton Modifier][11]
 
-	> [AZURE.NOTE]Si vous ne pouvez pas activer les paramètres de l’authentification unique pour votre compte Salesforce, il vous faudra peut-être contacter l’équipe du support technique Salesforce pour qu’elle active la fonctionnalité pour vous.
+	> [AZURE.NOTE] Si vous ne pouvez pas activer les paramètres de l’authentification unique pour votre compte Salesforce, il vous faudra peut-être contacter l’équipe du support technique Salesforce pour qu’elle active la fonctionnalité pour vous.
 
 9. Sélectionnez **SAML activé**, puis cliquez sur **Enregistrer**.
 
@@ -152,7 +152,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 	![Sélectionner votre configuration d’authentification unique][17]
 
-	> [AZURE.NOTE]Si plusieurs services d’authentification sont sélectionnés, les utilisateurs qui tentent d’initier une authentification unique sur votre environnement Salesforce devront choisir un service d’authentification pour se connecter. Si vous ne voulez pas que cela se produise, vous devez **décocher toutes les cases en regard des autres services d’authentification**.
+	> [AZURE.NOTE] Si plusieurs services d’authentification sont sélectionnés, les utilisateurs qui tentent d’initier une authentification unique sur votre environnement Salesforce devront choisir un service d’authentification pour se connecter. Si vous ne voulez pas que cela se produise, vous devez **décocher toutes les cases en regard des autres services d’authentification**.
 
 15. Dans Azure AD, cochez la case de confirmation de configuration de l’authentification unique pour activer le certificat que vous avez chargé dans Salesforce. Cliquez ensuite sur **Suivant**.
 
@@ -174,7 +174,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 	![Entrer votre nom d’utilisateur ou mot de passe d’administrateur][21]
 
-	> [AZURE.NOTE]Si vous configurez un environnement de production, nous vous recommandons de créer un compte d’administrateur dans Salesforce spécialement pour cette étape. Vous devez attribuer le profil **Administrateur système** à ce compte dans Salesforce.
+	> [AZURE.NOTE] Si vous configurez un environnement de production, nous vous recommandons de créer un compte d’administrateur dans Salesforce spécialement pour cette étape. Vous devez attribuer le profil **Administrateur système** à ce compte dans Salesforce.
 
 3. Pour obtenir le jeton de sécurité Salesforce, ouvrez un nouvel onglet et connectez-vous au même compte d’administration Salesforce. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Mes paramètres**.
 
@@ -216,7 +216,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Si vous configurez un environnement de **développeur** Salesforce, vous disposerez d'un nombre très limité de licences pour chaque profil. Il est donc préférable d'attribuer aux utilisateurs le profil **Utilisateur Chatter Free**, qui dispose de 4 999 licences.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Salesforce**.
 
@@ -253,4 +253,4 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/29/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # Qu’est-ce qu’Azure Backup ?
@@ -61,8 +61,7 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
-| Azure IaaS VMs (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) | 
-| Azure IaaS VMs (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Azure IaaS VMs (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) | | Azure IaaS VMs (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
 
 ## Fonctionnalités
 Ces cinq tableaux récapitulent la manière dont les fonctionnalités Azure Backup sont gérées dans chaque composant :
@@ -77,6 +76,8 @@ Ces cinq tableaux récapitulent la manière dont les fonctionnalités Azure Back
 | Compression (dans le coffre de sauvegarde) | ![Oui][green] | ![Oui][green]| ![Oui][green] | |
 | Sauvegarde incrémentielle | ![Oui][green] | ![Oui][green] | ![Oui][green] | ![Oui][green] |
 | Déduplication de disque | | ![Partiellement][yellow] | ![Partiellement][yellow]| | |
+
+**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Partiellement][yellow]= Prise en charge partielle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
 
 Le coffre Azure Backup est la cible de stockage par défaut sur tous les composants. System Center DPM et Azure Backup Server permettent également de disposer d’une copie du disque local, mais seul System Center DPM prend en charge l’écriture de données sur un périphérique de stockage à bande.
 
@@ -97,11 +98,13 @@ La déduplication est prise en charge par System Center DPM et Azure Backup Ser
 | Sécurité du réseau (vers Azure) | ![Oui][green] |![Oui][green] | ![Oui][green] | ![Partiellement][yellow]|
 | Sécurité des données (dans Azure) | ![Oui][green] |![Oui][green] | ![Oui][green] | ![Partiellement][yellow]|
 
+**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Partiellement][yellow]= Prise en charge partielle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+
 L’ensemble du trafic de sauvegarde entre vos serveurs et le coffre Azure Backup est chiffré à l’aide du protocole AES (Advanced Encryption Standard) 256. Les données sont envoyées via une connexion HTTPS sécurisée. Les données de sauvegarde sont également stockées dans le coffre Azure Backup sous une forme chiffrée. Seul le client conserve le mot de passe pour déverrouiller ces données. Microsoft ne peut déchiffrer les données de sauvegarde à aucun moment.
 
 >[AZURE.WARNING] La clé utilisée pour chiffrer les données de sauvegarde est disponible uniquement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
 
-Pour la sauvegarde de machines virtuelles Azure, vous devez configurer explicitement le chiffrement *dans* la machine virtuelle. Utilisez BitLocker sur les machines virtuelles Windows et **dm-crypt** sur les machines virtuelles Linux. Azure Backup ne chiffre pas automatiquement les données de sauvegarde en provenance de ce chemin d’accès.
+Pour la sauvegarde des machines virtuelles Azure, vous devez configurer explicitement le chiffrement *dans* la machine virtuelle. Utilisez BitLocker sur les machines virtuelles Windows et **dm-crypt** sur les machines virtuelles Linux. Azure Backup ne chiffre pas automatiquement les données de sauvegarde en provenance de ce chemin d’accès.
 
 ### Charges de travail prises en charge
 
@@ -117,6 +120,8 @@ Pour la sauvegarde de machines virtuelles Azure, vous devez configurer explicite
 | Machine virtuelle Azure (Windows) | | | | ![Oui][green] |
 | Machine virtuelle Azure (Linux) | | | | ![Oui][green] |
 
+**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+
 ### Réseau
 
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Azure Backup (extension de machine virtuelle) |
@@ -125,6 +130,8 @@ Pour la sauvegarde de machines virtuelles Azure, vous devez configurer explicite
 | Compression réseau (sur le coffre de sauvegarde) | ![Oui][green] | ![Oui][green] | ![Oui][green] | |
 | Protocole réseau (sur le serveur de sauvegarde) | | TCP | TCP | |
 | Protocole réseau (sur le coffre de sauvegarde) | HTTPS | HTTPS | HTTPS | HTTPS |
+
+**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
 
 Étant donné que l’extension de machine virtuelle lit directement les données à partir du compte Azure Storage via le réseau de stockage, il n’est pas nécessaire d’optimiser ce trafic. Comme le trafic transite sur le réseau de stockage local dans le centre de données Azure, la question de la compression liée aux problèmes de bande passante ne se pose pas véritablement.
 
@@ -153,7 +160,7 @@ Avant de prendre toute décision en matière de sauvegarde et de récupération 
 | ------- | ------- | ------ | ----------------- |
 | Objectif de point de récupération (RPO) | Quantité de perte de données acceptable dans l’éventualité où une restauration serait nécessaire. | Les solutions de sauvegarde offrent des RPO extrêmement variables. Les sauvegardes de machines virtuelles ont généralement un RPO d’un jour, contre seulement 15 minutes pour les sauvegardes de base de données. | Les solutions de récupération d’urgence ont un RPO extrêmement faible. La copie de récupération d’urgence peut devoir être prête en seulement quelques secondes ou quelques minutes. |
 | Objectif de délai de récupération (RTO) | Quantité de temps nécessaire pour effectuer une récupération ou une restauration complète. | Un RPO plus long est généralement synonyme pour la solution de sauvegarde d’une bien plus grande quantité de données à traiter, ce qui allonge d’autant le RTO. Par exemple, il peut falloir plusieurs jours pour restaurer des données à partir de bandes, selon le temps nécessaire au transport de la bande depuis un site externe. | Les solutions de récupération d’urgence ont un RTO plus faible car elles sont davantage synchronisées avec la source et ont moins de modifications à traiter. |
-| Rétention | Durée pendant laquelle les données doivent être stockées | <p>Pour les scénarios qui requièrent une reprise des opérations (corruption de données, suppression accidentelle de fichiers, défaillances du système d’exploitation), les données de sauvegarde sont généralement conservées pendant un maximum de 30 jours.</p> <p>Du point de vue de la conformité, il peut être nécessaire de conserver les données pendant des mois, voire des années. Dans ce cas, les données de sauvegarde sont parfaitement adaptées aux besoins d’archivage.</p> | La récupération d’urgence porte uniquement sur les données de récupération opérationnelle. Sa durée varie généralement de quelques heures à une journée. Puisque les solutions de récupération d’urgence sont conçues pour capturer les données à un niveau extrêmement précis, l’utilisation des données de récupération d’urgence n’est pas recommandée dans le cadre d’une rétention à long terme. |
+| Rétention | Durée pendant laquelle les données doivent être stockées | <p>Pour les scénarios qui requièrent une reprise des opérations (altération des données, suppression accidentelle de fichiers, défaillances du système d’exploitation), les données de sauvegarde sont généralement conservées pendant un maximum de 30 jours.</p> <p>Du point de vue de la conformité, il peut être nécessaire de conserver les données pendant des mois, voire des années. Dans ce cas, les données de sauvegarde sont parfaitement adaptées aux besoins d’archivage.</p> | La récupération d’urgence porte uniquement sur les données de récupération opérationnelle. Sa durée varie généralement de quelques heures à une journée. Puisque les solutions de récupération d’urgence sont conçues pour capturer les données à un niveau extrêmement précis, l’utilisation des données de récupération d’urgence n’est pas recommandée dans le cadre d’une rétention à long terme. |
 
 
 ## Étapes suivantes
@@ -167,4 +174,4 @@ Avant de prendre toute décision en matière de sauvegarde et de récupération 
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

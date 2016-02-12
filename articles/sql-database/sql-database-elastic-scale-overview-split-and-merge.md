@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/02/2016" 
     ms.author="ddove;sidneyh" />
 
 # Mise à l’échelle utilisant l’outil de fractionnement et de fusion de bases de données élastiques
@@ -57,11 +57,11 @@ Figure 1 : vue d’ensemble conceptuelle du service de fractionnement et de fu
 ![Vue d'ensemble][1]
 
 
-**Remarque** : tous les scénarios d'**augmentation de la capacité** ne nécessitent pas le service de fractionnement et de fusion. Par exemple, si vous créez régulièrement de nouvelles partitions dans votre environnement pour stocker les nouvelles données avec des valeurs de clé de partitionnement, vous pouvez utiliser les API clientes de gestion des cartes de partitions pour diriger les nouvelles plages de données vers les partitions nouvellement créées. Le service de fractionnement et de fusion n’est nécessaire que lorsque les données existantes doivent également être déplacées.
+**Remarque** : tous les scénarios d’**Augmentation de la capacité** ne requièrent pas le service de fractionnement et de fusion. Par exemple, si vous créez régulièrement de nouvelles partitions dans votre environnement pour stocker les nouvelles données avec des valeurs de clé de partitionnement, vous pouvez utiliser les API clientes de gestion des cartes de partitions pour diriger les nouvelles plages de données vers les partitions nouvellement créées. Le service de fractionnement et de fusion n’est nécessaire que lorsque les données existantes doivent également être déplacées.
 
 ## Concepts et fonctionnalités clés
 
-**Services hébergés par le client** : le service de fractionnement et de fusion est fourni comme service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Pour plus d'informations, consultez le [didacticiel du service de fractionnement et de fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md). Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer SSL, l’authentification client basée sur certificat, le chiffrement des informations d’identification stockées, la protection contre le déni de service et les restrictions d’adresse IP. Vous trouverez plus d'informations sur la sécurité dans le document suivant sur la [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
+**Services hébergés par le client** : le service de fractionnement et de fusion est fourni comme service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Pour plus d'informations, consultez le [didacticiel du service de fractionnement et de fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md). Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer SSL, l’authentification client basée sur certificat, le chiffrement des informations d’identification stockées, la protection contre le déni de service et les restrictions d’adresse IP. Vous trouverez plus d’informations sur la sécurité dans le document suivant [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Le service déployé par défaut s'exécute avec un rôle de travail et un rôle web. Chacun utilise la taille de machine virtuelle A1 dans Azure Cloud Services. Même si vous ne pouvez pas modifier ces paramètres lors du déploiement du package, vous pouvez les modifier après un déploiement dans le service cloud en cours d'exécution (via le portail Azure). Notez que le rôle de travail ne doit pas être configuré pour plus d'une instance unique pour des raisons techniques.
 
@@ -169,7 +169,7 @@ Le service de fractionnement et de fusion fournit la table **RequestStatus** dan
 
 ### Azure Diagnostics
 
-Le service de fusion et de fractionnement utilise l’Azure Diagnostics basé sur Azure SDK 2.5 pour la surveillance et les diagnostics. Vous contrôlez la configuration des diagnostics, comme indiqué ici : [Activation des diagnostics dans Azure Cloud Services et Virtual Machines](../cloud-services-dotnet-diagnostics.md). Le package de téléchargement comprend deux configurations de diagnostic : un pour le rôle Web et un pour le rôle de travail. Ces configurations de diagnostics pour le service suivent les instructions des [Concepts de base de Cloud Service dans Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Elle inclut les définitions permettant d'enregistrer les compteurs de performances, les journaux IIS, les journaux des événements Windows et les journaux des événements de l'application de fractionnement et de fusion.
+Le service de fusion et de fractionnement utilise l’Azure Diagnostics basé sur Azure SDK 2.5 pour la surveillance et les diagnostics. Vous contrôlez la configuration des diagnostics, comme indiqué ici : [Activation des diagnostics dans Azure Cloud Services et Virtual Machines](../service-fabric/cloud-services-dotnet-diagnostics.md). Le package de téléchargement comprend deux configurations de diagnostic : un pour le rôle Web et un pour le rôle de travail. Ces configurations de diagnostics pour le service suivent les instructions des [Concepts de base de Cloud Service dans Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Elle inclut les définitions permettant d'enregistrer les compteurs de performances, les journaux IIS, les journaux des événements Windows et les journaux des événements de l'application de fractionnement et de fusion.
 
 ## Déploiement de Diagnostics 
 
@@ -239,4 +239,4 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

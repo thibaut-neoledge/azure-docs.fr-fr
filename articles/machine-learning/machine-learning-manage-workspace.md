@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -29,12 +29,12 @@
 
 De plus, l’onglet du tableau de bord affiche l’utilisation de l’espace de travail, ainsi que des informations sur ce dernier en un clin d’œil.
 
-> [AZURE.TIP]Dans Azure Machine Learning Studio, dans l’onglet **SERVICES WEB**, vous pouvez ajouter, mettre à jour ou supprimer un service Web Machine Learning.
+> [AZURE.TIP] Dans Azure Machine Learning Studio, dans l’onglet **SERVICES WEB**, vous pouvez ajouter, mettre à jour ou supprimer un service Web Machine Learning.
 
 Pour gérer un espace de travail :
 
-1.	Connectez-vous à votre compte Microsoft Azure : utilisez le compte associé à l’abonnement Azure.
-2.	Dans le [portail Azure Classic](https://manage.windowsazure.com/), sous le panneau des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
+1.	Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) au moyen de votre compte Microsoft Azure : utilisez le compte associé à l’abonnement Azure.
+2.	Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
 3.	Cliquez sur l’espace de travail que vous souhaitez gérer.
 
 La page de l’espace de travail comporte trois onglets :
@@ -54,7 +54,7 @@ Dans le tableau de bord, vous pouvez afficher l’utilisation globale de votre e
 - La **Présentation de l’utilisation** affiche le stockage Azure utilisé par l’espace de travail.
 - L’**Aperçu rapide** fournit un résumé des informations de l’espace de travail ainsi que des liens utiles.
 
-> [AZURE.NOTE]Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
+> [AZURE.NOTE] Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
 
 
 ## Pour octroyer ou suspendre un accès pour les utilisateurs ##
@@ -81,7 +81,7 @@ Un service Web peut avoir un ou plusieurs points de terminaison.
 
 - Pour supprimer un point de terminaison (vous ne pouvez pas supprimer le point de terminaison « Par défaut »), cliquez n’importe où sur la ligne du point de terminaison, sauf sur le nom, puis cliquez sur **SUPPRIMER LE POINT DE TERMINAISON** en bas de la page. Cela supprime le point de terminaison du service Web.
 
-    > [AZURE.NOTE]Si une application utilise le point de terminaison de service Web lors de la suppression de ce dernier, elle obtiendra une erreur la prochaine fois qu’elle essaiera d’accéder au service.
+    > [AZURE.NOTE] Si une application utilise le point de terminaison de service Web lors de la suppression de ce dernier, elle obtiendra une erreur la prochaine fois qu’elle essaiera d’accéder au service.
 
 Cliquez sur le nom d’un point de terminaison de service Web pour l’ouvrir. Le graphique d’utilisation affiche les ressources de calcul et de prédiction utilisées par le point de terminaison de service Web. Vous pouvez modifier l’affichage pour afficher les valeurs absolues ou relatives et vous pouvez modifier la plage de temps affichée dans le graphique.
 
@@ -94,4 +94,4 @@ Cliquez sur l’onglet **CONFIGURER** pour modifier la description, contrôler l
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

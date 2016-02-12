@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Format de fichier CSV pour l'aperçu de la collaboration B2B d'Azure Active Directory (Azure AD)
+# Version préliminaire d’Azure AD B2B Collaboration : Format de fichier CSV
 
 La version préliminaire de la collaboration B2B d'Azure AD nécessite un fichier CSV spécifiant les informations de l'utilisateur partenaire à télécharger par le biais du portail Azure AD. Le fichier CSV doit contenir les étiquettes requises ci-dessous et les champs facultatifs, en fonction des besoins. Modifiez l'exemple de fichier CSV (ci-dessous) sans modifier l'orthographe des étiquettes dans la première ligne et sans réorganiser les colonnes.
 
->[AZURE.NOTE]La première ligne d'étiquettes (par exemple, Email, DisplayName...) est nécessaire pour que le fichier CSV puisse être analysé correctement. L'orthographe doit correspondre aux champs spécifiés ci-dessous. Ces étiquettes identifient le contenu en dessous. Pour les champs facultatifs qui ne sont pas nécessaires, les étiquettes peuvent être supprimées du fichier CSV. La colonne entière peut être vide.
+>[AZURE.NOTE] La première ligne d'étiquettes (par exemple, Email, DisplayName...) est nécessaire pour que le fichier CSV puisse être analysé correctement. L'orthographe doit correspondre aux champs spécifiés ci-dessous. Ces étiquettes identifient le contenu en dessous. Pour les champs facultatifs qui ne sont pas nécessaires, les étiquettes peuvent être supprimées du fichier CSV. La colonne entière peut être vide.
 
 ## Champs obligatoires : <br/>
 **Email :** adresse e-mail de l'utilisateur invité. <br/> **DisplayName :** nom d'affichage de l'utilisateur invité (en général, prénom et nom).<br/> **InviteContactUsUrl :** URL à inclure dans les invitations par e-mail au cas où l'utilisateur invité souhaiterait contacter votre organisation.<br/>
@@ -31,9 +31,9 @@ La version préliminaire de la collaboration B2B d'Azure AD nécessite un fichie
 ## Exemple de fichier CSV
 Voici un exemple de fichier CSV que vous pouvez modifier.
 
->[AZURE.NOTE]Copiez et collez-le dans le bloc-notes et enregistrez-le avec une extension de fichier « .csv ». Puis modifiez-le dans Excel. Il sera structuré sous forme de table avec des étiquettes dans la première ligne.
+>[AZURE.NOTE] Copiez et collez-le dans le bloc-notes et enregistrez-le avec une extension de fichier « .csv ». Puis modifiez-le dans Excel. Il sera structuré sous forme de table avec des étiquettes dans la première ligne.
 
->[AZURE.NOTE]Ajoutez des champs facultatifs dans Excel en spécifiant l'étiquette et en remplissant la colonne en dessous.
+>[AZURE.NOTE] Ajoutez des champs facultatifs dans Excel en spécifiant l'étiquette et en remplissant la colonne en dessous.
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
@@ -43,13 +43,13 @@ bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.m
 ```
 
 ## Articles connexes
-Consultez les autres articles sur la collaboration B2B d'Azure
+Consultez les autres articles sur Azure B2B Collaboration
 
-- [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Fonctionnement](active-directory-b2b-how-it-works.md)
 - [Procédure détaillée](active-directory-b2b-detailed-walkthrough.md)
 - [Format du jeton utilisateur externe](active-directory-b2b-references-external-user-token-format.md)
-- [Modifications de l'attribut d'objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limites actuelles de l'aperçu](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

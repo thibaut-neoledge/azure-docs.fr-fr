@@ -33,7 +33,7 @@ Nous vous recommandons d'utiliser la protection intégrée si votre application 
 2. Le taux de modification des données est faible (par exemple, en transactions par heure). Le RPO de 1 heure n'entraîne pas une perte de données massive.
 3. L'application est sensible aux coûts et ne peut pas justifier le coût supplémentaire de la géo-réplication 
 
-> [AZURE.NOTE]La géo-restauration n'alloue pas au préalable la capacité de calcul dans une région particulière pour restaurer les bases de données actives à partir de la sauvegarde pendant la panne. Le service gère la charge de travail associée aux requêtes de géo-restauration d'une manière qui réduit l'impact sur les bases de données existantes dans cette région et leurs exigences en termes de capacité auront la priorité. Par conséquent, le temps de récupération de votre base de données dépendra du nombre de bases de données en phase de récupération dans la même région en même temps.
+> [AZURE.NOTE] La géo-restauration n'alloue pas au préalable la capacité de calcul dans une région particulière pour restaurer les bases de données actives à partir de la sauvegarde pendant la panne. Le service gère la charge de travail associée aux requêtes de géo-restauration d'une manière qui réduit l'impact sur les bases de données existantes dans cette région et leurs exigences en termes de capacité auront la priorité. Par conséquent, le temps de récupération de votre base de données dépendra du nombre de bases de données en phase de récupération dans la même région en même temps.
 
 ##Utilisation de la géo-réplication
 
@@ -45,23 +45,23 @@ Nous vous recommandons d'utiliser la géo-réplication si votre application rép
 2. Le taux de modification des données est élevé (par exemple, en transactions par minute ou seconde). Le RPO de 1 heure associé à la protection par défaut entraînera sans doute une perte de données inacceptable.
 3. Le coût associé à l'utilisation de la géo-réplication est nettement plus faible que la responsabilité financière potentielle et la perte d'activité associée.
 
-> [AZURE.NOTE]Si votre application utilise des bases de données de base, la géo-réplication n'est pas prise en charge.
+> [AZURE.NOTE] Si votre application utilise des bases de données de base, la géo-réplication n'est pas prise en charge.
 
 ##Quand choisir la réplication géographique standard par rapport à la Géo-réplication active
 
 Les bases de données de niveau standard n'ont pas la possibilité d'utiliser la géo-réplication active. Par conséquent, si votre application utilise des bases de données standard et répond aux critères ci-dessus, la géo-réplication standard doit être activée. En revanche, les bases de données Premium peuvent utiliser les deux options. La géo-réplication standard a été conçue en tant que solution de récupération d'urgence plus simple et moins onéreuse, particulièrement adaptée aux applications qui l'utilisent uniquement pour se protéger contre des événements imprévus tels que des pannes. Avec la géo-réplication standard, vous ne pouvez utiliser que la région associée à la récupération d'urgence et ne pouvez créer qu’une base de données secondaire pour chaque base de données primaire. Une base de données secondaire supplémentaire peut être nécessaire pour le scénario de mise à niveau de l'application. Par conséquent, si ce scénario est essentiel pour votre application, vous devez plutôt activer la géo-réplication active. Consultez [Mise à niveau de l'application sans interruption](sql-database-business-continuity-application-upgrade.md) pour plus de détails.
 
-> [AZURE.NOTE]La géo-réplication active prend également en charge l'accès en lecture seule à la base de données secondaire, offrant ainsi une capacité supplémentaire pour les charges de travail en lecture seule.
+> [AZURE.NOTE] La géo-réplication active prend également en charge l'accès en lecture seule à la base de données secondaire, offrant ainsi une capacité supplémentaire pour les charges de travail en lecture seule.
 
 ##Activation de la géo-réplication
 
 Vous pouvez activer la géo-réplication à l’aide du portail Azure Classic ou en appelant l’API REST ou la commande PowerShell.
 
-###Portail Azure Classic
+###Portail Azure
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Connectez-vous au [Portail Azure Classic](https://portal.Azure.com).
+1. Connectez-vous au [portail Azure](https://portal.Azure.com).
 2. Sur le côté gauche de l'écran, sélectionnez **PARCOURIR**, puis sélectionnez **Bases de données SQL**
 3. Accédez à votre panneau de base de données, sélectionnez la **carte de géo-réplication** et cliquez sur **Configurer la géo-réplication**.
 4. Accédez au panneau de géo-réplication. Sélectionnez la région cible. 
@@ -69,7 +69,7 @@ Vous pouvez activer la géo-réplication à l’aide du portail Azure Classic ou
 6. Sélectionnez le type secondaire (*Lisible* ou *Illisible*)
 7. Cliquez sur **Créer** pour terminer la configuration
 
-> [AZURE.NOTE]La région associée à la récupération d'urgence dans le panneau de géo-réplication sera marquée comme étant *recommandée*. Si vous utilisez une base de données Premium, vous pouvez choisir une autre région. Si vous utilisez une base de données standard, vous ne pouvez pas la modifier. La base de données Premium aura le choix en termes de type secondaire (*Lisible* ou *Illisible*). La base de données standard peut uniquement sélectionner un type secondaire *Illisible*.
+> [AZURE.NOTE] La région associée à la récupération d'urgence dans le panneau de géo-réplication sera marquée comme étant *recommandée*. Si vous utilisez une base de données Premium, vous pouvez choisir une autre région. Si vous utilisez une base de données standard, vous ne pouvez pas la modifier. La base de données Premium aura le choix en termes de type secondaire (*Lisible* ou *Illisible*). La base de données standard peut uniquement sélectionner un type secondaire *Illisible*.
 
 
 ###PowerShell
@@ -98,4 +98,4 @@ Cette API est asynchrone. Après son retour, utilisez l'API [Get Replication Lin
 
 Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions Cloud pour la récupération d'urgence à l'aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) pour obtenir des instructions.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

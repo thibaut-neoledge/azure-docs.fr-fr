@@ -30,19 +30,19 @@ De la même manière, les API REST pour **Azure SQL Database** peuvent égaleme
 2. Pour exécuter le module, tapez **Microsoft Azure PowerShell** dans la fenêtre de démarrage.
 3. Si vous n’avez pas encore ajouté votre compte à la machine, exécutez l’applet de commande suivante. (Pour plus d’informations, consultez la rubrique [Comment installer et configurer Azure PowerShell]() :
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 3. Sélectionnez l’abonnement à la base de données que vous souhaitez suspendre ou reprendre. L’abonnement nommé « mysubscription » est sélectionné.
 
-```
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Select-AzureRmSubscription -SubscriptionName "MySubscription"
+	```
 
 ## Suspend-AzureRmSqlDatabase
 
-Pour accéder à la référence des commandes, consultez [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
+Pour plus d’informations sur cette commande, consultez [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
 
 ### Exemple 1 : Interruption d’une base de données par nom sur un serveur
 
@@ -64,7 +64,7 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-Pour accéder à la référence des commandes, consultez [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
+Pour plus d’informations sur cette commande, consultez [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
 
 ### Exemple 1 : Reprise d’une base de données par nom sur un serveur
 
@@ -113,7 +113,7 @@ $retorePoints
 ```
 
 
-> [AZURE.NOTE]Notez que si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande powershell.
+> [AZURE.NOTE] Notez que si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande powershell.
 
 
 ## Étapes suivantes
@@ -133,4 +133,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Conserver une adresse IP virtuelle constante pour un service cloud
 
-Lors de la mise à jour d’un service cloud hébergé dans Azure, vérifiez que l’adresse IP virtuelle du service n’est pas modifiée. De nombreux services de gestion de domaine utilisent la méthode DNS (Domain Name System), une méthode d’enregistrement pour stocker des noms de domaine et qui fonctionne uniquement si l’adresse IP virtuelle est inchangée. Utilisez l’**Assistant Publication** dans Azure Tools pour garantir que l’adresse IP virtuelle de votre service cloud ne change pas lors de sa mise à jour. Pour plus d’informations sur l’utilisation de la gestion de domaine DNS pour les services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](cloud-services-custom-domain-name.md).
+Lors de la mise à jour d’un service cloud hébergé dans Azure, vérifiez que l’adresse IP virtuelle du service n’est pas modifiée. De nombreux services de gestion de domaine utilisent la méthode DNS (Domain Name System), une méthode d’enregistrement pour stocker des noms de domaine et qui fonctionne uniquement si l’adresse IP virtuelle est inchangée. Utilisez l’**Assistant Publication** dans Azure Tools pour garantir que l’adresse IP virtuelle de votre service cloud ne change pas lors de sa mise à jour. Pour plus d’informations sur l’utilisation de la gestion de domaine DNS pour les services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](/cloud-services/cloud-services-custom-domain-name.md).
 
 ## Publication d’un service cloud sans modifier son adresse IP virtuelle
 
@@ -39,10 +39,10 @@ L’adresse IP virtuelle d’un service cloud est allouée la première fois qu
 
 1. Dans la page **Résumé** de l’Assistant, vérifiez les paramètres, puis cliquez sur le bouton **Publier**.
 
-  >[AZURE.WARNING]En cas d’échec du déploiement, vous devez trouver la raison de cet échec et effectuer à nouveau le déploiement rapidement, pour éviter de laisser votre service cloud dans un état endommagé.
+  >[AZURE.WARNING] En cas d’échec du déploiement, vous devez trouver la raison de cet échec et effectuer à nouveau le déploiement rapidement, pour éviter de laisser votre service cloud dans un état endommagé.
 
 ## Étapes suivantes
 
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

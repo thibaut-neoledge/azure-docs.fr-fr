@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Hébergement d’applications web dans Docker
@@ -92,7 +92,7 @@ En suivant ces procédures, vous allez créer un projet d’application web ASP.
 
     ![][7]
 
-    Visual Studio affiche la progression de cette opération dans la fenêtre **Sortie**. Visual Studio appelle un script PowerShell pour déployer la machine virtuelle. Le script utilise des applets de commande Azure PowerShell pour déployer le groupe de ressources Azure. Ensuite, un autre script PowerShell utilise les commandes Docker émises pour la publication, comme vous le feriez si vous deviez créer manuellement l’hôte Docker.
+    Vous pouvez suivre la progression de cette opération dans la fenêtre **Sortie**. Visual Studio appelle un script PowerShell pour déployer la machine virtuelle. Le script utilise des applets de commande Azure PowerShell pour déployer le groupe de ressources Azure. Ensuite, un autre script PowerShell utilise les commandes Docker émises pour la publication, comme vous le feriez si vous deviez créer manuellement l’hôte Docker.
 
     L’approvisionnement de l’hôte Docker peut prendre du temps. Vérifiez l’état dans la fenêtre Sortie pour savoir quand la tâche est terminée.
 
@@ -163,7 +163,7 @@ La procédure ci-dessous permet de communiquer avec un hôte Docker déployé su
 
 Maintenant que vous disposez d’un hôte Docker, vous pouvez lui envoyer des commandes Docker. Pour plus d’informations sur Docker, consultez la [documentation Docker](https://docs.docker.com/) et le [didacticiel en ligne Docker](https://www.docker.com/tryit/).
 
-Pour en savoir plus sur l'utilisation de l'extension Docker VM pour Linux dans Azure, consultez [Extension Docker VM pour Linux dans Azure](virtual-machines-docker-vm-extension.md).
+Pour en savoir plus sur l'utilisation de l'extension Docker VM pour Linux dans Azure, consultez [Extension Docker VM pour Linux dans Azure](/virtual-machines/virtual-machines-docker-vm-extension.md).
 
 Pour résoudre les problèmes d’utilisation de Docker dans Visual Studio, consultez [Dépannage d’erreurs client sur Windows avec Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
@@ -177,4 +177,4 @@ Pour résoudre les problèmes d’utilisation de Docker dans Visual Studio, cons
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->
