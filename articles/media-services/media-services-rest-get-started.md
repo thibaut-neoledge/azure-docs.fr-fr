@@ -500,7 +500,8 @@ Maintenant que vous avez téléchargé votre fichier, mettez à jour les informa
 
 **Réponse HTTP**
 
-Si l’opération réussit, l’élément suivant est retourné : HTTP/1.1 204 No Content
+Si l’opération réussit, l’élément suivant est retourné : 
+	HTTP/1.1 204 No Content
 
 ## Suppression du localisateur et d’AcessPolicy 
 
@@ -726,7 +727,7 @@ Le code suivant demande l’ID de l’encodeur.
 
 Chaque travail peut comporter une ou plusieurs tâches, en fonction du type de traitement que vous souhaitez accomplir. Via l’API REST, vous pouvez créer des travaux et leurs tâches associées de deux manières : les tâches peuvent être définies en ligne via la propriété de navigation de tâches sur les entités de travail ou via le traitement par lots OData. Le Kit de développement logiciel (SDK) Media Services utilise le traitement par lots. Toutefois, pour une meilleure lisibilité des exemples de code dans cette rubrique, les tâches sont définies inline. Pour plus d’informations sur le traitement par lots, consultez [Traitement par lots d’Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-L’exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. La section suivante de la documentation contient la liste de toutes les [présélections de tâches](https://msdn.microsoft.com/fr-FR/library/mt269960) prises en charge par Media Encoder Standard.
+L’exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. La section suivante de la documentation contient la liste de toutes les [présélections de tâches](https://msdn.microsoft.com/library/mt269960) prises en charge par Media Encoder Standard.
 
 **Demande HTTP**
 	

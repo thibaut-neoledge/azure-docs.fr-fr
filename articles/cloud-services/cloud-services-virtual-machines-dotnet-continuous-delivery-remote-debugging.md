@@ -39,7 +39,7 @@ En procédant comme suit, vous pouvez activer le débogage distant dans Azure, p
 1. Créez une machine virtuelle Azure. Consultez [Création d’une machine virtuelle exécutant Windows Server](/virtual-machines/virtual-machines-windows-tutorial.md) ou [Créer et gérer des machines virtuelles Azure dans Visual Studio](/vs-azure-tools-virtual-machines-create-manage.md).
 2. Sur la [page du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=269851), affichez le tableau de bord de la machine virtuelle pour voir l’**EMPREINTE NUMÉRIQUE DE CERTIFICAT RDP** de la machine virtuelle. Cette valeur est utilisée pour la valeur `ServerThumbprint` dans la configuration de l’extension.
 3. Créez un certificat client comme expliqué dans [Vue d’ensemble des certificats pour Azure Cloud Services](cloud-services-certs-create.md) (conservez l’empreinte numérique de certificat .pfx et RDP).
-4. Installez Azure PowerShell (version 0.7.4 ou ultérieure) comme indiqué dans [Installation et configuration d’Azure PowerShell](/powershell-install-configure.md).
+4. Installez Azure PowerShell (version 0.7.4 ou ultérieure) comme indiqué dans [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 5. Exécutez le script suivant pour activer l'extension RemoteDebug. Remplacez les chemins d’accès et les données personnelles par les vôtres, notamment le nom de l'abonnement, le nom du service et l'empreinte numérique.
 
 	>[AZURE.NOTE] Ce script est configuré pour Visual Studio 2015. Si vous utilisez Visual Studio 2013, modifiez les affectations `$referenceName` et `$extensionName` ci-dessous pour utiliser `RemoteDebugVS2013` (au lieu de `RemoteDebugVS2015`).

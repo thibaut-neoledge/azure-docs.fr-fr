@@ -38,7 +38,7 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 * [Didacticiel : prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md)
 
-* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurebatch)
+* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Vidéos sur Azure Batch](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -62,7 +62,7 @@ HPC Pack est la solution HPC gratuite de Microsoft construite autour des technol
 * [Intégration à Azure Batch avec HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Forums Windows HPC](https://social.microsoft.com/Forums/fr-FR/home?category=windowshpc)
+* [Forums Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### Solutions de cluster Linux et OSS
 
@@ -81,7 +81,7 @@ Utilisez ces modèles de démarrage rapide Azure pour déployer des clusters HPC
 
 * [Informations de référence sur MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Forum MPI](https://social.microsoft.com/Forums/fr-FR/home?forum=windowshpcmpi)
+* [Forum MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 
 ## Instances de calcul intensif

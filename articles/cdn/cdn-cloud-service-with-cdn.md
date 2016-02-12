@@ -48,7 +48,9 @@ Ce didacticiel nécessite les éléments suivants :
 -	Un [compte Microsoft Azure](/account/) actif.
 -	Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
-> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. + Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel :
+> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. 
+> + Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
 
 <a name="deploy"></a>
 ## Déploiement d'un service cloud ##

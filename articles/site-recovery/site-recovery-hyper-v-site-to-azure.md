@@ -56,11 +56,11 @@ Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez inst
 - Il est recommandé de toujours utiliser la dernière version de ce fournisseur et de cet agent. Ceux-ci sont disponibles dans le portail Site Recovery.
 - Tous les serveurs Hyper-V d’un coffre doivent disposer des mêmes versions du fournisseur et de l’agent.
 - Le fournisseur exécuté sur le serveur se connecte à Site Recovery via Internet. Vous pouvez effectuer cette action sans proxy, au moyen des paramètres de proxy actuellement configurés sur le serveur Hyper-V, ou à l’aide des paramètres de proxy personnalisés que vous avez configurés lors de l’installation du fournisseur. Vous devez vous assurer que le serveur proxy que vous souhaitez utiliser peut accéder à ces URL pour se connecter à Azure :
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
 	
 - Autorisez également les adresses IP décrites dans les [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 

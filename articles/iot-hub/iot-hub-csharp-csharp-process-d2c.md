@@ -98,6 +98,7 @@ Informations supplémentaires sur IoT Hub :
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[Gestion des erreurs temporaires]: https://msdn.microsoft.com/fr-FR/library/hh680901(v=pandp.50).aspx
 
 [Guide du développeur Azure IoT Hub - Appareil vers cloud]: https://azure.microsoft.com/fr-FR/documentation/articles/iot-hub-devguide/#d2c
 
@@ -107,6 +108,7 @@ Informations supplémentaires sur IoT Hub :
 
 
 [Envoyer des messages du cloud vers des appareils avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
+[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
 [Téléchargement de fichiers à partir d’appareils]: iot-hub-csharp-csharp-file-upload.md
 
 [Vue d’ensemble d’IoT Hub]: iot-hub-what-is-iot-hub.md

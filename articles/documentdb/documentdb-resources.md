@@ -34,7 +34,8 @@ Comme l'illustre le schéma suivant, le **modèle de ressources** hiérarchique 
 
 >[AZURE.NOTE] DocumentDB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modèle de ressources hiérarchique de DocumentDB][1] **Modèle de ressource hiérarchique**
+![Modèle de ressources hiérarchique de DocumentDB][1]  
+**Modèle de ressource hiérarchique**
 
 Pour commencer à travailler avec des ressources, vous devez [créer un compte de base de données DocumentDB](documentdb-create-account.md) à l’aide de votre abonnement Azure. Un compte de base de données peut être composé d'un jeu de **bases de données**. Chacune d'elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l'utilisateur, des documents** et des **pièces jointes** associées (fonctionnalité en version préliminaire). La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble d’**autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l'utilisateur.
 
@@ -60,7 +61,11 @@ Les ressources (telles que les comptes de base de données, les bases de donnée
 
 Propriété |Définie par l'utilisateur ou générée par le système ?|Objectif
 ---|---|---
-_\_rid|Générée par le système|identifiant unique, hiérarchique et généré par le système de la ressource. \_etag|Générée par le système|etag de la ressource nécessaire pour le contrôle d’accès concurrentiel optimiste. \_ts|Générée par le système|Dernier horodatage mis à jour de la ressource. \_self|Générée par le système|URI adressable unique de la ressource. id|Définie par l'utilisateur|Nom unique défini par l'utilisateur de la ressource. Si l'utilisateur ne spécifie pas d'ID, un ID sera généré par le système
+_rid|Générée par le système|identifiant unique, hiérarchique et généré par le système de la ressource. 
+_etag|Générée par le système|etag de la ressource nécessaire pour le contrôle d’accès concurrentiel optimiste. 
+_ts|Générée par le système|Dernier horodatage mis à jour de la ressource. 
+_self|Générée par le système|URI adressable unique de la ressource. 
+id|Définie par l'utilisateur|Nom unique défini par l'utilisateur de la ressource. Si l'utilisateur ne spécifie pas d'ID, un ID sera généré par le système
 
 ### Représentation en réseau des ressources
 DocumentDB n'oblige pas les extensions propriétaires à adopter la norme JSON ou des codages spéciaux ; l'application fonctionne avec les documents JSON standard.
@@ -68,7 +73,18 @@ DocumentDB n'oblige pas les extensions propriétaires à adopter la norme JSON o
 ### Adressage d'une ressource
 Toutes les ressources sont adressables via des URI. La valeur de la propriété **\_self** d'une ressource représente l'URI relatif de la ressource. Le format de l’URI est composé des segments de chemin d’accès /<flux>/{\_rid} :
 
-|Valeur de \_self |Description |-------------------|----------- |/dbs |Flux de bases de données sous un compte de base de données |/dbs/{\_rid-db} |Base de données avec un ID correspondant à la valeur {\_rid-db} |/dbs/{\_rid-db}/colls/ |Flux de collections sous une base de données |/dbs/{\_rid-db}/colls/{\_rid-coll} |Collection avec un ID correspondant à la valeur {\_rid-coll} |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Flux de documents dans une collection |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Document avec un ID correspondant à la valeur {\_rid-doc} |/dbs/{\_rid-db}/users/ |Flux des utilisateurs sous une base de données |/dbs/{\_rid-db}/users/{\_rid-user} |Utilisateurs avec un ID correspondant à la valeur {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Flux d'autorisations sous un utilisateur |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorisation avec un ID correspondant à la valeur {\_rid-permission}
+|Valeur de \_self |Description 
+|-------------------|----------- 
+|/dbs |Flux de bases de données sous un compte de base de données 
+|/dbs/{_rid-db} |Base de données avec un ID correspondant à la valeur {_rid-db} 
+|/dbs/{_rid-db}/colls/ |Flux de collections sous une base de données 
+|/dbs/{_rid-db}/colls/{_rid-coll} |Collection avec un ID correspondant à la valeur {_rid-coll} 
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Flux de documents dans une collection 
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Document avec un ID correspondant à la valeur {_rid-doc}
+|/dbs/{_rid-db}/users/ |Flux des utilisateurs sous une base de données 
+|/dbs/{_rid-db}/users/{_rid-user} |Utilisateurs avec un ID correspondant à la valeur {_rid-user}
+|/dbs/{_rid-db}/users/{_rid-user}/permissions |Flux d'autorisations sous un utilisateur
+|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorisation avec un ID correspondant à la valeur {_rid-permission}
   
 Chaque ressource a un nom défini par l'utilisateur unique exposé à l'aide de la propriété d'ID. Remarque : si l'utilisateur ne spécifie pas d'ID de documents, le système génère automatiquement un ID unique pour un document. L'ID est une chaîne de 256 caractères maximum, définie par l'utilisateur et unique dans le contexte d'une ressource parent spécifique. Par exemple, la valeur de la propriété d'ID de tous les documents d'une collection donnée est unique, mais pas systématiquement unique parmi les collections. De même, la valeur de la propriété d'ID de toutes les autorisations d'un utilisateur donné est unique, mais pas systématiquement unique parmi les utilisateurs. La propriété \_rid permet de construire le lien \_self adressable d'une ressource.
 

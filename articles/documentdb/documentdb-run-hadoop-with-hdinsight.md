@@ -80,7 +80,8 @@ Lors de l'approvisionnement d'un cluster HDInsight, vous spécifiez un compte Az
 
 1. Connectez-vous au [portail Azure Classic][azure-classic-portal].
 
-2. Cliquez sur **+ NOUVEAU** dans le coin inférieur gauche, pointez sur **SERVICES DE DONNÉES** et sur **STOCKAGE**, puis cliquez sur **CRÉATION RAPIDE**. ![Portail Azure Classic où vous pouvez utiliser l’option Création rapide pour configurer un nouveau compte de stockage.][image-storageaccount-quickcreate]
+2. Cliquez sur **+ NOUVEAU** dans le coin inférieur gauche, pointez sur **SERVICES DE DONNÉES** et sur **STOCKAGE**, puis cliquez sur **CRÉATION RAPIDE**.
+	![Portail Azure où vous pouvez utiliser l'option Création rapide pour configurer un nouveau compte de stockage.][image-storageaccount-quickcreate]
 
 3. Entrez l’**URL**, sélectionnez les valeurs **EMPLACEMEN**T et **RÉPLICATION**, puis cliquez sur **CRÉER UN COMPTE DE STOCKAGE**. Les groupes d'affinités ne sont pas pris en charge.
 	
@@ -114,7 +115,8 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 		<td>Pour le système d’exploitation, sélectionnez <strong>Windows Server&#160;2012&#160;R2 Datacenter</strong>.</td></tr>
 	<tr><td>Version de HDInsight</td>
 		<td>Choisissez la version. </br>Sélectionnez <Strong>HDInsight version&#160;3.1</Strong>.</td></tr>
-	</table><p>Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.</p>
+		</table>
+	<p>Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.</p>
 
 4. Sur la page **Configurer le cluster**, entrez ou sélectionnez les valeurs suivantes :
 
@@ -122,7 +124,8 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 <tr><th>Nom</th><th>Valeur</th></tr>
 <tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. </br>Notez que les nœuds de données de HDInsight sont associés aux performances et à la tarification.</td></tr>
 <tr><td>Région/Réseau virtuel</td><td>Choisissez la même région que pour le <strong>compte de stockage</strong> que vous venez de créer et votre <strong>compte DocumentDB</strong>. </br> HDInsight requiert en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu'un compte de stockage situé dans la région spécifiée ici.</td></tr>
-</table>Cliquez sur la flèche droite.
+	</table>
+	Cliquez sur la flèche droite.
 
 5. Sur la page **Configuration de l'utilisateur du cluster**, entrez les valeurs suivantes :
 
@@ -132,7 +135,8 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 		<td>Spécifiez le nom d'utilisateur de cluster HDInsight.</td></tr>
 	<tr><td>Mot de passe/Confirmer le mot de passe</td>
 		<td>Spécifiez le mot de passe de cluster HDInsight.</td></tr>
-</table>Cliquez sur la flèche droite.
+	</table>
+    Cliquez sur la flèche droite.
     
 6. Sur la page **Compte de stockage**, entrez les valeurs suivantes :
 
@@ -154,7 +158,8 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
     </td></tr>
 	<tr><td>Comptes de stockage supplémentaires</td>
 		<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n'est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure Classic, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page Compte de stockage supplémentaire vers l'Assistant vous permettant de spécifier les informations de compte.</td></tr>
-</table>Cliquez sur la flèche droite.
+	</table>
+	Cliquez sur la flèche droite.
 
 7. Dans la page **Actions de script**, cliquez sur **Ajouter une action de script** pour fournir des détails sur le script PowerShell que vous souhaitez exécuter pour personnaliser votre cluster, pendant la création du cluster. Le script PowerShell installera le connecteur Hadoop DocumentDB sur vos clusters HDInsight pendant la création des clusters.
 	
@@ -173,7 +178,8 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 	<tr><td>Paramètres</td>
 		<td>Spécifiez les paramètres, si le script le demande.</br></br>
 		<strong>Aucun paramètre requis</strong>.</td></tr>
-</table>Cliquez sur la coche pour terminer la création du cluster.
+	</table>
+	Cliquez sur la coche pour terminer la création du cluster.
 
 ## <a name="InstallCmdlets"></a>Étape 3 : Installation et configuration d’Azure PowerShell
 
@@ -183,7 +189,7 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 
 2. Ouvrez l'environnement de script intégré Azure PowerShell :
 	- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran d’accueil, tapez **powershell ise**, puis cliquez sur **Entrée**. 
-	- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu Démarrer. Dans la zone de recherche du menu Démarrer, tapez **Invite de commandes**, puis, dans la liste des résultats, cliquez sur **Invite de commandes**. Dans l’invite de commandes, tapez **powershell\_ise**, puis cliquez sur **Entrée**.
+	- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu Démarrer. Dans la zone de recherche du menu Démarrer, tapez **Invite de commandes**, puis, dans la liste des résultats, cliquez sur **Invite de commandes**. Dans l’invite de commandes, tapez **powershell_ise**, puis cliquez sur **Entrée**.
 
 3. Ajoutez votre compte Azure.
 	1. Dans le volet de la console, tapez **Add-AzureAccount**, puis cliquez sur **Entrée**. 
@@ -210,7 +216,10 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 		$clusterName = "<HDInsightClusterName>"
 
 2. 
-	<p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Hive qui prend les horodatages générés par le système (_ts) et les ID uniques (_rid) de tous les documents d'une collection DocumentDB, comptabilise tous les documents à la minute et stocke les résultats dans une nouvelle collection DocumentDB. </p><p>Commençons par créer une table Hive à partir de notre collection DocumentDB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid. </p>> [AZURE.NOTE] **L’attribution du nom DocumentDB.inputCollections n’était pas une erreur.** Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br> '*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule.
+	<p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Hive qui prend les horodatages générés par le système (_ts) et les ID uniques (_rid) de tous les documents d'une collection DocumentDB, comptabilise tous les documents à la minute et stocke les résultats dans une nouvelle collection DocumentDB. </p>
+	<p>Commençons par créer une table Hive à partir de notre collection DocumentDB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid. </p>
+	> [AZURE.NOTE] **L’attribution du nom DocumentDB.inputCollections n’était pas une erreur.** Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br> 
+	'*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule.
 
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
@@ -226,7 +235,9 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
  
 3.  Créons maintenant une table Hive pour la collection de sortie. Les propriétés des documents de sortie seront le mois, le jour, l'heure, les minutes et le nombre total d'occurrences.
 
-	> [AZURE.NOTE] **Une fois encore, l’attribution du nom DocumentDB.outputCollections n’était pas une erreur.** Oui, nous autorisons l’ajout de plusieurs collections en tant que sortie : </br> '*DocumentDB.ouputCollections*' = ’*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br></br> Les documents seront distribués en tourniquet (round robin), sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
+	> [AZURE.NOTE] **Une fois encore, l’attribution du nom DocumentDB.outputCollections n’était pas une erreur.** Oui, nous autorisons l’ajout de plusieurs collections en tant que sortie : </br> 
+	'*DocumentDB.ouputCollections*' = ’*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br></br> 
+	Les documents seront distribués en tourniquet (round robin), sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -302,7 +313,9 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
         $clusterName = "Azure HDInsight Cluster Name"
 
 2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Pig qui accepte les horodatages générés par le système de tous les documents (DTS) et des identificateurs uniques (_rid) à partir d'une collection DocumentDB, comptabilise tous les documents à la minute, puis stocke les résultats de la sauvegarde dans une nouvelle collection DocumentDB.</p>
-    <p>Chargez d'abord des documents DocumentDB dans HDInsight. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à ajouter une requête DocumentDB au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>> [AZURE.NOTE] Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br> '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </b>
+    <p>Chargez d'abord des documents DocumentDB dans HDInsight. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code&#160;1. Veillez à ajouter une requête DocumentDB au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>
+    > [AZURE.NOTE] Oui, nous autorisons l’ajout de plusieurs collections en tant qu’entrée : </br>
+ '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </b>
 
 	Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
@@ -322,7 +335,9 @@ Ce didacticiel utilise une action de script à partir du portail Azure Classic p
 
 4. Pour terminer, nous allons stocker les résultats dans notre nouvelle collection de sortie.
 
-    > [AZURE.NOTE] Oui, nous autorisons l’ajout de plusieurs collections en tant que sortie : </br> '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br> Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
+    > [AZURE.NOTE] Oui, nous autorisons l’ajout de plusieurs collections en tant que sortie : </br> 
+    '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br> 
+    Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +

@@ -155,7 +155,8 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][105]  
 8. Dans la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Qu’est-ce qu’Azure AD Connect ?][106]   
 
-    a. Notez la valeur du **Nouveau mot de passe**. b. Cliquez sur **Terminé**.
+    a. Notez la valeur du **Nouveau mot de passe**. 
+    b. Cliquez sur **Terminé**.
   
  
 ### Création d’un utilisateur de test Halogen Software
@@ -166,7 +167,12 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Connectez-vous à votre application **Halogen Software** en tant qu’administrateur.
 2. Cliquez sur l’onglet **User Center**, puis sur **Create User**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][300]  
-3. Dans la boîte de dialogue **Nouvel utilisateur**, procédez comme suit : <br><br>![Qu’est-ce qu’Azure AD Connect ?][301] a. Dans la zone de texte **Prénom**, tapez **Britta**. b. Dans la zone de texte **Nom**, tapez **Simon**. c. Dans la zone de texte **Username**, tapez le **nom d’utilisateur de Britta Simon dans le portail Azure AD**. d. Dans la zone de texte **Mot de passe**, tapez un mot de passe pour Britta. e. Cliquez sur **Enregistrer**.
+3. Dans la boîte de dialogue **Nouvel utilisateur**, procédez comme suit : <br><br>![Qu’est-ce qu’Azure AD Connect ?][301] 
+  a. Dans la zone de texte **Prénom**, tapez **Britta**.
+  b. Dans la zone de texte **Nom**, tapez **Simon**.
+  c. Dans la zone de texte **Username**, tapez le **nom d’utilisateur de Britta Simon dans le portail Azure AD**. 
+  d. Dans la zone de texte **Mot de passe**, tapez un mot de passe pour Britta. 
+  e. Cliquez sur **Enregistrer**.
 
 
 ### Affectation de l’utilisateur de test Azure AD
