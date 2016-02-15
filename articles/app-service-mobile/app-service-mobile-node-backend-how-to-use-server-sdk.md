@@ -434,10 +434,10 @@ Si la propriété d’accès n’est pas définie, l’accès non authentifié e
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read* : opération GET RESTful sur la table
+  - *insert* : opération POST RESTful sur la table
+  - *update* : opération PATCH RESTful sur la table
+  - *delete* : opération DELETE RESTful sur la table
 
 Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
 
@@ -745,4 +745,4 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
