@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="normesta"/>
 
 #Créer une application Xamarin.Forms
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-##Vue d'ensemble
+##Vue d’ensemble
 
 Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin.Forms en utilisant un serveur principal d’applications mobiles Azure. Vous allez créer un serveur principal d’applications mobiles et une simple application Xamarin.Forms _Todo list_ qui stocke les données d’application dans Azure.
 
@@ -33,11 +31,11 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous n’avez pas de compte, vous pouvez vous inscrire pour obtenir une version d’évaluation Azure et jusqu’à 10 applications Mobile App gratuites que vous pourrez conserver après l’expiration de votre période d’évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
- 
+
 * [Visual Studio Community 2013] ou version ultérieure. Si vous installez Visual Studio Community 2013, installez [Xamarin] séparément. Vous pouvez installer les outils Xamarin en même temps que Visual Studio 2015.
 
 * Un Mac sur lequel sont installés [Xcode] 7.0 ou version ultérieure et [Xamarin Studio]. Si vous envisagez de créer votre application sur un ordinateur Windows à l’aide de Visual Studio, vous devez quand même avoir accès à un Mac en réseau pour effectuer cette opération.
- 
+
 >[AZURE.NOTE] Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Créer un serveur principal d'applications mobiles Azure
@@ -55,7 +53,7 @@ Suivez les étapes ci-dessous pour configurer le projet de serveur de sorte qu�
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
- 
+
 ## (Facultatif) Tester localement votre projet de serveur principal
 
 Si vous avez choisi une configuration de serveur principal .NET ci-dessus, vous pouvez éventuellement tester votre serveur principal en local.
@@ -95,7 +93,7 @@ Cette section s’applique à l’exécution du projet iOS Xamarin pour les appa
 
 ####Dans Visual Studio
 1. Cliquez avec le bouton droit sur le projet iOS, puis cliquez sur **Définir comme projet de démarrage**.
-2. Dans le menu **Générer**, cliquez sur **Gestionnaire de configuration**. 
+2. Dans le menu **Générer**, cliquez sur **Gestionnaire de configuration**.
 3. Dans la boîte de dialogue **Gestionnaire de configuration**, cochez les cases **Générer** et **Déployer** du projet iOS.
 4. Appuyez sur la touche **F5** pour générer le projet et démarrer l’application dans l’émulateur iPhone.
 
@@ -119,7 +117,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 
 ####Dans Visual Studio
 1. Cliquez avec le bouton droit sur le projet Android, puis cliquez sur **Définir comme projet de démarrage**.
-4. Dans le menu **Générer**, cliquez sur **Gestionnaire de configuration**. 
+4. Dans le menu **Générer**, cliquez sur **Gestionnaire de configuration**.
 5. Dans la boîte de dialogue **Gestionnaire de configuration**, cochez les cases **Générer** et **Déployer** du projet Android.
 6. Appuyez sur la touche **F5** pour générer le projet et démarrer l’application dans l’émulateur Android.
 
@@ -141,16 +139,16 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 
 ####Dans Visual Studio
 1. Cliquez avec le bouton droit sur les projets Windows, puis cliquez sur **Définir comme projet de démarrage**.
-4. Dans le menu **Générer**, cliquez sur **Gestionnaire de configuration**. 
+4. Dans le menu **Générer**, cliquez sur **Gestionnaire de configuration**.
 5. Dans la boîte de dialogue **Gestionnaire de configuration**, cochez les cases **Générer** et **Déployer** du projet Windows que vous avez choisi.
 6. Appuyez sur la touche **F5** pour générer le projet et démarrer l’application dans un émulateur Windows.
 
 Dans l’application, tapez un texte explicite, tel que _Découvrir Xamarin_, puis cliquez sur le bouton **+**.
-	
+
 Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d'application mobile et les données sont affichées dans la liste.
 
 ![][12]
-	
+
 > [AZURE.NOTE]
 Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
@@ -180,6 +178,5 @@ Vous trouverez le code qui vous permet d’accéder à votre serveur principal d
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
- 
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0211_2016-->

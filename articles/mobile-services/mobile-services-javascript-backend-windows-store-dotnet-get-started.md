@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
@@ -75,7 +75,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 * [Ajout de notifications push à votre application][Get started with push notifications] En savoir plus sur l’envoi d’une notification Push très basique à votre application.
 
-* [Comment utiliser la bibliothèque cliente .NET](mobile-services-windows-dotnet-how-to-use-client-library.md) Découvrez comment interroger le service mobile, utiliser les données et accéder aux API personnalisées.
+* [Comment utiliser la bibliothèque cliente .NET](mobile-services-dotnet-how-to-use-client-library.md) Découvrez comment interroger le service mobile, utiliser les données et accéder aux API personnalisées.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -98,4 +98,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [portail Azure Classic]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

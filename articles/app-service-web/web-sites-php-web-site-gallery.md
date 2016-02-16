@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="11/13/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # Créer une application web WordPress dans Azure App Service
 
-Ce didacticiel montre comment rechercher une application dans Azure Marketplace et comment l’installer dans une application web App Service. Le didacticiel utilise un blog WordPress comme exemple, mais le processus est similaire pour de nombreuses autres applications Marketplace.
+Ce didacticiel montre comment déployer un blog WordPress à partir d’Azure Marketplace.
 
 Lorsque vous aurez terminé avec le didacticiel, vous disposerez de votre propre blog WordPress installé et configuré dans le cloud.
 
@@ -28,11 +28,14 @@ Vous apprendrez ce qui suit :
 
 * Comment trouver un modèle d’application dans Azure Marketplace.
 * Comment créer une application web dans Azure App Service basée sur le modèle.
-* Comment configurer les paramètres d’Azure App Service pour la nouvelle application web et la base de données MySQL.
+* Comment configurer les paramètres d’Azure App Service pour la nouvelle application web et la nouvelle base de données.
 
 Azure Marketplace met à votre disposition une large gamme d’applications web populaires, développées par Microsoft, par des sociétés tierces ou par des initiatives de logiciel open source. Les applications web sont basées sur un large éventail d’infrastructures répandues, notamment [PHP](/develop/nodejs/) dans cet exemple WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) et [Python](/develop/python/), pour en citer quelques-unes. Pour créer une application web à partir d’Azure Marketplace, le seul logiciel nécessaire est le navigateur que vous utilisez pour le [portail Azure](https://portal.azure.com/).
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
+Le site WordPress déployé dans le cadre de ce didacticiel utilise MySQL pour la base de données. Pour utiliser Base de données SQL à la place, consultez le site [Project Nami](http://projectnami.org/). **Project Nami** est également disponible via Marketplace.
+
+> [AZURE.NOTE]
+Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -44,7 +47,7 @@ Azure Marketplace met à votre disposition une large gamme d’applications web 
 	
     ![Création][5]
 	
-3. Recherchez **WordPress**, puis cliquez sur **WordPress**.
+3. Recherchez **WordPress**, puis cliquez sur **WordPress**. Pour utiliser Base de données SQL à la place de MySQL, recherchez **Project Nami**.
 
 	![WordPress dans la liste][7]
 	
@@ -123,4 +126,4 @@ Pour plus d’informations sur l’utilisation d’App Service Web Apps, consult
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

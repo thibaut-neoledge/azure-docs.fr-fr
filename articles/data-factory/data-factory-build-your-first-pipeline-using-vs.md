@@ -291,7 +291,7 @@ Quand vous publiez la solution à l’étape suivante, le fichier **partitionweb
 ## Étape 4 : Surveiller le pipeline
 
 6. Connectez-vous au [portail Azure](https://portal.azure.com/) et procédez comme suit :
-	1. Cliquez sur **Parcourir** et sélectionnez **Fabriques de données**.
+	1. Cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. 
 		![Parcourir les fabriques de données](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Sélectionnez **FirstDataFactoryUsingVS** dans la liste des fabriques de données. 
 7. Dans la page d’accueil de votre fabrique de données, cliquez sur **Diagramme**.
@@ -324,6 +324,8 @@ Quand vous publiez la solution à l’étape suivante, le fichier **partitionweb
  
 	![données de sortie](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 
+Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir des instructions sur l’utilisation du portail Azure pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
+
 ## Utiliser l’Explorateur de serveurs pour passer en revue les entités Data Factory
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
@@ -342,11 +344,101 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 2. Dans le volet gauche, sélectionnez **Mises à jour**, puis **Galerie Visual Studio**.
 3. Sélectionnez **Outils Azure Data Factory pour Visual Studio**, puis cliquez sur **Mettre à jour**. Si cette entrée n’est pas affichée, c’est que vous possédez déjà la dernière version de ces outils. 
 
-Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir des instructions sur l’utilisation du portail Azure pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
- 
+## Utiliser des fichiers de configuration
+Vous pouvez utiliser des fichiers de configuration dans Visual Studio pour configurer les propriétés des services/tableaux/pipelines liés différemment pour chaque environnement.
+
+Examinez la définition JSON suivante pour un service lié Azure Storage. Spécifiez **connectionString** avec différentes valeurs pour accountname et accountkey en fonction de l’environnement (Dev/Test/Production) sur lequel vous déployez des entités Data Factory. Vous pouvez le faire à l’aide d’un fichier de configuration distinct pour chaque environnement.
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorage",
+	        "description": "",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        }
+	    }
+	} 
+
+### Ajouter un fichier de configuration
+Ajoutez un fichier de configuration pour chaque environnement en effectuant les opérations suivantes :
+
+1. Cliquez sur le projet Data Factory dans votre solution Visual Studio, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
+2. Sélectionnez **Config** dans la liste des modèles installés sur la gauche, sélectionnez **Fichier de Configuration**, entrez un **nom** pour le fichier de configuration, puis cliquez sur **Ajouter**.
+
+	![Ajouter un fichier de configuration](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+3. Ajouter des paramètres de configuration et leurs valeurs selon le format indiqué ci-dessous :
+
+		{
+		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+		    "AzureStorageLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		        }
+		    ],
+		    "AzureSqlLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		        }
+		    ]
+		}
+
+	Cet exemple configure la propriété connectionString d’un service lié Azure Storage et d’un service lié SQL Azure. Notez que la syntaxe de spécification du nom est [JsonPath](http://goessner.net/articles/JsonPath/).
+
+	Si JSON est doté d’une propriété ayant un tableau de valeurs comme indiqué ci-dessous :
+
+		"structure": [
+	  		{
+	  			"name": "FirstName",
+	    		"type": "String"
+	  		},
+	  		{
+	    		"name": "LastName",
+	    	    "type": "String"
+			}
+		],
+	
+	Vous devez appliquer la configuration suivante dans le fichier de configuration (utilisez une indexation de base zéro) :
+		
+		{
+            "name": "$.properties.structure[0].name",
+            "value": "FirstName"
+        }
+        {
+            "name": "$.properties.structure[0].type",
+            "value": "String"
+        }
+        {
+            "name": "$.properties.structure[1].name",
+            "value": "LastName"
+        }
+        {
+            "name": "$.properties.structure[1].type",
+            "value": "String"
+        }
+
+
+### Déployer une solution à l’aide d’une configuration
+Lorsque vous publiez des entités Azure Data Factory dans Visual Studio, vous pouvez spécifier la configuration que vous souhaitez utiliser pour cette opération de publication.
+
+Pour publier des entités dans un projet Azure Data Factory à l’aide d’un fichier de configuration :
+
+1. Cliquez avec le bouton droit sur le projet Data Factory et cliquez sur **Publier** pour voir la boîte de dialogue **Publier des éléments**. 
+2. Sur la page **Configurer une fabrique de données**, sélectionnez une fabrique de données existante ou spécifiez des valeurs pour créer une fabrique de données, puis cliquez sur **Suivant**.   
+3. Sur la page **Publier des éléments** : vous verrez une liste déroulante avec les configurations disponibles pour le champ **Sélectionner une configuration de déploiement**.
+
+	![Sélectionner un fichier de config](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+
+4. Sélectionnez le **fichier de configuration** que vous souhaitez utiliser et cliquez sur **Suivant**.
+5. Assurez-vous de voir le nom du fichier JSON à la page **Résumé** et cliquez sur **Suivant**. 
+6. Une fois l’opération de déploiement terminée, cliquez sur **Terminer**. 
+
+Au cours du déploiement, les valeurs du fichier de configuration sont utilisées pour définir celles des propriétés des fichiers JSON pour les entités Data Factory (services, tableaux ou pipelines liés) avant que les entités ne soient déployées sur le service Azure Data Factory.
 
 ## Étapes suivantes
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données depuis un objet blob Azure vers Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

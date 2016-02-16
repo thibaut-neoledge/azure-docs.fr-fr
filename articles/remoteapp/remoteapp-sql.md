@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="01/07/2016"
+   ms.date="02/02/2016"
    ms.author="elizapo"/>
 
 # SQL Azure avec Azure RemoteApp
@@ -22,7 +22,7 @@ Souvent, lorsque les clients choisissent d’héberger leurs applications Window
 
 ## Migrer vos données SQL
 
-Commencez par l’article [Migrer une base de données SQL Server vers une base de données SQL Azure](sql-database-cloud-migrate.md), qui explique comment effectuer cette opération.
+Commencez par la [Migration d’une base de données SQL Server vers une base de données SQL Azure](../sql-database/sql-database-cloud-migrate.md).
 
 ## Configuration d’Azure RemoteApp
 Hébergez votre application Windows dans Azure RemoteApp. Vous trouverez ci-dessous une procédure étape par étape de très haut niveau :
@@ -37,11 +37,11 @@ Hébergez votre application Windows dans Azure RemoteApp. Vous trouverez ci-dess
 ## Considérations relatives à la configuration d’application et de SQL :
 Quelques points doivent être pris en compte lors de l’utilisation de SQL Azure avec RemoteApp :
 
-Apprenez [Comment configurer votre pare-feu Microsoft Azure SQL Database](sql-database-firewall-configure.md). Un extrait de l’article mentionne « Initialement, tout accès à votre serveur de base de données SQL Azure est bloqué par le pare-feu. Pour commencer à utiliser votre serveur Azure SQL Database, vous devez accéder au portail Azure Classic et spécifier une ou plusieurs règles de pare-feu au niveau du serveur qui permettent l’accès à votre serveur Azure SQL Database. Utilisez les règles de pare-feu pour spécifier les plages d’adresses IP Internet qui sont autorisées, et si les applications Azure peuvent essayer de se connecter à votre serveur Azure SQL Database. »
+Apprenez [Comment configurer votre pare-feu Microsoft Azure SQL Database](../sql-database/sql-database-firewall-configure.md). Un extrait de l’article mentionne « Initialement, tout accès à votre serveur de base de données SQL Azure est bloqué par le pare-feu. Pour commencer à utiliser votre serveur Azure SQL Database, vous devez accéder au portail Azure Classic et spécifier une ou plusieurs règles de pare-feu au niveau du serveur qui permettent l’accès à votre serveur Azure SQL Database. Utilisez les règles de pare-feu pour spécifier les plages d’adresses IP Internet qui sont autorisées, et si les applications Azure peuvent essayer de se connecter à votre serveur Azure SQL Database. »
 
 De plus, quand un ordinateur tente de se connecter à votre serveur de base de données à partir d’Internet, le pare-feu vérifie l’adresse IP d’origine de la demande par rapport à la totalité des règles de pare-feu au niveau du serveur et, si nécessaire, au niveau de la base de données : « Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu au niveau du serveur, la connexion est accordée à votre serveur Azure SQL Database. » Par conséquent, nous pouvons utiliser des plages d’adresses IP, et pas uniquement des adresses IP source individuelles.
 
-Suivez les instructions étape par étape de la section [Procédure : Configuration des paramètres du pare-feu sur une base de données SQL à l’aide du portail Azure](sql-database-configure-firewall-settings.md) pour spécifier la plage IP. Lorsque vous configurez les règles de pare-feu de SQL, indiquez la plage IP du sous-réseau spécifiée pour la collection Azure RemoteApp. Cela devrait permettre aux serveurs ARA de se connecter à la base de données SQL, même si des adresses IP sont affectées de manière dynamique.
+Suivez les instructions étape par étape de la section [Procédure : Configuration des paramètres du pare-feu sur une base de données SQL à l’aide du portail Azure](../sql-database/sql-database-configure-firewall-settings.md) pour spécifier la plage IP. Lorsque vous configurez les règles de pare-feu de SQL, indiquez la plage IP du sous-réseau spécifiée pour la collection Azure RemoteApp. Cela devrait permettre aux serveurs ARA de se connecter à la base de données SQL, même si des adresses IP sont affectées de manière dynamique.
 
 ## Résolution de problèmes
 Si l’expérience d’utilisation d’une application cliente hébergée dans Azure RemoteApp qui se connecte à SQL database hébergée sur Azure ou en local est lente, cela peut être dû à plusieurs raisons.
@@ -50,4 +50,4 @@ Si l’expérience d’utilisation d’une application cliente hébergée dans A
 - L’application cliente hébergée dans Azure RemoteApp est surchargée. En sélectionnant un autre plan de facturation, par exemple, la facturation Premium, vous pouvez améliorer les performances. Une autre astuce consiste à analyser les ressources que votre application utilise : pendant une session active, appuyez sur les touches CTRL, ALT et Fin pour lancer l’écran SAP, sélectionnez Gestionnaire des tâches et observez le taux d’utilisation des ressources correspondant à votre application.
 - SQL Server est surchargé ou n’est pas optimisé. Suivez les instructions SQL pour le dépannage. 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

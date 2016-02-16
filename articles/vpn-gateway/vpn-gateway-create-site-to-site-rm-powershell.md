@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Créer un réseau virtuel avec une connexion VPN site à site à l’aide de PowerShell
@@ -23,7 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Cet article vous guidera dans la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local à l’aide du modèle de déploiement Azure Resource Manager. Si vous recherchez un autre modèle de déploiement pour cette configuration, utilisez les onglets ci-dessus pour sélectionner l’article que vous souhaitez. Si vous souhaitez établir une connexion entre des réseaux virtuels, mais si vous ne créez pas une connexion à un emplacement local, consultez [configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md).
+Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local, à l’aide du modèle de déploiement **Azure Resource Manager**. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Pour créer une connexion site-à-site en utilisant le modèle de déploiement **classique**, voir [Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic](vpn-gateway-site-to-site-create.md). Si vous souhaitez établir une connexion entre des réseaux virtuels sans créer de connexion à un emplacement local, consultez les articles [Configurer une connexion de réseau virtuel à réseau virtuel dans le portail Azure Classic](virtual-networks-configure-vnet-to-vnet-connection.md) ou [Configuration d’une connexion de réseau virtuel à réseau virtuel pour des réseaux virtuels d’un même abonnement à l’aide d’Azure Resource Manager et de PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **À propos des modèles de déploiement Azure**
 
@@ -246,4 +246,4 @@ Vous pouvez utiliser l'exemple suivant comme référence.
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

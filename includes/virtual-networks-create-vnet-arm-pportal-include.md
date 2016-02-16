@@ -1,11 +1,11 @@
-## Création d’un réseau virtuel dans le portail Azure en version préliminaire
+## Création d’un réseau virtuel dans le portail Azure
 
 Pour créer un réseau virtuel selon le scénario ci-dessus à l’aide du portail Azure en version préliminaire, suivez les étapes ci-dessous.
 
 1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
 2. Cliquez sur **NOUVEAU** > **Réseau** > **Réseau virtuel**, cliquez sur **Resource Manager** dans la liste **Sélectionner un modèle de déploiement**, puis cliquez sur **Créer**, comme illustré dans la figure ci-dessous.
 
-	![Créer un réseau virtuel dans le portail en version préliminaire](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+	![Créer un réseau virtuel dans le portail Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
 
 3. Dans le panneau **Créer un réseau virtuel**, configurez les paramètres du réseau virtuel, comme illustré dans la figure ci-dessous.
 
@@ -25,7 +25,7 @@ Pour créer un réseau virtuel selon le scénario ci-dessus à l’aide du porta
 
 8. Attendez que le réseau virtuel soit créé, puis dans le panneau **Réseau virtuel**, cliquez sur **Tous les paramètres** > **Sous-réseaux** > **Ajouter**, comme indiqué ci-dessous.
 
-	![Ajout d’un sous-réseau dans le portail en version préliminaire](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+	![Ajout d’un sous-réseau dans le portail Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 
 9. Spécifiez les paramètres de sous-réseau pour le sous-réseau *BackEnd* comme illustré ci-dessous, puis cliquez sur **OK**.
 
@@ -35,4 +35,4 @@ Pour créer un réseau virtuel selon le scénario ci-dessus à l’aide du porta
 
 	![Liste des sous-réseaux dans le réseau virtuel](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

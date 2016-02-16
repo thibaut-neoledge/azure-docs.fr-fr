@@ -3,7 +3,7 @@
 Vous pouvez réutiliser les modèles ARM prédéfinis sur le référentiel GitHub géré par Microsoft et ouvert à la communauté. Ces modèles peuvent être déployés directement depuis GitHub ou téléchargés et modifiés selon vos besoins. Pour déployer un modèle qui crée un réseau virtuel avec deux sous-réseaux, suivez les étapes ci-dessous.
 
 1. Dans un navigateur, accédez à [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Parcourez la liste des modèles, puis cliquez sur **101-two-subnets**. Consultez le fichier **README.md**, comme illustré ci-dessous.
+2. Parcourez la liste des modèles, puis cliquez sur **101-vnet-two-subnets**. Consultez le fichier **README.md**, comme illustré ci-dessous.
 
 	![Fichier READEME.md dans GitHub](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
@@ -27,4 +27,4 @@ Vous pouvez réutiliser les modèles ARM prédéfinis sur le référentiel GitHu
 
 	![Créer un réseau virtuel dans le portail en version préliminaire](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -110,10 +110,6 @@ Pour plus d’informations sur l’authentification à l’aide d’Azure Active
 
 ## Étapes suivantes
 
-Cet article a décrit les fonctionnalités d’authentification et d’autorisation d’App Service que vous pouvez utiliser pour API Apps.
+Cet article a décrit les fonctionnalités d’authentification et d’autorisation d’App Service que vous pouvez utiliser pour API Apps. Dans le didacticiel suivant, vous allez apprendre à implémenter l’[authentification utilisateur dans API Service API Apps](app-service-api-dotnet-user-principal-auth.md).
 
-Si vous suivez la série des didacticiels de prise en main pour ASP.NET et API Apps, testez ces fonctionnalités dans le didacticiel suivant, [Authentification utilisateur dans App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
-
-Pour plus d’informations sur l’utilisation du nœud et Java dans Azure App Service, consultez le [Centre de développement Node.js](/develop/nodejs/) et le [centre de développement Java](/develop/java/).
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

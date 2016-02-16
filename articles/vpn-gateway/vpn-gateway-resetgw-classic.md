@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Réinitialiser une passerelle VPN Azure à l’aide de PowerShell
@@ -54,9 +54,8 @@ Si la connexion n’est pas restaurée après le premier redémarrage, exécutez
 
 Après deux redémarrages, si vous continuez de rencontrer des problèmes de connectivité entre locaux, ouvrez un ticket de support à partir du Portail Azure Classic pour contacter le support technique de Microsoft Azure.
 
-
 ## Étapes suivantes
 	
 Consultez la [référence PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) pour plus d’informations sur cette applet de commande.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

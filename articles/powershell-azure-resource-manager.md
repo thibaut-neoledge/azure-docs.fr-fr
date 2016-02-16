@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
@@ -89,7 +89,7 @@ Les applets de commande vous invitent à entrer les informations d’identificat
 
 Un délai d'expiration est associé à ces paramètres ; il est donc nécessaire de les actualiser ponctuellement. Pour actualiser les paramètres de compte, réexécutez **Login-AzureRmAccount**.
 
->[AZURE.NOTE]Les modules Gestionnaire de ressources requièrent l’utilisation de l’applet Login-AzureRmAccount. L'utilisation d'un fichier de paramètres de publication est insuffisante.
+>[AZURE.NOTE] Les modules Gestionnaire de ressources requièrent l’utilisation de l’applet Login-AzureRmAccount. L'utilisation d'un fichier de paramètres de publication est insuffisante.
 
 ## récupération des emplacements correspondant aux types de ressources
 
@@ -461,4 +461,4 @@ Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressou
 - Pour obtenir un exemple détaillé de déploiement d’un projet, consultez [Déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour résoudre les problèmes liés à l’échec d’un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

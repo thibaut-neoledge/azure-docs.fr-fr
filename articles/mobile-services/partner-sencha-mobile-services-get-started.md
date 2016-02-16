@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Prise en main de Mobile Services et de Sencha Touch
@@ -69,7 +69,7 @@ Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapid
 
 3. Cliquez sur **Create TodoItems table** pour créer une table permettant de stocker les données d'application.
 
-	> [AZURE.NOTE]Ne téléchargez PAS l’application HTML à partir du Portail Azure Classic. Nous allons créer manuellement une application Sencha Touch dans la section suivante.
+	> [AZURE.NOTE] Ne téléchargez PAS l’application HTML à partir du Portail Azure Classic. Nous allons créer manuellement une application Sencha Touch dans la section suivante.
 
 
 1. Notez les éléments **appKey** et **appUrl** dans le Portail Azure Classic. Nous les utiliserons dans d'autres sections de ce didacticiel.
@@ -113,7 +113,7 @@ Vous pouvez ajouter manuellement les extensions Azure à votre application en pr
 
 ###Installation d'un package Sencha
 
-> [AZURE.NOTE]Cette méthode peut être utilisée uniquement si vous avez généré votre application à l’aide de la commande <code>sencha generate app</code>.
+> [AZURE.NOTE] Cette méthode peut être utilisée uniquement si vous avez généré votre application à l’aide de la commande <code>sencha generate app</code>.
 
 Toutes les applications générées à l'aide de l'outil Sencha Cmd affichent un dossier « packages » à la racine. L'emplacement de ce dossier peut être configuré. Néanmoins, quel que soit son emplacement, le dossier « packages » a pour fonction de servir d'emplacement de stockage pour tous les packages utilisés par votre application (ou vos applications si vous avez créé un espace de travail Sencha).
 
@@ -724,4 +724,4 @@ Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensem
 
 [Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->
