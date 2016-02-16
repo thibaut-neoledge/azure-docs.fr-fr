@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Offrir un accès à distance sécurisé aux applications locales
@@ -59,7 +59,8 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Ressources supplémentaires
-* [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
-* [Identité Azure](fundamentals-identity.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Index d’articles pour la gestion des applications dans Azure Active Directory)
+- [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
+- [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

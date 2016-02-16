@@ -57,7 +57,7 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
     ![][img-devicelist]
 
-2.  Vous pouvez voir que quatre appareils simulés ont été créés par le processus de déploiement.
+2.  La liste des appareils montre que quatre appareils simulés ont été créés par le processus de déploiement.
 
 3.  Cliquez sur un appareil de la liste pour en afficher les détails.
 
@@ -130,6 +130,8 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 9.  Revenez au tableau **Historique des alertes** dans le **Tableau de bord de la solution** et notez le changement de comportement dû à la mise à jour de la règle.
 
     ![][img-newhistory]
+    
+Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Cela vous permet de facilement supprimer toutes les ressources ayant été configurées lorsque vous avez créé la solution préconfigurée.
 
 ## Étapes suivantes
 
@@ -160,4 +162,4 @@ Maintenant que vous avez créé une solution préconfigurée opérationnelle, vo
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

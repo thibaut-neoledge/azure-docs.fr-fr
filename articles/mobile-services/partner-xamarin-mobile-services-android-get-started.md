@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/10/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Prise en main de Mobile Services
@@ -110,7 +110,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 * [Prise en main des notifications Push] Découvrez comment envoyer une notification Push très basique à votre application.
 
-* [Comment utiliser le client Xamarin Component pour Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md) Découvrez comment interroger le service mobile, utiliser les données et accéder aux API personnalisées.
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -146,4 +146,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Azure]: http://azure.microsoft.com/
 [Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Solution prédictive des risques de crédit avec Machine Learning| Microsoft Azure"
 	description="Guide pas à pas détaillé indiquant comment créer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning Studio."
-	keywords="credit risk, predictive analytics solution,risk assessment"
+	keywords="risque de crédit, solution d’analyse prédictive, évaluation des risques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -28,9 +28,7 @@ Dans ce guide pas à pas détaillé, nous allons suivre le processus de dévelop
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Ouvrez Machine Learning Studio : [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Pour en savoir plus sur la prise en main de Machine Learning Studio, consultez la [page d'accueil de Microsoft Azure Machine Learning Studio](https://studio.azureml.net/).
-
->[AZURE.TIP]Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 Pour créer une solution d'évaluation des risques de crédit, nous allons suivre ces étapes :
 
@@ -41,6 +39,6 @@ Pour créer une solution d'évaluation des risques de crédit, nous allons suivr
 5.	[Déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)
 
-Cette procédure pas à pas est basée sur une version simplifiée de l'[Exemple d'expérience de prédiction du risque de crédit](../machine-learning-sample-credit-risk-prediction.md) inclus dans Machine Learning Studio.
+Cette procédure pas à pas est basée sur une version simplifiée de l’exemple d’expérience [Classification binaire : prédiction du risque de crédit](../machine-learning-sample-credit-risk-prediction.md) inclus dans la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

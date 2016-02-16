@@ -5,7 +5,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
@@ -39,4 +39,4 @@ Effectuez les étapes de configuration suivantes pour mettre à jour le paramèt
 ---
 [**Étape suivante - Activation de la synchronisation du mot de passe pour les services de domaine Azure AD.**](active-directory-ds-getting-started-password-sync.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

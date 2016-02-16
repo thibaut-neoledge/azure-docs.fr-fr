@@ -428,6 +428,8 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.set('view engine', 'jade');
+
 
 
 6. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB (à l'aide des valeurs lues dans **config.js**), initialisent l'objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**.
@@ -505,7 +507,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 	
 	Ceci devrait être suffisant pour que notre application puisse fonctionner.
 
-5. Ouvrez le fichier **style.css** dans le répertoire **public\stylesheets** et remplacez le code par le suivant :
+5. Ouvrez le fichier **style.css** dans le répertoire **public\\stylesheets** et remplacez le code par le suivant :
 
 		body {
 		  padding: 50px;
@@ -569,4 +571,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

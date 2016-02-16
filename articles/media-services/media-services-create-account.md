@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/08/2015"  
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 
-> [AZURE.NOTE]Pour pouvoir créer un compte Azure Media Services, vous devez disposer d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’essai gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
 Le portail Azure Classic permet de créer rapidement un compte Azure Media Services. Vous pouvez utiliser ce dernier pour accéder à Media Services afin de stocker, de chiffrer, d'encoder, de gérer et de diffuser du contenu multimédia dans Azure. Lorsque vous créez un compte Media Services, vous créez également un compte de stockage associé ou en utilisez un existant, situé dans la même zone géographique que le compte Media Services.
 
@@ -51,7 +51,7 @@ L'accès à Media Services requiert deux comptes associés :
 <a id="quick"></a>
 ## Création d'un compte Media Services grâce à la méthode Création rapide
 
-1. Dans le [portail Azure Classic][], cliquez sur **Nouveau**, **Media Service**, puis sur **Création rapide**.
+1. Dans le [portail Azure Classic][], cliquez sur **Nouveau**, **Service de média**, puis sur **Création rapide**.
 
 ![Media Services - Création rapide](./media/media-services-create-account/wams-QuickCreate.png)
 
@@ -73,7 +73,7 @@ Au bas de la page, le bouton **GÉRER LES CLÉS** s’affiche. Lorsque vous cliq
 
 ![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
 
-Lorsque vous double-cliquez sur le nom de compte, la page **Démarrage rapide** s’affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page **CONTENU**.
+Lorsque vous double-cliquez sur le nom du compte, la page **Démarrage rapide** s’affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page **CONTENU**.
 
 De plus, vous pouvez afficher du code utilisant le Kit de développement logiciel (SDK) Azure Media Services pour effectuer les tâches suivantes : télécharger, encoder et publier des vidéos. Vous pouvez cliquer sur l’un des liens présents sous la section **ÉCRIRE DU CODE**, copier le code et l’utiliser dans votre application.
 
@@ -106,4 +106,4 @@ De plus, vous pouvez afficher du code utilisant le Kit de développement logicie
 
   [portail Azure Classic]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->
