@@ -316,4 +316,4 @@ Utilisez la commande Remove-AzureRmLoadBalancer pour supprimer un équilibreur d
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->
