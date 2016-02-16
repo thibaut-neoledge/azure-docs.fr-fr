@@ -37,7 +37,7 @@ Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut 
 1.	Une fois connecté au [portail Azure](https://portal.azure.com/), procédez comme suit :
 	1.	Cliquez sur **NOUVEAU** dans le menu de gauche. 
 	2.	Cliquez sur **Analyse des données** dans le panneau **Créer**.
-	3.	Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
+	3.	Cliquez sur **Fabrique de données** dans le panneau **Analyse des données**.
 
 		![Panneau Créer](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
@@ -80,7 +80,8 @@ Dans cette étape, vous allez lier votre compte de stockage Azure à votre fabri
 
 	![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Une fois que le service lié est déployé, la fenêtre **Draft-1** doit disparaître tandis que **StorageLinkedService** doit apparaître dans l’arborescence sur la gauche. ![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Une fois que le service lié est déployé, la fenêtre **Draft-1** doit disparaître tandis que **StorageLinkedService** doit apparaître dans l’arborescence sur la gauche. 
+   	![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Créer le service lié Azure HDInsight
@@ -298,11 +299,11 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 11. Cliquez sur **X** pour fermer le panneau **AzureBlobInput**. 
 12. Dans la **Vue de diagramme**, double-cliquez sur le jeu de données **AzureBlobOutput**. Le segment est en cours de traitement.
 
-	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
+	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Quand le traitement est terminé, l’état du segment devient **Prêt**.
 	>[AZURE.IMPORTANT] La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).  
 
-	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
+	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
 10. Quand l’état du segment est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.
  
