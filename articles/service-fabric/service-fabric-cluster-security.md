@@ -205,7 +205,8 @@ Une fois cette opération terminée, utilisez le portail ou Resource Manager po
 Remarque : pour un cluster sécurisé, vous avez toujours besoin d’au moins un certificat (primaire ou secondaire) déployé valide (non révoqué ou expiré), sinon vous ne pouvez pas accéder au cluster.
 
 
-## Informations détaillées sur les genres de certificats utilisés par service Fabric.
+## 
+Informations détaillées sur les genres de certificats utilisés par service Fabric.
 
 ## Certificats X.509
 
@@ -245,4 +246,4 @@ Les certificats clients ne sont généralement pas émis par une autorité de ce
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

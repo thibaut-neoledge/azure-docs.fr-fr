@@ -298,6 +298,7 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 13.  Dans **Résumé**, passez en revue les informations.
 
 	![Résumé](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+
 >[AZURE.WARNING] Le proxy de Microsoft Azure Recovery Services Agent doit être installé. Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd net stop obengine.exe
@@ -749,4 +750,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Découvrez la restauration automatique](site-recovery-failback-azure-to-vmware-classic.md) qui permet de ramener vos machines basculées s’exécutant dans Azure dans votre environnement local.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

@@ -82,8 +82,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer les paramètres d’application](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurer les paramètres d’application")
 
-    1.  Dans la zone de texte **URL d’authentification**, tapez ****http://azure.benefitsolver.com**.
-2.  Dans la zone de texte **URL de réponse**, tapez ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+    1.  Dans la zone de texte **URL d’authentification**, tapez **http://azure.benefitsolver.com**.
+	2.  Dans la zone de texte **URL de réponse**, tapez **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+
 
     3.  Cliquez sur **Next**.
 
@@ -145,4 +146,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

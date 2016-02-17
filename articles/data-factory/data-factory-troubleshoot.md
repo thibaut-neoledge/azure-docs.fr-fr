@@ -147,7 +147,7 @@ Vous pouvez remplacer cette valeur par défaut en modifiant les valeurs par déf
 		}
 		
 
-Pour plus de contexte et un exemple complet de JSON pour la modification de ces propriétés de configuration mapReduce, consultez l'exemple n°3 dans la documentation MSDN ici https://msdn.microsoft.com/library/azure/dn893526.aspx
+Pour plus de contexte et un exemple complet de JSON pour la modification de ces propriétés de configuration mapReduce, consultez l'exemple #3 dans la documentation MSDN ici https://msdn.microsoft.com/library/azure/dn893526.aspx
 
 ## Problème : la requête PowerShell échoue avec une erreur de requête incorrecte 400 « No registered resource provider found... »
 
