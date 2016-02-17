@@ -402,6 +402,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 1. Copiez les sauvegardes complètes et effectuez une restauration avec **NORECOVERY**.
 1. Copiez les objets dépendants 'out of user DB', notamment que les connexions.
 1. Créez un nouvel équilibreur de charge interne (ILB) ou utilisez un équilibreur de charge externe (ELB), puis configurez ensuite les points de terminaison d'équilibrage de charge sur les deux nouveaux nœuds.
+
 > [AZURE.NOTE] Vérifiez que la configuration du point de terminaison est correcte pour tous les nœuds avant de continuer.
 
 1. Arrêtez l'accès de l'utilisateur/application à SQL Server (si vous utilisez des pools de stockage).
@@ -1148,4 +1149,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!----HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016--->
