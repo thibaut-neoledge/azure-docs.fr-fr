@@ -167,7 +167,7 @@ Nous fournissons 246 documents JSON pour ce jeu de données. Pour pouvoir tél�
 6. Cliquez sur **Explorateur de requêtes** pour vérifier que les données sont téléchargées.
 7. Pour ce faire, il existe un moyen simple consistant à modifier la requête par défaut de sorte qu’elle sélectionne les 300 premiers éléments (il en existe moins de 300 au total). Vous pouvez également écrire `select * from musicstorecoll`, puis cliquer sur **Exécuter une requête**.
 
-Vous devriez obtenir la sortie JSON, en commençant par le document n° 386 et en terminant par le document n° 669. Une fois que les données sont chargées, vous pouvez [les utiliser pour commencer cette procédure pas à pas](#defineDS) à l’aide de l’**assistant Importation** Azure Search.
+Vous devriez obtenir la sortie JSON, en commençant par le document 386 et en terminant par le document 669. Une fois que les données sont chargées, vous pouvez [les utiliser pour commencer cette procédure pas à pas](#defineDS) à l’aide de l’**assistant Importation** Azure Search.
 
 
 <!--Image references-->
@@ -178,4 +178,4 @@ Vous devriez obtenir la sortie JSON, en commençant par le document n° 386 et 
 [5]: ./media/search-get-started-portal/AzureSearch-GetStart-ImportReady.png
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

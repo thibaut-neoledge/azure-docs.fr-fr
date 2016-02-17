@@ -67,7 +67,10 @@ Le projet client Xamarin que vous avez téléchargé quand vous avez suivi le di
     Dans le code fourni, tous les enregistrements de la table `TodoItem` distante sont interrogés, mais il est également possible de filtrer les enregistrements en transmettant un ID de requête et une requête à `PushAsync`. Pour plus d’informations, consultez la section *Synchronisation incrémentielle* dans [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
--->	// QSTodoService.cs
+	-->
+
+
+		// QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -168,4 +171,4 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
  
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!----HONumber=AcomDC_0204_2016--->
+<!-----HONumber=AcomDC_0204_2016--->
