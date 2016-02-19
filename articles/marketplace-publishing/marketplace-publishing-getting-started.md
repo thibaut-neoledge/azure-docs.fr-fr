@@ -32,8 +32,8 @@ Certaines étapes sont communes aux différents types de solutions. Cet article 
 
 > [AZURE.NOTE] Avant de commencer à publier dans Azure Marketplace, vous devez être pré-approuvé. Ce n’est pas le cas pour les éditeurs de service de données.
 
-|Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
-||----|----|----|----|----|
+||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
+|----|----|----|----|----|
 |**Obtenir une pré-approbation** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
 |**Étape 1 : Enregistrer votre compte développeur** | [Compte Microsoft Developer : création et enregistrement][link-accts] | [Compte Microsoft Developer : création et enregistrement][link-accts] | [Compte Microsoft Developer : création et enregistrement][link-accts] | [Compte Microsoft Developer : création et enregistrement][link-accts] |
 |**Étape 2 : Créer votre offre**| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)| [Conditions préalables non techniques générales](marketplace-publishing-pre-requisites.md)|
