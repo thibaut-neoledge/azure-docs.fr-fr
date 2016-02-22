@@ -214,7 +214,7 @@ One thing which is important to point out: if there are pending changes in the l
 [Mobile Services sample repository on GitHub]: https://github.com/Azure/mobile-services-samples
 
 
-[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 

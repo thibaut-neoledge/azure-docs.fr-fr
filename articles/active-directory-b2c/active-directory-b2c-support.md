@@ -45,7 +45,7 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C 
 Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre client B2C, l'erreur suivante s'affiche.
 
 > [AZURE.IMPORTANT]
-N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
+> N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
 
 ![Support - aucun abonnement](./media/active-directory-b2c-support/support-no-sub.png)
 

@@ -19,6 +19,7 @@
 # Utilisation du client géré pour Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 ##Vue d’ensemble
 
@@ -257,7 +258,12 @@ Le code suivant montre comment mettre à jour une instance existante avec le mê
 
 	await todoTable.UpdateAsync(todoItem);
 
-Pour insérer des données non typées, vous pouvez utiliser Json.NET ainsi : JObject jo = new JObject(); jo.Add(“Id”, “37BBF396-11F0-4B39-85C8-B319C729AF6D”); jo.Add(“Text”, “Hello World”); jo.Add(“Complete”, false); var inserted = await table.UpdateAsync(jo);
+Pour insérer des données non typées, vous pouvez utiliser Json.NET ainsi :
+	JObject jo = new JObject();
+	jo.Add(“Id”, “37BBF396-11F0-4B39-85C8-B319C729AF6D”);
+	jo.Add(“Text”, “Hello World”);
+	jo.Add(“Complete”, false);
+	var inserted = await table.UpdateAsync(jo);
 
 Vous devez spécifier un ID lorsque vous effectuez une mise à jour. C'est grâce à cela que le backend identifie l'instance à mettre à jour. L'ID peut être obtenu à partir du résultat de l'appel `InsertAsync`. Si vous essayez de mettre à jour un élément sans fournir de valeur « Id », une `ArgumentException` se déclenche.
 

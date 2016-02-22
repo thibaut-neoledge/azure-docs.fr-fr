@@ -43,6 +43,7 @@ Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure]
 
 ### Télécharger un disque dur virtuel
 Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger le disque dur virtuel à l’aide du [portail Azure](http://manage.windowsazure.com/) ou de PowerShell.
+
 > [AZURE.NOTE] Au moment de la création de ce guide, la fonctionnalité de téléchargement d’un disque dur virtuel n’est pas encore présente dans le nouveau portail Microsoft Azure.
 
 **Télécharger le disque dur virtuel de système d’exploitation à partir du [portail Azure](http://manage.windowsazure.com/)** actuel

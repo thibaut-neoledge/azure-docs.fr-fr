@@ -78,9 +78,9 @@
   - Prise en charge du fournisseur LINQ pour OrderBy() ou OrderByDescending()
   - IndexingPolicy pour prendre en charge la clause Order By 
   
-		**NB: Possible breaking change** 
+		**NB : modification avec rupture possible** 
   
-    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    	Si vous avez un code qui configure les collections avec une stratégie d'indexation personnalisée, vous devrez le mettre à jour de sorte qu'il prenne en charge la nouvelle classe IndexingPolicy.Si vous n'avez pas de stratégie d'indexation personnalisée, cette modification ne vous affecte pas.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Prise en charge du partitionnement des données à l’aide des nouvelles classes HashPartitionResolver et RangePartitionResolver et de IPartitionResolver
@@ -112,7 +112,19 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
  
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.5.2](#1.5.2) | 14 décembre 2015 |--- | [1\.5.1](#1.5.1) | 23 novembre 2015 |--- | [1\.5.0](#1.5.0) | 5 octobre 2015 |--- | [1\.4.1](#1.4.1) | 25 août 2015 |--- | [1\.4.0](#1.4.0) | 13 août 2015 |--- | [1\.3.0](#1.3.0) | 5 août 2015 |--- | [1\.2.0](#1.2.0) | 6 juillet 2015 |--- | [1\.1.0](#1.1.0) | 30 avril 2015 |--- | [1\.0.0](#1.0.0) | 8 avril 2015 |--- | [0\.9.3-version préliminaire](#0.9.x-preview) | 12 mars 2015 | 29 février 2016 | [0\.9.2-version préliminaire](#0.9.x-preview) | Janvier 2015 | 29 février 2016 | [.9.1-version préliminaire](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016 | [0\.9.0-version préliminaire](#0.9.x-preview) | 21 août 2014 | 29 février 2016
+| [1\.5.2](#1.5.2) | 14 décembre 2015 |---
+| [1\.5.1](#1.5.1) | 23 novembre 2015 |---
+| [1\.5.0](#1.5.0) | 5 octobre 2015 |---
+| [1\.4.1](#1.4.1) | 25 août 2015 |---
+| [1\.4.0](#1.4.0) | 13 août 2015 |---
+| [1\.3.0](#1.3.0) | 5 août 2015 |---
+| [1\.2.0](#1.2.0) | 6 juillet 2015 |---
+| [1\.1.0](#1.1.0) | 30 avril 2015 |---
+| [1\.0.0](#1.0.0) | 8 avril 2015 |---
+| [0\.9.3-version préliminaire](#0.9.x-preview) | 12 mars 2015 | 29 février 2016
+| [0\.9.2-version préliminaire](#0.9.x-preview) | Janvier 2015 | 29 février 2016
+| [0\.9.1-version préliminaire](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016
+| [0\.9.0-version préliminaire](#0.9.x-preview) | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

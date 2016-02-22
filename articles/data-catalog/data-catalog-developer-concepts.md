@@ -190,7 +190,7 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 
 > [AZURE.NOTE]
 >
-> **__Les **\_\_autorisations** sont uniquement applicables à un élément racine.
+> Les **\_\_autorisations** sont uniquement applicables à un élément racine.
 >
 > Le rôle **Propriétaire** est uniquement applicable à un élément racine.
 >

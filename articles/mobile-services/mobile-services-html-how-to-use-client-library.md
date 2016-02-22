@@ -504,7 +504,8 @@ L'exemple suivant montre comment utiliser le SDK Live avec des API WinJS pour of
 	// Start the sign-in process.
 	authenticate();
 
-Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté. L’application ne démarre pas tant que l’authentification n’a pas abouti. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté. L’application ne démarre pas tant que l’authentification n’a pas abouti. 
+<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 

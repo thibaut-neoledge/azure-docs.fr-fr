@@ -53,8 +53,8 @@ Cette rubrique décrit l'utilisation de la fonctionnalité Authentification/auto
 11. Cliquez sur l’onglet **Avancé**, ajoutez l’**URI de redirection** de votre application dans les **URI de redirection Valid OAuth**, puis cliquez sur **Enregistrer les modifications**. Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/facebook/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assurez-vous d'utiliser le schéma HTTPS.
 
 
-	> [AZURE.NOTE]
-	Si vous utilisez la passerelle App Service au lieu de la fonction d’authentification / autorisation d’App Service, votre URL de redirection utilise alors l’URL de la passerelle avec le chemin d’accès _/signin-facebook_.
+> [AZURE.NOTE]
+Si vous utilisez la passerelle App Service au lieu de la fonction d’authentification / autorisation d’App Service, votre URL de redirection utilise alors l’URL de la passerelle avec le chemin d’accès _/signin-facebook_.
 
 
 12. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **État et révision** dans la barre de navigation à gauche. Cliquez ensuite sur **Oui** pour autoriser l'accès public général.
