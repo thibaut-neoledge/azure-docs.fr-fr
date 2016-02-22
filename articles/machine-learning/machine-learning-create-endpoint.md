@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="09/17/2015"
+	ms.date="02/10/2016"
 	ms.author="himad"/>
 
 
@@ -41,4 +41,4 @@ Cela permet aux utilisateurs Microsoft Azure Machine Learning de créer des ser
 Une fois le point de terminaison créé, vous pouvez l’exploiter via des API synchrones, des API de lot et des feuilles de calcul Microsoft Excel. Outre l'ajout de points de terminaison via cette interface utilisateur, vous pouvez également utiliser les API de gestion de point de terminaison pour ajouter de manière programmée des points de terminaison. Pour plus d’informations sur l’utilisation des services web Machine Learning, consultez la page [Utilisation d’un service web Microsoft Azure Machine Learning publié](machine-learning-consume-web-services.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

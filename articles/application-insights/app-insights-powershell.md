@@ -19,7 +19,7 @@
 
 Cet article vous montre comment créer une ressource [Application Insights](app-insights-overview.md) dans Azure automatiquement. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](app-insights-monitor-web-app-availability.md), [configurer des alertes](app-insights-alerts.md) et créer d’autres ressources Azure.
 
-Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](powershell-azure-resource-manager.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
+Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../powershell-azure-resource-manager.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
 
 ## Installation unique
 
@@ -100,7 +100,7 @@ Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaite
 
 ## Définir les paramètres du modèle
 
-Vous devez à présent remplacer les noms spécifiques par des paramètres. Pour [définir les paramètres d’un modèle](resource-group-authoring-templates.md), écrivez des expressions utilisant un [ensemble de fonctions d’assistance](resource-group-template-functions.md).
+Vous devez à présent remplacer les noms spécifiques par des paramètres. Pour [définir les paramètres d’un modèle](../resource-group-authoring-templates.md), écrivez des expressions utilisant un [ensemble de fonctions d’assistance](../resource-group-template-functions.md).
 
 Comme vous ne pouvez pas définir uniquement les paramètres d’une portion de chaîne, utilisez `concat()` pour générer les chaînes.
 
@@ -311,4 +311,13 @@ Voici l’intégralité des composants, test web et modèle d’alerte de test w
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+## Voir aussi
+
+Autres articles sur l’automation :
+
+* [Création d'une ressource Application Insights](app-insights-powershell-script-create-resource.md) - méthode rapide sans utiliser de modèle.
+* [Configurer des alertes](app-insights-powershell-alerts.md)
+* [Envoyer des diagnostics Azure vers Application Insights.](app-insights-powershell-azure-diagnostics.md)
+* [Créer des annotations de version](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+
+<!---HONumber=AcomDC_0211_2016-->

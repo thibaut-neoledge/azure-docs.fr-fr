@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015"
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
 
 #Chiffrement dynamique : configurer la stratégie d'autorisation de clé de contenu 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
 
 ##Présentation
 
@@ -154,7 +153,7 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
 	  <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
 	</xs:schema>
 
-Quand vous configurez la stratégie de restriction par **jeton**, vous devez définir les paramètres **primaryverificationkey** (clé de vérification principale), **issuer** (émetteur) et **audience** (public). La **clé de vérification principale** contient la clé utilisée pour signer le jeton. L’**émetteur** est le service de jeton sécurisé qui émet le jeton. Le **public** (parfois appelé **étendue**) décrit l'objectif du jeton ou la ressource à laquelle le jeton autorise l'accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
+Quand vous configurez la stratégie de restriction par **jeton**, vous devez définir les paramètres **primaryverificationkey** (clé de vérification principale), **issuer** (émetteur) et **audience** (public). La **clé de vérification principale** contient la clé utilisée pour signer le jeton, l'**émetteur** est le service de jeton sécurisé qui émet le jeton. Le **public** (parfois appelé **étendue**) décrit l'objectif du jeton ou la ressource à laquelle le jeton autorise l'accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
 Quand vous utilisez le **Kit de développement logiciel (SDK) Media Services pour .NET**, vous pouvez utiliser la classe **TokenRestrictionTemplate** pour générer le jeton de restriction. L’exemple suivant crée une stratégie d’autorisation avec une restriction par jeton. Dans cet exemple, le client devra présenter un jeton contenant : une clé de signature (VerificationKey), un émetteur de jeton et les revendications requises.
 	
@@ -440,4 +439,4 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
 La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment configurer une stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

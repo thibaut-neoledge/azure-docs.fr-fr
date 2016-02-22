@@ -36,9 +36,9 @@ Les outils suivant sont utilisés pour exécuter certaines opérations décrites
 ## Les différentes sources de journaux que vous pourriez souhaiter collecter
 1. **Journaux Service Fabric :** émis par la plateforme vers les canaux ETW et EventSource standard. Il existe plusieurs types de journaux :
   - Événements opérationnels : ces journaux concernent les opérations exécutées par la plateforme Service Fabric. Par exemple : la création d’applications et de services, les modifications d’état des nœuds et les informations de mise à niveau.
-  - [Événements du modèle de programmation Actor](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
-  - [Événements du modèle de programmation Reliable Services](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
-2. **Événements d’application :** ces événements sont émis à partir de votre code de services et écrits à l’aide de la classe d’assistance EventSource fournie dans les modèles Visual Studio. Pour plus d’informations concernant l’écriture des journaux à partir de votre application, reportez-vous à [cet article sur la surveillance et diagnostic des services dans une configuration de machine locale](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+  - [Événements du modèle de programmation Actor](service-fabric-reliable-actors-diagnostics.md)
+  - [Événements du modèle de programmation Reliable Services](service-fabric-reliable-services-diagnostics.md)
+2. **Événements d’application :** ces événements sont émis à partir de votre code de services et écrits à l’aide de la classe d’assistance EventSource fournie dans les modèles Visual Studio. Pour plus d’informations concernant l’écriture des journaux à partir de votre application, reportez-vous à [cet article sur la surveillance et diagnostic des services dans une configuration de machine locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
 ## Déploiement de l’extension Diagnostics sur un cluster Service Fabric pour la collecte et le chargement de journaux
@@ -325,4 +325,4 @@ Vous devrez mettre à jour la section EtwEventSourceProviderConfiguration dans l
 ## Étapes suivantes
 Vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) et [Reliable Services](service-fabric-reliable-services-diagnostics.md) pour comprendre plus en détail les événements auxquels vous devriez être attentif lors de la résolution des problèmes.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

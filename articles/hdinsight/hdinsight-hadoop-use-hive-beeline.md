@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Utilisation de Hive avec Hadoop dans HDInsight via Beeline
@@ -23,7 +23,7 @@
 
 Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vous connecter à un cluster Azure HDInsight Linux, puis envoyer ensuite de façon interactive des requêtes Hive à l’aide de l’outil de ligne de commande [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell).
 
-> [AZURE.NOTE]Beeline a utilisé JDBC pour la connexion à Hive. Pour plus d’informations sur l’utilisation de JDBC avec Hive, consultez la section [Se connecter à Hive sur Azure HDInsight à l’aide du pilote Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
+> [AZURE.NOTE] Beeline a utilisé JDBC pour la connexion à Hive. Pour plus d’informations sur l’utilisation de JDBC avec Hive, consultez la section [Se connecter à Hive sur Azure HDInsight à l’aide du pilote Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
 
 ##<a id="prereq"></a>Configuration requise
 
@@ -45,11 +45,11 @@ Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide 
 
 **Si vous avez fourni un mot de passe pour l’authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devez fournir le mot de passe lorsque vous y êtes invité.
 
-Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez la rubrique [Utilisation de SSH avec Hadoop Linux sur HDInsight sur Linux à partir de Linux, OS X et Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez la rubrique [Utilisation de SSH avec Hadoop dans HDInsight sur Linux à partir de Linux, OS X et Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ###PuTTY (clients Windows)
 
-Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé depuis [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -106,7 +106,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
     Elle affiche les colonnes de la table. Nous pourrions exécuter des requêtes sur ces données, mais nous allons créer à la place une toute nouvelle table pour montrer comment charger des données dans Hive et appliquer un schéma.
     
-5. Saisissez les instructions suivantes pour créer une table nommée **log4jLogs** avec les exemples de données fournis avec le cluster HDInsight :
+5. Saisissez les instructions suivantes pour créer une table nommée **log4jLogs** avec les exemples de données fournies avec le cluster HDInsight :
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -123,7 +123,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
     * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
     * **INPUT\_\_FILE\_\_NAME LIKE ’%.log’** : indique à Hive de renvoyer uniquement des données provenant de fichiers se terminant par .log. Normalement, vous devriez obtenir uniquement les données avec le même schéma dans le même dossier lors de l’interrogation avec hive, toutefois, cet exemple de fichier journal est stocké avec d’autres formats de données.
 
-    > [AZURE.NOTE]Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
+    > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
     >
     > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de table.
     
@@ -172,7 +172,7 @@ Beeline peut également être utilisé pour exécuter un fichier contenant les i
     * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
     * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
     
-    > [AZURE.NOTE]Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
+    > [AZURE.NOTE] Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
     
 3. Pour enregistrer le fichier, utilisez __Ctrl__+___\_X__, saisissez ensuite __Y__, puis appuyez sur __Entrée__.
 
@@ -237,4 +237,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

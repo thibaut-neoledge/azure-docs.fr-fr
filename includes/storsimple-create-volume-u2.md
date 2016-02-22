@@ -1,4 +1,4 @@
-<!--author=alkohli last changed:12/14/15-->
+<!--author=SharS last changed: 02/04/2016-->
 
 #### Pour créer un volume
 
@@ -18,10 +18,17 @@
 		Vous pouvez configurer des volumes épinglés localement d’une taille maximale de 9 To ou des volumes à plusieurs niveaux d’une taille maximale de 200 To sur l’appareil 8100. Sur l’appareil 8600, qui a une plus grande capacité, vous pouvez configurer des volumes épinglés localement d’une taille maximale de 24 To ou des volumes à plusieurs niveaux d’une taille maximale de 500 To. Un espace local sur l’appareil étant nécessaire pour héberger la plage de travail des volumes à plusieurs niveaux, la création de volumes épinglés localement aura un impact sur l’espace disponible pour la configuration de volumes à plusieurs niveaux. Par conséquent, si vous créez un volume épinglé localement, l’espace disponible pour la création de volumes à plusieurs niveaux sera réduit. De même, si vous créez un volume à plusieurs niveaux, l’espace disponible pour la création de volumes épinglés localement sera réduit.
 
 		Si vous configurez un volume épinglé localement de 9 To (taille maximale autorisée) sur votre appareil 8100, vous devrez utiliser tout l’espace local disponible sur l’appareil. Vous ne pourrez donc pas créer de volume à plusieurs niveaux, puisque l’espace local de l’appareil sera insuffisant pour héberger la plage de travail du volume en question. Les volumes à plusieurs niveaux existants affectent également l’espace disponible. Par exemple, si vous avez un appareil 8100 qui possède déjà des volumes à plusieurs niveaux de 100 To, seuls 4,5 To d’espace seront disponibles pour les volumes épinglés localement.
-   
+
+        L'illustration suivante montre la boîte de dialogue **Paramètres de base** pour un volume épinglé localement.
+
+         ![Ajouter un volume local](./media/storsimple-create-volume-u2/add-local-volume-include.png)
+
+        L'illustration suivante montre la boîte de dialogue **Paramètres de base** pour un volume à plusieurs niveaux.
+
+         ![Ajouter un volume local](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
+
    4. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) pour passer à la page suivante.
 
-  		![Add volume](./media/storsimple-create-volume-u2/AddLocalVolume1.png)
 
 3. Dans la boîte de dialogue **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d’accès (ACR) :
 
@@ -29,10 +36,10 @@
 	2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host).
 	3. Sous **Sauvegarde par défaut pour ce volume ?**, sélectionnez la case à cocher **Activer**. La sauvegarde par défaut crée une stratégie qui s’exécute à 22h30 chaque jour (heure de l’appareil) et crée un instantané de cloud de ce volume.
 	 
-     >[AZURE.NOTE]Une fois la sauvegarde activée ici, elle ne peut pas être annulée. Vous devez modifier le volume pour modifier ce paramètre.
+     > [AZURE.NOTE] Une fois la sauvegarde activée ici, elle ne peut pas être annulée. Vous devez modifier le volume pour modifier ce paramètre.
 
      ![Ajouter un volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
 4. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Un volume est créé avec les paramètres spécifiés.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

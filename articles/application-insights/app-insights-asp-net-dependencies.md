@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
  * Azure DocumentDb, table, stockage d’objets blob et file d’attente
 * Java
  * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
+* JavaScript dans les pages web : le [SDK de page web](app-insights-javascript.md) enregistre automatiquement les appels Ajax en tant que dépendances.
 
 Vous pouvez écrire vos propres appels de Kit de développement logiciel (SDK) pour surveiller d’autres dépendances à l’aide de l’[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -58,7 +59,7 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
     ![Choisissez une application et une ressource.](./media/app-insights-asp-net-dependencies/appinsights-036-configAIC.png)
 
-    Il est probable que vous choisissiez de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
+    Il est probable que vous choisirez de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
 
     Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web][availability] pour votre site ou une [surveillance du client web][client].
 
@@ -111,7 +112,7 @@ Cliquez sur cette ligne pour afficher les événements de la demande :
 
 Cliquez sur n’importe quelle instance présentant une longue durée d’exécution pour l’examiner de plus près.
 
-> [AZURE.NOTE]Faites défiler vers le bas pour choisir une instance. Une latence dans le pipeline peut expliquer que les données des premières instances soient incomplètes.
+> [AZURE.NOTE] Faites défiler vers le bas pour choisir une instance. Une latence dans le pipeline peut expliquer que les données des premières instances soient incomplètes.
 
 Faites défiler vers le bas pour atteindre les appels de dépendance à distance liés à cette demande :
 
@@ -181,9 +182,7 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
@@ -191,8 +190,7 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

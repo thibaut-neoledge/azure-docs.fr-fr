@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Accès à l’application en libre-service et gestion déléguée avec Azure Active Directory
@@ -101,9 +101,12 @@ La vignette **Configurer** apparaît uniquement si l’application a été confi
 
 * **Les utilisateurs sont automatiquement connectés lorsqu’ils utilisent un compte unique que je gère** : il s’agit d’un cas spécial et il convient de l’utiliser lorsque des utilisateurs affectés doivent se voir accorder un accès avec un compte partagé unique. Le cas d’utilisation le plus courant concerne les applications de médias sociaux, où une organisation possède un compte « société » et où plusieurs utilisateurs doivent effectuer des mises à jour. Cela correspond également au cas d’authentification unique par mot de passe dans lesquels ce sont [les administrateurs qui gèrent les informations d’identification](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Toutefois, après avoir sélectionné cette option, l’approbateur est invité à entrer le nom d’utilisateur et le mot de passe pour le compte partagé unique. Une fois l’opération terminée, tous les utilisateurs affectés seront connectés à l’aide de ce compte lorsque vous cliquez sur l’application sur leur volet d’accès Azure AD ou sur Office 365.
 
+##Ressources supplémentaires
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

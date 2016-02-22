@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/09/2016" 
 	ms.author="luisca"/>
 
 # Guide de démarrage rapide pour l'API de Machine Learning Recommendations
@@ -511,7 +511,7 @@ OData XML
 | includeMetatadata | Utilisation ultérieure, toujours false |
 | apiVersion | 1\.0 |
 
-**Réponse** :
+**Réponse :**
 
 Code d'état HTTP : 200
 
@@ -677,7 +677,7 @@ L’exemple de réponse ci-dessous comprend 10 éléments recommandés :
 
 ###Mise à jour du modèle
 Vous pouvez mettre à jour la description du modèle ou l’identifiant de la build active.
-*ID de build active*: chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
+*Identifiant de build active* : pour chaque modèle, chaque build possède un identifiant de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
 
 Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
@@ -686,7 +686,7 @@ Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommanda
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nom du paramètre |	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | id | Identificateur unique du modèle (respecte la casse) |
 | apiVersion | 1\.0 |
@@ -714,4 +714,4 @@ Certains exemples sont fournis à titre indicatif uniquement et sont fictifs.
 Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
  
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 
@@ -54,18 +54,20 @@ L'organigramme ci-dessous peut vous aider à comprendre le processus de mise à 
 
 ## Étapes suivantes
 
-[Didacticiel de mise à niveau](service-fabric-application-upgrade-tutorial.md)
+La [mise à niveau de votre application à l'aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l'application à l'aide de Visual Studio.
 
-[Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md)
+La [mise à niveau de votre application à l'aide de Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l'application à l'aide de PowerShell.
 
-[Sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
+Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
-[Mise à niveau manuelle et mise à niveau avec un package différentiel](service-fabric-application-upgrade-advanced.md)
+Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
-[Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
+Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
+Résolvez les problèmes courants de mise à niveau de l'application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
+ 
 
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

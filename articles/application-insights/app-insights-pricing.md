@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -114,17 +114,13 @@ En cas de limitation, vous en êtes informé par un avertissement.
 * Ouvrez Paramètres/Quota et tarification pour découvrir le graphique du volume de données.
 * Ou dans Metrics Explorer, ajoutez un nouveau graphique et sélectionnez la mesure **Volume du point de données**. Basculez sur le regroupement et regroupez par **Type de données**.
 
-*Comment puis-je réduire le volume de données envoyé par mon application ?*
-
-* Utilisez l’[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche. L’échantillonnage adaptatif est activé par défaut dans le Kit de développement logiciel (SDK) Application Insights pour ASP.NET, version 2.0.0-bêta 3.
-* [Désactivez les collecteurs de données de télémétrie](app-insights-configuration-with-applicationinsights-config.md) dont vous n’avez pas besoin.
-
 
 ### Conseils destinés à réduire votre débit de données
 
 Si vous rencontrez les seuils de limitation, voici quelques opérations à effectuer :
 
 * Utilisez l’[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche.
+* [Limitez le nombre d'appels Ajax qui peuvent être signalés](app-insights-javascript.md#detailed-configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
 * Désactivez les modules de collecte dont vous n'avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 * Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
@@ -166,4 +162,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

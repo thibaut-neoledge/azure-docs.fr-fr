@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="ashmaka"/>
 
 # Présentation d’Azure Search
@@ -19,7 +19,7 @@ Azure Search est une solution cloud de recherche en tant que service qui délèg
 
 ## Offrez à vos utilisateurs une expérience de recherche puissante
 
-Des **requêtes puissantes** peuvent être formulées à l’aide de la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Celle-ci offre des opérateurs logiques, de recherche d’expression, de suffixe et de précédence. Par ailleurs, la [syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (actuellement en version préliminaire) peut prendre en charge les recherches approximatives, les fautes d’orthographe, les recherches de proximité, la valorisation de termes, et les expressions régulières. Azure Search prend également en charge des analyseurs lexicaux personnalisés pour permettre à votre application de traiter des requêtes complexes à l'aide de la correspondance phonétique et des expressions régulières.
+Des **requêtes puissantes** peuvent être formulées à l’aide de la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Celle-ci offre des opérateurs logiques, de recherche d’expression, de suffixe et de précédence. Par ailleurs, la [syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) permet des recherches approximatives, des recherches de proximité, la valorisation de termes et des expressions régulières. Azure Search prend également en charge des analyseurs lexicaux personnalisés pour permettre à votre application de traiter des requêtes complexes à l'aide de la correspondance phonétique et des expressions régulières.
 
 **La prise en charge linguistique** est [incluse pour 56 langues différentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). À l’aide des analyseurs Lucene et Microsoft (perfectionnés par des années de traitement de langage naturel dans Office et Bing), Azure Search peut analyser le texte dans la zone de recherche de votre application pour gérer intelligemment les caractéristiques linguistiques propres à la langue, notamment les temps des verbes, le masculin et le féminin, les noms au pluriel irrégulier (par exemple, « cheval » et « chevaux »), la décomposition des mots, la césure des mots (pour les langues sans espaces), etc.
 
@@ -82,4 +82,4 @@ Vous pouvez essayer Azure Search dès aujourd'hui ! Si vous avez déjà un comp
 
 Si vous n'avez pas un compte Azure, que vous pouvez essayer une session gratuite de 60 minutes sans aucune inscription nécessaire. Accédez à [Essayer Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) et sélectionnez « Application web ». Puis, sélectionnez le modèle « ASP.NET + Azure Search » pour commencer.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

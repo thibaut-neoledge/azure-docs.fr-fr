@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Création de NSG en mode ARM à l’aide du portail en version préliminaire | Microsoft Azure"
-   description="Apprenez à créer et à déployer des NSG dans ARM, à l’aide du portail en version préliminaire"
+   pageTitle="Création de groupes de sécurité réseau en mode ARM à l'aide du portail Azure | Microsoft Azure"
+   description="Découvrez comment créer et déployer des groupes de sécurité réseau dans ARM à l'aide du portail Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Génération de NSG à l’aide du portail en version préliminaire
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [créer des NSG dans le modèle de déploiement classique](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [créer des groupes de sécurité réseau dans le modèle de déploiement classique](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -56,4 +56,4 @@ Pour créer des règles dans un NSG existant à partir du portail en version pr�
 
 ![Portail en version préliminaire : Nouvelle règle](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

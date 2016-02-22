@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -24,13 +24,14 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
-> [AZURE.NOTE]Pour pouvoir créer un compte Azure Media Services, vous devez disposer d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.NOTE] Pour pouvoir créer un compte Azure Media Services, vous devez disposer d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 ##Vue d’ensemble 
 
 Cet article vous explique comment utiliser les applets de commande PowerShell pour gérer des comptes Azure Media Services.
 
->[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+>[AZURE.NOTE]
+Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 ##Installer les applets de commande Microsoft Azure PowerShell
 
@@ -53,7 +54,7 @@ Ensuite, sélectionnez-en un en exécutant :
 
 Azure Media Services utilise Azure Storage pour stocker le contenu multimédia. Lorsque vous créez un compte Media Services, vous devez l’associer à un compte de stockage. Le compte de stockage doit appartenir au même abonnement que celui que vous prévoyez d’utiliser pour votre compte Media Services.
 
-Dans cet exemple, un compte de stockage existant est utilisé. L’applet de commande [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) permet d’obtenir les comptes de stockage au sein de l’abonnement actuel. Obtenez le nom (StorageAccountName) du compte de stockage auquel vous souhaitez associer votre compte Media Services actuel.
+Dans cet exemple, un compte de stockage existant est utilisé. La cmdlet [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) permet d’obtenir les comptes de stockage au sein de l’abonnement actuel. Obtenez le nom (StorageAccountName) du compte de stockage auquel vous souhaitez associer votre compte Media Services actuel.
 
 	StorageAccountDescription : 
 	AffinityGroup             :
@@ -121,4 +122,4 @@ Quand vous êtes prêt à supprimer le compte Azure Media, utilisez [Remove-Azur
 
  
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

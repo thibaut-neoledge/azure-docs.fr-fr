@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -116,7 +116,7 @@ My Apps pour iOS est prise en charge sur tout iPhone ou iPad exécutant iOS vers
 
 
 
-> [AZURE.NOTE]Vous pouvez vous connecter aux applications qui prennent en charge la fédération avec Azure AD (y compris Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 et plus de 70 autres) sur presque n’importe quel navigateur web sur n’importe quel appareil sans nécessiter de plug-in ou d’application mobile. Le reste de l’expérience de volet d’accès accessible à la page [https://myapps.microsoft.com](https://myapps.microsoft.com/) ne nécessite pas non plus l’utilisation de l’application mobile My Apps sur un appareil mobile.
+> [AZURE.NOTE] Vous pouvez vous connecter aux applications qui prennent en charge la fédération avec Azure AD (y compris Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 et plus de 70 autres) sur presque n’importe quel navigateur web sur n’importe quel appareil sans nécessiter de plug-in ou d’application mobile. Le reste de l’expérience de volet d’accès accessible à la page [https://myapps.microsoft.com](https://myapps.microsoft.com/) ne nécessite pas non plus l’utilisation de l’application mobile My Apps sur un appareil mobile.
  
 
 
@@ -172,8 +172,12 @@ Certaines applications peuvent exiger de l’utilisateur qu’il modifie son mot
 
 Lors de la configuration de l’authentification unique pour une application, le portail de gestion Azure propose une troisième option, l’authentification unique existante. Cette option permet simplement à l’administrateur de créer un lien vers une application et de le placer dans le panneau d’accès pour les utilisateurs sélectionnés. Par exemple, s’il existe une application qui est configurée pour authentifier les utilisateurs avec Active Directory Federation Services 2.0, l’administrateur peut utiliser l’option d’authentification unique existante pour créer un lien vers cette application dans le panneau d’accès. Lorsque les utilisateurs accèdent au lien, ils sont authentifiés via Active Directory Federation Services 2.0 ou toute autre solution d’authentification unique fournie par l’application.
 
+##Articles connexes
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+- [Introduction à l’authentification unique et à la gestion de l’accès aux applications avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
@@ -181,4 +185,4 @@ Lors de la configuration de l’authentification unique pour une application, le
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

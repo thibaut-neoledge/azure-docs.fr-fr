@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -120,4 +120,4 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 
 - [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

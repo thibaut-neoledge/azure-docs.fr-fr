@@ -19,6 +19,6 @@ Longueur du nom de la mesure | 100 | 100
 
 <sup>2</sup> Vous pouvez acheter une capacité supplémentaire au-delà de 50 millions.
  
-[Tarification et quotas dans Application Insights](app-insights-pricing.md)
+[Tarification et quotas dans Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

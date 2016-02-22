@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/09/2016" 
 	ms.author="tomfitz"/>
 
 # Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git
 
 Ce didacticiel vous explique comment créer une application web PHP dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) se connectant à la base de données SQL Azure et comment la déployer à l’aide de Git. Pour ce didacticiel, [PHP][install-php], [SQL Server Express][install-SQLExpress], les [pilotes Microsoft SQL Server pour PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) et [Git][install-git] doivent être installés sur votre ordinateur. À la fin de ce guide, vous disposerez d’une application web PHP-SQL s’exécutant dans Azure.
 
-> [AZURE.NOTE]Vous pouvez installer et configurer PHP, SQL Server Express et les pilotes Microsoft SQL Server pour PHP via [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+> [AZURE.NOTE]
+Vous pouvez installer et configurer PHP, SQL Server Express et les pilotes Microsoft SQL Server pour PHP via [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -33,7 +34,7 @@ En suivant ce didacticiel, vous allez générer une application Web d'inscriptio
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ##Création d’une application web Azure et configuration de la publication Git
 
@@ -244,12 +245,14 @@ Une fois votre application testée en local, vous pouvez la publier dans App Se
 	$pwd = "<your password>";
 	$db = "<value of SQL Database>";
 
-> [AZURE.NOTE]Dans <code>$host</code>, la valeur du serveur doit présenter le préfixe <code>tcp:</code>.
+> [AZURE.NOTE]
+Dans <code>$host</code>, la valeur du serveur doit présenter le préfixe <code>tcp:</code>.
 
 
 Tout est prêt pour configurer la publication Git et publier l’application.
 
-> [AZURE.NOTE]Cette procédure est identique à celle indiquée à la fin de la section **Création d’une application web Azure et configuration de la publication Git** précédente.
+> [AZURE.NOTE]
+Cette procédure est identique à celle indiquée à la fin de la section **Création d’une application web Azure et configuration de la publication Git** précédente.
 
 
 1. Ouvrez GitBash (ou un terminal, si Git figure dans votre `PATH`), remplacez les répertoires par le répertoire racine de votre application (le répertoire **d’enregistrement**, puis exécutez les commandes suivantes :
@@ -295,4 +298,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -336,6 +336,6 @@ Dans cet article, vous avez appris comment effectuer des opérations en bloc sur
 
 - [Créer un IoT Hub par programme](iot-hub-rm-template.md)
 - [Mesures d’utilisation d’IoT Hub](iot-hub-metrics.md)
-- [Surveillance des opérations IoT Hub](iot-hub-operations-montoring.md)
+- [Surveillance des opérations IoT Hub](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
@@ -23,7 +23,7 @@ Vous pouvez installer Giraph sur n’importe quel type de cluster dans Hadoop su
 
 Dans cette rubrique, vous allez apprendre à installer Giraph à l'aide d'une action de script. Après avoir installé Giraph, vous apprendrez également comment l'utiliser pour la plupart des applications courantes, à savoir traiter des graphiques à grande échelle.
 
-> [AZURE.NOTE]Les informations présentes dans cet article sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur l’utilisation des clusters basés sur Windows, voir [Installation de Giraph sur les clusters HDInsight Hadoop (Windows)](hdinsight-hadoop-giraph-install.md)
+> [AZURE.NOTE] Les informations présentes dans cet article sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur l’utilisation des clusters basés sur Windows, voir [Installation de Giraph sur les clusters HDInsight Hadoop (Windows)](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="whatis"></a>Présentation de Giraph
 
@@ -44,7 +44,7 @@ Le script effectue les opérations suivantes :
 
 Pour obtenir un exemple de script pour installer Giraph sur un cluster HDInsight, téléchargez l’objet blob de stockage Azure en lecture seule à l’adresse [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh1](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Cette section explique comment utiliser l’exemple de script dans le cadre de la création du cluster à l’aide du portail Azure Classic.
 
-> [AZURE.NOTE]Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Démarrez la création d’un cluster à l’aide de la procédure décrite dans [Création de clusters HDInsight sous Linux](hdinsight-provision-linux-clusters.md#portal), mais ne terminez pas la création.
 
@@ -53,8 +53,8 @@ Pour obtenir un exemple de script pour installer Giraph sur un cluster HDInsigh
 	* __NAME__ : saisissez un nom convivial pour l’action de script.
 	* __SCRIPT URI__ : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 	* __HEAD__ : cochez cette option
-	* __WORKER__ : cochez cette option
-	* __ZOOKEEPER__ : activez cette option pour installer le nœud ZooKeeper.
+	* __WORKER__ : cochez cette option.
+	* __ZOOKEEPER__ : cochez cette option pour installer le nœud ZooKeeper.
 	* __PARAMETERS__ : laissez ce champ vide.
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, utilisez le bouton **Sélectionner** au bas du panneau **Configuration facultative** pour enregistrer les informations de configuration facultatives.
@@ -152,4 +152,4 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 
 - [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d'effectuer de puissantes opérations de recherche sur des données stockées.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

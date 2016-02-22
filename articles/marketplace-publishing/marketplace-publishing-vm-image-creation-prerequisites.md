@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/09/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # Conditions techniques préalables pour créer une image de machine virtuelle pour Azure Marketplace
@@ -33,7 +33,7 @@ Vous pouvez développer des machines virtuelles Azure sur Windows ou Linux. Cert
 - Si vous utilisez Linux, reportez-vous à la section « Créer un disque dur virtuel compatible Azure (basé sur Linux) » du [Guide de publication d’une image de machine virtuelle](marketplace-publishing-vm-image-creation.md).
 - Si vous utilisez Windows, reportez-vous à la section « Créer un disque dur virtuel compatible Azure (basé sur Windows) » du [Guide de publication d’une image de machine virtuelle](marketplace-publishing-vm-image-creation.md).
 
-> [AZURE.NOTE]Vous devez avoir accès à un ordinateur Windows pour - Exécuter l’outil de validation de certification - Créer l’URL de signature d’accès partagé du disque dur virtuel pour l’envoi de la certification de disque dur virtuel
+> [AZURE.NOTE] Vous devez avoir accès à un ordinateur Windows pour - Exécuter l’outil de validation de certification - Créer l’URL de signature d’accès partagé du disque dur virtuel pour l’envoi de la certification de disque dur virtuel
 
 ## Développement de votre disque dur virtuel
 Vous pouvez développer des disques durs virtuels Azure dans le cloud ou localement :
@@ -51,4 +51,4 @@ Maintenant que vous avez passé en revue les conditions préalables et effectué
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

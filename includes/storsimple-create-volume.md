@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 11/16/15-->
+<!--author=SharS last changed: 02/04/2016-->
 
 #### Pour créer un volume
 
@@ -9,9 +9,10 @@
    2. Indiquez la **capacité allouée** au volume en Go ou To. La capacité du volume doit être comprise entre 1 Go et 64 To pour un appareil physique.
    3. Dans la liste déroulante, sélectionnez le **Type d’utilisation** pour le volume. 
    4. Si vous utilisez ce volume pour les données d’archivage, cochez la case **Utiliser ce volume pour des données d’archivage moins fréquemment sollicitées**. Dans tous les autres cas, sélectionnez **Volume à plusieurs niveaux**. (Les volumes à plusieurs niveaux étaient appelés volumes principaux).
-   4. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) pour passer à la page suivante.
 
-        ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
+        ![Add volume](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
+
+    4. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) pour passer à la page suivante.
 
 3. Dans la boîte de dialogue **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d’accès (ACR) :
    1. Saisissez un **Nom** pour votre ACR.
@@ -28,4 +29,4 @@
 
 Pour visionner une vidéo qui montre comment créer un volume StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

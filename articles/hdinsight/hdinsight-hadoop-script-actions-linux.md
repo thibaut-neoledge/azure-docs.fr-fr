@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/05/2016"
     ms.author="larryfr"/>
 
 # Développement d'actions de script avec HDInsight
 
 Les actions de script sont un moyen de personnaliser les clusters Azure HDInsight en spécifiant les paramètres de configuration de cluster lors de l’installation ou l’installation des services, outils ou autres logiciels supplémentaires sur le cluster.
 
-> [AZURE.NOTE]Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur l’utilisation des Actions de Script avec les clusters basés sur Windows, consultez [Développement d’action de script avec HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
+> [AZURE.NOTE] Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur l’utilisation des Actions de Script avec les clusters basés sur Windows, consultez [Développement d’action de script avec HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
 ## Définition des actions de script
 
@@ -43,7 +43,7 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 - [Écrire des informations sur STDOUT et STDERR](#bPS7)
 - [Enregistrer des fichiers au format ASCII avec les fins de ligne LF](#bps8)
 
-> [AZURE.IMPORTANT]Les actions de script doivent se terminer dans les 60 minutes, faute de quoi elles expirent. Lors de l’approvisionnement du nœud, le script est exécuté en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
+> [AZURE.IMPORTANT] Les actions de script doivent se terminer dans les 60 minutes, faute de quoi elles expirent. Lors de l’approvisionnement du nœud, le script est exécuté en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
 
 ### <a name="bPS1"></a>Cible de la version Hadoop
 
@@ -55,7 +55,7 @@ Les utilisateurs doivent s’assurer que tous les scripts et ressources utilisé
 
 La meilleure pratique consiste à tout télécharger et à tout archiver dans un compte de stockage Azure de votre abonnement.
 
-> [AZURE.IMPORTANT]Le compte de stockage utilisé doit être le compte de stockage par défaut du cluster ou un conteneur public en lecture seule d’un autre compte de stockage.
+> [AZURE.IMPORTANT] Le compte de stockage utilisé doit être le compte de stockage par défaut du cluster ou un conteneur public en lecture seule d’un autre compte de stockage.
 
 Par exemple, les exemples fournis par Microsoft sont stockés dans le compte de stockage [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/), qui est un conteneur public en lecture seule géré par l’équipe de HDInsight.
 
@@ -73,7 +73,7 @@ Par exemple, si un script personnalisé a installé une application à l’empla
 
 Les clusters HDInsight basés sur Linux proposent deux fichiers principaux actifs au sein du cluster, et les actions de script sont exécutées depuis les deux nœuds. Si les composants que vous installez n’attendent qu’un seul nœud principal, vous devez créer un script qui installe uniquement le composant sur un des deux nœuds principaux du cluster.
 
-> [AZURE.IMPORTANT]Les services par défaut installés dans le cadre de HDInsight sont conçus pour basculer d’un nœud principal à l’autre comme nécessaire, cependant, cette fonctionnalité n’est pas étendue aux composants personnalisés installés à l’aide des actions de script. Si vous avez besoin de composants installés via une action de script hautement disponibles, vous devez mettre en œuvre votre propre mécanisme de basculement qui utilise les deux nœuds principaux disponibles.
+> [AZURE.IMPORTANT] Les services par défaut installés dans le cadre de HDInsight sont conçus pour basculer d’un nœud principal à l’autre comme nécessaire, cependant, cette fonctionnalité n’est pas étendue aux composants personnalisés installés à l’aide des actions de script. Si vous avez besoin de composants installés via une action de script hautement disponibles, vous devez mettre en œuvre votre propre mécanisme de basculement qui utilise les deux nœuds principaux disponibles.
 
 ### <a name="bPS6"></a>Configurer les composants personnalisés pour utiliser le stockage d'objets Blob Azure
 
@@ -183,7 +183,7 @@ Microsoft fournit des exemples de scripts pour installer des composants sur un c
 - [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
 - [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE]Les documents sont spécifiques aux clusters HDInsight sous Linux. Pour les scripts qui fonctionnent avec HDInsight sous Windows, consultez le [développement d’action de script HDInsight (Windows)](hdinsight-hadoop-script-actions.md) ou utilisez les liens disponibles en haut de chaque article.
+> [AZURE.NOTE] Les documents sont spécifiques aux clusters HDInsight sous Linux. Pour les scripts qui fonctionnent avec HDInsight sous Windows, consultez le [développement d’action de script HDInsight (Windows)](hdinsight-hadoop-script-actions.md) ou utilisez les liens disponibles en haut de chaque article.
 
 ##Résolution de problèmes
 
@@ -197,7 +197,7 @@ Ce problème se produit souvent lorsque le script est créé dans un environneme
 
 _Résolution_ : si c’est une option dans votre éditeur de texte, sélectionnez le format Unix ou LF comme fin de ligne. Vous pouvez également utiliser les commandes suivantes sur un système Unix pour changer la séquence CRLF en LF :
 
-> [AZURE.NOTE]Les commandes suivantes sont à peu près équivalentes dans la mesure où elles doivent changer les fins de ligne CRLF en LF. Sélectionnez-en une basée sur les utilitaires disponibles sur votre système.
+> [AZURE.NOTE] Les commandes suivantes sont à peu près équivalentes dans la mesure où elles doivent changer les fins de ligne CRLF en LF. Sélectionnez-en une basée sur les utilitaires disponibles sur votre système.
 
 | Commande | Remarques |
 | ------- | ----- |
@@ -220,4 +220,4 @@ Pour la commande ci-dessus, remplacez __INFILE__ par le fichier contenant la mar
 
 [Personnaliser des clusters HDInsight à l'aide d'une action de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 #Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop)
@@ -28,7 +28,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 * [Maven](http://maven.apache.org/)
 
-* Un [cluster Azure HDInsight sous Linux avec HBase](../hdinsight-hbase-get-started-linux.md#create-hbase-cluster)
+* [Un cluster Azure HDInsight sous Linux avec HBase](../hdinsight-hbase-get-started-linux.md#create-hbase-cluster)
 
 * **Des connaissances en SSH et SCP**. Pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
 
@@ -111,7 +111,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 	Cela configure une ressource (__conf\\hbase-site.xml__,) qui contient des informations de configuration pour HBase.
 
-	> [AZURE.NOTE]Vous pouvez également définir les valeurs de configuration par code. Consultez les commentaires de l'exemple __CreateTable__ ci-dessous pour la marche à suivre.
+	> [AZURE.NOTE] Vous pouvez également définir les valeurs de configuration par code. Consultez les commentaires de l'exemple __CreateTable__ ci-dessous pour la marche à suivre.
 
 	Cela configure également les plug-ins [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) et [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). Le plug-in compiler est utilisé pour compiler la topologie. Le plug-in shade est utilisé pour empêcher la duplication de licence dans le package JAR généré par Maven. Il est utilisé, car les fichiers de licence dupliqués entraînent une erreur à l'exécution sur le cluster HDInsight. Le fait d'utiliser le plug-in maven-shade-plugin avec l'implémentation `ApacheLicenseResourceTransformer` permet d'éviter cette erreur.
 
@@ -125,7 +125,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 		scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
-	> [AZURE.NOTE]Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
@@ -135,70 +135,73 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 2. Ouvrez le fichier __CreateTable.java__ et remplacez le contenu existant par les données suivantes :
 
-		package com.microsoft.examples;
-		import java.io.IOException;
+        package com.microsoft.examples;
+        import java.io.IOException;
 
-		import org.apache.hadoop.conf.Configuration;
-		import org.apache.hadoop.hbase.HBaseConfiguration;
-		import org.apache.hadoop.hbase.client.HBaseAdmin;
-		import org.apache.hadoop.hbase.HTableDescriptor;
-		import org.apache.hadoop.hbase.TableName;
-		import org.apache.hadoop.hbase.HColumnDescriptor;
-		import org.apache.hadoop.hbase.client.HTable;
-		import org.apache.hadoop.hbase.client.Put;
-		import org.apache.hadoop.hbase.util.Bytes;
+        import org.apache.hadoop.conf.Configuration;
+        import org.apache.hadoop.hbase.HBaseConfiguration;
+        import org.apache.hadoop.hbase.client.HBaseAdmin;
+        import org.apache.hadoop.hbase.HTableDescriptor;
+        import org.apache.hadoop.hbase.TableName;
+        import org.apache.hadoop.hbase.HColumnDescriptor;
+        import org.apache.hadoop.hbase.client.HTable;
+        import org.apache.hadoop.hbase.client.Put;
+        import org.apache.hadoop.hbase.util.Bytes;
 
-		public class CreateTable {
-		  public static void main(String[] args) throws IOException {
-		    Configuration config = HBaseConfiguration.create();
+        public class CreateTable {
+          public static void main(String[] args) throws IOException {
+            Configuration config = HBaseConfiguration.create();
 
-		    // Example of setting zookeeper values for HDInsight
-			//   in code instead of an hbase-site.xml file
-			//
-		    // config.set("hbase.zookeeper.quorum",
-		    //            "zookeepernode0,zookeepernode1,zookeepernode2");
-		    //config.set("hbase.zookeeper.property.clientPort", "2181");
-		    //config.set("hbase.cluster.distributed", "true");
+            // Example of setting zookeeper values for HDInsight
+            // in code instead of an hbase-site.xml file
+            //
+            // config.set("hbase.zookeeper.quorum",
+            //            "zookeepernode0,zookeepernode1,zookeepernode2");
+            //config.set("hbase.zookeeper.property.clientPort", "2181");
+            //config.set("hbase.cluster.distributed", "true");
             //
             //NOTE: Actual zookeeper host names can be found using Ambari:
             //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
+            
+            //Linux-based HDInsight clusters don't use the default znode parent
+            config.set("zookeeper.znode.parent","/hbase-unsecure");
 
-		    // create an admin object using the config
-		    HBaseAdmin admin = new HBaseAdmin(config);
+            // create an admin object using the config
+            HBaseAdmin admin = new HBaseAdmin(config);
 
-		    // create the table...
-		    HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
-		    // ... with two column families
-		    tableDescriptor.addFamily(new HColumnDescriptor("name"));
-		    tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
-		    admin.createTable(tableDescriptor);
+            // create the table...
+            HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
+            // ... with two column families
+            tableDescriptor.addFamily(new HColumnDescriptor("name"));
+            tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
+            admin.createTable(tableDescriptor);
 
-		    // define some people
-		    String[][] people = {
-		        { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
-		        { "2", "Franklin", "Holtz", "franklin@contoso.com" },
-		        { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
-		        { "4", "Rae", "Schroeder", "rae@contoso.com" },
-		        { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
-		        { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
+            // define some people
+            String[][] people = {
+                { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
+                { "2", "Franklin", "Holtz", "franklin@contoso.com" },
+                { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
+                { "4", "Rae", "Schroeder", "rae@contoso.com" },
+                { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
+                { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
 
-		    HTable table = new HTable(config, "people");
+            HTable table = new HTable(config, "people");
 
-		    // Add each person to the table
-		    //   Use the `name` column family for the name
-		    //   Use the `contactinfo` column family for the email
-		    for (int i = 0; i< people.length; i++) {
-		      Put person = new Put(Bytes.toBytes(people[i][0]));
-		      person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
-		      person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
-		      person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
-		      table.put(person);
-		    }
-		    // flush commits and close the table
-		    table.flushCommits();
-		    table.close();
-		  }
-		}
+            // Add each person to the table
+            //   Use the `name` column family for the name
+            //   Use the `contactinfo` column family for the email
+            for (int i = 0; i< people.length; i++) {
+              Put person = new Put(Bytes.toBytes(people[i][0]));
+              person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
+              person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
+              person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
+              table.put(person);
+            }
+            // flush commits and close the table
+            table.flushCommits();
+            table.close();
+          }
+        }
 
 	Il s'agit de la classe __CreateTable__, qui crée une table appelée __people__ et la remplit avec des utilisateurs prédéfinis.
 
@@ -317,7 +320,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 3. Une fois la commande exécutée, le répertoire __hbaseapp\\target__ contient un fichier appelé __hbaseapp-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]Le fichier __hbaseapp-1.0-SNAPSHOT.jar__ est un uber jar (parfois appelé fat jar) contenant toutes les dépendances requises pour exécuter l'application.
+	> [AZURE.NOTE] Le fichier __hbaseapp-1.0-SNAPSHOT.jar__ est un uber jar (parfois appelé fat jar) contenant toutes les dépendances requises pour exécuter l'application.
 
 ##Téléchargement du fichier JAR et exécution de tâches
 
@@ -327,7 +330,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 	Ceci télécharge le fichier dans le répertoire de base de votre compte d’utilisateur SSH.
 
-	> [AZURE.NOTE]Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
 
@@ -335,7 +338,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE]Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
@@ -364,4 +367,4 @@ Lorsque vous avez terminé, utilisez la commande ci-après dans la session Azure
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

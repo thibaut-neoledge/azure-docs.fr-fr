@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Déploiement avec distribution d’une version d’évaluation (test bêta) dans Azure App Service
 
@@ -32,7 +32,7 @@ Un déploiement avec distribution d’une version d’évaluation ne se limite p
 Dans ce didacticiel, vous allez apprendre à rassembler les scénarios suivants pour tester votre application App Service en production :
 
 - [Acheminer le trafic de production](app-service-web-test-in-production-get-start.md) vers votre application bêta
-- [Instrumenter votre application](app-insights-web-track-usage.md) pour obtenir des mesures utiles
+- [Instrumenter votre application](../application-insights/app-insights-web-track-usage.md) pour obtenir des mesures utiles
 - Déployer votre application bêta et suivre les mesures de l’application en direct en continu
 - Comparer des mesures entre l’application de production et l’application bêta pour voir comment les modifications de code se traduisent en résultats
 
@@ -44,7 +44,7 @@ Dans ce didacticiel, vous allez apprendre à rassembler les scénarios suivants 
 -	Git Shell (installé avec [GitHub for Windows](https://windows.github.com/)) : cela permet d’exécuter des commandes PowerShell et Git dans la même session
 -	Dernières informations [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi)
 -	Compréhension élémentaire des concepts et outils suivants :
-	-	Déploiement de modèles [Azure Resource Manager](resource-group-overview.md) (voir [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md))
+	-	Déploiement de modèles [Azure Resource Manager](../resource-group-overview.md) (voir [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -174,7 +174,7 @@ Et voilà !
 
 Dans cette section, vous allez configurer différents emplacements de déploiement pour envoyer des données de télémétrie spécifiques aux emplacements à la même ressource Application Insights. De cette façon, vous pouvez comparer les données de télémétrie entre le trafic à partir de différents emplacements (environnements de déploiement) pour facilement voir l’effet des modifications de votre application. En même temps, vous pouvez séparer le trafic de production du reste, de manière à pouvoir continuer à surveiller votre application de production si nécessaire.
 
-Dans la mesure où vous collectez des données sur le comportement des clients, vous allez [ajouter un initialiseur de télémétrie à votre code JavaScript](app-insights-api-custom-events-metrics.md#js-initializer) dans index.cshtml. Si vous souhaitez tester les performances côté serveur, par exemple, vous pouvez également faire de même dans votre code serveur (voir [API Application Insights pour les événements et les mesures personnalisés](app-insights-api-custom-events-metrics.md).
+Dans la mesure où vous collectez des données sur le comportement des clients, vous allez [ajouter un initialiseur de télémétrie à votre code JavaScript](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer) dans index.cshtml. Si vous souhaitez tester les performances côté serveur, par exemple, vous pouvez également faire de même dans votre code serveur (voir [API Application Insights pour les événements et les mesures personnalisés](../application-insights/app-insights-api-custom-events-metrics.md).
 
 1. Tout d’abord, ajoutez le code entre les deux commentaires `//` ci-dessous, dans le bloc JavaScript que vous avez ajouté à la balise `<heading>` précédemment.
 
@@ -215,7 +215,7 @@ Dans la mesure où vous collectez des données sur le comportement des clients, 
 
 5. Cliquez sur le bouton **Favoris** pour enregistrer les paramètres Metrics Explorer actuels dans un dossier similaire à **Événements personnalisés : Production**. Vous pourrez facilement basculer entre cette vue et une vue d’emplacement de déploiement ultérieurement.
 
-    > [AZURE.TIP] Pour une analyse encore plus puissante, envisagez d’[intégrer votre ressource Application Insights avec Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] Pour une analyse encore plus puissante, envisagez d’[intégrer votre ressource Application Insights avec Power BI](../application-insights/app-insights-export-power-bi.md).
 
 ### Ajouter des balises spécifiques aux emplacements à vos mesures d’application serveur
 De nouveau, par souci d’exhaustivité, vous allez configurer l’application côté serveur. Contrairement à l’application cliente qui est instrumentée dans JavaScript, les balises spécifiques aux emplacements pour l’application serveur sont instrumentées avec le code .NET.
@@ -369,10 +369,10 @@ Azure App Service facilite le test en production des applications destinées aux
 -   [Développement logiciel agile avec Azure App Service](app-service-agile-software-development.md)
 -   [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](web-sites-staged-publishing.md)
 -	[Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md)
--	[Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
+-	[Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
 -	[JSONLint - Validateur JSON](http://jsonlint.com/)
 -	[Création de branches Git – Branchement et fusion basiques](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

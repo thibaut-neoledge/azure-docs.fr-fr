@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/09/2016"
 	ms.author="bradsev;garye;gopitk" />
 
 
 # Importation de vos données Azure Machine Learning Studio depuis différentes sources de données en ligne avec le module de lecteur
+
+Ce document décrit le support pour l'importation en ligne de données provenant de plusieurs sources et les informations nécessaires au déplacement depuis ces sources vers l’expérience Azure Machine Learning.
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -32,14 +34,13 @@ Vous pouvez accéder aux données d'Azure Machine Learning Studio à partir d
 - Table Azure
 - Base de données Azure SQL ou SQL Server sur les machines virtuelles Azure
 - Un fournisseur de flux de données, actuellement, OData
-
-Ce document décrit les sources de données prises en charge et les informations nécessaires au déplacement depuis ces sources vers l’expérience Azure Machine Learning.
+ 
 
 Le flux de travail pour l’exécution d’expériences dans Azure Machine Learning Studio consiste à glisser-déposer des composants sur le canevas. Pour accéder aux sources de données en ligne, ajoutez le module [Lecteur][reader] à votre expérience, sélectionnez la **source de données**, puis indiquez les paramètres nécessaires pour accéder aux données. Les sources de données en ligne prises en charge sont détaillées dans le tableau ci-dessous. Ce tableau récapitule également les formats de fichier pris en charge et les paramètres qui sont utilisés pour accéder aux données.
 
-> [AZURE.NOTE]Cet article fournit des informations générales sur le module [Lecteur][reader]. Pour plus d’informations sur les types de données auxquelles vous pouvez accéder, les formats, les paramètres et les réponses aux questions courantes, consultez la rubrique de référence du module pour le module [Lecteur][reader].
+> [AZURE.NOTE] Cet article fournit des informations générales sur le module [Lecteur][reader]. Pour plus d’informations sur les types de données auxquelles vous pouvez accéder, les formats, les paramètres et les réponses aux questions courantes, consultez la rubrique de référence du module pour le module [Lecteur][reader].
 
-> [AZURE.NOTE]Ces données étant accessibles pendant l’exécution de votre expérience, elles ne sont disponibles que pour cette expérience. En revanche, les données stockées dans un module de jeu de données sont disponibles pour n’importe dans votre espace de travail.
+> [AZURE.NOTE] Ces données étant accessibles pendant l’exécution de votre expérience, elles ne sont disponibles que pour cette expérience. En revanche, les données stockées dans un module de jeu de données sont disponibles pour n’importe dans votre espace de travail.
 
 
 ## Sources de données en ligne prises en charge
@@ -58,4 +59,4 @@ Fournisseur de flux de données | Lit les données d’un fournisseur de flux pr
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

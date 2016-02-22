@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015"  
+	ms.date="02/04/2016"  
 	ms.author="xpouyat"/>
 
 #Licence du kit de portage du client de diffusion en continu lisse Microsoft®
@@ -91,7 +91,6 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Amazon Digital Services, Inc.
 - Amlogic, Co., Ltd.
 - AVC Multimedia Software Co., Ltd.
-- Cisco Systems, Inc.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
@@ -99,7 +98,6 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Infomir GMBH
 - Inside Secure
 - Irdeto USA Inc.
-- LG CNS Co., Ltd
 - Liberty Global Services BV
 - MediaTek Inc.
 - MStar Co, Ltd
@@ -109,7 +107,6 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
 - Tatung Technology Inc.
-- Teleca US Software Solutions LLC
 - Telechips Inc.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
@@ -126,7 +123,6 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 - British Sky Broadcasting Limited
 - CastPal Technology Inc., Shenzhen
-- Cisco Systems, Inc.
 - Compal Electronics, Inc.
 - Dongguan Digital AV Technology Corp., Ltd.
 - Enseo, Inc.
@@ -146,7 +142,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 - Sagemcom Broadband SAS
 - Sharp Corporation
 - Shenzhen Coship Electronics CO., LTD
-- Shenzhen Jiuzhou Electric Co.,Ltd
+- Shenzhen Jiuzhou Electric Co., Ltd
 - Shenzhen Skyworth Digital Technology Co., Ltd
 - Sichuan Changhong Electric Co., Ltd.
 - SmarDTV S.A.
@@ -168,4 +164,4 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

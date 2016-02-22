@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="07/30/2015"
+      ms.date="02/09/2016"
       ms.author="shoatman"/>
 
 # Comment et pourquoi les applications sont ajoutées à Azure AD
@@ -142,8 +142,12 @@ En savoir plus sur les procédures d'ajout d'applications à Azure AD et de con
 * Professionnels de l'informatique : [Rechercher des didacticiels pour la configuration des applications spécifiques pré-intégrées](https://msdn.microsoft.com/library/azure/dn893637.aspx)
 * Professionnels de l'informatique : [Apprendre à publier une application à l'aide du Proxy d'application d'Azure Active Directory](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 
+## Voir aussi
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

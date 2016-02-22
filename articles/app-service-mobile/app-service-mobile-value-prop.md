@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/04/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>Qu’est ce que la fonctionnalité Mobile Apps ?
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Azure App Service est une offre PaaS (Platform as a Service) entièrement gérée, destinée aux développeurs professionnels, qui permet de bénéficier d'un ensemble complet de fonctionnalités pour les scénarios web, mobiles et d'intégration. La fonctionnalité *Mobile Apps* dans *Azure App Service* offre une plateforme de développement d’applications mobiles hautement évolutive pour les développeurs d’entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les développeurs d’applications mobiles.
 
@@ -27,7 +25,7 @@ Azure App Service est une offre PaaS (Platform as a Service) entièrement géré
 ##Pourquoi Mobile Apps ?
 La fonctionnalité *Mobile Apps* dans *Azure App Service* offre une plateforme de développement d’applications mobiles hautement évolutive pour les développeurs d’entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les développeurs d’applications mobiles. Mobile Apps vous permet d'effectuer les opérations suivantes :
 
-- **Générer des applications natives et multiplateformes** : que vous génériez des applications natives iOS, Android et Windows ou des applications multiplateformes Xamarin ou Cordova (Phonegap), vous pouvez tirer parti d'App Service à l'aide de Kits de développement logiciel (SDK) natifs.  
+- **Générer des applications natives et multiplateformes** : que vous génériez des applications natives iOS, Android et Windows ou des applications multiplateformes Xamarin ou Cordova (Phonegap), vous pouvez tirer parti d'App Service à l'aide de Kits de développement logiciel (SDK) natifs.
 - **Se connecter aux systèmes de votre entreprise** : la fonctionnalité Applications mobiles vous permet d'ajouter une authentification d'entreprise en quelques minutes et de vous connecter à vos ressources locales et cloud de votre entreprise.
 - **Se connecter facilement aux API SaaS** : avec plus de 40 connecteurs API SaaS, vous pouvez facilement intégrer à votre application les API SaaS que votre entreprise utilise aujourd'hui. Vous souhaitez mettre à jour l'état du compte dans votre système CRM et de facturation ? Mobile Apps vous donne accès à des API SaaS d'entreprise.
 - **Créer des applications disponibles hors connexion avec la synchronisation** : augmentez la productivité de votre personnel mobile en créant des applications qui fonctionnent hors connexion et qui utilisent la fonctionnalité Applications mobiles pour synchroniser les données en arrière-plan quand la connexion est établie avec l'une de vos sources de données d'entreprise ou API SaaS.
@@ -52,6 +50,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Prise en main]: app-service-mobile-ios-get-started.md
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

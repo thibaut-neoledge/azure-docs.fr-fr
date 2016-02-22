@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Échantillonner des données dans le stockage d’objets blob Azure | Microsoft Azure" 
+	pageTitle="Échantillonner des données dans le stockage d'objets blob Azure | Microsoft Azure" 
 	description="Échantillonner des données dans le stockage d’objets blob Azure" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,18 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
 
-Ce **menu** pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
-
 ## Introduction
 
 Ce document traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide d’un exemple de code Python. La procédure est la suivante :
+
+**Pourquoi échantillonner vos données ?** Si vous prévoyez d'analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus d’analyse Cortana consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+
+Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+Cette tâche d'échantillonnage est une étape du [processus d'analyse Cortana (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Télécharger et sous-échantillonner les données
 1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code suivant : 
@@ -103,4 +108,4 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

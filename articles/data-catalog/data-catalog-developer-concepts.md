@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="derrickv"/>
 
 # Concepts de développeur Azure Data Catalog
@@ -90,7 +90,7 @@ Comme décrit dans la section Concepts clés, le modèle d’objet **Azure Data�
 
 Ces propriétés s'appliquent à tous les types de ressources racines et tous les types d'annotations.
 
-> [AZURE.NOTE]Les propriétés dont les noms commencent par deux traits de soulignement sont des types système.
+> [AZURE.NOTE] Les propriétés dont les noms commencent par deux traits de soulignement sont des types système.
 
 <table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>L’heure de dernière modification de la racine. Cela est défini par le client. (Le serveur ne gère pas cette valeur).</td></tr><tr><td>__id</td><td>String</td><td>ID de l'élément (lecture seule). Cet ID garantit l'unicité de la ressource dans un catalogue.</td></tr><tr><td>__type</td><td>String</td><td>Le type de ressource (lecture seule)</td></tr><tr><td>__creatorId</td><td>Chaîne</td><td>Une chaîne utilisée par le créateur de la ressource pour son identification unique. </td></tr></table>
 
@@ -172,7 +172,7 @@ Il existe 3 rôles : **administrateur**, **propriétaire** et **collaborateur*
 
 <table><tr><td><b>Rôle</b></td><td><b>Portée</b></td><td><b>Droits</b></td></tr><tr><td>Administrateur</td><td>Catalogue (c'est-à-dire toutes les ressources/annotations dans le catalogue)</td><td>Lecture Suppression ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Propriétaire</td><td>Chaque ressource (également appelé l'élément racine)</td><td>Lecture Suppression ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Collaborateur</td><td>Chaque ressource et annotation</td><td>Lecture Mise à jour Suppression ViewRoles Remarque&#160;: tous les droits sont révoqués si le droit de lecture sur l'élément est révoqué pour le collaborateur</td></tr></table>
 
-> [AZURE.NOTE]Les droits de **Lecture**, **Mise à jour**, **Suppression**, **ViewRoles** sont applicables à tout élément (ressource ou annotation), tandis que **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** et **ViewPermissions** sont uniquement applicables à la ressource racine.
+> [AZURE.NOTE] Les droits de **Lecture**, **Mise à jour**, **Suppression**, **ViewRoles** sont applicables à tout élément (ressource ou annotation), tandis que **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** et **ViewPermissions** sont uniquement applicables à la ressource racine.
 >
 >Le droit de **Suppression** s’applique à un élément et à tout sous-élément ou élément unique inférieur. Par exemple, la suppression d'une ressource supprime également toutes les annotations pour cette ressource.
 
@@ -194,7 +194,7 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 >
 > Le rôle **Propriétaire** est uniquement applicable à un élément racine.
 >
-> Par défaut, lorsqu’un élément est créé dans le catalogue, son **collaborateur** est défini sur l’utilisateur actuellement authentifié. Si l’élément doit pouvoir être mis à jour par tout le monde, le **collaborateur** doit être défini sur le principal de sécurité spécial <Everyone> dans la propriété de **\_\_rôles** lors de la première publication de l’élément (reportez-vous à l’exemple ci-dessous). Le **collaborateur** ne peut pas être modifié et reste identique pendant la durée de vie d’un élément (cela signifie que même l’**administrateur** ou le **propriétaire** n’a pas le droit de modifier le **collaborateur**). La seule valeur prise en charge pour l’affectation explicite de **collaborateur** est <Everyone> : cela signifie que le **collaborateur** peut uniquement être un utilisateur qui a créé un élément ou <Everyone>.
+> Par défaut, lorsqu'un élément est créé dans le catalogue, son **collaborateur** est défini sur l'utilisateur actuellement authentifié. Si l’élément doit pouvoir être mis à jour par tout le monde, le **collaborateur** doit être défini sur le principal de sécurité spécial <Everyone> dans la propriété de **\_\_rôles** lors de la première publication de l’élément (reportez-vous à l’exemple ci-dessous). Le **collaborateur** ne peut pas être modifié et reste identique pendant la durée de vie d’un élément (cela signifie que même l’**administrateur** ou le **propriétaire** n’a pas le droit de modifier le **collaborateur**). La seule valeur prise en charge pour l'affectation explicite de **collaborateur** est <Everyone> : cela signifie que le **collaborateur** peut uniquement être un utilisateur qui a créé un élément ou <Everyone>.
 
 ###Exemples
 **Définissez collaborateur comme <Everyone> lors de la publication d’un élément.** Le principal de sécurité spécial <Everyone> a l’objectId « 00000000-0000-0000-0000-000000000201 ». **Corps** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **POST**
@@ -257,9 +257,9 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 	    ]
 	}
 
-> [AZURE.NOTE]Dans PUT, il n’est pas nécessaire de spécifier une charge utile d'élément dans le corps : PUT peut être utilisé pour mettre à jour uniquement les rôles et/ou les autorisations.
+> [AZURE.NOTE] Dans PUT, il n’est pas nécessaire de spécifier une charge utile d'élément dans le corps : PUT peut être utilisé pour mettre à jour uniquement les rôles et/ou les autorisations.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

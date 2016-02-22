@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="11/10/2015"
+    ms.date="02/09/2016"
     ms.author="sngun" />
 
 # Intégration du contrôle de code source dans Azure Automation
@@ -158,4 +158,4 @@ Pour vous déconnecter de votre compte GitHub, ouvrez le panneau Synchronisation
 
 Pour plus d’informations sur l’intégration du contrôle de code source, consultez les ressources suivantes : [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/) ; [Votez pour votre système de contrôle de code source préféré](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) ; [Azure Automation : Intégration du contrôle de code source de runbooks à l’aide de Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

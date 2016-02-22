@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Codecs et formats de Media Encoder Premium Workflow
 
 
-**Remarque** : le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
+>[AZURE.NOTE]Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
+>
+>Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n'est pas disponible en Chine.
 
 Ce document contient la liste des codecs et formats de fichiers d’entrée et de sortie pris en charge par la version préliminaire publique de l’encodeur **Media Encoder Premium Workflow**.
 
@@ -136,4 +138,4 @@ Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multim
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

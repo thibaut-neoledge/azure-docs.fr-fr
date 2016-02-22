@@ -61,7 +61,7 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 
 	> [AZURE.NOTE] Bien que les instructions de la section [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) vous montrent comment configurer l’application avec Azure Active Directory, dans ce didacticiel, vous la configurerez avec AD FS. Par conséquent, suivez les étapes ci-dessous à la place.
 
-3.	Ouvrez la solution, puis ouvrez Controllers\AccountController.cs dans l’**Explorateur de solutions**.
+3.	Ouvrez la solution, puis ouvrez Controllers\\AccountController.cs dans l’**Explorateur de solutions**.
 
 	Vous verrez que le code envoie simplement une demande d’authentification pour authentifier l’utilisateur à l’aide de WS-Federation. Toute l’authentification est configurée dans App\_Start\\Startup.Auth.cs.
 
@@ -81,30 +81,31 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 
 5.	Dans App\_Start\\Startup.Auth.cs, modifiez les définitions de chaînes statiques comme illustré ci-dessous :
 	<pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-</pre>
+    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+    </pre>
 
 6.	Vous allez maintenant effectuer les modifications correspondantes dans le fichier Web.config. Ouvrez le fichier Web.config et modifiez les paramètres d’application comme illustré ci-dessous :
 	<pre class="prettyprint">
-&lt;appSettings>
-  &lt;add key="webpages:Version" value="3.0.0.0" />
-  &lt;add key="webpages:Enabled" value="false" />
-  &lt;add key="ClientValidationEnabled" value="true" />
-  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" /></mark>
+	&lt;appSettings&gt>
+	  &lt;add key="webpages:Version" value="3.0.0.0" />
+	  &lt;add key="webpages:Enabled" value="false" />
+	  &lt;add key="ClientValidationEnabled" value="true" />
+	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" />;</del></mark>
+	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" />;</del></mark>
+	  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" />;</del></mark>
+	  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" />;</mark>
+	  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" />;</mark>
 
-&lt;/appSettings>
+	&lt;/appSettings>
 	</pre>
+
 	Renseignez les valeurs de clé en fonction de votre environnement respectif.
 
 7.	Générez l’application pour vous assurer qu’aucune erreur n’est détectée.
@@ -262,22 +263,23 @@ Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, 
 1. Ouvrez Controllers\\HomeController.cs.
 2. Décorez les méthodes d’action `About` et `Contact` similaires à celles ci-dessous, à l’aide des appartenances aux groupes de sécurité de l’utilisateur authentifié.  
 	<pre class="prettyprint">
-<mark>[Authorize(Roles="Groupe de test")]</mark>
-public ActionResult About()
-{
-    ViewBag.Message = "Page de description de votre application.";
+    <mark>[Authorize(Roles="Groupe de test")]</mark>
+    public ActionResult About()
+    {
+       ViewBag.Message = "Page de description de votre application.";
 
-    return View();
-}
+        return View();
+    }
 
-<mark>[Authorize(Roles="Admins du domaine")]</mark>
-public ActionResult Contact()
-{
+    <mark>[Authorize(Roles="Admins du domaine")]</mark>
+    public ActionResult Contact()
+    {
     ViewBag.Message = "Votre page de contacts.";
 
     return View();
-}
+    }
 	</pre>
+
 	Étant donné que j’ai ajouté **Utilisateur de test** à **Groupe de test** dans mon environnement de laboratoire AD FS, je vais utiliser le groupe de test pour tester l’autorisation sur `About`. Pour `Contact`, je vais tester le cas négatif de **Admins du domaine**, auquel l’**utilisateur de test** n’appartient pas.
 
 3. Démarrez le débogueur en tapant `F5` et connectez-vous, puis cliquez sur **À propos**. La page `~/About/Index` doit maintenant s’afficher correctement, si votre utilisateur authentifié est autorisé à effectuer cette action.
@@ -286,12 +288,12 @@ public ActionResult Contact()
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
 	Si vous examinez cette erreur dans l’Observateur d’événements sur le serveur AD FS, vous verrez ce message d’exception : <pre class="prettyprint"> 
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made ’6’ requests in the last ’11’ seconds.</mark> Contact your administrator for details. 
-	at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) 
-	at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) 
-	at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) 
-	at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
-  	</pre>
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made ’6’ requests in the last ’11’ seconds.</mark> Contact your administrator for details.
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+	</pre>
 
 	Cela se produit, car, par défaut, MVC renvoie une erreur 401 Non autorisé lorsque les rôles d’un utilisateur ne sont pas autorisés. Cela déclenche une demande de réauthentification auprès de votre fournisseur d’identité (AD FS). Étant donné que l’utilisateur est déjà authentifié, AD FS renvoie la même page, qui émet alors une autre erreur 401, créant ainsi une boucle de redirection. Vous devez remplacer la méthode `HandleUnauthorizedRequest` de AuthorizeAttribute par une logique simple pour obtenir un affichage adéquat au lieu de continuer la boucle de redirection.
 
@@ -333,7 +335,7 @@ public ActionResult Contact()
 
 Vous pouvez implémenter votre application métier avec AD FS plutôt qu’avec Azure Active Directory en cas de problèmes de conformité concernant la conservation des données hors site de l’organisation. Cela signifie également que votre application web dans Azure doit accéder aux bases de données locales, dans la mesure où vous n’êtes pas autorisé à utiliser [Base de données SQL](/services/sql-database/) comme couche de données pour vos applications Web.
 
-Azure App Service Web Apps prend en charge l’accès aux bases de données locales avec deux approches : [Connexions hybrides](../integration-hybrid-connection-overview.md) et [Réseaux virtuels](web-sites-integrate-with-vnet.md). Pour plus d’informations, consultez la rubrique [Utilisation de l’intégration VNET et des connexions hybrides avec Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Azure App Service Web Apps prend en charge l’accès aux bases de données locales avec deux approches : [Connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et [Réseaux virtuels](web-sites-integrate-with-vnet.md). Pour plus d’informations, consultez la rubrique [Utilisation de l’intégration VNET et des connexions hybrides avec Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Ressources supplémentaires
@@ -351,4 +353,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données 
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

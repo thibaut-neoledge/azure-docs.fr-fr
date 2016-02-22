@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="tomfitz"/>
 
 # Déployer une application Web liée à un référentiel GitHub
@@ -66,7 +66,7 @@ Crée l'application Web qui est liée au projet dans GitHub.
 
 Vous spécifiez le nom de l'application Web par le biais du paramètre **siteName** et l'emplacement de l'application Web par le biais du paramètre **siteLocation**. Dans l'élément **dependsOn**, le modèle définit l'application Web comme dépendante du plan d'hébergement de service. Étant donné qu'elle dépend du plan d'hébergement, l'application Web n'est pas créée tant que le plan d'hébergement est en cours de création. L'élément **dependsOn** est uniquement utilisé pour spécifier l'ordre de déploiement. Si vous ne marquez pas l'application Web comme dépendante du plan d'hébergement, Azure Resource Manager tentera de créer les deux ressources en même temps et vous pourriez recevoir une erreur si l'application Web est créée avant le plan d'hébergement.
 
-L'application Web a également une ressource enfant qui est définie dans la section des **ressources** ci-dessous. Cette ressource enfant définit le contrôle de code source pour le projet déployé avec l'application Web. Dans ce modèle, le contrôle de code source est lié à un référentiel GitHub particulier. Le référentiel GitHub est défini avec le code **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** Vous pouvez coder en dur l'URL du référentiel lorsque vous souhaitez créer un modèle qui déploie de façon répétée un projet unique tout en nécessitant le nombre minimal de paramètres. Au lieu de coder en dur l'URL du référentiel, vous pouvez ajouter un paramètre pour l'URL du référentiel et utiliser cette valeur pour la propriété **RepoUrl**. Vous pouvez voir un exemple du paramètre URL du référentiel dans le [modèle Application Web avec tâches Web](../app-service-web-deploy-web-app-with-webjobs.md).
+L'application Web a également une ressource enfant qui est définie dans la section des **ressources** ci-dessous. Cette ressource enfant définit le contrôle de code source pour le projet déployé avec l'application Web. Dans ce modèle, le contrôle de code source est lié à un référentiel GitHub particulier. Le référentiel GitHub est défini avec le code **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** Vous pouvez coder en dur l'URL du référentiel lorsque vous souhaitez créer un modèle qui déploie de façon répétée un projet unique tout en nécessitant le nombre minimal de paramètres. Au lieu de coder en dur l'URL du référentiel, vous pouvez ajouter un paramètre pour l'URL du référentiel et utiliser cette valeur pour la propriété **RepoUrl**.
 
     {
       "apiVersion":"2015-04-01",
@@ -110,4 +110,4 @@ L'application Web a également une ressource enfant qui est définie dans la sec
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

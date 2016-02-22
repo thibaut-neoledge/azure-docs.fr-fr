@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Exécution de tâches Pig depuis une connexion Bureau à distance
@@ -85,7 +85,7 @@ Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à 
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
-	> [AZURE.NOTE]Les données sont stockées dans le répertoire spécifié dans des fichiers nommés **part-nnnnn**. Si le répertoire existe déjà, vous recevrez un message d’erreur.
+	> [AZURE.NOTE] Les données sont stockées dans le répertoire spécifié dans des fichiers nommés **part-nnnnn**. Si le répertoire existe déjà, vous recevrez un message d’erreur.
 
 7. Pour quitter l’invite Grunt, entrez l’instruction suivante.
 
@@ -136,4 +136,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -3,7 +3,7 @@
 	description="La bibliothèque cliente de stockage Azure pour .NET prend en charge le chiffrement côté client et l’intégration au coffre de clés Azure pour assurer une sécurité maximale à vos applications Azure Storage."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/08/2016"
 	ms.author="lakasa"/>
 
 
@@ -54,7 +54,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 
 ## Mécanisme de chiffrement
 
-La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur, Plus précisément, le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
+La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
 
 ### Objets blob
 
@@ -249,4 +249,4 @@ Télécharger la [bibliothèque cliente de stockage Azure pour le code source .N
 Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault 
 Consulter la [documentation Azure Key Vault](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

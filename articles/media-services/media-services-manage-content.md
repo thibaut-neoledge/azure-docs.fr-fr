@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"   
 	ms.author="juliako"/>
 
 
@@ -105,7 +105,7 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec Medi
 ![Process2][process2]
 
 
-La rubrique [Chaînes de présélection de tâche pour Media Encoder Standard](https://msdn.microsoft.com/fr-FR/library/mt269960) explique ce que chaque prédéfinition signifie.
+La rubrique [Chaînes de présélection de tâche pour Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) explique ce que chaque prédéfinition signifie.
 
 5. Ensuite, entrez un nom convivial pour le contenu de sortie ou acceptez le nom par défaut. Cliquez ensuite sur le bouton de vérification pour lancer l’opération d’encodage et suivez la progression en bas du portail.
 6. Appuyez sur OK.
@@ -220,4 +220,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

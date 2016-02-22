@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées
@@ -25,7 +25,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 - SQL Server 2012 SP2 Enterprise pour les données de taille réduite ou moyenne
 - SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données pour les données de taille conséquente ou très volumineuse
 
- >[AZURE.NOTE] L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
+ > [AZURE.NOTE] L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
 
 ##<a name="Provision"></a>Se connecter au portail Azure Classic et approvisionner une machine virtuelle SQL Server
@@ -46,7 +46,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
     -   Dans la zone **CONFIRM PASSWORD** entrez de nouveau le mot de passe.
     -   Sélectionnez la **taille** adéquate dans le menu déroulant.
 
-     >[AZURE.NOTE] La taille de la machine virtuelle est spécifiée lors de l’approvisionnement : A2 est la taille minimale recommandée pour les charges de travail de production. La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3. Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition. Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles. Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l’entreposage de données. La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour connaître les informations de tarification, consultez la page [Machines virtuelles Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/).
+     > [AZURE.NOTE] La taille de la machine virtuelle est spécifiée lors de l’approvisionnement : A2 est la taille minimale recommandée pour les charges de travail de production. La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3. Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition. Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles. Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l’entreposage de données. La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour connaître les informations de tarification, consultez la page [Machines virtuelles Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Cliquez sur la flèche Suivant située en bas à droite pour continuer.
 
@@ -119,7 +119,7 @@ Un script de personnalisation spécial est mis à votre disposition pour vous pe
 
 Si l’image de machine virtuelle que vous avez sélectionnée n’inclut aucun disque de données, c’est-à-dire aucun disque autre que le lecteur C (disque du système d’exploitation) ou le lecteur D (disque temporaire), vous devez ajouter un ou plusieurs disques de données pour y stocker vos données. L’image de machine virtuelle pour SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données est préconfigurée avec des disques supplémentaires pour les fichiers de données et les fichiers journaux SQL Server.
 
- >[AZURE.NOTE] Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
+ > [AZURE.NOTE] Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
 Pour attacher des disques de données supplémentaires, suivez la procédure décrite dans l’article [Attachement d’un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md), qui explique en détail comment effectuer les opérations ci-après.
 
@@ -143,7 +143,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 	<br>
 
-	 >[AZURE.TIP] Vous pouvez changer le mode d’authentification SQL Server en effectuant une modification de clé de Registre Windows ou en utilisant SQL Server Management Studio. Pour changer le mode d’authentification à l’aide d’une modification de clé de Registre, démarrez une **Nouvelle requête** et exécutez le script suivant :
+	 > [AZURE.TIP] Vous pouvez changer le mode d’authentification SQL Server en effectuant une modification de clé de Registre Windows ou en utilisant SQL Server Management Studio. Pour changer le mode d’authentification à l’aide d’une modification de clé de Registre, démarrez une **Nouvelle requête** et exécutez le script suivant :
 
 		USE master
     	go
@@ -298,4 +298,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

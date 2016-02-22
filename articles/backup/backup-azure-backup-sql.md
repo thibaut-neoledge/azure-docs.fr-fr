@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="aashishr", "giridham"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
+	ms.author="giridham; jimpark;"/>
 
 
 # Sauvegarde Azure pour les charges de travail SQL Server à l'aide de DPM
@@ -55,7 +62,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-
 
     ![Spécifier les objectifs à court terme](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE]À 20 h 00 (selon la saisie de l’écran), un point de sauvegarde est créé chaque jour par le transfert de données modifiées depuis le point de sauvegarde de 20 h 00 du jour précédent. Ce processus est appelé **Sauvegarde expresse rapide**. Lorsque les journaux de transaction sont synchronisés toutes les 15 minutes, s'il faut récupérer la base de données à 21h00, le point est créé suite à la relecture des journaux à partir du point de sauvegarde complète rapide (20h00 dans le cas présent).
+    >[AZURE.NOTE] À 20 h 00 (selon la saisie de l’écran), un point de sauvegarde est créé chaque jour par le transfert de données modifiées depuis le point de sauvegarde de 20 h 00 du jour précédent. Ce processus est appelé **Sauvegarde expresse rapide**. Lorsque les journaux de transaction sont synchronisés toutes les 15 minutes, s'il faut récupérer la base de données à 21h00, le point est créé suite à la relecture des journaux à partir du point de sauvegarde complète rapide (20h00 dans le cas présent).
 
 8. Cliquez sur **Suivant**
 
@@ -91,7 +98,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-
 
     Dans cet exemple, les sauvegardes sont effectuées une fois par jour à 12 h 00 et 20 h 00 (partie inférieure de l’écran)
 
-    >[AZURE.NOTE]Il est conseillé de disposer de plusieurs points de récupération à court terme sur disque pour une récupération rapide. Cette opération est appelée « Récupération opérationnelle ». Azure constitue un bon emplacement hors site, avec des contrats de niveau de service supérieurs et une disponibilité garantie.
+    >[AZURE.NOTE] Il est conseillé de disposer de plusieurs points de récupération à court terme sur disque pour une récupération rapide. Cette opération est appelée « Récupération opérationnelle ». Azure constitue un bon emplacement hors site, avec des contrats de niveau de service supérieurs et une disponibilité garantie.
 
     **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela active, la dernière sauvegarde de disque doit être copiée vers Azure.
 
@@ -109,7 +116,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-
 14. Cliquez sur **Suivant** et sélectionnez l'option appropriée pour le transfert de la copie de sauvegarde initiale vers Azure. Vous pouvez choisir **Automatiquement sur le réseau** ou **Sauvegarde hors connexion**.
 
     - **Automatiquement sur le réseau** transfère les données de sauvegarde vers Azure en respectant la planification de sauvegarde sélectionnée.
-    - Le fonctionnement de la **Sauvegarde hors connexion** est décrit dans la section [Flux de travail de la sauvegarde hors connexion dans Azure Backup](backup-azure-backup-import-export.md).
+    - Le fonctionnement de la **Sauvegarde en mode hors connexion** est décrit à dans la section [Flux de travail de sauvegarde en mode hors connexion dans Azure Backup](backup-azure-backup-import-export.md).
 
     Choisissez le mécanisme de transfert adapté à l'envoi de la copie de sauvegarde initiale vers Azure, puis cliquez sur **Suivant**.
 
@@ -155,7 +162,7 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 4. Dans l'écran **Spécifier des options de récupération**, vous pouvez sélectionner les options de récupération telles que la limitation de bande passante réseau pour limiter la bande passante utilisée par la récupération. Cliquez sur **Next**.
 
-5. Dans l'écran **Résumé**, vous verrez toutes les configurations de récupération fournies jusqu'à présent. Cliquez sur **Restaurer**.
+5. Dans l’écran **Résumé** écran, vous verrez toutes les configurations de récupération fournies jusqu’à présent. Cliquez sur **Restaurer**.
 
     L’état de récupération indique que la base de données est en cours de récupération. Vous pouvez cliquer sur **Fermer** pour fermer l'Assistant et afficher la progression dans l'espace de travail **Surveillance**.
 
@@ -167,4 +174,4 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

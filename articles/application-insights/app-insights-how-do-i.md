@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="awills"/>
 
 # Comment ... dans Application Insights ?
@@ -36,7 +36,7 @@ Si vous voulez définir une alerte sur les **Exceptions du serveur**, vous devre
 ### Envoyer un message électronique en cas d’exceptions
 
 1. [Configurer la surveillance des exceptions](app-insights-asp-net-exceptions.md)
-2. [Définir une alerte](app-insights-alert.md) sur la métrique Nombre d’exceptions
+2. [Définir une alerte](app-insights-alerts.md) sur la métrique Nombre d’exceptions
 
 
 ### Envoyer un message électronique en réponse à un événement dans mon application
@@ -57,7 +57,7 @@ Les alertes ayant deux états, vous devez envoyer une valeur faible quand vous c
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Créez un graphique dans [Metrics Explorer](app-insights-metric-explorer.md) pour afficher votre alarme :
+Créez un graphique dans [Metrics Explorer](app-insights-metrics-explorer.md) pour afficher votre alarme :
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -201,6 +201,7 @@ Si vous voulez une liste des utilisateurs avec des données telles que les pages
 
 * Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), désactivez tous les modules dont vous n’avez pas besoin, comme le collecteur de compteurs de performances.
 * Utilisez [Échantillonnage et filtrage](app-insights-api-filtering-sampling.md) dans le Kit de développement logiciel (SDK).
+* Dans vos pages web, limitez le nombre d'appels Ajax signalés pour chaque affichage de page. Dans l'extrait de script après `instrumentationKey:...`, insérez : `,maxAjaxCallsPerView:3` (ou un nombre approprié).
 * Si vous utilisez [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calculez l’agrégat des lots de valeurs de métriques avant d’envoyer le résultat. Il existe une surcharge de TrackMetric() qui se charge de cette tâche.
 
 
@@ -225,13 +226,13 @@ Pour **désactiver les collecteurs standard sélectionnés** (par exemple, les c
 
 ## Afficher les compteurs de performances système
 
-Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe un ensemble de compteurs de performances système. Un panneau prédéfini intitulé **Serveurs** affiche plusieurs d’entre eux.
+Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe un ensemble de compteurs de performances système. Un panneau prédéfini intitulé **Serveurs** affiche plusieurs d'entre eux.
 
 ![Ouvrez votre ressource Application Insights et cliquez sur Serveurs.](./media/app-insights-how-do-i/121-servers.png)
 
 ### Si aucune donnée de compteur de performances ne s’affiche
 
-* **Serveur IIS** sur votre ordinateur ou une machine virtuelle. [Installer Status Monitor](app-insights-monitor-performance-live-website-now.md). 
+* **Serveur IIS** sur votre propre ordinateur ou sur une machine virtuelle. [Installer Status Monitor](app-insights-monitor-performance-live-website-now.md). 
 * **Site Web Azure** : nous ne prenons pas encore en charge les compteurs de performances. Il existe plusieurs métriques que vous pouvez obtenir de manière standard dans le panneau de configuration des sites web Azure.
 * **Serveur Unix** : [installer collectd](app-insights-java-collectd.md)
 
@@ -240,4 +241,4 @@ Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe u
 * Tout d’abord, [ajoutez un nouveau graphique](app-insights-metrics-explorer.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
 * Dans le cas contraire, [ajoutez le compteur au jeu collecté par le module de compteur de performances](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

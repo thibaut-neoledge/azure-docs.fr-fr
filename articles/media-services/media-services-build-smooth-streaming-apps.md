@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -986,4 +986,4 @@ Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctio
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

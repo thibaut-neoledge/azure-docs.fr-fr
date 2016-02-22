@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/02/2015"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 # Connexion à distance à votre appareil StorSimple
@@ -32,6 +32,8 @@ Ce didacticiel explique comment configurer votre appareil pour la gestion à dis
 - La connexion via une session HTTPS avec un certificat auto-signé est l’option la plus sécurisée et c’est celle qui est recommandée.
 
 Vous pouvez vous connecter à distance à l’interface Windows PowerShell. Cependant, l’accès à distance à votre appareil StorSimple via l’interface Windows PowerShell n’est pas activé par défaut. Vous devez d’abord activer la gestion à distance sur l’appareil, puis sur le client qui est utilisé pour accéder à votre appareil.
+
+Les étapes décrites dans cet article ont été exécutées sur un système hôte exécutant Windows Server 2012 R2.
 
 ## Se connecter via HTTP
 
@@ -61,7 +63,7 @@ Procédez comme suit dans le portail Azure Classic pour activer la gestion à d
 
 4. Vous pouvez maintenant choisir de vous connecter à l’aide de HTTP. (Le choix par défaut est de se connecter via HTTPS.) Assurez-vous que HTTP est sélectionné.
 
-    >[AZURE.NOTE]Une connexion via HTTP est acceptable uniquement sur des réseaux approuvés.
+    >[AZURE.NOTE] Une connexion via HTTP est acceptable uniquement sur des réseaux approuvés.
 
 6. Cliquez sur **Enregistrer** au bas de la page.
 
@@ -112,7 +114,7 @@ Procédez comme suit sur le client pour activer la gestion à distance.
 
      `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE]Pour créer une session Windows PowerShell pour une utilisation avec l’appareil virtuel StorSimple, ajoutez le paramètre `–port` et spécifiez le port public que vous avez configuré dans l’accès distant pour l’appliance virtuelle StorSimple.
+     >[AZURE.NOTE] Pour créer une session Windows PowerShell pour une utilisation avec l’appareil virtuel StorSimple, ajoutez le paramètre `–port` et spécifiez le port public que vous avez configuré dans l’accès distant pour l’appliance virtuelle StorSimple.
 
      À ce stade, vous devez normalement disposer d’une session Windows PowerShell à distance active sur l’appareil.
 
@@ -176,7 +178,7 @@ Procédez comme suit sur la console série de l’appareil pour activer la gesti
 
 4. Depuis la sortie de `Get-HcsSystem`, copiez le numéro de série de l’appareil et enregistrez-le pour une utilisation ultérieure.
 
-    >[AZURE.NOTE]Le numéro de série correspond au nom CN du certificat.
+    >[AZURE.NOTE] Le numéro de série correspond au nom CN du certificat.
 
 5. Obtenez un certificat de gestion à distance en tapant :
  
@@ -188,7 +190,7 @@ Procédez comme suit sur la console série de l’appareil pour activer la gesti
 
 5. Copiez les informations du certificat de **-----BEGIN CERTIFICATE-----** à **-----END CERTIFICATE-----** dans un éditeur de texte comme le Bloc-notes et enregistrez-les dans un fichier .cer. (Vous allez copier ce fichier sur votre hôte distant lors de la préparation de l’hôte).
 
-    >[AZURE.NOTE]Pour générer un nouveau certificat, utilisez l’applet de commande `Set-HcsRemoteManagementCert`.
+    >[AZURE.NOTE] Pour générer un nouveau certificat, utilisez l’applet de commande `Set-HcsRemoteManagementCert`.
 
 ### Préparer l’hôte pour la gestion à distance
 
@@ -272,4 +274,4 @@ Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

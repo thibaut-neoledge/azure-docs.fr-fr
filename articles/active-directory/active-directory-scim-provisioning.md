@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications
@@ -72,7 +72,7 @@ Les applications qui prennent en charge le profil SCIM décrit ci-dessus peuvent
 7.	Si les tentatives de connexion à l'application aboutissent, cliquez sur **Suivant** sur les écrans restants, puis sur **Terminer** pour quitter la boîte de dialogue.
 8.	Dans l'écran qui s'affiche, sélectionnez le troisième bouton **Affecter des comptes**. Dans la section Utilisateurs et groupes qui en résulte, affectez les utilisateurs ou les groupes que vous souhaitez configurer pour lesquels vous souhaitez configurer l’application.
 9.	Une fois les utilisateurs et les groupes affectés, cliquez sur l'onglet **Configurer** près du bord supérieur de l'écran.
-10.	Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé. 
+10.	Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé (On). 
 11.	Sous **Outils**, cliquez sur **Redémarrer l'approvisionnement de compte** pour lancer le processus d'approvisionnement.
 
 Notez que 5 à 10 minutes peuvent s’écouler avant que le processus de déploiement commence à envoyer des demandes au point de terminaison SCIM. Un récapitulatif des tentatives de connexion est fourni sur l’onglet tableau de bord de l’application, et un rapport d’activité sur l’approvisionnement et les erreurs de configuration peut être téléchargé depuis l’onglet Rapports de l’annuaire.
@@ -281,7 +281,7 @@ Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.
 
 Les développeurs qui utilisent les bibliothèques Common Language Infrastructure fournies par Microsoft pour la création d’un service SCIM peuvent authentifier les demandes d’Azure Active Directory à l’aide du package Microsoft.Owin.Security.ActiveDirectory en exécutant les opérations suivantes :
 
-**1 :** dans un fournisseur, mettez en œuvre la propriété Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior lui faisant retourner une méthode à appeler à chaque démarrage du service :
+**1 :** dans un fournisseur, implémentez la propriété Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior lui faisant retourner une méthode à appeler à chaque démarrage du service :
 
     public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
     {
@@ -438,7 +438,7 @@ Dans l’exemple de requête pour un utilisateur avec une valeur d’attribut ex
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-**2 :** si la réponse à une requête envoyée au service pour la recherche d'un utilisateur avec une valeur d'attribut externalId correspondant à la valeur d'attribut mailNickname d'un utilisateur dans Azure Active Directory ne renvoie aucun utilisateur, Azure Active Directory demandera que le service attribue un utilisateur correspondant à celui-ci dans Azure Active Directory. Voici un exemple de requête :
+**2 :** si la réponse à une requête du service pour un utilisateur avec une valeur d’attribut externalId correspondant à la valeur d’attribut mailNickname d’un utilisateur dans Azure Active Directory ne renvoie aucun utilisateur, Azure Active Directory demande que le service d’approvisionne un utilisateur correspondant à celui d’Azure Active Directory. Voici un exemple de requête :
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -684,6 +684,17 @@ La figure ci-dessous contient les messages qu’Azure Active Directory va envoye
 
 ![][5] *Figure : séquence d'approvisionnement et d'annulation de l'approvisionnement d'un groupe*
 
+##Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+- [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
+- [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
+- [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+
+
 	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
@@ -692,4 +703,4 @@ La figure ci-dessous contient les messages qu’Azure Active Directory va envoye
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

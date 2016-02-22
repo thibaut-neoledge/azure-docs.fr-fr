@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/28/2016"
 	ms.author="glenga"/>
 
 # Utilisation de la bibliothèque cliente gérée pour Azure Mobile Services
@@ -86,7 +86,7 @@ Cette section explique comment émettre des requêtes à destination du service 
 - [Sélectionner des colonnes spécifiques]
 - [Rechercher des données par ID]
 
->[AZURE.NOTE]Une taille de page gérée par le serveur est imposée pour empêcher le renvoi de toutes les lignes. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Pour obtenir le renvoi de plus de 50 lignes, utilisez la méthode `Take`, comme décrit dans la section [Renvoyer les données de pages].
+>[AZURE.NOTE] Une taille de page gérée par le serveur est imposée pour empêcher le renvoi de toutes les lignes. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Pour obtenir le renvoi de plus de 50 lignes, utilisez la méthode `Take`, comme décrit dans la section [Renvoyer les données de pages].
 
 ### <a name="filtering"></a>Procédure : filtrage des données renvoyées
 
@@ -211,7 +211,7 @@ La fonction `LookupAsync` permet de rechercher des objets dans la base de donné
 
 ##<a name="inserting"></a>Procédure : insertion de données dans un service mobile
 
-> [AZURE.NOTE]Si vous souhaitez effectuer des opérations d'insertion, de recherche, de suppression ou de mise à jour sur un type, vous devez créer un membre appelé **Id**. C'est pourquoi l'exemple de classe **TodoItem** contient un membre nommé **Id**. Les opérations de mise à jour et de suppression doivent toujours comporter une valeur d'ID valide.
+> [AZURE.NOTE] Si vous souhaitez effectuer des opérations d'insertion, de recherche, de suppression ou de mise à jour sur un type, vous devez créer un membre appelé **Id**. C'est pourquoi l'exemple de classe **TodoItem** contient un membre nommé **Id**. Les opérations de mise à jour et de suppression doivent toujours comporter une valeur d'ID valide.
 
 Le code suivant montre comment insérer de nouvelles lignes dans une table. Le paramètre contient les données à insérer sous forme d'objet .NET.
 
@@ -769,4 +769,4 @@ Cette propriété convertit toutes les propriétés en minuscules lors de la sé
 [API personnalisée dans les kits de développement logiciel (SDK) clients pour Azure Mobile Services]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

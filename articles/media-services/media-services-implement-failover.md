@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Implémentation d’un scénario de basculement de diffusion en continu
@@ -972,4 +972,4 @@ Vous pouvez désormais utiliser un gestionnaire de trafic pour acheminer les dem
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

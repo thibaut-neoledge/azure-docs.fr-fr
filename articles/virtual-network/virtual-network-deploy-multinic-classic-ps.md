@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Déploiement de plusieurs machines virtuelles à cartes réseau (classiques) à l'aide de PowerShell
@@ -31,7 +31,7 @@
 
 ## Composants requis
 
-Avant de déployer les serveurs principaux, vous devez déployer le service de cloud principal avec toutes les ressources nécessaires pour ce scénario. Au minimum, vous devez créer un réseau virtuel avec un sous-réseau pour le serveur principal. Consultez [Créer un réseau virtuel (classique) à l'aide de PowerShell](virtual-networks-create-vnet-classic-ps.md) pour apprendre à déployer un réseau virtuel.
+Avant de déployer les serveurs principaux, vous devez déployer le service de cloud principal avec toutes les ressources nécessaires pour ce scénario. Au minimum, vous devez créer un réseau virtuel avec un sous-réseau pour le serveur principal. Consultez [Créer un réseau virtuel (classique) à l'aide de PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md) pour apprendre à déployer un réseau virtuel.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -41,11 +41,11 @@ Les machines virtuelles principales dépendent de la création de ressources ré
 
 - **Sous-réseau principal**. Les serveurs de base de données font partie d'un sous-réseau distinct, pour répartir le trafic. Le script ci-dessous s'attend à ce que le sous-réseau se trouve dans un réseau virtuel nommé *WTestVnet*.
 - **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l'emplacement Azure de déploiement prend en charge le stockage Premium.
-- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d'exécution lors de la maintenance. 
+- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance. 
 
 ### Étape 1 : démarrage de votre script
 
-Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
+Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
 1. Modifiez les valeurs des variables suivantes selon votre groupe de ressources existant déployé ci-dessus dans les [Conditions préalables](#Prerequisites).
 
@@ -53,7 +53,7 @@ Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://ra
 		$vnetName              = "WTestVNet"
 		$backendSubnetName     = "BackEnd"
 
-2. Modifiez les valeurs des variables suivantes, selon les valeurs que vous souhaitez utiliser pour votre déploiement de serveur principal.
+2. Modifiez les valeurs des variables suivantes, selon les valeurs que vous souhaitez utiliser pour le déploiement de votre serveur principal.
 
 		$backendCSName         = "IaaSStory-Backend"
 		$prmStorageAccountName = "iaasstoryprmstorage"
@@ -99,7 +99,7 @@ Vous devez créer un nouveau service cloud et un compte de stockage pour les dis
 
 ### Étape 3 : création de machines virtuelles
 
-Vous devez utiliser une boucle pour créer le nombre de machines virtuelles que vous voulez et créer les cartes réseau et les machines virtuelles nécessaires au sein de la boucle. Pour créer ces cartes réseau et machines virtuelles, exécutez les étapes suivantes.
+Vous devez utiliser une boucle pour créer le nombre de machines virtuelles que vous voulez et créer les cartes réseau et les machines virtuelles nécessaires au sein de la boucle. Pour créer ces cartes réseau et ces machines virtuelles, exécutez les étapes suivantes.
 
 1. Lancez une boucle `for` pour répéter les commandes afin de créer une machine virtuelle et deux cartes réseau, autant de fois que nécessaire, selon la valeur de la variable `$numberOfVMs`.
 
@@ -155,9 +155,9 @@ Vous devez utiliser une boucle pour créer le nombre de machines virtuelles que 
 
 ### Étape 4 : exécution du script
 
-Maintenant que vous avez téléchargé et modifié le script selon vos besoins, exécutez le script pour créer les machines virtuelles principales de base de données avec plusieurs cartes réseau.
+Maintenant que vous avez téléchargé et modifié le script selon vos besoins, exécutez le script pour créer les machines virtuelles de base de données principales avec plusieurs cartes réseau.
 
-1. Enregistrez votre script et exécutez-le à partir de l’invite de commandes **PowerShell** ou **PowerShell ISE**. Vous verrez la sortie initiale, comme illustré ci-dessous.
+1. Enregistrez votre script et exécutez-le à partir de l'invite de commandes **PowerShell** ou **PowerShell ISE**. Vous verrez la sortie initiale, comme illustré ci-dessous.
 
 		OperationDescription    OperationId                          OperationStatus
 		--------------------    -----------                          ---------------
@@ -171,4 +171,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

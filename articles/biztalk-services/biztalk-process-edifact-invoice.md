@@ -22,7 +22,7 @@ Vous pouvez utiliser le portail BizTalk Services pour configurer et déployer de
 ## Exemple basé sur ce didacticiel
 Ce didacticiel s’articule autour d’un exemple, **Envoi de factures EDIFACT à l’aide de BizTalk Services**, qui est disponible au téléchargement depuis [MSDN Code Gallery](http://go.microsoft.com/fwlink/?LinkId=401005). Vous pouvez utiliser l’exemple et parcourir ce didacticiel pour comprendre comment l’exemple a été créé. Vous pouvez également utiliser ce didacticiel pour créer votre propre solution de A à Z. Ce didacticiel concerne la deuxième approche, afin que vous sachiez comment la solution a été créée. En outre, le plus souvent possible, ce didacticiel est cohérent avec l’exemple et utilise pour les artefacts (schémas et transformations, par exemple) les mêmes noms que ceux qui sont utilisés dans l’exemple.
 
->[AZURE.NOTE]Étant donné que cette solution implique l’envoi d’un message d’un pont EAI vers un pont EDI, elle il réutilise le [l’exemple de chaînage du pont BizTalk Services](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
+>[AZURE.NOTE] Étant donné que cette solution implique l’envoi d’un message d’un pont EAI vers un pont EDI, elle il réutilise le [l’exemple de chaînage du pont BizTalk Services](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
 
 ## Que fait la solution ?
 
@@ -40,7 +40,7 @@ Pour réaliser ce scénario d’entreprise, Contoso utilise les fonctionnalités
 
 *   Après réception de la facture, Northwind renvoie un message CONTRL au pont de réception EDI déployé dans le cadre de l’accord.
 
-> [AZURE.NOTE]Cette solution explique également comment utiliser le traitement par lots pour envoyer les factures en lots, au lieu de les envoyer séparément.
+> [AZURE.NOTE] Cette solution explique également comment utiliser le traitement par lots pour envoyer les factures en lots, au lieu de les envoyer séparément.
 
 Pour achever le scénario, nous utilisons des files d’attente Service Bus pour envoyer la facture de Contoso à Northwind ou recevoir l’accusé de réception de la part de Northwind. Ces files d’attente peuvent être créées à l’aide d’une application cliente disponible au téléchargement incluse dans l’exemple de package disponible dans le cadre de ce didacticiel.
 
@@ -173,7 +173,7 @@ Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message
 
 7.  Dans l’Explorateur de solutions, développez **MessageFlowItinerary.bcs** et double-cliquez sur le fichier **EDIBridge.config**. Remplacez le contenu du fichier **EDIBridge.config** par le code suivant.
 
-    > [AZURE.NOTE]Pourquoi dois-je modifier le fichier .config ? Le point de terminaison de service externe que nous avons ajouté à la zone de dessin du pont représente les ponts EDI que nous avons déployés précédemment. Les ponts EDI sont bidirectionnels et présentent un côté envoi et un côté réception. Toutefois, le pont IAE que nous avons ajouté au concepteur de pont est un pont unidirectionnel. Par conséquent, pour gérer les modèles d’échange de messages différents des deux ponts, nous utilisons un comportement de pont personnalisé en incluant sa configuration dans le fichier .config. En outre, le comportement personnalisé gère également l’authentification au niveau du point de terminaison du pont d’envoi EDI. Ce comportement personnalisé est disponible sous forme d’exemple distinct dans l’[exemple de chaînage de pont BizTalk Services - IAE à EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Cette solution réutilise l’exemple.
+    > [AZURE.NOTE] Pourquoi dois-je modifier le fichier .config ? Le point de terminaison de service externe que nous avons ajouté à la zone de dessin du pont représente les ponts EDI que nous avons déployés précédemment. Les ponts EDI sont bidirectionnels et présentent un côté envoi et un côté réception. Toutefois, le pont IAE que nous avons ajouté au concepteur de pont est un pont unidirectionnel. Par conséquent, pour gérer les modèles d’échange de messages différents des deux ponts, nous utilisons un comportement de pont personnalisé en incluant sa configuration dans le fichier .config. En outre, le comportement personnalisé gère également l’authentification au niveau du point de terminaison du pont d’envoi EDI. Ce comportement personnalisé est disponible sous forme d’exemple distinct dans l’[exemple de chaînage de pont BizTalk Services - IAE à EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Cette solution réutilise l’exemple.
     
     ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -312,4 +312,4 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

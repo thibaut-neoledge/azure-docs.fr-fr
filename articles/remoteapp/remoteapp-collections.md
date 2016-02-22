@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/07/2016" 
+    ms.date="02/02/2016" 
     ms.author="elizapo" />
 
 
@@ -80,7 +80,7 @@ Si vous souhaitez utiliser des comptes Azure AD, vous devez vous assurer que vot
 
 L’utilisation d’Azure AD + Active Directory local est une condition requise pour une collection hybride. Vous devez utiliser AD Connect pour intégrer les deux annuaires, mais vous avez le choix en ce qui concerne la configuration d’AD Connect.
 
-Il existe deux scénarios AD Connect : utilisation de la synchronisation de mot de passe ou utilisation de la fédération Active Directory. Consultez les [informations relatives à AD Connect](active-directory-aadconnect.md) pour déterminer l’option la mieux adaptée à votre cas.
+Il existe deux scénarios AD Connect : utilisation de la synchronisation de mot de passe ou utilisation de la fédération Active Directory. Consultez les [informations relatives à AD Connect](../active-directory/active-directory-aadconnect.md) pour déterminer l’option la mieux adaptée à votre cas.
 
 Vous pouvez également utiliser Azure AD + AD avec une collection cloud. Assurez-vous de suivre les mêmes étapes de configuration.
 
@@ -91,4 +91,4 @@ Il ne vous reste plus qu’une chose à faire : créer votre première collecti
 
 [Créez une collection cloud](remoteapp-create-cloud-deployment.md) ou [créez une collection hybride](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

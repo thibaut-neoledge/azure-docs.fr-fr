@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 # Mise à niveau d'application Service Fabric : rubriques avancées
 
 ## Mode de mise à niveau manuelle
 
-> [AZURE.NOTE]Le mode manuel non surveillé ne peut être envisagé que pour une mise à niveau ayant échoué ou suspendue. Le mode surveillé est le mode de mise à niveau recommandé pour les applications Service Fabric.
+> [AZURE.NOTE]  Le mode manuel non surveillé ne peut être envisagé que pour une mise à niveau ayant échoué ou suspendue. Le mode surveillé est le mode de mise à niveau recommandé pour les applications Service Fabric.
 
 Azure Service Fabric fournit plusieurs modes de mise à niveau pour prendre en charge les clusters de développement et de production. Chacune des options de déploiement convient particulièrement en fonction de l'environnement.
 
@@ -49,12 +49,15 @@ Situations qui se prêtent à l'utilisation d'un package différentiel :
 
 ## Étapes suivantes
 
-[Didacticiel de mise à niveau](service-fabric-application-upgrade-tutorial.md)
+La [mise à niveau de votre application à l'aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l'application à l'aide de Visual Studio.
 
-[Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md)
+La [mise à niveau de votre application à l'aide de Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l'application à l'aide de PowerShell.
 
-[Sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
+Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
-[Résolution des problèmes de mises à niveau d’une application](service-fabric-application-upgrade-troubleshooting.md)
+Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+Résolvez les problèmes courants de mise à niveau de l'application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

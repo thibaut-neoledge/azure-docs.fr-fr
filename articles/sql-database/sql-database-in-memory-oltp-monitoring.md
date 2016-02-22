@@ -18,9 +18,9 @@
 	ms.author="jodebrui"/>
 
 
-# Surveiller le stockage en mémoire XTP
+# Surveiller le stockage OLTP In-Memory
 
-Lorsque vous utilisez [In-Memory](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage en mémoire XTP. Chaque niveau de service Premium est doté d’une taille de stockage en mémoire maximale, qui est décrite dans l’article de [niveaux de Service de base de données SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Une fois que cette limite est dépassée, des opérations d’insertion et de mise à jour peuvent commencer à échouer (en générant l’erreur 41805). À ce stade, vous devez soit supprimer des données pour libérer de la mémoire, soit mettre à niveau le niveau de performances de votre base de données.
+Lorsque vous utilisez [In-Memory](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage OLTP en mémoire. Chaque niveau de service Premium est doté d’une taille de stockage en mémoire maximale, qui est décrite dans l’article de [niveaux de Service de base de données SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Une fois que cette limite est dépassée, des opérations d’insertion et de mise à jour peuvent commencer à échouer (en générant l’erreur 41805). À ce stade, vous devez soit supprimer des données pour libérer de la mémoire, soit mettre à niveau le niveau de performances de votre base de données.
 
 ## Déterminer si la taille des données est adaptée à la capacité de stockage en mémoire
 
@@ -35,7 +35,7 @@ Notez que la table et les lignes de variable de table, ainsi que les index, sont
 Vous pouvez surveiller l’utilisation du stockage en mémoire sous forme de pourcentage de la [capacité de stockage de votre niveau de performances](sql-database-service-tiers.md#service-tiers-for-single-databases) dans le [portail](https://portal.azure.com/) Azure :
 
 - Sur le panneau Base de données, recherchez la zone Utilisation de ressources, puis cliquez sur Modifier.
-- Sélectionnez ensuite la métrique du pourcentage de stockage en mémoire XTP.
+- Sélectionnez ensuite la métrique du pourcentage de stockage OLTP en mémoire.
 - Pour ajouter une alerte, cliquez sur la zone Taux d’utilisation de la ressource pour ouvrir le panneau Métriques, puis cliquez sur Ajouter une alerte.
 
 Vous pouvez également utiliser la requête suivante pour afficher l’utilisation du stockage en mémoire :
@@ -58,4 +58,4 @@ Pour résoudre cette erreur, deux possibilités s’offrent à vous :
 ## Étapes suivantes
 En savoir plus sur l’[Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

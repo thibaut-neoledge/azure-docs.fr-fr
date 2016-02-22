@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -24,7 +24,7 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-Cet article vous guide tout au long de la procédure de création et de connexion de plusieurs réseaux virtuels à l’aide du modèle de déploiement classique (également appelé Service Management). Si vous recherchez un autre modèle de déploiement pour cette configuration, utilisez les onglets ci-dessus pour sélectionner l’article que vous souhaitez.
+Cet article vous guide tout au long de la procédure de création et de connexion de plusieurs réseaux virtuels à l’aide du modèle de déploiement classique (également appelé Service Management). Si vous souhaitez connecter des réseaux virtuels créés à l'aide du modèle de déploiement Resource Manager, consultez la rubrique [Configuration d'une connexion de réseau virtuel à réseau virtuel pour des réseaux virtuels d'un même abonnement à l’aide d'Azure Resource Manager et de PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **À propos des modèles de déploiement Azure**
 
@@ -223,4 +223,4 @@ Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à v
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

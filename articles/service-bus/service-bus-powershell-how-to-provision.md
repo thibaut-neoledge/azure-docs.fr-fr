@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/08/2016"
 	ms.author="sethm"/>
 
 # Gestion de Service Bus avec PowerShell
@@ -26,9 +26,9 @@ Microsoft Azure PowerShell est un environnement de création de scripts vous per
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement], les [offres spéciales membres] ou la [version d'évaluation gratuite].
+- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][], les [offres spéciales membres][] ou la [version d'évaluation gratuite][].
 
-- Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell].
+- Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
 
 - Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
 
@@ -120,7 +120,7 @@ Pour approvisionner d’autres entités, telles que des files d’attente, des r
 
 Cette partie du script crée quatre variables locales supplémentaires. Ces variables permettent d'instancier un objet `EventHubDescription`. Le script effectue les opérations suivantes :
 
-1. À l'aide de l'objet `NamespaceManager`, vérifiez si le hub d'événements identifié par `$Path` existe.
+1. À l'aide de l'objet `NamespaceManager`, vérifiez si le concentrateur d'événements identifié par `$Path` existe.
 2. S'il n'existe pas, créez une `EventHubDescription` et transmettez-la à la classe `NamespaceManager` de la méthode `CreateEventHubIfNotExists`.
 3. Après avoir déterminé que le hub d'événements est disponible, créez un groupe de consommateurs avec `ConsumerGroupDescription` et `NamespaceManager`.
 
@@ -163,7 +163,7 @@ Cet article fournit une présentation générale de l'approvisionnement des enti
 Vous trouverez d'autres exemples détaillés sur ces billets de blog :
 
 - [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [Comment créer un espace de noms et un hub d'événements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+- [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 Vous pouvez également télécharger des scripts prêts à l’emploi : - [Scripts PowerShell Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
@@ -171,7 +171,7 @@ Vous pouvez également télécharger des scripts prêts à l’emploi : - [Scri
 [formules d'abonnement]: http://azure.microsoft.com/pricing/purchase-options/
 [offres spéciales membres]: http://azure.microsoft.com/pricing/member-offers/
 [version d'évaluation gratuite]: http://azure.microsoft.com/pricing/free-trial/
-[Installation et configuration d'Azure PowerShell]: ../install-configure-powershell.md
+[Installation et configuration d'Azure PowerShell]: ../powershell-install-configure.md
 [package NuGet Service Bus]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -179,4 +179,4 @@ Vous pouvez également télécharger des scripts prêts à l’emploi : - [Scri
 [API .NET pour Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

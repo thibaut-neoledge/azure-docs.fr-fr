@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Spécification d'ingestion en direct au format MP4 fragmenté Azure Media Services
@@ -221,4 +221,4 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

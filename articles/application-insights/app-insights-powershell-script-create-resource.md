@@ -95,8 +95,8 @@ Il existe deux façons de mettre l’iKey à disposition du kit de développemen
 
 * [Créer des ressources Application Insights et de test Web templates à partir de modèles (en anglais)](app-insights-powershell.md)
 * [Configurer la surveillance de diagnostics Azure avec PowerShell (en anglais](app-insights-powershell-azure-diagnostics.md) 
-* [Définition d’alertes à l’aide de PowerShell](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [Définition d’alertes à l’aide de PowerShell](app-insights-powershell-alerts.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

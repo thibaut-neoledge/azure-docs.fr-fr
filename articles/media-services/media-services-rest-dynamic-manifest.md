@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/18/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Création de filtres avec l’API REST Media Services Azure
@@ -40,7 +40,7 @@ Les types suivants sont utilisés lors de la création de filtres :
 
 
 
->[AZURE.NOTE]Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
+>[AZURE.NOTE] Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
 >
 >Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
@@ -374,4 +374,4 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

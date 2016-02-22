@@ -21,13 +21,14 @@
 
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps inclut toutes les fonctions requises pour établir une présence sur le web à l’international pour votre site .COM. Quelle que soit la taille de votre organisation, il vous faut une plateforme robuste, sécurisée et évolutive pour favoriser votre activité, la connaissance de votre marque et vos communications client. App Service Web Apps peut vous aider à assurer la bonne réputation de votre marque et de votre identité, grâce au soutien de votre continuité d’activité par Microsoft.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 Voici un exemple de site web .COM exécutant App Service Web Apps. Il indique les actions possibles lorsque vous vous contentez de combiner des applications web avec d’autres services, pour un investissement technique minime. **Cliquez sur un élément de la topographie pour en savoir plus.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Ce guide présente certaines des zones et tâches les plus courantes, alignées avec l’exécution d’un site .COM public dans Azure App Service Web Apps. Toutefois, il existe d’autres solutions courantes, que vous pouvez implémenter dans Azure App Service Web Apps. Pour les découvrir, consultez les autres guides concernant les [campagnes marketing numériques](web-sites-digital-marketing-application-solution-overview.md) et les [applications métier](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]
+Ce guide présente certaines des zones et tâches les plus courantes, alignées avec l’exécution d’un site .COM public dans Azure App Service Web Apps. Toutefois, il existe d’autres solutions courantes, que vous pouvez implémenter dans Azure App Service Web Apps. Pour les découvrir, consultez les autres guides concernant les [campagnes marketing numériques](web-sites-digital-marketing-application-solution-overview.md) et les [applications métier](web-sites-business-application-solution-overview.md).
 
 ## Créer des ressources ou utiliser des ressources existantes
 
@@ -89,7 +90,7 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 ## Autres ressources
 
 - [Documentation d’App Service Web Apps](/services/app-service/web/)
-- [Plan d’apprentissage pour Azure App Service Web Apps](websites-learning-map.md)
+- [Plan d’apprentissage pour Azure App Service Web Apps](/documentation/learning-paths/appservice-webapps/)
 - [Blog web sur Microsoft Azure](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -138,4 +139,4 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

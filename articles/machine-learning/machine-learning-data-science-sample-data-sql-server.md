@@ -13,22 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
 
-Ce **menu** pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introduction
 
-Ce document montre comment échantillonner des données stockées dans SQL Server sur Azure à l’aide de SQL et du langage de programmation Python. Il montre également comment déplacer les données échantillonnées vers Azure Machine Learning en les enregistrant dans un fichier, les charger vers un objet blob Azure, puis les lire dans Azure ML.
+Ce document montre comment échantillonner des données stockées dans SQL Server sur Azure à l'aide de SQL ou du langage de programmation Python. Il montre également comment déplacer les données échantillonnées vers Azure Machine Learning en les enregistrant dans un fichier, en les chargeant vers un objet blob Azure, puis en les lisant dans Azure Machine Learning Studio.
 
 L’échantillonnage Python utilise la bibliothèque ODBC [pyodbc](https://code.google.com/p/pyodbc/) pour se connecter à SQL Server sur Azure et la bibliothèque [Pandas](http://pandas.pydata.org/) pour effectuer l’échantillonnage proprement dit.
 
->[AZURE.NOTE]L’exemple de code SQL figurant dans ce document repose sur l’hypothèse que les données sont stockées dans SQL Server sur Azure. Si ce n’est pas le cas, reportez-vous à la rubrique [Déplacer des données vers SQL Server sur Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) pour savoir comment déplacer vos données vers SQL Server sur Azure.
+>[AZURE.NOTE] L’exemple de code SQL figurant dans ce document repose sur l’hypothèse que les données sont stockées dans SQL Server sur Azure. Si ce n'est pas le cas, reportez-vous à la rubrique [Déplacer des données vers SQL Server sur Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) pour savoir comment déplacer vos données vers SQL Server sur Azure.
+
+**Pourquoi échantillonner vos données ?** Si vous prévoyez d'analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus d’analyse Cortana consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+
+Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+Cette tâche d'échantillonnage est une étape du [processus d'analyse Cortana (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##<a name="SQL"></a>Utilisation de SQL
 
@@ -52,7 +57,7 @@ Vous pouvez également utiliser l’élément TABLESAMPLE pour l’échantillonn
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
->[AZURE.NOTE]Vous pouvez explorer et générer des fonctionnalités à partir de ces données échantillonnées en les stockant dans une nouvelle table.
+>[AZURE.NOTE] Vous pouvez explorer et générer des fonctionnalités à partir de ces données échantillonnées en les stockant dans une nouvelle table.
 
 
 ###<a name="sql-aml"></a>Connexion à Azure Machine Learning
@@ -121,4 +126,4 @@ Pour obtenir un exemple de procédure pas à pas complet du processus d’analys
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

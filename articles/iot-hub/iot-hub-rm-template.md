@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer un hub IoT à l’aide d’un modèle Resource Manager | Microsoft Azure"
-	description="Suivez ce didacticiel afin d’utiliser des modèles Resource Manager pour créer un hub IoT."
+	description="Suivez ce didacticiel afin d’utiliser des modèles Resource Manager pour créer un hub IoT à l'aide d'un programme C# ou de PowerShell."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -31,6 +31,8 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Microsoft Visual Studio 2015.
 - Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] ou une version ultérieure.
+
+> [AZURE.TIP] Cet article décrit comment créer un IoT Hub à l'aide d'un programme C# et d’un modèle ARM. Vous pouvez également utiliser le [modèle ARM](#submit-a-template-to-create-an-iot-hub) dans l'article actuel avec un script PowerShell au lieu d'un programme C#. L'article [Utilisation d’Azure PowerShell avec Azure Resource Manager][lnk-powershell-arm] explique comment écrire un script PowerShell qui utilise un modèle ARM pour créer une ressource Azure en tant qu’IoT Hub.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -189,6 +191,7 @@ Vous pouvez maintenant terminer l’application en appelant les méthodes **Crea
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: https://azure.microsoft.com/fr-FR/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ./resource-group-overview.md
+[lnk-powershell-arm]: ./powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

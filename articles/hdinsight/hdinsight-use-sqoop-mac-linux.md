@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 #Utilisation de Sqoop avec Hadoop dans HDInsight (SSH)
@@ -23,7 +23,7 @@
 
 Découvrez comment utiliser Sqoop pour importer et exporter entre un cluster HDInsight sous Linux et la base de données SQL Azure ou SQL Server.
 
-> [AZURE.NOTE]Les étapes décrites dans cet article utilisent SSH pour se connecter à un cluster HDInsight sous Linux. Les clients Windows utilisent également Azure PowerShell pour travailler avec Sqoop sur les clusters Linux comme documenté dans [Utilisation de Sqoop avec Hadoop dans HDInsight (PowerShell)](hdinsight-use-sqoop.md).
+> [AZURE.NOTE] Les étapes décrites dans cet article utilisent SSH pour se connecter à un cluster HDInsight sous Linux. Les clients Windows utilisent également Azure PowerShell pour travailler avec Sqoop sur les clusters Linux comme documenté dans [Utilisation de Sqoop avec Hadoop dans HDInsight (PowerShell)](hdinsight-use-sqoop.md).
 
 ##Qu'est-ce que Sqoop ?
 
@@ -83,21 +83,21 @@ Vous allez tout d’abord exporter **hivesampletable**, dans une table nommée *
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Notez le nom de serveur renvoyé par cette commande. Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**.
+    > [AZURE.IMPORTANT] Notez le nom de serveur renvoyé par cette commande. Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**.
 
 2. Utilisez la commande suivante pour créer une base de données nommée **sqooptest** sur le serveur de base de données SQL :
 
-        sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
 
     Un message « OK » s’affiche à la fin de l’opération.
 
-	> [AZURE.NOTE]Si une erreur indiquant un problème d’accès s’affiche, vous devez ajouter l’adresse IP de votre station de travail cliente au pare-feu de la base de données SQL à l’aide de la commande suivante :
+	> [AZURE.NOTE] Si une erreur indiquant un problème d’accès s’affiche, vous devez ajouter l’adresse IP de votre station de travail cliente au pare-feu de la base de données SQL à l’aide de la commande suivante :
 	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+	> `azure sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##Création d'une table
 
-> [AZURE.NOTE]Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
+> [AZURE.NOTE] Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
 
 1. Utilisez SSH pour vous connecter à un cluster HDInsight sous Linux. L’adresse à utiliser pendant la connexion est `CLUSTERNAME-ssh.azurehdinsight.net` et le port est `22`.
 
@@ -126,19 +126,19 @@ Vous allez tout d’abord exporter **hivesampletable**, dans une table nommée *
 5. À l’invite de commandes `1>`, entrez les lignes suivantes :
 
         CREATE TABLE [dbo].[mobiledata](
-		[clientid] [nvarchar](50),
-		[querytime] [nvarchar](50),
-		[market] [nvarchar](50),
-		[deviceplatform] [nvarchar](50),
-		[devicemake] [nvarchar](50),
-		[devicemodel] [nvarchar](50),
-		[state] [nvarchar](50),
-		[country] [nvarchar](50),
-		[querydwelltime] [float],
-		[sessionid] [bigint],
-		[sessionpagevieworder] [bigint])
+        [clientid] [nvarchar](50),
+        [querytime] [nvarchar](50),
+        [market] [nvarchar](50),
+        [deviceplatform] [nvarchar](50),
+        [devicemake] [nvarchar](50),
+        [devicemodel] [nvarchar](50),
+        [state] [nvarchar](50),
+        [country] [nvarchar](50),
+        [querydwelltime] [float],
+        [sessionid] [bigint],
+        [sessionpagevieworder] [bigint])
         GO
-		CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
         GO
 
     Une fois entrée l’instruction `GO`, les instructions précédentes sont évaluées. Tout d’abord, la table **mobiledata** est créée, puis un index cluster est ajouté (nécessaire à la base de données SQL).
@@ -202,11 +202,11 @@ Vous pouvez également utiliser Sqoop pour importer et exporter des données à 
 
 * HDInsight et le serveur SQL doivent être sur le même réseau virtuel Azure
 
-    > [AZURE.NOTE]HDInsight prend en charge uniquement les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec des réseaux virtuels basés sur des groupes d'affinités.
+    > [AZURE.NOTE] HDInsight prend en charge uniquement les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec des réseaux virtuels basés sur des groupes d'affinités.
 
     Lorsque vous utilisez SQL Server dans votre centre de données, vous devez configurer le réseau virtuel comme étant *de site à site* ou *de point à site*.
 
-    > [AZURE.NOTE]Pour les réseaux virtuels de **point à site**, SQL Server doit exécuter l'application de configuration du client VPN, qui est disponible depuis le **tableau de bord** de la configuration de votre réseau virtuel Azure.
+    > [AZURE.NOTE] Pour les réseaux virtuels de **point à site**, SQL Server doit exécuter l'application de configuration du client VPN, qui est disponible depuis le **tableau de bord** de la configuration de votre réseau virtuel Azure.
 
     Pour plus d’informations sur la création et la configuration d’un réseau virtuel, consultez la rubrique [Tâches de configuration d’un réseau virtuel](../services/virtual-machines/).
 
@@ -263,4 +263,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

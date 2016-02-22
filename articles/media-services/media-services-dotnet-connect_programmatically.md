@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -44,7 +44,7 @@ Pour obtenir ces valeurs, accédez au portail de gestion Azure, sélectionnez vo
 
 Pour commencer à programmer sur Media Services, vous devez créer une instance **CloudMediaContext** qui représente le contexte du serveur. **CloudMediaContext** comprend des références à des collections importantes comme les travaux, les éléments multimédias, les fichiers, les stratégies d'accès et les localisateurs.
 
->[AZURE.NOTE]La classe **CloudMediaContext** n'est pas thread-safe. Vous devez créer un nouveau CloudMediaContext par thread ou par ensemble d’opérations.
+>[AZURE.NOTE] La classe **CloudMediaContext** n'est pas thread-safe. Vous devez créer un nouveau CloudMediaContext par thread ou par ensemble d’opérations.
 
 
 CloudMediaContext a cinq surcharges de constructeur. Il est recommandé d'utiliser des constructeurs qui acceptent **MediaServicesCredentials** en tant que paramètre. Pour plus d'informations, consultez la rubrique **Réutilisation des jetons Access Control Service** qui suit.
@@ -196,4 +196,4 @@ Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

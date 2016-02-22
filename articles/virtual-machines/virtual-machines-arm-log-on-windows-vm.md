@@ -63,4 +63,4 @@ Sur le portail Azure, vous utilisez le bouton **Connecter** pour démarrer une s
 
 En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

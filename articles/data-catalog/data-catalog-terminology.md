@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Terminologie d’Azure Data Catalog
@@ -59,7 +59,7 @@ Une version préliminaire d’Azure Data Catalog est un instantané de maximum
 
 Un profil de données d’Azure Data Catalog est un instantané de métadonnées de niveau colonne et table sur des ressources de données inscrites, qui peuvent être extraites de la source de données pendant l’inscription et stockées dans le catalogue avec les métadonnées de ressources de données. Le profil de données peut permettre aux utilisateurs qui découvrent une ressource de données de mieux comprendre son fonctionnement et son rôle. Comme pour les versions préliminaires, les profils de données doivent être explicitement sélectionnés par l’utilisateur pendant l’inscription.
 
-> [AZURE.NOTE]L’extraction d’un profil de données peut être une opération coûteuse pour les grandes tables et vues, et peut augmenter considérablement le temps nécessaire pour inscrire une source de données.
+> [AZURE.NOTE] L’extraction d’un profil de données peut être une opération coûteuse pour les grandes tables et vues, et peut augmenter considérablement le temps nécessaire pour inscrire une source de données.
 
 ## Point de vue de l’utilisateur
 
@@ -74,7 +74,7 @@ Un expert est un utilisateur qui a été identifié comme une personne pouvant a
 ## Propriétaire
 
 Un propriétaire est un utilisateur qui dispose de privilèges supplémentaires pour assurer la gestion d'une ressource de données d’Azure Data Catalog. Les utilisateurs peuvent s’approprier des ressources de données inscrites et les propriétaires peuvent ajouter d'autres utilisateurs en tant que copropriétaires.
-> [AZURE.NOTE]La propriété et la gestion sont uniquement disponibles dans l'édition Standard d’Azure Data Catalog.
+> [AZURE.NOTE] La propriété et la gestion sont uniquement disponibles dans l'édition Standard d’Azure Data Catalog.
 
 ## Inscription
 
@@ -86,4 +86,4 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 
 - [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

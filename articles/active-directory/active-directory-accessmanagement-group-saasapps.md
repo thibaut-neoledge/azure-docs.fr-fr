@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -37,14 +37,19 @@ Cette fonctionnalité peut être utilisée avec des centaines d’applications p
 4. Vous pouvez également voir quels utilisateurs sont affectés à l’application, soit directement ou en étudiant l’adhésion au sein d’un groupe. Pour ce faire, modifiez la définition de la **liste déroulante Affichage de Groupe** sur **Tous les utilisateurs**. La liste affiche les utilisateurs du répertoire et indique s’ils sont affectés ou non à l’application. Elle indique également si les utilisateurs sont affectés directement à l’application (type d’affectation direct) ou par le biais de l’adhésion à un groupe (type d’affectation hérité).
 
 
-> [AZURE.NOTE]L’onglet Utilisateurs et groupes ne s’affiche qu’une fois que vous avez activé Azure AD Premium ou Azure AD Basic.
+> [AZURE.NOTE]
+L’onglet Utilisateurs et groupes ne s’affiche qu’une fois que vous avez activé Azure AD Premium ou Azure AD Basic.
+
+##Articles connexes
 
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 
+* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

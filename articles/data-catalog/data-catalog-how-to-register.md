@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="12/18/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -49,7 +49,7 @@ Par défaut, seules les métadonnées sont extraites des sources de données et 
 L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un aperçu instantané des données dans chaque table et chaque vue où elle est inscrite. Si l’utilisateur choisit d’inclure les versions préliminaires lors de l’inscription, l’outil d’inscription inclut jusqu’à 20 enregistrements de chaque table et vue. Cet instantané est ensuite copié dans le catalogue avec les métadonnées structurelles et descriptives.
 
 
-> [AZURE.NOTE]Les tableaux volumineux comportant un grand nombre de colonnes peuvent contenir moins de 20 enregistrements inclus dans leur aperçu.
+> [AZURE.NOTE]  Les tableaux volumineux comportant un grand nombre de colonnes peuvent contenir moins de 20 enregistrements inclus dans leur aperçu.
 
 
 ## Inclusion de profils de données
@@ -65,7 +65,7 @@ L’outil d’inscription des sources de données d’**Azure Data Catalog** per
 
 Ces statistiques sont ensuite copiées dans le catalogue avec les métadonnées structurelles et descriptives.
 
-> [AZURE.NOTE]Les colonnes de texte et de date n’incluent pas de statistiques de valeurs moyennes ou d’écart type dans leur profil de données.
+> [AZURE.NOTE]  Les colonnes de texte et de date n’incluent pas de statistiques de valeurs moyennes ou d’écart type dans leur profil de données.
 
 ## Mise à jour des inscriptions
 
@@ -76,4 +76,4 @@ La réinscription d’une source de données déjà inscrite aboutit à une opé
 ## Résumé
 L’inscription d’une source de données auprès d’**Azure Data Catalog** facilite la découverte et la compréhension, et consiste à copier les métadonnées descriptives et structurelles de la source de données dans le service Catalog. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et découverte à l’aide du portail **Azure Data Catalog**.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

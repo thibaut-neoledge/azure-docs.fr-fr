@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -94,8 +94,10 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
-* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
+* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
 * [Référence de l’API Graph pour les groupes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

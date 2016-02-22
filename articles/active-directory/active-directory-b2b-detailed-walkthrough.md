@@ -2,6 +2,7 @@
    pageTitle="Procédure détaillée de l'utilisation de l'aperçu de la collaboration B2B d'Azure Active Directory | Microsoft Azure"
    description="Azure Active Directory B2B prend en charge les relations interentreprises en permettant aux partenaires commerciaux d'accéder de façon sélective à vos applications d'entreprise"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
 # Version préliminaire d’Azure AD B2B Collaboration : procédure pas à pas
@@ -78,6 +79,7 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 - [Référence du format de fichier CSV](active-directory-b2b-references-csv-file-format.md)
 - [Format du jeton utilisateur externe](active-directory-b2b-references-external-user-token-format.md)
 - [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
-- [Limites actuelles de l'aperçu](active-directory-b2b-current-preview-limitations.md)
+- [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

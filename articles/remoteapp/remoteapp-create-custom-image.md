@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016" 
+	ms.date="02/02/2016" 
 	ms.author="elizapo"/>
 
 # Création d’une image de modèle personnalisée pour Azure RemoteApp
@@ -46,7 +46,7 @@ Avant de créer le service, vous devez effectuer les étapes suivantes :
 - [S'inscrire](https://azure.microsoft.com/services/remoteapp/) à RemoteApp.
 - Créer un compte d'utilisateur dans Active Directory à utiliser comme compte de service RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine. Consultez [Configuration d'Azure Active Directory pour RemoteApp](remoteapp-ad.md) pour plus d'informations.
 - Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
-- Installer le module [Azure PowerShell](../install-configure-powershell.md).
+- Installer le module [Azure PowerShell](../powershell-install-configure.md).
 - Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory pour les utilisateurs.
 
 
@@ -142,4 +142,4 @@ Maintenant que vous avez votre image de modèle personnalisée, vous devez la t�
 - [Comment créer une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

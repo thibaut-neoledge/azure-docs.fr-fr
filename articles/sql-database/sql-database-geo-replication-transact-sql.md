@@ -57,12 +57,12 @@ Utilisez les étapes suivantes pour créer une base de données non lisible en t
 
 1. Vous devez disposer de la version 13.0.600.65 ou d’une version ultérieure de SQL Server Management Studio.
 
- 	 >[AZURE.IMPORTANT] Téléchargez la [dernière](https://msdn.microsoft.com/library/mt238290.aspx) version de SQL Server Management Studio. Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour publiées sur le portail Azure.
+ 	 > [AZURE.IMPORTANT] Téléchargez la [dernière](https://msdn.microsoft.com/library/mt238290.aspx) version de SQL Server Management Studio. Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour publiées sur le portail Azure.
 
 
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
 
-3. Utilisez l’instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géo-réplication primaire avec une base de données secondaire non accessible en lecture sur MySecondaryServer1, où MySecondaryServer1 est le nom de serveur convivial.
+3. Utilisez l'instruction **ALTER DATABASE** suivante pour créer une base de données locale dans une géo-réplication primaire avec une base de données secondaire non accessible en lecture sur MySecondaryServer1, où MySecondaryServer1 est le nom de serveur convivial.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -231,6 +231,6 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géo-réplicati
 - [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Documentation sur la base de données SQL](sql-database.md)
+- [Documentation sur la base de données SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

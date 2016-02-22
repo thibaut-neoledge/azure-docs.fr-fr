@@ -13,23 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/09/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # En quoi consiste Azure SQL Data Warehouse ?
 
-Azure SQL Data Warehouse est une base de données distribuée dédiée aux entreprises qui prend en charge le traitement de grands volumes de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud associant des fonctionnalités SQL éprouvées à une capacité d’augmentation, de réduction et de pause en quelques secondes. SQL Data Warehouse est également profondément intégré dans Azure et se déploie facilement en quelques secondes. En outre, le service est entièrement géré et évite les pertes de temps liées à l’application de correctifs logiciels, à la maintenance et aux sauvegardes. Les sauvegardes automatiques et intégrées de SQL Data Warehouse prennent en charge la tolérance de panne et la restauration en libre-service. Lors du développement de SQL Data Warehouse, nous nous sommes concentrés sur quelques attributs clés afin de faire en sorte de tirer pleinement parti d’Azure et d’être en mesure de créer un entrepôt de données capable de répondre à n’importe quelle charge de travail d’entreprise.
+Azure SQL Data Warehouse est une base de données distribuée dédiée aux entreprises qui prend en charge le traitement de grands volumes de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud associant des fonctionnalités SQL éprouvées à une capacité d’augmentation, de réduction et de pause en quelques secondes. SQL Data Warehouse est également profondément intégré dans Azure et se déploie facilement en quelques secondes. En outre, le service est entièrement géré et évite les pertes de temps liées à l’application de correctifs logiciels, à la maintenance et aux sauvegardes. Les sauvegardes automatiques et intégrées de SQL Data Warehouse prennent en charge la tolérance de panne et la restauration en libre-service.
+
+Lors du développement de SQL Data Warehouse, nous nous sommes concentrés sur quelques attributs clés afin de faire en sorte de tirer pleinement parti d’Azure et d’être en mesure de créer un entrepôt de données capable de répondre à n’importe quelle charge de travail d’entreprise.
 
 ## Optimisation
 
 ### Architecture de l’entrepôt de données
 
-SQL Data Warehouse repose essentiellement sur l’utilisation de l’architecture de traitement parallèle massif de Microsoft (MPP), initialement conçue pour exécuter certains des plus grands entrepôts de données d’entreprise sur site. Cette architecture tire parti des améliorations de performances d’entreposage de données intégrées et permet également à SQL Data Warehouse d’évoluer facilement et de traiter en parallèle le calcul des requêtes SQL complexes. L’architecture de SQL Data Warehouse a également été conçue pour tirer parti de sa présence dans Azure. En combinant ces deux aspects, l’architecture se décompose en 4 composants clés :
+SQL Data Warehouse utilise l'architecture de traitement parallèle massif de Microsoft (MPP), initialement conçue pour exécuter certains des plus grands entrepôts de données d'entreprise sur site. Cette architecture tire parti des améliorations de performances d’entreposage de données intégrées et permet également à SQL Data Warehouse d’évoluer facilement et de traiter en parallèle le calcul des requêtes SQL complexes. L'architecture de SQL Data Warehouse a également été conçue pour tirer parti de sa présence dans Azure. En combinant ces deux aspects, l’architecture se décompose en 4 composants clés :
 
 ![Architecture de SQL Data Warehouse][1]
 
-- **Nœud de contrôle :** vous vous connectez au nœud de contrôle lorsque vous utilisez SQL Data Warehouse avec n'importe quel outil de développement, de chargement ou d'analyse décisionnelle. Dans SQL Data Warehouse, le nœud de contrôle est une base de données SQL ; une fois la connexion établie, vous obtenez une interface et un fonctionnement similaires à ceux d’une base de données SQL standard. Mais, sous la surface, le nœud de contrôle coordonne tous les déplacements et calculs de données qui interviennent au niveau du système. Lorsqu’une commande est transmise au nœud de contrôle, celui-ci la divise en un ensemble de requêtes qui seront transmises aux nœuds de calcul du service.
+- **Nœud de contrôle :** vous vous connectez au nœud de contrôle lorsque vous utilisez SQL Data Warehouse avec n'importe quel outil de développement, de chargement ou d'analyse décisionnelle. Dans SQL Data Warehouse, le nœud de contrôle est une base de données SQL ; une fois la connexion établie, vous obtenez une interface et un fonctionnement similaires à ceux d'une base de données SQL standard. Mais, sous la surface, le nœud de contrôle coordonne tous les déplacements et calculs de données qui interviennent au niveau du système. Lorsqu'une commande est transmise au nœud de contrôle, celui-ci la divise en un ensemble de requêtes qui seront transmises aux nœuds de calcul du service.
 
 - **Nœuds de calcul :** comme le nœud de contrôle, les nœuds de calcul de SQL Data Warehouse sont alimentés à l’aide de bases de données SQL. Leur tâche consiste à délivrer la puissance de calcul du service. En arrière-plan, à chaque fois que des données sont chargées dans SQL Data Warehouse, celles-ci sont distribuées entre les nœuds du service. Ensuite, dès que le nœud de contrôle reçoit une commande, il la décompose en éléments pour chaque nœud de calcul qui, à son tour, agit sur les données qui lui sont affectées. Une fois le calcul effectué, les nœuds de calcul transmettent les résultats partiels au nœud de contrôle qui agrège ensuite les résultats avant de renvoyer une réponse.
 
@@ -85,7 +87,7 @@ En général, nous tenons à simplifier au maximum les DWU. Lorsque vous avez be
 
 - Pour obtenir la valeur DWU idéale, essayez d’augmenter et de réduire vos DWU et d’exécuter quelques requêtes après le chargement de vos données. Puisque la mise à l’échelle est rapide, vous pouvez essayer plusieurs différents niveaux de performances sans vous engager au-delà d’une heure.
 
-> [AZURE.NOTE]Notez qu’en raison de l’architecture ou de SQL Data Warehouse, vous risquez de ne pas obtenir l’augmentation de performances attendue à des volumes de données inférieurs. Nous vous recommandons de commencer par des volumes de données d’au moins 1 To afin d’obtenir des résultats de tests de performances précis.
+> [AZURE.NOTE] Notez qu’en raison de l’architecture ou de SQL Data Warehouse, vous risquez de ne pas obtenir l’augmentation de performances attendue à des volumes de données inférieurs. Nous vous recommandons de commencer par des volumes de données d’au moins 1 To afin d’obtenir des résultats de tests de performances précis.
 
 ## Intégration
 
@@ -124,7 +126,7 @@ Simple d’utilisation, PolyBase vous permet de valoriser vos données de diffé
 
 À présent que vous en savez un peu plus sur SQL Data Warehouse, renseignez-vous sur la [charge de travail de l'entrepôt de données] et sur le [provisionnement], puis chargez un [exemple de données] pour faire vos premiers pas.
 
->[AZURE.NOTE]Nous souhaitons améliorer cet article. Si vous choisissez de répondre « non » à la question « Cet article vous a-t-il été utile ? », veuillez ajouter une brève suggestion concernant ce qui manque ou comment cet article peut être amélioré. Merci d’avance !
+>[AZURE.NOTE] Nous souhaitons améliorer cet article. Si vous choisissez de répondre « non » à la question « Cet article vous a-t-il été utile ? », veuillez ajouter une brève suggestion concernant ce qui manque ou comment cet article peut être amélioré. Merci d’avance !
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -138,4 +140,4 @@ Simple d’utilisation, PolyBase vous permet de valoriser vos données de diffé
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

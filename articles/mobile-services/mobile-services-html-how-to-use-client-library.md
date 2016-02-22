@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/26/2016"
 	ms.author="glenga"/>
 
 # Utilisation d'un client HTML/JavaScript pour Azure Mobile Services
@@ -164,7 +164,7 @@ Il est possible de combiner `where` avec `orderBy`, `take` et `skip`. Pour plus 
 
 Le code suivant montre comment trier les données en incluant une fonction `orderBy` ou `orderByDescending` dans la requête. Il renvoie des éléments de `todoItemTable`, triés dans l'ordre croissant par le champ `text`. Par défaut, le serveur renvoie uniquement les 50 premiers éléments.
 
-> [AZURE.NOTE]Une taille de page pilotée par un serveur est utilisée par défaut pour empêcher le renvoi de tous les éléments. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Vous pouvez augmenter le nombre d'éléments à renvoyer en appelant `take`, en suivant les instructions de la section suivante. `todoItemTable` est la référence à la table de service mobile que vous avez créée précédemment.
+> [AZURE.NOTE] Une taille de page pilotée par un serveur est utilisée par défaut pour empêcher le renvoi de tous les éléments. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Vous pouvez augmenter le nombre d'éléments à renvoyer en appelant `take`, en suivant les instructions de la section suivante. `todoItemTable` est la référence à la table de service mobile que vous avez créée précédemment.
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -388,7 +388,7 @@ Pour des exemples plus réalistes et une discussion plus élaborée sur **invoke
 
 Mobile Services prend en charge l'authentification et l'autorisation des utilisateurs d'applications via divers fournisseurs d'identité externes : Facebook, Google, Microsoft Account et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d’informations, consultez la page [Prise en main de l’authentification].
 
->[AZURE.NOTE]Quand vous utilisez l’authentification dans une application PhoneGap ou Cordova, vous devez également ajouter les plug-ins suivants au projet :
+>[AZURE.NOTE] Quand vous utilisez l’authentification dans une application PhoneGap ou Cordova, vous devez également ajouter les plug-ins suivants au projet :
 >
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
@@ -504,7 +504,7 @@ L'exemple suivant montre comment utiliser le SDK Live avec des API WinJS pour of
 	// Start the sign-in process.
 	authenticate();
 
-Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté. L’application ne démarre pas tant que l’authentification n’a pas abouti.
+Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté. L’application ne démarre pas tant que l’authentification n’a pas abouti. 
 <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
@@ -666,4 +666,4 @@ Pour contrôler les sites web autorisés à interagir avec les requêtes et à e
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Référence des options de requête système OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0211_2016-->

@@ -26,23 +26,20 @@ Les solutions Azure IoT Suite préconfigurées sont des implémentations de mod�
 
 Chaque solution préconfigurée implémente un scénario IoT courant et est une implémentation complète de bout en bout utilisant les appareils simulés pour générer la télémétrie.
 
-En plus de déployer et d’exécuter les solutions préconfigurées dans Azure, vous pouvez télécharger le code source complet, puis personnaliser et étendre la solution pour répondre à vos besoins IoT spécifiques.
+En plus de déployer et d’exécuter les solutions dans Azure, vous pouvez télécharger le code source complet, puis personnaliser et étendre la solution pour répondre à vos besoins IoT spécifiques.
 
-Les solutions préconfigurées disponibles sont les suivantes :
+> [AZURE.NOTE] L'article [Prise en main des solutions préconfigurées IoT][lnk-preconf-get-started] explique comment déployer et exécuter une des solutions.
 
-- [Surveillance à distance][lnk-remote-monitoring]
-- [Maintenance prédictive][lnk-predictive-maintenance]
-
-Le tableau suivant montre le mappage entre ces solutions préconfigurées et des fonctionnalités IoT spécifiques :
+Le tableau suivant montre le mappage entre les solutions et des fonctionnalités IoT spécifiques :
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
 |------------------------|-----|-----|-----|-----|-----|
-| Surveillance à distance | Oui | Oui | Oui | Oui | - | 
-| Maintenance prédictive | Oui | Oui | Oui | Oui | Oui |
+| [Surveillance à distance][lnk-remote-monitoring] | Oui | Oui | Oui | Oui | - |
+| [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
 
 ## Présentation de la solution préconfigurée de surveillance à distance
 
-Cette section décrit certains des éléments clés de la solution préconfigurée de surveillance à distance. La surveillance à distance est la plus simple des solutions préconfigurées et illustre les éléments de conception communs que partagent les autres solutions préconfigurées.
+Nous avons choisi d’aborder dans cet article la solution préconfigurée de surveillance à distance car il s’agit de la plus simple des solutions et qu’elle illustre les éléments de conception communs que partagent les autres solutions.
 
 Le schéma suivant illustre les éléments clés de la solution de surveillance à distance. Les sections ci-dessous fournissent des informations supplémentaires sur ces éléments.
 
@@ -85,6 +82,8 @@ Dans cette solution préconfigurée, le processeur d’événements fait partie 
 
 ## Portail de la solution
 
+![Tableau de bord de solution][img-dashboard]
+
 Le portail de la solution est une interface utilisateur web qui est déployée dans le cloud dans le cadre de la solution préconfigurée. Il vous permet d’effectuer les opérations suivantes :
 
 - Afficher l’historique de télémétrie et d’alertes dans un tableau de bord.
@@ -101,10 +100,11 @@ Dans cette solution préconfigurée, le portail de la solution fait partie du *s
 
 Explorez ces ressources pour en savoir plus sur les solutions IoT préconfigurées :
 
-- [Vue d’ensemble des solutions préconfigurées Azure IoT][lnk-suite-overview]
 - [Prise en main des solutions préconfigurées IoT][lnk-preconf-get-started]
+- [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-maintenance]
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
+[img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -116,4 +116,4 @@ Explorez ces ressources pour en savoir plus sur les solutions IoT préconfiguré
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

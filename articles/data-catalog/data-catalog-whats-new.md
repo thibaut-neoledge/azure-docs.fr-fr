@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/29/2016"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Nouveautés d'Azure Data Catalog
 
 Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, chaque version ne contient pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente de nouvelles fonctionnalités orientées utilisateur ajoutées au service **Azure Data Catalog**.
+
+## Nouveautés de la version de la semaine du 5 février 2016
+
+Depuis la semaine du 5 février 2016, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
+
+- Prise en charge du changement de l'abonnement Azure utilisé par **Azure Data Catalog**. Les administrateurs **Azure Data Catalog** peuvent utiliser la page Paramètres du portail **Azure Data Catalog** et sélectionner un autre abonnement Azure à des fins de facturation.
 
 ## Nouveautés de la version de la semaine du 29 janvier 2016
 
@@ -195,4 +201,4 @@ Depuis la semaine du 28 août 2015, les fonctionnalités suivantes ont été a
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

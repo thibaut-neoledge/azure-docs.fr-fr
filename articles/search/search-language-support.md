@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/19/2015"
+   ms.date="02/09/2016"
    ms.author="jlembicz"/>
 
 # Création d’un index de documents dans plusieurs langues dans Azure Search
@@ -26,7 +26,7 @@ Décupler les performances des analyseurs de langue est aussi facile que de déf
 
 Voici les captures d’écran des panneaux du portail Azure Classic pour Azure Search qui permettent aux utilisateurs de définir un schéma d’index. À partir de ce panneau, les utilisateurs peuvent créer tous les champs et définir la propriété de l'analyseur pour chacun d'eux.
 
-> [AZURE.NOTE]Vous pouvez uniquement définir un analyseur de langage lors de la définition du champ, comme lors de la création d'un nouvel index ou lorsque vous ajoutez un nouveau champ à un index existant. Veillez à spécifier entièrement tous les attributs, y compris l'analyseur, lors de la création du champ. Vous ne pourrez pas modifier les attributs ou modifier le type d'analyseur une fois le champ défini.
+> [AZURE.NOTE] Vous pouvez uniquement définir un analyseur de langage lors de la définition du champ, comme lors de la création d'un nouvel index ou lorsque vous ajoutez un nouveau champ à un index existant. Veillez à spécifier entièrement tous les attributs, y compris l'analyseur, lors de la création du champ. Vous ne pourrez pas modifier les attributs ou modifier le type d'analyseur une fois le champ défini.
 
 1. Connectez-vous au [portail Azure Classic](https://portal.azure.com) et ouvrez le panneau de votre service de recherche.
 2. Cliquez sur **Ajouter un index** en haut du tableau de bord de service pour démarrer un nouvel index ou ouvrez un index existant pour définir un analyseur sur des nouveaux champs que vous ajoutez à un index existant.
@@ -67,11 +67,11 @@ Parfois, la langue de l'agent d'émission d'une requête n'est pas connue, auque
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2015-02-28`
 
-Si vous êtes un développeur .NET, notez que vous pouvez configurer les analyseurs de langage à l'aide du [Kit de développement logiciel (SDK) Azure Search .NET](http://www.nuget.org/packages/Microsoft.Azure.Search/0.13.0-preview). La dernière version prend également en charge les analyseurs de langage Microsoft.
+Si vous êtes un développeur .NET, notez que vous pouvez configurer les analyseurs de langage à l'aide du [Kit de développement logiciel (SDK) Azure Search .NET](http://www.nuget.org/packages/Microsoft.Azure.Search). La dernière version prend également en charge les analyseurs de langage Microsoft.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

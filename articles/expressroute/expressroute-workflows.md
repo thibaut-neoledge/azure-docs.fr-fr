@@ -34,8 +34,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 	-  Activer l'homologation publique Azure : vous devez activer l'homologation publique Azure si vous souhaitez vous connecter à des services Azure hébergés sur des adresses IP publiques. Cette étape est nécessaire pour accéder aux ressources Azure si vous avez choisi d'activer le routage par défaut pour l'homologation privée Azure.
 	-  Activer l’homologation Microsoft : vous devez activer cette option pour accéder aux services Office 365 et CRM Online. 
 	
-	>[AZURE.IMPORTANT]Si vous activez l'homologation Microsoft, assurez-vous que l'homologation publique Azure est également activée pour accéder à Azure AD. Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
-
+	>[AZURE.IMPORTANT] Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
@@ -110,7 +109,7 @@ Il est important de vérifier l'état de la session BGP, en particulier pour l'h
 
 Si l'état du préfixe public publié indique qu’une *validation est nécessaire*, la session BGP n'est pas activée car les préfixes publiés ne correspondent pas au numéro AS dans un des registres de routage.
 
->[AZURE.IMPORTANT]Si l'état des préfixes publics publiés indique une *validation manuelle*, vous devez ouvrir un ticket de support auprès du [support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et fournir la preuve que vous possédez les adresses IP publiés ainsi que le numéro système autonome associé.
+>[AZURE.IMPORTANT] Si l'état des préfixes publics publiés indique une *validation manuelle*, vous devez ouvrir un ticket de support auprès du [support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et fournir la preuve que vous possédez les adresses IP publiés ainsi que le numéro système autonome associé.
 
 
 ## Étapes suivantes
@@ -121,4 +120,4 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
 	- [Configuration du routage](expressroute-howto-routing-arm.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

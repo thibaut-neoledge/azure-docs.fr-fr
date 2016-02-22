@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/20/2016" 
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Utilisation du client géré pour Azure Mobile Apps
@@ -21,9 +21,7 @@
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 &nbsp;
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
-
-##Vue d'ensemble 
+##Vue d’ensemble
 
 Ce guide vous montre comment mettre en place des scénarios courants à l’aide de la bibliothèque cliente gérée pour Azure App Service Mobile Apps pour les applications Windows et Xamarin. Si vous débutez avec Mobile Apps, suivez le didacticiel [Démarrage rapide avec Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md). Dans ce guide, nous nous concentrons sur le Kit de développement logiciel (SDK) géré côté client. Pour plus d’informations sur les kits de développement côté serveur pour Mobile Apps, consultez les articles [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) ou [Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
@@ -57,8 +55,7 @@ Pour savoir comment créer des tables dans votre backend Mobile Apps, consultez 
 
 Le code suivant permet de créer l’objet `MobileServiceClient` utilisé pour accéder à votre backend Mobile Apps.
 
-	MobileServiceClient client = new MobileServiceClient(
-	"MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 Dans le code ci-dessus, remplacez `MOBILE_APP_URL` par l’URL du backend Mobile Apps, qui se trouve dans le panneau de votre backend Mobile Apps du [portail Azure](https://portal.azure.com/).
 
@@ -189,8 +186,8 @@ Vous pouvez indiquer le jeu de propriétés à inclure dans les résultats en aj
 
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Select(todoItem => string.Format("{0} -- {1}", 
-						todoItem.Text.PadRight(30), todoItem.Complete ? 
+					.Select(todoItem => string.Format("{0} -- {1}",
+						todoItem.Text.PadRight(30), todoItem.Complete ?
 						"Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 
@@ -329,7 +326,7 @@ Vos modèles seront de type JObject et pourront contenir plusieurs modèles au f
         {
             // single template for Windows Notification Service toast
             var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
-            
+
             var templates = new JObject
             {
                 ["generic-message"] = new JObject
@@ -479,9 +476,9 @@ Lorsque vous utilisez la collection créée par l'appel de `ToCollectionAsync` o
 
 Enfin, imaginez que votre table contient de nombreux champs, mais que vous ne souhaitez en afficher qu'une partie dans votre contrôle. Vous pouvez suivre les instructions fournies plus haut dans la section « [Sélectionner des colonnes spécifiques](#selecting) » pour sélectionner les colonnes à afficher dans l’interface utilisateur.
 
-## <a name="adal"></a>Procédure : authentifier des utilisateurs avec la bibliothèque d’authentification Active Directory
+## <a name="adal"></a>Procédure : authentifier des utilisateurs avec la bibliothèque Active Directory Authentication Library
 
-Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX plus native et permet une personnalisation supplémentaire.
+Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
 1. Si vous souhaitez configurer le serveur principal de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
 
@@ -681,7 +678,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
-The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend. 
+The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
 	private LiveConnectSession session;
  	//private static string clientId = "<microsoft-account-client-id>";
@@ -809,7 +806,7 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -868,4 +865,4 @@ Cette propriété convertit toutes les propriétés en minuscules lors de la sé
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

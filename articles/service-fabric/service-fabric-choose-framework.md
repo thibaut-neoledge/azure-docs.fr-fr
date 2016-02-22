@@ -33,6 +33,6 @@ N'oubliez pas qu'il est parfaitement raisonnable d'utiliser des infrastructures 
 ## Étapes suivantes
 
 - [En savoir plus sur l’API Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [En savoir plus sur l’API Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+- [En savoir plus sur l’API Reliable Services](service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

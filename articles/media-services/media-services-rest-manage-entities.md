@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 #Gestion des entités Media Services avec l’API REST
@@ -27,10 +27,11 @@ Microsoft Azure Media Services est un service basé sur REST conçu autour d’O
 
 - Ajout d’entités 
 - Exécution d’une requête sur les entités 
+- Énumérer les grandes collections d'entités
 - Mise à jour des entités 
 - Suppression des entités 
 
->[AZURE.NOTE]Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
+>[AZURE.NOTE] Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
 >
 >Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
@@ -100,7 +101,9 @@ L’exemple suivant renvoie uniquement la propriété State de toutes les tâche
 	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 	Host: media.windows.net
-	The following example returns all JobTemplates with the name "SampleTemplate."
+
+L'exemple suivant retourne l'ensemble des JobTemplates avec le nom « SampleTemplate ».
+
 	GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
 	Content-Type: application/json;odata=verbose
 	Accept: application/json;odata=verbose
@@ -112,6 +115,20 @@ L’exemple suivant renvoie uniquement la propriété State de toutes les tâche
 
 >[AZURE.NOTE]L’opération $expand n’est pas prise en charge dans Media Services, tout comme les méthodes LINQ non prises en charge décrites dans les considérations sur LINQ (WCF Data Services).
 
+##Énumérer les grandes collections d'entités
+
+Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Utilisez **skip** et **top** pour énumérer les grandes collections d'entités.
+
+L'exemple suivant montre comment utiliser **skip** et **top** pour ignorer les 2 000 premières tâches et obtenir les 1 000 tâches suivantes.
+
+	GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
+	Host: media.windows.net
 
 ##Mise à jour des entités
 
@@ -158,4 +175,4 @@ L’exemple suivant montre comment supprimer un localisateur qui était utilisé
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

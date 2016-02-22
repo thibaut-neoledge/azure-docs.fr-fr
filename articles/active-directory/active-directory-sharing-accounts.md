@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="02/01/2015"  
+ 	ms.date="02/09/2016"  
  	ms.author="stevenpo"/>
 
 # Partage de comptes avec Azure AD
@@ -69,7 +69,8 @@ Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authen
 
 ## Articles connexes
 
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 - [Protection des applications avec accès conditionnel](active-directory-conditional-access.md)
 - [Gestion des groupes en libre service/accès aux applications en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

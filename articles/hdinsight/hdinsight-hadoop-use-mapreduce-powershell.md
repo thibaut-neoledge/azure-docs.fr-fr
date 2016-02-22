@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/04/2016"
    ms.author="larryfr"/>
 
 #Exécution à distance de requêtes Hadoop sur HDInsight à l’aide de PowerShell
@@ -139,7 +139,7 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 
 	Cela indique que la tâche a été effectuée avec succès.
 
-	> [AZURE.NOTE]Si **ExitCode** correspond à une valeur différente de 0, consultez [Dépannage](#troubleshooting).
+	> [AZURE.NOTE] Si **ExitCode** correspond à une valeur différente de 0, consultez [Dépannage](#troubleshooting).
 
     Cet exemple stocke également les fichiers téléchargés dans le dossier **example/data/WordCountOutput** dans le répertoire à partir duquel vous avez exécuté le script.
 
@@ -147,7 +147,7 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 
 La sortie de la tâche MapReduce est stockée dans des fichiers portant le nom *part-r-#####*. Ouvrez le fichier **example/data/WordCountOutput/part-r-00000** dans un éditeur de texte pour afficher les mots et les décomptes générés par la tâche.
 
-> [AZURE.NOTE]Les fichiers de résultat d’une tâche MapReduce sont immuables. Donc, si vous réexécutez cet exemple, vous devez modifier le nom du fichier de sortie.
+> [AZURE.NOTE] Les fichiers de résultat d’une tâche MapReduce sont immuables. Donc, si vous réexécutez cet exemple, vous devez modifier le nom du fichier de sortie.
 
 ##<a id="troubleshooting"></a>Résolution des problèmes
 
@@ -182,4 +182,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

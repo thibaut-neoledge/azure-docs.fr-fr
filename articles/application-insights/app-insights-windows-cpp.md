@@ -56,7 +56,7 @@ La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de
 
 #### Pour mettre à jour le Kit de développement logiciel avec les versions ultérieures
 
-Lorsqu'un nouveau [Kit de développement logiciel et publié](app-insights-release-notes-windows-cpp.md) :
+Lorsqu'un nouveau [Kit de développement logiciel et publié](https://github.com/Microsoft/ApplicationInsights-CPP/releases) :
 
 * Dans le gestionnaire de package NuGet, sélectionnez le Kit de développement installé et choisissez Action : Mettre à niveau.
 * Répétez les étapes d'installation en utilisant le nouveau numéro de version.
@@ -140,4 +140,4 @@ Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exempl
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

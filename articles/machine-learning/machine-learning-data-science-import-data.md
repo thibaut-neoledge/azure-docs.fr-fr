@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="02/08/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -32,7 +32,7 @@ Pour utiliser vos propres données dans Machine Learning Studio afin de dévelop
 
 Chacune de ces options est décrite dans une des rubriques du menu ci-dessus. Cette rubrique vous montre comment importer des données à partir de différentes sources afin de les utiliser dans Machine Learning Studio.
 
-> [AZURE.NOTE]Un certain nombre d'exemples de jeux de données sont disponibles dans Machine Learning Studio et vous pouvez les utiliser à cet effet. Pour plus d’informations, consultez [Utilisation des exemples de jeux de données dans Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
+> [AZURE.NOTE] Un certain nombre d'exemples de jeux de données sont disponibles dans Machine Learning Studio et vous pouvez les utiliser à cet effet. Pour plus d’informations, consultez [Utilisation des exemples de jeux de données dans Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
 
 Cette rubrique d'introduction montre également comment préparer des données afin de les utiliser dans Machine Learning Studio, et décrit les formats et les types de données pris en charge.
 
@@ -78,7 +78,7 @@ Voici les **types de données** reconnus par Machine Learning Studio :
 - DateTime
 - TimeSpan
 
-Machine Learning Studio utilise un type de données interne appelé ***Table de données*** pour transmettre des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
+Machine Learning Studio utilise un type de données interne appelé ***Table de données*** pour passer des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
 
 Tout module qui accepte d'autres formats que la table de données convertira silencieusement les données de la table de données avant de les passer au module suivant.
 
@@ -91,4 +91,4 @@ Au besoin, vous pouvez convertir à nouveau le format de la table de données au
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

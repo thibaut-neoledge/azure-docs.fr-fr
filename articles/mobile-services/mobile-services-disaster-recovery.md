@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/07/2016"
 	ms.author="christopheranderson"/>
 
 # Récupération de votre service mobile en cas d’incident
@@ -59,9 +59,9 @@ Pour récupérer votre service mobile après une panne :
 
 4. Vous pouvez à présent utiliser votre service secondaire pour récupérer votre service principal.
 
-	> [AZURE.IMPORTANT]En plus de faire migrer vos fichiers, la commande migrate met à jour le nom d’hôte de votre service principal pour qu’il pointe vers votre service secondaire afin que les applications clientes n’aient pas besoin d’être mises à jour. Toutefois, l’adoption du nouveau service par le nom d’hôte peut prendre jusqu’à 30 minutes. Nous vous recommandons donc de n’utiliser la commande migrate que dans les scénarios de récupération d’urgence.
+	> [AZURE.IMPORTANT] En plus de faire migrer vos fichiers, la commande migrate met à jour le nom d’hôte de votre service principal pour qu’il pointe vers votre service secondaire afin que les applications clientes n’aient pas besoin d’être mises à jour. Toutefois, l’adoption du nouveau service par le nom d’hôte peut prendre jusqu’à 30 minutes. Nous vous recommandons donc de n’utiliser la commande migrate que dans les scénarios de récupération d’urgence.
 
-	> [AZURE.IMPORTANT]L’exécution de la commande dans cette étape a pour effet de supprimer le service secondaire pour mettre sa capacité au service de la récupération du service principal. Si vous tenez à conserver vos scripts et paramètres, nous vous recommandons de les sauvegarder avant d’exécuter la commande.
+	> [AZURE.IMPORTANT] L’exécution de la commande dans cette étape a pour effet de supprimer le service secondaire pour mettre sa capacité au service de la récupération du service principal. Si vous tenez à conserver vos scripts et paramètres, nous vous recommandons de les sauvegarder avant d’exécuter la commande.
 
 	Lorsque vous êtes prêt, exécutez la commande suivante :
 
@@ -74,7 +74,7 @@ Pour récupérer votre service mobile après une panne :
 		info:    Migration complete. It may take 30 minutes for DNS to resolve to the migrated site.
 		info:    mobile migrate command OK
 
-    > [AZURE.NOTE]Plusieurs minutes peuvent être nécessaires avant que l’exécution de la commande aboutisse et que les modifications soient visibles dans le portail Azure Classic.
+    > [AZURE.NOTE] Plusieurs minutes peuvent être nécessaires avant que l’exécution de la commande aboutisse et que les modifications soient visibles dans le portail Azure Classic.
 
 5. Vérifiez que tous les scripts ont été correctement récupérés en les comparant à vos originaux dans le contrôle de code source. Dans la plupart des cas, les scripts sont récupérés automatiquement sans perte de données. Si toutefois vous notez des différences dans un script déterminé, vous pouvez le récupérer manuellement.
 
@@ -115,4 +115,4 @@ Votre service mobile a maintenant été récupéré pour une nouvelle région Az
 [tableau de bord du service Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatisation des services mobiles avec l’interface CLI Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

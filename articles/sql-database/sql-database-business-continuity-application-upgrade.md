@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 #Mise à niveau de l'application sans interruption de service
@@ -31,4 +31,4 @@ Si l'application peut fonctionner temporairement en lecture seule, le workflow d
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

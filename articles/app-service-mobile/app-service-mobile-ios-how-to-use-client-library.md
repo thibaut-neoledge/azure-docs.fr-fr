@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/30/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 # Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
- 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [Kit de développement logiciel (SDK) iOS Azure Mobile Apps](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend, créer une table et télécharger un projet Xcode iOS prédéfini. Dans ce guide, nous nous concentrons sur le SDK iOS côté client. Pour en savoir plus sur le Kit de développement logiciel (SDK) côté serveur .NET pour le backend, consultez [Fonctionnement avec le serveur principal .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
@@ -87,15 +85,15 @@ Pour créer une requête de base de données, interrogez l'objet `MSTable`. La r
 **Swift** :
 
 ```
-table.readWithCompletion({(result, error) -> Void in
-    if error != nil { // error is nil if no error occured
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+table.readWithCompletion { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
-})
+}
 ```
 
 ##<a name="filtering"></a>Procédure : filtrage des données renvoyées
@@ -109,7 +107,7 @@ Pour filtrer à l'aide d'un prédicat, utilisez un `NSPredicate` et `readWithPre
 ```
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-// Query the TodoItem table 
+// Query the TodoItem table
 [table readWithPredicate:predicate completion:^(MSQueryResult *result, NSError *error) {
 		if(error) {
 				NSLog(@"ERROR %@", error);
@@ -125,17 +123,17 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ```
 // Create a predicate that finds items where complete is false
-let predicate =  NSPredicate(format:"complete == NO")
-// Query the TodoItem table 
-table.readWithPredicate(predicate, completion: { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+let predicate =  NSPredicate(format: "complete == NO")
+// Query the TodoItem table
+table.readWithPredicate(predicate) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
-})
+}
 ```
 
 ##<a name="query-object"></a>Procédure : utilisation de MSQuery
@@ -153,7 +151,7 @@ MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"c
 
 ```
 let query = table.query()
-let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
+let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
 `MSQuery` vous permet de contrôler plusieurs comportements de requête, y compris les suivants. Exécuter une requête `MSQuery` en appelant `readWithCompletion` sur celle-ci, comme illustré dans l'exemple suivant. * Spécifier l'ordre des résultats * Limiter les champs à retourner * Limiter le nombre d'enregistrements à retourner * Spécifier le nombre total dans la réponse * Spécifier les paramètres de chaîne de requête personnalisés dans la requête * Appliquer des fonctions supplémentaires
@@ -181,15 +179,15 @@ Pour trier les résultats, examinons un exemple. Pour trier dans l'ordre croissa
 
 **Swift** :
 
-```        
+```
 query.orderByAscending("text")
 query.orderByDescending("complete")
-query.readWithCompletion { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+query.readWithCompletion { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
 }
@@ -254,11 +252,11 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 
 ```
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
-table.insert(newItem) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
+table.insert(newItem) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let item = result {
+        print("Todo Item: ", item["text"])
     }
 }
 ```
@@ -284,14 +282,15 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 **Swift** :
 
 ```
-let newItem = oldItem.mutableCopy() as! NSMutableDictionary // oldItem is NSDictionary
-newerItem["text"] = "Updated text"
-table.update(newerItem  as [NSObject : AnyObject]) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
-    }
+if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
+    newItem["text"] = "Updated text"
+    table2.update(newItem as [NSObject: AnyObject], completion: { (result, error) -> Void in
+        if let err = error {
+            print("ERROR ", err)
+        } else if let item = result {
+            print("Todo Item: ", item["text"])
+        }
+    })
 }
 ```
 
@@ -312,13 +311,12 @@ Vous pouvez également fournir l'ID de la ligne et le champ mis à jour :
 **Swift** :
 
 ```
-table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
+table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let item = result {
+        print("Todo Item: ", item["text"])
     }
-    
 }
 ```
 
@@ -343,12 +341,12 @@ Pour supprimer un élément, appelez `delete` avec l'élément :
 **Swift** :
 
 ```
-table.delete(item as [NSObject : AnyObject]) { (itemId, error) -> Void in
-	if error != nil {
-		NSLog("ERROR %@", error!)
-	} else {
-		NSLog("Todo Item ID: %@", itemId! as! String)
-	}
+table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else {
+        print("Todo Item ID: ", itemId)
+    }
 }
 ```
 
@@ -363,18 +361,18 @@ Vous pouvez également effectuer la suppression en fournissant un ID de ligne :
 	} else {
 		NSLog(@"Todo Item ID: %@", itemId);
 	}
-}];   
+}];
 ```
 
 **Swift** :
 
 ```
-table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) -> Void in
-        if error != nil {
-        	NSLog("ERROR %@", error!)
-        } else {
-        	NSLog("Todo Item ID: %@", itemId! as! String)
-        }
+table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else {
+        print("Todo Item ID: ", itemId)
+    }
 }
 ```
 
@@ -397,11 +395,11 @@ Pour inscrire des modèles, transmettez-les simplement avec votre méthode **cli
 **Swift** :
 
 ```
-client.push!.registerDeviceToken(deviceToken, template: iOSTemplate, completion: { (error) -> Void in
-            if error != nil {
-                NSLog("ERROR %@", error!)
-            }
-        })
+    client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
+        if let err = error {
+            print("ERROR ", err)
+        }
+    })
 ```
 
 Vos modèles sont de type NSDictionary et peuvent contenir plusieurs modèles au format suivant :
@@ -415,7 +413,7 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 **Swift** :
 
 ```
-let iOSTemplate: [NSObject : AnyObject] = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
+let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
 Notez que toutes les balises seront supprimées pour des raisons de sécurité. Pour ajouter des balises à des installations ou des modèles dans des installations, consultez [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
@@ -437,7 +435,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 **Swift** :
 
 ```
-let serverItem = error?.userInfo[MSErrorServerItemKey]
+let serverItem = error.userInfo[MSErrorServerItemKey]
 ```
 
 En outre, le fichier définit des constantes pour chaque code d'erreur, comme indiqué ci-après :
@@ -451,20 +449,23 @@ if (error.code == MSErrorPreconditionFailed) {
 **Swift** :
 
 ```
-if (error?.code == MSErrorPreconditionFailed) {
+if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>Procédure : authentifier des utilisateurs avec la bibliothèque d’authentification Active Directory
+## <a name="adal"></a>Procédure : authentifier des utilisateurs avec la bibliothèque Active Directory Authentication Library
 
-Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX plus native et permet une personnalisation supplémentaire.
+Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
 1. Si vous souhaitez configurer le serveur principal de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Bien que cette étape soit facultative, veillez à inscrire une application cliente native. Pour iOS, il est recommandé (mais pas obligatoire) d’utiliser un URI de redirection au format `<app-scheme>://<bundle-id>`. Pour plus d’informations, consultez la [procédure de démarrage rapide d’ADAL pour iOS](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
 
 2. Installez la bibliothèque ADAL à l’aide de Cocoapods. Modifier votre podfile pour inclure les éléments suivants, en remplaçant **YOUR-PROJECT** par le nom de votre projet Xcode :
 
-	source 'https://github.com/CocoaPods/Specs.git' link\_with ['YOUR-PROJECT'] xcodeproj 'YOUR-PROJECT'
-	
-	pod 'ADALiOS'
+		source 'https://github.com/CocoaPods/Specs.git'
+		link_with ['YOUR-PROJECT']
+		xcodeproj 'YOUR-PROJECT'
+et le pod :
+
+		pod 'ADALiOS'
 
 3. À l’aide du Terminal, exécutez `pod install` à partir du répertoire contenant votre projet, puis ouvrez l’espace de travail Xcode généré (et non le projet).
 
@@ -478,7 +479,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 
 * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à \__https://contoso.azurewebsites.net/.auth/login/done_.
 
-**Objective-C** :
+**Objective-C** :
 
 	#import <ADALiOS/ADAuthenticationContext.h>
 	#import <ADALiOS/ADAuthenticationSettings.h>
@@ -513,13 +514,13 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 	}
 
 
-**Swift** :
+**Swift** :
 
 	// add the following imports to your bridging header:
 	//     #import <ADALiOS/ADAuthenticationContext.h>
 	//     #import <ADALiOS/ADAuthenticationSettings.h>
-	
-	func authenticate(parent:UIViewController, completion: (MSUser?, NSError?) -> Void) {
+
+	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
 		let authority = "INSERT-AUTHORITY-HERE"
 		let resourceId = "INSERT-RESOURCE-ID-HERE"
 		let clientId = "INSERT-CLIENT-ID-HERE"
@@ -527,16 +528,16 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 		var error: AutoreleasingUnsafeMutablePointer<ADAuthenticationError?> = nil
 		let authContext = ADAuthenticationContext(authority: authority, error: error)
 		authContext.parentController = parent
-		ADAuthenticationSettings.sharedInstance().enableFullScreen = true;
-		authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri, completionBlock: { (result) -> Void in
-			if result.status != AD_SUCCEEDED {
-				completion(nil, result.error)
-			}
-			else {
-				let payload:[String:String] = ["access_token":result.tokenCacheStoreItem.accessToken]
-				client.loginWithProvider("aad", token: payload, completion: completion)
-			}
-		})
+		ADAuthenticationSettings.sharedInstance().enableFullScreen = true
+		authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri) { (result) in
+		        if result.status != AD_SUCCEEDED {
+		            completion(nil, result.error)
+		        }
+		        else {
+		            let payload: [String: String] = ["access_token": result.tokenCacheStoreItem.accessToken]
+		            client.loginWithProvider("aad", token: payload, completion: completion)
+		        }
+    		}
 	}
 
 
@@ -591,4 +592,4 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #Encodage avancé avec Media Encoder Premium Workflow
 
-**Remarque** : le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
+>[AZURE.NOTE]Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
+>
+>Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n'est pas disponible en Chine.
 
 ##Vue d'ensemble
 
@@ -28,11 +30,13 @@ Vous trouverez dans les rubriques suivantes des détails concernant **Media Enco
 
 - [Formats pris en charge par le flux de travail Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) : présente les formats et les codecs pris en charge par **Media Encoder Premium Workflow**.
 
-- La section [Comparer les encodeurs](media-services-encode-asset.md#compare_encoders) compare les fonctionnalités d’encodage de **Media Encoder Premium Workflow**, **Media Encoder Standard** et d’**Azure Media Encoder**.
+- La section [Comparer les encodeurs](media-services-encode-asset.md#compare_encoders) compare les fonctionnalités d'encodage de **Media Encoder Premium Workflow**, **Media Encoder Standard** et d'**Azure Media Encoder**.
 
 Cette rubrique montre comment encoder avec **Media Encoder Premium Workflow** en utilisant .NET.
 
 Les tâches d’encodage pour **Media Encoder Premium Workflow** nécessitent un fichier de configuration distinct appelé fichier de flux de travail. Ces fichiers ont une extension .workflow et sont créés à l’aide de l’outil [Concepteur de workflow](media-services-workflow-designer.md)
+
+>[AZURE.NOTE]Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 
 ##Encoder
 
@@ -50,7 +54,9 @@ Les étapes à exécuter sont les suivantes :
 1. Créez une ressource et téléchargez un fichier de flux de travail. 
 2. Créez une ressource et téléchargez un fichier multimédia source.
 3. Procurez-vous le processeur multimédia « Media Encoder Premium Workflow ».
-4. Créez un travail et une tâche.
+4. Créez un travail et une tâche. 
+
+	Dans la plupart des cas, la chaîne de configuration de la tâche est vide (comme dans l'exemple suivant). Il existe certains scénarios avancés (qui nécessitent de définir dynamiquement les propriétés d'exécution) auquel cas, vous fournissez une chaîne XML à la tâche d'encodage. La création d'une superposition, l'assemblage parallèle ou séquentiel multimédia, le sous-titrage sont des exemples de ces scénarios.
 5. Ajoutez deux ressources d’entrée à la tâche.
 	
 	a. En premier lieu, la ressource de flux de travail.
@@ -264,10 +270,6 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 	}
 
 
-##Problèmes connus
-
-Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide.
-
 
 ##Parcours d’apprentissage de Media Services
 
@@ -277,4 +279,4 @@ Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multim
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

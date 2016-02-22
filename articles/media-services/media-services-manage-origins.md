@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/09/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -68,11 +68,9 @@ Pour changer le nombre d’unités de diffusion en continu à l’aide du portai
 	L’allocation de nouvelles unités de diffusion en continu prend environ 20 minutes.
 
 	 
->[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
+	>[AZURE.NOTE] Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
 
-</br>
-
->[AZURE.NOTE]C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[AZURE.NOTE] C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
 ##<a id="configure_streaming_endpoints"></a>Configuration du point de terminaison de diffusion en continu
 
@@ -152,4 +150,4 @@ Pour plus d’informations, consultez le blog [Announcing Azure Media Services i
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

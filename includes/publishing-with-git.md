@@ -2,13 +2,13 @@
 
 Dans cet article, vous allez apprendre à utiliser Git pour publier directement de votre ordinateur local vers Web Apps (dans Azure, cette méthode de publication est appelée **Git local**). Vous allez également découvrir comment activer le déploiement continu à partir de sites de référentiel, comme BitBucket, CodePlex, Dropbox, GitHub ou Mercurial. Pour plus d'informations sur l'utilisation de TFS dans le cadre d'un déploiement continu, consultez la page [Diffusion continue sur Azure au moyen de Visual Studio Team Services].
 
-> [AZURE.NOTE]La plupart des commandes Git décrites dans cet article sont exécutées automatiquement pendant la création d'une application web avec les [outils en ligne de commande Azure pour Mac et Linux](/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE] La plupart des commandes Git décrites dans cet article sont exécutées automatiquement pendant la création d'une application web avec les [outils en ligne de commande Azure pour Mac et Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
 ## <a id="Step1"></a>Étape 1 : Installation de Git
 
 La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git] pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
-> [AZURE.NOTE]Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
+> [AZURE.NOTE] Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
 
 ## <a id="Step2"></a>Étape 2 : création d'un référentiel local
 
@@ -42,7 +42,7 @@ Web Apps prend en charge des applications créées dans différents langages de 
 
 		git add index.html 
 
-	> [AZURE.NOTE]Pour obtenir de l’aide concernant les commandes git, tapez -help ou --help à la suite de la commande. Par exemple, pour les options de paramètre de la commande add, tapez « git add -help » pour obtenir de l'aide sur la ligne de commande ou « add --help » pour accéder à une aide plus détaillée.
+	> [AZURE.NOTE] Pour obtenir de l’aide concernant les commandes git, tapez -help ou --help à la suite de la commande. Par exemple, pour les options de paramètre de la commande add, tapez « git add -help » pour obtenir de l'aide sur la ligne de commande ou « add --help » pour accéder à une aide plus détaillée.
 
 4. Ensuite, validez les modifications apportées au référentiel au moyen de la commande suivante :
 
@@ -88,7 +88,7 @@ Pour publier votre application Web vers Azure à l’aide de Git local, procéde
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [AZURE.NOTE]La commande **remote** ajoute une référence nommée dans un référentiel distant. Dans cet exemple, une référence nommée « azure » est créée pour le référentiel de votre application web.
+    > [AZURE.NOTE] La commande **remote** ajoute une référence nommée dans un référentiel distant. Dans cet exemple, une référence nommée « azure » est créée pour le référentiel de votre application web.
 
 1. Entrez la commande suivante à partir de la ligne de commande pour envoyer le contenu de référentiel actuel du référentiel local au référentiel distant « azure » :
 
@@ -108,7 +108,7 @@ Pour publier votre application Web vers Azure à l’aide de Git local, procéde
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [AZURE.NOTE]Le référentiel créé pour votre application web s'attend à ce que les requêtes de transmission de type push ciblent la branche <strong>principale</strong> de son référentiel, qui sera dès lors utilisée comme contenu de l'application web.
+	> [AZURE.NOTE] Le référentiel créé pour votre application web s'attend à ce que les requêtes de transmission de type push ciblent la branche <strong>principale</strong> de son référentiel, qui sera dès lors utilisée comme contenu de l'application web.
 
 2. Revenez au panneau de votre application web dans le portail Azure. L'option **Déploiement introuvable** doit être remplacée par **Déploiement actif** avec une entrée de journal de votre dernière transmission de type push.
 
@@ -150,7 +150,7 @@ Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert 
   
 	![](./media/publishing-with-git/azure7-setup-github-configure.png)
 
-	> [AZURE.NOTE]Lors de l’activation du déploiement continu avec GitHub ou BitBucket, les projets publics et privés sont tous deux affichés.
+	> [AZURE.NOTE] Lors de l’activation du déploiement continu avec GitHub ou BitBucket, les projets publics et privés sont tous deux affichés.
 
 Azure crée une association avec le référentiel sélectionné et récupère les fichiers à partir de la branche spécifiée. À l'issue de cette procédure, la section **Déploiement** du panneau de votre application web affiche un message **Déploiement actif** qui indique la réussite du déploiement.
 
@@ -182,11 +182,9 @@ Les étapes pour envoyer votre solution Visual Studio vers Web Apps sont les mê
 		_app/
 		nuget.exe
 
-	>[AZURE.NOTE]Si vous utilisez GitHub, vous pouvez éventuellement générer un fichier .gitignore propre à Visual Studio quand vous créez votre référentiel, qui comprend tous les fichiers temporaires, les résultats de la génération, etc. Vous pouvez ensuite le personnaliser pour l'adapter à vos besoins spécifiques.
+	>[AZURE.NOTE] Si vous utilisez GitHub, vous pouvez éventuellement générer un fichier .gitignore propre à Visual Studio quand vous créez votre référentiel, qui comprend tous les fichiers temporaires, les résultats de la génération, etc. Vous pouvez ensuite le personnaliser pour l'adapter à vos besoins spécifiques.
 
 -	Ajoutez l’arborescence des répertoires de toute la solution à votre référentiel, avec le fichier .sln dans la racine du référentiel.
-
--	Dans votre solution Visual Studio, [activez la restauration de packages NuGet](http://docs.nuget.org/Consume/Package-Restore) pour que Visual Studio restaure automatiquement les packages manquants.
 
 Une fois que vous avez configuré votre référentiel comme indiqué ainsi que votre application web dans Azure pour la publication en continu depuis l’un des référentiels Git en ligne, vous pouvez développer votre application ASP.NET localement dans Visual Studio et déployer en continu votre code, en envoyant simplement les modifications apportées à votre référentiel Git en ligne par une transmission de type push.
 
@@ -265,7 +263,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 * [Documentation Git]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -297,4 +295,4 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 [Utilisation de Dropbox pour partager des référentiels Git]: https://gist.github.com/trey/2722927
 [Diffusion continue sur Azure au moyen de Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -25,7 +25,7 @@ Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils d
 
 **Base de données** : une base de données SQL Azure.
 
-**Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d’une clé de partitionnement spécifique. Comparer à la **requête sur plusieurs partitions**.
+**Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d’une clé de partitionnement spécifique. Consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md). Comparer à la **[requête sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md)**.
 
 **Carte de partitions globale** : la carte correspondant aux clés de partitionnement et à leurs partitions respectives au sein d’un **jeu de partitions**. La carte de partitions globale est stockée dans le **gestionnaire des cartes de partitions**. Comparer à la **carte de partitions locale**.
 
@@ -82,4 +82,4 @@ Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils d
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

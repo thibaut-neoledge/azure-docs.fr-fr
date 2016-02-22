@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # Création d'une collection hybride pour Azure RemoteApp
@@ -28,7 +28,7 @@ Vous ne savez pas de quoi vous avez besoin ? Consultez [De quel type de collect
 Ce didacticiel vous familiarise avec la procédure de création d'une collection hybride. Elle comprend huit étapes :
 
 1.	Choix de l’[image](remoteapp-imageoptions.md) à utiliser pour votre collection. Vous pouvez créer une image personnalisée ou utiliser l’une des images Microsoft incluses dans votre abonnement.
-2. Configuration de votre réseau virtuel. Passez en revue les informations concernant la [planification](remoteapp-planvpn.md) et le [dimensionnement d’un réseau virtuel](remoteapp-vnetsizing.md).
+2. Configuration de votre réseau virtuel. Passez en revue les informations concernant la [planification](remoteapp-planvnet.md) et le [dimensionnement d’un réseau virtuel](remoteapp-vnetsizing.md).
 2.	Création d’une collection.
 2.	Association de votre collection à votre domaine local.
 3.	Ajout d'une image de modèle à votre collection.
@@ -43,7 +43,7 @@ Avant de créer la collection, vous devez effectuer les étapes suivantes :
 - [S’inscrire](https://azure.microsoft.com/services/remoteapp/) à Azure RemoteApp. 
 - Créer un compte d’utilisateur dans Active Directory à utiliser comme compte de service Azure RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine.
 - Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
-- Installer le module [Azure PowerShell](../install-configure-powershell.md).
+- Installer le module [Azure PowerShell](../powershell-install-configure.md).
 - Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Vous aurez besoin du nom d’utilisateur principal Azure Active Directory (par exemple, name@contoso.com) pour chaque utilisateur. Assurez-vous que le nom UPN soit cohérent entre Azure AD et Active Directory.
 - Choisir votre image de modèle. Une image de modèle Azure RemoteApp contient les applications et les programmes que vous souhaitez publier pour les utilisateurs. Consultez les [options d’images Azure RemoteApp](remoteapp-imageoptions.md) pour plus d’informations. 
 - Vous souhaitez utiliser l'image d'Office 365 ProPlus ? Pour plus d’informations, cliquez [ici](remoteapp-officesubscription.md).
@@ -58,7 +58,7 @@ Passez en revue les informations sur la [planification](remoteapp-planvnet.md) e
 
 ### Création d'un réseau virtuel Azure et jonction à votre déploiement Active Directory
 
-Commencez par créer un [réseau virtuel](../virtual-network/virtual-networks-create-vnet.md). Cette opération s'effectue sous l'onglet **Réseau** dans le portail de gestion Azure. Vous devez connecter votre réseau virtuel au déploiement Active Directory qui est synchronisé avec votre locataire Azure Active Directory.
+Commencez par créer un [réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Cette opération s'effectue sous l'onglet **Réseau** dans le portail de gestion Azure. Vous devez connecter votre réseau virtuel au déploiement Active Directory qui est synchronisé avec votre locataire Azure Active Directory.
 
 Consultez [À propos des paramètres de réseau virtuel dans le portail de gestion](../virtual-network/virtual-networks-settings.md) pour plus d'informations.
 
@@ -120,7 +120,7 @@ Pour plus d'informations sur la planification, consultez la rubrique [Programme 
 
 Une application Azure RemoteApp correspond à l’application ou au programme que vous fournissez à vos utilisateurs. Elle se trouve dans l'image de modèle que vous avez téléchargée pour la collection. Quand un utilisateur accède à une application, celle-ci semble s'exécuter dans son environnement local. En réalité, elle s'exécute dans Azure.
 
-Avant que vos utilisateurs puissent accéder à des applications, vous devez les publier dans le flux de l'utilisateur final. Il s'agit d'une liste des applications disponibles auxquelles vos utilisateurs peuvent accéder via le client Bureau à distance.
+Avant que vos utilisateurs puissent accéder à des applications, vous devez les publier. Ceci permet à vos utilisateurs d'y accéder via le client Bureau à distance.
  
 Vous pouvez publier plusieurs applications dans votre collection. Dans la page de publication, cliquez sur **Publier** pour ajouter une application. Vous pouvez publier l'application à partir du menu **Démarrer** de l'image de modèle ou en indiquant le chemin d'accès dans l'image de modèle de l'application. Si vous choisissez d'ajouter l'application à partir du menu **Démarrer**, sélectionnez le programme à ajouter. Si vous choisissez la deuxième option, indiquez un nom pour l'application ainsi que le chemin d'accès à son répertoire d'installation dans l'image de modèle.
 
@@ -149,4 +149,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

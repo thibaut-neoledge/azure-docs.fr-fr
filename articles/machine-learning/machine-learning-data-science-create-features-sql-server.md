@@ -13,21 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="fashah;garye" />
+	ms.date="02/05/2016" 
+	ms.author="bradsev;fashah;garye" />
 
 
 # Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python
 
-Ce **menu** pointe vers des rubriques qui expliquent comment concevoir des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du processus d’analyse Cortana (CAP).
+## Introduction
+
+Ce document montre comment générer des fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure avec lesquelles les algorithmes peuvent apprendre efficacement. Cela est possible à l'aide de SQL ou en utilisant un langage de programmation comme Python, les deux étant utilisés ici.
+
+> [AZURE.NOTE] Pour découvrir un exemple pratique, vous pouvez consulter le [jeu de données des taxis new-yorkais NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au notebook IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-## Introduction
+Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus d'analyse Cortana (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Ce document décrit la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible à l’aide de SQL ou en utilisant un langage de programmation comme Python.
-
-> [AZURE.NOTE]Pour découvrir un exemple pratique, vous pouvez consulter le [jeu de données des taxis new-yorkais NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au notebook IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
 
 ## Configuration requise
 Cet article suppose que vous avez :
@@ -45,7 +46,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 3. [Déploiement des caractéristiques à partir d’une seule colonne](#sql-featurerollout)
 
 
-> [AZURE.NOTE]Une fois que vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous forme de colonnes à la table existante, soit créer une autre table avec les fonctionnalités supplémentaires et la clé primaire que vous pouvez joindre à la table d’origine.
+> [AZURE.NOTE] Une fois que vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous forme de colonnes à la table existante, soit créer une autre table avec les fonctionnalités supplémentaires et la clé primaire que vous pouvez joindre à la table d’origine.
 
 ###<a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
 
@@ -96,10 +97,10 @@ Vous pouvez implémenter les informations d’emplacement comme illustré ci-des
 Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’emplacement pour générer d’autres fonctionnalités utilisant des décomptes comme décrit précédemment.
 
 
-> [AZURE.TIP]Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
  
 
-> [AZURE.TIP]Une autre solution consiste à insérer les données dans la base de données à l’aide de l’[utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> [AZURE.TIP] Une autre solution consiste à insérer les données dans la base de données à l’aide de l’[utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Connexion à Azure Machine Learning
 
@@ -126,4 +127,4 @@ Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Déployer des machines virtuelles avec plusieurs cartes réseau à l’aide d’un modèle
@@ -37,13 +37,13 @@ Avant de déployer les serveurs principaux, vous devez déployer le groupe de re
 2. Dans la page de modèle, à droite du **groupe de ressources parent**, cliquez sur **Déployer dans Azure**.
 3. Si nécessaire, modifiez les valeurs de paramètre, puis suivez les étapes du portail Azure en version préliminaire pour déployer le groupe de ressources.
 
-> [AZURE.IMPORTANT]Assurez-vous que vos noms de compte de stockage sont uniques. Vous ne pouvez pas avoir des noms de compte de stockage en double dans Azure.
+> [AZURE.IMPORTANT] Assurez-vous que vos noms de compte de stockage sont uniques. Vous ne pouvez pas avoir des noms de compte de stockage en double dans Azure.
 
 ## Comprendre le modèle de déploiement
 
 Avant de déployer le modèle fourni avec cette documentation, assurez-vous de bien comprendre sa fonction. Les étapes ci-dessous fournissent une bonne vue d’ensemble du modèle en question.
 
-1. Accédez à la [page de modèle](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
+1. Accédez à la [page de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
 2. Cliquez sur **azuredeploy.json** pour ouvrir le fichier de modèle.
 3. Notez le paramètre *osType* répertorié ci-dessous. Ce paramètre permet de sélectionner l’image de machine virtuelle à utiliser pour le serveur de base de données, ainsi que plusieurs paramètres liés au système d'exploitation.
 
@@ -59,11 +59,11 @@ Avant de déployer le modèle fourni avec cette documentation, assurez-vous de b
 	      }
 	    },
 
-4. Faites défiler la liste des variables et vérifiez la définition des variables *dbVMSetting* répertoriées ci-dessous. Elle reçoit l’un des éléments de tableau contenus dans la variable *dbVMSettings*. Si vous êtes familiarisé avec la terminologie du développement logiciel, vous pouvez afficher la variable *dbVMSettings* en tant que table de hachage ou dictionnaire.
+4. Faites défiler la liste des variables et vérifiez la définition des variables **dbVMSetting** répertoriées ci-dessous. Elle reçoit l’un des éléments de tableau contenus dans la variable **dbVMSettings**. Si vous êtes familiarisé avec la terminologie du développement logiciel, vous pouvez afficher la variable **dbVMSettings** en tant que table de hachage ou dictionnaire.
 
 		"dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 
-5. Supposons que vous décidez de déployer des machines virtuelles Windows exécutant SQL dans le back end. La valeur *osType* est *Windows* et la variable *dbVMSetting* contient l’élément ci-dessous, qui représente la première valeur de la variable *dbVMSettings*.
+5. Supposons que vous décidez de déployer des machines virtuelles Windows exécutant SQL dans le back end. La valeur **osType** est *Windows* et la variable **dbVMSetting** contient l’élément ci-dessous, qui représente la première valeur de la variable **dbVMSettings**.
 
 	      "Windows": {
 	        "vmSize": "Standard_DS3",
@@ -82,7 +82,7 @@ Avant de déployer le modèle fourni avec cette documentation, assurez-vous de b
 	        "dbPort": 1433
 	      },
 
-6. Notez que l’élément *vmSize* contient la valeur *Standard\_DS3*. Seules certaines tailles de machine virtuelle permettent l’utilisation de plusieurs cartes réseau. Vous pouvez vérifier quelles tailles de machine virtuelle ont plusieurs cartes réseau activées en consultant la [vue d’ensemble relative aux multiples cartes réseau](virtual-networks-multiple-nics.md).
+6. Notez que l’élément **vmSize** contient la valeur *Standard\_DS3*. Seules certaines tailles de machine virtuelle permettent l’utilisation de plusieurs cartes réseau. Vous pouvez vérifier quelles tailles de machine virtuelle ont plusieurs cartes réseau activées en consultant la [vue d’ensemble relative aux multiples cartes réseau](virtual-networks-multiple-nics.md).
 7. Faites défiler jusqu’à **resources** et notez le premier élément. Il décrit un compte de stockage. Ce compte de stockage permet de gérer les disques de données utilisés par chaque machine virtuelle de la base de données. Dans ce scénario, chaque machine virtuelle de base de données possède un disque de système d’exploitation stocké dans le stockage standard et deux disques de données stockés dans le stockage SSD (Premium).
 
 	    {
@@ -98,7 +98,7 @@ Avant de déployer le modèle fourni avec cette documentation, assurez-vous de b
 	      }
 	    },
 
-8. Faites défiler jusqu’à la ressource suivante, comme indiqué ci-dessous. Cette ressource représente la carte réseau utilisée pour l’accès à la base de données dans chaque machine virtuelle de base de données. Notez l’utilisation de la fonction **copy** dans cette ressource. Le modèle vous permet de déployer autant de machines virtuelles que vous le souhaitez, en fonction du paramètre *dbCount*. Par conséquent, vous devez créer le même nombre de cartes réseau pour l’accès à la base de données, une pour chaque machine virtuelle.
+8. Faites défiler jusqu’à la ressource suivante, comme indiqué ci-dessous. Cette ressource représente la carte réseau utilisée pour l’accès à la base de données dans chaque machine virtuelle de base de données. Notez l’utilisation de la fonction **copy** dans cette ressource. Le modèle vous permet de déployer autant de machines virtuelles que vous le souhaitez, en fonction du paramètre **dbCount**. Par conséquent, vous devez créer le même nombre de cartes réseau pour l’accès à la base de données, une pour chaque machine virtuelle.
 
 	    {
 	      "apiVersion": "2015-06-15",
@@ -128,7 +128,7 @@ Avant de déployer le modèle fourni avec cette documentation, assurez-vous de b
 	      }
 	    },
 
-9. Faites défiler jusqu’à la ressource suivante, comme indiqué ci-dessous. Cette ressource représente la carte réseau utilisée pour la gestion dans chaque machine virtuelle de base de données. Une fois encore, vous devez avoir une carte réseau pour chaque machine virtuelle de base de données. Notez l’élément *networkSecurityGroup* qui lie un groupe de sécurité réseau qui permet d’accéder à RDP/SSH sur cette carte réseau uniquement.
+9. Faites défiler jusqu’à la ressource suivante, comme indiqué ci-dessous. Cette ressource représente la carte réseau utilisée pour la gestion dans chaque machine virtuelle de base de données. Une fois encore, vous devez avoir une carte réseau pour chaque machine virtuelle de base de données. Notez l’élément **networkSecurityGroup** qui lie un groupe de sécurité réseau qui permet d’accéder à RDP/SSH sur cette carte réseau uniquement.
 
 	    {
 	      "apiVersion": "2015-06-15",
@@ -173,7 +173,7 @@ Avant de déployer le modèle fourni avec cette documentation, assurez-vous de b
 	      }
 	    },
 
-11. Faites défiler jusqu’à la ressource suivante. Cette ressource représente les machines virtuelles de base de données, comme illustré dans les premières lignes répertoriées ci-dessous. Notez à nouveau l’utilisation de la fonction **copy** qui permet de s’assurer que plusieurs machines virtuelles sont créées en fonction du paramètre *dbCount*. Notez également la collection *dependsOn*. Elle répertorie les deux cartes réseau qui doivent être créées avant le déploiement de la machine virtuelle, ainsi que le groupe à haute disponibilité et le compte de stockage.
+11. Faites défiler jusqu’à la ressource suivante. Cette ressource représente les machines virtuelles de base de données, comme illustré dans les premières lignes répertoriées ci-dessous. Notez à nouveau l’utilisation de la fonction **copy** qui permet de s’assurer que plusieurs machines virtuelles sont créées en fonction du paramètre **dbCount**. Notez également la collection **dependsOn**. Elle répertorie les deux cartes réseau qui doivent être créées avant le déploiement de la machine virtuelle, ainsi que le groupe à haute disponibilité et le compte de stockage.
 
 		  "apiVersion": "2015-06-15",
 		  "type": "Microsoft.Compute/virtualMachines",
@@ -193,7 +193,7 @@ Avant de déployer le modèle fourni avec cette documentation, assurez-vous de b
 		    "count": "[parameters('dbCount')]"
 		  },
 
-12. Faites défiler la ressource de machine virtuelle jusqu’à l’élément **networkProfile**, comme indiqué ci-dessous. Notez que deux cartes réseau sont référencées pour chaque machine virtuelle. Lorsque vous créez plusieurs cartes réseau pour une machine virtuelle, vous devez définir la propriété *primary* de l’une des cartes réseau sur *true* et celle des autres cartes réseau sur *false*.
+12. Faites défiler la ressource de machine virtuelle jusqu’à l’élément **networkProfile**, comme indiqué ci-dessous. Notez que deux cartes réseau sont référencées pour chaque machine virtuelle. Lorsque vous créez plusieurs cartes réseau pour une machine virtuelle, vous devez définir la propriété **primary** de l’une des cartes réseau sur *true* et celle des autres cartes réseau sur *false*.
 
         "networkProfile": {
           "networkInterfaces": [
@@ -211,9 +211,9 @@ Avant de déployer le modèle fourni avec cette documentation, assurez-vous de b
 
 ## Déployer le modèle ARM en cliquant pour déployer
 
-> [AZURE.IMPORTANT]Assurez-vous de suivre les [conditions préalables](#Pre-requisites) avant de suivre les instructions ci-dessous.
+> [AZURE.IMPORTANT] Assurez-vous de suivre les [conditions préalables](#Pre-requisites) avant de suivre les instructions ci-dessous.
 
-L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, suivez [ce lien](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC), à droite du **groupe de ressources du back end (voir la documentation)**, cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
+L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, suivez [ce lien](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), à droite du **groupe de ressources du back end (voir la documentation)**, cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
 
 La figure ci-dessous illustre le contenu du nouveau groupe de ressources après le déploiement.
 
@@ -225,7 +225,7 @@ Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les é
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-3. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **New-AzureRmResourceGroup**.
+3. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **`New-AzureRmResourceGroup`**.
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
@@ -260,8 +260,8 @@ Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les é
 
 Pour déployer le modèle à l’aide de l’interface de ligne de commande Azure, procédez comme suit.
 
-1. Si vous n'avez jamais utilisé l'interface de ligne de commande Azure, consultez [Installation et configuration de l'interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu'à l'étape vous invitant à sélectionner votre compte et votre abonnement Azure.
-2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+2. Exécutez la commande **`azure config mode`** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
 
@@ -271,7 +271,7 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 
 3. Ouvrez le [fichier de paramètres](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), sélectionnez son contenu et enregistrez-le dans un fichier sur votre ordinateur. Pour cet exemple, nous avons enregistré le fichier de paramètres sous le nom *parameters.json*.
 
-4. Exécutez l'applet de commande **azure group deployment create** pour déployer le nouveau réseau virtuel à l'aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
+4. Exécutez l'applet de commande **`azure group deployment create`** pour déployer le nouveau réseau virtuel à l'aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
 
 		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
@@ -292,4 +292,4 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

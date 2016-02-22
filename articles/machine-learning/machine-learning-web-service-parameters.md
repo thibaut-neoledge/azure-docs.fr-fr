@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="raymondl;garye"/>
 
 #Utilisation des paramètres de service Web Azure Machine Learning
@@ -71,7 +71,7 @@ Par exemple, supposons que nous avons une expérience avec un module [Writer][wr
 
 L'utilisateur de service Web peut désormais indiquer une nouvelle destination pour le module [Writer][writer] au moment d’accéder au service Web.
 
-##Plus d'informations
+##Plus d’informations
 
 Vous trouverez un exemple plus détaillé en consultant l’entrée [Paramètres de service Web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) du blog [Machine Learning ](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
@@ -91,4 +91,4 @@ Pour plus d'informations sur l'accès à un service Web Machine Learning, cons
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

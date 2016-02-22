@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/29/2016"
+   ms.date="02/09/2016"
    ms.author="brjohnst"/>
 
 # Comment utiliser Azure Search à partir d'une application .NET
@@ -29,9 +29,9 @@ La bibliothèque cliente définit des classes comme `Index`, `Field` et `Documen
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models.](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-La version actuelle du SDK .NET Azure Search est une version préliminaire. Si vous souhaitez fournir des commentaires que nous pourrons intégrer dans la première version stable, consultez notre [page de commentaires](https://feedback.azure.com/forums/263029-azure-search/).
+La version actuelle du Kit de développement logiciel (SDK) .NET Azure Search est désormais mise à la disposition générale. Si vous souhaitez fournir des commentaires que nous pourrons intégrer dans la prochaine version, consultez notre [page de commentaires](https://feedback.azure.com/forums/263029-azure-search/).
 
-Le SDK .NET prend en charge la version `2015-02-28` de l'API REST d’Azure Search, documentée sur [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Cette version inclut désormais la prise en charge des analyseurs de langage Microsoft. Les nouvelles fonctionnalités qui ne font *pas* partie de cette version, comme la prise en charge du paramètre de recherche `moreLikeThis`, ne sont [pas finalisées](search-api-2015-02-28-preview.md) et ne sont donc pas disponibles dans le Kit de développement logiciel (SDK). Consultez les pages [Contrôle de version du service Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Dernières mises à jour d’Azure Search](search-latest-updates.md) pour connaître les mises à jour disponibles sur chaque fonctionnalité.
+Le SDK .NET prend en charge la version `2015-02-28` de l'API REST d’Azure Search, documentée sur [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Cette version inclut désormais la prise en charge de la syntaxe de requête Lucene et des analyseurs de langage Microsoft. Les nouvelles fonctionnalités qui ne font *pas* partie de cette version, comme la prise en charge du paramètre de recherche `moreLikeThis`, ne sont [pas finalisées](search-api-2015-02-28-preview.md) et ne sont donc pas disponibles dans le Kit de développement logiciel (SDK). Consultez les pages [Contrôle de version du service Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Dernières mises à jour d’Azure Search](search-latest-updates.md) pour connaître les mises à jour disponibles sur chaque fonctionnalité.
 
 Les autres fonctionnalités non prises en charge dans ce SDK sont les suivantes :
 
@@ -39,7 +39,7 @@ Les autres fonctionnalités non prises en charge dans ce SDK sont les suivantes�
 
 ## Mise à niveau vers la dernière version du Kit de développement logiciel (SDK)
 
-Si vous utilisez déjà une version antérieure du Kit de développement logiciel (SDK) .NET Azure Search et que vous souhaitez mettre à niveau vers la nouvelle version 1.0-version préliminaire, [cet article](search-dotnet-sdk-migration.md) vous explique comment procéder.
+Si vous utilisez déjà une version antérieure du Kit de développement logiciel (SDK) .NET Azure Search et que vous souhaitez mettre à niveau vers la nouvelle mise à la disposition générale, [cet article](search-dotnet-sdk-migration.md) vous explique comment procéder.
 
 ## Configuration requise pour le SDK
 
@@ -47,7 +47,7 @@ Si vous utilisez déjà une version antérieure du Kit de développement logicie
 
 2. Votre propre service Azure Search. Pour utiliser le SDK, vous devez connaître le nom de votre service et une ou plusieurs clés API. [Créer un service dans le portail](search-create-service-portal.md) vous guidera à travers ces étapes.
 
-3. Téléchargez le [package NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) du SDK .NET Azure Search en utilisant « Gérer les packages NuGet » dans Visual Studio. Recherchez le package nommé `Microsoft.Azure.Search` sur NuGet.org. Veillez à sélectionner « Inclure la version préliminaire » pour vous assurer que la version préliminaire du SDK apparaîtra dans les résultats de recherche.
+3. Téléchargez le [package NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) du SDK .NET Azure Search en utilisant « Gérer les packages NuGet » dans Visual Studio. Recherchez le package nommé `Microsoft.Azure.Search` sur NuGet.org.
 
 Le Kit de développement logiciel (SDK) .NET Azure Search prend en charge les applications qui ciblent .NET Framework version 4.5, ainsi que les applications Windows Store ciblant Windows 8.1 et Windows Phone 8.1. Silverlight n’est pas pris en charge.
 
@@ -645,4 +645,4 @@ Hotel.cs :
 
 Vous trouverez également l'exemple de code source dans sa totalité [sur GitHub](http://aka.ms/search-dotnet-howto).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

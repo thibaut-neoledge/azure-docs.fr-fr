@@ -3,7 +3,7 @@
    description="Résumé des fonctionnalités de la version préliminaire publique et de nos objectifs pour la disponibilité générale de SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lvargas"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="01/07/2016"
-   ms.author="lvargas;mausher;barbkess"/>
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Attentes de SQL Data Warehouse preview
 
@@ -72,4 +72,4 @@ SQL Data Warehouse stocke les données sur un ou plusieurs nœuds de calcul qui,
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

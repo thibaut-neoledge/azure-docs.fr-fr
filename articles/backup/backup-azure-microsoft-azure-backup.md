@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="01/22/2016"
+  ms.date="02/04/2016"
   ms.author="jimpark; trinadhk;"/>
 
 # Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server
@@ -66,7 +66,7 @@ Pour créer un archivage de sauvegarde :
 
 6. Un message confirme que l’archivage a été correctement créé et l’archivage est affiché dans la page Services de récupération avec l’état Actif. ![Liste des archivages de sauvegarde](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  >[AZURE.IMPORTANT] Assurez-vous que l'option de redondance de stockage appropriée est choisie juste après la création de l'archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+  > [AZURE.IMPORTANT] Assurez-vous que l'option de redondance de stockage appropriée est choisie juste après la création de l'archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
 
 ## 3\. Package logiciel
@@ -211,4 +211,4 @@ Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion d
 - [Sauvegarde de serveur SharePoint](backup-azure-backup-sharepoint.md)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="02/09/2016"
    ms.author="mbaldwin"/>
 
 # Scénarios d’authentification pour Azure AD
@@ -63,12 +63,12 @@ Voici ce que vous devez savoir sur les divers composants du diagramme ci-dessus�
 • Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi pour les parties concernées. Les développeurs peuvent utiliser les bibliothèques d’authentification fournies pour gérer la validation d’un jeton d’Azure AD, y compris les jetons Web JSON (JWT) ou SAML 2.0. Pour effectuer la validation manuellement, consultez la documentation sur le [gestionnaire de jeton JWT](https://msdn.microsoft.com/library/dn205065.aspx).
 
 
-> [AZURE.IMPORTANT]Azure AD utilise le chiffrement à clé publique pour signer les jetons et vérifier leur validité. Consultez la rubrique [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) pour plus d’informations sur la logique dont vous devez disposer dans votre application pour vous assurer qu’elle est systématiquement mise à jour avec les clés les plus récentes.
+> [AZURE.IMPORTANT] Azure AD utilise le chiffrement à clé publique pour signer les jetons et vérifier leur validité. Consultez la rubrique [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) pour plus d’informations sur la logique dont vous devez disposer dans votre application pour vous assurer qu’elle est systématiquement mise à jour avec les clés les plus récentes.
 
 
 • Le flux de demandes et réponses du processus d’authentification est déterminé par le protocole d’authentification utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Ces protocoles sont présentés plus en détail dans la rubrique [Protocoles d’authentification d’Azure Active Directory](active-directory-authentication-protocols.md) et dans les sections ci-dessous.
 
-> [AZURE.NOTE]Azure AD prend en charge les normes OAuth 2.0 et OpenID Connect, qui utilisent massivement les jetons porteurs, y compris des jetons porteurs représentés sous forme de JWT. Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Une partie doit certes d’abord s’authentifier auprès d’Azure AD pour recevoir le jeton porteur, mais si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur afin de s’approprier le jeton et de l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+> [AZURE.NOTE] Azure AD prend en charge les normes OAuth 2.0 et OpenID Connect, qui utilisent massivement les jetons porteurs, y compris des jetons porteurs représentés sous forme de JWT. Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Une partie doit certes d’abord s’authentifier auprès d’Azure AD pour recevoir le jeton porteur, mais si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur afin de s’approprier le jeton et de l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
 
 Maintenant que vous avez une vue d’ensemble des principes fondamentaux, lisez les sections ci-dessous pour comprendre comment l’approvisionnement fonctionne dans Azure AD et les scénarios courants qu’Azure AD prend en charge.
@@ -138,7 +138,7 @@ Chaque scénario répertorié dans ce document inclut une sous-section décrivan
 
 ## Types d’application et scénarios
 
-Chaque scénario décrit dans ce document peut être développé à l’aide de différents langages et plateformes, et vous trouverez des [exemples de code complets sur GitHub](https://github.com/AzureADSamples) pour chacun d’entre eux. De plus, si votre application nécessite un élément ou segment spécifique d’un scénario de bout en bout, vous pouvez ajouter cette fonctionnalité séparément dans la plupart des cas. Par exemple, si vous avez une application native qui appelle une API web, vous pouvez facilement ajouter une application web qui appelle elle-aussi l’API web. Le diagramme suivant illustre ces scénarios et types d’application, ainsi que la manière dont vous pouvez ajouter les différents composants :
+Chacun des scénarios décrits dans ce document peut être développé à l'aide de différents langages et plates-formes. Ils sont tous soutenus par des exemples de code complets disponibles dans notre [guide d’exemples de code](active-directory-code-samples.md), ou directement à partir des [référentiels d'exemples Github](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory) correspondants. De plus, si votre application nécessite un élément ou segment spécifique d’un scénario de bout en bout, vous pouvez ajouter cette fonctionnalité séparément dans la plupart des cas. Par exemple, si vous avez une application native qui appelle une API web, vous pouvez facilement ajouter une application web qui appelle elle-aussi l’API web. Le diagramme suivant illustre ces scénarios et types d’application, ainsi que la manière dont vous pouvez ajouter les différents composants :
 
 ![Types d’application et scénarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -292,7 +292,7 @@ Si vous utilisez les bibliothèques d’authentification AD, la plupart des dét
 6. Quand le jeton d’accès arrive à expiration, l’application cliente reçoit une erreur indiquant que l’utilisateur doit s’authentifier à nouveau. Si l’application dispose d’un jeton d’actualisation valide, celui-ci peut être utilisé pour obtenir un nouveau jeton d’accès sans demander à l’utilisateur de se connecter à nouveau. Si le jeton d’actualisation arrive à expiration, l’application doit interactivement authentifier l’utilisateur une nouvelle fois.
 
 
-> [AZURE.NOTE]Le jeton d’actualisation émis par Azure AD peut être utilisé pour accéder à plusieurs ressources. Par exemple, si une application cliente est autorisée à appeler deux API web, le jeton d’actualisation peut être utilisé pour obtenir un jeton d’accès à l’autre API web également.
+> [AZURE.NOTE] Le jeton d’actualisation émis par Azure AD peut être utilisé pour accéder à plusieurs ressources. Par exemple, si une application cliente est autorisée à appeler deux API web, le jeton d’actualisation peut être utilisé pour obtenir un jeton d’accès à l’autre API web également.
 
 
 #### Exemples de code
@@ -467,4 +467,4 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

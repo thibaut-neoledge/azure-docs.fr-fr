@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Exécution de requêtes Hive à l'aide de la console de requêtes
@@ -23,7 +23,7 @@
 
 Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 
-> [AZURE.NOTE]La console de requêtes n'est disponible que sur les clusters HDInsight Windows.
+> [AZURE.NOTE] La console de requêtes n'est disponible que sur les clusters HDInsight Windows.
 
 
 ##<a id="prereq"></a>Configuration requise
@@ -45,6 +45,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 	Remplacez le texte `Select * from hivesampletable` par les instructions HiveSQL suivantes :
 
+        set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -56,7 +57,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
     * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
     * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d’origine.
 
-    > [AZURE.NOTE]Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe (comme un processus de téléchargement de données automatisé) ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
+    > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe (comme un processus de téléchargement de données automatisé) ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
     >
     > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
@@ -121,4 +122,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

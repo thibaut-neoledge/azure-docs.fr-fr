@@ -3,7 +3,7 @@
 	description="Découvrez comment configurer l'authentification Twitter pour votre application App Services."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Comment configurer votre application App Service de manière à utiliser la connexion via Twitter
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Cette rubrique montre comment configurer Azure App Service pour utiliser Twitter comme fournisseur d’authentification.
 
@@ -40,8 +38,8 @@ Cette rubrique décrit l'utilisation de la fonctionnalité Authentification/auto
 
 3. Entrez le **Nom** et une **Description** pour votre nouvelle application. Collez l’**URL** de votre application en guise de **Site web**. Ensuite, pour l’**URL de rappel**, collez l’**URL de rappel** que vous avez copiée précédemment. Il s’agit de la passerelle de votre application Mobile App suivie du chemin _/.auth/login/twitter/callback_. Par exemple, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assurez-vous d'utiliser le schéma HTTPS.
 
-	> [AZURE.NOTE]
-	Si vous utilisez la passerelle App Service au lieu de la fonction d’authentification/autorisation d’App Service, votre URL de redirection utilise à la place l’URL de la passerelle avec le chemin d’accès _/signin-twitter_.
+> [AZURE.NOTE]
+Si vous utilisez la passerelle App Service au lieu de la fonction d’authentification/autorisation d’App Service, votre URL de redirection utilise à la place l’URL de la passerelle avec le chemin d’accès _/signin-twitter_.
 
 3.  Au bas de la page, lisez et acceptez les termes du contrat. Ensuite, cliquez sur **Créer votre application Twitter**. Cette opération inscrit l'application et affiche les détails de la demande.
 
@@ -91,4 +89,4 @@ Vous êtes maintenant prêt à utiliser Twitter pour l'authentification dans vot
 [portail Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

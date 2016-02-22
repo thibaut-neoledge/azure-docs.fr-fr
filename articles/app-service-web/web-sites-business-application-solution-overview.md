@@ -32,7 +32,8 @@ Voici un exemple d’une application métier exécutée sur App Service Web Apps
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Ce guide présente les domaines et les tâches parmi les plus courants s’adaptant aux applications métier. Cependant, Azure App Service Web Apps offre encore d’autres fonctionnalités, que vous pouvez utiliser pour votre implémentation. Pour les découvrir, consultez également les autres guides concernant la [Présence sur le Web à l'international](web-sites-global-web-presence-solution-overview.md) et les [Campagnes marketing numériques](web-sites-digital-marketing-application-solution-overview.md).
+> [AZURE.NOTE]
+Ce guide présente les domaines et les tâches parmi les plus courants s’adaptant aux applications métier. Cependant, Azure App Service Web Apps offre encore d’autres fonctionnalités, que vous pouvez utiliser pour votre implémentation. Pour les découvrir, consultez également les autres guides concernant la [Présence sur le Web à l'international](web-sites-global-web-presence-solution-overview.md) et les [Campagnes marketing numériques](web-sites-digital-marketing-application-solution-overview.md).
 
 ## Apporter des ressources existantes
 
@@ -79,10 +80,10 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 ## Autres ressources
 
 - [Documentation d’App Service Web Apps](/services/app-service/web/)
-- [Plan d’apprentissage pour Azure App Service Web Apps](websites-learning-map.md)
+- [Plan d’apprentissage pour Azure App Service Web Apps](/documentation/learning-paths/appservice-webapps/)
 - [Blog web sur Microsoft Azure](/blog/topics/web/)
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -124,4 +125,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

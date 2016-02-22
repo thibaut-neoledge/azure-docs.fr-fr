@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -25,14 +25,13 @@ Pour activer l’appartenance dynamique à un groupe spécifique, procédez comm
 
 2. Vous pouvez à présent définir une seule règle simple pour le groupe, qui contrôle la manière dont l’appartenance dynamique fonctionne pour ce groupe. Assurez-vous que l’option **Ajouter des utilisateurs où** est cochée, puis sélectionnez une propriété d’utilisateur dans la liste (par exemple, department, jobTitle, etc.).
 
-3. Ensuite, sélectionnez une condition (Non égal à, Égal à, Ne commence pas par, Commence par, Ne contient pas, Contient, Ne correspond pas, Correspond), puis spécifiez une valeur pour la propriété d’utilisateur sélectionnée. Par exemple, si un groupe est affecté à une application SaaS et que vous activez les appartenances dynamiques à ce groupe en définissant une règle selon laquelle **Ajouter des utilisateurs où** a la valeur jobTitle qui est égale à (-eq)Sales Rep, tous les utilisateurs au sein de votre annuaire Azure AD dont la propriété jobTitle a la valeur Sales Rep ont accès à cette application SaaS.
-4. 
-Notez que vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office
+3. Ensuite, sélectionnez une condition (Non égal à, Égal à, Ne commence pas par, Commence par, Ne contient pas, Contient, Ne correspond pas, Correspond), puis spécifiez une valeur pour la propriété d’utilisateur sélectionnée. Par exemple, si un groupe est affecté à une application SaaS et que vous activez les appartenances dynamiques à ce groupe en définissant une règle selon laquelle **Ajouter des utilisateurs où** a la valeur jobTitle qui est égale à (-eq)Sales Rep, tous les utilisateurs au sein de votre annuaire Azure AD dont la propriété jobTitle a la valeur Sales Rep ont accès à cette application SaaS. 4. Notez que vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office
 
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
+* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

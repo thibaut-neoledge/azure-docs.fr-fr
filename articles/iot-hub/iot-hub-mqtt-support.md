@@ -26,7 +26,7 @@ Un appareil peut se connecter à un hub IoT en utilisant le protocole MQTT, ains
 
 ## Utilisation des Kits de développement logiciel (SDK) clients pour les appareils
 
-Les [Kits de développement logiciel (SDK) clients pour les appareils][lnk-mqtt-org] qui prennent en charge le protocole MQTT sont disponibles pour Java, Node.js, C et C#. Les Kits de développement logiciel (SDK) clients pour les appareils utilisent la chaîne de connexion IoT Hub standard pour établir une connexion à un hub IoT. Pour utiliser le protocole MQTT, le paramètre de protocole du client doit être défini sur **MQTT**. Par défaut, les Kits de développement logiciel (SDK) clients pour les appareils se connectent à un hub IoT avec l’indicateur **CleanSession** défini sur **0** et utilisent **QoS 1** pour l’échange de messages avec le hub IoT.
+Les [Kits de développement logiciel (SDK) clients pour les appareils][lnk-device-sdks] qui prennent en charge le protocole MQTT sont disponibles pour Java, Node.js, C et C#. Les Kits de développement logiciel (SDK) clients pour les appareils utilisent la chaîne de connexion IoT Hub standard pour établir une connexion à un hub IoT. Pour utiliser le protocole MQTT, le paramètre de protocole du client doit être défini sur **MQTT**. Par défaut, les Kits de développement logiciel (SDK) clients pour les appareils se connectent à un hub IoT avec l’indicateur **CleanSession** défini sur **0** et utilisent **QoS 1** pour l’échange de messages avec le hub IoT.
 
 Quand un appareil est connecté à un hub IoT, les Kits de développement logiciel (SDK) clients pour les appareils fournissent des méthodes qui permettent à l’appareil d’envoyer des messages et d’en recevoir à partir d’un hub IoT.
 
@@ -81,4 +81,4 @@ Pour en savoir plus sur le protocole MQTT, consultez la [documentation de MQTT][
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

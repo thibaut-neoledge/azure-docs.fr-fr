@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -119,7 +119,8 @@ Ceci vous aidera à intégrer votre locataire Azure AD dans votre service Active
 5.	Dans la section de **déploiement et de gestion**, suivez les étapes 1 à 3 pour intégrer Azure Active Directory à votre répertoire local.
   1.	Ajoutez des domaines.
   2.	Installez et exécutez Azure AD Connect : installez Azure AD Connect à l'aide des instructions suivantes, [Installation personnalisée d'Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-  3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape. >[AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. >[AZURE.NOTE] Il est inutile de configurer les fonctionnalités d'aperçu.
+  3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape.
+  >[AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus.[AZURE.NOTE] Il est inutile de configurer les fonctionnalités d'aperçu.
   
    
 
@@ -244,4 +245,8 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 ![Capture d'écran d'une erreur lorsque les utilisateurs n'ont pas enregistré leur appareil auprès d'Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_0128_2016-->
+##Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

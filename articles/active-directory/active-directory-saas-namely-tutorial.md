@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/10/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Namely avec
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Namely. 
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Namely (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory.
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Pour configurer l’intégration d’Azure AD avec Namely, vous avez besoin des
 - Un abonnement Namely pour lequel l’authentification unique est activée
 
 
-> [AZURE.NOTE]Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -56,7 +56,7 @@ Pour configurer l’intégration de Namely avec Azure AD, vous devez ajouter Na
 
 **Pour ajouter Namely à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -81,14 +81,14 @@ Pour configurer et tester l’authentification unique Azure AD avec Namely, vou
 
 ### Configuration de l’authentification unique Azure AD
 
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD et de configurer l’authentification unique dans votre application Namely.
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Namely.
 
 
 
 
 **Pour configurer l’authentification unique Azure AD avec Namely, procédez comme suit :**
 
-1. Dans le portail Azure AD, puis sur la page d’intégration d’applications **Namely**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Namely**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
 2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Namely**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-namely-tutorial/tutorial_namely_03.png) <br>
 
@@ -120,34 +120,34 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Cliquez sur **Enable SAML**.
 
-    b. Sur la page **Configurer l’authentification unique sur Namely** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL d’authentification unique du fournisseur d’identité**.
+    b. Sur la page **Configurer l’authentification unique sur Namely** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL d’authentification unique du fournisseur d’identité**.
 
     c. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte **Certificat du fournisseur d’identité**.
 
     d. Cliquez sur **Enregistrer**.
 
 
-6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
 
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
+7. Dans la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
 
 
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_09.png) <br> 
+1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_09.png) <br> 
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_03.png) <br>
+3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_03.png) <br>
  
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, dans la barre d’outils en bas, cliquez sur **Ajouter un utilisateur**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_04.png) <br>
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_04.png) <br>
 
-5. Sur la page **Parlez-nous de cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_05.png) <br>
+5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_05.png) <br>
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -159,15 +159,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
-    b. Dans la zone de texte **Nom**, entrez **Simon**.
+    b. Dans la zone de texte **Nom**, tapez **Simon**.
 
     c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
 
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**. e. Cliquez sur **Next**.
 
-7. Sur la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_07.png) <br>
+7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_07.png) <br>
  
-8. Sur la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_08.png) <br>
+8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_08.png) <br>
   
     a. Notez la valeur du **Nouveau mot de passe**.
 
@@ -197,7 +197,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     b. Dans la zone de texte **Nom**, entrez **Simon**.
 
-    c. Dans la zone de texte **Email**, entrez l’adresse de messagerie de Britta dans le portail Azure.
+    c. Dans la zone de texte **Email**, tapez l’adresse de messagerie de Britta dans le portail Azure Classic.
 
     d. Cliquez sur **Enregistrer**.
 
@@ -211,15 +211,15 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Namely, procédez comme suit :**
 
-1. Dans la vue d’annuaire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 
 2. Dans la liste des applications, sélectionnez **Namely**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-namely-tutorial/tutorial_namely_50.png) <br>
 
 1. Dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Affecter des utilisateurs][203] <br>
 
-1. Dans la liste des utilisateurs, sélectionnez **Britta Simon**.
+1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils située en bas, cliquez sur **Affecter**. <br><br>![Affecter des utilisateurs][205]
+2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**. <br><br>![Affecter des utilisateurs][205]
 
 
 
@@ -252,4 +252,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-namely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-namely-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

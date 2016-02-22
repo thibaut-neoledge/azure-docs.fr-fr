@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="02/02/2016"
     ms.author="ericor" />
 
 
@@ -26,7 +26,7 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 ## Avant de commencer
 
 1.      Vérifiez que votre image personnalisée est conforme aux [exigences relatives aux images](remoteapp-imagereqs.md) et aux [exigences relatives aux applications](remoteapp-appreqs.md).
-2.      Installez le [module Azure PowerShell](../install-configure-powershell.md).
+2.      Installez le [module Azure PowerShell](../powershell-install-configure.md).
 
 ## Guide étape par étape pour le téléchargement d’une image personnalisée
 
@@ -43,7 +43,7 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 
 11.    Si votre téléchargement échoue en raison d’une interruption du réseau ou d’un problème similaire, vous pouvez toujours reprendre le processus de téléchargement commencé. Pour reprendre un téléchargement, exécutez le script en utilisant la même ligne de commande.
 
-> [AZURE.WARNING]Ne modifiez jamais le script de téléchargement. Des vérifications spécifiques ont été implémentées pour vous assurer que l’image répond aux exigences relatives aux images et aux applications.
+> [AZURE.WARNING] Ne modifiez jamais le script de téléchargement. Des vérifications spécifiques ont été implémentées pour vous assurer que l’image répond aux exigences relatives aux images et aux applications.
 
 ## Problèmes courants
 
@@ -51,4 +51,4 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 - Ne modifiez jamais le script, les validations sont pensées pour vous faciliter la tâche.
 - Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

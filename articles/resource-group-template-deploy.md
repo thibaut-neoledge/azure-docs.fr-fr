@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Déployer une application avec un modèle Azure Resource Manager
@@ -271,7 +271,7 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
 
 La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
-Pour savoir comment définir des paramètres dans le modèle, consultez la section [Création de modèles](resource-group-authoring-templates.md/#parameters). Pour plus d’informations sur la référence de coffre de clés permettant de passer les valeurs sécurisées lors du déploiement, consultez la section [Passage de valeurs sécurisées lors du déploiement ](resource-manager-keyvault-parameter.md)
+Pour savoir comment définir des paramètres dans le modèle, consultez la section [Création de modèles](../resource-group-authoring-templates/#parameters). Pour plus d'informations sur la référence de coffre de clés permettant de passer les valeurs sécurisées lors du déploiement, consultez la section [Passage de valeurs sécurisées lors du déploiement ](resource-manager-keyvault-parameter.md)
 
 ## Étapes suivantes
 - Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, voir [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](./virtual-machines/arm-template-deployment.md).
@@ -282,4 +282,4 @@ Pour savoir comment définir des paramètres dans le modèle, consultez la secti
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

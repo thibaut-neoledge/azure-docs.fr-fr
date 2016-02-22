@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/29/2016"
+	ms.date="02/09/2016"
 	ms.author="juliako"/>
 
 
@@ -66,6 +66,7 @@ Plusieurs en-têtes HTTP courants ne sont pas fournis dans l'API REST.|Si vous d
 Le codage d'un élément multimédia avec un nom de fichier contenant un caractère d'échappement (par exemple, %20) échoue avec le message « MediaProcessor : fichier introuvable ».|Les noms des fichiers qui vont être ajoutés à un élément multimédia puis codés ne doivent contenir que des caractères alphanumérique et des espaces. Le problème sera résolu dans une prochaine mise à jour.
 La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échoue.|Media Services génère des URL SAS basées sur la version du [02/12/2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Si vous voulez utiliser le Kit de développement logiciel (SDK) d'Azure Storage pour répertorier les objets blob dans un conteneur d'objets blob, utilisez la méthode [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) intégrée à la version 2.x de ce kit. La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échouera.
 Le mécanisme de limitation de Media Services restreint l'utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d'état HTTP Service indisponible (503).|Pour plus d'informations, reportez-vous à la description du code d'état HTTP 503 dans la rubrique [Codes d'erreur d'Azure Media Services](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. | Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) tel que décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d'API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 
 ### <a id="dotnet_issues"></a>Problèmes concernant le Kit de développement logiciel (SDK) de Media Services pour .NET
@@ -643,4 +644,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus d’analyse Cortana
@@ -127,7 +127,7 @@ Dans cette section, nous décrivons les tâches de retraitement des données ave
 1. [Exploration des données](#hive-dataexploration)
 2. [Génération de fonctionnalités](#hive-featureengineering)
 
-> [AZURE.NOTE]Ces exemples de requête Hive supposent que les données ont été téléchargées dans les tables Hive situées dans les clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
+> [AZURE.NOTE] Ces exemples de requête Hive supposent que les données ont été téléchargées dans les tables Hive situées dans les clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
 
 ###<a name="hive-dataexploration"></a>Exploration des données
 Voici quelques exemples de scripts Hive qui vous permettent d’explorer les données dans des tables Hive.
@@ -179,7 +179,7 @@ Cette section décrit les méthodes permettant de générer des fonctionnalités
 4. [Extraction de fonctionnalités à partir de champs de texte](#hive-textfeature)
 5. [Calcul de la distance entre des coordonnées GPS](#hive-gpsdistance)
 
-> [AZURE.NOTE]Lorsque vous générez des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec ces fonctionnalités et la clé principale, que vous pouvez ensuite relier à la table d'origine par une jointure.
+> [AZURE.NOTE] Lorsque vous générez des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec ces fonctionnalités et la clé principale, que vous pouvez ensuite relier à la table d'origine par une jointure.
 
 ####<a name="hive-frequencyfeature"></a> Génération de fonctionnalités basées sur la fréquence
 
@@ -325,4 +325,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

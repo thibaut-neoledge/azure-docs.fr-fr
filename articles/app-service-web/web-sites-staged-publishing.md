@@ -49,7 +49,8 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
 
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 
-	> [AZURE.NOTE]Si l’application web n’est pas en mode **Standard** ou **Premium**, vous recevez un message indiquant les modes pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application web avant de continuer.
+	> [AZURE.NOTE]
+	Si l’application web n’est pas en mode **Standard** ou **Premium**, vous recevez un message indiquant les modes pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application web avant de continuer.
 
 2. Dans le panneau **Ajouter un emplacement**, nommez l’emplacement, puis indiquez si vous souhaitez cloner la configuration de l’application web à partir d’un autre emplacement de déploiement. Cliquez sur la coche pour continuer.
 
@@ -97,7 +98,7 @@ Pour lier un paramètre d’application ou une chaîne de connexion à un emplac
 <a name="Swap"></a>
 ## Pour échanger des emplacements de déploiement ##
 
->[AZURE.IMPORTANT]Avant de basculer une application web depuis un emplacement de déploiement vers un emplacement de production, assurez-vous que tous les paramètres non propres à un emplacement sont configurés comme vous le souhaitez dans la cible de l’échange.
+>[AZURE.IMPORTANT] Avant de basculer une application web depuis un emplacement de déploiement vers un emplacement de production, assurez-vous que tous les paramètres non propres à un emplacement sont configurés comme vous le souhaitez dans la cible de l’échange.
 
 1. Pour échanger des emplacements de déploiement, cliquez sur le bouton **Échanger** dans la barre de commandes de l’application web ou dans celle d’un emplacement de déploiement. Assurez-vous que la source et la cible de l’échange sont définies correctement. En règle générale, la cible de l’échange correspond à l’emplacement de production.  
 
@@ -109,7 +110,7 @@ Pour lier un paramètre d’application ou une chaîne de connexion à un emplac
 
 L’échange automatique simplifie les scénarios des opérations de développement dans lesquels vous souhaitez déployer votre application web en continu sans démarrage à froid ni temps d’arrêt pour les clients finaux. Si un emplacement de déploiement est configuré pour l’échange automatique en production, chaque fois que vous envoyez une mise à jour de votre code par une transmission de type push vers cet emplacement, App Service échange automatiquement l’application web en production après l’avoir initialisée dans l’emplacement.
 
->[AZURE.IMPORTANT]Lorsque vous activez l’échange automatique pour un emplacement, vérifiez que la configuration de l’emplacement est exactement celle que vous souhaitez pour l’emplacement cible (en général, l’emplacement de production).
+>[AZURE.IMPORTANT] Lorsque vous activez l’échange automatique pour un emplacement, vérifiez que la configuration de l’emplacement est exactement celle que vous souhaitez pour l’emplacement cible (en général, l’emplacement de production).
 
 La configuration de l’échange automatique pour un emplacement est facile. Pour ce faire, procédez comme suit :
 
@@ -123,7 +124,7 @@ La configuration de l’échange automatique pour un emplacement est facile. Pou
 
 	![][Autoswap2]
 
-	>[AZURE.NOTE]Pour tester l’échange automatique sur votre application web, commencez par sélectionner un emplacement cible autre que de production dans **Échanger automatiquement un emplacement** pour vous familiariser avec la fonctionnalité.
+	>[AZURE.NOTE] Pour tester l’échange automatique sur votre application web, commencez par sélectionner un emplacement cible autre que de production dans **Échanger automatiquement un emplacement** pour vous familiariser avec la fonctionnalité.
 
 3. Exécutez une transmission de code de type push vers cet emplacement de déploiement. L’échange automatique se produit peu après, et la mise à jour est appliquée dans l’URL de votre emplacement cible.
 
@@ -134,7 +135,18 @@ L’échange multiphase est disponible pour simplifier la validation dans le con
 
 <a name="Rollback"></a>
 ## Pour rétablir une application de production après un échange ##
+
 Si vous identifiez des erreurs de production après un basculement d'emplacements, rétablissez ces deux emplacements comme ils étaient, en les intervertissant immédiatement.
+
+<a name="Warm-up"></a>
+## Mise en route personnalisé avant la permutation ##
+
+Certaines applications peuvent nécessiter des actions personnalisées de mise en route. L'élément de configuration applicationInitialization du fichier web.config vous permet de spécifier les actions d'initialisation personnalisées à exécuter avant la réception d’une demande. L'opération de permutation attendra la fin de cette mise en route personnalisée. Voici un exemple de fragment web.config.
+
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[web app hostname]" />
+        <add initializationPage="/Home/About" hostname="[web app hostname]" />
+    </applicationInitialization>
 
 <a name="Delete"></a>
 ## Pour supprimer un emplacement de déploiement##
@@ -150,7 +162,7 @@ Dans la barre de commandes du panneau d’un emplacement de déploiement, clique
 
 Azure PowerShell est un module qui fournit des cmdlets pour gérer Azure via Windows PowerShell, notamment la prise en charge de la gestion des emplacements de déploiement des applications web dans Azure App Service.
 
-- Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).  
+- Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).  
 
 - Afin d’utiliser le nouveau mode Azure Resource Manager pour les applets de commande PowerShell, commencez par ce qui suit : `Switch-AzureMode -Name AzureResourceManager`.
 
@@ -233,7 +245,7 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 
 ----------
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Étapes suivantes ##
 [Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -259,4 +271,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

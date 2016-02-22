@@ -3,8 +3,8 @@
    description="Data Lake Analytics est un service Azure de calcul de Big Data qui vous permet de gérer votre entreprise en utilisant les informations qui ressortent de vos données dans le cloud, quelle que soit leur taille et où qu’elles soient. Data Lake Analytics procède de la manière la plus simple, la plus évolutive et la plus économique possible. Cette page est le backlog de nos efforts de documentation."
    documentationCenter="na"
    services="data-lake-analytics"
-   authors="mumian"
-   manager="paulettm"
+   authors="pablissima"
+   manager="pablissima"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/05/2015"
+   ms.date="02/10/2016"
    ms.author="mwinkle"/>
 
 # Backlog de la documentation Azure Data Lake Analytics
@@ -57,4 +57,4 @@ Plusieurs possibilités vous sont données pour fournir des commentaires sur le 
 * Envoyer une requête de tirage sur ce document dans le [référentiel de contenu Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Envoyer un e-mail à l’adresse [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

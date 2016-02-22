@@ -1,10 +1,16 @@
-<properties pageTitle="Se connecter à une base de données SQL à l’aide de SQL Server Management Studio dans Azure RemoteApp | Microsoft Azure" description="Utilisez ce didacticiel pour découvrir comment utiliser SQL Server Management Studio dans Azure RemoteApp pour des raisons de sécurité et de performance lors de la connexion à une base de données SQL" services="sql-database" documentationCenter="" authors="adhurwit" manager="" tags=""//>
+<properties 
+	pageTitle="Se connecter à la base de données SQL avec SQL Server Management Studio dans Azure RemoteApp | Microsoft Azure" 
+	description="Utilisez ce didacticiel pour apprendre à utiliser SQL Server Management Studio dans Azure RemoteApp pour la sécurité et les performances lors de la connexion à la base de données SQL"
+	services="sql-database" 
+	documentationCenter=""
+	authors="adhurwit" 
+	manager=""/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
@@ -14,11 +20,11 @@
 ## Introduction  
 Ce didacticiel vous montre comment utiliser SQL Server Management Studio (SSMS) dans Azure RemoteApp pour vous connecter à une base de données SQL. Il vous guide tout au long de la configuration de SQL Server Management Studio dans Azure RemoteApp, vous en décrit les avantages, et indique les fonctionnalités de sécurité que vous pouvez utiliser dans Azure Active Directory.
 
-**Durée estimée :** 45 minutes
+**Durée estimée :** 45 minutes
 
 ## SSMS dans Azure RemoteApp
 
-Azure RemoteApp est un service RDS d’Azure, qui fournit des applications. Vous pouvez obtenir plus d’informations sur ce service ici : [Qu’est-ce que RemoteApp ?](../remoteapp-whatis.md)
+Azure RemoteApp est un service RDS d’Azure, qui fournit des applications. Vous pouvez obtenir plus d'informations sur ce service ici : [Qu'est-ce que RemoteApp ?](../remoteapp-whatis.md)
 
 L’exécution de SSMS dans Azure RemoteApp et l’exécution locale de SSMS vous donnent la même expérience.
 
@@ -66,14 +72,14 @@ Un script PowerShell de validation figure sur le Bureau de la machine virtuelle.
 
 Lorsque l’exécution de Sysprep est terminée, il arrête la machine virtuelle.
 
-Pour en savoir plus sur la création d’une image Azure RemoteApp, consultez la page [Création d’une image de modèle RemoteApp dans Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx).
+Pour en savoir plus sur la création d'une image Azure RemoteApp, consultez la page [Création d'une image de modèle RemoteApp dans Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx).
 
 
 ### 4\. Capturer l’image
 
 Lorsque l’exécution de la machine virtuelle est arrêtée, recherchez-la dans le portail actuel et capturez-la.
 
-Pour en savoir plus sur la capture d’une image, consultez [Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique](../virtual-machines-capture-image-windows-server.md).
+Pour en savoir plus sur la capture d'une image, consultez [Capturer l'image d'une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique](../virtual-machines-capture-image-windows-server.md).
 
 
 ### 5\. Ajouter des images de modèle à Azure RemoteApp
@@ -137,7 +143,7 @@ Lorsque vous accédez à un utilisateur dans Azure Active Directory, vous pouvez
 
 Après avoir effectué toutes les étapes ci-dessus, vous serez en mesure d’exécuter le client Azure RemoteApp et de vous connecter avec un utilisateur affecté. SSMS est présenté comme étant l’une de vos applications, et vous pouvez l’exécuter comme s’il était installé sur votre ordinateur avec un accès à Azure SQL Server.
 
-Pour plus d’informations sur l’établissement d’une connexion avec la base de données SQL, consultez la page [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
+Pour plus d'informations sur l'établissement d'une connexion avec la base de données SQL, consultez la page [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 
 
 C’est tout pour le moment. Vous n’avez plus qu’à l’utiliser !
@@ -152,4 +158,4 @@ C’est tout pour le moment. Vous n’avez plus qu’à l’utiliser !
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

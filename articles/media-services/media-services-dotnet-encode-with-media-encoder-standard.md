@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/21/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -147,4 +147,4 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 [Comment générer une miniature à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Vue d’ensemble du codage Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

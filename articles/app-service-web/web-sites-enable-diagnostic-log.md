@@ -134,7 +134,7 @@ Visual Studio Application Insights fournit des outils de filtrage et de reche
 3. Téléchargez votre projet et exécutez-le pour générer des données de journal.
 4. Dans le [portail Azure](https://portal.azure.com/), accédez à votre nouvelle ressource Application Insights, puis ouvrez la fonction de **recherche**. Vous pouvez voir vos données de journal, ainsi que la requête, l’utilisation et les autres mesures de télémétrie. Vous devrez parfois patienter quelques minutes pour accéder à certaines mesures de télémétrie : dans ce cas, cliquez sur Actualiser. [En savoir plus](../application-insights/app-insights-diagnostic-search.md)
 
-[En savoir plus sur le suivi des performances avec Application Insights](../insights-perf-analytics.md)
+[En savoir plus sur le suivi des performances avec Application Insights](../azure-portal/insights-perf-analytics.md)
 
 ##<a name="streamlogs"></a> Diffusion en continu des journaux
 
@@ -270,4 +270,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

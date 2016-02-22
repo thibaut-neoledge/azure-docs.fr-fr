@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="02/05/2016"
     ms.author="vikbucha" />
 
 
@@ -42,4 +42,4 @@ Si vous utilisez l’une des images Microsoft incluses dans votre abonnement, es
 
 Cette erreur signifie généralement que vous avez été mis à niveau vers un compte payant, mais que vous essayez d’utiliser une image fournie par Microsoft, valide uniquement pendant le mode d’évaluation du service. Dans ce cas, essayez de créer à nouveau votre collection cloud, en veillant à spécifier une image correcte.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 
@@ -102,7 +102,7 @@ Avant la publication dans Azure et l'utilisation de la connexion hybride, il est
 
 	![Chaîne de connexion pour la base de données locale](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png)
 
-2. Ajoutez une nouvelle chaîne de connexion **SQL Server** nommée `OnPremisesDBConnection` avec une valeur comme la suivante :
+2. Ajoutez une nouvelle chaîne de connexion **SQL Server** nommée `OnPremisesDBConnection` avec une valeur comme la suivante :
 
 		Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>
 
@@ -139,4 +139,4 @@ Avant la publication dans Azure et l'utilisation de la connexion hybride, il est
 [portail Azure Classic]: http://manage.windowsazure.com
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

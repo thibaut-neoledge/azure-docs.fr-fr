@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="02/07/2016"
 	ms.author="mahender"/>
 
 # Prise en main de l'authentification personnalisée
@@ -26,11 +26,11 @@
 ## Vue d'ensemble
 Cette rubrique explique comment authentifier les utilisateurs dans le backend .NET d'Azure Mobile Services en émettant votre propre jeton d'authentification Mobile Services. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide en utilisant un nom d'utilisateur et un mot de passe personnalisés pour votre application.
 
->[AZURE.NOTE]Ce didacticiel présente une méthode avancée d'authentification de vos services mobiles avec des informations d'identification personnalisées. Le recours aux fournisseurs d'identité des réseaux sociaux intégrés sera mieux adapté pour de nombreuses applications, les utilisateurs pouvant se connecter via Facebook, Twitter, Google, un compte Microsoft ou Azure Active Directory. S'il s'agit de votre première authentification dans Mobile Services, consultez le didacticiel [Ajout de l'authentification à votre application].
+>[AZURE.NOTE] Ce didacticiel présente une méthode avancée d'authentification de vos services mobiles avec des informations d'identification personnalisées. Le recours aux fournisseurs d'identité des réseaux sociaux intégrés sera mieux adapté pour de nombreuses applications, les utilisateurs pouvant se connecter via Facebook, Twitter, Google, un compte Microsoft ou Azure Active Directory. S'il s'agit de votre première authentification dans Mobile Services, consultez le didacticiel [Ajout de l'authentification à votre application].
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
 
->[AZURE.IMPORTANT]Le but de ce didacticiel est de vous montrer comment émettre un jeton d'authentification pour Mobile Services. Il ne doit pas être considéré comme un guide de sécurité. Pendant le développement de votre application, vous devez être conscient des implications du stockage des mots de passe en matière de sécurité et disposer d'une stratégie pour gérer les attaques en force brute.
+>[AZURE.IMPORTANT] Le but de ce didacticiel est de vous montrer comment émettre un jeton d'authentification pour Mobile Services. Il ne doit pas être considéré comme un guide de sécurité. Pendant le développement de votre application, vous devez être conscient des implications du stockage des mots de passe en matière de sécurité et disposer d'une stratégie pour gérer les attaques en force brute.
 
 ## Configuration de la table des comptes
 
@@ -336,7 +336,7 @@ Vous allez ensuite créer un point de terminaison pour que vos utilisateurs puis
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]Votre `CustomLoginController` destiné à la production doit également contenir une stratégie de détection en force brute. Sinon, votre solution de connexion risque d'être vulnérable aux attaques.
+>[AZURE.IMPORTANT] Votre `CustomLoginController` destiné à la production doit également contenir une stratégie de détection en force brute. Sinon, votre solution de connexion risque d'être vulnérable aux attaques.
 
 ## Configuration du service mobile afin d'exiger une authentification
 
@@ -381,13 +381,13 @@ Dans votre application cliente, vous devez développer un écran de connexion pe
 
  	![](./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-access-success.png)
 
->[AZURE.IMPORTANT]Si vous choisissez de publier aussi ce projet de service mobile sur Azure à des fins de test, n'oubliez pas que vos fournisseurs d'authentification et de connexion sont vulnérables aux attaques. Assurez-vous qu'ils sont convenablement renforcés ou que les données de test protégées ne sont pas importantes pour vous. Faites preuve de beaucoup de prudence avant d'utiliser un schéma d'authentification personnalisé pour sécuriser un service de production.
+>[AZURE.IMPORTANT] Si vous choisissez de publier aussi ce projet de service mobile sur Azure à des fins de test, n'oubliez pas que vos fournisseurs d'authentification et de connexion sont vulnérables aux attaques. Assurez-vous qu'ils sont convenablement renforcés ou que les données de test protégées ne sont pas importantes pour vous. Faites preuve de beaucoup de prudence avant d'utiliser un schéma d'authentification personnalisé pour sécuriser un service de production.
 
 ## Connexion à l'aide de l'authentification personnalisée à partir du client
 
 Cette section décrit les étapes nécessaires pour accéder aux points de terminaison d'authentification personnalisés à partir du client afin d'obtenir le jeton d'authentification permettant d'accéder au service mobile. Étant donné que le code client spécifique dont vous avez besoin dépend de votre client, les instructions fournies ici sont indépendantes de la plateforme.
 
->[AZURE.NOTE]Les bibliothèques clientes Mobile Services communiquent avec le service via HTTPS. Étant donné que cette solution vous oblige à envoyer des mots de passe en texte brut, vous devez vous assurer que vous utilisez HTTPS quand vous appelez ces points de terminaison à l'aide de demandes REST directes.
+>[AZURE.NOTE] Les bibliothèques clientes Mobile Services communiquent avec le service via HTTPS. Étant donné que cette solution vous oblige à envoyer des mots de passe en texte brut, vous devez vous assurer que vous utilisez HTTPS quand vous appelez ces points de terminaison à l'aide de demandes REST directes.
 
 1. Créez les éléments d'interface utilisateur requis dans votre application cliente pour permettre aux utilisateurs d'entrer un nom d'utilisateur et un mot de passe.
 
@@ -395,7 +395,7 @@ Cette section décrit les étapes nécessaires pour accéder aux points de termi
 
 	Vous ne devez appeler le point de terminaison **CustomRegistration** qu'une seule fois pour créer un compte pour un utilisateur donné, tant que vous conservez les informations de connexion de l'utilisateur dans la table Accounts. Pour obtenir des exemples montrant comment appeler une API personnalisée sur les différentes plateformes clientes prises en charge, consultez l'article [Custom API in Azure Mobile Services – client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-	> [AZURE.IMPORTANT]Étant donné que cette étape de configuration de l'utilisateur se produit une seule fois, vous devez envisager de créer le compte d'utilisateur de manière « hors bande ». Pour un point de terminaison d'inscription public, vous devez également envisager de mettre en œuvre un processus de vérification par courrier électronique ou SMS ou une autre mesure pour empêcher la génération de comptes frauduleux. Vous pouvez utiliser Twilio pour envoyer des messages SMS à partir de Mobile Services. Vous pouvez également utiliser SendGrid pour envoyer des messages électroniques à partir de Mobile Services. Pour plus d’informations sur l’utilisation de SendGrid, consultez [Envoi de courrier électronique à partir de Mobile Services avec SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	> [AZURE.IMPORTANT] Étant donné que cette étape de configuration de l'utilisateur se produit une seule fois, vous devez envisager de créer le compte d'utilisateur de manière « hors bande ». Pour un point de terminaison d'inscription public, vous devez également envisager de mettre en œuvre un processus de vérification par courrier électronique ou SMS ou une autre mesure pour empêcher la génération de comptes frauduleux. Vous pouvez utiliser Twilio pour envoyer des messages SMS à partir de Mobile Services. Vous pouvez également utiliser SendGrid pour envoyer des messages électroniques à partir de Mobile Services. Pour plus d’informations sur l’utilisation de SendGrid, consultez [Envoi de courrier électronique à partir de Mobile Services avec SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 
 3. Réutilisez la méthode **invokeApi** appropriée, cette fois pour appeler le point de terminaison **CustomLogin**, en passant le nom d'utilisateur et le mot de passe fournis par le runtime dans le corps du message.
 
@@ -424,4 +424,4 @@ C'est ici que s'achève ce didacticiel.
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

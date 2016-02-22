@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/09/2016" 
 	ms.author="mahender"/>
 
 # Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
@@ -277,4 +277,4 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [tarification App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
 [Présentation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

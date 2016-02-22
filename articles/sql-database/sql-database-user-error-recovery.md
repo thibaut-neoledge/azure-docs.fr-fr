@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Récupération d’une base de données SQL Microsoft Azure suite à une erreur de l’utilisateur
@@ -106,4 +106,4 @@ Utilisez REST pour exécuter par programmation la restauration des bases de donn
 	
 4.	Surveillez l’état de la restauration en suivant la procédure de suivi de l’[état de fonctionnement de base de données](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

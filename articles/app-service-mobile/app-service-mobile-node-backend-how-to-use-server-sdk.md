@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps
@@ -327,7 +327,7 @@ Vous trouverez ci-dessous un exemple de fichier _azureMobile.js_ implémentant c
 
 Nous vous recommandons d’ajouter _azureMobile.js_ à votre fichier _.gitignore_ (ou un autre fichier ignore de contrôle du code source) pour éviter que les mots de passe soient stockés dans le cloud. Veillez à toujours configurer les paramètres de production dans les paramètres d’application du [portail Azure].
 
-### <a name="howto-appsettings"><a>Paramètres d’application pour la configuration de votre application mobile
+### <a name="howto-appsettings"></a>Paramètres d’application pour la configuration de votre application mobile
 
 La plupart des paramètres du fichier _azureMobile.js_ ont un paramètre équivalent dans le [portail Azure]. Utilisez la liste suivante pour configurer votre application dans les paramètres d’application :
 
@@ -561,7 +561,7 @@ Vous préférerez probablement activer la prise en charge de Swagger uniquement 
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Le point de terminaison swagger se trouve dans http://\_yoursite\_.azurewebsites.net/swagger. Vous pouvez accéder à l’interface utilisateur Swagger via le point de terminaison `/swagger/ui`. Notez que Swagger génère une erreur pour le point de terminaison / si vous décidez de demander une authentification sur l’ensemble de votre application. Pour obtenir de meilleurs résultats, autorisez les demandes non authentifiées via les paramètres d’authentification et d’autorisation d’Azure App Service. Vous pouvez ensuite contrôler l’authentification en utilisant la propriété `table.access`.
+Le point de terminaison swagger se trouve dans http://_yoursite_.azurewebsites.net/swagger. Vous pouvez accéder à l’interface utilisateur Swagger via le point de terminaison `/swagger/ui`. Notez que Swagger génère une erreur pour le point de terminaison / si vous décidez de demander une authentification sur l’ensemble de votre application. Pour obtenir de meilleurs résultats, autorisez les demandes non authentifiées via les paramètres d’authentification et d’autorisation d’Azure App Service. Vous pouvez ensuite contrôler l’authentification en utilisant la propriété `table.access`.
 
 Vous pouvez également ajouter l’option Swagger à votre fichier `azureMobile.js` si vous voulez activer la prise en charge de Swagger uniquement dans le cadre d’un développement en local.
 
@@ -645,6 +645,32 @@ Vous pouvez également spécifier l’authentification sur des opérations spéc
 
 Pour les API personnalisées qui requièrent une authentification, vous devez utiliser le même jeton que celui utilisé pour le point de terminaison des tables.
 
+### <a name="howto-customapi-auth"></a>Gestion des téléchargements de fichiers volumineux
+
+Le Kit de développement logiciel (SDK) Azure Mobile Apps utilise l’[intergiciel corps-parser](https://github.com/expressjs/body-parser) pour accepter et décoder le contenu du corps de votre demande. Vous pouvez préconfigurer corps-parser pour accepter les téléchargements de fichiers plus volumineux :
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+Vous pouvez ajuster la limite de 50 Mo affichée ci-dessus. Notez que le fichier sera codé en base 64 avant la transmission, ce qui augmentera la taille du téléchargement réel.
+
 ## <a name="Debugging"></a>Débogage et résolution des problèmes
 
 Azure App Service fournit plusieurs techniques de débogage et de résolution des problèmes pour les applications Node.js. Toutes ces techniques sont disponibles.
@@ -725,7 +751,7 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [spécifier la version de Node]: ../nodejs-specify-node-version-azure-apps.md
-[utiliser les modules Node]: ../nodejs-use-node-mobiles-azure-apps.md
+[utiliser les modules Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
@@ -745,4 +771,4 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

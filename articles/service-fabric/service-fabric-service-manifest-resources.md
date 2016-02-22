@@ -36,7 +36,7 @@ Quand une ressource de point de terminaison est définie dans le manifeste de se
 </Resources>
 ```
 
-Reportez-vous à [Configuration de services Reliable Services avec état](../Service-Fabric/service-fabric-reliable-services-configuration.md) pour en savoir plus sur le référencement des points de terminaison à partir du fichier des paramètres de package de configuration (settings.xml).
+Reportez-vous à [Configuration de services Reliable Services avec état](service-fabric-reliable-services-configuration.md) pour en savoir plus sur le référencement des points de terminaison à partir du fichier des paramètres de package de configuration (settings.xml).
 
 ## Exemple : spécification d’un point de terminaison HTTP pour votre service
 
@@ -137,4 +137,4 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. (Vous 
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

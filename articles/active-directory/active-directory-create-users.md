@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="02/08/2016"
 	ms.author="curtand;viviali"/>
 
 # Création ou modification d’utilisateurs dans Azure AD
@@ -25,12 +25,12 @@ Vous devez créer un compte pour chaque utilisateur ayant besoin d’accéder à
 1. Cliquez sur **Active Directory**, puis sélectionnez le nom du répertoire de votre organisation.
 2. Dans la page **Utilisateurs**, cliquez sur **Ajouter un utilisateur**.
 3. Dans la page **Dites-nous en plus sur cet utilisateur**, pour **Type d’utilisateur**, sélectionnez l’une des options suivantes :
-	
+
 	- **Nouvel utilisateur dans votre organisation** : pour créer un nouveau compte d’utilisateur dans votre répertoire
 	- **Utilisateur avec un compte Microsoft existant** : pour ajouter un compte consommateur Microsoft à votre répertoire (par exemple, un compte Outlook)
 	- **Utilisateur dans un autre répertoire Azure AD** : pour ajouter un compte d’utilisateur à votre répertoire à partir d’un autre répertoire Azure AD (Remarque : vous devez être membre de l’autre répertoire pour y sélectionner un utilisateur)
-	- **Utilisateurs d’entreprises partenaires** : pour inviter et autoriser les utilisateurs d’entreprises partenaires dans votre répertoire ([Voir Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md))
-	
+	- **Utilisateurs d’entreprises partenaires** : pour inviter et autoriser les utilisateurs d’entreprises partenaires dans votre répertoire ([Voir Collaboration B2B Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md))
+
 
 4. Selon l’option sélectionnée, entrez un nom d’utilisateur, une adresse de messagerie, ou téléchargez un fichier CSV pour les utilisateurs partenaires.
 5. Dans la page **Profil** d’utilisateur, entrez les nom et prénom de l’utilisateur, un nom convivial et un rôle d’utilisateur à partir du menu déroulant Rôles. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md). Spécifiez si vous voulez **Activer l’authentification multifacteur**.
@@ -87,7 +87,7 @@ Voici les limitations connues des utilisateurs externes d’Azure AD :
 - les utilisateurs externes qui sont administrateurs ne peuvent pas ajouter des utilisateurs d’entreprises partenaires à des répertoires (B2B) en dehors de leur répertoire de base
 - les utilisateurs externes ne peuvent pas donner leur consentement aux applications mutualisées dans des répertoires en dehors de leur répertoire de base
 - pour l’instant, les utilisateurs externes ne peuvent pas accéder à Visual Studio Online
-- pour l’instant, les utilisateurs externes ne peuvent pas accéder à PowerBI 
+- pour l’instant, les utilisateurs externes ne peuvent pas accéder à PowerBI
 - les utilisateurs externes ne peuvent pas avoir de licences pour le portail Office
 
 ## Invités
@@ -99,7 +99,7 @@ Au sein de l’annuaire, les invités disposent de droits limités. Ces droits o
 - voir les autres utilisateurs et groupes associés à l’abonnement Azure auquel ils sont affectés
 - voir les membres des groupes auxquels ils appartiennent
 - rechercher d’autres utilisateurs dans le répertoire à condition de connaître leur adresse électronique complète
-- voir un ensemble d’attributs limité au nom complet, à l’adresse de messagerie, au nom d’utilisateur principal (UPN) et à la photo miniature des utilisateurs qu’ils recherchent 
+- voir un ensemble d’attributs limité au nom complet, à l’adresse de messagerie, au nom d’utilisateur principal (UPN) et à la photo miniature des utilisateurs qu’ils recherchent
 - obtenir la liste des domaines vérifiés du client
 - donner leur consentement aux applications, en leur accordant le même accès que dans votre répertoire
 
@@ -124,4 +124,4 @@ Vous pouvez ensuite modifier les options de contrôle d'accès des utilisateurs 
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

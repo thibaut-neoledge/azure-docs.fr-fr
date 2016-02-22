@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="02/09/2016" 
 	ms.author="awills"/>
  
 # Diagnostic des problèmes liés aux dépendances dans Application Insights
 
 
-Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. Visual Studio Application Insights vous permet de voir facilement combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue.
+Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. Ou, dans le script de votre page web, il peut s’agir d’un renvoi d’appel AJAX vers le serveur. Visual Studio Application Insights vous permet de voir facilement combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue.
 
 ## Où vous pouvez l’utiliser
 
@@ -26,6 +26,7 @@ Une surveillance des dépendances est actuellement disponible en standard pour 
 
 * les applications et les services web ASP.NET qui s’exécutent sur un serveur IIS ou sur Azure
 * [Applications web Java](app-insights-java-agent.md)
+* [Pages web](https://azure.microsoft.com/blog/ajax-collection-in-application-insights/)
 
 Pour les autres types, tels que les applications pour appareil, vous pouvez créer votre propre surveillance à l’aide de l’API [TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -39,7 +40,7 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
 * Java
  * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
 * Pages web
- * Appels AJAX
+ * [Appels AJAX](app-insights-javascript.md)
 
 Là encore, vous pouvez écrire vos propres appels au kit de développement logiciel (SDK) pour surveiller d’autres dépendances.
 
@@ -52,10 +53,11 @@ Plateforme | Installer
 Serveur IIS | [Status Monitor](app-insights-monitor-performance-live-website-now.md)
 Application web Azure | [Extension Application Insights](../azure-portal/insights-perf-analytics.md)
 Serveur web Java | [Applications web Java](app-insights-java-agent.md)
+Pages web | [Moniteur JavaScript](app-insights-javascript.md) (sans configuration supplémentaire au-delà de la surveillance de page web)
 
 Status Monitor pour les serveurs IIS n’a pas besoin de régénérer votre projet source avec le Kit de développement logiciel (SDK) Application Insights.
 
-## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances
+## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances sur le serveur web
 
 Pour évaluer les performances des demandes au niveau de votre serveur :
 
@@ -74,7 +76,7 @@ Cliquez sur cette ligne pour afficher les événements de la demande :
 
 Cliquez sur n’importe quelle instance présentant une longue durée d’exécution pour l’examiner de plus près.
 
-> [AZURE.NOTE]Faites défiler vers le bas pour choisir une instance. Une latence dans le pipeline peut expliquer que les données des premières instances soient incomplètes.
+> [AZURE.NOTE] Faites défiler vers le bas pour choisir une instance. Une latence dans le pipeline peut expliquer que les données des premières instances soient incomplètes.
 
 Faites défiler vers le bas pour atteindre les appels de dépendance à distance liés à cette demande :
 
@@ -129,6 +131,12 @@ Par exemple, si vous générez votre code avec un assembly que vous n’avez pas
 
 Si vous souhaitez désactiver le module de suivi des dépendances standard, supprimez la référence à DependencyTrackingTelemetryModule dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-<!--Link references-->
 
-<!---HONumber=AcomDC_0121_2016-->
+## Ajax
+
+Voir [Pages web](app-insights-javascript.md).
+
+
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

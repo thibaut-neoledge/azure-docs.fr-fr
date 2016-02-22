@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2015"
+  ms.date="01/29/2016"
   ms.author="andrl"/>
 
 # Portail de la communauté
@@ -267,4 +267,4 @@ Les assistants DocumentDB sont des responsables de la communauté qui ont fait p
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

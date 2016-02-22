@@ -13,20 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Explorer les données dans le stockage d’objets blob Azure avec Pandas
-
-Ce **menu** pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 ## Introduction
 
 Ce document explique comment explorer les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/).
 
-## Configuration requise
+Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+
+## Composants requis
 Cet article suppose que vous avez :
 
 * Créé un compte Azure Storage. Si vous avez besoin d’aide, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage).
@@ -116,4 +117,4 @@ Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

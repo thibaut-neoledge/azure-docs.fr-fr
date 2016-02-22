@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -56,7 +56,7 @@ Outre l’acquisition initiale des données, de nombreuses applications intellig
 
 ## 2\. Explorer et pré-traiter des données 
 
-L'étape suivante a pour objet d'offrir une meilleure connaissance des données en étudiant le **résumé des statistiques**, les relations et en utilisant des techniques de **visualisation**. C'est à ce niveau que les problèmes de **qualité des données** et d'intégrité, telles que les valeurs manquantes, les incompatibilités de type de données et les relations incohérentes entre les données sont gérés. Les conversions pré-traitement sont utilisées pour nettoyer les données brutes avant que les analyses et la modélisation puissent avoir lieu. Pour obtenir une description, référez-vous à T[âches de préparation des données pour l'apprentissage automatique amélioré](machine-learning-data-science-prepare-data.md).
+L’étape suivante a pour objet d’offrir une meilleure connaissance des données en étudiant les **des statistiques de synthèse**, les relations et en utilisant des techniques de **visualisation**. C'est à ce niveau que les problèmes de **qualité des données** et d'intégrité, telles que les valeurs manquantes, les incompatibilités de type de données et les relations incohérentes entre les données sont gérés. Les conversions pré-traitement sont utilisées pour nettoyer les données brutes avant que les analyses et la modélisation puissent avoir lieu. Pour obtenir une description, référez-vous à T[âches de préparation des données pour l'apprentissage automatique amélioré](machine-learning-data-science-prepare-data.md).
 
 
 ## 3\. Développement de fonctionnalités 
@@ -91,4 +91,4 @@ Des procédures pas à pas complètes illustrant toutes les étapes de **scénar
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

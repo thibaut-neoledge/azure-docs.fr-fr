@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 # exécution de Cassandra avec Linux sur Azure et accès au cluster depuis Node.js 
@@ -291,7 +291,7 @@ Assurez-vous que la machine virtuelle est sélectionnée et cliquez sur le lien 
 Cela prendra quelques secondes et l'image devrait être disponible dans la section Mes images de la galerie d'images. La machine virtuelle source sera automatiquement supprimée une fois l'image capturée correctement.
 
 ##Processus de déploiement dans une seule région
-**Étape 1 : Créer le réseau virtuel** Connectez-vous au portail Azure Classic, puis créez un réseau virtuel avec les attributs présentés dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail Azure Classic](../virtual-network/virtual-networks-create-vnet.md).
+**Étape 1 : Créer le réseau virtuel** Connectez-vous au portail Azure Classic, puis créez un réseau virtuel avec les attributs présentés dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail Azure Classic](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 <table>
 <tr><th>Nom d'attribut de machine virtuelle</th><th>Valeur</th><th>Remarques</th></tr>
@@ -692,4 +692,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

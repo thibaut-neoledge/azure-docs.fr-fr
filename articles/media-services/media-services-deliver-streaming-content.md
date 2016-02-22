@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -171,4 +171,4 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 
 [Télécharger des ressources](media-services-deliver-asset-download.md) [Configurer la stratégie de distribution d’éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/23/2015"
+    ms.date="02/06/2016"
     ms.author="elizapo" />
 
 
@@ -22,6 +22,9 @@
 
 Un des avantages d’Azure RemoteApp est que nous nous efforçons de l’améliorer continuellement. Nous vous ferons part de toutes les améliorations sur cette page.
 
+## Mises à jour ultérieures
+Bonjour. Saviez-vous que l'équipe Azure RemoteApp publie des mises à jour mensuelles sur le blog RDS ? Vous y trouverez non seulement les modifications apportées à Azure RemoteApp, mais également d'autres informations sur l'utilisation de RDS. Pour plus d'informations, consultez le blog de l'équipe [Blog des services Bureau à distance](https://blogs.msdn.microsoft.com/rds/). Par exemple, il y a quelques semaines, l'équipe a publié une entrée sur [le développement et la migration des charges de travail avec Azure RemoteApp et Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+ 
 ## Septembre 2015
 - Ajout d’Infopath au modèle et à l’image de la galerie Microsoft Office 365. Si vous souhaitez partager Infopath, veillez à mettre à jour vos collections avec l’image la plus récente.
 - Mises à jour des clients :
@@ -72,7 +75,7 @@ Il y a eu un certain nombre d’ajouts et quelques mois depuis la création de c
 - [Création d’une image Azure RemoteApp à partir d’une machine virtuelle Azure](remoteapp-image-on-azurevm.md). Accélère le téléchargement de votre image personnalisée dans Azure.
 - Utilisez un réseau virtuel Azure au lieu d’un réseau virtuel RemoteApp pour connecter les ressources de votre réseau d’entreprise à Azure. Nous avons mis à jour les [instructions sur les collections hybrides](remoteapp-create-hybrid-deployment.md) pour vous aider à créer un réseau virtuel Azure (Étape 1).
 - Et toujours au sujet des réseaux virtuels, découvrez les [nouveaux conseils](remoteapp-vnetsizing.md) sur les limites de taille et les limitations des réseaux virtuels.
-- Et en parlant de limites : quelles sont ces [limites de service et leurs valeurs par défaut](remoteapp-servicelimits.md) ?
+- Et en parlant de limites : quelles sont ces [limites de service et leurs valeurs par défaut](../azure-subscription-service-limits.md) ?
 
 Vous voulez en savoir plus sur Azure RemoteApp ? L’équipe RemoteApp était présente en force à la conférence Ignite il y a quelques semaines. Regardez la vidéo d’Eric, [Bases de la gestion et de l’administration de Microsoft Azure RemoteApp](http://channel9.msdn.com/Events/Ignite/2015/BRK3868).
 
@@ -84,4 +87,4 @@ Merci de nous rester fidèle. Nous serons de retour le mois prochain avec d’au
 ### Vos commentaires nous aideront à mieux vous servir
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

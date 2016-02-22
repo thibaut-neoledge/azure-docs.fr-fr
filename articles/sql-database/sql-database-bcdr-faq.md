@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # FAQ sur la continuité des activités
@@ -60,4 +60,4 @@ Pour la géo-réplication active, toutes les bases de données secondaires sont 
 
 Utilisez la vue de gestion dynamique (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) pour obtenir l’heure de la dernière réplication, le dernier décalage de la réplication et d’autres informations sur le lien de réplication.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

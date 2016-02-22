@@ -3,7 +3,7 @@
 	description="Processus d’analyse avancé et technologie en action"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh,weig"
+	authors="bradsev,hangzh-msft,wguo123"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
-	ms.author="bradsev;hangzh;wguo123"/>
+	ms.date="02/05/2016" 
+	ms.author="bradsev;hangzh;weig"/>
 
 
 # Processus d’analyse Cortana en action : Utilisation de SQL Data Warehouse
@@ -28,7 +28,14 @@ La procédure suit le flux de travail [Processus d’analyse Cortana (CAP)](http
 
 Les données NYC Taxi Trip sont constituées de fichiers CSV compressés d’une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), correspondant à plus de 173 millions de courses et au prix de chacune. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
 
-1. Le fichier **trip\_data.csv** contient les détails de chaque course, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements : medallion,hack\_license,vendor\_id,rate\_code,store\_and\_fwd\_flag,pickup\_datetime,dropoff\_datetime,passenger\_count,trip\_time\_in\_secs,trip\_distance,pickup\_longitude,pickup\_latitude,dropoff\_longitude,dropoff\_latitude 89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+1. Le fichier **trip\_data.csv** contient les détails de chaque course, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
+
+		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
+		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
+		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
+		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
+		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
+		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
 2. Le fichier **trip\_fare.csv** contient les détails du prix de chaque course, comme le type de paiement, le prix de la course, les suppléments et les taxes, les pourboires et les péages, ainsi que le montant total réglé. Voici quelques exemples d’enregistrements :
 
@@ -68,7 +75,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 **Créez votre propre compte de stockage d’objets blob Azure**
 
-- Quand vous approvisionnez votre propre espace de stockage d’objets blob Azure, choisissez un emplacement géographique pour celui-ci dans le **Sud du centre des États-Unis**, ou aussi près que possible de cette région, où sont stockées les données NYC Taxi. Les données sont copiées à l’aide d’AzCopy du conteneur de stockage d’objets blob publics vers un conteneur de votre propre compte de stockage. La rapidité d’exécution de cette tâche (étape 4) est proportionnelle à la proximité de votre espace de stockage d’objets blob Azure avec le Sud du centre des États-Unis. 
+- Quand vous approvisionnez votre propre espace de stockage d’objets blob Azure, choisissez un emplacement géographique pour celui-ci dans le **Centre-Sud des États-Unis**, ou aussi près que possible de cette région, où sont stockées les données NYC Taxi. Les données sont copiées à l’aide d’AzCopy du conteneur de stockage d’objets blob publics vers un conteneur de votre propre compte de stockage. La rapidité d’exécution de cette tâche (étape 4) est proportionnelle à la proximité de votre espace de stockage d’objets blob Azure avec le Sud du centre des États-Unis. 
 - Pour créer votre propre compte de stockage Azure, suivez les étapes indiquées dans [À propos des comptes de stockage Azure](storage-create-storage-account.md). Veillez à noter les informations d’identification suivantes du compte de stockage, car vous en aurez besoin ultérieurement dans cette procédure. 
 
   - **Nom du compte de stockage**
@@ -77,7 +84,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 **Approvisionnez votre instance Azure SQL DW.** Suivez les étapes indiquées dans [Créer un SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) pour approvisionner une instance SQL Data Warehouse. Assurez-vous de prendre note des informations d’identification suivantes de SQL Data Warehouse dont vous aurez besoin dans les étapes ultérieures.
  
-  - **Nom du serveur** : <server Name>.nom du serveur sous la forme.database.windows.net
+  - **Nom du serveur** : <server Name>.database.windows.net
   - **Nom SQL DW (base de données)** 
   - **Nom d’utilisateur**
   - **Mot de passe**
@@ -86,7 +93,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 **Connectez-vous à votre Azure SQL DW avec Visual Studio.** Pour connaître les instructions à suivre, consultez les étapes 1 et 2 dans [Se connecter à SQL Data Warehouse avec Visual Studio](sql-data-warehouse-get-started-connect.md).
 
->[AZURE.NOTE] Exécutez la requête SQL suivante sur la base de données que vous avez créée dans votre SQL Data Warehouse (au lieu de la requête fournie à l’étape 3 de la rubrique connexion) pour **créer une clé principale**.
+>[AZURE.NOTE] Exécutez la requête SQL suivante sur la base de données que vous avez créée dans votre SQL Data Warehouse (au lieu de la requête fournie à l’étape 3 de la rubrique de connexion) pour **créer une clé principale**.
 
 	BEGIN TRY
 	       --Try to create the master key
@@ -350,7 +357,7 @@ Les requêtes ci-après procèdent à une vérification rapide du nombre de lign
 	-- Report number of columns in table <nyctaxi_trip>
 	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-Vous devez obtenir 173 179 759 lignes et 14 colonnes.
+**Sortie :** vous devez obtenir 173 179 759 lignes et 14 colonnes.
 
 ### Exploration : distribution des courses par médaillon
 
@@ -362,7 +369,7 @@ Cet exemple de requête identifie les médaillons (numéros de taxi) qui ont eff
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
 
-La requête doit retourner 13 369 médaillons.
+**Sortie :** la requête doit retourner une table dont les lignes recensent les 13 369 médaillons (taxis) et le nombre correspondant de courses effectuées en 2013. La dernière colonne contient le nombre de courses effectuées.
 
 ### Exploration : distribution des courses par médaillon et par licence de taxi
 
@@ -373,6 +380,8 @@ Cet exemple identifie les médaillons (numéros de taxi) et les numéros hack\_l
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
 	GROUP BY medallion, hack_license
 	HAVING COUNT(*) > 100
+
+**Sortie :** la requête doit retourner une table de 13 369 lignes recensant les 13 369 ID de voiture/chauffeur qui ont effectué plus de 100 courses en 2013. La dernière colonne contient le nombre de courses effectuées.
 
 ### Évaluation de la qualité des données : Vérifier les enregistrements indiquant une longitude et/ou une latitude incorrectes
 
@@ -387,9 +396,11 @@ Cet exemple vérifie si l’un des champs de longitude et/ou de latitude contien
 	OR    (pickup_longitude = '0' AND pickup_latitude = '0')
 	OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
+**Sortie :** la requête retourne 837 467 courses dont les champs de longitude et/ou de latitude ne sont pas valides.
+
 ### Exploration : Distribution des courses avec et sans pourboire
 
-Cet exemple détermine le nombre de courses qui ont fait l’objet d’un pourboire et celles qui n’ont pas donné lieu à un pourboire pendant une période spécifiée (ou dans le jeu de données complet si la période couvre l’année complète). Cette distribution reflète la distribution des étiquettes binaires à utiliser par la suite pour la modélisation de classification binaire.
+Cet exemple détermine le nombre de courses qui ont fait l’objet d’un pourboire et celles qui n’ont pas donné lieu à un pourboire pendant une période spécifiée (ou dans le jeu de données complet si la période couvre l’année complète comme dans le cas présent). Cette distribution reflète la distribution des étiquettes binaires à utiliser par la suite pour la modélisation de classification binaire.
 
 	SELECT tipped, COUNT(*) AS tip_freq FROM (
 	  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -397,7 +408,7 @@ Cet exemple détermine le nombre de courses qui ont fait l’objet d’un pourbo
 	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tipped
 
-La requête doit retourner la distribution des courses avec et sans pourboire suivante : 90 447 622 avec pourboire et 82 264 709 sans pourboire.
+**Sortie :** la requête doit retourner la distribution des courses avec et sans pourboire pour l’année 2013 suivante : 90 447 622 avec pourboire et 82 264 709 sans pourboire.
 
 ### Exploration : Distribution des classes/fourchettes de pourboires
 
@@ -415,6 +426,16 @@ Cet exemple calcule la distribution des fourchettes de pourboires sur une pério
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tip_class
 
+**Output:**
+
+|tip\_class | tip\_freq |
+| --------- | -------|
+|1 | 82230915 |
+|2 | 6198803 |
+|3 | 1932223 |
+|0 | 82264625 |
+|4 | 85765 |
+
 ### Exploration : Calculer et comparer les distances des courses
 
 Cet exemple convertit la longitude et la latitude des points d’embarquement et de débarquement en points géographiques SQL, calcule la distance des trajets en se basant sur la différence entre ces points géographiques et renvoie un échantillon aléatoire des résultats pour comparaison. Cet exemple limite les résultats aux coordonnées valides en utilisant la requête d’évaluation de la qualité des données précédemment décrite.
@@ -430,7 +451,7 @@ Cet exemple convertit la longitude et la latitude des points d’embarquement et
 	  DROP FUNCTION fnCalculateDistance
 	GO
 
-	-- User-defined function calculate the direct distance between two geographical coordinates.
+	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 	
 	RETURNS float
@@ -511,6 +532,16 @@ Voici un exemple d’appel de cette fonction pour générer des fonctionnalités
 	AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
 	AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
+**Sortie :** cette requête génère une table (de 2 803 538 lignes) indiquant les latitudes et longitudes des points de prise en charge et de dépose, ainsi que les distances directes correspondantes en miles. Voici les résultats pour les 3 premières lignes :
+
+|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+|---| --------- | -------|-------| --------- | -------|
+|1 | 40,731804 | -74,001083 | 40,736622 | -73,988953 | 0,7169601222 |
+|2 | 40,715794 | -74,010635 | 40,725338 | -74,00399 | 0,7448343721 |
+|3 | 40\.761456 | -73.999886 | 40\.766544 | -73.988228 | 0,7037227967 |
+
+
+
 ### Préparer les données pour la création de modèles
 
 La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon de l’intégralité du jeu de données joint. L’échantillonnage est effectué en récupérant un sous-ensemble des courses basé sur l’heure d’embarquement. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Lecteur][reader] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre l’ingestion directe de données de l’instance de base de données SQL dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
@@ -536,9 +567,9 @@ Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez au choi
 2. stocker les données échantillonnées et générées que vous envisagez d’utiliser pour la création de modèles dans une nouvelle table SQL DW et utiliser cette table dans le module [Lecteur][reader] d’Azure Machine Learning. Le script PowerShell de l’étape précédente a effectué cette opération pour vous. Vous pouvez lire directement cette table dans le module Lecteur. 
 
 
-## <a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans Notebook IPython
+## <a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans IPython Notebook
 
-Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes Python et SQL dans le SQL DW créé précédemment. Un exemple de IPython Notebook nommé **SQLDW\_Explorations.ipynb** et le fichier de script Python **SQLDW\_Explorations\_Scripts.py** ont été téléchargés dans votre répertoire local. Ils sont également disponibles sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Ces deux fichiers sont identiques dans les scripts Python. Le fichier de script Python vous est fourni dans le cas où vous ne disposeriez pas d’un serveur IPython Notebook. Ces deux exemples de fichier Python sont conçus sous **Python 2.7**.
+Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes Python et SQL dans le SQL DW créé précédemment. Un exemple d’IPython Notebook nommé **SQLDW\_Explorations.ipynb** et le fichier de script Python **SQLDW\_Explorations\_Scripts.py** ont été téléchargés dans votre répertoire local. Ils sont également disponibles sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Ces deux fichiers sont identiques dans les scripts Python. Le fichier de script Python vous est fourni dans le cas où vous ne disposeriez pas d’un serveur IPython Notebook. Ces deux exemples de fichier Python sont conçus sous **Python 2.7**.
 
 Les informations d’Azure SQL DW nécessaires dans l’exemple de IPython Notebook et dans le fichier de script Python téléchargés sur votre ordinateur local ont été reliées précédemment par le script PowerShell. Elles peuvent être exécutées sans aucune modification.
 
@@ -556,7 +587,7 @@ Si vous avez déjà configuré un espace de travail AzureML, vous pouvez directe
 
 	![Diagramme n°24][24]
 
-4. Effectuez un glisser-déplacer de l’exemple de IPython Notebook vers la page d’**arborescence** du service AzureML IPython Notebook, puis cliquez sur **Charger**. L’exemple de IPython Notebook est alors chargé vers le service AzureML IPython Notebook.
+4. Effectuez un glisser-déplacer de l’exemple d’IPython Notebook vers la page d’**arborescence** du service AzureML IPython Notebook, puis cliquez sur **Charger**. L’exemple de IPython Notebook est alors chargé vers le service AzureML IPython Notebook.
 
 	![Diagramme n°25][25]
 
@@ -933,4 +964,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

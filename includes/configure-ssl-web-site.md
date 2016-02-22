@@ -392,21 +392,19 @@ L’activation du protocole HTTPS pour un domaine personnalisé est disponible u
 
 > [AZURE.NOTE] Avant de basculer une application du niveau **Gratuit** au niveau **Standard**, vous devez supprimer les limites de dépense mises en place pour l’abonnement de votre application, sans quoi cette dernière risque d’être indisponible si vous atteignez la limite avant la fin de la période de facturation. Pour plus d’informations sur les niveaux tarifaires Partagé et **Standard**, consultez la page [Tarification][pricing].
 
-1.	Dans votre navigateur, ouvrez le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+1.	Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com).
 	
-2.	Cliquez sur l’option **Parcourir** sur le côté gauche de la page.
-
-3.	Cliquez sur le panneau **Web Apps**.
+2.	Cliquez sur l’option **App Service** sur le côté gauche de la page.
 
 4.	Cliquez sur le nom de votre application.
 
 5.	Dans la page **Essentials**, cliquez sur **Paramètres**.
 
-6.	Cliquez sur **Mettre à l’échelle**.
+6.	Cliquez sur **Monter en puissance**.
 	
 	![L’onglet Mettre à l’échelle][scale]
 
-7.	Dans la section **Mettre à l’échelle**, définissez le mode de plan App Service en cliquant sur **Sélectionner**.
+7.	Dans la section **Monter en puissance**, définissez le mode de plan App Service en cliquant sur **Sélectionner**.
 
 	> [AZURE.NOTE] Si un message indiquant une erreur de mise à l’échelle pour l’application web &lt;nom de l’application&gt; s’affiche, vous pouvez cliquer sur le bouton de détails pour obtenir plus d’informations. Une erreur indiquant que le nombre de serveurs d’instances disponibles est insuffisant pour répondre à la demande peut s’afficher. Dans ce cas, contactez le [support technique Azure](/support/options/).
 
@@ -415,11 +413,9 @@ L’activation du protocole HTTPS pour un domaine personnalisé est disponible u
 
 Avant de suivre les étapes de cette section, vous devez avoir associé un nom de domaine personnalisé à votre application. Pour plus d’informations, consultez la page [Configuration d’un nom de domaine personnalisé pour une application web][customdomain].
 
-1.	Dans votre navigateur, ouvrez le [portail de gestion Azure](https://portal.azure.com).
+1.	Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com).
 
-2.	Cliquez sur l’option **Parcourir** sur le côté gauche de la page.
-
-3.	Cliquez sur le panneau **Web Apps**.
+2.	Cliquez sur l’option **App Service** sur le côté gauche de la page.
 
 4.	Cliquez sur le nom de votre application.
 
@@ -565,4 +561,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

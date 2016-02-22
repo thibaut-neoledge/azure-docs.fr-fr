@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2016"
 	ms.author="hangzh;bradsev" />
 
 #Création de fonctionnalités pour les données dans un cluster Hadoop à l'aide de requêtes Hive
-
-Ce **menu** pointe vers des rubriques qui expliquent comment concevoir des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du processus d'analyse Cortana (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 ## Introduction
 Des exemples de requêtes Hive qui génèrent des fonctionnalités dans les données stockées dans un cluster Azure HDInsight Hadoop sont présentés. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -29,7 +25,12 @@ Des exemples de requêtes propres aux scénarios mettant en œuvre le [jeu de do
 
 La section finale présente les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-## Conditions préalables
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+
+Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus d'analyse Cortana (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
+
+## Composants requis
 Cet article suppose que vous avez :
 
 * Créé un compte Azure Storage. Si vous avez besoin d'aide, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage).
@@ -63,7 +64,7 @@ Parfois, il est intéressant de calculer les fréquences des niveaux d’une var
 		order by frequency desc;
 
 
-###<a name="hive-riskfeature"></a>Risques de variables catégorielles en classification binaire
+###<a name="hive-riskfeature"></a> Risques de variables catégorielles en classification binaire
 
 En classification binaire, il faut convertir des variables catégorielles non numériques en fonctionnalités numériques, lorsque les modèles utilisés n’acceptent que les fonctionnalités numériques. Pour ce faire, chaque niveau non numérique est remplacé par un risque numérique. Cette section présente certaines requêtes Hive génériques qui calculent les valeurs de risque (« log odds ») d’une variable catégorielle.
 
@@ -90,7 +91,7 @@ Dans cet exemple, les variables `smooth_param1` et `smooth_param2` sont configur
 
 Une fois la table de risque calculée, les utilisateurs peuvent attribuer les valeurs de risque à une table en créant une jointure à la table de risque. La requête de jointure Hive est fournie dans la section précédente.
 
-###<a name="hive-datefeatures"></a>Extraction de fonctionnalités à partir de champs d'horodatage
+###<a name="hive-datefeatures"></a> Extraction de fonctionnalités à partir de champs d'horodatage
 
 Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. Dans Hive, le format d’horodatage par défaut est « aaaa-MM-jj 00:00:00 » (comme « 1970-01-01 12:21:32 »). Cette section montre comment extraire le jour du mois et le mois d’un champ d’horodatage, ainsi que des exemples qui convertissent une chaîne d’horodatage d’un format autre que par défaut en une chaîne d’horodatage au format par défaut.
 
@@ -112,7 +113,7 @@ Dans cette requête, si le *&#60;champ DateHeure>* présente le modèle *03/26/2
 Dans cette requête, la table *hivesampletable* est installée par défaut sur tous les clusters Hadoop Azure HDInsight lors de leur approvisionnement.
 
 
-###<a name="hive-textfeatures"></a>Extraction de fonctionnalités à partir de champs de texte
+###<a name="hive-textfeatures"></a> Extraction de fonctionnalités à partir de champs de texte
 
 Lorsque la table Hive a un champ de texte qui contient plusieurs mots séparés par un espace, la requête suivante extrait la longueur de la chaîne et le nombre de mots de celle-ci.
 
@@ -173,7 +174,7 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
 	En général, la valeur par défaut de *mapred.min.split.size* est 0, celle de *mapred.max.split.size* est **Long.MAX** et celle de *dfs.block.size* est 64 Mo. Comme nous pouvons le constater, vu la taille des données, l’ajustement de ces paramètres permet d’optimiser le nombre de mappeurs utilisés.
 
-5. D'autres **options avancées** optimisant les performances de Hive sont indiquées ci-dessous. Elles permettent de configurer la mémoire allouée aux tâches de mappage et de réduction, et d’ajuster au mieux les performances. Mais gardez à l'esprit que *mapreduce.reduce.memory.mb* ne peut pas être supérieur à la mémoire physique de chaque nœud de travail du cluster Hadoop.
+5. D’autres **options avancées** optimisant les performances de Hive sont indiquées ci-dessous. Elles permettent de configurer la mémoire allouée aux tâches de mappage et de réduction, et d’ajuster au mieux les performances. Mais gardez à l'esprit que *mapreduce.reduce.memory.mb* ne peut pas être supérieur à la mémoire physique de chaque nœud de travail du cluster Hadoop.
 
 		set mapreduce.map.memory.mb = 2048;
 		set mapreduce.reduce.memory.mb=6144;
@@ -190,4 +191,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

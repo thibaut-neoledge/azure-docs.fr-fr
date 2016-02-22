@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/09/2016"
 	ms.author="tomfitz"/>
 
 #Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
@@ -220,7 +220,8 @@ Vous pouvez à présent accéder à **http://localhost:8000/** pour tester l'app
 
 Après avoir testé votre application localement, vous pouvez la publier dans Web Apps à l’aide de Git. Vous allez initialiser votre référentiel Git, puis publier l'application.
 
-> [AZURE.NOTE]Cette procédure est identique à celle affichée dans le portail Azure à la fin de la section « Créer une application web et configurer la publication Git » précédente.
+> [AZURE.NOTE]
+Cette procédure est identique à celle affichée dans le portail Azure à la fin de la section « Créer une application web et configurer la publication Git » précédente.
 
 1. (Facultatif) Si vous avez oublié ou mal placé l’URL de votre référentiel distant Git, accédez aux propriétés de l’application web sur le portail Azure.
 
@@ -261,7 +262,7 @@ Pour publier les modifications apportées à votre application, procédez comme 
 
 	![Site Web PHP Azure][running-app]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Étapes suivantes
 
@@ -302,4 +303,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

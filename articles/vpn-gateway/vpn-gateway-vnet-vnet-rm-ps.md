@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -23,17 +23,15 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Cet article vous guidera à travers les étapes à l’aide du modèle de déploiement Resource Manager. Si vous recherchez un autre modèle de déploiement pour cette configuration, utilisez les onglets ci-dessus pour sélectionner l’article que vous souhaitez.
-
-À ce stade, nous ne proposons pas de solution pour les connexions de réseau virtuel à réseau virtuel pour les réseaux virtuels créés à l’aide de la méthode de déploiement Resource Manager et qui se trouvent dans différents abonnements. L’équipe travaille actuellement sur une solution qui devrait être prête d’ici la fin de l’année ou le début de l’année prochaine. Lorsqu’elle sera disponible, cet article inclura les étapes la concernant. Les étapes ci-dessous concernent des réseaux virtuels situés dans le même abonnement.
+Cet article vous guidera au travers des étapes de création d'une connexion entre des réseaux virtuels à l'aide du modèle de déploiement **Resource Manager** et de PowerShell. À ce stade, nous ne proposons pas de documentation pour les connexions de réseau virtuel à réseau virtuel pour les réseaux virtuels créés à l'aide du modèle de déploiement Resource Manager et qui se trouvent dans différents abonnements. L'équipe travaille actuellement sur une solution appropriée. Lorsqu’elle sera disponible, cet article inclura les étapes la concernant. Les étapes ci-dessous concernent des réseaux virtuels situés dans le même abonnement.
 
 **À propos des modèles de déploiement Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 	
-- Si vos réseaux virtuels ont été créés à l’aide du modèle de déploiement classique, consultez [Création d’une connexion de réseau virtuel à réseau virtuel](virtual-networks-configure-vnet-to-vnet-connection.md). Le modèle de déploiement classique prend en charge la connexion de réseaux virtuels situés dans différents abonnements.
+- Si vos réseaux virtuels ont été créés à l'aide du modèle de déploiement classique, consultez [Création d'une connexion entre des réseaux virtuels](virtual-networks-configure-vnet-to-vnet-connection.md). Le modèle de déploiement classique prend en charge la connexion de réseaux virtuels situés dans différents abonnements.
 	
-- Si vous souhaitez connecter un réseau virtuel créé selon le modèle de déploiement classique à un réseau virtuel créé à l’aide du modèle Azure Resource Manager, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+- Si vous souhaitez connecter un réseau virtuel créé selon le modèle de déploiement classique à un réseau virtuel créé à l'aide du modèle Azure Resource Manager, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## À propos des connexions de réseau virtuel à réseau virtuel
 
@@ -262,4 +260,4 @@ Après avoir vérifié que les sous-réseaux de votre passerelle sont correcteme
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

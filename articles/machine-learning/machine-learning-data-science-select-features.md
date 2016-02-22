@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/08/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -27,7 +27,7 @@ Cette rubrique explique les finalités de la sélection de fonctionnalités et f
 
 Cette rubrique explique la finalité de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Ces exemples sont tirés d’Azure Machine Learning Studio.
 
-La conception et la sélection de fonctionnalités constituent une partie du processus de CAP présentée dans [Qu’est ce que le processus d’analyse Cortana ?](machine-learning-data-science-the-cortana-analytics-process.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus CAP.* **Conception de fonctionnalités** : ce processus tente de créer des fonctionnalités supplémentaires pertinentes à partir de fonctionnalités brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage. * **Sélection de fonctionnalités** : ce processus sélectionne le sous-ensemble clé des fonctionnalités de données d’origine pour réduire la dimensionnalité du problème d’apprentissage.
+La conception et la sélection de fonctionnalités constituent une partie du processus de CAP présentée dans [Qu'est ce que le processus d'analyse Cortana ?](machine-learning-data-science-the-cortana-analytics-process.md). La conception et la sélection de fonctionnalités sont des parties de l'étape de **développement de fonctionnalités** du processus CAP. * **Conception de fonctionnalités** : ce processus tente de créer des fonctionnalités supplémentaires pertinentes à partir de fonctionnalités brutes existantes dans les données et d'augmenter la performance de prédiction de l'algorithme d’apprentissage. * **Sélection de fonctionnalités** : ce processus sélectionne le sous-ensemble clé des fonctionnalités de données d'origine pour réduire la dimensionnalité du problème d'apprentissage.
 
 En général, la **conception de fonctionnalités** s’applique d’abord à la génération de fonctionnalités supplémentaires. L’étape de **sélection de fonctionnalités** est alors effectuée pour éliminer les fonctionnalités inutiles, redondantes ou fortement corrélées.
 
@@ -73,4 +73,4 @@ Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caracté
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

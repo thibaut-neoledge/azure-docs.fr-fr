@@ -8,7 +8,7 @@ Le tableau de bord de la solution de surveillance à distance permet d'afficher 
 
     ![][18]
 
-3. Dans le tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Notez que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
+3. Cliquez sur **Tableau de bord** pour revenir au tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Notez que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
 
     ![][img-telemetry]
 
@@ -28,7 +28,7 @@ Le tableau de bord de la solution de surveillance à distance permet de demander
 
     ![][14]
 
-    > [AZURE.NOTE]L'historique affiche initialement l'état de la commande comme étant **En attente**. Lorsque le périphérique reconnaît la commande, l'état passe à **Réussite**.
+    > [AZURE.NOTE] L'historique affiche initialement l'état de la commande comme étant **En attente**. Lorsque le périphérique reconnaît la commande, l'état passe à **Réussite**.
 
 5. Dans le tableau de bord, vérifiez que le périphérique envoie désormais 75 comme nouvelle valeur de température.
 
@@ -43,4 +43,4 @@ L'article [Personnalisation des solutions préconfigurées][lnk-customize] décr
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

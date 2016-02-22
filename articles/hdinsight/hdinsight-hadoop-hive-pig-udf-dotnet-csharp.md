@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -60,52 +60,52 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 2. Remplacez le contenu de **Program.cs** par le code suivant :
 
-		using System;
-		using System.Security.Cryptography;
-		using System.Text;
-		using System.Threading.Tasks;
+        using System;
+        using System.Security.Cryptography;
+        using System.Text;
+        using System.Threading.Tasks;
 
-		namespace HiveCSharp
-		{
-		    class Program
-		    {
-		        static void Main(string[] args)
-		        {
-		            string line;
-		            // Read stdin in a loop
-		            while ((line = Console.ReadLine()) != null)
-		            {
-		                // Parse the string, trimming line feeds
-		                // and splitting fields at tabs
-		                line = line.TrimEnd('\n');
-		                string[] field = line.Split('\t');
-		                string phoneLabel = field[1] + ' ' + field[2];
-		                // Emit new data to stdout, delimited by tabs
-		                Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
-		            }
-		        }
-		        /// <summary>
-		        /// Returns an MD5 hash for the given string
-		        /// </summary>
-		        /// <param name="input">string value</param>
-		        /// <returns>an MD5 hash</returns>
-		        static string GetMD5Hash(string input)
-		        {
-		            // Step 1, calculate MD5 hash from input
-		            MD5 md5 = System.Security.Cryptography.MD5.Create();
-		            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-		            byte[] hash = md5.ComputeHash(inputBytes);
+        namespace HiveCSharp
+        {
+            class Program
+            {
+                static void Main(string[] args)
+                {
+                    string line;
+                    // Read stdin in a loop
+                    while ((line = Console.ReadLine()) != null)
+                    {
+                        // Parse the string, trimming line feeds
+                        // and splitting fields at tabs
+                        line = line.TrimEnd('\n');
+                        string[] field = line.Split('\t');
+                        string phoneLabel = field[1] + ' ' + field[2];
+                        // Emit new data to stdout, delimited by tabs
+                        Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
+                    }
+                }
+                /// <summary>
+                /// Returns an MD5 hash for the given string
+                /// </summary>
+                /// <param name="input">string value</param>
+                /// <returns>an MD5 hash</returns>
+                static string GetMD5Hash(string input)
+                {
+                    // Step 1, calculate MD5 hash from input
+                    MD5 md5 = System.Security.Cryptography.MD5.Create();
+                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                    byte[] hash = md5.ComputeHash(inputBytes);
 
-		            // Step 2, convert byte array to hex string
-		            StringBuilder sb = new StringBuilder();
-		            for (int i = 0; i < hash.Length; i++)
-		            {
-		                sb.Append(hash[i].ToString("x2"));
-		            }
-		            return sb.ToString();
-		        }
-		    }
-		}
+                    // Step 2, convert byte array to hex string
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < hash.Length; i++)
+                    {
+                        sb.Append(hash[i].ToString("x2"));
+                    }
+                    return sb.ToString();
+                }
+            }
+        }
 
 3. Créez le projet.
 
@@ -219,7 +219,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 	L’instruction `DEFINE` crée l’alias `streamer` pour les applications pigudf.exe et `SHIP` le distribue entre les nœuds du cluster. Plus tard, `streamer` est utilisé avec l’opérateur `STREAM` pour traiter les lignes uniques contenues dans le journal et renvoyer les données sous forme de colonnes.
 
-> [AZURE.NOTE]Le nom d’application utilisé pour la diffusion en continu doit être entouré du caractère ` (accent grave) s’il s’agit d’un alias ou du caractère ’ (apostrophe) en cas d’utilisation avec `SHIP`.
+> [AZURE.NOTE] Le nom d’application utilisé pour la diffusion en continu doit être entouré du caractère ` (accent grave) s’il s’agit d’un alias ou du caractère ’ (apostrophe) en cas d’utilisation avec `SHIP`.
 
 3. Après avoir entré la dernière ligne, la tâche doit démarrer. Elle renvoie une sortie semblable à celle-ci :
 
@@ -241,4 +241,4 @@ Pour d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

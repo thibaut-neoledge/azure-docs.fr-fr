@@ -103,7 +103,7 @@ Les outils HDInsight dans l'Explorateur de serveurs vous permettent de naviguer 
 
 ###<a id="mobile">Kit de développement logiciel (SDK) de Microsoft Azure Mobile App
 
-Outils permettant de travailler avec [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop-preview.md).
+Outils permettant de travailler avec [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md).
 
 ###<a id="ps"></a>Microsoft Azure PowerShell
 
@@ -186,4 +186,4 @@ Pour le code source du Kit de développement logiciel (SDK) Azure pour .NET, y c
 
 Pour la documentation de référence de la bibliothèque cliente Azure, consultez [Référence Azure .NET](/documentation/api/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

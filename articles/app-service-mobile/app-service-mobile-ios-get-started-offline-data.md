@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 # Activation de la synchronisation hors connexion pour votre application mobile iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Ce didacticiel traite de la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour iOS. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le backend distant.
 
@@ -30,9 +28,9 @@ Si vous n’avez aucune expérience d’Azure Mobile Apps, vous devez commencer 
 
 Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
-## <a name="review-sync"></a>Examiner le code de synchronisation client 
+## <a name="review-sync"></a>Examiner le code de synchronisation client
 
-Le projet client que vous avez téléchargé pour le didacticiel [Création d’une application iOS] contient déjà du code prenant en charge la synchronisation hors connexion à l’aide d’une base de données Core Data locale. Cette section résume ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d’ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Azure Mobile Apps].
+Le projet client que vous avez téléchargé pour le didacticiel [Création d’une application iOS] contient déjà du code prenant en charge la synchronisation hors connexion à l’aide d’une base de données Core Data locale. Cette section résume ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d'ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile Apps permet aux utilisateurs d'interagir avec une base de données locale lorsque le réseau n'est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous devez initialiser le contexte de synchronisation de `MSClient` et référencer un magasin local. Ensuite, vous référencez votre table par le biais de l'interface `MSSyncTable`.
 
@@ -107,7 +105,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
       * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
       * TodoItem : pour le stockage des actions. Les colonnes système **createdAt**, **updatedAt** et **version** sont des propriétés système facultatives.
 
->[AZURE.NOTE]Le Kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **``** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
+>[AZURE.NOTE] Le Kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **``** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
 
 - Lorsque vous utilisez la fonctionnalité de synchronisation hors connexion, vous devez définir les tables système comme illustré ci-dessous.
 
@@ -247,6 +245,5 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
- 
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

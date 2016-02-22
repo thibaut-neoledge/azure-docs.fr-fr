@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Lors de la fourniture de ressources à vos clients, vous pouvez [configurer les 
 
 Les ressources chiffrées doivent être associées à des **ContentKey**. Cet article décrit comment créer une clé de contenu.
 
->[AZURE.NOTE]Lorsque vous créez un élément multimédia **StorageEncrypted** à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET, les **ContentKey** sont automatiquement créées et liées à l’élément multimédia.
+>[AZURE.NOTE] Lorsque vous créez un élément multimédia **StorageEncrypted** à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET, les **ContentKey** sont automatiquement créées et liées à l’élément multimédia.
 
 ##ContentKeyType
 
@@ -146,4 +146,4 @@ appel
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

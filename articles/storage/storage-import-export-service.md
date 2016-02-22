@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="02/09/2016"
 	ms.author="renash"/>
 
 
@@ -55,8 +55,12 @@ Lorsque vous créez une tâche d'importation ou d'exportation, vous avez égalem
 4.	**Cibles de stockage d’objets blob** : les données peuvent être téléchargées vers ou à partir d’objets blob de blocs ou de pages.
 5.	**Nombre de tâches :** un client peut avoir au maximum 20 tâches actives par compte de stockage.
 6.	**Taille maximale des tâches :** la taille d'une tâche dépend de la capacité des disques durs utilisés et de la quantité maximale de données qu'un compte de stockage peut accueillir. Chaque tâche peut contenir au maximum 10 disques durs.
+7.  **Système d'exploitation pris en charge :** le client peut utiliser l'un des systèmes d'exploitation suivants pour préparer le disque dur à l'utilisation de l'outil Azure Import/Export avant l'expédition à Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
 
-  >[AZURE.IMPORTANT] Les disques durs externes équipés d’un adaptateur USB ne sont pas pris en charge par ce service. Ne préparez pas de lecteur de disque dur. Le disque dans le boîtier externe ne peut pas non plus être utilisé pour l’importation de données. Utilisez un lecteur de disque dur **interne** SATA II/III de 3,5 pouces. Si vous ne pouvez pas connecter le disque SATA directement à votre ordinateur, utilisez un adaptateur SATA/USB externe. Voir la liste des adaptateurs recommandés dans la section Forum aux questions.
+  > [AZURE.IMPORTANT] 
+    - Consultez la [section Forum aux questions](#frequently-asked-questions) pour obtenir des instructions spéciales si vous utilisez un ordinateur Windows 10 pour préparer votre disque dur.
+    
+    - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
 
 ## Créer une tâche d’importation dans le portail Classic##
 
@@ -173,6 +177,17 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 
 ### Généralités
 
+**Comment préparer le disque dur sur Windows 10 ?**
+  
+Suivez les instructions ci-dessous lors de l'utilisation de Windows 10 pour préparer votre disque dur :
+ 
+- Activez manuellement le chiffrement BitLocker sur le disque dur que vous préparez pour le service Azure Import/Export. Cliquez avec le bouton droit sur la lettre du lecteur de disque dur dans l'Explorateur de fichiers et sélectionnez « Activer BitLocker » et suivez les instructions de l'Assistant.  
+- Prenez soin de noter la clé de récupération.  
+- Lorsque vous êtes invité à choisir le mode de chiffrement, choisissez le **Mode Compatible (recommandé pour les disques qui peuvent être déplacés à partir de cet appareil)**  
+- Lorsque le chiffrement est terminé, exécutez l'outil Azure Import/Export pour copier des données sur ce disque dur.   
+- Utilisez le paramètre */bk* et indiquez la clé de récupération dans cette valeur de paramètre.   
+- N'utilisez PAS les paramètres */format* et */encrypt*.  
+
 **Combien coûte le service Import/Export ?**
 
 - Consultez cette [page](http://go.microsoft.com/fwlink/?LinkId=329033) pour obtenir des informations sur la tarification.
@@ -221,9 +236,9 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 **Formatez-vous les lecteurs avant de les renvoyer ?**
 
 - Non. Tous les lecteurs doivent être préparés avec BitLocker.
-
+ 
 **Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?**
- - Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande [Aperçu de l’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx) de l’outil Azure Import/Export. Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
+- Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande [Aperçu de l’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx) de l’outil Azure Import/Export. Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
 
 ### Expédition
 
@@ -276,4 +291,4 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

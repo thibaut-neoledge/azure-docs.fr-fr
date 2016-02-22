@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015" 
+	ms.date="02/09/2016" 
 	ms.author="jeannt"/>
 
 # Analyse de l’attrition des clients à l’aide de Microsoft Azure Machine Learning
@@ -65,7 +65,7 @@ L’analyse des données volumineuses est un ajout intéressant. Actuellement, l
 
  
 ##Implémentation de l’archétype de modélisation de ML Studio
-Étant donné le problème que nous venons de décrire, comment implémenter une méthode de modélisation et de notation intégrée ? Dans cette section, nous verrons comment nous y sommes parvenus à l’aide de Microsoft Azure Machine Learning Studio.
+Étant donné le problème que nous venons de décrire, quelle est la meilleure façon d'implémenter une méthode de modélisation et de notation intégrée ? Dans cette section, nous verrons comment nous y sommes parvenus à l’aide de Microsoft Azure Machine Learning Studio.
 
 L’approche multi-modèles est incontournable pour concevoir un archétype global d’attrition. Même la partie évaluative (prédictive) de la méthode doit être multi-modèles.
 
@@ -99,7 +99,9 @@ Les schémas suivants illustrent les données utilisées :
 
 *Figure 7 : caractéristiques extraites de la source de données*
 > Notez que ces données sont privées et que, par conséquent, le modèle et les données ne peuvent pas être partagés. Toutefois, pour un modèle similaire utilisant des données disponibles publiquement, consultez cet exemple d’expérience dans la [Galerie Cortana Analytics](http://gallery.azureml.net/) : [attrition des clients Telco](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
->
+> 
+> Pour plus d'informations sur la façon dont vous pouvez implémenter un modèle d'analyse de l'attrition à l'aide de la suite Cortana Analytics, nous vous recommandons également de regarder [cette vidéo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) du responsable de programme principal Wee Hyong Tok.
+> 
 
 ###Algorithmes utilisés dans le prototype
 
@@ -127,7 +129,7 @@ Nous avons également envoyé le jeu de données de notation à un modèle compa
 Dans cette section, nous présentons nos découvertes sur l’exactitude des modèles en fonction du jeu de données d’évaluation.
 
 ###Exactitude et précision de la notation
-En général, l’implémentation dans ML est derrière SAP en termes d’exactitude et ce, d’environ 10 à 15 % (aire sous la courbe, ASC).
+En général, l'implémentation dans Azure ML est derrière SAP en termes d'exactitude et ce, d'environ 10 à 15 % (aire sous la courbe, ASC).
 
 Toutefois, la mesure la plus importante en termes d’attrition est le taux de classification incorrecte : parmi les clients les plus enclins à l’attrition, quels sont ceux qui n’ont **pas** quitté un fournisseur, mais ont bénéficié malgré tout d’un traitement spécial ? Le schéma suivant compare ces différents taux de classification incorrecte pour tous les modèles :
 
@@ -188,7 +190,7 @@ Dans le secteur des télécommunications, plusieurs pratiques ont émergé pour 
 	-	**Données d'entreprise et concurrentielles**. Obtient toutes les informations possibles sur le client (par exemple, les données indisponibles ou difficiles à récupérer).
 -	Utilisez l’importance pour la sélection des caractéristiques. Cela implique que le modèle d’arbre de décision optimisé est toujours une approche prometteuse.  
 
-L’utilisation des quatre catégories ci-dessus donne l’impression qu’une simple approche *déterministe*, basée sur des indices formés sur des facteurs raisonnables par catégorie, doit suffire à identifier les clients risquant de se désabonner. Malheureusement, même si cette notion reste plausible, c’est une fausse idée. En effet, l’attrition est un effet temporel et les facteurs y contribuant sont habituellement dans des états temporaires. Un facteur qui incite un client à se désabonner aujourd’hui peut être différent demain, et le sera certainement dans six mois. De ce fait, un modèle *probabiliste* est nécessaire.
+L'utilisation de ces quatre catégories donne l'impression qu'une simple approche *déterministe*, basée sur des indices formés sur des facteurs raisonnables par catégorie, doit suffire à identifier les clients risquant de se désabonner. Malheureusement, même si cette notion reste plausible, c’est une fausse idée. En effet, l’attrition est un effet temporel et les facteurs y contribuant sont habituellement dans des états temporaires. Un facteur qui incite un client à se désabonner aujourd’hui peut être différent demain, et le sera certainement dans six mois. De ce fait, un modèle *probabiliste* est nécessaire.
 
 Cette observation importante est souvent ignorée par les entreprises, qui préfèrent généralement une approche d’informatique décisionnelle, car elle est plus vendeuse et permet une automatisation directe.
 
@@ -213,13 +215,13 @@ Ces commentaires nous aideront à améliorer la qualité des livres blancs que n
 ##Références
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, juillet/août 2011, p.18-20.
 
-[2] [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision) sur Wikipedia
+[2] Article Wikipedia : [Notions d'exactitude et de précision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] Big Data Marketing
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[5] [Modèle d'attrition Telco](https://caqs.azure.net/#gallery/telcocustomerchurn) dans la galerie Cortana Analytics
 ##Annexe
 
 ![][10]
@@ -238,4 +240,4 @@ Ces commentaires nous aideront à améliorer la qualité des livres blancs que n
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

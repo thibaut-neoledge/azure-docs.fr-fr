@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # Guide de prise en main de l’intégration d’Azure Active Directory avec les applications
@@ -87,4 +87,8 @@ Si vous écrivez une nouvelle application et que vous souhaitez aider les dével
 
 Si vous souhaitez ajouter votre application personnalisée à la galerie d’applications Azure, consultez [« Apportez votre propre application » avec une configuration SAML libre-service Azure AD](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+## Voir aussi
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

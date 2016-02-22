@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisa
 1. Obtention d’un jeton d’accès 
 2. Connexion à l’URI Media Services 
 
-	>[AZURE.NOTE]Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI. Vous pouvez également recevoir une réponse HTTP/1.1 200 qui contient la description des métadonnées de l’API ODATA.
+	>[AZURE.NOTE] Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI. Vous pouvez également recevoir une réponse HTTP/1.1 200 qui contient la description des métadonnées de l’API ODATA.
 
 3. Envoyez vos appels d’API suivants vers la nouvelle URL.
 
@@ -95,7 +95,8 @@ L’exemple suivant montre la réponse HTTP qui contient le jeton d’accès dan
 	}
 	
 
->[AZURE.NOTE]Il est recommandé de mettre en cache les valeurs « access\_token » et « expires\_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
+>[AZURE.NOTE]
+Il est recommandé de mettre en cache les valeurs « access\_token » et « expires\_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
 
 Veillez à analyser la valeur « expires\_in » du jeton d’accès et à mettre à jour vos appels d’API REST avec de nouveaux jetons le cas échéant.
 
@@ -161,7 +162,7 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 	 
 
 
->[AZURE.NOTE]Après l’obtention du nouvel URI, il convient de l’utiliser pour communiquer avec Media Services.
+>[AZURE.NOTE] Après l’obtention du nouvel URI, il convient de l’utiliser pour communiquer avec Media Services.
 
 
 ##Parcours d’apprentissage de Media Services
@@ -172,4 +173,4 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

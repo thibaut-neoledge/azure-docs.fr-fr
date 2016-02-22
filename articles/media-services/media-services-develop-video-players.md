@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,6 @@
 ##Vue d'ensemble
 
 Azure Media Services fournit les outils dont vous avez besoin pour créer des applications de lecteur clientes riches et dynamiques pour la plupart des plateformes, notamment : appareils iOS, Android, Windows, Windows Phone, Xbox et décodeurs. Cette rubrique fournit également des liens vers les Kits de développement logiciel (SDK) et les infrastructures de lecteur que vous pouvez utiliser pour développer vos propres applications clientes afin d’utiliser la diffusion en continu de médias à partir d’Azure Media Services.
-
 
 ##Azure Media Player
 
@@ -82,4 +81,4 @@ Pour en savoir plus sur la prise en charge du sous-titrage et des publicités da
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

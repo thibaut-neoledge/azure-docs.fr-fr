@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus et la technologie d'analyse avancée (ADAPT) 
@@ -128,7 +128,7 @@ Voici quelques exemples de scripts Hive qui vous permettent d’explorer les don
 
 1. Obtenir le nombre d'observations par partition `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 
-2. Obtenir le nombre d’observations par jour `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+2. Obtenir le nombre d'observations par jour `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 
 3. Obtenir les niveaux dans une colonne catégorielle `SELECT  distinct <column_name> from <databasename>.<tablename>`
 
@@ -167,7 +167,7 @@ Voici quelques exemples de scripts Hive qui vous permettent d’explorer les don
 
 Cette section décrit les méthodes permettant de générer des fonctionnalités à l’aide de requêtes Hive.
 
-> [AZURE.NOTE]Les exemples de requêtes Hive présentées supposent que les données ont été chargées dans les tables Hive des clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
+> [AZURE.NOTE] Les exemples de requêtes Hive présentées supposent que les données ont été chargées dans les tables Hive des clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
 
 Lorsque vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec les fonctionnalités supplémentaires et la clé principale, sur lesquelles vous pouvez créer une jointure à la table d’origine.
 
@@ -314,4 +314,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

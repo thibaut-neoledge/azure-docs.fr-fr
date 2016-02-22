@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Configuration requise##
+## Configuration requise ##
 
 Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -34,7 +34,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 - Comme alternative à la création de votre propre disque dur virtuel, SUSE publie également des images BYOS (« Apportez votre propre abonnement ») pour SLES sur [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
 
 
-**Notes d’installation SLES/openSUSE**
+**Notes d'installation SLES/openSUSE**
 
 - Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
 
@@ -101,19 +101,17 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
 ## Préparation de openSUSE 13.1+ ##
 
-1. Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
 
-2. Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
+2. Cliquez sur **Connect** pour ouvrir la fenêtre de la machine virtuelle.
 
-3. Sur l’interpréteur de commandes, exécutez la commande `zypper lr`. Si cette commande renvoie un résultat similaire au suivant (les numéros de version peuvent varier) :
+3. Sur l’interpréteur de commandes, exécutez la commande `zypper lr`. Si cette commande renvoie un résultat semblable à ce qui suit, alors les référentiels sont configurés comme prévu, aucune modification n'est nécessaire (notez que les numéros de version peuvent varier) :
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
 		1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
 		2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
 		3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-
-	cela signifie que les référentiels sont configurés comme attendu ; aucune modification n'est nécessaire.
 
 	Si la commande renvoie « Aucun référentiel défini... », utilisez les commandes suivantes pour ajouter ces référentiels :
 
@@ -134,7 +132,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
 		# sudo zypper update
 
-5.	Installez l'agent Linux Azure.
+5.	Installez l'agent Linux Azure.
 
 		# sudo zypper install WALinuxAgent
 
@@ -180,7 +178,6 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 13. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 ## Étapes suivantes
-Vous êtes maintenant prêt à utiliser votre disque dur virtuel SUSE Linux .vhd pour créer des machines virtuelles dans Azure. S'il s'agit de la première fois que vous utilisez Azure et téléchargez le fichier .vhd sur Azure, vous pouvez suivre les étapes 2 et 3 dans [ce guide](virtual-machines-linux-create-upload-vhd.md).
- 
+Vous êtes maintenant prêt à utiliser votre disque dur virtuel SUSE Linux pour créer des machines virtuelles dans Azure. S'il s'agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d'un disque dur virtuel contenant le système d'exploitation Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

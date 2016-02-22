@@ -3,7 +3,7 @@
   description="Liste des Kits de développement logiciel (SDK) clients et des compatibilités avec les versions des Kits de développement logiciel (SDK) serveurs pour Mobile Services et Azure Mobile Apps"
   services="app-service\mobile"
   documentationCenter=""
-  authors="lindydonna" 
+  authors="lindydonna"
   manager="dwrede"
   editor=""/>
 
@@ -13,15 +13,12 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="12/15/2015"
+  ms.date="02/04/2016"
   ms.author="donnam"/>
 
 # Contrôle de version client et serveur dans Mobile Apps et Mobile Services
 
 La dernière version d'Azure Mobile Services est la fonctionnalité **Mobile Apps** d'Azure App Service.
-
-<!-- Azure App Service offers a number of platform benefits over Mobile Services, including continuous integration and deployment, staging lots, and VNET support.
- -->
 
 Les Kits de développement logiciel (SDK) clients et serveurs Mobile Apps se fondent à l'origine sur ceux de Mobile Services, mais ils ne sont *pas* compatibles les uns avec les autres. Autrement dit, vous devez utiliser un SDK client *Mobile Apps* avec un SDK serveur *Mobile Apps* et il en est de même pour *Mobile Services*. Ce contrat s'applique au moyen d'une valeur d'en-tête spéciale utilisée par les SDK clients et serveurs, `ZUMO-API-VERSION`.
 
@@ -45,7 +42,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 Vous pouvez désactiver la vérification de version en fixant la valeur **true** au paramètre d'application **MS\_SkipVersionCheck**. Spécifiez cette valeur dans votre fichier web.config ou dans la section Paramètres de l'application du portail Azure.
 
-> [AZURE.NOTE]Il existe un certain nombre de différences de comportement entre Mobile Services et Mobile Apps, en particulier dans les domaines de la synchronisation hors connexion, de l'authentification et des notifications Push. Avant de désactiver la vérification de version, assurez-vous par des tests complets que ces modifications de comportement ne suppriment pas de fonctionnalités dans votre application.
+> [AZURE.NOTE] Il existe un certain nombre de différences de comportement entre Mobile Services et Mobile Apps, en particulier dans les domaines de la synchronisation hors connexion, de l'authentification et des notifications Push. Avant de désactiver la vérification de version, assurez-vous par des tests complets que ces modifications de comportement ne suppriment pas de fonctionnalités dans votre application.
 
 ## Résumé des compatibilités pour toutes les versions
 
@@ -80,10 +77,10 @@ Remarque : les SDK clients Mobile Services n'envoient *pas* de valeur d'en-têt
 
 ### SDK serveurs Mobile *Services*
 
-| Plateforme de serveur | Version                                                                                                        | En-têtes de versions acceptés |
+| Plateforme de serveur | Version | En-têtes de versions acceptés |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Aucun en-tête de version** |
-| Node.js           | (prochainement)                        | **Aucun en-tête de version** |
+| .NET | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ** Aucun en-tête de version ** | 
+| Node.js | (prochainement) | **Aucun en-tête de version** |
 
 <!-- TODO: add Node npm version -->
 
@@ -93,7 +90,7 @@ Remarque : les SDK clients Mobile Services n'envoient *pas* de valeur d'en-têt
 | ---------------- | ---------------------------- | -------- |
 | Non spécifié | Quelconque | 200 - OK |
 | Valeur quelconque | True | 200 - OK |
-| Valeur quelconque | False/Non spécifié | 400 - Requête incorrecte | 
+| Valeur quelconque | False/Non spécifié | 400 - Requête incorrecte |
 
 ## <a name="2.0.0"></a>Client et serveur Azure Mobile Apps
 
@@ -141,4 +138,4 @@ La vérification de version est incluse dans les versions suivantes du SDK serve
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrer un service Mobile Services sur Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -26,9 +26,9 @@ La montée en puissance des applications web Azure implique deux actions associ�
 
 Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications web de votre plan App Service. Vous ne devez pas modifier votre code ni redéployer vos applications.
 
-Pour plus d’informations sur les plans App Service, consultez les pages [Qu’est-ce qu’un plan App Service ?](../web-sites-web-hosting-plan-overview.md) et [Présentation approfondie des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, consultez la page [Détails sur la tarification d’App Service](/pricing/details/web-sites/).
+Pour plus d’informations sur les plans App Service, consultez les pages [Qu’est-ce qu’un plan App Service ?](../app-service/web-sites-web-hosting-plan-overview.md) et [Présentation approfondie des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, consultez la page [Détails sur la tarification d’App Service](/pricing/details/web-sites/).
 
-> [AZURE.NOTE]Avant de faire évoluer une application web du mode **Gratuit** vers le mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Avant de faire évoluer une application web du mode **Gratuit** vers le mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
@@ -56,7 +56,7 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Qu’
 ## Évolution vers le mode Standard ou Premium
 <!-- ================================= -->
 
-> [AZURE.NOTE]Avant de faire passer un plan App Service en mode **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Microsoft Azure App Service. Dans le cas contraire, votre application web risque de devenir inaccessible si vous atteignez ce plafond avant la fin de la période de facturation. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Avant de faire passer un plan App Service en mode **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Microsoft Azure App Service. Dans le cas contraire, votre application web risque de devenir inaccessible si vous atteignez ce plafond avant la fin de la période de facturation. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
 1. Pour évoluer vers le mode **Standard** ou **Premium**, suivez les mêmes étapes initiales que pour le passage au mode **Partagé** ou **De base**, choisissez un mode **Standard** ou **Premium** dans **Choisir votre niveau de tarification**, puis cliquez sur **Sélectionner**. 
 	
@@ -91,7 +91,7 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Qu’
 	
 	![Définir la première règle de mise à l’échelle automatique][SetFirstRule]
 	
-	>[AZURE.NOTE]Le paramètre **Délai d’attente** spécifie le temps que cette règle doit attendre après une mise à l’échelle pour pouvoir effectuer une nouvelle mise à l’échelle.
+	>[AZURE.NOTE] Le paramètre **Délai d’attente** spécifie le temps que cette règle doit attendre après une mise à l’échelle pour pouvoir effectuer une nouvelle mise à l’échelle.
 	
 6. Cliquez sur **Ajouter une règle d’extension**, puis configurez la deuxième règle en réglant **Condition** sur **Plus**, **Seuil** sur **90** (%), **Au cours de** sur **1** (minute), **Augmentation de** sur **3** (instances) et **Délai d’attente** sur **1** (minute).
 	
@@ -144,7 +144,7 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 
 - Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment la tarification et les fonctionnalités intéressant tous les utilisateurs (y compris les développeurs), consultez la page [Détails sur la tarification d’App Service](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 <a name="Next Steps"></a>
 ## Étapes suivantes
@@ -200,4 +200,4 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

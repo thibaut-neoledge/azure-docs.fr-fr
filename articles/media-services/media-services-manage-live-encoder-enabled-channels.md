@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
@@ -82,7 +82,7 @@ Le diagramme suivant représente un flux de travail de diffusion en continu dyna
 
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
->[AZURE.NOTE] Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Contactez amslived à Microsoft point com si vous avez besoin d'exécuter un canal pour de longues périodes. N'oubliez pas qu'il existe un impact sur la facturation pour l'encodage en temps réel et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation horaires. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
+>[AZURE.NOTE] Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Contactez amslived à Microsoft.com si vous avez besoin d'exécuter un canal pour de longues périodes. N'oubliez pas qu'il existe un impact sur la facturation pour l'encodage en temps réel et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation horaires. Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à vitesse binaire **unique** dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -301,7 +301,7 @@ Jusqu’à 8 jeux de flux audio peuvent être spécifiés si l’entrée du can
 
 Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal. Actuellement, la seule valeur autorisée est **Default720p** (par défaut).
 
-Notez que si vous avez besoin de paramètres prédéfinis personnalisés, contactez amslived à l’adresse Microsoft point com.
+Notez que si vous avez besoin de paramètres prédéfinis personnalisés, contactez amslived à l'adresse Microsoft.com.
 
 **Default720p** encode la vidéo dans les 7 couches suivantes.
 
@@ -434,7 +434,7 @@ Arrêté|Arrêté|Non
 - Par défaut, vous pouvez seulement ajouter 5 canaux à votre compte Media Services. Il s’agit d’un quota conditionnel sur tous les nouveaux comptes. Pour plus d’informations, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
 - Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 - Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution**. Pour plus d’informations, reportez-vous à [cette](media-services-manage-live-encoder-enabled-channels.md#states) section.
-- Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+- Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
 - Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 - Seul RTP est pris en charge pour la saisie multilingue lors de la saisie de pistes multilingues et l'encodage en temps réel. Vous pouvez définir jusqu'à 8 flux audio en entrée à l'aide de MPEG-2 TS via RTP. La réception de plusieurs pistes audio avec RTMP ou Smooth Streaming n'est actuellement pas prise en charge. Il n'existe aucune limitation en cas d'encodage en temps réel avec des [encodages locaux en temps réel](media-services-manage-channels-overview.md), car tout le contenu envoyé au système AMS passe par un canal sans traitement supplémentaire.
 - N'oubliez pas d'ARRÊTER VOS CANAUX lorsque vous avez terminé. Dans le cas contraire, la facturation continue. 
@@ -476,4 +476,4 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

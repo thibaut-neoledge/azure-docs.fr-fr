@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -108,7 +108,7 @@ Le code effectue les actions suivantes :
  	
 - 	Télécharge les fichiers dans Media Services à l'aide de la méthode **UploadAsync**.
  	
->[AZURE.NOTE]Utilisez la méthode UploadAsync afin de garantir que les appels ne sont pas bloqués et que les fichiers sont téléchargés en parallèle.
+>[AZURE.NOTE] Utilisez la méthode UploadAsync afin de garantir que les appels ne sont pas bloqués et que les fichiers sont téléchargés en parallèle.
  	
  	
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
@@ -315,4 +315,4 @@ Maintenant que vous avez chargé un élément multimédia dans Media Services, c
 [Obtention d'un processeur multimédia]: media-services-get-media-processor.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

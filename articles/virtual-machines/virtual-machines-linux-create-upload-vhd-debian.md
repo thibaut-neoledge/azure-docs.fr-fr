@@ -19,13 +19,13 @@
 
 
 
-#Préparer le disque dur virtuel Debian pour Azure
+# Préparer un disque dur virtuel Debian pour Azure
 
-##Composants requis
+## Configuration requise
 Cette section suppose que vous avez déjà installé un système d’exploitation Debian Linux à l’aide d’un fichier .iso téléchargé à partir du [site web Debian](https://www.debian.org/distrib/) sur un disque dur virtuel. Plusieurs outils permettent de créer des fichiers .vhd. Hyper-V n’est qu’un exemple parmi d’autres. Pour obtenir des instructions sur l’utilisation de Hyper-V, consultez [Installation du rôle Hyper-V et configuration d’une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
 
-## Notes d’installation
+## Notes d'installation
 
 - Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l’aide de Hyper-V Manager ou de l’applet de commande **convert-vhd**.
 - Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou RAID peuvent être utilisées sur des disques de données si vous préférez.
@@ -33,7 +33,7 @@ Cette section suppose que vous avez déjà installé un système d’exploitatio
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
 
-##Debian 7.x et 8.x
+## Debian 7.x et 8.x
 
 1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
@@ -47,13 +47,13 @@ Cette section suppose que vous avez déjà installé un système d’exploitatio
 
 5. Régénérez le grub et exécutez-le :
 
-        # sudo update-grub 
+        # sudo update-grub
 
 6. Installez les packages de dépendances pour l’agent Linux Azure :
 
         # apt-get install -y git parted
 
-7.	Installez l’agent Linux Azure à partir de Github en suivant les [instructions](virtual-machines-linux-update-agent.md), puis choisissez la version 2.0.14 :
+7.	Installez l'agent Linux Azure à partir de GitHub en suivant les [instructions](virtual-machines-linux-update-agent.md), puis choisissez la version 2.0.14 :
 
 			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
 			# chmod +x waagent
@@ -65,10 +65,10 @@ Cette section suppose que vous avez déjà installé un système d’exploitatio
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
         # logout
- 
+
 9. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-##Utilisation du script Credativ pour créer un disque dur virtuel Debian
+## Utilisation d'un script Credativ pour créer un disque dur virtuel Debian
 
 Un script est disponible sur le site web Credativ, qui peut vous aider à créer le disque dur virtuel Debian automatiquement. Vous pouvez le télécharger [ici](https://gitlab.credativ.com/de/azure-manage) et l’installer sur votre machine virtuelle Linux. Pour créer un disque dur virtuel Debian (par exemple, Debian 7), exécutez :
 
@@ -78,6 +78,6 @@ Si vous rencontrez un problème avec l’utilisation de ce script, signalez le p
 
 ## Étapes suivantes
 
-Vous êtes maintenant prêt à utiliser votre .vhd Debian pour créer des machines virtuelles Azure. S'il s'agit de la première fois que vous utilisez Azure et téléchargez le fichier .vhd sur Azure, vous pouvez suivre les étapes 2 et 3 dans [ce guide](virtual-machines-linux-create-upload-vhd.md).
+Vous êtes maintenant prêt à utiliser votre disque dur virtuel Debian pour créer des machines virtuelles dans Azure. S'il s'agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d'un disque dur virtuel contenant le système d'exploitation Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

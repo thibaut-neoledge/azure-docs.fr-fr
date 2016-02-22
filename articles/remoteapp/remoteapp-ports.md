@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/29/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 
 
 # Liste des ports et URL devant être accessibles à Azure RemoteApp en cas de déploiement dans un réseau virtuel client 
 
-Cet article s’applique à une collection cloud ou hybride Azure RemoteApp déployée dans un réseau virtuel. Pour plus d’informations sur les réseaux virtuels, consultez [Présentation des réseaux virtuels](virtual-networks-overview.md). Si vous avez créé un groupe de sécurité réseau qui limite le trafic aux ressources de votre réseau virtuel que vous avez choisies pour Azure RemoteApp, vérifiez que les éléments suivants sont accessibles et autorisés par le biais des stratégies de sécurité sur le réseau virtuel. Pour plus d’informations sur les groupes de sécurité réseau, consultez [Qu’est qu’un groupe de sécurité réseau ?](virtual-networks-nsg.md).
+Cet article s’applique à une collection cloud ou hybride Azure RemoteApp déployée dans un réseau virtuel. Pour plus d'informations sur les réseaux virtuels, consultez [Présentation des réseaux virtuels](../virtual-network/virtual-networks-overview.md). Si vous avez créé un groupe de sécurité réseau qui limite le trafic aux ressources de votre réseau virtuel que vous avez choisies pour Azure RemoteApp, vérifiez que les éléments suivants sont accessibles et autorisés par le biais des stratégies de sécurité sur le réseau virtuel. Pour plus d'informations sur les groupes de sécurité réseau, consultez [Qu'est qu'un groupe de sécurité réseau ?](../virtual-network/virtual-networks-nsg.md).
 
 ##  Points de terminaison et URL devant être accessibles à un sous-réseau Azure RemoteApp : 
 *	**.servicebus.windows.net
@@ -45,4 +45,4 @@ J’entends par clients les bureaux, appareils, etc. que les personnes utilisent
 -  Sortant : TCP : 443  
 -  Facultatif - UDP : 3391 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

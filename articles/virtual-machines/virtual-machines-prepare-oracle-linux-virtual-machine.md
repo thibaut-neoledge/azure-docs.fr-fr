@@ -1,22 +1,22 @@
-<properties 
-pageTitle="Préparation d’une machine virtuelle Oracle Linux pour Azure | Microsoft Azure" 
-description="Configuration étape par étape d’une machine virtuelle Oracle exécutant Linux dans Microsoft Azure." 
-services="virtual-machines" 
-authors="bbenz" 
+<properties
+pageTitle="Préparation d’une machine virtuelle Oracle Linux pour Azure | Microsoft Azure"
+description="Configuration étape par étape d’une machine virtuelle Oracle exécutant Linux dans Microsoft Azure."
+services="virtual-machines"
+authors="bbenz"
 documentationCenter="virtual-machines"
 tags="azure-service-management,azure-resource-manager"
 />
 
-<tags 
-ms.service="virtual-machines" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-linux" 
-ms.workload="infrastructure-services" 
-ms.date="06/22/2015" 
+<tags
+ms.service="virtual-machines"
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-linux"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
 ms.author="bbenz" />
 
-#Préparation d’une machine virtuelle Linux Oracle pour Azure
+# Préparation d’une machine virtuelle Linux Oracle pour Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -25,7 +25,7 @@ ms.author="bbenz" />
 
 -   [Préparation d’une machine virtuelle Oracle Linux 7.0+ pour Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
-##Composants requis
+## Composants requis
 Cet article suppose que vous avez déjà installé un système d'exploitation Oracle Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation de Hyper-V et création d’une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notes générales d’installation d’Oracle Linux**
@@ -44,10 +44,10 @@ Cet article suppose que vous avez déjà installé un système d'exploitation O
 
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
-- Assurez-vous que le `Addons`référentiel est activé. Modifiez le fichier `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), modifiez la ligne `enabled=0` à `enabled=1` sous **[ol6\_addons]** ou **[ol7\_addons]** dans ce fichier.
+- Assurez-vous que le référentiel `Addons` est activé. Modifiez le fichier `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), modifiez la ligne `enabled=0` en `enabled=1` sous **[ol6\_addons]** ou **[ol7\_addons]** dans ce fichier.
 
 
-##Oracle Linux 6.4+
+## Oracle Linux 6.4+
 Vous devez suivre des étapes de configuration spécifiques dans le système d'exploitation afin que la machine virtuelle fonctionne sur Azure.
 
 1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
@@ -58,7 +58,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	>[AZURE.NOTE]si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. Ceci est normal.
+	>[AZURE.NOTE] si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. Ceci est normal.
 
 4. Créez un fichier nommé **network** dans le répertoire /etc/sysconfig/ contenant le texte suivant :
 
@@ -132,7 +132,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 14.  Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-##Oracle Linux 7.0+
+## Oracle Linux 7.0+
 **Modifications dans Oracle Linux 7**
 
 La préparation d’une machine virtuelle Oracle Linux 7 pour Azure est très similaire au processus pour Oracle Linux 6. Cependant, certaines différences importantes méritent d’être notées :
@@ -225,4 +225,4 @@ La préparation d’une machine virtuelle Oracle Linux 7 pour Azure est trè
 
 15.  Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

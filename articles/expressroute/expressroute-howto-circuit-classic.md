@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Créer et modifier un circuit ExpressRoute à l’aide de PowerShell
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-Cet article vous guide tout au long des étapes de création d’un circuit ExpressRoute à l’aide des applets de commande PowerShell et du modèle de déploiement classique. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement d'un circuit ExpressRoute.
+Cet article vous guide tout au long des étapes de création d’un circuit ExpressRoute à l’aide des applets de commande PowerShell et du modèle de déploiement **classique**. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement d'un circuit ExpressRoute. Si vous souhaitez créer et modifier un circuit ExpressRoute à l'aide du modèle de déploiement **Resource Manager**, consultez la rubrique [Création et modification d’un circuit ExpressRoute à l'aide du modèle de déploiement Resource Manager](expressroute-howto-circuit-arm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -328,4 +328,4 @@ Si le fournisseur de services a annulé l'approvisionnement du circuit (l'état 
 
 - [Configuration du routage](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->
