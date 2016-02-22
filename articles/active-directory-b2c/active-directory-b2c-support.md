@@ -25,12 +25,8 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C 
 1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Basculez de votre client B2C vers un autre client auquel un abonnement Azure est associé. En règle générale, ce dernier est votre client des employés ou le client par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus sur la relation entre les abonnements Azure et les annuaires Azure AD, lire [cet article](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad).
 
-    > [AZURE.IMPORTANT]
-    Cette étape est obligatoire. Si vous ne l’exécutez pas, le processus échoue.
-
     ![Support - changement d’annuaires](./media/active-directory-b2c-support/support-switch-dir.png)
 
-    
 3. Après un changement d’annuaire, cliquez sur **Aide + support**.
 
     ![Support - support](./media/active-directory-b2c-support/support-support.png)
@@ -49,8 +45,8 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C 
 Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre client B2C, l'erreur suivante s'affiche.
 
 > [AZURE.IMPORTANT]
-> N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
+N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
 
 ![Support - aucun abonnement](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,8 @@ Cette rubrique contient des informations sur l'insertion de différents types de
 
 Pour en savoir plus sur la prise en charge du sous-titrage codé et des publicités dans les vidéos en flux live, consultez la page [Normes de sous-titrage codé et d’insertion de publicités prises en charge](media-services-manage-channels-overview.md#cc_and_ads).
 
- 
+>[AZURE.NOTE] Actuellement, Azure Media Player ne prend pas en charge les publicités.
+
 ##<a id="insert_ads_into_media"></a>Insertion de publicités dans vos supports
 
 Azure Media Services assure la prise en charge des insertions publicitaires via la plateforme Windows Media : Infrastructures de lecteur. Des infrastructures de lecteur avec prise en charge des publicités sont disponibles pour les périphériques Windows 8, Silverlight, Windows Phone 8 et iOS. Chaque infrastructure de lecteur contient un exemple de code qui montre comment implémenter une application de lecteur. Il existe trois sortes de publicités que vous pouvez insérer dans votre liste multimédia.
@@ -536,7 +537,7 @@ Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publici
 
 ###VastLinearNonLinearPage
 
-Cet exemple utilise AdSchedulerPlugin pour planifier une publicité linéaire et non linéaire. L'emplacement du fichier VAST est spécifié avec l'élément <RemoteAdSource>.
+Cet exemple utilise AdSchedulerPlugin pour planifier une publicité linéaire et non linéaire. L’emplacement du fichier VAST est spécifié avec l’élément <RemoteAdSource>.
 	
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -812,4 +813,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer
@@ -103,6 +103,10 @@ Pour désinstaller l’extension Volet d’accès de votre ordinateur :
 
 Si vous rencontrez des problèmes pour désinstaller l’extension, vous pouvez également la supprimer à l’aide de l’outil [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673).
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Articles connexes
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Déploiement de l'extension du volet d'accès pour Internet Explorer à l'aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)
+
+<!---HONumber=AcomDC_0211_2016-->

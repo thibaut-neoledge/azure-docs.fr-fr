@@ -41,7 +41,7 @@ Storage Decryption| Vous permet de déchiffrer les éléments multimédias qui o
 Microsoft Azure Media Packager|Vous permet de convertir des éléments multimédias du format .mp4 vers un format de diffusion en continu. De même, il permet de convertir des éléments multimédias du format de diffusion en continu lisse au format HLS (Apple HTTP Live Streaming).|[Chaînes de présélection des tâches pour Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
 Microsoft Azure Media Encryptor|Vous permet de chiffrer des éléments multimédias avec PlayReady Protection.|[Chaînes de présélection des tâches pour Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
 
-##Obtention de MediaProcessor
+##Obtention d'un processeur multimédia
 
 La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée **\_context**, pour conserver une référence au contexte, tel que décrit dans la section [Procédure : se connecter à Media Services par programme].
 
@@ -72,4 +72,4 @@ Maintenant que vous savez comment obtenir une instance de processeur multimédia
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procédure : se connecter à Media Services par programme]: ../media-services-set-up-computer/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

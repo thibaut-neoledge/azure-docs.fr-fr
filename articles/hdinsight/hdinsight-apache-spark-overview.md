@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 # Vue d’ensemble : Apache Spark sur Azure HDInsight (Linux)
@@ -28,7 +28,7 @@ Quand vous créez un cluster Spark dans HDInsight, vous créez des ressources de
 
 **Vous souhaitez prendre en main Apache Spark sur Azure HDInsight ?** Consultez [Démarrage rapide : créer un cluster Spark sur HDInsight Linux et exécuter des exemples d’application à l’aide de Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
->[AZURE.NOTE]Pour obtenir la liste des problèmes connus et des limitations de la version actuelle, consultez [Problèmes connus d’Apache Spark dans Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+>[AZURE.NOTE] Pour obtenir la liste des problèmes connus et des limitations de la version actuelle, consultez [Problèmes connus d’Apache Spark dans Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 
 ## Pourquoi utiliser Spark sur Azure HDInsight ? 
@@ -97,11 +97,11 @@ Commencez par créer un cluster Spark sur HDInsight Linux. Consultez [Démarrage
 
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Diffusion en continu Spark : utiliser Spark sur HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Analyse des journaux de site web en utilisant Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Créer et exécuter des applications
 
@@ -109,7 +109,9 @@ Commencez par créer un cluster Spark sur HDInsight Linux. Consultez [Démarrage
 
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensions
+### Outils et extensions
+
+* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -122,4 +124,4 @@ Commencez par créer un cluster Spark sur HDInsight Linux. Consultez [Démarrage
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

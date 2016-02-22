@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/22/2016"
+	 ms.date="02/05/2016"
 	 ms.author="jimpark;"/>
 
 # Sauvegarder des fichiers et dossiers d’un serveur Windows ou d’un ordinateur client Windows sur Azure
@@ -51,5 +51,6 @@ Cette procédure simple perme de sauvegarder facilement des dossiers et fichiers
 - [Gérer un serveur Windows Server ou un client Windows](backup-azure-manage-windows-server.md)
 - [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
+- Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

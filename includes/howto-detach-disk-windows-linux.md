@@ -4,7 +4,7 @@ Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à 
 
 Si vous souhaitez réutiliser les données du disque, vous pouvez l’attacher à la même machine virtuelle ou à une autre.
 
-> [AZURE.NOTE]Il n’est pas possible de détacher un disque de système d’exploitation, sauf si vous supprimez également la machine virtuelle.
+> [AZURE.NOTE] Il n’est pas possible de détacher un disque de système d’exploitation, sauf si vous supprimez également la machine virtuelle.
 
 
 ## Recherche du disque
@@ -12,7 +12,7 @@ Si vous souhaitez réutiliser les données du disque, vous pouvez l’attacher �
 Si vous ne connaissez pas le nom du disque ou souhaitez le vérifier avant de le détacher, procédez comme suit.
 
 
-1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](http://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).
 
 2. Cliquez sur **Machines virtuelles**, sur le nom de la machine virtuelle, puis sur **Tableau de bord**.
 
@@ -33,4 +33,4 @@ Si vous ne connaissez pas le nom du disque ou souhaitez le vérifier avant de le
 
 Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

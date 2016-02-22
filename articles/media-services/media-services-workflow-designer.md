@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -90,4 +90,4 @@ Si vous avez besoin d'aide ou si vous avez des questions à propos de la créati
 
 [Vidéos de formation pour le Concepteur de flux de travail Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

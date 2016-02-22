@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -24,7 +24,7 @@
 
 Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris des valeurs des variables au moment de la création du dump. Ils sont donc très utiles pour diagnostiquer les problèmes qui se produisent au moment de l’exécution.
 
-> [AZURE.NOTE]Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight sur Linux. Pour plus d’informations sur HDInsight sur Windows, consultez la rubrique [Activation des dumps de tas pour les services Hadoop sur HDInsight sur Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
+> [AZURE.NOTE] Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight sur Linux. Pour plus d’informations sur HDInsight sur Windows, consultez la rubrique [Activation des dumps de tas pour les services Hadoop sur HDInsight sur Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
 
 ## <a name="whichServices"></a>Services
 
@@ -49,7 +49,7 @@ Les processus de mappage et de réduction sont légèrement différents, car il 
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [AZURE.NOTE]Nous recommandons d’utiliser Ambari pour modifier les scripts et les paramètres de mapred-site.xml, car Ambari gère la réplication des modifications sur les nœuds du cluster. Consultez la section [Utilisation d’Ambari](#using-ambari) pour connaître les étapes spécifiques.
+> [AZURE.NOTE] Nous recommandons d’utiliser Ambari pour modifier les scripts et les paramètres de mapred-site.xml, car Ambari gère la réplication des modifications sur les nœuds du cluster. Consultez la section [Utilisation d’Ambari](#using-ambari) pour connaître les étapes spécifiques.
 
 ###Activer les dumps de tas
 
@@ -59,7 +59,7 @@ L’option suivante active les dumps de tas quand OutOfMemoryError se produit :
 
 Le **+** indique que cette option est activée. La valeur par défaut est désactivée.
 
-> [AZURE.WARNING]Les dumps de tas ne sont pas activés pour les services Hadoop sur HDInsight par défaut, car les fichiers dump peuvent être volumineux. Si vous les activez pour la résolution des problèmes, pensez à les désactiver après avoir reproduit le problème et regroupé les fichiers de vidage.
+> [AZURE.WARNING] Les dumps de tas ne sont pas activés pour les services Hadoop sur HDInsight par défaut, car les fichiers dump peuvent être volumineux. Si vous les activez pour la résolution des problèmes, pensez à les désactiver après avoir reproduit le problème et regroupé les fichiers de vidage.
 
 ###Emplacement du dump
 
@@ -75,7 +75,7 @@ Vous pouvez également déclencher un script quand **OutOfMemoryError** se produ
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [AZURE.NOTE]Hadoop étant un système distribué, tout script utilisé doit être placé sur tous les nœuds du cluster sur lequel le service s’exécute.
+> [AZURE.NOTE] Hadoop étant un système distribué, tout script utilisé doit être placé sur tous les nœuds du cluster sur lequel le service s’exécute.
 >
 > Le script doit également être dans un emplacement accessible par le compte sur lequel s’exécute le service et doit fournir des autorisations d’exécution. Par exemple, vous souhaitez stocker les scripts dans `/usr/local/bin` et utiliser `chmod go+rx /usr/local/bin/filename.sh` pour accorder les autorisations de lecture et d’exécution.
 
@@ -87,7 +87,7 @@ Pour modifier la configuration d’un service, procédez comme suit :
 
     Quand vous y êtes invité, authentifiez-vous auprès du site en utilisant le nom du compte HTTP (par défaut : admin) et le mot de passe de votre cluster.
 
-    > [AZURE.NOTE]Vous pouvez être invité une deuxième fois par Ambari à entrer le nom d’utilisateur et le mot de passe. Dans ce cas, réentrez simplement les mêmes nom de compte et mot de passe.
+    > [AZURE.NOTE] Vous pouvez être invité une deuxième fois par Ambari à entrer le nom d’utilisateur et le mot de passe. Dans ce cas, réentrez simplement les mêmes nom de compte et mot de passe.
 
 2. Dans la liste de gauche, sélectionnez la zone de service que vous souhaitez modifier. Par exemple, **HDFS**. Dans la zone centrale, sélectionnez l’onglet **Configurations**.
 
@@ -101,7 +101,7 @@ Pour modifier la configuration d’un service, procédez comme suit :
 
     ![HADOOP\_NAMENODE\_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-	> [AZURE.NOTE]En activant les dumps de tas du processus enfant de mappage ou de réduction, vous recherchez à la place les champs intitulés **mapreduce.admin.map.child.java.opts** et **mapreduce.admin.reduce.child.java.opts**.
+	> [AZURE.NOTE] En activant les dumps de tas du processus enfant de mappage ou de réduction, vous recherchez à la place les champs intitulés **mapreduce.admin.map.child.java.opts** et **mapreduce.admin.reduce.child.java.opts**.
 
     Utilisez le bouton **Enregistrer** pour enregistrer les modifications. Vous pouvez entrer une courte note décrivant les modifications.
 
@@ -117,8 +117,8 @@ Pour modifier la configuration d’un service, procédez comme suit :
 
     ![entrée Redémarrer tous les éléments affectés](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-    > [AZURE.NOTE]les entrées du bouton **Redémarrer** peuvent être différentes pour d’autres services.
+    > [AZURE.NOTE] les entrées du bouton **Redémarrer** peuvent être différentes pour d’autres services.
 
 8. Une fois que les services ont été redémarrés, utilisez le bouton **Actions de service** pour **Désactiver le mode de maintenance**. Ambari reprend la surveillance des alertes du service.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -36,6 +36,6 @@ NodeProperty : mappage défini par l’utilisateur ou le système d’une chaî
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 
-Pour plus d’informations, consultez [Scénarios d’application](../service-fabric-application-scenarios).
+Pour plus d’informations, consultez [Scénarios d’application](service-fabric-application-scenarios.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="02/09/2016"
    ms.author="mfussell"/>
 
 # Vue d'ensemble technique de Service Fabric
@@ -53,4 +53,4 @@ Pour en savoir plus sur Service Fabric, consultez les pages suivantes :
 - [Modèle d'application](service-fabric-application-model.md)
 - [Scénarios d’application](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

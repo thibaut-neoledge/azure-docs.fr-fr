@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="12/08/2015"
+  ms.date="02/09/2016"
   ms.author="stevenpo"/>
 
 
@@ -68,7 +68,8 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 
 ## Où en savoir plus ?
 
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 - [Protection des applications avec accès conditionnel](active-directory-conditional-access.md)
 - [Gestion des groupes en libre service/accès aux applications en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

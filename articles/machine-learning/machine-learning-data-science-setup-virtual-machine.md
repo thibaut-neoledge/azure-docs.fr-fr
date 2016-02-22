@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurer une machine virtuelle Azure comme serveur IPython Notebook pour des analyses avancées
@@ -104,7 +104,7 @@ Les utilisateurs peuvent aisément charger un notebook IPython de leur ordinateu
 
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)** quand elle est inutilisée.
 
-> [AZURE.NOTE]Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour être certain de ne plus être facturé, arrêtez toujours les machines virtuelles à partir du [portail Azure Classic](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant **ShutdownRoleOperation** avec « PostShutdownAction » défini sur « StoppedDeallocated ».
+> [AZURE.NOTE] Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour être certain de ne plus être facturé, arrêtez toujours les machines virtuelles à partir du [portail Azure Classic](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant **ShutdownRoleOperation** avec « PostShutdownAction » défini sur « StoppedDeallocated ».
 
 Pour arrêter et libérer la machine virtuelle :
 
@@ -143,4 +143,4 @@ Les étapes suivantes du processus d’analyse avancé et technologie et dans Az
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

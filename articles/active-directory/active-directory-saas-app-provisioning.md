@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory
@@ -106,6 +106,14 @@ Pour qu’une application puisse prendre en charge l’approvisionnement automat
 
 Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, veuillez écrire un message sur le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articles connexes
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
+- [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
+- [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
+- [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=AcomDC_0211_2016-->

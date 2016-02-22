@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
 # Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLlib avec Spark sous HDInsight (Linux)
 
-> [AZURE.TIP]Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour lire le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Spark Machine Learning - Analyse prédictive des données d’inspections alimentaires MLLib .ipynb** dans le dossier **Python**.
+> [AZURE.TIP] Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour lire le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Spark Machine Learning - Analyse prédictive des données d’inspections alimentaires MLLib .ipynb** dans le dossier **Python**.
 
 
 Cet article explique comment utiliser **MLLib**, les bibliothèques Machine Learning intégrées de Spark, pour réaliser une analyse prédictive simple sur un jeu de données ouvertes. MLLib est une bibliothèque Spark principale qui fournit un certain nombre d’utilitaires qui sont utiles pour les tâches Machine Learning, y compris les utilitaires qui conviennent pour :
@@ -59,7 +59,7 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-	> [AZURE.NOTE]Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
+	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -375,7 +375,9 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensions
+### Outils et extensions
+
+* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -385,4 +387,4 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

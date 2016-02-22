@@ -19,13 +19,14 @@
 # Créer une campagne marketing numérique sur Azure App Service Web Apps
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps est l’outil de prédilection des campagnes marketing numériques. Les campagnes marketing numériques sont des entités à durée de vie limitée, conçues pour promouvoir des objectifs marketing à court terme. Il y a deux scénarios principaux à envisager. Dans le premier scénario, une agence de marketing crée et gère une campagne pour un client pendant toute la durée de la promotion. Dans le second scénario, l’agence de marketing crée une campagne marketing numérique, puis transfère les droits de propriété sur les ressources associées au client. Ce dernier lance et gère ensuite seul la campagne. est approprié dans les deux cas.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 Vous trouverez ci-dessous un exemple de campagne marketing numérique multi-canal globale utilisant App Service Web Apps. Il montre les possibilités offertes par l’utilisation d’App Service Web Apps avec d’autres services pour un investissement technique minimal. **Cliquez sur un élément de la topographie pour en savoir plus.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Ce guide présente certaines des zones et des tâches les plus courantes correspondant à l’exécution d’une campagne marketing numérique dans Azure App Service Web Apps. Toutefois, il existe d’autres solutions courantes que vous pouvez implémenter dans App Service Web Apps. Pour les découvrir, consultez les guides relatifs à la [Présence sur le Web à l’international](web-sites-global-web-presence-solution-overview.md) et aux [Applications métier](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]
+Ce guide présente certaines des zones et des tâches les plus courantes correspondant à l’exécution d’une campagne marketing numérique dans Azure App Service Web Apps. Toutefois, il existe d’autres solutions courantes que vous pouvez implémenter dans App Service Web Apps. Pour les découvrir, consultez les guides relatifs à la [Présence sur le Web à l’international](web-sites-global-web-presence-solution-overview.md) et aux [Applications métier](web-sites-business-application-solution-overview.md).
 
 ## Créer des ressources ou utiliser des ressources existantes
 
@@ -88,7 +89,7 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 ## Autres ressources
 
 - [Documentation d’App Service Web Apps](/services/app-service/web/)
-- [Plan d’apprentissage pour Azure App Service Web Apps](websites-learning-map.md)
+- [Plan d’apprentissage pour Azure App Service Web Apps](/documentation/learning-paths/appservice-webapps/)
 - [Blog web sur Microsoft Azure](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -139,4 +140,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

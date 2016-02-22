@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Développer des scripts d’action de script pour HDInsight
 
-Découvrez comment écrire des scripts d’action de script pour HDInsight. Pour plus d’informations sur les scripts d’action de script, consultez [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md). Pour accéder au même article écrit pour le cluster HDInsight sur le système d’exploitation Linux, consultez [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Découvrez comment écrire des scripts d’action de script pour HDInsight. Pour plus d’informations sur les scripts d’action de script, consultez [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md). Pour accéder au même article écrit pour les clusters HDInsight basés sur Linux, consultez [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 L’action de script permet d’installer des logiciels supplémentaires s’exécutant sur un cluster Hadoop ou de modifier la configuration des applications installées sur un cluster. Les actions de script sont des scripts qui s'exécutent sur des nœuds de cluster lors du déploiement des clusters HDInsight. Elles sont exécutées une fois la configuration de HDInsight terminée dans le cluster. Une action de script est exécutée avec les privilèges d'un compte d'administrateur système qui fournissent des droits d'accès complets aux nœuds du cluster. Chaque cluster peut recevoir une liste d'actions de script qui sont exécutées dans l'ordre spécifié.
 
-> [AZURE.NOTE]Si vous obtenez le message d’erreur suivant :
+> [AZURE.NOTE] Si vous obtenez le message d’erreur suivant :
 > 
 >     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > Cela signifie que vous n’avez pas inclus les méthodes d’assistance. Consultez [Méthodes d’assistance pour les scripts personnalisés](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
 ## Exemples de scripts
 
-Pour approvisionner des clusters HDInsight sur le système d’exploitation Windows, l’action de script est un script Azure PowerShell. L’exemple de script suivant montre comment configurer les fichiers de configuration de site :
+Pour créer des clusters HDInsight sur le système d’exploitation Windows, l’action de script est un script Azure PowerShell. L’exemple de script suivant montre comment configurer les fichiers de configuration de site :
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -94,7 +94,7 @@ Nom | Script
 
 L’action de script peut être déployée à partir du portail Azure, d’Azure PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Pour plus d’informations, consultez l’article [Personnaliser des clusters HDInsight à l’aide d’une d’action de script][hdinsight-cluster-customize].
 
-> [AZURE.NOTE]Les exemples de scripts fonctionnent uniquement avec le cluster HDInsight version 3.1 ou version ultérieure. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](../hdinsight-component-versioning/).
+> [AZURE.NOTE] Les exemples de scripts fonctionnent uniquement avec le cluster HDInsight version 3.1 ou version ultérieure. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](../hdinsight-component-versioning/).
 
 
 
@@ -213,7 +213,7 @@ or
 
 ### Lever une exception pour l’échec d’un déploiement de cluster
 
-Si vous souhaitez être notifié précisément du fait que la personnalisation du cluster n’a pas réussi comme prévu, il est important qu’une exception soit levée et que l’approvisionnement du cluster échoue. Par exemple, vous souhaitez traiter un fichier s'il existe et gérer la situation d'erreur si le fichier n'existe pas. Cela garantira que le script s'arrête normalement et que l'état du cluster est correctement connu. L'extrait de code suivant fournit un exemple montrant comment y parvenir :
+Si vous souhaitez être notifié précisément du fait que la personnalisation du cluster n’a pas réussi comme prévu, il est important qu’une exception soit levée et que la création du cluster échoue. Par exemple, vous souhaitez traiter un fichier s'il existe et gérer la situation d'erreur si le fichier n'existe pas. Cela garantira que le script s'arrête normalement et que l'état du cluster est correctement connu. L'extrait de code suivant fournit un exemple montrant comment y parvenir :
 
 	If(Test-Path($SomePath)) {
 		#Process file in some way
@@ -339,7 +339,7 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 - [Personnaliser des clusters HDInsight à l'aide d'une action de script][hdinsight-cluster-customize]
 - [Installer et utiliser Spark sur les clusters HDInsight][hdinsight-install-spark]
 - [Installer et utiliser R sur les clusters HDInsight][hdinsight-r-scripts]
-- [Installez et utilisez Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md).
+- [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md)
 - [Installez et utilisez Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -351,4 +351,4 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

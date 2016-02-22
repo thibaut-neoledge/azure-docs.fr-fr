@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -63,7 +63,7 @@ Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le ca
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
 
-## Configurer la taille du nœud principal
+## Configuration de la taille du nœud principal
 Par défaut, les nœuds principaux sont alloués en tant que machines virtuelles de taille importante. Cette taille est appropriée pour la gestion de la plupart des tâches Hadoop exécutées sur le cluster. Mais dans certains scénarios, des machines virtuelles de taille très importante peuvent être nécessaires pour les nœuds principaux. C'est le cas, par exemple, lorsque le cluster doit gérer un nombre important de petites tâches Oozie.
 
 Les machines virtuelles de taille très importante peuvent être configurées soit avec des cmdlets Azure PowerShell soit avec le Kit de développement logiciel (SDK) HDInsight.
@@ -100,10 +100,10 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
     };
 
 
-**Informations de référence**
+## Étapes suivantes
 
-- [ZooKeeper](http://zookeeper.apache.org/)
+- [Apache ZooKeeper](http://zookeeper.apache.org/)
 - [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

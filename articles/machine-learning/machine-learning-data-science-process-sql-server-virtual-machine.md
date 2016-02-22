@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye" />
 
 #<a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
 
-Ce document décrit l’exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.
+Ce document décrit l'exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.
 
 
-> [AZURE.NOTE]Les exemples d’instructions SQL qui figurent dans ce document reposent sur l’hypothèse que les données sont stockées dans SQL Server. Dans le cas contraire, reportez-vous à la cartographie du processus de science des données du cloud pour découvrir comment déplacer vos données vers SQL Server.
+> [AZURE.NOTE] Les exemples d’instructions SQL qui figurent dans ce document reposent sur l’hypothèse que les données sont stockées dans SQL Server. Dans le cas contraire, reportez-vous à la cartographie du processus de science des données du cloud pour découvrir comment déplacer vos données vers SQL Server.
 
 ##<a name="SQL"></a>Utilisation de SQL
 
@@ -34,7 +34,7 @@ Dans cette section, nous décrivons les tâches de retraitement des données via
 Voici quelques exemples de scripts SQL utilisables pour l’exploration de magasins de données dans SQL Server.
 
 
-> [AZURE.NOTE]Pour découvrir un exemple pratique, vous pouvez utiliser le [jeu de données des taxis new-yorkais NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au notebook IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
+> [AZURE.NOTE] Pour découvrir un exemple pratique, vous pouvez utiliser le [jeu de données des taxis new-yorkais NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au notebook IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
 
 1. Obtenir le nombre d’observations par jour
 
@@ -62,7 +62,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 3. [Déploiement des caractéristiques à partir d’une seule colonne](#sql-featurerollout)
 
 
-> [AZURE.NOTE]Une fois que vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous forme de colonnes à la table existante, soit créer une autre table avec les fonctionnalités supplémentaires et la clé primaire que vous pouvez joindre à la table d’origine.
+> [AZURE.NOTE] Une fois que vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous forme de colonnes à la table existante, soit créer une autre table avec les fonctionnalités supplémentaires et la clé primaire que vous pouvez joindre à la table d’origine.
 
 ###<a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
 
@@ -113,10 +113,10 @@ Vous pouvez implémenter les informations d’emplacement comme illustré ci-des
 Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’emplacement pour générer d’autres fonctionnalités utilisant des décomptes comme décrit précédemment.
 
 
-> [AZURE.TIP]Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
  
 
-> [AZURE.TIP]Une autre solution consiste à insérer les données dans la base de données à l’aide de l’[utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> [AZURE.TIP] Une autre solution consiste à insérer les données dans la base de données à l’aide de l’[utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Connexion à Azure Machine Learning
 
@@ -152,4 +152,4 @@ Pour découvrir un exemple de procédure pas à pas du processus de science des 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

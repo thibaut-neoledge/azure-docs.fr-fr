@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/20/2015"
+   ms.date="02/03/2016"
    ms.author="derrickv"/>
 
 
@@ -34,4 +34,4 @@ Voici les exemples disponibles sur GitHub :
 
   Exemple qui montre comment utiliser l’API REST Data Catalog pour extraire des ressources d’Azure Data Catalog et les sérialiser dans un fichier. Il montre également comment sélectionner un ensemble de ressources sérialisées au format json et les placer dans le catalogue. Cet exemple prend en charge l’exportation d’un sous-ensemble du catalogue à l’aide d’une requête de recherche.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

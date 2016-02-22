@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Prise en main de l'authentification pour Mobile Apps dans Xamarin Android" 
-	description="Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Android via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+<properties
+	pageTitle="Prise en main de l'authentification pour Mobile Apps dans Xamarin Android"
+	description="Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Android via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Ajout de l'authentification à votre application Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Cette rubrique montre comment authentifier les utilisateurs d'une application Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Azure Mobile Apps. Une fois l'utilisateur authentifié et autorisé dans l’application Mobile App, la valeur de l'ID utilisateur s'affiche.
 
@@ -56,7 +54,7 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
 	                    MobileServiceAuthenticationProvider.Facebook);
 	                CreateAndShowDialog(string.Format("you are now logged in - {0}",
 	                    user.UserId), "Logged in!");
-	
+
 	                success = true;
 	            }
 	            catch (Exception ex)
@@ -72,7 +70,7 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
             // Load data only after authentication succeeds.
             if (await Authenticate())
             {
-                //Hide the button after authentication succeeds. 
+                //Hide the button after authentication succeeds.
                 FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
 
                 // Load the data.
@@ -82,7 +80,7 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
 
     Cela crée une nouvelle méthode pour authentifier un utilisateur et un gestionnaire de méthode pour un nouveau bouton **Se connecter**. L'utilisateur de l'exemple de code ci-dessus est authentifié à l'aide d'une connexion Facebook. Une boîte de dialogue permet d'afficher l'ID d'utilisateur une fois authentifié.
 
-    > [AZURE.NOTE]Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
 3. Dans la méthode **OnCreate**, supprimez ou supprimez les marques de commentaire de la ligne de code suivante :
 
@@ -99,7 +97,7 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
 
 5. Ajoutez l’élément suivant au fichier de ressources Strings.xml :
 
-		<string name="login_button_text">Sign in</string> 
+		<string name="login_button_text">Sign in</string>
 
 6. Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un émulateur et connectez-vous avec le fournisseur d’identité que vous avez choisi.
 
@@ -108,6 +106,5 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
 
 <!-- URLs. -->
 [Création d’une application Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
- 
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

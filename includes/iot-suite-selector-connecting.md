@@ -14,21 +14,33 @@ Dans ce scénario, vous allez créer un appareil qui envoie la télémétrie sui
 
 Par souci de simplicité, le code sur l’appareil génère des valeurs d’exemple, mais nous vous encourageons à étendre l'exemple en connectant des capteurs réels à votre appareil et en envoyant une télémétrie réelle.
 
+Pour effectuer ce didacticiel, vous aurez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
+
 ## Avant de commencer
 
 Avant d'écrire du code pour votre appareil, vous devez approvisionner votre solution préconfigurée de surveillance à distance et ensuite approvisionner un appareil dans cette solution.
 
 ### Approvisionner la solution préconfigurée de surveillance à distance
 
-L’appareil que vous créez enverra des données à une instance de la solution préconfigurée de [surveillance à distance][lnk-remote-monitoring]. Consultez [Prenez en main Azure IoT Suite][lnk-getstarted] pour créer un compte Azure et configurer IoT Suite. Sélectionnez **Surveillance à distance** lorsque vous créez votre solution.
+L’appareil que vous créez enverra des données à une instance de la solution préconfigurée de [surveillance à distance][lnk-remote-monitoring]. Visitez [Prenez en main Azure IoT Suite][lnk-getstarted] pour configurer la solution de surveillance à distance dans votre compte Azure :
 
-Lorsque la solution de surveillance à distance a été approvisionnée, cliquez sur **Lancer** pour ouvrir le tableau de bord de la solution.
+1. Sur la page https://www.azureiotsuite.com/, puis cliquez sur **+** pour créer une solution.
+
+2. Cliquez sur **Sélectionner** dans le panneau **Surveillance à distance** pour créer votre solution.
+
+3. Sur la page **Créer une solution de surveillance à distance**, entrez un **nom de Solution**, sélectionnez la **région** où vous souhaitez déployer la solution, puis choisissez l'abonnement Azure à utiliser. Puis cliquez sur **Créer la solution**.
+
+4. Attendez la fin du processus de configuration.
+
+> [AZURE.WARNING] Les solutions préconfigurées utilisent des services Azure facturables. Veillez à supprimer la solution préconfigurée de votre abonnement lorsque vous avez terminé pour éviter toute facturation inutile. Vous pouvez supprimer complètement une solution préconfigurée de votre abonnement en vous rendant à la page https://www.azureiotsuite.com/.
+
+Lorsque la solution de surveillance à distance a été approvisionnée, cliquez sur **Lancer** pour ouvrir le tableau de bord de la solution dans votre navigateur.
 
 ![][img-dashboard]
 
 ### Configurer votre appareil dans la solution de surveillance à distance
 
-> [AZURE.NOTE]Si vous avez déjà approvisionné un appareil dans votre solution, vous pouvez ignorer cette étape. Vous devez connaître les informations d'identification de l’appareil lorsque vous créez l'application cliente.
+> [AZURE.NOTE] Si vous avez déjà approvisionné un appareil dans votre solution, vous pouvez ignorer cette étape. Vous devez connaître les informations d'identification de l’appareil lorsque vous créez l'application cliente.
 
 Pour qu’un appareil puisse se connecter à la solution préconfigurée, il doit être en mesure de s'identifier à l'aide d’informations d'identification valides. Vous pouvez obtenir les informations d'identification de l’appareil à partir du tableau de bord de la solution et les inclure dans votre application cliente.
 
@@ -61,8 +73,9 @@ Pour ajouter un nouvel appareil à votre solution de surveillance à distance, p
 [4]: ./media/iot-suite-selector-connecting/suite3.png
 [5]: ./media/iot-suite-selector-connecting/suite5.png
 
-[lnk-getstarted]: http://www.microsoft.com/server-cloud/internet-of-things/getting-started.aspx
+[lnk-getstarted]: https://www.azureiotsuite.com/
 [lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

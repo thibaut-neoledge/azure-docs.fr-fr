@@ -125,7 +125,6 @@ Les inconvénients du déploiement à l’aide d’un IDE sont les suivants :
 ###<a name="webmatrix"></a>Déploiement direct depuis WebMatrix
 
 * [Génération et déploiement d'un site Web Node.js dans Azure avec WebMatrix](web-sites-nodejs-use-webmatrix.md).
-* [Création et déploiement d’un site Web Azure PHP-MySQL avec WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3 : Git intégré et déploiement dans Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Utilisation de WebMatrix pour procéder au déploiement depuis un référentiel de contrôle de code source Git.
 
 ## <a name="onprem"></a>Déploiement à partir d’un système de contrôle du code source local
@@ -157,7 +156,7 @@ Autres avantages du déploiement à l’aide de TFS :
 
 ###<a name="tfs"></a>Déploiement continu avec TFS
 
-* [Livraison continue pour Cloud Services dans Azure](../cloud-services-dotnet-continuous-delivery.md). Ce document concerne un service cloud Azure, mais une partie de son contenu concerne aussi Web Apps.
+* [Livraison continue pour Cloud Services dans Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md). Ce document concerne un service cloud Azure, mais une partie de son contenu concerne aussi Web Apps.
 
 ###<a name="gitmercurial"></a>Déploiement d’un référentiel Git ou Mercurial local
 
@@ -195,8 +194,8 @@ Voici d’autres avantages du déploiement à l’aide de Visual Studio Team Ser
 
 ###<a name="vsts"></a>Déploiement continu avec Visual Studio Team Services
 
-- [Livraison continue sur Azure au moyen de Visual Studio Team Services et TFVC](../cloud-services-continuous-delivery-use-vso.md). Didacticiel pas à pas montrant comment configurer des livraisons continues de Visual Studio Team Services et TFVC vers une application web, en utilisant TFVC. 
-- [Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git](../cloud-services-continuous-delivery-use-vso-git.md). Semblable au didacticiel précédent, si ce n'est qu'il utilise Git et non TFVC.
+- [Livraison continue sur Azure au moyen de Visual Studio Team Services et TFVC](../cloud-services/cloud-services-continuous-delivery-use-vso.md). Didacticiel pas à pas montrant comment configurer des livraisons continues de Visual Studio Team Services et TFVC vers une application web, en utilisant TFVC. 
+- [Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md). Semblable au didacticiel précédent, si ce n'est qu'il utilise Git et non TFVC.
 
 ###<a name="cloudgitmercurial"></a>Déploiement à partir d’un référentiel Git ou Mercurial local hébergé sur le cloud
 
@@ -284,4 +283,4 @@ Pour plus d’informations concernant d’autres rubriques de déploiement, cons
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

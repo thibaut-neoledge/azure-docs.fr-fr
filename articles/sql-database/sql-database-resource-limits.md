@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
+	ms.date="02/04/2016"
 	ms.author="jroth" />
 
 
@@ -75,4 +75,4 @@ La base de données SQL Azure a un quota de DTU par serveur logique de 15 000�
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

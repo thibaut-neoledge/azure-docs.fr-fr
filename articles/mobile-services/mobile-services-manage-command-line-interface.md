@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/27/2016"
 	ms.author="glenga"/>
 
 # Automatisation des services mobiles avec les outils en ligne de commande
@@ -79,7 +79,7 @@ La commande `mobile create` échoue si le service mobile spécifié existe. Dans
 
 ##Affichage de la liste des services mobiles existants dans un abonnement
 
-> [AZURE.NOTE]Les commandes de la CLI liées à « liste » et à « script » fonctionnent uniquement avec le backend JavaScript.
+> [AZURE.NOTE] Les commandes de la CLI liées à « liste » et à « script » fonctionnent uniquement avec le backend JavaScript.
 
 La commande suivante renvoie la liste de tous les services mobiles d'un abonnement Azure :
 
@@ -95,7 +95,7 @@ Vous pouvez utiliser les outils en ligne de commande pour supprimer un service m
 
 En incluant les paramètres `-a` et `-q`, cette commande supprime également le serveur et la base de données SQL utilisés par le service mobile sans afficher d'invite.
 
-> [AZURE.NOTE]Si vous ne spécifiez pas le paramètre <code>-q</code> avec <code>-a</code> ou <code>-d</code>, l'exécution est mise en pause et vous êtes invité à sélectionner les options de suppression de votre base de données SQL. Utilisez le paramètre <code>-a</code> uniquement quand aucun autre service mobile n'utilise la base de données ou le serveur. Sinon, utilisez le paramètre <code>-d</code> pour supprimer seulement les données appartenant au service mobile en cours de suppression.
+> [AZURE.NOTE] Si vous ne spécifiez pas le paramètre <code>-q</code> avec <code>-a</code> ou <code>-d</code>, l'exécution est mise en pause et vous êtes invité à sélectionner les options de suppression de votre base de données SQL. Utilisez le paramètre <code>-a</code> uniquement quand aucun autre service mobile n'utilise la base de données ou le serveur. Sinon, utilisez le paramètre <code>-d</code> pour supprimer seulement les données appartenant au service mobile en cours de suppression.
 
 ##Création d'une table dans le service mobile
 
@@ -187,4 +187,4 @@ Pour plus d'informations sur l'enregistrement des scripts, consultez la page [R�
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Installation des outils en ligne de commande Azure pour Mac et Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

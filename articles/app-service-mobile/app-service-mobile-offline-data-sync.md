@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Synchronisation des données hors connexion dans Azure Mobile Apps
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Qu’est-ce que la synchronisation des données hors connexion ?
 
@@ -37,8 +35,8 @@ La synchronisation hors connexion présente un certain nombre d’avantages :
 Les didacticiels suivants montrent comment ajouter la synchronisation hors connexion à vos clients mobiles à l’aide d’Azure Mobile Apps :
 
 * [Android : activer la synchronisation hors connexion]
-* [iOS : activer la synchronisation hors connexion]			
-* [Xamarin iOS : activer la synchronisation hors connexion]	
+* [iOS : activer la synchronisation hors connexion]
+* [Xamarin iOS : activer la synchronisation hors connexion]
 * [Xamarin Android : activer la synchronisation hors connexion]
 * [Windows 8.1 : activer la synchronisation hors connexion]
 
@@ -65,10 +63,10 @@ Un magasin local est associé au contexte de synchronisation à l’aide d’une
 <!-- TODO: link to client references -->
 
 
-<!-- 
+<!--
 Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
 
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization. 
+The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
 
 
 
@@ -103,22 +101,23 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 
   Si vous souhaitez désactiver la synchronisation incrémentielle, transmettez `null` en tant qu’ID de requête. Dans ce cas, tous les enregistrements seront extraits à chaque appel à `PullAsync`, ce qui est potentiellement inefficace.
 
- 
+
 
 <!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
  -->
+
 * **Purge** : vous pouvez effacer le contenu du magasin local en utilisant `IMobileServiceSyncTable.PurgeAsync`. Cette opération peut s’avérer nécessaire si la base de données client contient des données obsolètes ou que vous souhaitez ignorer toutes les modifications en attente.
 
   Une purge efface une table du magasin local. Si des opérations sont en attente de synchronisation avec la base de données du serveur, la purge lève une exception, à moins que le paramètre *force purge* soit activé.
 
   Pour illustrer les données obsolètes sur le client, supposons que dans l’exemple de la liste de tâches, l’appareil 1 extrait uniquement les éléments qui ne sont pas terminés. Ensuite, un élément de tâche « Acheter du lait » est marqué comme terminé sur le serveur par un autre appareil. Toutefois, l’appareil 1 a toujours l’élément de tâche « Acheter du lait » dans le magasin local, car il extrait uniquement les éléments qui ne sont pas marqués comme terminés. Une purge efface cet élément obsolète.
- 
+
 ## Étapes suivantes
 
-* [iOS : activer la synchronisation hors connexion]			
-* [Xamarin iOS : activer la synchronisation hors connexion]	
+* [iOS : activer la synchronisation hors connexion]
+* [Xamarin iOS : activer la synchronisation hors connexion]
 * [Xamarin Android : activer la synchronisation hors connexion]
-* [Windows 8.1 : activer la synchronisation hors connexion]	
+* [Windows 8.1 : activer la synchronisation hors connexion]
 
 <!-- Links -->
 
@@ -129,4 +128,4 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 [Windows 8.1 : activer la synchronisation hors connexion]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 [Windows 8.1 : activer la synchronisation hors connexion]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

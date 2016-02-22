@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/03/2015"
+	ms.date="02/03/2016"
     ms.author="donnam"/>
 
 #Se connecter à Azure Storage dans votre application Xamarin.Forms
@@ -93,7 +93,11 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
             return base.DeleteFileAsync(id, name);
         }
 
-6. Publiez votre projet de serveur sur votre backend d’application mobile.
+6. Mettez à jour la configuration de l'API Web pour configurer le routage des attributs. Dans **Startup.MobileApp.cs**, ajoutez la ligne suivante à la `ConfigureMobileApp()` méthode, après la définition de la variable `config` :
+
+        config.MapHttpAttributeRoutes();
+
+7. Publiez votre projet de serveur sur votre backend d’application mobile.
 
 ###Routes inscrites par le contrôleur de stockage
 
@@ -721,4 +725,4 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
 [Présentation des signatures d’accès partagé]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Création d’un compte Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

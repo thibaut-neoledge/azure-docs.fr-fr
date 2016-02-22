@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 
-> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Les groupes de connecteurs sont utiles, notamment dans les scénarios suivants :
 
@@ -70,7 +70,7 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Ressources supplémentaires
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

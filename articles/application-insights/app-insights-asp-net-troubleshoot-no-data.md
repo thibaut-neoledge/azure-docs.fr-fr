@@ -191,4 +191,8 @@ Vous pouvez le désactiver, mais cela n’est pas recommandé. L’échantillonn
 
 Les dimensions de la ville, de la région et des pays proviennent des adresses IP et ne sont pas toujours précises.
 
-<!---HONumber=AcomDC_0204_2016-->
+## Ne fonctionne toujours pas...
+
+* [Forum Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/fr-FR/home?forum=ApplicationInsights)
+
+<!---HONumber=AcomDC_0211_2016-->

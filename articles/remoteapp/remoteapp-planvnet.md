@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/07/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 # Comment planifier votre réseau virtuel pour Azure RemoteApp
 
-Ce document décrit comment configurer votre réseau virtuel Azure (réseau) et le sous-réseau pour Azure RemoteApp. Si vous n’êtes pas familiarisé avec les réseaux virtuels Azure, c’est une fonctionnalité qui vous permet de virtualiser votre infrastructure réseau vers le nuage et pour créer des solutions hybrides avec Azure et vos ressources locales. Pour plus d'informations à ce sujet, cliquez [ici](virtual-networks-overview.md).
+Ce document décrit comment configurer votre réseau virtuel Azure (réseau) et le sous-réseau pour Azure RemoteApp. Si vous n’êtes pas familiarisé avec les réseaux virtuels Azure, c’est une fonctionnalité qui vous permet de virtualiser votre infrastructure réseau vers le nuage et pour créer des solutions hybrides avec Azure et vos ressources locales. Pour plus d'informations à ce sujet, cliquez [ici](../virtual-network/virtual-networks-overview.md).
 
-Si vous souhaitez définir des stratégies de sécurité pour le trafic (entrant et sortant) du réseau virtuel dans lequel vous déployez Azure RemoteApp, nous vous recommandons vivement de créer un sous-réseau distinct pour Azure RemoteApp à partir du reste de vos déploiements dans le réseau virtuel Azure. Pour plus d’informations sur la façon de définir des stratégies de sécurité sur votre sous-réseau de réseau virtuel Azure, consultez la section [Qu’est-ce qu’un groupe de sécurité réseau (NSG) ?](virtual-networks-nsg.md).
+Si vous souhaitez définir des stratégies de sécurité pour le trafic (entrant et sortant) du réseau virtuel dans lequel vous déployez Azure RemoteApp, nous vous recommandons vivement de créer un sous-réseau distinct pour Azure RemoteApp à partir du reste de vos déploiements dans le réseau virtuel Azure. Pour plus d’informations sur la façon de définir des stratégies de sécurité sur votre sous-réseau de réseau virtuel Azure, consultez la section [Qu’est-ce qu’un groupe de sécurité réseau (NSG) ?](../virtual-network/virtual-networks-nsg.md).
 
 ## Types de collections RemoteApp Azure avec les réseaux virtuels Azure
 
@@ -53,6 +53,6 @@ Voici les éléments à activer sur votre sous-réseau de réseau virtuel :
 
 ## Réseau virtuel avec tunneling forcé
 
-[Tunneling forcé](vpn-gateway-about-forced-tunneling.md) est maintenant pris en charge dans toutes les nouvelles collections Azure RemoteApp. Actuellement, nous ne gérons pas la migration d’une collection existante pour prendre en charge le tunneling forcé. Vous devez supprimer toutes les collections existantes à l’aide du réseau virtuel que vous associez à Azure RemoteApp et en créer un nouveau pour activer le tunneling sur vos collections.
+[Tunneling forcé](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) est maintenant pris en charge dans toutes les nouvelles collections Azure RemoteApp. Actuellement, nous ne gérons pas la migration d’une collection existante pour prendre en charge le tunneling forcé. Vous devez supprimer toutes les collections existantes à l’aide du réseau virtuel que vous associez à Azure RemoteApp et en créer un nouveau pour activer le tunneling sur vos collections.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

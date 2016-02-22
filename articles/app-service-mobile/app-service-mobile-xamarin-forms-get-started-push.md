@@ -1,28 +1,26 @@
-<properties 
-	pageTitle="Ajouter des notifications Push à votre application Xamarin.Forms à l’aide d’Azure App Service" 
-	description="Découvrez comment utiliser Azure App Service pour envoyer des notifications Push à votre application Xamarin.Forms." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Ajouter des notifications Push à votre application Xamarin.Forms à l’aide d’Azure App Service"
+	description="Découvrez comment utiliser Azure App Service pour envoyer des notifications Push à votre application Xamarin.Forms."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/19/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Ajout de notifications Push à votre application Xamarin.Forms
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-##Vue d'ensemble
+##Vue d’ensemble
 
 Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md), que vous devez effectuer en premier. Vous ajouterez la prise en charge des notifications Push pour chacun des projets que vous souhaitez prendre en charge dans le projet de démarrage rapide Xamarin.Forms. Chaque fois qu’un enregistrement est inséré, une notification Push est transmise.
 
@@ -93,7 +91,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 	        // Check to ensure everything's setup right
 	        GcmClient.CheckDevice(this);
 	        GcmClient.CheckManifest(this);
-	
+
 	        // Register for push notifications
 	        System.Diagnostics.Debug.WriteLine("Registering...");
 	        GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
@@ -110,7 +108,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 
 4. Ajoutez le code suivant pour la méthode d’assistance `CreateAndShowDialog`.
 
-		private void CreateAndShowDialog(String message, String title) 
+		private void CreateAndShowDialog(String message, String title)
 		{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -121,10 +119,10 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 
 
 5. Dans la classe `MainActivity`, ajoutez le code suivant pour exposer l’élément `MainActivity` actuel, de manière à ce que nous puissions exécuter certains éléments d’interface utilisateur sur le thread principal d’interface utilisateur :
-		
+
 		// Create a new instance field for this activity.
 		static MainActivity instance = null;
-		
+
 		// Return the current activity instance.
 		public static MainActivity CurrentActivity
 		{
@@ -159,7 +157,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-		
+
 		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
 		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
@@ -170,10 +168,10 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]		
+		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
 		public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-		{		
-		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };		
+		{
+		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 		}
 
 11. Mettez à jour votre classe `GcmService` afin d’utiliser le nouveau récepteur de diffusion.
@@ -182,7 +180,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		 public class GcmService : GcmServiceBase
 		 {
 		     public static string RegistrationID { get; private set; }
-		
+
 		     public GcmService()
 		         : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
 		 }
@@ -191,18 +189,18 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 12. Ajoutez le code suivant à la classe GcmService qui remplace le gestionnaire d’événements OnRegistered et implémente une méthode `Register`.
 
 	Ce code inscrira un corps de modèle pour recevoir les notifications de modèle à l’aide du paramètre `messageParam`. Les notifications de modèle vous permettent d’envoyer des notifications multiplateformes. Pour plus d’informations, consultez [Modèles](https://msdn.microsoft.com/library/azure/dn530748.aspx).
-		
+
 		protected override void OnRegistered(Context context, string registrationId)
 		{
 		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
 		    RegistrationID = registrationId;
-		
+
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
-		
+
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-		
+
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-		
+
 		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
@@ -216,7 +214,7 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
                 {
                   {"body", templateBodyGCM}
                 };
-                
+
                 await push.RegisterAsync(RegistrationID, templates);
                 Log.Info("Push Installation Id", push.InstallationId.ToString());
             }
@@ -232,61 +230,61 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 		protected override void OnMessage(Context context, Intent intent)
 		{
 		    Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
-		
+
 		    var msg = new StringBuilder();
-		
+
 		    if (intent != null && intent.Extras != null)
 		    {
 		        foreach (var key in intent.Extras.KeySet())
 		            msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
 		    }
-		
+
 		    //Store the message
 		    var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
 		    var edit = prefs.Edit();
 		    edit.PutString("last_msg", msg.ToString());
 		    edit.Commit();
-		
+
 		    string message = intent.Extras.GetString("message");
 		    if (!string.IsNullOrEmpty(message))
 		    {
 		        createNotification("New todo item!", "Todo item: " + message);
 		        return;
 		    }
-		
+
 		    string msg2 = intent.Extras.GetString("msg");
 		    if (!string.IsNullOrEmpty(msg2))
 		    {
 		        createNotification("New hub message!", msg2);
 		        return;
 		    }
-		
+
 		    createNotification("Unknown message details", msg.ToString());
 		}
-		
+
 		void createNotification(string title, string desc)
 		{
 		    //Create notification
 		    var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-		
+
 		    //Create an intent to show ui
 		    var uiIntent = new Intent(this, typeof(MainActivity));
-		
+
 		    //Create the notification
 		    var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
-		
+
 		    //Auto cancel will remove the notification once the user touches it
 		    notification.Flags = NotificationFlags.AutoCancel;
-		
+
 		    //Set the notification info
 		    //we use the pending intent, passing our ui intent over which will get called
 		    //when the notification is tapped.
 		    notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
-		
+
 		    //Show the notification
 		    notificationManager.Notify(1, notification);
 		}
-	
+
 14. Vous devez également implémenter des gestionnaires `OnUnRegistered` et `OnError` pour le récepteur.
 
 		protected override void OnUnRegistered(Context context, string registrationId)
@@ -304,9 +302,9 @@ Cette section s’applique à l’exécution du projet Xamarin pour Android. Vou
 ####Tester les notifications Push dans votre application Android
 
 1. Dans Visual Studio ou Xamarin Studio, cliquez avec le bouton droit sur le projet **Android**, puis cliquez sur **Définir comme projet de démarrage**.
- 
+
 2. Cliquez sur le bouton **Exécuter** pour générer le projet et démarrer l'application sur un appareil compatible iOS, puis cliquez sur **OK** pour accepter les notifications Push.
-	
+
 	> [AZURE.NOTE] Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
 2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
@@ -355,7 +353,7 @@ Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appa
             // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
             // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
             //SQLitePCL.CurrentPlatform.Init();
-            
+
             // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes(
                 UIUserNotificationType.Alert
@@ -414,7 +412,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 1. Cliquez avec le bouton droit sur le projet iOS, puis cliquez sur **Définir comme projet de démarrage**.
 
 2. Cliquez sur le bouton **Exécuter** ou sur **F5** dans Visual Studio afin de développer le projet et de démarrer l’application dans un appareil compatible iOS, puis cliquez sur **OK** afin d’accepter les notifications Push.
-	
+
 	> [AZURE.NOTE] Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
 3. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
@@ -486,7 +484,7 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
                 // Set the default language
                 rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
                 rootFrame.NavigationFailed += OnNavigationFailed;
-                Xamarin.Forms.Forms.Init(e); 
+                Xamarin.Forms.Forms.Init(e);
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
@@ -519,7 +517,7 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 
 
 2. Cliquez sur le bouton **Exécuter** pour générer le projet et démarrer l'application sur un appareil compatible iOS, puis cliquez sur **OK** pour accepter les notifications Push.
-	
+
 	> [AZURE.NOTE] Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
 3. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
@@ -537,4 +535,4 @@ Cette section s’applique à l’exécution du projet WinApp Xamarin pour les a
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

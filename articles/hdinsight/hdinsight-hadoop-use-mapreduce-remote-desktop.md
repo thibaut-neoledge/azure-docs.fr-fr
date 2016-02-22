@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Utilisation de MapReduce dans Hadoop sur HDInsight avec le Bureau à distance
@@ -41,7 +41,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 
 1. À partir du bureau HDInsight, démarrez la **ligne de commande Hadoop**. Cela ouvre une nouvelle invite de commandes dans le répertoire **c:\\apps\\dist\\hadoop-&lt;numéro de version>**.
 
-	> [AZURE.NOTE]Le numéro de version change à mesure que Hadoop est mis à jour. La variable d’environnement **HADOOP\_HOME** peut être utilisée pour rechercher le chemin d’accès. Par exemple, `cd %HADOOP_HOME%` permet de basculer vers le répertoire Hadoop sans qu'il soit nécessaire de connaître le numéro de version.
+	> [AZURE.NOTE] Le numéro de version change à mesure que Hadoop est mis à jour. La variable d’environnement **HADOOP\_HOME** peut être utilisée pour rechercher le chemin d’accès. Par exemple, `cd %HADOOP_HOME%` permet de basculer vers le répertoire Hadoop sans qu'il soit nécessaire de connaître le numéro de version.
 
 2. Pour utiliser la commande **Hadoop** pour exécuter une tâche MapReduce d’exemple, utilisez la commande suivante :
 
@@ -49,7 +49,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 
 	Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar** du répertoire actif. Comme entrée, elle utilise le document ****wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans : ****wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE]Pour plus d'informations sur cette tâche MapReduce et sur les exemples de données, consultez <a href="hdinsight-use-mapreduce.md">Utilisation de MapReduce dans HDInsight Hadoop</a>.
+	> [AZURE.NOTE] Pour plus d'informations sur cette tâche MapReduce et sur les exemples de données, consultez <a href="hdinsight-use-mapreduce.md">Utilisation de MapReduce dans HDInsight Hadoop</a>.
 
 2. La tâche émet des informations lors de son traitement, avant de renvoyer des informations semblables aux suivantes lorsqu’elle est terminée.
 
@@ -64,7 +64,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 
 	Cela devrait afficher deux fichiers, **\_SUCCESS** et **part-r-00000**. Le fichier **part-r-00000** contient la sortie de cette tâche.
 
-	> [AZURE.NOTE]Certaines tâches MapReduce peuvent fractionner les résultats sur plusieurs fichiers **part-r-#####**. Dans ce cas, utilisez le suffixe ##### pour indiquer l’ordre des fichiers.
+	> [AZURE.NOTE] Certaines tâches MapReduce peuvent fractionner les résultats sur plusieurs fichiers **part-r-#####**. Dans ce cas, utilisez le suffixe ##### pour indiquer l’ordre des fichiers.
 
 4. Pour afficher la sortie, utilisez la commande suivante :
 
@@ -96,4 +96,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

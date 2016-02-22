@@ -15,19 +15,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;bradsev" />
 
 # Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning
-
-Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données peuvent être stockées et traitées pendant le processus d’analyse Cortana (CAP).
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## Introduction
 **Cette rubrique** présente les options de déplacement des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées dans un SQL Server local vers une base de données Azure SQL. Ces tâches de déplacement de données vers le cloud font partie du processus d’analyse Cortana fourni par Azure.
 
 Pour la rubrique présentant les options de déplacement de données sur un SQL Server local pour Machine Learning, consultez [Déplacer des données vers SQL Server sur une machine virtuelle Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
+
+Le **menu** ci-dessous pointe vers des rubriques qui décrivent comment recevoir les données dans d'autres environnements cibles où les données peuvent être stockées et traitées pendant le processus d'analyse Cortana (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 Le tableau suivant récapitule les options de déplacement de données vers une base de données SQL Azure.
 
@@ -86,4 +86,4 @@ La procédure de déplacement des données vers une base de données Azure SQL
 
 Envisagez d'utiliser ADF lorsque les données doivent être migrées en permanence dans un scénario hybride qui accède aux ressources locales et cloud, et lorsque les données sont traitées ou doivent être modifiées ou si vous avez une logique métier ajoutée en cours de migration. ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

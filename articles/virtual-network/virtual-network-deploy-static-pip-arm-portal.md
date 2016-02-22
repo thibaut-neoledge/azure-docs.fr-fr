@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Déployer une machine virtuelle avec une adresse IP publique statique à l’aide du portail en version préliminaire dans Resource Manager | Microsoft Azure"
-   description="Découvrir comment déployer des machines virtuelles avec une adresse IP publique statique à l’aide du portail en version préliminaire dans Resource Manager"
+   pageTitle="Déployer une machine virtuelle avec une adresse IP publique statique à l'aide du portail Azure dans Resource Manager | Microsoft Azure"
+   description="Découvrez comment déployer des machines virtuelles avec une adresse IP publique statique à l'aide du portail Azure dans Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Déployer une machine virtuelle avec une adresse IP publique statique à l’aide du portail Azure
@@ -59,4 +59,4 @@ Pour créer une machine virtuelle avec une adresse IP publique statique dans le
 
 	![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -39,9 +39,10 @@ Les rubriques suivantes décrivent les différents mécanismes disponibles pour 
 - [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)
 - [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md)
 - [Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

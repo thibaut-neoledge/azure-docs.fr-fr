@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -26,7 +26,7 @@ Il existe un ensemble préconfiguré de mappages d’attributs entre les objets 
 
 Dans le portail Azure AD, vous pouvez accéder à cette fonctionnalité en cliquant sur Attributs dans la barre d’outils d’une application SaaS.
 
-> [AZURE.NOTE]Le lien **Attributs** est disponible uniquement si vous avez activé l’approvisionnement d’utilisateurs pour une application SaaS.
+> [AZURE.NOTE] Le lien **Attributs** est disponible uniquement si vous avez activé l’approvisionnement d’utilisateurs pour une application SaaS.
 
 
 ![Salesforce][1]
@@ -81,8 +81,16 @@ Outre ces quatre types de mappages d’attributs de base, les mappages d’attri
 Microsoft Azure AD fournit une implémentation très efficace d’un processus de synchronisation. Dans un environnement initialisé, seuls les objets nécessitant des mises à jour sont traités pendant un cycle de synchronisation. La mise à jour des mappages d’attributs a un impact sur les performances d’un cycle de synchronisation. En effet, une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés. Pour cette raison, il est recommandé de limiter au minimum le nombre de modifications consécutives de vos mappages d’attributs.
 
 
+##Articles connexes
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+- [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
+- [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
+- [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
@@ -90,4 +98,4 @@ Microsoft Azure AD fournit une implémentation très efficace d’un processus d
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

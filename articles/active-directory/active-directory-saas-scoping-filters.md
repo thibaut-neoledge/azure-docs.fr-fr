@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -70,11 +70,19 @@ D’après de ce filtre d’étendue, les utilisateurs doivent satisfaire aux cr
 3. Ils doivent travailler à San Francisco ou au Canada.
 
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+- [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
+- [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
+- [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

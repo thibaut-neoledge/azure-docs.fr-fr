@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # Utilisation du stockage d’objets blob à partir de PHP
@@ -47,7 +47,7 @@ Pour utiliser des API de service blob Azure, vous devez procéder comme suit :
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
 
-> [AZURE.NOTE]Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique `WindowsAzure.php`.
+> [AZURE.NOTE] Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -306,4 +306,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs P
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

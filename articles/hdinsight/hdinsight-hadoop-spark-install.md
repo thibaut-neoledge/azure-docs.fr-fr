@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Installation et utilisation de Spark sur des clusters HDInsight Hadoop à l’aide d’une action de script
 
-> [AZURE.IMPORTANT]Cet article est désormais obsolète. HDInsight fournit désormais Spark comme type de cluster de première classe pour les clusters Windows, ce qui signifie que vous pouvez à présent créer directement un cluster Spark sans modifier de cluster Hadoop à l’aide d’une action de script. À l’aide du type de cluster Spark, vous obtenez un cluster HDInsight version 3.2 avec Spark version 1.3.1. Pour installer les différentes versions de Spark, vous pouvez utiliser une action de script. HDInsight fournit un exemple de script d'action de script.
+> [AZURE.IMPORTANT] Cet article est désormais obsolète. HDInsight fournit désormais Spark comme type de cluster de première classe pour les clusters Windows, ce qui signifie que vous pouvez à présent créer directement un cluster Spark sans modifier de cluster Hadoop à l’aide d’une action de script. À l’aide du type de cluster Spark, vous obtenez un cluster HDInsight version 3.2 avec Spark version 1.3.1. Pour installer les différentes versions de Spark, vous pouvez utiliser une action de script. HDInsight fournit un exemple de script d'action de script.
 
 Découvrez comment installer Spark sur HDInsight basé sur Windows à l'aide d'une action de script, et comment exécuter des requêtes Spark sur des clusters HDInsight.
 
@@ -45,17 +45,17 @@ Cette rubrique contient des instructions de personnalisation d'un cluster HDInsi
 
 Pour obtenir un exemple de script pour installer Spark sur un cluster HDInsight, téléchargez l’objet blob de stockage Azure en lecture seule à l’adresse [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). Ce script peut installer Spark 1.2.0 ou Spark 1.0.2 selon la version du cluster HDInsight que vous créez.
 
-- Si vous utilisez le script pendant la création d’un cluster **HDInsight 3.2**, il installe **Spark 1.2.0**.
-- Si vous utilisez le script pendant la création d’un cluster **HDInsight 3.1**, il installe **Spark 1.0.2**.
+- Si vous utilisez le script lors de la création d’un cluster **HDInsight 3.2**, il installe **Spark 1.2.0**.
+- Si vous utilisez le script lors de la création d’un cluster **HDInsight 3.1**, il installe **Spark 1.0.2**.
 
 Vous pouvez modifier ce script ou créer votre propre script pour installer d’autres versions de Spark.
 
-> [AZURE.NOTE]L’exemple de script fonctionne uniquement avec des clusters HDInsight 3.1 et 3.2. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).
+> [AZURE.NOTE] L’exemple de script fonctionne uniquement avec des clusters HDInsight 3.1 et 3.2. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).
 
 1. Démarrez la création d’un cluster à l’aide de l’option **CRÉATION PERSONNALISÉE**, comme décrit dans [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md#portal). Choisissez la version de cluster en fonction de ce qui suit :
 
 	- Si vous souhaitez installer **Spark 1.2.0**, créez un cluster HDInsight 3.2.
-	- Si vous souhaitez installer **Spark 1.0.2**, créez un cluster HDInsight 3.1.
+	- Si vous souhaitez installer **Spark 1.0.2**, créez un cluster HDInsight 3.1.
 
 
 2. Sur la page **Actions de script** de l’Assistant, cliquez sur **ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
@@ -118,7 +118,7 @@ Procédez comme suit pour exécuter des requêtes Spark à partir d'un interpré
 
 Spark SQL vous permet d’utiliser Spark pour exécuter des requêtes relationnelles exprimées en langage SQL (Structured Query), HiveQL ou Scala. Dans cette section, nous allons examiner l’utilisation de Spark pour exécuter une requête Hive sur un exemple de table Hive. La table Hive utilisée dans cette section (appelée **hivesampletable**) est disponible par défaut quand vous créez un cluster.
 
->[AZURE.NOTE]L’exemple ci-dessous a été créé par rapport à **Spark 1.2.0**, qui est installé si vous exécutez l’action de script pendant la création du cluster HDInsight 3.2.
+>[AZURE.NOTE] L’exemple ci-dessous a été créé par rapport à **Spark 1.2.0**, qui est installé si vous exécutez l’action de script pendant la création du cluster HDInsight 3.2.
 
 1. Dans le portail Azure, activez le Bureau à distance pour le cluster que vous avez créé avec Spark installé, puis connectez-vous à distance au cluster. Pour la marche à suivre, consultez [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp).
 
@@ -201,7 +201,7 @@ Dans cette section, vous utilisez <a href="http://www.scala-sbt.org/0.13/docs/in
 
 
 
-	>[AZURE.NOTE]Veillez à conserver les lignes vides dans le fichier.
+	>[AZURE.NOTE] Veillez à conserver les lignes vides dans le fichier.
 
 
 3. Dans le dossier **SimpleScalaApp**, créez une structure de répertoires **\\src\\main\\scala**, puis collez le programme Scala (**SimpleApp.scala**) créé précédemment dans le dossier \\src\\main\\scala.
@@ -317,4 +317,4 @@ Consultez [Personnalisation de clusters HDInsight à l’aide d’une action de 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

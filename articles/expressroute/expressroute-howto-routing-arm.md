@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Créer et modifier le routage pour un circuit ExpressRoute à l’aide d’Azure Resource Manager et de PowerShell
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-Cet article vous guide tout au long des étapes de création et de gestion d'une configuration de routage d'un circuit ExpressRoute à l'aide des applets de commande PowerShell et du modèle de déploiement Azure Resource Manager. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement des homologations d'un circuit ExpressRoute.
+Cet article vous guide tout au long des étapes de création et de gestion d'une configuration de routage d'un circuit ExpressRoute à l'aide des applets de commande PowerShell et du modèle de déploiement Azure Resource Manager. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement des homologations d'un circuit ExpressRoute. Si vous souhaitez créer ou modifier le routage d’un circuit ExpressRoute à l'aide du modèle de déploiement **classique**, consultez [Création et modification du routage d’un circuit ExpressRoute à l'aide du modèle de déploiement classique](expressroute-howto-routing-classic.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -30,9 +30,9 @@ Cet article vous guide tout au long des étapes de création et de gestion d'une
 
 - Vous devez utiliser la dernière version des modules Azure PowerShell version 1.0 ou ultérieure. 
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
-- Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
+- Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 
->[AZURE.IMPORTANT]Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. Vous ne pourrez pas créer ou gérer des homologations dans ce cas.
+>[AZURE.IMPORTANT] Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. Vous ne pourrez pas créer ou gérer des homologations dans ce cas.
 
 Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publique Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les homologations dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque homologation.
 
@@ -125,7 +125,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-	>[AZURE.IMPORTANT]Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
+	>[AZURE.IMPORTANT] Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
 
 ### Pour obtenir les détails d’une homologation privée Azure
 
@@ -149,7 +149,7 @@ Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’app
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante.
 
->[AZURE.WARNING]Vous devez vous assurer que tous les réseaux virtuels sont dissociés du circuit ExpressRoute avant d'exécuter cette applet de commande.
+>[AZURE.WARNING] Vous devez vous assurer que tous les réseaux virtuels sont dissociés du circuit ExpressRoute avant d'exécuter cette applet de commande.
 
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -245,7 +245,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-	>[AZURE.IMPORTANT]Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
+	>[AZURE.IMPORTANT] Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
 
 ### Pour obtenir les détails d’une homologation publique Azure
 
@@ -353,7 +353,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 	
 	Vous pouvez exécuter l'applet de commande suivante afin de configurer l’homologation Microsoft pour votre circuit
 
-		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
+		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -371,7 +371,7 @@ Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de co
 
 Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’applet de commande suivante.
 
-		Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
+		Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 		
@@ -386,8 +386,7 @@ Vous pouvez supprimer votre configuration d’homologation en exécutant l’app
 
 ## Étapes suivantes
 
-Ensuite, liez un réseau virtuel à un circuit ExpressRoute. Vous pouvez utiliser [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) avec le mode de déploiement Azure Resource Manager. Nous travaillons actuellement sur les procédures PowerShell.
-
+Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 -  Pour plus d'informations sur les workflows ExpressRoute, consultez [Workflows ExpressRoute](expressroute-workflows.md).
 
@@ -395,4 +394,4 @@ Ensuite, liez un réseau virtuel à un circuit ExpressRoute. Vous pouvez utilise
 
 -  Pour plus d’informations sur l’utilisation des réseaux virtuels, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

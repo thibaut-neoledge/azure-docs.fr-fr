@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -114,4 +114,4 @@ Pour lire une vidéo, pointez votre navigateur sur le fichier basicPlayback.html
 
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -98,7 +98,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 
 | Propriété | Options | Description |
 | -------- | ------- | ----------- |
-| deviceId | obligatoire, en lecture seule sur les mises à jour | Une chaîne respectant la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '&percnt;', '_', '&num;', '&ast;', '?', '!', '(', ')', ',', '=', '&commat;', ';', '&dollar;', '''}`. |
+| deviceId | obligatoire, en lecture seule sur les mises à jour | Une chaîne respectant la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId | obligatoire, en lecture seule | Une chaîne qui respecte la casse, générée par le hub et allant jusqu’à 128 caractères. Elle permet de distinguer les appareils dotés du même **deviceId** lorsqu’ils ont été supprimés et recréés. |
 | etag | obligatoire, en lecture seule | Une chaîne représentant un etag faible pour l’identité d’appareil, conformément à [RFC7232][lnk-rfc7232].|
 | auth | facultatif | Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
@@ -366,10 +366,10 @@ Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 | -------- | ----------- |
 | MessageId | Identificateur correspondant au message défini par l’utilisateur, généralement utilisé pour les modèles demande-réponse. Format : une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Numéro de séquence | Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message Cloud vers appareil. |
-| À | Propriété utilisée dans les messages envoyés [du cloud vers l’appareil](#c2d) pour spécifier le champ de destination.|
+| À | Propriété utilisée dans les messages envoyés [du cloud vers l’appareil](#c2d) pour spécifier la destination. |
 | ExpiryTimeUtc | Date et heure d’expiration du message. |
-| EnqueuedTime | Heure à laquelle le message a été reçu par IoT Hub. |
-| CorrelationId | Propriété de chaîne qui contient généralement l’ID du message de la demande dans les modèles demande-réponse. |
+| EnqueuedTime | Date et heure de réception du message par IoT Hub. |
+| CorrelationId | Propriété de chaîne d’un message de réponse qui contient généralement l'ID du message de la demande dans les modèles demande-réponse. |
 | UserId | Permet de spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. |
 | Ack | Propriété utilisée dans les messages Cloud vers appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre de remises maximal a été atteint) sans être achevé par l’appareil, **full** : propriétés à la fois positive et negative. Pour plus d’informations, consultez [Retours de messages](#feedback). |
 | ConnectionDeviceId | Propriété définie par IoT Hub sur les messages Appareil vers cloud. Elle contient la propriété **deviceId** de l’appareil qui a envoyé le message. |
@@ -418,7 +418,7 @@ Toutefois, il existe quelques différences importantes entre les messages Appare
 * IoT Hub n’autorise pas le partitionnement arbitraire à l’aide d’une **PartitionKey**. Les messages envoyés de l’appareil vers le cloud sont partitionnés en fonction de leur **deviceId** d’origine.
 * La mise à l’échelle IoT Hub est légèrement différente de celle d’Event Hubs. Pour plus d’informations, consultez la [Mise à l’échelle d’IoT Hub][lnk-guidance-scale].
 
-Notez que cela ne signifie pas que vous pouvez remplacer Event Hubs par IoT Hub dans tous les scénarios. Par exemple, dans certains calculs de traitement d’événements, il peut être nécessaire de repartitionner les événements par rapport à une autre propriété ou à un autre champ avant d’analyser les flux de données. Dans ce cas, vous pouvez utiliser Event Hub pour dissocier les deux parties du pipeline de traitement de flux.
+Notez que cela ne signifie pas que vous pouvez remplacer Event Hubs par IoT Hub dans tous les scénarios. Par exemple, dans certains calculs de traitement d’événements, il peut être nécessaire de repartitionner les événements par rapport à une autre propriété ou à un autre champ avant d’analyser les flux de données. Dans ce cas, vous pouvez utiliser Event Hub pour dissocier les deux parties du pipeline de traitement de flux. Pour plus d'informations, consultez la section *Partitions* dans la [Vue d'ensemble d’Event Hubs Azure][lnk-eventhub-partitions].
 
 Pour plus d’informations sur la façon d’utiliser la messagerie Appareil vers cloud, reportez-vous à [API et kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks].
 
@@ -501,13 +501,15 @@ Lorsque vous envoyez un message Cloud vers appareil, le service peut demander la
 - Si vous définissez la propriété **Ack** sur **negative**, IoT Hub génère un message de commentaires si et seulement si le message envoyé du cloud vers l’appareil est à l’état **Désactivé**.
 - Si la propriété **Ack** est définie sur **full**, IoT Hub génère un message de commentaires dans les deux cas.
 
+> [AZURE.NOTE] Lorsque **Ack** est définie sur **full**, si aucun message de commentaires n’est reçu, cela signifie que le message de commentaires a expiré et que le service ne peut pas savoir ce qui est arrivé au message d'origine. Dans la pratique, un service doit s'assurer qu'il peut traiter les commentaires avant leur expiration. Le délai d'expiration maximal étant de deux jours, vous devez par conséquent veiller à disposer de suffisamment de temps pour rendre le service opérationnel en cas de défaillance.
+
 Comme expliqué dans la section [Points de terminaison](#endpoints), IoT Hub fournit des commentaires sous la forme de messages via un point de terminaison de service (**/messages/servicebound/feedback**). La sémantique de réception des commentaires est identique à celle des messages Cloud vers appareil ayant le même [cycle de vie des messages](#message lifecycle). Chaque fois que c’est possible, des commentaires de messages sont mis en lot dans un seul message, au format suivant.
 
-Chaque message récupéré à partir du point de terminaison de commentaires a les propriétés suivantes :
+Chaque message récupéré par un périphérique à partir du point de terminaison de commentaires a les propriétés suivantes :
 
 | Propriété | Description |
 | -------- | ----------- |
-| EnqueuedTime | Horodatage indiquant la date et l’heure de création du lot. |
+| EnqueuedTime | Horodatage indiquant la date et l’heure de création du message. |
 | UserId | `{iot hub name}` |
 | ContentType | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -517,9 +519,11 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 | -------- | ----------- |
 | EnqueuedTimeUtc | Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
 | OriginalMessageId | **MessageId** du message Cloud vers appareil auquel appartiennent ces informations de commentaires. |
-| Description | Valeurs de chaîne pour les résultats précédents. |
+| StatusCode | Entier obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> 0 = succès <br/> 1 = message expiré <br/> 2 = nombre maximal de remises dépassé <br/> 3 = message rejeté |
+| Description | Valeurs des chaînes pour **StatusCode**. |
 | DeviceId | **DeviceId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
 | DeviceGenerationId | **DeviceGenerationId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
+
 
 **Important**. Le service doit spécifier un **MessageId** pour le message Cloud vers appareil afin de pouvoir mettre en corrélation ses commentaires avec le message d’origine.
 
@@ -530,6 +534,7 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
   {
     "OriginalMessageId": "0987654321",
     "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+    "StatusCode": 0
     "Description": "Success",
     "DeviceId": "123",
     "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -552,6 +557,8 @@ Chaque IoT Hub expose les options de configuration suivantes pour la messagerie
 | feedback.ttlAsIso8601 | Rétention des messages de commentaires liés au service. | Intervalle ISO\_8601 jusqu’à 2D (minimum 1 minute). Par défaut : 1 heure. |
 | feedback.maxDeliveryCount | Nombre de remises maximal pour la file d’attente de commentaires. | 1 à 100. Par défaut : 100. |
 
+Pour plus d'informations, voir [Gérer des IoT Hubs][lnk-manage].
+
 ## Quotas et limitation <a id="throttling"></a>
 
 Chaque abonnement Azure peut avoir au maximum 10 IoT Hubs.
@@ -569,10 +576,10 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 | Limitation | Valeur par hub |
 | -------- | ------------- |
 | Opérations de registre d’identité (création, récupération, création de listes, mise à jour, suppression) | 100/min/unité, jusqu’à 5 000/min |
-| Connexions d’appareils | 120/sec/unité (pour S2), 12/sec/unité (pour S1). Minimum de 100/s. |
-| Envois de messages Appareil vers cloud | 120/sec/unité (pour S2), 12/sec/unité (pour S1). Minimum de 100/s. |
-| Envoi de messages du cloud vers l’appareil | 100/min/unité |
-| Réception de messages du cloud vers l’appareil | 1 000/min/unité |
+| Connexions d’appareils | 120/sec/unité (pour S2), 12/sec/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 représentent 2*12 = 24/sec, mais vous obtiendrez au moins 100/sec sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
+| Envois de messages Appareil vers cloud | 120/sec/unité (pour S2), 12/sec/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 représentent 2*12 = 24/sec, mais vous obtiendrez au moins 100/sec sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
+| Envois cloud-à-appareil | 100/min/unité |
+| Réceptions cloud-à-appareil | 1 000/min/unité |
 
 **Remarque**. À tout moment, il est possible d’augmenter les quotas ou les limites en augmentant le nombre d’unités approvisionnées dans un concentrateur IoT Hub.
 
@@ -629,5 +636,7 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
+[lnk-eventhub-partitions]: event-hubs-overview.md#partitions
+[lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer votre compte de stockage (version préliminaire)
@@ -72,7 +72,7 @@ Vous pouvez modifier un compte de stockage utilisé par votre appareil. Si vous 
 
 3. Dans la boîte de dialogue **Ajouter/modifier des comptes de stockage**, procédez comme suit :
 
-  1. Dans la liste déroulante **Comptes de stockage**, choisissez un compte existant à modifier. Cette liste peut également comprendre les comptes de stockage qui ont été générés automatiquement lors de la création du service.
+  1. Dans la liste déroulante **Comptes de stockage**, choisissez un compte existant à modifier.
   2. Si nécessaire, vous pouvez modifier le réglage de l’option **Activer le mode SSL**.
   3. Vous pouvez choisir de régénérer les clés d’accès de votre compte de stockage. Pour plus d’informations, consultez [Régénération des clés d’accès de stockage](storage-create-storage-account.md#manage-your-storage-access-keys). Fournissez la nouvelle clé de compte de stockage. Pour un compte de stockage Azure, il s’agit de la clé d’accès primaire. 
   4. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-manage-storage-accounts/checkicon.png) pour enregistrer les paramètres. Les paramètres de la page **Configurer** sont mis à jour. 
@@ -99,6 +99,6 @@ Vous pouvez modifier un compte de stockage utilisé par votre appareil. Si vous 
 
 ## Étapes suivantes
 
-- En savoir plus sur l’[utilisation du service StorSimple Manager pour gérer StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
+- Découvrez comment [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

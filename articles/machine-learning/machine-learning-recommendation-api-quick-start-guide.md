@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/09/2016" 
 	ms.author="luisca"/>
 
 # Guide de démarrage rapide pour l'API de Machine Learning Recommendations
@@ -87,10 +87,7 @@ Création d'une requête « Créer un modèle » :
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelName	|	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 |
-|	apiVersion		| 1.0 |
-|||
-| Corps de la demande | AUCUN |
+|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | | apiVersion | 1.0 | ||| | Corps de la demande | AUCUN |
 
 
 **Réponse** :
@@ -141,10 +138,7 @@ Si vous téléchargez plusieurs fichiers de catalogue dans le même modèle avec
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle (respecte la casse) |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
-| apiVersion | 1.0 
-|||
-| Corps de la demande | Données du catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoir</th><th>Type</th><th>Description</th></tr><tr><td>ID d’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Nom de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Nom de l’élément</td></tr><tr><td>Catégorie de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Catégorie à laquelle appartient cet élément (par exemple, livres de cuisine, théâtre…)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale 4000</td><td>Description de cet élément</td></tr></table><br>Taille maximale de fichier de 200 Mo.<br><br>Exemple :<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données du catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d'un élément</td></tr><tr><td>Nom de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Nom de l'élément</td></tr><tr><td>Catégorie de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, arts dramatiques...)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale 4000</td><td>Description de cet élément</td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>2406e770-c 769-4189-89de-1c9283f93a96, Clara Callan, livre<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, The Forgetting Room: A Fiction (Byzantium Book), livre<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, livre<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint of Beasts, livre</pre>|
 
 
 **Réponse** :
@@ -190,10 +184,7 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle (respecte la casse) |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
-| apiVersion | 1.0 |
-|||
-| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>Alphanumérique</td><td>Identificateur unique d’un utilisateur</td></tr><tr><td>ID de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale de fichier de 200 Mo.<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>Alphanumérique</td><td>Identificateur unique d’un utilisateur</td></tr><tr><td>ID de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale de fichier de 200 Mo.<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Réponse** :
 
@@ -238,9 +229,9 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	apiVersion		| 1\.0 |
-|||
-|Corps de la demande| Entrée de données d’événement pour chaque événement à envoyer. Pour une même session d'utilisateur ou de navigateur, vous devez envoyer le même ID dans le champ SessionId. (Consultez l’exemple de corps d’événement ci-dessous.)|
+|	apiVersion | 1\.0 |
+|
+|Corps de la demande| Entrée de données d'événement pour chaque événement à envoyer. Pour une même session d'utilisateur ou de navigateur, vous devez envoyer le même ID dans le champ SessionId. (Consultez l'exemple du corps d'événement ci-dessous.)|
 
 
 - Exemple pour l'événement « Click » :
@@ -295,23 +286,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-- Exemple pour l'événement « Purchase » :
-
-		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-		<SessionId>11112222</SessionId>
-		<EventData>
-		<EventData>
-			<Name>Purchase</Name>
-			<PurchaseItems>
-			<PurchaseItems>
-				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-				<Count>3</Count>
-			</PurchaseItems>
-		</PurchaseItems>
-		</EventData>
-		</EventData>
-		</Event>
+- Exemple pour l'événement « Purchase » : <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
 
 - Exemple d'envoi de 2 événements « Click » et « AddShopCart » :
 
@@ -333,8 +308,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-**Réponse** :
-Code d'état HTTP : 200
+**Réponse** : Code d'état HTTP : 200
 
 ###Génération d'un modèle de recommandation
 
@@ -347,8 +321,8 @@ Code d'état HTTP : 200
 | modelId |	Identificateur unique du modèle (respecte la casse) |
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | apiVersion | 1\.0 |
-|||
-| Corps de la demande | AUCUNE |
+|
+| Corps de la requête | AUCUN |
 
 **Réponse** :
 
@@ -445,19 +419,9 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 - `feed/entry/content/properties/ExecutionTime` : durée de la build.
 - `feed/entry/content/properties/ProgressStep` : détails sur l’étape actuelle d’une build.
 
-États de build valides :
- - Created : l’entrée de demande de build a été créée.
- - Queued : la demande de build a été déclenchée et mise en file d’attente.
- - Building : la build est en cours d’exécution.
- - Success : la build a été correctement exécutée.
- - Error : la build s’est terminée par un échec.
- - Cancelled : la build a été annulée.
- - Cancelling : la build est en cours d’annulation.
+États de build valides : - Created : l’entrée de demande de build a été créée. - Queued : la demande de build a été déclenchée et mise en file d’attente. - Building : la build est en cours d’exécution. - Success : la build a été correctement exécutée - Error : la build s’est terminée par un échec. - Cancelled : la build a été annulée. - Cancelling : la build est en cours d’annulation.
 
-Valeurs valides pour le type de build :
- - Rang - Build de classement. (Pour en savoir plus sur les builds de classement, reportez-vous au document « Documentation sur les API Machine Learning Recommandation »).
- - Recommandation - Build de recommandation.
- -Fbt - Build fréquemment achetés ensemble.
+Valeurs valides pour le type de build : - Rang - Build de classement. (Pour en savoir plus sur les builds de classement, reportez-vous au document « Documentation sur les API Machine Learning Recommandation »). - Recommandation - Build de recommandation. -Fbt - Build fréquemment achetés ensemble.
 
 OData XML
 
@@ -511,7 +475,7 @@ OData XML
 | includeMetatadata | Utilisation ultérieure, toujours false |
 | apiVersion | 1\.0 |
 
-**Réponse** :
+**Réponse :**
 
 Code d'état HTTP : 200
 
@@ -676,8 +640,7 @@ L’exemple de réponse ci-dessous comprend 10 éléments recommandés :
 	</feed>
 
 ###Mise à jour du modèle
-Vous pouvez mettre à jour la description du modèle ou l’identifiant de la build active.
-*ID de build active*: chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
+Vous pouvez mettre à jour la description du modèle ou l’identifiant de la build active. *Identifiant de build active* : pour chaque modèle, chaque build possède un identifiant de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l’identifiant de build que vous souhaitez utiliser, un identifiant par défaut est automatiquement utilisé.
 
 Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
@@ -686,12 +649,12 @@ Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommanda
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nom du paramètre |	Valeurs valides						|
+|	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | id | Identificateur unique du modèle (respecte la casse) |
 | apiVersion | 1\.0 |
-|||
-| Corps de la demande | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière. |
+|
+| Corps de la requête | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière. |
 
 **Réponse** :
 
@@ -709,9 +672,7 @@ OData XML
 	</feed>
 
 ##Informations juridiques
-Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.
-Certains exemples sont fournis à titre indicatif uniquement et sont fictifs.
-Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
+Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
  
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

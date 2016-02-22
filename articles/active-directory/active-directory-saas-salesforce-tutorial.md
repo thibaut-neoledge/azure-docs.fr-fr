@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Didacticiel : intégration de Salesforce avec Azure Active Directory
@@ -216,11 +216,14 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Si vous configurez un environnement de **développeur** Salesforce, vous disposerez d'un nombre très limité de licences pour chaque profil. Il est donc préférable d'attribuer aux utilisateurs le profil **Utilisateur Chatter Free**, qui dispose de 4 999 licences.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Salesforce**.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -253,4 +256,4 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

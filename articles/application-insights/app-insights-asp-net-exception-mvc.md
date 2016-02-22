@@ -18,7 +18,7 @@
 
 # Configurer Application Insights : diagnostiquer les exceptions
 
-Désolé. [Cette page a été déplacée](app-insights-asp-net-exception.md).
+Désolé. [Cette page a été déplacée](app-insights-asp-net-exceptions.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

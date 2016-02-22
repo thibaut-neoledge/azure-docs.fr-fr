@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015"
+	ms.date="02/08/2016"
 	ms.author="msolhab;bradsev" />
 
 
@@ -28,7 +28,7 @@ L’**arbre de décision** qui permet de sélectionner les exemples de scénario
 
 Les sections suivantes présentent quelques exemples de scénarios. Pour chaque scénario, un flux possible de science des données ou d’analyse avancée et les ressources Azure connexes sont répertoriés.
 
->[AZURE.NOTE]**Pour tous les scénarios suivants, vous devez :**
+>[AZURE.NOTE] **Pour tous les scénarios suivants, vous devez :**
 
 *   [Créer un compte de stockage](storage-whatis-account.md)
 *   [Créer un espace de travail Azure Machine Learning](machine-learning/machine-learning-create-workspace.md)
@@ -168,7 +168,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
     f. Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
 
- >[AZURE.NOTE]Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -208,7 +208,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 	f. Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
 
-> [AZURE.NOTE]Pour accélérer le chargement des formats de données volumineux, créez des tables partitionnées et importez en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] Pour accélérer le chargement des formats de données volumineux, créez des tables partitionnées et importez en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -264,7 +264,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 
     d. Exécutez les requêtes Hive pour créer la base de données et les tables, puis chargez des données depuis le stockage d’objets blob vers des tables Hive.
 
- 	> [AZURE.NOTE]Si les données sont volumineuses, les utilisateurs peuvent créer la table Hive avec des partitions. Ils peuvent ensuite utiliser une boucle `for` dans la ligne de commande Hadoop sur le nœud principal pour charger les données dans la table Hive une partition à la fois.
+ 	> [AZURE.NOTE] Si les données sont volumineuses, les utilisateurs peuvent créer la table Hive avec des partitions. Ils peuvent ensuite utiliser une boucle `for` dans la ligne de commande Hadoop sur le nœud principal pour charger les données dans la table Hive une partition à la fois.
 
 6.  Le cas échéant, explorez des données et créez des fonctionnalités dans la ligne de commande Hadoop. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -314,4 +314,4 @@ Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Le
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/11/2015"
+ms.date="02/08/2016"
 ms.author="eugenesh" />
 
 # Indexation de documents dans Azure Blob Storage avec Azure Search
@@ -72,7 +72,8 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 - HTML
 - XML
 - ZIP
-- Fichiers texte brut (y compris JSON)  
+- EML
+- Fichiers de texte brut  
 
 ## Processus d’extraction de document
 
@@ -189,8 +190,9 @@ PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)
 PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extraction du texte, y compris les documents incorporés
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraction du texte, y compris les pièces jointes
 ZIP (application/zip) | `metadata_content_type` | Extraction du texte de tous les documents figurant dans l’archive
-XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Suppression du balisage XML et extraction du texte </td>
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Suppression du balisage XML et extraction du texte
 JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrayez le texte<br/>REMARQUE : si vous devez extraire plusieurs champs de document à partir d’un objet blob JSON, veuillez voter pour [cette suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
+EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extraction du texte, y compris les pièces jointes
 Texte brut (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -207,4 +209,4 @@ AzureSearch\_SkipContent | "true" | Indique à l’indexeur d’objets blob de s
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -70,8 +70,10 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 
+* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

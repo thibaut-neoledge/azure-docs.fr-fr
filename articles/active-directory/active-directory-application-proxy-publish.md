@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Publier des applications avec le Proxy d’application Azure AD
 
-> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Une fois que le Proxy d’application Microsoft Azure Active Directory (AD) est activé, vous pouvez publier des applications pour les rendre accessibles à vos utilisateurs situés en dehors de votre réseau privé.
 
 Cet article vous guide tout au long de la procédure de publication d’applications exécutées sur votre réseau local et pour lesquelles vous souhaitez activer l’accès à distance sécurisé hors de votre réseau.
 
-> [AZURE.NOTE]Pour vérifier que le connecteur fonctionne correctement, la première application que vous publiez doit être un site web accessible depuis votre réseau privé afin de vous assurer que les utilisateurs puissent y accéder à partir d’Internet avant de véritablement publier une application.
+> [AZURE.NOTE] Pour vérifier que le connecteur fonctionne correctement, la première application que vous publiez doit être un site web accessible depuis votre réseau privé afin de vous assurer que les utilisateurs puissent y accéder à partir d’Internet avant de véritablement publier une application.
 
 
 ## Publier une application à l’aide de l’Assistant
@@ -65,7 +65,7 @@ Cet article vous guide tout au long de la procédure de publication d’applicat
 
 3. Sélectionnez chaque utilisateur ou groupe que vous souhaitez affecter à cette application, puis cliquez sur **Affecter**.
 
-> [AZURE.NOTE]Pour les applications avec authentification Windows intégrée, vous pouvez affecter uniquement les utilisateurs et les groupes qui ont été synchronisés à partir de votre Active Directory local. Il n’est pas possible d’affecter les utilisateurs qui se connectent à l’aide d’un compte Microsoft et les invités aux applications publiées avec le Proxy d’application Azure Active Directory. Vérifiez que les utilisateurs que vous affectez se connectent avec leurs informations d’identification qui doivent faire partie du même domaine que l’application que vous publiez.
+> [AZURE.NOTE] Pour les applications avec authentification Windows intégrée, vous pouvez affecter uniquement les utilisateurs et les groupes qui ont été synchronisés à partir de votre Active Directory local. Il n’est pas possible d’affecter les utilisateurs qui se connectent à l’aide d’un compte Microsoft et les invités aux applications publiées avec le Proxy d’application Azure Active Directory. Vérifiez que les utilisateurs que vous affectez se connectent avec leurs informations d’identification qui doivent faire partie du même domaine que l’application que vous publiez.
 
 
 ## Configuration avancée
@@ -111,7 +111,7 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Ressources supplémentaires
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

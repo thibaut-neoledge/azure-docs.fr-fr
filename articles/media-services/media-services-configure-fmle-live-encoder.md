@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"   
 	ms.author="juliako"/>
 
 #Utiliser l’encodeur FMLE pour envoyer un flux en direct à débit binaire unique
@@ -56,12 +56,12 @@ Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectio
 
 3. Cliquez sur **Créer un canal**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
->[AZURE.NOTE]Le démarrage du canal peut prendre jusqu’à 20 minutes.
+>[AZURE.NOTE] Le démarrage du canal peut prendre jusqu’à 20 minutes.
 
 
 Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
->[AZURE.IMPORTANT]Notez que la facturation commence dès que l’état du canal indique qu’il est prêt à être utilisé. Pour plus d’informations, consultez [États du canal](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Notez que la facturation commence dès que l’état du canal indique qu’il est prêt à être utilisé. Pour plus d’informations, consultez [États du canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ##<a id=configure_fmle_rtmp></a>Configurer l’encodeur FMLE
 
@@ -127,7 +127,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 	Pour une redondance supplémentaire, répétez ces étapes avec l’URL d’entrée secondaire.
 8. Sélectionnez **Connecter**.
 
->[AZURE.IMPORTANT]Avant de cliquer sur **Connecter**, vous **devez** vérifier que le canal est prêt. Veillez également à ne pas laisser le canal à l’état d’exécution sans un flux de contribution d’entrée pendant plus de 15 minutes.
+>[AZURE.IMPORTANT] Avant de cliquer sur **Connecter**, vous **devez** vérifier que le canal est prêt. Veillez également à ne pas laisser le canal à l’état d’exécution sans un flux de contribution d’entrée pendant plus de 15 minutes.
 
 ##Tester la lecture
   
@@ -170,4 +170,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

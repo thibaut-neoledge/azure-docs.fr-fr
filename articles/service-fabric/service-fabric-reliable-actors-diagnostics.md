@@ -22,7 +22,7 @@ Le runtime Reliable Actors émet des événements [EventSource](https://msdn.mic
 ## Événements EventSource
 Le nom du fournisseur EventSource du runtime Reliable Actors est « Microsoft-ServiceFabric-Actors ». Les événements issus de cette source d'événements s'affichent dans la fenêtre [Événements de diagnostics](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quand l'application d'acteur est [déboguée dans Visual Studio](service-fabric-debugging-your-application.md).
 
-[PerfView](http://www.microsoft.com/download/details.aspx?id=28567), les [Diagnostics Azure](../cloud-services-dotnet-diagnostics.md), la [Journalisation sémantique](https://msdn.microsoft.com/library/dn774980.aspx) et [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d'outils et de technologies permettant de collecter et/ou d'afficher des événements EventSource.
+[PerfView](http://www.microsoft.com/download/details.aspx?id=28567), les [Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), la [Journalisation sémantique](https://msdn.microsoft.com/library/dn774980.aspx) et [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d'outils et de technologies permettant de collecter et/ou d'afficher des événements EventSource.
 
 ### Mots clés
 Tous les événements qui appartiennent à la source d'événements Acteurs fiables sont associés à un ou plusieurs mots clés. Cela permet de filtrer les événements collectés. Les bits de mots clés suivants sont définis.
@@ -44,7 +44,7 @@ Le runtime Acteurs fiables définit les catégories suivantes de compteur de per
 
 Chacune des catégories ci-dessus possède un ou plusieurs compteurs.
 
-L'application [Analyseur de performances Windows](https://technet.microsoft.com/library/cc749249.aspx), disponible par défaut dans le système d'exploitation Windows, peut être utilisée pour collecter et afficher les données de compteur de performances. [Diagnostics Azure](../cloud-services-dotnet-diagnostics.md) est une autre option pour collecter les données de compteur de performances et les télécharger dans les tables Azure.
+L'application [Analyseur de performances Windows](https://technet.microsoft.com/library/cc749249.aspx), disponible par défaut dans le système d'exploitation Windows, peut être utilisée pour collecter et afficher les données de compteur de performances. [Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) est une autre option pour collecter les données de compteur de performances et les télécharger dans les tables Azure.
 
 ### Noms d'instance de compteur de performances
 Un cluster avec un grand nombre de services d'acteur ou de partitions de service d'acteur disposera d'un grand nombre d'instances de compteur de performances d'acteur. Les noms d'instance de compteur de performances peuvent aider à identifier la [partition](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) et la méthode d'acteur (le cas échéant) spécifiques associées à l'instance de compteur de performances.
@@ -153,4 +153,4 @@ Le runtime Reliable Actors émet les événements suivants liés à l'[activatio
 |ActorActivated|5|Informations|0x1|Un acteur a été activé.|
 |ActorDeactivated|6|Informations|0x1|Un acteur a été désactivé.|
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # Utilisation d’AMQP 1.0 avec l’API .NET Service Bus
@@ -22,7 +22,7 @@ Advanced Message Queuing Protocol (AMQP) 1.0 est un protocole de messagerie «�
 
 La prise en charge d'AMQP 1.0 dans Service Bus signifie que vous pouvez utiliser des fonctionnalités de messagerie répartie de mise en file d’attente et de publication/d'abonnement à partir de diverses plateformes, à l'aide d'un protocole binaire efficace. De plus, vous pouvez générer des applications constituées de composants créés à l’aide de divers langages, structures et systèmes d’exploitation.
 
-Cet article explique comment utiliser les fonctionnalités de messagerie répartie Service Bus (rubriques de files d'attente et de publication/d'abonnement) depuis des applications .NET en utilisant l'API .NET Service Bus. Un article complémentaire explique en outre comment réaliser les mêmes opérations à l'aide de l'API Java Message Service (JMS) standard. Vous pouvez utiliser ces deux guides ensemble pour découvrir la messagerie interplateforme en utilisant AMQP 1.0.
+Cet article explique comment utiliser les fonctionnalités de messagerie répartie Service Bus (rubriques de files d'attente et de publication/d'abonnement) depuis des applications .NET en utilisant l'API .NET Service Bus. Un [article complémentaire](service-bus-java-how-to-use-jms-api-amqp.md) explique en outre comment réaliser les mêmes opérations à l'aide de l'API Java Message Service (JMS) standard. Vous pouvez utiliser ces deux guides ensemble pour découvrir la messagerie interplateforme en utilisant AMQP 1.0.
 
 ## Prise en main de Service Bus
 
@@ -320,8 +320,8 @@ Maintenant que vous avez une vue d'ensemble du Service Bus et AMQP avec .NET, co
 
 * [Prise en charge d’AMQP 1.0 dans Azure Service Bus](service-bus-amqp-overview.md)
 * [Utilisation de l’API Java Message Service (JMS) avec Service Bus et AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
-* [Utilisation des files d'attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
+* [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
  
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

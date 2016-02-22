@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Informations d’identification utilisées pour accéder à la bibliothèque cliente de la base de données élastique
 
-La [bibliothèque cliente de la base de données élastique](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) utilise trois types d'informations d'identification différents. Les informations d'identification sont utilisées pour accéder au [gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). En fonction du besoin, utilisez les informations d'identification avec le niveau d'accès le plus faible possible.
+La [bibliothèque cliente de la base de données élastique](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) utilise trois types d'informations d'identification différents pour accéder au [gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). En fonction du besoin, utilisez les informations d'identification avec le niveau d'accès le plus faible possible.
 
 * **Informations d'identification d'administration** : pour créer ou manipuler un gestionnaire des cartes de partitions. (Voir le [glossaire](sql-database-elastic-scale-glossary.md).) 
 * **Informations d’identification d’accès** : pour accéder à un gestionnaire des cartes de partitions existant afin d’obtenir des informations sur les partitions.
@@ -26,9 +26,9 @@ La [bibliothèque cliente de la base de données élastique](http://www.nuget.or
 
 Consultez également la section [Gestion des bases de données et des connexions dans la base de données Azure SQL](sql-database-manage-logins.md)
  
-## Informations d'identification d'administration  
+## À propos des informations d'identification d'administration
 
-les informations d'identification de gestion sont utilisées lors de la création d'un objet [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) pour les applications qui manipulent des cartes de partitions. (Par exemple, consultez la section [Ajout d’une partition à l’aide des outils de base de données élastique](sql-database-elastic-scale-add-a-shard.md).) L’utilisateur de la bibliothèque cliente de l’infrastructure élastique crée les utilisateurs et les connexions SQL nécessaires et s’assure qu’ils sont dotés des autorisations en lecture/écriture pour la base de données de cartes de partitions globale et pour toutes les bases de données de partitions. Ces informations d'identification sont utilisées pour mettre à jour la carte de partitions globale et les cartes de partitions locales lorsque des modifications sont apportées à la carte de partitions. Par exemple, utilisez les informations d'identification de gestion pour créer l'objet de gestionnaire des cartes de partitions (en utilisant [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)) :
+les informations d'identification de gestion sont utilisées lors de la création d'un objet [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) pour les applications qui manipulent des cartes de partitions. (Par exemple, consultez [Ajout d'une partition à l'aide des outils de base de données élastique](sql-database-elastic-scale-add-a-shard.md) et [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md)) L'utilisateur de la bibliothèque cliente de l'infrastructure élastique crée les utilisateurs et les connexions SQL nécessaires et s'assure qu'ils sont dotés des autorisations en lecture/écriture pour la base de données de cartes de partitions globale et pour toutes les bases de données de partitions. Ces informations d'identification sont utilisées pour mettre à jour la carte de partitions globale et les cartes de partitions locales lorsque des modifications sont apportées à la carte de partitions. Par exemple, utilisez les informations d'identification de gestion pour créer l'objet de gestionnaire des cartes de partitions (en utilisant [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)) :
 
 	// Obtain a shard map manager. 
 	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -77,4 +77,4 @@ Tout comme pour les informations d’identification de l’administrateur, n’u
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

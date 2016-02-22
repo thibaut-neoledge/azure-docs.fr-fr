@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="02/03/2016"
 	ms.author="cynthn"/>
 
 
@@ -32,4 +32,4 @@
 
 [Comment attacher un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

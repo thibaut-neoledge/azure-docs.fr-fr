@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="02/03/2016" 
 	ms.author="josephd"/>
 
-# Configuration d’une simulation d’environnement de cloud hybride à des fins de test
+# Configuration d'une simulation d'environnement de cloud hybride à des fins de test (mode de déploiement classique)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de gestionnaire de ressources.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](../virtual-machines/virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 Cet article vous présente la création d'un environnement de cloud hybride simulé avec Microsoft Azure pour le test, à l'aide de deux réseaux virtuels Azure distincts. Utilisez cette configuration à la place de la [Configuration d’un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md) lorsque vous ne disposez pas d’une connexion Internet directe et d’une adresse IP publique. Voici la configuration obtenue.
 
@@ -220,11 +220,7 @@ Votre environnement de cloud hybride simulé est maintenant prêt pour les tests
 
 ## Étapes suivantes
 
-Configurer les charges de travail suivantes dans le réseau virtuel TestVNET :
-
-- [Batterie de serveurs SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-- [Application métier web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-- [Serveur de synchronisation d’annuaires Office 365](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
+- Configurez une [batterie de serveurs intranet SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), une [application métier web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ou un [serveur de synchronisation de l'annuaire Office 365 (DirSync)](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) sur le réseau virtuel TestVNET.
 
 
 ## <a id="costs"></a>Réduction des coûts récurrents de cet environnement
@@ -264,6 +260,5 @@ Ensuite, vous configurez la clé prépartagée pour que les deux passerelles uti
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 Ensuite, dans la page Réseau du portail de gestion Azure, cliquez sur le réseau virtuel **TestLab**, puis sur **Connexion** dans la barre des tâches. Attendez que le réseau virtuel TestLab soit connecté au réseau local TestVNET.
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

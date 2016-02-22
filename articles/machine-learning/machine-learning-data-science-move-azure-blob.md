@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # Déplacer des données vers et depuis un stockage Azure Blob
@@ -28,15 +28,15 @@ Des conseils sur les technologies utilisées pour déplacer des données vers et
 
 La méthode la mieux adaptée à vos besoins dépend de votre scénario. L’article sur les [Scénarios du processus de science des données Azure en action dans Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) vous aide à déterminer les éléments multimédias dont vous avez besoin pour différents flux de travail d’analyse avancée.
 
-> [AZURE.NOTE]Pour une présentation complète du stockage d’objets blob Azure, consultez les articles [Fonctionnalités de base des objets blob Azure](../storage-dotnet-how-to-use-blobs.md) et [Service Blob Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Pour une présentation complète du stockage d’objets blob Azure, consultez les articles [Fonctionnalités de base des objets blob Azure](../storage-dotnet-how-to-use-blobs.md) et [Service Blob Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-> [AZURE.TIP]Comme autre solution, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour créer et planifier un pipeline qui permet de télécharger des données depuis le stockage d’objets blob Azure, de le transférer à un service web Azure Machine Learning publié, de recevoir les résultats d’analyse prédictive et de télécharger les résultats dans le stockage. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
+> [AZURE.TIP] Comme autre solution, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour créer et planifier un pipeline qui permet de télécharger des données depuis le stockage d’objets blob Azure, de le transférer à un service web Azure Machine Learning publié, de recevoir les résultats d’analyse prédictive et de télécharger les résultats dans le stockage. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](data-factory-azure-ml-batch-execution-activity.md).
 
 ## Composants requis
 
 Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de stockage et de la clé de stockage correspondante pour ce compte. Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
-- Pour configurer un abonnement Azure, consultez la section [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
+- Pour configurer un abonnement Azure, consultez [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
 - Pour obtenir des instructions sur la création d’un compte de stockage et pour obtenir des informations de compte et de clé, consultez [À propos des comptes de stockage Azure](../storage-create-storage-account.md).
 
 
@@ -44,4 +44,4 @@ Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

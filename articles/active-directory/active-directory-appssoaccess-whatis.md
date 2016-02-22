@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?
@@ -80,7 +80,7 @@ L’authentification unique avec mot de passe s’appuie sur une extension de na
 
 Pour l’authentification unique par mot de passe, les navigateurs de l’utilisateur final peuvent être :
 
-- Internet Explorer 8, 9 et 10 -- sous Windows 7 ou version ultérieure (voir également [Guide de déploiement extension IE](active-directory-saas-ie-group-policy.md))
+- Internet Explorer 8, 9, 10, 11 -- sous Windows 7 ou version ultérieure (voir également [Guide de déploiement extension IE](active-directory-saas-ie-group-policy.md))
 - Chrome -- sur Windows 7 ou ultérieur, et sur Mac OS X ou ultérieur
 - Firefox 26.0 ou ultérieur -- sur Windows XP SP2 ou ultérieur, et sur Mac OS X 10.6 ou ultérieur
 
@@ -210,7 +210,14 @@ Lorsqu’un utilisateur autorisé clique sur un de ces liens spécifiques de l�
 
 Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le panneau d’accès et qu’Office 365 et seuls les utilisateurs ou les groupes qui ont été affectés à l’application dans le portail de gestion Azure sont en mesure de s’authentifier. Toutefois, tout utilisateur qui n’est pas autorisé voit un message qui explique qu’il n’a pas reçu l’accès. Lui est présenté un lien permettant de charger le panneau d’accès pour afficher les applications disponibles auxquelles il a accès.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+- [Détection des applications cloud non approuvées avec Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+- [Introduction à la gestion de l'accès aux applications](active-directory-managing-access-to-apps.md)
+- [Comparaison des capacités de gestion des identités externes dans Azure AD](active-directory-b2b-compare-external-identities.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -220,4 +227,4 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.
@@ -111,6 +111,12 @@ Après avoir sélectionné **Suivant**, on vous demandera d'entrer l'URL de l'ap
 
 Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application.
 
+## Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées](active-directory-saml-claims-customization.md)
+- [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png
 [2]: ./media/active-directory-saas-custom-apps/customapp2.png
@@ -120,4 +126,4 @@ Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -21,7 +21,7 @@
 
 Dans ce didacticiel, vous allez apprendre à créer des applications complexes à grande échelle avec [Azure App Service](/services/app-service/) d’une façon qui prend en charge le [développement de logiciel agile](https://en.wikipedia.org/wiki/Agile_software_development). Cela suppose que vous savez déjà [déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
 
-Les limitations des processus techniques peuvent souvent faire obstacle à l’implémentation des méthodologies agiles. Azure App Service avec des fonctionnalités comme la [publication continue](web-sites-publish-source-control.md), les [environnements intermédiaires](web-sites-staged-publishing.md) (emplacements) et l’[analyse](web-sites-monitor.md) lorsqu’ils sont associé avec soin à l’orchestration et à la gestion du déploiement dans [Azure Resource Manager](resource-group-overview.md), peut constituer une solution idéale pour les développeurs qui intègrent le développement de logiciel agile.
+Les limitations des processus techniques peuvent souvent faire obstacle à l’implémentation des méthodologies agiles. Azure App Service avec des fonctionnalités comme la [publication continue](web-sites-publish-source-control.md), les [environnements intermédiaires](web-sites-staged-publishing.md) (emplacements) et l’[analyse](web-sites-monitor.md) lorsqu’ils sont associé avec soin à l’orchestration et à la gestion du déploiement dans [Azure Resource Manager](../resource-group-overview.md), peut constituer une solution idéale pour les développeurs qui intègrent le développement de logiciel agile.
 
 Le tableau suivant comporte une courte liste de prérequis associés au développement agile et sur la façon dont les services Azure permettent de mettre en œuvre chacun d’eux.
 
@@ -43,7 +43,7 @@ Vous découvrirez un flux de travail de type développement-test-intermédiaire-
 
 Voici la situation telle qu’elle apparaît :
 
--	L’architecture de déploiement est divisée en trois environnements distincts (appelés [groupes de ressources](resource-group-overview.md) dans Azure), chacun disposant de son propre [plan App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md), des paramètres de [mise à l’échelle](web-sites-scale.md) et de la base de données SQL. 
+-	L’architecture de déploiement est divisée en trois environnements distincts (appelés [groupes de ressources](../resource-group-overview.md) dans Azure), chacun disposant de son propre [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), des paramètres de [mise à l’échelle](web-sites-scale.md) et de la base de données SQL. 
 -	Chaque environnement peut être géré séparément. Il peut même être couvert par des abonnements différents.
 -	Les phases intermédiaire et de production sont implémentées comme deux emplacements de la même application App Service. La branche principale est configurée pour l’intégration continue avec l’emplacement intermédiaire.
 -	Quand une validation pour la branche principale est vérifiée sur l’emplacement intermédiaire (avec des données de production), l’application intermédiaire vérifiée est permutée dans l’emplacement de production [sans interruption](web-sites-staged-publishing.md).
@@ -63,7 +63,7 @@ Vous utiliserez également la stratégie de création de branchement typique, qu
 -	Git Shell (installé avec [GitHub for Windows](https://windows.github.com/)) - cela permet d’exécuter des commandes PowerShell et Git dans la même session 
 -	Dernières informations [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi)
 -	Compréhension élémentaire des concepts et outils suivants :
-	-	Déploiement de modèles [Azure Resource Manager](resource-group-overview.md) (voir également [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md))
+	-	Déploiement de modèles [Azure Resource Manager](../resource-group-overview.md) (voir également [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -270,14 +270,14 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md)
 -	[Développement Agile en pratique : trucs et astuces pour le cycle de développement moderne](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[Stratégies de déploiement avancées pour les applications web Azure à l’aide des modèles Resource Manager](http://channel9.msdn.com/Events/Build/2015/2-620)
--	[Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
+-	[Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
 -	[JSONLint - Validateur JSON](http://jsonlint.com/)
 -	[ARMClient – Configurer la publication GitHub sur site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 -	[Création de branches Git – Branchement et fusion basiques](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Blog de David Ebbo](http://blog.davidebbo.com/)
--	[Azure PowerShell](powershell-install-configure.md)
--	[Outils en ligne de commande multiplateforme Azure](xplat-cli-install.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
+-	[Outils en ligne de commande multiplateforme Azure](../xplat-cli-install.md)
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

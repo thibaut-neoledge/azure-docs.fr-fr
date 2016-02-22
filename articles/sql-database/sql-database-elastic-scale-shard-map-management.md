@@ -13,12 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Gestion des cartes de partitions
 
-Utilisez la [bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md) pour gérer les applications partitionnées. Dans un environnement de base de données partitionné, une [**carte de partitions**](sql-database-elastic-scale-glossary.md) conserve les informations permettant à une application de se connecter à la base de données adéquate, désignée par la valeur de la **clé de partitionnement**. Il est essentiel de comprendre comment ces mappages sont construits pour la gestion du mappage de partition.
+Dans un environnement de base de données partitionné, une [**carte de partitions**](sql-database-elastic-scale-glossary.md) conserve les informations permettant à une application de se connecter à la base de données adéquate, désignée par la valeur de la **clé de partitionnement**. Il est essentiel de comprendre comment ces mappages sont construits pour la gestion du mappage de partition. Pour la base de données SQL Azure, utilisez la [classe ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), située dans la [bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md) pour gérer les cartes de partitions.
+ 
 
 ## Cartes de partitions et mappages de partitions
  
@@ -38,7 +39,7 @@ L'infrastructure élastique prend en charge les types .Net Framework suivants en
 Vous pouvez construire des cartes de partition en utilisant des **listes de valeurs de clés de partitionnement individuelles** ou des **plages de valeurs de clés de partitionnement**.
 
 ###Cartes de partition de liste
-Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappage de ces shardlets en partitions est tenu à jour par une carte de partitions. Une **carte de partitions de liste** est une association entre les valeurs de clés individuelles identifiant les shardlets et les bases de données qui servent de partitions. Les **mappages de liste** sont explicites (par exemple, la clé 1 mappe vers la base de données A) et différentes valeurs de clés peuvent être mappées vers la même base de données (les valeurs de clés 3 et 6 font toutes deux référence à la base de données B).
+Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappage de ces shardlets en partitions est tenu à jour par une carte de partitions. Une **carte de partitions de liste** est une association entre les valeurs de clés individuelles identifiant les shardlets et les bases de données qui servent de partitions. Les **mappages de liste** sont explicites et différentes valeurs de clés peuvent être mappées à la même base de données. Par exemple, la clé 1 est mappée à la base de données A et les valeurs de clés 3 et 6 font toutes deux référence à la base de données B.
 
 | Clé | Emplacement de partition |
 |-----|----------------|
@@ -66,22 +67,24 @@ Chacune des tables présentées ci-dessus correspond à un exemple conceptuel d'
 
 ## Gestionnaire des cartes de partitions 
 
-Dans la bibliothèque cliente, le gestionnaire des cartes de partitions correspond à une collection de cartes de partitions. Les données gérées par un objet .Net **ShardMapManager** sont conservées dans trois emplacements :
+Dans la bibliothèque cliente, le gestionnaire des cartes de partitions correspond à une collection de cartes de partitions. Les données gérées par une instance **ShardMapManager** sont conservées dans trois emplacements :
 
-1. **Carte de partitions globale (CPG)** : lorsque vous créez un objet **ShardMapManager**, vous spécifiez une base de données en tant que référentiel pour l'ensemble de ses cartes et mappages de partitions. Les tables spéciales et les procédures stockées sont automatiquement créées pour gérer les informations. Il s'agit généralement d'une petite base de données à laquelle vous pouvez accéder rapidement, mais elle ne doit pas être utilisée pour d'autres besoins de l'application. Les tables sont stockées dans un schéma spécifique nommé **\_\_ShardManagement**.
+1. **Carte de partitions globale (GSM)** : vous spécifiez une base de données en tant que référentiel pour l'ensemble de ses cartes et mappages de partitions. Les tables spéciales et les procédures stockées sont automatiquement créées pour gérer les informations. Il s'agit généralement d'une petite base de données à laquelle vous pouvez accéder rapidement, et elle ne doit pas être utilisée pour d'autres besoins de l'application. Les tables sont stockées dans un schéma spécifique nommé **\_\_ShardManagement**.
 
-2. **Carte de partitions locale (CPL)** : chaque base de données que vous définissez en tant que partition au sein d'une carte de partitions sera modifiée pour contenir des petites tables et des procédures stockées spécifiques qui contiennent et gèrent les informations de carte de partitions propres à cette partition. Ces informations sont redondantes pour les informations contenues dans la CPG, mais elles permettent aux applications de valider les informations de carte de partitions mises en cache sans placer aucune charge sur la CPG. L'application utilise la CPL pour déterminer la validité d'un mappage mis en cache. Les tables correspondant à la CPL de chaque partition sont stockées dans le schéma **\_\_ShardManagement**.
+2. **Carte de partitions locale (LSM)** : chaque base de données que vous définissez en tant que partition est modifiée pour contenir des petites tables et des procédures stockées spécifiques qui contiennent et gèrent les informations de carte de partitions propres à cette partition. Ces informations sont redondantes avec les informations contenues dans la GSM et elles permettent aux applications de valider les informations de carte de partitions mises en cache sans placer aucune charge sur la GSM. L'application utilise la LSM pour déterminer la validité d'un mappage mis en cache. Les tables correspondant à la LSM de chaque partition sont également stockées dans le schéma **\_\_ShardManagement**.
 
 3. **Cache d’application** : chaque instance d’application accédant à un objet **ShardMapManager** conserve un cache local en mémoire de ses mappages. Elle stocke les informations de routage récupérées récemment.
 
 ## Construction d'un objet ShardMapManager
-Un objet **ShardMapManager** est instancié dans l’application à l’aide d’un modèle de fabrique. La méthode **ShardMapManagerFactory.GetSqlShardMapManager** récupère des informations d’identification (incluant le nom du serveur et le nom de base de données contenant la CPG) sous la forme d’un objet **ConnectionString** et renvoie l’instance d’un objet **ShardMapManager**.
+
+Un objet **ShardMapManager** est construit à l'aide d'un modèle [factory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). La méthode **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** récupère des informations d'identification (incluant le nom du serveur et le nom de base de données contenant la GSM) sous la forme d'un objet **ConnectionString** et renvoie l'instance d'un objet **ShardMapManager**.
 
 L’objet **ShardMapManager** doit être instancié une seule fois par domaine d’application, dans le code d’initialisation d’une application. Un **ShardMapManager** peut contenir n’importe quel nombre de cartes de partitions. Si une carte de partitions peut suffire à de nombreuses applications, il arrive que différents ensembles de bases de données soient utilisés pour différents schémas ou pour des objectifs uniques. Lorsque cela se produit, il est préférable d'employer plusieurs cartes de partitions.
 
-Dans ce code, une application tente d’ouvrir un objet **ShardMapManager** existant. Si des objets représentant un objet **ShardMapManager global** (CPG) n’existent pas encore dans la base de données, ils sont créés ici par la bibliothèque cliente.
+Dans ce code, une application tente d'ouvrir un objet **ShardMapManager** existant avec la [méthode TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx). Si des objets représentant un objet **ShardMapManager** global (GSM) n'existent pas encore dans la base de données, ils sont créés ici par la bibliothèque cliente à l'aide de la [méthode CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx).
 
-    // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
+    // Try to get a reference to the Shard Map Manager 
+ 	// via the Shard Map Manager database.  
     // If it doesn't already exist, then create it. 
     ShardMapManager shardMapManager; 
     bool shardMapManagerExists = ShardMapManagerFactory.TryGetSqlShardMapManager(
@@ -117,9 +120,9 @@ Dans le cas des applications d'administration de cartes de partitions (ajout ou 
 
 ### Seules les métadonnées sont affectées 
 
-Les méthodes utilisées pour remplir ou modifier les données d'un objet **ShardMapManager** n'affectent pas les données utilisateur stockées dans les partitions. Par exemple, des méthodes telles que **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affectent uniquement les métadonnées de carte de partitions. Elles ne suppriment pas, n’ajoutent pas ou ni ne modifient les données utilisateur contenues dans les partitions. En revanche, ces méthodes sont conçues pour être utilisées conjointement avec des opérations distinctes effectuées pour créer ou supprimer des bases de données réelles ou qui déplacent des lignes d'une partition à l'autre pour rééquilibrer un environnement partitionné. (L'outil de **fractionnement/fusion** inclus avec les outils de base de données élastique utilise ces applications avec l'orchestration des mouvements de données réels entre les partitions.)
+Les méthodes utilisées pour remplir ou modifier les données d'un objet **ShardMapManager** n'affectent pas les données utilisateur stockées dans les partitions. Par exemple, des méthodes telles que **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affectent uniquement les métadonnées de carte de partitions. Elles ne suppriment pas, n’ajoutent pas ou ni ne modifient les données utilisateur contenues dans les partitions. En revanche, ces méthodes sont conçues pour être utilisées conjointement avec des opérations distinctes effectuées pour créer ou supprimer des bases de données réelles ou qui déplacent des lignes d'une partition à l'autre pour rééquilibrer un environnement partitionné. (L’outil de **fractionnement/fusion** inclus avec les outils de base de données élastique utilise ces applications avec l’orchestration des mouvements de données réels entre les partitions.) Consultez [Mise à l'échelle utilisant l'outil de fractionnement et de fusion de bases de données élastiques](sql-database-elastic-scale-overview-split-and-merge.md).
 
-## Remplissage d’une carte de partitions : exemple
+## Exemple de remplissage d'une carte de partitions
  
 Vous trouverez ci-dessous un exemple de séquence d'opérations pour remplir une carte de partitions spécifique. Le code suit cette procédure :
 
@@ -127,7 +130,7 @@ Vous trouverez ci-dessous un exemple de séquence d'opérations pour remplir une
 2. Les métadonnées de deux partitions différentes sont ajoutées à la carte de partitions. 
 3. Différents mappages de plages de clés sont ajoutés et le contenu global de la carte de partitions s’affiche. 
 
-Le code est écrit de façon à ce que l'intégralité de la méthode puisse être réexécutée en toute sécurité en cas d'erreur inattendue. Chaque demande vérifie si une partition ou un mappage existe déjà, avant de démarrer sa création. Le code ci-dessous part du principe que les bases de données nommées **sample\_shard\_0**, **sample\_shard\_1** et **sample\_shard\_2** ont déjà été créées dans le serveur référencé par la chaîne **shardServer**.
+Le code est écrit de sorte que la méthode peut être réexécutée si une erreur se produit. Chaque requête vérifie si une partition ou un mappage existe déjà, avant d'essayer de le créer. Le code part du principe que les bases de données nommées **sample\_shard\_0**, **sample\_shard\_1** et **sample\_shard\_2** ont déjà été créées dans le serveur référencé par la chaîne **shardServer**.
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -140,16 +143,26 @@ Le code est écrit de façon à ce que l'intégralité de la méthode puisse êt
             } 
 
             Shard shard0 = null, shard1=null; 
-            // check if shard exists and if not, 
+            // Check if shard exists and if not, 
             // create it (Idempotent / tolerant of re-execute) 
-            if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_0"), out shard0)) 
+            if (!sm.TryGetShard(new ShardLocation(
+	                                 shardServer, 
+	                                 "sample_shard_0"), 
+	                                 out shard0)) 
             { 
-                Shard0 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_0")); 
+                Shard0 = sm.CreateShard(new ShardLocation(
+	                                        shardServer, 
+	                                        "sample_shard_0")); 
             } 
 
-            if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_1"), out shard1)) 
+            if (!sm.TryGetShard(new ShardLocation(
+	                                shardServer, 
+	                                "sample_shard_1"), 
+	                                out shard1)) 
             { 
-                Shard1 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_1"));  
+                Shard1 = sm.CreateShard(new ShardLocation(
+	                                         shardServer, 
+	                                        "sample_shard_1"));  
             } 
 
             RangeMapping<long> rmpg=null; 
@@ -158,38 +171,53 @@ Le code est écrit de façon à ce que l'intégralité de la méthode puisse êt
             // create it (Idempotent / tolerant of re-execute) 
             if (!sm.TryGetMappingForKey(0, out rmpg)) 
             { 
-                sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
-                    (new Range<long>(0, 50), shard0, MappingStatus.Online)); 
+                sm.CreateRangeMapping(
+	                      new RangeMappingCreationInfo<long>
+	                      (new Range<long>(0, 50), 
+	                      shard0, 
+	                      MappingStatus.Online)); 
             } 
 
             if (!sm.TryGetMappingForKey(50, out rmpg)) 
             { 
-                sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
-                    (new Range<long>(50, 100), shard1, MappingStatus.Online)); 
+                sm.CreateRangeMapping(
+	                     new RangeMappingCreationInfo<long> 
+                         (new Range<long>(50, 100), 
+	                     shard1, 
+	                     MappingStatus.Online)); 
             } 
 
             if (!sm.TryGetMappingForKey(100, out rmpg)) 
             { 
-                sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
-                    (new Range<long>(100, 150), shard0, MappingStatus.Online)); 
+                sm.CreateRangeMapping(
+	                     new RangeMappingCreationInfo<long>
+                         (new Range<long>(100, 150), 
+	                     shard0, 
+	                     MappingStatus.Online)); 
             } 
 
             if (!sm.TryGetMappingForKey(150, out rmpg)) 
             { 
-                sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
-                    (new Range<long>(150, 200), shard1, MappingStatus.Online)); 
+                sm.CreateRangeMapping(
+	                     new RangeMappingCreationInfo<long> 
+                         (new Range<long>(150, 200), 
+	                     shard1, 
+	                     MappingStatus.Online)); 
             } 
 
             if (!sm.TryGetMappingForKey(200, out rmpg)) 
             { 
-               sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
-                   (new Range<long>(200, 300), shard0, MappingStatus.Online)); 
+               sm.CreateRangeMapping(
+	                     new RangeMappingCreationInfo<long> 
+                         (new Range<long>(200, 300), 
+	                     shard0, 
+	                     MappingStatus.Online)); 
             } 
 
             // List the shards and mappings 
             foreach (Shard s in sm.GetShards()
-                                    .OrderBy(s => s.Location.DataSource)
-                                    .ThenBy(s => s.Location.Database))
+                         .OrderBy(s => s.Location.DataSource)
+                         .ThenBy(s => s.Location.Database))
             { 
                Console.WriteLine("shard: "+ s.Location); 
             } 
@@ -201,15 +229,15 @@ Le code est écrit de façon à ce que l'intégralité de la méthode puisse êt
             } 
         } 
  
-En guise d'alternative, vous pouvez utiliser des scripts PowerShell pour obtenir le même résultat. Certains exemples d'extraits de codes PowerShell sont disponibles [ici](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+En guise d'alternative, vous pouvez utiliser des scripts PowerShell pour obtenir le même résultat. Certains exemples d’extraits de codes PowerShell sont disponibles [ici](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Une fois les cartes de partitions remplies, vous pouvez créer ou adapter des applications pour accéder aux données, afin d'utiliser les cartes. Le remplissage ou la manipulation des cartes ne doit pas survenir tant que la **disposition de la carte** n'a pas été modifiée.
 
 ## Routage dépendant des données 
 
-La plupart du temps, le gestionnaire des cartes de partitions est utilisé par des applications devant se connecter à une base de données pour exploiter leurs données. Dans une application partitionnée, ces connexions doivent être associées à la base de données cible adéquate. Cette opération est nommée **Routage dépendant des données**. Pour ces applications, instanciez un objet Gestionnaire des cartes de partitions à partir de la fabrique à l'aide des informations d'identification ayant un accès en lecture seule sur la base de données CPG. Les demandes de connexion individuelles fourniront ultérieurement les informations d’identification requises pour la connexion à la base de données de partitions adéquate.
+Le gestionnaire des cartes de partitions est principalement utilisé par des applications devant se connecter à une base de données pour exploiter leurs données. Ces connexions doivent être associées à la base de données correcte. Cette opération est nommée **Routage dépendant des données**. Pour ces applications, instanciez un objet Gestionnaire des cartes de partitions à partir de la fabrique à l'aide des informations d'identification ayant un accès en lecture seule sur la base de données CPG. Les requêtes de connexion individuelles ultérieures fournissent les informations d'identification requises pour la connexion à la base de données de partitions adéquate.
 
-Notez que ces applications (utilisant **ShardMapManager** ouvert avec des informations d'identification en lecture seule) ne pourront pas modifier les cartes ni les mappages. Pour cela, vous devez créer des applications d'administration ou des scripts PowerShell qui fourniront des informations d'identification dotées de privilèges élevés comme indiqué précédemment.
+Notez que ces applications (utilisant **ShardMapManager** ouvert avec des informations d'identification en lecture seule) ne peuvent pas modifier les cartes ni les mappages. Pour cela, vous devez créer des applications d'administration ou des scripts PowerShell qui fourniront des informations d'identification dotées de privilèges élevés comme indiqué précédemment. Consultez [Informations d'identification utilisées pour accéder à la bibliothèque cliente de bases de données élastiques](sql-database-elastic-scale-manage-credentials.md).
 
 Pour plus d'informations, consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md).
 
@@ -219,23 +247,23 @@ Vous disposez de plusieurs méthodes pour modifier une carte de partitions. Tout
 
 Ces méthodes fonctionnent ensemble en tant que blocs de construction disponibles pour la modification de la distribution globale des données dans votre environnement de base de données partitionnée.
 
-* Pour ajouter ou supprimer des partitions : utilisez **CreateShard** et **DeleteShard**. 
+* Pour ajouter ou supprimer des partitions : utilisez **[CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)** et **[DeleteShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)** de la [classe Shardmap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx). 
     
     Le serveur et la base de données représentant la partition cible doivent déjà exister pour pouvoir exécuter ces opérations. Ces méthodes n’ont pas d’incidence sur les bases de données elles-mêmes. Elles affectent uniquement les métadonnées de la carte de partitions.
 
-* Pour créer ou supprimer des points ou des plages mappés sur les partitions : utilisez **CreateRangeMapping**, **DeleteMapping**, **CreatePointMapping**.
+* Pour créer ou supprimer des points ou des plages mappés sur les partitions : utilisez **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)**, **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** de la [classe RangeShardMapping](https://msdn.microsoft.com/library/azure/dn807318.aspx), et **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** de [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx)
     
     Vous pouvez mapper différents points ou plages vers la même partition. Ces méthodes affectent uniquement les métadonnées. Elles n'affectent pas les données qui peuvent déjà être présentes dans les partitions. Si vous devez supprimer des données de la base de données par souci de cohérence avec les opérations **DeleteMapping**, vous devez effectuer ces opérations séparément, mais en utilisant ces méthodes.
 
-* Pour diviser des plages existantes en deux ou fusionner des plages adjacentes en une seule : utilisez **SplitMapping** et **MergeMappings**.
+* Pour diviser des plages existantes en deux ou fusionner des plages adjacentes en une seule : utilisez **[SplitMapping](https://msdn.microsoft.com/library/azure/dn824205.aspx)** et **[MergeMappings](https://msdn.microsoft.com/library/azure/dn824201.aspx)**.
 
-    Notez que les opérations de fractionnement/fusion **ne changent pas la partition sur laquelle les valeurs de clé sont mappées**. Un fractionnement divise une plage existante en deux parties, qui sont chacune mappées vers la même partition. Une fusion s'applique sur deux plages adjacentes qui sont déjà mappées vers la même partition, afin d'en faire une plage unique. Le déplacement des points ou des plages entre des partitions doit être coordonné à l'aide de l'objet **UpdateMapping**, conjointement au déplacement des données réelles. Vous pouvez utiliser le service de **fractionnement/fusion**, compris dans les outils de base de données élastique, pour coordonner les modifications de la carte de partitions avec le mouvement des données, lorsque celui-ci est nécessaire.
+    Notez que les opérations de fractionnement/fusion **ne changent pas la partition sur laquelle les valeurs de clé sont mappées**. Un fractionnement divise une plage existante en deux parties, qui sont chacune mappées vers la même partition. Une fusion s'applique sur deux plages adjacentes qui sont déjà mappées vers la même partition, afin d'en faire une plage unique. Le déplacement des points ou des plages entre des partitions doit être coordonné à l’aide de l’objet **UpdateMapping**, conjointement au déplacement des données réelles. Vous pouvez utiliser le service de **fractionnement/fusion**, compris dans les outils de base de données élastique, pour coordonner les modifications de la carte de partitions avec le mouvement des données, lorsque celui-ci est nécessaire.
 
-* Pour remapper (ou déplacer) des points ou des plages vers différentes partitions : utilisez **UpdateMapping**.
+* Pour remapper (ou déplacer) des points ou des plages vers différentes partitions : utilisez **[UpdateMapping](https://msdn.microsoft.com/library/azure/dn824207.aspx)**.
 
     Comme il est possible que les données soient déplacées d'une partition à l'autre afin d'être cohérentes avec les opérations **UpdateMapping**, vous devez effectuer ces déplacements séparément tout en utilisant ces méthodes.
 
-* Pour effectuer des mappages en ligne et hors connexion : utilisez **MarkMappingOffline** et **MarkMappingOnline** pour contrôler l'état en ligne d'un mappage.
+* Pour effectuer des mappages en ligne et hors connexion : utilisez **[MarkMappingOffline](https://msdn.microsoft.com/library/azure/dn824202.aspx)** et **[MarkMappingOnline](https://msdn.microsoft.com/library/azure/dn807225.aspx)** pour contrôler l'état en ligne d'un mappage.
 
     Certaines opérations des mappages de partitions sont autorisées uniquement lorsque l'état d'un mappage est « hors connexion », notamment **UpdateMapping** et **DeleteMapping**. Lorsqu'un mappage est hors connexion, une demande dépendant des données basée sur une clé incluse dans ce mappage renvoie une erreur. En outre, lorsqu'une plage est d'abord mise hors connexion, toutes les connexions vers la partition concernée sont supprimées automatiquement afin d'éviter des résultats incohérents ou incomplets pour les requêtes émises vers les plages en cours de modification.
 
@@ -247,11 +275,11 @@ Les mappages sont des objets immuables dans .Net. Toutes les méthodes ci-dessus
 
 Souvent, les applications n'ont qu'à ajouter de nouvelles partitions pour gérer des données prévues à partir de nouvelles clés ou plages de clés, pour une carte de partitions qui existe déjà. Par exemple, une application partitionnée par un ID de client peut requérir l'approvisionnement d'une nouvelle partition pour un nouveau client, ou des données partitionnées mensuellement peuvent requérir l'approvisionnement d'une nouvelle partition avant le début de chaque mois.
 
-Si la nouvelle plage de valeurs de clé n'appartient pas déjà à un mappage existant et qu'aucun déplacement de données n'est nécessaire, il est très simple d'ajouter la nouvelle partition et d'associer la nouvelle clé ou la plage à cette partition. Pour plus d'informations sur l'ajout de nouvelles partitions, consultez [Ajout d'une nouvelle partition](sql-database-elastic-scale-add-a-shard.md).
+Si la nouvelle plage de valeurs de clé n'appartient pas déjà à un mappage existant et qu'aucun déplacement de données n'est nécessaire, il est très simple d'ajouter la nouvelle partition et d'associer la nouvelle clé ou la plage à cette partition. Pour plus d’informations sur l’ajout de nouvelles partitions, consultez [Ajout d’une nouvelle partition](sql-database-elastic-scale-add-a-shard.md).
 
 Cependant, pour les scénarios requérant le déplacement de données, l’outil de fusion/fractionnement est requis pour orchestrer le déplacement des données entre les partitions conjointement aux mises à jour nécessaires de la carte de partitions. Pour plus d'informations sur l'utilisation de l'outil de fractionnement/fusion, consultez [Présentation du service de fractionnement/fusion](sql-database-elastic-scale-overview-split-and-merge.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

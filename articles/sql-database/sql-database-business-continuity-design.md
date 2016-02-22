@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 #Conception pour la continuité des activités
@@ -98,4 +98,4 @@ Cette API est asynchrone. Après son retour, utilisez l'API [Get Replication Lin
 
 Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions Cloud pour la récupération d'urgence à l'aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) pour obtenir des instructions.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

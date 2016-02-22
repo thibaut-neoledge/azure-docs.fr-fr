@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Créer un réseau virtuel au moyen du portail Azure en version préliminaire | Microsoft Azure"
-   description="Découvrez comment créer un réseau virtuel au moyen du portail Azure en version préliminaire."
+   pageTitle="Créer un réseau virtuel au moyen du portail Azure | Microsoft Azure"
+   description="Découvrez comment créer un réseau virtuel au moyen du portail Azure."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/03/2016"
    ms.author="telmos"/>
 
 # Créer un réseau virtuel (classique) à l'aide du portail Azure en version préliminaire
@@ -29,4 +29,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-pportal-include](../../includes/virtual-networks-create-vnet-classic-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

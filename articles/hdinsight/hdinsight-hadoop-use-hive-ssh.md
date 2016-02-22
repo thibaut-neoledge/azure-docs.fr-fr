@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Utilisation de Hive avec Hadoop dans HDInsight via SSH
@@ -23,7 +23,7 @@
 
 Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vous connecter à un cluster Hadoop sur Azure HDInsight, et envoyer ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive.
 
-> [AZURE.IMPORTANT]Bien que la commande Hive soit disponible sur les clusters HDInsight sous Linux, vous devez envisager d’utiliser Beeline. Beeline est un client plus récent pour l’utilisation de Hive et est inclus dans votre cluster HDInsight. Pour plus d’informations sur son utilisation, consultez [Utiliser Hive avec Hadoop dans HDInsight avec Beeline](hdinsight-hadoop-use-hive-beeline.md).
+> [AZURE.IMPORTANT] Bien que la commande Hive soit disponible sur les clusters HDInsight sous Linux, vous devez envisager d’utiliser Beeline. Beeline est un client plus récent pour l’utilisation de Hive et est inclus dans votre cluster HDInsight. Pour plus d’informations sur son utilisation, consultez [Utiliser Hive avec Hadoop dans HDInsight avec Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 ##<a id="prereq"></a>Configuration requise
 
@@ -76,7 +76,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
     * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** : indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Cela limite la recherche au fichier sample.log qui contient les données et l'empêche de renvoyer des données provenant d'autres fichiers d'exemple qui ne correspondent pas au schéma que nous avons défini.
 
-    > [AZURE.NOTE]Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
+    > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
     >
     > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
@@ -97,7 +97,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
     Trois lignes de données doivent normalement être renvoyées. Elles contiennent toutes **[ERROR]** dans la colonne t4.
 
-    > [AZURE.NOTE]Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
+    > [AZURE.NOTE] Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
 ##<a id="summary"></a>Résumé
 
@@ -144,4 +144,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

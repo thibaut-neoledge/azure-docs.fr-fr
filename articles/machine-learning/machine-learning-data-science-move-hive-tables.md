@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
  
 #Créer et charger des données dans des tables Hive à partir d’un stockage Azure Blob
 
-Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données peuvent être stockées et traitées pendant le processus d’analyse Cortana (CAPS).
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
-
- 
 ## Introduction
 Ce **document** présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d’un stockage Azure Blob. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l’utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 
-## Composants requis
+Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données peuvent être stockées et traitées pendant le processus d’analyse Cortana (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## Configuration requise
 Cet article suppose que vous avez :
  
 * Créé un compte Azure Storage. Si vous avez besoin d'aide, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage). 
@@ -168,7 +168,7 @@ Voici la requête Hive qui charge les données dans une table Hive.
 
 - **&#60;path to blob data>** : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *&#60;path to blob data>* doit être au format *’wasb:///&#60;directory in this container>/&#60;blob file name>’*. Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *&#60;path to blob data>* doit être au format *’wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>’*.
 
-	>[AZURE.NOTE]Les données blob à charger dans la table Hive doivent se trouver dans le conteneur par défaut ou un autre conteneur du compte de stockage du cluster Hadoop. Sinon, la requête *LOAD DATA* ne pourra pas s'exécuter car elle n'aura pas accès aux données.
+	>[AZURE.NOTE] Les données blob à charger dans la table Hive doivent se trouver dans le conteneur par défaut ou un autre conteneur du compte de stockage du cluster Hadoop. Sinon, la requête *LOAD DATA* ne pourra pas s'exécuter car elle n'aura pas accès aux données.
 
 
 ## <a name="partition-orc"></a>Rubriques avancées : Table partitionnée et Stocker des données Hive au format ORC
@@ -232,7 +232,7 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 		INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
-	>[AZURE.NOTE]Si la table TEXTFILE *&#60;database name>.&#60;external textfile table name>* a des partitions, à l'Étape 3, la commande `SELECT * FROM <database name>.<external textfile table name>` sélectionne la variable de partition comme champ dans le jeu de données renvoyé. Le fait de l'insérer dans *&#60;database name>.&#60;ORC table name>* échouera car *&#60;database name>.&#60;ORC table name>* ne dispose pas de la variable de partition comme champ dans le schéma de la table. Dans ce cas, les utilisateurs doivent sélectionner explicitement les champs à insérer dans *&#60;database name>.&#60;ORC table name>* comme suit :
+	>[AZURE.NOTE] Si la table TEXTFILE *&#60;database name>.&#60;external textfile table name>* a des partitions, à l'Étape 3, la commande `SELECT * FROM <database name>.<external textfile table name>` sélectionne la variable de partition comme champ dans le jeu de données renvoyé. Le fait de l'insérer dans *&#60;database name>.&#60;ORC table name>* échouera car *&#60;database name>.&#60;ORC table name>* ne dispose pas de la variable de partition comme champ dans le schéma de la table. Dans ce cas, les utilisateurs doivent sélectionner explicitement les champs à insérer dans *&#60;database name>.&#60;ORC table name>* comme suit :
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		   SELECT field1, field2, ..., fieldN
@@ -250,4 +250,4 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 
 La section finale présente les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

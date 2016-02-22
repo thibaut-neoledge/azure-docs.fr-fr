@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="cynthn"/>
 
 
@@ -52,7 +52,10 @@ Pour connecter des machines virtuelles dans un réseau virtuel :
 Pour connecter des machines virtuelles dans un service cloud autonome :
 
 1.	Créez le service cloud dans le [portail Azure Classic](http://manage.windowsazure.com). Cliquez sur **Nouveau > Calculer > Service cloud > Création personnalisée**. Vous pouvez également créer le service cloud pour votre déploiement lorsque vous créez votre première machine virtuelle.
-2.	Lorsque vous créez la machine virtuelle, sélectionnez le nom du service cloud créé à l'étape précédente. ![Ajouter un ordinateur virtuel à un service cloud existant](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
+
+2.	Lorsque vous créez la machine virtuelle, sélectionnez le nom du service cloud créé à l'étape précédente.
+
+	![Ajouter un ordinateur virtuel à un service cloud existant](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Ressources
 [Équilibrage de charge des machines virtuelles](load-balance-virtual-machines.md)
@@ -65,4 +68,4 @@ Une fois que vous avez créé une machine virtuelle, il convient d'ajouter un di
 
 [Attachement d'un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

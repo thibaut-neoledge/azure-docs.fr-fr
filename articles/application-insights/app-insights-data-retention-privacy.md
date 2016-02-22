@@ -64,7 +64,7 @@ Il existe trois sources de données :
 Les principales catégories sont :
 
 * [La télémétrie du serveur web](app-insights-asp-net.md) : requêtes HTTP. L’URI, le temps nécessaire pour traiter la demande, le code de réponse, l’adresse IP du client. L’Id de session.
-* [Les pages web](articles/app-insights-javascript.md) : page, utilisateur et décomptes de sessions. Le temps de chargement de page. Les exceptions.
+* [Les pages web](app-insights-javascript.md) : page, utilisateur et décomptes de sessions. Le temps de chargement de page. Les exceptions. Appels Ajax.
 * Les performances des compteurs : mémoire, UC, E/S, occupation du réseau.
 * Le contexte du client et du serveur : système d’exploitation, paramètres régionaux, type d’appareil, navigateur, résolution d’écran.
 * [Les exceptions](app-insights-asp-net-exceptions.md) et les incidents : **vidages de pile**, génération d’id, type d’UC. 
@@ -191,7 +191,7 @@ Votre action | Classes de données collectées (voir tableau suivant)
 [Ajout du Kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
 [Installation du moniteur d’état sur IIS][redfield]<br/>[Ajout de l’extension AI à une machine virtuelle ou application web Azure][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Ajout du Kit de développement logiciel (SDK) Application Insights à une application web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
-[Ajout d’un Kit de développement logiciel (SDK) JavaScript à une page web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
+[Ajout d’un Kit de développement logiciel (SDK) JavaScript à une page web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
 [Ajout du Kit de développement logiciel (SDK) à une application Windows Store][windows]|DeviceContext<br/>Users<br/>Crash data
 [Définition des propriétés par défaut][apiproperties]|**Propriétés** sur tous les événements standard et personnalisés
 [Appel TrackMetric][api]|Valeurs numériques<br/>**Propriétés**
@@ -218,6 +218,7 @@ Mesures | Valeur et nom de la mesure
 Événements | Valeur et nom de l’événement
 PageViews | URL et nom de la page ou de l’écran
 Client perf | URL/nom de la page, temps de chargement du navigateur
+Ajax | Appels HTTP de la page web au serveur
 Demandes |URL, durée, code de réponse
 Dépendances|Type (SQL, HTTP, ...), chaîne de connexion ou URI, synchronisation/désynchronisation, durée, réussite, instruction SQL (avec Status Monitor)
 **Exceptions** | Type, **message**, piles d’appels, fichier source et numéro ligne, ID du thread
@@ -264,4 +265,4 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

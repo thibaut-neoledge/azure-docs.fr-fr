@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="chrande"/>
 
 # Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
@@ -28,7 +28,7 @@ Quand un serveur principal mobile est mis à niveau vers Azure App Service, il a
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Il est recommandé d’[effectuer une migration](app-service-mobile-migrating-from-mobile-services.md) avant une mise à niveau. Ainsi, vous pouvez placer les deux versions de votre application sur le même plan App Service sans générer de frais supplémentaires.
+>[AZURE.TIP] Il est recommandé d’[effectuer une migration](app-service-mobile-migrating-from-mobile-services.md) avant une mise à niveau. Ainsi, vous pouvez placer les deux versions de votre application sur le même plan App Service sans générer de frais supplémentaires.
 
 ### Améliorations du Kit de développement logiciel (SDK) serveur Node.js Mobile Apps
 
@@ -48,7 +48,7 @@ La mise à niveau vers le nouveau [Kit de développement logiciel (SDK) Mobile A
 
 Contrairement au Kit de développement logiciel (SDK) .NET Mobile Apps, la mise à niveau d’un serveur principal Node de Mobile Services vers Mobile Apps n’est pas aussi simple que l’échange de packages. Vous possédez maintenant votre pile de l’application dans son intégralité (elle n’est plus contrôlée par Azure) et vous devez donc créer une application Express de base pour héberger votre serveur principal mobile. En ce qui concerne la table et les contrôleurs d’API, les concepts sont similaires, mais vous devez dorénavant exporter les objets de table et les API de fonction ont été légèrement modifiées. Cet article détaille les stratégies de mise à niveau de base, mais avant de procéder à la migration, consultez la rubrique [Serveur principal Node : procédure](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
->[AZURE.TIP]Consultez le reste de cette rubrique avant de commencer une mise à niveau. Prenez note de toutes les fonctionnalités répertoriées ci-dessous que vous utilisez.
+>[AZURE.TIP] Consultez le reste de cette rubrique avant de commencer une mise à niveau. Prenez note de toutes les fonctionnalités répertoriées ci-dessous que vous utilisez.
 
 Les Kits de développement logiciel (SDK) clients Mobile Services ne sont **pas** compatibles avec le nouveau Kit de développement logiciel (SDK) serveur Mobile Apps. Afin d’assurer la continuité du service pour votre application, vous ne devez pas publier des modifications apportées à un site en train de desservir des clients publiés. Vous devez plutôt créer une application mobile qui sert de doublon. Vous pouvez placer cette application sur le même plan App Service pour éviter d’encourir des frais supplémentaires.
 
@@ -131,7 +131,7 @@ Le serveur comporte un grand nombre de paramètres de configuration, mais la var
 
 Vous pouvez définir votre configuration du serveur à l’aide de variables d’environnement qui peuvent être établies via les paramètres de l’application dans votre serveur principal Mobile App.
 
-Vous pouvez personnaliser davantage le Kit de développement logiciel (SDK) Mobile Apps en passant un [objet de configuration](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) à l’initialiseur ou en [créant un fichier nommé azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) à la racine du projet.
+Vous pouvez personnaliser davantage le Kit de développement logiciel (SDK) Mobile Apps en passant un [objet de configuration](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) à l’initialiseur ou en [créant un fichier nommé azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-config-localdev) à la racine du projet.
 
 ### Utilisation des données et des tables
 
@@ -187,7 +187,7 @@ Les principales sources de préoccupation en cas d’utilisation de CORS concern
 
 ### Notifications Push
 
-Le Kit de développement logiciel (SDK) Azure Notification Hubs ayant bénéficié de mises à jour importantes depuis Mobile Services, certaines signatures de fonction Notification Hubs peuvent donc être différentes. Dans le cas contraire, la fonctionnalité est semblable à Mobile Services ; le Kit de développement logiciel (SDK) Azure Mobile configure une instance Notifications Hubs si le paramètre d’application pour Notifications Hubs existe et l’expose sur `context.push`. Un exemple est disponible sur [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js), avec la section appropriée indiquée ci-dessous :
+Le Kit de développement logiciel (SDK) Azure Notification Hubs ayant bénéficié de mises à jour importantes depuis Mobile Services, certaines signatures de fonction Notification Hubs peuvent donc être différentes. Dans le cas contraire, la fonctionnalité est semblable à Mobile Services ; le Kit de développement logiciel (SDK) Mobile Azure configure une instance Notifications Hubs si le paramètre d’application pour Notifications Hubs existe et l’expose sur `context.push`. Un exemple est disponible sur [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js), avec la section appropriée indiquée ci-dessous :
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
@@ -288,4 +288,4 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

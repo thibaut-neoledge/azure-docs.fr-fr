@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/17/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 #Configuration de stratégies de remise de ressources à l’aide du Kit de développement logiciel (SDK) .NET
@@ -57,9 +57,9 @@ Pour savoir comment publier une ressource et générer une URL de diffusion en c
 
 ##Considérations
 
-- Vous ne pouvez pas supprimer une stratégie AssetDeliveryPolicy associée à un élément multimédia alors qu’un localisateur (streaming) OnDemand existe pour cet élément. Il est recommandé de retirer la stratégie de l’élément multimédia avant de la supprimer.
-- Il est impossible de créer un localisateur de streaming sur un élément multimédia chiffré de stockage lorsqu’aucune stratégie de distribution d’éléments multimédias n’est définie. Si l’élément multimédia n’est pas chiffré dans le stockage, le système vous permet de créer un localisateur et de diffuser l’élément multimédia en clair sans stratégie de distribution d’éléments multimédias.
-- Vous pouvez avoir plusieurs stratégies de distribution d’éléments multimédias associées à un seul élément multimédia, mais vous ne pouvez spécifier qu’un moyen de traiter un AssetDeliveryProtocol donné. Cela signifie que si vous essayez de lier deux stratégies de distribution qui spécifient le protocole AssetDeliveryProtocol.SmoothStreaming, cela va générer une erreur, car le système ne sait pas laquelle appliquer lorsqu’un client émet une demande Smooth Streaming.  
+- Vous ne pouvez pas supprimer une stratégie AssetDeliveryPolicy associée à un élément multimédia alors qu’un localisateur (de diffusion en continuer) OnDemand existe pour cet élément. Il est recommandé de retirer la stratégie de l’élément multimédia avant de la supprimer.
+- Il est impossible de créer un localisateur de diffusion en continu sur un élément multimédia chiffré de stockage quand aucune stratégie de distribution d’éléments multimédias n’est définie. Si l’élément multimédia n’est pas chiffré dans le stockage, le système vous permet de créer un localisateur et de diffuser en continu l’élément multimédia en clair sans stratégie de distribution d’éléments multimédias.
+- Vous pouvez avoir plusieurs stratégies de distribution d’éléments multimédias associées à un même élément multimédia, mais vous ne pouvez spécifier qu’une seule façon de traiter un AssetDeliveryProtocol donné. Cela signifie que si vous essayez de lier deux stratégies de distribution qui spécifient le protocole AssetDeliveryProtocol.SmoothStreaming, cela va générer une erreur, car le système ne sait pas laquelle appliquer lorsqu’un client émet une demande Smooth Streaming.  
 - Si vous avez un élément multimédia avec un localisateur de streaming existant, vous ne pouvez pas lier une nouvelle stratégie à l’élément multimédia. Vous pouvez soit supprimer le lien d’une stratégie existante de l’élément multimédia, soit mettre à jour une stratégie de distribution associée à l’élément multimédia. Vous devez d’abord supprimer le localisateur de streaming, ajuster les stratégies, puis recréer le localisateur de streaming. Vous pouvez utiliser le même ID de localisateur (locatorId) lorsque vous recréez le localisateur de streaming. Toutefois, vous devez vérifier que cela ne crée pas de problèmes pour les clients étant donné que le contenu peut être mis en cache par l’origine ou un réseau de distribution de contenu en aval.  
 
 
@@ -348,4 +348,4 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

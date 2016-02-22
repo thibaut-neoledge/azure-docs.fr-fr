@@ -114,7 +114,7 @@ Recherchez des données dans les graphiques de présentation. Au début, seuls u
 
 Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.][perf]
 
-* *Pas de données utilisateur ou de page ?* - [Ajouter des données utilisateur et de page](app-insights-asp-net-client.md)
+* *Pas de données utilisateur ou de page ?* - [Ajouter des données utilisateur et de page](app-insights-web-track-usage.md)
 
 ### Rechercher : événements individuels
 
@@ -146,7 +146,7 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 
 #### Vous rencontrez des problèmes sur votre serveur de builds ?
 
-Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-faq.md#NuGetBuild).
+Consultez cet article de [résolution des problèmes](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [AZURE.NOTE] Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
@@ -169,7 +169,7 @@ Le concentrateur de diagnostic est particulièrement utile si vous disposez de [
 
 ## Étapes suivantes
 
-- [Données utilisateur et de page](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Données utilisateur et de page](../article/application-insights/app-insights-javascript.md#selector1)
 - [Exceptions](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [Dépendances](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
@@ -212,4 +212,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
-   ms.date="07/30/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Finaliser la base de données SQL Microsoft Azure restaurée
@@ -56,4 +56,4 @@ Pour en savoir plus, voir [Procédure : recevoir des notifications d’alerte e
 Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Un bon indicateur de la nécessité d’activer l’audit est l’utilisation, par les applicatives clientes, de chaînes de connexion sécurisées dans un modèle *.database.secure.windows.net. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

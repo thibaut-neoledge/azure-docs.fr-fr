@@ -61,11 +61,11 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 
 	> [AZURE.NOTE] Bien que les instructions de la section [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) vous montrent comment configurer l’application avec Azure Active Directory, dans ce didacticiel, vous la configurerez avec AD FS. Par conséquent, suivez les étapes ci-dessous à la place.
 
-3.	Ouvrez la solution, puis ouvrez Controllers\AccountController.cs dans l’**Explorateur de solutions**.
+3.	Ouvrez la solution, puis ouvrez Controllers\\AccountController.cs dans l’**Explorateur de solutions**.
 
 	Vous verrez que le code envoie simplement une demande d’authentification pour authentifier l’utilisateur à l’aide de WS-Federation. Toute l’authentification est configurée dans App\_Start\\Startup.Auth.cs.
 
-4.  Ouvrez App_Start\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
+4.  Ouvrez App\_Start\\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -104,8 +104,7 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
   <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" /></mark>
 
 &lt;/appSettings>
-	</pre>
-	Renseignez les valeurs de clé en fonction de votre environnement respectif.
+</pre>Renseignez les valeurs de clé en fonction de votre environnement respectif.
 
 7.	Générez l’application pour vous assurer qu’aucune erreur n’est détectée.
 
@@ -277,21 +276,14 @@ public ActionResult Contact()
 
     return View();
 }
-	</pre>
-	Étant donné que j’ai ajouté **Utilisateur de test** à **Groupe de test** dans mon environnement de laboratoire AD FS, je vais utiliser le groupe de test pour tester l’autorisation sur `About`. Pour `Contact`, je vais tester le cas négatif de **Admins du domaine**, auquel l’**utilisateur de test** n’appartient pas.
+</pre>Étant donné que j’ai ajouté **Utilisateur de test** à **Groupe de test** dans mon environnement de laboratoire AD FS, je vais utiliser le groupe de test pour tester l’autorisation sur `About`. Pour `Contact`, je vais tester le cas négatif de **Admins du domaine**, auquel l’**utilisateur de test** n’appartient pas.
 
 3. Démarrez le débogueur en tapant `F5` et connectez-vous, puis cliquez sur **À propos**. La page `~/About/Index` doit maintenant s’afficher correctement, si votre utilisateur authentifié est autorisé à effectuer cette action.
 4. Cliquez maintenant sur **Contact**, ce qui, dans mon cas, ne doit pas autoriser l’**utilisateur de test** à effectuer l’action. Toutefois, le navigateur est redirigé vers AD FS, qui finit par afficher le message suivant :
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Si vous examinez cette erreur dans l’Observateur d’événements sur le serveur AD FS, vous verrez ce message d’exception : <pre class="prettyprint"> 
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made ’6’ requests in the last ’11’ seconds.</mark> Contact your administrator for details. 
-	at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) 
-	at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) 
-	at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) 
-	at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
-  	</pre>
+	Si vous examinez cette erreur dans l’Observateur d’événements sur le serveur AD FS, vous verrez ce message d’exception : <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made ’6’ requests in the last ’11’ seconds.</mark> Contact your administrator for details. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
 
 	Cela se produit, car, par défaut, MVC renvoie une erreur 401 Non autorisé lorsque les rôles d’un utilisateur ne sont pas autorisés. Cela déclenche une demande de réauthentification auprès de votre fournisseur d’identité (AD FS). Étant donné que l’utilisateur est déjà authentifié, AD FS renvoie la même page, qui émet alors une autre erreur 401, créant ainsi une boucle de redirection. Vous devez remplacer la méthode `HandleUnauthorizedRequest` de AuthorizeAttribute par une logique simple pour obtenir un affichage adéquat au lieu de continuer la boucle de redirection.
 
@@ -333,7 +325,7 @@ public ActionResult Contact()
 
 Vous pouvez implémenter votre application métier avec AD FS plutôt qu’avec Azure Active Directory en cas de problèmes de conformité concernant la conservation des données hors site de l’organisation. Cela signifie également que votre application web dans Azure doit accéder aux bases de données locales, dans la mesure où vous n’êtes pas autorisé à utiliser [Base de données SQL](/services/sql-database/) comme couche de données pour vos applications Web.
 
-Azure App Service Web Apps prend en charge l’accès aux bases de données locales avec deux approches : [Connexions hybrides](../integration-hybrid-connection-overview.md) et [Réseaux virtuels](web-sites-integrate-with-vnet.md). Pour plus d’informations, consultez la rubrique [Utilisation de l’intégration VNET et des connexions hybrides avec Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Azure App Service Web Apps prend en charge l’accès aux bases de données locales avec deux approches : [Connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et [Réseaux virtuels](web-sites-integrate-with-vnet.md). Pour plus d’informations, consultez la rubrique [Utilisation de l’intégration VNET et des connexions hybrides avec Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Ressources supplémentaires
@@ -351,4 +343,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données 
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

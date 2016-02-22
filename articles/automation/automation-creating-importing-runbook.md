@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="02/09/2016"
 	ms.author="bwren" />
 
 # Création ou importation d’un runbook dans Azure Automation
@@ -131,4 +131,4 @@ Vous pouvez utiliser l’applet de commande [Publish-AzureAutomationRunbook](htt
 - [Modifier des runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md)
 - [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

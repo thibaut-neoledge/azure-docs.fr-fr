@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Créer une machine virtuelle avec plusieurs cartes d’interface réseau
@@ -97,7 +97,7 @@ Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est
 - **Le **trafic entrant** dont la destination est la NIC en question passe d’abord par le sous-réseau, en déclenchant les règles du NSG du sous-réseau, puis transite par la NIC et déclenche les règles du NSG de la NIC.
 - Le **trafic sortant** dont la source est la NIC en question commence par sortir de la NIC, en déclenchant les règles du NSG du sous-réseau, puis transite par le sous-réseau, et déclenche alors les règles du NSG du sous-réseau. 
 
-En savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg) et leur application selon les associations de sous-réseaux, de machines virtuelles et de cartes réseau.
+En savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg.md) et leur application selon les associations de sous-réseaux, de machines virtuelles et de cartes réseau.
 
 ## Configuration d’une machine virtuelle avec plusieurs NIC dans un déploiement classique
 
@@ -164,7 +164,7 @@ Pour créer une machine virtuelle avec plusieurs cartes réseau, suivez la proc�
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]Le réseau virtuel que vous spécifiez ici doit déjà exister (comme indiqué dans la configuration requise). L’exemple ci-dessous définit un réseau virtuel nommé **MultiNIC-VNet**.
+>[AZURE.NOTE] Le réseau virtuel que vous spécifiez ici doit déjà exister (comme indiqué dans la configuration requise). L’exemple ci-dessous définit un réseau virtuel nommé **MultiNIC-VNet**.
 
 ## Accès secondaire de cartes réseau à d’autres sous-réseaux
 
@@ -265,4 +265,4 @@ Pour les machines virtuelles Linux, dans la mesure où le comportement par défa
 - Déploiement de [machines virtuelles MultiNIC dans un scénario d’application à 2 niveaux pour un déploiement Resource Manager](virtual-network-deploy-multinic-arm-template.md).
 - Déploiement de [machines virtuelles MultiNIC dans un scénario d’application à 2 niveaux pour un déploiement classique](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

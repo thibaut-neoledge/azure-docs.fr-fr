@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/14/2016" 
 	ms.author="byvinyal"/>
 
 #Journaux en continu et console
 
 ### Journaux en continu ###
 
-Le portail Microsoft Azure intègre une fonction d’affichage des journaux de diffusion en continu qui vous permet de suivre les événements de vos applications web Azure App Service en temps réel.
+Le portail Microsoft Azure intègre une fonction d’affichage des journaux de diffusion en continu qui vous permet de suivre les événements de vos applications App Service en temps réel.
 
 La configuration de cette fonction se fait en quelques étapes simples :
 
@@ -53,28 +53,22 @@ console.log("My trace statement").
 `````````````````````````
 
 ### Activation et affichage des journaux en continu ###
-
-![][BrowseSitesScreenshot] Les diagnostics sont activés par application web. Au sein du [portail](https://portal.azure.com), cliquez sur le bouton **Parcourir (1)**, situé dans la barre de menus à gauche, puis cliquez sur **Applications Web (2)** pour afficher la **liste (3)** de toutes vos applications web.
-
-Cliquez sur le nom de l’application web que vous souhaitez configurer pour y accéder.
+![][BrowseSitesScreenshot] Les diagnostics sont activés par application web. Dans le [portail](https://portal.azure.com), naviguez jusqu'au site pour lequel vous souhaitez activer cette fonctionnalité.
   
-![][DiagnosticsLogs] Puis cliquez sur **Paramètres (1)** > **Journaux de diagnostic (2)** et **activez** le **Journal des applications (système de fichiers) (3)**. L’option **Niveau** vous permet de changer le niveau de gravité des suivis à capturer. Si vous souhaitez simplement vous familiariser avec la fonctionnalité, définissez-la sur **Verbose** pour être sûr que toutes vos instructions de suivi seront ajoutées.
+![][DiagnosticsLogs] Puis cliquez sur **(1) Paramètres** > **(2) Journaux de diagnostic** et **(3) activez** le **Journal des applications (système de fichiers)** ou le **Journal des applications (blob)**. L’option **Niveau** vous permet de changer le niveau de gravité des suivis à capturer. Si vous souhaitez simplement vous familiariser avec la fonctionnalité, définissez-la sur **Verbose** pour être sûr que toutes vos instructions de suivi seront ajoutées.
 
 Cliquez sur **SAVE** en haut du volet pour afficher les journaux.
 
 **REMARQUE :** plus le **niveau de gravité** est élevé, plus les ressources consommées dans le fichier journal sont importantes et plus vous obtiendrez de suivis. Assurez-vous qu'il est défini au niveau approprié lors de l'utilisation de cette fonctionnalité pour un trafic élevé / site de production.
 
-![][StreamingLogsScreenshot] Pour afficher les journaux de diffusion en continu sur le portail, cliquez sur **Outils (1)** > **Flux de journaux (2)**. Si des instructions de suivi sont en cours d’écriture sur votre application, vous devez les voir presque en temps réel dans la fenêtre de résultat.
+![][StreamingLogsScreenshot] Pour afficher les journaux de diffusion sur le portail, cliquez sur **(1) Outils** > **(2) Flux de journaux**. Si des instructions de suivi sont en cours d’écriture sur votre application, vous devez les voir presque en temps réel dans la fenêtre de résultat **(3)**.
 
 ## Console ##
-
 Le portail Azure fournit un accès à la console à votre environnement d’application web. Vous pouvez explorer le système de fichiers de l’application web et exécuter les scripts powershell/cmd. Lorsque vous exécutez des commandes de la console, vous dépendez des mêmes autorisations que pour votre code d’application web en cours d’exécution. Vous ne pouvez pas accéder aux répertoires protégés ni exécuter des scripts qui demandent des autorisations élevées.
 
-![][ConsoleScreenshot] Pour accéder à la console, ouvrez une application web comme décrit dans la section ci-dessus. Cliquez sur **Outils** > **Console** pour ouvrir la console.
+![][ConsoleScreenshot] Pour accéder à la console, ouvrez une application web comme décrit dans la section ci-dessus. Cliquez sur **(1) Outils**>**(2) Console** pour ouvrir la console **(3)**.
 
 Pour vous familiariser avec la console, commencez par les commandes élémentaires suivantes :
-
-
 
 `````````````````````````
 dir
@@ -84,12 +78,10 @@ dir
 cd
 `````````````````````````
 
-
-
 <!-- Images. -->
 [DiagnosticsLogs]: ./media/web-sites-streaming-logs-and-console/diagnostic-logs.png
 [BrowseSitesScreenshot]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

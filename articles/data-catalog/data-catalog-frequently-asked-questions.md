@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Forum Aux Questions Azure Data Catalog
@@ -44,7 +44,9 @@ Dans la version préliminaire, les services **Azure Data Catalog** sont disponi
 - Ouest des États-Unis
 - Est des États-Unis
 - Europe de l'Ouest
+- Europe du Nord
 - Est de l’Australie
+- Asie du Sud-Est
 
 ## Q : Quelles sont les limites du nombre de ressources de données dans Azure Data Catalog ?
 
@@ -80,11 +82,11 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 - Types de données de l'attribut/de la colonne
 - Description de l’attribut/de la colonne
 
-> [AZURE.IMPORTANT]L’inscription de ressources de données auprès d’**Azure Data Catalog** n’a pas pour effet de déplacer ou de copier vos données dans le cloud. L’inscription de ressources à partir d'une source de données copie les métadonnées des ressources vers Azure, mais les données restent dans l'emplacement de la source de données existante. La seule exception à cette règle est quand un utilisateur décide de charger des enregistrements ou un profil de données de la version préliminaire lors de l’inscription de ressources. Lors de l’inclusion d’une version préliminaire, jusqu’à 20 enregistrements sont copiés à partir de chaque ressource et stockés sous forme d’instantané dans **Azure Data Catalog**. Lorsque vous incluez un profil de données, les informations d’agrégation (telles que la taille des tables, les valeurs Null en pourcentage par colonne et les valeurs minimales, maximales et moyennes pour les colonnes) sont calculées et incluses dans les métadonnées stockées dans le catalogue.
+> [AZURE.IMPORTANT] L’inscription de ressources de données auprès d’**Azure Data Catalog** n’a pas pour effet de déplacer ou de copier vos données dans le cloud. L’inscription de ressources à partir d'une source de données copie les métadonnées des ressources vers Azure, mais les données restent dans l'emplacement de la source de données existante. La seule exception à cette règle est quand un utilisateur décide de charger des enregistrements ou un profil de données de la version préliminaire lors de l’inscription de ressources. Lors de l’inclusion d’une version préliminaire, jusqu’à 20 enregistrements sont copiés à partir de chaque ressource et stockés sous forme d’instantané dans **Azure Data Catalog**. Lorsque vous incluez un profil de données, les informations d’agrégation (telles que la taille des tables, les valeurs Null en pourcentage par colonne et les valeurs minimales, maximales et moyennes pour les colonnes) sont calculées et incluses dans les métadonnées stockées dans le catalogue.
 
 <br/>
 
-> [AZURE.NOTE]Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait cette valeur de propriété. Pour les bases de données relationnelles SQL Server qui ne possèdent pas de propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait la valeur de la propriété étendue ms\_description pour les objets et les colonnes. Pour plus d’informations, consultez la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE] Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait cette valeur de propriété. Pour les bases de données relationnelles SQL Server qui ne possèdent pas de propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait la valeur de la propriété étendue ms\_description pour les objets et les colonnes. Pour plus d’informations, consultez la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## Q : Combien de temps faut-il pour que les ressources nouvellement inscrites apparaissent dans Azure Data Catalog ?
 
@@ -147,4 +149,4 @@ Si vous rencontrez des problèmes ou si vous avez besoin d’assistance avec la 
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

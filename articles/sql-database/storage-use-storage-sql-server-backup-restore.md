@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2015"
 	ms.author="carlrab"/>
 
 
@@ -72,4 +72,4 @@ La création d'un compte Azure constitue la première étape de ce processus. Po
 
 [Pratiques recommandées pour la sauvegarde et la restauration (service de stockage d’objets blob Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

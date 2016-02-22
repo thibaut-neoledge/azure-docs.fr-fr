@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -311,7 +311,9 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensions
+### Outils et extensions
+
+* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -330,4 +332,4 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

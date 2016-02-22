@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jroth" />
 
 # Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
@@ -41,7 +41,7 @@ La première partie de ce document examine différentes techniques de traitement
 ## Stratégies de traitement par lots
 
 ### Remarque relative aux résultats de minutage fournis dans cette rubrique
->[AZURE.NOTE]Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant le nouveau [niveau de service](sql-database-service-tiers.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant le nouveau [niveau de service](sql-database-service-tiers.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
 
 ### Transactions
 Il peut sembler étrange d’aborder la question du traitement par lots par la notion de transactions. Mais l’utilisation de transactions côté client a un effet subtil côté serveur subtil qui améliore les performances. Les transactions peuvent être ajoutées avec seulement quelques lignes de code, afin de fournir un moyen rapide d’améliorer les performances des opérations séquentielles.
@@ -108,7 +108,7 @@ Le tableau suivant présente quelques résultats des tests ad hoc. Les tests ont
 | 100 | 2 145 | 341 |
 | 1 000 | 21 479 | 2 756 |
 
->[AZURE.NOTE]Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
 Compte tenu des résultats des tests précédents, l’encapsulation d’une seule opération dans une transaction a réellement pour effet de réduire les performances. Mais lorsque vous augmentez le nombre d’opérations dans une même transaction, vous obtenez une amélioration de performances plus marquée. La différence de performances est également plus manifeste lorsque toutes les opérations interviennent au sein du centre de données Microsoft Azure. L’augmentation du phénomène de latence associée à l’utilisation de la base de données SQL à l’extérieur du centre de données Microsoft Azure masque en partie le gain de performances lié à l’utilisation de transactions.
 
@@ -187,7 +187,7 @@ Le tableau suivant présente les résultats des tests ad hoc pour l’utilisatio
 | 1 000 | 2 615 | 382 |
 | 10000 | 23 830 | 3 586 |
 
->[AZURE.NOTE]Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
 Le gain de performances associé au traitement par lots est immédiatement évident. Dans le test séquentiel précédent, 1 000 opérations prenaient 129 secondes à l’extérieur du centre de données et 21 secondes à l’intérieur du centre de données. Mais avec des paramètres table, ces 1 000 opérations ne prennent que 2,6 secondes à l’extérieur du centre de données et 0,4 seconde à l’intérieur du centre de données.
 
@@ -221,7 +221,7 @@ Les résultats des tests ad hoc suivants montrent les performances du traitement
 | 1 000 | 2 535 | 341 |
 | 10000 | 21 605 | 2 737 |
 
->[AZURE.NOTE]Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
 Dans les lots plus petits, l’utilisation des paramètres table a permis d’obtenir de meilleures performances que la classe **SqlBulkCopy**. Pour les tests sur 1 000 et 10 000 lignes en revanche, l’utilisation de **SqlBulkCopy** a affiché des performances 12 à 31 % plus rapides que les paramètres table. Comme les paramètres table, **SqlBulkCopy** est une bonne option pour les insertions par lots, en particulier comparativement aux performances des opérations non traitées par lots.
 
@@ -259,7 +259,7 @@ Les résultats des tests ad hoc suivants montrent les performances de ce type d�
 | 10 | 30 | 25 |
 | 100 | 33 | 51 |
 
->[AZURE.NOTE]Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
 Cette approche peut être légèrement plus rapide pour les lots comportant moins de 100 lignes. Bien que l’amélioration soit négligeable, cette technique constitue une autre solution potentiellement efficace dans votre scénario d’application spécifique.
 
@@ -298,7 +298,7 @@ Dans nos tests, il n’y avait généralement aucun avantage à fractionner les 
 | 100 | 10 | 465 |
 | 50 | 20 | 630 |
 
->[AZURE.NOTE]Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
 Vous pouvez voir que, pour 1 000 lignes, on obtient les meilleures performances en les soumettant toutes en même temps. D’autres tests (qui ne sont pas présentés ici) ont révélé un faible gain de performances en divisant un lot de 10 000 lignes en deux lots de 5 000. Mais le schéma de table pour ces tests étant relativement simple, vous devriez effectuer les tests sur vos données et tailles de lot spécifiques afin de vérifier ces résultats.
 
@@ -316,7 +316,7 @@ Que se passe-t-il si vous avez adopté l’approche consistant à réduire la ta
 | 250 [4] | 405 | 329 | 265 |
 | 100 [10] | 488 | 439 | 391 |
 
->[AZURE.NOTE]Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
 Plusieurs raisons peuvent potentiellement expliquer une dégradation des performances liées au parallélisme :
 
@@ -604,4 +604,4 @@ La liste suivante fournit un résumé des recommandations relatives au traitemen
 
 Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de l’évolutivité, consultez [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

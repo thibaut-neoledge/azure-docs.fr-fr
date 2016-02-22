@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016" 
+    ms.date="02/05/2016" 
     ms.author="elizapo" />
 
 
@@ -29,15 +29,15 @@ Utilisez ces étapes pour créer une image basée sur une machine virtuelle Azur
 
 1. Créez une machine virtuelle Azure. Vous pouvez utiliser l’image « Hôte de session de Bureau à distance Windows Server » ou « Hôte de session de Bureau à distance Windows Server avec Microsoft Office 365 ProPlus » à partir de la galerie d’images de machine virtuelle Azure. Cette image répond à toutes les exigences d’image de modèle Azure RemoteApp.
 
-	Pour plus d’informations, consultez la section [Création d’une machine virtuelle exécutant Windows](virtual-machines-windows-tutorial.md).
+	Pour plus d’informations, consultez la section [Création d’une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-tutorial.md).
 
 2. Connectez-vous à la machine virtuelle, puis installez et configurez les applications que vous souhaitez partager via RemoteApp. Exécutez les éventuelles opérations de configuration Windows supplémentaires requises par vos applications.
 
-	Pour plus d'informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](virtual-machines-log-on-windows-server.md).
+	Pour plus d'informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines/virtual-machines-log-on-windows-server.md).
 
 3. Si vous utilisez l’une des images de l’hôte de session Bureau à distance Windows Server, elle comprend un script de validation afin de garantir que votre machine virtuelle répond aux exigences de RemoteApp. Pour exécuter le script, double-cliquez sur **ValidateRemoteAppImage** sur le bureau. Assurez-vous que toutes les erreurs signalées par le script sont résolues avant de passer à l’étape suivante.
 
-4. SYSPREP généralise et capture l’image. Pour obtenir des instructions, consultez la section [Capture d’une machine virtuelle Windows pour l’utiliser comme modèle](../virtual-machines-capture-image-windows-server.md).
+4. SYSPREP généralise et capture l’image. Pour obtenir des instructions, consultez la section [Capture d’une machine virtuelle Windows pour l’utiliser comme modèle](../virtual-machines/virtual-machines-capture-image-windows-server.md).
 
 
 
@@ -58,4 +58,4 @@ Utilisez ces étapes pour importer la nouvelle image dans Azure RemoteApp :
 
 Vous êtes maintenant prêt à créer votre collection, [cloud](remoteapp-create-cloud-deployment.md) ou [hybride](remoteapp-create-hybrid-deployment.md), selon vos besoins.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

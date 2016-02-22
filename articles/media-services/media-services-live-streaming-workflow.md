@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -56,7 +56,7 @@ Le schéma suivant illustre les principales parties de la plateforme AMS impliqu
 
 ![Flux de travail en direct][live-overview1]
 
-Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
@@ -93,4 +93,4 @@ Pour plus d’informations, consultez [Utilisation des canaux recevant un flux d
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

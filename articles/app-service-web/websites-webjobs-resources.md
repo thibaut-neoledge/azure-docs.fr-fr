@@ -34,7 +34,7 @@ Le tableau de bord WebJobs dans le portail Azure fournit de puissantes fonctionn
 * [Azure WebJobs est extraordinaire, utilisez-le dès maintenant !](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Billet de blog de Troy Hunt).
 * [Fonctionnalités Azure WebJobs](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Présentation du Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md)
-* [Conseils de travaux d’arrière-plan par Microsoft Patterns and Practices](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
+* [Conseils de travaux d’arrière-plan par Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
 * [Annonce de la version 1.1.0 RTM du Kit de développement logiciel (SDK) Microsoft Azure WebJobs](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk-get-started.md)
 * [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -139,4 +139,4 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 * [Twitter](http://twitter.com/). Utilisez le hashtag #AzureWebJobs.
 * [Signaler un problème ou un bogue WebJobs](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

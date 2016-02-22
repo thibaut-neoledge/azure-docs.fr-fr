@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/02/2016"
+   ms.date="02/04/2016"
    ms.author="jesseb"/>
 
 
@@ -56,12 +56,15 @@ Le contrat de données est la solution recommandée pour s’assurer de la compa
 
 ## Étapes suivantes
 
-[Mise à niveau d’une application Service Fabric à l’aide de Visual Studio](service-fabric-application-upgrade.md)
+La [mise à niveau de votre application à l'aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l'application à l'aide de Visual Studio.
 
-[Mise à niveau d’applications Service Fabric à l’aide de PowerShell](service-fabric-automate-powershell.md)
+La [mise à niveau de votre application à l'aide de Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l'application à l'aide de PowerShell.
 
-[Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md)
+Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
-[Mise à niveau manuelle et mise à niveau avec un package différentiel](service-fabric-application-upgrade-advanced.md)
+Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+Résolvez les problèmes courants de mise à niveau de l'application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

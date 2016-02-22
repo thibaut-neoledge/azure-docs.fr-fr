@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -167,7 +167,7 @@ Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attr
 Pour configurer un groupe en tant que groupe « Responsable »
 --------------------------------------------------------------------------------
 1. Dans le portail d’administration, cliquez sur l’onglet **Configurer** et sélectionnez **Règle avancée**.
-2. Saisissez la règle en utilisant la syntaxe suivante : Collaborateurs de *Collaborateurs de {ID\_utilisateur\_du\_responsable}* Voici un exemple e règle valable pour Collaborateurs : 
+2. Saisissez la règle en utilisant la syntaxe suivante : Collaborateurs de *Collaborateurs de {ID\_utilisateur\_du\_responsable}* Voici un exemple e règle valable pour Collaborateurs :
 
 Collaborateurs directs pour « 62e19b97-8b3d-4d4a-a106-4ce66896a863 »
 
@@ -183,8 +183,10 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 
+* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -60,7 +60,7 @@ La restriction **ouverte** signifie que le système fournira la clé à toute pe
 
 Pour choisir la stratégie de restriction à jeton, cliquez sur le bouton **JETON**.
 
-La stratégie de restriction à **jeton** doit être accompagnée d’un jeton émis par un **service de jeton sécurisé** (STS). Media Services prend en charge les jetons aux formats **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et **JWT** (JSON Web Token). Pour plus d’informations, consultez [Authentification à jeton JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+La stratégie de restriction à **jeton** doit être accompagnée d’un jeton émis par un **service de jeton sécurisé** (STS). Media Services prend en charge les jetons aux formats **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et JWT (**JSON Web Token**). Pour plus d’informations, consultez [Authentification à jeton JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
 Media Services ne fournit pas de **services de jeton sécurisé**. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé Media Services retourne la clé de chiffrement pour le client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu. Pour plus d’informations, consultez [Utilisation de l’ACS Azure pour émettre des jetons](http://mingfeiy.com/acs-with-key-services).
 
@@ -103,4 +103,4 @@ La stratégie d’autorisation de la clé de contenu étant configurée, consult
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

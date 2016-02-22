@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ryancraw"/>
 
 # Sécurisation de l'accès aux données DocumentDB #
@@ -163,4 +163,4 @@ Pour obtenir facilement toutes les ressources d'autorisation associées à un ut
 - Pour en savoir plus sur la construction des jetons d’autorisation DocumentDB, cliquez [ici](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

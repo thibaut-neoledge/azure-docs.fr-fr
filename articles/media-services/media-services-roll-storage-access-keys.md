@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Procédure : mettre à jour Media Services après la substitution de clés d’accès de stockage
@@ -89,7 +89,7 @@ Attendez au moins 30 minutes après la synchronisation de la nouvelle clé de st
 
 Notez que lorsque vous mettez à jour (ou que vous recréez) un localisateur SAS, l’URL sera toujours modifiée.
 
->[AZURE.NOTE]Pour vous assurer de conserver les URL existantes de vos localisateurs OnDemand, vous devez supprimer le localisateur existant et en créer un avec le même ID.
+>[AZURE.NOTE] Pour vous assurer de conserver les URL existantes de vos localisateurs OnDemand, vous devez supprimer le localisateur existant et en créer un avec le même ID.
  
 L’exemple .NET suivant montre comment recréer un localisateur avec le même ID.
 	
@@ -159,4 +159,4 @@ Utilisez la même procédure que celle décrite dans l’[étape 3](media-servi
 
 Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

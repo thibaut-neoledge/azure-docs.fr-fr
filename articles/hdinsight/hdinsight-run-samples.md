@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 #Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows
@@ -998,4 +998,4 @@ Le code du programme MapReduce TeraSort est présenté pour l’inspection dans 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

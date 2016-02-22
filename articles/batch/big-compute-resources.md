@@ -38,7 +38,7 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 * [Didacticiel : prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md)
 
-* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurebatch)
 
 * [Vidéos sur Azure Batch](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -66,11 +66,13 @@ HPC Pack est la solution HPC gratuite de Microsoft construite autour des technol
 
 ### Solutions de cluster Linux et OSS
 
-Utilisez ces modèles de démarrage rapide Azure pour déployer des clusters HPC Linux avec des outils open source.
+Ces modèles Azure permettent de déployer des clusters HPC Linux.
 
 * [Spin up a SLURM cluster](https://azure.microsoft.com/documentation/templates/slurm/) et [billet de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
 * [Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+
+* [Intel Cloud Edition for Lustre Software - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## Microsoft MPI
 
@@ -81,7 +83,7 @@ Utilisez ces modèles de démarrage rapide Azure pour déployer des clusters HPC
 
 * [Informations de référence sur MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Forum MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [Forum MPI](https://social.microsoft.com/Forums/fr-FR/home?forum=windowshpcmpi)
 
 
 ## Instances de calcul intensif
@@ -114,11 +116,25 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
 
+## Témoignages client
 
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
+
+* [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
+
+* [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
 
 ## Étapes suivantes
 
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](https://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

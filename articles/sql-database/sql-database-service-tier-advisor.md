@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/28/2015"
+   ms.date="02/08/2015"
    ms.author="sstein"/>
 
 # Recommandations relatives aux niveaux tarifaires des bases de données SQL
@@ -96,4 +96,4 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

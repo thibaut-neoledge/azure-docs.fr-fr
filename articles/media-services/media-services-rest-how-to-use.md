@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,15 @@
 
 Microsoft Azure Media Services est un service qui accepte les demandes HTTP OData et peut répondre dans les formats JSON ou atom+pub détaillés. Étant donné que Media Services est conforme aux règles de conception Azure, il existe un ensemble d’en-têtes HTTP obligatoires que chaque client doit utiliser lors de la connexion à Media Services, ainsi qu’un jeu d’en-têtes facultatifs pouvant être utilisé. Les sections suivantes décrivent les en-têtes et verbes HTTP que vous pouvez utiliser lors de la création de requêtes et de la réception des réponses à partir de Media Services.
 
+##Considérations 
+
+Les considérations suivantes s'appliquent lors de l'utilisation de REST.
+
+
+- Si vous utilisez JSON, vous DEVEZ définir l'en-tête Accept sur le [format Verbose JSON](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). OData ne comprend pas la propriété \_\_metadata dans la requête, sauf si vous la définissez de façon détaillée.
+
+	**Accept** : application/json;odata=verbose
+- Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) tel que décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d'API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 ## En-têtes de requête HTTP standard pris en charge par Media Services
 
@@ -38,7 +47,7 @@ MaxDataServiceVersion|Décimal|3\.0
 
 
 
->[AZURE.NOTE]Étant donné que Media Services utilise OData pour exposer son référentiel de métadonnées de ressources sous-jacent via les API REST, les en-têtes DataServiceVersion et MaxDataServiceVersion doivent être inclus dans une requête. Toutefois, s’ils ne le sont pas, Media Services suppose que la valeur DataServiceVersion utilisée est 3.0.
+>[AZURE.NOTE] Étant donné que Media Services utilise OData pour exposer son référentiel de métadonnées de ressources sous-jacent via les API REST, les en-têtes DataServiceVersion et MaxDataServiceVersion doivent être inclus dans une requête. Toutefois, s’ils ne le sont pas, Media Services suppose que la valeur DataServiceVersion utilisée est 3.0.
 
 Voici un ensemble d’en-têtes facultatifs :
 
@@ -81,6 +90,10 @@ SUPPRIMER|Supprime un objet.
 MERGE|Met à jour un objet existant avec des modifications de propriété nommées.
 HEAD|Retourne les métadonnées d’un objet d’une réponse GET.
 
+##Limitation
+
+Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) tel que décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d'API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
+
 
 ## Découverte du modèle Media Services
 
@@ -105,4 +118,4 @@ Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhait
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

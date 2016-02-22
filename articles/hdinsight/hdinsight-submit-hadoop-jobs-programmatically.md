@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Envoi de tâches Hadoop dans HDInsight
 
 Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce et Hive et comment utiliser le Kit de développement logiciel (SDK) HDInsight .NET pour envoyer des tâches MapReduce, des tâches de diffusion Hadoop et des tâches Hive.
 
-> [AZURE.NOTE]Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d'informations sur l'utilisation d'un client Linux, OS X ou Unix avec MapReduce, Hive ou Pig dans HDInsight, consultez les articles suivants et sélectionnez les liens **SSH** ou **Curl** de chacun :
+> [AZURE.NOTE] Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d'informations sur l'utilisation d'un client Linux, OS X ou Unix avec MapReduce, Hive ou Pig dans HDInsight, consultez les articles suivants et sélectionnez les liens **SSH** ou **Curl** de chacun :
 >
 > - [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 > - [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 > - [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-##Composants requis
+###Composants requis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -266,4 +266,4 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

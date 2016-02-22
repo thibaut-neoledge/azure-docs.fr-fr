@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 
@@ -144,4 +144,4 @@ Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprenti
 * Apprenez à créer des solutions analytiques de bout en bout systématiquement à l'aide du [processus de science des données](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples de Machine Learning et d'analyse des données utilisant Cortana Analytics Suite. Nous avons également inclus une icône dans le menu Démarrer et sur le bureau de la machine virtuelle pour un accès aisé. 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -3,7 +3,7 @@
 	description="Plus d’informations sur la bibliothèque IoTHubClient dans le kit de développement logiciel (SDK) d’appareil Azure IoT pour C."
 	services="iot-hub"
 	documentationCenter=""
-	authors="MichelBarnett"
+	authors="olivierbloch"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="11/10/2015"
-     ms.author="michelb"/>
+     ms.author="obloch"/>
 
 # Kit de développement logiciel (SDK) d’appareils Microsoft Azure IoT pour C : en savoir plus sur IoTHubClient
 
@@ -278,4 +278,4 @@ L’option de traitement par lot est importante. Par défaut, la bibliothèque i
 
 Cet article décrit en détail le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **Kit de développement logiciel (SDK) d’appareils Azure IoT pour C **. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Le [prochain article](iot-hub-device-sdk-c-serializer.md) fournit des détails similaires sur la bibliothèque **sérialiseur**.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

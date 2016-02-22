@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/10/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -48,7 +48,7 @@ La version préliminaire d’**Azure Data Catalog** prend en charge les types d�
 ## Annotation de plusieurs ressources
 Lorsque vous sélectionnez plusieurs ressources de données dans le portail **Azure Data Catalog**, les utilisateurs peuvent annoter toutes les ressources sélectionnées en une seule opération. Les annotations s’appliqueront à toutes les ressources sélectionnées, favorisant ainsi la sélection et la fourniture d’une description cohérente et de jeux de balises et d’experts pour les ressources de données associées.
 
-> [AZURE.NOTE]Les balises et les experts peuvent également être fournis lors de l’inscription des ressources de données via l’outil d’inscription des sources de données d’**Azure Data Catalog**.
+> [AZURE.NOTE] Les balises et les experts peuvent également être fournis lors de l’inscription des ressources de données via l’outil d’inscription des sources de données d’**Azure Data Catalog**.
 
 Lorsque vous sélectionnez plusieurs tables et vues, seules les colonnes communes à toutes les ressources de données sélectionnées seront affichées dans le portail **Azure Data Catalog**. Cela permet aux utilisateurs de fournir des balises et des descriptions pour toutes les colonnes portant le même nom pour l’ensemble des ressources sélectionnées.
 
@@ -58,4 +58,4 @@ Les métadonnées extraites à partir de la source de données lors de l’inscr
 ## Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** favorise la détection des données. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent fournir des annotations pour faciliter la détection et la compréhension des données via le portail **Azure Data Catalog**.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

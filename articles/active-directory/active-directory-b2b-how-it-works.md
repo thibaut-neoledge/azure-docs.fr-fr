@@ -2,6 +2,7 @@
    pageTitle="Version préliminaire d’Azure AD B2B Collaboration : fonctionnement | Microsoft Azure"
    description="Décrit comment Azure Active Directory B2B Collaboration prend en charge les relations interentreprises en permettant aux partenaires commerciaux d’accéder de façon sélective à vos applications d’entreprise"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -41,5 +42,6 @@ Bien qu’un abonnement Azure AD payant (De base ou Premium) ne soit pas nécess
  - [Format du jeton utilisateur externe](active-directory-b2b-references-external-user-token-format.md)
  - [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
+ - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

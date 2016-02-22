@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="02/10/2016" 
 	ms.author="luisca"/>
 
 # Azure Machine Learning Recommendations - Intégration à l’aide de JavaScript
@@ -87,12 +87,7 @@ Il existe cinq types d’événements pris en charge par la bibliothèque : cli
 ####3\.2.1. Événement clic
 Cet événement doit être utilisé chaque fois qu’un utilisateur clique sur un article. Généralement lorsque l’utilisateur clique sur un article, une nouvelle page s’ouvre avec les détails de l’article ; cet événement doit être déclenché dans cette page.
 
-Paramètres :
-- événement (chaîne, obligatoire) – "click"
-- article (chaîne, obligatoire) – identificateur unique de l’article
-- itemName (chaîne, facultatif) – le nom de l’article
-- itemDescription (chaîne, facultatif) – la description de l’article
-- itemCategory (chaîne, facultatif) – la catégorie de l’article
+Paramètres : - événement (chaîne, obligatoire) – "click" - article (chaîne, obligatoire) – identificateur unique de l’article - itemName (chaîne, facultatif) – le nom de l’article - itemDescription (chaîne, facultatif) – la description de l’article - itemCategory (chaîne, facultatif) – la catégorie de l’article
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -110,14 +105,7 @@ Ou avec des données facultatives :
 ####3\.2.2. Événement clic de recommandation
 Cet événement doit être utilisé chaque fois qu’un utilisateur clique sur un article recommandé reçu à partir d’Azure ML Recommandations. Généralement lorsque l’utilisateur clique sur un article, une nouvelle page s’ouvre avec les détails de l’article ; cet événement doit être déclenché dans cette page.
 
-Paramètres :
-- événement (chaîne, obligatoire) – "recommendationclick"
-- article (chaîne, obligatoire) – identificateur unique de l’article
-- itemName (chaîne, facultatif) – le nom de l’article
-- itemDescription (chaîne, facultatif) – la description de l’article
-- itemCategory (chaîne, facultatif) – la catégorie de l’article
-- valeurs initiales (table de chaînes, facultatif) – les valeurs initiales ayant généré la requête de recommandation.
-- recoList (table de chaînes, facultatif) – le résultat de la demande de recommandation ayant généré l’article sur lequel l’utilisateur a cliqué.
+Paramètres : - événement (chaîne, obligatoire) – "recommendationclick" - article (chaîne, obligatoire) – identificateur unique de l’article - itemName (chaîne, facultatif) – le nom de l’article - itemDescription (chaîne, facultatif) – la description de l’article - itemCategory (chaîne, facultatif) – la catégorie de l’article - valeurs initiales (table de chaînes, facultatif) – les valeurs initiales ayant généré la requête de recommandation. -recoList (table de chaînes, facultatif) – le résultat de la demande de recommandation ayant généré l’article sur lequel l’utilisateur a cliqué.
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -132,14 +120,8 @@ Ou avec des données facultatives :
 		</script>
 
 
-####3.2.3. Événement ajouter au panier
-Cet événement doit être utilisé lorsque l’utilisateur ajoute un article au panier.
-Paramètres :
-* événement (chaîne, obligatoire) – “addshopcart”
-* article (chaîne, obligatoire) – identificateur unique de l’article
-* itemName (chaîne, facultatif) – le nom de l’article
-* itemDescription (chaîne, facultatif) – la description de l’article
-* itemCategory (chaîne, facultatif) – la catégorie de l’article
+####3\.2.3. Événement ajouter au panier
+Cet événement doit être utilisé lorsque l’utilisateur ajoute un article au panier. Paramètres : * événement (chaîne, obligatoire) – “addshopcart” * article (chaîne, obligatoire) – identificateur unique de l’article * itemName (chaîne, facultatif) – le nom de l’article * itemDescription (chaîne, facultatif) – la description de l’article * itemCategory (chaîne, facultatif) – la catégorie de l’article
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -149,12 +131,7 @@ Paramètres :
 ####3\.2.4. Événement supprimer du panier
 Cet événement doit être utilisé lorsque l’utilisateur supprime un article du panier.
 
-Paramètres :
-* événements (chaîne, obligatoire) – “removeshopcart”
-* article (chaîne, obligatoire) – identificateur unique de l’article
-* itemName (chaîne, facultatif) – le nom de l’article
-* itemDescription (chaîne, facultatif) – la description de l’article
-* itemCategory (chaîne, facultatif) – la catégorie de l’article
+Paramètres : * événements (chaîne, obligatoire) – “removeshopcart” * article (chaîne, obligatoire) – identificateur unique de l’article * itemName (chaîne, facultatif) – le nom de l’article * itemDescription (chaîne, facultatif) – la description de l’article * itemCategory (chaîne, facultatif) – la catégorie de l’article
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -164,13 +141,7 @@ Paramètres :
 ####3\.2.5. Événement d’achat
 Cet événement doit être utilisé lorsque l’utilisateur achète son panier.
 
-Paramètres :
-* événements (chaîne) – “purchase”
-* articles ( acheté ) – Tableau contenant une entrée pour chaque article acheté.<br><br>
-Format acheté :
-	* article (chaîne), identificateur unique de l’article.
-	* (entier ou chaîne) – nombre d’articles achetés.
-	* prix (flottant ou chaîne) – champ facultatif – le prix de l’article.
+Paramètres : * événements (chaîne) – “purchase” * articles ( acheté ) – Tableau contenant une entrée pour chaque article acheté.<br><br> Format acheté : * article (chaîne), identificateur unique de l’article. * (entier ou chaîne) – nombre d’articles achetés. * prix (flottant ou chaîne) – champ facultatif – le prix de l’article.
 
 L’exemple suivant présente l’achat de 3 articles (33, 34, 35), dont deux avec tous les champs renseignés (article, quantité, prix) et l’autre (article 34) sans prix.
 
@@ -184,13 +155,7 @@ La bibliothèque d’événements ML Azure Recommandations crée et utilise un c
 
 Cet événement doit être utilisé après la connexion utilisateur à votre site.
 
-Paramètres :
-* événement (chaîne) – “userlogin”
-* utilisateur (chaîne) – identification unique de l’utilisateur.
-		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
-		</script>
+Paramètres : * événement (chaîne) – “userlogin” * utilisateur (chaîne) – identification unique de l’utilisateur. <script> if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
 
 ##4\. Utiliser les recommandations via JavaScript
 Le code qui utilise les recommandations est déclenché par un événement JavaScript de la page Web du client. La réponse de recommandation inclut les ID des articles recommandés, leurs noms et leurs évaluations. Il est préférable d’utiliser cette option uniquement pour afficher les articles recommandés sous forme de liste : les opérations de gestion plus complexes (par exemple l’ajout de métadonnées de l’article) doivent être effectuées sur l’intégration du côté serveur.
@@ -200,15 +165,7 @@ Pour utiliser des recommandations, vous devez inclure les bibliothèques JavaScr
 
 Pour utiliser des recommandations pour un ou plusieurs articles, vous devez appeler une méthode nommée : AzureMLRecommendationsGetI2IRecommendation.
 
-Paramètres :
-* articles (table de chaînes) – un ou plusieurs articles pour lesquels obtenir des recommandations. Si vous utilisez une build Fbt, vous pouvez ne définir qu’un seul élément ici.
-* numberOfResults (int) – nombre de résultats requis.
-* includeMetadata (booléen, facultatif) – la valeur « true » indique que le champ de métadonnées doit être rempli dans le résultat.
-* Fonction de traitement – une fonction gérant les recommandations renvoyées. Les données sont retournées sous forme de tableau de :
-	* article – ID unique de l’article
-	* nom – nom de l’article (si existant dans le catalogue)
-	* évaluation – évaluation de recommandation
-	* métadonnées – une chaîne représentant les métadonnées de l’élément
+Paramètres : * articles (table de chaînes) – un ou plusieurs articles pour lesquels obtenir des recommandations. Si vous utilisez une build Fbt, vous pouvez ne définir qu’un seul élément ici. * numberOfResults (int) – nombre de résultats requis. * includeMetadata (booléen, facultatif) – la valeur « true » indique que le champ de métadonnées doit être rempli dans le résultat. * Fonction de traitement – une fonction gérant les recommandations renvoyées. Les données sont retournées sous forme de tableau de : * article – ID unique de l’article * nom – nom de l’article (si existant dans le catalogue) * évaluation – évaluation de recommandation * métadonnées – une chaîne représentant les métadonnées de l’élément
 
 Exemple : le code suivant demande 8 recommandations pour l’article « 64f6eb0d-947a-4c18-a16c-888da9e228ba » (et en ne spécifiant pas includeMetadata, il indique implicitement qu’aucune métadonnée n’est requise). Il concatène ensuite les résultats dans une mémoire tampon.
 
@@ -228,4 +185,4 @@ Exemple : le code suivant demande 8 recommandations pour l’article « 64f6e
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

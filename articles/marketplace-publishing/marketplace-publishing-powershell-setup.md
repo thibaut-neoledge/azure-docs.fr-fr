@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="02/04/2016"
    ms.author="hascipio"/>
 
 # Configurer Azure PowerShell pour créer une offre pour Azure Marketplace
@@ -30,4 +30,4 @@ La première commande associe un compte de stockage par défaut à l’abonnemen
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

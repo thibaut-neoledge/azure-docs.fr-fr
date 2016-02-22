@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Exécution de tâches Pig sur un cluster Linux avec la commande Pig (SSH)
@@ -25,7 +25,7 @@ Ce document vous guidera lors du processus de connexion à un cluster HDInsight 
 
 Le langage de programmation Pig Latin permet de décrire les transformations appliquées aux données d’entrée pour produire le résultat souhaité.
 
-> [AZURE.NOTE]Si vous connaissez déjà l’utilisation de serveurs Hadoop basés sur Linux, mais pas HDInsight, consultez la rubrique [Informations sur l’utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.NOTE] Si vous connaissez déjà l’utilisation de serveurs Hadoop basés sur Linux, mais pas HDInsight, consultez la rubrique [Informations sur l’utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Configuration requise
 
@@ -101,7 +101,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 		STORE RESULT into 'wasb:///example/data/pigout';
 
-	> [AZURE.NOTE]Les données sont stockées dans le répertoire spécifié dans des fichiers nommés **part-nnnnn**. Si le répertoire existe déjà, vous recevrez un message d’erreur.
+	> [AZURE.NOTE] Les données sont stockées dans le répertoire spécifié dans des fichiers nommés **part-nnnnn**. Si le répertoire existe déjà, vous recevrez un message d’erreur.
 
 7. Pour quitter l’invite Grunt, entrez l’instruction suivante.
 
@@ -154,4 +154,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

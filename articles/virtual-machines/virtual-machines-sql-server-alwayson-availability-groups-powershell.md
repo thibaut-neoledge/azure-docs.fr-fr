@@ -19,8 +19,9 @@
 # Configuration de groupes de disponibilité AlwaysOn dans Azure VM (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
 
@@ -61,7 +62,7 @@ Ce didacticiel est destiné à vous présenter les étapes nécessaires pour ins
 
 	La commande **Get-AzurePublishgSettingsFile** génère automatiquement un certificat de gestion qu’Azure télécharge sur votre ordinateur. Une fenêtre de navigateur s’ouvre automatiquement et vous êtes invité à saisir les informations d’identification du compte Microsoft de votre abonnement Azure. Le fichier **.publishsettings** téléchargé contient toutes les informations dont vous avez besoin pour gérer votre abonnement Azure. Après avoir enregistré ce fichier dans un répertoire local, importez-le à l’aide de la commande **Import-AzurePublishSettingsFile**.
 
-	>[AZURE.NOTE]Le fichier publishsettings contient vos informations d’identification (non codées) utilisées pour gérer vos abonnements et services Azure. Pour des raisons de sécurité, il est recommandé de stocker ce fichier temporairement en dehors de vos répertoires sources (par exemple, dans le dossier Bibliothèques\\Documents), puis de le supprimer une fois l'importation terminée. Un utilisateur malveillant qui accède au fichier publishsettings peut modifier, créer et supprimer vos services Azure.
+	>[AZURE.NOTE] Le fichier publishsettings contient vos informations d’identification (non codées) utilisées pour gérer vos abonnements et services Azure. Pour des raisons de sécurité, il est recommandé de stocker ce fichier temporairement en dehors de vos répertoires sources (par exemple, dans le dossier Bibliothèques\\Documents), puis de le supprimer une fois l'importation terminée. Un utilisateur malveillant qui accède au fichier publishsettings peut modifier, créer et supprimer vos services Azure.
 
 1. Définissez une série de variables que vous allez utiliser pour créer votre infrastructure de cloud computing.
 
@@ -305,9 +306,9 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
 
 	- **Add-AzureProvisioningConfig** joint la machine virtuelle au domaine Active Directory que vous avez créé.
 
-	- **Set-AzureSubnet** place la machine virtuelle dans le sous-réseau principal.
+	- **Set-AzureSubnet** place la machine virtuelle dans le sous-réseau Principal.
 
-	- **New-AzureVM** crée un service cloud et crée la machine virtuelle Azure dans le nouveau service cloud. Le paramètre **DnsSettings** spécifie que le serveur DNS des serveurs du nouveau service cloud a l’adresse IP **10.10.0.4**, qui est celle du serveur contrôleur de domaine. Ce paramètre est nécessaire pour permettre aux nouvelles machines virtuelles du service cloud de rejoindre correctement le domaine Active Directory. Sans ce paramètre, vous devez définir manuellement les paramètres IPv4 dans votre machine virtuelle pour utiliser le serveur contrôleur de domaine comme serveur DNS principal après la configuration de la machine virtuelle et sa jonction au domaine Active Directory.
+	- **New-AzureVM** crée un nouveau service cloud et crée le nouvel ordinateur virtuel Azure dans le nouveau service cloud. Le paramètre **DnsSettings** spécifie que le serveur DNS des serveurs du nouveau service cloud a l’adresse IP **10.10.0.4**, qui est celle du serveur contrôleur de domaine. Ce paramètre est nécessaire pour permettre aux nouvelles machines virtuelles du service cloud de rejoindre correctement le domaine Active Directory. Sans ce paramètre, vous devez définir manuellement les paramètres IPv4 dans votre machine virtuelle pour utiliser le serveur contrôleur de domaine comme serveur DNS principal après la configuration de la machine virtuelle et sa jonction au domaine Active Directory.
 
 1. Exécutez les commandes redirigées suivantes pour créer les machines virtuelles SQL Server, nommés **ContosoSQL1** et **ContosoSQL2**.
 
@@ -423,7 +424,7 @@ Dans cette section, vous devez modifier les trois serveurs que vous allez utilis
 
 Maintenant, vous êtes prêt à démarrer. En commençant par **ContosoQuorum**, suivez les étapes ci-dessous :
 
-1. Connectez-vous à **ContosoQuorum** en lançant les fichiers Bureau à distance. Utilisez le nom d’utilisateur de l’administrateur **AzureAdmin** et le mot de passe **Contoso!000** que vous avez spécifiés lors de la création des machines virtuelles.
+1. Connectez-vous à **ContosoQuorum** en lançant les fichiers Bureau à distance. Utilisez le nom d’utilisateur de l’administrateur **AzureAdmin** et le mot de passe **Contoso!000**, que vous avez spécifiés lors de la création des machines virtuelles.
 
 1. Vérifiez que les ordinateurs ont été correctement joints à **corp.contoso.com**.
 
@@ -446,7 +447,7 @@ Maintenant, vous êtes prêt à démarrer. En commençant par **ContosoQuorum**,
 
 Ensuite, initialisez **ContosoSQL1** et **ContosoSQL2**. Suivez les étapes ci-dessous, identiques pour les deux machines virtuelles SQL Server.
 
-1. Connectez-vous aux deux machines virtuelles SQL Server en lançant les fichiers Bureau à distance. Utilisez le nom d’utilisateur de l’administrateur **AzureAdmin** et le mot de passe **Contoso!000** que vous avez spécifiés lors de la création des machines virtuelles.
+1. Connectez-vous aux deux machines virtuelles SQL Server en lançant les fichiers Bureau à distance. Utilisez le nom d’utilisateur de l’administrateur **AzureAdmin** et le mot de passe **Contoso!000**, que vous avez spécifiés lors de la création des machines virtuelles.
 
 1. Vérifiez que les ordinateurs ont été correctement joints à **corp.contoso.com**.
 
@@ -631,4 +632,4 @@ Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

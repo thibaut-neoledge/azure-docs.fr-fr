@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # Création d'applications cloud fiables et élastiques avec messagerie 
@@ -37,7 +37,7 @@ La demande dynamique est une réalité pour les applications actuelles. De la de
  
 ## Populaire
 
-- [Files d’attente Azure et files d’attente Azure Service Bus - comparaison et différences](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Référence de l’API REST de Service Bus](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 
 ## Services connexes
@@ -45,4 +45,4 @@ La demande dynamique est une réalité pour les applications actuelles. De la de
 - [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

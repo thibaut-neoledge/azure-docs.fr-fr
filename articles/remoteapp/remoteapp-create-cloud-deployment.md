@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # Création d'une collection cloud d’Azure RemoteApp
@@ -80,11 +80,11 @@ Si vous souhaitez utiliser Active Directory, Azure RemoteApp requiert une synch
 
 ## Étape 3: publier des applications ##
 
-Une application Azure RemoteApp correspond à l’application ou au programme que vous fournissez à vos utilisateurs. Elle se trouve dans l'image de modèle que vous avez téléchargée pour la collection. Quand un utilisateur accède à une application, celle-ci semble s’exécuter dans son environnement local. En réalité, elle s’exécute dans Azure.
+Une application Azure RemoteApp correspond à l’application ou au programme que vous fournissez à vos utilisateurs. Elle se trouve dans l'image de modèle que vous avez téléchargée pour la collection. Quand un utilisateur accède à une application, celle-ci semble s'exécuter dans son environnement local. En réalité, elle s'exécute sur une machine virtuelle dans Azure.
 
-Avant que vos utilisateurs puissent accéder à des applications, vous devez les publier dans le flux de l'utilisateur final. Il s'agit d'une liste des applications disponibles auxquelles vos utilisateurs peuvent accéder via le client Bureau à distance.
+Avant que vos utilisateurs puissent accéder à des applications, vous devez les publier. Le fait de publier des applications permet à vos utilisateurs d'y accéder via le client Bureau à distance.
  
-Vous pouvez publier plusieurs applications dans votre collection RemoteApp. Dans la page de publication, cliquez sur **Publier** pour ajouter un programme. Vous pouvez publier une application à partir du menu **Démarrer** de l’image de modèle ou en indiquant le chemin dans l’image de modèle de l’application. Si vous choisissez la première option, sélectionnez l’application à publier. Si vous choisissez la deuxième option, indiquez un nom pour l'application ainsi que le chemin d'accès à son répertoire d'installation dans l'image de modèle.
+Vous pouvez publier plusieurs applications dans votre collection RemoteApp. Dans la page de publication, cliquez sur **Publier** pour ajouter un programme. Vous pouvez publier une application à partir du menu **Démarrer** de l’image de modèle ou en indiquant le chemin dans l’image de modèle de l’application. Si vous choisissez d'ajouter une application à partir du menu **Démarrer**, sélectionnez l'application à publier. Si vous choisissez la deuxième option, indiquez un nom pour l'application ainsi que le chemin d'accès à son répertoire d'installation dans l'image de modèle.
 
 ## Étape 4 : configuration de l'accès utilisateur ##
 
@@ -109,4 +109,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection cl
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

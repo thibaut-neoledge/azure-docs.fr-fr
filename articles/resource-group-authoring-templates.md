@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="02/08/2016"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
@@ -169,7 +169,7 @@ L’exemple suivant vous indique comment définir les paramètres :
        }
     }
 
-Pour plus d’informations sur la saisie des valeurs de paramètre au cours du déploiement, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md/#parameter-file).
+Pour plus d'informations sur la saisie des valeurs de paramètre au cours du déploiement, consultez [Déployer une application avec un modèle Azure Resource Manager](../resource-group-template-deploy/#parameter-file).
 
 ## Variables
 
@@ -472,4 +472,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour afficher les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

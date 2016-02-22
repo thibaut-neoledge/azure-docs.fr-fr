@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Explorer les données d’une machine virtuelle SQL Server sur Azure
-
-Ce **menu** pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 ##Introduction
 
 Ce document explique comment explorer les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.
 
+Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
 
-> [AZURE.NOTE]Les exemples d’instructions SQL qui figurent dans ce document reposent sur l’hypothèse que les données sont stockées dans SQL Server. Dans le cas contraire, reportez-vous à la cartographie du processus de science des données du cloud pour découvrir comment déplacer vos données vers SQL Server.
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+
+> [AZURE.NOTE] Les exemples d’instructions SQL qui figurent dans ce document reposent sur l’hypothèse que les données sont stockées dans SQL Server. Dans le cas contraire, reportez-vous à la cartographie du processus de science des données du cloud pour découvrir comment déplacer vos données vers SQL Server.
 
 
 
@@ -51,7 +51,7 @@ Voici quelques exemples de scripts SQL utilisables pour l’exploration de magas
 
 	`select <column_name>, count(*) from <tablename> group by <column_name>`
 
-> [AZURE.NOTE]Pour découvrir un exemple pratique, vous pouvez utiliser le [jeu de données des taxis new-yorkais NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au notebook IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
+> [AZURE.NOTE] Pour découvrir un exemple pratique, vous pouvez utiliser le [jeu de données des taxis new-yorkais NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au notebook IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
 
 ##<a name="python"></a>Explorer les données SQL avec Python
 
@@ -76,4 +76,4 @@ Pour obtenir un exemple de procédure pas à pas complet du processus d’analys
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

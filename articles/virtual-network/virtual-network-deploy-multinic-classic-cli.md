@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Déploiement de plusieurs machines virtuelles à cartes réseau (classiques) à l'aide de l'interface de ligne de commande d’Azure
@@ -39,13 +39,13 @@ Avant de déployer les serveurs principaux, vous devez déployer le service de c
 
 Les machines virtuelles principales dépendent de la création de ressources répertoriées ci-dessous.
 
-- **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l'emplacement Azure de déploiement prend en charge le stockage Premium.
-- **NIC**. Chaque machine virtuelle a deux cartes réseau, une pour l'accès à la base de données et l'autre pour la gestion.
-- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d'exécution lors de la maintenance. 
+- **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l’emplacement Azure de déploiement prend en charge le stockage Premium.
+- **Cartes réseau**. Chaque machine virtuelle a deux cartes réseau, une pour l’accès à la base de données et l’autre pour la gestion.
+- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance. 
 
 ### Étape 1 : démarrage de votre script
 
-Vous pouvez télécharger le script d'interpréteur de commandes complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.sh). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
+Vous pouvez télécharger le script d'interpréteur de commandes complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
 1. Modifiez les valeurs des variables suivantes selon votre groupe de ressources existant déployé ci-dessus dans les [Conditions préalables](#Prerequisites).
 
@@ -174,4 +174,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

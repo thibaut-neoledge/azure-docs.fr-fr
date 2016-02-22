@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
@@ -175,6 +175,10 @@ Suivez les étapes ci-dessous pour vérifier si le déploiement de l’extension
 
 	![Vérifiez que l’extension Volet d’accès est installée et activée.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Articles connexes
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+
+<!---HONumber=AcomDC_0211_2016-->

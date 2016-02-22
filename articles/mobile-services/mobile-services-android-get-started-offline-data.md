@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/07/2016"
 	ms.author="ricksal"/>
 
 # Ajouter la synchronisation des données hors connexion à votre application de services mobiles Android
@@ -48,17 +48,17 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
-2. Ajoutez les instructions **import** suivantes au fichier *ToDoActivity.java* :
+2. Ajoutez les instructions d’**importation** suivantes au fichier *ToDoActivity.java* :
 
 		import java.util.Map;
-		
+
 		import android.widget.Toast;
-		
-		import com.microsoft.windowsazure.mobileservices.table.query.Query; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
+
+		import com.microsoft.windowsazure.mobileservices.table.query.Query;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. Dans la partie supérieure de la classe `ToDoActivity`, modifiez la déclaration de la variable `mToDoTable` en remplaçant la classe `MobileServiceTable<ToDoItem>` par la classe `MobileServiceSyncTable<ToDoItem>`.
 
@@ -112,7 +112,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
 				new AsyncTask<Void, Void, Void>() {
-	
+
 					@Override
 					protected Void doInBackground(Void... params) {
 						try {
@@ -139,7 +139,7 @@ Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Se
 	Au démarrage, cela entraîne la synchronisation de l’appareil avec la table Azure. Sinon, le dernier contenu hors connexion du magasin local s’affiche.
 
 
- 
+
 9. Pour utiliser cette requête, mettez à jour le code dans la méthode `refreshItemsFromTable` (première ligne de code dans le bloc `try`) :
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
@@ -165,8 +165,8 @@ Lorsque vous appuyez sur ce bouton, une nouvelle tâche démarre en arrière-pla
 
 Testez les scénarios suivants :
 
-1. Ajoutez de nouveaux éléments sur votre appareil. 
-2. Vérifiez que les éléments ne s’affichent pas dans le portail. 
+1. Ajoutez de nouveaux éléments sur votre appareil.
+2. Vérifiez que les éléments ne s’affichent pas dans le portail.
 3. Appuyez ensuite sur **Actualiser** et vérifiez qu’ils s’affichent à présent.
 4. Modifiez ou ajoutez un élément dans le portail, puis appuyez sur **Actualiser** et vérifiez que les modifications s’affichent sur votre appareil.
 
@@ -179,7 +179,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 1. Mettez l’appareil ou le simulateur en *Mode avion*. Cela crée un scénario hors connexion.
 
-2. Ajoutez des *tâches* ou marquez-en certaines comme terminées. Quittez l’appareil ou le simulateur (ou forcez la fermeture de l’application) et redémarrez. Vérifiez que vos modifications persistent sur l’appareil, car elles sont stockées dans le magasin SQL Light local.
+2. Ajoutez des *tâches*, ou marquez-en certaines comme terminées. Quittez l’appareil ou le simulateur (ou forcez la fermeture de l’application) et redémarrez. Vérifiez que vos modifications persistent sur l’appareil, car elles sont stockées dans le magasin SQL Light local.
 
 3. Affichez le contenu de la table Azure *TodoItem*. Vérifiez que les nouveaux éléments n’ont _pas_ été synchronisés avec le serveur :
 
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [didacticiel Démarrage rapide de Mobile Services]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

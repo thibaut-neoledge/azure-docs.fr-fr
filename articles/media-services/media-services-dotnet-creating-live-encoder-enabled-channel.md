@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015"
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -22,13 +22,10 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)  
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-
-
-
-> [AZURE.NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+>[AZURE.NOTE]
+Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ##Vue d'ensemble
 
@@ -41,7 +38,7 @@ Pour plus d’informations sur les concepts relatifs aux canaux prenant en charg
 
 Les étapes suivantes décrivent les tâches impliquées dans la création d'applications courantes de vidéo en flux continu.
 
->[AZURE.NOTE]Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+>[AZURE.NOTE] Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -102,7 +99,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 
 ##Considérations
 
-- Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+- Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
 - Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 
 ##Charger l’exemple
@@ -123,7 +120,13 @@ Il est recommandé d'utiliser un fichier app.config pour stocker le nom et la cl
 Ajoutez la section appSettings au fichier app.config, puis définissez les valeurs du nom et de la clé de votre compte Media Services.
 
 
-<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
+	<?xml version="1.0"?>
+	<configuration>
+	  <appSettings>
+	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
+	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
+	  </appSettings>
+	</configuration>
 	 
 	
 ##Exemple de code
@@ -527,4 +530,4 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 
 Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

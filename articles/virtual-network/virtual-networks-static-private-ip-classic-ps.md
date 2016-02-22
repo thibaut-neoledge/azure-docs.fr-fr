@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Comment définir une adresse IP privée statique (classique) dans PowerShell
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -123,8 +123,8 @@ Sortie attendue :
 
 ## Étapes suivantes
 
-- En savoir plus sur les adresses [IP publiques réservées](../virtual-networks-reserved-public-ip).
-- En savoir plus sur les adresses [IP publiques de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip).
+- En savoir plus sur les [adresses IP publiques réservées](../virtual-networks-reserved-public-ip).
+- En savoir plus sur les [adresses IP publiques de niveau d’instance](../virtual-networks-instance-level-public-ip).
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

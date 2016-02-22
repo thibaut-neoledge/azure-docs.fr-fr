@@ -21,9 +21,9 @@
             }
         }
 
-    Cela crée une variable membre pour le stockage de l'utilisateur actuel et une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook.
+    Cela crée une variable membre pour le stockage de l'utilisateur actuel et une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'un nom d'utilisateur Twitter.
 
-    >[AZURE.NOTE]Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de <strong>MobileServiceAuthenticationProvider</strong> ci-dessus par la valeur de votre fournisseur.</p> </div>
+    >[AZURE.NOTE]Si vous utilisez un fournisseur d'identité différent de Twitter, remplacez la valeur de <strong>MobileServiceAuthenticationProvider</strong> ci-dessus par la valeur de votre fournisseur.</p> </div>
 
 2. Supprimez le remplacement de méthode **OnNavigatedTo** existant (ou convertissez-le en commentaires) et remplacez-le par la méthode suivante qui gère l'événement **Loaded** pour la page.
 
@@ -50,4 +50,4 @@
 
    	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

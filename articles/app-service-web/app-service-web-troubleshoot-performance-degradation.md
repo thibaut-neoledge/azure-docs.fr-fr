@@ -50,7 +50,7 @@ Le dépannage peut être divisé en trois tâches distinctes, dans un ordre séq
 
 #### Suivi de l’état du service
 
-Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](insights-service-health.md).
+Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](../azure-portal/insights-service-health.md).
 
 #### Contrôle de votre application web
 
@@ -69,7 +69,7 @@ Parmi les mesures que vous pouvez surveiller pour votre application web, se trou
 Pour plus d’informations, consultez :
 
 -	[Surveiller les applications web dans Microsoft Azure App Service](web-sites-monitor.md)
--	[Réception de notifications d'alerte](insights-receive-alert-notifications.md)
+-	[Réception de notifications d'alerte](../azure-portal/insights-receive-alert-notifications.md)
 
 #### Surveillance de l'état d'un point de terminaison Web
 
@@ -91,9 +91,9 @@ Chaque application web d’App Service fournit un point de terminaison de gestio
 
 [Azure Application Insights](/services/application-insights/) et [New Relic](/marketplace/partners/newrelic/newrelic/) sont tous les deux des extensions de site de surveillance des performances disponibles. Pour utiliser New Relic, vous installez un agent lors de l'exécution. Pour utiliser Azure Application Insights, vous devez régénérer votre code avec un kit de développement logiciel (SDK). Vous avez également la possibilité d’installer une extension qui fournit l’accès aux données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application.
 
-Pour utiliser Application Insights, consultez [Surveiller les performances dans les applications web](app-insights-web-monitor-performance.md).
+Pour utiliser Application Insights, consultez [Surveiller les performances dans les applications web](../application-insights/app-insights-web-monitor-performance.md).
 
-Pour utiliser New Relic, consultez la page [Gestion des performances des applications New Relic sur Azure](store-new-relic-cloud-services-dotnet-application-performance-management.md).
+Pour utiliser New Relic, consultez la page [Gestion des performances des applications New Relic sur Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
 <a name="collect" />
 ### 2\. Collecter les données
@@ -184,6 +184,6 @@ Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage
 
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](powershell-azure-resource-manager.md).
+Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

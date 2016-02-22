@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Didacticiel : intégration de NetSuite avec Azure Active Directory
@@ -220,7 +220,10 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 
 4. Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **NetSuite**.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-netsuite-tutorial/applications-tab.png
@@ -256,4 +259,4 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

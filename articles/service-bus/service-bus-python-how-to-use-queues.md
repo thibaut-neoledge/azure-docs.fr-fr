@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -25,7 +25,7 @@ Cet article décrit l’utilisation des files d’attente Service Bus. Les exemp
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-> [AZURE.NOTE]Pour installer Python ou le [package Azure Python][], consultez le [Guide d’installation de Python](../python-how-to-install.md).
+> [AZURE.NOTE] Pour installer Python ou le [package Azure Python][], consultez le [Guide d’installation de Python](../python-how-to-install.md).
 
 ## Création d’une file d’attente
 
@@ -115,4 +115,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [Files d’attente Azure et files d’attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

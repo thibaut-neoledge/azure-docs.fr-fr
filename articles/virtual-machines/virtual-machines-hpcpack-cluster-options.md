@@ -1,7 +1,7 @@
 <properties
  pageTitle="Options de cluster HPC Pack dans le cloud | Microsoft Azure"
  description="Découvrez les options de Microsoft HPC Pack pour créer et gérer un cluster HPC (High Performance Computing) dans le cloud Azure."
- services="virtual-machines,cloud-services"
+ services="virtual-machines,cloud-services,batch"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/26/2016"
+ ms.date="02/04/2016"
  ms.author="danlep"/>
 
 # Options pour créer et gérer un cluster HPC (calcul haute performance) dans Azure avec Microsoft HPC Pack
@@ -26,6 +26,19 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 ## Configuration d’un cluster HPC Pack dans Azure
 
+### Modèles Azure
+
+* (Marketplace) [Cluster HPC Pack pour les charges de travail Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
+
+* (Marketplace) [Cluster HPC Pack pour les charges de travail Excel](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
+
+* (Marketplace) [Cluster HPC Pack pour les charges de travail Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
+
+* (Démarrage rapide) [Création d'un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+* (Démarrage rapide) [Création d'un cluster HPC avec des nœuds de calcul Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+
+* (Démarrage rapide) [Création d'un cluster HPC avec une image de nœud de calcul personnalisée](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Images d’ordinateur virtuel Azure
 
@@ -35,13 +48,7 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 * [Nœud de calcul de HPC Pack avec Excel sur Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
-### Modèles de démarrage rapide Microsoft Azure
 
-* [Création d’un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
-
-* [Création d'un cluster HPC avec des nœuds de calcul Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-* [Création d’un cluster HPC avec une image de nœud de calcul personnalisée](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Script de déploiement PowerShell
 
@@ -59,9 +66,7 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 
 
-### Déploiement manuel avec le portail Azure Classic
-
-
+### Déploiement manuel avec le portail Azure
 
 * [Configurer le nœud principal d’un cluster HPC Pack dans une machine virtuelle Azure](virtual-machines-hpcpack-cluster-headnode.md)
 
@@ -98,4 +103,4 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 * [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

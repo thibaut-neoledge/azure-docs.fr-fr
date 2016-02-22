@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="02/04/2016" 
 	ms.author="sdanie"/>
 
 # Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium
@@ -35,33 +35,29 @@ Pour configurer la prise en charge de réseau virtuel, sélectionnez d’abord l
 
 ![Choisir un niveau tarifaire][redis-cache-premium-pricing-tier]
 
-La configuration de l’intégration de réseau virtuel Cache Redis Azure s’effectue dans le panneau **Réseau virtuel**. Depuis ce panneau vous pouvez sélectionner un réseau virtuel classique existant. Pour utiliser un nouveau réseau virtuel, procédez de la manière décrite dans [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md), puis revenez au panneau **Réseau virtuel de Cache Redis** pour le sélectionner.
+La configuration de l’intégration de réseau virtuel Cache Redis Azure s’effectue dans le panneau **Réseau virtuel (classique)**. Depuis ce panneau vous pouvez sélectionner un réseau virtuel classique existant. Pour utiliser un nouveau réseau virtuel, procédez de la manière décrite dans [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md), puis revenez au panneau **Réseau virtuel de Cache Redis** pour le sélectionner.
 
->[AZURE.NOTE]Cache Redis Azure fonctionne avec les réseaux virtuels classiques. Pour plus d’informations sur la création d’un réseau virtuel classique, consultez [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Pour obtenir des informations sur la connexion de réseaux virtuels classiques à des réseaux virtuels ARM, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] Cache Redis Azure fonctionne avec les réseaux virtuels classiques. Pour plus d’informations sur la création d’un réseau virtuel classique, consultez [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Pour obtenir des informations sur la connexion de réseaux virtuels classiques à des réseaux virtuels ARM, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+Cliquez sur **Réseau virtuel (classique)** dans le panneau **Nouveau cache Redis**, puis sélectionnez le réseau souhaité dans la liste déroulante pour sélectionner et configurer votre réseau virtuel.
 
 ![Réseau virtuel][redis-cache-vnet]
 
-Cliquez sur **Réseau virtuel** dans le panneau **Réseau virtuel** pour sélectionner et configurer votre réseau virtuel.
-
-![Réseau virtuel][redis-cache-vnet-select]
-
-Cliquez sur le réseau virtuel souhaité pour le sélectionner.
-
-![Réseau virtuel][redis-cache-vnet-subnet]
-
-Cliquez sur Sous-réseau pour sélectionner le sous-réseau souhaité.
+Sélectionnez le sous-réseau souhaité dans la liste déroulante **Sous-réseau**.
 
 ![Réseau virtuel][redis-cache-vnet-ip]
 
 Le champ **Adresse IP statique** champ est facultatif. Si rien n’est spécifié, une option sera choisie dans le sous-réseau sélectionné. Si vous souhaitez indiquer une adresse IP statique spécifique, entrez l’**Adresse IP statique** souhaitée, puis cliquez sur **OK** pour enregistrer la configuration du réseau virtuel. Si l’adresse IP statique sélectionnée est déjà utilisée, un message d’erreur s’affiche.
 
-Une fois le cache créé, il est accessible uniquement par les clients du même réseau virtuel.
+Une fois le cache est créé, vous pouvez afficher l'adresse IP et d’autres informations concernant le réseau virtuel en cliquant sur **Réseau virtuel** dans le panneau **Paramètres**.
 
->[AZURE.IMPORTANT]Pour accéder à votre instance de Cache Redis Azure lors de l’utilisation d’un réseau virtuel, passez l’adresse IP statique du cache dans le réseau virtuel comme premier paramètre, puis passez un paramètre `sslhost` avec le point de terminaison de votre cache. Dans l’exemple suivant, l’adresse IP statique est `10.10.1.5` et le point de terminaison du cache est `contoso5.redis.cache.windows.net`.
+![Réseau virtuel][redis-cache-vnet-info]
+
+>[AZURE.IMPORTANT] Pour accéder à votre instance de Cache Redis Azure lors de l’utilisation d’un réseau virtuel, passez l’adresse IP statique du cache dans le réseau virtuel comme premier paramètre, puis passez un paramètre `sslhost` avec le point de terminaison de votre cache. Dans l’exemple suivant, l’adresse IP statique est `172.160.0.99` et le point de terminaison du cache est `contoso5.redis.cache.windows.net`.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
-	    return ConnectionMultiplexer.Connect("10.10.1.5,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+	    return ConnectionMultiplexer.Connect("172.160.0.99,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
 	});
 	
 	public static ConnectionMultiplexer Connection
@@ -119,10 +115,8 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 [redis-cache-vnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet.png
 
-[redis-cache-vnet-select]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-select.png
-
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
-[redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
+[redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

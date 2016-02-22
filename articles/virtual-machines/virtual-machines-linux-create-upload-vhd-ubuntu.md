@@ -29,7 +29,7 @@ Ubuntu publie désormais des disques durs virtuels Azure officiels téléchargea
 
 Cet article suppose que vous avez déjà installé un système d'exploitation Linux Ubuntu dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
-**Notes d’installation Ubuntu**
+**Notes d'installation Ubuntu**
 
 - Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
 - Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou [RAID](virtual-machines-linux-configure-raid.md) sont utilisables sur les disques de données si vous le souhaitez.
@@ -117,13 +117,13 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 11. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 ## Étapes suivantes
-Vous êtes maintenant prêt à utiliser votre disque dur virtuel Ubuntu Linux .vhd pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous utilisez Azure et chargez le fichier .vhd sur Azure, vous pouvez suivre les étapes 2 et 3 de [ce guide](virtual-machines-linux-create-upload-vhd.md).
+Vous êtes maintenant prêt à utiliser votre disque dur virtuel Ubuntu Linux pour créer des machines virtuelles dans Azure. S'il s'agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d'un disque dur virtuel contenant le système d'exploitation Linux](virtual-machines-linux-create-upload-vhd.md).
 
 ## Références ##
 
-Noyau HWE (HardWare Enablement) Ubuntu
+Noyau HWE (HardWare Enablement) Ubuntu :
 
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

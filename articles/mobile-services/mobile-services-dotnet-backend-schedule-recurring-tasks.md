@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services
@@ -41,7 +41,7 @@ Ce didacticiel explique comment utiliser la planification des travaux pour crée
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-&nbsp;&nbsp;7. Dans l’Explorateur de solutions de Visual Studio, ouvrez le fichier web.config correspondant au projet de service mobile, localisez les paramètres d’application `MS_TwitterConsumerKey` et `MS_TwitterConsumerSecret`, puis remplacez les valeurs de ces clés par des valeurs de clé et de question secrète du client Twitter que vous avez définies dans le portail.
+&nbsp;&nbsp;7. Dans l'Explorateur de solutions Visual Studio, ouvrez le fichier web.config correspondant au projet de service mobile, localisez les paramètres d'application `MS_TwitterConsumerKey` et `MS_TwitterConsumerSecret`, puis remplacez les valeurs de ces clés par des valeurs de clé de consommateur et de secret de consommateur Twitter que vous définissez dans le portail.
 
 &nbsp;&nbsp;8. Dans la même section, ajoutez les nouveaux paramètres d’application suivants, remplacez les espaces réservés par les valeurs du jeton d’accès et du secret de jeton d’accès Twitter que vous définissez comme paramètres d’application dans le portail :
 
@@ -52,7 +52,7 @@ Le service mobile utilise ces paramètres stockés lorsqu’il s’exécute sur 
 
 ##<a name="install-linq2twitter"></a>Téléchargement et installation du LINQ dans la bibliothèque Twitter
 
-1. Dans l’**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Manage NuGet Packages**.
+1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Manage NuGet Packages**.
 
 2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, recherchez `linq2twitter`, cliquez sur **Installer** au niveau du package **linqtotwitter**, puis lisez et acceptez le contrat de licence.
 
@@ -64,7 +64,7 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 ##<a name="create-table"></a>Création de la table Updates
 
-1. Dans l’explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le dossier DataObjects, développez **Ajouter**, cliquez sur **Classe**, tapez `Updates` comme **Nom**, puis cliquez sur **Ajouter**.
+1. Dans l'explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le dossier DataObjects, développez **Ajouter**, cliquez sur **Classe**, tapez `Updates` comme **Nom**, puis cliquez sur **Ajouter**.
 
 	Ainsi, un nouveau fichier de projet est créé pour la classe Updates.
 
@@ -97,7 +97,7 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 	La table Updates, qui est créée dans la base de données lors du premier accès à DbSet, est utilisée par le service pour stocker les données des tweets.
 
-	>[AZURE.NOTE]Lors de l’utilisation de l’initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu’il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d’informations, voir l’article [Utilisation des migrations Code First pour mettre à jour le modèle de données](mobile-services-dotnet-backend-use-code-first-migrations.md).
+	>[AZURE.NOTE] Lors de l’utilisation de l’initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu’il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d’informations, voir l’article [Utilisation des migrations Code First pour mettre à jour le modèle de données](mobile-services-dotnet-backend-use-code-first-migrations.md).
 
 Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke les données des tweets dans la nouvelle table Updates.
 
@@ -256,7 +256,7 @@ La tâche doit être enregistrée dans l’onglet **Planificateur** afin que Mob
 
     >[AZURE.NOTE]Lorsque vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu’une tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu’à dix travaux planifiés à la fois.
 
-3. Dans la boîte de dialogue du planificateur, entrez _Sample_ comme **Nom du travail**, définissez l’intervalle et les unités de planification, puis cliquez sur le bouton de vérification.
+3. Dans la boîte de dialogue du planificateur, entrez _Sample_ comme **Nom du travail**, définissez l'intervalle et les unités de planification, puis cliquez sur le bouton de vérification.
 
    	![][4]
 
@@ -306,4 +306,4 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Projet CodePlex LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

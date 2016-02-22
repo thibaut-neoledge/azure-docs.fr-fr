@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Déployer des machines virtuelles à plusieurs cartes réseau à l’aide de PowerShell
@@ -37,7 +37,7 @@ Avant de déployer les serveurs principaux, vous devez déployer le groupe de re
 2. Dans la page de modèle, à droite du **groupe de ressources parent**, cliquez sur **Déployer dans Azure**.
 3. Si nécessaire, modifiez les valeurs de paramètre, puis suivez les étapes du portail Azure en version préliminaire pour déployer le groupe de ressources.
 
-> [AZURE.IMPORTANT]Assurez-vous que vos noms de compte de stockage sont uniques. Vous ne pouvez pas avoir des noms de compte de stockage en double dans Azure.
+> [AZURE.IMPORTANT] Assurez-vous que vos noms de compte de stockage sont uniques. Vous ne pouvez pas avoir des noms de compte de stockage en double dans Azure.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -51,7 +51,7 @@ Les machines virtuelles principales dépendent de la création de ressources ré
 
 ### Étape 1 : démarrage de votre script
 
-Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.ps1). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
+Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -308,4 +308,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

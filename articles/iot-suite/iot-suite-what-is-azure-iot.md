@@ -14,14 +14,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/04/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-et-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
 
-Microsoft Azure IoT Suite est une solution d’entreprise qui permet de démarrer rapidement par le biais d’un ensemble de solutions préconfigurées extensibles résolvant la plupart des scénarios IoT, tels que *surveillance à distance* et *appareils connectés*.
+Microsoft Azure IoT Suite est une solution d’entreprise qui permet de démarrer rapidement par le biais d’un ensemble de solutions préconfigurées extensibles résolvant la plupart des scénarios IoT, tels que *surveillance à distance* et *maintenance prédictive*.
 
 Les solutions préconfigurées :
 
@@ -47,4 +47,4 @@ Pour plus d’informations sur IoT sur Azure, explorez les ressources suivantes�
 [Azure Machine Learning]: https://azure.microsoft.com/fr-FR/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/fr-FR/services/storage/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

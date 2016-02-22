@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Activation du proxy d’application Azure AD
@@ -91,8 +91,9 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Ressources supplémentaires
-* [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
-* [Identité Azure](fundamentals-identity.md)
-* [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
+- [Identité Azure](fundamentals-identity.md)
+- [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

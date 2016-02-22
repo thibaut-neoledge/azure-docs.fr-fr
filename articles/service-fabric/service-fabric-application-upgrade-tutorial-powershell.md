@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 
@@ -33,7 +33,7 @@ Ces étapes peuvent être effectuées en téléchargeant l’application à part
 
 Après les avoir ajoutés au projet, générez et publiez l’application en cliquant avec le bouton droit sur le projet d’application, **VisualObjectsApplication** et en sélectionnant la commande **Publier** dans l’élément de menu Service Fabric, comme ci-après. Pour plus d’informations, consultez le [didacticiel sur la mise à niveau d’une application Service Fabric](service-fabric-application-upgrade-tutorial.md). Vous pouvez également utiliser PowerShell pour déployer votre application.
 
-> [AZURE.NOTE]Avant d’utiliser les commandes Service Fabric dans PowerShell, vous devez vous connecter au cluster en utilisant l’applet de commande `Connect-ServiceFabricCluster`. De même, cela suppose que le cluster a déjà été configuré sur votre ordinateur local. Consultez l'article sur la [configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
+> [AZURE.NOTE] Avant d’utiliser les commandes Service Fabric dans PowerShell, vous devez vous connecter au cluster en utilisant l’applet de commande `Connect-ServiceFabricCluster`. De même, cela suppose que le cluster a déjà été configuré sur votre ordinateur local. Consultez l'article sur la [configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
 
 Après avoir généré le projet dans Visual Studio, vous pouvez utiliser la commande PowerShell **Copy-ServiceFabricApplicationPackage** pour copier le package d’application dans le magasin d’images. Cette étape est suivie de l’inscription de l’application au runtime Service Fabric à l’aide de l’applet de commande **Register-ServiceFabricApplicationPackage**. La dernière étape consiste à démarrer une instance de l’application à l’aide de l’applet de commande **New-ServiceFabricApplication**. Ces trois étapes sont analogues à l’utilisation de l’élément de menu **Déployer** dans Visual Studio.
 
@@ -136,4 +136,4 @@ Apprenez à utiliser les fonctionnalités avancées pendant la mise à niveau de
 
 Résolvez les problèmes courants de mise à niveau de l’application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

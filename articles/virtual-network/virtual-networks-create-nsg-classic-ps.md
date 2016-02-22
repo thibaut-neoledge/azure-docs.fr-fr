@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Procédure de création des groupes de sécurité réseau (classique) dans PowerShell
@@ -27,10 +27,10 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement simple a déjà été créé conformément au scénario décrit ci-dessous. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Création d’un réseau virtuel](virtual-networks-create-vnet-classic-netcfg-ps).
+Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement simple a déjà été créé conformément au scénario décrit ci-dessous. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Création d’un réseau virtuel](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## Création du groupe de sécurité réseau pour le sous-réseau frontal
-Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous :
+Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le scénario ci-dessus, suivez les étapes ci-dessous :
 
 1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
@@ -210,4 +210,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -18,14 +18,15 @@
 
 # Conseils de dépannage pour les erreurs courantes dans Azure Automation
 
-Lorsque vous rencontrez un problème alors que vous travaillez avec des ressources d’automatisation telles que des runbooks, des modules et des actifs d’automatisation, vous devez découvrir la cause du problème. Cet article explique certaines des erreurs courantes que vous pouvez rencontrer lorsque vous travaillez avec Azure Automation et suggère d’éventuelles corrections.
+Cet article explique certaines des erreurs courantes que vous pouvez rencontrer lorsque vous travaillez avec Azure Automation et suggère d’éventuelles corrections.
 
 ## Résoudre les erreurs d’authentification lorsque vous travaillez avec des runbooks Azure Automation  
 
-
-**Scénario : la connexion à un compte Azure a échoué**
+### Scénario : la connexion à un compte Azure a échoué
 
 **Erreur :** vous recevez l’erreur « Unknown\_user\_type : Type d’utilisateur inconnu » lorsque vous travaillez avec les applets de commande Add-AzureAccount ou AzureRmAccount de connexion.
+
+**Raison de l'erreur :** cette erreur se produit si le nom d’actif des informations d'identification n'est pas valide ou si le nom d'utilisateur et le mot de passe que vous avez utilisés pour configurer l’actif des informations d'identification Automation ne sont pas valides.
 
 **Conseils de dépannage :** pour déterminer quel est le problème, procédez comme suit :
 
@@ -37,15 +38,17 @@ Lorsque vous rencontrez un problème alors que vous travaillez avec des ressourc
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount – Credential $Cred
+        Login-AzureRmAccount –Credential $Cred
 
-3. Si l’authentification échoue localement, cela signifie que vous n’avez pas correctement configuré vos informations d’identification Azure Active Directory. Reportez-vous au billet de blog [Authentification auprès d’Azure à l’aide d’Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) pour configurer correctement Active Directory.
+3. Si l’authentification échoue localement, cela signifie que vous n’avez pas correctement configuré vos informations d’identification Azure Active Directory. Reportez-vous au billet de blog [Authentification auprès d’Azure à l’aide d’Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) pour configurer correctement Azure Active Directory.
 
-
-**Scénario : Impossible de trouver l’abonnement Azure**
+  <br/>
+### Scénario : Impossible de trouver l’abonnement Azure
 
 **Erreur :** vous recevez l’erreur « L’abonnement ``<subscription name>`` est introuvable » lorsque vous travaillez avec les applets de commande Select-AzureSubscription ou sélectionnez-AzureRmSubscription.
- 
+
+**Raison de l'erreur :** cette erreur se produit si le nom de l’abonnement n'est pas valide ou si l'utilisateur Azure Active Directory qui essaie d'obtenir les détails de l'abonnement n'est pas configuré en tant qu'administrateur de l'abonnement.
+
 **Conseils de dépannage :** pour déterminer si vous vous êtes correctement authentifié dans Azure et avez accès à l’abonnement que vous essayez de sélectionner, procédez comme suit :
 
 1. assurez-vous que vous exécutez le **Add-AzureAccount** avant d’exécuter l’applet de commande **Select-AzureSubscription**.  
@@ -54,21 +57,18 @@ Lorsque vous rencontrez un problème alors que vous travaillez avec des ressourc
     * Si la sortie ne contient aucun des détails de l’abonnement, vous pouvez en conclure que l’abonnement n’est pas encore initialisé.  
     * Si vous ne voyez pas les détails de l’abonnement dans la sortie, vérifiez que vous utilisez le bon nom d’abonnement le bon identificateur avec l’applet de commande **Select-AzureSubscription**.   
 
-
-
-**Scénario : L’authentification auprès d’Azure a échoué car l’authentification multifacteur est activée.**
+  <br/>
+### Scénario : L’authentification auprès d’Azure a échoué car l’authentification multifacteur est activée.
 
 **Erreur :** vous recevez l’erreur « Add-AzureAccount : AADSTS50079 : une inscription de l’authentification forte (résistante) est requise » pendant une authentification dans Azure avec votre nom d’utilisateur votre mot de passe Azure.
 
-**Motif de l’erreur :** si votre compte Azure est doté de l’authentification multifacteur, vous ne pouvez pas vous authentifier dans Azure avec un utilisateur Active Directory. Au lieu de cela, vous devez utiliser un certificat ou un principal de service pour l’authentification dans Azure.
+**Motif de l’erreur :** si votre compte Azure est doté de l’authentification multifacteur, vous ne pouvez pas vous authentifier dans Azure avec un utilisateur Azure Active Directory. Au lieu de cela, vous devez utiliser un certificat ou un principal de service pour l’authentification dans Azure.
 
 **Conseils de dépannage :** pour utiliser un certificat avec les applets de commande de gestion des services Azure, reportez-vous à [Création et ajout d’un certificat de gestion des services Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal de service avec les applets de commande Azure Resource Manager, consultez [Création du principal de service à l’aide du portail Azure](./resource-group-create-service-principal-portal.md) et [Authentification d’un principal de service avec Azure Resource Manager.](./resource-group-authenticate-service-principal.md)
 
-
-
-## Dépannage d’erreurs communes lors de l’utilisation de runbooks 
-
-**Scénario : impossible de lier des paramètres lors de l’exécution d’un runbook**
+  <br/>
+## Dépannage d’erreurs communes lors de l’utilisation de runbooks  
+### Scénario : échec du runbook en raison d’un objet désérialisé
 
 **Erreur :** votre runbook a échoué en émettant l’erreur « Impossible de lier le paramètre ``<ParameterName>``. Impossible de convertir la valeur ``<ParameterType>`` du type désérialisé ``<ParameterType>`` en type ``<ParameterType>`` ».
 
@@ -81,8 +81,8 @@ Lorsque vous rencontrez un problème alors que vous travaillez avec des ressourc
 
 3. Utilisez un runbook PowerShell au lieu d’un runbook Workflow PowerShell.
 
-
-**Scénario : le travail de Runbook a échoué car le quota alloué dépassé**
+  <br/>
+### Scénario : le travail de Runbook a échoué car le quota alloué dépassé
 
 **Erreur :** votre travail de runbook a échoué en émettant l’erreur « Le quota mensuel de durée d’exécution totale pour cet abonnement a été atteint ».
 
@@ -95,8 +95,8 @@ Lorsque vous rencontrez un problème alors que vous travaillez avec des ressourc
 3. Cliquez sur **Paramètres** > **Niveau de tarification et utilisation** > **Niveau de tarification**  
 4. Sur le panneau **Choisir votre niveau tarifaire**, sélectionnez **De base**    
 
-
-**Scénario : l’applet de commande n’est pas reconnue lors de l’exécution d’un runbook**
+  <br/>
+### Scénario : l’applet de commande n’est pas reconnue lors de l’exécution d’un runbook
 
 **Erreur :** le travail de runbook échoue, en renvoyant l’erreur « ``<cmdlet name>`` Le terme ``<cmdlet name>`` n’est pas reconnu comme nom d’applet de commande, fonction, fichier de script ou programme exécutable. »
 
@@ -110,10 +110,12 @@ Lorsque vous rencontrez un problème alors que vous travaillez avec des ressourc
 
 - Si vous rencontrez un conflit de noms et si l’applet de commande est disponible dans deux modules différents, vous pouvez résoudre ce problème en utilisant le nom qualifié complet de l’applet de commande. Vous pouvez par exemple utiliser **ModuleName\\CmdletName**.
 
+- Si vous exécutez le runbook localement dans un groupe de Workers hybride, assurez-vous que le module/applet de commande est installé sur l'ordinateur qui héberge le Worker hybride.
 
+  <br/>
 ## Résoudre les erreurs courantes survenant lors de l’importation des modules 
 
-**Scénario : le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des applets de commande après l’importation**
+### Scénario : le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des applets de commande après l’importation
 
 **Erreur :** un module ne parvient pas à importer ou réussit l’importation, mais aucune applet de commande n’est extraite.
 
@@ -135,7 +137,7 @@ Lorsque vous rencontrez un problème alors que vous travaillez avec des ressourc
 
 - Assurez-vous que les fichiers .dll référencés sont présents dans le dossier de module.
 
-
+  <br/>
 
 ## Étapes suivantes
 
@@ -149,4 +151,4 @@ Si vous avez suivi les étapes de dépannage ci-dessus et avez besoin d’aide �
 
 - Publiez vos commentaires ou vos demandes de fonctionnalités pour Azure Automation sur [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

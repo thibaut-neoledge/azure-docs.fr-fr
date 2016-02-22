@@ -3,7 +3,7 @@
 	description="Référence et présentation conceptuelles de la fonctionnalité d’authentification/autorisation pour Azure Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Authentification et autorisation dans Azure Mobile Apps
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Qu’est-ce que l’authentification/autorisation App Service ?
 
@@ -52,7 +50,7 @@ Une fois que tout est configuré sur le serveur principal, vous pouvez modifier 
 - À l’aide d’une seule ligne de code, laissez le Kit de développement logiciel (SDK) client Mobile Apps connecter des utilisateurs.
 - Exploitez un Kit de développement logiciel (SDK) publié par un fournisseur d’identité donnée pour établir l’identité, puis accédez à App Service.
 
->[AZURE.TIP]La plupart des applications doivent utiliser un Kit de développement logiciel (SDK) de fournisseur pour obtenir une expérience de connexion plus native et tirer parti de la prise en charge de l’actualisation et d’autres avantages propres au fournisseur.
+>[AZURE.TIP] La plupart des applications doivent utiliser un Kit de développement logiciel (SDK) de fournisseur pour obtenir une expérience de connexion plus native et tirer parti de la prise en charge de l’actualisation et d’autres avantages propres au fournisseur.
 
 ### Fonctionnement de l’authentification sans Kit de développement logiciel (SDK) de fournisseur
 
@@ -106,4 +104,4 @@ Vous pouvez également trouver d’autres informations sur les flux ci-dessus da
 [Comment configurer votre application pour utiliser une connexion par compte Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Comment configurer votre application pour utiliser une connexion Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

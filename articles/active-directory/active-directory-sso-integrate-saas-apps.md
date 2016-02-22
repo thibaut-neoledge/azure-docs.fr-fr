@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/09/2016"
     ms.author="curtand"/>
 
 # Intégrer l’authentification unique Azure Active Directory aux applications SaaS  
@@ -43,7 +43,7 @@ Azure AD offre plusieurs moyens personnalisables pour déployer des application
 
 Configurer l’authentification unique pour une application que votre organisation utilise déjà est un processus différent de la création de comptes pour une nouvelle application. Il existe quelques étapes préliminaires, notamment : mapper les identités d’utilisateurs dans l’application à des identités Azure AD, et comprendre l’expérience de connexion des utilisateurs à une application après son intégration.
 
-> [AZURE.NOTE]Afin de configurer l'authentification unique pour une application existante, vous devez disposer des droits d'administrateur global à la fois pour Azure AD et l'application SaaS.
+> [AZURE.NOTE] Afin de configurer l'authentification unique pour une application existante, vous devez disposer des droits d'administrateur global à la fois pour Azure AD et l'application SaaS.
 
 ### Mappage de comptes d’utilisateurs
 
@@ -68,4 +68,8 @@ Si l’application n’apparaît pas dans la galerie d’applications, vous pouv
 
 Vous trouverez des informations beaucoup plus détaillées sur tous ces problèmes dans la bibliothèque Azure.com, en commençant par la rubrique [Qu'est-ce que l'accès aux applications et l'authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+## Voir aussi
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/10/2016" 
 	ms.author="yochay"/>
 
 # Fonctionnement d’App Service
@@ -39,4 +39,4 @@ Ensemble, les fonctionnalités d’App Service permettent aux développeurs de s
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

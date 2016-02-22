@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory
@@ -57,6 +57,12 @@ Si pour un utilisateur donné, il n’y a pas de valeur stockée pour un attribu
 **Remarque :** **user.onpremisesecurityidentifier** et **user.onpremisesamaccountname** sont uniquement pris en charge lors de la synchronisation des données utilisateur issues de l’annuaire Active Directory local en utilisant la dernière version préliminaire de l’outil AAD Connect. Vous pouvez télécharger la version préliminaire de l’outil de connexion sur le lien ci-dessous :
 
 http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+
+## Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](active-directory-saas-custom-apps.md)
+- [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md)
 	
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
@@ -64,4 +70,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

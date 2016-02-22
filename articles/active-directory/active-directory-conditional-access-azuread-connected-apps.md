@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS
@@ -86,4 +86,8 @@ L’exemple suivant montre comment activer l’authentification multifacteur loc
 
 En plus de définir cet indicateur, vous devez configurer l’instance AD FS du client fédéré pour effectuer une authentification multifacteur. Suivez les instructions permettant de déployer Azure Multi-Factor Authentication localement.
 
-<!---HONumber=Nov15_HO2-->
+##Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

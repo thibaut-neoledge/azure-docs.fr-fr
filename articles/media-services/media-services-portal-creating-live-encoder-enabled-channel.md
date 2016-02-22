@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ Ce didacticiel vous guide tout au long des étapes de création d’un **canal**
 
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
->[AZURE.NOTE]Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+>[AZURE.NOTE] Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -98,7 +98,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 	L’allocation de nouvelles unités prend environ 20 minutes.
 
 	 
-	>[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
+	>[AZURE.NOTE] Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
 	>
 	> C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -142,7 +142,7 @@ Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définiti
 
 ![standard4][standard4]
 
->[AZURE.NOTE]Actuellement, le démarrage du canal peut prendre jusqu’à 30 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
+>[AZURE.NOTE] Actuellement, le démarrage du canal peut prendre jusqu’à 30 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
 
 Une fois que vous avez créé le canal, vous pouvez sélectionner l’onglet **ENCODEUR** où vous pouvez afficher les configurations de vos canaux. Vous pouvez également gérer les annonces et les ardoises.
 
@@ -255,7 +255,7 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 
 ##Considérations
 
-- Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+- Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
 - Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 
 
@@ -276,4 +276,4 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

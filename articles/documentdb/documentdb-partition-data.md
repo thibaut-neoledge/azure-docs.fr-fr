@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="10/05/2015"      
+    ms.date="02/09/2016"      
     ms.author="arramac"/>
 
 # Données de partition et d’échelle dans DocumentDB
@@ -28,7 +28,7 @@ Après avoir lu cet article sur la mise à l’échelle des données, vous serez
  - Quand utiliser chaque technique de partitionnement et pourquoi ?
  - Comment procéder pour créer une application partitionnée sur Azure DocumentDB ?
 
-Cet article présente certains concepts relatifs au partitionnement. Si vous êtes prêt à écrire du code qui partitionne les données à l’aide du Kit de développement logiciel (SDK) .NET de DocumentDB, examinons le [partitionnement des données avec le Kit de développement logiciel (SDK) .NET de DocumentDB](documentdb-sharding.md).
+Cet article présente certains concepts relatifs au partitionnement. Si vous êtes prêt à écrire du code qui partitionne les données à l’aide des Kits de développement logiciel (SDK) de DocumentDB, examinons le [partitionnement des données avec le Kit de développement logiciel (SDK) de DocumentDB](documentdb-sharding.md).
 
 ## Collections = Partitions
 
@@ -46,17 +46,17 @@ Examinons ces techniques plus en détail.
 
 Dans le partitionnement par plage, l'affectation des partitions est fonction de la présence de la clé de partition dans une certaine plage. Cette méthode est couramment utilisée pour le partitionnement avec des propriétés d’*horodatage* (par exemple, eventTime entre le 1er février 2015 et le 2 février 2015).
 
-> [AZURE.TIP]Vous devez utiliser le partitionnement par plage si vos requêtes sont limitées à des valeurs de plage spécifiques par rapport à la clé de partition.
+> [AZURE.TIP] Vous devez utiliser le partitionnement par plage si vos requêtes sont limitées à des valeurs de plage spécifiques par rapport à la clé de partition.
 
 Un cas spécial de partitionnement par plage est lorsque la plage est une valeur unique. Cette méthode est couramment utilisée pour le partitionnement par valeurs discrètes telles que la région (par exemple, la partition pour la Scandinavie contient la Norvège, le Danemark et la Suède).
 
-> [AZURE.TIP]Le partitionnement par plage offre le plus haut niveau de contrôle dans la gestion d’une application mutualisée. Vous pouvez affecter plusieurs clients à une seule collection, un client unique à une seule collection ou même un client unique à travers plusieurs collections.
+> [AZURE.TIP] Le partitionnement par plage offre le plus haut niveau de contrôle dans la gestion d’une application mutualisée. Vous pouvez affecter plusieurs clients à une seule collection, un client unique à une seule collection ou même un client unique à travers plusieurs collections.
 
 ## Partitionnement par hachage
 
 Dans le partitionnement par hachage, les partitions sont affectées en fonction de la valeur d'une fonction de hachage, ce qui vous permet de répartir uniformément les demandes et les données entre un certain nombre de partitions. Cette méthode est généralement utilisée pour partitionner des données produites ou consommées par un grand nombre de clients distincts, et elle s’avère utile pour stocker des profils utilisateur, des éléments des catalogue et des données de télémétrie d’appareil IoT (Internet des objets).
 
-> [AZURE.TIP]Vous devez utiliser le partitionnement par hachage quand il y a trop d’entités à énumérer (par exemple, des utilisateurs ou des appareils) et que le taux de demandes est relativement uniforme entre les entités.
+> [AZURE.TIP] Vous devez utiliser le partitionnement par hachage quand il y a trop d’entités à énumérer (par exemple, des utilisateurs ou des appareils) et que le taux de demandes est relativement uniforme entre les entités.
 
 ## Choix de la technique de partitionnement appropriée
 
@@ -112,4 +112,4 @@ Dans cet article, nous avons introduit certaines techniques courantes pour le pa
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

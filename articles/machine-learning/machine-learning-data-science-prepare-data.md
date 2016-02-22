@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/08/2016"
 	ms.author="bradsev" />
 
 
@@ -111,4 +111,4 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 >*Data Mining : Concepts et Techniques*, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

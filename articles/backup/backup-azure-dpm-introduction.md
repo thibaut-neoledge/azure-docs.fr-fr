@@ -70,7 +70,7 @@ Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 - DPM permet de sauvegarder la plupart des charges de travail dans Azure Backup. Pour une liste complète des éléments pris en charge par Azure Backup, consultez la liste ci-dessous.
 - Des données stockées dans Azure Backup ne peuvent pas être récupérées avec l'option « Copie sur bande ».
 - Vous devez posséder un compte Azure avec la fonctionnalité Azure Backup activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
-- L'utilisation d'Azure Backup nécessite l'installation de l'agent Azure Backup sur les serveurs que vous souhaitez sauvegarder. Chaque serveur doit disposer d'au moins 2,5 Go d'espace de stockage local disponible (15 Go étant recommandés) pour l'emplacement du cache.
+- L'utilisation d'Azure Backup nécessite l'installation de l'agent Azure Backup sur les serveurs que vous souhaitez sauvegarder. Chaque serveur doit disposer d'au moins 10 % de la taille des données en cours de sauvegarde, disponibles en tant que stockage local libre. Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 10 Go d'espace libre dans l'emplacement temporaire. La valeur minimale est de 10 %, mais il est recommander d’utiliser 15 % de l'espace de stockage local pour l'emplacement du cache.
 - Les données seront stockées dans le coffre Azure. Il n'existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Azure Backup, mais la taille d'une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54 400 Go.
 
 Les types de fichiers suivants sont pris en charge pour une sauvegarde vers Azure :
@@ -92,4 +92,4 @@ Et les types suivants ne sont pas pris en charge :
 
 >[AZURE.NOTE] À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

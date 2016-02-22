@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/09/2016"
 	ms.author="liviodlc"/>
 
 #Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory
@@ -76,6 +76,10 @@ Dans l’idéal, les étapes de renouvellement ci-dessous ne doivent pas entraî
 
 	![Télécharger, puis charger le certificat](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Articles connexes
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md)
+
+<!---HONumber=AcomDC_0211_2016-->

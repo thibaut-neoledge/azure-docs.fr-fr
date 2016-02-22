@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/01/2016"
+   ms.date="02/04/2016"
    ms.author="alkohli"/>
 
 # Configuration requise logicielle, de haute disponibilité et de réseau StorSimple
@@ -36,7 +36,7 @@ La configuration logicielle suivante est requise pour les clients de stockage qu
 | Systèmes d’exploitation pris en charge | Version requise | Conditions/remarques supplémentaires |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008 R2 SP1, 2012, 2012 R2 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume Simple sur disque de base</li><li>Volume simple et mis en miroir sur disque dynamique</li></ul>L’allocation dynamique et les fonctionnalités ODX sous Windows Server 2012 sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple permet de créer des volumes alloués de manière dynamique et complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270), sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.5 | Pris en charge avec VMware vSphere en tant que client iSCSI. La fonctionnalité VAAI-block est prise en charge avec VMware vSphere sur les appareils StorSimple. 
+| VMWare ESX | 5\.1 et 5.5 | Pris en charge avec VMware vSphere en tant que client iSCSI. La fonctionnalité VAAI-block est prise en charge avec VMware vSphere sur les appareils StorSimple. 
 | Linux RHEL/CentOS | 5 et 6 | Prise en charge des clients Linux iSCSI avec initiateur Open-iSCSI versions 5 et 6. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX n’est actuellement pas pris en charge avec StorSimple.
@@ -67,7 +67,7 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 
 <sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
 
-<sup>2</sup> Si plusieurs ports comportent une configuration de passerelle, l’ordre du trafic routé sortant est déterminé par l’ordre de routage des ports décrit dans la section [Routage de port](#port-routing) ci-dessous.
+<sup>2</sup> Si plusieurs ports comportent une configuration de passerelle, l’ordre du trafic routé sortant est déterminé par l’ordre de routage des ports décrit dans la section [Routage de port](#routing-metric) ci-dessous.
 
 <sup>3</sup> Les adresses IP fixes du contrôleur sur votre appareil StorSimple doivent être routables et pouvoir se connecter à Internet. Les adresses IP fixes sont utilisées pour traiter les mises à jour apportées à l’appareil. Si les contrôleurs ne peuvent pas se connecter à Internet via les adresses IP fixes, vous ne pouvez pas mettre à jour votre appareil StorSimple.
 
@@ -77,7 +77,7 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 
 Une métrique de routage est associée aux interfaces et à la passerelle qui acheminent les données vers les réseaux spécifiés. La métrique de routage est utilisée par le protocole de routage pour calculer le meilleur chemin vers une destination donnée, si plusieurs chemins existent pour la même destination. La métrique de routage est inversement proportionnelle à la préférence.
 
-Dans le contexte de StorSimple, si plusieurs interfaces et passerelles de réseau sont configurées pour canaliser le trafic, les métriques de routage entrent en jeu afin de déterminer l’ordre relatif dans lequel les interfaces seront utilisées. Les métriques de routage ne peuvent pas être modifiées par l’utilisateur. Toutefois, vous pouvez utiliser l’applet de commande `Get-HcsRoutingTable` pour imprimer la table de routage (et les métriques de routage) sur votre appareil StorSimple. Plus d'informations sur [applet de commande Get-HcsRoutingTable](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
+Dans le contexte de StorSimple, si plusieurs interfaces et passerelles de réseau sont configurées pour canaliser le trafic, les métriques de routage entrent en jeu afin de déterminer l’ordre relatif dans lequel les interfaces seront utilisées. Les métriques de routage ne peuvent pas être modifiées par l’utilisateur. Toutefois, vous pouvez utiliser l’applet de commande `Get-HcsRoutingTable` pour imprimer la table de routage (et les métriques de routage) sur votre appareil StorSimple. Vous trouverez plus d'informations sur l'applet de commande Get-HcsRoutingTable dans [Dépannage du déploiement StorSimple](storsimple-troubleshoot-deployment.md).
 
 Les algorithmes de routage sont différents selon la version logicielle s’exécutant sur votre appareil StorSimple.
 
@@ -108,12 +108,7 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métr
 		
 	| Interface réseau | Activée pour le cloud | Désactivée pour le cloud avec passerelle |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | 
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 || Data 2 | 3 | 30 || Data 3 | 4 | 40 || Data 4 | 5 | 50 || Data 5 | 6 | 60 |
 
 
 - L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
@@ -140,8 +135,7 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métr
 	
 - En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
 
-	Prenez l'exemple suivant :
- 	un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
+	Prenez l'exemple suivant : un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
 		
 	Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
 
@@ -216,7 +210,7 @@ Pour plus d’informations sur la mise en réseau de votre appareil pour la haut
 
 #### Disques SSD et disques durs
 
-Un appareil StorSimple comprend des disques SSD et des disques durs qui sont protégés au moyen d’espaces en miroir. Un disque d’échange à chaud est aussi prévu pour les disques durs. Grâce aux espaces en miroir, un appareil est capable de tolérer une panne d’un ou plusieurs disques SSD ou disques durs.
+Un appareil StorSimple comprend des disques SSD et des disques durs qui sont protégés au moyen d'espaces en miroir. Grâce aux espaces en miroir, un appareil est capable de tolérer une panne d’un ou plusieurs disques SSD ou disques durs.
 
 - Assurez-vous que tous les disques SSD et disques durs sont en place.
 
@@ -257,9 +251,9 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 ## Étapes suivantes
 
 - [En savoir plus sur les limites du système StorSimple](storsimple-limits.md).
-- [Découvrez comment déployer votre solution StorSimple](storsimple-deployment-walkthrough.md).
+- [Découvrez comment déployer votre solution StorSimple](storsimple-deployment-walkthrough-u2.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

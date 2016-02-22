@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz"/>
 
 # Passage de valeurs sécurisées lors du déploiement
 
 Lorsque vous devez passer une valeur sécurisée (par exemple, un mot de passe) en tant que paramètre au cours du déploiement, vous pouvez stocker cette valeur en tant que clé secrète dans un [coffre de clés Azure](./key-vault/key-vault-whatis.md) et faire référence à la valeur dans d'autres modèles Resource Manager. Vous incluez uniquement une référence à la clé secrète dans votre modèle afin de ne jamais l’exposer, et vous n'avez pas besoin d'entrer manuellement la valeur de la clé secrète chaque fois que vous déployez les ressources. Vous spécifiez quels utilisateurs ou principaux du service peuvent accéder à la clé secrète.
 
-> [AZURE.NOTE]Actuellement, seule l’interface de ligne de commande Azure prend en charge le référencement d’une clé secrète d’un coffre de clés. Azure PowerShell inclura dès que possible cette possibilité.
+> [AZURE.NOTE] Actuellement, seule l’interface de ligne de commande Azure prend en charge le référencement d’une clé secrète d’un coffre de clés. Azure PowerShell inclura dès que possible cette possibilité.
 
 ## Déploiement d'un coffre de clés et d’une clé secrète
 
@@ -33,34 +33,34 @@ Pour en savoir plus sur le déploiement d'un coffre de clés et la clé secrète
 Vous référencez la clé secrète à partir d'un fichier de paramètres qui transmet les valeurs à votre modèle. Vous référencez la clé secrète en passant l'identificateur de ressource du coffre de clés et le nom de la clé secrète.
 
     "parameters": {
-        "adminPassword": {
-            "reference": {
-                "keyVault": {
-                    "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                }, 
-                "secretName": "sqlAdminPassword" 
-            } 
-        }
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          }, 
+          "secretName": "sqlAdminPassword" 
+        } 
+      }
     }
 
 Un fichier de paramètres complet peut ressembler à ceci :
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "sqlsvrAdminLogin": {
-                "value": ""
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "sqlsvrAdminLogin": {
+          "value": ""
+        },
+        "sqlsvrAdminLoginPassword": {
+          "reference": {
+            "keyVault": {
+              "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
             },
-            "sqlsvrAdminLoginPassword": {
-                "reference": {
-                    "keyVault": {
-                        "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                    },
-                    "secretName": "adminPassword"
-                }
-            }
+            "secretName": "adminPassword"
+          }
         }
+      }
     }
 
 Le paramètre qui accepte la clé secrète doit être de type**securestring**. L'exemple suivant montre les sections correspondantes d'un modèle qui déploie un serveur SQL nécessitant un mot de passe administrateur.
@@ -102,7 +102,7 @@ Le paramètre qui accepte la clé secrète doit être de type**securestring**. L
 ## Étapes suivantes
 
 - Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
-- Pour plus d’informations sur le déploiement de modèles, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+- Pour plus d'informations sur l'utilisation d'un coffre de clés avec une machine virtuelle, consultez [Considérations relatives à la sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
 - Pour obtenir des exemples complets de référencement de clés secrètes, consultez [Exemples de coffres de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

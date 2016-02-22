@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Notes de publication sur Azure Data Catalog
@@ -37,14 +37,6 @@ Lors de la connexion aux sources de données Teradata, les utilisateurs doivent 
 
 À compter de cette date de version d’ADC, le [pilote ODBC de Teradata pour Windows (version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) le plus récent est compatible avec Office 2013, mais pas avec Office 2016.
 
-## Notes pour la version du 6 novembre 2015 d’Azure Data Catalog
-
-### Les utilisateurs peuvent rencontrer des erreurs lors du lancement de l'outil d'inscription de source de données
-
-Lors du lancement de l’outil d’inscription de source de données **Azure Data Catalog** à partir du portail **Azure Data Catalog**, les utilisateurs qui avaient précédemment installé une version plus ancienne de l’outil peuvent recevoir le message « Impossible de démarrer l’application. Contactez le fournisseur de l’application. »
-
-Les utilisateurs qui reçoivent ce message doivent utiliser le panneau de configuration Windows pour supprimer l'application « Azure Data Catalog » existante, puis relancer l’outil à partir du portail **Azure Data Catalog**.
-
 ## Notes pour la version du 13 juillet 2015 d’Azure Data Catalog
 
 ### Inscription et connexion à Oracle Database
@@ -64,7 +56,7 @@ La prise en charge des sources de données SQL Server Reporting Services (SSR
 
 Au moment de l’ouverture des ressources de données dans Microsoft Excel à partir du portail **Azure Data Catalog**, les utilisateurs peuvent voir apparaître la boîte de dialogue **Avis de sécurité Microsoft Excel**. Il s’agit là d’un comportement attendu standard et les utilisateurs peuvent sélectionner **Activer** pour continuer.
 
-Pour plus d’informations, consultez [Activer ou désactiver les alertes de sécurité relatives aux liens et aux fichiers de sites web suspects](https://support.office.com/fr-FR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Pour plus d’informations, consultez [Activer ou désactiver les alertes de sécurité relatives aux liens et aux fichiers de sites web suspects](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### Colonnes BLOB et UDT manquantes dans les versions préliminaires
 
@@ -80,7 +72,7 @@ Deux causes possibles à ce problème de comportement :
 
 Cette erreur peut également survenir lorsque l'utilisateur est connecté au réseau d'entreprise ou lorsque l'utilisateur se connecte en dehors du réseau d'entreprise. La stratégie d'authentification globale permet d’activer séparément des méthodes d'authentification pour les connexions intranet et extranet. Des erreurs de connexion peuvent survenir si l'authentification par formulaire n'est pas activée pour le réseau à partir duquel l'utilisateur se connecte.
 
-Pour plus d’informations, consultez [Configuration des stratégies d’authentification](https://technet.microsoft.com/fr-FR/library/dn486781.aspx).
+Pour plus d’informations, consultez [Configuration des stratégies d’authentification](https://technet.microsoft.com/library/dn486781.aspx).
 
 **Cause n°2 : configuration du proxy réseau** Si le réseau d’entreprise utilise un serveur proxy, l’outil d’inscription ne peut peut-être pas se connecter à Azure Active Directory via le proxy. Les utilisateurs peuvent s’assurer de l'outil d'inscription en modifiant le fichier de configuration de l'outil, et en ajoutant au fichier la section suivante :
 
@@ -96,4 +88,4 @@ Pour plus d’informations, consultez [Configuration des stratégies d’authent
 
 Pour localiser le fichier RegistrationTool.exe.config, lancez l'outil d'inscription, puis ouvrez l'utilitaire Gestionnaire des tâches de Windows. Sous l'onglet Détails du Gestionnaire des tâches, cliquez avec le bouton droit sur RegistrationTool.exe et choisissez Ouvrir l'emplacement du fichier dans le menu contextuel.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

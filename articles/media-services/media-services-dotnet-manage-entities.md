@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@ Cette rubrique explique comment effectuer les tâches de gestion Media Services 
 - Répertorier tous les éléments multimédias 
 - Répertorier les travaux et les éléments multimédias 
 - Répertorier toutes les stratégies d’accès 
-- Répertorier tous les localisateurs 
+- Répertorier tous les localisateurs
+- Énumérer les grandes collections d'entités
 - Supprimer un élément multimédia 
 - Supprimer un travail 
 - Supprimer une stratégie d’accès 
@@ -245,6 +246,47 @@ Notez qu’un chemin d’accès de localisateur vers un élément multimédia es
 	    }
 	}
 
+## Énumérer les grandes collections d'entités
+
+Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser Skip et Take lors de l'énumération de grandes collections d'entités.
+	
+La fonction suivante effectue une itération sur toutes les tâches dans le compte Media Services fourni. Media Services renvoie 1 000 tâches dans Collection de tâches. La fonction utilise Skip et Take pour s'assurer que toutes les tâches sont énumérées (au cas où vous avez plus de 1 000 tâches dans votre compte).
+	
+	static void ProcessJobs()
+	{
+	    try
+	    {
+	
+	        int skipSize = 0;
+	        int batchSize = 1000;
+	        int currentBatch = 0;
+	
+	        while (true)
+	        {
+	            // Loop through all Jobs (1000 at a time) in the Media Services account
+	            IQueryable _jobsCollectionQuery = _context.Jobs.Skip(skipSize).Take(batchSize);
+	            foreach (IJob job in _jobsCollectionQuery)
+	            {
+	                currentBatch++;
+	                Console.WriteLine("Processing Job Id:" + job.Id);
+	            }
+	
+	            if (currentBatch == batchSize)
+	            {
+	                skipSize += batchSize;
+	                currentBatch = 0;
+	            }
+	            else
+	            {
+	                break;
+	            }
+	        }
+	    }
+	    catch (Exception ex)
+	    {
+	        Console.WriteLine(ex.Message);
+	    }
+	}
 
 ##Supprimer un élément multimédia
 
@@ -339,4 +381,4 @@ L’exemple de code suivant montre comment obtenir une référence pointant vers
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

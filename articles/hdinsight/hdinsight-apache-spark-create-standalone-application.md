@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -182,9 +182,11 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 ### Créer et exécuter des applications
 
-* [Exécution de travaux à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
+* [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensions
+### Outils et extensions
+
+* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -194,4 +196,4 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

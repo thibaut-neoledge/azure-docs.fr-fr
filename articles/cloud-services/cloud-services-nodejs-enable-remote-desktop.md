@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
-
 
 # Activation du Bureau à distance dans Azure
 
 Le Bureau à distance vous permet d'accéder au bureau d'une instance de rôle en cours d'exécution dans Azure. Vous pouvez utiliser une connexion Bureau à distance pour configurer la machine virtuelle ou résoudre des problèmes avec votre application.
 
-> [AZURE.NOTE]Cet article concerne les applications Node.js hébergées en tant que service cloud Azure.
+> [AZURE.NOTE] Cet article concerne les applications Node.js hébergées en tant que service cloud Azure.
 
 
 ## Composants requis
 
-- Installez et configurez [Azure PowerShell](../install-configure-powershell.md).
+- Installez et configurez [Azure PowerShell](../powershell-install-configure.md).
 - Déploiement d'une application Node.js dans les services cloud Azure Pour plus d'informations, consultez [Création et déploiement d'une application Node.js dans un service cloud Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 
@@ -74,7 +73,7 @@ Une fois que vous avez publié la définition de service de mise à jour, vous p
 
     ![Invite de sécurité Windows][5]
 
-4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1]\[Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell], puis cliquez sur **OK**.
+4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1][Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell], puis cliquez sur **OK**.
 
     ![invite du nom d'utilisateur/mot de passe][6]
 
@@ -106,14 +105,14 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Accès à distance aux instances de rôle dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-  [Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Accès à distance aux instances de rôle dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

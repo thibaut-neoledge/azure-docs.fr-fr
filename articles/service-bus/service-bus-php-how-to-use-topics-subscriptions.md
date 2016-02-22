@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -29,7 +29,7 @@ Cet article vous montre comment utiliser les rubriques et les abonnements Servic
 
 Le référencement de classes issues du [Kit de développement logiciel (SDK) Azure pour PHP](../php-download-sdk.md) dans votre code constitue la seule exigence pour créer une application PHP qui accède au service blob Azure. Vous pouvez utiliser tous les outils de développement pour créer votre application, ou Bloc-notes.
 
-> [AZURE.NOTE]L’[extension OpenSSL](http://php.net/openssl) doit également être installée et activée dans votre installation PHP.
+> [AZURE.NOTE] L’[extension OpenSSL](http://php.net/openssl) doit également être installée et activée dans votre installation PHP.
 
 Cet article décrit comment utiliser des fonctionnalités de service qui peuvent être appelées dans une application PHP localement ou dans le code d'un rôle web, d'un rôle de travail ou d'un site web Azure.
 
@@ -46,7 +46,7 @@ Utilisation des API Service Bus :
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServiceBusService**.
 
-> [AZURE.NOTE]Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique **WindowsAzure.php**.
+> [AZURE.NOTE] Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique **WindowsAzure.php**.
 
 ```
 require_once 'vendor\autoload.php';
@@ -70,7 +70,7 @@ Pour créer un client de service Azure, vous devez utiliser la classe **Services
 * Lui passer directement la chaîne de connexion.
 * Utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
 	* par défaut une source externe est prise en charge : variables d'environnement.
-	* vous pouvez ajouter de nouvelles sources via une extension de la classe **ConnectionStringSource**.
+	* Vous pouvez ajouter de nouvelles sources via une extension de la classe **ConnectionStringSource**.
 
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
 
@@ -115,7 +115,7 @@ catch(ServiceException $e){
 }
 ```
 
-> [AZURE.NOTE]vous pouvez utiliser la méthode `listTopics` sur les objets `ServiceBusRestProxy` pour vérifier s'il existe déjà une rubrique d'un nom déterminé dans un espace de noms de service.
+> [AZURE.NOTE] vous pouvez utiliser la méthode `listTopics` sur les objets `ServiceBusRestProxy` pour vérifier s'il existe déjà une rubrique d'un nom déterminé dans un espace de noms de service.
 
 ## Création d'un abonnement
 
@@ -143,7 +143,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -154,7 +154,7 @@ catch(ServiceException $e){
 
 Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique. Parmi les types de filtre pris en charge par les abonnements, **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d'informations sur SqlFilters, consultez la page [Propriété SqlExpression][sqlfilter].
 
-> [AZURE.NOTE]Chaque règle d’un abonnement traite les messages entrants de façon indépendante, ajoutant leurs messages de résultat à l’abonnement. En outre, chaque nouvel abonnement dispose d’un objet **Règle** par défaut avec un filtre qui ajoute tous les messages de la rubrique à l’abonnement. Pour recevoir uniquement les messages correspondant à votre filtre, vous devez supprimer la règle par défaut. Vous pouvez supprimer la règle par défaut à l'aide de la méthode `ServiceBusRestProxy->deleteRule`.
+> [AZURE.NOTE] Chaque règle d’un abonnement traite les messages entrants de façon indépendante, ajoutant leurs messages de résultat à l’abonnement. En outre, chaque nouvel abonnement dispose d’un objet **Règle** par défaut avec un filtre qui ajoute tous les messages de la rubrique à l’abonnement. Pour recevoir uniquement les messages correspondant à votre filtre, vous devez supprimer la règle par défaut. Vous pouvez supprimer la règle par défaut à l'aide de la méthode `ServiceBusRestProxy->deleteRule`.
 
 Dans l'exemple suivant, l'abonnement **HighMessages** est créé avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **MessageNumber** a une valeur supérieure à 3 (consultez la section [Envoi de messages à une rubrique](#send-messages-to-a-topic) pour plus d'informations sur l'ajout de propriétés personnalisées aux messages) :
 
@@ -211,7 +211,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/hh780775
+	// http://msdn.microsoft.com/library/azure/hh780775
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -240,7 +240,7 @@ Les files d'attente Service Bus prennent en charge une taille de message maximal
 
 Le meilleur moyen de recevoir des messages d'un abonnement consiste à utiliser une méthode **ServiceBusRestProxy->receiveSubscriptionMessage**. Les messages reçus peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** (par défaut) et **PeekLock**.
 
-Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une opération unique. En d’autres termes, lorsque Service Bus reçoit une demande de lecture pour un message figurant dans un abonnement, il marque le message comme consommé et le renvoie à l’application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
+Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une opération unique. En d'autres termes, lorsque Service Bus reçoit une demande de lecture pour un message figurant dans un abonnement, il marque le message comme consommé et le renvoie à l'application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
 
 En mode **PeekLock**, la réception d'un message devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en transmettant le message reçu à **ServiceBusRestProxy->deleteMessage**. Lorsque Service Bus obtient l'appel **deleteMessage**, il marque le message comme étant consommé et le supprime de la file d'attente.
 
@@ -278,7 +278,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here:
-	// http://msdn.microsoft.com/library/windowsazure/hh780735
+	// http://msdn.microsoft.com/library/azure/hh780735
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -316,7 +316,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -338,4 +338,4 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
 [require-once]: http://php.net/require_once
 [Files d'attente Azure et files d'attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="02/07/2016"
    ms.author="curtand"/>
 
 # Raccourcis clavier du portail Azure Classic
@@ -37,17 +37,11 @@
 | J | Panneau ouvert précédemment |
 | K | Panneau suivant ouvert |
 | L | Dernier panneau ouvert |
-| - | Réduire le panneau ou le restaurer depuis la version optimale |
-| + | Optimiser le panneau ou restaurer depuis la version minimale |
-| # | Fermer panneau actuel |
-| ¦ | Fermer tous les panneaux |
-| , | Déplacer le focus sur la barre de commandes |
-| . | Déplacer le focus sur la barre de navigation |
-| ? | Afficher les raccourcis clavier |
+| - | Réduire le panneau ou le restaurer depuis la version optimale | | + | Optimiser le panneau ou restaurer depuis la version minimale | | # | Fermer panneau actuel | | ¦ | Fermer tous les panneaux | | , | Déplacer le focus sur la barre de commandes | | . | Déplacer le focus sur la barre de navigation | | ? | Afficher les raccourcis clavier |
 
 
 ## Étapes suivantes
 
 Découvrez plus en détail le portail Azure Classic : http://azure.microsoft.com.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

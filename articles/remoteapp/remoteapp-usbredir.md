@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/05/2016" 
     ms.author="elizapo" />
 
 
@@ -58,7 +58,7 @@ Lorsque vous définissez la redirection de périphérique par GUID de classe, to
 
 ## Redirection d’un périphérique USB à l’aide de l’ID d’instance du périphérique
 
-Si vous souhaitez un contrôle précis et contrôler la redirection par périphérique, vous pouvez utiliser le paramètre de redirection **USB\\InstanceID **.
+Si vous souhaitez un contrôle précis et contrôler la redirection par périphérique, vous pouvez utiliser le paramètre de redirection **USB\\InstanceID**.
 
 La partie la plus difficile de cette méthode consiste à trouver l’ID d’instance de périphérique USB. Vous devez avoir accès à l’ordinateur et à ce périphérique USB particulier. Exécutez ensuite les opérations qui suivent :
 
@@ -77,4 +77,4 @@ La partie la plus difficile de cette méthode consiste à trouver l’ID d’ins
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

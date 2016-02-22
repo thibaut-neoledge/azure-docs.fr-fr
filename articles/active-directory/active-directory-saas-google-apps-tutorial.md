@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Didacticiel : intégration de Google Apps avec Azure Active Directory
@@ -258,7 +258,10 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 
 4. Pour tester vos paramètres d'authentification unique, ouvrez le volet d'accès à l'adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Google Apps**.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Articles connexes
+
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-google-apps-tutorial/applications-tab.png
@@ -292,4 +295,4 @@ Si vous préférez configurer l'authentification unique manuellement, procédez 
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

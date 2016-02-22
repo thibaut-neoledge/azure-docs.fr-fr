@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 #Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
@@ -34,7 +34,7 @@ Cet article contient des instructions génériques sur l’utilisation d’un no
 <a name="bkmk_configurecname"></a>
 ## Ajout d'un enregistrement DNS pour votre domaine personnalisé
 
-> [AZURE.NOTE]Si vous avez acheté un domaine via Azure App Service Web Apps, ignorez les étapes suivantes et reportez-vous à l'étape finale de l'article [Acheter un domaine pour Web Apps](custom-dns-web-site-buydomains-web-app.md).
+> [AZURE.NOTE] Si vous avez acheté un domaine via Azure App Service Web Apps, ignorez les étapes suivantes et reportez-vous à l'étape finale de l'article [Acheter un domaine pour Web Apps](custom-dns-web-site-buydomains-web-app.md).
 
 Pour associer votre domaine personnalisé à une application web dans Azure App Service, vous devez ajouter une nouvelle entrée pour votre domaine personnalisé dans la table DNS, en utilisant les outils fournis par le bureau d’enregistrement de domaines auprès duquel vous avez acheté votre nom de domaine. Pour localiser et utiliser les outils DNS, procédez comme suit.
 
@@ -58,7 +58,5 @@ Pour associer votre domaine personnalisé à une application web dans Azure App
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz" />
 
 # Modification des modèles Resource Manager avec Visual Studio
@@ -61,7 +61,7 @@ Pour plus d’informations sur la structure du modèle, consultez [Création de 
 
 ## Voir aussi
 
-[Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
+[Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 [Applets de commande du gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
@@ -69,4 +69,4 @@ Pour plus d’informations sur la structure du modèle, consultez [Création de 
 
 [Vidéo Channel 9 : gestionnaire de ressources Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

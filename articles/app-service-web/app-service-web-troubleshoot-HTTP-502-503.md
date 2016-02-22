@@ -50,7 +50,7 @@ Le dépannage peut être divisé en trois tâches distinctes, dans un ordre séq
 
 ####	Suivi de l’état du service
 
-Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](insights-service-health.md).
+Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](../azure-portal/insights-service-health.md).
 
 ####	Contrôle de votre application web
 
@@ -69,7 +69,7 @@ Parmi les mesures que vous pouvez surveiller pour votre application web, se trou
 Pour plus d’informations, consultez :
 
 -	[Surveiller les applications web dans Microsoft Azure App Service](web-sites-monitor.md)
--	[Réception de notifications d'alerte](insights-receive-alert-notifications.md)
+-	[Réception de notifications d'alerte](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 ### 2\. Collecter les données
@@ -136,6 +136,6 @@ Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](powershell-azure-resource-manager.md).
+Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

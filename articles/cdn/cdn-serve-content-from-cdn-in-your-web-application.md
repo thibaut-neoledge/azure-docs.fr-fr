@@ -252,11 +252,11 @@ Avec les services [Azure App Service Web Apps](http://go.microsoft.com/fwlin
 
 L'intégration d’Azure App Service ou d’Azure Cloud Services avec Azure CDN offre les avantages suivants :
 
-- Intégration du déploiement de contenu (images, scripts et feuilles de style) dans le cadre du processus de [déploiement continu](../web-sites-publish-source-control.md) de votre application Web Azure
+- Intégration du déploiement de contenu (images, scripts et feuilles de style) dans le cadre du processus de [déploiement continu](../app-service-web/web-sites-publish-source-control.md) de votre application Web Azure
 - Mise à niveau simplifiée pour vos packages NuGet à contenu CDN, comme les versions jQuery ou Bootstrap 
 - Gestion de votre application web et de votre contenu CDN depuis la même interface Visual Studio
 
-Pour les didacticiels connexes, consultez les rubriques [Utiliser Azure CDN dans Azure App Service](../cdn-websites-with-cdn.md) et [Intégration d'un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
+Pour les didacticiels connexes, consultez les rubriques [Utiliser Azure CDN dans Azure App Service](../app-service-web/cdn-websites-with-cdn.md) et [Intégration d'un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
 
 Sans intégration avec les services Azure App Service Web Apps ou Azure Cloud Services, vous pouvez utiliser Azure CDN pour les regroupements de vos scripts, avec les mises en garde suivantes :
 
@@ -267,10 +267,10 @@ Sans intégration avec les services Azure App Service Web Apps ou Azure Clo
 
 ## Informations complémentaires ##
 - [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md)
-- [Utiliser Azure CDN dans Azure App Service](../cdn-websites-with-cdn.md)
+- [Utiliser Azure CDN dans Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Intégration d’un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
 - [Comment mapper le contenu du réseau de distribution de contenu (CDN) à un domaine personnalisé](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Utilisation du réseau de distribution de contenu (CDN) Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

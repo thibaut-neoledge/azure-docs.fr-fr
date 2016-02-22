@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -246,7 +246,9 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensions
+### Outils et extensions
+
+* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -273,4 +275,4 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -2,6 +2,7 @@
    pageTitle="Changement d’attribut d’objet d’utilisateur externe pour la version préliminaire d’Azure Active Directory B2B Collaboration | Microsoft Azure"
    description="Azure Active Directory B2B prend en charge les relations interentreprises en permettant aux partenaires commerciaux d’accéder de façon sélective à vos applications d’entreprise"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -34,5 +35,6 @@ Consultez les autres articles sur Azure B2B Collaboration :
 - [Référence du format de fichier CSV](active-directory-b2b-references-csv-file-format.md)
 - [Format du jeton utilisateur externe](active-directory-b2b-references-external-user-token-format.md)
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
+- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

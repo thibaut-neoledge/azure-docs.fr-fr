@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/04/2016"
 	ms.author="yuaxu"/>
 
 # Ajouter des notifications Push à votre application Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## Vue d'ensemble
 Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide Android] afin qu’une notification Push soit envoyée chaque fois qu’un enregistrement est inséré. Ce didacticiel est basé sur le didacticiel [Démarrage rapide Android], que vous devez effectuer en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -57,7 +57,7 @@ Vous devez vous assurer que votre projet d’application Android est prêt à g�
 
 L'étape suivante consiste à installer les services Google Play. Google Cloud Messaging a des spécifications requises d'API minimales pour le développement et les tests, auxquelles la propriété **minSdkVersion** du manifeste doit se conformer.
 
-Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur et définissez-la correctement.
+Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur.
 
 ###Ajout de services Google Play au projet
 
@@ -78,4 +78,6 @@ Vous pouvez tester l'application en connectant directement un téléphone Androi
 <!-- URLs -->
 [Démarrage rapide Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0204_2016-->
+[Configuration du Kit de développement logiciel (SDK) des services Google Play]: https://developers.google.com/android/guides/setup
+
+<!---HONumber=AcomDC_0211_2016-->

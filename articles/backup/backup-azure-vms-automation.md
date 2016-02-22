@@ -223,9 +223,9 @@ La création de la machine virtuelle à partir de disques restaurés peut être 
 ```
  $properties  = $details.Properties
 
- $storageAccountName = $properties["TargetStorageAccountName"]
- $containerName = $properties["TargetContainerName"]
- $blobName = $properties["TargetBlobName"]
+ $storageAccountName = $properties["Target Storage Account Name"]
+ $containerName = $properties["Config Blob Container Name"]
+ $blobName = $properties["Config Blob Name"]
 
  $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
  $storageAccountKey = $keys.Primary
@@ -236,7 +236,7 @@ La création de la machine virtuelle à partir de disques restaurés peut être 
  Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
 
 
- $obj = [xml](Get-Content $destination_path)
+$obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([char]0x00))
  $pvr = $obj.PersistentVMRole
  $os = $pvr.OSVirtualHardDisk
  $dds = $pvr.DataVirtualHardDisks
@@ -330,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Si vous souhaitez ajouter des fonctionnalités graphiques à ce rapport, consultez le blog TechNet sur [Fonctionnalités graphiques avec PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

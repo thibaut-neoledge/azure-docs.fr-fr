@@ -18,7 +18,7 @@
 
 # Gestion de périphérique IoT à l’aide d’Azure IoT Suite et d’Azure IoT Hub
 
-Azure IoT Suite et Azure IoT Hub fournissent les fonctionnalités de base qui permettent la gestion des périphériques de solutions IoT à l’échelle et d’un ensemble varié de périphériques et topologies de périphériques. Dans cet article, les références à la gestion des périphériques concernent spécifiquement la gestion de périphériques IoT.
+[Azure IoT Suite][lnk-iot-suite] et Azure IoT Hub fournissent les fonctionnalités de base qui permettent la gestion des périphériques de solutions IoT à l’échelle et d’un ensemble varié de périphériques et topologies de périphériques. Dans cet article, les références à la gestion des périphériques concernent spécifiquement la gestion de périphériques IoT.
 
 ## Introduction
 
@@ -72,7 +72,7 @@ Un déploiement IoT de production fonctionnant avec des contraintes réseau et d
 
 ### Solution préconfigurée de surveillance à distance et modèle de périphérique
 
-La solution de surveillance à distance d’Azure IoT Suite met en œuvre un modèle de périphérique défini par l’utilisateur. L’utilisation de ce modèle permet une itération rapide au fur et à mesure que vous définissez et modifiez les capacités de votre périphérique.
+La [solution préconfigurée de surveillance à distance][lnk-remote-monitoring] d’Azure IoT Suite met en œuvre un modèle de périphérique défini par l’utilisateur. L’utilisation de ce modèle permet une itération rapide au fur et à mesure que vous définissez et modifiez les capacités de votre périphérique.
 
 Vous trouverez le code source pour cette solution préconfigurée dans le référentiel GitHub [azure-iot-solution][lnk-azure-iot-solution].
 
@@ -157,5 +157,7 @@ Pour en savoir plus sur Azure IoT Hub, consultez ces liens :
 [service-bus-relay]: ../service-bus/service-bus-relay-overview.md
 [Connexion de votre appareil]: https://azure.microsoft.com/develop/iot/
 [lnk-azure-iot-solution]: https://github.com/Azure/azure-iot-solution
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-remote-monitoring]: ../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/16/2015" 
+    ms.date="02/08/2016" 
     ms.author="elizapo" />
 
 
@@ -26,9 +26,11 @@ Si vous déployez Azure RemoteApp, vous utilisez probablement un abonnement Azur
 Pour plus d’informations sur le déploiement d’applications clientes Office 365, consultez [Utilisation de votre abonnement Office 365 avec Azure RemoteApp](remoteapp-officesubscription.md).
  
 ## Étape 1 : Inscrire votre abonnement Office 365 Azure Active Directory gratuit
-Pour obtenir un accès administratif à votre annuaire Azure AD par le biais du portail de gestion Azure, consultez [Modification du client Azure Active Directory dans Azure RemoteApp](remoteapp-changetenant.md). Une fois que vous avez suivi ce processus, vous devez pouvoir vous connecter au portail Azure et voir votre annuaire. À ce stade, vous ne voyez que ceci, car l’abonnement Azure complet que vous utilisez avec Azure RemoteApp est associé à un autre annuaire.
+Si vous utilisez le portail Azure Classic, utilisez la procédure décrite dans [Inscrire votre abonnement Azure Active Directory gratuit](https://technet.microsoft.com/library/dn832618.aspx) pour obtenir un accès administratif à votre Azure AD via le portail de gestion Azure. Une fois que vous avez suivi ce processus, vous devez pouvoir vous connecter au portail Azure et voir votre annuaire. À ce stade, vous ne voyez que ceci, car l’abonnement Azure complet que vous utilisez avec Azure RemoteApp est associé à un autre annuaire.
 
 Prenez note du nom et du mot de passe du compte d’administrateur créé lors de cette étape : ils vous seront utiles à l’étape 2.
+
+Si vous utilisez le portail Azure, consultez [Inscription et activation d'un abonnement Azure Active Directory gratuit à l'aide du portail Office 365](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
 
 ## Étape 2 : Modifier l’annuaire Azure AD associé à votre abonnement Azure
 Nous allons modifier votre abonnement Azure en remplaçant l’annuaire actuel par l’annuaire Office 365 que nous avons configuré lors de l’étape 1.
@@ -43,4 +45,4 @@ Suivez les instructions de la rubrique [Modification du client Azure Active Dire
 
 À ce stade, votre abonnement Azure RemoteApp est associé à votre annuaire Office 365 Azure AD. Vous pouvez utiliser les comptes d’utilisateur Office 365 existants avec Azure RemoteApp.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

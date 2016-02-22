@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Déploiement de plusieurs machines virtuelles à cartes réseau (classiques) à l'aide de l'interface de ligne de commande d’Azure
@@ -27,17 +27,17 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Étant donné que vous ne pouvez pas pour l’instant avoir des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau dans le même groupe de ressources, vous devrez implémenter les serveurs principaux dans un groupe de ressources différent des autres composants. Les étapes ci-dessous utilisent un groupe de ressources nommé *IaaSStory* pour le groupe de ressources principal et *back-end IaaSStory* pour les serveurs principaux.
+Étant donné que vous ne pouvez pas pour l’instant avoir des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau dans le même groupe de ressources, vous devez implémenter les serveurs principaux dans un groupe de ressources différent des autres composants. Les étapes ci-dessous utilisent un groupe de ressources nommé *IaaSStory* pour le groupe de ressources principal et *IaaSStory-BackEnd* pour les serveurs principaux.
 
 ## Composants requis
 
 Avant de déployer les serveurs principaux, vous devez déployer le groupe de ressources principal avec toutes les ressources nécessaires pour ce scénario. Pour déployer ces ressources, procédez comme suit.
 
 1. Accédez à la [page de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Dans la page de modèle, à droite du **groupe de ressources Parent**, cliquez sur **Déployer dans Azure**.
-3. Si nécessaire, modifiez les valeurs de paramètre, puis suivez les étapes dans le portail Azure en version préliminaire pour déployer le groupe de ressources.
+2. Dans la page de modèle, à droite du **groupe de ressources parent**, cliquez sur **Déployer dans Azure**.
+3. Si nécessaire, modifiez les valeurs de paramètre, puis suivez les étapes du portail Azure en version préliminaire pour déployer le groupe de ressources.
 
-> [AZURE.IMPORTANT]Assurez-vous que vos noms de compte de stockage sont uniques. Vous ne pouvez avoir des noms de compte de stockage en double dans Azure.
+> [AZURE.IMPORTANT] Assurez-vous que vos noms de compte de stockage sont uniques. Vous ne pouvez avoir des noms de compte de stockage en double dans Azure.
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -45,13 +45,13 @@ Avant de déployer les serveurs principaux, vous devez déployer le groupe de re
 
 Les machines virtuelles principales dépendent de la création de ressources répertoriées ci-dessous.
 
-- **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l'emplacement Azure de déploiement prend en charge le stockage Premium.
-- **Cartes réseau**. Chaque machine virtuelle a deux cartes réseau, une pour l'accès à la base de données et l'autre pour la gestion.
-- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles soit en cours d'exécution lors de la maintenance. 
+- **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l’emplacement Azure de déploiement prend en charge le stockage Premium.
+- **Cartes réseau**. Chaque machine virtuelle a deux cartes réseau, une pour l’accès à la base de données et l’autre pour la gestion.
+- **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance. 
 
 ### Étape 1 : démarrage de votre script
 
-Vous pouvez télécharger le script d'interpréteur de commandes complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.sh). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
+Vous pouvez télécharger le script d'interpréteur de commandes complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
 1. Modifiez les valeurs des variables suivantes selon votre groupe de ressources existant déployé ci-dessus dans les [Conditions préalables](#Prerequisites).
 
@@ -88,7 +88,7 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP]La première commande ci-dessus utilise [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) et [la manipulation des chaînes](http://tldp.org/LDP/abs/html/string-manipulation.html) (plus précisément, suppression de sous-chaîne).
+>[AZURE.TIP] La première commande ci-dessus utilise [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) et [la manipulation des chaînes](http://tldp.org/LDP/abs/html/string-manipulation.html) (plus précisément, suppression de sous-chaîne).
 
 4. Récupérez l'ID du groupe de sécurité réseau `NSG-RemoteAccess`. Vous devez le faire dans la mesure où les cartes à associer à ce groupe de sécurité réseau se trouvent dans un autre groupe de ressources.
 
@@ -330,4 +330,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->
