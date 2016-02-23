@@ -302,7 +302,9 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
     ![][031]
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
 ## Liens vers la documentation de réinitialisation du mot de passe
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :

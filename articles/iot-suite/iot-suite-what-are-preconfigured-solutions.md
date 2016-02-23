@@ -34,7 +34,8 @@ Le tableau suivant montre le mappage entre les solutions et des fonctionnalités
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
 |------------------------|-----|-----|-----|-----|-----|
-| [Surveillance à distance][lnk-remote-monitoring] | Oui | Oui | Oui | Oui | - | | [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
+| [Surveillance à distance][lnk-remote-monitoring] | Oui | Oui | Oui | Oui | - |
+| [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
 
 ## Présentation de la solution préconfigurée de surveillance à distance
 

@@ -261,7 +261,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 ### Ajouter partitionweblogs.hql et input.log comme dépendance 
 
 1. Cliquez avec le bouton droit sur **Dépendances** dans la fenêtre **Explorateur de solutions**, pointez sur **Ajouter**, puis cliquez sur **Élément existant**.  
-2. Accédez au dossier **C:\\ADFGettingStarted**, sélectionnez les fichiers **partitionweblogs.hql** et **input.log**, puis cliquez sur **Ajouter**. Vous avez créé ces deux fichiers dans le cadre de la configuration requise dans la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md).
+2. Accédez au dossier **C:\ADFGettingStarted**, sélectionnez les fichiers **partitionweblogs.hql** et **input.log**, puis cliquez sur **Ajouter**. Vous avez créé ces deux fichiers dans le cadre de la configuration requise dans la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md).
 
 Quand vous publiez la solution à l’étape suivante, le fichier **partitionweblogs.hql** est chargé dans le dossier scripts du conteneur d’objets blob **adfgetstarted**.
 
@@ -291,7 +291,8 @@ Quand vous publiez la solution à l’étape suivante, le fichier **partitionweb
 ## Étape 4 : Surveiller le pipeline
 
 6. Connectez-vous au [portail Azure](https://portal.azure.com/) et procédez comme suit :
-	1. Cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. ![Parcourir les fabriques de données](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. 
+		![Parcourir les fabriques de données](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Sélectionnez **FirstDataFactoryUsingVS** dans la liste des fabriques de données. 
 7. Dans la page d’accueil de votre fabrique de données, cliquez sur **Diagramme**.
   

@@ -38,7 +38,7 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 * [Didacticiel : prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md)
 
-* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurebatch)
+* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Vidéos sur Azure Batch](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -83,7 +83,7 @@ Ces modèles Azure permettent de déployer des clusters HPC Linux.
 
 * [Informations de référence sur MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Forum MPI](https://social.microsoft.com/Forums/fr-FR/home?forum=windowshpcmpi)
+* [Forum MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 ## Instances de calcul intensif
 
