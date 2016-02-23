@@ -18,6 +18,6 @@
    ms.date="02/15/2016"
    ms.author="rogardle"/>
    
-   Procédure d’ajout de contenu sur Docker Swarm
+   # Procédure d’ajout de contenu sur Docker Swarm
 
 <!---HONumber=AcomDC_0218_2016-->
