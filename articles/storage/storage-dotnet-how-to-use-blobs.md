@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/22/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -353,8 +353,8 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 - [Prise en main du stockage de table pour .NET](storage-dotnet-how-to-use-tables.md)
 - [Prise en main du stockage en files d’attente pour .NET](storage-dotnet-how-to-use-queues.md)
 - [Prise en main du stockage de fichier pour .NET](storage-dotnet-how-to-use-files.md)
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
-- [Utiliser une base de données SQL pour stocker des données relationnelles](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+- [Utilisation d’une base de données SQL Azure dans des applications .NET](../sql-database/sql-database-dotnet-how-to-use.md)
 - [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
@@ -368,4 +368,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="get-started-article"
+	ms.date="02/18/2016"
 	ms.author="billmath"/>
 
 # Comparaison des outils d’intégration de répertoire
@@ -27,8 +27,7 @@ Au fil des années, les outils d’intégration de répertoire ont évolué et s
 
 Le code suivant s’applique aux tableaux ci-dessous.
 
-● = Disponible maintenant</br> VU = Version ultérieure</br> PP = Version préliminaire publique</br>
-
+● = Disponible maintenant VU = Version ultérieure PP = Version préliminaire publique
 
 ## Synchronisation des ressources locales avec le cloud
 
@@ -72,7 +71,7 @@ Le code suivant s’applique aux tableaux ci-dessous.
 | Installation des supports sur un contrôleur de domaine | ● | ● | ● | |
 | Installation des supports à l’aide de SQL Express | ● | ● | ● | |
 | Mise à niveau facile à partir de DirSync |● | | | |
-| Langues de localisation de Windows Server | FR | ● | ● | |
+| Langues de localisation de Windows Server | ● | ● | ● | |
 | Prise en charge pour Windows Server 2008 et Windows Server 2008 R2 | ● pour la synchronisation, pas pour la fédération| ● | ● | ● |
 | Prise en charge pour Windows Server 2012 et Windows Server 2012 R2 | ● | ● | ● | 2012 uniquement |
 
@@ -91,4 +90,4 @@ Autorisation de la personnalisation avancée pour les flux d’attributs | ● |
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

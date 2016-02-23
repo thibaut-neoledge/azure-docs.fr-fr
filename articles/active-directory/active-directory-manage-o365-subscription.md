@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/10/2016"
    ms.author="curtand"/>
 
 #Gestion du répertoire de l’abonnement Office 365 dans Azure
@@ -48,7 +48,8 @@ Dans ce cas, les deux annuaires sont indépendants l’un de l’autre.
 ##Pour gérer deux annuaires indépendants
 Pour que Michael Smith puisse gérer les deux annuaires pendant qu'il est connecté à Azure en tant que msmith@hotmail.com, il a besoin d’effectuer les opérations suivantes :
 
-> [AZURE.NOTE]Ces étapes ne peuvent être effectuées que lorsqu'un utilisateur est connecté via un compte Microsoft. Lorsque l'utilisateur est connecté à l’aide d’un compte professionnel ou scolaire, l'option **Utiliser un annuaire existant** est indisponible, car ce type de compte ne peut être authentifié qu’à l’aide d’un annuaire de base (autrement dit, l’annuaire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
+> [AZURE.NOTE]
+Ces étapes ne peuvent être effectuées que lorsqu'un utilisateur est connecté via un compte Microsoft. Lorsque l'utilisateur est connecté à l’aide d’un compte professionnel ou scolaire, l'option **Utiliser un annuaire existant** est indisponible, car ce type de compte ne peut être authentifié qu’à l’aide d’un annuaire de base (autrement dit, l’annuaire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
 
 1.	Connectez-vous au portail Azure Classic en tant que msmith@hotmail.com.
 2.	Cliquez sur **Nouveau** > **Services d’application** > **Active Directory** > **Répertoire** > **Création personnalisée**.
@@ -70,4 +71,4 @@ Supposons maintenant que John Doe doit se connecter au portail Azure Classic et 
 ##Étapes suivantes
 Pour plus d'informations sur la relation entre les annuaires et les abonnements, consultez [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

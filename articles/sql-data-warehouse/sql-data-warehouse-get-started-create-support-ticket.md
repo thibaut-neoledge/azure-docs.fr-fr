@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/12/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Création d'un ticket de support pour SQL Data Warehouse
@@ -22,7 +22,7 @@
 
 ## Création d'un ticket de support
 
-1. Ouvrez le [Portail Azure Classic][]. 
+1. Ouvrez le [portail Azure][]. 
 2. Dans l'écran d'accueil, cliquez sur la vignette **Aide + Support**.
 
     ![Aide + Support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -78,10 +78,10 @@ En outre, vous pouvez contacter la communauté SQL Data Warehouse à l'aide de l
 
 <!-- External links -->
 
-[Portail Azure Classic]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 [Plans de support Azure]: http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [portail en ligne Microsoft Premier]: https://premier.microsoft.com/
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [forum MSDN Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

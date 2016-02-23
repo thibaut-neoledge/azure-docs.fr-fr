@@ -12,212 +12,127 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="12/04/2015"
+ ms.date="02/17/2016"
  ms.author="krisragh"/>
 
-# Prise en charge d’Azure Scheduler dans le portail Azure Classic
+# Prise en main d’Azure Scheduler dans le portail Azure
 
-## Prise en main
+Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce didacticiel vous guide dans la création d’un travail. Vous y découvrirez également les fonctionnalités de gestion et de surveillance de Scheduler.
 
-Il est facile de créer des travaux et des collections de travaux dans Azure Scheduler. Ce didacticiel détaille la création de la collection de travaux que vous allez utiliser pour stocker les travaux, la création d’un travail dans une collection de travaux et une présentation des tâches de surveillance et de gestion des travaux disponibles. Vous devez avoir une expérience préalable avec Azure pour pouvoir suivre ce didacticiel.
+## Création d’un travail
 
-La première fois que vous ouvrez le portail Azure Classic, l’onglet **Tous les éléments** s’affiche automatiquement. Les colonnes de cet onglet peuvent être triées. Pour afficher vos travaux et collections de travaux de Scheduler, cliquez sur l’onglet **Scheduler**.
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).  
 
-![][1]
+2.  Cliquez sur **+Nouveau**, entrez _Scheduler_ dans la zone de recherche, sélectionnez **Scheduler** dans la liste de résultats, puis cliquez sur **Créer**.
 
-## Créer une collection de travaux et un travail
+   ![][marketplace-create]
 
-1.  Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).  
+3.  Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Tâche du planificateur**, entrez les informations suivantes :
 
-2.  Cliquez sur **App Services** > **Créer** > **Scheduler**, puis sur **Création personnalisée**. <br /><br /> ![][2]
+    1.  **Nom :** `getmicrosoft`  
 
-3.  Dans **Collection de travaux**, sélectionnez le nom de la collection de travaux existants sous la liste déroulante **Collection de travaux**. Si vous n'avez de collection de travaux existante à laquelle ajouter le travail, sélectionnez **Créer** et entrez un nom pour identifier votre nouvelle collection de travaux.<br /><br /> ![][3]
+    2.  **Abonnement **: votre abonnement Azure
 
-4.  Dans **Région**, sélectionnez la région géographique de la collection de travaux.
+    3.  **Collection de tâches :** sélectionnez une collection de tâches existante, ou cliquez sur **Créer** et entrez un nom.
 
-5.  Cliquez sur la touche de direction pour créer la collection de travaux et passer à l'étape suivante ; la création d'un travail.
+4.  Ensuite, dans **Paramètres d’action**, définissez les valeurs suivantes :
 
-6.  Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Action du travail**, définissez les valeurs suivantes pour les champs de formulaire requis :
+    1.  **Type d’action :** ` HTTP`  
 
-    1.  **Nom :** ` getmicrosoft`  
+    2.  **Méthode :** `GET`
 
-    2.  **Type d’action :** ` HTTP`
+    3.  **URL :** ` http://www.microsoft.com`
 
-    3.  **Méthode :** ` GET`
+   ![][action-settings]
 
-    4.  **URI :** ` http://www.microsoft.com`
+5.  Pour finir, nous allons définir une planification. Il est possible de définir un travail ponctuel, mais nous allons ici sélectionner une planification périodique :
 
-   	![][4]
+    1. **Périodicité** : `Recurring`
 
-7.  Après avoir créé un travail, définissez une planification. Le travail peut être défini comme un travail ponctuel, mais nous allons sélectionner une planification périodique. Certaines captures d'écran de ce didacticiel illustrent une périodicité de 1 minute uniquement à titre d'illustration, mais choisissez une périodicité de 12 heures.
+    2. **Début** : date du jour
 
-    1.  **Répéter toutes les :** ` 12 Hours`  
+    3. **Répéter toutes les :** `12 Hours`
 
-    2.  **Début :** ` Now`
+    4. **Fin** : deux jours à compter de la date du jour
 
-    3.  **Fin :** ` Select date 2 days after current day and any time`
+   ![][recurrence-schedule]
 
-   	![][5]
+6.  Cliquez sur **Créer**
 
-8.  Cliquez sur **OK**. La création du travail et de la collection de travaux peut prendre du temps. Pour vérifier l’état d’avancement de l’opération, vous pouvez contrôler les notifications au bas du portail.
+## Gestion et surveillance des travaux
 
-   	![][6]
+Une fois créé, le travail apparaît dans le tableau de bord principal d’Azure. Cliquez sur le travail pour ouvrir une nouvelle fenêtre avec les onglets suivants :
 
-   	Une fois le travail et la collection de travaux créés, un message vous indique que l’opération a réussi. Le travail est répertorié dans la section Travaux de Scheduler et la collection de travaux est répertoriée dans la section Collections de travaux. Pour configurer des paramètres avancés supplémentaires dans le travail, reportez-vous à la section « Configurer un travail » ci-dessous.
+1.  Propriétés  
 
-   	![][7]
+2.  Paramètres d’action
 
-## Gérer et surveiller des collections de travaux et des travaux
+3.  Planification
 
-Une fois une collection de travaux créée, celle-ci apparaît dans l’écran principal de gestion de Scheduler.
+4.  Historique
 
-![][8]
+5.  Utilisateurs
 
-Cliquez sur une collection de travaux pour ouvrir une nouvelle fenêtre avec les options suivantes :
+   ![][job-overview]
 
-1.  Tableau de bord  
+### Propriétés
 
-2.  Mise à l'échelle
+Ces propriétés en lecture seule décrivent les métadonnées de gestion du travail Scheduler.
 
-3.  Historique
+   ![][job-properties]
 
-4.  Travaux
 
-Les rubriques suivantes décrivent ces onglets en détail.
+### Paramètres d'action
 
-### Tableau de bord
+Cliquez sur un travail dans l’écran **Travaux** pour configurer ce travail. Cela vous permet de configurer les paramètres avancés, si vous ne les avez pas encore configurés dans l’Assistant de création rapide.
 
-Quand vous cliquez sur le nom de la collection de travaux, l’onglet **Tableau de bord** apparaît. Le tableau de bord affiche les informations suivantes :
+Pour tous les types d’action, vous pouvez modifier la stratégie de nouvelle tentative et l’action d’erreur.
 
-![][9]
+Pour les types d'action de travail HTTP et HTTPS, vous pouvez modifier la méthode de tout verbe HTTP autorisé. Vous pouvez également ajouter, supprimer ou modifier les en-têtes et les informations d'authentification de base.
 
-#### Présentation de l’utilisation du travail et de l’utilisation de l’exécution
+Pour les types d'action de file d'attente de stockage, vous pouvez modifier le compte de stockage, le nom de file d'attente, le jeton SAS et le corps.
 
-Un tableau et une série de graphiques affichant une liste fixe de mesures. Ces mesures fournissent des valeurs en temps réel concernant l'intégrité de votre collection de travaux, y compris :
+Pour les types d’action Service Bus, vous pouvez modifier l’espace de noms, chemin d’accès de la rubrique/file d’attente, les paramètres d’authentification, le type de transport, les propriétés du message et le corps du message.
 
-1.  Travaux en cours  
+   ![][job-action-settings]
 
-2.  Travaux terminés
+### Planification
 
-3.  Travaux ayant généré une erreur
+Cet onglet vous permet de reconfigurer la planification, si vous souhaitez modifier la planification que vous avez créée dans l’Assistant de création rapide.
 
-4.  Travaux activés
+Vous pouvez en profiter pour [créer des planifications complexes et une périodicité avancée dans votre travail](scheduler-advanced-complexity.md).
 
-5.  Travaux désactivés
+Vous pouvez modifier la date et l'heure de début, la planification de périodicité et la date et l'heure de fin (si le travail est périodique).
 
-6.  Exécutions de travaux
+   ![][job-schedule]
 
-#### Aperçu rapide
-
-Un tableau affichant une liste fixe des états et des mesures de paramètres. Ces mesures fournissent des valeurs en temps réel concernant l'état et les paramètres associés à votre collection de travaux, y compris :
-
-1.  Statut  
-
-2.  Région
-
-3.  Nombre d'erreurs
-
-4.  Nombre d'occurrences des pannes
-
-5.  URI
-
-### Mise à l'échelle
-
-Dans l’onglet **Mise à l’échelle**, vous pouvez modifier les paramètres et le niveau de service utilisés par Scheduler.
-
-![][10]
-
-#### Généralités
-
-Indique si vous êtes dans le plan **gratuit** ou **standard**.
-
-#### Quotas
-
-Azure Scheduler implémente des quotas en fonction de plusieurs conditions. Cette section répertorie les seuils de quota et vous permet de les modifier. Par défaut, un seul jeu de quotas est configuré. Les limites de ces paramètres de quota sont contraintes par votre plan et la modification du plan peut affecter la tarification. Les quotas peuvent être modifiés pour faire évoluer votre Scheduler. Les options incluent :
-
-1.  Nombre maximal de travaux  
-
-2.  Fréquence maximale
-
-3.  Intervalle maximal
 
 ### Historique
 
-L’onglet **Historique** affiche les informations suivantes sur le travail sélectionné :
-
-![][11]
-
-#### Table d’historique
-
-Une table qui affiche des mesures sélectionnées pour chaque exécution du travail dans le système pour le travail sélectionné. Ces mesures fournissent des valeurs en temps réel concernant l'intégrité de votre Scheduler.
-
-#### Mesures disponibles
-
-Les mesures/compteurs de performances suivants sont disponibles :
+L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécution du travail dans le système pour le travail sélectionné. Ces mesures fournissent des valeurs en temps réel concernant l’intégrité de votre Scheduler :
 
 1.  Statut  
 
 2.  Détails
 
-3.  Nouvelle tentative
+3.  Nouvelles tentatives
 
-4.  Nombre d'exécutions (1er, 2e, 3e, etc.)
+4.  Occurrence : 1er, 2e, 3e, etc..
 
-5.  Horodateur de l'exécution
+5.  Heure de début de l’exécution
 
-Vous pouvez cliquer sur **Afficher les détails de l’historique** pour examiner la réponse entière pour chaque exécution. Cette boîte de dialogue vous permet également de copier la réponse dans le Presse-papiers.
+6.  Heure de fin de l’exécution
 
-![][12]
+   ![][job-history]
 
-### Travaux
+Vous pouvez cliquer sur une exécution pour afficher les **détails de l’historique**, et notamment l’ensemble de la réponse obtenue pour chaque exécution. Cette boîte de dialogue vous permet également de copier la réponse dans le Presse-papiers.
 
-L'onglet Travaux affiche les informations suivantes pour analyser l'historique d'exécution des travaux :
+   ![][job-history-details]
 
-![][13]
+### Utilisateurs
 
-#### Table des travaux
+Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure Scheduler. Pour savoir comment utiliser l’onglet Utilisateurs, reportez-vous à [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md)
 
-Une table qui affiche des mesures sélectionnées pour chaque travail dans le système. Ces mesures fournissent des valeurs en temps réel concernant l'intégrité de votre Scheduler.
-
-#### Désactiver, activer ou supprimer un travail
-
-Cliquez sur le nom d’un travail pour afficher les options permettant d’activer, de désactiver ou de supprimer le travail. Les travaux supprimés ne peuvent pas être récupérés.
-
-#### Mesures disponibles
-
-Les mesures et compteurs suivants sont disponibles :
-
-1.  Nom  
-
-2.  Dernière exécution
-
-3.  Prochaine exécution
-
-4.  Statut
-
-5.  Fréquence
-
-6.  Échecs
-
-7.  Erreurs
-
-8.  Exécutions
-
-9.  Type d’action
-
-### Configurer un travail
-
-Cliquez sur un travail dans l’écran **Travaux** pour configurer ce travail. Cela vous permet de configurer des paramètres avancés supplémentaires au-delà de ceux disponibles dans l'Assistant de création rapide. Pour configurer un travail, cliquez sur la flèche droite en regard du nom du travail dans l’écran **Travaux**.
-
-La page de configuration du travail vous permet de mettre à jour les paramètres du travail. La page de configuration du travail est affichée ci-dessous pour les travaux HTTP et HTTPS. Pour les types d'action de travail HTTP et HTTPS, vous pouvez modifier la méthode de tout verbe HTTP autorisé. Vous pouvez également ajouter, supprimer ou modifier les en-têtes et les informations d'authentification de base.
-
-![][14]
-
-La page de configuration du travail s'affiche comme indiqué ci-dessous pour les travaux de file d'attente de stockage. Pour les types d'action de file d'attente de stockage, vous pouvez modifier le compte de stockage, le nom de file d'attente, le jeton SAS et le corps. La section « Planification » (non illustrée ci-dessous) est identique à la section « Planification » pour les types d'action de travail HTTP/HTTPS.
-
-![][15]
-
-Enfin, pour tous les types d'actions, vous pouvez modifier la planification proprement dite et son comportement de périodicité. Vous pouvez modifier la date et l'heure de début, la planification de périodicité et la date et l'heure de fin (si le travail est périodique). Après avoir apporté des modifications, vous pouvez les enregistrer en cliquant sur **Enregistrer** ou les ignorer en cliquant sur **Ignorer**.
 
 ## Voir aussi
 
@@ -240,6 +155,16 @@ Enfin, pour tous les types d'actions, vous pouvez modifier la planification prop
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
 
 
+[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
+[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
+[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
+[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
+[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
+[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
+[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
+[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
+[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
+
 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
 [2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
@@ -257,4 +182,4 @@ Enfin, pour tous les types d'actions, vous pouvez modifier la planification prop
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
@@ -45,4 +45,4 @@ Pour obtenir des informations détaillées sur les concentrateurs d'événements
 [didacticiel des concentrateurs d'événements]: event-hubs-csharp-ephcs-getstarted.md
 [exemple d'application complet qui utilise des concentrateurs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

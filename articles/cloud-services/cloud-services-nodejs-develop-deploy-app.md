@@ -51,7 +51,7 @@ Il s’agit d’une application « hello world » simple :
 Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec la structure Node.js de base :
 
 
-1. Exécutez **Azure PowerShell** en tant qu’administrateur. (À partir du **menu Démarrer** ou de l'**écran d'accueil**, recherchez **Azure PowerShell**.)
+1. Exécutez **Windows PowerShell** en tant qu’administrateur (à partir du **menu Démarrer** ou de l’**écran d’accueil**, lancez une recherche sur **Windows PowerShell**).
 
 2.  [Connectez PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) à votre abonnement.
 3.  Entrez l’applet de commande PowerShell suivante pour créer le projet :
@@ -198,4 +198,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

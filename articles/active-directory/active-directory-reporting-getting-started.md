@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/01/2016"
+   ms.date="02/10/2016"
    ms.author="curtand;kenhoff"/>
 
 # Prise en main de la création de rapports Azure Active Directory
@@ -156,4 +156,4 @@ Envoyez un message à [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@m
 
 > [AZURE.TIP] Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

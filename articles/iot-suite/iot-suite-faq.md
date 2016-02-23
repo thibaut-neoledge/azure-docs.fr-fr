@@ -1,6 +1,6 @@
 <properties
   pageTitle="FAQ sur IoT Azure Suite | Microsoft Azure"
-  description="Forum aux questions pour IoT Suite."
+  description="Forum Aux Questions (FAQ) relatives à IoT Suite"
   services=""
   suite="iot-suite"
   documentationCenter=""
@@ -11,13 +11,13 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="11/17/2015"
   ms.author="araguila"/>
    
-# Forum Aux Questions
+# Forum Aux Questions (FAQ) relatives à IoT Suite
 
 ### Combien d’instances de DocumentDB puis-je configurer dans un abonnement ?
 
@@ -43,4 +43,4 @@ Consultez billet de blog de Eric Golpe [Procédure pas à pas de la suppression 
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -2,7 +2,7 @@
 
 La bibliothèque du client de stockage Azure pour .NET prend en charge l’utilisation d’une chaîne de connexion de stockage pour la configuration de points de terminaison et d’informations d’identification permettant d’accéder aux services de stockage. Nous vous recommandons de conserver votre chaîne de connexion de stockage dans un fichier de configuration au lieu de la coder en dur dans votre application. Deux options sont disponibles pour enregistrer votre chaîne de connexion :
 
-- Si votre application s’exécute dans un service cloud Azure, enregistrez votre chaîne de connexion à l’aide du système de configuration de service Azure (fichiers `*.csdef` et `*.cscfg`). Pour plus d'informations sur la configuration de service cloud Azure, consultez [Création et déploiement d’un service cloud](../articles/cloud-services/cloud-services-how-to-create-deploy.md).
+- Si votre application s’exécute dans un service cloud Azure, enregistrez votre chaîne de connexion à l’aide du système de configuration de service Azure (fichiers `*.csdef` et `*.cscfg`). Pour plus d’informations sur la configuration de service cloud Azure, consultez [Création et déploiement d’un service cloud](../articles/cloud-services/cloud-services-how-to-create-deploy.md).
 - Si votre application s’exécute sur des ordinateurs virtuels Azure, ou si vous développez des applications .NET qui s’exécuteront en dehors d’Azure, enregistrez votre chaîne de connexion à l’aide du système de configuration .NET (par exemple, le fichier `web.config` ou `app.config`).
 
 Plus loin dans ce guide, nous vous montrerons comment extraire votre chaîne de connexion de votre code.
@@ -25,11 +25,11 @@ Pour configurer votre chaîne de connexion dans la configuration de service Azur
 
 5.  Indiquez si vous voulez cibler l’émulateur de stockage (stockage Microsoft Azure simulé sur votre ordinateur local) ou un compte de stockage dans le cloud. Le code de ce guide fonctionne dans les deux cas.
 
-	> [AZURE.NOTE]Vous pouvez cibler l’émulateur de stockage pour éviter les frais liés à l’utilisation des services de stockage Azure. Toutefois, si vous choisissez de cibler un compte de stockage Azure situé dans le cloud, les frais associés à l’utilisation de ce didacticiel seront négligeables.
+	> [AZURE.NOTE] Vous pouvez cibler l’émulateur de stockage pour éviter les frais liés à l’utilisation des services de stockage Azure. Toutefois, si vous choisissez de cibler un compte de stockage Azure situé dans le cloud, les frais associés à l’utilisation de ce didacticiel seront négligeables.
 
-	Si vous ciblez un compte de stockage dans le cloud, entrez la clé d’accès primaire de ce compte de stockage. Pour découvrir comment copier votre clé d’accès primaire via le portail de gestion Azure, consultez [Afficher, copier et régénérer des clés d’accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+	Si vous ciblez un compte de stockage dans le cloud, entrez la clé d’accès primaire de ce compte de stockage. Pour découvrir comment copier votre clé d’accès primaire via le portail de gestion Azure, consultez [Afficher et copier les clés d’accès de stockage](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-	> [AZURE.NOTE]Votre clé de compte de stockage est similaire au mot de passe racine pour votre compte de stockage. Veillez à protéger votre clé. Évitez de la communiquer à d'autres utilisateurs ou de l'enregistrer dans un fichier texte brut accessible à d'autres personnes. Régénérez votre clé à l'aide du portail de gestion si vous pensez que sa confidentialité est compromise.
+	> [AZURE.NOTE] Votre clé de compte de stockage est similaire au mot de passe racine pour votre compte de stockage. Veillez à protéger votre clé. Évitez de la communiquer à d'autres utilisateurs ou de l'enregistrer dans un fichier texte brut accessible à d'autres personnes. Régénérez votre clé à l'aide du portail de gestion si vous pensez que sa confidentialité est compromise.
 	
     ![Select target environment][connection-string4]
 
@@ -63,4 +63,4 @@ Vous pouvez à présent effectuer les tâches présentées dans ce guide.
 
 [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

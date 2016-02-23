@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Synchronisation Azure AD Connect : présentation de la configuration par défaut | Microsoft Azure"
-   description="Cet article décrit la configuration par défaut dans la synchronisation Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Synchronisation Azure AD Connect : présentation de la configuration par défaut | Microsoft Azure"
+    description="Cet article décrit la configuration par défaut dans la synchronisation Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="01/21/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Azure AD Connect Sync : comprendre la configuration par défaut
 
@@ -217,7 +216,7 @@ Les transformations couvrent de nombreux aspects et constituent une large partie
 
 ### Précédence
 
-Nous avons maintenant vu certaines règles de synchronisation individuelles, mais les règles fonctionnent de concert dans la configuration. Dans certains cas, une valeur d’attribut est partagée à partir de plusieurs règles de synchronisation vers le même attribut cible. Dans ce cas, la précédence d’attribut est utilisée pour déterminer quel attribut l’emportera. Par exemple, examinons l’attribut sourceAnchor. Cet attribut est un important pour pouvoir se connecter à Azure AD. Nous pouvons trouver un flux d’attributs pour cet attribut dans deux règles de synchronisation différentes : **Entrant depuis AD – Utilisateur AccountEnabled** et **Entrant depuis AD – Utilisateur Common**. En raison de la précédence de la règle de synchronisation, l’attribut sourceAnchor est partagé à partir de la forêt avec un compte activé en premier lieu s’il existe plusieurs objets joints à l’objet métaverse. S’il n’y a aucun compte activé, nous allons utiliser la règle de synchronisation fourre-tout **Entrant depuis AD – Utilisateur Common**. Cela garantit que même pour les comptes qui sont désactivés, nous fournirons toujours un sourceAnchor.
+Nous avons maintenant vu certaines règles de synchronisation individuelles, mais les règles fonctionnent de concert dans la configuration. Dans certains cas, une valeur d’attribut est partagée à partir de plusieurs règles de synchronisation vers le même attribut cible. Dans ce cas, la précédence d’attribut est utilisée pour déterminer quel attribut l’emportera. Par exemple, examinons l’attribut sourceAnchor. Cet attribut est important pour pouvoir se connecter à Azure AD. Nous pouvons trouver un flux d’attributs pour cet attribut dans deux règles de synchronisation différentes : **Entrant depuis AD – Utilisateur AccountEnabled** et **Entrant depuis AD – Utilisateur Common**. En raison de la précédence de la règle de synchronisation, l’attribut sourceAnchor est partagé à partir de la forêt avec un compte activé en premier lieu s’il existe plusieurs objets joints à l’objet métaverse. S’il n’y a aucun compte activé, nous allons utiliser la règle de synchronisation fourre-tout **Entrant depuis AD – Utilisateur Common**. Cela garantit que même pour les comptes qui sont désactivés, nous fournirons toujours un sourceAnchor.
 
 ![Règles de synchronisation entrante](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
@@ -241,4 +240,4 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

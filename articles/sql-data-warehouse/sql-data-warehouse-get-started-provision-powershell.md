@@ -30,7 +30,7 @@
 Si vous ne disposez pas encore de la configuration PowerShell, vous devez la télécharger et la configurer.
 
 1. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
-2. Pour exécuter le module, tapez **Microsoft Azure PowerShell** dans la fenêtre de démarrage.
+2. Pour exécuter le module, entrez **Microsoft PowerShell** dans la fenêtre de démarrage.
 3. Exécutez cette applet de commande pour vous connecter à Azure Resource Manager. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell][].
 
 	```
@@ -96,4 +96,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Installation et configuration d’Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

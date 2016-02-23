@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="01/21/2016"
@@ -20,7 +20,7 @@
 
 Cet article fournit une vue d’ensemble de base des fonctionnalités API principales du service Azure Batch. Si vous développez une solution informatique distribuée à l’aide des API [Batch REST][batch_rest_api] ou [Batch .NET][batch_net_api], vous allez utiliser un certain nombre d’entités et de fonctionnalités présentées ci-dessous.
 
-> [AZURE.TIP]Pour obtenir une présentation technique générale du service Batch, consultez l’article [Concept de base d’Azure Batch](batch-technical-overview.md).
+> [AZURE.TIP] Pour obtenir une présentation technique générale du service Batch, consultez l’article [Concept de base d’Azure Batch](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Flux de travail du service Batch
 
@@ -38,7 +38,7 @@ Le flux de travail de haut niveau suivant est typique de celui qui est utilisé 
 
 6. Surveillez la progression du travail et récupérez les résultats.
 
-> [AZURE.NOTE]Vous aurez besoin d’un [compte Batch](batch-account-create-portal.md) pour utiliser le service de traitement par lots et presque toutes les solutions utiliseront un compte [Azure Storage][azure_storage] pour le stockage et la récupération des fichiers.
+> [AZURE.NOTE] Vous aurez besoin d’un [compte Batch](batch-account-create-portal.md) pour utiliser le service de traitement par lots et presque toutes les solutions utiliseront un compte [Azure Storage][azure_storage] pour le stockage et la récupération des fichiers.
 
 Dans les sections qui suivent, vous allez apprendre chacune des ressources mentionnées dans le flux de travail ci-dessus, ainsi que de nombreuses autres fonctionnalités de traitement par lots qui activeront votre scénario de calcul.
 
@@ -253,7 +253,8 @@ Une formule de mise à l’échelle peut être basée sur les mesures suivantes�
 
 Pour plus d’informations sur la mise à l’échelle automatique d’une application, consultez la section [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md).
 
-> [AZURE.TIP]Bien que ceci soit rarement nécessaire, il est possible de spécifier des nœuds à supprimer d’un pool. Si un nœud est suspecté d’être moins fiable, par exemple, il peut être supprimé du pool pour empêcher l’attribution des tâches supplémentaires.
+> [AZURE.TIP]
+ Bien que ceci soit rarement nécessaire, il est possible de spécifier des nœuds à supprimer d’un pool. Si un nœud est suspecté d’être moins fiable, par exemple, il peut être supprimé du pool pour empêcher l’attribution des tâches supplémentaires.
 
 ## <a name="cert"></a>Sécurité avec certificats
 
@@ -294,7 +295,7 @@ Pour chaque tâche planifiée d’un travail, l’ensemble suivant de variables 
 | `AZ_BATCH_TASK_ID` | ID de la tâche en cours. |
 | `AZ_BATCH_TASK_WORKING_DIR` | Chemin d’accès complet du répertoire de travail de la tâche du nœud. |
 
->[AZURE.NOTE]Vous ne pouvez pas remplacer les variables définies par le système ci-dessus. Elles sont en lecture seule.
+>[AZURE.NOTE] Vous ne pouvez pas remplacer les variables définies par le système ci-dessus. Elles sont en lecture seule.
 
 ## <a name="errorhandling"></a>Gestion des erreurs
 
@@ -319,7 +320,7 @@ Pendant l’exécution, une application peut produire des diagnostics pouvant ê
 
 Même les débogages étendus peuvent être effectués en se connectant à un nœud de calcul à l’aide du *Bureau à distance*. Vous pouvez [obtenir un fichier de protocole de bureau à distance depuis un nœud][rest_rdp] (API Batch REST) ou d’utiliser la méthode [ComputeNode.GetRDPFile][net_rdp] (API Batch .NET) pour la connexion à distance.
 
->[AZURE.NOTE]Pour vous connecter à un nœud via RDP, vous devez d’abord créer un utilisateur sur le nœud. [Ajouter un compte d’utilisateur à un nœud][rest_create_user] dans l’API Batch REST ou l’utilisation de [ComputeNode.CreateComputeNodeUser][net_create_user] dans Batch.NET.
+>[AZURE.NOTE] Pour vous connecter à un nœud via RDP, vous devez d’abord créer un utilisateur sur le nœud. [Ajouter un compte d’utilisateur à un nœud][rest_create_user] dans l’API Batch REST ou l’utilisation de [ComputeNode.CreateComputeNodeUser][net_create_user] dans Batch.NET.
 
 ### Prise en compte des échecs ou des interruptions de tâche
 
@@ -371,4 +372,4 @@ Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

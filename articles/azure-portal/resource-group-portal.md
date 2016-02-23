@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/29/2015" 
+	ms.date="02/11/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -21,11 +21,12 @@
 
 ## Introduction
 
-Avant, pour gérer une ressource (par exemple un serveur de base de données, une base de données ou une application web) dans Microsoft Azure, vous deviez exécuter les opérations sur une ressource à la fois. Avec une application complexe composée de plusieurs ressources, vous deviez coordonner manuellement les modifications apportées à l’infrastructure de l’application. Dans le portail Azure, vous pouvez utiliser Azure Resource Manager pour créer des groupes de ressources afin de déployer et de gérer toutes les ressources d’une application en même temps.
+Azure Resource Manager vous permet de déployer et de gérer vos solutions via des groupes de ressources. Cette rubrique fournit un aperçu de la façon dont vous pouvez utiliser les groupes de ressources dans le portail Azure. En général, un groupe de ressources contient des ressources associées à une application spécifique. Par exemple, un groupe peut contenir une application web qui héberge votre site web public, une base de données SQL qui stocke les données relationnelles utilisées par le site et un compte de stockage qui stocke les ressources non relationnelles. Chaque ressource d’un groupe de ressources doit partager le même cycle de vie. Pour plus d’informations sur Resource Manager, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
-En général, un groupe de ressources contient des ressources associées à une application spécifique. Par exemple, un groupe peut contenir une application web qui héberge votre site web public, une base de données SQL qui stocke les données relationnelles utilisées par le site et un compte de stockage qui stocke les ressources non relationnelles. Chaque ressource d’un groupe de ressources doit partager le même cycle de vie. Pour plus d’informations sur Resource Manager, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour l’état de chaque service, voir [Graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/)
 
-Cette rubrique fournit un aperçu de la façon dont vous pouvez utiliser les groupes de ressources dans le portail Azure. Actuellement, certaines services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour obtenir l'état de chaque service, consultez [Tableau de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/)
+Vous pouvez également gérer des ressources via Azure PowerShell et l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de ces interfaces, voir [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md) et [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+
 
 ## Création d’un groupe de ressources et des ressources
 
@@ -37,13 +38,17 @@ Vous spécifiez son nom et son emplacement, puis, si nécessaire, sélectionnez 
 
 ![définir les valeurs d’un groupe](./media/resource-group-portal/set-group-properties.png)
 
-Cependant, vous n’avez pas besoin de créer explicitement un groupe de ressources vide. Lorsque vous créez une ressource, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe de ressources existant. L’image suivante montre comment créer une application web avec la possibilité de sélectionner un groupe de ressources existant ou d’en créer un.
+Lors du déploiement de vos ressources, vous pouvez choisir de les déployer sur le groupe de ressources que vous avez créé. L’illustration suivante montre comment créer une application web dans un groupe de ressources existant.
 
 ![Créer un groupe de ressources](./media/resource-group-portal/select-existing-group.png)
 
+Vous pouvez également décider de créer un groupe de ressources lors du déploiement de vos ressources. Au lieu de sélectionner l’un des groupes de ressources existant dans votre abonnement, sélectionnez **Nouveau** et nommez le groupe de ressources.
+
+![créer un groupe de ressources](./media/resource-group-portal/select-new-group.png)
+
 ## Parcourir les groupes de ressources
 
-Vous pouvez parcourir tous les groupes de ressources en cliquant sur **Parcourir tout** puis **Groupes de ressources**.
+Vous pouvez parcourir tous les groupes de ressources en cliquant sur **Groupes de ressources**.
 
 ![parcourir les groupes de ressources](./media/resource-group-portal/browse-groups.png)
 
@@ -54,6 +59,20 @@ Lorsque vous sélectionnez un groupe de ressources particulier, un panneau vous 
 Il permet également d'obtenir une vue unifiée des informations de facturation et de surveillance pour toutes les ressources du groupe.
 
 ![surveillance et facturation](./media/resource-group-portal/monitoring-billing.png)
+
+## Afficher votre abonnement et vos coûts
+
+Vous pouvez afficher des informations sur votre abonnement et sur les coûts cumulés de toutes vos ressources. Sélectionnez **Abonnements** et l’abonnement que vous souhaitez voir. Il se peut que vous n’ayez qu’un seul abonnement à sélectionner.
+
+![subscription](./media/resource-group-portal/select-subscription.png)
+
+Dans le panneau de l’abonnement, vous voyez un taux d’avancement.
+
+![taux d’avancement](./media/resource-group-portal/burn-rate.png)
+
+Ainsi qu’une répartition des coûts par type de ressource.
+
+![coût des ressources](./media/resource-group-portal/cost-by-resource.png)
 
 ## Personnalisation de l'interface
 
@@ -131,13 +150,13 @@ Vous pouvez appliquer des balises à des groupes de ressources pour organiser lo
 
 Si vous souhaitez effectuer un déploiement sans utiliser un des modèles de Marketplace, vous pouvez créer un modèle personnalisé qui définit l'infrastructure de votre solution. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-Pour déployer un modèle personnalisé par le biais du portail, sélectionnez **Nouveau**, **Marketplace**, puis **Tout**.
-
-![trouver un déploiement de modèle](./media/resource-group-portal/launch-template.png)
-
-Recherchez **Déploiement de modèle**, puis sélectionnez-le dans la liste affichée.
+Pour déployer un modèle personnalisé via le portail, sélectionnez **Nouveau**, et commencez à rechercher **Déploiement de modèle** jusqu’à ce que vous puissiez le sélectionner dans les options.
 
 ![rechercher un déploiement de modèle](./media/resource-group-portal/search-template.png)
+
+Sélectionnez **Déploiement de modèle** à partir des ressources disponibles.
+
+![sélectionner un déploiement de modèle](./media/resource-group-portal/select-template.png)
 
 Après avoir lancé le déploiement du modèle, vous pouvez créer le modèle personnalisé et définir les valeurs pour le déploiement.
 
@@ -146,12 +165,8 @@ Après avoir lancé le déploiement du modèle, vous pouvez créer le modèle pe
 ## Étapes suivantes
 Mise en route
 
-- Pour une introduction aux concepts de Resource Manager, consultez [Vue d'ensemble d’Azure Resource Manager](../resource-group-overview.md).  
+- Pour une introduction aux concepts de Resource Manager, consultez [Vue d'ensemble d’Azure Resource Manager](../resource-group-overview.md).
 - Pour plus d’informations sur l’utilisation d’Azure PowerShell lors du déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
-- Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md). 
-  
+- Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
-
- 
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

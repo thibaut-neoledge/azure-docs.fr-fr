@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/11/2016"
 	ms.author="awills"/>
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
@@ -129,7 +129,7 @@ Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l'aid
 
 Notez que vous ne pouvez pas utiliser de fonctions codées dans vos tests : les étapes du scénario doivent figurer sous forme de script dans le fichier .webtest.
 
-#### 1. Enregistrement d’un scénario
+#### 1\. Enregistrement d’un scénario
 
 Utilisez Visual Studio Enterprise ou Ultimate pour enregistrer une session web.
 
@@ -160,7 +160,7 @@ Utilisez Visual Studio Enterprise ou Ultimate pour enregistrer une session web.
     ![Dans Visual Studio, ouvrez le fichier .webtest et cliquez sur Exécuter.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2. Chargement du test web dans Application Insights
+#### 2\. Chargement du test web dans Application Insights
 
 1. Dans le portail Application Insights, créez un test web.
 
@@ -207,19 +207,22 @@ Les plug-ins de test web vous permettent d'y parvenir.
 
 Maintenant, téléchargez votre test sur le portail. Il va utiliser les valeurs dynamiques à chaque exécution du test.
 
-## Connexion à OAuth
+## Gestion de la connexion
 
-Si vos utilisateurs se connectent à votre application en utilisant leur mot de passe OAuth (par exemple, Microsoft, Google ou Facebook), vous pouvez simuler l’authentification dans votre test web à plusieurs étapes en utilisant le plug-in SAML.
+Si vos utilisateurs se connectent à votre application, vous disposez de plusieurs options pour simuler la connexion et tester les pages suivant la connexion. L’approche que vous utilisez dépend du type de sécurité fourni par l’application.
 
-![Test web d’échantillon pour OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+Dans tous les cas, vous devez créer un compte uniquement à des fins de test. Si possible, limitez les autorisations afin qu’il soit accessible en lecture seulement.
 
-L’exemple de test exécute les étapes suivantes :
+* Nom d’utilisateur et mot de passe simples : enregistrez simplement un test web de la manière habituelle. Supprimez d’abord les cookies
+* Authentification SAML. Pour ce faire, vous pouvez utiliser le plug-in SAML qui est disponible pour les tests web.
+* Clé secrète client : si le mode de connexion de votre application implique une clé secrète client, utilisez-la. Azure Active Directory permet de faire cela. 
+* Authentification ouverte - par exemple, connexion à l’aide de votre compte Microsoft ou Google. De nombreuses applications utilisant OAuth fournissent l’alternative de la clé secrète client. Donc, commencez par rechercher cela. Si votre test doit se connecter à l’aide d’OAuth, l’approche générale est la suivante :
+ * Utilisez un outil tel que Fiddler pour examiner le trafic entre votre navigateur web, le site d’authentification et votre application. 
+ * Effectuez deux connexions ou plus à l’aide d’ordinateurs ou de navigateurs différents, ou à des intervalles longs (pour que les jetons arrivent à expiration).
+ * En comparant les différentes sessions, identifiez le jeton retransmis à partir du site d’authentification, qui est ensuite transmis à votre serveur d’application après la connexion. 
+ * Enregistrez un test web à l’aide de Visual Studio. 
+ * Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site. (Visual Studio va tenter de paramétrer le test, mais ne va pas paramétrer correctement les jetons.)
 
-1. Demandez à l’application web testée l’adresse du point de terminaison OAuth.
-2. Connectez-vous à l’aide du plug-in SAML.
-3. Effectuer le reste du test à l’état connecté.
-
-Le plug-in SAML définit une variable `Assert` qui est utilisée à l’étape 2.
 
 ## <a name="edit"></a>Modification ou désactivation d’un test
 
@@ -263,4 +266,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="cherylmc"/>
 
 # Créer un réseau virtuel avec une connexion VPN site à site à l’aide de PowerShell
@@ -38,12 +38,9 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 - Une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
 	
 - Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
-
-## Installer les modules PowerShell
-
-Vous aurez besoin de la dernière version des applets de commande PowerShell Azure Resource Manager pour configurer votre connexion.
 	
-[AZURE.INCLUDE [VPN-gateway-ps-rm-procédure](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager. Pour des informations supplémentaires sur l’installation des applets de commande Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+
 
 ## 1\. Connexion à votre abonnement 
 
@@ -63,8 +60,7 @@ Spécifiez l’abonnement que vous souhaitez utiliser.
 
 ## 2\. Créer un réseau virtuel et un sous-réseau de passerelle
 
-- Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerelle, vous pouvez passer d’emblée à **Étape 3 : Ajouter votre site local**. 
-- Si vous disposez déjà d’un réseau virtuel et que vous souhaitez ajouter un sous-réseau de passerelle à votre réseau virtuel, consultez [Ajouter un sous-réseau de passerelle à un réseau virtuel](#gatewaysubnet).
+Les exemples ci-dessous illustrent un sous-réseau de passerelle de /28. Bien qu’il soit possible de créer un sous-réseau de passerelle de /29, nous vous déconseillons de le faire. Nous vous recommandons de créer un sous-réseau de passerelle /27 ou moins (/26, /25, etc.) afin de prendre en charge des fonctionnalités supplémentaires. Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerelle /29, vous pouvez passer d’emblée à l’**Étape 3 : Ajouter votre site local**.
 
 ### Pour créer un réseau virtuel et un sous-réseau de passerelle
 
@@ -82,11 +78,11 @@ L’exemple ci-dessous crée un réseau virtuel nommé *testvnet* et deux sous-r
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
 	New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="gatewaysubnet"></a>Pour ajouter un sous-réseau de passerelle à un réseau virtuel (facultatif)
+### <a name="gatewaysubnet"></a>Pour ajouter un sous-réseau de passerelle à un réseau virtuel que vous avez déjà créé
 
 Cette étape est requise uniquement si vous avez besoin d’ajouter un sous-réseau de passerelle à un réseau virtuel créé au préalable.
 
-Si vous disposez déjà d’un réseau virtuel existant et que vous voulez y ajouter un sous-réseau de passerelle, vous pouvez créer votre sous-réseau de passerelle en utilisant l’exemple ci-dessous. Assurez-vous de nommer le sous-réseau de passerelle « GatewaySubnet ». Si vous choisissez un autre nom, vous créerez un sous-réseau, mais Azure ne l’identifiera pas comme un sous-réseau de passerelle.
+Vous pouvez créer votre sous-réseau de passerelle à l’aide de l’exemple ci-dessous. Assurez-vous de nommer le sous-réseau de passerelle « GatewaySubnet ». Si vous choisissez un autre nom, vous créerez un sous-réseau, mais Azure ne l’identifiera pas comme un sous-réseau de passerelle.
 
 	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
@@ -143,8 +139,8 @@ Dans cette étape, vous allez créer la passerelle de réseau virtuel. Notez que
 
 Utilisez les valeurs suivantes :
 
-- Le type de passerelle est *Vpn*.
-- Le type Vpn peut être Basé sur des routes* (appelé passerelle dynamique dans certaines documentations) ou *Basé sur des stratégies* (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md). 	
+- Le paramètre **- GatewayType** pour une configuration de site à site est **Vpn**. Le type de passerelle dépend toujours de la configuration que vous implémentez. Par exemple, d’autres configurations de passerelle peuvent nécessiter GatewayType ExpressRoute ou GatewayType VNet2VNet. **Une configuration de site à site requiert le type Vpn**.
+- Le paramètre **-VpnType** peut être **Basé sur des routes** (appelé passerelle dynamique dans certaines documentations) ou **Basé sur des stratégies** (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -246,4 +242,4 @@ Vous pouvez utiliser l'exemple suivant comme référence.
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

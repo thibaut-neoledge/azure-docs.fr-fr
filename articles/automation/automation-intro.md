@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="02/09/2016"
+	ms.topic="get-started-article" 
+	ms.date="02/11/2016"
 	ms.author="bwren;sngun"/>
 
 # Vue d’ensemble d’Azure Automation
@@ -101,4 +101,4 @@ De nombreuses ressources sont disponibles pour vous permettre d'en savoir plus s
 
 **Faites-nous part de vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci !
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

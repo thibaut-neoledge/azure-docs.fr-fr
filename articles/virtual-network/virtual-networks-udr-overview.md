@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Présentation des itinéraires définis par l’utilisateur et du transfert IP"
-   description="Présentation des itinéraires définis par l’utilisateur et du transfert IP"
+   description="Apprenez à utiliser les itinéraires définis des utilisateurs (UDR) et le transfert IP pour transférer le trafic vers des appliances virtuelles réseau dans Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,13 +9,13 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-# Itinéraires définis par l’utilisateur et transfert IP
+# Présentation des itinéraires définis par l’utilisateur et du transfert IP
 Lorsque vous ajoutez des machines virtuelles à un réseau virtuel dans Microsoft Azure, notez que les machines sont en mesure d’interagir automatiquement entre elles sur le réseau. Il est inutile de spécifier une passerelle, bien que les machines virtuelles soient hébergées dans des sous-réseaux différents. Cela vaut également pour la communication des machines virtuelles vers l’Internet public, et même vers votre réseau local en cas de connexion hybride de Microsoft Azure vers votre propre centre de données.
 
 Ce flux de communications est rendu possible par l’utilisation, par Microsoft Azure, d’une série d’itinéraires système régulant le trafic IP. Les itinéraires de système contrôlent le flux de communication dans les scénarios suivants :
@@ -36,7 +36,7 @@ La figure ci-dessous montre un exemple d’itinéraires définis par l’utilisa
 
 ![Itinéraires système dans Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT]Les itinéraires définis par l'utilisateur sont appliqués uniquement au trafic qui quitte un sous-réseau. Vous ne pouvez pas créer d'itinéraires pour spécifier la façon dont le trafic entre dans un sous-réseau à partir d'Internet, par exemple. En outre, l'équipement auquel vous transférez le trafic ne peut pas se trouver dans le même sous-réseau que celui d'où provient le trafic. Créez toujours un sous-réseau distinct pour vos équipements.
+>[AZURE.IMPORTANT] Les itinéraires définis par l'utilisateur sont appliqués uniquement au trafic qui quitte un sous-réseau. Vous ne pouvez pas créer d'itinéraires pour spécifier la façon dont le trafic entre dans un sous-réseau à partir d'Internet, par exemple. En outre, l'équipement auquel vous transférez le trafic ne peut pas se trouver dans le même sous-réseau que celui d'où provient le trafic. Créez toujours un sous-réseau distinct pour vos équipements.
 
 ## Routage
 Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itinéraires définie sur chaque nœud du réseau physique. Une table d’itinéraires est une collection d’itinéraires individuels permettant de déterminer où transférer les paquets en fonction de l’adresse IP de destination. Un itinéraire se compose des éléments suivants :
@@ -71,14 +71,14 @@ Les sous-réseaux s’appuient sur des itinéraires système jusqu’à ce qu’
 1. Itinéraire BGP (lorsque ExpressRoute est utilisé)
 1. Itinéraire du système
 
-Pour savoir comment créer des itinéraires personnalisés, consultez la section [Création d’itinéraires et activation du transfert IP dans Azure](../virtual-networks-udr-how-to#How-to-manage-routes).
+Pour savoir comment créer des itinéraires personnalisés, consultez la section [Création d’itinéraires et activation du transfert IP dans Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
 
->[AZURE.IMPORTANT]Les itinéraires définis par l’utilisateur sont appliqués uniquement aux machines virtuelles et services cloud Azure. Par exemple, si vous souhaitez ajouter une appliance virtuelle de pare-feu entre votre réseau local et Azure, vous devez créer un itinéraire défini par l’utilisateur pour vos tables d’itinéraires Azure qui transmettent tout le trafic allant vers l’espace d’adressage local à l’appliance virtuelle. Toutefois, le trafic entrant à partir de l’espace d’adressage local transite de votre passerelle VPN ou circuit ExpressRoute directement vers l’environnement Azure, en ignorant l’appliance virtuelle.
+>[AZURE.IMPORTANT] Les itinéraires définis par l’utilisateur sont appliqués uniquement aux machines virtuelles et services cloud Azure. Par exemple, si vous souhaitez ajouter une appliance virtuelle de pare-feu entre votre réseau local et Azure, vous devez créer un itinéraire défini par l’utilisateur pour vos tables d’itinéraires Azure qui transmettent tout le trafic allant vers l’espace d’adressage local à l’appliance virtuelle. Toutefois, le trafic entrant à partir de l’espace d’adressage local transite de votre passerelle VPN ou circuit ExpressRoute directement vers l’environnement Azure, en ignorant l’appliance virtuelle.
 
 ## Itinéraires BGP
-Si vous avez une connexion ExpressRoute entre votre réseau local et Azure, vous pouvez activer BGP pour propager les itinéraires de votre réseau local vers Azure. Ces itinéraires BGP sont utilisés de la même façon que les itinéraires du système et les itinéraires définis par l’utilisateur dans chaque sous-réseau Azure. Pour plus d’informations, consultez la page [Présentation d’ExpressRoute](../expressroute-introduction)
+Si vous avez une connexion ExpressRoute entre votre réseau local et Azure, vous pouvez activer BGP pour propager les itinéraires de votre réseau local vers Azure. Ces itinéraires BGP sont utilisés de la même façon que les itinéraires du système et les itinéraires définis par l’utilisateur dans chaque sous-réseau Azure. Pour plus d’informations, consultez la page [Présentation d’ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
->[AZURE.IMPORTANT]Vous pouvez configurer votre environnement Azure de manière à ce qu’il utilise le tunneling forcé via votre réseau local en créant un itinéraire défini par l’utilisateur pour le sous-réseau 0.0.0.0/0 qui utilise la passerelle VPN comme tronçon suivant. Toutefois, cela ne fonctionne que si vous utilisez une passerelle VPN, et non ExpressRoute. Pour ExpressRoute, le tunneling forcé est configuré via BGP.
+>[AZURE.IMPORTANT] Vous pouvez configurer votre environnement Azure de manière à ce qu’il utilise le tunneling forcé via votre réseau local en créant un itinéraire défini par l’utilisateur pour le sous-réseau 0.0.0.0/0 qui utilise la passerelle VPN comme tronçon suivant. Toutefois, cela ne fonctionne que si vous utilisez une passerelle VPN, et non ExpressRoute. Pour ExpressRoute, le tunneling forcé est configuré via BGP.
 
 ## Transfert IP
 Comme décrit ci-dessus, une des raisons principales pour créer un itinéraire défini par l’utilisateur est de transférer le trafic vers une appliance virtuelle. Une appliance virtuelle n’est rien de plus qu’une machine virtuelle qui exécute une application permettant de gérer le trafic réseau d’une certaine façon, comme un pare-feu ou un périphérique NAT.
@@ -87,7 +87,7 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 
 ## Étapes suivantes
 
-- Découvrez comment [créer des itinéraires dans le modèle de déploiement du Gestionnaire de ressources](../virtual-network-create-udr-arm-template) et les associer à des sous-réseaux. 
-- Découvrez comment [créer des itinéraires dans le modèle de déploiement classique](../virtual-network-create-udr-classic-ps) et les associer à des sous-réseaux.
+- Découvrez comment [créer des itinéraires dans le modèle de déploiement du Gestionnaire de ressources](virtual-network-create-udr-arm-template.md) et les associer à des sous-réseaux. 
+- Découvrez comment [créer des itinéraires dans le modèle de déploiement classique](virtual-network-create-udr-classic-ps.md) et les associer à des sous-réseaux.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->
