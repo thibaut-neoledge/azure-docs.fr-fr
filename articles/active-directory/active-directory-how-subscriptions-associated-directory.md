@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/05/2016"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # Association des abonnements Azure avec Azure Active Directory
@@ -35,7 +35,7 @@ Même si Azure avait initialement autorisé l’accès aux utilisateurs de compt
 Par exemple, un utilisateur titulaire d’un compte Microsoft se connecte au portail Azure Classic.
 
 > [AZURE.NOTE]
-> Pour vous connecter au portail Azure Classic, msmith@hotmail.com doit disposer d’un abonnement Azure. Le compte doit être un administrateur de services fédérés ou un coadministrateur de l'abonnement.
+Pour vous connecter au portail Azure Classic, msmith@hotmail.com doit disposer d’un abonnement Azure. Le compte doit être un administrateur de services fédérés ou un coadministrateur de l'abonnement.
 
 ![][1]
 
@@ -106,19 +106,32 @@ Si vous vous êtes abonné à Office 365 avec un compte professionnel ou scolai
 Pour gérer les deux répertoires dans le portail Azure Classic, procédez comme suit.
 
 > [AZURE.NOTE]
-> Ces étapes ne peuvent être effectuées que lorsqu’un utilisateur est connecté via un compte Microsoft. Lorsque l’utilisateur est connecté avec un compte professionnel ou scolaire, l’option **Utiliser un répertoire existant** n’est pas disponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
+Ces étapes ne peuvent être effectuées que lorsqu’un utilisateur est connecté via un compte Microsoft. Lorsque l’utilisateur est connecté avec un compte professionnel ou scolaire, l’option **Utiliser un répertoire existant** n’est pas disponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
 
 1. Connectez-vous au portail Azure Classic à l’aide de votre compte Microsoft.
+
 2. Cliquez sur **Nouveau** > **Services d’application** > **Active Directory** > **Répertoire** > **Création personnalisée**.
+
 3. Cliquez sur **Utiliser un répertoire existant**, sur **Je suis prêt à être déconnecté**, puis sur la coche pour terminer l'action.
+
 4. Connectez-vous au portail Azure Classic à l’aide d’un compte disposant des droits d’administrateur général du répertoire Professionnel ou scolaire.
+
 5. Lorsque vous êtes invité à **Utiliser le répertoire Contoso avec Azure**, cliquez sur **Continuer**.
+
 6. Cliquez sur **Se déconnecter maintenant**.
+
 7. Reconnectez-vous au portail Azure Classic à l’aide de votre compte Microsoft. Les répertoires apparaîtront dans l'extension Active Directory.
 
 
 ## Étapes suivantes
-[Inscription à Azure en tant qu’organisation](sign-up-organization.md)
+
+- Pour plus d’informations sur la façon de modifier les administrateurs pour un abonnement Azure, voir [Comment ajouter ou modifier les rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
+
+- Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
+
+- Pour plus d’informations sur l’attribution des rôles dans Azure AD, voir [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles.md)
+
+- [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 
 
 <!--Image references-->
@@ -126,4 +139,4 @@ Pour gérer les deux répertoires dans le portail Azure Classic, procédez comme
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

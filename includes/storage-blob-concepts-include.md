@@ -69,4 +69,4 @@ Vous pouvez utiliser le caractère de délimitation pour hiérarchiser les objet
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

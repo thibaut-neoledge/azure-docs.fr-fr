@@ -9,7 +9,7 @@
 <tags 
    ms.service="event-hubs"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/26/2016"
@@ -168,4 +168,4 @@ Les hubs d'événements Azure fournissent un service évolutif de traitement de 
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

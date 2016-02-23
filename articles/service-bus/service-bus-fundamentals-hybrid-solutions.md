@@ -12,7 +12,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/06/2015" 
 	ms.author="sethm"/>
 
@@ -22,7 +22,7 @@ Que l’application ou le service s’exécute dans le cloud ou localement, il e
 
 ## Concepts de base de Service Bus
 
-À chaque situation correspond un style de communication. Parfois, laisser les applications envoyer et recevoir des messages via une simple file d’attente suffit. Dans d’autres situations, une file d’attente ordinaire n’est pas suffisante et une file avec mécanisme de publication et d’abonnement est une meilleure solution. Dans certains cas, vous avez juste besoin d’une connexion entre les applications, sans file d’attente. Service Bus offre ces trois options, permettant à vos applications d’interagir de différentes manières.
+À chaque situation correspond un style de communication. Parfois, laisser les applications envoyer et recevoir des messages via une simple file d’attente suffit. Dans d’autres situations, une file d’attente ordinaire n’est pas suffisante et une file avec mécanisme de publication et d’abonnement est une meilleure solution. Dans certains cas, vous avez simplement besoin d’une connexion entre les applications, sans file d’attente. Service Bus offre ces trois options, ce qui permet à vos applications d’interagir de différentes manières.
 
 Service Bus est un service cloud mutualisé, ce qui signifie que le service est partagé par plusieurs utilisateurs. Chaque utilisateur, par exemple un développeur d’applications, crée un *espace de noms*, puis définit les mécanismes de communication nécessaires au sein de ce dernier. La figure 1 illustre ce concept.
 
@@ -61,9 +61,9 @@ La deuxième option, *PeekLock*, a pour but de résoudre ce problème. Comme dan
 
 - Si le destinataire traite correctement le message, il passe l'appel **Complete** et la file d'attente supprime le message. 
 - Si le destinataire décide qu'il ne peut pas traiter correctement le message, il passe l'appel **Abandon**. La file d'attente déverrouille le message et le remet à disposition des autres destinataires.
-- Si le destinataire ne passe aucun de ces appels pendant une période réglable (60 secondes par défaut), la file d’attente part du principe que le destinataire a échoué. Dans ce cas, elle se comporte comme si le destinataire avait passé l'appel **Abandon**, rendant le message accessible aux autres destinataires.
+- Si le destinataire ne passe aucun de ces appels pendant une période réglable (60 secondes par défaut), la file d’attente part du principe que le destinataire a échoué. Dans ce cas, elle se comporte comme si le destinataire avait passé l’appel **Abandon**, rendant le message accessible aux autres destinataires.
 
-Notez ce qui peut se produire ici : le même message risque d’être remis deux fois, peut-être à deux destinataires différents. Les applications qui utilisent des files d’attente Service Bus doivent pouvoir faire face à cette situation. Afin de faciliter la détection des doublons, chaque message comporte une propriété **MessageID** unique, qui reste la même par défaut, quel que soit le nombre de fois que le message est lu dans la file d’attente.
+Notez ce qui peut se produire ici : le même message risque d’être remis deux fois, peut-être à deux destinataires différents. Les applications qui utilisent des files d’attente Service Bus doivent pouvoir faire face à cette situation. Afin de faciliter la détection des doublons, chaque message comporte une propriété **MessageID** unique, qui reste la même par défaut quel que soit le nombre de lectures du message dans la file d’attente.
 
 Les files d’attente sont utiles dans de nombreuses situations. Elles laissent les applications communiquer, même si elles ne s’exécutent pas toutes les deux en même temps, ce qui peut s’avérer utile avec les applications mobiles et les applications de traitement par lots. Une file d'attente avec plusieurs destinataires assure aussi un équilibrage automatique de la charge, car les messages sont répartis vers ces différents destinataires.
 
@@ -78,10 +78,10 @@ Même si elles sont utiles, les files d'attente ne sont pas toujours la bonne so
 Les rubriques sont assez similaires aux files d'attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La principale différence est que les rubriques permettent à chaque application réceptrice de créer son propre abonnement en définissant un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
 
 - L’abonné 1 ne reçoit que les messages contenant la propriété *Seller="Ava"*.
-- L’abonné 2 reçoit les messages qui contiennent la propriété *Seller="Ruby"* et/ou qui contiennent la propriété *Amount* avec une valeur de 100 000 ou plus. Si Ruby est la directrice des ventes, elle veut peut-être pouvoir afficher ses propres ventes et toutes les ventes importantes, quel que soit le vendeur.
+- L’abonné 2 reçoit les messages qui contiennent la propriété *Seller="Ruby"* et/ou qui contiennent la propriété *Amount* avec une valeur de 100 000 ou plus. Si Ruby est la directrice des ventes, elle souhaitera peut-être pouvoir afficher ses propres ventes ainsi que toutes les ventes importantes, quel que soit le vendeur.
 - L’abonné 3 a défini son filtre sur *True*, ce qui veut dire qu’il reçoit tous les messages. Par exemple, cette application peut être chargée de maintenir une piste d’audit et doit donc voir tous les messages.
 
-Comme pour les files d'attente, les abonnés d'une rubrique peuvent lire les messages via **ReceiveAndDelete** ou **PeekLock**. À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnés. Cette approche, appelée *publication et abonnement*, est utile lorsque plusieurs applications sont intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
+Comme pour les files d’attente, les abonnés d’une rubrique peuvent lire les messages via **ReceiveAndDelete** ou **PeekLock**. À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnés. Cette approche, communément appelée *publication et abonnement*, est utile lorsque plusieurs applications sont intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
 
 ## Relais
 
@@ -125,4 +125,4 @@ Maintenant que vous avez appris les principes de base d’Azure Service Bus, con
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

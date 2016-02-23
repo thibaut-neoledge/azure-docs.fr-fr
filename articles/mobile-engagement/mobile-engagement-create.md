@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/22/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"  
+	ms.author="piyushjo"/>
 
 
 # Création d’un compte Azure Mobile Engagement
@@ -23,7 +23,7 @@ Cet article explique comment utiliser la méthode **Création rapide** pour cré
 
 Notez que vous devez ajouter un minimum « d’intégration de base » pour pouvoir collecter les données de votre application et envoyer des notifications push. Vous trouverez la documentation complète sur l’intégration dans [Intégration de Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md).
 
-> [AZURE.IMPORTANT]Pour suivre n’importe quel didacticiel lié à Azure Mobile Engagement, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.IMPORTANT] Pour suivre n’importe quel didacticiel lié à Azure Mobile Engagement, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 ##Configuration de Mobile Engagement pour votre application mobile dans Azure
 
@@ -48,4 +48,4 @@ Une fois dans le portail Mobile Engagement, vous pouvez analyser, créer et gér
 
 [Prise en main d’Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (vous pouvez sélectionner d’autres plateformes mobiles en haut de la page).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

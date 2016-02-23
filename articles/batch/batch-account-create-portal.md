@@ -12,7 +12,7 @@
 	ms.workload="big-compute"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/28/2016"
 	ms.author="marsma"/>
 
@@ -84,4 +84,4 @@ Pour afficher et gérer les clés d'accès, cliquez sur l'icône de clé.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

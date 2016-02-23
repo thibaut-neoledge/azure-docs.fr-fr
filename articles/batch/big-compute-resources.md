@@ -1,6 +1,6 @@
 <properties
    pageTitle="Ressources pour les charges de travail par lots et HPC dans le cloud | Microsoft Azure"
-   description="Répertorie des ressources techniques pour vous aider à exécuter vos charges de travail à grande échelle en parallèle, par lots et HPC (calculs complexes) dans Azure."
+   description="Répertorie des ressources techniques pour vous aider à exécuter vos charges de travail à grande échelle en parallèle, par lots et HPC (calcul haute performance) dans Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -38,7 +38,7 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 * [Didacticiel : prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md)
 
-* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurebatch)
+* [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Vidéos sur Azure Batch](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -83,8 +83,7 @@ Ces modèles Azure permettent de déployer des clusters HPC Linux.
 
 * [Informations de référence sur MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Forum MPI](https://social.microsoft.com/Forums/fr-FR/home?forum=windowshpcmpi)
-
+* [Forum MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 ## Instances de calcul intensif
 
@@ -137,4 +136,4 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](https://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

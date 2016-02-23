@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Prise en main : gestion des mots de passe Azure AD | Microsoft Azure" 
-	description="La gestion des mots de passe permet aux utilisateurs de réinitialiser leurs mots de passe, de découvrir la configuration requise pour la réinitialisation du mot de passe et d’activer l’écriture différée du mot de passe pour gérer des mots de passe locaux dans Active Directory." 
+<properties
+	pageTitle="Prise en main : gestion des mots de passe Azure AD | Microsoft Azure"
+	description="Permettez à vos utilisateurs de réinitialiser eux-mêmes leurs mots de passe, découvrez la configuration requise pour la réinitialisation du mot de passe et activez l’écriture différée pour gérer des mots de passe en local dans Active Directory."
 	services="active-directory"
-	keywords="Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialiser le mot de passe Azure AD" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+	keywords="Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialiser le mot de passe Azure AD"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/25/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Prise en main de la gestion de mot de passe
@@ -48,16 +48,16 @@ Avant de pouvoir activer et utiliser la réinitialisation du mot de passe libre-
 - Créez un client AAD. Pour plus d’informations, consultez la page [Prise en main d’Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Obtenez un abonnement Azure. Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’un client Azure AD ?](active-directory-administer.md#what-is-an-azure-ad-tenant).
 - Associez votre client AAD à votre abonnement Azure. Pour plus d’informations, consultez la page [Comment sont associés les abonnements Azure et Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
-- Procédez à une mise à niveau vers Azure AD Premium ou Basic. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+- Mettez à niveau vers Azure AD Premium, Basic ou utilisez une licence O365 payée. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE] Pour activer la réinitialisation du mot de passe libre-service, vous devez procéder à une mise à niveau vers Azure AD Premium ou Basic. Pour plus d’informations, consultez la page Éditions d’Azure Active Directory. Ces informations incluent des instructions détaillées sur l'inscription à Azure AD Premium ou Basic, l’activation d’un plan de licence et d’un accès Azure AD, mais aussi l’attribution d’accès aux comptes administrateur et utilisateur.
-  
+  >[AZURE.NOTE] Pour activer la réinitialisation du mot de passe libre-service pour les utilisateurs du cloud, vous devez procéder à une mise à niveau vers Azure AD Premium ou Basic ou une licence O365 payée. Pour activer la réinitialisation du mot de passe libre-service pour les utilisateurs locaux, vous devez procéder à une mise à niveau vers Azure AD Premium. Pour plus d’informations, consultez la page Éditions d’Azure Active Directory. Ces informations incluent des instructions détaillées sur l'inscription à Azure AD Premium ou Basic, l’activation d’un plan de licence et d’un accès Azure AD, mais aussi l’attribution d’accès aux comptes administrateur et utilisateur.
+
 - Créez au moins un compte d’administrateur et un compte d’utilisateur dans votre annuaire AAD.
-- Attribuez une licence AAD Premium ou Basic aux comptes d’administrateur et d’utilisateur que vous avez créés.
+- Attribuez une licence AAD Premium, Basic ou O365 aux comptes d’administrateur et d’utilisateur que vous avez créés.
 
 ### Étape 1 : configuration de la stratégie de réinitialisation du mot de passe
 Pour configurer la stratégie de réinitialisation du mot de passe utilisateur, procédez comme suit :
- 
+
 1.	Ouvrez le navigateur de votre choix et accédez au [portail de gestion Azure](https://manage.windowsazure.com).
 2.	Dans la barre de navigation à gauche du [portail de gestion Azure](https://manage.windowsazure.com), recherchez l’**extension Active Directory**.
 
@@ -179,20 +179,20 @@ Avant de pouvoir activer et utiliser l’écriture différée de mot de passe, v
 - La réinitialisation du mot de passe a été configurée et activée dans votre client. Pour plus d’informations, consultez la section [Activation de la réinitialisation du mot de passe pour les utilisateurs Azure AD](#enable-users-to-reset-their-azure-ad-passwords)
 - Vous avez au moins un compte d’administrateur et un compte d’utilisateur de test avec une licence Azure AD Premium que vous pouvez utiliser pour tester cette fonctionnalité. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
-  >[AZURE.NOTE] Assurez-vous que le compte d’administrateur que vous utilisez pour activer l’écriture différée de mot de passe est un compte d’administrateur cloud (créé dans Azure AD) et non pas un compte fédéré (créé dans un AD local et synchronisé dans Azure AD).
-  
+  > [AZURE.NOTE] Assurez-vous que le compte d’administrateur que vous utilisez pour activer l’écriture différée de mot de passe est un compte d’administrateur cloud (créé dans Azure AD) et non pas un compte fédéré (créé dans un AD local et synchronisé dans Azure AD).
+
 - Vous avez un déploiement local d’AD pour une forêt unique ou des forêts multiples exécutant Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2 dotés des derniers Service Packs.
 
-  >[AZURE.NOTE] Si vous exécutez une version antérieure de Windows Server 2008 ou 2008 R2, vous pouvez toujours utiliser cette fonctionnalité, mais vous devez [télécharger et installer la mise à jour KB 2386717](https://support.microsoft.com/kb/2386717) avant de pouvoir appliquer votre stratégie de mot de passe AD locale dans le cloud.
-  
+  > [AZURE.NOTE] Si vous exécutez une version antérieure de Windows Server 2008 ou 2008 R2, vous pouvez toujours utiliser cette fonctionnalité, mais vous devez [télécharger et installer la mise à jour KB 2386717](https://support.microsoft.com/kb/2386717) avant de pouvoir appliquer votre stratégie de mot de passe AD locale dans le cloud.
+
 - Vous avez installé l’outil Azure AD Connect et vous avez préparé votre environnement AD pour la synchronisation dans le cloud. Pour plus d’informations, consultez la page [Utilisation de votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md).
 
-  >[AZURE.NOTE] Avant de tester l’écriture différée du mot de passe, assurez-vous d’effectuer une importation complète et une synchronisation complète à partir d’Active Directory et Azure AD dans Azure AD Connect.
+  > [AZURE.NOTE] Avant de tester l’écriture différée du mot de passe, assurez-vous d’effectuer une importation complète et une synchronisation complète à partir d’Active Directory et Azure AD dans Azure AD Connect.
 
 - Si vous utilisez Azure AD Sync ou Azure AD Connect, le port sortant **TCP 443** (et dans certains cas les ports**TCP 9350-9354**) doit être ouvert. Pour plus d’informations, consultez [Étape 3 : configuration de votre pare-feu](#step-3-configure-your-firewall). L’utilisation de DirSync dans ce scénario n’est plus prise en charge. Si vous utilisez encore DirSync, veuillez procéder à une mise à niveau vers la dernière version d’Azure AD Connect avant de déployer l’écriture différée du mot de passe.
 
-  >[AZURE.NOTE] Nous recommandons fortement à tous les utilisateurs des outils Azure AD Sync ou DirSync de procéder à une mise à niveau vers la dernière version d’Azure AD Connect pour s’assurer de bénéficier des meilleures conditions d’utilisation possibles et des fonctionnalités les plus récentes dès leur publication.
-  
+  > [AZURE.NOTE] Nous recommandons fortement à tous les utilisateurs des outils Azure AD Sync ou DirSync de procéder à une mise à niveau vers la dernière version d’Azure AD Connect pour s’assurer de bénéficier des meilleures conditions d’utilisation possibles et des fonctionnalités les plus récentes dès leur publication.
+
 
 ### Étape 1 : téléchargement de la dernière version d’Azure AD Connect
 L’écriture différée de mot de passe est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0419.0911**. L’écriture différée de mot de passe avec déverrouillage de compte automatique est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0485.0222**. Si vous exécutez une version antérieure, veuillez procéder à la mise à niveau vers cette version ou une version ultérieure avant de continuer. [Cliquez ici pour télécharger la dernière version d’Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
@@ -208,7 +208,7 @@ L’écriture différée de mot de passe est intégrée à Azure AD Connect et �
 
 Si ce numéro de version est supérieur ou égal à **1.0.0419.0911**, ou que vous installez Azure AD Connect, vous pouvez passer à l’[étape 2 : activation et vérification de l’écriture différée de mot de passe dans Azure AD Connect via l’interface utilisateur ou Powershell](#step-2-enable-password-writeback-in-azure-ad-connect).
 
- >[AZURE.NOTE] Si vous installez l’outil Azure AD Connect pour la première fois, vous devez suivre quelques recommandations pour préparer votre environnement à la synchronisation d’annuaires. Avant d'installer l’outil Azure AD Connect, vous devez activer la synchronisation de répertoire dans le [portail d’administration d’Office 365](https://portal.microsoftonline.com) ou le [portail de gestion Azure](https://manage.windowsazure.com). Pour plus d'informations, consultez la rubrique [Gestion d’Azure AD Connect](active-directory-aadconnect-whats-next.md).
+ > [AZURE.NOTE] Si vous installez l’outil Azure AD Connect pour la première fois, vous devez suivre quelques recommandations pour préparer votre environnement à la synchronisation d’annuaires. Avant d'installer l’outil Azure AD Connect, vous devez activer la synchronisation de répertoire dans le [portail d’administration d’Office 365](https://portal.microsoftonline.com) ou le [portail de gestion Azure](https://manage.windowsazure.com). Pour plus d'informations, consultez la rubrique [Gestion d’Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
 
 ### Étape 2 : activation de l'écriture différée de mot de passe dans Azure AD Connect
@@ -246,7 +246,7 @@ Une fois que vous avez activé l’écriture différée de mot de passe dans l�
 
 1.	Une fois l’installation terminée, si vous bloquez les connexions sortantes inconnues dans votre environnement, vous devez également ajouter les règles suivantes à votre pare-feu. Assurez-vous de bien redémarrer votre ordinateur AAD Connect après avoir apporté ces modifications :
    - Autorisez les connexions sortantes sur le port TCP 443.
-   - Autorisez les connexions sortantes sur https://ssprsbprodncu-sb.accesscontrol.windows.net/. 
+   - Autorisez les connexions sortantes sur https://ssprsbprodncu-sb.accesscontrol.windows.net/.
    - Quand vous utilisez un proxy ou que vous rencontrez des problèmes de connectivités d’ordre général, autorisez les connexions sortantes sur les ports TCP 9350 à 9354.
 
 ### Étape 4 : définition des autorisations Active Directory adéquates
@@ -286,7 +286,7 @@ Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface util
 
 ### Étape 5 : réinitialisation de votre mot de passe AD en tant qu’utilisateur
 Maintenant que l’écriture différée de mot de passe a été activée, vous pouvez tester son fonctionnement en réinitialisant le mot de passe d’un utilisateur dont le compte a été synchronisé dans votre client cloud.
- 
+
 #### Pour vérifier le bon fonctionnement de l’écriture différée de mot de passe
 1.	Accédez à [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) ou dans n’importe quel écran de connexion d’ID d’organisation, cliquez sur le lien **Votre compte n’est pas accessible ?**.
 
@@ -353,4 +353,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Procédure détaillée de l'utilisation de l'aperçu de la collaboration B2B d'Azure Active Directory | Microsoft Azure"
-   description="Azure Active Directory B2B prend en charge les relations interentreprises en permettant aux partenaires commerciaux d'accéder de façon sélective à vos applications d'entreprise"
+   description="Azure Active Directory B2B Collaboration prend en charge les relations interentreprises en permettant aux partenaires commerciaux d’accéder de façon sélective à vos applications d’entreprise"
    services="active-directory"
    documentationCenter=""
    authors="viv-liu"
@@ -11,10 +11,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="02/10/2016"
    ms.author="viviali"/>
 
 # Version préliminaire d’Azure AD B2B Collaboration : procédure pas à pas
@@ -82,4 +82,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -46,7 +46,7 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 
 	![Boîte de dialogue Nouveau service dans Visual Studio.][2]
 
-	>[AZURE.NOTE]Pour plus d’informations sur les options, consultez [Choix d’une infrastructure](service-fabric-choose-framework.md).
+	>[AZURE.NOTE] Pour plus d’informations sur les options, consultez [Choix d’une infrastructure](service-fabric-choose-framework.md).
 
 	Visual Studio crée le projet d’application et le projet de service avec état et les affiche dans l’Explorateur de solutions.
 
@@ -68,7 +68,7 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
 
 1. Appuyez sur F5 dans Visual Studio pour déployer l’application en vue d’un débogage.
 
-	>[AZURE.NOTE]Cela prend un certain temps la première fois que Visual Studio crée un cluster local pour le développement. Un cluster local exécute un code de plateforme équivalent à celui qui serait généré dans un cluster regroupant plusieurs machines sur un seul ordinateur. Vous verrez l’état de la création de clusters dans la fenêtre Sortie de Visual Studio.
+	>[AZURE.NOTE] Cela prend un certain temps la première fois que Visual Studio crée un cluster local pour le développement. Un cluster local exécute un code de plateforme équivalent à celui qui serait généré dans un cluster regroupant plusieurs machines sur un seul ordinateur. Vous verrez l’état de la création de clusters dans la fenêtre Sortie de Visual Studio.
 
 	Une fois le cluster prêt, vous obtiendrez une notification de la part de l’application de gestionnaire de la barre d’état système de cluster local qui est incluse avec le kit de développement logiciel.
 
@@ -86,7 +86,7 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
 
 	Le cluster local contient cinq nœuds hébergés sur un seul ordinateur. Il simule un cluster à cinq nœuds dans lequel les nœuds sont hébergés sur des machines distinctes. Examinons un des nœuds du cluster local pour simuler la perte d’un ordinateur et exercer le débogueur Visual Studio en même temps.
 
-    >[AZURE.NOTE]Les événements de diagnostic d’application émis par le modèle de projet utilisent la classe `ServiceEventSource` incluse. Pour plus d’informations, voir [Comment analyser et diagnostiquer des services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally).
+    >[AZURE.NOTE] Les événements de diagnostic d’application émis par le modèle de projet utilisent la classe `ServiceEventSource` incluse. Pour plus d’informations, voir [Comment analyser et diagnostiquer des services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 4. Recherchez dans votre projet de service la classe qui dérive de StatefulService (par exemple, MyStatefulService) et définissez un point d’arrêt sur la première ligne de la méthode `RunAsync`.
 
@@ -142,4 +142,4 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

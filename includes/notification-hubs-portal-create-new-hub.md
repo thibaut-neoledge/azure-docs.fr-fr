@@ -1,28 +1,25 @@
 
 
-1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com/), puis cliquez sur **+NOUVEAU** en bas de l’écran.
+1. Connectez-vous au [portail Azure](https://portal.windowsazure.com/) et cliquez sur **+NOUVEAU** en bas de l’écran.
 
-2. Cliquez sur **Services d'application**, puis sur **Service Bus**, **Concentrateur de notification**, **Création rapide**.
+2. Cliquez sur **Nouveau** > **Web + Mobile**, puis sur **Hub de Notification** > **Création rapide**.
 
-   	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-create-from-portal.png)
+   	![Portail Azure - Création de hubs de notification](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
-
-3. Entrez un **nom de concentrateur de notification**. Sélectionnez les options **Région** et **Abonnement** souhaitées.
+3. Veillez à spécifier un nom unique dans le champ **Hub de notification**. Sélectionnez votre **Région**, votre **Abonnement** et votre **Groupe de ressources** (le cas échéant).
  
-	Si vous disposez déjà d’un espace de noms Service Bus dans lequel vous souhaitez créer le concentrateur, sélectionnez votre **nom d’espace de noms**. Sinon, vous pouvez utiliser le **nom d’espace de noms** par défaut qui sera créé selon le nom du concentrateur tant que le nom d’espace de noms sera disponible.
+	Si vous disposez déjà d’un espace de noms Service Bus dans lequel vous souhaitez créer le hub, sélectionnez-le dans l’option **Sélectionner** du champ **Espace de noms**. Sinon, vous pouvez utiliser le nom par défaut qui sera créé à partir du nom du hub tant que le nom d’espace de noms sera disponible.
 
-	Cliquez sur **Créer un concentrateur de notification**.
+	Une fois que vous êtes prêt, cliquez sur **Créer**.
 
-   	![Définition des propriétés du concentrateur de notification](./media/notification-hubs-portal-create-new-hub/notification-hubs-create-from-portal2.png)
+   	![Portail Azure - Définition des propriétés du hub de notification](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Une fois que l’espace de noms et le concentrateur de notification sont créés, vos espaces de noms dans Service Bus s’affichent. Cliquez sur l’espace de noms dans lequel vous venez de créer votre concentrateur (généralement, ***nom du concentrateur de notification*-ns**).
+4. Une fois l’espace de noms et le hub de notification créés, vous êtes redirigé vers la page correspondante du portail.
 
-5. Sur votre page d’espace de noms, cliquez sur l’onglet **Concentrateurs de notification** en haut, puis cliquez sur le concentrateur de notification que vous venez de créer. Le tableau de bord de votre nouveau concentrateur de notification s’ouvre alors.
+   	![Portail Azure - Page du portail du hub de notification](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+       
+5. Cliquez sur **Paramètres** puis sur **Stratégies d’accès**. Prenez note des deux chaînes de connexion disponibles, car vous en aurez besoin pour gérer les notifications Push ultérieurement.
 
-6. Sur le tableau de bord de votre nouveau concentrateur, cliquez sur **Afficher la chaîne de connexion**. Notez les deux chaînes de connexion. Vous les utiliserez ultérieurement.
+   	![Portail Azure - Chaînes de connexion du hub de notification](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-   	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-view-connection-strings.png)
-
-	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

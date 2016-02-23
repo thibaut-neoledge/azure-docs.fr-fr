@@ -46,4 +46,4 @@ De nombreuses solutions IoT permettent aux utilisateurs d’afficher et d’anal
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

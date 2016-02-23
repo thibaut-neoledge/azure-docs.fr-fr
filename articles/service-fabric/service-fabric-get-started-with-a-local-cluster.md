@@ -10,7 +10,7 @@
 <tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="11/20/2015"
@@ -19,7 +19,7 @@
 # Prise en main avec le déploiement et la mise à niveau d’applications sur votre cluster local
 Le kit de développement logiciel Fabric Service comprend un environnement de développement local complet que vous pouvez utiliser pour rapidement maîtriser le déploiement et la gestion des applications sur un cluster local. Dans cet article, vous allez créer un cluster local, déployer une application existante, puis mettre à niveau cette application vers une nouvelle version, le tout à partir de Windows PowerShell.
 
-> [AZURE.NOTE]Cet article suppose que vous avez déjà [configuré votre environnement de développement](service-fabric-get-started.md).
+> [AZURE.NOTE] Cet article suppose que vous avez déjà [configuré votre environnement de développement](service-fabric-get-started.md).
 
 ## Créer un cluster local
 Un cluster Service Fabric représente un ensemble de ressources matérielles sur lequel vous pouvez déployer des applications. En règle générale, un cluster est constitué d’un nombre de machines compris entre cinq et plusieurs milliers. Toutefois, le kit de développement logiciel Service Fabric propose une configuration de cluster qui peut s’exécuter sur un seul ordinateur.
@@ -28,7 +28,7 @@ Il est important de savoir que le cluster local Service Fabric n’est ni un ém
 
 Le kit de développement logiciel offre deux façons de configurer un cluster local : un script Windows PowerShell et l’application de barre d’état système Gestionnaire du cluster local. Pour ce didacticiel, nous utiliserons le script Powershell.
 
-> [AZURE.NOTE]Si vous avez déjà créé un cluster local en déployant une application depuis Visual Studio, vous pouvez ignorer cette section.
+> [AZURE.NOTE] Si vous avez déjà créé un cluster local en déployant une application depuis Visual Studio, vous pouvez ignorer cette section.
 
 
 1. Lancez une nouvelle fenêtre PowerShell en tant qu’administrateur.
@@ -125,7 +125,7 @@ Maintenant que l’application est déployée, examinons certains des détails d
 
     ![Afficher les détails de l’application dans Fabric Service Explorer][sfx-service-overview]
 
-    > [AZURE.NOTE]Pour en savoir plus sur Service Fabric Explorer, consultez [Visualiser votre cluster avec le Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+    > [AZURE.NOTE] Pour en savoir plus sur Service Fabric Explorer, consultez [Visualiser votre cluster avec le Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Mettre à niveau une application
 Service Fabric fournit des mises à niveau sans temps mort en analysant l’état de l’application au fur et à mesure qu’il se déploie sur le cluster. Nous allons effectuer une simple mise à niveau de l’application WordCount.
@@ -186,4 +186,4 @@ La nouvelle version de l’application compte désormais uniquement les mots com
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

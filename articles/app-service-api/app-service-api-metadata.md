@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
 # Les métadonnées d’App Service API Apps pour la détection d’API et la création de code 
@@ -56,4 +56,4 @@ Vous pouvez générer du code client pour une application API en utilisant Visua
 
 Pour obtenir un didacticiel qui vous guide dans la création, le déploiement et l’utilisation d’une application API, consultez [Prise en main des applications API dans Azure App Service](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

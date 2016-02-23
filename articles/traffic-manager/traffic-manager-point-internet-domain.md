@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Rediriger d’un domaine Internet d’entreprise vers un domaine Azure Traffic Manager
@@ -25,7 +25,7 @@ Par exemple, pour rediriger le nom de domaine d’entreprise www.contoso.com ver
 
 L’intégralité des demandes de trafic pour *www.contoso.com* est alors redirigée vers *contoso.trafficmanager.net*.
 
->[AZURE.IMPORTANT]Vous ne pouvez pas rediriger un domaine de second niveau tel que *contoso.com* vers le domaine Traffic Manager. Il s’agit d’une limitation du protocole DNS qui n’autorise pas les enregistrements CNAME pour les noms de domaine de deuxième niveau.
+>[AZURE.IMPORTANT] Vous ne pouvez pas rediriger un domaine de second niveau tel que *contoso.com* vers le domaine Traffic Manager. Il s’agit d’une limitation du protocole DNS qui n’autorise pas les enregistrements CNAME pour les noms de domaine de deuxième niveau.
 
 ## Étapes suivantes
 
@@ -35,4 +35,4 @@ L’intégralité des demandes de trafic pour *www.contoso.com* est alors rediri
 
 [Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->
