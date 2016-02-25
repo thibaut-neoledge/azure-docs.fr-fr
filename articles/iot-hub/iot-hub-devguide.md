@@ -68,7 +68,7 @@ Lorsque vous utilisez des Kits de développement logiciel (SDK) ou intégrations
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Parfois, le kit de développement logiciel nécessite une valeur **Nom d’hôte** ou **Espace de noms**. Dans ce cas, supprimez le schéma du **point de terminaison compatible Event Hub**. Par exemple, si votre point de terminaison compatible Event Hub est ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de nom** est **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Parfois, le kit de développement logiciel nécessite une valeur **Nom d’hôte** ou **Espace de noms**. Dans ce cas, supprimez le schéma du **point de terminaison compatible Event Hub**. Par exemple, si votre point de terminaison compatible Event Hub est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de nom** est **iothub-ns-myiothub-1234**.
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie de sécurité d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter à l’Event Hub ci-dessus.
 
@@ -639,4 +639,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-eventhub-partitions]: event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

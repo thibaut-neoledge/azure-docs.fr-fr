@@ -49,7 +49,7 @@ Pour obtenir des instructions, consultez la page [Création d'un certificat auto
 
 Chaque abonnement Azure est identifié par une valeur GUID, appelée ID d’abonnement. Procédez comme suit pour trouver cette valeur.
 
-1. Visitez le [portail Azure] [version préliminaire du portail].
+1. Visitez le [portail Azure][version préliminaire du portail].
 
 2. Dans la barre située sur la gauche du portail, sélectionnez __Parcourir tout__, puis sélectionnez __Abonnements__ dans le panneau __Parcourir__.
 
@@ -158,4 +158,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 [version préliminaire du portail] : https://portal.azure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
