@@ -712,7 +712,7 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
+[sqldatabase-create-configure]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
