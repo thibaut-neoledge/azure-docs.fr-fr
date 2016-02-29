@@ -3,7 +3,7 @@
 	description="Storage Analytics vous permet d’une part d’effectuer le suivi des données de métriques pour tous les services de stockage et, d’autre part, de collecter les journaux de Blob Storage, Queue Storage et Table Storage."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="tamram"/>
+	ms.date="02/14/2016"
+	ms.author="robinsh"/>
 
 # Storage Analytics
 
@@ -22,11 +22,11 @@
 
 Azure Storage Analytics effectue la journalisation et fournit des données de métriques pour un compte de stockage. Vous pouvez utiliser ces données pour suivre les demandes, analyser les tendances d'utilisation et diagnostiquer les problèmes liés à votre compte de stockage
 
-Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l’activer à partir du [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Surveillance d’un compte de stockage](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) et [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) pour activer Storage Analytics pour chaque service.
+Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l’activer à partir du [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) et [Get File Service Properties](https://msdn.microsoft.com/library/mt427369.aspx) pour activer Storage Analytics pour chaque service.
 
 Les données agrégées sont stockées dans un objet blob connu (pour la journalisation) et dans des tables connues (pour les métriques), qui sont accessibles via les API du service BLOB et du service de Table.
 
-Storage Analytics a une limite de 20 To pour la quantité de données stockées qui est indépendante de la limite totale pour votre compte de stockage. Pour plus d'informations sur les stratégies de facturation et de rétention de données, consultez [Storage Analytics et facturation](https://msdn.microsoft.com/library/hh360997.aspx). Pour plus d'informations sur les limites des comptes de stockage, consultez la page [Objectifs d'évolutivité et de performances d'Azure Storage](https://msdn.microsoft.com/library/dn249410.aspx).
+Storage Analytics a une limite de 20 To pour la quantité de données stockées qui est indépendante de la limite totale pour votre compte de stockage. Pour plus d'informations sur les stratégies de facturation et de rétention de données, consultez [Storage Analytics et facturation](https://msdn.microsoft.com/library/hh360997.aspx). Pour plus d'informations sur les limites des comptes de stockage, consultez la page [Objectifs d'évolutivité et de performances d'Azure Storage](storage-scalability-targets.md).
 
 Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -36,6 +36,8 @@ Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics e
 Storage Analytics enregistre des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
 
 Les entrées de journal sont créées uniquement s'il existe une activité du service de stockage. Par exemple, si un compte de stockage a une activité dans son service BLOB, mais pas dans ses services de Table ou de File d'attente, seuls des journaux relatifs au service BLOB sont créés.
+
+La journalisation Storage Analytics n’est pas disponible pour Azure File Service.
 
 ### Enregistrement des demandes authentifiées
 
@@ -67,7 +69,7 @@ Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complè
 ### Mode de stockage des journaux
 Tous les journaux sont stockés dans des objets blob de blocs dans un conteneur nommé $logs, qui est automatiquement créé lorsque Storage Analytics est activé pour un compte de stockage. Le conteneur $logs se trouve dans l'espace de noms d'objets blob du compte de stockage, par exemple : `http://<accountname>.blob.core.windows.net/$logs`. Ce conteneur ne peut pas être supprimé une fois Storage Analytics activé, mais son contenu peut l'être.
 
->[Azure.NOTE] Il ne s’affiche pas lorsqu'une opération d'énumération des conteneurs est en cours, comme la méthode [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx). Vous devez y accéder directement. Par exemple, vous pouvez utiliser la méthode [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) pour accéder aux objets blob dans le conteneur `$logs`. À mesure que des demandes sont enregistrées, Storage Analytics télécharge les résultats intermédiaires en tant que blocs. Périodiquement, Storage Analytics valide ces blocs et les rend accessibles sous forme d'objets blob.
+>[Azure.NOTE] Il ne s’affiche pas lorsqu'une opération d'énumération des conteneurs est en cours, comme la méthode [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx). Vous devez y accéder directement. Par exemple, vous pouvez utiliser la méthode [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) pour accéder aux objets blob dans le conteneur `$logs`. À mesure que des demandes sont enregistrées, Storage Analytics télécharge les résultats intermédiaires en tant que blocs. Périodiquement, Storage Analytics valide ces blocs et les rend accessibles sous forme d'objets blob.
 
 Il peut exister des enregistrements en double pour les journaux créés dans la même heure. Vous pouvez déterminer si un enregistrement est un doublon en vérifiant les nombres **RequestId** et **Operation**.
 
@@ -126,7 +128,7 @@ Toutes les données du conteneur `$logs` sont accessibles à l'aide des API de s
 
 Storage Analytics peut stocker des métriques qui comprennent les statistiques de transactions agrégées et les données de capacité relatives aux demandes adressées à un service de stockage. Les transactions sont indiquées au niveau de l'opération d'API ainsi qu'au niveau du service de stockage, et la capacité est indiquée au niveau du service de stockage. Les données de métriques peuvent être utilisées pour analyser l'utilisation du service de stockage, diagnostiquer les problèmes au niveau des demandes effectuées auprès du service de stockage et améliorer les performances des applications qui utilisent un service.
 
-Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l’activer à partir du [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Surveillance d’un compte de stockage](../how-to-monitor-a-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. [Utilisez les opérations Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) et [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) pour activer Storage Analytics pour chaque service.
+Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l’activer à partir du [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) et [Get File Service Properties](https://msdn.microsoft.com/library/mt427369.aspx) pour activer les métriques Storage Analytics pour chaque service.
 
 ### Métriques de transaction
 
@@ -178,7 +180,7 @@ Storage Analytics est activé par un propriétaire de compte de stockage ; il n
 
 Les actions suivantes effectuées par Storage Analytics sont facturables :
 
-- Demandes de création d'objets blob pour la journalisation.
+- Demandes de création d'objets blob pour la journalisation. 
 
 - Demandes de création d'entités de table pour les métriques.
 
@@ -193,17 +195,17 @@ Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les 
 ## Étapes suivantes
 
 ### Configuration de Storage Analytics
-- [Surveillance d’un compte de stockage](../how-to-monitor-a-storage-account.md)
+- [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
 - [Activation et configuration de Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx)
 
 ### Journalisation Storage Analytics  
 - [À propos de la journalisation Storage Analytics](https://msdn.microsoft.com/library/hh343262.aspx)
 - [Format de journal de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx)
-- [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoftcom/library/hh343260.aspx)
+- [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)
 
 ### Métriques de Storage Analytics
 - [À propos des métriques de Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)
 - [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

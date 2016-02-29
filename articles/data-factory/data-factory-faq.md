@@ -132,9 +132,9 @@ Dans l'exemple ci-dessus, otherLinkedServiceName1 et otherLinkedServiceName2 rep
 Vous pouvez réexécuter une tranche de l'une des manières suivantes :
 
 - Cliquez sur **Exécuter** dans la barre de commandes du panneau **TRANCHE DE DONNÉES** de la tranche, dans le portail. 
-- Exécutez l’applet de commande **Set-AzureRmDataFactorySliceStatus** en ayant affecté à l’état de la tranche la valeur **PendingExecution**.   
+- Exécutez l’applet de commande **Set-AzureRmDataFactorySliceStatus** en ayant affecté à l’état de la tranche la valeur **En attente**.   
 	
-		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 Consultez [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] pour plus d’informations sur l’applet de commande.
 
@@ -174,4 +174,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

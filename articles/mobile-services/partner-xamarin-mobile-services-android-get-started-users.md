@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015" 
+	ms.date="02/11/2016" 
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -78,7 +78,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
     Cela crée une méthode pour gérer le processus d’authentification. L'utilisateur est authentifié à l'aide d'une connexion Microsoft Account. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
 
-    > [AZURE.NOTE]Si vous utilisez un autre fournisseur d'identité que Microsoft, remplacez la valeur passée à la méthode **login** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Google_, _Twitter_ ou _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité que Microsoft, remplacez la valeur passée à la méthode **login** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Google_, _Twitter_ ou _WindowsAzureActiveDirectory_.
 
 3. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d'instancier l'objet `MobileServiceClient`.
 
@@ -142,4 +142,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

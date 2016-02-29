@@ -139,6 +139,42 @@ Cet article explique certaines des erreurs courantes que vous pouvez rencontrer 
 
   <br/>
 
+## Résoudre les erreurs courantes en travaillant avec la Configuration d’état souhaité (DSC)  
+
+### Scénario : le nœud est en état d’échec avec une erreur « Introuvable »
+
+**Erreur :** le nœud dispose d’un rapport d’état « Échec » contenant l’erreur suivante : « The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found » (« La tentative d’obtention de l’action depuis le serveur https:////accounts//Nodes(AgentId=)/GetDscAction a échoué, car aucune configuration valide n’a été trouvée »).
+
+**Motif de l’erreur :** cet échec se produit généralement parce que le nœud est attribué à un nom de configuration (par exemple, ABC) et non à un nom de configuration de nœud (par exemple, ABC.ServeurWeb).
+
+**Conseils de dépannage :** vérifiez que vous utilisez un nom de configuration de nœud, et pas un nom de configuration. Pour mapper le nœud à une configuration de nœud valide, vous pouvez utiliser le bouton « affecter la configuration du nœud » du panneau de nœud dans le portail ou l’applet de commande Set-AzureRMAutomationDscNode.
+
+### Scénario : aucune configuration de nœud (fichier mof) ne s’est produite au cours d’une compilation de configuration
+
+**Erreur :** le travail de compilation de votre DSC a été interrompu avec l’erreur suivante : « Compilation completed successfully, but no node configuration .mofs were generated » (« La compilation s’est terminée correctement, mais aucune configuration de nœud .mofs n’a été générée »).
+
+**Motif de l’erreur :** lorsque l’expression en regard de « Node » dans la configuration DSC est $null, aucune configuration de nœud ne peut être générée.
+
+**Conseils de dépannage :** vérifiez que l’expression en regard de « Node » n’est pas $null. Si vous effectuez une transmission ConfigurationData, vérifiez que vous transmettez les valeurs attendues requises par la configuration depuis ConfigurationData. Par exemple, « $AllNodes ». Consultez https://azure.microsoft.com/fr-FR/documentation/articles/automation-dsc-compile/#configurationdata pour plus d’informations.
+
+### Scénario : le rapport du nœud DSC se bloque à l’état « en cours »
+
+**Erreur :** l’agent DSC génère le message « No instance found with given property values » (« Aucune instance n’a été trouvée selon les valeurs de propriété données »).
+
+**Motif de l’erreur :** vous avez mis à niveau votre version WMF et endommagé WMI.
+
+**Conseils de dépannage :** pour résoudre ce problème, suivez les instructions de cet article : https://msdn.microsoft.com/fr-FR/powershell/wmf/limitation_dsc
+
+### Scénario : il est impossible d’utiliser des informations d’identification dans une configuration DSC 
+
+**Erreur :** le travail de compilation de votre DSC a été interrompu avec l’erreur suivante : « System.InvalidOperationException error processing property 'Credential' OF TYPE '<some resource name>': Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true » (« Erreur System.InvalidOperationException lors du traitement de la propriété 'Credential' DE TYPE '' : La conversion et le stockage en texte brut d’un mot de passe chiffré ne sont autorisés que si PSDscAllowPlainTextPassword est défini sur true »).
+
+**Motif de l’erreur :** Vous avez essayé d’utiliser des informations d’identification dans une configuration, mais n’avez pas transmis la bonne ConfigurationData pour définir PSAllowPlainTextPassword sur true pour chaque configuration de nœud.
+
+**Conseils de dépannage :** assurez-vous de transmettre la bonne ConfigurationData pour définir PSAllowPlainTextPassword sur true pour chaque configuration de nœud mentionnée dans la configuration. Consultez https://azure.microsoft.com/fr-FR/documentation/articles/automation-dsc-compile/#assets pour plus d’informations.
+
+  <br/>
+
 ## Étapes suivantes
 
 Si vous avez suivi les étapes de dépannage ci-dessus et avez besoin d’aide à un moment quelconque de cet article, vous pouvez :
@@ -147,8 +183,8 @@ Si vous avez suivi les étapes de dépannage ci-dessus et avez besoin d’aide �
 
 - Signaler un incident au support Azure Accédez au [site de support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir un support** dans la section **Support technique et sur la facturation**.
 
-- Si vous recherchez une solution de runbook Azure Automation ou un module d’intégration, publiez une demande de script sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/).
+- Publier une demande de script sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/), si vous recherchez une solution de runbook Azure Automation ou un module d’intégration.
 
-- Publiez vos commentaires ou vos demandes de fonctionnalités pour Azure Automation sur [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
+- Publier vos commentaires ou vos demandes de fonctionnalités pour Azure Automation sur [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

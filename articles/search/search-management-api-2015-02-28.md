@@ -1,6 +1,20 @@
-<properties pageTitle="API REST de gestion Azure Search version 28/02/2015 | Microsoft Azure | Service de recherche cloud hébergé" description="API REST de gestion Azure Search : version 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties
+	pageTitle="API REST de gestion Azure Search version 28/02/2015 | Microsoft Azure | Service de recherche cloud hébergé"
+	description="API REST de gestion Azure Search : version 2015-02-28"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="11/04/2015"
+	ms.author="heidist" />
 
 # API de gestion : version 2015-02-28
 
@@ -39,7 +53,7 @@ Si votre code d’application gère *les opérations de gestion du service* ains
 
 L’exemple d’application décrit dans [Prise en main de l’API REST de gestion Azure Search](http://go.microsoft.com/fwlink/p/?linkID=516968) illustre les techniques d’authentification pour chaque type d’opération. Cet article explique comment configurer une application cliente pour utiliser Active Directory.
 
-Le contrôle d’accès d’Azure Resource Manager repose sur les rôles intégrés de propriétaire, de contributeur et de lecteur. Par défaut, tous les administrateurs de service sont propriétaires. Pour en savoir plus, consultez [Contrôle d’accès basé sur les rôles dans le portail Azure Classic](../role-based-access-control-configure.md).
+Le contrôle d’accès d’Azure Resource Manager repose sur les rôles intégrés de propriétaire, de contributeur et de lecteur. Par défaut, tous les administrateurs de service sont propriétaires. Pour en savoir plus, consultez [Contrôle d’accès basé sur les rôles dans le portail Azure Classic](../active-directory/role-based-access-control-configure.md).
 
 
 ### Résumé des API ##
@@ -812,4 +826,4 @@ Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
 Aucune.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

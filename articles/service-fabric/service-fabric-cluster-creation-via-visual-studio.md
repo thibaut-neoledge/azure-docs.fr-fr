@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Configuration d’un cluster Service Fabric à l’aide de Visual Studio
@@ -45,7 +45,7 @@ Avant de déployer le modèle pour créer le cluster, vous devez fournir les val
 |sourceVaultValue |*ID de ressource* du coffre de clés où est stocké le certificat qui sécurise le cluster.|
 |certificateUrlValue |URL du certificat de sécurité du cluster.|
 
-Le modèle Resource Manager Service Fabric Visual Studio crée un cluster sécurisé, qui est protégé par un certificat. Ce certificat est identifié par les trois derniers paramètres du modèle (`certificateThumbprint`, `sourceVaultValue` et `certificateUrlValue`) et doit exister dans un **coffre de clés Azure**. Pour plus d’informations sur la création du certificat de sécurité du cluster, consultez l’article [Sécurisation du cluster Service Fabric à l’aide de certificats](service-fabric-cluster-security.md).
+Le modèle Resource Manager Service Fabric Visual Studio crée un cluster sécurisé, qui est protégé par un certificat. Ce certificat est identifié par les trois derniers paramètres du modèle (`certificateThumbprint`, `sourceVaultValue` et `certificateUrlValue`) et doit exister dans un **coffre de clés Azure**. Pour plus d’informations sur la création du certificat de sécurité du cluster, consultez l’article [Sécurisation du cluster Service Fabric à l’aide de certificats](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates).
 
 ## Facultatif : Ajout de ports d'application publics
 Vous pouvez également souhaiter modifier les ports d’application publics pour le cluster avant de le déployer. Par défaut, le modèle ouvre seulement deux ports TCP publics (80 et 8081). Si vous avez besoin d’autres ports pour vos applications, modifiez la définition de l’équilibreur de charge Azure dans le modèle. La définition est stockée dans le fichier modèle principal (`SecureFabricCluster.json`). Ouvrez ce fichier et recherchez `loadBalancedAppPort`. Vous remarquerez que chaque port est associé à trois artefacts :
@@ -106,6 +106,8 @@ Vous pouvez surveiller la progression du processus de déploiement dans la fenê
 
 Si des erreurs sont présentes, accédez au [portail Azure](https://portal.azure.com/) et vérifiez les **notifications**. Un déploiement de groupe de ressources ayant échoué laisse des informations de diagnostic détaillées.
 
+>[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l'état, situation appelée "conservation du quorum". Par conséquent, il est généralement déconseillé d'arrêter tous les ordinateurs du cluster, sauf si vous avez d'abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).
+
 ## Étapes suivantes
 - [En savoir plus sur la configuration de cluster Service Fabric à l’aide du portail Azure](service-fabric-cluster-creation-via-portal.md)
 - [Apprenez à gérer et déployer des applications Service Fabric à l’aide de Visual Studio](service-fabric-manage-application-in-visual-studio.md)
@@ -115,4 +117,4 @@ Si des erreurs sont présentes, accédez au [portail Azure](https://portal.azure
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

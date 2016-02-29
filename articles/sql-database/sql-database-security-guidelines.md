@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/24/2015"
+   ms.date="02/16/2016"
    ms.author="rickbyh"/>
 
 # Instructions et limitations de sécurité d’Azure SQL Database
@@ -37,7 +37,7 @@ Pour valider des certificats avec le code d’application ADO.NET, définissez `
 
 SQL Server Management Studio prend également en charge la validation de certificats. Dans la boîte de dialogue **Se connecter au serveur**, cliquez sur **Chiffrer la connexion** dans l’onglet **Propriétés de connexion**.
 
-> [AZURE.NOTE]SQL Server Management Studio ne prend pas en charge les connexions à SQL Database dans les versions antérieures de SQL Server 2008 R2.
+> [AZURE.NOTE] SQL Server Management Studio ne prend pas en charge les connexions à SQL Database dans les versions antérieures de SQL Server 2008 R2.
 
 Bien que SQLCMD prenne en charge SQL Database à partir de SQL Server 2008, il ne gère pas la validation de certificats dans les versions antérieures à SQL Server 2008 R2. Pour valider des certificats avec SQLCMD à partir de SQL Server 2008 R2, utilisez l’option de ligne de commande ``-N`` et n’utilisez pas l’option ``-C``. Avec l’option -N, SQLCMD demande une connexion chiffrée. Sans l’option ``-C``, SQLCMD n’approuve pas implicitement le certificat de serveur et est forcé de le valider.
 
@@ -49,7 +49,7 @@ L’authentification Active Directory (sécurité intégrée) est disponible en 
 
 La [base de données SQL V12](sql-database-v12-whats-new.md) permet aux utilisateurs de s’authentifier pour la base de données à l’aide des utilisateurs de base de données contenu. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) et [Bases de données à relation contenant-contenu](https://technet.microsoft.com/library/ff929071.aspx).
 
-> [AZURE.NOTE]Pour plus d’évolutivité, Microsoft recommande l’emploi d’utilisateurs de base de données à relation contenant-contenu.
+> [AZURE.NOTE] Pour plus d’évolutivité, Microsoft recommande l’emploi d’utilisateurs de base de données à relation contenant-contenu.
 
 Le moteur de base de données ferme les connexions restées inactives pendant plus de 30 minutes. La connexion nécessite une nouvelle identification pour fonctionner à nouveau.
 
@@ -64,12 +64,12 @@ Les restrictions suivantes s’appliquent à la connexion principale au niveau d
 - L’utilisateur de base de données dans la base de données master, correspondant à la connexion principale au niveau du serveur, ne peut pas être modifié ou supprimé. 
 - Bien que la connexion principale au niveau du serveur ne soit pas membre des deux rôles de base de données **dbmanager** et **loginmanager** dans la base de données **MASTER**, elle possède toutes les autorisations accordées à ces deux rôles.
 
-> [AZURE.NOTE]Cette connexion est créée lors de l’approvisionnement du serveur et est similaire à la connexion **sa** dans une instance de SQL Server.
+> [AZURE.NOTE] Cette connexion est créée lors de l’approvisionnement du serveur et est similaire à la connexion **sa** dans une instance de SQL Server.
 
 Les restrictions suivantes s’appliquent à toutes les connexions :
 
 - La langue par défaut est l’anglais américain.
-- Pour accéder à la base de données **MASTER**, chaque connexion doit être mappée à un compte d’utilisateur de cette base de données **MASTER**. La base de données **MASTER** ne prend pas en charge les utilisateurs de base de données à relation contenant-contenu.
+- Pour accéder à la base de données **master**, chaque connexion doit être mappée à un compte d’utilisateur de cette base de données **master**. La base de données **MASTER** ne prend pas en charge les utilisateurs de base de données à relation contenant-contenu.
 - Si vous ne spécifiez pas une base de données dans la chaîne de connexion, vous êtes connecté à la base de données **MASTER** par défaut.
 - Vous devez être connecté à la base de données **MASTER** lors de l’exécution des instructions ``CREATE/ALTER/DROP LOGIN`` et ``CREATE/ALTER/DROP DATABASE``. 
 - Lors de l’exécution des instructions ``CREATE/ALTER/DROP LOGIN`` et ``CREATE/ALTER/DROP DATABASE`` dans une application ADO.NET, l’utilisation de commandes paramétrées est interdite. Pour plus d’informations, voir [Commandes et paramètres](https://msdn.microsoft.com/library/ms254953.aspx).
@@ -111,4 +111,4 @@ Considérez les points suivants pour réduire la vulnérabilité de vos applicat
 
 [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

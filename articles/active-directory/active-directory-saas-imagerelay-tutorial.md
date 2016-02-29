@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L'objectif de ce didacticiel est de vous montrer comment intégrer ImageRelay à
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à ImageRelay.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à ImageRelay (via l’authentification unique) avec leurs comptes Azure AD.
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Active Directory.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ Pour configurer l’intégration d'ImageRelay avec Azure AD, vous devez ajouter
 
 **Pour ajouter ImageRelay à partir de la galerie, procédez comme suit :**
 
-1. Dans le portail Azure, sur le volet de navigation gauche, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -65,7 +65,7 @@ Pour configurer l’intégration d'ImageRelay avec Azure AD, vous devez ajouter
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, tapez **ImageRelay**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)<br>
-7. Dans le volet de résultats, sélectionnez **ImageRelay**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>
+7. Dans le volet des résultats, sélectionnez **ImageRelay**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec ImageRelay sur un utilisateur de test appelé « Britta Simon ».
@@ -82,12 +82,12 @@ Pour configurer et tester l’authentification unique Azure AD avec ImageRelay,
 
 ### Configuration de l’authentification unique Azure AD
 
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD et de configurer l’authentification unique dans votre application ImageRelay.
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD Classic et de configurer l’authentification unique dans votre application ImageRelay.
 
 
 **Pour configurer l’authentification unique Azure AD avec ImageRelay, procédez comme suit :**
 
-1. Dans le portail Azure AD, puis sur la page d’intégration d’application **ImageRelay**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans le portail Azure AD Classic, sur la page d’intégration d’application **ImageRelay**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
      ![Configurer l’authentification unique][6] <br>
 
@@ -141,7 +141,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     - Sélectionnez le groupe d'autorisations (par exemple, **SSO de base**) qui sera autorisé à se connecter uniquement via l'authentification unique.<br><br>![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
 
-6. Dans le portail Azure AD, sélectionnez la confirmation de configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Azure AD Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 
     ![Authentification unique Azure AD][10]<br>
 
@@ -151,11 +151,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 ### Création d’un utilisateur de test Azure AD
-L'objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure AD Classic.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **Portail Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
+1. Dans le volet de navigation de gauche du **portail Azure AD Classic**, cliquez sur **Active Directory**.<br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -213,7 +213,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à ImageRelay, procédez comme suit :**
 
-1. Dans le portail Azure, pour ouvrir la vue des applications, dans la vue Répertoire, cliquez sur **Applications** dans le menu du haut.<br><br>![Affecter des utilisateurs][201] <br>
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br>![Affecter des utilisateurs][201] <br>
 
 2. Dans la liste des applications, sélectionnez **ImageRelay**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) <br>
 
@@ -253,4 +253,4 @@ L’objectif de cette section est de tester votre configuration d’authentifica
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

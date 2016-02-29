@@ -52,9 +52,9 @@ Vérifiez que SQL Server est accessible à partir de l'ordinateur sur lequel la 
 2. essayer de vous connecter à l’instance SQL Server en utilisant les informations d’identification que vous avez spécifiées sur le portail Azure Classic à l’aide de SQL Server Management Studio (SSMS).
 
 
-## Problème : l’état des tranches d’entrée est PendingExecution ou PendingValidation depuis longtemps.
+## Problème : l’état des tranches d’entrée est En attente depuis longtemps
 
-Les tranches peuvent avoir l’état **PendingExecution** ou **PendingValidation** pour plusieurs raisons, par exemple parce que la propriété **external** n’a pas la valeur **true**. Tout jeu de données généré en dehors de l’étendue d’Azure Data Factory doit être marqué avec la propriété **external**. Cela indique que les données sont externes et qu’elles ne sont sauvegardées par aucun pipeline au sein de la fabrique de données. Les tranches de données sont marquées comme prêtes (**Ready**) une fois que les données sont disponibles dans le magasin respectif.
+Les tranches peuvent avoir l’état **En attente** pour plusieurs raisons, par exemple parce que la propriété **external** n’a pas la valeur **true**. Tout jeu de données généré en dehors de l’étendue d’Azure Data Factory doit être marqué avec la propriété **external**. Cela indique que les données sont externes et qu’elles ne sont sauvegardées par aucun pipeline au sein de la fabrique de données. Les tranches de données sont marquées comme prêtes (**Ready**) une fois que les données sont disponibles dans le magasin respectif.
 
 Consultez l’exemple suivant pour l’utilisation de la propriété **external**. Vous pouvez éventuellement spécifier **externalData*** quand vous affectez à la propriété external la valeur true.
 
@@ -374,4 +374,4 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/23/2015"
+   ms.date="02/16/2016"
    ms.author="chackdan"/>
 
 # Mettre à niveau un cluster Service Fabric
@@ -37,8 +37,6 @@ Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à 
 Nous essayons d'exécuter la même mise à niveau plusieurs fois dans le cas où les mises à niveau ont échoué pour des raisons d'infrastructure. Après le délai de n jours à partir de la date d'envoi du message électronique, nous passons à la Phase 2.
 
 Si les stratégies d'intégrité du cluster sont respectées, la mise à niveau est considérée comme réussie et marquée comme terminée. Cela peut se produire pendant la première exécution ou l'une des exécutions de la mise à niveau suivantes dans cette phase. Aucun message électronique de confirmation d'une exécution réussie n'est envoyé. Ceci afin d'éviter de vous envoyer trop de messages électroniques. La réception d'un message devant être considérée comme une exception. Nous pensons que la plupart des mises à niveau du cluster s'exécuteront sans affecter la disponibilité de votre application.
-
-Pour plus d'informations sur la définition de stratégies d'intégrité personnalisées pour votre cluster, consultez [Mise à niveau et paramètres d'intégrité d'un cluster](service-fabric-cluster-health-parameters.md).
 
 ### Phase 2 : La mise à niveau est effectuée à l'aide des stratégies d'intégrité par défaut uniquement
 
@@ -76,7 +74,7 @@ Vous pouvez facilement mettre à jour les certificats principaux ou secondaires 
 
 ![Capture d'écran qui affiche les empreintes numériques des certificats dans le portail Azure.][CertificateUpgrade]
 
->[AZURE.NOTE]Avant d'identifier un certificat à utiliser pour les ressources de cluster, vous devez effectuer les étapes suivantes ; sinon, les nouveaux certificats ne seront pas utilisés : 1. Charger le nouveau certificat dans le coffre de clés. Pour obtenir des instructions, consultez [Sécurité Service Fabric](service-fabric-cluster-security.md). Commencez à l'étape 2 dans ce document. 2. Mettez à jour toutes les machines virtuelles qui composent le cluster pour déployer le certificat sur celles-ci. Pour ce faire, consultez le [blog de l'équipe Azure Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Avant d'identifier un certificat à utiliser pour les ressources de cluster, vous devez effectuer les étapes suivantes ; sinon, les nouveaux certificats ne seront pas utilisés : 1. Charger le nouveau certificat dans le coffre de clés. Pour obtenir des instructions, consultez [Sécurité Service Fabric](service-fabric-cluster-security.md). Commencez à l'étape 2 dans ce document. 2. Mettez à jour toutes les machines virtuelles qui composent le cluster pour déployer le certificat sur celles-ci. Pour ce faire, consultez le [blog de l'équipe Azure Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Ports d'application
 
@@ -101,7 +99,7 @@ Pour ouvrir un nouveau port sur toutes les machines virtuelles dans un type de n
 
 Pour chaque type de nœud, vous pouvez ajouter des propriétés de positionnement personnalisées que vous souhaitez utiliser dans vos applications. NodeType est une propriété par défaut que vous pouvez utiliser sans l'ajouter explicitement.
 
->[AZURE.NOTE]Pour plus d'informations sur l'utilisation des propriétés de positionnement, consultez [Vue d'ensemble des contraintes de placement](service-fabric-placement-constraint.md).
+>[AZURE.NOTE] Pour plus d'informations sur l'utilisation des propriétés de positionnement, consultez [Vue d'ensemble des contraintes de placement](service-fabric-placement-constraint.md).
 
 ### Métriques de capacité
 
@@ -125,4 +123,4 @@ Si vous devez mettre à niveau l'image du système d'exploitation sur les machin
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

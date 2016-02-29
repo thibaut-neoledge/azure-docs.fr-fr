@@ -35,7 +35,7 @@ Pour utiliser le Bureau à distance, vous devez mettre à jour la définition et
 
 Effectuez les opérations suivantes à partir d'un ordinateur qui contient les fichiers source de votre application.
 
-1. Exécutez **Azure PowerShell** en tant qu’administrateur. (À partir du **menu Démarrer** ou de l’**écran d'accueil**, recherchez **Azure PowerShell**.
+1. Exécutez **Windows PowerShell** en tant qu’administrateur (à partir du **menu Démarrer** ou de l’**écran d’accueil**, recherchez **Windows PowerShell**).
 
 2.  Accédez au répertoire qui contient les fichiers de définition de service (.csdef) et de configuration de service (.cscfg).
 
@@ -115,4 +115,4 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
 [Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

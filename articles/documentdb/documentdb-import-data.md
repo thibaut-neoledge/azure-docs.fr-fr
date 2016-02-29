@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Importation de données vers DocumentDB | Microsoft Azure"
-	description="Découvrez comment utiliser l'outil de migration de données open source DocumentDB pour importer des données depuis différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le stockage de tables Azure, Amazon DynamoDB et des collections DocumentDB."
+	pageTitle="Outil de migration de base de données DocumentDB | Microsoft Azure"
+	description="Découvrez comment utiliser l’outil de migration de données open source DocumentDB pour importer des données depuis différentes sources, y compris des fichiers MongoDB, SQL Server, Table Storage, Amazon DynamoDB, CSV, et JSON. Conversion CSV vers JSON."
+	keywords="csv vers json, outils de migration de base de données, conversion csv vers json" 
 	services="documentdb"
 	authors="andrewhoh"
 	manager="jhubbard"
@@ -16,7 +17,7 @@
 	ms.date="01/29/2016"
 	ms.author="anhoh"/>
 
-# Importation de données vers DocumentDB - Outil de migration de base de données
+# Importation de données vers DocumentDB avec l’outil de migration de base de données
 
 Cet article vous montre comment utiliser l'outil de migration de données open source DocumentDB pour importer des données dans [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) à partir de différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le stockage de tables Azure, Amazon DynamoDB et les collections DocumentDB.
 
@@ -53,7 +54,7 @@ L'outil de migration de données DocumentDB est une solution open source permett
 L'outil d'importation inclut une interface utilisateur graphique (dtui.exe) et peut aussi être piloté à partir de la ligne de commande (dt.exe). En fait, il existe une option pour générer la commande associée après avoir configuré une importation via l'interface utilisateur. Des données sources tabulaires (par exemple, des fichiers SQL Server ou CSV) peuvent être transformées de manière à ce que des relations hiérarchiques (sous-documents) puissent être créées pendant l'importation. Poursuivez votre lecture pour en savoir plus sur les options sources, les exemples de lignes de commande pour l’importation depuis chaque source, les options cibles et l'affichage des résultats d’importation.
 
 
-##<a id="Install"></a>Installation de l'outil de migration de données DocumentDB
+##<a id="Install"></a>Installation de l’outil de migration de données DocumentDB
 
 Le code source de l'outil de migration est disponible sur GitHub dans [ce référentiel](https://github.com/azure/azure-documentdb-datamigrationtool) et une version compilée est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Vous pouvez compiler la solution ou simplement télécharger et extraire la version compilée dans un répertoire de votre choix. Exécutez ensuite l’un des fichiers suivants :
 
@@ -477,4 +478,4 @@ Choisissez ensuite si vous souhaitez consigner tous les messages d’erreur, uni
 
 - Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

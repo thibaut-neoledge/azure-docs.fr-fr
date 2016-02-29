@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 
@@ -165,4 +165,4 @@ Les références d’API managées .NET pertinentes pour les notifications Push 
   [portail Azure]: https://portal.azure.com
   [cette page]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

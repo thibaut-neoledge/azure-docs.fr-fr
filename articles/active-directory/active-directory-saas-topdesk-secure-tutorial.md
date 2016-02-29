@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à TOPdesk - Secure | Microsoft Azure" description="Découvrez comment utiliser TOPdesk - Secure avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    pageTitle="Didacticiel : Intégration d’Azure AD à TOPdesk - Secure | Microsoft Azure"
+    description="Découvrez comment utiliser TOPdesk - Secure avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -94,7 +95,7 @@ La configuration de l’authentification unique pour TOPdesk - Secure vous oblig
         ![Assertion Consumer Service](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion Consumer Service")
     3.  Copiez la valeur de **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Vous en aurez besoin dans la section **Configurer l’URL de l’application** plus loin dans ce didacticiel.
+        >[AZURE.NOTE] Vous en aurez besoin dans la section **Configurer l’URL de l’application** plus loin dans ce didacticiel.
 
 6.  Dans une autre fenêtre de navigateur web, connectez-vous à votre portail **Azure Active Directory** en tant qu’administrateur.
 
@@ -181,7 +182,7 @@ Dans le cas de TOPdesk - Secure, l’approvisionnement est une tâche manuelle.
     4.  Dans la zone de texte **Login Name** de la section **TOPdesk Login**, indiquez le nom de connexion de votre utilisateur.
     5.  Cliquez sur **Enregistrer**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par TOPdesk - Secure, pour approvisionner des comptes d’utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par TOPdesk - Secure, pour approvisionner des comptes d’utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -201,4 +202,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

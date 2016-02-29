@@ -36,7 +36,7 @@ Le Kit de développement logiciel (SDK) Azure pour .NET installe les produits su
 - [Émulateur de stockage Microsoft Azure](#stgemulator)
 - [Outils de stockage Microsoft Azure](#stgtools)
 - [Bibliothèques Microsoft Azure pour .NET](#libraries)
-- [Outils HDInsight pour Visual Studio](#hdinsight) et [pilote ODBC Hive de Microsoft](#hdinsight)
+- [Outils HDInsight pour Visual Studio et pilote ODBC Hive de Microsoft](#hdinsight)
 - [Kit de développement logiciel (SDK) V1.0 Microsoft Azure Mobile App](#mobile)
 - [Microsoft Azure PowerShell](#ps)
 
@@ -101,7 +101,7 @@ Les éléments suivants sont inclus :
 
 Les outils HDInsight dans l'Explorateur de serveurs vous permettent de naviguer dans les bases de données Hive et de lier des comptes de stockage pour les clusters HDInsight, de créer des tables ainsi que de créer et d'envoyer des requêtes Hive. Pour plus d'informations, consultez la page [Prise en main de HDInsight Hadoop Tools pour Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-###<a id="mobile">Kit de développement logiciel (SDK) de Microsoft Azure Mobile App
+###<a id="mobile"></a>Kit de développement logiciel (SDK) V1.0 Microsoft Azure Mobile App
 
 Outils permettant de travailler avec [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md).
 
@@ -186,4 +186,4 @@ Pour le code source du Kit de développement logiciel (SDK) Azure pour .NET, y c
 
 Pour la documentation de référence de la bibliothèque cliente Azure, consultez [Référence Azure .NET](/documentation/api/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

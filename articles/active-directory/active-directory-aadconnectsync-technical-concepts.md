@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect Sync : Concepts techniques
+Cet article est un résumé de la rubrique [Présentation de l’architecture](active-directory-aadconnectsync-technical-concepts.md).
 
 Azure AD Connect Sync repose sur une plateforme de synchronisation de méta-annuaire solide. Les sections suivantes présentent les concepts liés à la synchronisation de méta-annuaire. S’appuyant sur MIIS, ILM et FIM, les services Azure Active Directory Sync fournissent la plateforme de nouvelle génération pour la connexion aux sources de données. Ils synchronisent les données entre des sources de données et assurent l’approvisionnement et le désapprovisionnement des identités.
 
@@ -89,4 +90,4 @@ Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connec
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
@@ -27,7 +27,7 @@ Le didacticiel décrit les tâches courantes liées aux enregistrements de contr
 - Modifier un enregistrement de contrôle d’accès 
 - Supprimer un enregistrement de contrôle d’accès 
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - Lorsque vous attribuez un enregistrement de contrôle d’accès à un volume, veillez à ce que plusieurs hôtes non cluster n’accèdent pas simultanément au volume, sans quoi celui-ci pourrait être endommagé. 
 > - Lorsque vous supprimez un enregistrement de contrôle d’accès d’un volume, assurez-vous que l’hôte correspondant n’accède pas au volume, car la suppression pourrait entraîner une perturbation des opérations de lecture-écriture.
@@ -47,7 +47,7 @@ Effectuez les opérations suivantes pour ajouter un enregistrement de contrôle 
 3. Sous **Nom d’initiateur iSCSI**, indiquez le nom IQN de votre hôte Windows. Pour obtenir le nom IQN de l’hôte Windows Server, procédez comme suit :
 
    - Démarrez l’initiateur Microsoft iSCSI sur l’hôte Windows.
-   - Dans la fenêtre Propriétés de l’initiateur iSCSI, sous l’onglet Configuration, sélectionnez et copiez la chaîne affichée dans le champ Nom d’initiateur.
+   - Dans la fenêtre **Propriétés de l’initiateur iSCSI**, sous l’onglet **Configuration**, sélectionnez et copiez la chaîne affichée dans le champ **Nom de l’initiateur**.
    - Collez la chaîne du champ **Nom d’initiateur iSCSI** dans la table des enregistrements de contrôle d’accès du portail Azure Classic.
 
 4. Cliquez sur **Enregistrer** pour sauvegarder l’enregistrement de contrôle d’accès nouvellement créé. La liste de la table est mise à jour pour refléter les modifications.
@@ -56,7 +56,7 @@ Effectuez les opérations suivantes pour ajouter un enregistrement de contrôle 
 
 Utilisez la page **Configurer** du portail Azure Classic pour modifier les enregistrements de contrôle d’accès.
 
-> [AZURE.NOTE]Vous pouvez modifier uniquement les enregistrements de contrôle d’accès qui ne sont pas en cours d’utilisation. Pour modifier un enregistrement de contrôle d’accès associé à un volume en cours d’utilisation, vous devez d’abord placer le volume hors connexion.
+> [AZURE.NOTE] Vous pouvez modifier uniquement les enregistrements de contrôle d’accès qui ne sont pas en cours d’utilisation. Pour modifier un enregistrement de contrôle d’accès associé à un volume en cours d’utilisation, vous devez d’abord placer le volume hors connexion.
 
 Effectuez les opérations suivantes pour modifier un enregistrement de contrôle d’accès.
 
@@ -74,7 +74,7 @@ Effectuez les opérations suivantes pour modifier un enregistrement de contrôle
 
 Utilisez la page **Configurer** du portail Azure Classic pour supprimer les enregistrements de contrôle d’accès.
 
-> [AZURE.NOTE]Vous pouvez uniquement supprimer les enregistrements de contrôle d’accès qui ne sont pas en cours d’utilisation. Pour supprimer un enregistrement de contrôle d’accès associé à un volume en cours d’utilisation, vous devez d’abord placer le volume hors connexion.
+> [AZURE.NOTE] Vous pouvez uniquement supprimer les enregistrements de contrôle d’accès qui ne sont pas en cours d’utilisation. Pour supprimer un enregistrement de contrôle d’accès associé à un volume en cours d’utilisation, vous devez d’abord placer le volume hors connexion.
 
 Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
@@ -95,4 +95,4 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (Azure PowerShell)" 
+	pageTitle="Procédure pas à pas : Copie des données de sortie vers une base de données SQL Server (Azure PowerShell)" 
 	description="Cette procédure pas à pas étend le didacticiel à l'aide d'Azure PowerShell de telle façon que le pipeline copie des données de sortie vers une base de données SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# Procédure pas à pas : copier des données sur l’efficacité d’une campagne vers une base de données SQL Server locale.
+# Procédure pas à pas : Copie des données de sortie vers une base de données SQL Server locale (Azure PowerShell)
 Dans cette procédure pas à pas, vous allez apprendre à configurer l’environnement permettant d’activer l’utilisation de vos données locales sur le pipeline.
  
 Dans la dernière étape du scénario de traitement de journal, lors de la première procédure pas à pas avec Partition -> Enrichir -> Analyser le flux de travail, la sortie de l’efficacité de la campagne marketing a été copiée dans une base de données SQL Azure. Vous pouvez également déplacer ces données vers une base de données SQL Server locale pour l’analyser au sein de votre organisation.
@@ -170,4 +170,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

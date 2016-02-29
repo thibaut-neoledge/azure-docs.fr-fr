@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -63,7 +63,7 @@ Exemples de modèles :
 
 Les [cmdlets de mise en réseau Azure](https://msdn.microsoft.com/library/azure/mt163510.aspx) peuvent être utilisées pour créer un équilibrage de charge. Prise en main des cmdlets ARM et des API REST
 
-- [Création d’un équilibrage de charge à l’aide d’Azure Resource Manager](../load-balancer-arm-powershell)
+- [Création d’un équilibrage de charge à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md)
 
 - [Utilisation de la CLI Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager)
 
@@ -76,4 +76,4 @@ Vous pouvez également [commencer par créer un équilibrage de charge accessibl
 
 Si votre application doit maintenir des connexions actives pour les serveurs situés derrière un équilibreur de charge, vous pouvez obtenir plus d’informations sur les [paramètres de délai d'expiration TCP pour un équilibrage de charge](load-balancer-tcp-idle-timeout.md). Ainsi, vous en saurez plus sur le comportement d’une connexion inactive lorsque vous utilisez l'équilibreur de charge Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

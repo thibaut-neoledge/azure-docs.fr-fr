@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Gestion des applications avec Azure Active Directory | Microsoft Azure"
-   description="Cet article présente les avantages de l’intégration d’Azure Active Directory avec vos applications locales, cloud et SaaS."
-   services="active-directory"
-   documentationCenter=""
-   authors="ihenkel"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Gestion des applications avec Azure Active Directory | Microsoft Azure"
+    description="Cet article présente les avantages de l’intégration d’Azure Active Directory avec vos applications locales, cloud et SaaS."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
    <tags
       ms.service="active-directory"
@@ -13,12 +13,10 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/09/2016"
-      ms.author="inhenk"/>
+      ms.date="02/16/2016"
+      ms.author="markvi"/>
 
-# Gestion des applications avec Azure Active Directory (AD)
-
-## Vue d'ensemble
+# Gestion des applications avec Azure Active Directory
 
 Au-delà du workflow ou du contenu réels, les entreprises ont deux exigences de base pour toutes les applications :
 
@@ -30,9 +28,9 @@ Dans le vocabulaire des applications cloud, cela est possible en utilisant l’i
 
 Dans la terminologie de l’informatique :
 
-- *Qui* est connu comme l’*identité* : magasin de données qui se compose d’utilisateurs et de groupes
+- *Qui* est connu comme l’*identité* : la gestion des utilisateurs et des groupes
 
-- *Quoi* est connu comme la *gestion de l’accès* : gestion de l’accès aux ressources protégées
+- *Quoi* est connu comme la *gestion de l’accès* : la gestion de l’accès aux ressources protégées
 
 Ensemble, les deux composants sont désignés comme la *Gestion de l’identité et de l’accès (IAM)*, que le groupe [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) définit comme « *la discipline de sécurité qui permet aux bonnes personnes d’accéder aux bonnes ressources au bon moment et pour les bonnes raisons* ».
 
@@ -40,7 +38,7 @@ Très bien, alors, quel est le problème ? Si IAM n’est *pas gérée* à un s
 
 - Les administrateurs d’identité doivent créer et mettre à jour des comptes d’utilisateurs individuellement dans toutes les applications séparément, activité redondante et chronophage.
 
-- Les utilisateurs doivent mémoriser de nombreuses informations d’identification pour accéder aux applications dont ils ont besoin pour travailler, en particulier parce qu’ils sont encouragés à ne pas utiliser le même mot de passe pour chaque application pour des raisons de sécurité. Par conséquent, les utilisateurs ont tendance à écrire leurs mots de passe ou à utiliser d’autres solutions de gestion des mots de passe, ce qui crée d’autres risques de sécurité des données.
+- Les utilisateurs sont tenus de mémoriser différentes informations d’identifications pour accéder aux applications dont ils ont besoin. Par conséquent, les utilisateurs ont tendance à écrire leurs mots de passe ou à utiliser d’autres solutions de gestion des mots de passe, ce qui crée d’autres risques de sécurité des données.
 
 - Les activités redondantes et chronophages réduisent la durée pendant laquelle les utilisateurs et les administrateurs travaillent sur des activités d’entreprise qui augmentent vos résultats.
 
@@ -52,15 +50,24 @@ Alors, de manière générale, qu’est-ce qui empêche les entreprises d’adop
 
 - Les outils de sécurité et de surveillance nécessitent une personnalisation et une intégration accrues pour parvenir à des scénarios de bout en bout complets.
 
-## Azure Active Directory (AD) intégré avec des applications
+## Azure Active Directory intégré à des applications
 
-Azure Active Directory (AD) est la solution complète d’identité en tant que service (IDaaS) activant IAM en tant que service cloud, offrant une gestion intégrée de l’accès, une authentification unique et créant des rapports de [préintégration avec des milliers d’applications](https://azure.microsoft.com/marketplace/active-directory/), notamment Salesforce, Google Apps, Box, Concur et bien d’autres. Avec Azure AD, les applications que vous publiez pour vos partenaires et clients (professionnels ou particuliers) sont dotées des mêmes fonctionnalités de gestion de l’identité et de l’accès, ce qui vous libère et vous permet de vous concentrer sur votre activité principale.
+Azure Active Directory est une solution Microsoft de type IDaaS (Identity as a Service) qui :
 
-La valeur d’Azure AD va bien au-delà des applications cloud. Vous pouvez également l’utiliser avec des applications locales en fournissant un accès à distance sécurisé, évitant ainsi la nécessité de disposer de VPN ou d’autres systèmes traditionnels de gestion de l’accès à distance.
+- active IAM en tant que service cloud ; 
+
+- assure la centralisation de la gestion de l’accès, l’authentification unique et le compte-rendu ;
+
+- prend en charge la gestion intégrée de l’accès à des [milliers d’applications](https://azure.microsoft.com/marketplace/active-directory/) dans la galerie d’applications, notamment à Salesforce, Google Apps, Box, Concur et plus encore.
+
+
+Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) présentent des fonctionnalités identiques de gestion de l’identité et de l’accès.<br> Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
 
 Que se passe-t-il si vous devez implémenter une application qui ne figure pas encore dans la galerie d’applications ? Bien que l’opération soit un peu plus longue que la configuration de l’authentification unique pour les applications de la galerie d’applications, Azure AD vous propose un assistant qui vous aide à effectuer la configuration.
 
-Grâce à la centralisation de la gestion de l’accès et de l’authentification unique pour toutes vos applications, Azure AD offre la solution à vos problèmes de sécurité des données et de productivité.
+La valeur d’Azure AD va bien au-delà des applications cloud. La solution s’utilise également avec des applications locales, pour lesquelles elle procure un accès sécurisé à distance. Avec l’accès sécurisé à distance, vous pouvez éliminer le recours aux VPN et à d’autres implémentations traditionnelles de gestion de l’accès à distance.
+
+En centralisant la gestion de l’accès et en procurant l’authentification unique pour l’ensemble de vos applications, Azure AD constitue la solution adaptée aux problèmes principaux de sécurité des données et de productivité.
 
 - Les utilisateurs peuvent accéder à plusieurs applications avec une seule connexion, ce qui leur laisse plus de temps pour générer des revenus et pour effectuer des activités commerciales.
 
@@ -128,4 +135,4 @@ Pour commencer à intégrer des applications avec Azure AD, consultez le [Guide 
 
 [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

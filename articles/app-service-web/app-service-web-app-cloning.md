@@ -114,4 +114,4 @@ Cette fonctionnalité en est actuellement à sa version préliminaire. Nous nous
 - [Présentation de l'environnement App Service](app-service-app-service-environment-intro.md)
 - [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

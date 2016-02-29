@@ -47,7 +47,7 @@ Cette approche MPP permet à SQL Data Warehouse d’adopter l’approche « d
 
 - Au-delà de l’optimisation des plans de requête, SQL Data Warehouse s’appuie sur des techniques et des algorithmes avancés qui déplacent efficacement les données entre les ressources de calcul dans le cadre de l’opération de requête. Ces opérations sont intégrées dans les services de déplacement des données de l’entrepôt de données et les optimisations sont effectuées automatiquement.
 
-- L’inclusion d’index columnstore en cluster dans l’appliance contribue également à accélérer les performances de requête. En s’appuyant sur le stockage en colonnes, SQL Data Warehouse peut délivrer des performances de compression jusqu’à 5 fois supérieures au stockage en ligne, et des performances de requête jusqu’à 10 fois supérieures. Les requêtes dirigées vers l’entrepôt de données sont très efficaces sur les index columnstore, car elles analysent bien souvent l’intégralité de la table ou la partition intégrale d’une table et limitent l’impact du déplacement des données pour les différentes étapes de la requête.
+- L’inclusion d’index columnstore en cluster dans SQL Data Warehouse contribue également à accélérer les performances de requête. En s’appuyant sur le stockage en colonnes, SQL Data Warehouse peut délivrer des performances de compression jusqu’à 5 fois supérieures au stockage en ligne, et des performances de requête jusqu’à 10 fois supérieures. Les requêtes dirigées vers l’entrepôt de données sont très efficaces sur les index columnstore, car elles analysent bien souvent l’intégralité de la table ou la partition intégrale d’une table et limitent l’impact du déplacement des données pour les différentes étapes de la requête.
 
 ## Extensibilité
 
@@ -140,4 +140,4 @@ Simple d’utilisation, PolyBase vous permet de valoriser vos données de diffé
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.workload="NA"
+   ms.date="02/09/2016"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour afficher et gérer vos alertes StorSimple
@@ -31,7 +31,7 @@ Votre appareil StorSimple génère des alertes en réponse à différentes condi
 
 - **Problèmes matériels** : ces alertes vous informent sur l'intégrité de votre matériel. Elles vous permettent de savoir si les mises à niveau des microprogrammes sont nécessaires, si une interface réseau rencontre des problèmes ou s'il existe un problème avec l’un de vos lecteurs de données.
 
-- **Problèmes de connectivité** : ces alertes se produisent lorsque des difficultés surviennent dans le transfert de données. Des problèmes de communication peuvent survenir pendant le transfert des données vers et depuis le compte de stockage Azure ou en raison d'une absence de connectivité entre les appareils et le service StorSimple Manager. Les problèmes de communication sont les plus difficiles à résoudre, car il existe de nombreux points de défaillance. Avant toute chose, vous devez toujours vérifier que la connectivité au réseau et l'accès à Internet sont disponibles avant d’aller plus loin dans la résolution des problèmes. Pour obtenir de l’aide sur la résolution des problèmes, consultez la section [Dépannage avec l’applet de commande Test-Connection](storsimple-troubleshoot-deployment.md/#troubleshoot-with-the-test-hcsmconnection-cmdlet).
+- **Problèmes de connectivité** : ces alertes se produisent lorsque des difficultés surviennent dans le transfert de données. Des problèmes de communication peuvent survenir pendant le transfert des données vers et depuis le compte de stockage Azure ou en raison d'une absence de connectivité entre les appareils et le service StorSimple Manager. Les problèmes de communication sont les plus difficiles à résoudre, car il existe de nombreux points de défaillance. Avant toute chose, vous devez toujours vérifier que la connectivité au réseau et l'accès à Internet sont disponibles avant d’aller plus loin dans la résolution des problèmes. Pour obtenir de l’aide sur la résolution des problèmes, consultez la section [Dépannage avec l’applet de commande Test-Connection](storsimple-troubleshoot-deployment.md).
 
 - **Problèmes de performances** : ces alertes sont dues aux performances de votre système qui ne sont pas optimales, notamment lorsqu’il est soumis à des conditions de surcharge.
 
@@ -49,11 +49,11 @@ Les alertes présentent différents niveaux de gravité, en fonction de l'impact
 
 ## Configuration des paramètres d'alerte
 
-Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour chacun de vos appareils StorSimple. En outre, vous pouvez identifier d’autres destinataires de notification des alertes en entrant leurs adresses e-mail dans la zone **AUTRES DESTINATAIRES D’E-MAIL**, séparées par des points-virgules.
+Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour chacun de vos appareils StorSimple. En outre, vous pouvez identifier d’autres destinataires de notification des alertes en entrant leurs adresses e-mail dans la zone **Autres destinataires du message**, séparées par des points-virgules.
 
->[AZURE.NOTE]Vous pouvez entrer un maximum de 20 adresses e-mail par appareil.
+>[AZURE.NOTE] Vous pouvez entrer un maximum de 20 adresses e-mail par appareil.
 
-Après avoir activé la notification par e-mail pour un appareil, les membres de la liste de notification recevront un e-mail chaque fois qu’une alerte critique survient. Les messages sont envoyés depuis **storsimple-alerts-noreply@mail.windowsazure.com* et décrivent la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
+Après avoir activé la notification par e-mail pour un appareil, les membres de la liste de notification recevront un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis **storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
 
 #### Activation de la notification par e-mail des alertes pour un appareil
 
@@ -61,21 +61,21 @@ Après avoir activé la notification par e-mail pour un appareil, les membres de
 
 2. Sous **Paramètres d’alerte**, définissez les éléments suivants :
 
-    1. Dans le champ **ENVOYER UNE NOTIFICATION PAR E-MAIL**, sélectionnez **OUI**.
+    1. Dans le champ **Activer la notification par e-mail**, sélectionnez **OUI**.
 
-    2. Dans le champ **ENVOYER UN E-MAIL AUX ADMINISTRATEURS DE SERVICE**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs de service reçoivent les notifications d’alerte.
+    2. Dans le champ **Envoyer un e-mail aux administrateurs du service**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs de service reçoivent les notifications d’alerte.
 
-    3. Dans le champ **AUTRES DESTINATAIRES DU MESSAGE**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format **someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil.
+    3. Dans le champ **Autres destinataires du message**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format **someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil.
 
         ![Configuration des notifications des alertes](./media/storsimple-manage-alerts/AlertNotify.png)
 
-3. Pour envoyer une notification de test par e-mail, cliquez sur l'icône de flèche à côté de **ENVOYER UN E-MAIL DE TEST**. Le service StorSimple Manager affiche des messages d'état lorsqu’il transfère la notification de test.
+3. Pour envoyer une notification de test par e-mail, cliquez sur l’icône en forme de flèche à côté de **Envoyer un e-mail de test**. Le service StorSimple Manager affiche des messages d'état lorsqu’il transfère la notification de test.
 
 4. Lorsque le message suivant s’affiche, cliquez sur **OK**.
 
     ![E-mail de notification de test des alertes envoyé](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-    >[AZURE.NOTE]Si le message de notification de test ne peut pas être envoyé, le service StorSimple Manager affiche un message approprié. Cliquez sur**OK**, attendez quelques minutes, puis réessayez d'envoyer votre message de notification de test.
+    >[AZURE.NOTE] Si le message de notification de test ne peut pas être envoyé, le service StorSimple Manager affiche un message approprié. Cliquez sur**OK**, attendez quelques minutes, puis réessayez d'envoyer votre message de notification de test.
 
 ## Afficher et effectuer le suivi des alertes
 
@@ -91,7 +91,7 @@ En cliquant sur une alerte dans la liste, vous obtenez des détails supplémenta
 
 ![Exemple d'alerte de matériel](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-Si vous devez envoyer les informations au Support Microsoft, vous pouvez copier les détails de l’alerte dans un fichier texte. Après avoir suivi la recommandation et résolu la condition d’alerte en local, vous devez effacer l’alerte de l’appareil en la sélectionnant dans l’onglet **Alertes** et en cliquant sur **Effacer**. Pour effacer plusieurs alertes, appuyez sur la touche CTRL tout en sélectionnant les alertes, puis cliquez sur **Effacer**. Notez que certaines alertes sont effacées automatiquement lorsque le problème est résolu ou lorsque le système met à jour l'alerte avec de nouvelles informations.
+Si vous devez envoyer les informations au Support Microsoft, vous pouvez copier les détails de l’alerte dans un fichier texte. Après avoir suivi la recommandation et résolu la condition d’alerte en local, vous devez effacer l’alerte de l’appareil en la sélectionnant dans l’onglet **Alertes** et en cliquant sur **Effacer**. Pour effacer plusieurs alertes, sélectionnez chaque alerte, cliquez sur n’importe quelle colonne, sauf la colonne **Alerte**, puis cliquez sur **Effacer** après avoir sélectionné toutes les alertes à effacer. Notez que certaines alertes sont effacées automatiquement lorsque le problème est résolu ou lorsque le système met à jour l'alerte avec de nouvelles informations.
 
 Lorsque vous cliquez sur **Effacer**, vous avez la possibilité d’insérer des commentaires sur l'alerte et les étapes que vous avez suivies pour résoudre le problème. Certains événements seront effacés par le système si un autre événement est déclenché avec de nouvelles informations. Dans ce cas, le message suivant s'affiche :
 
@@ -246,12 +246,12 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 |Mises à jour manuelles disponibles.|Notification des mises à jour disponibles.|Utilisez l’interface Windows PowerShell pour StorSimple sur votre appareil pour installer ces mises à jour. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md).|
 |Nouvelles mises à jour disponibles.|Notification des mises à jour disponibles.|Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface Windows PowerShell pour StorSimple sur votre appareil. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md).|
 |Échec de l’installation des mises à jour.|Les mises à jour n'ont pas été correctement installées.|Votre système n'a pas pu installer les mises à jour. Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface Windows PowerShell pour StorSimple sur votre appareil. Si le problème persiste, contactez le support technique Microsoft. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md).|
-|Impossible de vérifier automatiquement les nouvelles mises à jour.|Échec de la vérification automatique.|Vous pouvez rechercher manuellement les nouvelles mises à jour à partir de la page **Maintenance**.|
+|Impossible de vérifier automatiquement les nouvelles mises à jour.|Échec de la vérification automatique.|Vous pouvez rechercher manuellement les nouvelles mises à jour à partir de la page **Maintenance**.|
 |Nouvel agent WUA disponible.|Notification de la mise à jour disponible.|Téléchargez l’agent Windows Update le plus récent et installez-le à partir de l'interface Windows PowerShell.|
-|La version du composant de microprogramme <*ID composant*> ne correspond pas au matériel.|Les mises à jour de microprogramme n'ont pas été correctement installées.|Contactez le Support Microsoft.|
+|La version du composant de microprogramme <*ID du composant*> ne correspond pas au matériel.|Les mises à jour de microprogramme n'ont pas été correctement installées.|Contactez le Support Microsoft.|
 
 ## Étapes suivantes
 
 En savoir plus sur les [erreurs de StorSimple et la résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

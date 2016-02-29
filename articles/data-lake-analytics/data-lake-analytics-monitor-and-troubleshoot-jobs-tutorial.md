@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure
@@ -26,9 +26,9 @@ Dans ce didacticiel, vous allez identifier un problème de fichier source manqua
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Connaissances de base du processus de travail Analytique Data Lake**. Consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-use-portal.md).
-- **Un compte Analytique Data Lake**. Consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
-- **Copier les données d’exemple dans le compte Data Lake Store par défaut**. Voir [Préparer les données source](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data)
+- **Connaissances de base du processus de travail Analytique Data Lake**. Consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
+- **Un compte Analytique Data Lake**. Consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md#create-adl-analytics-account).
+- **Copier les données d’exemple dans le compte Data Lake Store par défaut**. Voir [Préparer les données source](data-lake-analytics-get-started-portal.md#prepare-source-data)
 
 ##Envoyer le travail Analytique Data Lake
 
@@ -107,7 +107,7 @@ Dans la dernière section, vous avez envoyé un travail et ce dernier a échoué
 
 - [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md)
 - [Prise en main d’Analytique Data Lake à l’aide d’Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Prise en main d’Analytique Data Lake Azure et U-SQL à l’aide de Visual Studio](data-lake-analytics-get-started-u-sql-studio.md).
+- [Prise en main d’Analytique Data Lake Azure et U-SQL à l’aide de Visual Studio.](data-lake-analytics-u-sql-get-started.md)
 - [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

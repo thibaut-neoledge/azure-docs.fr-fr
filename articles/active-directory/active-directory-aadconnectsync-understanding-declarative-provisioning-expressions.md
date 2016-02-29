@@ -3,7 +3,7 @@
 	description="Explique les expressions d’approvisionnement déclaratif."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif
-
 Azure AD Connect Sync s’appuie sur l’approvisionnement déclaratif introduit dans Forefront Identity Manager 2010 pour vous permettre d’implémenter votre logique d’entreprise d’intégration des identités complète sans avoir à écrire de code compilé.
 
 Le langage d’expression utilisé dans les flux d’attributs constitue une partie essentielle de l’approvisionnement déclaratif. Le langage utilisé est un sous-ensemble de Microsoft® Visual Basic® pour Applications (VBA). Ce langage est utilisé dans Microsoft Office et les utilisateurs qui ont une certaine expérience de VBScript le reconnaîtront également. Le langage d’expression de l’approvisionnement déclaratif utilise uniquement des fonctions. Il ne s’agit pas d’un langage structuré et il ne contient ni méthodes ni instructions. Les fonctions sont imbriquées pour exprimer le déroulement du programme.
 
 Pour plus d’informations, consultez [Bienvenue dans la référence linguistique Visual Basic pour Applications pour Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
-Les attributs sont fortement typés. Une fonction qui attend un attribut de chaîne à valeur unique n’accepte pas les attributs à valeurs multiples ou ceux d’un type différent. Elle respecte également la casse. Les noms des fonctions et les noms des attributs doivent avoir une casse appropriée, sinon une erreur est levée.
+Les attributs sont fortement typés. Une fonction accepte uniquement les attributs de type correct. Elle respecte également la casse. Les noms des fonctions et les noms des attributs doivent avoir une casse appropriée, sinon une erreur est levée.
 
 ## Définitions linguistiques et identificateurs
 
@@ -65,7 +64,7 @@ Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'ident
 
 Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur.
 
-`domain <- %Domain.Netbios%`
+`domain` <- `%Domain.Netbios%`
 
 ### Opérateurs
 
@@ -85,13 +84,13 @@ Les opérateurs sont évalués de la gauche vers la droite et ont la même prior
 
 Les attributs de chaîne sont par défaut définis pour être indexables et la longueur maximale est de 448 caractères. Si vous travaillez avec des attributs de chaîne qui peuvent contenir davantage de caractères, assurez-vous d’inclure ce qui suit dans le flux d’attributs :
 
-`attributeName <- Left([attributeName],448)`
+`attributeName` <- `Left([attributeName],448)`
 
 ### Modification de userPrincipalSuffix
 
-L’attribut userPrincipalName dans Active Directory n’est pas toujours connu des utilisateurs et peut ne pas convenir comme ID de connexion. L’Assistant d’installation d’Azure AD Connect Sync permet de choisir un autre attribut, par exemple un e-mail, mais dans certains cas l’attribut doit être calculé. Par exemple, la société Contoso possède deux annuaires AD, un pour la production et un pour les tests. Elle veut que les utilisateurs de son client test aient juste à modifier le suffixe dans l'ID de connexion.
+L’attribut userPrincipalName dans Active Directory n’est pas toujours connu des utilisateurs et peut ne pas convenir comme ID de connexion. L’Assistant d’installation d’Azure AD Connect Sync permet de choisir un autre attribut, par exemple un e-mail, mais dans certains cas l’attribut doit être calculé. Par exemple, la société Contoso possède deux annuaires AD, un pour la production et un pour les tests. Elle veut que les utilisateurs de son client test aient juste à modifier le suffixe dans l’ID de connexion.
 
-`userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 Dans cette expression, nous prenons tout ce qui figure à gauche du premier signe @ (Word) et concaténons avec une chaîne fixe.
 
@@ -99,7 +98,7 @@ Dans cette expression, nous prenons tout ce qui figure à gauche du premier sign
 
 Certains attributs dans Active Directory sont à valeurs multiples dans le schéma, même s’ils semblent être à valeur unique dans Utilisateurs et ordinateurs Active Directory. L’attribut description constitue un exemple.
 
-`description <- IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
 Dans cette expression, au cas où l’attribut a une valeur, nous prenons le premier élément (Item) dans l’attribut, nous supprimons les espaces à gauche et à droite (Trim), puis nous conservons les 448 premiers caractères (Left) dans la chaîne.
 
@@ -111,7 +110,7 @@ Pour les règles de synchronisation entrantes, vous devez toujours utiliser la c
 
 Pour les règles de synchronisation sortantes, il existe deux constantes différentes à utiliser : NULL et IgnoreThisFlow. Toutes deux indiquent que le flux d’attributs n’a rien à contribuer, mais la différence est ce qui se produit quand aucune autre règle n’a rien à contribuer non plus. Si l’annuaire connecté contient une valeur, une valeur NULL provoque une suppression de l’attribut, tandis qu’IgnoreThisFlow conserve la valeur existante.
 
-#### ImportedValue
+### ImportedValue
 
 La fonction ImportedValue est différente de toutes les autres fonctions, car le nom d’attribut doit être placé entre guillemets doubles plutôt qu’entre crochets : ImportedValue(“proxyAddresses”).
 
@@ -119,7 +118,7 @@ Généralement lors de la synchronisation, un attribut utilise la valeur attendu
 
 Un exemple se trouve dans la règle de synchronisation par défaut In from AD – User Common d’Exchange où, dans la version hybride d’Exchange, la valeur ajoutée par Exchange Online doit être synchronisée uniquement s’il a été confirmé que la valeur avait été exportée avec succès :
 
-`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
 Pour obtenir une liste complète des fonctions, consultez [Azure AD Connect Sync : référence des fonctions](active-directory-aadconnectsync-functions-reference.md)
 
@@ -131,4 +130,4 @@ Pour obtenir une liste complète des fonctions, consultez [Azure AD Connect Sync
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

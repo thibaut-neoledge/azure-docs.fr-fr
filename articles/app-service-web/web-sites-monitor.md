@@ -171,7 +171,7 @@ Les fichiers journaux peuvent être téléchargés à l’aide de FTP, d’Azure
 
 **Azure PowerShell**
 
-1. À partir de l'**écran d'accueil** ou du **menu Démarrer**, recherchez **Azure PowerShell**. Cliquez avec le bouton droit sur l'entrée **Azure PowerShell** et sélectionnez **Exécuter en tant qu'administrateur**.
+1. À partir de l’**écran d’accueil** ou du **menu Démarrer**, recherchez **Windows PowerShell**. Cliquez avec le bouton droit sur l’entrée **Windows PowerShell** et sélectionnez **Exécuter en tant qu’administrateur**.
 
 	> [AZURE.NOTE] Si **Azure PowerShell** n'est pas installé, consultez la page [Mise en route des cmdlets Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) pour plus d'informations sur l'installation et la configuration.
 
@@ -289,4 +289,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

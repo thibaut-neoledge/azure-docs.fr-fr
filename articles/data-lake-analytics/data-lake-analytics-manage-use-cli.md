@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/03/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Gestion de Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure (CLI)
@@ -27,7 +27,7 @@ Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de donnée
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Interface de ligne de commande Azure**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli.md).
+- **Interface de ligne de commande Azure**. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 	- Téléchargez et installez les [outils d’interface de ligne de commande Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) en **version préliminaire** pour effectuer cette démonstration.
 - **Authentication**, en utilisant la commande  suivante :
 
@@ -85,8 +85,8 @@ Obtenir des détails sur un compte Data Lake Analytics spécifique
 
 Data Lake Analytics prend actuellement en charge les sources de données suivantes :
 
-- [Azure Data Lake Storage](data-lake-storage-overview.md)
-- [Azure Storage](storage-introduction.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+- [Azure Storage](../storage/storage-introduction.md)
 
 Lorsque vous créez un compte Analytics, vous devez désigner un compte Azure Data Lake Storage comme compte de stockage par défaut. Le compte de stockage ADL par défaut est utilisé pour stocker les métadonnées du travail et les journaux d'audit du travail. Après la création d'un compte Analytics, vous pouvez ajouter des comptes Data Lake Storage et/ou des comptes Azure Storage supplémentaires.
 
@@ -100,7 +100,7 @@ La valeur est répertoriée sous properties:datalakeStoreAccount:name.
 
   	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
 
->[AZURE.NOTE]Seuls les noms courts Blob Storage sont pris en charge. N'utilisez pas de nom de domaine complet, comme « myblob.blob.core.windows.net ».
+>[AZURE.NOTE] Seuls les noms courts Blob Storage sont pris en charge. N'utilisez pas de nom de domaine complet, comme « myblob.blob.core.windows.net ».
 
 ### Ajouter des comptes Data Lake Store supplémentaires
 
@@ -150,7 +150,7 @@ Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir créer un t
 	
 ### Soumettre les travaux
 
-> [AZURE.NOTE]La priorité par défaut d'un travail est 1 000 et le degré de parallélisme par défaut d'un travail est 1.
+> [AZURE.NOTE] La priorité par défaut d'un travail est 1 000 et le degré de parallélisme par défaut d'un travail est 1.
 
 	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
 
@@ -191,7 +191,7 @@ Les types incluent : database, schema, assembly, externaldatasource, table, tab
 <!-- ################################ -->
 ## Utilisez des groupes ARM
 
-Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d’informations, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md).
+Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d’informations, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
 Un service Data Lake Analytics peut inclure les composants suivants :
 
@@ -211,7 +211,7 @@ Un compte Data Lake Analytics et les compte de stockage dépendants doivent se t
 
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Prise en main des analyses Data Lake à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
-- [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-use-portal.md)
+- [Gérer les analyses Azure Data Lake à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 - [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

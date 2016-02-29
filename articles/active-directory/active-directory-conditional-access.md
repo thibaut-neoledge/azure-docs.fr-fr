@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Gestion des risques avec accès conditionnel"
-	description="Autoriser partout l’accès à des ressources spécifiques au sein du réseau d’entreprise à partir d’appareils connus, conformément aux stratégies et interdire l’accès à partir d’appareils perdus, volés, non conformes."
-	services="active-directory, virtual-network"
+	pageTitle="Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD | Microsoft Azure"  
+    description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."  
+    services="active-directory" 
+	keywords="accès aux applications, un accès sécurisé aux ressources d’entreprise, les stratégies d’accès conditionnel" 
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -13,36 +14,43 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/09/2016"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 
-# Gestion des risques avec accès conditionnel
+# Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD  
+  
+Chaque structure doit impérativement s’assurer de sécuriser l’accès aux ressources d’entreprise. Avec l’avènement des services cloud et des appareils mobiles, les modes d’accès des utilisateurs aux ressources d’entreprise a considérablement évolué. Ce nouvel environnement nécessite une refonte de la stratégie de sécurisation des ressources d’entreprise.
+  
+## Pourquoi l’accès conditionnel ?  
+ Les fonctionnalités de contrôle d’accès conditionnel d’Active Directory procurent aux entreprises des modes simples de sécurisation des ressources dans le cloud et en local. Vous avez besoin de prévenir tout accès à vos ressources au moyen d’un mot de passe volé ? Vous cherchez à vous doter d’un appareil fiable et géré, dédié à l’accès au contenu d’entreprise ? Azure Active Directory est la solution qu’il vous faut.
 
-Les tendances actuelles des employés concernant leur travail, leur productivité et les moyens d’effectuer leur travail évoluent rapidement. Les employés apportent leurs appareils personnels au travail. Sur ces appareils personnels, ils disposent d’applications qu’ils utilisent dans leur vie numérique personnelle. Et ils se sont habitués à la liberté et aux possibilités que ces dernières leur offrent. Ils souhaitent utiliser ces mêmes applications au travail et, cette souplesse dont ils jouissent dans leur vie numérique personnelle, ils souhaitent également en bénéficier dans leur vie professionnelle. Aujourd’hui, les employés en entreprise s’attendent à pouvoir travailler à partir de n’importe quel endroit, sur les appareils de leur choix, et à pouvoir se connecter et accéder en toute transparence aux applications professionnelles.
+## Comment est appliqué le contrôle d’accès conditionnel ?  
+ Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur, avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
+   
+![](./media/active-directory-conditional-access/conditionalaccess-overview.png)
 
-Cette flexibilité permettant aux utilisateurs de travailler en tout endroit, à tout moment et de la façon qu’ils veulent, s’accompagne de risques accrus. Beaucoup de données pointent vers ces appareils volés, déplacés ou perdus. Nombre de ces smartphones et tablettes contiennent une quantité invraisemblable d’informations sensibles et confidentielles relatives aux clients et aux entreprises. Il s’agit là de l’équilibre précaire que les architectes informatiques, les spécialistes de la sécurité et les administrateurs informatiques essaient de maintenir. Il convient de trouver un compromis entre permettre aux utilisateurs d’être productifs sur tous les appareils qu’ils aiment et offrir le niveau approprié de sécurité et de protection du contenu d’entreprise résidant sur ces appareils.
+## Accès de l’utilisateur aux ressources
+  
+- **Attributs utilisateur** : au niveau des attributs utilisateur, vous pouvez appliquer des stratégies garantissant que seuls les utilisateurs autorisés ont accès aux ressources d’entreprise.   
+- **Groupe d’appartenance d’un utilisateur** : vous pouvez également contrôler le niveau d’accès octroyé à un utilisateur en fonction de son appartenance à un ou plusieurs groupes.   
+- **Multi-factor authentication (MFA)** : par ailleurs, vous pouvez également appliquer des stratégies qui obligent l’utilisateur à s’authentifier à l’aide d’un système d’authentification à plusieurs facteurs. Par exemple, vous pouvez forcer un utilisateur à saisir un code secret sur un téléphone mobile afin de garantir une couche supplémentaire de sécurité. L’authentification MFA prévient tout accès de vos ressources par un utilisateur non autorisé qui a mis la main sur le nom d’utilisateur et le mot de passe d’un utilisateur valide. 
 
-Avec les diverses fonctionnalités d’accès conditionnel offertes par Azure Active Directory, Office 365 et Microsoft Intune, les administrateurs informatiques peuvent résoudre les problèmes suivants :
+## Accès conditionnel aux appareils 
 
-- Autoriser les employés à accéder au réseau d’entreprise à partir de tout endroit, sans pour autant laisser la porte ouverte pour qui que ce soit sur Internet.
-- Autoriser un accès en tout endroit à des ressources spécifiques à partir d’appareils conformes aux stratégies.
-- Interdire les accès à partir d’appareils perdus, volés ou non conformes.
+- **Appareils inscrits** : au niveau de l’appareil, vous pouvez définir des stratégies qui garantissent que les appareils inscrits ou connus sont les seuls à bénéficier d’un accès. Par ailleurs, vous pouvez utiliser une solution de gestion des périphériques mobiles comme Microsoft Intune pour vous assurer que seuls les périphériques gérés peuvent accéder à vos ressources. L’accès conditionnel de niveau appareil garantit que seuls les appareils conformes à vos stratégies de sécurité, comme la saisie d’un code secret, bénéficient d’un accès. En outre, en faisant appel aux solutions de gestion des périphériques mobiles, vous pouvez certifier que les données d’entreprise stockées sur un appareil perdu/volé peuvent être effacées à distance.  
+- **Stratégies d’appareils** : vous pouvez également définir des stratégies qui restreignent l’accès en fonction des applications. De plus, il est également possible de configurer le niveau d’accès suivant l’emplacement physique de l’appareil, selon que la requête soit issue d’un réseau connu d’entreprise ou de l’extérieur.  
 
-![][1]
-
-## Étapes suivantes
-
-Les rubriques suivantes décrivent les différents mécanismes disponibles pour la définition de stratégies d’accès conditionnel dans votre organisation.
-
-- [Vue d’ensemble du service d’inscription d’appareil Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
-- [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)
-- [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md)
-- [Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)
-- [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+Le niveau d’accès défini à l’aide de ces stratégies peut être appliqué aux ressources en local ou dans le cloud. Les ressources dans le cloud peuvent être des applications, comme Office 365 ou des applications SaaS tierces. Il peut également s’agir d’applications métier hébergées sur le cloud.
+  
+## Accès conditionnel - Un plan de contenu  
+Le plan de contenu suivant répertorie les documents auxquels vous devez vous référer pour vous renseigner sur l’activation de l’accès conditionnel au sein de votre déploiement actuel.
 
 
-<!--Image references-->
-[1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
+| Scénario | Articles |
+|------------------------------------------------------|----------|
+| Protection des ressources d’entreprises contre les attaques par hameçonnage |[Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[Conditional access to Azure AD apps (Accès conditionnel aux applications Azure AD)](active-directory-conditional-access-technical-reference.md)<br><br>[Prise en main avec Azure Multi-Factor Authentication dans le cloud](multi-factor-authentication-get-started-cloud.md)<br><br>[Configurer des méthodes d’authentification supplémentaires pour AD FS](https://technet.microsoft.com/library/dn758113.aspx)<br><br>[Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)<br><br>[Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS](multi-factor-authentication-get-started-adfs-cloud.md)|
+| Protection des données d’entreprise stockées sur les appareils perdus/volés |[Vue d’ensemble du service Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br><br> [Configuration d’Azure AD Join dans votre organisation](active-directory-azureadjoin-setup.md)<br><br> [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](active-directory-conditional-access-on-premises-setup.md) <br><br>[Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) <br><br>[Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md) <br><br>[Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md)|
+| Informations supplémentaires |[FAQ sur l’accès conditionnel](active-directory-conditional-faqs.md)|
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

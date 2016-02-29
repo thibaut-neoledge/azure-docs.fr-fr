@@ -1,40 +1,40 @@
 <properties
-   pageTitle="Déploiement d'une application personnalisée dans Azure Service Fabric | Microsoft Azure"
+   pageTitle="Déploiement d’un exécutable existant dans Azure Service Fabric | Microsoft Azure"
    description="Procédure pas à pas pour empaqueter une application existante afin de la déployer sur un cluster Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-
+   
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
-# Déploiement d'une application personnalisée dans Service Fabric
+# Déploiement d'un exécutable invité dans Service Fabric
 
-Vous pouvez exécuter n’importe quel type d’application existante, comme Node.js, Java ou des applications natives dans Azure Service Fabric. Service Fabric traite ces applications comme des services sans état et place celles-ci sur les nœuds d’un cluster en fonction de la disponibilité et d’autres mesures. Cet article décrit comment empaqueter et déployer une application existante dans un cluster Service Fabric.
+Vous pouvez exécuter n’importe quel type d’application, comme Node.js, Java ou des applications natives dans Azure Service Fabric. Dans la terminologie Service Fabric, ces types d'applications sont appelés invités exécutables. Les invités exécutables sont traités par le Service Fabric comme des services sans état. Par conséquent, ils seront placés sur des nœuds dans un cluster, en fonction de la disponibilité et d'autres métriques. Cet article décrit comment empaqueter et déployer un exécutable invité dans un cluster Service Fabric.
 
-## Avantages de l'exécution d'une application personnalisée dans Service Fabric
+## Avantages de l'exécution d'un exécutable invité dans Service Fabric
 
-L’exécution de l’application dans un cluster Service Fabric présente certains avantages :
+L’exécution d'un exécutable invité dans un cluster Service Fabric présente plusieurs avantages :
 
 - Haute disponibilité : Les applications qui sont exécutées dans Service Fabric sont hautement disponibles dès le départ. Service Fabric s’assure qu’une instance d’une application est toujours en cours d’exécution.
 - Analyse du fonctionnement. La fonction d’analyse du fonctionnement de Service Fabric détecte si l’application est en cours d’exécution et fournit des informations de diagnostic en cas d’échec.   
 - Gestion du cycle de vie des applications. Outre les mises à niveau sans interruption de service, Service Fabric permet également de revenir à la version précédente, si un problème est survenu pendant la mise à niveau.    
 - Densité. Vous pouvez exécuter plusieurs applications dans un cluster, ce qui élimine le besoin d’exécuter chaque application sur son propre matériel.
 
-Dans cet article, nous abordons les étapes de base pour empaqueter une application existante et la déployer dans Service Fabric.
+Dans cet article, nous abordons les étapes de base pour empaqueter un exécutable invité et le déployer dans Service Fabric.
 
 
 ## Vue d’ensemble rapide des fichiers du manifeste de service et d’application.
 
-Avant d’entrer dans les détails du déploiement d’une application existante, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric. Le modèle d'empaquetage et de déploiement Service Fabric repose principalement sur deux fichiers :
+Avant d’entrer dans les détails du déploiement d’un exécutable invité, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric. Le modèle d'empaquetage et de déploiement Service Fabric repose principalement sur deux fichiers :
 
 
 * **Manifeste d’application**
@@ -48,7 +48,7 @@ Avant d’entrer dans les détails du déploiement d’une application existante
 
   Le manifeste de service décrit les composants d'un service. Il inclut des données, telles que le nom et le type de service (c’est-à-dire les informations utilisées par Service Fabric pour gérer le service) et ses composants de code, de configuration et de données. Le manifeste de service inclut également des paramètres supplémentaires qui peuvent être utilisés pour configurer le service après son déploiement.
 
-  Nous n’entrerons pas dans les détails de tous les paramètres disponibles dans le manifeste de service. Nous allons examiner le sous-ensemble requis pour exécuter une application existante sur Service Fabric.
+  Nous n’entrerons pas dans les détails de tous les paramètres disponibles dans le manifeste de service. Nous allons examiner le sous-ensemble requis pour exécuter un exécutable invité sur Service Fabric.
 
 
 ## Structure de fichier d'un package d'application
@@ -75,14 +75,14 @@ Remarque : il est inutile de créer les répertoires `config` et `data` si vous
 
 ## Processus d’empaquetage d’une application existante
 
-Le processus d'empaquetage d'une application existante est basé sur les étapes suivantes :
+Le processus d'empaquetage d'un exécutable invité est basé sur les étapes suivantes :
 
 1. Créez la structure de répertoires du package.
 2. Ajoutez des fichiers de code et de configuration de l’application.
 3. Modifiez le fichier de manifeste de service.
 4. Modifiez le fichier de manifeste d’application.
 
->[AZURE.NOTE]Nous fournissons un outil d’empaquetage qui vous permet de créer ApplicationPackage automatiquement. Cet outil est actuellement en version préliminaire. Vous pouvez le télécharger [ici](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] Nous fournissons un outil d’empaquetage qui vous permet de créer ApplicationPackage automatiquement. Cet outil est actuellement en version préliminaire. Vous pouvez le télécharger [ici](http://aka.ms/servicefabricpacktool).
 
 ### Création de la structure de répertoires du package
 Vous pouvez commencer par créer la structure de répertoires, comme décrit précédemment.
@@ -92,7 +92,7 @@ Après avoir créé la structure de répertoires, vous pouvez ajouter les fichie
 
 Service Fabric crée une copie xcopy du contenu du répertoire racine de l’application. Par conséquent, il n’existe aucune structure prédéfinie à utiliser, autre que la création des deux principaux répertoires code et paramètres. (Vous pouvez choisir des noms différents si vous le souhaitez. Pour plus d’informations, consultez la section suivante.)
 
->[AZURE.NOTE]Veillez à bien inclure la totalité des fichiers / dépendances nécessaires à l’application. Service Fabric copiera le contenu du package de l'application sur tous les nœuds du cluster où les services de l'application seront déployés. Le package doit contenir tout le code nécessaire à l’exécution de l'application. Il n’est pas recommandé de supposer que les dépendances sont déjà installées.
+>[AZURE.NOTE] Veillez à bien inclure la totalité des fichiers / dépendances nécessaires à l’application. Service Fabric copiera le contenu du package de l'application sur tous les nœuds du cluster où les services de l'application seront déployés. Le package doit contenir tout le code nécessaire à l’exécution de l'application. Il n’est pas recommandé de supposer que les dépendances sont déjà installées.
 
 ### Modification du fichier de manifeste de service
 L’étape suivante consiste à modifier le fichier de manifeste de service afin d’inclure les informations suivantes :
@@ -220,7 +220,7 @@ Dans l’élément `ServiceManifestImport`, vous pouvez spécifier un ou plusieu
 ```
 
 ### Configurez la journalisation
-Pour les applications existantes, il est très utile de pouvoir consulter les journaux de la console afin de déterminer si les scripts de l’application et de configuration affichent une erreur. La redirection de la console peut être configurée dans le fichier `ServiceManifest.xml` à l’aide de l’élément `ConsoleRedirection`.
+Pour les invités exécutables, il est très utile de pouvoir consulter les journaux de la console afin de déterminer si les scripts de l’application et de configuration affichent une erreur. La redirection de la console peut être configurée dans le fichier `ServiceManifest.xml` à l’aide de l’élément `ConsoleRedirection`.
 
 ```xml
 <EntryPoint>
@@ -284,10 +284,10 @@ Si vous accédez au répertoire à l’aide de l’Explorateur de serveurs, vous
 
 
 ## Étapes suivantes
-Dans cet article, vous avez appris à empaqueter une application existante et à la déployer dans Service Fabric. Pour continuer, vous pouvez consulter le contenu supplémentaire sur ce sujet.
+Dans cet article, vous avez appris à empaqueter un exécutable invité et à le déployer dans Service Fabric. Pour continuer, vous pouvez consulter le contenu supplémentaire sur ce sujet.
 
-- [Exemple pour empaqueter et déployer une application personnalisée sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), y compris un lien vers la version préliminaire de l’outil d’empaquetage.
-- [Déploiement de plusieurs applications personnalisées](service-fabric-deploy-multiple-apps.md)
+- [Exemple pour empaqueter et déployer un exécutable invité sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), y compris un lien vers la version préliminaire de l’outil d’empaquetage.
+- [Déploiement de plusieurs exécutables invités](service-fabric-deploy-multiple-apps.md)
 - [Créez votre première application Service Fabric avec Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

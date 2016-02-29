@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Comment configurer des alertes Azure à envoyer à d’autres systèmes"
 	description="Rediriger des alertes Azure vers d’autres systèmes non-Azure"
-	authors="rboucher"
-	manager="ronmart"
+	authors="kamathashwin"
+	manager=""
 	editor=""
 	services="azure-portal"
 	documentationCenter="na"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
-	ms.author="robb"/>
+	ms.date="02/16/2016"
+	ms.author="ashwink"/>
 
 # Comment configurer des webhooks pour les alertes
 
@@ -73,7 +73,7 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
 }
 ```
 
->[AZURE.NOTE]Dans notre prochaine actualisation, nous ajouterons la prise en charge des alertes liées aux événements ("conditionType":"Event").
+>[AZURE.NOTE] Dans notre prochaine actualisation, nous ajouterons la prise en charge des alertes liées aux événements ("conditionType":"Event").
 
 
 | Champ | Obligatoire ? | Ensemble fixe de valeurs ? | Remarques |
@@ -103,7 +103,7 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
 |properties |N |Facultatif |Ensemble de paires <Key  Value> (constituant un dictionnaire<String  String>) qui inclut des détails sur l’événement. Le champ properties est facultatif. Dans un flux de travail basé sur une application logique ou une interface utilisateur personnalisée, les utilisateurs peuvent entrer des paires clé/valeur transmissibles par le biais de la charge utile. L’autre manière de passer des propriétés personnalisées au webhook consiste à utiliser l’URI du webhook (sous la forme de paramètres de requête).|
 
 
->[AZURE.NOTE]Vous ne pouvez pas utiliser le champ properties par le biais du portail. Dans notre prochaine version du Kit de développement logiciel (SDK) Insights, vous pourrez définir les propriétés par le biais de l’API Alert.
+>[AZURE.NOTE] Vous ne pouvez pas utiliser le champ properties par le biais du portail. Dans notre prochaine version du Kit de développement logiciel (SDK) Insights, vous pourrez définir les propriétés par le biais de l’API Alert.
 
 ## Étapes suivantes
 
@@ -123,4 +123,4 @@ Utilisez des alertes Azure pour envoyer des messages à d’autres services. Uti
 
 [Utilisez une application logique pour envoyer des messages à une file d’attente Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

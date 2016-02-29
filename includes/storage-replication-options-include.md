@@ -1,4 +1,4 @@
-Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour garantir une durabilité et une haute disponibilité, conformément au [contrat de niveau de service (SLA) Azure Storage](https://azure.microsoft.com/support/legal/sla/), même en cas de défaillances matérielles temporaires. Lorsque vous créez un compte de stockage, vous devez sélectionner une des options de réplication suivantes :
+Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour garantir une durabilité et une haute disponibilité, conformément au [contrat de niveau de service (SLA) pour Storage](https://azure.microsoft.com/support/legal/sla/storage/), même en cas de défaillances matérielles temporaires. Lorsque vous créez un compte de stockage, vous devez sélectionner une des options de réplication suivantes :
 
 - **Stockage localement redondant (LRS).** Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par installation et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans une installation donnée.  
   
@@ -22,8 +22,8 @@ Les données de votre compte de stockage Microsoft Azure sont toujours répliqu
  
 Pour en savoir plus sur les options de réplication du stockage, consultez la page [Options de redondance d’Azure Storage](../articles/storage/storage-redundancy.md).
 
-Pour plus d’informations sur la tarification relative à la réplication du compte de stockage, consultez la page [Tarification – Stockage](https://azure.microsoft.com/pricing/details/storage/).
+Pour plus d’informations sur la tarification relative à la réplication du compte de stockage, consultez la page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-Pour plus d’informations sur la durabilité avec Azure Storage, consultez la page [Document SOSP sur Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+Pour plus d’informations sur la durabilité avec Azure Storage, consultez [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/16/2016"
 	ms.author="jutang"/>
 
 # Utilisation du stockage de fichiers à partir de Java
@@ -208,12 +208,12 @@ La suppression d’un partage s’effectue en appelant la méthode **deleteIfExi
 
 Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 
-- [Kit de développement logiciel (SDK) Azure pour Java](http://azure.microsoft.com/develop/java/)
+- [Centre de développement Java](http://azure.microsoft.com/develop/java/)
 - [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 - [Kit de développement logiciel (SDK) Azure Storage pour Android](https://github.com/azure/azure-storage-android)
 - [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
-- [API REST d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

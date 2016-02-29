@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Forum aux questions - Gestion des mots de passe
@@ -66,7 +66,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
  - **Q : Combien de temps dois-je attendre avant de recevoir un message électronique, un SMS ou un appel téléphonique de la réinitialisation du mot de passe ?**
  
- > **R :** Les messages électroniques, les SMS et les appels téléphoniques doivent arriver en moins d’une minute, la plupart du temps dans les 5 à 20 secondes suivant la réinitialisation. Si vous ne recevez pas la notification dans ce laps de temps, consultez votre dossier de courrier indésirable, vérifiez que le numéro/l’adresse de messagerie utilisés sont corrects et que les données d’authentification dans l’annuaire sont correctement formatées. Pour en savoir plus sur le formatage des numéros de téléphone et des adresses de messagerie à utiliser avec la réinitialisation du mot de passe, consultez la page Découvrez comment les données sont utilisées par la réinitialisation des mots de passe.
+ > **R :** Les messages électroniques, les SMS et les appels téléphoniques doivent arriver en moins d’une minute, la plupart du temps dans les 5 à 20 secondes suivant la réinitialisation. Si vous ne recevez pas la notification dans ce laps de temps, consultez votre dossier de courrier indésirable, vérifiez que le numéro/l’adresse de messagerie utilisés sont corrects et que les données d’authentification dans l’annuaire sont correctement formatées. Pour en savoir plus sur le formatage des numéros de téléphone et des adresses de messagerie à utiliser avec la réinitialisation du mot de passe, consultez la page Découvrez comment les données sont utilisées par la réinitialisation des mots de passe.
 
  - **Q : Quelles langues sont prises en charge pour la réinitialisation de mot de passe ?**
  
@@ -139,7 +139,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
  - **Q : Combien de temps faut-il pour que les données soient affichées dans les rapports de gestion des mots de passe ?**
  
- > **R :** Les données doivent apparaître dans les rapports de gestion des mots de passe dans les cinq à dix minutes. Dans certains cas, il faut attendre une heure avant qu’elles n’apparaissent.
+ > **R :** Les données doivent apparaître dans les rapports de gestion des mots de passe dans les cinq à dix minutes. Dans certains cas, il faut attendre une heure avant qu’elles n’apparaissent.
 
  - **Q : Comment faire pour filtrer les rapports de gestion des mots de passe ?**
  
@@ -149,7 +149,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
  - **Q : quel est le nombre maximal d’événements stockés dans les rapports de gestion de mot de passe ?**
 
- > **R :** jusqu’à 1 000 événements de réinitialisation de mot de passe ou d’inscription de réinitialisation de mot de passe sont stockés dans les rapports de gestion de mot de passe. Nous travaillons à l’augmentation de ce nombre pour inclure davantage d’événements.
+ > **R :** Jusqu’à 1 000 événements de réinitialisation de mot de passe ou d’inscription de réinitialisation de mot de passe sont stockés dans les rapports de gestion de mot de passe. Nous travaillons à l’augmentation de ce nombre pour inclure davantage d’événements.
 
  - **Q : Jusqu’à quand remontent les rapports de gestion des mots de passe ?**
  
@@ -161,7 +161,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
  - **Q : existe-t-il une API pour accéder aux données des rapports sur la réinitialisation de mot de passe ou sur l’inscription de réinitialisation de mot de passe ?**
 
- > **R :** oui, consultez la documentation suivante pour savoir comment vous pouvez accéder au flux de données des rapports sur la réinitialisation de mot de passe. [Découvrez comment accéder par programmation aux événements des rapports sur la réinitialisation de mot de passe](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+ > **R :** Oui, consultez la documentation suivante pour savoir comment vous pouvez accéder au flux de données des rapports sur la réinitialisation de mot de passe. [Découvrez comment accéder par programmation aux événements des rapports sur la réinitialisation de mot de passe](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
 
 ## Écriture différée des mots de passe
  - **Q : Comment l’écriture différée des mots de passe fonctionne-t-elle en arrière-plan ?**
@@ -203,4 +203,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

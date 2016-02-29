@@ -1,3 +1,3 @@
-> [AZURE.IMPORTANT]Avant d’utiliser des ressources Azure, familiarisez-vous avec les modèles de déploiement : [Resource Manager et classique](../resource-manager-deployment-model.md).
+> [AZURE.IMPORTANT] Avant d’utiliser des ressources Azure, familiarisez-vous avec les modèles de déploiement : [Resource Manager et classique](../articles/resource-manager-deployment-model.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

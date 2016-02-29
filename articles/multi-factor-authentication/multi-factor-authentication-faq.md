@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Forum Aux Questions d’Azure Multi-Factor Authentication
@@ -75,7 +75,8 @@ Tous les frais sont regroupés dans le coût du service par utilisateur ou par a
 
 Azure Multi-Factor Authentication est disponible en tant que service autonome avec des options de facturation par utilisateur et par authentification, ou regroupé avec Azure Active Directory Premium, Enterprise Mobility Suite et Enterprise Cloud Suite. Le service autonome est disponible sur une base de consommation qui est facturée chaque mois en fonction de l'engagement monétaire Azure, ou sur une base de licence annuelle par utilisateur disponible via le Contrat Entreprise Microsoft, le programme de licence en volume ouvert, le programme des fournisseurs de solutions Cloud et de façon directe.
 
->[AZURE.IMPORTANT]Les régions en Australie sont disponibles aux clients ayant une présence commerciale en Australie et en Nouvelle-Zélande.
+>[AZURE.IMPORTANT]
+Les régions en Australie sont disponibles aux clients ayant une présence commerciale en Australie et en Nouvelle-Zélande.
 
 Modèle de facturation | Prix
 ------------- | ------------- |
@@ -136,7 +137,7 @@ Vous pouvez supprimer tous les mots de passe de l’application utilisateur afin
 Pour plus d'informations sur la création de mots de passe d'application, consultez [Aide relative aux mots de passe d'application](multi-factor-authentication-end-user-app-passwords.md)
 
 
->[AZURE.NOTE]Authentification moderne pour les clients Office 2013
+>[AZURE.NOTE] Authentification moderne pour les clients Office 2013
 >
 > Les clients Office 2013 (y compris Outlook) prennent désormais en charge de nouveaux protocoles d’authentification et ils peuvent être activés pour prendre en charge Multi-Factor Authentication. Ainsi, une fois activés, les mots de passe d’application ne sont pas obligatoires avec les clients Office 2013. Pour plus d’informations, consultez la page [Version préliminaire publique de l'authentification moderne Office 2013 annoncée](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
@@ -179,4 +180,4 @@ Actuellement, une vérification de sécurité supplémentaire est utilisable uni
 
 La solution consiste à disposer d'un compte d'utilisateur distinct pour les opérations liées aux administrateurs et les autres. Vous pouvez ultérieurement lier les boîtes de réception de votre compte d'administrateur et d’un compte non administrateur pour vous connecter à Outlook à l'aide de votre compte non administrateur. Pour plus d'informations, consultez [Permettre à un administrateur d'ouvrir et d'afficher le contenu de la boîte aux lettres d'un utilisateur] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

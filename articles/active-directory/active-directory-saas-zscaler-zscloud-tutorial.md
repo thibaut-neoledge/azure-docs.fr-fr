@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler ZSCloud | Microsoft Azure" description="Découvrez comment utiliser Zscaler ZSCloud avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler ZSCloud | Microsoft Azure"
+    description="Découvrez comment utiliser Zscaler ZSCloud avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800280.png "Configurer l’URL de l’application")
 
-    >[AZURE.NOTE]Vous pouvez obtenir la valeur réelle de votre environnement auprès de l’équipe du support technique Zscaler ZSCloud.
+    >[AZURE.NOTE] Vous pouvez obtenir la valeur réelle de votre environnement auprès de l’équipe du support technique Zscaler ZSCloud.
 
 4.  Dans la page **Configurer l’authentification unique sur Zscaler ZSCloud**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -181,7 +182,7 @@ Pour pouvoir se connecter à Zscaler ZSCloud, les utilisateurs d’Azure AD doi
     1.  Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups** ainsi que l’attribut **Department** du compte AAD valide que vous souhaitez approvisionner.
     2.  Cliquez sur **Save**.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler ZSCloud pour approvisionner des comptes d’utilisateurs Azure AD.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler ZSCloud pour approvisionner des comptes d’utilisateurs Azure AD.
 
 ##Affectation d’utilisateurs
   
@@ -201,4 +202,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -3,7 +3,7 @@
 	description="Cette rubrique explique comment configurer l’encodeur Elemental Live afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"
+	ms.author="cenkdin;anilmur;juliako"/>
 
 #Utiliser l’encodeur Elemental Live pour envoyer un flux live à débit binaire unique
 
@@ -60,11 +60,11 @@ Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectio
 
 3. Cliquez sur **Créer un canal**. ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
->[AZURE.NOTE]Le démarrage du canal peut prendre jusqu’à 20 minutes.
+>[AZURE.NOTE] Le démarrage du canal peut prendre jusqu’à 20 minutes.
 
 Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
 
->[AZURE.IMPORTANT]Notez que la facturation commence dès que l’état du canal indique qu’il est prêt à être utilisé. Pour plus d’informations, consultez [États du canal](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Notez que la facturation commence dès que l’état du canal indique qu’il est prêt à être utilisé. Pour plus d’informations, consultez [États du canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ###<a id=configure_elemental_rtp></a>Configurer l’encodeur Elemental Live 
 
@@ -95,7 +95,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
 	
-	>[AZURE.NOTE]Il est recommandé que le code horaire de l’événement Elemental soit défini sur Horloge système pour aider l’encodeur à se reconnecter en cas d’échec d’un flux.
+	>[AZURE.NOTE] Il est recommandé que le code horaire de l’événement Elemental soit défini sur Horloge système pour aider l’encodeur à se reconnecter en cas d’échec d’un flux.
 
 4. Maintenant que la sortie a été créée, cliquez sur **Add Stream**. Vous pouvez à présent configurer les paramètres de sortie.
 5. Faites défiler l’écran jusqu’au flux « Stream 1 » qui vient d’être créé, cliquez sur l’onglet **Video** à gauche et développez la section de paramètres **Advanced**. 
@@ -129,7 +129,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 	
 7. Cliquez sur **Create** (si un événement a été créé) ou **Update** (en cas de modification d’un événement existant), puis procédez au démarrage de l’encodeur.
 
->[AZURE.IMPORTANT]Avant de cliquer sur **Start** dans l’interface web Elemental Live, vous **devez** vérifier que le canal est prêt. Veillez également à ne pas laisser le canal à l’état d’exécution sans événement pendant plus de 15 minutes.
+>[AZURE.IMPORTANT] Avant de cliquer sur **Start** dans l’interface web Elemental Live, vous **devez** vérifier que le canal est prêt. Veillez également à ne pas laisser le canal à l’état d’exécution sans événement pendant plus de 15 minutes.
 
 Une fois que le flux a été exécuté pendant 30 secondes, revenez à l’outil AMSE et testez la lecture.
 
@@ -173,4 +173,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

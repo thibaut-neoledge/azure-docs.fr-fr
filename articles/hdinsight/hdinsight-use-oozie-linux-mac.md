@@ -201,7 +201,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 Les étapes suivantes créent la base de données SQL Azure vers laquelle les données seront exportées.
 
-> [AZURE.IMPORTANT] Avant d’exécuter cette procédure, vous devez [installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md). Vous pouvez installer l’interface de ligne de commande et suivre les étapes de création d’une base de données à partir du cluster HDInsight ou votre station de travail locale.
+> [AZURE.IMPORTANT] Avant d’exécuter cette procédure, vous devez [installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md). Vous pouvez installer l’interface de ligne de commande et suivre les étapes de création d’une base de données à partir du cluster HDInsight ou votre station de travail locale.
 
 1. Utilisez la commande suivante pour créer un serveur de base de données SQL Azure :
 
@@ -721,4 +721,4 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

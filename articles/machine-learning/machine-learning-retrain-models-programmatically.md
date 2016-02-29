@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/12/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -96,6 +96,8 @@ Diagramme 1 : Présentation du processus de reformation
 
 7. *Mise à jour du modèle formé du point de terminaison ajouté* Pour terminer le processus, nous devons mettre à jour le modèle formé du point de terminaison prédicatif créé à l’étape 4 ci-dessus.
 
+	(Si vous avez ajouté le nouveau point de terminaison à l'aide du portail Azure, vous pouvez cliquer sur le nom du nouveau point de terminaison, puis sur le lien UpdateResource pour obtenir l'URL dont vous avez besoin pour mettre à jour le modèle du point de terminaison.)
+
 	La sortie BES ci-dessus affiche les informations pour le résultat de la reformation de « output1 », qui contient les informations d’emplacement du modèle reformé. Nous devons maintenant prendre ce modèle formé et mettre à jour le point de terminaison de notation (créé à l’étape 4 ci-dessus). Voici un exemple de code :
 
 	```C#
@@ -138,7 +140,7 @@ Diagramme 1 : Présentation du processus de reformation
 	}
 	```
 
-	« apiKey » et « endpointUrl » pour cet appel sont visibles dans le tableau de bord du point de terminaison.
+	« apiKey » et « endpointUrl » pour cet appel sont visibles dans le tableau de bord du point de terminaison. Le paramètre « Name » dans Ressources doit correspondre au nom du modèle entraîné enregistré dans l'expérience prédictive.
 
 	Après le succès de cet appel, le nouveau point de terminaison commence à utiliser le modèle reformé dans les 15 secondes environ.
 
@@ -156,4 +158,4 @@ Diagramme 1 : Présentation du processus de reformation
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

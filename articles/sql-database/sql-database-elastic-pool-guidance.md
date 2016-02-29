@@ -20,7 +20,7 @@
 # Considérations sur les prix et performances pour un pool de bases de données élastique
 
 
-Ce document fournit des conseils visant à vous aider à évaluer si l’utilisation d’un pool de bases de données élastique pour un groupe de bases de données est économique selon les modèles d'utilisation de base de données et les différences de prix entre un pool élastique de bases de données et des bases de données uniques. Des conseils supplémentaires sont également fournis pour vous aider à déterminer la taille de pool actuelle requise pour un ensemble existant de bases de données SQL.
+Déterminez si l’utilisation d’un pool de base de données élastique pour un groupe de bases de données est économique selon les modèles d’utilisation de base de données et les différences de tarification entre un pool de base de données élastique et des bases de données uniques. Des conseils supplémentaires sont également fournis pour vous aider à déterminer la taille de pool actuelle requise pour un ensemble existant de bases de données SQL.
 
 - Pour une vue d'ensemble des pools de bases de données élastiques, consultez [Pools de bases de données élastiques Base de données SQL](sql-database-elastic-pool.md).
 - Pour en savoir plus sur les pools de bases de données élastiques, consultez [Référence de pools de bases de données élastiques Base de données SQL](sql-database-elastic-pool-reference.md).
@@ -30,7 +30,7 @@ Ce document fournit des conseils visant à vous aider à évaluer si l’utilisa
 
 ## Pool de bases de données élastique
 
-Les ISV (éditeurs de logiciels indépendants) SaaS développent des applications qui reposent sur des niveaux de données à grande échelle composés de plusieurs bases de données. Un modèle d'application commun permet à chacune de ces bases de données d’avoir différents clients avec des modèles d'utilisation particulièrement variables et imprévisibles. Il peut être difficile pour l’ISV de prévoir les besoins en ressources de chaque base de données individuellement. Dans ces circonstances, l’ISV peut surprovisionner les ressources moyennant un coût considérable pour garantir un débit et des temps de réponse favorables pour toutes les bases de données. Ou l’ISV peut réduire ses dépenses, ce qui risque d’entraîner une expérience de performances médiocres pour ses clients.
+Les ISV (éditeurs de logiciels indépendants) SaaS développent des applications qui reposent sur des niveaux de données à grande échelle composés de plusieurs bases de données. Un modèle d’application courant consiste à donner à chaque client sa propre base de données. Toutefois, les modèles d’utilisation sont imprévisibles et varient d’un client à l’autre, et il est difficile de prévoir les besoins en ressources de chaque utilisateur de base de données. Ainsi, un ISV peut surprovisionner les ressources moyennant un coût considérable pour garantir un débit et des temps de réponse favorables pour toutes les bases de données. Ou l’ISV peut réduire ses dépenses, ce qui risque d’entraîner une expérience de performances médiocres pour ses clients.
 
 Les pools de base de données élastiques dans Base de données SQL Azure permettent à l’ISV SaaS d’optimiser le rapport performance/prix pour un groupe de bases de données dans un budget prescrit tout en offrant une élasticité des performances pour chaque base de données. Les pools élastiques de bases de données permettent à l’ISV d’acheter des eDTU (unités de débit de base de données élastiques) pour un pool partagé par plusieurs bases de données afin de s’adapter aux périodes imprévisibles d’une utilisation par les bases de données. Le besoin en eDTU d’un pool est déterminé par l'utilisation globale de ses bases de données. La quantité d’eDTU disponible pour le pool est contrôlée par le budget de l’ISV. Les pools élastiques de bases de données permettent à l’ISV de déduire plus facilement l’incidence du budget sur les performances et vice versa pour son pool. L’ISV ajoute simplement des bases de données au pool, définit les garanties ou capacités en eDTU requises pour les bases de données, puis définit les eDTU du pool en fonction de son budget. En utilisant des pools élastiques de bases de données, l’ISV peut faire évoluer en toute transparence son service en passant d'une lean startup à une entreprise mature à une vitesse sans cesse croissante.
   
@@ -435,4 +435,4 @@ Toutes les bases de données uniques ne sont pas de parfaits candidats à un poo
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/27/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # Limites du système StorSimple
@@ -34,7 +34,7 @@ StorSimple fournit un stockage évolutif et flexible pour votre centre de donné
 | Nombre maximal de connexions iSCSI à partir d'initiateurs | 512 | |
 | Nombre maximal d'enregistrements de contrôle d'accès par appareil | 64 | |
 | Nombre maximal de volumes par stratégie de sauvegarde | 24 | |
-| Nombre maximal de sauvegardes conservées par stratégie de sauvegarde | 64 | |
+| Nombre maximal de sauvegardes conservées par planification (dans une stratégie de sauvegarde) | 64 | |
 | Nombre maximal de planifications par stratégie de sauvegarde | 10 | |
 | Nombre maximal d'instantanés de n'importe quel type pouvant être conservés par volume | 256 | Cela inclut les instantanés locaux et les instantanés cloud. |
 | Nombre maximal d'instantanés pouvant être présents dans n'importe quel appareil | 10 000 | |
@@ -52,4 +52,4 @@ StorSimple fournit un stockage évolutif et flexible pour votre centre de donné
 
 Relisez les [Conditions requises pour le système StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

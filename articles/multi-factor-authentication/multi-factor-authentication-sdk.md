@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
@@ -191,4 +191,4 @@ Dans le code côté serveur suivant, l'authentification multifacteur est configu
 	    }
 	}
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -20,13 +20,13 @@
 
 # Spark Job Server sur des clusters Azure HDInsight (Windows)
 
-> [AZURE.NOTE]HDInsight fournit désormais des clusters Spark sur Linux, qui utilise Livy à soumettre des tâches à distance à un cluster Spark. Pour plus d’informations sur l’utilisation de Livy avec des clusters HDInsight Spark sur Linux, consultez [Soumettre des tâches Spark à distance en utilisant Livy avec des clusters Spark sur HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
+> [AZURE.NOTE] HDInsight fournit désormais des clusters Spark sur Linux, qui utilise Livy à soumettre des tâches à distance à un cluster Spark. Pour plus d’informations sur l’utilisation de Livy avec des clusters HDInsight Spark sur Linux, consultez [Soumettre des tâches Spark à distance en utilisant Livy avec des clusters Spark sur HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
 Le cluster Apache Spark sur Azure HDInsight package le serveur Spark Job Server dans le cadre du déploiement du cluster. Spark Job Server fournit des API REST pour créer un contexte Spark, soumettre l’application Spark au contexte, vérifiez l’état du travail, supprimer le contexte, etc. Cet article fournit quelques exemples sur l’utilisation de Curl pour effectuer certaines tâches courantes sur un cluster Spark à l’aide d’un serveur de travaux.
 
->[AZURE.NOTE]Pour obtenir la documentation complète de Spark Job Server, consultez [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver).
+>[AZURE.NOTE] Pour obtenir la documentation complète de Spark Job Server, consultez [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver).
 
-## <a name="uploadjar"></a>Charger un fichier jar sur un cluster Spark
+## <a name="uploadjar"></a>Charger un fichier jar vers un cluster Spark
 
 	curl.exe -k -u "<hdinsight user>:<user password>" --data-binary @<location of jar on the computer> https://<cluster name>.azurehdinsight.net/sparkjobserver/jars/<application name>
 
@@ -74,14 +74,14 @@ Exemple :
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

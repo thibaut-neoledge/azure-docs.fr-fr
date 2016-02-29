@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="11/26/2015"
+   ms.date="02/12/2016"
    ms.author="hermannd"/>
 
 # Test de SAP NetWeaver sur les machines virtuelles Microsoft Azure SUSE Linux
@@ -76,6 +76,21 @@ Ne montez jamais des disques de données Azure dans une machine virtuelle Azure 
 
 Le problème avec l’ID de périphérique, c’est qu’il peut changer et la machine virtuelle Azure peut se bloquer pendant le processus de démarrage. Vous pouvez ajouter le paramètre nofail dans /etc/fstab pour atténuer le problème. Mais attention : avec nofail, les applications peuvent utiliser le point de montage comme avant, et peuvent écrire dans le système de fichiers racine au cas où un disque de données Azure externe n’a pas été monté lors du démarrage.
 
+La seule exception concernant le montage via l’UUID est relative à l’attachement d’un disque du système d’exploitation à des fins de dépannage, comme décrit dans la section suivante.
+
+## Résolution des problèmes de la machine virtuelle SUSE qui n’est plus accessible
+
+Il peut arriver qu’une machine virtuelle SUSE dans Azure se bloque pendant le processus de démarrage (par exemple, en raison d’une erreur liée au montage de disques). Le problème peut être vérifié entre autres par la fonctionnalité des diagnostics au démarrage dans le portail pour les machines virtuelles v2 ([consultez ce blog](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)).
+
+Une option permettant de résoudre le problème consiste à attacher le disque du système d’exploitation à partir de la machine virtuelle endommagée à une autre machine virtuelle SUSE dans Azure et à apporter les changements appropriés, par exemple en modifiant /etc/fstab ou en supprimant les règles udev réseau comme décrit dans la section suivante.
+
+Un élément important est cependant à prendre en compte. Le déploiement de plusieurs machines virtuelles SUSE à partir de la même image de galerie Azure (par exemple, SLES 11 SP4) indique que le disque du système d’exploitation est toujours monté par le même UUID. L’attachement d’un disque du système d’exploitation par l’UUID à partir d’une machine virtuelle différente qui a été déployée avec la même image de galerie Azure produit donc deux UUID identiques. Cela pose des problèmes et peut indiquer que la machine virtuelle destinée au dépannage démarre en réalité à partir du disque du système d’exploitation attaché et endommagé et non à partir du disque d’origine.
+
+Vous pouvez éviter ce problème de deux façons :
+
+* en utilisant une image de galerie Azure différente pour la machine virtuelle de dépannage (par exemple, SLES 12 au lieu de SLES 11 SP4) ;
+* en n’attachant pas le disque du système d’exploitation endommagé à partir d’une autre machine virtuelle via l’UUID, mais en procédant différemment.
+
 ## Chargement d’une machine virtuelle SUSE à partir d’un emplacement local vers Azure
 
 [Cet article](virtual-machines-linux-create-upload-vhd-suse.md) décrit les étapes de chargement d’une machine virtuelle SUSE à partir d’un emplacement local vers Azure.
@@ -83,7 +98,7 @@ Le problème avec l’ID de périphérique, c’est qu’il peut changer et la m
 Si vous souhaitez charger une machine virtuelle sans effectuer l’étape d’annulation de l’approvisionnement à la fin, par exemple pour conserver une installation SAP existante en plus du nom d’hôte, notez les points suivants :
 
 * Assurez-vous que le disque du système d’exploitation soit monté par l’intermédiaire de l’UUID, et non de l’ID de périphérique. Utiliser l’UUID dans /etc/fstab ne suffit pas pour le disque du système d’exploitation. N’oubliez pas non plus d’adapter le chargeur de démarrage, par exemple via YaST ou en modifiant /boot/grub/menu.lst
-* Si vous avez utilisé le format VHDX pour le disque du système d’exploitation SUSE et que vous le convertissez en disque dur virtuel pour le chargement vers Azure, il est très probable que le périphérique réseau ait basculé d’eth0 à eth1. Pour éviter tout problème lors du démarrage ultérieur dans Azure, vous devez rétablir eth0 comme décrit dans [cet article](https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/) :
+* Si vous avez utilisé le format VHDX pour le disque du système d’exploitation SUSE et que vous le convertissez en disque dur virtuel pour le chargement vers Azure, il est très probable que le périphérique réseau ait basculé d’eth0 à eth1. Pour éviter tout problème lors du démarrage ultérieur dans Azure, vous devez rétablir eth0 comme décrit dans [cet article](https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/).
 
 En plus de ce qui est décrit dans l’article, nous vous recommandons de supprimer la ligne suivante :
 
@@ -97,7 +112,7 @@ Les nouvelles machines virtuelles SUSE doivent être créées via des fichiers d
 
    ``` azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
 
-   ``` Vous trouverez plus d'informations sur les fichiers de modèle JSON dans [cet article](resource-group-authoring-templates.md) et [cette page Web](https://azure.microsoft.com/documentation/templates/).
+   ``` Vous trouverez plus d’informations sur les fichiers de modèle JSON dans [cet article](resource-group-authoring-templates.md) et [cette page web](https://azure.microsoft.com/documentation/templates/).
 
 Pour plus d’informations concernant CLI et Azure Resource Manager, consultez [cet article](xplat-cli-azure-resource-manager.md).
 
@@ -147,4 +162,4 @@ Si vous souhaitez utiliser le bureau Gnome pour installer un système complet de
 
 Il existe une restriction de prise en charge d’Oracle sur Linux dans les environnements virtualisés. Il s'agit d'une rubrique générale, qui n’est pas spécifique à Azure, mais il est important de bien la comprendre. SAP ne prend pas en charge Oracle sur SUSE, ni RedHat dans un cloud public comme Azure. Les clients doivent contacter Oracle directement pour discuter de ce problème.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

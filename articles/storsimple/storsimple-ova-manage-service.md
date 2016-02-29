@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Déployer le service StorSimple Manager pour StorSimple Virtual Array
@@ -105,10 +105,10 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 
 ## Étapes suivantes
 
-- En savoir plus sur la [prise en main](storsimple-ova-deploy1-portal-prep.md) du déploiement d’un tableau virtuel StorSimple.
+- Découvrez comment [prendre en main](storsimple-ova-deploy1-portal-prep.md) StorSimple Virtual Array.
 	
-- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-ova-manager-service-administration.md).
+- Découvrez comment [gérer votre appareil StorSimple](storsimple-ova-web-ui-admin.md).
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

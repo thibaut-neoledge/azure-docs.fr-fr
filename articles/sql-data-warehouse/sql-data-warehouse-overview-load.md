@@ -37,17 +37,19 @@ Pour effectuer un chargement dans SQL Data Warehouse à partir d’une instance 
 
 Dans les sections suivantes, nous examinons chaque étape et fournissons des exemples du processus.
 
-> [AZURE.NOTE]Avant de déplacer les données d’un système tel que SQL Server, nous vous suggérons de consulter les articles [Migration du schéma][] et [Migration du code][] dans notre documentation.
+> [AZURE.NOTE] Avant de déplacer les données d’un système tel que SQL Server, nous vous suggérons de consulter les articles [Migration du schéma][] et [Migration du code][] dans notre documentation.
 
 ## Exportation de fichiers avec BCP
 
 En vue de déplacer vos fichiers vers Azure, vous devez les exporter dans des fichiers plats. Pour ce faire, privilégiez l’utilitaire de ligne de commande BCP. Si vous ne possédez pas encore l’utilitaire, vous pouvez le télécharger avec les [Utilitaires de ligne de commande Microsoft pour SQL Server][]. Un exemple de commande BCP peut se présenter comme suit :
 
 ```
-bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
+or
+bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
 ```
 
-Cette commande récupère les résultats d’une requête et les exporte vers un fichier dans le répertoire de votre choix. Vous pouvez paralléliser le processus en exécutant plusieurs commandes BCP pour des tables distinctes simultanément. Cela vous permet d’exécuter jusqu’à un processus BCP par cœur de votre serveur. Vous pouvez commencer par effectuer quelques opérations de moindre envergure sur différentes configurations pour voir ce qui convient le mieux à votre environnement.
+Pour maximiser le débit, vous pouvez paralléliser le processus en exécutant simultanément plusieurs commandes BCP pour des tables distinctes ou pour des partitions distinctes au sein d’une même table. Ainsi, vous pouvez répartir la consommation des ressources du processeur par BCP sur les différents cœurs du serveur où BCP est en cours d’exécution. Si vous effectuez une extraction à partir d’un entrepôt de données SQL ou d’un système PDW, vous devez ajouter l’argument -q (identificateur entre guillemets) à la commande BCP. En outre, vous devez éventuellement ajouter -U et -P pour spécifier le nom d’utilisateur et le mot de passe si votre environnement n’utilise pas Active Directory.
 
 En outre, comme nous chargerons les données à l’aide de PolyBase, tous les fichiers doivent être au format UTF-8, car PolyBase ne prend pas encore en charge le format UTF-16. Vous pouvez aisément effectuer cette opération en incluant l’indicateur « -c » dans votre commande BCP ou vous pouvez également convertir les fichiers plats UTF-16 au format UTF-8 avec le code ci-dessous :
 
@@ -62,7 +64,7 @@ Si le volume de données à déplacer est compris entre 5 et 10 téraoctets, vo
 
 La procédure suivante décrit comment déplacer des données locales vers un compte Azure Storage avec AZCopy. Si vous n’avez pas un compte Azure Storage dans la même région, vous pouvez en créer un en suivant la [documentation Azure Storage][]. Vous pouvez également charger les données à partir d’un compte de stockage dans une autre région, mais les performances dans ce cas ne sont pas optimales.
 
-> [AZURE.NOTE]Cette documentation suppose que vous avez installé l’utilitaire de ligne de commande AZCopy et que vous pouvez l’exécuter avec PowerShell. Si ce n’est pas le cas, exécutez les [Instructions d’installation d’AZCopy][].
+> [AZURE.NOTE] Cette documentation suppose que vous avez installé l’utilitaire de ligne de commande AZCopy et que vous pouvez l’exécuter avec PowerShell. Si ce n’est pas le cas, exécutez les [Instructions d’installation d’AZCopy][].
 
 Une fois créé un ensemble de fichiers à l’aide de BCP, AzCopy peut simplement être exécuté à partir d’Azure PowerShell ou à l’aide d’un script PowerShell. De façon générale, l’invite de commandes nécessaire à l’exécution d’AZCopy se présente comme suit :
 
@@ -201,4 +203,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 [documentation Azure Storage]: https://azure.microsoft.com/fr-FR/documentation/articles/storage-create-storage-account/
 [Documentation sur ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

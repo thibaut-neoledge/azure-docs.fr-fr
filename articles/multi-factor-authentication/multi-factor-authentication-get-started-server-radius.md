@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -21,6 +21,10 @@
 # Authentification RADIUS et serveur Azure Multi-Factor Authentication
 
 La section Authentification RADIUS vous permet d'activer et de configurer l'authentification RADIUS pour le serveur Azure Multi-Factor Authentication. RADIUS est un protocole standard pour accepter les demandes d'authentification et traiter ces demandes. Le serveur Azure Multi-Factor Authentication fonctionne comme un serveur RADIUS et s'insère entre votre client RADIUS (par exemple, une appliance VPN) et votre cible d'authentification, qui peut être Active Directory (AD), un répertoire LDAP ou un autre serveur RADIUS, afin d'ajouter l'authentification multifacteur Azure. Pour garantir le fonctionnement Azure Multi-Factor Authentication, vous devez configurer le serveur Azure Multi-Factor Authentication pour communiquer avec les serveurs clients et la cible de l’authentication. Le serveur Azure Multi-Factor Authentication accepte les requêtes provenant d'un client RADIUS, valide les informations d'identification par rapport à la cible de l'authentification, ajoute l’authentification multifacteur Azure et renvoie une réponse au client RADIUS. L'authentification est complète uniquement si l'authentification principale et l'authentification multifacteur Azure réussissent.
+
+>[AZURE.NOTE]
+Le serveur MFA prend uniquement en charge les protocoles RADIUS PAP (Password Authentication Protocol) et MSCHAPv2 (Microsoft Challenge Handshake Authentication Protocol) lorsqu'il agit comme un serveur RADIUS. Les autres protocoles comme EAP (Extensible Authentication Protocol) peuvent être utilisés lorsque le serveur MFA agit comme un proxy RADIUS vers un autre serveur RADIUS prenant en charge ce protocole, par exemple Microsoft NPS. </br> Lorsque vous utilisez d'autres protocoles dans cette configuration, les jetons SMS et OATH unidirectionnels ne fonctionneront pas car le serveur MFA n'est pas capable d'initier correctement une réponse RADIUS Challenge à l'aide de ce protocole.
+
 
 ![Authentification RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
@@ -56,4 +60,4 @@ Pour configurer le client RADIUS, suivez ces indications :
 - Utilisez le même secret partagé configuré ci-dessus. 
 - Configurez le délai d'expiration RADIUS sur 30 à 60 secondes pour pouvoir valider les informations d'identification de l'utilisateur, effectuez l'authentification multifacteur, recevez leur réponse et répondez à la demande d'accès RADIUS.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

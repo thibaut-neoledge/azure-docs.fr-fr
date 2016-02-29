@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/11/2016"
 	ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services
@@ -53,7 +53,7 @@ Vous pouvez maintenant créer le travail planifié qui accède à Twitter et sto
 
 2. Cliquez sur l'onglet **Scheduler**, puis sur **+Créer**.
 
-    >[AZURE.NOTE]Lorsque vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu'une tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
+    >[AZURE.NOTE]Lorsque vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu’une tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
 
 3. Dans la boîte de dialogue du planificateur, entrez _getUpdates_ pour le **Nom du travail**, définissez l'intervalle et les unités de planification, puis cliquez sur le bouton de vérification.
 
@@ -171,4 +171,4 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

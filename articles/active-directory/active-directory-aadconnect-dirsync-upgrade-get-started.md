@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="shoatman;billmath"/>
 
-# Mise à niveau de la synchronisation Microsoft Azure Active Directory (DirSync) vers Azure AD Connect
+# Azure AD Connect : mise à niveau d’Azure Active Directory Sync (DirSync)
 
 Cette documentation vous aidera à mettre à niveau votre installation DirSync existante vers Azure AD Connect.
 
@@ -58,13 +58,13 @@ Les modifications de configuration suivantes sont prises en charge avec DirSync 
 - Vos paramètres domaine/forêt et Azure AD
 - Filtrage basé sur les attributs de l'utilisateur
 
-Les modifications suivantes ne peuvent pas être mises à niveau. Si vous avez apporté ces modifications, la mise à niveau sera bloquée.
+La modification suivante ne peut pas être mise à niveau. Si vous avez apporté cette modification, la mise à niveau sera bloquée :
+
+- Modifications de DirSync non prises en charge, par exemple : attributs supprimés et utilisation d'une DLL d'extension personnalisée
 
 ![Blocage de la mise à niveau](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
 Dans ces cas, il est recommandé d’installer un nouveau serveur Azure AD Connect en [mode de préproduction](active-directory-aadconnectsync-operations.md#staging-mode) et de vérifier l’ancienne configuration de DirSync et la nouvelle configuration d’Azure AD Connect. Appliquez de nouveau les éventuelles modifications à l’aide de la configuration personnalisée, comme décrit dans [Azure AD Connect Sync : configuration personnalisée](active-directory-aadconnectsync-whatis.md).
-
-- Modifications de DirSync non prises en charge, par exemple : attributs supprimés et utilisation d'une DLL d'extension personnalisée
 
 Les mots de passe utilisés par DirSync pour les comptes de service ne peuvent pas être récupérés et ne seront pas migrés. Ces mots de passe seront réinitialisés lors de la mise à niveau.
 
@@ -197,4 +197,4 @@ Notez que lorsque vous avez Azure AD Connect installé, vous pouvez [vérifier l
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

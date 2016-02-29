@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -33,7 +33,7 @@ La version de l’application Azure Authenticator, disponible pour [Windows Phon
 
 Vérifiez tout d’abord que vous disposez du code QR et de l’URL pour saisir manuellement le compte que vous souhaitez ajouter à l’application.
 
-> [AZURE.NOTE]Vous ne savez pas comment obtenir le code QR ? Contactez votre support technique pour obtenir de l’aide.
+> [AZURE.NOTE] Vous ne savez pas comment obtenir le code QR ? Contactez votre support technique pour obtenir de l’aide.
 > 
 > Impossible d’activer votre compte avec la nouvelle application ? Contactez votre support technique.
 >
@@ -164,4 +164,4 @@ La configuration de Touch ID avec Azure Authenticator est très simple. Vous eff
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

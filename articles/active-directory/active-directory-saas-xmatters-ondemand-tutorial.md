@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à XMatters OnDemand | Microsoft Azure" description="Découvrez comment utiliser XMatters OnDemand avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
+    pageTitle="Didacticiel : Intégration d’Azure AD à XMatters OnDemand | Microsoft Azure"
+    description="Découvrez comment utiliser XMatters OnDemand avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 4.  Dans la page **Configurer l’authentification unique sur XMatters OnDemand**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sous le nom **c:\\xMatters OnDemand.cer**.
 
-    >[AZURE.IMPORTANT]Vous devez transférer le certificat à l’équipe du support technique xMatters. L’équipe du support technique xMatters doit charger le certificat avant que vous ne puissiez finaliser la configuration de l’authentification unique.
+    >[AZURE.IMPORTANT] Vous devez transférer le certificat à l’équipe du support technique xMatters. L’équipe du support technique xMatters doit charger le certificat avant que vous ne puissiez finaliser la configuration de l’authentification unique.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Configurer l’authentification unique")
 
@@ -130,7 +131,7 @@ Pour pouvoir se connecter à XMatters OnDemand, les utilisateurs d’Azure AD d
     1.  Entrez les attributs **UserID**, **First name**, **Last name** et **Site** d’un compte Azure AD valide que vous voulez approvisionner.
     2.  Cliquez sur **Enregistrer**.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par XMatters OnDemand pour approvisionner des comptes d’utilisateurs Azure AD.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par XMatters OnDemand pour approvisionner des comptes d’utilisateurs Azure AD.
 
 ##Affectation d’utilisateurs
   
@@ -150,4 +151,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

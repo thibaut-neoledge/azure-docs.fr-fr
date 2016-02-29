@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@ Après avoir effectué ce didacticiel, vous pourrez :
 
 Ce didacticiel nécessite les éléments suivants :
 
--   Dernière version d’[Azure PowerShell](../install-configure-powershell.md)
+-   Dernière version d’[Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 ou la version gratuite de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Des privilèges d’administrateur sur l’ordinateur
@@ -150,7 +150,7 @@ Le script Setup.ps1 dans le dossier TollApp sur GitHub permet de créer toutes l
 
 Téléchargez et enregistrez les dossier et fichiers [TollApp](https://github.com/streamanalytics/samples/releases) de prise en charge. Assurez-vous que vous téléchargez la dernière version.
 
-Ouvrez une fenêtre « Microsoft Azure PowerShell » **en tant qu’administrateur**. Si vous ne disposez toujours pas d’Azure PowerShell, installez-le en suivant les instructions de la page [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
+Ouvrez une fenêtre « Microsoft Azure PowerShell » **en tant qu’administrateur**. Si vous ne disposez toujours pas d’Azure PowerShell, installez-le en suivant les instructions de la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 Windows bloque automatiquement les fichiers ps1, dll et exe téléchargés depuis Internet. Nous devons définir la stratégie d’exécution avant d’exécuter le script. Assurez-vous que la fenêtre Azure PowerShell s’exécute en tant qu’administrateur. Exécutez « Set-ExecutionPolicy unrestricted ». Quand vous y êtes invité, tapez « O ».
 
@@ -534,4 +534,4 @@ Notez que les ressources sont identifiées par leur nom. Assurez-vous de vérifi
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

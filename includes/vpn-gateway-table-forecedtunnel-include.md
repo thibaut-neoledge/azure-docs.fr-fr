@@ -1,7 +1,9 @@
-A forced-tunneling connection can be configured in both deployment models and by using different tools. See the table below for more information. We update this table as new articles, new deployment models and tools become available for this configuration. When an article is available, we link directly to it from the table.
+Une connexion de tunneling forcé peut être configurée dans les deux modèles de déploiement et à l’aide de différents outils. Pour plus d’informations, consultez le tableau ci-après. Nous mettons à jour ce tableau à mesure que de nouveaux articles, de nouveaux modèles de déploiement et des outils sont disponibles pour cette configuration. Quand un article est disponible, ce tableau contient un lien vers celui-ci.
 
-| **Deployment Model / Tool** | **Classic Portal** | **Azure Portal** | **PowerShell** |
+| **Modèle de déploiement/outil** | **Portail Classic** | **Portail Azure** | **PowerShell** |
 |-----------------------|----------------|--------------|------------|
-| **Classic**           | No   | No   |    [Article](../articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md)  |
-| **Resource Manager**  | No   | No   | [Article](../articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md)  |
+| **Classique** | Non | Non | [Article](../articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md) |
+| **Gestionnaire de ressources** | Non | Non | [Article](../articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md) |
  
+
+<!---HONumber=AcomDC_0218_2016-->

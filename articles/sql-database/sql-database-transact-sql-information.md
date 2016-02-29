@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/01/2016"
+   ms.date="02/16/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Différences dans le langage Transact-SQL Azure SQL Database.
@@ -53,7 +53,7 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 
 - Classement des objets système
 - Connexions liées  : instructions de point de terminaison, ORIGINAL\_DB\_NAME. L’authentification Windows n’est pas disponible pour les connexions ou les utilisateurs de la base de données contenant-contenu.
-- Requêtes dans plusieurs bases de données pour les opérations INSERT, UPDATE et DELETE. (Les requêtes dans plusieurs bases de données en lecture seule sont prises en charge.)
+- Requêtes dans plusieurs bases de données à l’aide de noms à trois ou quatre parties. (Les requêtes dans plusieurs bases de données en lecture seule sont prises en charge à l’aide d’une requête de base de données élastique.)
 - Chaînage d’appartenance entre plusieurs bases de données, paramètre TRUSTWORTHY
 - Classement des données
 - Schémas de base de données
@@ -108,4 +108,4 @@ La référence sur Transact-SQL comprend des rubriques relatives aux versions de
 
 Dans certains cas, le sujet général d'une rubrique peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans la rubrique comme il convient.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

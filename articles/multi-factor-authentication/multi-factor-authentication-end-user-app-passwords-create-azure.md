@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Création de mots de passe d’application dans le portail Azure pour Azure Multi-Factor Authentication
@@ -25,11 +25,11 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous voulez peut-
 1. Connectez-vous au portail de gestion Azure.
 3. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
 5. En haut de la page de vérification, sélectionnez les mots de passe d'application
-6. Cliquez sur **Créer**.
-7. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**.
+6. Cliquez sur **Créer**
+7. Saisissez un nom pour le mot de passe d’application, puis cliquez sur **Suivant**
 8. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
 
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

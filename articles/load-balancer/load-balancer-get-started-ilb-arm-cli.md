@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Créer un équilibreur de charge interne à l’aide de l’interface de ligne de commande (CLI) Azure
@@ -45,7 +45,7 @@ Pour obtenir plus d’informations sur les composants de l’équilibrage de cha
 
 1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 
-2. Exécutez la commande **azure config mode** pour passer en mode Gestionnaire de ressources, comme illustré ci-dessous.
+2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
 
@@ -91,7 +91,7 @@ Créez un jeu d’équilibrage de charge interne à l’aide de la commande `azu
  	
 	azure network lb create -n nrprg -l westus
 
->[AZURE.NOTE]Toutes les ressources d'un équilibreur de charge interne, telles que le réseau virtuel et le sous-réseau du réseau virtuel doivent figurer dans le même groupe de ressources et dans la même région.
+>[AZURE.NOTE] Toutes les ressources d'un équilibreur de charge interne, telles que le réseau virtuel et le sous-réseau du réseau virtuel doivent figurer dans le même groupe de ressources et dans la même région.
 
 
 ### Étape 2 
@@ -148,7 +148,7 @@ Créez des sondes d'intégrité pour l'équilibreur de charge. Une sonde d'inté
 
 **-g** - groupe de ressources **-l** - nom du jeu d’équilibrage de charge interne **-n** - nom de la sonde d’intégrité **-p** - protocole utilisé par la sonde d’intégrité **-i** - intervalle de sondage, en secondes **-c** - nombre de contrôles
 
->[AZURE.NOTE]La plateforme Microsoft Azure utilise une adresse IPv4 statique routable publiquement pour divers scénarios d’administration. L’adresse IP est 168.63.129.16. Cette adresse IP ne doit pas être bloquée par les pare-feu, car cela peut entraîner un comportement inattendu. En ce qui concerne l’équilibrage de charge Azure, cette adresse IP est utilisée par les sondes de l’équilibreur de charge, pour déterminer l’état de santé pour les machines virtuelles dans un jeu d’équilibrage de charge interne. Si un groupe de sécurité réseau est utilisé pour limiter le trafic vers les machines virtuelles Azure dans un jeu d’équilibrage de charge interne, ou est appliqué à un sous-réseau de réseau virtuel, vérifiez qu’une règle de sécurité de réseau est ajoutée pour autoriser le trafic à partir de 168.63.129.16.
+>[AZURE.NOTE] La plateforme Microsoft Azure utilise une adresse IPv4 statique routable publiquement pour divers scénarios d’administration. L’adresse IP est 168.63.129.16. Cette adresse IP ne doit pas être bloquée par les pare-feu, car cela peut entraîner un comportement inattendu. En ce qui concerne l’équilibrage de charge Azure, cette adresse IP est utilisée par les sondes de l’équilibreur de charge, pour déterminer l’état de santé pour les machines virtuelles dans un jeu d’équilibrage de charge interne. Si un groupe de sécurité réseau est utilisé pour limiter le trafic vers les machines virtuelles Azure dans un jeu d’équilibrage de charge interne, ou est appliqué à un sous-réseau de réseau virtuel, vérifiez qu’une règle de sécurité de réseau est ajoutée pour autoriser le trafic à partir de 168.63.129.16.
 
 ## Créer des cartes réseau
 
@@ -208,7 +208,7 @@ Créez une machine virtuelle nommée *DB1*, puis associez-la à la carte réseau
 
 	azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]Les machines virtuelles d’un équilibreur de charge doivent se trouver dans le même groupe à haute disponibilité. Utilisez `azure availset create` pour créer un groupe à haute disponibilité.
+>[AZURE.IMPORTANT] Les machines virtuelles d’un équilibreur de charge doivent se trouver dans le même groupe à haute disponibilité. Utilisez `azure availset create` pour créer un groupe à haute disponibilité.
 
 ### Étape 4
 
@@ -232,4 +232,4 @@ Où **nrprg** correspond au groupe de ressources et **ilbset** au nom de l’éq
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

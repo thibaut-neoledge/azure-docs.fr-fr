@@ -183,7 +183,7 @@ Pour plus d'informations sur les commandes Hadoop, consultez la page [Manuel des
 
 L’installation de l’émulateur HDInsight fournit quelques exemples offrant un apprentissage rapide des services Apache Hadoop sur Windows aux utilisateurs. Ces exemples présentent quelques tâches généralement nécessaires lors du traitement d’un jeu de données volumineux. Grâce au didacticiel MapReduce présenté ci-dessus, les exemples vous aideront à mieux vous familiariser avec le modèle de programmation MapReduce et son écosystème.
 
-Les exemples de données tournent autour du traitement des données de journal IIS World Wide Web Consortium (W3C). Un outil de génération de données est fourni pour créer et importer les ensembles de données de plusieurs tailles vers un fichier Hadoop (HDFS) ou un stockage d’objets blob Azure. Pour plus d’informations, consultez la page [Utilisation du stockage d’objets blob Azure pour HDInsight](../hdinsight-use-blob-storage.md). Ensuite, les tâches MapReduce, Pig ou Hive peuvent être exécutées sur les pages de données générées par le script Azure PowerShell. Les scripts Pig et Hive forment une couche d'abstraction par-dessus MapReduce, et peuvent éventuellement être compilés en programmes MapReduce. Vous pouvez exécuter une série de tâches afin d'observer les effets de l'utilisation de ces différentes technologies et les effets de la taille des données sur l'exécution des tâches de traitement.
+Les exemples de données tournent autour du traitement des données de journal IIS World Wide Web Consortium (W3C). Un outil de génération de données est fourni pour créer et importer les ensembles de données de plusieurs tailles vers un fichier Hadoop (HDFS) ou un stockage d’objets blob Azure. Pour plus d’informations, consultez la page [Utilisation du stockage d’objets blob Azure pour HDInsight](hdinsight-hadoop-use-blob-storage.md). Ensuite, les tâches MapReduce, Pig ou Hive peuvent être exécutées sur les pages de données générées par le script Azure PowerShell. Les scripts Pig et Hive forment une couche d'abstraction par-dessus MapReduce, et peuvent éventuellement être compilés en programmes MapReduce. Vous pouvez exécuter une série de tâches afin d'observer les effets de l'utilisation de ces différentes technologies et les effets de la taille des données sur l'exécution des tâches de traitement.
 
 ### Dans cette section
 
@@ -390,9 +390,9 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Connexion au stockage d’objets blob Azure
 L'émulateur HDInsight utilise HDFS en tant que système de fichiers par défaut. Toutefois, Azure HDInsight utilise le stockage d'objets blob Azure comme système de fichiers par défaut. Il est possible de configurer l’émulateur HDInsight pour utiliser le stockage d’objets blob Azure plutôt que le stockage local. Suivez les instructions ci-dessous pour créer un conteneur de stockage dans Azure et pour le connecter à l'émulateur HDInsight.
 
->[AZURE.NOTE] Pour plus d’informations sur la façon dont HDInsight utilise le stockage d’objets blob Azure, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md).
+>[AZURE.NOTE] Pour plus d’informations sur la façon dont HDInsight utilise le stockage d’objets blob Azure, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-Avant de commencer à suivre les instructions ci-dessous, vous devez créer un compte de stockage. Pour obtenir des instructions, consultez la rubrique [Création d'un compte de stockage](../storage-create-storage-account.md).
+Avant de commencer à suivre les instructions ci-dessous, vous devez créer un compte de stockage. Pour obtenir des instructions, consultez la rubrique [Création d'un compte de stockage](../storage/storage-create-storage-account.md).
 
 **Création d’un conteneur**
 
@@ -465,7 +465,7 @@ Ouvrez le Panneau de configuration sur l’ordinateur où l’émulateur est ins
 ##<a name="nextsteps"></a>Étapes suivantes
 Dans ce didacticiel MapReduce, vous avez installé l'émulateur HDInsight, un bac à sable (sandbox) Hadoop, et exécuté certaines tâches Hadoop. Pour en savoir plus, consultez les articles suivants :
 
-- [Prise en main d’Azure HDInsight](../hdinsight-get-started.md)
+- [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Développement de programmes MapReduce en Java pour HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 - [Développement de programmes MapReduce de diffusion en continu Hadoop en C# pour HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Notes de publication de l’émulateur HDInsight](hdinsight-emulator-release-notes.md)
@@ -483,18 +483,18 @@ Dans ce didacticiel MapReduce, vous avez installé l'émulateur HDInsight, un ba
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
 [hdinsight-emulator-release-notes]: hdinsight-emulator-release-notes.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: powershell-install-configure.md
 
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

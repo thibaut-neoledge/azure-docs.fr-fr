@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/05/2016" 
+    ms.date="02/11/2016" 
     ms.author="elizapo" />
 
 
@@ -48,11 +48,11 @@ Il existe un meilleur moyen, ou une seconde possibilité de trouver le GUID de c
 
 Par exemple :
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s:<Class Guid value>"
 
 Vous pouvez combiner plusieurs redirections de périphérique dans la même applet de commande. Par exemple, pour rediriger le stockage local et une webcam USB, l’applet de commande se présente comme suit :
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`usbdevicestoredirect:s:<Class Guid value>"
 
 Lorsque vous définissez la redirection de périphérique par GUID de classe, tous les périphériques correspondant à ce GUID de classe dans l’ensemble spécifié sont redirigés. Par exemple, s’il existe sur le réseau plusieurs ordinateurs qui utilisent les mêmes webcams USB. Vous pouvez exécuter une applet de commande unique pour rediriger toutes les webcams.
 
@@ -70,11 +70,11 @@ La partie la plus difficile de cette méthode consiste à trouver l’ID d’ins
 
 À présent, utilisez l’ID d’instance dans l’applet de commande suivante :
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
+	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

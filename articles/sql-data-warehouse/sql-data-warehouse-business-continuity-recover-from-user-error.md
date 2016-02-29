@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse
@@ -25,8 +25,10 @@ SQL Data Warehouse offre deux fonctionnalités de récupération principales lor
 
 Ces deux fonctionnalités restaurent une nouvelle base de données sur le même serveur.
 
+Deux API prennent en charge une restauration de base de données SQL Data Warehouse : Azure PowerShell et l’API REST. Vous pouvez utiliser l’une ou l’autre pour accéder à la fonctionnalité de restauration de SQL Data Warehouse.
+
 ## Restaurer une base de données active
-En cas d’erreur de l’utilisateur entraînant une modification involontaire des données, vous pouvez restaurer la base de données au niveau de l’un des points de restauration de la période de rétention. Les captures instantanées d’une base de données active se produisent toutes les 8 heures et sont conservées pendant 7 jours.
+En cas d’erreur de l’utilisateur entraînant une modification involontaire des données, vous pouvez restaurer la base de données au niveau de l’un des points de restauration de la période de rétention. Les captures instantanées d’une base de données active se produisent au moins toutes les 8 heures et sont conservées pendant 7 jours.
 
 ### PowerShell
 
@@ -136,4 +138,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # Utiliser l'interface utilisateur web pour gérer votre StorSimple Virtual Array (version préliminaire)
@@ -94,7 +94,7 @@ Un package de journaux contient tous les journaux pertinents qui peuvent aider l
 
 ## Arrêter et redémarrer votre appareil
 
-Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interface utilisateur web locale.
+Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les volumes ou les partages hors connexion sur l’ordinateur hôte. Vous réduisez ainsi toute possibilité d’altération des données.
 
 #### Pour arrêter votre appareil virtuel
 
@@ -136,4 +136,4 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 
 Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

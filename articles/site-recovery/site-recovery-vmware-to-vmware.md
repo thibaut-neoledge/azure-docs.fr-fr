@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuration de la protection entre des sites locaux VMware"
-	description="Utilisez cet article pour configurer la protection entre deux sites VMware à l’aide d’Azure Site Recovery."
+	pageTitle="Répliquer des machines virtuelles VMware locales ou des serveurs physiques dans un site secondaire | Microsoft Azure"
+	description="Utilisez cet article pour répliquer les machines virtuelles VMware ou les serveurs physiques Windows/Linux sur un site secondaire avec Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
-# Configuration de la protection entre des sites locaux VMware
+# Répliquer des machines virtuelles VMware locales ou des serveurs physiques dans un site secondaire
 
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 InMage Scout dans Azure Site Recovery assure une réplication en temps réel entre des sites VMware locaux. InMage Scout est inclus dans les abonnements au service Azure Site Recovery.
 
 
 ## Composants requis
 
-- **Compte Azure** : vous devez avoir un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](pricing/free-trial/).
+- **Compte Azure** : vous devez avoir un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery.
 
 
 ## Étape 1 : Créer un coffre
@@ -36,7 +36,7 @@ InMage Scout dans Azure Site Recovery assure une réplication en temps réel ent
 2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
 3. Cliquez sur **Créer un nouveau** > **Création rapide**.
 4. Dans **Nom**, entrez un nom convivial permettant d'identifier le coffre.
-5. Dans **Région**, sélectionnez la région géographique du coffre. Pour vérifier les régions prises en charge, consultez la section Disponibilité géographique dans la page [Détails sur la tarification d'Azure Site Recovery](pricing/details/site-recovery/).
+5. Dans **Région**, sélectionnez la région géographique du coffre. Pour vérifier les régions prises en charge, consultez la section Disponibilité géographique dans la page [Détails sur la tarification d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 Vérifiez la barre d'état pour vous assurer que le coffre a été créé correctement. Le coffre apparaît comme **Actif** sur la page principale Recovery Services.
 
@@ -130,4 +130,4 @@ Cette dernière mise à jour comprend des correctifs de bogues et de nouvelles f
 
 Publiez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

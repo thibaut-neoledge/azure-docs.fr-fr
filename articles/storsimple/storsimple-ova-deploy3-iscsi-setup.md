@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 
@@ -26,7 +26,7 @@ Ce didacticiel de déploiement s'applique à Microsoft Azure StorSimple Virtual 
 
 Les procédures décrites ici prennent de 30 minutes à 1 heure environ. Les informations publiées dans cet article s'appliquent uniquement aux tableaux virtuels StorSimple.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- StorSimple Virtual Array est en version préliminaire et est destiné à des fins d'évaluation et de planification du déploiement. L'installation de cette version préliminaire dans un environnement de production n'est pas prise en charge. 
 >- Si vous rencontrez des problèmes avec StorSimple Virtual Array, publiez-les sur le [forum MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -99,6 +99,11 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
     5. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
+        
+           > [AZURE.NOTE]
+	   > 
+	   > Si vous joignez votre serveur iSCSI à un domaine, assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Microsoft Azure Active Directory et qu’aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
+	   
 
     6. Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres de l’appareil.
  
@@ -106,13 +111,13 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     ![configuration du proxy web](./media/storsimple-ova-deploy3-iscsi-setup/image9.png)
 
-    Sur la page **Proxy Web** :
+    Dans la page **Proxy web** :
 
-    1. Indiquez l’**URL du proxy web** dans ce format : *adresse ou nom de domaine complet http://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
+    1. Indiquez l’**URL du proxy web** dans ce format : *adresse http://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
 
     2. Définissez **Authentification** sur **De base**, **NTLM** ou **Aucune**.
 
-    3. Si vous utilisez une authentification, vous devrez également fournir un **nom d'utilisateur** et un **mot de passe**.
+    3. Si vous utilisez une authentification, vous devez également fournir un **nom d’utilisateur** et un **mot de passe**.
 
     4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres de proxy web configurés.
  
@@ -120,9 +125,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     ![paramètres d’heure](./media/storsimple-ova-deploy3-iscsi-setup/image10.png)
 
-    Sur la page **Paramètres d’heure** :
+    Dans la page **Paramètres de l’heure** :
 
-    1. Dans la liste déroulante, définissez le **fuseau horaire** en fonction de l'emplacement géographique de l’appareil déployé. Le fuseau horaire par défaut de votre appareil est PST. Votre appareil utilise ce fuseau horaire pour toutes les opérations planifiées.
+    1. Dans la liste déroulante, définissez le **fuseau horaire** en fonction de l’emplacement géographique de l’appareil déployé. Le fuseau horaire par défaut de votre appareil est PST. Votre appareil utilise ce fuseau horaire pour toutes les opérations planifiées.
 
     2. Spécifiez un **serveur NTP principal** pour votre appareil ou acceptez la valeur par défaut time.windows.com. Vérifiez que votre réseau autorise le trafic NTP à passer de votre centre de données à Internet.
 
@@ -132,9 +137,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 9. Configurez les paramètres de cloud de votre appareil. Dans cette étape, vous allez finaliser la configuration de l’appareil local puis inscrire l'appareil auprès du service StorSimple Manager.
 
-    1. Saisissez la **clé d’inscription de service** que vous avez obtenue à l’**étape 2 : Obtention de la clé d’inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1. Entrez la **clé d’inscription de service** que vous avez obtenue à l’**étape 2 : obtention de la clé d’inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devrez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d'informations, reportez-vous à la section permettant d’obtenir la [clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
+    2. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d’informations, reportez-vous à la section permettant d’[obtenir la clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
 
     3. Cliquez sur **S'inscrire**. Cette opération redémarra l’appareil. Vous devrez peut-être attendre 2 à 3 minutes avant que l'appareil soit inscrit. Une fois que l’appareil a redémarré, vous êtes redirigé vers la page de connexion.
 
@@ -156,19 +161,19 @@ Pour finaliser la configuration minimale requise, procédez comme suit dans le p
 
 #### Pour finaliser l'installation minimale de l’appareil
 
-1. Sur la page **Appareils**, sélectionnez l’appareil que vous venez de créer. Cet appareil apparaît en tant que **Actif**. Cliquez sur la flèche en regard du nom de l’appareil, puis sur **Démarrage rapide**.
+1. Dans la page **Appareils**, sélectionnez l’appareil que vous venez de créer. Cet appareil apparaît en tant que **Actif**. Cliquez sur la flèche en regard du nom de l’appareil, puis sur **Démarrage rapide**.
 
     ![Page Appareils](./media/storsimple-ova-deploy3-iscsi-setup/image13.png)
 
-2. Cliquez sur **Terminer la configuration de l’appareil** pour démarrer l'Assistant Configurer l’appareil.
+2. Cliquez sur **terminer l’installation de l’appareil** pour démarrer l’Assistant Configurer l’appareil.
 
     ![Assistant Configurer l’appareil](./media/storsimple-ova-deploy3-iscsi-setup/image14.png)
 
-3. Dans l'Assistant Configurer l’appareil, sur la page **Paramètres de base**, procédez comme suit :
+3. Dans l’Assistant Configurer l’appareil, dans la page **Paramètres de base**, procédez comme suit :
 
-   1. Spécifiez un compte de stockage à utiliser avec votre appareil. Dans cet abonnement, vous pouvez sélectionner un compte de stockage existant dans la liste déroulante, ou spécifier **Ajouter** pour choisir un compte d'un autre abonnement.
+   1. Spécifiez un compte de stockage à utiliser avec votre appareil. Dans cet abonnement, vous pouvez sélectionner un compte de stockage existant dans la liste déroulante, ou spécifier **Ajouter** pour choisir un compte d’un autre abonnement.
 
-   2. Définissez les paramètres de chiffrement pour toutes les données au repos qui seront envoyées vers le cloud. (StorSimple utilise le chiffrement AES-256). Pour chiffrer vos données, cochez la case pour **Activer la clé de chiffrement de stockage cloud**. Entrez une clé de chiffrement de stockage cloud contenant 32 caractères. Entrez à nouveau la clé pour la confirmer.
+   2. Définissez les paramètres de chiffrement pour toutes les données au repos qui seront envoyées vers le cloud. (StorSimple utilise le chiffrement AES-256). Pour chiffrer vos données, cochez la case **Activer le chiffrement de stockage cloud**. Entrez une clé de chiffrement de stockage cloud contenant 32 caractères. Entrez à nouveau la clé pour la confirmer.
 
    3. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-deploy3-iscsi-setup/image15.png).
 
@@ -192,7 +197,7 @@ Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
     2. Fournissez une description du volume. La description permet d'identifier les propriétaires du volume.
 
-    3. Sélectionnez un type d'utilisation du volume. Le type d'utilisation peut être **Volume hiérarchisé** ou **Volume épinglé localement**. (**Volume hiérarchisé** est la valeur par défaut.) Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un **volume** **épinglé localement**. Pour toutes les autres données, sélectionnez un **volume** **à plusieurs niveaux**.
+    3. Sélectionnez un type d'utilisation du volume. Le type d’utilisation peut être **Volume hiérarchisé** ou **Volume attaché localement**. (**Volume hiérarchisé** est la valeur par défaut.) Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez **Volume** **attaché localement**. Pour toutes les autres données, sélectionnez **Volume** **hiérarchisé**.
 
         La configuration d’un volume épinglé localement est complète, et garantit que les données principales sur le volume sont conservées sur l’appareil et ne débordent pas sur le cloud. Si vous créez un volume épinglé localement, l’appareil recherche de l’espace disponible sur les couches locales pour configurer un volume de la taille demandée. La création d’un volume épinglé localement peut impliquer le débordement des données existantes de l’appareil vers le cloud, et le temps nécessaire pour créer le volume peut être long. La durée totale dépend de la taille du volume configuré, de la bande passante réseau disponible et des données sur votre appareil.
 
@@ -208,7 +213,7 @@ Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
     1. Saisissez un **Nom** pour votre ACR.
 
-    2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à l’Annexe A : [Obtenir le nom qualifié d’un hôte Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
+    2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI de votre hôte Windows. Si vous ne possédez pas le nom IQN, accédez à l’[Annexe A : Obtention du nom qualifié d’un hôte Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
 
     3. Nous vous recommandons d’activer la sauvegarde par défaut en cochant la case **Activer une sauvegarde par défaut pour ce volume**. La sauvegarde par défaut crée une stratégie qui s’exécute à 22h30 chaque jour (heure de l’appareil) et crée un instantané de cloud de ce volume.
 
@@ -280,13 +285,13 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 
     ![assistant nouveau volume 4](./media/storsimple-ova-deploy3-iscsi-setup/image32.png)
 
-    Les volumes s'affichent en tant que **En ligne** sur la page **Gestion des disques**.
+    Les volumes s’affichent en tant que **En ligne** dans la page **Gestion des disques**.
 
     ![volumes en ligne](./media/storsimple-ova-deploy3-iscsi-setup/image33.png)
 
 ## Étapes suivantes
 
-Découvrez comment utiliser l'interface utilisateur web locale pour [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Découvrez comment utiliser l’interface utilisateur web locale pour [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Annexe A : Obtention du nom qualifié d’un hôte Windows Server
 
@@ -305,4 +310,4 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

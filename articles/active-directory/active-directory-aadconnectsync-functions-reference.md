@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi"/>
 
 
@@ -536,7 +536,7 @@ Utilisé pour déterminer si CGuid() sera réussi.
 
 **Remarques :**<br> Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.<br> L’inverse de cette fonction est nommé IsPresent.
 
-**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans SC ou MV ou s’il s’agit d’une chaîne vide.
+**Exemple :** <br> `IsNullOrEmpty([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans SC ou MV ou s’il s’agit d’une chaîne vide.
 
 
 
@@ -1058,4 +1058,4 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

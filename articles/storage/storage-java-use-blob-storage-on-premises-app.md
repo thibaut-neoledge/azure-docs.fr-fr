@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="micurd"/>
+	ms.author="rmcmurray"/>
 
 # Application locale avec stockage d’objets blob
 
@@ -355,7 +355,7 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 
 - [Kit de développement logiciel (SDK) Azure Storage pour Java][]
 - [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
-- [API REST d’Azure Storage][]
+- [API REST d’Azure Storage[]
 - [Blog de l'équipe Azure Storage][]
 
   [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java]: http://go.microsoft.com/fwlink/?LinkID=525671
@@ -366,4 +366,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
   [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -22,7 +22,7 @@
 Le portail Azure fournit un didacticiel interactif pour vous familiariser avec Data Lake Analytics. Cet article vous montre comment parcourir le didacticiel pour l'analyse des journaux de sites web.
 
 
->[AZURE.NOTE]Si vous souhaitez suivre ce même didacticiel à l'aide de Visual Studio, consultez [Analyser les journaux des sites web à l'aide de Data Lake Analytics](data-lake-analytics-analyze-weblogs.md). D'autres didacticiels interactifs à ajouter au portail.
+>[AZURE.NOTE] Si vous souhaitez suivre ce même didacticiel à l'aide de Visual Studio, consultez [Analyser les journaux des sites web à l'aide de Data Lake Analytics](data-lake-analytics-analyze-weblogs.md). D'autres didacticiels interactifs à ajouter au portail.
 
 
 Pour les autres didacticiels, consultez :
@@ -42,7 +42,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir exécuter des travaux quelconques.
 
-Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store](data-lake-store-overview.md) dépendant. Ce compte est désigné comme le compte Data Lake Store par défaut. Vous pouvez créer le compte Data Lake Store au préalable ou lorsque vous créez votre compte Data Lake Analytics. Dans ce didacticiel, vous allez créer le compte Data Lake Store avec le compte Analytics.
+Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) dépendant. Ce compte est désigné comme le compte Data Lake Store par défaut. Vous pouvez créer le compte Data Lake Store au préalable ou lorsque vous créez votre compte Data Lake Analytics. Dans ce didacticiel, vous allez créer le compte Data Lake Store avec le compte Analytics.
 
 **Pour créer un compte Analytique Data Lake**
 
@@ -88,4 +88,4 @@ Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store](dat
 - [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analyser les journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Utilisation du tableau de bord du service StorSimple Manager
@@ -22,8 +22,6 @@
 La page de tableau de bord du service StorSimple Manager fournit un résumé de tous les périphériques qui sont connectés au service StorSimple Manager, mettant en surbrillance celles qui requièrent l’attention particulière d'un administrateur système. Ce didacticiel présente la page du tableau de bord, explique le contenu du tableau de bord et ses fonctions, et décrit les tâches que vous pouvez effectuer à partir de cette page.
 
 ![Tableau de bord du service](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
-
-**Figure 1 : Tableau de bord du service StorSimple Manager**
 
 Le tableau de bord du service StorSimple Manager affiche les informations suivantes :
 
@@ -78,4 +76,4 @@ Vous pouvez afficher les journaux des opérations en cliquant sur le lien des jo
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

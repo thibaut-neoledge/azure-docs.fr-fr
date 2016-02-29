@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Considérations relatives à la conception d'identités hybrides Azure Active Directory : déterminer les exigences en matière de protection des données | Microsoft Azure"
-	description="Lorsque vous planifiez votre solution d'identité hybride, vous devez identifier les exigences de protection des données pour votre entreprise et les options disponibles pour remplir au mieux ces exigences."
+	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de protection des données | Microsoft Azure"
+	description="Lorsque vous planifiez votre solution d’identité hybride, vous devez identifier les exigences de protection des données pour votre entreprise et les options disponibles pour remplir au mieux ces exigences."
 	documentationCenter=""
 	services="active-directory"
 	authors="yuridio"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 #Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide
@@ -26,7 +26,8 @@ La première étape de protection des données consiste à identifier qui peut a
 
 Lorsque vous planifiez votre solution d'identité hybride, vous devez comprendre les exigences de protection des données pour votre entreprise et les options disponibles pour remplir au mieux ces exigences.
  
->[AZURE.NOTE]Une fois que vous avez terminé la planification de la sécurité des données, consultez [Déterminer les exigences d'authentification multifacteur](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) pour vous assurer que vos sélections relatives aux exigences d'authentification multifacteur n'ont pas été affectées par les décisions que vous avez prises dans cette section.
+>[AZURE.NOTE]
+Une fois que vous avez terminé la planification de la sécurité des données, consultez [Déterminer les exigences d'authentification multifacteur](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) pour vous assurer que vos sélections relatives aux exigences d'authentification multifacteur n'ont pas été affectées par les décisions que vous avez prises dans cette section.
 
 ## Déterminer les exigences de protection des données
 À l'ère de la mobilité, la plupart des entreprises ont un objectif commun : permettre à leurs utilisateurs d'être productifs sur leurs appareils mobiles, en local ou à distance depuis n'importe où, pour accroître la productivité. Même si cela pourrait être un objectif commun, les entreprises ayant cette exigence seront également préoccupées par la quantité de menaces à réduire pour préserver la sécurité des données de l'entreprise et la confidentialité de l'utilisateur. Chaque société peut avoir des exigences différentes à cet égard ; des règles de conformité différentes en fonction du secteur d'activité de l'entreprise entraîneront des décisions de conception différentes.
@@ -53,14 +54,14 @@ Indépendamment de l'endroit où les données sont au repos (appareil, cloud ou 
 
 - Votre entreprise a-t-elle besoin de protéger des données au repos ?
  - Si oui, la solution d'identité hybride peut-elle être intégrée à votre infrastructure locale actuelle ?
- - Si oui, la solution d'identité hybride peut-elle être intégrée à vos charges de travail situées dans le cloud ?
+ - Si oui, la solution d’identité hybride peut-elle être intégrée à vos charges de travail situées dans le cloud ?
 - La gestion d'identité de cloud est-elle en mesure de protéger les informations d'identification de l'utilisateur et d'autres données stockées dans le cloud ?
 
 ## Protection des données en transit
 Les données en transit entre l'appareil et le centre de données ou entre l'appareil et le cloud doivent être protégées. Toutefois, être en transit n'implique pas nécessairement un processus de communication avec un composant en dehors de votre service cloud ; le déplacement se fait en interne, comme entre deux réseaux virtuels. Pour cette zone, assurez-vous que les questions suivantes sont posées :
 
-- Votre entreprise a-t-elle besoin de protéger des données en transit ?
- - Si oui, la solution d'identité hybride peut-elle être intégrée à vos contrôles de sécurité, comme par exemple SSL/TLS ?
+- Votre entreprise a-t-elle besoin de protéger des données en transit ?
+ - Si oui, la solution d’identité hybride peut-elle être intégrée à vos contrôles de sécurité, comme SSL/TLS ?
 - La gestion des identités de cloud maintient-elle l'authentification du trafic vers et dans le magasin d'annuaires (dans et entre les centres de données) ?
 
 
@@ -70,13 +71,14 @@ Les règlements, les lois et les exigences de conformité aux réglementations v
 - La solution d'identité hybride est-elle conforme aux exigences réglementaires pour votre entreprise ?
 - La solution d'identité hybride intègre-t-elle des fonctionnalités qui permettront à votre entreprise d'être conforme aux exigences réglementaires ? 
  
->[AZURE.NOTE]Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à ces questions, vous sélectionnerez l’option la mieux adaptée à vos besoins métier.
+>[AZURE.NOTE]
+Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
 
 ## Étapes suivantes
  [Déterminer les exigences de gestion de contenu](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -23,6 +23,7 @@ Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle a
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 
+
 ## Chargement et liaison d’un nouveau certificat SSL ##
 
 Scénario : l’utilisateur souhaite lier un certificat SSL à l’une de ses applications web.
@@ -30,6 +31,15 @@ Scénario : l’utilisateur souhaite lier un certificat SSL à l’une de ses 
 Si nous connaissons le nom du groupe de ressources qui contient l’application web, le nom de l’application web, le chemin d’accès du fichier .pfx du certificat sur l’ordinateur de l’utilisateur, le mot de passe pour le certificat et le nom d’hôte personnalisé, nous pouvons utiliser la commande PowerShell suivante pour créer cette liaison SSL :
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -CertificateFilePath PathToPfxFile -CertificatePassword PlainTextPwd -Name www.contoso.com
+
+Notez qu’avant d’ajouter une liaison SSL à une application web, vous devez déjà avoir configuré un nom d’hôte (domaine personnalisé). Si le nom d’hôte n’est pas configuré, vous recevrez un message d’erreur comme quoi 'hostname' n’existe pas lors de l’exécution de New-AzureRmWebAppSSLBinding. Vous pouvez ajouter un nom d’hôte directement depuis le portail ou à l’aide d’Azure PowerShell. L’extrait de code PowerShell suivant peut vous permettre de configurer le nom d’hôte avant d’exécuter New-AzureRmWebAppSSLBinding.
+  
+    $webApp = Get-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup  
+    $hostNames = $webApp.HostNames  
+    $HostNames.Add("www.contoso.com")  
+    Set-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup -HostNames $HostNames   
+  
+Il est important de comprendre que l’applet de commande Set-AzureRmWebApp remplace les noms d’hôte de l’application web. Par conséquent, l’extrait de code PowerShell ci-dessus vient s’ajouter à la liste existante des noms d’hôte de l’application web.
 
 ## Chargement et liaison d’un certificat SSL existant ##
 
@@ -61,4 +71,4 @@ Notez que si la liaison SSL supprimée était la dernière liaison utilisant ce
 - [Présentation de l'environnement App Service](app-service-app-service-environment-intro.md)
 - [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

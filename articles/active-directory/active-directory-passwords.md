@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 	
 
 # Réinitialisation du mot de passe Azure AD pour les utilisateurs et les administrateurs
 
-  >[AZURE.IMPORTANT]Êtes-vous ici parce que vous souhaitez réinitialiser votre mot de passe Azure ou O365 ? Dans ce cas, veuillez [Ignorer cette section](#users-how-to-manage-your-own-password).
+  >[AZURE.IMPORTANT] Êtes-vous ici parce que vous souhaitez réinitialiser votre mot de passe Azure ou O365 ? Dans ce cas, veuillez [Ignorer cette section](#users-how-to-manage-your-own-password).
   
 Le libre-service a toujours été l’objectif principal des services informatiques du monde entier dans le but de réduire les coûts et de faciliter le travail. En effet, le marché est inondé de produits qui vous permettent de gérer vos groupes locaux, mots de passe ou profils utilisateur dans le cloud ou localement. Azure AD se différencie de ces offres en fournissant des fonctionnalités libre-service performantes et faciles à utiliser.
 
@@ -99,7 +99,7 @@ Pour plus d'informations sur la tarification de base ou sur Azure AD Premium, vi
 | --------- | --------- |
 | Comment modifier la liste des méthodes d'authentification prises en charge ? | [Paramètre : méthodes d'authentification accessibles aux utilisateurs](active-directory-passwords-customize.md#authentication-methods-available-to-users) |
 | Comment modifier le nombre de méthodes d’authentification requis ? | [Paramètre : nombre de méthodes d’authentification requis](active-directory-passwords-customize.md#number-of-authentication-methods-required) |
-| Comment configurer les questions de sécurité personnalisées ? | [Paramètre : questions de sécurité personnalisées](active-directory-passwords-customize.md#custom-security-questions) |
+| Comment configurer les questions de sécurité personnalisées ? | [Paramétrage : questions de sécurité personnalisées](active-directory-passwords-customize.md#custom-security-questions) |
 | Comment définir des questions de sécurité localisées prédéfinies ? | [Paramètre : questions de sécurité basées sur des informations](active-directory-passwords-customize.md#knowledge-based-security-questions) |
 | Comment modifier le nombre de questions de sécurité requis ? | [Paramètre : nombre de questions de sécurité pour l’enregistrement ou la réinitialisation](active-directory-passwords-customize.md#number-of-questions-required-to-register) |
 | Comment personnaliser la façon dont un utilisateur contacte un administrateur ? | [Paramètre : personnaliser le lien « Contactez votre administrateur »](active-directory-passwords-customize.md#customize-the-contact-your-administrator-link) |
@@ -252,4 +252,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 * [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
 * [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

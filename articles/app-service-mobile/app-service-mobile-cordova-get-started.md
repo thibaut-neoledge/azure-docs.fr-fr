@@ -4,13 +4,15 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="glenga"
-    editor=""/>
+    manager="ggailey777"
+    editor=""
+    tags=""
+    keywords="cordova, javascript, mobile, client" />
 
 <tags
     ms.service="app-service-mobile"
     ms.workload="na"
-    ms.tgt_pltfrm="mobile-javascript"
+    ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="article"
     ms.date="02/09/2016"
@@ -48,6 +50,22 @@ Vous pouvez également contourner Visual Studio et utiliser directement la ligne
 
 [AZURE.INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
+## Étapes suivantes
+
+Maintenant que vous avez terminé ce didacticiel de démarrage rapide, passez à l’un des didacticiels suivants :
+
+* [Ajout de l’authentification] à votre application Apache Cordova.
+* [Ajout de notifications Push] à votre application Apache Cordova.
+
+En savoir plus sur les concepts clés avec Azure App Service.
+
+* [Authentification]
+* [Notifications Push]
+
+Découvrez comment utiliser les Kits de développement logiciel.
+
+* [Kit de développement logiciel du serveur ASP.NET]
+* [Kit de développement logiciel du serveur Node.js]
 
 <!-- Images. -->
 
@@ -55,5 +73,11 @@ Vous pouvez également contourner Visual Studio et utiliser directement la ligne
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/fr-FR/features/cordova-vs.aspx
+[Ajout de l’authentification]: app-service-mobile-cordova-get-started-users.md
+[Ajout de notifications Push]: app-service-mobile-cordova-get-started-push.md
+[Authentification]: app-service-mobile-auth.md
+[Notifications Push]: ../notification-hubs/notification-hubs-overview.md
+[Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

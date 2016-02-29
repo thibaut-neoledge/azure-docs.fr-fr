@@ -112,14 +112,14 @@ En affectant des groupes de sécurité ou des utilisateurs au système de fichie
 	![Affecter des autorisations à un groupe](./media/data-lake-store-secure-data/adl.acl.4.png "Affecter des autorisations à un groupe")
 
 
-	>[AZURE.NOTE]L'autorisation d'exécution est requise pour l'énumération des répertoires, et souvent lorsque vous fournissez un accès en lecture seule aux données à un utilisateur ou à un groupe.
+	>[AZURE.NOTE] L'autorisation d'exécution est requise pour l'énumération des répertoires, et souvent lorsque vous fournissez un accès en lecture seule aux données à un utilisateur ou à un groupe.
 
 
 6. Dans le panneau **Ajouter un accès personnalisé**, cliquez sur **OK**. Le groupe récemment créé, avec les autorisations associées, sera désormais répertorié dans le panneau **Accès**.
 
 	![Affecter des autorisations à un groupe](./media/data-lake-store-secure-data/adl.acl.5.png "Affecter des autorisations à un groupe")
 
-	> [AZURE.IMPORTANT]Dans la version actuelle, vous ne pouvez avoir que 12 entrées sous **Accès personnalisé**. Si vous souhaitez ajouter plus de 12 utilisateurs, vous devez créer des groupes de sécurité, ajouter les utilisateurs aux groupes de sécurité et fournir à ces groupes de sécurité un accès au compte Data Lake Store.
+	> [AZURE.IMPORTANT] Dans la version actuelle, vous ne pouvez avoir que 9 entrées sous **Accès personnalisé**. Si vous souhaitez ajouter plus de 9 utilisateurs, vous devez créer des groupes de sécurité, ajouter les utilisateurs aux groupes de sécurité et fournir à ces groupes de sécurité un accès au compte Data Lake Store.
 
 7. Si nécessaire, vous pouvez également modifier les autorisations d'accès après avoir ajouté le groupe. Cochez ou décochez la case de chaque type d'autorisation (lecture, écriture, exécution) selon que vous souhaitez retirer ou affecter cette autorisation au groupe de sécurité. Cliquez sur **Enregistrer** pour enregistrer les modifications, ou sur **Ignorer** pour annuler les modifications.
 
@@ -165,4 +165,4 @@ Lorsque vous supprimez des ACL de groupes de sécurité du système de fichiers 
 - [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 - [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

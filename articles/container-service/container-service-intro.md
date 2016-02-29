@@ -1,21 +1,21 @@
 <properties
    pageTitle="Présentation d’Azure Container Service | Microsoft Azure"
    description="Azure Container Service (ACS) offre un moyen de simplifier la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur."
-   services="virtual-machines"
+   services="container-service"
    documentationCenter=""
    authors="rgardler"
-   manager="nepeters"
+   manager="timlt"
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, conteneurs, micro-services, Mesos, Azure"/>
    
 <tags
-   ms.service="virtual-machines"
+   ms.service="container-service"
    ms.devlang="na"
-   ms.topic="home-page"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/16/2016"
    ms.author="rogardle"/>
 
 # Présentation d’Azure Container Service
@@ -28,8 +28,6 @@ ACS utilise Docker pour assurer la portabilité complète de vos conteneurs d’
 
 Azure Container Service vous permet de tirer parti des fonctionnalités d’entreprise d’Azure tout en conservant la portabilité des applications, notamment au niveau des couches d’orchestration.
 
-Pendant la période où le service est disponible en version préliminaire, nous demandons aux personnes intéressées pour le tester de [se désigner](http://aka.ms/acspreview). Une fois l’accès à la version préliminaire fourni, un e-mail est envoyé avec d’autres détails, notamment des modèles de déploiement et des instructions de prise en main. Pour utiliser le service, vous avez besoin d’un abonnement Azure, si vous n’en avez pas déjà un. Ensuite, vous pouvez éventuellement vous inscrire pour obtenir la [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
-
 Utilisation d’Azure Container Service
 -----------------------------
 
@@ -38,11 +36,7 @@ L’objectif d’Azure Container Service est de fournir un environnement d’hé
 Création d’un cluster Docker à l’aide d’Azure Container Service
 -------------------------------------------------------
 
-Une fois que vous avez [demandé](http://aka.ms/acspreview) et obtenu l’accès à la version préliminaire, vous pouvez utiliser divers modèles Azure Resource Manager pour déployer votre premier cluster via le portail Azure. En utilisant ces modèles, vous pouvez rapidement créer un service et commencer immédiatement à y déployer des applications. Pour démarrer, il vous suffit simplement de choisir la taille de votre cluster et d’indiquer si vous voulez utiliser Docker Swarm ou Apache Mesos pour gérer vos applications.
-
-Vous pouvez également [utiliser la ligne de commande](/documentation/articles/resource-group-template-deploy/) pour créer des services Azure Container Service à l’aide de ces mêmes modèles. Une fois que vous connaissez la structure de ces modèles, vous pouvez écrire les vôtres et automatiser complètement la création d’un cluster Azure Container Service.
-
-Une documentation complète et une prise en charge sont fournies aux participants et publiées ici une fois le service ouvert au public.
+Pour commencer à utiliser Azure Container Service, un cluster ACS est déployé à l’aide d’un modèle Azure Resource Manager. Ce déploiement est configuré avec Apache Mesos ou Docker Swarm, et peut avoir différentes options de disponibilité et de taille. Les modèles Azure Resource Manager peuvent être déployés via le portail Azure, à l’aide de l’interface de ligne de commande Azure, ou avec PowerShell. Les modèles peuvent également être modifiés pour inclure une configuration Azure supplémentaire ou avancée. Pour plus d’informations sur le déploiement et les clusters ACS, consultez [Deploy an Azure container Service Cluster](./container-service-deployment.md) (Déployer un cluster Azure Container Service).
 
 Déploiement d’une application
 ------------------------
@@ -77,11 +71,9 @@ Mesos prend en charge un grand nombre d’[infrastructures](http://mesos.apache.
 
 Marathon est un système d’initialisation et de contrôle à l’échelle du cluster destiné à des services en groupes ou, dans le cas d’ACS, en conteneurs Docker. C’est le partenaire idéal de Chronos, planificateur de tâches à tolérance de panne pour Mesos qui gère les dépendances et les planifications chronologiques.
 
-Marathon et Chronos fournissent une interface utilisateur web à partir de laquelle vous pouvez déployer vos applications. L’URL qui permet d’y accéder ressemble à `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, où DNS\_PREFIX et REGION sont deux valeurs définies au moment du déploiement. Bien sûr, vous pouvez également fournir votre propre nom DNS.
+Marathon et Chronos fournissent une interface utilisateur web à partir de laquelle vous pouvez déployer vos applications. L’URL qui permet d’y accéder ressemble à `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, où DNS\_PREFIX et REGION sont deux valeurs définies au moment du déploiement. Bien sûr, vous pouvez également fournir votre propre nom DNS. Pour plus d’informations sur l’exécution d’un conteneur à l’aide de l’interface utilisateur web Marathon, consultez [Container management through the web UI](./container-service-mesos-marathon-ui.md) (Gestion des conteneurs via l’interface utilisateur web).
 
-Vous pouvez également utiliser des API REST pour communiquer avec Marathon et Chronos. Plusieurs bibliothèques clientes sont disponibles pour chaque outil, couvrant différents langages et, bien sûr, vous pouvez utiliser le protocole HTTP dans n’importe quel langage. De plus, de nombreux outils DevOps bien connus prennent en charge ces planificateurs. La flexibilité fournie est ainsi maximale pour votre équipe en charge des opérations quand elle utilise un cluster ACS.
-
-Une documentation complète et une prise en charge sont fournies aux participants et publiées ici une fois le service ouvert au public.
+Vous pouvez également utiliser des API REST pour communiquer avec Marathon et Chronos. Plusieurs bibliothèques clientes sont disponibles pour chaque outil, couvrant différents langages et, bien sûr, vous pouvez utiliser le protocole HTTP dans n’importe quel langage. De plus, de nombreux outils DevOps bien connus prennent en charge ces planificateurs. La flexibilité fournie est ainsi maximale pour votre équipe en charge des opérations quand elle utilise un cluster ACS. Pour plus d’informations sur l’exécution d’un conteneur à l’aide de l’API REST Marathon, consultez [Container management with the REST API](./container-service-mesos-marathon-rest.md) (Gestion des conteneurs avec l’API REST).
 
 ### Utilisation de Docker Swarm
 
@@ -99,13 +91,6 @@ Les outils pris en charge pour la gestion des conteneurs sur un cluster Swarm in
 
 -   Jenkins
 
-Une documentation complète et une prise en charge sont fournies aux participants et publiées ici une fois le service ouvert au public.
-
-Obtention d’accès
---------------
-
-Pendant la période où le service est disponible en version préliminaire, nous demandons aux personnes intéressées pour le tester de [se désigner](http://aka.ms/acspreview). Vous avez tout d’abord besoin d’un abonnement Azure, si vous n’en avez pas déjà. Ensuite, vous pouvez éventuellement vous inscrire pour obtenir la [version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
-
 Vidéos
 ------
 Annonce AzureCon :
@@ -116,4 +101,4 @@ Prise en main de d’ACS :
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

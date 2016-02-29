@@ -21,7 +21,7 @@
 
 ## Vue d’ensemble
 
-Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples ont été écrits en Objective-C et utilisent la [bibliothèque iOS Azure Storage](https://github.com/Azure/azure-storage-ios). Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d’une source)** et la **suppression** d’objets blob. Pour plus d’informations sur les objets blob, voir la section [Étapes suivantes](#next-steps). Vous pouvez également télécharger l’[exemple d’application](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) pour voir rapidement l’utilisation d’Azure Storage dans une application iOS.
+Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples ont été écrits en Objective-C et utilisent la [bibliothèque du client de stockage Azure pour iOS](https://github.com/Azure/azure-storage-ios). Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d’informations sur les objets blob, voir la section [Étapes suivantes](#next-steps). Vous pouvez également télécharger l’[exemple d’application](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) pour voir rapidement l’utilisation d’Azure Storage dans une application iOS.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -88,7 +88,7 @@ Pour une application iOS, la méthode recommandée pour authentifier une demand
 
 L’exemple suivant montre comment utiliser l’interface de ligne de commande Azure pour générer un jeton SAP qui accorde des autorisations de lecture et d’écriture sur le conteneur *sascontainer* jusqu’à minuit (12:00 AM UTC) le 5 septembre 2015.
 
-1. Tout d’abord, suivez ce [guide](../xplat-cli/#how-to-install-the-azure-cli) pour savoir comment installer l’interface de ligne de commande Azure et vous connecter à votre abonnement Azure.
+1. Tout d’abord, consultez [Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md) pour savoir comment installer l’interface de ligne de commande Azure et vous connecter à votre abonnement Azure.
 
 2. Ensuite, tapez la commande suivante dans l’interface de ligne de commande Azure pour obtenir la chaîne de connexion pour votre compte :
 
@@ -111,7 +111,7 @@ L’exemple suivant montre comment utiliser l’interface de ligne de commande 
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Comme vous pouvez le voir, lorsque vous utilisez un jeton de SAP, vous n’exposez ni votre nom de compte ni votre clé de compte dans votre application iOS. Vous pouvez en savoir plus sur les SAP en consultant le [didacticiel de signature d’accès partagé](../storage-dotnet-shared-access-signature-part-1).
+Comme vous pouvez le voir, lorsque vous utilisez un jeton de SAP, vous n’exposez ni votre nom de compte ni votre clé de compte dans votre application iOS. Vous pouvez en savoir plus sur les SAP en consultant [Signatures d’accès partagé : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1).
 
 ##Opérations asynchrones
 > [AZURE.NOTE] Toutes les méthodes qui effectuent une demande auprès du service sont des opérations asynchrones. Dans les exemples de code, vous découvrirez que ces méthodes sont dotées d’un gestionnaire d’achèvement. Le code dans le gestionnaire d’achèvement s’exécutera **après** que la demande sera terminée. Le code suivant le gestionnaire d’achèvement s’exécute **pendant** l’exécution de la demande.
@@ -346,17 +346,13 @@ L’exemple suivant indique comment supprimer un conteneur.
 
 ## Étapes suivantes
 
-Maintenant que vous connaissez les bases du stockage d’objets blob, voir les liens suivants pour apprendre à exécuter des tâches de stockage plus complexes.
+Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour apprendre à exécuter des tâches de stockage plus complexes.
 
-- [Bibliothèque iOS Azure Storage]
-- [API REST d’Azure Storage]
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
-- [Blog de l'équipe Azure Storage]
+- [Bibliothèque cliente d’Azure Storage pour iOS](https://github.com/azure/azure-storage-ios)
+- [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+- [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage)
 
 Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](https://feedback.azure.com/forums/217298-storage/).
 
-[Bibliothèque iOS Azure Storage]: https://github.com/azure/azure-storage-ios
-[API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

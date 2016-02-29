@@ -50,11 +50,9 @@ Nous allons utiliser les valeurs suivantes pour cette configuration :
 
 ## Avant tout chose
 
-Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé les applets de commande Azure PowerShell nécessaires pour cette configuration (1.0.2 ou ultérieure). Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
+- Assurez-vous de disposer d’un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 	
-**À propos de l’installation des modules d’applet de commande PowerShell**
-
-	[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- Vous aurez besoin d’installer les applets de commande PowerShell Azure Resource Manager (version 1.0.2 ou ultérieure). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 ## Configurer une connexion point à site pour Azure
 
@@ -114,7 +112,7 @@ Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé l
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Chargez un fichier .cer de certificat racine vers Azure. Vous pouvez utiliser un certificat racine de votre environnement de certificat d’entreprise ou un certificat racine auto-signé. Vous pouvez télécharger jusqu’à 20 certificats racine. Pour obtenir des instructions sur la création d'un certificat racine auto-signé à l'aide de *makecert*, consultez [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md). Notez que le fichier .cer ne doit pas contenir la clé privée du certificat racine.
+10. Chargez un fichier .cer de certificat racine vers Azure. Vous pouvez utiliser un certificat racine de votre environnement de certificat d’entreprise ou un certificat racine auto-signé. Vous pouvez télécharger jusqu’à 20 certificats racine. Pour obtenir des instructions sur la création d’un certificat racine auto-signé à l’aide de *makecert*, consultez [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md). Notez que le fichier .cer ne doit pas contenir la clé privée du certificat racine.
 	
 	Ci-après figure un exemple de ce à quoi il ressemble. La difficulté du chargement des données de certificat public tient au fait que vous devez copier et coller la chaîne entière sans espaces. Dans le cas contraire, le chargement ne fonctionne pas. Vous devez utiliser votre propre fichier .cer de certificat pour cette étape. N’essayez pas de copier et coller l’exemple ci-dessous.
 
@@ -127,7 +125,7 @@ Vérifiez que vous disposez d’un abonnement Azure et que vous avez installé l
 
 ## Configuration de client
 
-Chaque client qui se connecte à Azure à l’aide d’une connexion point à site doit remplir deux conditions : le client VPN doit être configuré pour se connecter, et il doit disposer d’un certificat client installé. Des packages de configuration de client VPN sont disponibles pour les clients Windows. Pour plus d'informations, consultez le [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md#point-to-site-connections).
+Chaque client qui se connecte à Azure à l’aide d’une connexion point à site doit remplir deux conditions : le client VPN doit être configuré pour se connecter, et il doit disposer d’un certificat client installé. Des packages de configuration de client VPN sont disponibles pour les clients Windows. Pour plus d’informations, consultez le [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md#point-to-site-connections).
 
 1. Téléchargez le package de configuration du client VPN. Dans cette étape, utilisez l’exemple suivant pour télécharger le package de configuration du client.
 
@@ -231,4 +229,4 @@ Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique
 
 Vous pouvez ajouter une machine virtuelle à votre réseau virtuel. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

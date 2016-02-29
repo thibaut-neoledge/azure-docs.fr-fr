@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Prise en main de la configuration d’un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager
@@ -54,7 +54,7 @@ Les étapes suivantes montrent comment configurer un équilibreur de charge entr
 
 
 ### Étape 1
-Veillez à passer en mode PowerShell pour utiliser les applets de commande ARM. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
+Veillez à passer en mode PowerShell pour utiliser les applets de commande ARM. Pour plus d’informations, consultez [Utilisation de Windows Powershell avec Azure Resource Manager](powershell-azure-resource-manager.md).
 
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 Utilisez la commande Add-AzureVMNetworkInterface pour affecter la carte réseau à un ordinateur virtuel.
 
-Pour la procédure détaillée à suivre afin de créer une machine virtuelle et de définir une affectation à une carte réseau, consultez la documentation [Création et préconfiguration d’un ordinateur virtuel Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), option 4 ou 5.
+Pour la procédure détaillée à suivre afin de créer une machine virtuelle et définir une affectation à une carte réseau, consultez la documentation [Création et configuration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), option 4 ou 5.
 
 ## Mettre à jour un équilibreur de charge existant
 
@@ -272,7 +272,7 @@ Utilisez la commande Remove-AzureLoadBalancer pour supprimer un équilibreur de 
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]Vous pouvez utiliser le commutateur facultatif -Force pour éviter l’invite relative à la suppression.
+>[AZURE.NOTE] Vous pouvez utiliser le commutateur facultatif -Force pour éviter l’invite relative à la suppression.
 
 
 ## Voir aussi
@@ -282,4 +282,4 @@ Utilisez la commande Remove-AzureLoadBalancer pour supprimer un équilibreur de 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->
