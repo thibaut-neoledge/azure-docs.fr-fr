@@ -65,7 +65,7 @@ La solution Update 2 présente les nouvelles fonctionnalités suivantes :
 
 Le tableau suivant récapitule les problèmes qui ont été résolus dans Updates 2.
 
-| N° | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
+| No. | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|--------------------------------|--------------------------------|
 | 1 | Interfaces réseau | Après une mise à niveau vers Update 1, le service StorSimple Manager a signalé que les ports Data2 et Data3 ont échoué sur un contrôleur. Ce problème est à présent résolu. | Oui | Non |
 | 2 | Mises à jour | Après une mise à niveau vers Update 1, des alertes d'alarme sonore se sont produites dans le portail Azure Classic sur plusieurs appareils. Ce problème est à présent résolu. | Oui | Non |
@@ -76,7 +76,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 
 Le tableau suivant récapitule les problèmes connus de cette version.
 
-| N° | Fonctionnalité | Problème | Commentaires/Solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
+| No. | Fonctionnalité | Problème | Commentaires/Solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Disque quorum | Dans de rares cas, si la majorité des disques du boîtier EBOD d’un appareil 8600 sont déconnectés, ce qui signifie qu’il n’y a pas de disque quorum, le pool de stockage est hors connexion. Il reste hors connexion même si les disques sont reconnectés. | Vous devez redémarrer l’appareil. Si le problème persiste, contactez le support technique Microsoft. | Oui | Non |
 | 2 | ID de contrôleur incorrect | Lorsqu’un contrôleur est remplacé, le contrôleur 0 peut apparaître comme contrôleur 1. Pendant le remplacement du contrôleur, lorsque l’image est chargée à partir du nœud homologue, l’ID du contrôleur peut s’afficher initialement comme l’ID du contrôleur homologue. Dans de rares cas, ce comportement peut également se produire après un redémarrage du système. | Aucune action utilisateur n’est requise. Cette situation se résout automatiquement une fois le contrôleur remplacé. | Oui | Non |

@@ -19,7 +19,7 @@
 
 # Utilisation d'Azure Media Packager pour effectuer des tâches d'empaquetage statique
 
->[AZURE.NOTE]La date de fin de vie de Microsoft Azure Media Packager et Microsoft Azure Media Encryptor a été repoussée au 1er mars 2017. Avant cette date, les fonctionnalités de ces processeurs seront ajoutées à Media Encoder Standard (MES). Les clients recevront des instructions sur la façon de migrer leurs flux de travail pour envoyer des travaux à MES. Des fonctionnalités de chiffrement et de conversion de format peuvent éventuellement être disponibles par le biais de l’empaquetage dynamique et du chiffrement dynamique.
+>[AZURE.NOTE] La date de fin de vie de Microsoft Azure Media Packager et Microsoft Azure Media Encryptor a été repoussée au 1er mars 2017. Avant cette date, les fonctionnalités de ces processeurs seront ajoutées à Media Encoder Standard (MES). Les clients recevront des instructions sur la façon de migrer leurs flux de travail pour envoyer des travaux à MES. Des fonctionnalités de chiffrement et de conversion de format peuvent éventuellement être disponibles par le biais de l’empaquetage dynamique et du chiffrement dynamique.
 
 ## Vue d’ensemble
 

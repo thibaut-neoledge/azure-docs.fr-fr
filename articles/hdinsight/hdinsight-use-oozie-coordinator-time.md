@@ -83,7 +83,8 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 <tr><td>Nom de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nom de connexion à la base de données&#160;SQL.</td></tr>
 <tr><td>Mot de passe de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Mot de passe de connexion à la base de données&#160;SQL.</td></tr>
 <tr><td>Nom de la base de données&#160;SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de données SQL Azure vers laquelle Sqoop exporte des données. </td></tr>
-</table>> [AZURE.NOTE] Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL][sqldatabase-create-configure].
+</table>
+> [AZURE.NOTE] Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE] Remplissez les valeurs dans les tables. Cela vous sera utile pour ce didacticiel.
@@ -200,7 +201,8 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 <tr><td>${sqlDatabaseConnectionString}</td><td>Chaîne de connexion à la base de données SQL.</td></tr>
 <tr><td>${sqlDatabaseTableName}</td><td>Table de la base de données SQL&#160;Azure vers laquelle les données sont exportées.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Dossier de sortie pour l'instruction INSERT OVERWRITE de Hive. Il s'agit du même dossier pour Sqoop Export (export-dir).</td></tr>
-</table>Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
+</table>
+Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
 
 2. Enregistrez le fichier sous **C:\\Tutorials\\UseOozie\\workflow.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
 

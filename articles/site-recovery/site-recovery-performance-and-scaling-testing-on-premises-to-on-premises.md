@@ -195,7 +195,13 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 
 |Mesure|Compteur|
 |---|---|
-|UC|\\Processor(\_Total)\\% Processor Time| |Mémoire disponible|\\Memory\\Available MBytes| |E/S par seconde|\\PhysicalDisk(\_Total)\\Disk Transfers/sec| |Nombre d’opérations d’E/S par seconde en lecture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec| |Nombre d’opérations d’E/S par seconde en écriture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S| |Débit de lecture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec| |Débit d’écriture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
+|UC|\\Processor(\_Total)\\% Processor Time|
+|Mémoire disponible|\\Memory\\Available MBytes|
+|E/S par seconde|\\PhysicalDisk(\_Total)\\Disk Transfers/sec|
+|Nombre d’opérations d’E/S par seconde en lecture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec|
+|Nombre d’opérations d’E/S par seconde en écriture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S|
+|Débit de lecture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec|
+|Débit d’écriture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
 
 
 ## Étapes suivantes

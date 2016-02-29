@@ -37,7 +37,11 @@ Extrait de celle-ci, le tableau suivant indique le strict minimum pour pouvoir s
 | URL | Port | Description |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
-| **.verisign.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. | | *.trust.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats pour l’authentification MFA. | | *.windows.net | HTTPS/443 | Permet de se connecter à Azure AD. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilisé pour MFA. | | *.microsoftonline.com | HTTPS/443 | Permet de configurer votre annuaire Azure AD et d’importer/exporter des données. |
+| *.verisign.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats. |
+| *.trust.com | HTTP/80 | Permet de télécharger des listes de révocation de certificats pour l’authentification MFA. |
+| *.windows.net | HTTPS/443 | Permet de se connecter à Azure AD. |
+| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilisé pour MFA. |
+| *.microsoftonline.com | HTTPS/443 | Permet de configurer votre annuaire Azure AD et d’importer/exporter des données. |
 
 ## Erreurs dans l’Assistant
 L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Les configurations de proxy que nous effectuons sont globales pour la machine. En cas de problème, ce dernier apparaît donc très probablement déjà dans la page **Connexion à Azure AD** de l’Assistant.

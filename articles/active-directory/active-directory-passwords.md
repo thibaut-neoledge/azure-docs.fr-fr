@@ -166,8 +166,7 @@ Pour plus d'informations sur la tarification de base ou sur Azure AD Premium, vi
 | --------- | --------- |
 | Je souhaite lire un Forum aux Questions relatif à l’inscription à la réinitialisation du mot de passe | [Forum aux Questions relatif à l’inscription à la réinitialisation du mot de passe](active-directory-passwords-faq.md#password-reset-registration) |
 | Je souhaite lire un Forum aux Questions relatif à la réinitialisation du mot de passe | [ Forum aux Questions relatif à la réinitialisation de mot de passe](active-directory-passwords-faq.md#password-reset) |
-| Je souhaite lire un Forum aux Questions relatif aux rapports de réinitialisation du mot de passe | [Forum aux Questions relatif aux rapports sur la gestion des mots de passe
-](active-directory-passwords-faq.md#password-management-reports) |
+| Je souhaite lire un Forum aux Questions relatif aux rapports de réinitialisation du mot de passe | [Forum aux Questions relatif aux rapports sur la gestion des mots de passe](active-directory-passwords-faq.md#password-management-reports) |
 | Je souhaite lire un Forum aux Questions relatif à l'écriture différée du mot de passe | [Forum aux Questions relatif à l'écriture différée du mot de passe](active-directory-passwords-faq.md#password-writeback) |
 
 

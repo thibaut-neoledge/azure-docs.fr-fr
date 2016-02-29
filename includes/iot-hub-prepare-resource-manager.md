@@ -17,9 +17,9 @@ Les étapes suivantes montrent comment configurer l’authentification par mot d
 3. Créez une application Azure Active Directory à l’aide de la commande suivante, en remplaçant les espaces réservés :
 
     - **{Nom d’affichage} :** nom d’affichage pour votre application, par exemple, **MySampleApp**
-    - **{URL de la page d’accueil} :** URL de la page d’accueil de votre application, par exemple, ****http://mysampleapp/home**. Cette URL n’a pas besoin de pointer vers une application réelle.
-- **{Identificateur d’application} :** identificateur unique, par exemple, ****http://mysampleapp**. Cette URL n’a pas besoin de pointer vers une application réelle.
-- **{Mot de passe} :** mot de passe que vous utiliserez pour vous authentifier avec votre application.
+    - **{URL de la page d’accueil} :** URL de la page d’accueil de votre application, par exemple, **http://mysampleapp/home**. Cette URL n’a pas besoin de pointer vers une application réelle.
+    - **{Identificateur d’application} :** identificateur unique, par exemple, **http://mysampleapp**. Cette URL n’a pas besoin de pointer vers une application réelle.
+    - **{Mot de passe} :** mot de passe que vous utiliserez pour vous authentifier avec votre application.
 
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}

@@ -111,8 +111,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la zone de texte Name, indiquez le nom de votre configuration (par exemple, *SPSSOWAAD\_Test*).
     2.  Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
-    3.  Dans la zone de texte **ID d’entité**, tapez ****https://test.salesforce.com** s'il s'agit de la première instance Salesforce Sandbox que vous ajoutez à votre annuaire. Si vous avez déjà ajouté une instance Salesforce Sandbox, pour l’**ID d'entité**, tapez l’**URL d'authentification**, qui doit être au format : `http://company.my.salesforce.com`
-4.  Cliquez sur **Parcourir** pour charger le certificat téléchargé.
+    3.  Dans la zone de texte **ID d’entité**, tapez **https://test.salesforce.com** s'il s'agit de la première instance Salesforce Sandbox que vous ajoutez à votre annuaire. Si vous avez déjà ajouté une instance Salesforce Sandbox, pour l’**ID d'entité**, tapez l’**URL d'authentification**, qui doit être au format : `http://company.my.salesforce.com`
+    4.  Cliquez sur **Parcourir** pour charger le certificat téléchargé.
     5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentifier element of the Subject statement**.
     7.  Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Identity Provider Login URL**.
