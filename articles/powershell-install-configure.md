@@ -28,29 +28,17 @@ Azure PowerShell est un module fournissant des applets de commande pour gérer A
 
 Voici les deux méthodes d’installation d’Azure PowerShell. Vous pouvez procéder à l’installation à partir de WebPI ou de la galerie PowerShell :
 
-> [AZURE.NOTE]Il se peut que vous deviez redémarrer après l’installation, et ce, afin de voir toutes les commandes dans l’environnement de script intégré Windows PowerShell (ISE).
+> [AZURE.NOTE] Il se peut que vous deviez redémarrer après l’installation, et ce, afin de voir toutes les commandes dans l’environnement de script intégré Windows PowerShell (ISE).
 
 ###Installation d’Azure PowerShell depuis Web PI
 
 L’installation d’Azure PowerShell 1.0 et version ultérieure depuis WebPI est similaire à celle de la version 0.9.x. Téléchargez [Azure Powershell](http://aka.ms/webpi-azps) et lancez l’installation. Si vous disposez d’Azure PowerShell 0.9.x, vous êtes invité à désinstaller cette version. Si vous avez installé des modules Azure PowerShell à partir de PowerShell Gallery, l’installateur exige que vous supprimiez les modules avant l’installation afin de garantir un environnement Azure PowerShell cohérent.
 
-> [AZURE.NOTE]Si vous avez installé les modules PowerShell de la galerie Azure, vous êtes invité à les désinstaller. Vous éviterez toute confusion au sujet des modules que vous avez installés et de l’endroit où ils se trouvent. Les modules PowerShell Gallery s’installent généralement dans le répertoire **%ProgramFiles%\\WindowsPowerShell\\Modules**. En revanche, le programme d’installation WebPI installe les modules Azure dans **%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell **. **PowerShellGet** désinstalle les modules et laisse derrière lui des .dll et des dossiers associés verrouillés si une dépendance de module est chargée en cours la désinstallation. Si vous avez désinstallé vos modules PowerShell Gallery et continuez à recevoir l’erreur lors de l’installation, supprimez les dossiers Azure* de votre **%ProgramFiles%\\WindowsPowerShell\\Modules** dossier.
+> [AZURE.NOTE] Si vous avez installé les modules PowerShell de la galerie Azure, le programme d’installation les supprimera automatiquement. Vous éviterez toute confusion au sujet des modules que vous avez installés et de l’endroit où ils se trouvent. Les modules PowerShell Gallery s’installent généralement dans le répertoire **%ProgramFiles%\\WindowsPowerShell\\Modules**. En revanche, le programme d’installation WebPI installe les modules Azure dans **%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell **. **PowerShellGet** désinstalle les modules et laisse derrière lui des .dll et des dossiers associés verrouillés si une dépendance de module est chargée en cours la désinstallation. Si une erreur se produit lors de l’installation, supprimez les dossiers Azure* de votre dossier **%ProgramFiles%\\WindowsPowerShell\\Modules**.
 
-Si vous avez installé Azure PowerShell via la galerie PowerShell, mais souhaitez utiliser l’installation WebPI, exécutez les commandes suivantes avant de procéder à l’installation depuis Web PI.
+Si vous avez installé Azure PowerShell via la galerie PowerShell, mais que vous souhaitez utiliser l’installation WebPI, cette dernière supprime automatiquement les applets de commande installées à partir de la galerie.
 
-    # Uninstall the AzureRM component modules
-    Uninstall-AzureRM
-
-    # Uninstall AzureRM module
-    Uninstall-Module AzureRM
-
-    # Uninstall the Azure module
-    Uninstall-Module Azure
-
-    # Or, you can remove all Azure modules
-    # Uninstall-Module Azure* -Force
-
-> [AZURE.NOTE]Il existe un problème connu avec PowerShell **$env: PSModulePath**. Il se produit lors de l’installation de WebPI. Si votre ordinateur exige un redémarrage suite aux mises à jour du système ou à d’autres installations, il se peut que **$env: PSModulePath** n’inclue pas le chemin d’accès d’installation d’Azure PowerShell. Il est possible de corriger cela en relançant la machine ou en ajoutant le chemin d’accès d’Azure PowerShell à l’élément **$env: PSModulePath**.
+> [AZURE.NOTE] Il existe un problème connu avec PowerShell **$env: PSModulePath**. Il se produit lors de l’installation depuis WebPI. Si votre ordinateur exige un redémarrage suite aux mises à jour du système ou à d’autres installations, il se peut que **$env: PSModulePath** n’inclue pas le chemin d’accès d’installation d’Azure PowerShell. Ce problème peut être corrigé en redémarrant l’ordinateur.
 
 ###Installation d’Azure PowerShell depuis la galerie
 
@@ -71,7 +59,7 @@ Installez Azure PowerShell 1.0 ou version ultérieure à partir de la galerie e
 
 ####En savoir plus sur ces commandes.
 
-- **Install-Module AzureRM** installe un module d’amorçage des modules AzureRM. Ce module contient des applets de commande permettant de mettre à jour, de désinstaller et d’importer les modules AzureRM en toute sécurité, de façon cohérente. Le module AzureRM contient une liste de modules et la plage de versions (min et max) requise pour garantir qu’aucune modification ne sera présentée pour la version majeure d’AzureRM. Pour plus d’informations sur le contrôle de version sémantique, consultez [semver.org](http://semver.org). Cela signifie que vous pouvez créer vos applets de commande en utilisant une version spécifique d’AzureRM et en sachant que tous les modules installés via le programme d’amorçage ne génèrera de modification importante.
+- **Install-Module AzureRM** installe un module d’amorçage des modules AzureRM. Ce module contient des applets de commande permettant de mettre à jour, de désinstaller et d’importer les modules AzureRM en toute sécurité, de façon cohérente. Le module AzureRM contient une liste de modules et la plage de versions (min et max) requise pour garantir qu’aucune modification ne sera présentée pour la version majeure d’AzureRM. Pour plus d’informations sur le contrôle de version sémantique, voir [semver.org](http://semver.org). Cela signifie que vous pouvez créer vos applets de commande en utilisant une version spécifique d’AzureRM et en sachant que tous les modules installés via le programme d’amorçage ne génèrera de modification importante.
 - **Install-AzureRM** installe tous les modules déclarés dans le module d’amorçage.
 - **Install-Module Azure** installe le module Azure. Ce module est le module de gestion des services d’Azure PowerShell 0.9.x. Il ne doit pas représenter de modification majeure et doit pouvoir remplacer la version précédente du module Azure.
 - **Import-AzureRM** importe tous les modules dans la liste de modules et de versions d’AzureRM. Cela garantit que les modules Azure PowerShell chargés se trouvent bien dans la plage de version requise par le module AzureRM.
@@ -79,13 +67,13 @@ Installez Azure PowerShell 1.0 ou version ultérieure à partir de la galerie e
 
 
 ## Étape 2 : Démarrer
-Le module installe une console personnalisée pour Azure PowerShell. Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell standard ou depuis la console Azure PowerShell. La méthode utilisée pour l’ouverture d’une console ou de l’autre dépend de votre version de Windows :
+Vous pouvez exécuter les applets de commande depuis la console Windows PowerShell standard ou depuis l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE). La méthode utilisée pour l’ouverture d’une console ou de l’autre dépend de votre version de Windows :
 
-- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran d’**accueil**, commencez par taper power. Ceci entraîne l’affichage d’une liste d’applications, notamment Windows PowerShell et Azure PowerShell. Cliquez sur une application pour ouvrir la console. (Pour épingler l’application à l’écran de **démarrage**, cliquez avec le bouton droit sur l’icône.)
+- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran **Démarrer**, commencez par taper power. Ceci entraîne l’affichage d’une liste d’applications, notamment Windows PowerShell. Cliquez sur une application pour ouvrir la console. (Pour épingler l’application à l’écran **Démarrer**, cliquez avec le bouton droit sur l’icône.)
 
-- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu **Démarrer**. Dans le menu **Démarrer**, cliquez sur **Tous les programmes**, sur **Azure**, puis sur **Azure PowerShell**.
+- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu **Démarrer**. À partir du menu **Démarrer**, cliquez sur **Tous les programmes**, cliquez sur **Accessoires**, cliquez sur le dossier **Windows PowerShell**, puis cliquez sur **Windows PowerShell**.
 
-Vous pouvez également exécuter **Windows PowerShell ISE** pour utiliser des éléments de menu et les raccourcis clavier pour effectuer la plupart des tâches que vous exécuteriez avec la console Windows PowerShell. Pour utiliser l’ISE, dans la console Windows PowerShell, Cmd.exe ou dans la zone **Exécuter** saisissez **powershell\_ise.exe**.
+Vous pouvez également exécuter **Windows PowerShell ISE** pour utiliser des éléments de menu et des raccourcis clavier pour effectuer la plupart des tâches que vous exécuteriez avec la console Windows PowerShell. Pour utiliser l’ISE, dans la console Windows PowerShell, Cmd.exe ou dans la zone **Exécuter** saisissez **powershell\_ise.exe**.
 
 ###Commandes pour vous aider à démarrer
 
@@ -138,12 +126,12 @@ Connectez-vous à votre compte professionnel ou scolaire :
 
     $cred = Get-Credential
     Login-AzureRmAccount -Credential $cred
-> [AZURE.NOTE]Si plusieurs clients sont associés à votre compte professionnel, spécifiez le paramètre TenantId :
+> [AZURE.NOTE] Si plusieurs clients sont associés à votre compte professionnel, spécifiez le paramètre TenantId :
 
     $loadersubscription = Get-AzureRmSubscription -SubscriptionName $YourSubscriptionName -TenantId $YourAssociatedSubscriptionTenantId
 
 
-> [AZURE.NOTE]Cette méthode de connexion non interactive fonctionne uniquement avec un compte professionnel ou scolaire. Un compte professionnel ou scolaire représente un utilisateur géré par son travail ou son école et défini dans l’instance d’Azure Active Directory pour son travail ou son école. Si vous ne possédez pas de compte professionnel ou scolaire et que vous utilisez un compte Microsoft pour vous connecter à votre abonnement Azure, vous pouvez en créer un facilement en procédant comme suit.
+> [AZURE.NOTE] Cette méthode de connexion non interactive fonctionne uniquement avec un compte professionnel ou scolaire. Un compte professionnel ou scolaire représente un utilisateur géré par son travail ou son école et défini dans l’instance d’Azure Active Directory pour son travail ou son école. Si vous ne possédez pas de compte professionnel ou scolaire et que vous utilisez un compte Microsoft pour vous connecter à votre abonnement Azure, vous pouvez en créer un facilement en procédant comme suit.
 
 > 1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com) et cliquez sur **Active Directory**.
 
@@ -184,10 +172,10 @@ Consultez les ressources suivantes pour obtenir de l’aide sur des applets de c
 
 Pour en savoir plus sur l’utilisation des applets de commande, consultez les ressources suivantes :
 
-Pour obtenir des instructions de base sur l’utilisation de Windows PowerShell, consultez [Utilisation Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=321939).
+Pour obtenir des instructions de base sur l’utilisation de Windows PowerShell, voir [Utilisation Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=321939).
 
-Pour obtenir des informations de référence sur les applets de commande, consultez [Référence des applets de commande Azure](https://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
+Pour obtenir des informations de référence sur les applets de commande, voir [Référence des applets de commande Azure](https://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
 
-Pour obtenir des exemples de script et des instructions d’utilisation des scripts pour gérer Azure, consultez le [Centre de scripts](http://go.microsoft.com/fwlink/p/?LinkId=321940).
+Pour obtenir des exemples de script et des instructions d’utilisation des scripts pour gérer Azure, voir [Centre de scripts](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

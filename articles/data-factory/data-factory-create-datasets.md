@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création de jeux de données" 
+	pageTitle="Jeux de données dans Azure Data Factory | Microsoft Azure" 
 	description="Comprendre les jeux de données Azure Data Factory et apprendre à les créer." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# Jeux de données
+# Jeux de données dans Azure Data Factory
 
 ## Description
 Un jeu de données est une description logique des données. Les données décrites peuvent aller de données à octets simples, semi-structurées, comme des fichiers CSV, à des tables relationnelles ou même des modèles. Le mécanisme (adresse, protocole, schéma d'authentification) pour accéder aux données est défini dans le Service lié et référencé dans la définition du jeu de données.
@@ -208,4 +208,4 @@ Si vous avez besoin d’exécuter un pipeline tous les mois à une date et une h
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

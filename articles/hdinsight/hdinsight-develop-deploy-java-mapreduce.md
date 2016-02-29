@@ -202,7 +202,7 @@ Créez une application MapReduce de comptage de mots. Il s'agit d'une applicatio
 
 3. Une fois la commande exécutée, le répertoire __wordcountjava\\target__ contient un fichier appelé __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]Le fichier __wordcountjava-1.0-SNAPSHOT.jar__ est un uberjar.
+	> [AZURE.NOTE] Le fichier __wordcountjava-1.0-SNAPSHOT.jar__ est un uberjar.
 
 
 ##<a name="test"></a>Test du programme sur l’émulateur
@@ -231,7 +231,7 @@ Dossier|Remarque
 
 Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop\_home% en tant que fichiers de données.
 
-> [AZURE.NOTE]Les commandes HDFS Hadoop sont sensibles à la casse.
+> [AZURE.NOTE] Les commandes HDFS Hadoop sont sensibles à la casse.
 
 **Copie des fichiers de données vers le HDFS de l’émulateur**
 
@@ -304,7 +304,7 @@ Vous avez développé une tâche MapReduce de comptage de mots et vous l’avez 
 
 
 ##<a id="upload"></a>Téléchargement des données et de l’application vers le stockage d’objets blob Azure
-Azure HDInsight utilise le stockage d'objets blob pour stocker des données. Lorsqu'un cluster HDInsight est approvisionné, un conteneur de stockage d'objets blob Azure est utilisé pour stocker les fichiers du système. Vous pouvez utiliser ce conteneur par défaut ou utiliser un autre conteneur (soit sur le même compte Azure Storage, soit sur un autre compte de stockage situé dans le même centre de données que le cluster) pour le stockage des fichiers de données.
+Azure HDInsight utilise le stockage d'objets blob pour stocker des données. Lorsqu'un cluster HDInsight est approvisionné, un conteneur de stockage d'objets blob Azure est utilisé pour stocker les fichiers du système. Vous pouvez utiliser ce conteneur par défaut ou utiliser un autre conteneur (soit sur le même compte Azure Storage, soit sur un autre compte de stockage situé dans la même région que le cluster) pour le stockage des fichiers de données.
 
 Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage distinct pour les fichiers de données et l’application MapReduce. Les fichiers de données sont les fichiers texte du répertoire **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** de votre station de travail d'émulation.
 
@@ -316,7 +316,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
 		$containerName_Data = "<ContainerName>"
-		$location = "<MicrosoftDataCenter>"  # For example, "East US"
+		$location = "<Region>"  # For example, "East US"
 
 	La variable **$subscripionName** est associée à votre abonnement Azure. Vous devez nommer les éléments **$storageAccountName\_Data** et **$containerName\_Data**. Pour connaître les restrictions relatives aux attributions de noms, consultez la page [Affectation de noms et références aux conteneurs, objets BLOB et métadonnées](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
@@ -455,7 +455,7 @@ Dans cette section, vous allez créer un script Azure PowerShell qui effectue le
 		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"
-		$location = "<MicrosoftDataCenter>"     ### Must match the data Storage account location
+		$location = "<Region>"     ### Must match the data Storage account location
 		$clusterNodes = <NumberOFNodesInTheCluster>
 
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
@@ -592,22 +592,22 @@ Dans ce didacticiel, vous avez appris à développer une tâche MapReduce en Jav
 
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-emulator]: ../hdinsight-get-started-emulator.md
 [hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 
 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

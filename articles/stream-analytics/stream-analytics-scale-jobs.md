@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 # Mettre à l’échelle des tâches Azure Stream Analytics pour augmenter le débit de traitement des données de flux
@@ -24,7 +24,7 @@ Découvrez comment régler les tâches d’analyse et calculer des *unités de d
 ## Quelles sont les parties d’un travail Stream Analytics ?
 La définition d’une tâche Stream Analytics se compose d’entrées, d’une requête et d’une sortie. Les entrées correspondent à l’emplacement à partir duquel le travail lit le flux de données, la requête permet de transformer le flux d’entrée de données, et la sortie correspond à l’emplacement où le travail envoie ses résultats.
 
-Un travail nécessite au moins une source d’entrée pour la diffusion de données en continu. La source d'entrée de flux de données peut être stockée sur un hub d'événements Service Bus Azure ou un objet blob de stockage Azure. Pour plus d'informations, consultez [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md), [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md) et [Guide de développement pour Azure Stream Analytics](../stream-analytics-developer-guide.md).
+Un travail nécessite au moins une source d’entrée pour la diffusion de données en continu. La source d'entrée de flux de données peut être stockée sur un hub d'événements Service Bus Azure ou un objet blob de stockage Azure. Pour plus d’informations, consultez [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md) et [Prise en main d’Azure Stream Analytics](stream-analytics-get-started.md).
 
 ## Configuration des unités de diffusion en continu
 Les unités de diffusion en continu représentent les ressources et la puissance pour exécuter une tâche Azure Stream Analytics. Ces unités permettent de décrire la capacité relative de traitement des événements basée sur une mesure mixte du processeur, de la mémoire et des taux de lecture et d’écriture. Chaque unité de diffusion en continu correspond à un débit d'environ 1 Mo/s.
@@ -41,7 +41,7 @@ Cet article vous montre comment calculer et régler la requête pour augmenter l
 La tâche massivement parallèle est le scénario le plus évolutif d’Azure Stream Analytics. Elle permet de connecter une partition de l’entrée à une instance de la requête, puis de connecter celle-ci à une partition de la sortie. L’obtention de ce parallélisme nécessite plusieurs choses :
 
 1.  Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Dans le cas de hubs d’événements, les données d’événement doivent être définies sur **PartitionKey**. Vous pouvez aussi utiliser des expéditeurs partitionnés. Pour les objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Si votre logique de requête n’a pas besoin de la clé qui est traitée par la même instance de la requête, vous pouvez ignorer cette condition. Un exemple serait une requête simple du type select/project/filter.  
-2.	Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **Partition By** dans toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Actuellement, pour qu’une tâche soit entièrement parallèle, la clé de partitionnement doit être définie sur **PartitionId**.  
+2.	Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **Partition By** dans toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Actuellement, pour qu’un travail soit entièrement parallèle, la clé de partitionnement doit être définie sur **PartitionId**.  
 3.	Pour le moment, seuls les hubs d’événements et les objets blob prennent en charge les sorties partitionnées. Pour la sortie des hubs d’événements, vous devez définir le champ **PartitionKey** sur **PartitionId**. Pour les objet blob, aucune action n’est nécessaire.  
 4.	En outre, le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. Actuellement, la sortie des objets blob ne prend pas en charge les partitions. Toutefois, cela ne pose pas de problème, car elle hérite du schéma de partitionnement de la requête en amont. Voici des exemples de valeurs de partition qui permettent la création d’une tâche entièrement parallèle :  
 	1.	8 partitions d’entrée de hubs d’événements et 8 partitions de sortie de hubs d’événements
@@ -60,7 +60,7 @@ Entrée – Hubs d’événements avec 8 partitions de sortie – Hub d’évé
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
 
-Il s’agit d’un filtre simple, il n’est donc pas nécessaire de partitionner l’entrée que vous envoyez aux hubs d’événements. Dans la requête, **Partition By** est défini sur **PartitionId**. Nous répondons donc à la deuxième condition citée plus haut. Pour la sortie, nous devons configurer la sortie des hubs d’événements de la tâche de sorte que le champ **PartitionKey** soit défini sur **PartitionId**. Enfin, nous devons vérifier que partitions d’entrée == partitions de sortie. Cette topologie est massivement parallèle.
+Il s’agit d’un filtre simple, il n’est donc pas nécessaire de partitionner l’entrée que vous envoyez aux hubs d’événements. Dans la requête, **Partition By** est défini sur **PartitionId**. Nous répondons donc à la deuxième condition citée plus haut. Pour la sortie, nous devons configurer la sortie des hubs d’événements de la tâche afin que le champ **PartitionKey** soit défini sur **PartitionId**. Enfin, nous devons vérifier que partitions d’entrée == partitions de sortie. Cette topologie est massivement parallèle.
 
 ### Requête avec clé de regroupement
 Entrée – Hubs d’événements avec 8 partitions de sortie – Objet blob
@@ -148,7 +148,7 @@ La requête précédente a deux étapes.
 
 Les conditions suivantes doivent être respectées pour procéder au partitionnement d'une étape :
 
-- La source d'entrée doit être partitionnée. Pour plus d'informations, consultez le [Guide de développement Azure Stream Analytics](../stream-analytics-developer-guide.md) et le [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
+- La source d'entrée doit être partitionnée. Pour plus d’informations, consultez le [Guide de programmation de hubs d’événements](../event-hubs/event-hubs-programming-guide.md).
 - L’instruction **SELECT** de la requête doit lire à partir d’une source d’entrée partitionnée.
 - La requête de l'étape doit contenir le mot clé **Partition By**
 
@@ -345,11 +345,10 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

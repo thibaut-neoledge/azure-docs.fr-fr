@@ -18,7 +18,7 @@
 	ms.author="garye;bradsev" />
 
 
-# Importation de vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données
+# Importation de vos données d'apprentissage dans Azure Machine Learning Studio à partir d'un fichier local
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -40,4 +40,4 @@ Pendant le téléchargement, vous verrez un message indiquant que votre fichier 
 
 Une fois que vos données sont téléchargées, elles sont stockées dans un module de jeu de données et sont disponibles pour n'importe quelle expérience dans votre espace de travail. Vous trouverez le jeu de données ainsi que tous les exemples de jeu de données préchargés dans la liste des **Jeux de données enregistrés** dans la palette des modules lorsque vous éditez une expérience. Vous pouvez glisser-déplacer le jeu de données dans le canevas de l’expérience en vue d’affiner une analyse et l’apprentissage automatique.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

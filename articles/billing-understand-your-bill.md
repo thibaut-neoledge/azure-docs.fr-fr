@@ -3,8 +3,8 @@
    description="Comprendre votre facture Azure"
    services=""
    documentationCenter="Azure"
-   authors="kareni"
-   manager="jocho"
+   authors="erihur"
+   manager="kareni"
    editor=""
    tags="billing"/>
 
@@ -14,38 +14,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/22/2015"
-   ms.author="kareni"/>
+   ms.date="02/04/2016"
+   ms.author="erihur"/>
 
 
 # Comprendre votre facture Microsoft Azure
 
-Le coût des abonnements Microsoft Azure varie selon la formule tarifaire. Certaines formules tarifaires, telles que Visual Studio Ultimate avec MSDN, incluent des crédits mensuels que vous pouvez utiliser avec les services Azure selon vos besoins.
+Le coût des abonnements Microsoft Azure varie selon la formule tarifaire. Certaines formules tarifaires, telles que Visual Studio Enterprise (MPN), incluent des crédits mensuels que vous pouvez utiliser avec les services Azure selon vos besoins.
 
 Veuillez noter que 24 heures au plus d'utilisation latente de votre période de facturation précédente peuvent être reportées sur votre période de facturation actuelle.
 
 Pour plus d’informations sur la consommation et les formules tarifaires, consultez la [page Options d’achat de Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
-Les liens ci-dessous couvrent la liste de tous les services Microsoft Azure.
+<!-- The below links cover a complete list of all Microsoft Azure services.
 
-- [Détails du service (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-- [Détails du service (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
-*REMARQUE : le lien **csv1** fait référence aux noms d’en-tête de colonne du fichier csv version 1 et le lien **csv2** fait référence aux noms d’en-tête de colonne du fichier csv version 2. Ces fichiers sont mis à jour tous les mois.*
+<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
+<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
 
-## Contenu :
+## Content:
 
-Cette rubrique explique les tâches suivantes lors de la lecture de votre facture.
+This topic helps you with the following tasks when reading your bill.
 
--  Afficher ou télécharger une facture Azure
--  Informations client
--  Comprendre le résumé de la facture
--  Comprendre les frais actuels
--  Informations de pied de page
--  Comprendre les informations supplémentaires
--  Comprendre les coûts d'utilisation détaillés
--  Analyser les données d'utilisation quotidienne
+-  View or Download a Bill for Azure
+-  Customer Information
+-  Understand the Invoice Summary
+-  Understand the Current Charges
+-  Footer Information
+-  Understand the Additional Information
+-  Understand Detailed Usage Charges
+-  Analyze Daily Usage Data -->
 
 ### Afficher ou télécharger une facture Microsoft Azure :
 
@@ -77,8 +78,10 @@ Pour afficher ou télécharger une facture :
     ![Résumé - historique de facturation - 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
+***Important :*** *les frais répertoriés sur les relevés de facturation pour les clients internationaux sont uniquement fournis à titre d’estimation, les banques appliquant des coûts différents selon les taux de conversion.*
 
-**Voici quelques exemples de relevés concernant deux offres distinctes disponibles sur Microsoft Azure.**
+
+Voici quelques exemples de relevés concernant deux offres distinctes disponibles sur Microsoft Azure.
 
  **TYPE DE L'OFFRE** | **DESCRIPTION** | **TÉLÉCHARGER** |
  :--------- |:-------- | :-------|
@@ -107,7 +110,7 @@ Type de paiement utilisé sur le compte (facture ou carte de crédit).
 Adresse des paiements Microsoft Azure.
 
 ### Offre d’abonnement
-Type d’offre d’abonnement achetée (par exemple, paiement à l’utilisation, MSDN - Visual Studio Ultimate, etc.).
+Type d’offre d’abonnement achetée (par exemple, paiement à l’utilisation, MSDN-Visual Studio Enterprise, etc.).
 
 ### E-mail du propriétaire du compte
 Adresse de messagerie du compte sous lequel le compte Microsoft Azure est enregistré.
@@ -141,7 +144,7 @@ Les frais d'utilisation correspondent au total des frais mensuels d'un abonnemen
 Les remises sur les services de votre utilisation qui apparaissent sur cette ligne sont appliquées à votre facture actuelle.
 
 ### Ajustements
-Les ajustements divers correspondent aux crédits divers ou aux frais dus appliqués à votre facture actuelle. Par exemple, si vous disposez de l'offre Visual Studio Ultimate avec MSDN, un crédit mensuel apparaît sur cette ligne. Si vous annulez votre abonnement, les frais d'utilisation mensuelle supérieurs au crédit mensuel inclus dans votre offre à partir du début de la période de facturation actuelle jusqu'à la date d'annulation de votre abonnement s'affichent.
+Les ajustements divers correspondent aux crédits divers ou aux frais dus appliqués à votre facture actuelle. Par exemple, si vous disposez de l’offre Visual Studio Enterprise avec MSDN, un crédit mensuel apparaît sur cette ligne. Si vous annulez votre abonnement, les frais d'utilisation mensuelle supérieurs au crédit mensuel inclus dans votre offre à partir du début de la période de facturation actuelle jusqu'à la date d'annulation de votre abonnement s'affichent.
 
 ## Informations de pied de page
 ![pied de page](./media/billing-understand-your-bill/footerinformation.png)
@@ -256,10 +259,10 @@ Accédez à la section **Gestion des comptes, des abonnements et des rôles d’
 
 - [Modifier la carte bancaire utilisée pour payer une facture Azure](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 
-- [Que puis-je faire si mon abonnement Azure est désactivé ?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

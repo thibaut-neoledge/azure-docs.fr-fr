@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="02/12/2016"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop basés sur Windows dans HDInsight
@@ -51,9 +51,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 	
 - **Système d’exploitation**
 
-	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants :
-	- **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** :
- 	- **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Vous pouvez créer des clusters HDInsight sur un des deux systèmes d’exploitation suivants : - **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** : - **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 - **Type de cluster** et **taille du cluster (également appelé nœuds de données)**
 
@@ -62,7 +60,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 	- Les clusters Hadoop : pour les charges de travail de requête et d’analyse
 	- Les clusters HBase : pour les charges de travail NoSQL
 	- Les clusters Storm : pour les charges de travail de traitement des événements en temps réel
-	- Les clusters Spark (version préliminaire) : pour les charges de travail de traitement en mémoire, de requêtes interactives, de diffusion en continu et d’apprentissage automatique.
+	- Les clusters Spark : pour les charges de travail de traitement en mémoire, de requêtes interactives, de diffusion en continu et d’apprentissage automatique.
 
 	![Clusters HDInsight](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
@@ -79,25 +77,16 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	Les clusters HBase pour HDInsight sont déployés avec trois rôles : 
-	- les serveurs principaux (2 nœuds) 
-	- les serveurs Region (au moins 1 nœud) 
-	- les nœuds Master/Zookeeper (3 nœuds)
+	Les clusters HBase pour HDInsight sont déployés avec trois rôles : - les serveurs principaux (2 nœuds) - les serveurs Region (au moins 1 nœud) - les nœuds Master/Zookeeper (3 nœuds)
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	Les clusters Storm pour HDInsight sont déployés avec trois rôles : 
-	- les nœuds Nimbus (2 nœuds) 
-	- les serveurs Supervisor (au moins 1 nœud) 
-	- les nœuds Zookeeper (3 nœuds)
+	Les clusters Storm pour HDInsight sont déployés avec trois rôles : - les nœuds Nimbus (2 nœuds) - les serveurs Supervisor (au moins 1 nœud) - les nœuds Zookeeper (3 nœuds)
 
 
 	![Rôles de cluster Hadoop HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	Les clusters Spark pour HDInsight sont déployés avec trois rôles :
-	- le nœud principal (2 nœuds)
-	- le nœud de travail (au moins 1 nœud)
-	- les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
+	Les clusters Spark pour HDInsight sont déployés avec trois rôles : - le nœud principal (2 nœuds) - le nœud de travail (au moins 1 nœud) - les nœuds Zookeeper (3 nœuds) (gratuits pour les Zookeepers A1)
 
 	L’utilisation de ces nœuds est facturée aux clients pendant toute la durée de vie du cluster. Cette facturation démarre une fois qu'un cluster est créé et s'arrête lorsque le cluster est supprimé (les clusters ne peuvent pas être désalloués ou mis en suspens). La taille du cluster a une incidence sur le prix du cluster. À des fins d’apprentissage, il est recommandé d'utiliser le nœud de données 1. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -129,7 +118,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	> [AZURE.IMPORTANT] Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 
-	Quand vous utilisez la version préliminaire du portail Azure pour configurer le cluster, la taille du nœud est disponible via le panneau __Niveau de tarification de nœud__ qui affiche également le coût associé aux différentes tailles de nœud.
+	Quand vous utilisez le portail Azure pour configurer le cluster, la taille du nœud est disponible via le panneau __Niveau de tarification de nœud__ qui affiche également le coût associé aux différentes tailles de nœud.
 
 	> [AZURE.IMPORTANT] La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -159,7 +148,7 @@ Voici les options de configuration de base pour la création d'un cluster HDInsi
 
 	>[AZURE.WARNING] Ne partagez pas un conteneur de stockage d’objets blob sur plusieurs clusters. Ce n’est pas pris en charge.
 
-	Pour plus d’informations sur l’utilisation des magasins d’objets blob secondaires, consultez [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md).
+	Pour plus d’informations sur l’utilisation des magasins d’objets blob secondaires, consultez [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 - **Metastore Hive/Oozie**
 
@@ -220,4 +209,4 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modèles ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

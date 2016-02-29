@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -39,6 +39,7 @@ Cette rubrique présente le composant **Azure AD Connect Sync** (également a
 | **Découverte** ||
 | [Implémenter la synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) | Décrit le fonctionnement de la synchronisation de mot de passe, en indiquant comment l’implémenter, comment l’utiliser et comment résoudre les problèmes associés. |
 | [Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Décrit la fonctionnalité de *prévention des suppressions accidentelles* et explique comment la configurer. |
+| [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) | Décrit le planificateur intégré qui importe, synchronise et exporte les données. |
 | **Opérations** ||
 | [Considérations et tâches opérationnelles](active-directory-aadconnectsync-operations.md) | Décrit les problèmes liés au fonctionnement, tels que la récupération d’urgence. |
 | **Plus d’informations et de références** ||
@@ -50,4 +51,4 @@ Cette rubrique présente le composant **Azure AD Connect Sync** (également a
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,13 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/10/2016"
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP publiques de niveau d’instance
 Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP publique que vous pouvez attribuer directement à votre machine virtuelle ou instance de rôle, plutôt qu’au service cloud dans lequel résident cette machine ou instance. Cette adresse IP ne remplace pas l’adresse IP virtuelle (VIP) affectée à votre service cloud. Il s’agit plutôt d’une adresse IP supplémentaire que vous pouvez utiliser pour vous connecter directement à votre machine virtuelle ou instance de rôle.
 
->[AZURE.NOTE]Auparavant, une adresse ILPIP était désignée sous le terme d’adresse PIP, qui signifie adresse IP publique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+
+Assurez-vous que vous comprenez le fonctionnement des [adresses IP](virtual-network-ip-addresses-overview-classic.md) dans Azure.
+
+>[AZURE.NOTE] Auparavant, une adresse ILPIP était désignée sous le terme d’adresse PIP, qui signifie adresse IP publique.
 
 ![Différences entre les adresses IP publiques de niveau d’instance (ILPIP) et les adresses IP virtuelles (VIP)](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -29,7 +33,7 @@ Quand vous créez un service cloud dans Azure, les enregistrements DNS A corresp
 - contosoweb\_IN\_0.contosoadservice.cloudapp.NET
 - contosoweb\_IN\_1.contosoadservice.cloudapp.net 
 
->[AZURE.NOTE]Vous ne pouvez affecter qu’une seule adresse ILPIP par machine virtuelle ou instance de rôle. Vous pouvez utiliser jusqu’à 5 adresses ILPIP par abonnement. Pour l’instant, les adresses ILPIP ne sont pas prises en charge pour les machines virtuelles équipées de plusieurs cartes d’interface réseau.
+>[AZURE.NOTE] Vous ne pouvez affecter qu’une seule adresse ILPIP par machine virtuelle ou instance de rôle. Vous pouvez utiliser jusqu’à 5 adresses ILPIP par abonnement. Pour l’instant, les adresses ILPIP ne sont pas prises en charge pour les machines virtuelles équipées de plusieurs cartes d’interface réseau.
 
 ## Pourquoi dois-je demander une adresse ILPIP ?
 Si vous souhaitez être en mesure de vous connecter à votre machine virtuelle ou instance de rôle par l’intermédiaire d’une adresse IP qui lui est directement affectée, plutôt qu’en utilisant VIP:&lt;,numéro de port&gt;, demandez une adresse ILPIP pour votre machine virtuelle ou instance de rôle. - **Mode FTP passif** - Le fait de disposer d’une adresse ILPIP sur votre machine virtuelle vous permet de recevoir le trafic sur le port de votre choix sans avoir à ouvrir de point de terminaison. Cette possibilité autorise notamment le mode FTP passif, où les ports sont sélectionnés de façon dynamique. - **Adresse IP sortante** - Le trafic sortant en provenance de la machine virtuelle présente l’adresse ILPIP en guise de source, ce qui identifie de manière unique la machine virtuelle auprès des entités externes.
@@ -118,9 +122,9 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 
 ## Étapes suivantes
 
-[Adresse IP réservée](../virtual-networks-reserved-public-ip)
+- Découvrez comment l’[adressage IP](virtual-network-ip-addresses-overview-classic.md) fonctionne dans le modèle de déploiement classique.
 
-[API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- En savoir plus sur les [adresses IP réservées](../virtual-networks-reserved-public-ip).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

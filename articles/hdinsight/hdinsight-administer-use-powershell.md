@@ -68,7 +68,7 @@ WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises
 
 Les clusters HDInsight nécessitent un groupe de ressources Azure et un conteneur d'objets blob dans un compte de stockage Azure :
 
-- Le groupe de ressources Azure est un conteneur logique pour les ressources Azure. Le groupe de ressources Azure et le cluster HDInsight ne doivent pas nécessairement se trouver au même emplacement. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](powershell-azure-resource-manager.md).
+- Le groupe de ressources Azure est un conteneur logique pour les ressources Azure. Le groupe de ressources Azure et le cluster HDInsight ne doivent pas nécessairement se trouver au même emplacement. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
 - HDInsight utilise le conteneur d’objets blob d’un compte de stockage Azure comme système de fichiers par défaut. Un compte Azure Storage et un conteneur de stockage sont nécessaires avant de pouvoir créer un cluster HDInsight. Le compte de stockage par défaut doit se situer au même emplacement que le cluster HDInsight.
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
@@ -94,7 +94,7 @@ Les clusters HDInsight nécessitent un groupe de ressources Azure et un conteneu
 [AZURE.INCLUDE [liste de centre de données](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-Pour plus d’informations sur la création d’un compte de stockage Azure au moyen du portail Azure, consultez [À propos des comptes de stockage Azure](storage-create-storage-account.md).
+Pour plus d’informations sur la création d’un compte de stockage Azure au moyen du portail Azure, consultez [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
 Si vous disposez déjà d’un compte de stockage, mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer les informations :
 
@@ -103,7 +103,7 @@ Si vous disposez déjà d’un compte de stockage, mais que vous ne connaissez n
 	# List the keys for a Storage account
 	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-Pour en savoir plus sur l’obtention d’informations au moyen du portail Azure, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de la rubrique [Création, gestion ou suppression d’un compte de stockage](storage-create-storage-account.md).
+Pour en savoir plus sur l’obtention d’informations au moyen du portail Azure, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de la rubrique [Création, gestion ou suppression d’un compte de stockage](../storage/storage-create-storage-account.md).
 
 **Pour créer un conteneur de stockage Azure**
 
@@ -313,14 +313,14 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -328,8 +328,8 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     authors="carlrabeler"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="01/25/2015"
+    ms.date="02/12/2016"
     ms.author="carlrab"/>
 
 # Configurer la géo-réplication pour Base de données SQL Azure avec Transact-SQL
@@ -233,4 +233,4 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géo-réplicati
 - [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -18,7 +18,7 @@
 
 # Prise en charge de MQTT au niveau d’IoT Hub
 
-Grâce à IoT Hub, les appareils peuvent communiquer avec les points de terminaison d’appareil IoT Hub à l’aide du protocole [MQTT v3.1.1][lnk-mqtt-org].
+Grâce à IoT Hub, les appareils peuvent communiquer avec les points de terminaison d’appareil IoT Hub à l’aide du protocole [MQTT v3.1.1][lnk-mqtt-org] sur le port 8883. IoT Hub nécessite que toutes les communications de périphérique soient sécurisées à l'aide de TLS/SSL.
 
 ## Connexion à IoT Hub
 
@@ -81,4 +81,4 @@ Pour en savoir plus sur le protocole MQTT, consultez la [documentation de MQTT][
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

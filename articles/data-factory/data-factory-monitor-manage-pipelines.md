@@ -16,7 +16,12 @@
 	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
+
 # Surveillance et gestion des pipelines d’Azure Data Factory
+> [AZURE.SELECTOR]
+- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+
 Le service Data Factory offre une vision fiable et complète de vos services de stockage, de traitement et de déplacement des données. Il vous permet d'évaluer rapidement l'intégrité du pipeline de données de bout en bout, d'identifier les problèmes et de prendre des mesures correctives, si nécessaire. En outre, vous pouvez suivre visuellement le lignage des données et les relations entre vos données sur n'importe quelle source et consulter un historique complet de l'exécution des travaux, de l'intégrité du système et des dépendances à partir d'un tableau de bord de surveillance unique.
 
 Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelines. Vous obtiendrez également des informations sur la façon de créer des alertes et être averti en cas d’échec.
@@ -270,15 +275,13 @@ En cas d’échec de validation de la tranche à cause d’une erreur de straté
 
 ### Utilisation de Microsoft Azure PowerShell
 
-Vous pouvez réexécuter des échecs à l’aide de l’applet de commande Set-AzureRmDataFactorySliceStatus.
+Vous pouvez réexécuter des échecs à l’aide de l’applet de commande Set-AzureRmDataFactorySliceStatus. Consultez la rubrique [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) pour la syntaxe et pour plus d’informations sur l’applet de commande.
 
-	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+**Exemple :** l’exemple suivant définit l’état de toutes les tranches de la table 'DAWikiAggregatedData' sur 'En attente' dans la fabrique de données Azure 'WikiADF'.
 
-**Exemple :** l'exemple suivant définit l'état de toutes les tranches de la table 'DAWikiAggregatedData' sur 'PendingExecution' dans la fabrique de données Azure 'WikiADF'.
+**Remarque :** UpdateType est défini sur UpstreamInPipeline. Concrètement, l’état « En attente » est défini pour chaque tranche de la table et toutes les tables (en amont) dépendantes qui sont utilisées en tant que tables d’entrée pour les activités du pipeline. Sinon, la valeur « Individual » pour ce paramètre est également possible.
 
-**Remarque :** UpdateType est défini sur UpstreamInPipeline. Concrètement, l'état « PendingExecution » est défini pour chaque tranche de la table et toutes les tables (en amont) dépendantes qui sont utilisées en tant que tables d'entrée pour les activités du pipeline. Sinon, la valeur « Individual » pour ce paramètre est également possible.
-
-	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Créez des alertes
@@ -352,7 +355,7 @@ OnDemandClusterDeleted | Succeeded
 Consultez [Créer une règle d’alerte](https://msdn.microsoft.com/library/azure/dn510366.aspx) pour plus d’informations sur les éléments JSON utilisés dans l’exemple ci-dessus.
 
 #### Déploiement de l’alerte 
-Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
+Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
@@ -374,7 +377,7 @@ Une fois le déploiement du groupe de ressources réussi, les messages suivants 
 	Outputs           :
 
 #### Récupération de la liste des déploiements de groupes de ressources Azure
-Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l'applet de commande : **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
+Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l’applet de commande : **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -540,13 +543,11 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs :
-- FailedRuns
-- SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
 
 **Déploiement de l’alerte :**
 
-Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l'exemple suivant :
+Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
@@ -567,6 +568,6 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Outputs           
 
 
-Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d'alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour plus d'informations et des exemples.
+Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d’alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour plus d’informations et des exemples.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

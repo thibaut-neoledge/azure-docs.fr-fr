@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # Adresses IP (classiques) dans Azure
@@ -23,10 +23,10 @@ Les adresses IP publiques sont utilisées pour la communication avec Internet, y
 
 Les adresses IP privées sont utilisées pour la communication au sein d’un réseau virtuel Azure (VNet), un service cloud, et de votre réseau local lorsque vous utilisez une passerelle VPN ou un circuit ExpressRoute pour étendre votre réseau à Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Modèle de déploiement de Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 ## Adresses IP publiques
-Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et des services Azure accessibles au public, tels que le [Cache Redis Azure](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), les [bases de données SQL](sql-database-technical-overview.md) et [Azure Storage](storage-introduction.md).
+Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et des services Azure accessibles au public, tels que le [Cache Redis Azure](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), les [bases de données SQL](../sql-database/sql-database-technical-overview.md) et [Azure Storage](../storage/storage-introduction.md).
 
 Une adresse IP publique est associée aux types de ressources suivants :
 
@@ -47,7 +47,7 @@ Lorsque vous créez un service cloud ou une VM IaaS, vous devez fournir un nom D
 ### Services cloud
 Un service cloud dispose toujours d’une adresse IP publique appelée adresse IP virtuelle (VIP). Vous pouvez créer des points de terminaison dans un service cloud pour associer des ports différents dans l'adresse IP virtuelle pour les ports internes sur les machines virtuelles et les instances de rôle au sein du service cloud.
 
-Vous pouvez affecter [plusieurs adresses IP virtuelles à un service cloud](load-balancer-multivip.md), ce qui permet des scénarios d'adresses IP virtuelles multiples comme environnement mutualisé, avec des sites web SSL.
+Un service cloud peut contenir plusieurs machines virtuelles IaaS, ou instances de rôle PaaS, toutes exposées via la même adresse IP virtuelle de service cloud. Vous pouvez également affecter [plusieurs adresses IP virtuelles à un service cloud](../load-balancer/load-balancer-multivip.md), ce qui permet des scénarios avec plusieurs adresses IP virtuelles, tel qu’un environnement mutualisé avec des sites web SSL.
 
 Vous pouvez vous assurer que l'adresse IP publique d'un service cloud reste la même, même si toutes les instances de rôle sont arrêtées, en utilisant une adresse IP publique *statique*, appelée [adresse IP réservée](virtual-networks-reserved-public-ip.md). Vous pouvez créer une ressource IP (réservée) statique dans un emplacement spécifique et l’affecter à un service cloud dans ce même emplacement. Vous ne pouvez pas spécifier l'adresse IP réelle pour l'adresse IP réservée. Elle est allouée à partir du pool d'adresses IP disponibles dans l'emplacement où elle a été créée. Cette adresse IP n'est pas libérée jusqu'à ce que vous la supprimiez explicitement.
 
@@ -58,14 +58,18 @@ Les adresses IP publiques (réservées) statiques sont fréquemment utilisées 
 - consomme les services web externes qui utilisent le modèle de sécurité basé sur IP ;
 - utilise des certificats SSL liés à une adresse IP.
 
+>[AZURE.NOTE] Quand vous créez une machine virtuelle classique, un *service cloud* conteneur est créé par Azure, qui a une adresse IP virtuelle (VIP). Quand la création est effectuée via le portail, un *point de terminaison* RDP ou SSH par défaut est configuré par le portail pour que vous puissiez vous connecter à la machine virtuelle avec l’adresse IP virtuelle du service cloud. Cette adresse IP virtuelle du service cloud peut être réservée, ce qui fournit une adresse IP réservée pour la connexion à la machine virtuelle. Vous pouvez ouvrir des ports supplémentaires en configurant d’autres points de terminaison.
+
 ### Instances de rôle des machines virtuelles IaaS et PaaS
-Vous pouvez affecter une adresse IP publique à une [VM](virtual-machines-about.md) IaaS ou instance de rôle PaaS au sein d'un service cloud. Cela correspond à une adresse IP publique de niveau d'instance ([ILPIP](virtual-networks-instance-level-public-ip.md)). Cette adresse IP publique peut uniquement être dynamique.
+Vous pouvez affecter une adresse IP publique directement à une [machine virtuelle](../virtual-machines/virtual-machines-about.md) IaaS ou instance de rôle PaaS au sein d’un service cloud. Cela correspond à une adresse IP publique de niveau d'instance ([ILPIP](virtual-networks-instance-level-public-ip.md)). Cette adresse IP publique peut uniquement être dynamique.
+
+>[AZURE.NOTE] Cela diffère de l’adresse IP virtuelle du service cloud, qui est un conteneur pour les machines virtuelles IaaS ou instances de rôle PaaS, dans la mesure où un service cloud peut contenir plusieurs machines virtuelles IaaS, ou instances de rôle PaaS, toutes exposées via la même adresse IP virtuelle de service cloud.
 
 ### Passerelles VPN
-Une [passerelle VPN](vpn-gateway-about-vpngateways.md) peut être utilisée pour connecter un réseau virtuel Azure (VNet) à d’autres réseaux virtuels Azure ou à des réseaux locaux. Une passerelle VPN est affectée *dynamiquement* à une adresse IP publique, ce qui permet la communication avec le réseau distant.
+Une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) peut être utilisée pour connecter un réseau virtuel Azure (VNet) à d’autres réseaux virtuels Azure ou à des réseaux locaux. Une passerelle VPN est affectée *dynamiquement* à une adresse IP publique, ce qui permet la communication avec le réseau distant.
 
 ### Passerelles d'application
-Une [passerelle d’application](application-gateway-introduction.md) Azure peut être utilisée pour l’équilibrage de la charge Layer7 pour acheminer le trafic réseau basé sur HTTP. La passerelle d'application est affectée *dynamiquement* à une adresse IP publique, qui sert d'adresse IP virtuelle à charge équilibrée.
+Une [passerelle d’application](../application-gateway/application-gateway-introduction.md) Azure peut être utilisée pour l’équilibrage de la charge Layer7 pour acheminer le trafic réseau basé sur HTTP. La passerelle d'application est affectée *dynamiquement* à une adresse IP publique, qui sert d'adresse IP virtuelle à charge équilibrée.
 
 ### Aperçu
 Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’allocation possible (statique/dynamique), et la possibilité d’affecter plusieurs adresses IP publiques.
@@ -115,7 +119,7 @@ Lorsque vous créez une machine virtuelle, un mappage du nom d’hôte à son ad
 Dans le cas d'un service cloud *autonome*, vous serez en mesure de résoudre les noms d'hôtes de toutes les instances de rôle ou de toutes les machines virtuelles dans le même service cloud. Dans le cas d'un service cloud dans un VNet, vous serez en mesure de résoudre les noms d'hôtes de toutes les instances de rôle ou de toutes les machines virtuelles dans le même VNet.
 
 ### Équilibreurs de charge internes (ILB) et passerelles d’application
-Vous pouvez affecter une adresse IP privée à la configuration **frontale** d’un [équilibreur de charge interne Azure](load-balancer-internal-overview.md) (ILB) ou d’une [passerelle d’application Azure](application-gateway-introduction.md). Cette adresse IP privée sert de point de terminaison interne, accessible uniquement aux ressources de son réseau virtuel (VNet), et de réseaux distants connectés au réseau virtuel. Vous pouvez affecter une adresse IP privée statique ou dynamique à la configuration frontale. Vous pouvez également affecter plusieurs adresses IP privées pour permettre des scénarios avec plusieurs adresses IP virtuelles.
+Vous pouvez affecter une adresse IP privée à la configuration **frontale** d’un [équilibreur de charge interne Azure](../load-balancer/load-balancer-internal-overview.md) (ILB) ou d’une [passerelle d’application Azure](../application-gateway/application-gateway-introduction.md). Cette adresse IP privée sert de point de terminaison interne, accessible uniquement aux ressources de son réseau virtuel (VNet), et de réseaux distants connectés au réseau virtuel. Vous pouvez affecter une adresse IP privée statique ou dynamique à la configuration frontale. Vous pouvez également affecter plusieurs adresses IP privées pour permettre des scénarios avec plusieurs adresses IP virtuelles.
 
 ### Aperçu
 Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’allocation possible (statique/dynamique) et la possibilité d’affecter plusieurs adresses IP privées.
@@ -130,7 +134,7 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 ## Limites
 
-Le tableau ci-dessous présente les limites imposées sur l'adressage IP dans Azure par abonnement. Vous pouvez [contacter le support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut dans les limites maximum en fonction des besoins de votre entreprise.
+Le tableau ci-dessous présente les limites imposées sur l'adressage IP dans Azure par abonnement. Vous pouvez [contacter le support technique](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut dans les limites maximum en fonction des besoins de votre entreprise.
 
 |Limite par défaut|Limite maximale|
 |---|---|---|
@@ -162,4 +166,4 @@ Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager 
 ## Étapes suivantes
 - [Déployez une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-classic-pportal.md) à l’aide du portail classique.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

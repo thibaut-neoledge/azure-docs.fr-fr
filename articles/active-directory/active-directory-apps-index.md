@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Liste des articles sur la gestion d’applications dans Azure Active Directory | Microsoft Azure"
+	pageTitle="Index d’articles pour la gestion des applications dans Azure Active Directory | Microsoft Azure"
 	description="Apprenez à personnaliser la date d’expiration pour vos certificats de fédération, mais aussi à renouveler les certificats arrivant à expiration."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/16/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Index d’articles pour la gestion des applications dans Azure Active Directory
@@ -24,7 +24,7 @@ Vous trouverez une brève introduction à chaque domaine de fonctionnalités pri
 
 ##Articles généraux
 
-Les articles ci-dessous constituent de bons points de départ pour les personnes souhaitant simplement une brève explication des fonctionnalités de gestion d’applications Azure AD. Ces sujets sont abordés en profondeur dans le reste de ce guide.
+Les articles ci-dessous constituent de bons points de départ pour les personnes souhaitant simplement une brève explication des fonctionnalités de gestion d’applications Azure AD.
 
 | Guide des articles | |
 | :---: | --- |
@@ -32,6 +32,18 @@ Les articles ci-dessous constituent de bons points de départ pour les personnes
 | Vue d’ensemble des différentes fonctionnalités dans Azure AD liées à l’activation de l’authentification unique, à la définition des personnes pouvant accéder aux applications et à la façon dont les utilisateurs lancent des applications | [Accès aux applications et authentification unique dans Azure Active Directory](active-directory-appssoaccess-whatis.md) |
 | Examen des différentes étapes de l’intégration des applications à Azure AD | [Intégration d’Azure Active Directory aux applications](active-directory-integrating-applications-getting-started.md)<br /><br />[Activation de l’authentification unique pour les applications SaaS](active-directory-sso-integrate-saas-apps.md)<br /><br />[Gestion de l’accès aux applications](active-directory-managing-access-to-apps.md) |
 | Explication technique de la représentation des applications dans Azure AD | [Comment et pourquoi les applications sont ajoutées à Azure AD](active-directory-how-applications-are-added.md) |
+
+##Articles de résolution des problèmes
+
+Cette section fournit un accès rapide aux guides de résolution des problèmes appropriés. Vous trouverez plus d’informations sur chaque domaine de fonctionnalités sur cette page.
+
+| Domaine de fonctionnalités | |
+| :---: | --- |
+| Authentification unique fédérée | [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md) |
+| Authentification unique par mot de passe | [Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Proxy d’application | [Guide de résolution des problèmes pour le proxy d’application](active-directory-application-proxy-troubleshoot.md) |
+| Authentification unique entre AD en local et Azure AD | [Résolution des problèmes de synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md#managing-password-synchronization)<br /><br />[Résolution des problèmes d’écriture différée du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
+| Appartenances au groupe dynamique | [Résolution des problèmes liés à l’appartenance au groupe dynamique](active-directory-accessmanagement-troubleshooting.md) |
 
 ##Authentification unique (SSO)
 
@@ -59,7 +71,7 @@ Pour activer l’authentification unique pour les applications qui ne prennent p
 | Introduction au fonctionnement de l’authentification unique par mot de passe et brève vue d’ensemble technique | [Authentification unique par mot de passe avec Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | Résumé des scénarios relatifs au partage de compte et résolution de ces problèmes par Azure AD | [Partage de comptes avec Azure AD](active-directory-sharing-accounts.md) |
 | Modifier automatiquement le mot de passe pour certaines applications à intervalles réguliers | [Substitution de mot de passe automatique (version préliminaire)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
-| Guides de déploiement et de dépannage pour la version Internet Explorer de l’extension de gestion de mot de passe Azure AD | [Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)<br /><br />[Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Guides de déploiement et de dépannage pour la version Internet Explorer de l’extension de gestion de mot de passe Azure AD | [Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)<br /><br />[Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 L’authentification unique par mot de passe est disponible pour toutes les éditions d’Azure AD dans la limite de dix applications par utilisateur. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) prend en charge un nombre illimité d’applications. Si votre organisation a [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez [utiliser des groupes pour affecter l’accès à des applications](#how-to-manage-who-has-access-to-which-apps). La substitution de mot de passe automatique est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -77,7 +89,7 @@ Si votre réseau privé contient des applications qui doivent être accessibles 
 
 Le proxy d’application est disponible pour toutes les éditions d’Azure AD dans la limite de dix applications par utilisateur. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) prend en charge un nombre illimité d’applications. Si votre organisation a [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez [utiliser des groupes pour affecter l’accès à des applications](#how-to-manage-who-has-access-to-which-apps).
 
-Vous pouvez également être intéressé par les [services de domaine Azure AD](active-directory-ds-overview.md), qui vous permettent de migrer vos applications locales vers Azure tout en répondant aux besoins d’identité de ces applications.
+Vous pouvez également être intéressé par les [services de domaine Azure AD](../active-directory-domain-services/active-directory-ds-overview.md), qui vous permettent de migrer vos applications locales vers Azure tout en répondant aux besoins d’identité de ces applications.
 
 ###Activation de l’authentification unique entre Azure AD et AD en local
 
@@ -87,7 +99,9 @@ Si votre organisation gère un annuaire Windows Server Active Directory local pa
 | :---: | --- |
 | Vue d’ensemble des options d’authentification unique proposées dans Azure AD Connect, ainsi que des informations sur la gestion des environnements hybrides | [Options d’authentification de l’utilisateur dans Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Conseils généraux sur la gestion des environnements comportant à la fois Active Directory en local et Azure Active Directory | [Considérations sur la conception d’identités pour Azure AD Hybride](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md) |
-| Aide sur l’utilisation de la synchronisation de mots de passe pour activer l’authentification unique et sur l’utilisation de l’écriture différée du mot de passe avec la réinitialisation du mot de passe libre-service Azure AD | [Implémenter la synchronisation des mots de passe avec Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Prise en main de la gestion des mots de passe dans Azure AD](active-directory-passwords-getting-started.md) |
+| Aide sur l’utilisation de la synchronisation de mot de passe pour activer l’authentification unique | [Implémenter la synchronisation de mot de passe avec Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Résoudre les problèmes de synchronisation de mot de passe](https://support.microsoft.com/fr-FR/kb/2855271) |
+| Aide sur l’utilisation de l’écriture différée du mot de passe pour activer l’authentification unique | [Prise en main de la gestion de mot de passe dans Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Résoudre les problèmes d’écriture différée du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Aide sur l’utilisation de fournisseurs d’identité tiers pour activer l’authentification unique | [Liste des fournisseurs d’identité de tiers compatibles pouvant être utilisés pour activer l’authentification unique](https://aka.ms/ssoproviders) | 
 | Comment les utilisateurs de Windows 10 peuvent profiter des avantages de l’authentification unique par le biais d’Azure AD Join | [Extension des fonctionnalités du cloud aux appareils Windows 10 par le biais d’Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
 Azure AD Connect est disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). La réinitialisation du mot de passe libre-service Azure AD est disponible pour [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) et [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). L’écriture différée du mot de passe sur Active Directory en local est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -100,7 +114,7 @@ Une fois que vous avez défini l’authentification unique pour vos applications
 | :---: | --- |
 | Présentation des fonctionnalités d’accès conditionnel offertes dans Azure AD, Office 365 et Intune | [Gestion des risques avec accès conditionnel](active-directory-conditional-access.md) |
 | Comment activer l’accès conditionnel pour les types de ressources suivants | [Accès conditionnel pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Accès conditionnel pour les services Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Accès conditionnel pour les applications locales](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Accès conditionnel pour les applications locales publiées par le biais du proxy d’application Azure AD](active-directory-application-proxy-conditional-access.md) |
-| Comment inscrire des appareils auprès d’Azure Active Directory pour activer des stratégies d’accès conditionnel en fonction de l’appareil | [Présentation d’Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Comment activer l’inscription automatique des appareils pour les appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration.md)<br />— [Étapes pour les appareils Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)<br />— [Étapes pour les appareils Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| Comment inscrire des appareils auprès d’Azure Active Directory pour activer des stratégies d’accès conditionnel en fonction de l’appareil | [Présentation d’Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Comment activer l’inscription automatique des appareils pour les appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration.md)<br />- [Étapes pour les appareils Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)<br />- [Étapes pour les appareils Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | Comme utiliser la version Android de l’application Azure Authenticator pour les stratégies impliquant l’authentification multifacteur | [Azure Authenticator pour Android](active-directory-conditional-access-azure-authenticator-app.md) |
 
 L’accès conditionnel est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -184,9 +198,9 @@ Grâce au volet d’accès Azure AD, les utilisateurs finaux peuvent lancer leur
 | Guide des articles | |
 | :---: | --- |
 | Comparaison des différentes options de déploiement d’applications avec authentification unique pour les utilisateurs | [Déploiement d’applications Azure AD intégrées pour les utilisateurs](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
-| Vue d’ensemble du volet d’accès et des applications MyApp mobiles équivalentes | [Introduction au volet d’accès et aux applications MyApp](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| Vue d’ensemble du volet d’accès et des applications MyApp mobiles équivalentes | [Introduction au volet d’accès et aux applications MyApp](active-directory-saas-access-panel-introduction.md)<br />- [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Comment accéder aux applications Azure AD depuis le site web Office 365 | [Utilisation du lanceur d’applications Office 365](https://support.office.com/fr-FR/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Comment accéder aux applications Azure AD depuis l’application mobile Intune Managed Browser | [Intune Managed Browser](https://technet.microsoft.com/fr-FR/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Comment accéder aux applications Azure AD depuis l’application mobile Intune Managed Browser | [Intune Managed Browser](https://technet.microsoft.com/fr-FR/library/dn878029.aspx)<br />- [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Comment accéder aux applications Azure AD à l’aide de liens ciblés pour lancer l’authentification unique | [Établissement de liens d’authentification directs vers vos applications](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Le volet d’accès est disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -214,4 +228,4 @@ Pour afficher les rapports qui sont inclus dans les différentes éditions d’A
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -173,7 +173,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 Le script PowerShell de cette section effectue les étapes suivantes :
 
 1. Connexion à Azure.
-2. Création d’un groupe de ressources Azure. Pour plus d’informations, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
+2. Création d’un groupe de ressources Azure. Pour plus d’informations, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 3. Création d’un serveur Base de données SQL Azure, d’une base de données SQL Azure et de deux tables. Ceux-ci sont utilisés par l’action Sqoop dans le flux de travail.
 
 	Le nom de la table est *log4jLogCount*.
@@ -635,11 +635,11 @@ Dans ce didacticiel, vous avez appris à définir un flux de travail Oozie et à
 
 
 
-[azure-data-factory-pig-hive]: ../data-factory/data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
@@ -650,7 +650,7 @@ Dans ce didacticiel, vous avez appris à définir un flux de travail Oozie et à
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
@@ -680,4 +680,4 @@ Dans ce didacticiel, vous avez appris à définir un flux de travail Oozie et à
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

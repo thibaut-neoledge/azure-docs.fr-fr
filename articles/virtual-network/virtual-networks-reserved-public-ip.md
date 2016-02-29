@@ -12,13 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/10/2016"
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP réservées
 Il existe deux catégories d’adresses IP dans Azure, les réservées et les dynamiques. Les adresses IP publiques gérées par Azure sont dynamiques par défaut. Cela signifie que l'adresse IP utilisée pour un service cloud donné (adresse IP virtuelle) ou pour accéder à une machine virtuelle ou à une instance de rôle directement (ILPIP) peut changer à tout moment, lorsque les ressources sont arrêtées ou désallouées.
 
 Pour empêcher la modification des adresses IP, vous pouvez réserver une adresse IP. Les adresses IP réservées peuvent uniquement servir d’adresse IP virtuelle, garantissant que l'adresse IP utilisée pour le service cloud restera la même, et ce même si les ressources sont arrêtées ou désallouées. Par ailleurs, vous pouvez convertir une adresse IP dynamique existante utilisée comme adresse IP virtuelle en adresse IP réservée.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+
+Assurez-vous que vous comprenez le fonctionnement des [adresses IP](virtual-network-ip-addresses-overview-classic.md) dans Azure.
 
 ## Quand ai-je besoin d’une adresse IP réservée ?
 - **Vous souhaitez vous assurer que l'adresse IP est réservée dans votre abonnement**. Si vous souhaitez réserver une adresse IP qui restera associée à votre abonnement en toute circonstance, vous devez utiliser une adresse IP publique réservée.  
@@ -43,7 +47,7 @@ Avant de pouvoir utiliser une adresse IP réservée, vous devez l'ajouter à vot
 
 	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
-Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address*:
+Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address* :
 
 	Get-AzureReservedIP
 
@@ -73,14 +77,14 @@ Le script ci-dessous crée une adresse IP réservée, puis l’associe à un nou
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 	| New-AzureVM -ServiceName TestService -ReservedIPName MyReservedIP -Location "Central US"
 
->[AZURE.NOTE]Lorsque vous créez une adresse IP réservée à utiliser avec un service cloud, vous devez toujours faire référence à la machine virtuelle en utilisant *VIP:&lt;numéro de port>* pour les communications entrantes. Avoir une adresse IP réservée ne signifie pas que vous pouvez vous connecter directement à la machine virtuelle. L'adresse IP réservée est affectée au service cloud sur lequel la machine virtuelle a été déployée. Si vous souhaitez vous connecter à une machine virtuelle directement avec l’adresse IP, vous devez configurer une adresse IP publique de niveau de l'instance. Une adresse IP publique de niveau d'instance est un type d'adresse IP publique (appelée ILPIP) qui est affectée directement à votre machine virtuelle. Elle ne peut pas être réservée. Pour plus d’informations, consultez la page [Adresse IP publique de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip).
+>[AZURE.NOTE] Lorsque vous créez une adresse IP réservée à utiliser avec un service cloud, vous devez toujours faire référence à la machine virtuelle en utilisant *VIP:&lt;numéro de port>* pour les communications entrantes. Avoir une adresse IP réservée ne signifie pas que vous pouvez vous connecter directement à la machine virtuelle. L'adresse IP réservée est affectée au service cloud sur lequel la machine virtuelle a été déployée. Si vous souhaitez vous connecter à une machine virtuelle directement avec l’adresse IP, vous devez configurer une adresse IP publique de niveau de l'instance. Une adresse IP publique de niveau d'instance est un type d'adresse IP publique (appelée ILPIP) qui est affectée directement à votre machine virtuelle. Elle ne peut pas être réservée. Pour plus d’informations, consultez la page [Adresse IP publique de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip).
 
 ## Suppression d’une adresse IP réservée dans un déploiement en cours d'exécution
 Pour supprimer l’adresse IP réservée ajoutée à la machine virtuelle à l’aide du script ci-dessus, exécutez la commande PowerShell suivante :
 
 	Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService
 
->[AZURE.NOTE]Si vous supprimez une adresse IP réservée d’un déploiement en cours d'exécution, la réservation ne sera pas supprimée de votre abonnement. Cela libérera simplement l'adresse IP à utiliser par une autre ressource dans votre abonnement.
+>[AZURE.NOTE] Si vous supprimez une adresse IP réservée d’un déploiement en cours d'exécution, la réservation ne sera pas supprimée de votre abonnement. Cela libérera simplement l'adresse IP à utiliser par une autre ressource dans votre abonnement.
 
 ## Association d’une adresse IP réservée à un déploiement en cours d’exécution
 Le script ci-dessous crée un service cloud nommé *TestService2* avec une nouvelle machine virtuelle nommée *TestVM2* et associe l’adresse IP réservée nommée *MyReservedIP* au service cloud.
@@ -113,10 +117,10 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 
 ## Étapes suivantes
 
+- Découvrez comment l’[adressage IP](virtual-network-ip-addresses-overview-classic.md) fonctionne dans le modèle de déploiement classique.
+
 - En savoir plus sur [les adresses IP privées réservées](../virtual-networks-reserved-private-ip).
 
 - En savoir plus sur [les adresses IP publiques de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip).
 
-- Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

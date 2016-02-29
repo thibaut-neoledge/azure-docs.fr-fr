@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # En savoir plus sur la gestion des mots de passe
@@ -101,7 +101,7 @@ Pour en savoir plus sur le déploiement de l’écriture différée de mot de pa
 ### Données utilisées par la réinitialisation de mot de passe
 Le tableau suivant indique où et comment ces données sont utilisées lors de la réinitialisation de mot de passe. Il a pour but de vous aider à choisir les options d’authentification les plus appropriées pour votre organisation. Ce tableau recense également les formats à respecter si vous fournissez des données provenant de chemins d’entrée qui ne valident pas ces données pour le compte d’utilisateurs.
 
-> [AZURE.NOTE]Le téléphone professionnel n’apparaît pas dans le portail d’inscription, car les utilisateurs ne sont pas actuellement en mesure de modifier cette propriété dans l’annuaire.
+> [AZURE.NOTE] Le téléphone professionnel n’apparaît pas dans le portail d’inscription, car les utilisateurs ne sont pas actuellement en mesure de modifier cette propriété dans l’annuaire.
 
 <table>
           <tbody><tr>
@@ -379,4 +379,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

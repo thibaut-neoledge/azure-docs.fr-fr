@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Déployer une application avec un modèle Azure Resource Manager
@@ -107,6 +107,8 @@ Vous spécifiez le type de déploiement via la propriété **Mode**, comme indiq
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
           [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+     Si le modèle inclut un paramètre avec un nom correspondant à l’un des paramètres de la commande pour déployer le modèle (par exemple, en incluant un paramètre nommé **ResourceGroupName** dans votre modèle, qui est le même que le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), vous serez invité à fournir une valeur pour un paramètre avec le suffixe **FromTemplate** (tel que **ResourceGroupNameFromTemplate**). En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
 
 6. Pour obtenir des informations sur les échecs de déploiement.
 
@@ -271,7 +273,7 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
 
 La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
-Pour savoir comment définir des paramètres dans le modèle, consultez la section [Création de modèles](../resource-group-authoring-templates/#parameters). Pour plus d'informations sur la référence de coffre de clés permettant de passer les valeurs sécurisées lors du déploiement, consultez la section [Passage de valeurs sécurisées lors du déploiement ](resource-manager-keyvault-parameter.md)
+Pour savoir comment définir des paramètres dans le modèle, consultez la section [Création de modèles](../resource-group-authoring-templates/#parameters). Pour plus d’informations sur la référence de coffre de clés permettant de passer les valeurs sécurisées lors du déploiement, consultez la section [Passage de valeurs sécurisées lors du déploiement ](resource-manager-keyvault-parameter.md)
 
 ## Étapes suivantes
 - Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, voir [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](./virtual-machines/arm-template-deployment.md).
@@ -282,4 +284,4 @@ Pour savoir comment définir des paramètres dans le modèle, consultez la secti
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

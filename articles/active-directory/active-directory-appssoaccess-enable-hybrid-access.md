@@ -3,6 +3,7 @@
 	description="Activez l'accès aux applications qui s'exécutent à l'intérieur de votre réseau privé à partir de votre réseau via Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
+	keywords="accès aux applications, proxy d’application, accès hybride"
 	authors="femila"
 	manager="stevenpo"
 	editor=""/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # Activation de l'accès hybride avec le proxy d'application
@@ -43,4 +44,4 @@ Il existe une seule condition pour permettre l’accès à une application web :
 - [Activation du proxy d’application Azure AD](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Publication d’applications via le proxy d'application Azure AD](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Comment mettre à jour votre mot de passe
@@ -48,7 +48,7 @@ Le moyen le plus rapide de vous inscrire pour demander une réinitialisation du 
  
     ![][015]
 
- >[AZURE.IMPORTANT]Si votre administrateur vous permet de vous inscrire à plusieurs options, nous vous recommandons vivement de vous inscrire également à une option de sauvegarde, pour le cas où vous perdriez votre téléphone ou n'auriez plus accès à votre adresse de messagerie.
+ >[AZURE.IMPORTANT] Si votre administrateur vous permet de vous inscrire à plusieurs options, nous vous recommandons vivement de vous inscrire également à une option de sauvegarde, pour le cas où vous perdriez votre téléphone ou n'auriez plus accès à votre adresse de messagerie.
 
 ## Comment modifier votre mot de passe à partir d'Office 365
 Suivez les étapes ci-dessous pour modifier le mot de passe de votre compte professionnel ou scolaire dans Office 365. Si vous avez oublié votre mot de passe et souhaitez le réinitialiser, suivez les étapes [ci-dessous](#how-to-reset-your-password).
@@ -76,7 +76,7 @@ Suivez les étapes ci-dessous pour modifier le mot de passe de votre compte prof
 
 Suivez les étapes ci-dessous pour réinitialiser le mot de passe de votre compte professionnel ou scolaire depuis n'importe quel écran de connexion professionnel ou scolaire.
 
- >[AZURE.IMPORTANT]Cette fonctionnalité est disponible uniquement si votre administrateur l'a activée. Si elle est désactivée, vous verrez un message indiquant que votre compte n'est pas activé pour cette fonctionnalité. Dans ce cas, vous pouvez utiliser le lien « Contactez votre administrateur » pour contacter votre administrateur et déverrouiller votre compte.<br><br>Si votre administrateur a activé cette fonctionnalité pour vous, vous devrez vous connecter avant de pouvoir l'utiliser. Vous pouvez le faire ici : http://aka.ms/ssprsetup.
+ >[AZURE.IMPORTANT] Cette fonctionnalité est disponible uniquement si votre administrateur l'a activée. Si elle est désactivée, vous verrez un message indiquant que votre compte n'est pas activé pour cette fonctionnalité. Dans ce cas, vous pouvez utiliser le lien « Contactez votre administrateur » pour contacter votre administrateur et déverrouiller votre compte.<br><br>Si votre administrateur a activé cette fonctionnalité pour vous, vous devrez vous connecter avant de pouvoir l'utiliser. Vous pouvez le faire ici : http://aka.ms/ssprsetup.
  
 
  1. Sur une page de connexion professionnelle ou scolaire, cliquez sur le lien « Vous ne pouvez pas accéder à votre compte ? » ou sur le lien « Vous avez oublié votre mot de passe ? », ou accédez directement à https://passwordreset.microsoftonline.com.
@@ -123,7 +123,7 @@ Vous rencontrez un problème lors de la réinitialisation de votre mot de passe 
 ## Comment déverrouiller votre compte
 Suivez les étapes ci-dessous pour déverrouiller votre compte local depuis n'importe quel écran de connexion professionnel ou scolaire. **Remarque : Vous seul pourrez déverrouiller votre compte s'il a été verrouillé localement.**
 
- >[AZURE.IMPORTANT]Cette fonctionnalité est disponible uniquement si votre administrateur l'a activée. Si elle est désactivée, vous verrez un message indiquant que votre compte n'est pas activé pour cette fonctionnalité. Dans ce cas, vous pouvez utiliser le lien « Contactez votre administrateur » pour contacter votre administrateur et déverrouiller votre compte.<br><br>Si votre administrateur a activé cette fonctionnalité pour vous, vous devrez vous connecter avant de pouvoir l'utiliser. Vous pouvez le faire ici : http://aka.ms/ssprsetup.
+ >[AZURE.IMPORTANT] Cette fonctionnalité est disponible uniquement si votre administrateur l'a activée. Si elle est désactivée, vous verrez un message indiquant que votre compte n'est pas activé pour cette fonctionnalité. Dans ce cas, vous pouvez utiliser le lien « Contactez votre administrateur » pour contacter votre administrateur et déverrouiller votre compte.<br><br>Si votre administrateur a activé cette fonctionnalité pour vous, vous devrez vous connecter avant de pouvoir l'utiliser. Vous pouvez le faire ici : http://aka.ms/ssprsetup.
 
 
  1. Sur une page de connexion professionnelle ou scolaire, cliquez sur le lien « Vous ne pouvez pas accéder à votre compte ? » ou sur le lien « Vous avez oublié votre mot de passe ? », ou accédez directement à https://passwordreset.microsoftonline.com.
@@ -162,7 +162,7 @@ Suivez les étapes ci-dessous pour déverrouiller votre compte local depuis n'im
  
     ![][010]
   
- >[AZURE.IMPORTANT]Veillez à mettre à jour le mot de passe sur tous vos appareils : souvent, une application non autorisée avec un mot de passe obsolète (comme votre client de messagerie de téléphone) peut être la raison pour laquelle votre compte a été verrouillé en premier lieu.
+ >[AZURE.IMPORTANT] Veillez à mettre à jour le mot de passe sur tous vos appareils : souvent, une application non autorisée avec un mot de passe obsolète (comme votre client de messagerie de téléphone) peut être la raison pour laquelle votre compte a été verrouillé en premier lieu.
  
 Rencontrez un problème pour déverrouiller votre compte ? Lisez [Problèmes courants et leurs solutions](#common-problems-and-their-solutions).
 
@@ -252,4 +252,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

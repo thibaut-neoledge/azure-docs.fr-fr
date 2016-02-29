@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="joaoma"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="02/02/2016"
 	ms.author="joaoma"/>
 
 
@@ -77,12 +77,17 @@ Le diagramme suivant montre un exemple de point de terminaison interne à charge
 
 ![loadbalancing](./media/virtual-machines-load-balance/LOBServers.png)
 
+## Considérations relatives à l’équilibreur de charge
+
+Un équilibreur de charge est configuré par défaut pour mettre fin à une session inactive pendant 4 minutes. Si l’application derrière un équilibreur de charge conserve une connexion inactive pendant plus de 4 minutes sans une configuration de persistance de connexion, la connexion est supprimée. Vous pouvez modifier le comportement de l’équilibreur de charge pour permettre un [paramètre de délai d’attente plus long pour l’équilibreur de charge Azure](../load-balancer/load-balancer-tcp-idle-timeout.md).
+
+Un autre élément à prendre en compte est le type de mode de distribution pris en charge par l’équilibreur de charge Azure. Vous pouvez configurer l’affinité d’IP source (adresse IP source, adresse IP de destination) ou le protocole IP source (adresse IP source, adresse IP de destination et protocole). Pour plus d’informations, consultez [Mode de distribution de l'équilibreur de charge (affinité d’IP source)](../load-balancer/load-balancer-distribution-mode.md).
+
+
 ## Étapes suivantes
 
 Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge interne](../load-balancer/load-balancer-internal-getstarted.md).
 
-Pour plus d’informations sur l’équilibrage de charge, voir l’article [Équilibrage de charge interne](../load-balancer/load-balancer-internal-overview.md).
+Pour plus d’informations sur l’équilibreur de charge, voir l’article [Équilibrage de charge interne](../load-balancer/load-balancer-internal-overview.md).
 
-<!-- LINKS -->
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

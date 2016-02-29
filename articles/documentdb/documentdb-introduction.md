@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # Présentation de DocumentDB : une base de données NoSQL JSON
@@ -77,11 +77,11 @@ Azure DocumentDB expose les ressources via une API REST qui peut être appelée 
 Télécharger | Documentation
 --- | ---
 [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](http://go.microsoft.com/fwlink/?LinkID=402989) | [Bibliothèque .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-[Kit de développement logiciel (SDK) Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) | [Bibliothèque Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)
-[Kit de développement logiciel (SDK) Java](http://go.microsoft.com/fwlink/?LinkID=402380) | [Bibliothèque Java](http://dl.windowsazure.com/documentdb/javadoc/)
-[Kit de développement logiciel (SDK) JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991) | [Bibliothèque JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/)
-n/a | [Kit de développement logiciel (SDK) JavaScript côté serveur](http://dl.windowsazure.com/documentDB/jsserverdocs/)
-[Kit de développement logiciel (SDK) Python](https://pypi.python.org/pypi/pydocumentdb) | [Bibliothèque Python](http://dl.windowsazure.com/documentDB/pythondocs/)
+[Kit de développement logiciel (SDK) Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) | [Bibliothèque Node.js](http://azure.github.io/azure-documentdb-node/)
+[Kit de développement logiciel (SDK) Java](http://go.microsoft.com/fwlink/?LinkID=402380) | [Bibliothèque Java](http://azure.github.io/azure-documentdb-java/)
+[Kit de développement logiciel (SDK) JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991) | [Bibliothèque JavaScript](http://azure.github.io/azure-documentdb-js/)
+n/a | [Kit de développement logiciel (SDK) JavaScript côté serveur](http://azure.github.io/azure-documentdb-js-server/)
+[Kit de développement logiciel (SDK) Python](https://pypi.python.org/pypi/pydocumentdb) | [Bibliothèque Python](http://azure.github.io/azure-documentdb-python/)
 
 En plus des opérations Create, Read, Update et Delete de base, DocumentDB fournit une interface de requêtes SQL enrichies pour la récupération de documents JSON et une prise en charge côté serveur de l'exécution transactionnelle de la logique d'application JavaScript. Les interfaces d'exécution des requêtes et des scripts sont disponibles dans toutes les bibliothèques de plateforme, ainsi que les API REST.
 
@@ -111,4 +111,4 @@ Ensuite, quand vous êtes prêt à aller plus loin, visitez notre [cursus](https
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

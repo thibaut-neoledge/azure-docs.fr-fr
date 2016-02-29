@@ -434,10 +434,10 @@ Si la propriété d’accès n’est pas définie, l’accès non authentifié e
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read* : opération GET RESTful sur la table
+  - *insert* : opération POST RESTful sur la table
+  - *update* : opération PATCH RESTful sur la table
+  - *delete* : opération DELETE RESTful sur la table
 
 Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
 
@@ -636,7 +636,7 @@ Vous pouvez également spécifier l’authentification sur des opérations spéc
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -671,6 +671,38 @@ Le Kit de développement logiciel (SDK) Azure Mobile Apps utilise l’[intergici
 
 Vous pouvez ajuster la limite de 50 Mo affichée ci-dessus. Notez que le fichier sera codé en base 64 avant la transmission, ce qui augmentera la taille du téléchargement réel.
 
+### <a name="howto-customapi-sql"></a>Procédure : exécuter des instructions SQL personnalisées
+
+Le kit de développement logiciel (SDK) Azure Mobile Apps permet d’accéder à l’ensemble du contexte via l’objet de la demande, ce qui vous permet d’exécuter facilement des instructions SQL paramétrées pour le fournisseur de données défini :
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+Ce point de terminaison est accessible par s
 ## <a name="Debugging"></a>Débogage et résolution des problèmes
 
 Azure App Service fournit plusieurs techniques de débogage et de résolution des problèmes pour les applications Node.js. Toutes ces techniques sont disponibles.
@@ -771,4 +803,4 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

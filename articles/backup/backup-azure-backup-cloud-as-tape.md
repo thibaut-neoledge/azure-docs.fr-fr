@@ -6,10 +6,21 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="12/15/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="02/09/2016"
+   ms.author="jimpark;"/>
 
 # Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
-Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes : - sauvegarder des données selon la planification qui convient le mieux aux besoins de leur organisation - conserver les données sauvegardées pour de plus longues périodes - intégrer Azure à leurs besoins de rétention à long terme (à la place des bandes).
+Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :
+
+- sauvegarder leurs données selon des planifications qui correspondent le mieux aux besoins de leur organisation ;
+- conserver les données sauvegardées pendant plus longtemps ;
+- intégrer Azure à leurs besoins de rétention à long terme (à la place d’une bande).
 
 Cet article explique comment les clients peuvent mettre en place des stratégies de sauvegarde et de rétention. Les clients qui utilisent des bandes pour répondre à leurs besoins de rétention à long terme disposent désormais d’une alternative puissante et viable grâce à cette fonctionnalité. La fonctionnalité est activée dans la dernière version d’Azure Backup (disponible [ici](http://aka.ms/azurebackup_agent)). Les clients SCDPM devront migrer vers UR5 avant d’utiliser cette fonctionnalité.
 
@@ -60,4 +71,4 @@ Pour plus d'informations sur Azure Backup, consultez la rubrique
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Test d’Azure Backup](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

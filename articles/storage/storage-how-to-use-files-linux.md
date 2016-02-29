@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="12/17/2015"
+      ms.date="02/15/2016"
       ms.author="jutang" />
 
 
@@ -121,13 +121,12 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 ### Vidéos et articles conceptuels
 
 - [Stockage de fichiers Azure : un système de fichiers SMB dans le cloud sans friction pour Windows et Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-- [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files.md)
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+- [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
 
 ### Outils pris en charge pour le stockage de fichiers
 
-- [Utilisation de AzCopy avec Microsoft Azure Storage](storage-use-azcopy.md)
-- [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+- [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+- [Création et gestion de partages de fichiers](storage-azure-cli.md#create-and-manage-file-shares) à l’aide de l’interface CLI Azure
 
 ### Référence
 
@@ -135,9 +134,9 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 
 ### Billets de blog :
 
-- [Le stockage de fichiers Azure est désormais mis à la disposition générale](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Présentation approfondie du stockage de fichiers Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
+- [Le stockage de fichiers Azure est désormais mis à la disposition générale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+- [Stockage de fichiers dans Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

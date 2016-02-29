@@ -288,18 +288,23 @@ Pour intégrer de manière générique n’importe quelle machine à Azure Autom
         
         # Create the metaconfigurations
         # TODO: edit the below as needed for your use case
-        DscMetaConfigs `
-            -RegistrationUrl "<fill me in>" `
-            -RegistrationKey "<fill me in>" `
-            -ComputerName "<some VM to onboard>", "<some other VM to onboard>" `
-            -NodeConfigurationName "SimpleConfig.webserver" `
-            -RefreshFrequencyMins 30 `
-            -ConfigurationModeFrequencyMins 15 `
-            -RebootNodeIfNeeded $False `
-            -AllowModuleOverwrite $False `
-            -ConfigurationMode "ApplyAndMonitor" `
-            -ActionAfterReboot "ContinueConfiguration" `
-            -ReportOnly $False # Set to $True to have machines only report to AA DSC but not pull from it
+        $Params = @{
+             RegistrationUrl = '<fill me in>';
+             RegistrationKey = '<fill me in>';
+             ComputerName = @('<some VM to onboard>', '<some other VM to onboard>');
+             NodeConfigurationName = 'SimpleConfig.webserver';
+             RefreshFrequencyMins = 30;
+             ConfigurationModeFrequencyMins = 15;
+             RebootNodeIfNeeded = $False;
+             AllowModuleOverwrite = $False;
+             ConfigurationMode = 'ApplyAndMonitor';
+             ActionAfterReboot = 'ContinueConfiguration';
+             ReportOnly = $False;  # Set to $True to have machines only report to AA DSC but not pull from it
+        }
+        
+        # Use PowerShell splatting to pass parameters to the DSC configuration being invoked
+        # For more info about splatting, run: Get-Help -Name about_Splatting
+        DscMetaConfigs @Params
 
 3.	Renseignez la clé d’inscription et l’URL de votre compte Automation, ainsi que les noms des machines à intégrer. Tous les autres paramètres sont facultatifs. Pour trouver la clé et l’URL d’enregistrement pour votre compte Automation, consultez la section [**Enregistrement sécurisé**](#secure-registration) ci-dessous.
 
@@ -316,7 +321,17 @@ Si les valeurs par défaut du gestionnaire de configuration locale DSC PowerShel
 
 3.	Téléchargez les métaconfigurations DSC PowerShell pour les machines à intégrer du compte Automation vers l’emplacement où vous voulez intégrer des nœuds :
 
-        Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop
+        # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+        $Params = @{
+            ResourceGroupName = 'ContosoResources'; # The name of the ARM Resource Group that contains your Azure Automation Account
+            AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
+            ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
+            OutputFolder = "$env:UserProfile\Desktop";
+        }
+        
+        # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
+        # For more info about splatting, run: Get-Help -Name about_Splatting
+        Get-AzureRmAutomationDscOnboardingMetaconfig @Params
 
 Vous devez à présent avoir un dossier appelé ***DscMetaConfigs*** contenant les métaconfigurations DSC PowerShell pour les machines à intégrer.
 
@@ -359,4 +374,4 @@ L’inscription peut être renouvelée selon la procédure initiale, en utilisan
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

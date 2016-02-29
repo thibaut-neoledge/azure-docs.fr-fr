@@ -3,7 +3,7 @@
 	description="Didacticiel illustrant la résolution des problèmes de bout en bout avec Azure Storage Analytics, AzCopy et Microsoft Message Analyzer"
 	services="storage"
 	documentationCenter="dotnet"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram"/>
+	ms.date="02/14/2016"
+	ms.author="robinsh"/>
 
 # Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer
 
@@ -38,9 +38,9 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 
 - **Portail Azure**. Vous pouvez configurer les mesures et la journalisation pour votre compte de stockage dans le [portail Azure](https://portal.azure.com). Vous pouvez également afficher des tableaux et des graphiques qui illustrent le fonctionnement de votre application au fil du temps et configurer des alertes pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
 
-	Pour plus d’informations sur la configuration de la surveillance dans le portail, consultez la page [Surveillance d’un compte de stockage](storage-monitor-storage-account.md) dans le portail Azure.
+	Pour plus d’informations sur la configuration de la surveillance dans le portail Azure, consultez la page [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md).
 
-- **AzCopy**. Les journaux de serveur pour Azure Storage sont stockés sous forme d'objets blob ; vous pouvez donc utiliser AzCopy pour copier les objets blob de journal dans un répertoire local pour l'analyse à l'aide de Microsoft Message Analyzer. Pour plus d'informations sur AzCopy, consultez la page [Prise en main de l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
+- **AzCopy**. Les journaux de serveur pour Azure Storage sont stockés sous forme d'objets blob ; vous pouvez donc utiliser AzCopy pour copier les objets blob de journal dans un répertoire local pour l'analyse à l'aide de Microsoft Message Analyzer. Pour plus d’informations sur AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
 - **Microsoft Message Analyzer**. Message Analyzer est un outil qui utilise des fichiers journaux et affiche les données des journaux dans un format visuel qui facilite le filtrage, la recherche et le regroupement des données de journaux dans des ensembles utiles dont vous pouvez vous servir pour analyser les erreurs et les problèmes de performances. Pour plus d'informations sur Message Analyzer, consultez la page [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx).
 
@@ -92,7 +92,7 @@ Tout d'abord, nous allons devoir configurer la journalisation et les métriques 
 
 **Via le portail Azure**
 
-Pour configurer la journalisation et les métriques pour votre compte de stockage à l’aide du [portail Azure](storage-monitor-storage-account.md), suivez les instructions de la page [Surveillance d’un compte de stockage](https://portal.azure.com).
+Pour configurer la journalisation et les métriques pour votre compte de stockage à l’aide du [portail Azure](https://portal.azure.com), suivez les instructions de la page [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md).
 
 > [AZURE.NOTE] Il n’est pas possible de définir des métriques par minute à l’aide du portail Azure. Toutefois, nous vous recommandons de les définir dans le cadre de ce didacticiel et pour examiner les problèmes de performances de votre application. Vous pouvez définir des métriques par minute à l’aide de PowerShell comme indiqué ci-dessous, par programme à l’aide de la bibliothèque cliente de stockage.
 >
@@ -100,7 +100,7 @@ Pour configurer la journalisation et les métriques pour votre compte de stockag
 
 **Via PowerShell**
 
-Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
+Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 1. Utilisez l'applet de commande [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) pour ajouter votre compte d'utilisateur Azure dans la fenêtre PowerShell :
 
@@ -130,11 +130,9 @@ Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installatio
 
 ### Configuration de la journalisation côté client .NET
 
-Pour configurer la journalisation côté client pour une application .NET, activez les diagnostics .NET dans le fichier de configuration de l'application (web.config ou app.config). Pour plus d'informations, consultez les pages [Journalisation côté client avec la bibliothèque cliente de stockage .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) et [Journalisation côté client avec le Kit de développement logiciel (SDK) Microsoft Azure Storage pour Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) sur MSDN.
+Pour configurer la journalisation côté client pour une application .NET, activez les diagnostics .NET dans le fichier de configuration de l'application (web.config ou app.config). Pour plus d’informations, consultez les pages [Journalisation côté client avec la bibliothèque cliente de stockage .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) et [Journalisation côté client avec le Kit de développement logiciel (SDK) Microsoft Azure Storage pour Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) sur MSDN.
 
 Le journal côté client inclut des informations détaillées sur la manière dont le client prépare la demande, puis reçoit et traite la réponse.
-
-La journalisation côté client est configurée dans le fichier app.config ou web.config de votre application. Pour plus d'informations, consultez la page [Journalisation côté client avec la bibliothèque cliente de stockage .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) sur MSDN.
 
 La bibliothèque cliente de stockage stocke les données du journal côté client à l'emplacement spécifié dans le fichier de configuration de l'application (web.config ou app.config).
 
@@ -174,7 +172,7 @@ Une fois que votre application a fonctionné pendant une période donnée, vous 
 
 Dans le portail Azure, **Pourcentage de réussite** apparaît désormais dans le graphique de surveillance, ainsi que les autres métriques vous avez ajoutées. Dans le scénario que nous étudierons ensuite en analysant les journaux dans Message Analyzer, le taux de pourcentage de réussite est légèrement inférieur à 100 %.
 
-Pour plus d'informations sur l'ajout de métriques à la page de surveillance, consultez la page [Ajout de mesures au tableau des mesures](storage-monitor-storage-account.md#addmonitoringmetrics).
+Pour plus d'informations sur l'ajout de métriques à la page de surveillance, consultez la page [Ajout de mesures au tableau des mesures](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
 
 > [AZURE.NOTE] Les données de vos mesures peuvent mettre un certain temps pour apparaître dans le portail Azure une fois que vous avez activé les mesures de stockage. C’est parce que les métriques horaires correspondant à l’heure précédente ne sont pas affichées dans le portail Azure tant que l’heure courante n’est pas écoulée. En outre, les mesures par minute ne sont pas actuellement affichées dans le portail Azure. Donc, selon le moment où vous activez des métriques, l'affichage des données correspondantes peut prendre jusqu'à deux heures.
 
@@ -186,9 +184,9 @@ Vous pouvez utiliser l'outil en ligne de commande AzCopy pour télécharger ces 
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy est disponible en téléchargement sur la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). Pour plus d'informations sur l'utilisation d'AzCopy, consultez la page [Prise en main de l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
+AzCopy est disponible en téléchargement sur la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). Pour plus d’informations sur l’utilisation d’AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
-Pour plus d'informations sur le téléchargement des journaux côté serveur, consultez la rubrique [Activation de la journalisation du stockage et accès aux données de journal](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Pour plus d’informations sur le téléchargement des journaux côté serveur, consultez [Télécharger les données de journal de la journalisation du stockage](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## Utilisation de Microsoft Message Analyzer pour analyser les données de journal
 
@@ -339,30 +337,19 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Pour examiner... | Utiliser l'expression de filtre... | L'expression s'applique au journal (client, serveur, réseau, tout) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Retards inattendus de la remise des messages dans une file d'attente | AzureStorageClientDotNetV4.Description contient "Retrying failed operation." | Client |
-| HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Réseau |
+| HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
-| Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | 
-| Messages HTTP 403 (interdit) |  HTTP.Response.StatusCode == 403 | Réseau |
-| Messages HTTP 404 (introuvable) | HTTP.Response.StatusCode == 404  | Réseau |
-| 404 (tous)  | *StatusCode == 404 | Tous |
-| Problème d'autorisation de la signature d'accès partagé (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Réseau |
-| Messages HTTP 409 (conflit) | HTTP.Response.StatusCode == 409 | Réseau |
-| 409 (tous) | *StatusCode == 409 | Tous |
-| Valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors  | AzureStorageLog.RequestStatus == "ClientOtherError" | Serveur |
-| Avertissement de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Serveur |
-| Plage horaire dans les journaux serveur et réseau | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Serveur, Réseau |
-| Plage horaire dans les journaux serveur | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Serveur |
+| Augmentation de la valeur PercentTimeoutError (tous) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Étapes suivantes
 
 Pour plus d'informations sur les scénarios de résolution des problèmes de bout en bout dans Azure Storage, consultez les ressources suivantes :
 
-- [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
+- [Analyser, diagnostiquer et dépanner Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 - [Analyse du stockage](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-- [Surveillance d'un compte de stockage](storage-monitor-storage-account.md)
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+- [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
+- [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

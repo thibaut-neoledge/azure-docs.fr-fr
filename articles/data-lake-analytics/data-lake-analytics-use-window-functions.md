@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -35,9 +35,9 @@ Les fonctions de fenêtre sont classées dans les catégories :
 
 - Examinez les deux didacticiels suivants :
 
-    - [Prise en main des outils Azure Data Lake Tools pour Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+    - [Prise en main des outils Azure Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
     - [Prise en main de l’utilisation U-SQL pour les travaux d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
-- Créer un compte d’analytique Data Lake comme indiqué dans [Prise en main des outils de l’utilisation Data Lake Azure Tools pour Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+- Créer un compte d’analytique Data Lake comme indiqué dans [Prise en main des outils de l’utilisation Data Lake Azure Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Créer un projet Visual Studio U-SQL, comme indiqué dans [prise en main de l’utilisation de U-SQL pour les travaux Analytique Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 
 ## Exemples de jeux de données
@@ -136,7 +136,7 @@ La requête suivante utilise l’agrégation pour calculer le salaire total de t
             SUM(Salary) AS TotalSalary
         FROM @employees;
     
->[AZURE.NOTE]Pour obtenir des instructions pour le test et la vérification, consultez [Prise en main de l’utilisation de U-SQL pour les travaux Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
+>[AZURE.NOTE] Pour obtenir des instructions pour le test et la vérification, consultez [Prise en main de l’utilisation de U-SQL pour les travaux Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
 
 Le résultat est une seule ligne avec une seule colonne. 165 000 $ est la somme de la valeur Salaire correspondant à la table entière.
 
@@ -144,7 +144,7 @@ Le résultat est une seule ligne avec une seule colonne. 165 000 $ est la somm
 |-----------
 |165000
 
->[AZURE.NOTE]Si vous êtes novice en matière de fonctions de fenêtres, il peut être utile de rappeler les nombres dans les sorties.
+>[AZURE.NOTE] Si vous êtes novice en matière de fonctions de fenêtres, il peut être utile de rappeler les nombres dans les sorties.
 
 L’instruction suivante utilise la clause GROUP BY pour calculer le salaire total correspondant à chaque service :
 
@@ -340,7 +340,7 @@ Vous trouverez plus loin les fonctions de classement prises en charge :
 	        [ORDER BY <identifier, > …[n] [ASC|DESC]] 
 	) AS <alias>
 
-- La clause ORDER BY est facultative pour les fonctions de classement. Si ORDERY BY est spécifié, il détermine l’ordre de classement. Si ORDER BY n’est pas spécifié, U-SQL affecte des valeurs en fonction de l’ordre, dans lequel il lit l’enregistrement. Il en résulte une valeur non déterminante de nombre de ligne, de classement ou de classement sans vide dans le cas où ordre par clause n’est pas spécifié.
+- La clause ORDER BY est facultative pour les fonctions de classement. Si ORDER BY est spécifié, il détermine l’ordre de classement. Si ORDER BY n’est pas spécifié, U-SQL affecte des valeurs en fonction de l’ordre, dans lequel il lit l’enregistrement. Il en résulte une valeur non déterminante de nombre de ligne, de classement ou de classement sans vide dans le cas où ordre par clause n’est pas spécifié.
 - NTILE exige une expression qui s’évalue en entier positif. Ce nombre indique le nombre de groupes en lequel chaque partition doit être divisée. Cet identificateur est utilisé uniquement avec la fonction de classement de NTILE. 
 
 Pour plus d’informations sur la clause OVER, consultez [Référence U-SQL]().
@@ -739,8 +739,8 @@ PERCENTILE\_DISC n’interpole pas les valeurs, et par conséquent, la valeur m�
 - [Utilisation des didacticiels interactifs d’Analytique Data Lake Azure](data-lake-analytics-use-interactive-tutorials.md)
 - [Analyser les journaux du site Web à l’aide de l’analytique Data Lake Azure](data-lake-analytics-analyze-weblogs.md)
 - [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
-- [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-use-portal.md)
-- [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-manage-use-portal.md)
+- [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

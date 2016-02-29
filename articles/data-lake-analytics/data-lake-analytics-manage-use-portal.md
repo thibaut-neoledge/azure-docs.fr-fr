@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Gestion d'Azure Data Lake Analytics à l'aide du portail Azure
@@ -102,8 +102,8 @@ Le fait de supprimer un compte Analytics ne supprime pas le compte Data Lake Sto
 
 Data Lake Analytics prend actuellement en charge les sources de données suivantes :
 
-- [Azure Data Lake Store](data-lake-store-overview.md)
-- [Stockage d'objets blob Azure](storage-introduction.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+- [Azure Storage](../storage/storage-introduction.md)
 
 Lorsque vous créez un compte Data Lake Analytics, vous devez désigner un compte Azure Data Lake Store comme compte de stockage par défaut. Le compte Data Lake Store par défaut est utilisé pour stocker les métadonnées du travail et les journaux d'audit du travail. Après la création d'un compte Data Lake Analytics, vous pouvez ajouter des comptes Data Lake Store et/ou des comptes Azure Storage supplémentaires.
 
@@ -154,7 +154,7 @@ Lorsque vous créez un compte Data Lake Analytics, vous devez désigner un compt
 
 <a name="upload-data-to-wasb"></a> **Pour télécharger des fichiers vers le compte de stockage d'objets blob Azure**
 
-Consultez [Téléchargement de données pour les tâches Hadoop dans HDInsight](hdinsight-upload-data.md). Les informations s'appliquent à Data Lake Analytics.
+Consultez [Téléchargement de données pour les tâches Hadoop dans HDInsight](../hdinsight/hdinsight-upload-data.md). Les informations s'appliquent à Data Lake Analytics.
 
 
 ## Gestion des utilisateurs
@@ -170,7 +170,7 @@ Data Lake Analytics utilise un contrôle d'accès basé sur le rôle avec Azure 
 |Utilisateur DevTest Lab|Vous permet de tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles.|  
 |Administrateur de l'accès utilisateur|Vous permet de gérer l'accès utilisateur aux ressources Azure.|  
 
-Pour plus d'informations sur la création d'utilisateurs et de groupes de sécurité Azure Active Directory, consultez [Qu'est-ce qu'Azure Active Directory ?](active-directory-whatis.md).
+Pour plus d'informations sur la création d'utilisateurs et de groupes de sécurité Azure Active Directory, consultez [Qu'est-ce qu'Azure Active Directory ?](../active-directory/active-directory-whatis.md).
 
 **Pour ajouter des utilisateurs ou des groupes de sécurité à un compte Analytics**
 
@@ -181,7 +181,7 @@ Pour plus d'informations sur la création d'utilisateurs et de groupes de sécur
 3. Dans le volet **Utilisateur**, cliquez sur **Ajouter**.
 4. Sélectionnez un rôle et ajoutez un utilisateur, puis cliquez sur **OK**.
 
-**Remarque : si cet utilisateur ou groupe de sécurité a besoin d'envoyer des travaux, il devra avoir l'autorisation d'accéder à Data Lake Store également. Pour plus d'informations, consultez [Sécuriser les données stockées dans Data Lake Store](data-lake-store-secure-data.md).**
+**Remarque : si cet utilisateur ou groupe de sécurité a besoin d'envoyer des travaux, il devra avoir l'autorisation d'accéder à Data Lake Store également. Pour plus d'informations, consultez [Sécuriser les données stockées dans Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).**
 
 
 
@@ -244,8 +244,6 @@ Consultez [Surveiller les travaux Data Lake Analytics](#monitor-jobs).
 
 ##Surveillance de l'utilisation du compte
 
-[introduction - we need to explain the terms, and connect the pieces. ]
-
 **Pour surveiller l'utilisation du compte**
 
 1. Ouvrez le compte Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account). Le panneau d'utilisation affiche l'utilisation :
@@ -271,7 +269,7 @@ Le [catalogue U-SQL](data-lake-analytics-use-u-sql-catalog.md) est utilisé pour
 <!-- ################################ -->
 ## Utilisation des groupes Azure Resource Manager
 
-Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](resource-group-overview.md).
+Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../resource-group-overview.md).
 
 Un service Data Lake Analytics peut inclure les composants suivants :
 
@@ -292,7 +290,7 @@ Un compte Data Lake Analytics et les compte de stockage dépendants doivent se t
 
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Prise en main de Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
-- [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

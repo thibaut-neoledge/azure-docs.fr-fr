@@ -47,7 +47,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
  
 - **Système d’exploitation**
 
-	Vous pouvez configurer des clusters HDInsight sur un des deux systèmes d'exploitation suivants : - **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** : - **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux) (version préliminaire)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Vous pouvez configurer des clusters HDInsight sur un des deux systèmes d'exploitation suivants : - **HDInsight sur Windows (Windows Server 2012 R2 Datacenter)** : - **HDInsight sur Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight vous offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 - **Version de HDInsight**
@@ -61,7 +61,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 	- Les clusters Hadoop : pour les charges de travail de requête et d’analyse
 	- Les clusters HBase : pour les charges de travail NoSQL
 	- Les clusters Storm : pour les charges de travail de traitement des événements en temps réel
-	- Les clusters Spark (version préliminaire) : pour les charges de travail de traitement en mémoire, de requêtes interactives, de diffusion en continu et d’apprentissage automatique.
+	- Les clusters Spark : pour les charges de travail de traitement en mémoire, de requêtes interactives, de diffusion en continu et d’apprentissage automatique.
 
 	![Clusters HDInsight](./media/hdinsight-provision-clusters-v1/hdinsight.clusters.png)
  
@@ -135,7 +135,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 	
 	>[AZURE.WARNING] Ne partagez pas un conteneur de stockage d’objets blob sur plusieurs clusters. Ce n’est pas pris en charge.
 	
-	Pour plus d’informations sur l’utilisation des magasins d’objets blob secondaires, consultez [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md).
+	Pour plus d’informations sur l’utilisation des magasins d’objets blob secondaires, consultez [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 - **Metastore Hive/Oozie**
 
@@ -285,7 +285,7 @@ Vous pouvez vous référer aux [options de configuration de base] et aux [option
 	Vous pouvez ajouter plusieurs actions de script pour installer plusieurs composants sur le cluster. Une fois que vous avez ajouté les scripts, cliquez sur la coche pour démarrer l'approvisionnement du cluster.
 
 ### Utilisation d'Azure PowerShell
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur la configuration d’un cluster HDInsight à l’aide d’Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des cmdlets HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des cmdlets Windows PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur la configuration d’un cluster HDInsight à l’aide d’Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des cmdlets HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des cmdlets Windows PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 > [AZURE.NOTE] Bien que vous puissiez utiliser les scripts de cette section pour configurer un cluster HDInsight sur un réseau virtuel Azure, ceux-ci ne permettent pas de créer un réseau de ce type. Pour plus d’informations sur la création d’un réseau Azure Virtual Network, consultez la rubrique [Tâches de configuration d’un réseau virtuel](../services/virtual-machines/).
 
@@ -565,7 +565,7 @@ HDInsight utilise le conteneur de stockage d'objets blob Azure comme système de
 
 	À l’invite d’emplacement, sélectionnez un lieu sur lequel approvisionner un cluster HDInsight. Le stockage doit se trouver dans le lieu que le cluster HDInsight. Actuellement, seul les régions **Est de l'Asie**, **Sud-Est de l'Asie**, **Europe du Nord**, **Europe de l'Ouest**, **Est des États-Unis**, **Ouest des États-Unis**, **Centre Nord des États-Unis** et **Centre Sud des États-Unis** peuvent héberger des clusters HDInsight.
 
-Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure Classic, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage](../storage-create-storage-account.md).
+Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure Classic, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage](../storage/storage-create-storage-account.md).
 
 Si vous disposez déjà d’un compte de stockage mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer les informations :
 
@@ -578,7 +578,7 @@ Si vous disposez déjà d’un compte de stockage mais que vous ne connaissez ni
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Pour plus d’informations sur l’obtention d’informations au moyen du portail Azure Classic, consultez la section *Affichage, copie et régénération des clés d’accès de stockage* de la rubrique [Création, gestion ou suppression d’un compte de stockage](../storage-create-storage-account.md).
+Pour plus d’informations sur l’obtention d’informations au moyen du portail Azure Classic, consultez la section *Affichage, copie et régénération des clés d’accès de stockage* de la rubrique [Création, gestion ou suppression d’un compte de stockage](../storage/storage-create-storage-account.md).
 
 Un cluster HDInsight requiert également un conteneur dans un compte de stockage. Si le compte de stockage que vous fournissez ne contient pas de conteneur, la commande *azure hdinsight cluster create* vous invite à entrer un nom de conteneur avant de le créer. Cependant, si vous voulez créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
 
@@ -791,7 +791,7 @@ Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'
 ##<a id="nextsteps"></a> Étapes suivantes
 Cet article vous a présenté différentes méthodes pour configurer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-* [Prise en main d’Azure HDInsight](hdinsight-get-started.md) : apprenez à utiliser votre cluster HDInsight
+* [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) : apprenez à utiliser votre cluster HDInsight
 * [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop.md) : découvrez comment copier des données entre HDInsight et SQL Database ou SQL Server
 * [Administration de HDInsight à l’aide de PowerShell](hdinsight-administer-use-powershell.md) : découvrez comment utiliser HDInsight avec PowerShell
 * [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md) : découvrez comment envoyer des tâches par programme à HDInsight
@@ -801,4 +801,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -27,7 +27,7 @@ De la même manière, les API REST pour **Azure SQL Database** peuvent égaleme
 ## Acquérir et exécuter les applets de commande Azure PowerShell
 
 1. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. Pour exécuter le module, tapez **Microsoft Azure PowerShell** dans la fenêtre de démarrage.
+2. Pour exécuter le module, entrez **Windows PowerShell** dans la fenêtre de démarrage.
 3. Si vous n’avez pas encore ajouté votre compte à la machine, exécutez l’applet de commande suivante. (Pour plus d’informations, consultez la rubrique [Comment installer et configurer Azure PowerShell]() :
 
 	```
@@ -133,4 +133,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

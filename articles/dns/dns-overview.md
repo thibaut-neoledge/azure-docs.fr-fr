@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/06/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # Vue d’ensemble d’Azure DNS
@@ -40,4 +40,4 @@ Le service est basé sur Azure Resource Manager (ARM). Vos domaines et vos enreg
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

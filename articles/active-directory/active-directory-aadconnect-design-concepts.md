@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
-# Principes de conception pour Azure AD Connect
+# Principes de conception Azure AD Connect
 L’objectif de cette rubrique est de décrire les principes qui doivent présider à la conception de l’implémentation d’Azure AD Connect. Il s’agit d’une exploration approfondie de certains aspects. Ces concepts sont également décrits brièvement dans d’autres rubriques.
 
 ## sourceAnchor
@@ -43,7 +43,6 @@ La valeur de l’attribut doit respecter les règles suivantes :
 - elle ne doit pas respecter la casse et doit éviter les valeurs qui peuvent varier selon la casse
 - elle doit être assignée lorsque l'objet est créé.
 
-
 Si le sourceAnchor sélectionné n’est pas de type chaîne, Azure AD Connect encode la valeur de l’attribut en base 64 pour garantir qu’aucun caractère spécial n’apparaît. Si vous utilisez un serveur de fédération autre qu’AD FS, assurez-vous que votre serveur a également la capacité d’encoder la valeur de l’attribut en base 64.
 
 L’attribut sourceAnchor respecte la casse. La valeur « JohnDoe » n’est pas le même que « johndoe ».
@@ -68,4 +67,4 @@ Pour cette raison, les restrictions suivantes s’appliquent à Azure AD Connect
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

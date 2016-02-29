@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -426,6 +426,27 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 | msExchUserHoldPolicies| X| | | Conservation pour litige : permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige.|
 | proxyAddresses| X| X| X| Seule l’adresse x500 d’Exchange Online est insérée.|
 
+## Écriture différée des appareils
+Les objets d’appareil sont créés dans Active Directory. Il peut s’agir d’appareils joints à Azure AD ou d’ordinateurs Windows 10 appartenant au domaine.
+
+| Nom de l'attribut| Appareil| Commentaire |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| displayName | X| |
+| dn | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| Uniquement avec le schéma AD de Windows Server 2016 |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
+
+
 ## Remarques sur les attributs
 - Quand vous utilisez un ID secondaire, l’attribut local userPrincipalName est synchronisé avec l’attribut Azure AD onPremisesUserPrincipalName. L’attribut de l’ID secondaire, par exemple mail, sera synchronisé avec l’attribut Azure AD userPrincipalName.
 
@@ -435,4 +456,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

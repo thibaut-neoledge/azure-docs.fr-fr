@@ -32,41 +32,36 @@ Vous pouvez utiliser l'[API REST](https://msdn.microsoft.com/library/azure/dn931
 
 2. Cliquez sur la vignette **Règles d'alerte** vignette dans le filtre **Opérations**.
 
-3. Cliquez sur la commande **Ajouter une alerte**.
-    ![Ajouter une alerte](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+3. Cliquez sur la commande **Ajouter une alerte**. ![Ajouter une alerte](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Vous pouvez nommer votre règle d'alerte et choisir la description à afficher dans le message électronique de notification.
 
-5. Quand vous sélectionnez **Mesures**, vous allez choisir une condition et une valeur de seuil pour la métrique. Il s'agit de la période utilisée par Azure pour surveiller et tracer l'activité d'alerte.
-    ![Condition et seuil](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+5. Quand vous sélectionnez **Mesures**, vous allez choisir une condition et une valeur de seuil pour la métrique. Il s'agit de la période utilisée par Azure pour surveiller et tracer l'activité d'alerte. ![Condition et seuil](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. Vous pouvez également choisir **Événements**, puis recevoir une notification quand un certain événement se produit. 
-    ![Événements](./media/insights-receive-alert-notifications/Insights_Events.png)
-    
->[AZURE.NOTE] À ce stade, les événements ne sont pris en charge que pour les applications web. 
+6. Vous pouvez également choisir **Événements**, puis recevoir une notification quand un certain événement se produit. ![Événements](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Enfin, vous pouvez choisir d'envoyer la notification par courrier électronique aux administrateurs concernés.
 
-Après avoir cliqué sur **Enregistrer**, vous êtes informé dans les minutes qui suivent de tout dépassement du seuil par la métrique sélectionnée. 
+Après avoir cliqué sur **Enregistrer**, vous êtes informé dans les minutes qui suivent de tout dépassement du seuil par la métrique sélectionnée.
 
 ## Gestion de vos règles d'alerte
 
-Une fois que vous avez créé une règle d'alerte, vous pouvez afficher un aperçu de votre seuil d'alerte par rapport à la métrique du jour précédent. 
+Une fois que vous avez créé une règle d'alerte, vous pouvez afficher un aperçu de votre seuil d'alerte par rapport à la métrique du jour précédent.
 
 ![Événements](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
-Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l'**activer** si vous voulez temporairement arrêter de recevoir des notifications à son sujet. 
+Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l'**activer** si vous voulez temporairement arrêter de recevoir des notifications à son sujet.
 
 ## Étapes suivantes
 
 * [Configurer des webhooks sur vos alertes](insights-webhooks-alerts.md) pour acheminer des notifications vers différents canaux
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
-* [Surveillance de la disponibilité et de la réactivité des pages web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
+* [Surveillance de la disponibilité et de la réactivité des pages web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
 * [Surveillance des performances d'une application](insights-perf-analytics.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * [Affichage des événements et journaux d'audit](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

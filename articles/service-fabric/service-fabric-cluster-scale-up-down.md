@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -63,6 +63,8 @@ La suppression de nœuds est un processus en deux étapes :
 
     d. Cliquez sur l’icône **Supprimer** pour supprimer la machine virtuelle.
 
+>[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l'état, situation appelée "conservation du quorum". Par conséquent, il est généralement déconseillé d'arrêter tous les ordinateurs du cluster, sauf si vous avez d'abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).
+
 ## Mettre à l’échelle des clusters Service Fabric automatiquement
 
 Pour l’instant, les clusters Service Fabric ne gèrent pas la mise à l'échelle automatique. Dans un avenir proche, les clusters seront créés par-dessus les jeux de mise à l’échelle de machine virtuelle. La mise à l’échelle automatique sera alors possible et se comportera de manière similaire à la mise à l’échelle automatique disponible dans les services cloud.
@@ -79,4 +81,4 @@ Cet article aborde la mise à l’échelle des clusters à l’aide du portail. 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"/>
 
 #Notes de publication de Stream Analytics
@@ -127,10 +127,10 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 ## Étapes suivantes
 
 - [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-- [Prise en main d'Azure Stream Analytics](../stream.analytics.get.started.md)
+- [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

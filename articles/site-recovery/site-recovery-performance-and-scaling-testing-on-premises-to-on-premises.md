@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Test de performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local à un autre avec Site Recovery | Microsoft Azure"
 	description="Cet article fournit des informations sur les tests des performances pour la réplication d’un site local à un autre à l’aide d’Azure Site Recovery."
-	services="site-recovery" 
+	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="12/14/2015"
@@ -195,19 +195,11 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 
 |Mesure|Compteur|
 |---|---|
-|UC|\\Processor(\_Total)\\% Processor Time|
-|Mémoire disponible|\\Memory\\Available MBytes|
-|E/S par seconde|\\PhysicalDisk(\_Total)\\Disk Transfers/sec|
-|Nombre d’opérations d’E/S par seconde en lecture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec|
-|Nombre d’opérations d’E/S par seconde en écriture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S|
-|Débit de lecture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec|
-|Débit d’écriture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
+|UC|\\Processor(\_Total)\\% Processor Time| |Mémoire disponible|\\Memory\\Available MBytes| |E/S par seconde|\\PhysicalDisk(\_Total)\\Disk Transfers/sec| |Nombre d’opérations d’E/S par seconde en lecture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec| |Nombre d’opérations d’E/S par seconde en écriture de la VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S| |Débit de lecture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec| |Débit d’écriture des VM|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
 
 
 ## Étapes suivantes
 
 - [Configuration de la protection entre des sites VMM locaux](site-recovery-vmm-to-vmm.md)
 
- 
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

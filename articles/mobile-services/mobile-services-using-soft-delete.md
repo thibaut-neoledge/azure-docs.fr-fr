@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 # Utilisation de la suppression réversible dans Mobile Services
@@ -36,13 +36,13 @@ Voici quelques-uns des avantages de la suppression réversible :
 
 * Lors de l'utilisation de la [synchronisation des données hors connexion pour Mobile Services], le Kit de développement logiciel (SDK) client recherche automatiquement les enregistrements supprimés et les supprime de la base de données locale. Lorsque la suppression réversible est désactivée, vous devez écrire du code supplémentaire sur le backend afin que le Kit de développement logiciel (SDK) client sache quels enregistrements supprimer du magasin local. Sinon, le magasin local client et le backend ne traitent pas les enregistrements supprimés de manière cohérente et la méthode cliente `PurgeAsync()` doit être appelée pour effacer le magasin local.
 * Certaines applications ont comme condition requise de ne jamais supprimer physiquement de données, ou de les supprimer uniquement après les avoir auditées. La suppression réversible peut s'avérer utile dans ce cas.
-* La suppression réversible peut servir à implémenter une fonctionnalité d'annulation de la suppression, pour pouvoir restaurer des données supprimées par inadvertance. Toutefois, les enregistrements supprimés de façon réversible prennent de la place dans la base de données. Vous devez donc envisager de créer une tâche programmée pour supprimer définitivement ces enregistrements. Pour voir un exemple, consultez les sections Utilisation de la suppression réversible avec le serveur principal .NET et Utilisation de la suppression réversible avec le serveur principal JavaScript. Votre code client doit également régulièrement appeler `PurgeAsync()` afin que les enregistrements supprimés de manière définitive ne soient pas conservés dans le magasin de données local de l'appareil.
+* La suppression réversible peut servir à implémenter une fonctionnalité d'annulation de la suppression, pour pouvoir restaurer des données supprimées par inadvertance. Toutefois, les enregistrements supprimés de façon réversible prennent de la place dans la base de données. Vous devez donc envisager de créer une tâche programmée pour supprimer définitivement ces enregistrements. Pour voir un exemple, consultez les sections [Utilisation de la suppression réversible avec le backend .NET](#using-with-dotnet) et [Utilisation de la suppression réversible avec le backend JavaScript](#using-with-javascript). Votre code client doit également régulièrement appeler `PurgeAsync()` afin que les enregistrements supprimés de manière définitive ne soient pas conservés dans le magasin de données local de l'appareil.
 
 
 
 
 
-##Activation de la suppression réversible avec le serveur principal .NET
+##Activation de la suppression réversible avec le backend .NET
 
 La suppression réversible pour le backend .NET a été prise en charge pour la première fois avec la version 1.0.402 du backend .NET de Microsoft Azure Mobile Services. Les packages NuGet les plus récents sont disponibles ici : [Backend .NET de Microsoft Azure Mobile Services](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -113,7 +113,7 @@ Pour en savoir plus sur les tâches planifiées avec le backend .NET Mobile Serv
 
 
 
-##Utilisation de la suppression réversible avec le backend JavaScript
+## <a name="using-with-javascript"></a>Utilisation de la suppression réversible avec le backend JavaScript
 
 Vous pouvez utiliser les scripts de table pour ajouter une logique à la fonctionnalité de suppression réversible à l'aide des services mobiles de backend JavaScript.
 
@@ -165,4 +165,4 @@ Pour en savoir plus sur les tâches planifiées avec Mobile Services du backend 
 [synchronisation des données hors connexion pour Mobile Services]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

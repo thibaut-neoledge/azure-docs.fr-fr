@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -31,7 +31,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 ## Création d’une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou [Site Web avec WebMatrix].
+Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Créer et déployer une application Node.js dans Azure Cloud Service] (avec Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -66,7 +66,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
 
-Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez la rubrique [Application web Node.js avec Storage].
+Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez [Application web Node.js avec le service de Table Azure].
 
 ## Création d'une file d'attente
 
@@ -315,10 +315,10 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 
   [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Portal]: portal.azure.com
-  [Création et déploiement d'une application Node.js dans un site Web Azure]: ../web-sites-nodejs-develop-deploy-mac.md
-  [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Application web Node.js avec Storage]: ../storage-nodejs-use-table-storage-web-site.md
+  [Azure Portal]: https://portal.azure.com
+  [Créer une application web Node.js dans Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Application web Node.js avec le service de Table Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
 
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -327,8 +327,8 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 
 
 
-  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+  [Créer et déployer une application Node.js dans Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Site Web avec WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

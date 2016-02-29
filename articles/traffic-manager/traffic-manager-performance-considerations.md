@@ -13,22 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 
 # Considérations sur les performances de Traffic Manager
 
-
-Une question courante concernant Azure Traffic Manager traite des problèmes éventuels de performances qu’il est susceptible de provoquer. Les questions sont généralement à peu près les suivantes : « Quelle latence Traffic Manager ajoutera-t-il à mon site web ? », « Mon site de surveillance indique que mon site web a été lent durant quelques heures hier – Traffic Manager a-t-il rencontré des problèmes à ce moment-là ? », « Où se trouvent les serveurs de Traffic Manager ? Je veux m’assurer qu’ils sont dans le même centre de données que mon site Web afin que les performances n’en soient pas affectées ».
-
-Cette page évoque l’impact direct sur les performances que Traffic Manager peut entraîner sur un site web. Si vous avez un site web à l’est des États-Unis et un autre en Asie et que les sondes de Traffic Manager échouent sur le premier site, tous les utilisateurs seront dirigés vers votre site web en Asie et vous verrez l’impact sur les performances, mais cet impact n’a rien à voir avec Traffic Manager lui-même.
+Cette page explique les considérations relatives aux performances de Traffic Manager. Imaginons la situation suivante : vous avez un site web dans la région des États-Unis et un autre en Asie ; la vérification de l’intégrité des sondes de Traffic Manager échoue sur l’un d’eux ; tous vos utilisateurs sont redirigés vers la région saine ; ce comportement peut apparaître comme un problème de performances, mais il serait normal compte tenu de la distance de la demande de l’utilisateur.
 
   
 
 ## Remarque importante sur le fonctionnement de Traffic Manager
-
-[Traffic Manager Overview](traffic-manager-overview.md) est une excellente ressource pour apprendre comment Traffic Manager fonctionne, mais il y a beaucoup d’informations sur cette page et il peut être difficile de repérer les informations clés relatives aux performances. Les points importants à examiner dans la documentation MSDN sont l’étape 5 et 6 d’Image 3, que j’aborderai plus en détail ici :
 
 - Traffic Manager ne fait pour l’essentiel qu’une seule chose : la résolution DNS. Cela signifie que le seul impact sur les performances que Traffic Manager peut avoir sur votre site Web est la recherche DNS initiale.
 - Point de clarification sur la recherche DNS de Traffic Manager. Traffic Manager renseigne et met régulièrement à jour les serveurs racine Microsoft DNS normaux en fonction de votre stratégie et des résultats de la sonde. Donc, même pendant la recherche DNS initiale, il n’y a aucune implication de Traffic Manager, dans la mesure où la requête DNS est gérée par les serveurs racine Microsoft DNS normaux. Si Traffic Manager s’arrête (autrement dit, si une défaillance survient dans les machines virtuelles exécutant la détection de la stratégie et la mise à jour DNS), il y n’a aucun impact sur votre nom DNS Traffic Manager dans la mesure où les entrées des serveurs DNS Microsoft seront toujours conservées. La seule conséquence sera que la détection et la mise à jour basées sur la stratégie ne se produiront pas (si votre site principal tombe en panne, Traffic Manager ne sera pas en mesure de mettre à jour DNS pour pointer vers votre site de basculement).
@@ -77,11 +72,6 @@ http://www.whatsmydns.net/ : le site effectue une recherche DNS à partir de 20
 
 http://www.digwebinterface.com : semblable au site watchmouse, mais celui-ci affiche plus d’informations DNS détaillées, notamment les enregistrements CNAME et A. Veillez à cocher « Coloriser la sortie » et « Statistiques » sous les options et sélectionnez « Tous » sous Noms de serveurs.
 
-## Conclusion
-
-Au vu des informations ci-dessus, nous savons que le seul impact sur les performances que Traffic Manager a sur un site web est la première recherche DNS (les durées varient, mais la durée moyenne est d’environ 50 ms), puis un impact sur les performances égal à 0 pour la durée vie du DNS (300 secondes par défaut), et à nouveau une actualisation du cache DNS cache après l’expiration de la durée de vie. Par conséquent, à la question « Quelle latence Traffic Manager ajoutera-t-il à mon site web ? », la réponse est, pour l’essentiel, zéro.
-
-
 ## Étapes suivantes
 
 
@@ -94,4 +84,4 @@ Au vu des informations ci-dessus, nous savons que le seul impact sur les perform
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

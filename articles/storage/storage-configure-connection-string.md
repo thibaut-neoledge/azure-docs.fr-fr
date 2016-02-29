@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/17/2016"
 	ms.author="tamram"/>
 
 # Configuration des chaînes de connexion Azure Storage
@@ -35,9 +35,9 @@ Votre application devra stocker la chaîne de connexion pour authentifier l'acc�
 - Pour une application s’exécutant sur le bureau ou sur un périphérique, vous pouvez stocker la chaîne de connexion dans un fichier app.config ou un autre fichier de configuration. Si vous utilisez un fichier app.config, ajoutez la chaîne de connexion à la section **AppSettings**.
 - Pour une application s’exécutant dans un service cloud Azure, vous pouvez stocker votre chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.
 
-Le stockage de votre chaîne de connexion dans un fichier de configuration facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l'émulateur de stockage et un compte de stockage Microsoft Azure dans le cloud. Vous ne devez modifier que la chaîne de connexion pour que celle-ci pointe vers votre compte de stockage.
+Le stockage de votre chaîne de connexion dans un fichier de configuration facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l'émulateur de stockage et un compte de stockage Azure dans le cloud. Vous ne devez modifier que la chaîne de connexion pour que celle-ci pointe vers votre compte de stockage.
 
-Vous pouvez utiliser la classe Azure [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) pour accéder à la chaîne de connexion au moment de l'exécution, quel que soit son l’environnement d'exécution de l’application.
+Vous pouvez utiliser la classe [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) pour accéder à la chaîne de connexion au moment de l’exécution, quel que soit l’environnement d’exécution de l’application.
 
 ## Création d’une chaîne de connexion à l’émulateur de stockage
 
@@ -57,7 +57,7 @@ Par exemple, votre chaîne de connexion ressemble à l’exemple de chaîne de c
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
-> [AZURE.NOTE]Azure Storage prend en charge HTTP et HTTPS au sein d’une chaîne de connexion, mais nous vous conseillons vivement d’utiliser HTTPS.
+> [AZURE.NOTE] Azure Storage prend en charge HTTP et HTTPS au sein d’une chaîne de connexion, mais nous vous conseillons vivement d’utiliser HTTPS.
 
 ## Création d’une chaîne de connexion vers un point de terminaison de stockage explicite
 
@@ -119,4 +119,4 @@ Par exemple, votre chaîne de connexion doit ressembler à l’exemple de chaîn
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0218_2016-->

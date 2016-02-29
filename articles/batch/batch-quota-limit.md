@@ -16,8 +16,6 @@
 	ms.date="01/26/2016"
 	ms.author="danlep"/>
 
-
-
 # Quotas et limites pour le service Azure Batch
 
 Cet article répertorie les limites par défaut et maximales de certaines ressources que vous pouvez utiliser avec le service Azure Batch. La plupart de ces limites sont des quotas qu’Azure applique à votre abonnement ou à vos comptes Batch.
@@ -95,4 +93,4 @@ Le support Azure vous contactera. Le traitement de la demande peut prendre jusqu
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

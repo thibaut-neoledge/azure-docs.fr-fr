@@ -24,12 +24,12 @@ Ce didacticiel décrit comment utiliser le chiffrement de stockage côté client
 
 **Durée estimée :** 20 minutes
 
-Pour obtenir des informations générales sur Azure Key Vault, consultez [Présentation d’Azure Key Vault](key-vault/key-vault-whatis.md).
+Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](../key-vault/key-vault-whatis.md).
 
-Pour obtenir des informations générales sur le chiffrement côté client d’Azure Storage, consultez [Prendre en main le chiffrement côté client pour Microsoft Azure Storage](storage-client-side-encryption.md).
+Pour plus d’informations générales sur le chiffrement côté client d’Azure Storage, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](storage-client-side-encryption.md)
 
 
-## Composants requis
+## Configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -40,7 +40,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Vue d’ensemble du chiffrement côté client
 
-Pour une vue d’ensemble du chiffrement côté client d’Azure Storage, consultez [Prendre en main le chiffrement côté client pour Microsoft Azure Storage](storage-client-side-encryption.md).
+Pour une vue d’ensemble du chiffrement côté client d’Azure Storage, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](storage-client-side-encryption.md).
 
 Voici une brève description du fonctionnement du chiffrement côté client :
 
@@ -51,7 +51,7 @@ Voici une brève description du fonctionnement du chiffrement côté client :
 
 
 ## Configurer votre coffre de clés Azure
-Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes qui sont décrites dans le didacticiel [Prise en main d’Azure Key Vault](key-vault/key-vault-get-started.md) :
+Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes qui sont décrites dans le didacticiel [Prise en main d’Azure Key Vault](../key-vault/key-vault-get-started.md) :
 
 - Création d’un coffre de clés
 - Ajout d’une clé ou d’un secret au coffre de clés
@@ -235,4 +235,4 @@ Pour obtenir les dernières informations sur Microsoft Azure Storage, consulte
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

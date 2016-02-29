@@ -27,7 +27,7 @@
         
             func loginAndGetData() {
                 
-                guard let client = self.table?.client where client.currentUser != nil else {
+                guard let client = self.table?.client where client.currentUser == nil else {
                     return
                 }
                 
@@ -44,4 +44,4 @@
 
 3. Appuyez sur _Exécuter_ pour démarrer l’application, puis ouvrez une session. Une fois connecté, vous devez être en mesure d’afficher la liste des tâches et d’effectuer des mises à jour.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

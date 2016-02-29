@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Création d'un équilibreur de charge accessible sur Internet (classique) dans l'interface de ligne de commande CLI Azure
@@ -125,12 +125,12 @@ Vous pouvez créer un point de terminaison de Bureau à distance pour transfére
 
 Vous devez supprimer le point de terminaison associé à l'équilibreur de charge de la machine virtuelle. Une fois le point de terminaison supprimé, la machine virtuelle n'appartient plus au jeu d'équilibrage de charge.
 
- À l’aide de l’exemple ci-dessus, vous pouvez supprimer le point de terminaison créé pour la machine virtuelle « web1 » de l’équilibreur de charge « lbset » à l’aide de la commande `azure vm endpoint delete`.
+ À l'aide de l'exemple ci-dessus, vous pouvez supprimer le point de terminaison créé pour la machine virtuelle « web1 » de l'équilibreur de charge « lbset » à l'aide de la commande `azure vm endpoint delete`.
 
 	azure vm endpoint delete web1 tcp-80-80
 
 
->[AZURE.NOTE]Vous pouvez explorer d’autres options de gestion des points de terminaison à l’aide de la commande `azure vm endpoint --help`
+>[AZURE.NOTE] Vous pouvez explorer d’autres options de gestion des points de terminaison à l’aide de la commande `azure vm endpoint --help`
 
 
 ## Étapes suivantes
@@ -143,4 +143,4 @@ Vous devez supprimer le point de terminaison associé à l'équilibreur de charg
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

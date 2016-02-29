@@ -123,7 +123,7 @@ Il y a de nombreuses bonnes raisons pour lesquelles les clients doivent passer d
 
 - SQL Database V12 présente une longue liste de fonctionnalités, bien plus longue que celle de la version 11.
 - Nous continuons à ajouter de nouvelles fonctionnalités à la version 12 (V12), mais aucune nouvelle fonctionnalité ne sera ajoutée à la 11.
-- La plupart des nouvelles fonctionnalités sont publiées dans la version 12 (V12) de Base de données SQL avant qu’elles ne soient intégrées à Microsoft SQL Server.
+- La plupart des nouvelles fonctionnalités sont publiées dans SQL Database V12 avant qu’elles ne soient intégrées à Microsoft SQL Server.
 
 
 ## Vous utilisez déjà la version 12 (V12) ?
@@ -150,7 +150,7 @@ Une autre technique pour déterminer la version consiste à exécuter l’instru
 Les bases de données version 12 (V12) peuvent uniquement être hébergées sur un serveur logique version 12. Et un serveur version 12 (V12) peut uniquement héberger des bases de données de la version 12 (V12).
 
 
-Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à niveau votre serveur logique en suivant les étapes de la section [Mise à niveau vers la version 12 (V12) de Base de données SQL](sql-database-v12-upgrade.md).
+Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à niveau votre serveur logique en suivant les étapes de la section [Mise à niveau vers la version 12 (V12) de Base de données SQL](sql-database-v12-plan-prepare-upgrade.md).
 
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a> Régions en disponibilité générale
@@ -161,4 +161,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="sdanie"/>
 
 # Référence sur les stratégies Gestion des API Azure
@@ -42,6 +42,7 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 	-	[Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.
 	-	[Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) : permet de définir le code d’état HTTP sur la valeur indiquée.
 	-	[Set variable][] : conserve une valeur dans une variable de [contexte][] nommée pour y accéder ultérieurement.
+	-	[Wait](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) : attend l’exécution de la demande d’envoi intégré, la récupération de la valeur du cache ou le contrôle des stratégies du flux pour continuer.
 -	[Stratégies d’authentification][]
 	-	[Authenticate with Basic][] : authentification avec un service principal à l’aide de l’authentification de base.
 	-	[Authenticate with client certificate][] : authentification avec un service principal à l’aide de certificats clients.
@@ -120,4 +121,4 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="11/25/2015"
@@ -53,7 +53,7 @@ Chacun des paramètres nommés doit être défini dans l’élément Paramètres
 
 L’attribut DefaultValue spécifie la valeur à utiliser en l’absence d’un paramètre plus spécifique pour un environnement donné.
 
->[AZURE.NOTE]Tous les paramètres d’instance de service conviennent à la configuration par environnement. Dans l’exemple ci-dessus, les valeurs LowKey et HighKey du schéma de partitionnement du service sont explicitement définies pour toutes les instances du service dans la mesure où la plage de partition est une fonction du domaine de données et non de l’environnement.
+>[AZURE.NOTE] Tous les paramètres d’instance de service conviennent à la configuration par environnement. Dans l’exemple ci-dessus, les valeurs LowKey et HighKey du schéma de partitionnement du service sont explicitement définies pour toutes les instances du service dans la mesure où la plage de partition est une fonction du domaine de données et non de l’environnement.
 
 
 ### Paramètres de configuration de service par environnement
@@ -81,7 +81,7 @@ Pour remplacer cette valeur par une paire application/environnement spécifique,
 
 Ce paramètre peut ensuite être configuré par environnement, comme indiqué ci-dessus. Vous pouvez réaliser cette opération par le biais d’une déclaration dans la section Paramètres du manifeste d’application et la spécification des valeurs spécifiques à l’environnement dans les fichiers de paramètres d’application.
 
->[AZURE.NOTE]Dans le cas de paramètres de configuration de service, il existe trois emplacements où la valeur d’une clé peut être définie : le package de configuration du service, le manifeste d’application et le fichier de paramètre d’application. Service Fabric choisira toujours dans le fichier de paramètres d’application en premier (s’il est spécifié), puis le manifeste d’application et enfin, le package de configuration.
+>[AZURE.NOTE] Dans le cas de paramètres de configuration de service, il existe trois emplacements où la valeur d’une clé peut être définie : le package de configuration du service, le manifeste d’application et le fichier de paramètre d’application. Service Fabric choisira toujours dans le fichier de paramètres d’application en premier (s’il est spécifié), puis le manifeste d’application et enfin, le package de configuration.
 
 
 ### Fichiers de paramètre d’application
@@ -129,4 +129,4 @@ Pour en savoir plus sur certains des principaux concepts abordés dans cette rub
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

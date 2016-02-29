@@ -210,7 +210,7 @@ Remarque : **MS\_AadTenants** est stocké sous forme de liste de domaines de cl
 
 > [AZURE.WARNING] **N’utilisez pas de mécanismes d’authentification dans le menu Paramètres**
 >
-> Azure App Service fournit un système d’authentification et d’autorisation « sans code » séparé dans le menu de paramètres _Authentification/Autorisation_, ainsi que l’option (déconseillée) _Authentification de mobile_. Ces options sont incompatibles avec un service mobile Azure migré. Vous pouvez [mettre à niveau votre site] pour tirer parti de l’authentification d’Azure App Service.
+> Azure App Service fournit un système d’authentification et d’autorisation « sans code » séparé dans le menu de paramètres _Authentification/Autorisation_, ainsi que l’option (déconseillée) _Authentification de mobile_. Ces options sont incompatibles avec un service mobile Azure migré. Vous pouvez [mettre à niveau votre site](app-service-mobile-net-upgrading-from-mobile-services.md) pour tirer parti de l’authentification d’Azure App Service.
 
 ### <a name="easytables"></a>Données
 
@@ -394,4 +394,4 @@ Les journaux sont diffusés dans la fenêtre fournie à mesure qu’ils sont gé
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

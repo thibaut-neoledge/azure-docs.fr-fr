@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -543,9 +543,9 @@ Exécutez l'application console et observez la sortie pour connaître les opéra
 
 ## Étapes suivantes
 
-[Signatures d'accès partagé, partie 1 : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1/)
+[Signatures d'accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 
-[Gestion de l’accès aux ressources d’Azure Storage](http://msdn.microsoft.com/library/azure/ee393343.aspx)
+[Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md)
 
 [Délégation de l’accès avec une signature d’accès partagé (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
@@ -554,4 +554,4 @@ Exécutez l'application console et observez la sortie pour connaître les opéra
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

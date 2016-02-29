@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/11/2016"
 	ms.author="glenga"/>
 
 
@@ -56,7 +56,7 @@ Ce didacticiel est une procédure pas à pas expliquant comment l'[Exemple TODO 
 
 3. Dans Visual Studio 2013, ouvrez le fichier de solution *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Appuyez sur **F5** pour régénérer et exécuter le projet. Assurez-vous que les packages NuGet sont restaurés et que les références sont correctement définies.
 
-    >[AZURE.NOTE]Vous devrez peut-être supprimer les anciennes références pointant vers le runtime SQLite et les remplacer par la référence mise à jour, comme indiqué dans le didacticiel [Prise en main des données hors connexion].
+    >[AZURE.NOTE] Vous devrez peut-être supprimer les anciennes références pointant vers le runtime SQLite et les remplacer par la référence mise à jour, comme indiqué dans le didacticiel [Prise en main des données hors connexion].
 
 4. Dans l'application, entrez du texte dans la zone **Insérer un TodoItem**, puis cliquez sur **Enregistrer** pour ajouter des éléments todo au magasin local. Fermez ensuite l'application.
 
@@ -87,7 +87,7 @@ Notez que dans la mesure où l'application n'est pas encore connectée à un ser
 
 Dans un scénario réel, un conflit de synchronisation se produit lorsqu'une application envoie par push les mises à jour vers un enregistrement de la base de données, puis qu'une autre application essaie d'envoyer par push une mise à jour vers le même enregistrement au moyen d'une version de champ obsolète de cet enregistrement. Si vous vous rappelez le contenu du didacticiel [Prise en main des données hors connexion], vous savez que la propriété « version » du système est requise pour la prise en charge des fonctionnalités de synchronisation hors connexion. Ces informations de version sont examinées lors de chaque mise à jour de la base de données. Si une instance de l'application tente de mettre à jour un enregistrement en utilisant une version obsolète, cela va générer un conflit qui se présentera sous la forme d'une exception `MobileServicePreconditionFailedException` dans l'application. Si l'application n'intercepte pas l'exception `MobileServicePreconditionFailedException`, une exception `MobileServicePushFailedException` est alors levée. Elle décrit le nombre d'erreurs de synchronisation rencontrées.
 
->[AZURE.NOTE]Pour prendre en charge la synchronisation des enregistrements supprimés avec la synchronisation des données hors connexion, vous devez activer la [Suppression réversible](mobile-services-using-soft-delete.md). Sinon, vous devez supprimer manuellement les enregistrements dans le magasin local, ou appeler `IMobileServiceSyncTable::PurgeAsync()` pour purger le magasin local.
+>[AZURE.NOTE] Pour prendre en charge la synchronisation des enregistrements supprimés avec la synchronisation des données hors connexion, vous devez activer la [Suppression réversible](mobile-services-using-soft-delete.md). Sinon, vous devez supprimer manuellement les enregistrements dans le magasin local, ou appeler `IMobileServiceSyncTable::PurgeAsync()` pour purger le magasin local.
 
 
 La procédure suivante indique comment exécuter les clients Windows Phone 8.1 et Windows Store 8.1 en même temps pour provoquer et résoudre un conflit à l'aide de l'exemple.
@@ -168,4 +168,4 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Référentiel GitHub d'exemples Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

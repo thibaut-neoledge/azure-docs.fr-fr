@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -28,11 +28,7 @@ Azure AD Connect Sync s’exécute sous un compte de service créé par l’Assi
 - La modification ou la réinitialisation du mot de passe du compte de service **n’est pas prise en charge**. Sa modification ou sa réinitialisation supprimera les clés de chiffrement et le service ne pourra plus accéder à la base de données et ne pourra pas démarrer.
 
 ## Modifications apportées au planificateur
-Azure AD Connect Sync est configuré pour synchroniser les données d’identité toutes les 3 heures. Lors de l’installation, une tâche planifiée est créée, qui s’exécute sous un compte de service avec des autorisations pour utiliser le serveur de synchronisation.
-
-- La modification de la tâche planifiée **n’est pas prise en charge**. Le mot de passe du compte de service n’est pas connu. Consultez [Modifications apportées au compte de service](#changes-to-the-service-account)
-- La synchronisation à une fréquence supérieure à la fréquence par défaut de 3 heures **n’est pas prise en charge**.
-	- Il est possible d’effectuer une synchronisation hors ligne lorsque vous testez une nouvelle configuration. Cependant, il est déconseillé d’exécuter des exportations vers Azure AD à un rythme plus fréquent.
+À partir de la version 1.1 (février 2016), vous pouvez configurer le [planificateur](active-directory-aadconnectsync-feature-scheduler.md) sur un cycle de synchronisation autre que le cycle par défaut de 30 minutes.
 
 ## Modifications apportées aux règles de synchronisation
 L'Assistant d’installation fournit une configuration qui est censée fonctionner pour les scénarios les plus courants. Au cas où vous devez apporter des modifications à la configuration, vous devez suivre ces règles pour toujours avoir une configuration prise en charge.
@@ -61,7 +57,7 @@ Avec une configuration par défaut, un objet de la forêt locale ressemble à ce
 
 Pour créer une règle avec d’autres flux d’attributs, procédez comme suit :
 
-- Ouvrez l’**Éditeur de règles de synchronisation** à partir du menu de démarrage.
+- Ouvrez l’**Éditeur de règles de synchronisation** depuis le menu Démarrer.
 - L’option **Entrant** étant toujours sélectionnée sur la gauche, cliquez sur le bouton **Ajouter une nouvelle règle**.
 - Attribuez à la règle un nom et une description. Sélectionnez Active Directory local et les types d’objets appropriés. Dans **Type de lien**, sélectionnez **Jointure**. Pour le choix de la priorité, sélectionnez un nombre qui n’est pas utilisé par une autre règle. Les règles out-of-box commencent à 100, donc, il est possible d’utiliser la valeur 50 dans cet exemple. ![Flux d’attributs 2](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp2.png)
 - Laissez l’option d’étendue vide (elle doit s’appliquer à tous les objets utilisateur dans la forêt).
@@ -113,4 +109,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

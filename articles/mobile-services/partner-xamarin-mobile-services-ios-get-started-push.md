@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="yuaxu"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -36,7 +36,7 @@ Ce didacticiel requiert les éléments suivants :
 + [Xamarin.iOS Studio]
 + [Composant Azure Mobile Services]
 
->[AZURE.IMPORTANT]En raison de la configuration requise pour APNS, vous devez déployer et tester les notifications Push sur un appareil compatible iOS (iPhone ou iPad) au lieu d'un émulateur.
+>[AZURE.IMPORTANT] En raison de la configuration requise pour APNS, vous devez déployer et tester les notifications Push sur un appareil compatible iOS (iPhone ou iPad) au lieu d'un émulateur.
 
 APNS utilise des certificats pour authentifier votre service mobile. Suivez ces instructions pour créer les certificats requis et les télécharger dans votre service mobile. Pour obtenir la documentation complète des fonctionnalités APNS, consultez la page [Service de notification Push Apple].
 
@@ -46,7 +46,7 @@ Vous devez d'abord générer le fichier de demande de signature de certificat (C
 
 1. Depuis Utilitaires, exécutez l’outil **Trousseaux d’accès**.
 
-2. Cliquez sur **Trousseaux d'accès**, développez **Assistant de certification**, puis cliquez sur **Demander un certificat à une autorité de certification**.
+2. Cliquez sur **Trousseaux d’accès**, développez **Assistant de certification**, puis cliquez sur **Demander un certificat à une autorité de certification**.
 
     ![][5]
 
@@ -98,7 +98,7 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
     Remarque : ce didacticiel utilise un certificat de développement. Le même processus est utilisé lors de l'inscription d'un certificat de production. Assurez-vous simplement que vous avez défini le même type de certificat lorsque vous avez téléchargé le certificat vers Mobile Services.
 
-5. Cliquez sur **Choose File**, accédez à l'emplacement où vous avez enregistré le fichier de demande de signature de certificat que vous avez créé lors de la première tâche, puis cliquez sur **Generate**.
+5. Cliquez sur **Choose File**, accédez à l’emplacement où vous avez enregistré le fichier de demande de signature de certificat que vous avez créé lors de la première tâche, puis cliquez sur **Generate**.
 
     ![][110]
 
@@ -122,7 +122,7 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
 Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et le télécharger vers Mobile Services pour activer l'authentification avec APNS.
 
-## <a name="profile"></a>Créer un profil de mise en service pour l'application
+## <a name="profile"></a>Créer un profil de mise en service pour l’application
 
 1. Une fois de retour dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a>, sélectionnez **Provisioning Profiles**, **All**, puis cliquez sur le bouton **+** pour créer un profil. Ceci démarre l’Assistant **Ajouter le profil d’approvisionnement iOS**.
 
@@ -310,7 +310,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 
     Ce code inscrit un nouveau script d'insertion, qui utilise l'[objet apns] pour envoyer une notification Push (le texte inséré) à l'appareil fourni dans la demande d'insertion.
 
-   >[AZURE.NOTE]Ce script reporte l'envoi de la notification pour vous laisser le temps de fermer l'application pour recevoir une notification toast.
+   >[AZURE.NOTE] Ce script reporte l'envoi de la notification pour vous laisser le temps de fermer l'application pour recevoir une notification toast.
 
 ## <a name="test"></a>Tester les notifications push dans votre application
 
@@ -318,7 +318,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 
     ![][23]
 
-   >[AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s'effectue uniquement lors du premier démarrage de l'application.
+   >[AZURE.NOTE] Vous devez accepter explicitement les notifications Push de votre application. Cette demande s'effectue uniquement lors du premier démarrage de l'application.
 
 2. Dans l'application, entrez un texte explicite, tel que _Nouvelle tâche Mobile Services_ puis cliquez sur l'icône Ajouter (**+**).
 
@@ -403,4 +403,4 @@ Vous avez terminé ce didacticiel.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

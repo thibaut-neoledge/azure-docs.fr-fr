@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure | Microsoft Azure"
-	description="Éléments importants à prendre en compte pour la planification de votre infrastructure de sauvegarde des machines virtuelles dans Azure"
+	description="Considérations importantes avant la sauvegarde de machines virtuelles dans Azure"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="sauvegarde de machines virtuelles"/>
 
 <tags
 	ms.service="backup"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/12/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
-Cet article traite des principales considérations à garder à l’esprit lors de la planification de votre infrastructure de sauvegarde de machines virtuelles (VM). Si vous avez [préparé votre environnement](backup-azure-vms-prepare.md), il s’agit de l’étape à suivre avant de passer à la [sauvegarde de vos machines virtuelles](backup-azure-vms.md). Si vous avez besoin d’informations sur les machines virtuelles Azure, consultez la [Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Cet article aborde les éléments clés à garder à l’esprit lorsque vous prévoyez de sauvegarder des machines virtuelles dans Azure. Si vous avez [préparé votre environnement](backup-azure-vms-prepare.md), il s’agit de l’étape à suivre avant de passer à la [sauvegarde des machines virtuelles](backup-azure-vms.md). Si vous avez besoin d’informations sur les machines virtuelles Azure, consultez la [Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Comment Azure sauvegarde-t-il des machines virtuelles Azure ?
 Lorsque le service Azure Backup lance le travail de sauvegarde à l’heure planifiée, il déclenche l’extension de sauvegarde pour prendre un instantané à un moment donné. Cet instantané est pris de façon coordonnée avec le service VSS (Service de copie shadow de volume) pour obtenir un instantané cohérent des disques sur la machine virtuelle sans avoir à arrêter cette dernière.
@@ -120,4 +121,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Résoudre les problèmes de sauvegarde de machines virtuelles](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

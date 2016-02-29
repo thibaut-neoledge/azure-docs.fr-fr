@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -52,7 +52,9 @@ Vous pouvez créer un modèle Resource Manager personnalisé de deux façons :
 
 ## Déployer le modèle Resource Manager sur Azure à l’aide d’Azure PowerShell
 
-Consultez [Déploiement de modèles Resource Manager à l’aide de PowerShell](resource-group-template-deploy.md) pour obtenir des instructions détaillées sur la façon de déployer le modèle à l’aide de PowerShell.
+Consultez [Déploiement de modèles Resource Manager à l’aide de PowerShell](../resource-group-template-deploy.md) pour obtenir des instructions détaillées sur la façon de déployer le modèle à l’aide de PowerShell.
+
+>[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l'état, situation appelée "conservation du quorum". Par conséquent, il est généralement déconseillé d'arrêter tous les ordinateurs du cluster, sauf si vous avez d'abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
@@ -63,4 +65,4 @@ Consultez [Déploiement de modèles Resource Manager à l’aide de PowerShell](
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

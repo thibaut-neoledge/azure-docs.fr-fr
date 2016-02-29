@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -30,9 +30,9 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Création d'une application Node.js
+## Création d’une application Node.js
 
-Pour obtenir des instructions sur la création d'une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou [Site web avec WebMatrix].
+Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Créer et déployer une application Node.js dans Azure Cloud Service] (avec Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -67,9 +67,9 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 Le module Azure lit les variables d'environnement `AZURE_STORAGE_ACCOUNT` et `AZURE_STORAGE_ACCESS_KEY`, ou `AZURE_STORAGE_CONNECTION_STRING`, pour obtenir les informations nécessaires à la connexion à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createBlobService**.
 
-Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour une application web Azure, consultez [Application web Node.js avec stockage].
+Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour une application web Azure, consultez [Application web Node.js avec le service de Table Azure].
 
-## Créez un conteneur.
+## Création d'un conteneur
 
 L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code suivant crée un objet **BlobService**. Ajoutez le code suivant vers le début du fichier **server.js** :
 
@@ -136,7 +136,7 @@ Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de 
 
 ## Charger un objet blob dans un conteneur
 
-Un objet blob peut être de blocs ou de pages. Les objets blob de blocs permettent un téléchargement plus efficace des données volumineuses, alors que les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d'informations, consultez la page [Présentation des objets blob de blocs et de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Un objet blob peut être de blocs ou de pages. Les objets blob de blocs permettent un téléchargement plus efficace des données volumineuses, alors que les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Objets blob de blocs
 
@@ -364,17 +364,18 @@ Pour plus d'informations, consultez les ressources suivantes.
 -   [Blog de l'équipe Azure Storage][]
 -   Référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
 -   [Centre de développement Node.js](/develop/nodejs/)
--   [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+-   [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
 [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node
-[Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Application web Node.js avec stockage]: ../storage-nodejs-use-table-storage-web-site.md
-[Site web avec WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+
+[Créer une application web Node.js dans Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Application web Node.js avec le service de Table Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Portal]: portal.azure.com
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+[Azure Portal]: https://portal.azure.com
+[Créer et déployer une application Node.js dans Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Azure Storage pour la référence de l'API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

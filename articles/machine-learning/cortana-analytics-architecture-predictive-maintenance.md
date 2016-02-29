@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/12/2016"
 	ms.author="garye" />
 
 # Architecture du modèle de solution d’analyse Cortana pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
@@ -26,4 +26,4 @@ Vous pouvez télécharger une version en taille réelle du diagramme ici : [Diag
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

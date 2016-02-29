@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Réplication de machines virtuelles Hyper-V en local dans Azure (sans VMM) avec Azure Site Recovery | Microsoft Azure"
-	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération de machines virtuelles Hyper-V situées sur des serveurs Hyper-V vers Microsoft Azure."
+	description="Cet article décrit comment répliquer des machines virtuelles Hyper-V vers Azure avec Azure Site Recovery lorsque les machines ne sont pas gérées dans des clouds VMM."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,19 +13,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/10/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
 # Réplication de machines virtuelles Hyper-V en local dans Azure (sans VMM) avec Azure Site Recovery
 
-Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques dans divers scénarios de déploiement. [En savoir plus](site-recovery-overview.md) sur la récupération de site.
+Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour obtenir un rapide aperçu, consultez [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
 
 ## Vue d’ensemble
 
-Cet article décrit comment déployer Site Recovery pour répliquer des machines virtuelles Hyper-V lorsque les hôtes Hyper-V exécutés sous Windows Server 2012 R2 ne sont pas gérés dans un cloud System Center Virtual Machine Manager (VMM).
+Cet article décrit comment déployer Site Recovery pour répliquer des machines virtuelles Hyper-V lorsque les hôtes Hyper-V ne sont pas gérés dans des clouds System Center Virtual Machine Manager (VMM).
 
-Cet article résume les conditions préalables au déploiement, vous aide à configurer les paramètres de réplication et vous permet d’activer la protection des machines virtuelles. Pour finir, vous pourrez tester le basculement pour vous assurer que tout fonctionne comme prévu. Si vous rencontrez des problèmes, soumettez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Cet article résume les conditions préalables au déploiement, vous aide à configurer les paramètres de réplication et vous permet d’activer la protection des machines virtuelles. Pour finir, vous pourrez tester le basculement pour vous assurer que tout fonctionne comme prévu.
+
+
+Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Avant de commencer
@@ -56,11 +59,11 @@ Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez inst
 - Il est recommandé de toujours utiliser la dernière version de ce fournisseur et de cet agent. Ceux-ci sont disponibles dans le portail Site Recovery.
 - Tous les serveurs Hyper-V d’un coffre doivent disposer des mêmes versions du fournisseur et de l’agent.
 - Le fournisseur exécuté sur le serveur se connecte à Site Recovery via Internet. Vous pouvez effectuer cette action sans proxy, au moyen des paramètres de proxy actuellement configurés sur le serveur Hyper-V, ou à l’aide des paramètres de proxy personnalisés que vous avez configurés lors de l’installation du fournisseur. Vous devez vous assurer que le serveur proxy que vous souhaitez utiliser peut accéder à ces URL pour se connecter à Azure :
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 	
 - Autorisez également les adresses IP décrites dans les [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
@@ -292,4 +295,4 @@ Exécutez un test de basculement, en procédant comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

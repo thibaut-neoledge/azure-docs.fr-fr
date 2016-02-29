@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # Attribution de rôles d’administrateur dans Azure Active Directory (Azure AD)
@@ -25,12 +25,14 @@ Il est important de comprendre qu’un utilisateur à qui un rôle d’administr
 Les rôles d’administrateur disponibles sont les suivants :
 
 - **Administrateur de facturation** : effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
+
 - **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
+
 - **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
+
 - **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
 
-> [AZURE.NOTE]
-> Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
+	> [AZURE.NOTE] Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
 
 - **Administrateur d’utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
 
@@ -72,19 +74,32 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 
 ## Attribution ou suppression de rôles d’administrateur
 
-
 1. Dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
+
 2. Sur la page **Utilisateurs**, cliquez sur le nom d’affichage de l’utilisateur à modifier.
+
 3. Dans la liste **Rôle organisationnel**, sélectionnez le rôle d’administrateur que vous souhaitez attribuer à cet utilisateur, ou sélectionnez **Utilisateur** pour supprimer un rôle d’administrateur existant.
+
 4. Dans le champ **Autre adresse de messagerie**, tapez une adresse électronique. Cette adresse électronique est utilisée pour les notifications importantes, notamment la réinitialisation automatique de mot de passe. L’utilisateur doit donc être en mesure d’accéder à ce compte, qu’il ait ou non accès à Azure.
+
 5. Sélectionnez **Autoriser** ou **Bloquer** pour indiquer si l’utilisateur est autorisé ou non à se connecter aux services et à y accéder.
+
 6. Spécifiez un lieu en le sélectionnant dans la liste déroulante **Lieu d’utilisation**.
+
 7. Une fois que vous avez terminé, cliquez sur **Enregistrer**.
 
 ## Étapes suivantes
 
-- [Gestion des utilisateurs](../active-directory-create-users.md)
+- Pour plus d’informations sur la façon de modifier les administrateurs pour un abonnement Azure, voir [Comment ajouter ou modifier les rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
+
+- Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
+
+- Pour plus d’informations sur la façon dont le service Azure Active Directory est lié à votre abonnement Azure, voir [Association des abonnements Azure avec Azure Active Directory] (active-directory-how-subscriptions-associated directory.md)
+
+- [Gestion des utilisateurs](active-directory-create-users.md)
+
 - [Gestion des mots de passe](active-directory-manage-passwords.md)
+
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-<!-----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

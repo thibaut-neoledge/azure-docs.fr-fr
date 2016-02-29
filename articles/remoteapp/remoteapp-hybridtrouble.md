@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/13/2016"
+    ms.date="02/11/2016"
     ms.author="elizapo" />
 
 
@@ -32,26 +32,14 @@ Si vous voyez un message similaire à « GoldImageInvalid » lorsque vous atte
 
 
 ## Votre réseau virtuel comporte-t-il des groupes de sécurité réseau ? ##
-Si vous avez défini des groupes de sécurité réseau sur le sous-réseau que vous utilisez pour votre collection, assurez-vous que les URL suivantes sont accessibles à partir de votre sous-réseau :
-
-	https://management.remoteapp.windowsazure.com  
-	https://opsapi.mohoro.com  
-	https://telemetry.remoteapp.windowsazure.com  
-	https://*.remoteapp.windowsazure.com  
-	https://login.windows.net (if you have Active Directory)  
-	https://login.microsoftonline.com  
-	Azure storage *.remoteapp.windowsazure.com  
-	*.core.windows.net  
-	https://www.remoteapp.windowsazure.com  
-	https://www.remoteapp.windowsazure.com  
-
-Ouvrez les ports suivants sur le sous-réseau de réseau virtuel :
-
-Entrant - TCP : 3030, TCP : 443 Sortant - TCP : 443
+Si vous avez défini des groupes de sécurité réseau sur le sous-réseau que vous utilisez pour votre collection, assurez-vous que les [URL et les ports](remoteapp-ports.md) suivants sont accessibles à partir de votre sous-réseau.
 
 Vous pouvez ajouter d’autres groupes de sécurité réseau pour les machines virtuelles que vous avez déployées dans le sous-réseau pour un contrôle plus strict.
 
 ## Utilisez-vous vos propres serveurs DNS ? Et sont-ils accessibles à partir de votre sous-réseau de réseau virtuel ? ##
+>[AZURE.NOTE] Vous devez vous assurer que les serveurs DNS de votre réseau sont toujours opérationnels et toujours capables de résoudre les machines virtuelles hébergées sur le réseau virtuel. N'utilisez pas Google DNS pour cela.
+
+
 Pour les collections hybrides, vous utilisez vos propres serveurs DNS. Vous les spécifiez dans votre schéma de configuration réseau ou via le portail de gestion lorsque vous créez votre réseau virtuel. Les serveurs DNS sont utilisés dans l’ordre dans lequel ils sont spécifiés par basculement, et non par tourniquet (round robin).
 
 Assurez-vous que les serveurs DNS de votre collection sont accessibles et disponibles à partir du sous-réseau de réseau virtuel spécifié pour cette collection.
@@ -79,4 +67,4 @@ Vérifiez que les détails du domaine fournis sont valides et que le contrôleur
 
 Le nom de domaine que vous avez créé ou ajouté doit être un nom de domaine interne (et non pas votre nom de domaine Azure AD) et doit être au format DNS pouvant être résolu (contoso.local). Par exemple, vous avez un nom interne Active Directory (contoso.local) et un UPN Active Directory (contoso.com) : vous devez utiliser le nom interne lorsque vous créez votre collection.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

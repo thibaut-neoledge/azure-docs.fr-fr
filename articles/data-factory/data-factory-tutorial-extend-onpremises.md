@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (portail Azure Classic)" 
+	pageTitle="Procédure pas à pas : Copie des données de sortie vers une base de données SQL Server (portail Azure Classic)" 
 	description="Cette procédure pas à pas étend le didacticiel à l'aide de Data Factory Editor dans le portail Azure Classic de telle façon que le pipeline copie des données de sortie vers une base de données SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
@@ -17,14 +17,14 @@
 	ms.author="spelluru"/>
 
 
-# Procédure pas à pas : copier des données sur l’efficacité d’une campagne vers une base de données SQL Server locale. 
+# Procédure pas à pas : Copie des données de sortie vers une base de données SQL Server locale (portail Azure Classic) 
 Dans cette procédure pas à pas, vous allez apprendre à configurer l’environnement permettant d’activer l’utilisation de vos données locales sur le pipeline.
  
 Dans la dernière étape du scénario de traitement de journal, lors de la première procédure pas à pas avec Partition -> Enrichir -> Analyser le flux de travail, la sortie de l’efficacité de la campagne marketing a été copiée dans une base de données SQL Azure. Vous pouvez également déplacer ces données vers une base de données SQL Server locale pour l’analyser au sein de votre organisation.
  
 Pour copier les données d’efficacité de la campagne marketing depuis un objet blob Azure vers une base de données SQL Server locale, vous devez créer en supplément un service lié local, une table et un pipeline utilisant le même jeu de cmdlets présenté dans la première procédure pas à pas.
 
-## Configuration requise
+## Conditions préalables
 
 Vous **devez** suivre la procédure pas à pas du didacticiel : [Déplacement et traitement des fichiers journaux à l’aide du service Azure Data Factory][datafactorytutorial] avant de suivre la procédure pas à pas de cet article.
 
@@ -169,4 +169,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -35,7 +35,7 @@ Vous devez disposer des éléments suivants :
 - Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’[ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - IDE Java. Cet article utilise IntelliJ IDEA 15.0.1. Vous pouvez l’installer à partir d’[ici](https://www.jetbrains.com/idea/download/).
 - Microsoft JDBC driver pour SQL Server, v4.1 ou version ultérieure. Ceci est nécessaire pour écrire les données d’événement dans une base de données SQL Server. Vous pouvez l’installer à partir d’[ici](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
-- base de données SQL Azure. Pour obtenir des instructions, voir [Créer une base de données SQL en quelques minutes](sql-database/sql-database-get-started.md).
+- base de données SQL Azure. Pour obtenir des instructions, voir [Créer une base de données SQL en quelques minutes](../sql-database/sql-database-get-started.md).
 
 ## Que fait cette solution ?
 
@@ -187,7 +187,7 @@ Nous allons utiliser Livy pour exécuter l’application de diffusion en continu
 
 		java -cp EventhubsSampleEventProducer.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-2. Copiez le fichier jar de diffusion en continu (**microsoft-spark-streaming-examples.jar**) vers le stockage d’objets blob Azure associé au cluster. Le fichier jar est ainsi accessible à Livy. Pour ce faire, vous pouvez utiliser l’utilitaire de ligne de commande [**AzCopy**](storage/storage-use-azcopy.md). De nombreux autres clients permettent également de télécharger des données. Pour en savoir plus à leur sujet, consultez [Téléchargement de données pour les travaux Hadoop dans HDInsight](hdinsight-upload-data.md).
+2. Copiez le fichier jar de diffusion en continu (**microsoft-spark-streaming-examples.jar**) vers le stockage d’objets blob Azure associé au cluster. Le fichier jar est ainsi accessible à Livy. Pour ce faire, vous pouvez utiliser l’utilitaire de ligne de commande [**AzCopy**](../storage/storage-use-azcopy.md). De nombreux autres clients permettent également de télécharger des données. Pour en savoir plus à leur sujet, consultez [Téléchargement de données pour les travaux Hadoop dans HDInsight](hdinsight-upload-data.md).
 
 3. Installez CURL sur l’ordinateur à partir duquel vous exécutez ces applications. Nous utilisons CURL pour appeler les points de terminaison Livy afin d’exécuter les travaux à distance.
 
@@ -362,9 +362,9 @@ Le résultat ressemble à ce qui suit :
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -372,4 +372,4 @@ Le résultat ressemble à ce qui suit :
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

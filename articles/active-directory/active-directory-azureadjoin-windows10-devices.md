@@ -148,15 +148,6 @@ Au lieu d’avoir une infrastructure à clé publique, vous pouvez activer Micro
 
 ## Forum Aux Questions
 
-###Quels produits de fournisseurs GPM tiers s’intègrent dans Azure AD ?
-
-Les produits des fournisseurs suivants s’intègrent avec Azure AD pour l’inscription unifiée et des accès conditionnel dans Windows 10 :
-
-- AirWatch par VMware
-- Citrix Xenmobile
-- Lightspeed Mobile Manager
-- GPM local SOTI
-
 ###Qu’en est-il de la jonction d’espace de travail dans Windows 10 ?
 La jonction d’espace de travail dans Windows 8.1 a été utilisée pour activer le BYOD. Dans Windows, 10, le BYOD est activé via l’ajout d’un compte professionnel, comme expliqué précédemment dans ce document. Pour les organisations qui n’intègrent pas leur GPM avec Azure AD, les utilisateurs peuvent inscrire manuellement l’appareil auprès du système de gestion via **Paramètres** > **Comptes** > **Accès professionnel**.
 
@@ -167,10 +158,10 @@ Les utilisateurs procédant à la mise à niveau depuis les appareils Windows 8
 
 
 ## Informations supplémentaires
-* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

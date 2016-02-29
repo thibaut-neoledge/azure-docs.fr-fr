@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="micurd"/>
 
 # Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
@@ -33,7 +33,7 @@ Ce guide inclut des exemples basés sur Ubuntu, mais les résultats devraient ê
 
 **Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/), [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
 
-Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des comptes, des abonnements et des rôles d’administrateur](https://msdn.microsoft.com/library/azure/hh531793.aspx).
+Pour plus d’informations sur les abonnements Azure, consultez [Attribution de rôles d’administrateur dans Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
 **Une fois le compte et l’abonnement à Microsoft Azure créés :**
 
@@ -94,7 +94,7 @@ Après l’exécution du script, vous devez avoir un dossier local de destinatio
 
 ### Connectez-vous à un abonnement Azure
 
-Bien que la plupart des commandes de stockage fonctionnent sans abonnement à Microsoft Azure, nous vous recommandons de vous connecter à votre abonnement à partir de la CLI Azure. Pour configurer la CLI Azure de façon qu’elle s’exécute avec votre abonnement, suivez les étapes de la section [Connexion à votre abonnement Azure](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription).
+Bien que la plupart des commandes de stockage fonctionnent sans abonnement à Microsoft Azure, nous vous recommandons de vous connecter à votre abonnement à partir de la CLI Azure. Pour configurer l’interface de ligne de commande Azure avec votre abonnement, suivez les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface Azure CLI](../xplat-cli-connect.md).
 
 ### Création d’un nouveau compte de stockage
 
@@ -121,19 +121,19 @@ Ensuite, copiez la chaîne de connexion de sortie, puis associez-lui la variable
 
 ## Créer et gérer des objets blob
 
-Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du stockage d’objets blob Microsoft Azure. Pour obtenir des informations détaillées, voir [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts de service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du stockage d’objets blob Microsoft Azure. Pour obtenir des informations détaillées, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts de service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-### Créer un conteneur.
+### Création d'un conteneur
 
 Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouvez créer un conteneur privé à l’aide de la commande `azure storage container create` :
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE] Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour en avoir plus, voir [Gestion de l’accès aux ressources d’Azure Storage](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
 
 ### Charger un blob dans un conteneur.
 
-Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de pages. Pour en savoir plus, voir [Présentation des objets blob de blocs et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de page. Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Pour télécharger des objets blob dans un conteneur, vous pouvez utiliser la fonction de `azure storage blob upload`. Par défaut, cette commande charge les fichiers locaux vers un objet blob de blocs. Pour spécifier le type de l’objet blob, vous pouvez utiliser le paramètre `--blobtype`.
 
@@ -169,7 +169,7 @@ Pour supprimer un objet blob, utilisez la commande ci-dessous :
 
 ## Créer et gérer des partages de fichiers
 
-Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure File Storage, consultez la page [Utilisation d’Azure File Storage sous Windows](storage-dotnet-how-to-use-files) ou [Utilisation d’Azure File Storage sous Linux](storage-how-to-use-files-linux.md).
+Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure File Storage, consultez [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md) ou [Utilisation d’Azure File Storage sous Linux](storage-how-to-use-files-linux.md).
 
 ### Créer un partage de fichiers
 
@@ -221,4 +221,4 @@ Pour en savoir plus sur Azure Storage, consultez les articles et ressources sui
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

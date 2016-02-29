@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ Pour configurer l’intégration d’Azure AD avec 23 Video, vous avez besoin 
 - Un abonnement 23 Video pour lequel l’authentification unique est activée
 
 
-> [AZURE.NOTE]Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -59,7 +59,7 @@ Pour configurer l’intégration de 23 Video avec Azure AD, vous devez ajouter
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
+3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, entrez **23 Video**.<br><br> ![Applications][5]<br>
@@ -92,7 +92,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
  
      a. Dans la zone de texte **URL de réponse**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site 23 Video (par ex. : **https://britta-simon.23Video.com/saml/login*).
 
-     >[AZURE.NOTE]L’intégration d’Active Directory à l’aide de SAML 2.0 est disponible pour tous les utilisateurs de 23 Video. Contactez le support technique à l’adresse [support@23company.com](mailto:support@23company.com) si vous avez besoin des métadonnées associées.
+     > [AZURE.NOTE] L’intégration d’Active Directory à l’aide de SAML 2.0 est disponible pour tous les utilisateurs de 23 Video. Contactez le support technique à l’adresse [support@23company.com](mailto:support@23company.com) si vous avez besoin des métadonnées associées.
 
      b. Cliquez sur **Next**.
  
@@ -113,11 +113,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
+1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -125,29 +125,29 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
 
-5. Dans la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png) <br>
+5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png) <br>
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **BrittaSimon**.
+    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
 
     c. Cliquez sur **Next**.
 
-6.  Dans la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png) <br>
+6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png) <br>
  
-    a. Dans la zone de texte **Prénom**, tapez **Britta**.
+    a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
     b. Dans la zone de texte **Nom**, tapez **Simon**.
 
-    c. Dans la zone de texte **Nom complet**, saisissez **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
 
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**. e. Cliquez sur **Next**.
 
 7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) <br>
  
-8. Dans la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
+8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
   
-    a. Notez la valeur de **Nouveau mot de passe**.
+    a. Notez la valeur du **Nouveau mot de passe**.
 
     b. Cliquez sur **Terminé**.
 
@@ -170,7 +170,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 4. Dans la section **Invite someone to join this site**, procédez comme suit : <br><br>![Affecter des utilisateurs][402]<br>
 
-    a. Dans la zone de texte **E-mail addresses**, tapez l’adresse e-mail de Britta Simon dans Azure AD.
+    a. Dans la zone de texte **Adresses e-mail**, tapez l’adresse e-mail de Britta Simon dans Azure AD.
 
     b. Cliquez sur **Add the user**.
 
@@ -186,7 +186,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.<br> <br>![Affecter des utilisateurs][203]<br>
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-2. Dans la barre d’outils située en bas, cliquez sur **Affecter**. <br><br>![Affecter des utilisateurs][205]
+2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**. <br><br>![Affecter des utilisateurs][205]
 
 
 
@@ -228,4 +228,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="dineshm"/>
 
 # Listage des ressources Azure Storage en C++
 
 Les opérations de listage sont essentielles dans de nombreux scénarios de développement avec Azure Storage. Cet article explique comment énumérer de façon optimale les objets d’Azure Storage à l’aide des API de listage fournies par la bibliothèque cliente Microsoft Azure Storage pour C++.
 
->[AZURE.NOTE] Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.x, qui est disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 2.x, qui est disponible par le biais de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 La bibliothèque cliente Storage propose diverses méthodes pour lister ou interroger les objets présents dans Azure Storage. Cet article traite les scénarios suivants :
 
@@ -33,7 +33,7 @@ Chacune de ces méthodes est présentée en utilisant différentes surcharges qu
 
 ## Opérations asynchrones/synchrones
 
-Sachant que la bibliothèque cliente Storage pour C++ s’appuie sur la [bibliothèque REST C++ (projet Casablanca)](http://casablanca.codeplex.com/), par nature, les opérations asynchrones sont prises en charge en utilisant [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Par exemple :
+Sachant que la bibliothèque cliente Storage pour C++ s’appuie sur la [bibliothèque REST C++](https://github.com/Microsoft/cpprestsdk), par nature, les opérations asynchrones sont prises en charge en utilisant [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Par exemple :
 
 	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
@@ -162,7 +162,7 @@ Notez que le listage paresseux est disponible uniquement en mode synchrone.
 
 Par rapport au listage vorace, le listage paresseux ne va chercher les données qu’en cas de nécessité. En réalité, il ne va chercher les données d’Azure Storage qu’à partir du moment où l'itérateur suivant se déplace dans le segment suivant. Par conséquent, l'utilisation de mémoire étant contrôlée et limitée par la taille, l'opération est rapide.
 
-Les API de listage paresseux sont incluses dans la bibliothèque cliente Storage pour C++ de version 1.0.0.
+Les API de listage paresseux sont incluses dans la bibliothèque cliente Storage pour C++ de version 2.2.0.
 
 ## Conclusion
 
@@ -184,4 +184,4 @@ Pour plus d'informations sur Azure Storage et la bibliothèque cliente pour C++,
 -	[Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

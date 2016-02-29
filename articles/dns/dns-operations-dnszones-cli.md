@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # Gestion des zones DNS à l'aide de l’interface de ligne de commande
@@ -24,7 +24,7 @@
 
 Ce guide explique comment gérer votre zone DNS. Il vous permettra de comprendre la séquence des opérations à effectuer pour administrer votre zone DNS.
 
->[AZURE.NOTE]Azure DNS est un service Azure Resource Manager uniquement. Il ne possède aucune API ASM. Par conséquent, vous devez vous assurer que l’interface CLI Azure est configurée pour le mode Gestionnaire de ressources, à l’aide de la commande « azure config mode arm ».
+>[AZURE.NOTE] Azure DNS est un service Azure Resource Manager uniquement. Il ne possède aucune API ASM. Par conséquent, vous devez vous assurer que l’interface CLI Azure est configurée pour le mode Gestionnaire de ressources, à l’aide de la commande « azure config mode arm ».
 
 >Si vous voyez « erreur: « dns » n’est pas une commande azure », cela est probablement dû au fait que vous utilisez Azure CLI en mode ASM et non en mode Gestionnaire de ressources.
  
@@ -51,7 +51,7 @@ L’opération retourne une zone DNS avec son ID, le nombre de jeux d’enregist
 
 ## Création de la liste des zones DNS
 
-Pour récupérer les zones DNS au sein d’un groupe de ressources, utilisez la commande `azure network dns zone list` :
+Pour récupérer les zones DNS au sein d'un groupe de ressources, utilisez la commande `azure network dns zone list` :
 
 	azure network dns zone list myresourcegroup
 
@@ -76,8 +76,6 @@ Cette opération comporte un commutateur « -q » qui supprime l’invite pour
 ## Étapes suivantes
 
 
-[Gestion des enregistrements DNS](dns-operations-recordsets-cli.md)
+Découvrez comment [gérer des enregistrements DNS](dns-operations-recordsets-cli.md) et [automatiser les opérations avec le kit de développement logiciel (SDK) .NET](dns-sdk.md)
 
-[Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](dns-sdk.md)
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

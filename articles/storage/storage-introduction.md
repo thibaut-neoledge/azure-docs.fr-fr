@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="tamram"/>
 
 # Introduction à Microsoft Azure Storage
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Azure Storage est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et l’extensibilité pour répondre aux besoins des clients. En lisant cet article, les développeurs, les professionnels de l’informatique et les décideurs économiques peuvent découvrir :
 
@@ -28,9 +28,9 @@ Azure Storage est la solution de stockage cloud pour les applications récentes 
 - comment vos données Azure Storage sont protégées par la redondance et la réplication ;
 - comment procéder ensuite pour créer votre première application Azure Storage.
 
-Pour vous familiariser rapidement avec Azure Storage, consultez [Prise en main des objets blob, des tables et des files d’attente Azure en 5 minutes](storage-getting-started-guide.md).
+Pour vous familiariser rapidement avec Azure Storage, consultez [Prise en main d’Azure Storage en 5 minutes](storage-getting-started-guide.md).
 
-Pour plus d’informations sur les outils, bibliothèques et autres ressources pour utiliser Azure Storage, consultez [Étapes suivantes](next-steps) ci-dessous.
+Pour plus d’informations sur les outils, bibliothèques et autres ressources pour utiliser Azure Storage, consultez [Étapes suivantes](#next-steps) ci-dessous.
 
 ## Présentation d’Azure Storage
 
@@ -55,7 +55,7 @@ Un compte de stockage Azure est un compte sécurisé qui vous donne accès à de
 - Un compte de stockage standard qui inclut le stockage d’objets blob, de tables, de files d’attente et de fichiers.
 - Un compte de stockage Premium prend actuellement en charge uniquement les disques Machine virtuelle Azure.
 
-Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c’est-à-dire un plan qui vous donne accès à divers services Azure. [Un seul abonnement vous permet de créer jusqu’à 100 comptes de stockage uniques.](../azure-subscription-service-limits.md) Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c’est-à-dire un plan qui vous donne accès à divers services Azure. [Un seul abonnement vous permet de créer jusqu’à 100 comptes de stockage uniques.](../azure-subscription-service-limits.md) Pour plus d’informations sur la tarification des licences en volume, consultez la page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 Pour la prise en main d'Azure, vous pouvez bénéficier d'un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/). Lorsque vous décidez d'acheter un plan, vous avez le choix entre plusieurs [options d'achat](https://azure.microsoft.com/pricing/purchase-options/). Si vous êtes [abonné à MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), vous bénéficiez de crédits mensuels gratuits que vous pouvez utiliser avec les services Azure, y compris Azure Storage.
 
@@ -74,7 +74,7 @@ L’image ci-dessous affiche les relations entre les ressources de stockage Azur
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-Pour apprendre à créer un compte de stockage standard, consultez [À propos des comptes Azure Storage](storage-create-storage-account.md).
+Pour apprendre à créer un compte de stockage standard, consultez [Créer un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
 ### Comptes de stockage Premium
 
@@ -99,7 +99,7 @@ Le stockage d’objets blob propose trois types d’objets : les objets blob de
 
 Les objets blob de page sont optimisés pour représenter les disques IaaS et prendre en charge les écritures aléatoires. Leur taille maximale est de 1 To. Un disque IaaS rattaché à un réseau de machines virtuelles Azure est un disque dur virtuel stocké en tant qu'objet blob de page.
 
-Pour les jeux de données très volumineux où les contraintes du réseau rendent le téléchargement de données vers/depuis le stockage d'objets blob via le réseau irréaliste, vous pouvez expédier un disque dur à Microsoft pour importer ou exporter les données directement à partir du centre de données avec le [service d'importation/exportation Azure](storage-import-export-service.md). Vous pouvez également copier des données d'objets blob dans votre compte de stockage ou à travers des comptes de stockage.
+Pour les jeux de données très volumineux où les contraintes du réseau rendent irréaliste le téléchargement de données vers/depuis le stockage d’objets blob par le biais du réseau, vous pouvez expédier un disque dur à Microsoft pour importer ou exporter les données directement à partir du centre de données. Consultez [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](storage-import-export-service.md). Vous pouvez également copier des données d'objets blob dans votre compte de stockage ou à travers des comptes de stockage.
 
 ## Stockage de tables
 
@@ -143,7 +143,7 @@ Une SAP de compte délègue l’accès aux ressources d’un ou plusieurs des se
 
 Enfin, vous pouvez spécifier qu'un conteneur et ses objets blob, ou un objet blob particulier, sont disponibles pour l'accès public. Lorsque vous indiquez qu'un conteneur ou un objet blob est public, n'importe qui peut le lire de manière anonyme ; aucune authentification n'est requise. Les conteneurs et les objets blob publics sont utiles pour exposer des ressources telles que des médias et des documents hébergés sur des sites Web. Afin de réduire la latence du réseau pour un public mondial, vous pouvez mettre en cache les données d’objets blob utilisées par des sites Web avec le réseau de distribution de contenu (CDN) Azure.
 
-Pour plus d'informations sur l'accès sécurisé à votre compte de stockage, consultez [Gestion de l'accès aux ressources d'Azure Storage](storage-manage-access-to-resources.md) et [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx).
+Pour plus d’informations sur l’accès sécurisé à votre compte de stockage, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md) et [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx).
 
 ## Réplication pour la durabilité et la haute disponibilité
 
@@ -155,20 +155,20 @@ La facturation d’Azure Storage aux clients se base sur quatre facteurs : la c
 
 La capacité de stockage fait référence à l’unité de compte de stockage que vous utilisez pour stocker des données. Le coût d'un simple stockage de vos données est déterminé par la quantité de données que vous stockez et leur type de réplication. Chaque opération de lecture et d'écriture vis-à-vis d'Azure Storage effectue également une demande auprès du service. L’acheminement des données fait référence aux données transférées hors d’une région Microsoft Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n’est pas exécutée dans la même région, que cette application soit un service cloud ou un autre type d’application, vous êtes facturé pour l’acheminement des données (avec les services Microsoft Azure, vous pouvez regrouper vos données et services dans les mêmes centres de données pour réduire ou éliminer les frais de traitement et d’acheminement des données).
 
-La page [Tarification – Stockage](https://azure.microsoft.com/pricing/details/storage/) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données. Vous pouvez utiliser le [Calcul des coûts Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) pour faciliter l'estimation des coûts.
+La page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données. Vous pouvez utiliser le [Calcul des coûts Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) pour faciliter l'estimation des coûts.
 
 ## Développement dans Azure Storage
 
 Azure Storage expose les ressources de stockage via une [API REST](http://msdn.microsoft.com/library/azure/dd179355.aspx) qui peut être appelée par n'importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, Azure Storage offre des bibliothèques de programmation pour plusieurs langages populaires. Ces bibliothèques simplifient l'utilisation d'Azure Storage sous de nombreux aspects en gérant des détails tels que l'invocation synchrone et asynchrone, le traitement par lots des opérations, la gestion des exceptions, les nouvelles tentatives automatiques, le comportement opérationnel, etc. Des bibliothèques sont actuellement disponibles pour les langages et les plateformes suivants (d’autres sont à l’étude) :
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
-- [Code natif](http://msdn.microsoft.com/library/azure/dn495438.aspx)
+- [Bibliothèque cliente Microsoft Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp)
 - [Java/Android](/develop/java/)
 - [Node.JS](/develop/nodejs/)
 - [PHP](/develop/php/)
 - [Ruby](/develop/ruby/)
 - [Python](/develop/python/)
-- [PowerShell](http://msdn.microsoft.com/library/azure/dn495240.aspx)
+- [PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
 ## Étapes suivantes
 
@@ -189,7 +189,7 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 
 - [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 - [Référence de l’API REST des services d’Azure Storage](http://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Référence de l’outil en ligne de commande AzCopy](storage-use-azcopy.md)
+- [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
 ### Pour les utilisateurs de PowerShell
 - [Utilisation d'Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md)
@@ -199,17 +199,18 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 ### Pour les développeurs .NET
 
 - [Référence de la bibliothèque cliente .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
-- [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md)
-- [Utilisation du service de stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
-- [Utilisation du stockage de fichiers avec PowerShell et .NET](storage-dotnet-how-to-use-files.md)
+- [Prise en main d’Azure Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md)
+- [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md)
+- [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md)
+- [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
 
 ### Pour les développeurs Java/Android
 
-- [Référence de la bibliothèque cliente Java](http://dl.windowsazure.com/storage/javadoc/)
-- [Utilisation du stockage d’objets blob à partir de Java/Android](../storage-java-how-to-use-blob-storage/)
-- [Utilisation du stockage de tables à partir de Java/Android](../storage-java-how-to-use-table-storage/)
-- [Utilisation du stockage de files d’attente à partir de Java/Android](../storage-java-how-to-use-queue-storage/)
+- [Référence de la bibliothèque cliente Java](http://azure.github.io/azure-storage-java/)
+- [Utilisation du stockage d’objets blob à partir de Java/Android](storage-java-how-to-use-blob-storage.md)
+- [Utilisation du stockage de tables à partir de Java/Android](storage-java-how-to-use-table-storage.md)
+- [Utilisation du stockage de files d’attente à partir de Java/Android](storage-java-how-to-use-queue-storage.md)
+- [Utilisation du stockage de fichiers à partir de Java](storage-java-how-to-use-file-storage.md) 
 
 ### Pour les développeurs Node.js
 
@@ -235,4 +236,4 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de tables à partir de Python](storage-python-how-to-use-table-storage.md)
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

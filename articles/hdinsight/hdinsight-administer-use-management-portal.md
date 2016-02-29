@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
@@ -36,7 +36,7 @@ Cliquez sur le sélecteur de tabulations pour obtenir des informations sur la cr
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Compte Azure Storage** - Le cluster HDInsight utilise un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Pour plus d’informations sur l’expérience transparente offerte par le stockage d’objets blob Azure avec les clusters HDInsight, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](../hdinsight-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la page [Création d’un compte de stockage](../storage-create-storage-account.md).
+- **Compte Azure Storage** - Le cluster HDInsight utilise un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Pour plus d’informations sur l’expérience transparente offerte par le stockage d’objets blob Azure avec les clusters HDInsight, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la page [Création d’un compte de stockage](../storage/storage-create-storage-account.md).
 
 ##Ouvrir le portail
 
@@ -215,7 +215,7 @@ La plupart des travaux Hadoop sont les traitements par lots exécutés occasionn
 
 Il existe de nombreuses façons de programmer le processus :
 
-- Utilisateur d’Azure Data Factory. Voir [Service lié Azure HDInsight](../data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) et [Transformation et analyse en utilisant Azure Data Factory](../data-factory-data-transformation-activities.md) pour les services liés HDInsight à la demande et auto-définis.
+- Utilisateur d’Azure Data Factory. Voir [Service lié Azure HDInsight](../data-factory/data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) et [Transformation et analyse en utilisant Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) pour les services liés HDInsight à la demande et auto-définis.
 - Utilisation d’Azure PowerShell Voir [Analyse des données sur les retards de vol](hdinsight-analyze-flight-delay-data.md).
 - Utiliser l’interface de ligne de commande Microsoft Azure Voir [Gestion des clusters HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md)
 - Utilisation du kit de développement logiciel .NET. Voir [Envoyer des tâches Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
@@ -393,10 +393,10 @@ Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md)
 * [Création de clusters HDInsight](hdinsight-provision-clusters.md)
 * [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Prise en main d’Azure HDInsight](../hdinsight-get-started.md)
+* [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Version de Hadoop dans Azure HDInsight](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Ligne de commande Hadoop"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

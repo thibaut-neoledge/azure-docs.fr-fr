@@ -19,7 +19,7 @@
 
 # Vue d’ensemble : Apache Spark sur Azure HDInsight (Windows)
  
-> [AZURE.NOTE]HDInsight fournit maintenant des clusters Spark sur Linux. Pour plus d’informations sur les fonctionnalités offertes par HDInsight Spark sur Linux, consultez [Vue d’ensemble : Apache Spark sur Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md).
+> [AZURE.NOTE] HDInsight fournit maintenant des clusters Spark sur Linux. Pour plus d’informations sur les fonctionnalités offertes par HDInsight Spark sur Linux, consultez [Vue d’ensemble : Apache Spark sur Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md).
 
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse de données volumineuses. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques. Spark est également compatible avec le stockage des objets blob Azure (WASB) pour que vos données existantes stockées dans Azure puissent être facilement traitées via Spark.
 
@@ -86,7 +86,7 @@ Spark dans HDInsight inclut les composants suivants qui sont disponibles dans le
 - [Spark Job Server](https://github.com/spark-jobserver/spark-jobserver)
 - [Bloc-notes Jupyter](https://jupyter.org)
 
-Spark dans HDInsight fournit également un [pilote ODBC](http://go.microsoft.com/fwlink/?LinkId=616229) pour la connectivité aux clusters Spark dans HDInsight à partir d’outils décisionnels comme Microsoft Power BI et Tableau.
+Spark dans HDInsight fournit également un [pilote ODBC](http://go.microsoft.com/fwlink/?LinkId=616229) pour la connectivité aux clusters Spark dans HDInsight à partir des outils décisionnels comme Microsoft Power BI et Tableau.
 
 ##<a name="see-also"></a>Voir aussi
 
@@ -96,6 +96,6 @@ Spark dans HDInsight fournit également un [pilote ODBC](http://go.microsoft.co
 * [Soumettre des travaux à distance à un cluster Apache Spark sur Azure HDInsight](hdinsight-apache-spark-job-server.md)
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

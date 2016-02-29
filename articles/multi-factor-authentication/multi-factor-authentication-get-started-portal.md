@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Déploiement du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
@@ -80,7 +80,7 @@ Si le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web
 Avant d'installer le portail de l'utilisateur sur un serveur distinct, tenez compte des éléments suivants :
 
 - Il est utile d'ouvrir un navigateur web sur le serveur web sur Internet et d’accéder à l'URL du Kit de développement logiciel (SDK) Web Service qui a été saisie dans le fichier web.config. Si le navigateur peut accéder correctement au service Web, il vous invite à saisir des informations d'identification. Saisissez le nom d'utilisateur et le mot de passe qui ont été saisis dans le fichier web.config, exactement comme cela apparaît dans le fichier. Assurez-vous qu'aucun avertissement ou erreur de certificat ne soient affiché.
-- Si un pare-feu ou un proxy inverse est installé devant le serveur web du portail de l'utilisateur et effectue un déchargement SSL, vous pouvez modifier le fichier web.config du portail de l'utilisateur et ajouter la clé suivante à la section <appSettings> afin que le portail de l'utilisateur puisse utiliser http au lieu de https. <add key="SSL_REQUIRED" value="false"/>
+- Si un pare-feu ou un proxy inverse est assis devant le serveur web de portail de l'utilisateur et effectue un déchargement SSL, vous pouvez modifier le fichier web.config du portail de l'utilisateur et ajouter la clé suivante à la section <appSettings> afin que le portail de l'utilisateur puisse utiliser http au lieu de https. <add key="SSL_REQUIRED" value="false"/>
 
 #### Installation du portail de l'utilisateur
 
@@ -189,4 +189,4 @@ L'inscription automatique de l'utilisateur est à présent terminée et l'utilis
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

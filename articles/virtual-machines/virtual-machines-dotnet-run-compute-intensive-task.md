@@ -3,9 +3,9 @@
 	description="Découvrez comment déployer et exécuter une application .NET nécessitant beaucoup de ressources sur une machine virtuelle Azure et comment utiliser des files d’attente Azure Service Bus pour surveiller la progression à distance."
 	services="virtual-machines"
 	documentationCenter=".net"
-	authors="wadepickett"
-	manager="wpickett"
-	editor="mollybos"
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
 	tags=“azure-service-management"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
-	ms.author="wpickett"/>
+	ms.author="davidmu"/>
 
 # Exécution d’une tâche nécessitant beaucoup de ressources dans .NET sur une machine virtuelle Azure
 
@@ -551,4 +551,4 @@ Au lieu d’utiliser TSPSolver pour créer ou supprimer la file d’attente, vou
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

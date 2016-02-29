@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Référence technique au connecteur LDAP générique
@@ -38,7 +38,7 @@ Certaines opérations et certains éléments de schéma, notamment ceux qui sont
 
 | Fonctionnalité | Support |
 | --- | --- |
-| Source de données connectée | Le connecteur est pris en charge avec tous les serveurs v3 LDAP (compatibles RFC 4510). Il a été testé avec les éléments suivants : <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogue global Microsoft Active Directory (AD GC)</li><li>389 Active Server </li><li>Apache Active Server</li><li>IBM Tivoli DS</li><li>Isode active</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>DJ Open</li><li>DS Open</li><li>Open LDAP (openldap.org)</li><li>Oracle (précédemment Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>Annuaires connus non pris en charge : <li>Microsoft Active Directory Domain Services (AD DS) [utiliser le connecteur Active Directory intégré à la place]</li><li>Oracle Internet Directory (OID)</li> |
+| Source de données connectée | Le connecteur est pris en charge avec tous les serveurs v3 LDAP (compatibles RFC 4510). Il a été testé avec les éléments suivants : <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogue global Microsoft Active Directory (AD GC)</li><li>389 Active Server </li><li>Apache Active Server</li><li>IBM Tivoli DS</li><li>Isode active</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>DJ Open</li><li>DS Open</li><li>Open LDAP (openldap.org)</li><li>Oracle (précédemment Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Annuaires connus non pris en charge :** <li>Microsoft Active Directory Domain Services (AD DS) [utiliser le connecteur Active Directory intégré à la place]</li><li>Oracle Internet Directory (OID)</li> |
 | Scénarios | <li>Gestion du cycle de vie des objets</li><li>Gestion des groupes</li><li>Gestion des mots de passe</li> |
 | Opérations |Tous les annuaires LDAP prennent en charge les opérations suivantes : <li>importation</li><li>Exportation complètes</li>Les opérations suivantes sont prises en charge sur les annuaires spécifiés uniquement :<li>importation différentielle</li><li>Définition du mot de passe, Modification du mot de passe</li> |
 | Schéma | Le <li>schéma est détecté depuis le schéma LDAP (RFC3673 et RFC4512/4.2)</li><li>Prend en charge des classes structurelles, les classes auxiliaires et la classe d’objets extensibleObject (RFC4512/4.3)</li>
@@ -279,4 +279,4 @@ Pour les répertoires avec des journaux de modification différentielle basée s
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

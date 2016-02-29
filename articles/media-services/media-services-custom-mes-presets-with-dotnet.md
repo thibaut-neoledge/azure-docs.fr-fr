@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"    
+	ms.date="02/16/2016"    
 	ms.author="juliako"/>
 
 
@@ -353,7 +353,6 @@ Assurez-vous d’examiner la section [Considérations](media-services-custom-mes
 	          <MaxBitrate>4500</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -425,8 +424,8 @@ Les considérations suivantes s'appliquent :
 
 Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou rogner un élément multimédia capturé ou archivé à partir d’un flux en direct. Pour obtenir des détails à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Pour découper vos vidéos, vous pouvez effectuer l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et modifier l’élément **Sources** (comme indiqué ci-dessous). Notez que **Sources** doit être placé en haut du schéma.
-
+Pour découper vos vidéos, vous pouvez effectuer l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et modifier l’élément **Sources** (comme indiqué ci-dessous). La valeur de StartTime doit correspondre aux horodatages absolus de la vidéo d'entrée. Par exemple, si la première image de la vidéo d'entrée a un horodatage de 12:00:10.000, la valeur de StartTime doit être égale ou supérieure à 12:00:10.000. Dans l'exemple ci-dessous, nous supposons que la vidéo d'entrée a un horodatage de début égal à zéro. Notez que **Sources** doit être placé en haut du schéma.
+ 
 ###<a id="json"></a>Présélection JSON
 	
 	{
@@ -651,7 +650,6 @@ Pour découper vos vidéos, vous pouvez effectuer l’une des présélections ME
 	          <MaxBitrate>400</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -736,7 +734,6 @@ Après avoir défini un fichier de présélection, vous devez également indique
 	          "FrameRate": "0/1"
 	        }
 	      ],
-	      "Chapters": [],
 	      "Type": "H264Video"
 	    },
 	    {
@@ -806,7 +803,6 @@ Après avoir défini un fichier de présélection, vous devez également indique
 	          <MaxBitrate>1045</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <CopyAudio />
 	  </Encoding>
@@ -888,4 +884,4 @@ Vous pouvez désactiver le désentrelacement automatique. Cette option n’est p
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

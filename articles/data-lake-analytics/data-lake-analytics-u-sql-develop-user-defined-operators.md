@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 
@@ -26,9 +26,9 @@ Apprenez à développer des opérateurs définis par l’utilisateur pour les ut
 - Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C++. 
 - Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure. Installez-le avec Web Platform Installer.
 - Un compte Data Lake Analytics. Consulter [Prise en main des analyses Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
-- Parcourez le didacticiel [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md).
-- Connectez-vous à Azure, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
-- Téléchargez la source de données, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
+- Parcourez le didacticiel [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md).
+- Connectez-vous à Azure, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md#connect-to-azure). 
+- Téléchargez la source de données, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md#upload-source-data-files). 
 
 ## Définir et utiliser un opérateur défini par l’utilisateur en U-SQL
 
@@ -147,4 +147,4 @@ Apprenez à développer des opérateurs définis par l’utilisateur pour les ut
 - [Prise en main de Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Utiliser les outils Data Lake pour Visual Studio pour le développement d’applications U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

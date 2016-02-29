@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/14/2016"
 	ms.author="daleche"/>
 
 # Restaurer une base de données à un état antérieur, restaurer une base de données supprimée ou à la suite d’une panne du centre de données
@@ -42,4 +42,4 @@ Azure fournit également des sauvegardes de chaque base de données dans une aut
 
 - Dans le [portail Azure](https://azure.microsoft.com/), cliquez sur **Nouveau**, cliquez sur **Données et stockage**, sur **Base de données SQL**, puis sélectionnez **Sauvegarde** en tant que source de base de données. Voir [Restaurer une base de données SQL Azure à la suite d’une panne](sql-database-disaster-recovery.md) pour plus de détails.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

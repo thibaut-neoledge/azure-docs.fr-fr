@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="12/14/2015"
@@ -98,4 +98,4 @@ MV5 | C:\\ClusterStorage\\SourceVolume3 | N/A | Aucun mappage. Donc, l’emplace
 
 Maintenant que vous comprenez mieux le mappage de stockage, consultez [Meilleures pratiques du déploiement de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

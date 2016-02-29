@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/09/2016"
 	ms.author="billmath"/>
 
 # Ports et protocoles nécessaires à l’identité hybride
@@ -74,15 +74,14 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 Les tableaux suivants décrivent les points de terminaison, les ports et les protocoles nécessaires à la communication entre les agents Azure AD Connect Health et Azure AD.
 
 ### Tableau 6a - Ports et protocoles pour l’agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
-Ce tableau décrit les ports et les protocoles nécessaires à la communication entre les agents Azure AD Connect Health et Azure AD.
+Ce tableau décrit les ports et les protocoles sortants nécessaires à la communication entre les agents Azure AD Connect Health et Azure AD.
 
 | Protocole |Ports |Description
 | --------- | --------- |--------- |
-| HTTP|80 (TCP/UDP)|
-|HTTPS|443(TCP/UDP)|
-|Azure Service Bus|5671 (TCP/UDP)|
+|HTTPS|443(TCP/UDP)| Règle de trafic sortant
+|Azure Service Bus|5671 (TCP/UDP)| Règle de trafic sortant
 
 ### 6b - Points de terminaison pour l’agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
 Pour obtenir la liste des points de terminaison, consultez la [section Configuration requise pour l’agent Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

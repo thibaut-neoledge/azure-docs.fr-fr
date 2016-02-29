@@ -55,7 +55,7 @@ L’option de base de données par défaut est Titan, qui coûte 3,50 USD. Nous
 
 ## J’exécute MySQL sur ma propre machine virtuelle Azure. Puis-je connecter mon application web Azure à ma base de données ?
 
-Oui. Vous pouvez connecter votre application web à votre base de données tant que votre machine virtuelle Azure a octroyé l’accès à distance à votre application web. Pour plus d’informations, cliquez ici.
+Oui. Vous pouvez connecter votre application web à votre base de données tant que votre machine virtuelle Azure a octroyé l’accès à distance à votre application web. Pour plus d’informations, voir [Installer MySQL sur une machine virtuelle](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md).
 
 ## Dans quels pays les clusters Premium MySQL ClearDB sont-ils pris en charge ?
 
@@ -84,6 +84,14 @@ Vous pouvez utiliser l’[Assistant Mise à niveau ClearDB](https://www.cleardb.
 ## Qui dois-je contacter pour obtenir de l’aide quand ma base de données est en panne ?
 
 Contactez le [support ClearDB](https://www.cleardb.com/developers/help/support) pour tout problème lié à la base de données. Préparez-vous à fournir des informations sur votre abonnement Azure.
+
+## Puis-je créer des utilisateurs supplémentaires pour ma solution de cluster de base de données ClearDB MySQL ?  
+
+Non. Vous ne pouvez pas créer des utilisateurs supplémentaires, mais vous pouvez créer des bases de données sur votre cluster de base de données ClearDB.
+
+## Lorsque je migre mes ressources d’un abonnement à un autre, ma base de données ClearDB MySQL migre-t-elle également ?  
+
+Lorsque vous effectuez la migration de ressources entre les différents abonnements, certaines [limitations](app-service-move-resources.md) s’appliquent. Une base de données ClearDB MySQL est un service tiers et ne peut donc pas être migrée lors d’une migration d’abonnement Azure. Si vous ne gérez pas la migration de votre base de données MySQL avant la migration des ressources Azure, vos bases de données ClearDB MySQL peuvent être désactivées. Commencez par migrer manuellement vos bases de données, puis effectuez la migration des abonnements Azure pour votre application web.
 
 ## Puis-je acheter WordPress évolutif avec un abonnement Contrat Entreprise ?
 
@@ -116,4 +124,4 @@ Contactez le [support technique](http://aka.ms/AzureEntSupport) pour toute quest
 
 [FAQ Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

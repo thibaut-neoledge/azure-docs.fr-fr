@@ -11,21 +11,18 @@
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/05/2016"
 	ms.author="glenga"/>
 
 # Créer un service mobile de backend .NET qui utilise le stockage de tables
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
-
-
 Cette rubrique vous explique comment utiliser un magasin de données non relationnelles pour votre service mobile principal .NET. Dans ce didacticiel, vous allez modifier le projet de démarrage rapide Azure Mobile Services pour utiliser le stockage de tables Azure à la place de Base de données SQL Azure comme magasin de données par défaut.
 
-Avant de suivre ce didacticiel, vous devez suivre le didacticiel [Prise en main de Mobile Services]. Vous aurez également besoin d’un compte de stockage Azure.
+Pour suivre ce didacticiel, vous devez avoir effectué le didacticiel [Prise en main de Mobile Services]. Vous aurez également besoin d’un compte de stockage Azure.
 
 ##Configurer le stockage de tables Azure dans votre service mobile principal .NET
 
@@ -39,7 +36,7 @@ Tout d’abord, vous devez configurer votre service mobile et le projet de code 
 
   	Le support des services de stockage Azure est alors ajouté au projet de service mobile principal .NET.
 
-3. Si vous n’avez pas encore créé de compte de stockage, voir la rubrique [Création d’un compte de stockage](../storage-create-storage-account.md).
+3. Si vous n’avez pas encore créé de compte de stockage, voir la rubrique [Création d’un compte de stockage](../storage/storage-create-storage-account.md).
 
 4. Dans le [portail Azure Classic], cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
 
@@ -142,7 +139,7 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 
 + [Connexion à un serveur SQL local à l’aide de connexions hybrides](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br> Les connexions hybrides permettent à votre service mobile de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l’aide d’Azure. Les ressources prises en charge incluent toute ressource s’exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés.
 
-+ [Télécharger des images dans le stockage Azure à l’aide de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Vous montre comment étendre l’exemple de projet TodoList pour vous permettre de télécharger des images à partir de votre application pour le stockage d’objets Blob Azure.
++ [Télécharger des images dans le stockage Azure à l’aide de Mobile Services](mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)</br>Vous montre comment étendre l’exemple de projet TodoList pour vous permettre de télécharger des images à partir de votre application pour le stockage d’objets Blob Azure.
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -159,4 +156,4 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

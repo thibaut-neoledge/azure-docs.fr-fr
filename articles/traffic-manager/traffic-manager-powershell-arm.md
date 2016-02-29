@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # Prise en charge d’Azure Resource Manager pour la version préliminaire d’Azure Traffic Manager
@@ -136,15 +136,23 @@ Par exemple, pour modifier la durée de vie (TTL) du profil :
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ## Ajouter des points de terminaison Traffic Manager
-Il existe trois types de points de terminaison Traffic Manager : 1. Les points de terminaison Azure : ils représentent des services hébergés dans Azure. 2. Les points de terminaison externes : ils représentent des services hébergés en dehors d’Azure. 3. Les points de terminaison imbriqués : ils sont utilisés pour établir des hiérarchies de profils Traffic Manager imbriquées, et ce, pour mettre en place des configurations de routage de trafic avancées pour les applications plus complexes. Ils ne sont pas encore pris en charge via l’API ARM.
+Il existe trois types de points de terminaison Traffic Manager :
 
-Dans ces trois cas, les points de terminaison peuvent être ajoutés de deux manières : 1. En utilisant un processus en 3 étapes similaire à celui qui est décrit dans [Mettre à jour un profil Traffic Manager](#update-traffic-manager-profile) : obtenez un objet de profil à l’aide de Get-AzureRmTrafficManagerProfile ; mettez-le à jour hors ligne pour ajouter un point de terminaison à l’aide de Add-AzureRmTrafficManagerEndpointConfig ; téléchargez les modifications dans Azure Traffic Manager à l’aide de Set-AzureRmTrafficManagerProfile. L’avantage de cette méthode est que plusieurs modifications de point de terminaison peuvent être apportées en une seule mise à jour. 2. Utilisation de l’applet de commande New-AzureRmTrafficManagerEndpoint. Elle permet d’ajouter un point de terminaison à un profil existant en une seule opération.
+1. Les points de terminaison Azure : ils représentent des services hébergés dans Azure.<BR>
+2. Les points de terminaison externes : ils représentent des services hébergés en dehors d’Azure.<BR>
+3. Les points de terminaison imbriqués : ils sont utilisés pour établir des hiérarchies de profils Traffic Manager imbriquées, et ce, pour mettre en place des configurations de routage de trafic avancées pour les applications plus complexes. Ils ne sont pas encore pris en charge via l’API ARM.<BR>
+
+Dans ces trois cas, les points de terminaison peuvent être ajoutés de deux manières :<BR>
+
+1. En utilisant un processus en 3 étapes similaire à celui qui est décrit dans [Mettre à jour un profil Traffic Manager](#update-traffic-manager-profile) : obtenez un objet de profil à l’aide de Get-AzureRmTrafficManagerProfile ; mettez-le à jour hors ligne pour ajouter un point de terminaison à l’aide de Add-AzureRmTrafficManagerEndpointConfig ; téléchargez les modifications dans Azure Traffic Manager à l’aide de Set-AzureRmTrafficManagerProfile. L’avantage de cette méthode est que plusieurs modifications de point de terminaison peuvent être apportées en une seule mise à jour.<BR>
+
+2. Utilisation de l’applet de commande New-AzureRmTrafficManagerEndpoint. Elle permet d’ajouter un point de terminaison à un profil existant en une seule opération.
 
 ### Ajout de points de terminaison Azure
 
-Les points de terminaison Azure font référence à des services hébergés dans Azure. Actuellement, 3 types de point de terminaison Azure sont pris en charge : 1. Azure Web Apps 2. Services cloud « classiques » (qui peuvent contenir un service PaaS ou des machines virtuelles IaaS) 3. Ressources ARM de Microsoft.Network/publicIpAddress (peuvent être attachées à un équilibreur de charge ou à une carte réseau de machine virtuelle). Notez que publicIpAddress doit se voir affecter un nom DNS pour être utilisé dans Traffic Manager.
+Les points de terminaison Azure font référence à des services hébergés dans Azure. Actuellement, 3 types de point de terminaison Azure sont pris en charge :<BR> 1. Azure Web Apps <BR> 2. Services cloud « classiques » (qui peuvent contenir un service PaaS ou des machines virtuelles IaaS)<BR> 3. Ressources ARM de Microsoft.Network/publicIpAddress (peuvent être attachées à un équilibreur de charge ou à une carte réseau de machine virtuelle). Notez que publicIpAddress doit se voir affecter un nom DNS pour être utilisé dans Traffic Manager.
 
-Dans tous les cas : - le service est spécifié avec le paramètre « targetResourceId » de Add-AzureRmTrafficManagerEndpointConfig ou New-AzureRmTrafficManagerEndpoint. - « Target » et « EndpointLocation » ne doivent pas être spécifiés, ils sont induits par le paramètre TargetResourceId spécifié plus haut. La spécification de « Weight » est facultative. Les poids ne sont utilisés que si le profil est configuré pour utiliser la méthode d’acheminement de trafic « Pondéré ». Autrement, ils sont ignorés. S’ils sont spécifiés, ils doivent se situer dans la plage 1 à 1 000. La valeur par défaut est « 1 ». - La spécification de la « Priorité » est facultative. Les priorités sont utilisées uniquement si le profil est configuré pour utiliser la méthode d’acheminement de trafic « Priorité ». Dans le cas contraire, elles sont ignorées. Les valeurs valides sont comprises entre 1 et 1 000 (des valeurs inférieures ont une priorité plus élevée). Si elles sont spécifiées pour un point de terminaison, elles doivent l’être pour tous les points de terminaison. En cas d’omission, les valeurs par défaut à partir de 1, 2, 3, etc. sont appliquées dans l’ordre dans lequel les points de terminaison sont fournis.
+Dans tous les cas : - le service est spécifié avec le paramètre « targetResourceId » de Add-AzureRmTrafficManagerEndpointConfig ou New-AzureRmTrafficManagerEndpoint.<BR> - « Target » et « EndpointLocation » ne doivent pas être spécifiés, ils sont induits par le paramètre TargetResourceId spécifié plus haut<BR>. La spécification de « Weight » est facultative. Les poids ne sont utilisés que si le profil est configuré pour utiliser la méthode d’acheminement de trafic « Pondéré ». Autrement, ils sont ignorés. S’ils sont spécifiés, ils doivent se situer dans la plage 1 à 1 000. La valeur par défaut est « 1 »<BR>. - La spécification de la « Priorité » est facultative. Les priorités sont utilisées uniquement si le profil est configuré pour utiliser la méthode d’acheminement de trafic « Priorité ». Dans le cas contraire, elles sont ignorées. Les valeurs valides sont comprises entre 1 et 1 000 (des valeurs inférieures ont une priorité plus élevée). Si elles sont spécifiées pour un point de terminaison, elles doivent l’être pour tous les points de terminaison. En cas d’omission, les valeurs par défaut à partir de 1, 2, 3, etc. sont appliquées dans l’ordre dans lequel les points de terminaison sont fournis.
 
 #### Exemple 1 : ajout de points de terminaison Web App à l’aide de Add-AzureRmTrafficManagerEndpointConfig
 Dans cet exemple, nous créer un profil Traffic Manager et ajouter deux points de terminaison Web App à l’aide de l’applet de commande Add-AzureRmTrafficManagerEndpointConfig, puis valider le profil mis à jour vers Azure Traffic Manager à l’aide de Set-AzureRmTrafficManagerProfile.
@@ -171,7 +179,8 @@ Dans cet exemple, une ressource d’adresse IP publique ARM est ajoutée au prof
 ### Ajout de points de terminaison externes
 Traffic Manager utilise les points de terminaison externes pour diriger le trafic vers les services hébergés en dehors d’Azure. Comme avec les points de terminaison Azure, les points de terminaison externes peuvent être ajoutés à l’aide de Add-AzureRmTrafficManagerEndpointConfig suivi de Set-AzureRmTrafficManagerProfile ou New-AzureRMTrafficManagerEndpoint.
 
-Lorsque vous spécifiez les points de terminaison externes : - le nom de domaine du point de terminaison doit être spécifié à l’aide du paramètre « Target » - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée. Sinon, il est facultatif. La valeur doit être un [nom de région Azure valide](https://azure.microsoft.com/regions/).- « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure.
+Quand vous spécifiez les points de terminaison externes : - le nom de domaine du point de terminaison doit être spécifié à l’aide du paramètre « Target »<BR> - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée. Sinon, il est facultatif. La valeur doit être un [nom de région Azure valide](https://azure.microsoft.com/regions/).<BR> - « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure.<BR>
+ 
 
 #### Exemple 1 : ajout de points de terminaison externes à l’aide d’Add-AzureRmTrafficManagerEndpointConfig et Set-AzureRmTrafficManagerProfile
 Dans cet exemple, nous allons créer un profil Traffic Manager, ajouter deux points de terminaison externes et valider les modifications.
@@ -192,12 +201,12 @@ Traffic Manager vous permet de configurer un profil Traffic Manager (que nous ap
 
 L’imbrication de Traffic Manager vous permet de créer des schémas de routage du trafic et de basculement plus souples et plus puissants pour répondre aux besoins des déploiements plus vastes et plus complexes. [Ce billet de blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) donne plusieurs exemples.
 
-Les points de terminaison imbriqués sont configurés sur le profil parent, à l’aide d’un type de point de terminaison spécifique, « NestedEndpoints ». Quand vous spécifiez des points de terminaison imbriqués : - le point de terminaison (c’est-à-dire, le profil enfant) doit être spécifié à l’aide du paramètre « targetResourceId ». - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée (sinon, il est facultatif). La valeur doit être un [nom de région Azure valide](http://azure.microsoft.com/regions/).- « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure. - le paramètre « MinChildEndpoints » est facultatif (sa valeur par défaut est 1). Si le nombre de points de terminaison disponibles dans le profil enfant tombe sous ce seuil, le profil parent considère le profil enfant comme étant « dégradé » et dirige le trafic vers les autres points de profil parents.
+Les points de terminaison imbriqués sont configurés sur le profil parent, à l’aide d’un type de point de terminaison spécifique, « NestedEndpoints ». Quand vous spécifiez des points de terminaison imbriqués : - le point de terminaison (c’est-à-dire, le profil enfant) doit être spécifié à l’aide du paramètre « targetResourceId »<BR>. - « EndpointLocation » est obligatoire si la méthode d’acheminement de trafic « Performance » est utilisée (sinon, il est facultatif). La valeur doit être un [nom de région Azure valide](http://azure.microsoft.com/regions/).<BR> - « Weight » et « Priority » sont facultatifs, comme pour les points de terminaison Azure.<BR> - le paramètre « MinChildEndpoints » est facultatif (sa valeur par défaut est 1). Si le nombre de points de terminaison disponibles dans le profil enfant tombe sous ce seuil, le profil parent considère le profil enfant comme étant « dégradé » et dirige le trafic vers les autres points de profil parents.<BR>
 
 
 #### Exemple 1 : ajout de points de terminaison imbriqués à l’aide d’Add-AzureRmTrafficManagerEndpointConfig et Set-AzureRmTrafficManagerProfile
 
-Dans cet exemple, nous créons des profils Traffic Manager enfant et parent, ajoutons l’enfant en tant que point de terminaison imbriqué dans le parent et validons les modifications. (Par souci de concision, nous n’ajoutons pas d’autres points de terminaison au profil enfant ou parent, bien que cela soit normalement nécessaire.)
+Dans cet exemple, nous créons des profils Traffic Manager enfant et parent, ajoutons l’enfant en tant que point de terminaison imbriqué dans le parent et validons les modifications. (Par souci de concision, nous n’ajoutons pas d’autres points de terminaison au profil enfant ou parent, bien que cela soit normalement nécessaire.)<BR>
 
 	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -213,7 +222,10 @@ Dans cet exemple, nous ajoutons un profil enfant existant en tant que point de t
 
 
 ## Mettre à jour un point de terminaison Traffic Manager
-Il existe deux façons de mettre à jour un point de terminaison Traffic Manager existant : 1. Obtenir le profil Traffic Manager à l’aide de Get-AzureRmTrafficManagerProfile, mettre à jour les propriétés de point de terminaison dans le profil et valider les modifications apportées à l’aide de Set-AzureRmTrafficManagerProfile. Cette méthode présente l’avantage de pouvoir mettre à jour plusieurs points de terminaison en une seule opération. 2. Obtenir le point de terminaison Traffic Manager à l’aide de Get-AzureRmTrafficManagerEndpoint, mettre à jour les propriétés de point de terminaison et valider les modifications apportées à l’aide de Set-AzureRmTrafficManagerEndpoint. Cette méthode est plus simple, car elle ne nécessite pas d’indexation dans le tableau de points de terminaison dans le profil.
+Il existe deux façons de mettre à jour un point de terminaison Traffic Manager existant :<BR>
+
+1. Obtenir le profil Traffic Manager à l’aide de Get-AzureRmTrafficManagerProfile, mettre à jour les propriétés de point de terminaison dans le profil et valider les modifications apportées à l’aide de Set-AzureRmTrafficManagerProfile. Cette méthode présente l’avantage de pouvoir mettre à jour plusieurs points de terminaison en une seule opération.<BR>
+2. Obtenir le point de terminaison Traffic Manager à l’aide de Get-AzureRmTrafficManagerEndpoint, mettre à jour les propriétés de point de terminaison et valider les modifications apportées à l’aide de Set-AzureRmTrafficManagerEndpoint. Cette méthode est plus simple, car elle ne nécessite pas d’indexation dans le tableau de points de terminaison dans le profil.<BR>
 
 #### Exemple 1 : mise à jour de points de terminaison à l’aide de Get-AzureRmTrafficManagerProfile et Set-AzureRmTrafficManagerProfile
 Dans cet exemple, nous allons modifier l’ordre de priorité de deux points de terminaison dans un profil existant.
@@ -285,4 +297,4 @@ Cette séquence peut également être canalisée :
 [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

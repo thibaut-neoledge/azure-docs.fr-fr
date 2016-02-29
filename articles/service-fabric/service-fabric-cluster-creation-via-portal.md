@@ -72,9 +72,8 @@ Cette page vous aide à configurer un cluster Azure Service Fabric. Votre abonne
 
 	b. Ajoutez tous les ports dans le champ séparé par des virgules **Points de terminaison d’entrée d’application**. Le point de terminaison de connexion TCP client étant 19000 par défaut, vous n’avez pas besoin de les spécifier. Ainsi, l’exemple d’application de comptage de mots a besoin du port 83 pour être ouvert. Cette information se trouve dans le fichier servicemanifest.xml, dans votre package d’application. (Plusieurs fichiers servicemanifest.xml peuvent coexister.)
 
-    c. La plupart des applications d’exemple utilisent les ports 80 et 8081. Ainsi, ajoutez-les si vous envisagez de déployer les exemples sur ce cluster. 
+    c. La plupart des applications d’exemple utilisent les ports 80 et 8081. Ainsi, ajoutez-les si vous envisagez de déployer les exemples sur ce cluster. ![Ports][Ports]
 
-	![Ports][Ports]
 10. Vous n’avez pas besoin de configurer **Propriétés de sélection élective**, car une propriété de sélection élective par défaut de « NodeTypeName » est ajoutée par le système. Vous pouvez en ajouter si votre application le nécessite.
 
 ## Configurer la sécurité
@@ -113,12 +112,13 @@ Une fois votre déploiement terminé, vous pouvez inspecter votre cluster dans l
 
 1. Accédez à **Parcourir**, puis cliquez sur **Clusters Service Fabric**.
 
-2. Recherchez votre cluster et cliquez dessus. 
+2. Recherchez votre cluster et cliquez dessus. ![Capture d’écran de la recherche de votre cluster dans le portail.][BrowseCluster]
 
-![Capture d’écran de la recherche de votre cluster dans le portail.][BrowseCluster]
 3. Vous pouvez maintenant voir les détails de votre cluster dans le tableau de bord, notamment l’adresse IP publique du cluster. Le fait de survoler l’**Adresse IP publique du cluster** affiche un presse-papiers sur lequel vous pouvez cliquer pour copier l’adresse. ![Capture d’écran des détails du cluster dans le tableau de bord.][ClusterDashboard]
 
   La section **Surveillance des nœuds** du panneau du tableau de bord du cluster indique le nombre de machines virtuelles intègres et de machines virtuelles non intègres. Pour plus d’informations sur l’intégrité du cluster, consultez [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md).
+
+>[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l'état, situation appelée "conservation du quorum". Par conséquent, il est généralement déconseillé d'arrêter tous les ordinateurs du cluster, sauf si vous avez d'abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).
 
 ## Se connecter au cluster et déployer une application
 
@@ -207,4 +207,4 @@ Une fois la configuration du cluster terminée, vous pouvez vous connecter et co
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

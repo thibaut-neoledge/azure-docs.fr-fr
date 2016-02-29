@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # Résolution de noms pour les machines virtuelles et les instances de rôle
@@ -158,7 +158,7 @@ Vous pouvez spécifier plusieurs serveurs DNS à utiliser par vos machines virt
 
 ### Définition d’un serveur DNS dans le portail de gestion
 
-Lorsque vous créez un réseau virtuel dans le portail de gestion, vous pouvez spécifier l’adresse IP et le nom du ou des serveurs DNS que vous souhaitez utiliser. Une fois que le réseau virtuel est créé, les machines virtuelles et les instances de rôle déployées sur le réseau virtuel sont automatiquement configurées avec les paramètres DNS spécifiés. Les serveurs DNS spécifiés pour un service cloud spécifique (Azure Classic) ou une carte réseau (déploiements ARM) sont prioritaires sur ceux spécifiés pour le réseau virtuel. Voir [Gestion des propriétés du réseau virtuel](virtual-networks-settings.md).
+Lorsque vous créez un réseau virtuel dans le portail de gestion, vous pouvez spécifier l’adresse IP et le nom du ou des serveurs DNS que vous souhaitez utiliser. Une fois que le réseau virtuel est créé, les machines virtuelles et les instances de rôle déployées sur le réseau virtuel sont automatiquement configurées avec les paramètres DNS spécifiés. Les serveurs DNS spécifiés pour un service cloud spécifique (Azure Classic) ou une carte réseau (déploiements ARM) sont prioritaires sur ceux spécifiés pour le réseau virtuel.
 
 ### Définition d’un serveur DNS à l’aide de fichiers de configuration (Azure Classic)
 
@@ -177,8 +177,6 @@ Le fichier de configuration de service est créé pour chaque service cloud que 
 
 [Schéma de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/jj157100)
 
-[À propos de la configuration des paramètres de réseau virtuel dans le Portail de gestion](virtual-networks-settings.md)
-
 [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

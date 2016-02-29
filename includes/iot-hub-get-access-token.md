@@ -21,17 +21,17 @@ Azure Active Directory doit authentifier toutes les tâches que vous effectuez s
 2. Créez un objet **ResourceManagementClient** qui utilise le jeton en ajoutant le code suivant à la fin de la méthode **Main** :
 
     ```
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
+    var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
+    client.SubscriptionId = subscriptionId;
     ```
 
 3. Créez ou obtenez une référence au groupe de ressources que vous utilisez :
 
     ```
-    var rgResponse = client.ResourceGroups.CreateOrUpdateAsync(rgName,
-        new ResourceGroup("East US")).Result;
-    if (rgResponse.StatusCode != HttpStatusCode.Created
-        && rgResponse.StatusCode != HttpStatusCode.OK)
+    var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
+        new ResourceGroup("East US"));
+    if (rgResponse.Properties.ProvisioningState != "Succeeded")
     {
       Console.WriteLine("Problem creating resource group");
       return;
@@ -40,4 +40,4 @@ Azure Active Directory doit authentifier toutes les tâches que vous effectuez s
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -67,9 +67,9 @@ Les jetons de SAP de compte et de SAP de service incluent des paramètres commun
 
 ### Paramètres communs aux jetons de SAP de compte et de SAP de service
 
-- **Version de l’API.** Paramètre facultatif qui spécifie la version du service de stockage à utiliser pour exécuter la demande. 
+- **Version de l’API.** Paramètre facultatif qui spécifie la version du service de stockage à utiliser pour exécuter la demande.
 - **Version du service.** Paramètre obligatoire qui spécifie la version du service de stockage à utiliser pour authentifier la demande.
-- **Heure de début.** Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement. 
+- **Heure de début.** Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement.
 - **Heure d’expiration.** Il s'agit de l'heure à laquelle la signature d'accès partagé cesse d'être valide. Les meilleures pratiques recommandent soit de spécifier une heure d'expiration pour une signature d'accès partagé, soit de l'associer à une stratégie d'accès stockée (voir plus loin).
 - **Autorisations.** Les autorisations spécifiées sur la signature d'accès partagé indiquent quelles opérations le client peut exécuter avec cette dernière sur la ressource de stockage. Les autorisations disponibles ne sont pas les mêmes pour une SAP de compte et une SAP de service.
 - **IP.** Paramètre facultatif qui spécifie une adresse IP ou une plage d’adresses IP en dehors d’Azure en provenance de laquelle accepter les demandes (consultez la section [État de configuration d’une session de routage](../expressroute/expressroute-workflows.md#routing-session-configuration-state) pour ExpressRoute).
@@ -127,11 +127,11 @@ Autorisations|sp=rw|Les autorisations accordent l’accès aux opérations de le
 
 Une signature d’accès partagé peut prendre deux formes :
 
-- **Signature d'accès partagé ad hoc :** lorsque vous créez une signature d'accès partagé ad hoc, l'heure de début, l'heure d'expiration et les autorisations associées à cette signature sont spécifiées sur l'URI de signature d'accès partagé (ou sont implicites, dans le cas où l'heure de début est omise). Ce type de SAP peut être créé en tant que SAP de compte ou SAP de service. 
+- **Signature d'accès partagé ad hoc :** lorsque vous créez une signature d'accès partagé ad hoc, l'heure de début, l'heure d'expiration et les autorisations associées à cette signature sont spécifiées sur l'URI de signature d'accès partagé (ou sont implicites, dans le cas où l'heure de début est omise). Ce type de SAP peut être créé en tant que SAP de compte ou SAP de service.
 
 - **Signature d’accès partagé avec stratégie d’accès stockée :** une stratégie d’accès stockée est définie sur un conteneur de ressources (conteneur d’objets blob, table, file d’attente ou partage de fichiers) et permet de gérer les contraintes d’une ou de plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie.
 
->[AZURE.NOTE]À l’heure actuelle, une SAP de compte doit être une SAP ad hoc. Les stratégies d’accès stockées ne sont pas encore prises en charge pour les SAP de compte.
+>[AZURE.NOTE] À l’heure actuelle, une SAP de compte doit être une SAP ad hoc. Les stratégies d’accès stockées ne sont pas encore prises en charge pour les SAP de compte.
 
 La différence entre les deux formes est importante pour un scénario clé : la révocation. Une signature d’accès partagé est une URL. Par conséquent, toute personne qui obtient la signature peut s’en servir, quel que soit celui qui l’a demandée initialement. Si une SAP est publiée publiquement, elle peut être utilisée par n’importe qui. Une clé d'accès partagé qui est distribuée est valide jusqu'à ce que l'un des quatre événements suivants ait lieu :
 
@@ -140,7 +140,7 @@ La différence entre les deux formes est importante pour un scénario clé : la
 3.	La stratégie d'accès stockée référencée par la signature d'accès partagé est supprimée, ce qui est une autre manière de révoquer la signature d'accès partagé. Notez que si vous recréez la stratégie d'accès stockée avec exactement le même nom, tous les jetons de signature d'accès partagé existants seront de nouveau valides en fonction des autorisations associées à cette stratégie d'accès stockée (en partant du principe que l'heure d'expiration sur la signature d'accès partagé n'est pas passée). Si vous avez l'intention de révoquer la signature d'accès partagé, veillez à utiliser un nom différent si vous recréez la stratégie d'accès avec une heure d'expiration située dans le futur.
 4.	La clé de compte qui a été utilisée pour créer la signature d'accès partagé est régénérée. Notez que cela provoquera un échec d'authentification pour tous les composants de l'application qui utilisent cette clé de compte jusqu'à ce qu'ils soient mis à jour afin d'utiliser soit l'autre clé de compte valide soit la clé de compte nouvellement régénérée.
 
->[AZURE.IMPORTANT]L’URI d’une signature d’accès partagé est associé à la clé du compte utilisée pour créer la signature et à la stratégie d’accès stockée correspondante (le cas échéant). Si aucune stratégie d’accès stockée n’est spécifiée, la seule façon de révoquer une signature d’accès partagé consiste à modifier la clé du compte.
+>[AZURE.IMPORTANT] L’URI d’une signature d’accès partagé est associé à la clé du compte utilisée pour créer la signature et à la stratégie d’accès stockée correspondante (le cas échéant). Si aucune stratégie d’accès stockée n’est spécifiée, la seule façon de révoquer une signature d’accès partagé consiste à modifier la clé du compte.
 
 ## Exemples : créer et utiliser des signatures d'accès partagé
 
@@ -253,8 +253,8 @@ L’exemple de code suivant crée une stratégie d’accès stockée sur un cont
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
        Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
-    
-    // The public access setting explicitly specifies that 
+
+    // The public access setting explicitly specifies that
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
 
@@ -271,12 +271,12 @@ Un client en possession de la SAP de service peut l’utiliser à partir de son 
 
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
-    
+
     // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
-    
-    // Upload the blob. 
-    // If the blob does not yet exist, it will be created. 
+
+    // Upload the blob.
+    // If the blob does not yet exist, it will be created.
     // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
@@ -311,11 +311,9 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 ## Étapes suivantes ##
 
 - [Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage](storage-dotnet-shared-access-signature-part-2.md)
-- [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files.md)
-- [Gestion de l’accès aux ressources d’Azure Storage](storage-manage-access-to-resources.md)
+- [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
+- [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md)
 - [Délégation de l'accès avec une signature d'accès partagé](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png 
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service] : ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

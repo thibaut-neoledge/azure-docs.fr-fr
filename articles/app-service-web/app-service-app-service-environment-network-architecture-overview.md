@@ -31,6 +31,8 @@ Le diagramme suivant montre une vue d'ensemble des différents flux réseau entr
 
 Un environnement App Service peut communiquer avec plusieurs points de terminaison client privés. Par exemple, les applications exécutées dans l'environnement App Service peuvent se connecter au(x) serveur(s) de base de données en cours d'exécution sur des machines virtuelles IaaS dans la même topologie de réseau virtuel.
 
+[AZURE.IMPORTANT] D’après le schéma du réseau, les « Other Computer Resources » (« Autres ressources de l’ordinateur ») sont déployées dans un sous-réseau différent de l’environnement App Service. Déployer des ressources dans le même sous-réseau avec l’ASE bloque la connectivité depuis l’ASE à ces ressources (à l’exception de certains routages intra-ASE). Il est préférable de les déployer dans un autre sous-réseau (dans le même réseau virtuel). L’environnement App Service est alors en mesure de se connecter. Aucune configuration supplémentaire n’est nécessaire.
+
 Les environnements App Service communiquent également avec les ressources BD SQL et stockage Azure nécessaires pour la gestion et l'exploitation d'un environnement App Service. Certaines des ressources de stockage et Sql avec lesquelles un environnement App Service communique se trouvent dans la même région que l'environnement App Service, tandis que d'autres sont situées dans des régions Azure distantes. Par conséquent, une connectivité sortante à Internet est toujours requise pour qu'un environnement App Service fonctionne correctement.
 
 Étant donné qu'un environnement App Service est déployé dans un sous-réseau, vous pouvez utiliser des groupes de sécurité réseau pour contrôler le trafic entrant vers le sous-réseau. Pour plus d'informations sur la façon de contrôler le trafic entrant vers un environnement App Service, consultez l'[article][controllinginboundtraffic] suivant.
@@ -87,4 +89,4 @@ Cet [article][ExpressRoute] contient des informations sur l’utilisation d’it
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->
