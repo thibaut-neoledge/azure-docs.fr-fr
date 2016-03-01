@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="02/22/2016"
    ms.author="yurid"/>
 
 # Définition des stratégies de sécurité dans le Centre de sécurité Azure
@@ -65,12 +65,12 @@ Les stratégies de sécurité sont configurées pour chaque abonnement. Pour mod
 
 | Stratégie | Lorsque l’option est activée (On) |
 |----- |-----|
-| Mises à jour du système | Récupère la liste des mises à jour disponibles dans Windows Update ou WSUS (selon le service qui est configuré pour la machine virtuelle) toutes les 12 heures et recommande l’installation des mises à jour manquantes sur les machines virtuelles Windows. |
+| Mises à jour du système | Récupère la liste des mises à jour disponibles dans Windows Update ou WSUS (selon le service qui est configuré pour la machine virtuelle) toutes les 12 heures et recommande l’installation des mises à jour manquantes (mises à jour critiques et de sécurité) sur les machines virtuelles Windows. |
 | Règles de ligne de base | Analyse l’ensemble des machines virtuelles prises en charge toutes les 12 heures pour identifier les configurations de système d’exploitation susceptibles de rendre la machine virtuelle plus vulnérable aux attaques, et recommande des modifications de la configuration pour résoudre ces problèmes. Pour plus d’informations sur les configurations surveillées, consultez la [liste des règles de base recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
 | Logiciel anti-programme malveillant | Recommande l’approvisionnement d’un logiciel anti-programme malveillant pour toutes les machines virtuelles Windows afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants. |
 | ACL sur les points de terminaison | Recommande qu’une [liste de contrôle d’accès](virtual-machines-set-up-endpoints.md) (ACL) soit configurée pour limiter l’accès aux points de terminaison d’une machine virtuelle de type Classique. En général, cette option est utilisée pour garantir que seuls les utilisateurs qui sont connectés au réseau de l’entreprise puissent accéder aux machines virtuelles. |
 | Groupes de sécurité réseau | Recommande la configuration de [groupes de sécurité réseau](virtual-networks-nsg.md) pour contrôler le trafic entrant et sortant entre les sous-réseaux et les interfaces réseau pour les machines virtuelles de type Resource Manager. Les groupes de sécurité réseau configurés pour un sous-réseau sont hérités par toutes les interfaces réseau de machine virtuelle, sauf indication contraire. Après la vérification de la configuration d’un groupe de sécurité réseau, cette option évalue les règles de sécurité de trafic entrant afin d’identifier toute règle autorisant le trafic entrant. |
-| Pare-feu d’applications web | Recommande l’approvisionnement d’un pare-feu d’applications web sur les machines virtuelles de type Resource Manager quand une [adresse IP publique de niveau d’instance](virtual-networks-instance-level-public-ip.md) est utilisée et que les règles de sécurité de trafic entrant des groupes de sécurité réseau associés sont configurées pour autoriser l’accès au port 80 ou 443. Les adresses IP dont la charge est répartie (adresses IP virtuelles) sont utilisées. Les règles d’équilibrage de charge et les règles NAT de trafic entrant associées sont configurées pour autoriser l’accès au port 80 ou 443 (pour plus d’informations, consultez [Support d’Azure Resource Manager pour l’équilibreur de charge](load-balancer-arm.md)) |
+| Pare-feu d’applications web | Recommande l’approvisionnement d’un pare-feu d’applications web sur les machines virtuelles quand une [adresse IP publique de niveau d’instance](virtual-networks-instance-level-public-ip.md) est utilisée et que les règles de sécurité de trafic entrant des groupes de sécurité réseau associés sont configurées pour autoriser l’accès au port 80 ou 443. Les adresses IP dont la charge est répartie (adresses IP virtuelles) sont utilisées. Les règles d’équilibrage de charge et les règles NAT de trafic entrant associées sont configurées pour autoriser l’accès au port 80 ou 443 (pour plus d’informations, consultez [Support d’Azure Resource Manager pour l’équilibreur de charge](load-balancer-arm.md)) |
 | Audit SQL | Recommande l’activation de l’audit de l’accès aux serveurs et aux bases de données SQL Azure à des fins de conformité, de détection avancée et d’investigation. |
 | Chiffrement transparent des données SQL | Recommande l’activation du chiffrement au repos pour les bases de données SQL Azure, ainsi que pour les sauvegardes associées et les fichiers journaux de transaction. Ainsi, même en cas de violation des données, celles-ci ne pourront pas être lues. |
 
@@ -85,4 +85,4 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 - [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -78,11 +78,90 @@ L’accusé de réception de la commande de l’appareil est fourni via l’IoT 
 
 ### Tâches d’Azure Stream Analytics
 
-La **Tâche 1 : Télémesure** agit sur le flux de télémétrie de l’appareil entrant à l’aide de deux commandes. La première commande transfère tous les messages de télémétrie des appareils vers le stockage persistant d’objets blob. La deuxième commande calcule les valeurs d’humidité moyenne, minimale et maximale sur une fenêtre glissante de cinq minutes. Ces données sont également envoyées au stockage d’objets blob.
+La **Tâche 1 : Télémesure** agit sur le flux de télémétrie de l’appareil entrant de deux manières différentes. La première consiste à transférer tous les messages de télémétrie des appareils vers le stockage persistant d’objets blob. La deuxième calcule les valeurs d’humidité moyenne, minimale et maximale sur une fenêtre glissante de cinq minutes. Ces données sont également envoyées au stockage d’objets blob. Cette tâche utilise la définition de requête suivante :
 
-La **Tâche 2 : Informations de l’appareil** filtre les messages d’informations de l’appareil en provenance du flux de messages entrants et les envoie à un point de terminaison du Hub d’événements. Un appareil envoie des messages d’informations d’appareil au démarrage et en réponse à une commande **SendDeviceInfo**.
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM 
+      [IoTHubStream] 
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
 
-La **Tâche 3 : Règles** compare les valeurs de télémétrie entrantes (température et humidité) aux seuils définis pour chaque appareil. Les valeurs de seuil sont définies dans l’éditeur de règles fourni avec la solution. Chaque paire appareil/valeur est stockée par horodatage dans un objet blob qui est lu dans Stream Analytics en tant que **Données de référence**. La tâche compare toutes les valeurs non vides au seuil défini pour l’appareil. En cas de dépassement de la condition ’>’, la tâche génère un événement d’**alarme** indiquant que le seuil a été dépassé et renseigne l’appareil, la valeur et l’horodatage.
+SELECT
+    *
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    DeviceId,
+    AVG (Humidity) AS [AverageHumidity], 
+    MIN(Humidity) AS [MinimumHumidity], 
+    MAX(Humidity) AS [MaxHumidity], 
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM
+    [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    DeviceId, 
+    SlidingWindow (mi, 5)
+```
+
+La **Tâche 2 : Informations de l’appareil** filtre les messages d’informations de l’appareil en provenance du flux de messages entrants et les envoie à un point de terminaison du Hub d’événements. Un appareil envoie des messages d’informations d’appareil au démarrage et en réponse à une commande **SendDeviceInfo**. Cette tâche utilise la définition de requête suivante :
+
+```
+SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+```
+
+La **Tâche 3 : Règles** compare les valeurs de télémétrie entrantes (température et humidité) aux seuils définis pour chaque appareil. Les valeurs de seuil sont définies dans l’éditeur de règles fourni avec la solution. Chaque paire appareil/valeur est stockée par horodatage dans un objet blob qui est lu dans Stream Analytics en tant que **Données de référence**. La tâche compare toutes les valeurs non vides au seuil défini pour l’appareil. En cas de dépassement de la condition ’>’, la tâche génère un événement d’**alarme** indiquant que le seuil a été dépassé et renseigne l’appareil, la valeur et l’horodatage. Cette tâche utilise la définition de requête suivante :
+
+```
+WITH AlarmsData AS 
+(
+SELECT
+     Stream.DeviceID,
+     'Temperature' as ReadingType,
+     Stream.Temperature as Reading,
+     Ref.Temperature as Threshold,
+     Ref.TemperatureRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+
+UNION ALL
+
+SELECT
+     Stream.DeviceID,
+     'Humidity' as ReadingType,
+     Stream.Humidity as Reading,
+     Ref.Humidity as Threshold,
+     Ref.HumidityRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+)
+
+SELECT *
+INTO DeviceRulesMonitoring
+FROM AlarmsData
+
+SELECT *
+INTO DeviceRulesHub
+FROM AlarmsData
+```
 
 ### Processeur d’événements
 
@@ -145,4 +224,4 @@ Vous pouvez désactiver un appareil puis le supprimer :
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,22 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="01/13/2016"
+   ms.date="02/21/2016"
    ms.author="heidist"/>
 
 # Essayer Azure Search gratuitement avec Azure App Service
 
 [Essayer Azure App Service](https://tryappservice.azure.com/) est une session gratuite d'une heure, basée sur navigateur, ayant pour but d'essayer les services Azure, y compris **Azure Search**, sans inscription requise à un abonnement. Le site permet de choisir entre plusieurs modèles. Lorsque vous sélectionnez le modèle ASP.NET, qui inclut Azure Search, vous accédez à un site web entièrement fonctionnel, pris en charge par les services que vous avez sélectionnés.
 
-Dans le cadre de l'offre [Essayer Azure App Service](https://tryappservice.azure.com/), le service Azure Search est déjà créé et prêt à recevoir des requêtes de recherche. Vous ne pouvez pas télécharger ni utiliser votre index ou vos données, mais vous pouvez exécuter des requêtes et effectuer un certain nombre de modifications du code pour redéfinir l'expérience utilisateur.
+Dans le cadre de l’offre **Essayer Azure App Service**, le service Azure Search est déjà créé et prêt à recevoir des requêtes de recherche. Vous ne pouvez pas télécharger ni utiliser votre index ou vos données, mais vous pouvez exécuter des requêtes et effectuer un certain nombre de modifications du code pour redéfinir l'expérience utilisateur.
 
-Les données de recherche proviennent du [United States Geological Survey (USGS, Institut d'études géologiques des États-Unis)](http://geonames.usgs.gov/domestic/download_data.htm) et comprennent 3 millions de lignes de repères, de sites historiques, de bâtiments et autres éléments géographiques aux États-Unis.
+Les données de recherche proviennent du [United States Geological Survey (USGS, Institut d’études géologiques des États-Unis)](http://geonames.usgs.gov/domestic/download_data.htm) et comprennent 3 millions de lignes de repères, de sites historiques, de bâtiments et autres éléments géographiques aux États-Unis.
 
 ## Prise en main
 
 Si vous n’avez pas encore démarré votre session d’une heure, procédez comme suit pour commencer.
 
-1. Accédez à [https://tryappservice.azure.com](https://tryappservice.azure.com/) et faites défiler vers le bas pour sélectionner **Application web**. 
+1. Cliquez avec le bouton droit sur [https://tryappservice.azure.com](https://tryappservice.azure.com/) pour ouvrir ce site dans une nouvelle fenêtre de navigateur.
+2. Faites défiler la page pour sélectionner **Application web**. 
 2. Cliquez sur **Next**.
 3. Choisissez le modèle **Site ASP.NET + Azure Search**.
 
@@ -523,4 +524,4 @@ La capture d’écran suivante montre le schéma utilisé pour créer l’index 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

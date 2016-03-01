@@ -13,7 +13,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/05/2016" 
 	ms.author="omark"/>
 
@@ -50,7 +50,7 @@ App Service vous permet de créer les types d'application suivants à partir d'u
 En tant que service intégré unique, App Service facilite l’assemblage des types d’application ci-dessus en une solution unique. Cela vous permet de créer aisément des applications qui ciblent des clients web et mobiles en utilisant un même backend, et qui s’intègrent dans des systèmes sur site et des services populaires tels qu’Office 365 et salesforce.com.
 
 ### Plans App Service
-Les plans App Service représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager entre vos applications. Les plans App Service prennent en charge plusieurs niveaux de tarification (p. ex., Gratuit, Partagé, De base, Standard et Premium), tous dotés de capacités propres. Vous pouvez modifier rapidement le plan App Service sur lequel une application est hébergée sans interruption de service. [En savoir plus sur les plans App Service](../web-sites-web-hosting-plan-overview.md).
+Les plans App Service représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager entre vos applications. Les plans App Service prennent en charge plusieurs niveaux de tarification (p. ex., Gratuit, Partagé, De base, Standard et Premium), tous dotés de capacités propres. Vous pouvez modifier rapidement le plan App Service sur lequel une application est hébergée sans interruption de service. [En savoir plus sur les plans App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 ##Prise en main d'App Service
 Vous souhaitez en avoir un avant-goût ? Débutez en quelques secondes.
@@ -60,4 +60,4 @@ Avec Azure App Service, la procédure est aussi simple que de sélectionner une 
 [Créez une application](http://go.microsoft.com/fwlink/?LinkId=523751) immédiatement et gratuitement. Aucune carte de paiement requise, aucun engagement, aucune contrainte.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

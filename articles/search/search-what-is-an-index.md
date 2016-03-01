@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Index dans Azure Search
@@ -106,4 +106,4 @@ Si les exigences en matière de volume de requête ou de stockage de données ch
 <!--Image References-->
 [1]: ./media/search-what-is-an-index/search-JSON-indexSchema.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0224_2016-->

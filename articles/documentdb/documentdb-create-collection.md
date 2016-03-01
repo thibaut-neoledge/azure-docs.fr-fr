@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="mimig"/>
 
 # Création d’une collection DocumentDB à l’aide du portail Azure
@@ -22,26 +22,30 @@ Pour utiliser Microsoft Azure DocumentDB, vous devez posséder un [compte Docume
 
 Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce qu’une collection DocumentDB ?](#what-is-a-documentdb-collection)
 
-![Capture d'écran montrant l'option Comptes DocumentDB dans la barre de lancement, le compte dans le panneau Comptes DocumentDB et la base de données dans le panneau Compte DocumentDB, dans le filtre Bases de données](./media/documentdb-create-collection/docdb-database-creation-1-3.png)
+1.  Dans la barre de lancement du [portail Azure](https://portal.azure.com/), cliquez sur **Comptes DocumentDB**. Si l’option **Comptes DocumentDB** n’est pas affichée, cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**.
 
-1.  Dans la barre de lancement du [portail Azure](https://portal.azure.com/), cliquez sur **Comptes DocumentDB**. 
+    ![Capture d'écran montrant l'option Comptes DocumentDB dans la barre de lancement, le compte dans le panneau Comptes DocumentDB et la base de données dans le panneau Compte DocumentDB, dans le filtre Bases de données](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
 
 2.  Dans le panneau **Comptes DocumentDB**, sélectionnez le compte dans lequel une collection sera ajoutée. Si vous n'avez aucun compte répertorié, vous devrez [créer un compte DocumentDB](documentdb-create-account.md).
 
 3. Dans le panneau **Compte DocumentDB** pour le compte sélectionné, accédez au filtre **Bases de données**, puis sélectionnez la base de données dans laquelle ajouter une collection.
-    
+
+    ![Capture d'écran montrant l'option Comptes DocumentDB dans la barre de lancement, le compte dans le panneau Comptes DocumentDB et la base de données dans le panneau Compte DocumentDB, dans le filtre Bases de données](./media/documentdb-create-collection/docdb-database-creation-3.png)
+
 4. Dans le panneau **Base de données**, cliquez sur **Ajout des collections**.
 
-	![Capture d’écran montrant le bouton Ajouter la collection dans le panneau Base de données, les paramètres dans le panneau Ajouter la collection et le bouton OK. Portail Azure pour DocumentDB - Créateur de bases de données basées sur le cloud pour les bases de données JSON NoSQL.](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
+	![Capture d’écran montrant le bouton Ajouter la collection dans le panneau Base de données, les paramètres dans le panneau Ajouter la collection et le bouton OK. Portail Azure pour DocumentDB - Créateur de bases de données basées sur le cloud pour les bases de données JSON NoSQL.](./media/documentdb-create-collection/docdb-collection-creation-4.png)
 
-5. Dans le panneau **Ajout d’une collection**, saisissez l’ID de votre nouvelle collection. Les noms de collection doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin. Lorsque le nom est validé, une coche verte s'affiche dans la case ID.
+5. Dans le panneau **Ajouter une collection**, entrez l’ID de votre nouvelle collection dans la zone **ID**. Les noms de collection doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin. Lorsque le nom est validé, une coche verte s'affiche dans la case ID.
+
+	![Capture d’écran montrant le bouton Ajouter la collection dans le panneau Base de données, les paramètres dans le panneau Ajouter la collection et le bouton OK. Portail Azure pour DocumentDB - Créateur de bases de données basées sur le cloud pour les bases de données JSON NoSQL.](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 
 6. Sélectionnez un niveau de tarification pour la nouvelle collection. Chaque collection que vous créez est une entité facturable. Pour plus d'informations sur les niveaux de performances disponibles, consultez [Niveaux de performance dans DocumentDB](documentdb-performance-levels.md).
 
 7. Sélectionnez l’une des **stratégies d’indexation** suivantes.
 
 	- **Default**. Cette stratégie utilise l’indexation par hachage pour les chaînes et l’indexation par plage pour les nombres. Elle est idéale pour les requêtes equality sur des chaînes et les requêtes ORDER BY, range et equality sur des nombres. Cette stratégie dispose d’une surcharge de stockage d’index inférieure et inclut l’indexation géospatiale.
-	- **Plage**. Cette stratégie est préférable lorsque vous exécutez des requêtes ORDER BY, de plage et d’égalité sur des nombres et des chaînes. Cette stratégie dispose d’une surcharge de stockage d’index supérieure à **celle par défaut** et inclut l’indexation géospatiale.
+	- **Hachage**. Cette stratégie est préférable lorsque vous exécutez des requêtes ORDER BY, de plage et d’égalité sur des nombres et des chaînes. Cette stratégie dispose d’une surcharge de stockage d’index supérieure à **celle par défaut** et inclut l’indexation géospatiale.
 
 	Pour plus d’informations sur les stratégies d’indexation, consultez la rubrique [Stratégies d’indexation DocumentDB](documentdb-indexing-policies.md).
 
@@ -50,7 +54,7 @@ Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce 
 
 9. La nouvelle collection s'affiche maintenant dans le filtre **Collections** dans le **Base de données**.
  
-	![Capture d’écran montrant la nouvelle collection dans le panneau Base de données. Portail Azure pour DocumentDB - Créateur de bases de données basées sur le cloud pour les bases de données JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-8.png)
+	![Capture d’écran montrant la nouvelle collection dans le panneau Base de données. Portail Azure pour DocumentDB - Créateur de bases de données basées sur le cloud pour les bases de données JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-9.png)
 
 ## Qu’est-ce qu’une collection DocumentDB ? 
 
@@ -62,7 +66,7 @@ Les collections diffèrent des tables dans les bases de données relationnelles.
 
 ## Autres méthodes de création d'une collection DocumentDB
 
-Les collections ne doivent pas nécessairement être créées avec le portail. Vous pouvez également les créer avec les [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Pour voir un exemple de code C# sur la création d’une collection avec le kit de développement logiciel .NET DocumentDB, consultez le fichier [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) du projet CollectionManagement, disponible dans le référentiel [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) sur [GitHub.com](https://github.com).
+Les collections ne doivent pas nécessairement être créées avec le portail. Vous pouvez également les créer avec les [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md). Pour obtenir des exemples de code C# montrant comment utiliser les collections à l’aide du Kit de développement logiciel (SDK) .NET DocumentDB, consultez les [exemples de collection C#](documentdb-dotnet-samples.md#collection-examples). Pour obtenir des exemples de code Node.js montrant comment utiliser les collections à l’aide du Kit de développement logiciel (SDK) Node.js DocumentDB, consultez les [exemples de collection Node.js](documentdb-nodejs-samples.md#collection-examples).
 
 ## Résolution de problèmes
 
@@ -74,8 +78,8 @@ Maintenant que vous avez une collection, l'étape suivante consiste à ajouter o
 
 - Vous pouvez [ajouter des documents](documentdb-view-json-document-explorer.md) à l’aide de l’Explorateur de documents, dans le portail.
 - Vous pouvez [importer des documents et des données](documentdb-import-data.md) à l'aide de l'outil de migration de données DocumentDB qui vous permet d'importer des fichiers JSON et CSV ainsi que des données depuis SQL Server, MongoDB, le stockage de table Azure et d’autres collections DocumentDB. 
-- Vous pouvez également ajouter des documents en vous aidant des [kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md). DocumentDB possède les kits de développement logiciel (SDK) de .NET, Java, Python, Node.js et de l’API JavaScript. Le fichier [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) du projet DocumentManagement, disponible dans le référentiel [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) sur [GitHub.com](https://github.com), montre des opérations CRUD sur des documents en utilisant le kit de développement logiciel .NET DocumentDB.
+- Vous pouvez également ajouter des documents en vous aidant des [kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md). DocumentDB possède les kits de développement logiciel (SDK) de .NET, Java, Python, Node.js et de l’API JavaScript. Pour obtenir des exemples de code C# montrant comment utiliser les documents à l’aide du Kit de développement logiciel (SDK) .NET DocumentDB, consultez les [exemples de document C#](documentdb-dotnet-samples.md#document-examples). Pour obtenir des exemples de code Node.js montrant comment utiliser les documents à l’aide du Kit de développement logiciel (SDK) Node.js DocumentDB, consultez les [exemples de document Node.js](documentdb-nodejs-samples.md#document-examples).
 
 Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

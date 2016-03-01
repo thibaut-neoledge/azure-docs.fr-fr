@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # Importer des données dans Azure Search à l’aide de l’API REST
@@ -84,4 +84,4 @@ Lors de la mise à jour de vos index, vous recevrez un code d’état « 200 OK
 
 Pour plus d’informations sur les actions de document et les réponses de réussite/d’erreur, consultez [cette page](https://msdn.microsoft.com/library/azure/dn798930.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

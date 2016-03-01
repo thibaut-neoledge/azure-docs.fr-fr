@@ -76,7 +76,7 @@ Oui. Vous pouvez répliquer des machines virtuelles Hyper-V dans le cloud sur le
 
 Vous pouvez protéger des serveurs physiques exécutant Windows et Linux, sur Azure ou sur un site secondaire. [En savoir plus](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) sur la configuration requise en matière de système d’exploitation Que vous répliquiez des serveurs physiques sur Azure ou sur un site secondaire, les mêmes restrictions s’appliquent.
 
-Notez que les serveurs physiques seront exécutés en tant que machines virtuelles dans Azure si votre serveur local tombe en panne. La restauration automatique sur un serveur physique local n’est actuellement pas prise en charge. Ce processus devra s’effectuer vers une machine virtuelle VMware.
+Notez que les serveurs physiques seront exécutés en tant que machines virtuelles dans Azure si votre serveur local tombe en panne. La restauration automatique sur un serveur physique local n'est actuellement pas prise en charge. Vous pouvez effectuer la restauration automatique uniquement sur une machine virtuelle exécutée sous VMware.
 
 ### Quelles machines virtuelles VMware puis-je protéger ?
 
@@ -219,4 +219,4 @@ Oui, vous pouvez répliquer les machines virtuelles Hyper-V et Azure, ou entre d
 - Lisez la [Vue d’ensemble de Microsoft Azure Site Recovery](site-recovery-overview.md)
 - En savoir plus sur l’[architecture de Site Recovery](site-recovery-components.md)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

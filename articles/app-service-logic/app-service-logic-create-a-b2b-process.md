@@ -10,15 +10,15 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="article"
+	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
-
 
 # Création d'un processus B2B
 
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
 
 ## Scénario d'entreprise 
 Contoso et Northwind sont des partenaires commerciaux. Contoso (le détaillant) envoie des bons de commande à Northwind (le fournisseur) via un transport standard tel que AS2. Northwind stocke toutes les commandes entrantes dans son stockage cloud. Les bons de commande sont des messages XML entre ces deux partenaires. Une fois le message stocké dans le stockage cloud de Northwind, les processus internes de Northwind gèrent la commande.
@@ -69,4 +69,4 @@ Ce didacticiel part du principe que vous connaissez Azure App Services et que vo
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

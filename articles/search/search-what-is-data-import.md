@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Importer des données dans Azure Search
@@ -22,7 +22,7 @@
 - [Overview](search-what-is-data-import.md)
 - [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
+- [REST](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 Dans Azure Search, le service fonctionne sur des données persistantes (index) qui donnent des documents et informations utilisées pour traiter un index, exécuter des requêtes ou formuler des résultats de recherche. Pour remplir un index, vous pouvez utiliser un modèle push ou pull de chargement des données.
@@ -60,4 +60,4 @@ Le jeu de données doit être issu d’une table, vue, conteneur d’objets blob
 |Actualisation des données planifiée|Utilisez un indexeur (voir ci-dessus).|
 |Créer des prototypes sans code ou modification|Le portail comprend un Assistant Importation de données qui configure un indexeur qui génère parfois un schéma préliminaire s’il existe suffisamment d’informations dans la base de données principale pour y parvenir. L’Assistant inclut des options permettant de configurer l’actualisation planifiée des données. Si vous le souhaitez, vous pouvez ajouter des analyseurs de langage ou des options de CORS. Il existe quelques inconvénients : il est impossible d’ajouter des profils de score. Vous ne pouvez non plus exporter un schéma créé dans le portail pour un fichier JSON à utiliser dans le code.| 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

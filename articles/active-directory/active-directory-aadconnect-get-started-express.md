@@ -46,8 +46,8 @@ La sélection des paramètres Express est l’option par défaut et s’applique
 5. Sur l’écran la connexion à l'écran d'Azure AD, entrez le nom d'utilisateur et un mot de passe d'administrateur global Azure pour votre instance Azure AD. Cliquez sur **Next**. ![Se connecter à AAD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Si vous recevez une erreur et rencontrez des problèmes de connectivité, consultez l’article [Résoudre les problèmes de connectivité](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Sur l’écran Connexion à AD DS, entrez le nom d'utilisateur et le mot de passe d’un compte d'administrateur d’entreprise. Cliquez sur **Suivant**. ![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. Sur l’écran Prêt à configurer, cliquez sur **Installer**.
-	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « **Démarrer le processus de synchronisation dès que la configuration est terminée** ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
-	- Éventuellement, vous pouvez également choisir de configurer les services de synchronisation pour le **déploiement hybride Exchange** en cochant la case à cocher correspondante. Si vous n’envisagez pas d’avoir des boîtes aux lettres Exchange dans le cloud et en local, vous n’avez pas besoin de cela. ![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
+	- Dans la page Prêt à configurer, vous pouvez éventuellement décocher la case **Démarrer le processus de synchronisation dès que la configuration est terminée**. Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois la tâche activée, la synchronisation s’exécute toutes les 30 minutes.
+	- Éventuellement, vous pouvez également choisir de configurer les services de synchronisation pour le **déploiement hybride Exchange** en cochant la case à cocher correspondante. Si vous n’envisagez pas de disposer de boîtes aux lettres Exchange dans le cloud et en local, vous n’avez pas besoin de cela. ![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 8. Une fois l'installation terminée, cliquez sur **Quitter**.
 9. Une fois l’installation terminée, déconnectez-vous puis reconnectez-vous à Windows avant d’utiliser le gestionnaire Synchronization Service Manager ou l’éditeur de règles de synchronisation.
 
@@ -60,4 +60,4 @@ Notez que lorsque vous avez Azure AD Connect installé, vous pouvez [vérifier l
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

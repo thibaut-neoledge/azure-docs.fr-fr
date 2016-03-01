@@ -13,11 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # Créer une application logique IAE à l'aide de VETR
+
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
 
 La plupart des scénarios d'Intégration d'Applications d'Entreprise (IAE) servent d'intermédiaire pour les données entre une source et une destination. Ces scénarios ont souvent un ensemble commun d'exigences :
 
@@ -116,4 +118,4 @@ Rubriques utiles :
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

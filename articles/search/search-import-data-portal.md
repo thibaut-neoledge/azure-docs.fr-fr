@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Importer des données dans Azure Search à l’aide du portail
@@ -36,6 +36,8 @@ L’Assistant d’importation des données propose une construction en trois pha
 Pour utiliser un indexeur ou la commande **Importer des données**, votre source de données principale doit compter parmi les sources prises en charge : base de données SQL Azure, bases de données relationnelles SQL Server sur une machine virtuelle Azure ou Azure DocumentDB.
 
 Vous pouvez uniquement importer à partir d’une seule table, d’une vue ou d’une structure de données équivalente. Vous devrez peut-être commencer par créer cette structure de données dans votre source de données d’application pour obtenir les métadonnées et les entrées de données pertinentes dans votre index de recherche.
+
+Vous pouvez tester ce workflow à l’aide d’exemples de données. Pour commencer, consultez la page [Prise en main d’Azure Search dans le portail Azure](search-get-started-portal.md).
 
 ##Configurer l’importation des données
 
@@ -74,4 +76,4 @@ L’opération d’importation des données que vous venez de terminer crée un 
 
 Dans le tableau de bord des services, double-cliquez sur la vignette Indexeur pour extraire une liste de tous les indexeurs créés pour votre abonnement. Double-cliquez sur l’un des indexeurs pour l’exécuter, le modifier ou le supprimer.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

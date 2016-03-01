@@ -13,13 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
 #  Qu’est-ce que Site Recovery ?
 
-Site Recovery est un service Azure qui met en œuvre la stratégie de continuité des activités et de récupération d’urgence (ou BCDR pour Business Continuity and Disaster Recovery) de votre entreprise en coordonnant la réplication de vos serveurs locaux et machines virtuelles sur un centre de données local secondaire ou sur Azure. Site Recovery gère la réplication, et vous pouvez lancer le basculement et la récupération d’un simple clic. Parcourez une liste de questions courantes dans le [FAQ](site-recovery-faq.md)
-
+Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Consultez notre [FAQ](site-recovery-faq.md) pour connaître les questions les plus courantes à ce sujet.
 
 ## Pourquoi utiliser Azure Site Recovery ? 
 
@@ -60,7 +59,7 @@ Site Recovery vous assiste dans la continuité d’activité tenant compte des a
 - Une bibliothèque d’automatisation avancée qui fournit des scripts spécifiques d’application prêts pour la production, qui peuvent être téléchargés et intégrés avec Site Recovery.  
 
 
-En savoir plus en consultant [Aide relative à la charge de travail Site Recovery](site-recovery-workload.md).
+Pour en savoir plus, consultez la page [Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?](site-recovery-workload.md).
 
 
 ## Étapes suivantes
@@ -68,4 +67,4 @@ En savoir plus en consultant [Aide relative à la charge de travail Site Recover
 Une fois que vous avez fini de consulter cette présentation, vous pouvez [en savoir plus](site-recovery-components.md) sur l’architecture Site Recovery.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

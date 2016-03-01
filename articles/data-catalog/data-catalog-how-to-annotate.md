@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/08/2016"
@@ -58,4 +58,4 @@ Les métadonnées extraites à partir de la source de données lors de l’inscr
 ## Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** favorise la détection des données. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent fournir des annotations pour faciliter la détection et la compréhension des données via le portail **Azure Data Catalog**.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

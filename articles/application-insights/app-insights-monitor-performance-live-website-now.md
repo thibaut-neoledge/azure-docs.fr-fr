@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/18/2016"
 	ms.author="awills"/>
 
 
@@ -196,6 +196,7 @@ Windows 7, 8 et 8.1 côté client, avec également .NET Framework 4.0 et 4.5
 
 Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 
+
 ## <a name="next"></a>Étapes suivantes
 
 * [Créez des tests web][availability] pour vous assurer que votre site reste actif.
@@ -220,4 +221,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

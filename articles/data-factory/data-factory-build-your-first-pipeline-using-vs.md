@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2015"
+	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
 # Prise en main d’Azure Data Factory (Visual Studio)
@@ -261,7 +261,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 ### Ajouter partitionweblogs.hql et input.log comme dépendance 
 
 1. Cliquez avec le bouton droit sur **Dépendances** dans la fenêtre **Explorateur de solutions**, pointez sur **Ajouter**, puis cliquez sur **Élément existant**.  
-2. Accédez au dossier **C:\ADFGettingStarted**, sélectionnez les fichiers **partitionweblogs.hql** et **input.log**, puis cliquez sur **Ajouter**. Vous avez créé ces deux fichiers dans le cadre de la configuration requise dans la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md).
+2. Accédez au dossier **C:\\ADFGettingStarted**, sélectionnez les fichiers **partitionweblogs.hql** et **input.log**, puis cliquez sur **Ajouter**. Vous avez créé ces deux fichiers dans le cadre de la configuration requise dans la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md).
 
 Quand vous publiez la solution à l’étape suivante, le fichier **partitionweblogs.hql** est chargé dans le dossier scripts du conteneur d’objets blob **adfgetstarted**.
 
@@ -419,20 +419,28 @@ Ajoutez un fichier de configuration pour chaque environnement en effectuant les 
             "value": "String"
         }
 
+### Noms de propriétés avec des espaces
+Si un nom de propriété comporte des espaces, utilisez des crochets comme indiqué dans l’exemple suivant (nom de serveur de base de données) :
+
+     {
+         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+         "value": "MyAsqlServer.database.windows.net"
+     }
+
 
 ### Déployer une solution à l’aide d’une configuration
 Lorsque vous publiez des entités Azure Data Factory dans Visual Studio, vous pouvez spécifier la configuration que vous souhaitez utiliser pour cette opération de publication.
 
 Pour publier des entités dans un projet Azure Data Factory à l’aide d’un fichier de configuration :
 
-1. Cliquez avec le bouton droit sur le projet Data Factory et cliquez sur **Publier** pour voir la boîte de dialogue **Publier des éléments**. 
-2. Sur la page **Configurer une fabrique de données**, sélectionnez une fabrique de données existante ou spécifiez des valeurs pour créer une fabrique de données, puis cliquez sur **Suivant**.   
-3. Sur la page **Publier des éléments** : vous verrez une liste déroulante avec les configurations disponibles pour le champ **Sélectionner une configuration de déploiement**.
+1. Cliquez avec le bouton droit sur le projet Data Factory, puis cliquez sur **Publier** pour voir la boîte de dialogue **Publier des éléments**. 
+2. Dans la page **Configurer une fabrique de données**, sélectionnez une fabrique de données existante ou spécifiez des valeurs pour en créer une, puis cliquez sur **Suivant**.   
+3. La page **Publier des éléments** contient une liste déroulante avec les configurations disponibles pour le champ **Sélectionner une configuration de déploiement**.
 
 	![Sélectionner un fichier de config](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
 
 4. Sélectionnez le **fichier de configuration** que vous souhaitez utiliser et cliquez sur **Suivant**.
-5. Assurez-vous de voir le nom du fichier JSON à la page **Résumé** et cliquez sur **Suivant**. 
+5. Assurez-vous de voir le nom du fichier JSON dans la page **Résumé**, puis cliquez sur **Suivant**. 
 6. Une fois l’opération de déploiement terminée, cliquez sur **Terminer**. 
 
 Au cours du déploiement, les valeurs du fichier de configuration sont utilisées pour définir celles des propriétés des fichiers JSON pour les entités Data Factory (services, tableaux ou pipelines liés) avant que les entités ne soient déployées sur le service Azure Data Factory.
@@ -441,4 +449,4 @@ Au cours du déploiement, les valeurs du fichier de configuration sont utilisée
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données depuis un objet blob Azure vers Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

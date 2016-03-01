@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer un index Azure Search à l’aide de .NET | Microsoft Azure | Service de recherche cloud hébergé"
+	pageTitle="Création d’un index Azure Search à l’aide de .NET | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Créer un index dans le code à l’aide du kit de développement logiciel ou de la bibliothèque .NET d’Azure Search."
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Création d’un index Azure Search à l’aide de .NET
@@ -66,4 +66,4 @@ Pour créer un nouvel index « hôtels », construisez une méthode semblable 
 
 Cette méthode crée un objet `Index` avec une liste d’objets `Field` qui définit le schéma du nouvel index. Chaque champ a un nom, un type de données et plusieurs attributs qui définissent son comportement de recherche. En plus des champs, vous pouvez ajouter des profils de notation, des générateurs de suggestions ou des options CORS à l'index (éléments supprimés de l'exemple pour des raisons de concision). Vous trouverez plus d'informations sur l'objet Index et ses composants dans la référence du SDK sur [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), ainsi que dans l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -35,7 +35,7 @@ Outre les conditions préalables répertoriées dans la rubrique Vue d’ensembl
 - **Installez Azure PowerShell**. Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour installer la dernière version d’Azure PowerShell sur votre ordinateur.
 - Cet article ne fournit pas de vue d’ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, lisez l’article [Introduction à Azure Data Factory](data-factory-introduction.md). 
 - Consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md) pour en savoir plus sur les modèles Azure Resource Manager. 
- 
+
 
 ## Étape 1 : Création du modèle ARM
 
@@ -223,6 +223,8 @@ Notez les points suivants :
 
 Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations.
 
+> [AZURE.NOTE] Vous pouvez trouver un autre exemple de modèle ARM pour créer une fabrique de données Azure sur [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
+
 ## Étape 2 : Déployer des entités Data Factory à l’aide du modèle ARM
 
 1. Démarrez Azure PowerShell et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez réexécuter ces commandes.
@@ -250,4 +252,4 @@ Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-ser
 10. Quand l’état du segment est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
