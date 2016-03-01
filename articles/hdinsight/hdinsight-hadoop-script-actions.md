@@ -252,9 +252,9 @@ Un moyen simple pour tester un script personnalisé avant de l'utiliser dans la 
 
 Cette section décrit la procédure d'utilisation de l'émulateur HDInsight en local à des fins de test. Cependant, la procédure d'utilisation d'une machine virtuelle est similaire.
 
-**Installation de l'émulateur HDInsight** : l’exécution locale d’actions de script nécessite que l'émulateur HDInsight soit installé. Pour des instructions sur son installation, consultez la page [Prise en main de l'émulateur HDInsight](../hdinsight-get-started-emulator/).
+**Installation de l'émulateur HDInsight** : l’exécution locale d’actions de script nécessite que l'émulateur HDInsight soit installé. Pour des instructions sur son installation, consultez la page [Prise en main de l'émulateur HDInsight](../hdinsight-get-started-emulator/).
 
-**Définition de la stratégie d'exécution pour Azure PowerShell** : ouvrez Azure PowerShell et exécutez (en tant qu'administrateur) la commande suivante pour définir la stratégie d'exécution sur *LocalMachine* et *Unrestricted* :
+**Définition de la stratégie d'exécution pour Azure PowerShell** : ouvrez Azure PowerShell et exécutez (en tant qu'administrateur) la commande suivante pour définir la stratégie d'exécution sur *LocalMachine* et *Unrestricted* :
 
 	Set-ExecutionPolicy Unrestricted –Scope LocalMachine
 
@@ -267,9 +267,9 @@ Il est important que cette stratégie soit sans restriction, car les scripts ne 
 * **Solr**. https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1
 * **Giraph**. https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1
 
-**Exécution de l'action de script** : ouvrir une nouvelle fenêtre Azure PowerShell en mode administrateur et exécutez le script d'installation Spark ou R à partir de l'emplacement local où il a été enregistré.
+**Exécution de l'action de script** : ouvrir une nouvelle fenêtre Azure PowerShell en mode administrateur et exécutez le script d'installation Spark ou R à partir de l'emplacement local où il a été enregistré.
 
-**Exemples d'utilisation** : lorsque vous utilisez les clusters Spark et R, il se peut que les fichiers de données requis n'existent pas dans l'émulateur HDInsight. Vous pouvez alors avoir besoin de télécharger les fichiers .txt appropriés contenant des données vers un chemin d'accès dans HDFS, puis utiliser ce chemin pour accéder aux données. Par exemple :
+**Exemples d'utilisation** : lorsque vous utilisez les clusters Spark et R, il se peut que les fichiers de données requis n'existent pas dans l'émulateur HDInsight. Vous pouvez alors avoir besoin de télécharger les fichiers .txt appropriés contenant des données vers un chemin d'accès dans HDFS, puis utiliser ce chemin pour accéder aux données. Par exemple :
 
 	val file = sc.textFile("/example/data/gutenberg/davinci.txt")
 
@@ -351,4 +351,4 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

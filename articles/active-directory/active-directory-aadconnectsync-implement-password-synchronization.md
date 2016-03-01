@@ -71,7 +71,7 @@ Quand vous activez la synchronisation de mot de passe, les stratégies de comple
 
 **Stratégie d'expiration de mot de passe**
 
-Si un utilisateur figure dans la portée de la synchronisation de mot de passe, le mot de passe de compte cloud a la valeur « *Ne jamais expirer* ». Cela signifie que le mot de passe d’un utilisateur peut expirer dans l’environnement local, mais que l’utilisateur peut continuer à se connecter aux services cloud à l’aide de ce mot de passe expiré.
+Si un utilisateur figure dans la portée de la synchronisation de mot de passe, le mot de passe de compte cloud a la valeur « *Ne jamais expirer* ». Cela signifie que le mot de passe d’un utilisateur peut expirer dans l’environnement local, mais que l’utilisateur peut continuer à se connecter aux services cloud à l’aide de ce mot de passe expiré.
 
 Le mot de passe cloud sera mis à jour la prochaine fois que l’utilisateur modifiera le mot de passe dans l’environnement local.
 
@@ -159,4 +159,4 @@ Il ne doit pas être nécessaire de forcer une synchronisation complète de tous
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

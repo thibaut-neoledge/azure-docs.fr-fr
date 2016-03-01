@@ -158,7 +158,7 @@ Instances de l’application cliente se connectant à un cluster Elasticsearch v
 Vous devez prendre en compte les points suivants lorsque vous décidez d’utiliser ou non l’équilibrage de charge, et quelle implémentation utiliser :
 
 - La connexion à un nœud identique pour gérer toutes les requêtes de toutes les instances d’une application peut créer un goulot d’étranglement au niveau de ce nœud. Comme le nombre de threads disponibles dans le nœud est épuisé, les demandes sont mises en attente et peuvent être rejetées si la longueur de la file d’attente devient excessive (ne codez pas en dur les informations de connexion d’un seul nœud dans le code de l’application qui risque d’être déployée vers nombreux utilisateurs).
-- Le mécanisme de tourniquet (round robin) des API Elasticsearch.Net, NEST et de client de transport gèrent les échecs de demande de connexion en retentant la connexion sur le prochain nœud disponible dans le pool de connexions. Une connexion à un nœud qui ne répond pas dans le pool peut être temporairement marquée comme *inactive* ; elle peut redevenir active ultérieurement. Le pool peut envoyer une commande ping au nœud pour le vérifier.
+- Le mécanisme de tourniquet (round robin) des API Elasticsearch.Net, NEST et de client de transport gèrent les échecs de demande de connexion en retentant la connexion sur le prochain nœud disponible dans le pool de connexions. Une connexion à un nœud qui ne répond pas dans le pool peut être temporairement marquée comme *inactive* ; elle peut redevenir active ultérieurement. Le pool peut envoyer une commande ping au nœud pour le vérifier.
 - L’équilibreur de charge Azure peut rediriger de manière transparente les demandes vers les nœuds en fonction de différents facteurs (adresse IP du client, port du client, adresse IP de destination, port de destination, type de protocole). Avec cette stratégie, une instance d’application cliente exécutée sur un ordinateur donné a de fortes chances d’être dirigée vers le même nœud Elasticsearch. Selon la configuration de la sonde de l’équilibreur de charge, si le service Elasticsearch est défaillant sur ce nœud, mais que la machine virtuelle continue à s’exécuter, toutes les connexions à ce nœud expirent tandis que les connexions d’autres instances clientes à d’autres nœuds peuvent continuer à fonctionner.
 - L’équilibreur de charge Azure peut être configuré pour sortir un nœud du tourniquet si celui-ci ne répond pas de manière appropriée aux demandes d’analyse d’intégrité exécutées par l’équilibreur de charge.
 
@@ -591,4 +591,4 @@ JMeter a été utilisé pour effectuer des évaluations et d’autres tests de c
 [Watcher]: https://www.elastic.co/products/watcher
 [Zen]: https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-zen.html
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

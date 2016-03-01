@@ -83,7 +83,7 @@ Pour configurer votre environnement de science des données Azure :
 	> [AZURE.NOTE] Les exemples de scripts et de notebooks IPython seront téléchargés sur votre machine virtuelle de science des données lors du processus de configuration. À l’issue du script de post-installation de la machine virtuelle, les exemples figureront dans la bibliothèque Documents de votre machine virtuelle : `C:\Users<user_name>\Documents\Data Science Scripts` Exemples de notebooks IPython : `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`, où `<user_name>` est le nom de connexion de votre machine virtuelle Windows. Nous désignerons les dossiers d’exemples sous la forme **Exemples de scripts** et **Exemples de notebooks IPython**.
 
 
-Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario n° 5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
+Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario  5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Récupérer les données de la source publique
 
@@ -714,4 +714,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
