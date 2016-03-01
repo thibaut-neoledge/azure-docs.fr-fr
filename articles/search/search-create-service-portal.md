@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/05/2016"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Créer un service Azure Search dans le portail Azure
@@ -25,7 +25,7 @@ Azure Search est disponible à plusieurs niveaux de prix allant du niveau gratu
 
 ## Ajouter gratuitement Azure Search à votre abonnement
 
-En tant qu’administrateur, vous pouvez ajouter le service Azure Search à un abonnement Azure existant gratuitement quand vous choisissez le service partagé. Vous pouvez vous connecter à un [abonnement d’essai gratuit](../includes/free-trial-note.md) pour commencer votre évaluation.
+En tant qu’administrateur, vous pouvez ajouter le service Azure Search à un abonnement Azure existant gratuitement quand vous choisissez le service partagé. Vous pouvez vous connecter à un [abonnement d’essai gratuit](../../includes/free-trial-note.md) pour commencer votre évaluation.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -126,4 +126,4 @@ Maintenant que votre service est créé, vous pouvez passer aux étapes suivante
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

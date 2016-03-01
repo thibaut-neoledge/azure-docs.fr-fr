@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
 # Gestion des recommandations de sécurité dans le Centre de sécurité Azure
@@ -38,7 +38,7 @@ Dans la section [Définition des stratégies de sécurité dans le Centre de sé
 - activer la collecte des données ;
 - choisir les recommandations à afficher dans le cadre de votre stratégie de sécurité.
 
-Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de ligne de base, les logiciels anti-programme malveillant, les [ACL pour les points de terminaison](../virtual-machines/virtual-machines-set-up-endpoints.md), les [groupes de sécurité réseau](../virtual-networks/virtual-networks-nsg.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de base de données SQL et les pare-feu d’applications web. L’article [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
+Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de ligne de base, les logiciels anti-programme malveillant, les [ACL pour les points de terminaison](../virtual-machines/virtual-machines-set-up-endpoints.md), les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de base de données SQL et les pare-feu d’applications web. L’article [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
 
 ### Suivi des recommandations
 Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La mosaïque **Recommandations** du panneau **Centre de sécurité** vous permet de connaître le nombre total de recommandations fournies par le Centre de sécurité.
@@ -62,7 +62,9 @@ Les recommandations sont affichées dans un tableau où chaque ligne correspond 
     - **Moyenne** : il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
     - **Faible** :existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
-Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leurs effets :
+Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leurs effets.
+
+> [AZURE.NOTE] Vous devez apprendre à différencier les [modèles de déploiement de type Classique et Resource Manager](../azure-classic-rm.md) utilisés pour les ressources Azure.
 
 |Recommandation|Description|
 |-----|-----|
@@ -70,20 +72,20 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 |Résoudre une non-conformité aux règles de ligne de base|Recommande d’aligner les configurations de système d’exploitation sur les lignes de base recommandées, comme le fait de ne pas permettre l’enregistrement des mots de passe.|
 |Appliquer des mises à jour système|Recommande le déploiement des mises à jour de sécurité du système et les mises à jour critiques manquantes sur les machines virtuelles (Windows uniquement).|
 |Configurer des listes ACL pour les points de terminaison|Recommande la configuration de listes de contrôle d’accès pour restreindre l’accès entrant aux machines virtuelles (de type Classique uniquement).|
-|Ajouter un pare-feu d’applications web|Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web (machines virtuelles de type Resource Manager uniquement).|
+|[Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md)|Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web. Le processus d’approvisionnement automatique repose sur les packages WAF (créés à l’aide du modèle de déploiement Resource Manager) déployés sur un réseau virtuel distinct. L’accès aux applications web protégées sur des machines virtuelles de type Classique est limité uniquement aux solutions WAF à l’aide d’un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement de packages WAF entièrement personnalisé (pour les machines virtuelles de type Classique).|
 |Finaliser la configuration du pare-feu d’applications web|Pour terminer la configuration d’un pare-feu d’applications web, le trafic doit être redirigé vers l’appliance de pare-feu d’applications web. L’application de cette recommandation permet d’apporter les modifications nécessaires à la configuration.|
-|Activer le logiciel anti-programme malveillant|Recommande l’approvisionnement de logiciels anti-programme malveillant sur les machines virtuelles (Windows uniquement).|
+|[Activer le logiciel anti-programme malveillant](security-center-enable-antimalware.md)|Recommande l’approvisionnement de logiciels anti-programme malveillant sur les machines virtuelles (Windows uniquement).|
 |Activer des groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau|Recommande l’activation de groupes de sécurité réseau sur les sous-réseaux et les interfaces réseau (machines virtuelles de type Resource Manager uniquement).|
 |Restreindre l’accès à l’aide de points de terminaison externes publics|Recommande la configuration de règles de trafic entrant pour les groupes de sécurité réseau.|
 |Activer l’audit des serveurs SQL|Recommande l’activation de l’audit pour les serveurs SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles).|
 |Activer l’audit des bases de données SQL|Recommande l’activation de l’audit pour les bases de données SQL Azure (service Azure SQL uniquement ; ne comprend pas les serveurs SQL exécutés sur des machines virtuelles).|
 |Activer le chiffrement transparent des données des bases de données SQL|Recommande l’activation du chiffrement pour les bases de données SQL (service Azure SQL uniquement).|
 |Déployer l’agent de machine virtuelle|Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle.|
-| [Apply disk encryption](security-center-apply-disk-encryption.md) (Appliquer le chiffrement de disque Azure Disk Encryption) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle.|
+| [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle.|
 
 Vous pouvez filtrer et ignorer les recommandations.
 
-1. Cliquez sur **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou certains niveaux de gravité.
+1. Cliquez sur **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
 
     ![][3]
 
@@ -101,35 +103,17 @@ Après avoir examiné toutes les recommandations, vous pouvez décider d’en ap
 4. Des informations supplémentaires sur la solution anti-programme malveillant s’affichent. Sélectionnez **Créer**.
 5. Saisissez les paramètres de configuration nécessaires dans le panneau **Ajouter une extension**, puis sélectionnez **OK**. ![][6]
 
-[Microsoft Antimalware](../azure-security/azure-security-antimalware.md) est maintenant activé sur la machine virtuelle sélectionnée.
+[Microsoft Antimalware](../azure-security-antimalware.md) est maintenant activé sur la machine virtuelle sélectionnée.
 
-### Déployer des solutions partenaires recommandées
-
-L’une des recommandations peut concerner le déploiement d’une solution de sécurité intégrée fournie par un partenaire Microsoft. Prenons un exemple pour voir comment procéder.
-
-1. Retournons au panneau **Recommandations**.
-2.	Sélectionnez la recommandation **Sécuriser l’application web à l’aide du pare-feu d’applications web**. Le panneau **Applications web non protégées** s’ouvre. ![][7]
-3. Sélectionnez une application web. Le panneau **Ajouter un pare-feu d’applications web** s’ouvre.
-4. Sélectionnez **Pare-feu d’applications web Barracuda**. Un panneau s’ouvre et affiche des informations sur le **Pare-feu d’applications web Barracuda**.
-5. Cliquez sur **Créer** dans le panneau d’informations. Le panneau **Nouveau pare-feu d’applications web** s’ouvre. Vous pouvez y **configurer des machines virtuelles** et fournir des **informations sur le pare-feu d’applications web**.
-6. Sélectionnez **Configuration de machine virtuelle**. Dans le panneau **Configuration de machine virtuelle**, entrez les informations nécessaires pour créer la machine virtuelle qui doit exécuter le pare-feu d’applications web. ![][8]
-7. Retournez au panneau **Nouveau pare-feu d’applications web**, puis sélectionnez **Informations sur le pare-feu d’applications web**. Dans le panneau **Informations sur le pare-feu d’applications web**, vous pouvez configurer le pare-feu d’applications web. L’étape 6 vous permet de configurer la machine virtuelle sur laquelle le pare-feu d’applications web doit être exécuté, et l’étape 7 vous permet d’approvisionner le pare-feu d’applications web.
-
-8. Retournons au panneau **Recommandations**. Une entrée a été créée après la génération du pare-feu d’applications web : **Finaliser la configuration du pare-feu d’applications web**. Cela vous indique que vous devez terminer le processus de configuration du pare-feu d’applications web dans le réseau virtuel Azure pour qu’il puisse protéger l’application. ![][9]
-
-9. Sélectionnez **Finaliser la configuration du pare-feu d’applications web**. Un nouveau panneau s'ouvre. Vous voyez que le trafic d’une application web doit être redirigé.
-10. Sélectionnez l’application web. Un panneau s’ouvre et affiche des instructions pour finaliser la configuration du pare-feu d’applications web. Suivez les étapes, puis cliquez sur **Restreindre le trafic**. Le Centre de sécurité effectue ensuite la configuration à votre place. ![][10]
-
-Les journaux du pare-feu d’applications web sont maintenant entièrement intégrés. Le Centre de sécurité peut commencer automatiquement à collecter et à analyser les journaux afin de vous informer des alertes de sécurité les plus importantes.
 
 ## Étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 - [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité.
-- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) : FAQ concernant l’utilisation de ce service.
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure.
+- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
+- [FAQ du Centre de sécurité Azure](security-center-faq.md) : Forum Aux Questions concernant l’utilisation de ce service.
+- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure.
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -137,9 +121,5 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
-[7]: ./media/security-center-recommendations/secure-web-application.png
-[8]: ./media/security-center-recommendations/vm-configuration.png
-[9]: ./media/security-center-recommendations/finalize-waf.png
-[10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

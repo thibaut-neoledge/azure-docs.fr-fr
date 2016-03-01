@@ -192,15 +192,9 @@ Pour plus d’informations sur les tâches de préparation de travail et de vali
 
 #### <a name="multiinstance"></a>Tâches multi-instances
 
-Une [tâche multi-instance][rest_multiinstance] est une tâche qui est configurée pour s’exécuter simultanément sur plusieurs nœuds de calcul. Avec des tâches multi-instances, vous pouvez activer des scénarios de calcul haute performance, comme MPI (Message Passing Interface), qui requièrent un groupe de nœuds de calcul alloués ensemble pour traiter une seule et même charge de travail.
+Une [tâche multi-instance](batch-mpi.md) est une tâche configurée pour s’exécuter simultanément sur plusieurs nœuds de calcul. Avec des tâches multi-instances, vous pouvez activer des scénarios de calcul haute performance, comme MPI (Message Passing Interface), qui requièrent un groupe de nœuds de calcul alloués ensemble pour traiter une seule et même charge de travail.
 
-Dans Batch, vous créez une tâche multi-instance en spécifiant des paramètres multi-instances pour une [tâche](#task) normale. Ces paramètres incluent le nombre de nœuds de calcul pour exécuter la tâche, une ligne de commande pour la tâche principale (la « commande d’application »), une commande de coordination et une liste de fichiers de ressources communes pour chaque tâche.
-
-Lorsque vous soumettez une tâche comportant des paramètres multi-instances pour un travail, le service Batch effectue les opérations suivantes :
-
-1. Il crée automatiquement une tâche principale et un nombre suffisant de tâches subordonnées qui s’exécutent ensemble sur le nombre total de nœuds que vous avez spécifiés. Le service Batch planifie ensuite l’exécution de ces tâches sur les nœuds qui téléchargent d’abord les fichiers de ressources communes que vous avez spécifiés.
-2. Une fois ces fichiers téléchargés, la commande de coordination est exécutée par la tâche principale et les tâches subordonnées. Cette commande de coordination lance généralement un service en arrière-plan (tel que `smpd.exe` de [MS-MPI][msmpi]), et vérifie que les nœuds sont prêts à traiter les messages entre les nœuds.
-3. Lorsque la commande de coordination a été effectuée avec succès par la tâche principale et toutes les tâches subordonnées, la ligne de commande de la tâche (la « commande d’application ») est exécutée uniquement par la tâche principale, qui démarre généralement une application MPI personnalisée qui traite votre charge de travail sur les nœuds. Par exemple, dans un scénario MPI de Windows, vous exécutez généralement votre application MPI avec `mpiexec.exe` de [MS-MPI][msmpi] à l’aide de la commande d’application.
+Pour une présentation détaillée de l’exécution des travaux MPI dans Batch à l’aide de la bibliothèque .NET de Batch, consultez l’article [Utiliser des tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](batch-mpi.md).
 
 ### <a name="jobschedule"></a>Travaux planifiés
 
@@ -372,4 +366,4 @@ Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

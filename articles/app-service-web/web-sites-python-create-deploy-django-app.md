@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="11/16/2015"
+	ms.date="02/19/2016"
 	ms.author="huvalo"/>
 
 
@@ -26,7 +26,7 @@ Vous allez créer une application à l’aide de l’infrastructure web Django (
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 
 ## Configuration requise
@@ -57,7 +57,6 @@ Vous devez avoir installé Python et Git, mais vérifiez que vous disposez de Py
 La première étape consiste à créer l’application web par le biais du [portail Azure](https://portal.azure.com).
 
 1. Connectez-vous au portail Azure et cliquez sur le bouton **NOUVEAU** dans le coin inférieur gauche.
-2. Cliquez sur **web + Mobile**.
 3. Dans le champ de recherche, tapez « python ».
 4. Dans les résultats de recherche, sélectionnez **Django**, puis cliquez sur **Créer**.
 5. Configurez la nouvelle application Django, en créant un plan App Service et un groupe de ressources. Cliquez sur **Créer**.
@@ -118,7 +117,7 @@ Fichiers de configuration IIS. Le script de déploiement utilisera le fichier we
 
 ### Fichiers facultatifs - Personnalisation du déploiement
 
-[AZURE.INCLUDE [web-sites-python-customizing-deployment](../../includes/web-sites-python-customizing-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
 ### Fichiers facultatifs - Runtime Python
 
@@ -519,4 +518,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [Documentation relative à Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
 [Documentation Django]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

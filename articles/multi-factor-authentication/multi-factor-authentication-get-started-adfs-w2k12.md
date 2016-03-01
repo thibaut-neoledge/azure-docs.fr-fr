@@ -7,14 +7,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="billmath"/>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/18/2016"" ms.author="billmath"/>
 
 
 # Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication avec Windows Server 2012 R2 AD FS
@@ -33,6 +26,7 @@ Lorsque vous installez le serveur Azure Multi-Factor Authentication, les deux op
 Avant de commencer, tenez compte des informations suivantes :
 
 - Le serveur Azure Multi-Factor Authentication ne doit pas nécessairement être installé sur votre serveur de fédération AD FS, toutefois, l'adaptateur d'authentification multifacteur pour AD FS doit être installé sur un serveur Windows Server 2012 R2 exécutant AD FS. Vous pouvez installer le serveur sur un autre ordinateur, tant qu'il s'agit d'une version prise en charge et installer l'adaptateur AD FS séparément sur votre serveur de fédération AD FS. Consultez la procédure ci-dessous pour obtenir des instructions sur l'installation séparée de l’adaptateur.
+- Lors de la conception de l’adaptateur AD FS du serveur Multi-Factor Authentication, il était prévu qu’AD FS soit capable de transférer le nom de la partie de confiance à l’adaptateur pour pouvoir l’utiliser en tant que nom d’application. Mais cela n’a finalement pas été le cas. Si vous utilisez la messagerie texte ou les méthodes d’authentification d’application mobile, les chaînes définies dans les paramètres de la société contiennent un espace réservé « <$ application\_name$ > ». Cet espace réservé n’est pas remplacé lors de l’utilisation de l’adaptateur AD FS. Pour cette raison, il est recommandé de supprimer l’espace réservé des chaînes concernées lors de la sécurisation d’AD FS.
 
 - Le compte connecté doit disposer des droits pour créer des groupes de sécurité dans Active Directory.
 
@@ -229,4 +223,4 @@ Modifiez le script Register-MultiFactorAuthenticationAdfsAdapter.ps1 en ajoutant
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

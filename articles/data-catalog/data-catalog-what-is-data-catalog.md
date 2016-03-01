@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/08/2016"
@@ -110,4 +110,4 @@ L'objectif ultime de la détection de données est de rechercher les données do
 1.	Pour les applications clientes qui sont directement prises en charge par **Azure Data Catalog**, les utilisateurs peuvent cliquer sur le menu **Ouvrir dans** de la vignette de la source de données se trouvant dans le portail. L’application cliente se lancera alors en se connectant à la source de données sélectionnée.
 2.	Pour toutes les applications clientes, les utilisateurs peuvent utiliser les informations de connexion affichées dans le volet Propriétés pour une source de données sélectionnée. Cette information inclut tous les détails (tels que le nom du serveur, le nom de la base de données et le nom de l'objet) requis pour se connecter aux données et peut être copiée dans l'expérience de connexion de l'outil client. Si les détails d'accès de requête ont été fournis pour une source de données, cette information s'affichera à côté des détails de connexion.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

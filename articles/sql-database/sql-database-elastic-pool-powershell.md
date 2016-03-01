@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="adamkr; sstein"/>
 
 # Créer un pool de base de données élastique avec PowerShell pour mettre à l’échelle les ressources sur plusieurs bases de données SQL 
@@ -26,7 +26,7 @@
 
 Découvrez comment gérer plusieurs bases de données en créant un [pool de base de données élastique](sql-database-elastic-pool.md) à l’aide des applets de commande PowerShell.
 
-> [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server.md) en une seule étape.
+> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
 
 Les pools de base de données élastique permettent de mettre à l’échelle les ressources et la gestion sur plusieurs bases de données SQL.
 
@@ -47,7 +47,7 @@ Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être i
 
 Maintenant que vous exécutez le module Azure Resource Manager, vous avez accès à toutes les applets de commande nécessaires pour créer et configurer un pool de bases de données élastique. Vous devez tout d'abord établir l'accès à votre compte Azure. Exécutez la commande suivante et un écran de connexion s'affichera dans lequel vous pourrez entrer vos informations d'identification. Utilisez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 Après vous être connecté, des informations s'affichent sur l'écran, notamment l'ID avec lequel vous vous êtes connecté et les abonnements Azure auxquels vous avez accès.
 
@@ -99,7 +99,7 @@ Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle
 
 Le pool créé à l'étape précédente est vide. Il ne comporte aucune base de données élastique. Les sections suivantes indiquent comment créer des bases de données élastiques dans le pool et comment ajouter des bases de données existantes au pool.
 
-*Une fois le pool créé, vous pouvez également utiliser Transact-SQL pour y créer des bases de données élastiques et déplacer des bases de données dans ou hors de celui-ci. Pour plus d’informations, consultez [Référence du pool de base de données élastique - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour la création de bases de données élastiques dans le pool et le déplacement de bases de données existantes dans ou hors d’un pool. Pour plus d’informations, consultez [Référence du pool de base de données élastique - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Créer une base de données élastique dans un pool élastique de bases de données
 
@@ -237,4 +237,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

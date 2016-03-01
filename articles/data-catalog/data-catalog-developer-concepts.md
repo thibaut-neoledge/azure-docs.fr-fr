@@ -10,7 +10,7 @@
 <tags 
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/03/2016"
@@ -190,7 +190,7 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 
 > [AZURE.NOTE]
 >
-> Les **\_\_autorisations** sont uniquement applicables à un élément racine.
+> **__Les **\_\_autorisations** sont uniquement applicables à un élément racine.
 >
 > Le rôle **Propriétaire** est uniquement applicable à un élément racine.
 >
@@ -262,4 +262,4 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

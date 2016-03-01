@@ -17,10 +17,13 @@
 	ms.author="heidist"/>
 
 # Prise en main de votre première application Azure Search dans .NET
-
+> [AZURE.SELECTOR]
+- [.NET](search-get-started-dotnet.md)
+- [Portal](search-get-started-portal.md)
+ 
 Apprenez à créer une application de recherche .NET personnalisée dans Visual Studio 2013 ou version ultérieure qui utilise Azure Search pour son expérience de recherche. Ce didacticiel utilise le [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) ainsi que l’API REST du service Azure Search.
 
-Pour exécuter cet exemple, vous devez disposer d’un service Azure Search, auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com). Pour obtenir des instructions pas-à-pas, consultez [Création d’un service Azure Search dans le portail](search-create-service-portal.md).
+Pour exécuter cet exemple, vous devez disposer d’un service Azure Search auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com). Pour obtenir des instructions pas-à-pas, consultez [Création d’un service Azure Search dans le portail](search-create-service-portal.md).
 
 ## À propos des données
 
@@ -234,7 +237,7 @@ Chaque projet inclut des fichiers de configuration qui spécifient le nom du ser
 
 Ce programme est une application de console qui se connecte à votre service de recherche, comme spécifié dans app.config, crée l'index et charge ensuite le jeu de données USGS stocké dans une base de données SQL Azure. Nous allons utiliser un indexeur pour cette partie du didacticiel.
 
-Pour pouvoir exécuter ce programme, vous devez remplacer **Program.cs**, utilisé pour créer l’index, l’indexeur, charger les données et écrire des messages.
+Pour pouvoir exécuter ce programme, vous devez remplacer **Program.cs**, utilisé pour créer l’index et l’indexeur, charger les données et écrire des messages.
 
 ### Mise à jour de Program.cs
 
@@ -671,4 +674,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

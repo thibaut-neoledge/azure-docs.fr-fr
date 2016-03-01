@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Application Insights pour les pages web
@@ -170,7 +170,7 @@ Cliquez sur n’importe quelle ligne pour obtenir des détails spécifiques.
 
 > [AZURE.NOTE] Si vous supprimez le filtre Navigateurs du panneau, les dépendances de serveur et AJAX figureront dans ces graphiques. Cliquez sur Paramètres par défaut pour reconfigurer le filtre.
 
-**Pour explorer les appels Ajax ayant échoué**, un moyen rapide consiste à convertir le graphique des échecs en grille, puis à cliquer sur une ligne afin d’afficher des instances spécifiques.
+**Pour explorer les appels Ajax ayant échoué**, faites défiler l’écran jusqu’à la grille Échecs de dépendance, puis cliquez sur une ligne afin d’afficher des instances spécifiques.
 
 ![](./media/app-insights-javascript/37.png)
 
@@ -238,4 +238,4 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 * [Mesures et événements personnalisés](app-insights-api-custom-events-metrics.md)
 * [Développer-mesurer-apprendre](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

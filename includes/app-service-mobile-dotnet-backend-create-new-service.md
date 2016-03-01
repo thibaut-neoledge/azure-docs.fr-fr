@@ -4,13 +4,13 @@
 
 3. Dans la zone **Groupe de ressources**, sélectionnez un groupe de ressources existant. Si vous n’avez pas de groupe de ressources, entrez le même nom que celui de votre application.
  
-	À ce stade, le plan App Service par défaut est sélectionné, dans le niveau Gratuit. Les paramètres du plan App Service déterminent l’emplacement, les fonctionnalités, les coûts et les ressources de calcul associés à votre application. Sélectionnez un autre plan App Service ou créez-en un. Pour plus d’informations sur les plans App Service et leur création, voir [Présentation détaillée des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	À ce stade, le plan App Service par défaut est sélectionné, au [niveau Standard](https://azure.microsoft.com/pricing/details/app-service/). Les paramètres du plan App Service déterminent l’emplacement, les fonctionnalités, les coûts et les ressources de calcul associés à votre application. Sélectionnez un autre plan App Service ou créez-en un. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau de tarification et à l’emplacement souhaité, voir [Présentation détaillée des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 4. Utilisez le plan App Service par défaut, sélectionnez un autre plan ou [créez un plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan), puis cliquez sur **Créer**.
 	
 	Cette action crée le serveur principal Mobile App. Ultérieurement, vous allez déployer votre projet de serveur sur ce serveur principal. La configuration d’un serveur principal Mobile App peut prendre plusieurs minutes. Le panneau **Paramètres** pour le serveur principal Mobile App s’affiche lorsque vous avez terminé. Avant de pouvoir utiliser le serveur principal Mobile App, vous devez également définir une connexion vers un magasin de données.
 
-    > [AZURE.NOTE]Dans ce didacticiel, vous créez une instance et un serveur de base de données SQL. Vous pouvez réutiliser cette nouvelle base de données et la gérer comme une autre instance de base de données SQL. Si vous avez déjà une base de données dans le même emplacement que le nouveau serveur principal d’application mobile, vous pouvez choisir **Utiliser une base de données** et sélectionner la base de données. Il est déconseillé d’utiliser une base de données dans un autre emplacement en raison de latences plus importantes et de frais de bande passante supplémentaires. D’autres options de stockage de données sont disponibles.
+    > [AZURE.NOTE] Dans ce didacticiel, vous créez une instance et un serveur de base de données SQL. Vous pouvez réutiliser cette nouvelle base de données et la gérer comme une autre instance de base de données SQL. Si vous avez déjà une base de données dans le même emplacement que le nouveau serveur principal d’application mobile, vous pouvez choisir **Utiliser une base de données** et sélectionner la base de données. Il est déconseillé d’utiliser une base de données dans un autre emplacement en raison de latences plus importantes et de frais de bande passante supplémentaires. D’autres options de stockage de données sont disponibles.
 
 6. Dans le panneau **Paramètres** du nouveau serveur principal Mobile, cliquez sur **Démarrage rapide** > Votre plateforme d’application cliente > **Se connecter à une base de données**.
 
@@ -30,4 +30,4 @@
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

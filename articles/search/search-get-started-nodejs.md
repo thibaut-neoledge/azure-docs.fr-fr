@@ -17,6 +17,9 @@
 	ms.author="heidist"/>
 
 # Prise en main d'Azure Search dans NodeJS
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 Apprenez à créer une application NodeJS personnalisée, qui utilise Azure Search pour ses fonctionnalités de recherche. Ce didacticiel utilise l’[API REST du service Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) pour créer les objets et opérations utilisés dans cet exercice.
 
@@ -118,4 +121,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
