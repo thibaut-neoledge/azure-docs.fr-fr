@@ -22,7 +22,7 @@ Azure Key Vault est disponible dans la plupart des régions. Pour plus d’infor
 ## Introduction  
 Ce didacticiel vous aide à démarrer avec Azure Key Vault pour créer un conteneur renforcé (un coffre) dans Azure afin de stocker et gérer les clés de chiffrement et les secrets dans Azure. Il vous guide tout au long du processus d’utilisation d’Azure PowerShell pour créer un coffre qui contient une clé ou un mot de passe que vous pouvez ensuite utiliser avec une application Azure. Il vous montre également comment une application peut utiliser cette clé ou ce mot de passe.
 
-**Durée estimée :** 20 minutes
+**Durée estimée:** 20 minutes
 
 >[AZURE.NOTE]  Ce didacticiel n'inclut pas d'instructions sur l'écriture de l'application Azure abordée dans une des étapes, en d'autres termes, comment autoriser une application à utiliser une clé ou un secret dans le coffre de clés.
 >
@@ -93,8 +93,8 @@ Par exemple, si vous utilisez le nom de coffre **ContosoKeyVault**, le nom de gr
 
 La sortie de cette applet de commande affiche les propriétés du coffre de clés que vous venez de créer. Les deux propriétés les plus importantes sont :
 
-- **Nom du coffre** : dans l’exemple, il s’agit de **ContosoKeyVault**. Vous allez utiliser ce nom pour les autres applets de commande Key Vault.
-- **URI du coffre** : dans l’exemple, il s’agit de https://contosokeyvault.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+- **Nom du coffre** : dans l’exemple, il s’agit de **ContosoKeyVault**. Vous allez utiliser ce nom pour les autres applets de commande Key Vault.
+- **URI du coffre** : dans l’exemple, il s’agit de https://contosokeyvault.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce coffre de clés.
 
@@ -116,7 +116,7 @@ Tapez ensuite la commande suivante pour importer la clé à partir du fichier PF
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Vous pouvez maintenant référencer cette clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**pour toujours obtenir la version actuelle, utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer cette clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** pour toujours obtenir la version actuelle, utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
 
 Pour afficher l’URI de cette clé, tapez :
 
@@ -130,7 +130,7 @@ Tapez ensuite la commande suivante :
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**pour toujours obtenir la version actuelle, utilisez ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle, utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
 
 Pour afficher l’URI de ce secret, tapez :
 
