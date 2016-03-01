@@ -268,4 +268,4 @@ Le service de gestion des API Azure fournit un emplacement idéal pour capturer 
 	-	[Référence de stratégie log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!----HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3--->
