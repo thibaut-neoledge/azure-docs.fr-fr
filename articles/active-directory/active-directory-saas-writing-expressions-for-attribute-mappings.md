@@ -131,7 +131,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Fonction :**<br> Not(source)
 
-**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
+**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
 
 
 **Paramètres :**<br>
@@ -228,7 +228,7 @@ Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un
 
 - **ENTRÉE** (mail) : « john.doe@contoso.com »
 
-- **SORTIE** : « john.doe »
+- **SORTIE** : « john.doe »
 
 
 ### Ajouter un suffixe de constante à un nom d’utilisateur
@@ -242,10 +242,10 @@ Si vous utilisez un Sandbox Salesforce, vous devrez peut-être ajouter un suffix
 
 **Exemple d’entrée/sortie :** <br>
 
-- **ENTRÉE** : (userPrincipalName) : « John.Doe@contoso.com »
+- **ENTRÉE** : (userPrincipalName) : « John.Doe@contoso.com »
 
 
-- **SORTIE** : « John.Doe@contoso.com.test »
+- **SORTIE** : « John.Doe@contoso.com.test »
 
 
 
@@ -264,7 +264,7 @@ Vous devez générer un alias d’utilisateur en prenant les trois premières le
 
 - **ENTRÉE** (surname) : « Doe »
 
-- **SORTIE** : « JohDoe »
+- **SORTIE** : « JohDoe »
 
 
 
@@ -283,7 +283,7 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 
 - **ENTRÉE** (extensionAttribute1) : « 20150123105347.1Z »
 
-- **SORTIE** : « 2015-01-23 »
+- **SORTIE** : « 2015-01-23 »
 
 
 
@@ -302,7 +302,7 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 
 - **ENTRÉE** (state) : « QLD »
 
-- **SORTIE** : « Australia/Brisbane »
+- **SORTIE** : « Australia/Brisbane »
 
 
 ##Articles connexes
@@ -315,4 +315,4 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 - [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 - [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

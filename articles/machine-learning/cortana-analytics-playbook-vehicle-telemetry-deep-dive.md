@@ -376,7 +376,7 @@ Pour en savoir plus sur les fonctionnalités de « fenêtrage » dans Azure Stre
 
 Une application est incluse dans le cadre de la solution pour configurer le modèle d’apprentissage automatique en temps réel. Cette application appelée « RealTimeDashboardApp » est créée et configurée dans le cadre du déploiement de la solution. L’application exécute les tâches suivantes :
 
-1.	Écoute une instance Event Hub dans laquelle Stream Analytics publie les événements en continu. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)* Figure 16 – Requête Stream Analytics pour la publication des données vers une instance Event Hub de sortie * 
+1.	Écoute une instance Event Hub dans laquelle Stream Analytics publie les événements en continu. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figure 16 – Requête Stream Analytics pour la publication des données vers une instance Event Hub de sortie* 
 
 2.	Pour chaque événement reçu par cette application :
 
@@ -706,4 +706,4 @@ Cliquez ici pour obtenir des instructions détaillées sur la configuration des 
 
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

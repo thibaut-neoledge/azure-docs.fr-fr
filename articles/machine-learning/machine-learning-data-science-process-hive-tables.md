@@ -106,7 +106,7 @@ Les utilisateurs peuvent également enregistrer les résultats d’une requête 
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-Dans l'exemple suivant, la sortie de la requête Hive est consignée dans le répertoire de blob `queryoutputdir` situé dans le conteneur par défaut du cluster Hadoop. Ici, il suffit d’indiquer le nom du répertoire, sans celui du blob. Le fait de déclarer le nom du répertoire et celui du blob, comme dans **wasb:///queryoutputdir/queryoutput.txt*, déclenche une erreur.
+Dans l'exemple suivant, la sortie de la requête Hive est consignée dans le répertoire de blob `queryoutputdir` situé dans le conteneur par défaut du cluster Hadoop. Ici, il suffit d’indiquer le nom du répertoire, sans celui du blob. Le fait de déclarer le nom du répertoire et celui du blob, comme dans *wasb:///queryoutputdir/queryoutput.txt*, déclenche une erreur.
 
 ![Create workspace](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
@@ -314,4 +314,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

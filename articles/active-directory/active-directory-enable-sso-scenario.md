@@ -24,15 +24,15 @@ Au-delà du workflow ou du contenu réels, les entreprises ont deux exigences de
 
 2. Pour activer la sécurité et la gouvernance, l’entreprise a besoin de contrôler et de superviser les utilisateurs qui peuvent accéder à chaque application et ceux qui le font effectivement
 
-Dans le vocabulaire des applications cloud, cela est possible en utilisant l’identité pour contrôler « *QUI est autorisé à faire QUOI* ».
+Dans le vocabulaire des applications cloud, cela est possible en utilisant l’identité pour contrôler « *QUI est autorisé à faire QUOI* ».
 
-Dans la terminologie de l’informatique :
+Dans la terminologie de l’informatique :
 
-- *Qui* est connu comme l’*identité* : la gestion des utilisateurs et des groupes
+- *Qui* est connu comme l’*identité* : la gestion des utilisateurs et des groupes
 
-- *Quoi* est connu comme la *gestion de l’accès* : la gestion de l’accès aux ressources protégées
+- *Quoi* est connu comme la *gestion de l’accès* : la gestion de l’accès aux ressources protégées
 
-Ensemble, les deux composants sont désignés comme la *Gestion de l’identité et de l’accès (IAM)*, que le groupe [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) définit comme « *la discipline de sécurité qui permet aux bonnes personnes d’accéder aux bonnes ressources au bon moment et pour les bonnes raisons* ».
+Ensemble, les deux composants sont désignés comme la *Gestion de l’identité et de l’accès (IAM)*, que le groupe [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) définit comme « *la discipline de sécurité qui permet aux bonnes personnes d’accéder aux bonnes ressources au bon moment et pour les bonnes raisons* ».
 
 Très bien, alors, quel est le problème ? Si IAM n’est *pas gérée* à un seul emplacement avec une solution intégrée :
 
@@ -135,4 +135,4 @@ Pour commencer à intégrer des applications avec Azure AD, consultez le [Guide 
 
 [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

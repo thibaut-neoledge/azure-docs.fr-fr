@@ -285,7 +285,7 @@ Pour plus d’informations, voir la documentation de [Notification Hubs].
 
 ### <a name="app-settings"></a>Autres paramètres d’application
 
-Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
+Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
 
 | Paramètre de l’application | Description |
 | :------------------------------- | :-------------------------------------- |
@@ -394,4 +394,4 @@ Les journaux sont diffusés dans la fenêtre fournie à mesure qu’ils sont gé
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

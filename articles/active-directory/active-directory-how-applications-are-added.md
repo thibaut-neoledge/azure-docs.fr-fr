@@ -36,7 +36,7 @@ Les applications sont ajoutées à Azure AD pour exploiter un ou plusieurs des 
 
 Les applications sont représentées dans Azure AD à l'aide de deux objets : un objet d'application et un objet de principal du service. Il existe un objet d'application, enregistré dans un répertoire « accueil »/« propriétaire » ou « publication », et un ou plusieurs objets de principal du service qui représentent l'application dans chaque répertoire dans lequel il agit.
 
-L'objet d'application décrit l'application à Azure AD (service mutualisé) et peut inclure les éléments suivants : (*Remarque* : il ne s'agit pas d'une liste exhaustive.)
+L'objet d'application décrit l'application à Azure AD (service mutualisé) et peut inclure les éléments suivants : (*Remarque* : il ne s'agit pas d'une liste exhaustive.)
 
 * Nom, logo et publication
 * Secrets (clés symétriques et/ou asymétriques utilisées pour authentifier l'application)
@@ -83,7 +83,7 @@ Les applications que vous ajoutez vous-même comprennent :
 * Actuellement, toutes les informations décrites ci-dessus sont exposées par programmation. Les éléments suivants sont uniquement disponibles dans l'interface utilisateur :
     * Revendication des règles de transformation
     * Mappages d'attributs (déploiement de l'utilisateur)
-* Pour plus d'informations détaillées sur le principal du service et les objets d'application, consultez la documentation de référence API REST d'Azure AD Graph. *Conseil* : la documentation API REST d'Azure AD Graph est ce qui se rapproche le plus d'une référence de schéma pour Azure AD qui soit actuellement disponible.  
+* Pour plus d'informations détaillées sur le principal du service et les objets d'application, consultez la documentation de référence API REST d'Azure AD Graph. *Conseil* : la documentation API REST d'Azure AD Graph est ce qui se rapproche le plus d'une référence de schéma pour Azure AD qui soit actuellement disponible.  
     * [Application](https://msdn.microsoft.com/library/azure/dn151677.aspx)
     * [Principal du service](https://msdn.microsoft.com/library/azure/dn194452.aspx)
 
@@ -123,7 +123,7 @@ Ceci peut paraître inquiétant, mais gardez ce qui suit à l'esprit :
 * Les applications qui utilisent Azure AD pour oAuth décident en détail des autorisations que les utilisateurs sont en mesure d'accorder aux applications et des autorisations nécessitant un administrateur pour les confirmer. Il va sans dire que seuls les administrateurs peuvent donner leur consentement à de plus grandes étendues et des autorisations plus importantes.
 * Les utilisateurs qui ajoutent et autorisent des applications pour accéder à leurs données sont des événements audités afin de pouvoir afficher les rapports d'audit dans le portail de gestion d'Azure, dans le but de déterminer de quelle façon une application a été ajoutée au répertoire.
 
-**Remarque :** *Microsoft a lui-même fonctionné pendant plusieurs mois avec la configuration par défaut.*
+**Remarque :** *Microsoft a lui-même fonctionné pendant plusieurs mois avec la configuration par défaut.*
 
 Cela étant, il est possible d'empêcher les utilisateurs de votre répertoire d'ajouter des applications et d'exercer une discrétion sur les informations qu'ils partagent avec les applications en modifiant la configuration de répertoire dans le portail de gestion Azure. La configuration suivante est accessible dans le portail de gestion Azure, dans l'onglet « Configuration » de votre répertoire.
 

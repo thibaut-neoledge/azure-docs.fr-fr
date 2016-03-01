@@ -61,7 +61,7 @@ Le champ 16 dans la sortie de *vmstat* contient le temps processeur passé à a
 
 - Simplifiez au maximum chaque cas de test JMeter pour pouvoir corréler directement des performances avec des actions de test spécifiques. Pour les cas de test qui exigent une logique complexe, envisagez d’encapsuler cette logique dans un test JUnit et utilisez l’échantillonneur de demandes JUnit dans JMeter pour exécuter le test.
 
-- Utilisez l’échantillonneur de requêtes HTTP pour effectuer les opérations HTTP, telles que GET, POST, PUT ou DELETE. Par exemple, vous pouvez exécuter des recherches Elasticsearch en utilisant une requête POST et en fournissant les détails de la requête dans la zone *Body Data* :
+- Utilisez l’échantillonneur de requêtes HTTP pour effectuer les opérations HTTP, telles que GET, POST, PUT ou DELETE. Par exemple, vous pouvez exécuter des recherches Elasticsearch en utilisant une requête POST et en fournissant les détails de la requête dans la zone *Body Data* :
 
 ![](./media/guidance-elasticsearch-jmeter-testing4.png)
 
@@ -134,4 +134,4 @@ public void bulkInsertTest() throws IOException {
 }
 ```
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

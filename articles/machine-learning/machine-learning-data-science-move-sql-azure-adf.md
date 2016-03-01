@@ -91,7 +91,7 @@ Pour créer le service lié pour le SQL Server local, cliquez sur le **Magasin 
 Pour créer le service lié pour le compte de stockage d’objets blob Azure, cliquez sur le **Magasin de données** dans la page d’accueil ADF sur le portail Azure Classic, sélectionnez *Compte de stockage Azure* et saisissez le nom de clé et le conteneur du compte de stockage d’objets blob Azure. Nommez le service lié *adfds*.
 
 ###<a name="adf-linked-service-azure-sql"></a>Service lié pour base de données Azure SQL
-Pour créer le service lié pour la base de données Azure SQL locale, cliquez sur le **Magasin de données** dans la page d’accueil ADF sur le portail Azure Classic, sélectionnez *Azure SQL* et saisissez les informations d’identification pour le *nom d’utilisateur* et le *mot de passe* pour la base de données Azure SQL locale. Le *nom d'utilisateur* doit être spécifié en tant que **user@servername*.
+Pour créer le service lié pour la base de données Azure SQL locale, cliquez sur le **Magasin de données** dans la page d’accueil ADF sur le portail Azure Classic, sélectionnez *Azure SQL* et saisissez les informations d’identification pour le *nom d’utilisateur* et le *mot de passe* pour la base de données Azure SQL locale. Le *nom d'utilisateur* doit être spécifié en tant que *user@servername*.
 
 
 ##<a name="adf-tables"></a>Définir et créer des tables pour spécifier l’accès aux jeux de données
@@ -305,4 +305,4 @@ Une fois que le pipeline s'exécute, vous devez être en mesure de voir des donn
 
 Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d’informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

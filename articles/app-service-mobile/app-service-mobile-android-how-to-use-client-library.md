@@ -44,9 +44,9 @@ Après ces étapes, vous devez suivre la procédure décrite dans la section de 
 
 ###<a name="gradle-build"></a>Mise à jour du fichier de construction Gradle
 
-Modifiez les deux fichiers **build.gradle** :
+Modifiez les deux fichiers **build.gradle** :
 
-1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
+1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
 
 		buildscript {
 		    repositories {
@@ -54,14 +54,14 @@ Modifiez les deux fichiers **build.gradle** :
 		    }
 		}
 
-2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
+2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
 
 		compile 'com.microsoft.azure:azure-mobile-android:3.0'
 
 	La version la plus récente est la 3.0. Les versions prises en charge sont répertoriées [ici](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Activation des autorisations Internet
-Pour accéder à Azure, l’autorisation INTERNET doit être activée sur votre application. Si ce n’est pas déjà fait, ajoutez la ligne de code suivante à votre fichier **AndroidManifest.xml** :
+Pour accéder à Azure, l’autorisation INTERNET doit être activée sur votre application. Si ce n’est pas déjà fait, ajoutez la ligne de code suivante à votre fichier **AndroidManifest.xml** :
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
@@ -175,7 +175,7 @@ La mise en page est définie par plusieurs éléments de code XML. En nous basan
     </ListView>
 
 
-Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque ligne dans la liste. Voici ce code, qui spécifie une case à cocher et le texte associé. Ce contenu est créé pour chaque élément de la liste. Cette mise en page n’affiche pas le champ **id** ; une mise en page plus complexe spécifierait d’autres champs dans l’affichage. Le code se trouve dans le fichier **row\_list\_to\_do.xml**.
+Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque ligne dans la liste. Voici ce code, qui spécifie une case à cocher et le texte associé. Ce contenu est créé pour chaque élément de la liste. Cette mise en page n’affiche pas le champ **id** ; une mise en page plus complexe spécifierait d’autres champs dans l’affichage. Le code se trouve dans le fichier **row\_list\_to\_do.xml**.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -194,7 +194,7 @@ Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque 
 
 Comme la source de données de notre vue est un tableau de *ToDoItem*, nous créons une sous-classe de notre adaptateur à partir de la classe *ArrayAdapter&lt;ToDoItem&gt;*. Cette sous-classe produit une vue pour chaque élément *ToDoItem* utilisant la mise en page *row\_list\_to\_do*.
 
-Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
+Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
@@ -259,7 +259,7 @@ Pour visualiser la façon dont ces API asynchrones sont utilisées dans votre ap
 Vous êtes désormais prêt à utiliser la liaison des données. Le code qui suit montre comment obtenir les éléments dans la table du service mobile, nettoyer l’adaptateur, puis appeler la méthode *add* de l’adaptateur pour y placer les éléments renvoyés.
 
 
-**À déterminer** : tester ce code !
+**À déterminer** : tester ce code !
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -840,4 +840,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Prise en main de l'authentification]: app-service-mobile-android-get-started-users.md
 [Prise en main de l’authentification]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
