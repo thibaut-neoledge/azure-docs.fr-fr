@@ -38,4 +38,4 @@ Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tert
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015--->
