@@ -575,7 +575,7 @@ L'exemple d'application **ContactManager** permet aux utilisateurs anonymes et a
 Vous allez créer un dossier nommé *Admin* auquel seuls les utilisateurs affectés au rôle « canEdit » pourront accéder.
 
 1. Dans l'**Explorateur de solutions**, ajoutez un sous-dossier au dossier *Contacts* et nommez-le *Admin*.
-2. Déplacez les fichiers suivants du dossier *Contacts* vers le dossier *Contacts/Admin* :  
+2. Déplacez les fichiers suivants du dossier *Contacts* vers le dossier *Contacts/Admin* :  
 	- *Delete.aspx *et* Delete.aspx.cs*
 	- *Edit.aspx *et* Edit.aspx.cs*
 	- *Insert.aspx *et* Insert.aspx.cs*
@@ -758,4 +758,4 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

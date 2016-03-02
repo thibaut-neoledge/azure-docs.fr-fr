@@ -474,7 +474,7 @@ Le fichier *sample\_hive\_tipped\_frequencies.hql* ci-dessous effectue cette op�
 
 ### Exploration : distributions de classe dans le paramètre multiclasse
 
-**Remarque :** il s'agit généralement d’une tâche de ** données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Pour le problème de classification multiclasse décrit dans la section [Exemples de tâches de prédiction](machine-learning-data-science-process-hive-walkthrough.md#mltasks), ce jeu de données se prête également à une classification naturelle où nous aimerions prédire la quantité de pourboires donnés. Nous pouvons utiliser des compartiments pour définir les montants de pourboires dans la requête. Pour obtenir les distributions de classe pour les différents montants de pourboire, nous utilisons le fichier *sample\_hive\_tip\_range\_frequencies.hql*. Son contenu est présenté ci-dessous.
 
@@ -495,7 +495,7 @@ Exécutez la commande suivante dans la console de ligne de commande Hadoop :
 
 ### Exploration : calculer la distance directe entre deux emplacements de latitude-longitude
 
-**Remarque :** il s'agit généralement d’une tâche de ** données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Avoir une idée de la distance directe nous permet de déterminer l'écart entre celle-ci et la distance de course réelle. Nous expliquons cette fonctionnalité par le fait qu’un passager peut être moins susceptible de donner un pourboire s’il se rend compte que le chauffeur a pris intentionnellement un itinéraire beaucoup plus long.
 
@@ -548,7 +548,7 @@ Le principal avantage lié au fait que ces données résident dans un objet blob
 
 ## <a name="#downsample"></a>Réduire l’échantillon des données et créer des modèles dans Azure Machine Learning
 
-**Remarque :** il s'agit généralement d’une tâche de ** données scientifiques**.
+**Remarque :** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Après la phase d'analyse exploratoire des données, nous sommes prêts à réduire l’échantillon des données pour générer des modèles dans Azure Machine Learning. Dans cette section, nous montrons comment utiliser une requête Hive pour réduire l’échantillon de données, qui est ensuite accessible à partir du module [Lecteur][reader] dans Azure Machine Learning.
 
@@ -810,4 +810,4 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!----HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0211_2016-->

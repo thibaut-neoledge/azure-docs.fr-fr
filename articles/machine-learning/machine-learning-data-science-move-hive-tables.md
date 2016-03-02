@@ -250,4 +250,4 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 
 La section finale présente les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-<!----HONumber=AcomDC_0211_2016-->
+<!------HONumber=AcomDC_0211_2016-->

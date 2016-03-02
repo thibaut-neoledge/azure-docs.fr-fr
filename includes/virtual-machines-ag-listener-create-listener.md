@@ -19,8 +19,8 @@ Dans cette étape, vous créez manuellement l'écouteur du groupe de disponibili
 	 - Sélectionnez **Adresse IP statique**, affectez une adresse IP inutilisée, puis cliquez sur **OK**.
 
 1. Cliquez avec le bouton droit sur la ressource Adresse IP qui correspond à votre sous-réseau Azure, puis sélectionnez Propriétés.
-	>[AZURE.NOTE]Si la mise en ligne de l'écouteur échoue par la suite en raison d'un conflit avec l'adresse IP sélectionnée par DHCP, vous pouvez configurer une adresse IP statique valide dans cette fenêtre de propriétés.
+	>[AZURE.NOTE] Si la mise en ligne de l'écouteur échoue par la suite en raison d'un conflit avec l'adresse IP sélectionnée par DHCP, vous pouvez configurer une adresse IP statique valide dans cette fenêtre de propriétés.
 
 1. Dans la même fenêtre de propriétés **Adresse IP**, modifiez le **Nom de l'adresse IP**. Ce nom d'adresse IP sera utilisé dans la variable **$IPResourceName** du script PowerShell. Répétez cette étape pour chaque ressource IP si votre solution couvre plusieurs réseaux virtuels Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!------HONumber=Oct15_HO3-->
