@@ -99,7 +99,7 @@ Pour un nœud de client :
 
 * N’allouez pas de stockage disque aux données Elasticsearch. Les clients dédiés ne stockent pas de données sur le disque.
 
-* Assurez-vous que la quantité de mémoire disponible est suffisante pour gérer les charges de travail. Les demandes d’insertion en bloc sont lues en mémoire avant l’envoi des données à divers nœuds de données, et les résultats des agrégations et requêtes s’accumulent dans la mémoire avant d’être renvoyés à l’application cliente. Pour déterminer la configuration optimale, évaluez vos propres charges de travail et surveillez l’utilisation de la mémoire à l’aide d’un outil tel que Marvel ou à l’aide des [informations JVM](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_jvm_section) retournées avec l’API *node/stats* :
+* Assurez-vous que la quantité de mémoire disponible est suffisante pour gérer les charges de travail. Les demandes d’insertion en bloc sont lues en mémoire avant l’envoi des données à divers nœuds de données, et les résultats des agrégations et requêtes s’accumulent dans la mémoire avant d’être renvoyés à l’application cliente. Pour déterminer la configuration optimale, évaluez vos propres charges de travail et surveillez l’utilisation de la mémoire à l’aide d’un outil tel que Marvel ou à l’aide des [informations JVM](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_jvm_section) retournées avec l’API *node/stats* :
 
     ```http
     GET _nodes/stats
@@ -587,7 +587,7 @@ La performance dépend non seulement du fonctionnement interne du système, mais
 
 > [AZURE.NOTE] Cette liste de meilleures pratiques concerne principalement l’ingestion de nouvelles données, plutôt que la modification de données existantes déjà stockées dans un index. Les charges de travail pour l’ingestion de données sont exécutées en tant qu’opérations d’ajout par Elasticsearch, tandis que les modifications de données sont effectuées en tant qu’opérations d’ajout/suppression. Cela est dû au fait que les documents dans un index sont immuables. Pour modifier un document, il faut donc le remplacer par sa nouvelle version. Vous pouvez exécuter une demande HTTP PUT pour remplacer un document existant, ou vous pouvez utiliser l’API *update* (mise à jour) d’Elasticsearch, qui effectue une requête pour extraire un document existant, fusionne les modifications, puis exécute une opération PUT pour stocker le nouveau document.
 
-* Désactivez l’analyse de texte pour les champs d’index qui ne nécessitent pas d’être analysés. L’analyse implique de tokeniser du texte pour activer des requêtes pouvant rechercher des termes spécifiques. Toutefois, cela peut consommer beaucoup de ressources du processeur, donc soyez sélectif. Si vous utilisez Elasticsearch pour stocker les données du journal, il peut être utile de tokeniser des messages du journal détaillés pour permettre des recherches plus complexes. D’autres champs, tels que ceux contenant des codes d’erreur ou des identificateurs, ne doivent probablement pas être tokenisés (combien de fois serez-vous amené à demander les détails de tous les messages dont le code d’erreur contient le chiffre « 3 », par exemple?) Le code suivant désactive l’analyse pour les champs *name* et *hostip* du type *logs* dans l’index *systembase* :
+* Désactivez l’analyse de texte pour les champs d’index qui ne nécessitent pas d’être analysés. L’analyse implique de tokeniser du texte pour activer des requêtes pouvant rechercher des termes spécifiques. Toutefois, cela peut consommer beaucoup de ressources du processeur, donc soyez sélectif. Si vous utilisez Elasticsearch pour stocker les données du journal, il peut être utile de tokeniser des messages du journal détaillés pour permettre des recherches plus complexes. D’autres champs, tels que ceux contenant des codes d’erreur ou des identificateurs, ne doivent probablement pas être tokenisés (combien de fois serez-vous amené à demander les détails de tous les messages dont le code d’erreur contient le chiffre « 3 », par exemple?) Le code suivant désactive l’analyse pour les champs *name* et *hostip* du type *logs* dans l’index *systembase* :
 
 	```http
 	PUT /systembase
@@ -610,7 +610,7 @@ La performance dépend non seulement du fonctionnement interne du système, mais
 	}
 	```
 
-* Désactivez le champ * \_all* d’un index si celui-ci n’est pas nécessaire. Le champ *\_all* concatène les valeurs des autres champs du document pour l’analyse et l’indexation. Il est utile d’effectuer des requêtes pouvant correspondre à n’importe quel champ dans un document. Si les clients doivent correspondre aux champs nommés, l’activation du champ *\_all* entraîne simplement une surcharge de stockage et du processeur. L’exemple suivant montre comment désactiver le champ *\_all* du type *logs* dans l’index *systembase*.
+* Désactivez le champ *\_all* d’un index si celui-ci n’est pas nécessaire. Le champ *\_all* concatène les valeurs des autres champs du document pour l’analyse et l’indexation. Il est utile d’effectuer des requêtes pouvant correspondre à n’importe quel champ dans un document. Si les clients doivent correspondre aux champs nommés, l’activation du champ *\_all* entraîne simplement une surcharge de stockage et du processeur. L’exemple suivant montre comment désactiver le champ *\_all* du type *logs* dans l’index *systembase*.
 
 	```http
 	PUT /systembase
@@ -707,7 +707,7 @@ Les points suivants mettent en évidence certains des éléments que vous devez 
 
 * Examinez l’allocation de partitions sur les nœuds pour comparer les statistiques. Certains nœuds auront moins de réplicas et de partitions, ce qui créera un déséquilibre dans l’utilisation des ressources.
 
-* Si vous effectuez des tests de charge, augmentez le nombre de threads utilisés par votre outil de test pour soumettre du travail au cluster jusqu’à ce que des erreurs se produisent. Pour des tests de débit durables, pensez à conserver votre niveau de test sous un « *plafond de verre* » déterminé au préalable. Si le taux d’erreur dépasse le plafond de verre, les erreurs entraîneront des frais au niveau des ressources principales, en raison de leur récupération. Dans ces cas, le débit baissera de manière inévitable.
+* Si vous effectuez des tests de charge, augmentez le nombre de threads utilisés par votre outil de test pour soumettre du travail au cluster jusqu’à ce que des erreurs se produisent. Pour des tests de débit durables, pensez à conserver votre niveau de test sous un «*plafond de verre*» déterminé au préalable. Si le taux d’erreur dépasse le plafond de verre, les erreurs entraîneront des frais au niveau des ressources principales, en raison de leur récupération. Dans ces cas, le débit baissera de manière inévitable.
 
 * Pour simuler la réaction de votre système face à un pic d’activité plus important qu’attendu, envisagez d’exécuter des tests générant un taux d’erreur dépassant votre plafond de verre. Cela vous donnera des valeurs de débit, non seulement en termes de capacité, mais aussi en matière de coût de la récupération.
 
@@ -1044,4 +1044,4 @@ Les méthodes *BulkInsertTest* et *BigBulkInsertTest* réalisent le travail effe
 
 > [AZURE.NOTE] L’exemple de code présenté ici utilise la bibliothèque « Elasticsearch 1.7.3 Transport Client ». Si vous utilisez Elasticsearch 2.0.0 ou une version ultérieure, vous devez utiliser la bibliothèque appropriée pour la version. Pour en savoir plus sur la bibliothèque Elasticsearch 2.0.0 Transport Client, consultez la page [Transport Client](https://www.elastic.co/guide/en/elasticsearch/client/java-api/2.0/transport-client.html) sur le site web d’Elasticsearch.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

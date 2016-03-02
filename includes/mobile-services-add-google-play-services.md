@@ -9,7 +9,7 @@
 
 	![](./media/mobile-services-android-get-started-push/android-studio-push-build-gradle.png)
 
-4. Ajoutez la ligne suivante sous *dépendances* :
+4. Ajoutez la ligne suivante sous *dépendances* :
 
    		compile 'com.google.android.gms:play-services-gcm:8.4.0'
 
@@ -23,4 +23,4 @@
             android:value="@integer/google_play_services_version" />
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->
