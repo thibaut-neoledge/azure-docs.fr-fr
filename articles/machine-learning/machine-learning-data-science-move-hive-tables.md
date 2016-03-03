@@ -239,7 +239,7 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 		   FROM <database name>.<external textfile table name> 
 		   WHERE <partition variable>=<partition value>;
 
-4. Pour plus de sécurité, lorsque vous utilisez la requête suivante, il est recommandé de déplacer la table *&#60;external textfile table name>* une fois toutes les données insérées dans la table *&#60;database name>.&#60;ORC table name>* :
+4. Pour plus de sécurité, lorsque vous utilisez la requête suivante, il est recommandé de déplacer la table *&#60;external textfile table name>* une fois toutes les données insérées dans la table *&#60;database name>.&#60;ORC table name>* :
 
 		DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
@@ -250,4 +250,4 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 
 La section finale présente les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-<!------HONumber=AcomDC_0211_2016-->
+<!-------HONumber=AcomDC_0211_2016-->

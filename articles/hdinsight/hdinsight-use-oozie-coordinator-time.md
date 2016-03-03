@@ -78,13 +78,14 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Une base de données SQL Azure**. Vous devez configurer une règle de pare-feu pour que le serveur de base de données SQL autorise l'accès à partir de votre station de travail. Pour des instructions sur la création d'une base de données SQL Azure et la configuration d'un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. Cet article inclut un script Windows PowerShell pour la création de la table de base de données SQL Azure dont vous avez besoin pour ce didacticiel.
 
 	<table border = "1">
-<tr><th>Propriété de base de données&#160;SQL</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-<tr><td>Nom du serveur de base de données&#160;SQL</td><td>$sqlDatabaseServer</td><td></td><td>Serveur de la base de données&#160;SQL vers lequel Sqoop exporte des données. </td></tr>
-<tr><td>Nom de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nom de connexion à la base de données&#160;SQL.</td></tr>
-<tr><td>Mot de passe de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Mot de passe de connexion à la base de données&#160;SQL.</td></tr>
-<tr><td>Nom de la base de données&#160;SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de données SQL Azure vers laquelle Sqoop exporte des données. </td></tr>
-</table>
-> [AZURE.NOTE] Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL][sqldatabase-create-configure].
+	<tr><th>Propriété de base de données&#160;SQL</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+	<tr><td>Nom du serveur de base de données&#160;SQL</td><td>$sqlDatabaseServer</td><td></td><td>Serveur de la base de données&#160;SQL vers lequel Sqoop exporte des données. </td></tr>
+	<tr><td>Nom de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nom de connexion à la base de données&#160;SQL.</td></tr>
+	<tr><td>Mot de passe de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Mot de passe de connexion à la base de données&#160;SQL.</td></tr>
+	<tr><td>Nom de la base de données&#160;SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de données SQL Azure vers laquelle Sqoop exporte des données. </td></tr>
+	</table>
+
+	> [AZURE.NOTE] Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL]\[sqldatabase-create-configure].
 
 
 > [AZURE.NOTE] Remplissez les valeurs dans les tables. Cela vous sera utile pour ce didacticiel.
@@ -736,4 +737,4 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
