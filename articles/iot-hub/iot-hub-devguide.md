@@ -264,11 +264,11 @@ Vous pouvez accorder les autorisations de différentes manières :
 
 * **Stratégies d’accès partagé au niveau du concentrateur**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison des autorisations mentionnées dans la section qui précède. Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal] ou par programmation à l’aide des [API du fournisseur de ressources Azure IoT Hub][lnk-resource-provider-apis]. Un IoT Hub nouvellement créé possède les stratégies par défaut suivantes :
 
-    - *iothubowner* : stratégie jouissant de toutes les autorisations
-    - *service* : stratégie jouissant de l’autorisation **ServiceConnect**
-    - *device* : stratégie jouissant de l’autorisation **DeviceConnect**
-    - *registryRead* : stratégie jouissant de l’autorisation **RegistryRead**
-    - *registryReadWrite* : stratégie jouissant des autorisations **RegistryRead** et **RegistryWrite**
+    - *iothubowner* : stratégie jouissant de toutes les autorisations
+    - *service* : stratégie jouissant de l’autorisation **ServiceConnect**
+    - *device* : stratégie jouissant de l’autorisation **DeviceConnect**
+    - *registryRead* : stratégie jouissant de l’autorisation **RegistryRead**
+    - *registryReadWrite* : stratégie jouissant des autorisations **RegistryRead** et **RegistryWrite**
 
 * **Informations d’identification de sécurité par appareil**. Chaque IoT Hub contient un [registre d’identité des appareils](#device-identity-registry). Pour chaque appareil figurant dans ce registre, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
 
@@ -639,4 +639,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-eventhub-partitions]: event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!------HONumber=AcomDC_0211_2016-->
+<!-------HONumber=AcomDC_0211_2016-->
