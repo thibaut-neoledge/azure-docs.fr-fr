@@ -154,7 +154,7 @@ Une fois le groupe de ressources créé, vous pouvez créer votre cluster à l�
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
-### Provide template parameters
+### Indication des paramètres du modèle
  
 Si vous êtes familiarisé avec PowerShell, vous savez que vous pouvez parcourir les paramètres disponibles pour une applet de commande en utilisant le signe moins (-) puis en appuyant sur la touche TAB. Cette fonctionnalité fonctionne également avec les paramètres que vous définissez dans votre modèle. Dès que vous entrez le nom du modèle, l’applet de commande récupère le modèle, analyse les paramètres et ajoute les paramètres du modèle à la commande de façon dynamique. Il est ainsi beaucoup plus facile de spécifier les valeurs des paramètres du modèle. En outre, si vous oubliez une valeur obligatoire, PowerShell vous invite à spécifier cette valeur.
  
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->

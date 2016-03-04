@@ -46,7 +46,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 
 Les régions Premium Storage actuellement prises en charge pour 8020 sont indiquées dans le tableau ci-dessous. Cette liste est mise à jour chaque fois que Premium Storage est disponible dans une nouvelle région.
 
-| N° | Actuellement pris en charge dans les régions |
+| No | Actuellement pris en charge dans les régions |
 |---------------------------------------------------------|--------------------------------|
 | 1 | Centre des États-Unis |
 | 2 | Est des États-Unis |
@@ -282,4 +282,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
  
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!------HONumber=AcomDC_0218_2016-->
