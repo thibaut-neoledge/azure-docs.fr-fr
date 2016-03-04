@@ -98,7 +98,7 @@ Considérations relatives au partitionnement :
 
 - **Évitez le décalage de données** : choisissez votre clé de partitionnement avec soin, pour que toutes les partitions soient de taille égale. Par exemple, le partitionnement sur *Région* peut entraîner un nombre d’enregistrements sous Île-de-France 30 fois supérieur à celui sous Franche-Comté, en raison de la différence de population.
 
-Pour créer une table de partition, utilisez la clause *Partitioned By* :
+Pour créer une table de partition, utilisez la clause *Partitioned By* :
 
     CREATE TABLE lineitem_part
     	(L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
@@ -161,7 +161,7 @@ Pour activer le format ORC, vous devez commencer par créer une table avec la cl
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-Ensuite, vous devez insérer des données dans la table ORC à partir de la table de mise en lots. Par exemple :
+Ensuite, vous devez insérer des données dans la table ORC à partir de la table de mise en lots. Par exemple :
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
@@ -218,4 +218,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

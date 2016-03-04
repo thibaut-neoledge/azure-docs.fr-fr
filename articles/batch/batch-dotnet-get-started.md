@@ -28,9 +28,9 @@ Cet article suppose que vous avez acquis une connaissance pratique de C# et Visu
 
 ### Comptes
 
-- **Compte Azure** : si vous ne possédez pas déjà d’abonnement Azure, vous pouvez [créer un compte Azure gratuit][azure_free_account].
-- **Compte Batch** : une fois que vous disposez d’un abonnement Azure, [créez et gérez un compte Azure Batch](batch-account-create-portal.md).
-- **Compte de stockage** : voir la section « Créer un compte de stockage » de l’article [À propos des comptes de stockage Azure](./../storage/storage-create-storage-account.md).
+- **Compte Azure**: si vous ne possédez pas déjà d’abonnement Azure, vous pouvez [créer un compte Azure gratuit][azure_free_account].
+- **Compte Batch**: une fois que vous disposez d’un abonnement Azure, [créez et gérez un compte Azure Batch](batch-account-create-portal.md).
+- **Compte de stockage**: voir la section « Créer un compte de stockage » de l’article [À propos des comptes de stockage Azure](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -112,9 +112,9 @@ Accédez à la partie supérieure de la méthode `MainAsync` dans le fichier `Pr
 
 Batch prend en charge l’interaction avec Azure Storage. Les conteneurs présents dans votre compte de stockage fournissent des tâches s’exécutant dans votre compte Batch avec les fichiers nécessaires à leur exécution. Les conteneurs fournissent également un emplacement pour stocker les données de sortie générées par les tâches. L’application cliente *DotNetTutorial* commence par créer trois conteneurs dans [Azure Blob Storage](./../storage/storage-introduction.md) :
 
-- **application** : ce conteneur hébergera l’application qui sera exécutée par les tâches, ainsi que toutes ses dépendances, telles que les DLL.
-- **input** : les tâches téléchargeront les fichiers de données qu’elles doivent traiter à partir du conteneur *input*.
-- **output** : une fois que les tâches auront terminé de traiter les fichiers, elles chargeront leurs résultats dans le conteneur *output*.
+- **application**: ce conteneur hébergera l’application qui sera exécutée par les tâches, ainsi que toutes ses dépendances, telles que les DLL.
+- **input**: les tâches téléchargeront les fichiers de données qu’elles doivent traiter à partir du conteneur *input*.
+- **output**: une fois que les tâches auront terminé de traiter les fichiers, elles chargeront leurs résultats dans le conteneur *output*.
 
 Pour interagir avec un compte de stockage et créer des conteneurs, la [bibliothèque cliente Azure Storage pour .NET][net_api_storage] est utilisée pour créer une référence au compte avec [CloudStorageAccount][net_cloudstorageaccount], ce qui permet de créer un client d’objet blob ([CloudBlobClient][net_cloudblobclient]) :
 
@@ -243,9 +243,9 @@ L’exemple d’application DotNetTutorial n’utilise pas les types de tâche J
 
 Les signatures d’accès partagé sont des chaînes qui, une fois intégrées à une URL, offrent un accès sécurisé aux conteneurs et aux objets blob dans Azure Storage. L’application DotNetTutorial utilise les URL de signature d’accès partagées des objets blob et des conteneurs et montre comment obtenir ces chaînes de signature d’accès partagé auprès du service Storage.
 
-- **Signature d’accès partagé d’objet blob** : le type de tâche StartTask du pool dans DotNetTutorial utilise les signatures d’accès partagé d’objet blob lors du téléchargement des fichiers binaires d’application et des fichiers de données d’entrée à partir de Storage (voir l’étape 3 ci-dessous). La méthode `UploadFileToContainerAsync` du `Program.cs` de DotNetTutorial contient le code qui obtient la signature d’accès partagé de l’objet blob. Elle le fait en appelant [CloudBlob.GetSharedAccessSignature][net_sas_blob].
+- **Signature d’accès partagé d’objet blob**: le type de tâche StartTask du pool dans DotNetTutorial utilise les signatures d’accès partagé d’objet blob lors du téléchargement des fichiers binaires d’application et des fichiers de données d’entrée à partir de Storage (voir l’étape 3 ci-dessous). La méthode `UploadFileToContainerAsync` du `Program.cs` de DotNetTutorial contient le code qui obtient la signature d’accès partagé de l’objet blob. Elle le fait en appelant [CloudBlob.GetSharedAccessSignature][net_sas_blob].
 
-- **Signatures d’accès partagé de conteneur** : une fois que chaque tâche a mené à bien l’opération qui lui était affectée sur le nœud de calcul, elle charge son fichier de sortie dans le conteneur *output* d’Azure Storage. Pour ce faire, TaskApplication utilise une signature d’accès partagé de conteneur qui fournit un accès en écriture au conteneur dans le chemin d’accès lors du chargement du fichier. L’obtention de la signature d’accès partagé de conteneur obéit à la même procédure que l’obtention de signature d’accès partagé de l’objet blob. Dans DotNetTutorial, vous constaterez que la méthode d’assistance `GetContainerSasUrl` appelle [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] pour ce faire. Vous en saurez plus sur la façon dont TaskApplication utilise la signature d’accès partagé de conteneur en consultant la section l’« étape 6 : Surveiller les tâches » ci-après.
+- **Signatures d’accès partagé de conteneur**: une fois que chaque tâche a mené à bien l’opération qui lui était affectée sur le nœud de calcul, elle charge son fichier de sortie dans le conteneur *output* d’Azure Storage. Pour ce faire, TaskApplication utilise une signature d’accès partagé de conteneur qui fournit un accès en écriture au conteneur dans le chemin d’accès lors du chargement du fichier. L’obtention de la signature d’accès partagé de conteneur obéit à la même procédure que l’obtention de signature d’accès partagé de l’objet blob. Dans DotNetTutorial, vous constaterez que la méthode d’assistance `GetContainerSasUrl` appelle [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] pour ce faire. Vous en saurez plus sur la façon dont TaskApplication utilise la signature d’accès partagé de conteneur en consultant la section l’« étape 6 : Surveiller les tâches » ci-après.
 
 > [AZURE.TIP] Pour en savoir plus sur la sécurisation de l’accès aux données présentes dans votre compte de stockage, consultez la série sur les signatures d’accès partagé en deux parties, [Partie 1 : présentation du modèle de signature d’accès partagé (SAP)](./../storage/storage-dotnet-shared-access-signature-part-1.md) et [Partie 2 : création et utilisation d’une signature d’accès partagé avec le service Blob](./../storage/storage-dotnet-shared-access-signature-part-2.md).
 
@@ -373,7 +373,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 
 > [AZURE.IMPORTANT] Lorsqu’elles accèdent aux variables d’environnement telles que `%AZ_BATCH_NODE_SHARED_DIR%` ou exécutent une application introuvable dans le `PATH` du nœud, les lignes de commande de tâche doivent être précédées de `cmd /c`. L’interpréteur de commande est ainsi exécuté de façon explicite et reçoit une instruction de s’interrompre après avoir exécuté votre commande. Ceci est inutile si les tâches exécutent une application dans le `PATH` du nœud (comme *robocopy.exe* ou *powershell.exe*) et si aucune variable d’environnement n’est utilisée.
 
-Dans la boucle `foreach` de l’extrait de code ci-dessus, vous pouvez remarquer que la ligne de commande de la tâche est construite de façon à transmettre trois arguments à *TaskApplication.exe* :
+Dans la boucle `foreach` de l’extrait de code ci-dessus, vous pouvez remarquer que la ligne de commande de la tâche est construite de façon à transmettre trois arguments à *TaskApplication.exe* :
 
 1. Le **premier argument** est le chemin d’accès du fichier à traiter. Il s’agit du chemin d’accès local au fichier tel qu’il existe sur le nœud. Lorsque l’objet ResourceFile dans `UploadFileToContainerAsync` a été créé ci-dessus, le nom de fichier a été utilisé pour cette propriété (en tant que paramètre dans le constructeur ResourceFile). Cela indique que le fichier se trouve dans le même répertoire que *TaskApplication.exe*.
 
@@ -424,11 +424,11 @@ Lorsque les tâches sont ajoutées à un travail, elles sont automatiquement mis
 
 La méthode `MonitorTasks` du fichier `Program.cs` de DotNetTutorial intègre trois concepts Batch .NET qui sont décrits ci-après. Ils sont répertoriés ci-dessous dans leur ordre d’apparition :
 
-1. **ODATADetailLevel** : la spécification d’un élément [ODATADetailLevel][net_odatadetaillevel] dans les opérations de la liste (telles que l’obtention d’une liste des tâches d’un travail) est primordiale pour garantir les performances de l’application Batch. Ajoutez l’article [Interroger efficacement le service Azure Batch](batch-efficient-list-queries.md) à votre liste de lecture si vous prévoyez d’effectuer une quelconque surveillance d’état dans vos applications Batch.
+1. **ODATADetailLevel**: la spécification d’un élément [ODATADetailLevel][net_odatadetaillevel] dans les opérations de la liste (telles que l’obtention d’une liste des tâches d’un travail) est primordiale pour garantir les performances de l’application Batch. Ajoutez l’article [Interroger efficacement le service Azure Batch](batch-efficient-list-queries.md) à votre liste de lecture si vous prévoyez d’effectuer une quelconque surveillance d’état dans vos applications Batch.
 
-2. **TaskStateMonitor** : l’élément [TaskStateMonitor][net_taskstatemonitor] fournit aux applications Batch .NET des utilitaires d’assistance pour la surveillance des états de tâche. Dans `MonitorTasks`, *DotNetTutorial* attend que toutes les tâches atteignent l’état [TaskState.Completed][net_taskstate] dans un délai spécifique, puis met fin au travail.
+2. **TaskStateMonitor**: l’élément [TaskStateMonitor][net_taskstatemonitor] fournit aux applications Batch .NET des utilitaires d’assistance pour la surveillance des états de tâche. Dans `MonitorTasks`, *DotNetTutorial* attend que toutes les tâches atteignent l’état [TaskState.Completed][net_taskstate] dans un délai spécifique, puis met fin au travail.
 
-3. **TerminateJobAsync** : l’arrêt d’un travail avec [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (ou avec l’élément de blocage JobOperations.TerminateJob) marque ce travail comme terminé. Cette opération est essentielle si votre solution Batch utilise [JobReleaseTask][net_jobreltask]. Il s’agit d’un type spécial de tâche, qui est décrit dans [Tâches d’achèvement et de préparation du travail](batch-job-prep-release.md).
+3. **TerminateJobAsync**: l’arrêt d’un travail avec [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (ou avec l’élément de blocage JobOperations.TerminateJob) marque ce travail comme terminé. Cette opération est essentielle si votre solution Batch utilise [JobReleaseTask][net_jobreltask]. Il s’agit d’un type spécial de tâche, qui est décrit dans [Tâches d’achèvement et de préparation du travail](batch-job-prep-release.md).
 
 La méthode `MonitorTasks` du fichier `Program.cs` de *DotNetTutorial* apparaît ci-après :
 
@@ -512,7 +512,7 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 
 ![Télécharger la sortie des tâches à partir de Storage][7]<br/>
 
-Une fois le travail terminé, les données de sortie des tâches peuvent être téléchargées à partir d’Azure Storage. Cette opération s’effectue par le biais d’un appel de `DownloadBlobsFromContainerAsync` dans le fichier `Program.cs` de *DotNetTutorial* :
+Une fois le travail terminé, les données de sortie des tâches peuvent être téléchargées à partir d’Azure Storage. Cette opération s’effectue par le biais d’un appel de `DownloadBlobsFromContainerAsync` dans le fichier `Program.cs` de *DotNetTutorial*:
 
 ```
 private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName, string directoryPath)
@@ -633,7 +633,7 @@ Sample complete, hit ENTER to exit...
 
 ## Étapes suivantes
 
-Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplication* pour tester différents scénarios de calcul. Essayez par exemple d’ajouter une suspension d’exécution à *TaskApplication*, par exemple avec [Thread.Sleep][net_thread_sleep], pour simuler des tâches de longue durée et les surveiller avec la fonctionnalité *Carte thermique* de Batch Explorer. Essayez d’ajouter davantage de tâches ou d’ajuster le nombre de nœuds de calcul. Ajoutez une logique pour rechercher un pool existant et en autoriser l’utilisation afin d’accélérer le processus d’exécution (*astuce* : consultez le fichier `ArticleHelpers.cs` du projet [Microsoft.Azure.Batch.Samples.Common][github_samples_common] dans le référentiel [azure-batch-samples][github_samples]).
+Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplication* pour tester différents scénarios de calcul. Essayez par exemple d’ajouter une suspension d’exécution à *TaskApplication*, par exemple avec [Thread.Sleep][net_thread_sleep], pour simuler des tâches de longue durée et les surveiller avec la fonctionnalité *Carte thermique* de Batch Explorer. Essayez d’ajouter davantage de tâches ou d’ajuster le nombre de nœuds de calcul. Ajoutez une logique pour rechercher un pool existant et en autoriser l’utilisation afin d’accélérer le processus d’exécution (*astuce*: consultez le fichier `ArticleHelpers.cs` du projet [Microsoft.Azure.Batch.Samples.Common][github_samples_common] dans le référentiel [azure-batch-samples][github_samples]).
 
 À présent que vous voici familiarisé avec le flux de travail de base d’une solution Batch, il est temps pour vous d’approfondir les fonctionnalités supplémentaires du service Batch.
 

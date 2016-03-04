@@ -38,10 +38,10 @@ Prenons comme exemple un site web qui accepte des commandes. Les utilisateurs en
 
 Les applications API BizTalk suivantes aident à créer ce modèle :
 
-* **Déclencheur HTTP** : source pour déclencher un événement de message
-* **Validation** : valide les données entrantes
-* **Transformation** : transforme les données du format d'entrée au format requis par le système en aval
-* **Connecteur Service Bus** : entité de destination où les données sont envoyées
+* **Déclencheur HTTP** : source pour déclencher un événement de message
+* **Validation** : valide les données entrantes
+* **Transformation** : transforme les données du format d'entrée au format requis par le système en aval
+* **Connecteur Service Bus** : entité de destination où les données sont envoyées
 
 
 ## Construction du modèle VETR de base
@@ -55,7 +55,8 @@ Ensuite, nous allons ajouter des déclencheurs et des actions.
 ## Ajouter un déclencheur HTTP
 1. Dans **Modèles d’application logique**, sélectionnez **Créer intégralement**.
 1. Sélectionnez **Écouteur HTTP** dans la galerie pour créer un écouteur. Nommez-le **HTTP1**.
-2. Définissez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l’action du déclencheur en affectant la valeur _POST_ à _Méthode HTTP_ et la valeur _/OneWayPipeline_ à _URL relative_ : ![Déclencheur HTTP][2]
+2. Définissez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l’action du déclencheur en affectant la valeur _POST_ à _Méthode HTTP_ et la valeur _/OneWayPipeline_ à _URL relative_ : 
+	![Déclencheur HTTP][2]
 3. Cliquez sur la coche verte pour exécuter le déclencheur.
 
 ## Ajouter une action de validation
@@ -75,7 +76,7 @@ En procédant de même, nous allons ajouter le reste des actions.
 Nous allons maintenant configurer des transformations pour normaliser les données entrantes.
 
 1. Sélectionnez **Service de transformation BizTalk** dans la galerie.
-2. Pour configurer une transformation de manière à transformer les messages XML entrants, sélectionnez l’action **Transformer** comme action à exécuter lors de l’appel de cette API. Sélectionnez ```triggers(‘httplistener’).outputs.Content``` comme valeur pour _inputXml_. *Map* est un paramètre facultatif, car les données entrantes sont mises en correspondance avec toutes les transformations configurées et seules celles qui correspondent au schéma sont appliquées.
+2. Pour configurer une transformation de manière à transformer les messages XML entrants, sélectionnez l’action **Transformer** comme action à exécuter lors de l’appel de cette API. Sélectionnez ```triggers(‘httplistener’).outputs.Content``` comme valeur pour _inputXml_. _Map_ est un paramètre facultatif, car les données entrantes sont mises en correspondance avec toutes les transformations configurées et seules celles qui correspondent au schéma sont appliquées.
 3. Pour finir, la transformation s'exécute uniquement si la validation réussit. Pour configurer cette condition, cliquez sur l’icône d’engrenage dans le coin supérieur droit et sélectionnez _Ajouter une condition à remplir_. Définissez la condition sur ```equals(actions('xmlvalidator').status,'Succeeded')``` :  
 
 ![Transformations BizTalk][4]
@@ -86,7 +87,7 @@ Ensuite, nous allons ajouter la destination (une file d’attente Service Bus) o
 
 1. Ajoutez un **Connecteur Service Bus** à partir de la galerie. Affectez la valeur _Servicebus1_ à **Name**, affectez la chaîne de connexion à votre instance Service Bus comme valeur **Connection String**, affectez la valeur **Queue** à _Entity Name_ et ignorez **Subscription name**.
 2. Sélectionnez l’action **Envoyer un message** et affectez la valeur _actions(’transformservice’).outputs.OutputXml_ au champ **Contenu**.
-3. Définissez **Type de contenu** sur *application/xml* :  
+3. Définissez **Type de contenu** sur *application/xml* :  
 
 ![Service Bus][5]
 
@@ -118,4 +119,4 @@ Rubriques utiles :
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->

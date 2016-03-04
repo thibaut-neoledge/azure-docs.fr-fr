@@ -73,9 +73,9 @@ Dans cette solution préconfigurée, l’instance IoT Hub correspond à une *pas
 La solution préconfigurée utilise trois tâches [Azure Stream Analytics][lnk-asa] (ASA) pour filtrer le flux de télémétrie en provenance des refroidisseurs :
 
 
-- *Tâche DeviceInfo* : envoie des messages relatifs à l’inscription de l’appareil dans le registre d’appareils de la solution (une base de données DocumentDB).
-- *Tâche Telemetry* : envoie toutes les données de télémétrie brutes vers Azure Blob Storage pour un stockage à froid et calcule les données de télémétrie agrégées qui s’affichent dans le tableau de bord de la solution.
-- *Tâche Rules* : filtre le flux de télémétrie sur les valeurs qui dépassent les seuils de la règle. Lorsqu’une règle se déclenche, la vue du tableau de bord du portail de la solution affiche cet événement sous la forme d’une nouvelle ligne dans la table d’historique des alarmes et déclenche une action compte tenu des paramètres définis dans les vues Règles et Actions du portail de la solution.
+- *Tâche DeviceInfo* : envoie des messages relatifs à l’inscription de l’appareil dans le registre d’appareils de la solution (une base de données DocumentDB).
+- *Tâche Telemetry* : envoie toutes les données de télémétrie brutes vers Azure Blob Storage pour un stockage à froid et calcule les données de télémétrie agrégées qui s’affichent dans le tableau de bord de la solution.
+- *Tâche Rules* : filtre le flux de télémétrie sur les valeurs qui dépassent les seuils de la règle. Lorsqu’une règle se déclenche, la vue du tableau de bord du portail de la solution affiche cet événement sous la forme d’une nouvelle ligne dans la table d’historique des alarmes et déclenche une action compte tenu des paramètres définis dans les vues Règles et Actions du portail de la solution.
 
 Dans cette solution préconfigurée, les tâches ASA font partie du *serveur principal de solution IoT* dans une [architecture de solution IoT][lnk-what-is-azure-iot] standard.
 
@@ -121,4 +121,4 @@ Explorez ces ressources pour en savoir plus sur les solutions IoT préconfiguré
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->

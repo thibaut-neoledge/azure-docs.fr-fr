@@ -266,4 +266,4 @@ Vous pouvez par exemple d√©sactiver des tests web lorsque vous effectuez des op√
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!------HONumber=AcomDC_0218_2016-->

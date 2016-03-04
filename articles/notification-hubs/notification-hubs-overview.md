@@ -101,11 +101,11 @@ Notification Hubs offre une infrastructure de notification Push prête à l’em
 
 - **Ensemble complet de modèles de remise** :
 
-	- *Diffusion* : permet une diffusion presque simultanée vers des millions d’appareils avec un seul appel d’API.
+	- *Diffusion* : permet une diffusion presque simultanée vers des millions d’appareils avec un seul appel d’API.
 
-	- *Monodiffusion/multidiffusion* : transmission de notifications Push vers des balises représentant des utilisateurs individuels, y compris tous leurs appareils ; ou un groupe plus étendu, comme par exemple, des facteurs de format distincts (tablette et téléphone).
+	- *Monodiffusion/multidiffusion* : transmission de notifications Push vers des balises représentant des utilisateurs individuels, y compris tous leurs appareils ; ou un groupe plus étendu, comme par exemple, des facteurs de format distincts (tablette et téléphone).
 
-	- *Segmentation* : transmission de notifications Push vers un segment complexe défini par des expressions de balise (par exemple, des appareils situés à New York suivant les match des Yankees).
+	- *Segmentation* : transmission de notifications Push vers un segment complexe défini par des expressions de balise (par exemple, des appareils situés à New York suivant les match des Yankees).
 
 	Chaque appareil, lors de l’envoi de son handle à un hub de notification, peut indiquer une ou plusieurs _balises_. Pour plus d’informations sur les balises, consultez [cette page]. Il n'est pas nécessaire que les balises soient préapprovisionnées ou éliminées. Les balises fournissent un moyen simple d'envoyer des notifications à des utilisateurs ou des groupes d'intérêt. Les balises pouvant contenir n'importe quel identificateur propre à une application (par exemple des ID d'utilisateur ou de groupe), leur utilisation libère le serveur principal de l'application de la charge de stockage et de gestion des handle des appareils.
 
@@ -165,4 +165,4 @@ Les références d’API managées .NET pertinentes pour les notifications Push 
   [portail Azure]: https://portal.azure.com
   [cette page]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!------HONumber=AcomDC_0218_2016-->
