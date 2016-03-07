@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -41,22 +41,23 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
 
 3. Cliquez sur **Cloner** pour commencer le clonage du volume sélectionné.
 
-4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement** :
+4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement**:
 
   1. Identifiez un appareil cible. Il s’agit de l’emplacement où sera créé le clone. Vous pouvez choisir le même appareil ou en spécifier un autre. Si vous choisissez un volume associé à d’autres fournisseurs de service cloud (autres qu’Azure), la liste déroulante pour l’appareil cible affiche uniquement des appareils physiques. Vous ne pouvez pas cloner un volume associé à d’autres fournisseurs de services cloud sur un appareil virtuel.
 
         >  [AZURE.NOTE] Assurez-vous que la capacité requise pour le clone est inférieure à la capacité disponible sur le périphérique cible.
-  2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
+
+  2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
   3. Cliquez sur l'icône en forme de flèche ![icône-flèche](./media/storsimple-clone-volume/HCS_ArrowIcon.png) pour passer à la page suivante.
 
-5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume** :
+5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume**:
 
   1. Spécifiez un enregistrement de contrôle d’accès (ACR) pour le clone. Vous pouvez ajouter un nouvel ACR ou en choisir un dans la liste existante.
   2. Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-clone-volume/HCS_CheckIcon.png)pour terminer l’opération.
 
 6. Un travail de clonage sera lancé et vous serez averti lorsque le clone sera créé avec succès. Cliquez sur **Afficher le travail** pour surveiller le travail de clonage sur la page **Travaux**.
 
-7. Une fois le travail de clonage terminé :
+7. Une fois le travail de clonage terminé :
 
   1. Accédez à la page **Appareils**, puis sélectionnez l’onglet **Conteneurs de volumes**.
   2. Sélectionnez le conteneur de volume associé au volume source que vous avez cloné. Dans la liste des volumes, vous devez voir le clone qui vient d’être créé.
@@ -96,4 +97,4 @@ Vous devez vérifier un bogue de test dans l’environnement de production. Vous
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Modification des niveaux de service et de performances (niveau de tarification) d’une base de données SQL avec PowerShell
 
-**Base de données unique**
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-scale-up.md)
@@ -28,23 +27,23 @@
 
 Cet article explique comment modifier les niveaux de service et de performances de votre base de données SQL à l’aide de PowerShell.
 
-Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md) et [Niveaux de service et de performance de base de données SQL Azure](sql-database-service-tiers.md) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
+Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-server-portal.md) et [Niveaux de service et de performance de base de données SQL Azure](sql-database-service-tiers.md) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
 
-> [AZURE.IMPORTANT]La modification des niveaux de service et de performances d’une base de données SQL s’effectue en ligne. Cela signifie que votre base de données doit être en ligne et accessible pendant toute la durée de l’opération, sans interruption de service.
+> [AZURE.IMPORTANT] La modification des niveaux de service et de performances d’une base de données SQL s’effectue en ligne. Cela signifie que votre base de données doit être en ligne et accessible pendant toute la durée de l’opération, sans interruption de service.
 
 - Pour qu’une base de données puisse passer à une version antérieure, sa taille doit être inférieure à la taille maximale autorisée par le niveau de service voulu. 
-- Lors de la mise à niveau d’une base de données avec la [géo-réplication standard](https://msdn.microsoft.com/library/azure/dn758204.aspx) ou la [géo-réplication active](https://msdn.microsoft.com/library/azure/dn741339.aspx), vous devez d'abord mettre à niveau les bases de données secondaires associées vers le niveau de performances souhaité avant la mise à niveau de la base de données principale.
-- Avant d’effectuer le passage à une version antérieure depuis un niveau de service Premium, vous devez arrêter toutes les relations de géo-réplication. Vous pouvez suivre les étapes décrites dans la section [Arrêt d’une relation de copie continue](https://msdn.microsoft.com/library/azure/dn741323.aspx) pour arrêter le processus de réplication entre la base de données principale et les bases de données secondaires actives.
-- Les offres de service de restauration sont différentes selon les niveaux de service. Si vous passez à une version antérieure, vous risquez de ne plus pouvoir effectuer de restauration à un moment donné, ou de bénéficier d’une période de rétention des sauvegardes moins étendue. Pour en savoir plus, voir [Sauvegarde et restauration de base de données SQL Azure](https://msdn.microsoft.com/library/azure/jj650016.aspx).
-- Vous pouvez apporter jusqu’à quatre modifications à une base de données individuelle (concernant un niveau de service ou de performances) par période de 24 heures.
+- Lors de la mise à niveau d’une base de données avec la [géo-réplication](sql-database-geo-replication-portal) activée, vous devez d’abord mettre à niveau les bases de données secondaires associées vers le niveau de performances souhaité avant la mise à niveau de la base de données principale.
+- Avant d’effectuer le passage à une version antérieure depuis un niveau de service Premium, vous devez arrêter toutes les relations de géo-réplication. Vous pouvez suivre les étapes décrites dans la section [Récupérer en cas de défaillance](sql-database-disaster-recovery.md) pour arrêter le processus de réplication entre la base de données principale et les bases de données secondaires actives.
+- Les offres de service de restauration sont différentes selon les niveaux de service. Si vous passez à une version antérieure, vous risquez de ne plus pouvoir effectuer de restauration à un moment donné, ou de bénéficier d’une période de rétention des sauvegardes moins étendue. Pour en savoir plus, voir [Sauvegarde et restauration de base de données SQL Azure](sql-database-business-continuity.md).
+- Vous pouvez apporter jusqu’à quatre modifications à une base de données individuelle (concernant un niveau de service ou de performances) par période de 24 heures.
 - Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
 
 
 
-**Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :**
+**Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :**
 
-- Un abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
-- base de données SQL Azure. Si vous n’avez pas de base de données SQL, créez-en une en procédant de la manière décrite dans [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+- Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **COMPTE GRATUIT** en haut de cette page, puis continuez la lecture de cet article.
+- base de données SQL Azure. Si vous n’avez pas de base de données SQL, créez-en une en procédant de la manière décrite dans [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 - Azure PowerShell.
 
 
@@ -56,22 +55,19 @@ Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être i
 
 Tout d'abord, vous devez établir l'accès à votre compte Azure : lancez PowerShell, puis exécutez l’applet de commande suivante. Sur l’écran de connexion, saisissez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 Après vous être connecté, vous voyez des informations sur l’écran, notamment l’ID avec lequel vous vous êtes connecté et les abonnements Azure auxquels vous avez accès.
 
 
 ### Sélectionner votre abonnement Azure
 
-Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement ou votre nom d’abonnement (**-SubscriptionName**). Vous pouvez copier l’identifiant d’abonnement à partir des informations affichées à l’étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l’applet de commande **Get-AzureSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
+Pour sélectionner l'abonnement, vous avez besoin de votre identifiant ou de votre nom d'abonnement (**-SubscriptionName**). Vous pouvez copier l'identifiant d'abonnement à partir des informations affichées à l'étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
 
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
-Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureSubscription** et vérifier que l’abonnement que vous voulez utiliser affiche **IsCurrent: True**.
 
-
- 
 
 
 ## Modification des niveaux de service et de performances de votre base de données SQL
@@ -123,13 +119,13 @@ Exécutez l’applet de commande **Set-AzureRmSqlDatabase** et affectez à **-Re
 ## Étapes suivantes
 
 - [Faire monter ou descendre en puissance](sql-database-elastic-scale-get-started.md)
-- [Se connecter à une base de données SQL et l’interroger avec SSMS](sql-database-connect-query-ssms.md)
+- [Se connecter à une base de données SQL et l’interroger avec SSMS](sql-database-connect-query-ssms.md)
 - [Exporter une base de données SQL Azure](sql-database-export-powershell.md)
 
 ## Ressources supplémentaires
 
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
-- [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt163521.aspx)
+- [Documentation sur la base de données SQL](http://azure.microsoft.com/documentation/services/sql-database/)
+- [Applets de commande de la base de données SQL Azure.](http://msdn.microsoft.com/library/mt574084.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

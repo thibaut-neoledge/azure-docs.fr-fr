@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/23/2016"
 	ms.author="nicking"/>
 
 # Utilisation de REST pour sauvegarder et restaurer des applications App Service
@@ -23,7 +23,7 @@ Cet article explique comment sauvegarder et restaurer une application à l’aid
 
 <a name="gettingstarted"></a>
 ## Mise en route
-Pour envoyer des demandes REST, vous devez connaître le **nom**, le **groupe de ressources** et l’**ID d’abonnement** de votre application. Vous trouverez ces informations en cliquant sur votre application dans le panneau **App Service** du [portail Azure](https://portal.azure.com). Pour les exemples de cet article, nous allons configurer le site web `backuprestoreapiexamples.azurewebsites.net`. Celui-ci est stocké dans le groupe de ressources Default-Web-WestUS et s’exécute sur un abonnement associé à l’ID 00001111-2222-3333-4444-555566667777.
+Pour envoyer des demandes REST, vous devez connaître le **nom**, le **groupe de ressources** et l’**ID d’abonnement** de votre application. Vous trouverez ces informations en cliquant sur votre application dans le panneau **App Service** du [portail Azure](https://portal.azure.com). Pour les exemples de cet article, nous allons configurer le site web `backuprestoreapiexamples.azurewebsites.net`. Celui-ci est stocké dans le groupe de ressources Default-Web-WestUS et s’exécute sur un abonnement associé à l’ID 00001111-2222-3333-4444-555566667777.
 
 ![Informations de l’exemple de site web][SampleWebsiteInformation]
 
@@ -31,10 +31,10 @@ Pour envoyer des demandes REST, vous devez connaître le **nom**, le **groupe de
 ## API REST de sauvegarde et de restauration
 Nous allons maintenant présenter plusieurs exemples illustrant la manière dont il est possible d’utiliser l’API REST pour sauvegarder et restaurer une application. Chaque exemple inclut une URL et un corps de requête HTTP. L’exemple d’URL contient des espaces réservés entre accolades, du type {subscriptionId}. Vous devez remplacer ces espaces réservés par les informations correspondantes de votre application. À titre de référence, voici une explication de chaque espace réservé qui apparaît dans les exemples d’URL.
 
-* subscriptionId : ID de l’abonnement Azure contenant l’application
-* resourceGroupName : nom du groupe de ressources contenant l’application
-* sitename : nom de l’application
-* backupID : ID de la sauvegarde de l’application
+* subscriptionId : ID de l’abonnement Azure contenant l’application
+* resourceGroupName : nom du groupe de ressources contenant l’application
+* sitename : nom de l’application
+* backupID : ID de la sauvegarde de l’application
 
 Pour accéder à la documentation complète de l’API, y compris plusieurs paramètres facultatifs pouvant être inclus dans la requête HTTP, consultez l’[Explorateur de ressources Azure](https://resources.azure.com/).
 
@@ -92,7 +92,7 @@ La sauvegarde de l’application débute immédiatement après la réception de 
 }
 ```
 
->[AZURE.NOTE]Vous pouvez rencontrer des messages d’erreur dans la propriété du journal de la réponse HTTP.
+>[AZURE.NOTE] Vous pouvez rencontrer des messages d’erreur dans la propriété du journal de la réponse HTTP.
 
 <a name="schedule-automatic-backups"></a>
 ## Planification de sauvegardes automatiques
@@ -123,7 +123,7 @@ Le corps de requête doit comporter un objet JSON qui spécifie la configuration
 }
 ```
 
-Cet exemple configure l’application de manière à ce qu’elle soit automatiquement sauvegardée tous les 7 jours. Les paramètres **frequencyInterval** et **frequencyUnit** déterminent la fréquence à laquelle les sauvegardes seront exécutées. Les valeurs valides de **frequencyUnit** sont **hour** et **day**. Par exemple, pour sauvegarder une application toutes les 12 heures, définissez le paramètre frequencyInterval sur 12 et attribuez la valeur « hour » au paramètre frequencyUnit.
+Cet exemple configure l’application de manière à ce qu’elle soit automatiquement sauvegardée tous les 7 jours. Les paramètres **frequencyInterval** et **frequencyUnit** déterminent la fréquence à laquelle les sauvegardes seront exécutées. Les valeurs valides de **frequencyUnit** sont **hour** et **day**. Par exemple, pour sauvegarder une application toutes les 12 heures, définissez le paramètre frequencyInterval sur 12 et attribuez la valeur « hour » au paramètre frequencyUnit.
 
 Les anciennes sauvegardes seront automatiquement supprimées du compte de stockage. Vous pouvez contrôler l’ancienneté des sauvegardes en définissant le paramètre **retentionPeriodInDays**. Si vous souhaitez qu’au moins une sauvegarde soit toujours enregistrée, quelle que soit son ancienneté, définissez le paramètre **keepAtLeastOneBackup** sur true.
 
@@ -163,16 +163,16 @@ Le corps de la réponse contient un objet JSON similaire à cet exemple.
 
 L’état d’une sauvegarde est un type énuméré. Voici la liste de tous les états possibles.
 
-* 0 – InProgress : la sauvegarde a démarré mais n’est pas encore terminée.
-* 1 – Failed : la sauvegarde a échoué.
-* 2 – Succeeded : la sauvegarde s’est terminée correctement.
-* 3 – TimedOut : la sauvegarde ne s’est pas terminée dans les temps et a été annulée.
-* 4 – Created : la demande de sauvegarde est en attente mais n’a pas été démarrée.
-* 5 – Skipped : la sauvegarde ne s’est pas poursuivie en raison d’un trop grand nombre de sauvegardes planifiées.
-* 6 – PartiallySucceeded : la sauvegarde a réussi, mais certains fichiers n’ont pas été sauvegardés en raison de problèmes de lecture. Cela se produit généralement lorsqu’un verrou exclusif est placé sur les fichiers.
-* 7 – DeleteInProgress : la sauvegarde a fait l’objet d’une demande de suppression, mais n’a pas encore été supprimée.
-* 8 – DeleteFailed : la sauvegarde n’a pas pu être supprimée. Cela peut se produire si l’URL SAS utilisée pour créer la sauvegarde a expiré.
-* 9 – Deleted : la sauvegarde a été supprimée avec succès.
+* 0 – InProgress : la sauvegarde a démarré mais n’est pas encore terminée.
+* 1 – Failed : la sauvegarde a échoué.
+* 2 – Succeeded : la sauvegarde s’est terminée correctement.
+* 3 – TimedOut : la sauvegarde ne s’est pas terminée dans les temps et a été annulée.
+* 4 – Created : la demande de sauvegarde est en attente mais n’a pas été démarrée.
+* 5 – Skipped : la sauvegarde ne s’est pas poursuivie en raison d’un trop grand nombre de sauvegardes planifiées.
+* 6 – PartiallySucceeded : la sauvegarde a réussi, mais certains fichiers n’ont pas été sauvegardés en raison de problèmes de lecture. Cela se produit généralement lorsqu’un verrou exclusif est placé sur les fichiers.
+* 7 – DeleteInProgress : la sauvegarde a fait l’objet d’une demande de suppression, mais n’a pas encore été supprimée.
+* 8 – DeleteFailed : la sauvegarde n’a pas pu être supprimée. Cela peut se produire si l’URL SAS utilisée pour créer la sauvegarde a expiré.
+* 9 – Deleted : la sauvegarde a été supprimée avec succès.
 
 <a name="restore-app"></a>
 ## Restauration d’une application à partir d’une sauvegarde
@@ -180,7 +180,7 @@ Si votre application a été supprimée, ou si vous voulez rétablir votre appli
 
 Voici à quoi ressemble l’URL dans notre exemple de site web. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore`
 
-Dans le corps de la requête, envoyez un objet JSON qui contient les propriétés de l’opération de restauration. Voici un exemple contenant toutes les propriétés requises :
+Dans le corps de la requête, envoyez un objet JSON qui contient les propriétés de l’opération de restauration. Voici un exemple contenant toutes les propriétés requises :
 
 ```
 {
@@ -225,9 +225,9 @@ Dans le corps de la requête, envoyez un objet JSON contenant la nouvelle URL SA
 }
 ```
 
->[AZURE.NOTE]Pour des raisons de sécurité, l’URL SAS associée à une sauvegarde n’est pas renvoyée lors de l’envoi d’une requête GET pour une sauvegarde spécifique. Si vous souhaitez afficher l’URL SAS associée à une sauvegarde, envoyez une requête POST à la même URL ci-dessus et incluez simplement un objet JSON vide dans le corps de la requête. La réponse du serveur contiendra toutes les informations relatives à cette sauvegarde, y compris son URL SAS.
+>[AZURE.NOTE] Pour des raisons de sécurité, l’URL SAS associée à une sauvegarde n’est pas renvoyée lors de l’envoi d’une requête GET pour une sauvegarde spécifique. Si vous souhaitez afficher l’URL SAS associée à une sauvegarde, envoyez une requête POST à la même URL ci-dessus et incluez simplement un objet JSON vide dans le corps de la requête. La réponse du serveur contiendra toutes les informations relatives à cette sauvegarde, y compris son URL SAS.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

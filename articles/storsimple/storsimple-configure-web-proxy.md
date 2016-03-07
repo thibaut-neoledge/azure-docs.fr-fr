@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Configurer un proxy web pour un appareil StorSimple | Microsoft Azure"
+   pageTitle="Configurer un proxy web pour un appareil StorSimple | Microsoft Azure"
    description="Découvrez comment utiliser Windows PowerShell for StorSimple pour configurer les paramètres du proxy web de votre appareil StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -29,7 +29,7 @@ Le proxy web est une configuration facultative pour votre appareil StorSimple. V
 
 Une fois la configuration du proxy web terminée, vous pouvez afficher les paramètres du proxy web configurés dans le service Microsoft Azure StorSimple Manager et Windows PowerShell pour StorSimple.
 
-Après avoir lu ce didacticiel, vous pourrez :
+Après avoir lu ce didacticiel, vous pourrez :
 
 - Configurer le proxy web à l’aide de l’assistant d’installation et des applets de commande
 - Activer le proxy web à l’aide des applets de commande
@@ -43,7 +43,7 @@ Vous utilisez l’une des procédures suivantes pour configurer les paramètres 
 
 - L’assistant d’installation, qui vous guide dans les différentes étapes de configuration.
 
-- Les applets de commande Windows PowerShell pour StorSimple
+- Les applets de commande Windows PowerShell pour StorSimple
 
 Chacune de ces méthodes est abordée dans les sections suivantes.
 
@@ -59,7 +59,7 @@ Vous pouvez utiliser l’assistant d’installation, qui vous guide dans les dif
 
 2. Si c’est la première fois que vous utilisez l’assistant d’installation pour inscrire un appareil, vous devez configurer tous les paramètres réseau requis jusqu’à atteindre la configuration du proxy web. Si votre périphérique est déjà inscrit, vous pouvez accepter tous les paramètres réseau configurés jusqu’à atteindre la configuration du proxy web. Dans l’assistant d’installation, lorsque vous êtes invité à configurer les paramètres du proxy web, tapez **Yes**.
 
-3. Pour l’option **Web Proxy URL**, spécifiez l’adresse IP ou le nom de domaine complet (FQDN) de votre serveur proxy web et le numéro de port TCP que vous souhaitez que votre appareil utilise lors de la communication avec le cloud. Utilisez le format suivant :
+3. Pour l’option **Web Proxy URL**, spécifiez l’adresse IP ou le nom de domaine complet (FQDN) de votre serveur proxy web et le numéro de port TCP que vous souhaitez que votre appareil utilise lors de la communication avec le cloud. Utilisez le format suivant :
 
 	`http://<IP address or FQDN of the web proxy server>:<TCP port number>`
 
@@ -67,7 +67,7 @@ Vous pouvez utiliser l’assistant d’installation, qui vous guide dans les dif
 
 4. Choisissez le type d’authentification **NTLM**, **De base** ou **Aucun**. L’option De base est l’authentification la moins sécurisée pour la configuration du serveur proxy. NT LAN Manager (NTLM) est un protocole d’authentification hautement sécurisé et plus complexe qui utilise un système de messagerie à trois voies (parfois quatre si une intégrité supplémentaire est requise) pour authentifier un utilisateur. L’authentification par défaut est NTLM. Pour plus d’informations, voir la rubrique Authentification [de base](http://hc.apache.org/httpclient-3.x/authentication.html) et [NTLM](http://hc.apache.org/httpclient-3.x/authentication.html).
 
-	> [AZURE.IMPORTANT]**Dans le service StorSimple Manager, les graphiques d’analyse de l’appareil ne fonctionnent pas lorsque l’authentification de base ou NTLM est activée dans la configuration du serveur proxy pour l’appareil. Pour que les graphiques de surveillance fonctionnent, vous devez vous assurer que l’authentification est définie sur Aucune.**
+	> [AZURE.IMPORTANT] **Dans le service StorSimple Manager, les graphiques d’analyse de l’appareil ne fonctionnent pas lorsque l’authentification de base ou NTLM est activée dans la configuration du serveur proxy pour l’appareil. Pour que les graphiques de surveillance fonctionnent, vous devez vous assurer que l’authentification est définie sur Aucune.**
 
 5. Si vous utilisez l’authentification, spécifiez le **nom d’utilisateur du proxy web** et le **mot de passe du proxy web**. Vous devez également confirmer le mot de passe.
 
@@ -86,7 +86,7 @@ Vous pouvez également configurer les paramètres du proxy web via les applets d
 
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le **mot de passe administrateur de l’appareil**. Le mot de passe par défaut est `Password1`.
 
-2.  À l’invite de commandes, tapez :
+2.  À l’invite de commandes, tapez :
 
 	`Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
 
@@ -100,7 +100,7 @@ Le proxy web est désormais configuré et doit être activé.
 
 Le proxy web est désactivé par défaut. Après avoir configuré les paramètres du proxy web sur votre appareil StorSimple, vous devez utiliser Windows PowerShell pour StorSimple afin d’activer les paramètres du proxy web.
 
-> [AZURE.NOTE]**Cette étape ne sera pas nécessaire si vous avez utilisé l’assistant d’installation pour configurer le proxy web. Le proxy web est automatiquement activé par défaut après une session de l’assistant d’installation.**
+> [AZURE.NOTE] **Cette étape ne sera pas nécessaire si vous avez utilisé l’assistant d’installation pour configurer le proxy web. Le proxy web est automatiquement activé par défaut après une session de l’assistant d’installation.**
 
 Procédez comme suit dans Windows PowerShell pour StorSimple afin d’activer le proxy web sur votre appareil :
 
@@ -108,7 +108,7 @@ Procédez comme suit dans Windows PowerShell pour StorSimple afin d’activer le
 
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le **mot de passe administrateur de l’appareil**. Le mot de passe par défaut est `Password1`.
 
-2.  À l’invite de commandes, tapez :
+2.  À l’invite de commandes, tapez :
 
 	`Enable-HcsWebProxy`
 
@@ -135,12 +135,12 @@ Si les paramètres du proxy web ont été configurés correctement, les messages
 |1\.|0x80070001|La commande est exécutée à partir du contrôleur passif et ne peut pas communiquer avec le contrôleur actif.|Exécutez cette commande depuis le contrôleur actif. Pour exécuter la commande à partir du contrôleur passif, vous devez résoudre la connectivité entre le contrôleur passif et le contrôleur actif. Vous devez contacter le support technique Microsoft si cette connectivité est interrompue.|
 |2\.|0x800710dd - L’identificateur de l’opération n’est pas valide|Les paramètres du proxy ne sont pas pris en charge sur un appareil virtuel StorSimple.|Les paramètres du proxy ne sont pas pris en charge sur un appareil virtuel StorSimple. Ils peuvent uniquement être configurés sur un appareil StorSimple physique.|
 |3\.|0x80070057 - Paramètre non valide|L’un des paramètres fournis pour les paramètres de proxy n’est pas valide.|L’URI n’est pas fourni dans le format correct. Utilisez le format suivant : `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
-|4\.|0x800706ba - Serveur RPC indisponible|La cause première est l’une des suivantes :</br></br>Le cluster n’est pas disponible.</br></br>Le service Datapath n’est pas en cours d’exécution.</br></br>La commande est exécutée à partir du contrôleur passif et ne peut pas communiquer avec le contrôleur actif.|Veuillez contacter le support technique Microsoft pour vous assurer que le cluster est disponible et que le service Datapath est en cours d’exécution.</br></br>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez contacter le support technique Microsoft si cette connectivité est interrompue.|
+|4\.|0x800706ba - Serveur RPC indisponible|La cause première est l’une des suivantes :</br></br>Le cluster n’est pas disponible.</br></br>Le service Datapath n’est pas en cours d’exécution.</br></br>La commande est exécutée à partir du contrôleur passif et ne peut pas communiquer avec le contrôleur actif.|Veuillez contacter le support technique Microsoft pour vous assurer que le cluster est disponible et que le service Datapath est en cours d’exécution.</br></br>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez contacter le support technique Microsoft si cette connectivité est interrompue.|
 |5\.|0x800706be - Échec de l’appel RPC|Le cluster est arrêté.|Veuillez contacter le support technique Microsoft pour vous assurer que le cluster est disponible.|
 |6\.|0x8007138f - Ressource de cluster introuvable|Impossible de trouver la ressource de cluster du service de plateforme. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement.|Vous devrez peut-être effectuer une réinitialisation aux paramètres d’usine sur votre appareil. Vous devrez peut-être créer une ressource de plateforme. Pour les étapes suivantes, veuillez contacter le support technique Microsoft.|
 |7\.|0x8007138c - La ressource de cluster n’est pas en ligne|Les ressources de plateforme ou datapath ne sont pas en ligne.|Veuillez contacter le support technique Microsoft pour vous assurer que les ressources de service datapath et de plateforme sont en ligne.|
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 > 
 > -  La liste des messages d’erreur ci-dessus n’est pas exhaustive. 
 > - Les erreurs liées aux paramètres du proxy web ne s’affichent pas dans le portail Azure Classic de votre service StorSimple Manager. Si un problème survient au niveau du proxy web après la configuration, l’état de l’appareil affiche **Hors connexion** dans le portail Azure Classic.|
@@ -151,4 +151,4 @@ Si les paramètres du proxy web ont été configurés correctement, les messages
 
 - Pour apprendre à utiliser le service StorSimple Manager, voir [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

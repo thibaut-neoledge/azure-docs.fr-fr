@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/04/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 L’analyse, la détection, le diagnostic et la résolution des problèmes permettent aux services de fonctionner avec une interruption minimale de l’expérience utilisateur. Bien que l’analyse et le diagnostic soient essentiels dans un environnement de production réel déployé, leur efficacité dépend de l’adoption d’un modèle semblable pendant le développement des services pour garantir leur fonctionnement lors du passage à une configuration réelle. Service Fabric facilite pour les développeurs de service l’implémentation de diagnostics qui peuvent fonctionner parfaitement aussi bien sur une configuration de développement d’ordinateur local unique que sur une configuration réelle de cluster de production.
 
 ## Avantages du Suivi d’événements pour Windows
-Le [Suivi d'événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) est la technologie recommandée pour le suivi des messages dans Service Fabric. Les raisons sont les suivantes :
+Le [Suivi d'événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) est la technologie recommandée pour le suivi des messages dans Service Fabric. Les raisons sont les suivantes :
 
 * **ETW est rapide.** Il a été créé en tant que technologie de suivi avec un impact minimal sur le temps d’exécution du code.
 * **Le suivi ETW fonctionne parfaitement dans des environnements de développement local ainsi que dans les configurations de cluster réel.** Cela signifie que vous n'êtes pas obligé de réécrire votre code de suivi quand vous êtes prêt à déployer votre code dans un cluster réel.
@@ -44,16 +44,16 @@ Service Fabric émet des événements ETW pour aider les développeurs d’appli
 ## Ajouter vos propres traces personnalisées au code d'application
 Les modèles de projet Visual Studio de Service Fabric contiennent des exemples de code. Le code indique comment ajouter les traces ETW de code d’application personnalisé qui s’affichent dans la visionneuse ETW de Visual Studio avec les traces système de Service Fabric. L’avantage de cette méthode est que les métadonnées sont automatiquement ajoutées aux traces et la visionneuse d’événements de diagnostics de Visual Studio est déjà configurée pour les afficher.
 
-Pour les projets créés à partir des **modèles de service** (sans état ou avec état), cherchez l’implémentation `RunAsync` :
+Pour les projets créés à partir des **modèles de service** (sans état ou avec état), cherchez l’implémentation `RunAsync` :
 
-1. L’appel de `ServiceEventSource.Current.ServiceMessage` dans la méthode `RunAsync` est un exemple de suivi ETW personnalisé à partir du code d’application.
+1. L’appel de `ServiceEventSource.Current.ServiceMessage` dans la méthode `RunAsync` est un exemple de suivi ETW personnalisé à partir du code d’application.
 2. Dans le fichier **ServiceEventSource.cs**, vous trouverez une surcharge pour la méthode `ServiceEventSource.ServiceMessage` devant être utilisée pour les événements de haute fréquence pour une question de performances.
 
-Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec état) :
+Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec état) :
 
-1. Ouvrez le fichier **« Nom\_projet ».cs** où *Nom\_projet* est le nom que vous avez choisi pour votre projet Visual Studio.  
+1. Ouvrez le fichier **« Nom\_projet ».cs** où *Nom\_projet* est le nom que vous avez choisi pour votre projet Visual Studio.  
 2. Recherchez le code `ActorEventSource.Current.ActorMessage(this, "Doing Work");` dans la méthode *DoWorkAsync*. Il s'agit d'un exemple de suivi écrit ETW personnalisé à partir du code d'application.  
-3. Dans le fichier **ActorEventSource.cs**, vous trouverez une surcharge pour la méthode `ActorEventSource.ActorMessage` devant être utilisée pour les événements de haute fréquence pour une question de performances.
+3. Dans le fichier **ActorEventSource.cs**, vous trouverez une surcharge pour la méthode `ActorEventSource.ActorMessage` devant être utilisée pour les événements de haute fréquence pour une question de performances.
 
 Après avoir ajouté le suivi ETW personnalisé à votre code de service, vous pouvez générer, déployer et réexécuter l’application pour afficher vos événements dans la visionneuse d’événements de diagnostics. Si vous déboguez l’application en appuyant sur **F5**, la visionneuse d’événements de diagnostics s’ouvre automatiquement.
 
@@ -62,4 +62,4 @@ Le code de traçage que vous avez ajouté à votre application ci-dessus pour le
 * [Collecte de journaux provenant d’un cluster Service Fabric dans diagnostics Azure et Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) 
 * [Utilisation d’ElasticSearch comme magasin de suivi d’application Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

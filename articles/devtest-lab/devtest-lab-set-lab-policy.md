@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Définir des stratégies de laboratoire
+
+> [AZURE.NOTE] Cliquez sur le lien suivant pour afficher la vidéo d’accompagnement de cet article : [Créer des artefacts personnalisés](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
 
 ## Vue d'ensemble
 
@@ -24,7 +26,7 @@ DevTest Lab vous permet de spécifier des stratégies clés qui régissent l’u
 
 ## Accès aux stratégies d’un laboratoire
 
-Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme suit :
+Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme suit :
 
 1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
@@ -40,7 +42,7 @@ Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme 
 
 	![Paramètres](./media/devtest-lab-set-lab-policy/policies.png)
 
-	Appuyez sur la stratégie souhaitée dans la liste ci-dessous pour en savoir plus sur sa définition :
+	Appuyez sur la stratégie souhaitée dans la liste ci-dessous pour en savoir plus sur sa définition :
 
 	- Seuils de coûts - Cette stratégie n’est pas prise en charge actuellement.
 
@@ -72,13 +74,13 @@ La stratégie du nombre maximal de machines virtuelles vous permet de spécifier
 
 	![Paramètres](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
 
-1. Dans la section **Stratégie par utilisateur** :
+1. Dans la section **Stratégie par utilisateur**:
  
 	1. Appuyez sur **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
 	
 	1. Si vous avez activé cette stratégie, dans la zone de texte **Nombre maximal de machines virtuelles autorisées par utilisateur**, entrez une valeur numérique indiquant le nombre maximal de machines virtuelles qu’un utilisateur peut créer. Si vous entrez un nombre non valide, l’interface utilisateur affiche le nombre maximal autorisé pour ce champ.
 
-1. Dans la section **Stratégie par laboratoire** :
+1. Dans la section **Stratégie par laboratoire**:
  
 	1. Appuyez sur **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
 	
@@ -100,4 +102,4 @@ La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laque
 
 1. Appuyez sur **Enregistrer**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

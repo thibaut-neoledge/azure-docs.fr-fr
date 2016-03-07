@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter un référentiel d’artefacts Git à votre instance du service DevTest Lab | Microsoft Azure"
+	pageTitle="Ajouter un référentiel d’artefacts Git à votre instance du service DevTest Lab | Microsoft Azure"
 	description="Ajoutez un référentiel Git pour GitHub ou Visual Studio Team Services à votre labo pour vos artefacts personnalisés"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Ajouter un référentiel d’artefacts Git à votre instance du service DevTest Lab
 
-## Vue d'ensemble
+> [AZURE.NOTE] Cliquez sur le lien suivant pour afficher la vidéo d’accompagnement de cet article : [Ajouter votre référentiel d’artefacts privé dans un atelier DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
+
+## Vue d’ensemble
 
 Par défaut, une instance de DevTest Lab inclut des artefacts à partir du référentiel d’artefacts Azure DevTest Lab officiel. Vous pouvez ajouter un référentiel d’artefacts Git à votre laboratoire pour inclure les artefacts créés par votre équipe. Le référentiel peut être hébergé sur [GitHub](https://github.com) ou sur [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
 - Pour découvrir comment créer un référentiel GitHub, consultez [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
 - Pour découvrir comment créer un projet Team Services avec un référentiel Git, consultez [Se connecter à Visual Studio Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
-La capture d’écran suivante montre un exemple de référentiel contenant des artefacts dans GitHub : ![Exemple de référentiel d’artefacts GitHub](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
+La capture d’écran suivante montre un exemple de référentiel contenant des artefacts dans GitHub : ![Exemple de référentiel d’artefacts GitHub](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
 ## Ajouter un référentiel d’artefacts GitHub à votre laboratoire
 
@@ -59,7 +61,7 @@ Pour ajouter un référentiel d’artefacts GitHub à votre laboratoire, vous de
 
 1. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Référentiel d’artefacts**.
 
-1. Dans le panneau **Référentiel d’artefacts** :
+1. Dans le panneau **Référentiel d’artefacts**:
 
     1. Entrez un **Nom** pour le référentiel.
     1. Entrez l’**URL de clonage Git** enregistrée.
@@ -73,7 +75,7 @@ Les artefacts de votre référentiel sont désormais répertoriés dans le panne
 
 Pour ajouter un référentiel d’artefacts Git Visual Studio à votre laboratoire, vous devez d’abord obtenir l’URL de clonage HTTPS et le jeton d’accès personnel à partir du référentiel d’artefacts, avant d’entrer ces informations dans votre laboratoire.
 
-### Sur la page web Visual Studio de votre projet d’artefact :
+### Sur la page web Visual Studio de votre projet d’artefact :
 
 1. Ouvrez la page d’accueil de votre collection d’équipe (par exemple, `https://contoso-web-team.visualstudio.com`), puis appuyez sur le projet d’artefact.
 
@@ -89,10 +91,10 @@ Pour ajouter un référentiel d’artefacts Git Visual Studio à votre laboratoi
 
 1. Sous l’onglet **Sécurité**, appuyez sur **Ajouter**.
 
-1. Sur la page **Créer un jeton d’accès personnel** :
+1. Sur la page **Créer un jeton d’accès personnel**:
 
     1. Entrez une **Description** pour le jeton.
-    2. Dans la liste **Expire dans**, sélectionnez **180 jours**.
+    2. Dans la liste **Expire dans**, sélectionnez **180 jours**.
     3. Dans la liste **Comptes**, sélectionnez **Tous les comptes accessibles**.
     4. Sélectionnez l’option **Toutes les étendues**.
     5. Sélectionnez **Créer le jeton**.
@@ -115,4 +117,4 @@ Pour ajouter un référentiel d’artefacts Git Visual Studio à votre laboratoi
     3. Entrez le **Jeton d’accès personnel** enregistré dans le référentiel d’artefacts.
     4. Appuyez sur **Enregistrer**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Services liés de calcul | Microsoft Azure"
+	pageTitle="Services liés de calcul | Microsoft Azure"
 	description="En savoir plus sur environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory pour transformer/traiter les données."
 	services="data-factory"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 
 # Services liés de calcul
 
-Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
+Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
 
 ## Environnement de calcul à la demande
 
@@ -26,12 +26,12 @@ Dans ce type de configuration, l'environnement de calcul est entièrement géré
 
 > [AZURE.NOTE] La configuration à la demande est actuellement prise en charge uniquement pour les clusters Azure HDInsight.
 
-## Service lié à la demande Azure HDInsight
+## Service lié à la demande Azure HDInsight
 Le service Azure Data Factory peut automatiquement créer un cluster HDInsight à la demande sous Windows/Linux pour traiter les données. Le cluster est créé dans la région identique à celle du compte de stockage (propriété linkedServiceName dans JSON) associé au cluster.
 
-Notez les points **importants** suivants sur le service lié HDInsight à la demande :
+Notez les points **importants** suivants sur le service lié HDInsight à la demande :
 
-- Vous ne verrez pas le cluster HDInsight à la demande créé dans votre abonnement Azure ; le service Azure Data Factory gère le cluster HDInsight à la demande pour vous.
+- Vous ne verrez pas le cluster HDInsight à la demande créé dans votre abonnement Azure ; le service Azure Data Factory gère le cluster HDInsight à la demande pour vous.
 - Les journaux des tâches exécutées sur un cluster HDInsight à la demande sont copiés dans le compte de stockage associé au cluster HDInsight. Vous pouvez accéder à ces journaux à partir du panneau **Détails sur l’exécution d’activité** du portail Azure Classic. Pour plus de détails, consultez l'article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 - Vous sera facturé uniquement lorsque le cluster HDInsight est actif et exécute des tâches.
 
@@ -77,7 +77,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 > [AZURE.IMPORTANT] 
 Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. C’est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (**timeToLive**) et est supprimé une fois le traitement activé.
 > 
-> Comme un nombre croissant de tranches sont traitées, vous verrez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**- datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+> Comme un nombre croissant de tranches sont traitées, vous verrez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**- datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 
 ### Propriétés
 
@@ -117,7 +117,7 @@ oozieConfiguration | Spécifie les paramètres de configuration Oozie (oozie-sit
 stormConfiguration | Spécifie les paramètres de configuration Storm (storm-site.xml) pour le cluster HDInsight. | Non
 yarnConfiguration | Spécifie les paramètres de configuration Yarn (yarn-site.xml) pour le cluster HDInsight. | Non
 
-#### Exemple : configuration de cluster HDInsight à la demande avec les propriétés avancées
+#### Exemple : configuration de cluster HDInsight à la demande avec les propriétés avancées
 
 	{
 	  "name": " HDInsightOnDemandLinkedService",
@@ -158,19 +158,19 @@ Vous pouvez spécifier la taille du nœud principal, du nœud de données et du 
 
 Propriété | Description | Requis
 :-------- | :----------- | :--------
-headNodeSize | Spécifie la taille du nœud principal. La valeur par défaut est « Large » (grande). Consultez la section **Spécification des tailles de nœud** ci-dessous pour plus d’informations. | Non
-dataNodeSize | Spécifie la taille du nœud de données. La valeur par défaut est « Large » (grande). | Non
-zookeeperNodeSize | Spécifie la taille du nœud ZooKeeper. La valeur par défaut est « Small » (petite). | Non
+headNodeSize | Spécifie la taille du nœud principal. La valeur par défaut est « Large » (grande). Consultez la section **Spécification des tailles de nœud** ci-dessous pour plus d’informations. | Non
+dataNodeSize | Spécifie la taille du nœud de données. La valeur par défaut est « Large » (grande). | Non
+zookeeperNodeSize | Spécifie la taille du nœud ZooKeeper. La valeur par défaut est « Small » (petite). | Non
  
 #### Spécification des tailles de nœud
-Veuillez consulter l’article [Tailles de machines virtuelles](../virtual-machines/virtual-machines-size-specs.md#size-tables) pour connaître les valeurs de chaîne que vous devez spécifier pour les propriétés ci-dessus. Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l’article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) possède 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario.
+Veuillez consulter l’article [Tailles de machines virtuelles](../virtual-machines/virtual-machines-size-specs.md#size-tables) pour connaître les valeurs de chaîne que vous devez spécifier pour les propriétés ci-dessus. Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l’article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) possède 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario.
 
 Si vous souhaitez créer des nœuds principaux et des nœuds de travail de taille D4, vous devez spécifier la valeur **Standard\_D4** pour les propriétés headNodeSize et dataNodeSize.
 
 	"headNodeSize": "Standard_D4",	
 	"dataNodeSize": "Standard_D4",
 
-Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’**erreur** suivante : Impossible de créer le cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Lorsque vous recevez ce message d’erreur, vérifiez que vous utilisez le nom des **applets de commande et API** du tableau fourni dans l’article ci-dessus.
+Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’**erreur** suivante : Impossible de créer le cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Lorsque vous recevez ce message d’erreur, vérifiez que vous utilisez le nom des **applets de commande et API** du tableau fourni dans l’article ci-dessus.
 
 
 
@@ -180,7 +180,7 @@ Dans ce type de configuration, les utilisateurs peuvent inscrire un environnemen
 
 Ce type de configuration est pris en charge pour les environnements de calcul suivants :
 
-- Azure HDInsight
+- Azure HDInsight
 - Azure Batch
 - Azure Machine Learning.
 
@@ -219,7 +219,7 @@ linkedServiceName | Nom du service lié pour le stockage d'objets blob utilisé 
 
 Vous pouvez créer un service lié Azure Batch pour inscrire un pool de machines virtuelles (VM) Batch à une fabrique de données. Vous pouvez exécuter des activités personnalisées .NET à l'aide d'Azure Batch ou Azure HDInsight.
 
-Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Batch :
+Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Batch :
 
 
 - [Présentation de base d’Azure Batch](../batch/batch-technical-overview.md) pour une vue d’ensemble du service Azure Batch.
@@ -241,7 +241,7 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 	  }
 	}
 
-Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriété **accountName**. Exemple :
+Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriété **accountName**. Exemple :
 
 			"accountName": "mybatchaccount.eastus"
 
@@ -261,7 +261,7 @@ poolName | Nom du pool de machines virtuelles. | Oui
 linkedServiceName | Nom du service lié Azure Storage associé à ce service lié Azure Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l'exécution de l'activité et stocker les journaux d'exécution de l'activité. | Oui
 
 
-## Service lié Microsoft Azure Machine Learning
+## Service lié Microsoft Azure Machine Learning
 
 Vous créez un service lié Azure Machine Learning pour inscrire un point de terminaison de notation par lot Machine Learning pour une fabrique de données.
 
@@ -320,16 +320,15 @@ subscriptionId | ID d'abonnement Azure | Non (si non spécifié, l’abonnement 
 nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
 sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. | Oui
 
-Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
 
- 
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
-| Utilisateur non AAD (@hotmail.com, @live.com, etc.). | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données. | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données. | 14 jours |
+| Utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 heures |
+| Utilisateurs gérés par Azure Active Directory (AAD) | | 14 jours après l’exécution de la dernière tranche, si aucune tranche basée sur un service lié OAuth n’a été exécutée durant 14 jours depuis la dernière exécution. <p>90 jours, si une tranche basée sur un service lié OAuth est exécutée au moins une fois tous les 14 jours.</p> |
 
-Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés sessionId et authorization à l’aide du code fourni dans la section suivante.
+ 
+Pour éviter ou résoudre cette erreur, vous devez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés sessionId et authorization à l’aide du code fourni dans la section suivante.
 
 ### Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme 
 Le code suivant permet de générer les valeurs des propriétés **sessionId** et **authorization**.
@@ -357,11 +356,11 @@ Le code suivant permet de générer les valeurs des propriétés **sessionId** e
         }
     }
 
-Consultez les rubriques [AzureDataLakeStoreLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
+Consultez les rubriques [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) pour plus d’informations sur les classes Data Factory utilisées dans le code. Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
  
 
-## Service lié Azure SQL
+## Service lié Azure SQL
 
-Créez un service lié Azure SQL et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+Créez un service lié Azure SQL et utilisez-le avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

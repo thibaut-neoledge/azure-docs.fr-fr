@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Modèle d’application v2.0 - API web Node.js | Microsoft Azure"
-	description="Génération d’une API Web NodeJS qui accepte les jetons des comptes Microsoft personnels et des comptes professionnels ou scolaires."
+	pageTitle="API web .NodeJS Azure AD v2.0 | Microsoft Azure"
+	description="Génération d’une API Web NodeJS qui accepte les jetons des comptes Microsoft personnels et des comptes professionnels ou scolaires."
 	services="active-directory"
 	documentationCenter="nodejs"
 	authors="brandwe"
@@ -13,53 +13,48 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# Version préliminaire du modèle d’application v2.0 : Sécuriser une API Web à l’aide de node.js
+# Sécuriser une API web à l’aide de node.js
 
 > [AZURE.NOTE]
-Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 
-Le modèle d’application v2.0 vous permet de protéger une API Web à l’aide des jetons d’accès [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), ce qui permet aux utilisateurs disposant d’un compte Microsoft personnel et de comptes professionnels ou scolaires d’accéder en toute sécurité à votre API Web.
+Le point de terminaison v2.0 Azure Active Directory vous permet de protéger une API web à l’aide des jetons d’accès [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), ce qui permet aux utilisateurs disposant d’un compte Microsoft personnel et de comptes professionnels ou scolaires d’accéder en toute sécurité à votre API web.
 
-**Passport** est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut discrètement intervenir dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter et bien d’autres. Nous avons développé une stratégie pour Microsoft Azure Active Directory. Nous allons installer ce module, puis nous y ajouterons le plug-in `passport-azure-ad` Microsoft Active Directory Azure.
+**Passport** est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut discrètement intervenir dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter et bien d’autres. Nous avons développé une stratégie pour Microsoft Azure Active Directory. Nous allons installer ce module, puis nous y ajouterons le plug-in `passport-azure-ad` Microsoft Active Directory Azure.
 
-Pour ce faire, vous devez :
-
-1. inscrire une application auprès d’Azure AD ;
-2. configurer votre application pour utiliser azure-ad-passport du plug-in Passport ;
-3. configurer une application cliente pour appeler l’API web To Do List.
-
-Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) ou la cloner :
+## Télécharger
+Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) ou la cloner :
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
 
-## 1. Inscription d’une application
-Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
+## 1\. Inscription d’une application
+Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
-- copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Mobile** pour votre application ;
+- copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
+- ajouter la plateforme **Mobile** pour votre application ;
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2 : Téléchargement de node.js pour votre plateforme
+## 2 : Téléchargement de node.js pour votre plateforme
 Pour réussir à utiliser cet exemple, Node.js doit être installé correctement.
 
-Installez Node.js à partir de l’adresse suivante : [http://nodejs.org](http://nodejs.org).
+Installez Node.js à partir de l’adresse suivante : [http://nodejs.org](http://nodejs.org).
 
-## 3 : Installation de MongoDB sur votre plateforme
+## 3 : Installation de MongoDB sur votre plateforme
 
 Pour réussir à utiliser cet exemple, MongoDB doit être installé correctement. Nous allons utiliser MongoDB afin que notre API REST soit persistante sur plusieurs instances de serveur.
 
-Installez MongoDB à partir de l’adresse suivante : [http://mongodb.org](http://www.mongodb.org).
+Installez MongoDB à partir de l’adresse suivante : [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE]Cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : mongodb://localhost
+> [AZURE.NOTE] Cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : mongodb://localhost
 
-## 4 : Installation des modules Restify sur votre API web
+## 4 : Installation des modules Restify sur votre API web
 
 Nous allons utiliser Restify pour concevoir notre API REST. Restify est une infrastructure d’application Node.js minimale et flexible dérivée d’Express, qui inclut un ensemble complet de fonctionnalités permettant de créer des API REST sur Connect.
 
@@ -67,21 +62,21 @@ Nous allons utiliser Restify pour concevoir notre API REST. Restify est une infr
 
 À partir de la ligne de commande, accédez au répertoire azuread. Si le répertoire **azuread** n’existe pas, créez-le.
 
-`cd azuread` - ou - `mkdir azuread;`
+`cd azuread` - ou - `mkdir azuread;`
 
-Tapez la commande suivante :
+Tapez la commande suivante :
 
 `npm install restify`
 
 Cette commande permet d’installer Restify.
 
-#### Une erreur est-elle survenue ?
+#### Une erreur est-elle survenue ?
 
 Sur certains systèmes d’exploitation, NPM peut générer une erreur Error: EPERM, chmod ’/usr/local/bin/..’ et une demande pour essayer d’exécuter le compte en tant qu’administrateur. Si cette erreur survient, utilisez la commande sudo pour exécuter npm avec des privilèges plus élevés.
 
-#### Une erreur relative à DTrace est-elle survenue ?
+#### Une erreur relative à DTrace est-elle survenue ?
 
-Lors de l’installation de Restify, vous risquez de voir ceci :
+Lors de l’installation de Restify, vous risquez de voir ceci :
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -104,7 +99,7 @@ npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 Restify fournit un mécanisme puissant pour suivre les appels REST utilisant DTrace. Toutefois, de nombreux systèmes d’exploitation ne disposent pas de DTrace. Vous pouvez ignorer ces erreurs.
 
 
-Le résultat de cette commande doit ressembler à ceci :
+Le résultat de cette commande doit ressembler à ceci :
 
 
 	restify@2.6.1 node_modules/restify
@@ -126,10 +121,10 @@ Le résultat de cette commande doit ressembler à ceci :
 	├── verror@1.3.6 (extsprintf@1.0.2)
 	├── csv@0.3.6
 	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+	└── bunyan@0.22.0(mv@0.0.5)
 
 
-## 5 : installation de Passport.js dans votre API Web
+## 5 : installation de Passport.js dans votre API Web
 
 [Passport](http://passportjs.org/) est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut discrètement intervenir dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter et bien d’autres. Nous avons développé une stratégie pour Azure Active Directory. Nous installerons ce module, puis nous y ajouterons le plug-in stratégique Active Directory Azure.
 
@@ -139,25 +134,25 @@ Saisissez la commande suivante pour installer passport.js.
 
 `npm install passport`
 
-Le résultat de la commande doit ressembler à ceci :
+Le résultat de la commande doit ressembler à ceci :
 
 	passport@0.1.17 node_modules\passport
 	├── pause@0.0.1
 	└── pkginfo@0.2.3
 
-## 6: ajout de Passport-Azure-AD à votre API Web
+## 6: ajout de Passport-Azure-AD à votre API Web
 
-Ensuite, nous allons ajouter la stratégie OAuth, à l’aide de passport-azuread, un ensemble de stratégies qui connectent Azure Active Directory à Passport. Nous allons utiliser cette stratégie pour les jetons du porteur dans cet exemple d’API Rest.
+Ensuite, nous allons ajouter la stratégie OAuth, à l’aide de passport-azuread, un ensemble de stratégies qui connectent Azure Active Directory à Passport. Nous allons utiliser cette stratégie pour les jetons du porteur dans cet exemple d’API Rest.
 
 > [AZURE.NOTE] Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
 
 Depuis la ligne de commande, accédez au répertoire azuread
 
-Saisissez la commande suivante pour installer le module passport-azure-ad Passport.js :
+Saisissez la commande suivante pour installer le module passport-azure-ad Passport.js :
 
 `npm install passport-azure-ad`
 
-Le résultat de la commande doit ressembler à ceci :
+Le résultat de la commande doit ressembler à ceci :
 
 ``
 passport-azure-ad@1.0.0 node_modules/passport-azure-ad
@@ -174,7 +169,7 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
 ``
 
-## 7 : ajout des modules MongoDB à votre API web
+## 7 : ajout des modules MongoDB à votre API web
 
 Nous allons utiliser MongoDB comme magasin de données. Par conséquent, nous devons installer le plug-in le plus largement utilisé pour gérer les modèles et schémas, appelé Mongoose, ainsi que le pilote de base de données de MongoDB, également appelé MongoDB.
 
@@ -182,17 +177,17 @@ Nous allons utiliser MongoDB comme magasin de données. Par conséquent, nous de
 * `npm install mongoose`
 * `npm install mongodb`
 
-## 8 : Installation de modules supplémentaires
+## 8 : Installation de modules supplémentaires
 
 Ensuite, nous devons installer les autres modules requis.
 
 
-Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
+Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
 
 `cd azuread`
 
 
-Entrez les commandes suivantes pour installer les modules suivants dans le répertoire node\_modules :
+Entrez les commandes suivantes pour installer les modules suivants dans le répertoire node\_modules :
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -215,15 +210,15 @@ Entrez les commandes suivantes pour installer les modules suivants dans le répe
 * `npm update`
 
 
-## 9 : création d’un server.js avec vos dépendances
+## 9 : création d’un server.js avec vos dépendances
 
 Le fichier server.js fournit la majorité des fonctionnalités du serveur de l’API web. La plupart du code sera ajouté à ce fichier. À des fins de production, vous souhaitez refactoriser la fonctionnalité en fichiers plus petits, par exemple des itinéraires et des contrôleurs distincts. Pour les besoins de cette démonstration, nous utiliserons server.js pour cette fonctionnalité.
 
-Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
+Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
 
 `cd azuread`
 
-Créez un fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes :
+Créez un fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes :
 
 ```Javascript
 'use strict';
@@ -242,16 +237,16 @@ var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
 
 Enregistrez le fichier . Nous y reviendrons rapidement.
 
-## 10 : création d’un fichier de configuration pour stocker vos paramètres Azure AD
+## 10 : création d’un fichier de configuration pour stocker vos paramètres Azure AD
 
-Ce fichier de code transmet les paramètres de configuration de votre portail Azure Active Directory vers Passport.js. Vous avez créé ces valeurs de configuration lorsque vous avez ajouté l’API web au portail, dans la première partie de la procédure détaillée. Copiez le code ; nous vous expliquerons ensuite ce qu’il faut placer dans les valeurs de ces paramètres.
+Ce fichier de code transmet les paramètres de configuration de votre portail Azure Active Directory vers Passport.js. Vous avez créé ces valeurs de configuration lorsque vous avez ajouté l’API web au portail, dans la première partie de la procédure détaillée. Copiez le code ; nous vous expliquerons ensuite ce qu’il faut placer dans les valeurs de ces paramètres.
 
 
-Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
+Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
 
 `cd azuread`
 
-Créez un fichier `config.js` dans votre éditeur favori et ajoutez les informations suivantes :
+Créez un fichier `config.js` dans votre éditeur favori et ajoutez les informations suivantes :
 
 ```Javascript
 // Don't commit this file to your public repos. This config is for first-run
@@ -268,28 +263,28 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 ### Valeurs requises
 
-*IdentityMetadata* : il s’agit de l’emplacement dans lequel passport-azure-ad recherche vos données de configuration pour l’IdP, ainsi que les clés pour la validation des jetons JWT. Vous ne souhaitez probablement pas modifier cela si vous utilisez Azure Active Directory.
+*IdentityMetadata*: il s’agit de l’emplacement dans lequel passport-azure-ad recherche vos données de configuration pour l’IdP, ainsi que les clés pour la validation des jetons JWT. Vous ne souhaitez probablement pas modifier cela si vous utilisez Azure Active Directory.
 
-*audience* : URI de redirection à partir du portail.
+*audience*: URI de redirection à partir du portail.
 
 > [AZURE.NOTE]
-Nous remplaçons régulièrement nos clés. Vérifiez que votre extraction est toujours effectuée à partir de l’URL « openid\_keys » et que l’application peut accéder à Internet.
+Nous remplaçons régulièrement nos clés. Vérifiez que votre extraction est toujours effectuée à partir de l’URL « openid\_keys » et que l’application peut accéder à Internet.
 
 
-## 11 : ajout de configuration à votre fichier server.js
+## 11 : ajout de configuration à votre fichier server.js
 
 Nous avons besoin de lire ces valeurs dans le fichier de configuration que vous venez de créer dans notre application. Pour ce faire, nous ajoutons simplement le fichier .config comme une ressource requise dans notre application, puis nous réglons les variables globales sur celles utilisées dans le document config.js.
 
-Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
+Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
 
 `cd azuread`
 
-Ouvrez votre fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes :
+Ouvrez votre fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes :
 
 ```Javascript
 var config = require('./config');
 ```
-Ensuite, ajoutez une nouvelle section à `server.js` avec le code suivant :
+Ensuite, ajoutez une nouvelle section à `server.js` avec le code suivant :
 
 ```Javascript
 // We pass these options in to the ODICBearerStrategy.
@@ -308,13 +303,13 @@ name: 'Microsoft Azure Active Directory Sample'
 });
 ```
 
-## 12 : ajout des informations du modèle et du schéma MongoDB à l’aide de Moongoose
+## 12 : ajout des informations du modèle et du schéma MongoDB à l’aide de Moongoose
 
-Toute cette préparation va maintenant prouver son utilité : associez ces trois fichiers dans un service API REST.
+Toute cette préparation va maintenant prouver son utilité : associez ces trois fichiers dans un service API REST.
 
-Pour cette procédure détaillée, nous utilisons MongoDB pour stocker les tâches, comme indiqué dans l’***étape 4***.
+Pour cette procédure détaillée, nous utilisons MongoDB pour stocker les tâches, comme indiqué dans l’***étape 4***.
 
-Si vous vous rappelez, dans le fichier config.js que nous avons créé à l’étape 11, nous avons appelé notre base de données *tasklist*, car c’était ce que nous avions placé à la fin de l’URL de connexion mogoose\_auth\_local. Vous n’avez pas besoin de créer cette base de données au préalable dans MongoDB ; il la crée lors de la première exécution de notre application de serveur (à condition qu’elle n’existe pas déjà).
+Si vous vous rappelez, dans le fichier config.js que nous avons créé à l’étape 11, nous avons appelé notre base de données *tasklist*, car c’était ce que nous avions placé à la fin de l’URL de connexion mogoose\_auth\_local. Vous n’avez pas besoin de créer cette base de données au préalable dans MongoDB ; il la crée lors de la première exécution de notre application de serveur (à condition qu’elle n’existe pas déjà).
 
 Maintenant que nous avons indiqué au serveur quelle base de données MongoDB nous souhaitons utiliser, nous devons écrire du code supplémentaire pour créer le modèle et le schéma pour les tâches du serveur.
 
@@ -322,22 +317,22 @@ Maintenant que nous avons indiqué au serveur quelle base de données MongoDB no
 
 Notre modèle de schéma est très simple et vous pouvez le développer en fonction de vos besoins.
 
-NOM : le nom de la personne à qui la tâche est assignée. ***Chaîne***
+NOM : le nom de la personne à qui la tâche est assignée. ***Chaîne***
 
-TÂCHE : la tâche elle-même. ***Chaîne***
+TÂCHE : la tâche elle-même. ***Chaîne***
 
-DATE : la date d’échéance de la tâche. ***DATEHEURE***
+DATE : la date d’échéance de la tâche. ***DATEHEURE***
 
-TERMINÉ : indique si la tâche est terminée ou non. ***BOOLÉEN***
+TERMINÉ : indique si la tâche est terminée ou non. ***BOOLÉEN***
 
 #### Création du schéma dans le code
 
 
-Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
+Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
 
 `cd azuread`
 
-Ouvrez votre fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes sous l’entrée de configuration :
+Ouvrez votre fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes sous l’entrée de configuration :
 
 ```Javascript
 // MongoDB setup
@@ -353,7 +348,7 @@ Cela permet de se connecter au serveur MongoDB et d’obtenir un objet de schém
 
 #### En utilisant le schéma, créez le modèle dans le code.
 
-Sous le code que vous avez écrit précédemment, ajoutez le code suivant :
+Sous le code que vous avez écrit précédemment, ajoutez le code suivant :
 
 ```Javascript
 // Here we create a schema to store our tasks and users. Pretty simple schema for now.
@@ -369,7 +364,7 @@ var Task = mongoose.model('Task');
 ```
 Comme vous avez pu le constater dans le code, nous créons notre schéma, puis un objet de modèle que nous utilisons pour stocker nos données dans le code lors du paramétrage de nos ***itinéraires***.
 
-## Étape 13 : ajout de nos itinéraires pour notre serveur de tâche de l’API REST
+## Étape 13 : ajout de nos itinéraires pour notre serveur de tâche de l’API REST
 
 Maintenant que nous disposons d’un modèle de base de données, ajoutons les itinéraires que nous utiliserons pour notre serveur API REST.
 
@@ -377,7 +372,7 @@ Maintenant que nous disposons d’un modèle de base de données, ajoutons les i
 
 Dans Restify, les itinéraires fonctionnent de la même façon que dans la pile Express. Vous définissez des itinéraires à l’aide de l’URI qui, selon vous, sera appelé par les applications clientes. En général, vous définissez vos itinéraires dans un fichier distinct. Pour cet exemple, nous placerons nos itinéraires dans le fichier server.js. Nous vous recommandons de les factoriser dans leur propre fichier s’ils sont destinés à la production.
 
-Voici un exemple de modèle d’un itinéraire Restify :
+Voici un exemple de modèle d’un itinéraire Restify :
 
 ```Javascript
 function createObject(req, res, next) {
@@ -395,13 +390,13 @@ Il s’agit d’un modèle très basique. Restify (et Express) fournissent des f
 
 #### Ajout d’itinéraires par défaut à notre serveur
 
-Nous allons à présent ajouter les itinéraires CRUD de base suivants : Créer, Extraire, Mettre à jour et Supprimer.
+Nous allons à présent ajouter les itinéraires CRUD de base suivants : Créer, Extraire, Mettre à jour et Supprimer.
 
-Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
+Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
 
 `cd azuread`
 
-Ouvrez votre fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes en-dessous des entrées de base de données créées précédemment :
+Ouvrez votre fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes en-dessous des entrées de base de données créées précédemment :
 
 ```Javascript
 /**
@@ -507,7 +502,7 @@ return next();
 
 Il est judicieux d’ajouter une gestion des erreurs afin que nous puissions communiquer au client le problème que nous avons rencontré et ce, de manière intelligible.
 
-Ajoutez le code suivant sous le code que vous avez écrit précédemment :
+Ajoutez le code suivant sous le code que vous avez écrit précédemment :
 
 ```Javascript
 ///--- Errors for communicating something interesting back to the client
@@ -546,7 +541,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-## Étape 14 : création de votre serveur
+## Étape 14 : création de votre serveur
 
 Nous avons défini notre base de données et nos itinéraires sont en place. La dernière étape est d’ajouter l’instance de serveur qui va gérer nos appels.
 
@@ -634,7 +629,7 @@ consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? 
 consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 });
 ```
-## 16 : exécution du serveur avant l’ajout de la prise en charge d’OAuth
+## 16 : exécution du serveur avant l’ajout de la prise en charge d’OAuth
 
 Test de votre serveur avant d’ajouter l’authentification
 
@@ -642,7 +637,7 @@ Pour cela, le plus simple consiste à utiliser curl dans une ligne de commande. 
 
 `$npm install -g jsontool`
 
-Cette opération installe totalement l’outil JSON. Maintenant que l’outil JSON est installé, amusons-nous avec le serveur :
+Cette opération installe totalement l’outil JSON. Maintenant que l’outil JSON est installé, amusons-nous avec le serveur :
 
 Tout d’abord, vérifiez que votre instance MongoDB est en cours d’exécution.
 
@@ -655,7 +650,7 @@ Accédez ensuite au répertoire et commencez à utiliser curl.
 `$ curl -isS http://127.0.0.1:8080 | json`
 
 ```Shell
-HTTP/1.1 200 OK
+HTTP/1.1 2.0OK
 Connection: close
 Content-Type: application/json
 Content-Length: 171
@@ -671,11 +666,11 @@ Date: Tue, 14 Jul 2015 05:43:38 GMT
 ]
 ```
 
-Nous pouvons à présent ajouter une tâche de la manière suivante :
+Nous pouvons à présent ajouter une tâche de la manière suivante :
 
 `$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`
 
-La réponse doit être la suivante :
+La réponse doit être la suivante :
 
 ```Shell
 HTTP/1.1 201 Created
@@ -687,27 +682,27 @@ Content-Length: 5
 Date: Tue, 04 Feb 2014 01:02:26 GMT
 Hello
 ```
-Et nous pouvons répertorier des tâches pour Brandon de cette manière :
+Et nous pouvons répertorier des tâches pour Brandon de cette manière :
 
 `$ curl -isS http://127.0.0.1:8080/tasks/brandon/`
 
 Si tout cela fonctionne, nous sommes prêts à ajouter OAuth au serveur API REST.
 
-**Vous avez un serveur d’API REST avec MongoDB !**
+**Vous avez un serveur d’API REST avec MongoDB !**
 
-## 17 : ajout d’une authentification à notre serveur API REST
+## 17 : ajout d’une authentification à notre serveur API REST
 
-Maintenant que nous avons une API REST en cours d’exécution (félicitations d’ailleurs !), offrons-lui une utilité dans Azure AD.
+Maintenant que nous avons une API REST en cours d’exécution (félicitations d’ailleurs !), offrons-lui une utilité dans Azure AD.
 
-Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
+Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y trouvez pas déjà :
 
 `cd azuread`
 
-### 1 : utilisation de oidcbearerstrategy qui est inclus avec passport-azure-ad
+### 1 : utilisation de oidcbearerstrategy qui est inclus avec passport-azure-ad
 
-Jusqu’à présent, nous avons créé un serveur REST TODO standard ne disposant d’aucune autorisation. Nous allons commencer à tout rassembler.
+Jusqu’à présent, nous avons créé un serveur REST TODO standard ne disposant d’aucune autorisation. Nous allons commencer à tout rassembler.
 
-Tout d’abord, nous devons indiquer que nous voulons utiliser Passport. Placez cela juste après la configuration de l’autre serveur :
+Tout d’abord, nous devons indiquer que nous voulons utiliser Passport. Placez cela juste après la configuration de l’autre serveur :
 
 ```Javascript
 // Let's start using Passport.js
@@ -717,9 +712,9 @@ server.use(passport.session()); // Provides session support
 ```
 
 > [AZURE.TIP]
-Lors de l’écriture d’API, vous devez toujours lier les données à un élément unique du jeton, dont un utilisateur ne peut pas usurper l’identité. Lorsque ce serveur stocke les éléments TODO, il le fait en fonction de l’ID d’abonnement de l’utilisateur dans le jeton (appelé via token.sub) que nous avons placé dans le champ « propriétaire ». Cela garantit que seul cet utilisateur peut accéder à ses TODO et que personne d’autre ne peut accéder aux TODO entrés. Il n’y a pas d’exposition dans l’API du « propriétaire », afin qu’un utilisateur externe puisse demander les TODO d’un tiers même s’ils sont authentifiés.
+Lors de l’écriture d’API, vous devez toujours lier les données à un élément unique du jeton, dont un utilisateur ne peut pas usurper l’identité. Lorsque ce serveur stocke les éléments TODO, il le fait en fonction de l’ID d’abonnement de l’utilisateur dans le jeton (appelé via token.sub) que nous avons placé dans le champ « propriétaire ». Cela garantit que seul cet utilisateur peut accéder à ses TODO et que personne d’autre ne peut accéder aux TODO entrés. Il n’y a pas d’exposition dans l’API du « propriétaire », afin qu’un utilisateur externe puisse demander les TODO d’un tiers même s’ils sont authentifiés.
 
-Ensuite, nous allons utiliser la stratégie Open ID Connect Bearer fournie avec passport-azure-ad. Contentez-vous d’examiner le code pour l’instant, je fournirai des explications sous peu. Placez ceci après ce que vous avez collé ci-dessus :
+Ensuite, nous allons utiliser la stratégie Open ID Connect Bearer fournie avec passport-azure-ad. Contentez-vous d’examiner le code pour l’instant, je fournirai des explications sous peu. Placez ceci après ce que vous avez collé ci-dessus :
 
 ```Javascript
 /**
@@ -769,11 +764,11 @@ Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Face
 > [AZURE.IMPORTANT]
 Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un programme de ligne de commande, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
 
-### 2. Pour finir, protégez certains points de terminaison
+### 2\. Pour finir, protégez certains points de terminaison
 
 Pour protéger les points de terminaison, spécifiez l’appel passport.authenticate() avec le protocole que vous souhaitez utiliser.
 
-Nous allons modifier notre itinéraire dans le code de notre serveur afin d’effectuer quelque chose de plus intéressant :
+Nous allons modifier notre itinéraire dans le code de notre serveur afin d’effectuer quelque chose de plus intéressant :
 
 ```Javascript
 server.get('/tasks', passport.authenticate('oidc-bearer', {
@@ -811,7 +806,7 @@ next();
 });
 ```
 
-## 18 : ré-exécution de votre application serveur et contrôle du rejet
+## 18 : ré-exécution de votre application serveur et contrôle du rejet
 
 Nous allons de nouveau utiliser `curl` pour voir si nous disposons à présent de la protection OAuth2 sur nos points de terminaison. Nous effectuons ce contrôle avant d’exécuter l’un de nos Kits de développement logiciel (SDK) clients sur ce point de terminaison. Les en-têtes renvoyés doivent être suffisants pour nous dire que nous sommes sur le bon chemin d’accès.
 
@@ -824,7 +819,7 @@ Accédez ensuite au répertoire et commencez à utiliser curl.
 	$ cd azuread
 	$ node server.js
 
-Essayez une commande basique, comme POST :
+Essayez une commande basique, comme POST :
 
 `$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
@@ -839,7 +834,7 @@ Transfer-Encoding: chunked
 Une erreur 401 est la réponse que vous cherchez ici, car cela indique que la couche de Passport tente de rediriger vers le point de terminaison d’autorisation, ce qui est exactement ce que vous souhaitez.
 
 
-## Félicitations ! Vous avez un service d’API REST utilisant OAuth2 !
+## Félicitations ! Vous avez un service d’API REST utilisant OAuth2 !
 
 Vous êtes allé aussi loin que possible avec ce serveur sans utiliser un client compatible OAuth2. Vous devrez suivre une autre procédure détaillée.
 
@@ -847,14 +842,14 @@ Si vous recherchiez simplement des informations concernant l’implémentation d
 
 ## Étapes suivantes
 
-Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
+Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
-[Sécuriser une application Web avec le modèle d’application v2.0 dans Node.js>>](active-directory-v2-devquickstarts-node-web.md)
+[Sécuriser une application web Node.JS avec le point de terminaison v2.0 >>](active-directory-v2-devquickstarts-node-web.md)
 
-Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Pour obtenir des ressources supplémentaires, consultez : - [Guide de développement v2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow - Balise azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse | Microsoft Azure"
    description="Procédure de récupération d’une base de données après une erreur de l’utilisateur dans SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -18,25 +18,25 @@
 
 # Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse
 
-SQL Data Warehouse offre deux fonctionnalités de récupération principales lorsqu’une erreur de l’utilisateur entraîne la suppression ou l’endommagement accidentels des données :
+SQL Data Warehouse offre deux fonctionnalités de récupération principales lorsqu’une erreur de l’utilisateur entraîne la suppression ou l’endommagement accidentels des données :
 
-- restauration d’une base de données active ;
+- restauration d’une base de données active ;
 - restauration d’une base de données supprimée.
 
 Ces deux fonctionnalités restaurent une nouvelle base de données sur le même serveur.
 
-Deux API prennent en charge une restauration de base de données SQL Data Warehouse : Azure PowerShell et l’API REST. Vous pouvez utiliser l’une ou l’autre pour accéder à la fonctionnalité de restauration de SQL Data Warehouse.
+Deux API prennent en charge une restauration de base de données SQL Data Warehouse : Azure PowerShell et l’API REST. Vous pouvez utiliser l’une ou l’autre pour accéder à la fonctionnalité de restauration de SQL Data Warehouse.
 
 ## Restaurer une base de données active
-En cas d’erreur de l’utilisateur entraînant une modification involontaire des données, vous pouvez restaurer la base de données au niveau de l’un des points de restauration de la période de rétention. Les captures instantanées d’une base de données active se produisent au moins toutes les 8 heures et sont conservées pendant 7 jours.
+En cas d’erreur de l’utilisateur entraînant une modification involontaire des données, vous pouvez restaurer la base de données au niveau de l’un des points de restauration de la période de rétention. Les captures instantanées d’une base de données active se produisent au moins toutes les 8 heures et sont conservées pendant 7 jours.
 
 ### PowerShell
 
-Utilisez Azure PowerShell pour exécuter par programmation la restauration d’une base de données. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+Utilisez Azure PowerShell pour exécuter par programmation la restauration d’une base de données. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Vous pouvez vérifier la version en exécutant Get-Module -ListAvailable -Name Azure. Cet article est basé sur Microsoft Azure PowerShell 1.0.4.
 
 Pour restaurer une base de données, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore][].
 
-1. Ouvrez Microsoft Azure PowerShell.
+1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
 3. Sélectionnez l’abonnement qui contient la base de données à restaurer.
 4. Répertoriez les points de restauration de la base de données (cette opération nécessite le mode de gestion des ressources Azure).
@@ -46,29 +46,32 @@ Pour restaurer une base de données, utilisez l’applet de commande [Start-Azur
 
 ```
 
-Add-AzureAccount
-Get-AzureSubscription
-Select-AzureSubscription -SubscriptionName "<Subscription_name>"
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
-# List database restore points
-Switch-AzureMode AzureResourceManager
-Get-AzureSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>"
+# List the last 10 database restore points
+((Get-AzureRMSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>").RestorePointCreationDate)[-10 .. -1]
+
+	# Or for all restore points
+	Get-AzureRmSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>"
 
 # Pick desired restore point using RestorePointCreationDate
 $PointInTime = "<RestorePointCreationDate>"
 
-# Get the specific database to restore
-Switch-AzureMode AzureServiceManagement
-$Database = Get-AzureSqlDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+# Get the specific database name to restore
+(Get-AzureRmSqlDatabase -ServerName "<YourServerName>" -ResourceGroupName "<YourResourceGroupName>").DatabaseName | where {$_ -ne "master" }
+#or
+Get-AzureRmSqlDatabase -ServerName "<YourServerName>" –ResourceGroupName "<YourResourceGroupName>"
 
 # Restore database
-$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -PointInTime $PointInTime
+$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerName>" -SourceDatabaseName "<YourDatabaseName>" -TargetDatabaseName "<NewDatabaseName>" -PointInTime $PointInTime
 
 # Monitor progress of restore operation
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-Notez que si votre serveur est nommé foo.database.windows.net, vous devez utiliser « foo »comme nom du serveur dans les applets de commande Powershell ci-dessus.
+Notez que si votre serveur est nommé foo.database.windows.net, vous devez utiliser « foo »comme nom du serveur dans les applets de commande Powershell ci-dessus.
 
 ### API REST
 Utilisez REST pour exécuter par programmation la restauration des bases de données.
@@ -80,10 +83,10 @@ Utilisez REST pour exécuter par programmation la restauration des bases de donn
 Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser en suivant le guide [Finaliser une base de données récupérée][].
 
 ## Récupérer une base de données supprimée
-En cas de suppression d’une base de données, vous pouvez restaurer cette dernière telle qu’elle était au moment de la suppression. En effet, avant qu’une base de données ne soit supprimée, Azure SQL Data Warehouse en effectue une capture instantanée et la conserve pendant 7 jours.
+En cas de suppression d’une base de données, vous pouvez restaurer cette dernière telle qu’elle était au moment de la suppression. En effet, avant qu’une base de données ne soit supprimée, Azure SQL Data Warehouse en effectue une capture instantanée et la conserve pendant 7 jours.
 
 ### PowerShell
-Utilisez Azure PowerShell pour exécuter par programme la restauration d’une base de données supprimée. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+Utilisez Azure PowerShell pour exécuter par programme la restauration d’une base de données supprimée. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
 Pour restaurer une base de données supprimée, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore][].
 
@@ -106,7 +109,7 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase
 Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-Notez que si votre serveur est nommé foo.database.windows.net, vous devez utiliser « foo »comme nom du serveur dans les applets de commande Powershell ci-dessus.
+Notez que si votre serveur est nommé foo.database.windows.net, vous devez utiliser « foo »comme nom du serveur dans les applets de commande Powershell ci-dessus.
 
 ### API REST
 Utilisez REST pour exécuter par programmation la restauration des bases de données.
@@ -120,7 +123,7 @@ Une fois la restauration terminée, vous pouvez configurer la base de données r
 
 
 ## Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité d’autres éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
+Pour plus d’informations sur les fonctionnalités de continuité d’activité d’autres éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
 
 
 <!--Image references-->
@@ -138,4 +141,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 # Gérer la base de données SQL Azure avec PowerShell
@@ -24,7 +24,7 @@
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-Cette rubrique fournit les commandes PowerShell permettant d’effectuer de nombreuses tâches de Base de données SQL Azure.
+Cette rubrique fournit les commandes PowerShell permettant d’effectuer de nombreuses tâches de Base de données SQL Azure.
 
 
 Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être installé et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
@@ -35,14 +35,14 @@ Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être i
 
 Pour exécuter les applets de commande PowerShell sur votre abonnement Azure, vous devez d’abord établir l’accès à votre compte Azure. Exécutez la commande suivante et un écran de connexion s'affichera dans lequel vous pourrez entrer vos informations d'identification. Utilisez l’adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure Classic.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 Après vous être connecté, des informations s'affichent sur l'écran, notamment l'ID avec lequel vous vous êtes connecté et les abonnements Azure auxquels vous avez accès.
 
 
 ## Sélectionner votre abonnement Azure
 
-Pour sélectionner l’abonnement que vous souhaitez utiliser, vous avez besoin de votre ID d’abonnement (**-SubscriptionId**) ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez le copier à partir de l'étape précédente, ou, si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats.
+Pour sélectionner l’abonnement que vous souhaitez utiliser, vous avez besoin de votre identifiant (**-SubscriptionId**) ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez le copier à partir de l'étape précédente, ou, si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats.
 
 Exécuter l’applet de commande suivant avec vos informations d’abonnement pour définir votre abonnement actuel :
 
@@ -54,17 +54,17 @@ Les applets de commande suivant seront exécutés sur l’abonnement sélectionn
 
 Créez le groupe de ressources qui contient le serveur. Vous pouvez modifier la commande suivante pour utiliser un emplacement valide.
 
-Pour obtenir la liste des emplacements valides de serveur de Base de données SQL Azure, exécutez l’applet de commande suivante :
+Pour obtenir la liste des emplacements valides de serveur de Base de données SQL Azure, exécutez l’applet de commande suivante :
 
 	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
-Si vous disposez déjà d’un groupe de ressources, vous pouvez créer directement un serveur ou modifier et exécuter la commande suivante pour créer un nouveau groupe de ressources :
+Si vous disposez déjà d’un groupe de ressources, vous pouvez créer directement un serveur ou modifier et exécuter la commande suivante pour créer un nouveau groupe de ressources :
 
 	New-AzureRmResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
 
 ## Créer un serveur 
 
-Pour créer un serveur V12, utilisez l’applet de commande [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Remplacez server12 par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser un emplacement valide.
+Pour créer un serveur V12, utilisez l’applet de commande [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Remplacez server12 par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser un emplacement valide.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
@@ -108,14 +108,14 @@ Vous pouvez également supprimer un serveur à l’aide de la commande [Remove-A
 
 
 
-Si vous comptez recréer ces ressources SQL Azure ou des ressources similaires, vous pouvez :
+Si vous comptez recréer ces ressources SQL Azure ou des ressources similaires, vous pouvez :
 
 - Enregistrer ceci en tant que fichier de script PowerShell (*.ps1)
 - Enregistrer ceci en tant runbook d’automation Azure dans la section Automation du portail Azure Classic 
 
 ## Étapes suivantes
 
-Combiner des commandes et l’automatisation. Par exemple, remplacez tous les éléments entre guillemets, y compris les caractères < and > par vos valeurs pour créer un serveur, une règle de pare-feu et une base de données :
+Combiner des commandes et l’automatisation. Par exemple, remplacez tous les éléments entre guillemets, y compris les caractères < and > par vos valeurs pour créer un serveur, une règle de pare-feu et une base de données :
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -125,6 +125,6 @@ Combiner des commandes et l’automatisation. Par exemple, remplacez tous les é
 
 ## Informations connexes
 
-- [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
+- [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

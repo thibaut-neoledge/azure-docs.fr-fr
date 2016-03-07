@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Ressources de variables dans Azure Automation
 
@@ -67,7 +67,7 @@ Les activités de workflow du tableau suivant sont utilisées pour accéder aux 
 1. Terminez l'Assistant et cochez la case pour enregistrer la nouvelle variable.
 
 
-### Pour créer une variable avec le portail Azure en version préliminaire
+### Création d'une variable avec le portail Azure
 
 1. À partir de votre compte Automation, cliquez sur la partie **Ressources** afin d'ouvrir le panneau **Ressources**.
 1. Cliquez sur la partie **Variables** afin d'ouvrir le panneau **Variables**.
@@ -75,7 +75,7 @@ Les activités de workflow du tableau suivant sont utilisées pour accéder aux 
 1. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer la nouvelle variable.
 
 
-### Pour créer une variable avec Windows PowerShell
+### Pour créer une variable avec Windows PowerShell
 
 L'applet de commande [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) crée une variable et définit sa valeur initiale. Vous pouvez récupérer la valeur en utilisant [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx). Si la valeur est un type simple, ce même type est retourné. S'il s'agit d'un type complexe, un **PSCustomObject** est retourné.
 
@@ -188,4 +188,4 @@ L'illustration suivante montre comment filtrer les objets qui sont stockés dans
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

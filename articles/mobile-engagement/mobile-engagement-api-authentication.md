@@ -20,18 +20,17 @@
 
 ## Vue d'ensemble
 
-Ce document est un guide d'accompagnement pour les clients qui migrent de Capptain vers Azure Mobile Engagement, et qui utilisent les API. Cette section décrit plus en détail comment faire fonctionner le mécanisme d'authentification pour les nouvelles API.
+Ce document décrit en détail comment faire fonctionner le mécanisme d’authentification pour les nouvelles API.
 
 Il suppose que vous disposez d’un abonnement Azure valide et que vous avez créé une application Mobile Engagement à l'aide d'un de nos [didacticiels pour les développeurs](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## Authentification
 
-Lorsque vous migrez des API Capptain vers les nouvelles API Azure Mobile Engagement, les principales différences concernent l'authentification. Auparavant, les API prenaient en charge l'authentification de base. Désormais, un jeton OAuth basé sur Microsoft Azure Active Directory doit être utilisé pour l'authentification.
+Un jeton OAuth basé sur Microsoft Azure Active Directory doit être utilisé pour l’authentification.
 
 Pour authentifier une requête API, un en-tête d'autorisation doit être ajouté à chaque requête. Il doit être au format suivant :
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
-
 
 >[AZURE.NOTE] Les jetons Azure Active Directory expirent dans 1 heure.
 
@@ -102,7 +101,7 @@ Il s'agit d'une autre façon d’effectuer les étapes susmentionnées à l'aide
 		Install-Module AzureRM
 		Install-AzureRM
 
-3. Exécutez la commande suivante :
+3. Exécutez la commande suivante :
 
 		Import-Module AzureRM.profile
 
@@ -130,9 +129,7 @@ Il s'agit d'une autre façon d’effectuer les étapes susmentionnées à l'aide
 
 	Copiez ces valeurs pour référence. Pour obtenir maintenant un jeton d'accès, vous utilisez la valeur TenantId `{TENANT_ID}`, la valeur ApplicationId `{CLIENT_ID}` et la valeur Secret `{CLIENT_SECRET}`.
 
-
 8. Vérifiez sur le portail de gestion Azure qu'une nouvelle application Active Directory apparaît sous **Afficher les applications que ma société possède**.
-
 
 #### Procédure d'obtention d'un jeton valide
 
@@ -148,7 +145,7 @@ Voici un exemple de requête :
 	grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
 	urce=https%3A%2F%2Fmanagement.core.windows.net%2F
 
-Voici un exemple de réponse :
+Voici un exemple de réponse :
 
 	HTTP/1.1 200 OK
 	Content-Type: application/json; charset=utf-8
@@ -166,15 +163,13 @@ Dans chaque appel d'API, incluez l'en-tête de requête d'autorisation :
 
 Si vous obtenez un code d'état 401, vérifiez le corps de la réponse car il peut vous indiquer que le jeton a expiré. Dans ce cas, récupérez un nouveau jeton.
 
-
 ##Utilisation des API
-
 
 Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels d'API.
 
 1. Dans chaque requête API, vous devez passer un jeton valide, non expiré, que vous avez obtenu dans la section précédente.
 
-2. Vous devez spécifier certains paramètres dans l'URI de la requête qui identifie votre application. L'URI de la requête ressemble à ceci :
+2. Vous devez spécifier certains paramètres dans l'URI de la requête qui identifie votre application. L'URI de la requête ressemble à ceci :
 
 		https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/MobileEngagement/
 		providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
@@ -187,7 +182,6 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
-
 >[AZURE.NOTE] <br/> 1. Ignorez l'adresse la racine de l'API car elle s'appliquait aux API précédentes.<br/> 2. Vous devez utiliser le nom de ressource de l'application qui est différent du nom de l'application elle-même.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

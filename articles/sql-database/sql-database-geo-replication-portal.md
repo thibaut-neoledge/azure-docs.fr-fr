@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure | Microsoft Azure" 
-    description="Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure" 
+    description="Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
-# Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure
+# Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure
 
 
 > [AZURE.SELECTOR]
@@ -25,19 +25,19 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-Cet article montre comment configurer la géo-réplication pour Base de données SQL à l’aide du [portail Azure](https://portal.azure.com).
+Cet article montre comment configurer la géo-réplication pour Base de données SQL à l’aide du [portail Azure](http://portal.azure.com).
 
-La géo-réplication permet de créer jusqu’4 réplicas de bases de données (secondaires) dans différents centres de données (régions). Les bases de données secondaires sont disponibles en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire.
+La géo-réplication permet de créer jusqu’4 réplicas de bases de données (secondaires) dans différents centres de données (régions). Les bases de données secondaires sont disponibles en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire.
 
 La géo-réplication est uniquement disponible pour les bases de données Standard et Premium.
 
 Les bases de données standard peuvent avoir un serveur secondaire non accessible en lecture et doivent utiliser la région recommandée. Les bases de données Premium peuvent avoir jusqu’à quatre bases de données secondaires dans l’une des régions disponibles.
 
 
-Pour configurer la géo-réplication, vous devez disposer des éléments suivants :
+Pour configurer la géo-réplication, vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
-- Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
+- Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
 
 
 
@@ -56,9 +56,9 @@ La base de données secondaire a le même nom que la base de données primaire e
 
 ### Ajouter une base de données secondaire
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géo-réplication.
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géo-réplication.
 2. Dans le panneau de la base de données SQL, sélectionnez **Tous les paramètres** > **Géo-réplication**.
-3. Sélectionnez la région pour créer la base de données secondaire. Les bases de données Premium peuvent utiliser n’importe quelle région pour une base de données secondaire. Les bases de données Standard doivent utiliser la région recommandée :
+3. Sélectionnez la région pour créer la base de données secondaire. Les bases de données Premium peuvent utiliser n’importe quelle région pour une base de données secondaire. Les bases de données Standard doivent utiliser la région recommandée :
 
 
     ![Ajouter une base de données secondaire][1]
@@ -69,7 +69,7 @@ La base de données secondaire a le même nom que la base de données primaire e
 
     ![Créer une base de données secondaire][3]
 
-5. Si vous le souhaitez, vous pouvez ajouter une base de données secondaire à un pool de base de données élastique :
+5. Si vous le souhaitez, vous pouvez ajouter une base de données secondaire à un pool de base de données élastique :
 
        - Cliquez sur **pool de base de données élastique**, puis sélectionnez un pool sur le serveur cible dans lequel créer la base de données secondaire. Un pool doit déjà exister sur le serveur cible, car ce flux de travail ne crée pas un nouveau pool.
 
@@ -89,7 +89,7 @@ La base de données secondaire a le même nom que la base de données primaire e
 
 L’opération arrête définitivement la réplication vers la base de données secondaire et modifie le rôle de la base de données secondaire en une base de données normale accessible en lecture et en écriture. Si la connectivité à la base de données secondaire est interrompue, la commande aboutit, mais la base de données secondaire ne passe pas en mode lecture-écriture une fois la connectivité rétablie.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
 2. Dans le panneau Base de données SQL, sélectionnez **Tous les paramètres** > **Géo-réplication**.
 3. Dans la liste des bases de données **secondaires**, sélectionnez la base de données que vous souhaitez supprimer du partenariat de géo-réplication.
 4. Cliquez sur **Arrêter la réplication**.
@@ -108,20 +108,20 @@ L’opération arrête définitivement la réplication vers la base de données 
 
 La base de données secondaire peut être basculée en base de données primaire.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
 2. Dans le panneau Base de données SQL, sélectionnez **Tous les paramètres** > **Géo-réplication**.
 3. Dans la liste des bases de données **secondaires** sélectionnez la base de données qui doit devenir la nouvelle base de données primaire.
 4. Cliquez sur **Basculement**.
 
     ![basculement][10]
 
-La commande exécute le flux de travail suivant :
+La commande exécute le flux de travail suivant :
 
 1. Basculer temporairement la réplication en mode synchrone. Les transactions en attente seront alors transférées dans la base de données secondaire. 
 
 2. Inversez les rôles primaire et secondaire des deux bases de données dans le partenariat de géo-réplication.
 
-En cas de basculement planifié, cette séquence empêche toute perte de données. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant le basculement des rôles. Toute l’opération devrait prendre moins d’une minute dans des circonstances normales.
+En cas de basculement planifié, cette séquence empêche toute perte de données. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant le basculement des rôles. Toute l’opération devrait prendre moins d’une minute dans des circonstances normales.
 
    
 
@@ -151,4 +151,4 @@ En cas de basculement planifié, cette séquence empêche toute perte de donnée
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

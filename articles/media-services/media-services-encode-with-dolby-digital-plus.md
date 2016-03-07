@@ -3,7 +3,7 @@
 	description="Cette rubrique explique comment encoder vos médias avec Dolby Digital Plus." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="anilmur" 
+	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/17/2016"   
-	ms.author="anilmur"/>
+	ms.author="juliako"/>
 
 #Encodage de vos médias avec Dolby Digital Plus
 
@@ -29,7 +29,7 @@ Dolby Digital Plus est pris en charge par l’Encodeur multimédia Azure. Pour o
 
 ###<a id="configure_preset"></a>Configurer les paramètres de l’Encodeur multimédia Azure
 
-Pendant la configuration des paramètres d’encodage à utiliser avec l’Encodeur multimédia Azure, certaines présélections prédéfinies étaient représentées par des chaînes faciles à retenir. L’encodeur Dolby Digital Plus fournit un large éventail de contrôles. Pour plus d’informations, consultez [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx). Il n’existe donc aucune présélection de chaîne préintégrée qui utilise ce codec. Vous devez spécifier les paramètres d’encodage souhaités dans un fichier XML et soumettre ces données avec votre tâche, comme illustré dans l’exemple de code suivant :
+Pendant la configuration des paramètres d’encodage à utiliser avec l’Encodeur multimédia Azure, certaines présélections prédéfinies étaient représentées par des chaînes faciles à retenir. L’encodeur Dolby Digital Plus fournit un large éventail de contrôles. Pour plus d’informations, consultez [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx). Il n’existe donc aucune présélection de chaîne préintégrée qui utilise ce codec. Vous devez spécifier les paramètres d’encodage souhaités dans un fichier XML et soumettre ces données avec votre tâche, comme illustré dans l’exemple de code suivant :
 	
 	string configuration = File.ReadAllText(pathToXMLConfigFile));
 
@@ -40,11 +40,11 @@ Pendant la configuration des paramètres d’encodage à utiliser avec l’Encod
 
 Cette rubrique contient plusieurs exemples de présélections XML qui permettent de configurer les paramètres d’encodage. L’élément utilisé pour configurer l’encodage Dolby Digital Plus est [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) qui se présente sous la forme d’un nœud enfant de l’élément <AudioProfile> dans une présélection XML de l’Encodeur multimédia Azure. Cet élément XML contient plusieurs attributs qui contrôlent les différents éléments de l’encodage.
 
-##Encodage en Dolby Digital Plus 5.1 multicanal
+##Encodage en Dolby Digital Plus 5.1 multicanal
 
-Pour encoder en Dolby Digital Plus 5.1 multicanal, définissez les attributs Codec et EncoderMode avec la valeur « DolbyDigitalPlus ». Le nombre de canaux encodés est spécifié à l’aide de l’attribut AudioCodingMode de l’élément <DolbyDigitalPlusAudioProfile>. Pour un encodage multicanal 5.1, attribuez à AudioCodingMode la valeur « Mode32 ».
+Pour encoder en Dolby Digital Plus 5.1 multicanal, définissez les attributs Codec et EncoderMode avec la valeur « DolbyDigitalPlus ». Le nombre de canaux encodés est spécifié à l’aide de l’attribut AudioCodingMode de l’élément <DolbyDigitalPlusAudioProfile>. Pour un encodage multicanal 5.1, attribuez à AudioCodingMode la valeur « Mode32 ».
 
-La présélection XML suivante contient une présélection XML complète de l’Encodeur multimédia Azure qui génère un fichier MP4 avec une vidéo à 1080p et large bande H264 et un son Dolby Digital Plus 5.1 multicanal. Cette présélection spécifie aussi l’encodage d’un canal LFE (Low-Frequency Effects) à l’aide de l’attribut LFEOn, qui est défini avec la valeur true. Les attributs non spécifiés conservent leurs valeurs par défaut.
+La présélection XML suivante contient une présélection XML complète de l’Encodeur multimédia Azure qui génère un fichier MP4 avec une vidéo à 1080p et large bande H264 et un son Dolby Digital Plus 5.1 multicanal. Cette présélection spécifie aussi l’encodage d’un canal LFE (Low-Frequency Effects) à l’aide de l’attribut LFEOn, qui est défini avec la valeur true. Les attributs non spécifiés conservent leurs valeurs par défaut.
 
 Cette présélection XML doit être transmise à l’**Encodeur multimédia Azure** pour créer une tâche d’encodage, comme décrit dans [cette](media-services-dotnet-encode-asset.md) rubrique (sauf qu’au lieu d’une chaîne de présélection prédéfinie, vous transmettrez la présélection XML entière, comme décrit [ici](#configure_preset)).
 
@@ -127,7 +127,7 @@ Cette présélection XML doit être transmise à l’**Encodeur multimédia Azur
 
 ##Encodage en Dolby Digital Plus Stereo
 
-Pour encoder en Dolby Digital Plus Stereo, définissez les attributs Codec et EncoderMode avec la valeur « DolbyDigitalPlus ». Le nombre de canaux encodés est spécifié à l’aide de l’attribut AudioCodingMode. Pour un encodage stéréo, attribuez à AudioCodingMode la valeur « Mode20 ». L’exemple de présélection XML suivant illustre le paramètre <DolbyDigitalPlusAudioProfile> utilisé pour encoder au format audio 5.1. Les attributs non spécifiés conservent leurs valeurs par défaut.
+Pour encoder en Dolby Digital Plus Stereo, définissez les attributs Codec et EncoderMode avec la valeur « DolbyDigitalPlus ». Le nombre de canaux encodés est spécifié à l’aide de l’attribut AudioCodingMode. Pour un encodage stéréo, attribuez à AudioCodingMode la valeur « Mode20 ». L’exemple de présélection XML suivant illustre le paramètre <DolbyDigitalPlusAudioProfile> utilisé pour encoder au format audio 5.1. Les attributs non spécifiés conservent leurs valeurs par défaut.
 
 Cette présélection XML doit être transmise à l’**Encodeur multimédia Azure** pour créer une tâche d’encodage, comme décrit dans [cette](media-services-dotnet-encode-asset.md) rubrique (sauf qu’au lieu d’une chaîne de présélection prédéfinie, vous transmettrez la présélection XML entière, comme décrit [ici](#configure_preset)).
 
@@ -212,24 +212,24 @@ Vous pouvez encoder vers plusieurs fichiers MP4 dans une même présélection XM
 
 ###Configuration
 
-La configuration suivante génère les sorties suivantes :
+La configuration suivante génère les sorties suivantes :
 
-- 8 fichiers MP4 vidéo uniquement
-	- Vidéo 1080p @ 6 000 Kbit/s
-	- Vidéo 1080p @ 4 700 Kbit/s
-	- Vidéo 720p @ 3 400 Kbit/s
-	- Vidéo 960 x 540 @ 2 250 Kbit/s
-	- Vidéo 960 x 540 @ 1 500 Kbit/s
-	- Vidéo 640 x 380 @ 1 000 Kbit/s
-	- Vidéo 640 x 380 @ 650 Kbit/s
-	- Vidéo 320 x 180 @ 400 Kbit/s
+- 8 fichiers MP4 vidéo uniquement
+	- Vidéo 1080p @ 6 000 Kbit/s
+	- Vidéo 1080p @ 4 700 Kbit/s
+	- Vidéo 720p @ 3 400 Kbit/s
+	- Vidéo 960 x 540 @ 2 250 Kbit/s
+	- Vidéo 960 x 540 @ 1 500 Kbit/s
+	- Vidéo 640 x 380 @ 1 000 Kbit/s
+	- Vidéo 640 x 380 @ 650 Kbit/s
+	- Vidéo 320 x 180 @ 400 Kbit/s
 
-- 5 fichiers MP4 audio uniquement
-	- AAC Audio Stereo @ 128 Kbit/s
-	- AAC Audio 5.1 @ 512 Kbit/s
-	- Dolby Digital Plus Stereo @ 128 Kbit/s
-	- Dolby Digital Plus 5.1 multicanal @ 512 Kbit/s
-	- AAC Stereo @ 56 Kbit/s
+- 5 fichiers MP4 audio uniquement
+	- AAC Audio Stereo @ 128 Kbit/s
+	- AAC Audio 5.1 @ 512 Kbit/s
+	- Dolby Digital Plus Stereo @ 128 Kbit/s
+	- Dolby Digital Plus 5.1 multicanal @ 512 Kbit/s
+	- AAC Stereo @ 56 Kbit/s
 - Un manifeste A .ism
 - Un fichier XML répertoriant les propriétés des fichiers MP4 générés.
 		
@@ -545,7 +545,7 @@ Certains clients peuvent souhaiter créer un service d’encodage commercial bas
 
 ##Utilisation du support DPLM (Dolby Professional Loudness Metering)
 
-L’Encodeur multimédia Azure peut utiliser le Kit de développement logiciel (SDK) DPLM pour mesurer le volume sonore des dialogues dans l’entrée audio et définir la valeur correcte de DialogNormalization. Cette fonctionnalité est activée uniquement si l’encodage audio est effectué en Dolby Digital Plus. DPLM est configuré dans un fichier de configuration prédéfini à l’aide de l’élément <LoudnessMetering>, qui est un enfant de l’élément <DolbyDigitalPlusAudioProfile>. L’exemple de présélection suivant montre comment configurer DPLM :
+L’Encodeur multimédia Azure peut utiliser le Kit de développement logiciel (SDK) DPLM pour mesurer le volume sonore des dialogues dans l’entrée audio et définir la valeur correcte de DialogNormalization. Cette fonctionnalité est activée uniquement si l’encodage audio est effectué en Dolby Digital Plus. DPLM est configuré dans un fichier de configuration prédéfini à l’aide de l’élément <LoudnessMetering>, qui est un enfant de l’élément <DolbyDigitalPlusAudioProfile>. L’exemple de présélection suivant montre comment configurer DPLM :
 	
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset
@@ -589,18 +589,18 @@ Chaque attribut est décrit dans les sections suivantes.
 
 ###Attribut Mode
 
-Cet attribut détermine le mode de mesure du niveau sonore. Les valeurs autorisées sont les suivantes :
+Cet attribut détermine le mode de mesure du niveau sonore. Les valeurs autorisées sont les suivantes :
 
  
-**ITU\_R\_BS\_1770\_2\_DI** (par défaut) : indique ITU-R BS.1770-2 plus Dialogue Intelligence
+**ITU\_R\_BS\_1770\_2\_DI** (par défaut) : indique ITU-R BS.1770-2 plus Dialogue Intelligence
 
-**ITU\_R\_BS\_1770\_1\_DI** : indique ITU-R BS.1770-1 plus Dialogue Intelligence
+**ITU\_R\_BS\_1770\_1\_DI**: indique ITU-R BS.1770-1 plus Dialogue Intelligence
 
-**ITU\_R\_BS\_1770\_2** : indique ITU-R BS.1770-2
+**ITU\_R\_BS\_1770\_2**: indique ITU-R BS.1770-2
 
-**LEQA\_DI** : indique Leq(A) plus Dialogue Intelligence
+**LEQA\_DI**: indique Leq(A) plus Dialogue Intelligence
 
-**Remarque :**
+**Remarque :**
 
 Le mode **EBU R128** peut être obtenu avec **ITU\_R\_BS\_1770\_2\_DI**
 
@@ -610,7 +610,7 @@ L’**UIT** a récemment proposé une mise à jour intitulée BS.1770-3, équiva
 
 ###Attribut SpeechThreshold
 
-Spécifie un seuil vocal utilisé par DPLM pour produire un résultat de niveau sonore intégré (sélection entre régulation vocale, régulation de niveau et pas de régulation, par exemple). La plage des valeurs de seuil vocal est comprise entre 0 % et 100 %, par incréments de 1 %. Ce paramètre produit un effet uniquement quand DPLM est configuré dans un mode qui utilise Dialogue Intelligence, ce qui signifie qu’il peut uniquement être spécifié si Mode est défini selon ITU\_R\_BS\_1770\_2\_DI ou ITU\_R\_BS\_1770\_1\_DI. Quand Mode correspond à ITU\_R\_BS\_1770\_2\_DI ou ITU\_R\_BS\_1770\_1\_DI, la valeur par défaut est 20 %. Les valeurs de cet attribut doivent se situer dans la plage 0, 1 – 100.
+Spécifie un seuil vocal utilisé par DPLM pour produire un résultat de niveau sonore intégré (sélection entre régulation vocale, régulation de niveau et pas de régulation, par exemple). La plage des valeurs de seuil vocal est comprise entre 0 % et 100 %, par incréments de 1 %. Ce paramètre produit un effet uniquement quand DPLM est configuré dans un mode qui utilise Dialogue Intelligence, ce qui signifie qu’il peut uniquement être spécifié si Mode est défini selon ITU\_R\_BS\_1770\_2\_DI ou ITU\_R\_BS\_1770\_1\_DI. Quand Mode correspond à ITU\_R\_BS\_1770\_2\_DI ou ITU\_R\_BS\_1770\_1\_DI, la valeur par défaut est 20 %. Les valeurs de cet attribut doivent se situer dans la plage 0, 1 – 100.
 
 ###Attribut TruePeakDCBlock
 
@@ -636,19 +636,19 @@ Quand une tâche d’encodage spécifie l’utilisation de DPLM, les résultats 
 
 Chaque attribut est décrit ci-dessous.
 
-**DPLMVersionInformation** : chaîne représentant la version du Kit de développement logiciel (SDK) DPLM utilisé.
+**DPLMVersionInformation**: chaîne représentant la version du Kit de développement logiciel (SDK) DPLM utilisé.
 
-**DialogNormalization** : valeur de DialNorm mesurée, en décibels, à partir de l’entrée audio est incorporée dans le flux DD+ de sortie, dans la plage {-31, -30, …, -1} dB.
+**DialogNormalization**: valeur de DialNorm mesurée, en décibels, à partir de l’entrée audio est incorporée dans le flux DD+ de sortie, dans la plage {-31, -30, …, -1} dB.
 
-**IntegratedLoudness** : volume intégré tel que mesuré par DPLM, dans la plage -70 à +10 LKFS/dBFS (dBFS est utilisé uniquement quand Mode est défini sur LEQA\_DI).
+**IntegratedLoudness**: volume intégré tel que mesuré par DPLM, dans la plage -70 à +10 LKFS/dBFS (dBFS est utilisé uniquement quand Mode est défini sur LEQA\_DI).
 
-**IntegratedLoudnessGatingMethod** - Les valeurs valides sont : 0 – Aucun/Pas de fenêtre de mesure (None/Ungated) ; 1 – Signaux vocaux sur intervalle (Speech Gated) ; 2 – Niveau mesuré sur l’intervalle (Level Gated).
+**IntegratedLoudnessGatingMethod** - Les valeurs valides sont : 0 – Aucun/Pas de fenêtre de mesure (None/Ungated) ; 1 – Signaux vocaux sur intervalle (Speech Gated) ; 2 – Niveau mesuré sur l’intervalle (Level Gated).
 
-**IntegratedLoudnessSpeechPercentage** : ce résultat contient le pourcentage de la chronologie du média d’entrée quand des signaux vocaux sont détectés. Plage de valeurs comprise entre 0 % et 100 %.
+**IntegratedLoudnessSpeechPercentage**: ce résultat contient le pourcentage de la chronologie du média d’entrée quand des signaux vocaux sont détectés. Plage de valeurs comprise entre 0 % et 100 %.
 
-**SamplePeak** : ce résultat contient la valeur d’échantillonnage absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure, et se situe entre -70 et +10 dBFS.
+**SamplePeak**: ce résultat contient la valeur d’échantillonnage absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure, et se situe entre -70 et +10 dBFS.
 
-**TruePeak** : ce résultat contient la valeur true‐peak absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure. Pour obtenir la description du niveau true peak, consultez ITU‐R BS.1770‐2. La plage de valeurs est comprise entre -70 et 12,04 dBTP.
+**TruePeak**: ce résultat contient la valeur true‐peak absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure. Pour obtenir la description du niveau true peak, consultez ITU‐R BS.1770‐2. La plage de valeurs est comprise entre -70 et 12,04 dBTP.
  
 
 ##Parcours d’apprentissage de Media Services
@@ -659,4 +659,4 @@ Chaque attribut est décrit ci-dessous.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

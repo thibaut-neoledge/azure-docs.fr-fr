@@ -19,7 +19,7 @@
 
 # Création d’une règle simple pour configurer l’appartenance dynamique à un groupe
 
-Pour activer l’appartenance dynamique à un groupe spécifique, procédez comme suit :
+Pour activer l’appartenance dynamique à un groupe spécifique, procédez comme suit :
 
 1. Dans le portail Azure, sous l’onglet **Groupes**, sélectionnez le groupe à modifier, puis sous l’onglet **Configurer** de ce groupe, définissez le commutateur **Activer les appartenances dynamiques** sur **Oui**.
 
@@ -27,13 +27,17 @@ Pour activer l’appartenance dynamique à un groupe spécifique, procédez comm
 
 3. Ensuite, sélectionnez une condition (Non égal à, Égal à, Ne commence pas par, Commence par, Ne contient pas, Contient, Ne correspond pas, Correspond), puis spécifiez une valeur pour la propriété d’utilisateur sélectionnée. Par exemple, si un groupe est affecté à une application SaaS et que vous activez les appartenances dynamiques à ce groupe en définissant une règle selon laquelle **Ajouter des utilisateurs où** a la valeur jobTitle qui est égale à (-eq)Sales Rep, tous les utilisateurs au sein de votre annuaire Azure AD dont la propriété jobTitle a la valeur Sales Rep ont accès à cette application SaaS.
 
-4. Notez que vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office L’appartenance dynamique à des groupes nécessite une licence Azure AD Premium.
+4. Notez que vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office Les appartenances dynamiques à des groupes nécessitent d’attribuer une licence Azure AD Premium à l’administrateur qui gère la règle sur un groupe et à tous les utilisateurs sélectionnés par la règle pour être membres du groupe.
+
+Ici, vous pouvez en savoir plus sur les règles complexes pour l’appartenance dynamique au groupe :
+
+* [Utilisation d’attributs pour créer des règles avancées](active-directory-accessmanagement-groups-with-advanced-rules.md)
 
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
+* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

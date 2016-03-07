@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="02/23/2016"
    ms.author="alkohli"/>
 
 # Restauration à partir d'une sauvegarde de votre tableau de virtuel StorSimple (version préliminaire)
@@ -79,7 +79,7 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 5.  En bas de la page, cliquez sur **Restaurer comme nouveau**. L’assistant **Restaurer comme nouveau volume** démarre.
 
-1.  Dans la page **Spécifiez un nom et un emplacement** :
+1.  Dans la page **Spécifiez un nom et un emplacement**:
 
 
 	1.  Vérifiez le nom de l’appareil source. Il doit s'agir de l’appareil contenant le volume que vous souhaitez restaurer. La sélection de l'appareil n'est pas disponible. Pour sélectionner un autre appareil source, vous devez quitter l'assistant et sélectionner à nouveau le jeu de sauvegarde.
@@ -98,14 +98,13 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 2.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher le travail**. Vous accédez alors à la page **Travaux**.
 
-3.  Vous pouvez suivre la progression de la restauration. Quand la restauration est terminée à 100 %, accédez à la page **Volumes** sur votre appareil.
+3.  Vous pouvez suivre la progression de la restauration. Quand la restauration est terminée à 100 %, accédez à la page **Volumes** sur votre appareil.
 
-4.  Vous pouvez maintenant afficher le nouveau volume restauré dans la liste des volumes sur votre appareil.
+4.  Vous pouvez maintenant afficher le nouveau volume restauré dans la liste des volumes sur votre appareil. Notez que la restauration est effectuée pour le même type de volume. Un volume à plusieurs niveaux est restauré comme un volume à plusieurs niveaux, et un volume épinglé localement comme un volume épinglé localement.
 
-	> [AZURE.NOTE] La restauration est effectuée pour le même type de volume. Un volume à plusieurs niveaux est restauré comme un volume à plusieurs niveaux, et un volume épinglé localement comme un volume épinglé localement.
+> [AZURE.IMPORTANT] Lorsque vous tentez de restaurer un volume ou un partage à partir d’un jeu de sauvegarde, si le travail de restauration échoue, un volume ou partage cible peut toujours être créé dans le portail. Il est important de supprimer ce volume ou partage cible dans le portail pour réduire les problèmes futurs découlant de cet élément.
 
 ## Récupération au niveau de l'élément (ILR)
-
 
 Cette version présente la récupération au niveau de l’élément (ILR) sur un appareil virtuel StorSimple configuré comme un serveur de fichiers. Cette fonctionnalité vous permet d'effectuer une récupération granulaire de fichiers et de dossiers à partir d'une sauvegarde cloud contenant tous les partages sur l'appareil StorSimple. Grâce à un modèle en libre-service, les utilisateurs peuvent récupérer des fichiers supprimés à partir de sauvegardes récentes.
 
@@ -138,4 +137,4 @@ Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarde
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

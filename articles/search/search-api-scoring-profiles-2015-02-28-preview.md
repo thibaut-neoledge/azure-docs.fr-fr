@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Profils de score (API REST service Azure Search : version préliminaire 28/02/2015) | Microsoft Azure | Service de recherche cloud hébergé"
+	pageTitle="Profils de score (API REST Azure Search version 2015-02-28-Preview) | Microsoft Azure | API Azure Search (version préliminaire)"
 	description="Azure Search est un service de recherche cloud hébergé qui prend en charge le paramétrage des résultats classés en fonction des profils de score définis par l'utilisateur."
 	services="search"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="11/04/2015" />
+	ms.date="02/18/2016" />
 
 # Profils de score (API REST Azure Search Version 2015-02-28-Preview)
 
-> [AZURE.NOTE]Cet article décrit des profils de calcul de score dans la version [2015-02-28-Preview](search-api-2015-02-28-preview.md). Il n'existe actuellement aucune différence entre la version `2015-02-28` documentée sur [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) et la version `2015-02-28-Preview` décrite ici.
+> [AZURE.NOTE] Cet article décrit des profils de calcul de score dans la version [2015-02-28-Preview](search-api-2015-02-28-preview.md). Il n’existe actuellement aucune différence entre la version `2015-02-28` documentée sur [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) et la version `2015-02-28-Preview` décrite ici, mais nous offrons quand même ce document en guise d’information pour l’API.
 
 ## Vue d'ensemble
 
@@ -55,13 +55,13 @@ Pour utiliser ce profil de score, votre requête est formulée de façon à spé
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d'autres paramètres, tel que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents (API Azure Search)](search-api-2015-02-28-preview/#SearchDocs.md).
+Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d'autres paramètres, tel que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents (API Azure Search)](search-api-2015-02-28-preview/#SearchDocs).
 
 Pour voir un exemple plus détaillé de profil de score, cliquez sur [Exemple](#example)
 
-## Qu'est-ce qu'un calcul de score par défaut ?
+## Qu'est-ce qu'un calcul de score par défaut ?
 
-Un calcul de score détermine un score de recherche pour chaque élément dans un jeu de résultats classés par rang. Un score de recherche est attribué à chaque élément d'un jeu de résultats de recherche. Ils sont ensuite classés du rang le plus élevé au rang le plus bas. Les éléments dont les scores sont plus élevés sont renvoyés à l'application. Par défaut, il s'agit des 50 premiers éléments, mais le paramètre `$top` vous permet de définir le renvoi d'un nombre supérieur ou inférieur d'éléments (jusqu'à 1 000 par réponse).
+Un calcul de score détermine un score de recherche pour chaque élément dans un jeu de résultats classés par rang. Un score de recherche est attribué à chaque élément d'un jeu de résultats de recherche. Ils sont ensuite classés du rang le plus élevé au rang le plus bas. Les éléments dont les scores sont plus élevés sont renvoyés à l'application. Par défaut, il s'agit des 50 premiers éléments, mais le paramètre `$top` vous permet de définir le renvoi d'un nombre supérieur ou inférieur d'éléments (jusqu'à 1 000 par réponse).
 
 Par défaut, un score de recherche est calculé sur la base de propriétés statistiques des données et de la requête. Azure Search trouve les documents qui contiennent (en totalité ou en partie, selon le `searchMode`) les termes recherchés indiqués dans la chaîne de requête, en favorisant les documents qui contiennent de nombreuses occurrences du terme recherché. Le score de recherche augmente davantage si le terme est rare dans le corpus de données, mais courant au sein du document. La base de cette approche de la pertinence du calcul est appelée TF-IDF (Term Frequency-Inverse Document Frequency, fréquence de terme-fréquence inverse de document).
 
@@ -323,7 +323,7 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 <a name="bkmk_interpolation"></a>
 ##Définition d'interpolations
 
-Les interpolations permettent de définir la pente pour laquelle le score augmente, du début à la fin de la plage. Les interpolations utilisables sont les suivantes :
+Les interpolations permettent de définir la pente pour laquelle le score augmente, du début à la fin de la plage. Les interpolations utilisables sont les suivantes :
 
 - `Linear` Pour les éléments qui s'inscrivent dans la plage de max à min, la valorisation appliquée décroît de manière constante. L'interpolation de type Linear est l'interpolation par défaut pour un profil de calcul de score.
 
@@ -338,9 +338,9 @@ Les interpolations permettent de définir la pente pour laquelle le score augmen
 <a name="bkmk_boostdur"></a>
 ##Définition de boostingDuration
 
-`boostingDuration` est un attribut de la fonction freshness. Il permet de définir une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Par exemple, pour valoriser une ligne de produits ou une marque pendant une période promotionnelle de 10 jours, vous spécifiez la période de 10 jours en tant que « P10D » pour les documents correspondants. Ou pour valoriser des événements qui vont se produire au cours de la semaine à venir, spécifiez « -P7D ».
+`boostingDuration` est un attribut de la fonction freshness. Il permet de définir une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Par exemple, pour valoriser une ligne de produits ou une marque pendant une période promotionnelle de 10 jours, vous spécifiez la période de 10 jours en tant que « P10D » pour les documents correspondants. Ou pour valoriser des événements qui vont se produire au cours de la semaine à venir, spécifiez « -P7D ».
 
-La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle est le suivant :
+La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle est le suivant :
 
      [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
@@ -365,11 +365,11 @@ Le tableau suivant fournit plusieurs exemples.
 </tbody>
 </table>
 
-Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.org)](http://www.w3.org/TR/xmlschema11-2/).
+Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.org)](http://www.w3.org/TR/xmlschema11-2/).
 
 **Voir aussi** [API REST du service Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) sur MSDN <br/> [Création d’index (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798941.aspx) sur MSDN<br/> [Ajouter un profil de score à un index de recherche](http://msdn.microsoft.com/library/azure/dn798928.aspx) sur MSDN<br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

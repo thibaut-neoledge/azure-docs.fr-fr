@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/21/2016"
 	ms.author="micurd"/>
 
 # Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire)
@@ -34,7 +34,7 @@ Lors du développement avec la bibliothèque cliente de stockage Azure pour Xama
 
 Dans ce guide, nous allons utiliser Azure PowerShell pour créer un jeton SAP. Nous allons ensuite créer une application Xamarin qui utilise la signature d’accès partagé créée.
 
-Tout d’abord, vous devez installer Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md#Install).
+Tout d’abord, vous devez installer Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md#Install).
 
 Ensuite, ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubliez pas de remplacer `ACCOUNT_NAME` et `ACCOUNT_KEY== ` par les informations d’identification de votre compte de stockage. Remplacez `CONTAINER_NAME` par un nom de votre choix.
 
@@ -43,22 +43,22 @@ Ensuite, ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubli
 	PS C:\> $now = Get-Date
 	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
-L’URI de la signature d’accès partagé du nouveau conteneur doit être semblable à ce qui suit :
+L’URI de la signature d’accès partagé du nouveau conteneur doit être semblable à ce qui suit :
 
 	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 
 La signature d’accès partagé que vous avez créée sur le conteneur est valide pour le jour suivant. La signature accorde des droits d’accès complets (*par exemple*, lecture, écriture, suppression et liste) aux objets blob du conteneur.
 
-Pour plus d’informations sur les signatures d’accès partagé, consultez le [didacticiel sur les signatures d’accès partagé](storage-dotnet-shared-access-signature-part-2.md).
+Pour plus d’informations sur les signatures d’accès partagé, consultez la page [Signatures d’accès partagé : créer et utiliser une signature d’accès partagé avec Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Création d’une application Xamarin
 
-Pour ce didacticiel, nous allons créer l’application Xamarin dans Visual Studio. Procédez comme suit pour créer l’application :
+Pour ce didacticiel, nous allons créer l’application Xamarin dans Visual Studio. Procédez comme suit pour créer l’application :
 
 1. Téléchargez et installez [Visual Studio](https://www.visualstudio.com/).
 2. Téléchargez et installez [Xamarin](http://xamarin.com/platform).
 3. Ouvrez Visual Studio et sélectionnez **Fichier > Nouveau > Projet > Android > Application vide (Android)**.
-4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Gérer les packages NuGet**. Ensuite, recherchez **Azure Storage** et installez la **version préliminaire d’Azure Storage 4.4.0**.
+4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Gérer les packages NuGet**. Ensuite, recherchez **Azure Storage** et installez la **version préliminaire d’Azure Storage 4.4.0**.
 
 Vous devez maintenant avoir une application qui vous permet de cliquer sur un bouton et d’incrémenter un compteur.
 
@@ -66,7 +66,7 @@ Vous devez maintenant avoir une application qui vous permet de cliquer sur un bo
 
 Ensuite, ajoutez le code pour effectuer une série d’opérations de conteneur à l’aide de l’URI SAP que vous avez créé.
 
-Tout d’abord, ajoutez les instructions **using** suivantes :
+Tout d’abord, ajoutez les instructions **using** suivantes :
 
 	using System.IO;
 	using System.Text;
@@ -171,12 +171,13 @@ Bien que la prise en main se concentre sur Android, vous pouvez aussi utiliser l
 
 Dans ce didacticiel, vous avez appris à utiliser le stockage d’objets blob Azure avec une application Xamarin Android. En guise d’exercice supplémentaire, vous pouvez appliquer un modèle similaire afin de créer un jeton SAP pour une file d’attente ou table Azure.
 
-Pour en savoir plus sur les objets blob, les tables et les files d’attente, suivez les liens ci-après :
+Pour en savoir plus sur les objets blob, les tables et les files d’attente, suivez les liens ci-après :
 
-[Introduction à Microsoft Azure Storage](storage-introduction.md) 
-[Utilisation de Blob Storage à partir de .NET](storage-dotnet-how-to-use-blobs.md) 
-[Utilisation de Table Storage à partir de .NET](storage-dotnet-how-to-use-tables.md) 
-[Utilisation de Queue Storage à partir de .NET](storage-dotnet-how-to-use-queues.md)
-[Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+- [Introduction à Microsoft Azure Storage](storage-introduction.md)
+- [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md)
+- [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md)
+- [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md)
+- [Prise en main du stockage de fichiers Azure sur Windows](storage-dotnet-how-to-use-files.md)
+- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

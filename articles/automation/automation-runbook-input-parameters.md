@@ -25,7 +25,7 @@ Des paramètres d’entrée peuvent être configurés dans des Runbook PowerShel
 
 ## Configurer les paramètres d’entrée dans des Runbook PowerShell et de flux de travail PowerShell
 
-Les Runbook PowerShell et [de flux de travail PowerShell](automation-first-runbook-textual.md) dans Azure Automation prennent en charge les paramètres d’entrée définis à l’aide des attributs suivants :
+Les Runbook PowerShell et [de flux de travail PowerShell](automation-first-runbook-textual.md) dans Azure Automation prennent en charge les paramètres d’entrée définis à l’aide des attributs suivants :
 
 | **Propriété** | **Description** |
 |:--- |:---|
@@ -62,7 +62,7 @@ Si votre Runbook comprend un paramètre d’entrée de type [object], utilisez u
      [Parameter (Mandatory = $true)]
      [object] $FullName
 
-Vous pouvez transmettre la valeur suivante au paramètre :
+Vous pouvez transmettre la valeur suivante au paramètre :
 
     @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 
@@ -71,11 +71,11 @@ Vous pouvez transmettre la valeur suivante au paramètre :
 
 Pour configurer un Runbook graphique avec des paramètres d’entrée, nous allons créer un [Runbook graphique](automation-first-runbook-graphical.md) qui renvoie des détails sur des machines virtuelles, soit une machine virtuelle unique, soit toutes les machines virtuelles au sein d’un service. La configuration d'un Runbook implique deux activités principales, comme décrit ci-dessous.
 
-[**Add-AzureAccount**](https://msdn.microsoft.com/library/dn495128.aspx) pour s’authentifier auprès d’Azure ;
+[**Add-AzureAccount**](https://msdn.microsoft.com/library/dn495128.aspx) pour s’authentifier auprès d’Azure ;
 
 [**Get-AzureVM**](https://msdn.microsoft.com/library/azure/dn495236.aspx) pour obtenir toutes les machines virtuelles.
 
-Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) pour renvoyer les noms de machines virtuelles. L’activité **Get-AzureVM** accepte deux paramètres : le **nom de machine virtuelle** et le **nom de compte de service**. Étant donné que ces paramètres peuvent nécessiter des valeurs différentes chaque fois que vous démarrez le Runbook, vous pouvez ajouter des paramètres d’entrée à votre Runbook. Voici les étapes pour ajouter des paramètres d’entrée :
+Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) pour renvoyer les noms de machines virtuelles. L’activité **Get-AzureVM** accepte deux paramètres : le **nom de machine virtuelle** et le **nom de service**. Étant donné que ces paramètres peuvent nécessiter des valeurs différentes chaque fois que vous démarrez le Runbook, vous pouvez ajouter des paramètres d’entrée à votre Runbook. Voici les étapes pour ajouter des paramètres d’entrée :
 
 1. Sélectionnez le Runbook graphique dans le panneau **Runbooks**, puis [modifiez](automation-graphical-authoring-intro.md)-le.
 
@@ -84,7 +84,7 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
     ![Runbook graphique d’Automation](media/automation-runbook-input-parameters/automation_02_GraphicalRunbook.png)
 
 
-3. Le panneau **Entrée et sortie** affiche la liste des paramètres d’entrée qui sont définis pour le Runbook. Dans ce panneau, vous pouvez ajouter un nouveau paramètre d’entrée ou modifier la configuration d’un paramètre d’entrée existant. Pour ajouter un nouveau paramètre pour le Runbook, cliquez sur **Ajouter une entrée** pour ouvrir le panneau **Paramètre d’entrée de Runbook**. Dans ce panneau, vous pouvez configurer les paramètres suivants :
+3. Le panneau **Entrée et sortie** affiche la liste des paramètres d’entrée qui sont définis pour le Runbook. Dans ce panneau, vous pouvez ajouter un nouveau paramètre d’entrée ou modifier la configuration d’un paramètre d’entrée existant. Pour ajouter un nouveau paramètre pour le Runbook, cliquez sur **Ajouter une entrée** pour ouvrir le panneau **Paramètre d’entrée de Runbook**. Dans ce panneau, vous pouvez configurer les paramètres suivants :
 
     | **Propriété** | **Description** |
     |:--- |:---|
@@ -96,7 +96,7 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
 
     ![Ajouter une nouvelle entrée](media/automation-runbook-input-parameters/automation_03_AddNewInput.png)
 
-4. Créez deux paramètres avec les propriétés suivantes qui seront utilisées par l’activité **Get-AzureVM** :
+4. Créez deux paramètres avec les propriétés suivantes qui seront utilisées par l’activité **Get-AzureVM**:
 
     * **Parameter1:** 
     Name--VMName, 
@@ -104,10 +104,10 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
     Mandatory--No
 
     * **Parameter2:** 
-    Name--VMNameServiceName, 
+    Name--ServiceName, 
     Type--String, 
     Mandatory--No, 
-    Default value--Custom, 
+    Default Value--Custom, 
     Custom default value--<Nom du service par défaut qui contient les machines virtuelles>
 
 5. Une fois les paramètres ajoutés, cliquez sur **OK**. Vous pouvez maintenant les voir dans le panneau **Entrée et sortie**. Cliquez de nouveau sur **OK**, puis sur **Enregistrer** et **Publier** pour publier votre Runbook.
@@ -118,7 +118,7 @@ Vous pouvez transmettre des valeurs aux paramètres d’entrée dans des Runbook
 
 ### Démarrer un Runbook et affecter des paramètres
 
-Un Runbook peut être démarré de plusieurs façons : via l’interface utilisateur du portail Azure, avec un WebHook, avec des applets de commande PowerShell, avec l’API REST ou avec un Kit de développement logiciel (SDK). Nous abordons ci-dessous différentes méthodes pour démarrer un Runbook et affecter des paramètres.
+Un Runbook peut être démarré de plusieurs façons : via l’interface utilisateur du portail Azure, avec un WebHook, avec des applets de commande PowerShell, avec l’API REST ou avec un Kit de développement logiciel (SDK). Nous abordons ci-dessous différentes méthodes pour démarrer un Runbook et affecter des paramètres.
 
 - **Démarrer un Runbook publié à l’aide du portail Azure et affecter des paramètres**
 
@@ -135,9 +135,9 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 
 - **Démarrer un Runbook publié à l’aide d’applets de commande PowerShell et affecter des paramètres**
 
-    - **Applets de commande de gestion des services Azure :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources par défaut à l’aide de l’applet de commande [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
+    - **Applets de commande de gestion des services Azure :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources par défaut à l’aide de l’applet de commande [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
 
-    **Exemple :**
+    **Exemple :**
 
       ```
         $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
@@ -145,22 +145,22 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
-    - **Applets de commande d’Azure Resource Manager :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources à l’aide de l’applet de commande [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
+    - **Applets de commande d’Azure Resource Manager :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources à l’aide de l’applet de commande [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
 
-    **Exemple :**
+    **Exemple :**
 
       ```
         $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
-        Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
+        Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
 >[AZURE.NOTE] Lorsque vous démarrez un Runbook à l’aide d’applets de commande PowerShell, un paramètre par défaut, **MicrosoftApplicationManagementStartedBy**, est créé avec la valeur **PowerShell**. Vous pouvez afficher ce paramètre dans le panneau de **détails du travail**.
 
 - **Démarrer un Runbook à l’aide d’un Kit de développement logiciel (SDK) et affecter des paramètres**
 
-    - **Méthode de gestion des services Azure :** vous pouvez démarrer un Runbook en utilisant le Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+    - **Méthode de gestion des services Azure :** vous pouvez démarrer un Runbook en utilisant le Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```      
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -180,7 +180,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
         }
     ```
 
-    - **Méthode d’Azure Resource Manager :** vous pouvez démarrer un Runbook à l’aide du Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+    - **Méthode d’Azure Resource Manager :** vous pouvez démarrer un Runbook à l’aide du Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -219,12 +219,12 @@ Vous pouvez créer et démarrer une tâche de Runbook avec l’API REST d’Azur
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
 
-Dans l’URI de demande, remplacez les paramètres suivants :
+Dans l’URI de demande, remplacez les paramètres suivants :
 
-* **subscription-id** : ID de votre abonnement Azure.  
-* **cloud-service-name :** nom du service cloud auquel la demande doit être envoyée.  
-* **automation-account-name :** nom de votre compte Automation hébergé dans le service cloud spécifié.  
-* **job-id :** GUID de la tâche. Vous pouvez créer des GUID dans PowerShell à l’aide de l’applet de commande **[GUID]::NewGuid(). ToString()**.
+* **subscription-id**: ID de votre abonnement Azure.  
+* **cloud-service-name :** nom du service cloud auquel la demande doit être envoyée.  
+* **automation-account-name :** nom de votre compte Automation hébergé dans le service cloud spécifié.  
+* **job-id :** GUID de la tâche. Vous pouvez créer des GUID dans PowerShell à l’aide de la commande **[GUID]::NewGuid(). ToString()**.
 
 Pour transmettre des paramètres à la tâche du Runbook, utilisez le corps de la demande. Il accepte les deux propriétés suivantes, fournies au format JSON :
 
@@ -274,9 +274,9 @@ Lorsque vous exécutez un Runbook à l’aide d’un WebHook, un paramètre d’
 
 ## Étapes suivantes
 
-- Pour plus d’informations sur l’entrée et la sortie du Runbook, voir [Azure Automation : entrée et sortie de Runbook, et Runbook imbriqués](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)
+- Pour plus d’informations sur l’entrée et la sortie du Runbook, voir [Azure Automation : entrée et sortie de Runbook, et Runbook imbriqués](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)
 - Pour plus d’informations sur les différentes façons de démarrer un Runbook, voir [Démarrage d’un Runbook](automation-starting-a-runbook.md).
 - Pour modifier un Runbook textuel, voir [Modification des Runbook textuels](automation-edit-textual-runbook.md).
 - Pour modifier un Runbook graphique, voir [Création graphique dans Azure Automation](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

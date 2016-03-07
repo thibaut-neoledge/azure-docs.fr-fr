@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de PowerShell pour la configuration d’alertes dans Application Insights" 
+	pageTitle="Utilisation de PowerShell pour la configuration d’alertes dans Application Insights" 
 	description="Automatisez la configuration d’Application Insights pour recevoir des e-mails retraçant les modifications des métriques." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
-# Utilisation de PowerShell pour la configuration d’alertes dans Application Insights
+# Utilisation de PowerShell pour la configuration d’alertes dans Application Insights
 
 Vous pouvez automatiser la configuration des [alertes](app-insights-alerts.md) dans [Visual Studio Application Insights](app-insights-overview.md).
 
+En outre, vous pouvez [définir des webhooks pour automatiser votre réponse à une alerte](../azure-portal/insights-webhooks-alerts.md).
+
 ## Installation unique
 
-Si vous n’avez pas utilisé précédemment PowerShell avec votre abonnement Azure :
+Si vous n’avez pas utilisé précédemment PowerShell avec votre abonnement Azure :
 
 Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaitez exécuter les scripts.
 
@@ -31,7 +33,7 @@ Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaite
 
 ## Connexion à Azure
 
-Démarrez Azure PowerShell et [connectez-vous à votre abonnement](powershell-install-configure.md) :
+Démarrez Azure PowerShell et [connectez-vous à votre abonnement](../powershell-install-configure.md) :
 
 ```PowerShell
 
@@ -80,7 +82,7 @@ Le GUID est l’ID d’abonnement (et non la clé d’instrumentation de l’app
 
 ## Exemple 2
 
-J’ai une application dans laquelle j’utilise [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) pour signaler une métrique nommée « salesPerHour ». Envoyer un message électronique à mes collègues si la métrique « salesPerHour » est inférieure à 100, en moyenne calculée sur 24 heures.
+J’ai une application dans laquelle j’utilise [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) pour signaler une métrique nommée « salesPerHour ». Envoyer un message électronique à mes collègues si la métrique « salesPerHour » est inférieure à 100, en moyenne calculée sur 24 heures.
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -118,11 +120,11 @@ Nom de métrique | Nom d’écran | Description
 `remoteDependencyFailed.durationMetric.count`|Défaillances de dépendance|Nombre d'appels de l'application serveur aux ressources externes ayant échoué.
 `request.duration`|Temps de réponse du serveur|Temps écoulé entre la réception d'une requête HTTP et la fin de l'envoi de la réponse.
 `request.rate`|Taux de demandes|Taux par seconde de l'ensemble des demandes à l'application.
-`requestFailed.count`|Demandes ayant échoué|Nombre de requêtes HTTP qui ont abouti au code de réponse > = 400 
+`requestFailed.count`|Demandes ayant échoué|Nombre de requêtes HTTP qui ont abouti au code de réponse > = 400 
 `view.count`|Affichages de page|Nombre de demandes d’utilisateur client pour une page web. Le trafic synthétique est filtré.
 {nom de votre mesure personnalisée}|{nom de votre mesure}|Votre valeur métrique signalée par [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) ou dans le [paramètre de mesures d’un appel de suivi](app-insights-api-custom-events-metrics.md#properties).
 
-Les mesures sont envoyées par différents modules de télémétrie :
+Les mesures sont envoyées par différents modules de télémétrie :
 
 Groupe de mesures | Module du collecteur
 ---|---
@@ -131,6 +133,9 @@ performanceCounter | [Performances](app-insights-configuration-with-applicationi
 remoteDependencyFailed| [Dépendance](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
 request,<br/>requestFailed|[Demande serveur](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
+## Webhooks
+
+Vous pouvez [automatiser votre réponse à une alerte](../azure-portal/insights-webhooks-alerts.md). Azure appelle une adresse web de votre choix lorsqu’une alerte est déclenchée.
 
 ## Voir aussi
 
@@ -138,8 +143,9 @@ request,<br/>requestFailed|[Demande serveur](app-insights-configuration-with-app
 * [Script de configuration d’Application Insights](app-insights-powershell-script-create-resource.md)
 * [Créer des ressources Application Insights et de test Web à partir de modèles (en anglais)](app-insights-powershell.md)
 * [Automatiser l’association de Microsoft Azure Diagnostics avec Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Automatiser votre réponse à une alerte](../azure-portal/insights-webhooks-alerts.md)
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

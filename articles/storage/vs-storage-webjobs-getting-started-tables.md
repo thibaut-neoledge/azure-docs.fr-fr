@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Prise en main d’Azure Storage (projets de tâche web Azure)
 
 ## Vue d'ensemble
 
-Cet article fournit des exemples de code C# qui montrent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de tables Azure. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](/app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x.
+Cet article fournit des exemples de code C# qui montrent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de tables Azure. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x.
 
-Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles. Pour plus d’informations, voir l’article [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Utilisation du stockage de tables à partir de .NET").
+Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles. Pour plus d’informations, consultez la section [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md#create-a-table).
 
-
-Certains extraits de code illustrent l’attribut **Table** utilisé dans des fonctions [appelées manuellement](vs-storage-webjobs-getting-started-blobs.md#manual), c’est-à-dire sans utiliser l’un des attributs de déclenchement.
+Certains extraits de code illustrent l’attribut **Table** utilisé dans des fonctions appelées manuellement, c’est-à-dire sans utiliser l’un des attributs de déclenchement.
 
 ## Ajout d’une entité à une table
 
@@ -82,7 +81,7 @@ Lorsque l’exécution de la fonction se termine, la page **Détails des appels*
 
 Pour lire une table, utilisez l’attribut **Table** avec un paramètre **IQueryable<T>** où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
 
-L’exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress** :
+L’exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress**:
 
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -100,7 +99,7 @@ L’exemple de code suivant lit et enregistre toutes les lignes de la table **In
 
 Il existe un constructeur d’attribut **Table** présentant deux paramètres supplémentaires, qui vous permettent de spécifier la clé de partition et la clé de ligne lorsque vous souhaitez effectuer une liaison avec une entité de table unique.
 
-L’exemple de code suivant lit une ligne de table pour une entité **Person** basée sur des valeurs de clé de partition et de clé de ligne reçues dans un message en file d’attente :
+L’exemple de code suivant lit une ligne de table pour une entité **Person** basée sur des valeurs de clé de partition et de clé de ligne reçues dans un message en file d’attente :
 
 		public static void ReadTableEntity(
 		    [QueueTrigger("inputqueue")] Person personInQueue,
@@ -142,16 +141,16 @@ L’exemple de code suivant utilise un objet **CloudTable** pour ajouter une ent
 		    tableBinding.Execute(insertOperation);
 		}
 
-Pour en savoir plus sur l’utilisation de l’objet **CloudTable**, consultez [Utilisation du stockage de tables à partir de .NET](./storage-dotnet-how-to-use-tables.md).
+Pour en savoir plus sur l’utilisation de l’objet **CloudTable**, consultez la section [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md).
 
 ## Sujets connexes traités dans l’article de procédure relatif aux files d’attente
 
-Pour en savoir plus sur la gestion du traitement de tables déclenché par un message en file d’attente, ou pour consulter des scénarios relatifs au Kit de développement logiciel (SDK) WebJobs non spécifiques du traitement des tables, voir [Comment utiliser le stockage de la file d’attente Azure avec le Kit de développement logiciel (SDK) WebJobs](vs-storage-webjobs-getting-started-queues.md).
+Pour en savoir plus sur la gestion du traitement de tables déclenché par un message en file d’attente, ou pour consulter des scénarios relatifs au Kit de développement logiciel (SDK) WebJobs non spécifiques du traitement des tables, consultez la section [Prise en main d’Azure Queue Storage et des services connectés Visual Studio (projets WebJobs)](vs-storage-webjobs-getting-started-queues.md).
 
 
 
 ## Étapes suivantes
 
-Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
+Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) WebJobs, consultez la section [Ressources de documentation Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

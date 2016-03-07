@@ -1,5 +1,5 @@
 <properties
-   	pageTitle="Créer des clusters Hadoop, HBase ou Storm sur Linux dans HDInsight à l’aide de cURL et de l’API REST Azure | Microsoft Azure"
+   	pageTitle="Créer des clusters Hadoop, HBase ou Storm sur Linux dans HDInsight à l’aide de cURL et de l’API REST Azure | Microsoft Azure"
    	description="Apprenez à créer des clusters HDInsight sous Linux à l’aide de cURL, de modèles Azure Resource Manager et de l’API REST Azure. Vous pouvez spécifier le type de cluster (Hadoop, HBase ou Storm) ou utiliser des scripts pour installer des composants personnalisés."
    	services="hdinsight"
    	documentationCenter=""
@@ -19,11 +19,11 @@
 
 #Créer des clusters Linux dans HDInsight à l’aide de cURL et de l’API REST Azure
 
-[AZURE.INCLUDE [sélecteur](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [sélecteur](../../includes/hdinsight-selector-create-clusters.md)]
 
 L’API REST Azure vous permet d’effectuer des opérations de gestion sur les services hébergés sur la plateforme Azure, y compris la création de nouvelles ressources, telles que des clusters Linux dans HDInsight. Ce document explique comment créer des modèles Azure Resource Manager pour configurer un cluster HDInsight et le stockage associé, puis comment utiliser cURL pour déployer un modèle vers l’API REST Azure et créer un cluster HDInsight.
 
-> [AZURE.IMPORTANT] Les étapes de ce document utilisent le nombre par défaut de nœuds worker (4) pour un cluster HDInsight. Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
+> [AZURE.IMPORTANT] Les étapes de ce document utilisent le nombre par défaut de nœuds worker (4) pour un cluster HDInsight. Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -39,7 +39,7 @@ L’API REST Azure vous permet d’effectuer des opérations de gestion sur les 
 
     > [AZURE.NOTE] Si vous utilisez PowerShell pour exécuter les commandes décrites dans ce document, vous devez d’abord supprimer l’alias `curl` qu’il crée par défaut. Cet alias utilise l’applet de commande PowerShell Invoke-WebRequest au lieu de cURL quand vous exécutez la commande `curl` à partir d’une invite de commandes PowerShell. Il génère des erreurs pour la plupart des commandes utilisées dans ce document.
     > 
-    > Pour supprimer cet alias, exécutez la commande suivante à partir de l’invite PowerShell :
+    > Pour supprimer cet alias, exécutez la commande suivante à partir de l’invite PowerShell :
     >
     > ```Remove-item alias:curl`
     >
@@ -49,7 +49,7 @@ L’API REST Azure vous permet d’effectuer des opérations de gestion sur les 
 
 Les modèles Azure Resource Management sont des documents JSON qui décrivent un __groupe de ressources__ et toutes les ressources qu’il contient (par exemple, HDInsight). Cette approche basée sur un modèle vous permet de définir toutes les ressources dont vous avez besoin pour HDInsight dans un seul modèle et de gérer les modifications apportées au groupe dans son ensemble par le biais de __déploiements__ qui appliquent les modifications au groupe.
 
-Les modèles sont généralement constitués de deux parties : le modèle lui-même et un fichier de paramètres que vous renseignez avec les valeurs spécifiques de votre configuration (par exemple, le nom du cluster, le nom d’administrateur et le mot de passe). Si vous utilisez directement l’API REST, vous devez combiner ces deux parties en un seul fichier. Ce document JSON a le format suivant :
+Les modèles sont généralement constitués de deux parties : le modèle lui-même et un fichier de paramètres que vous renseignez avec les valeurs spécifiques de votre configuration (par exemple, le nom du cluster, le nom d’administrateur et le mot de passe). Si vous utilisez directement l’API REST, vous devez combiner ces deux parties en un seul fichier. Ce document JSON a le format suivant :
 
     {
         "properties": {
@@ -274,11 +274,11 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
 > * L’ID d’application renvoyé lors de la création du principal du service
 > * Le mot de passe du principal du service utilisé lors de la création de ce dernier
 
-Suivez les étapes décrites dans la section _Authentifier le principal du service avec un mot de passe - Azure CLI_ dans le document [Authentification d’un principal du service à l’aide d’Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Cette procédure crée un principal du service qui peut être utilisé pour authentifier la demande de création de cluster.
+Suivez les étapes décrites dans la section _Authentifier le principal du service avec un mot de passe - Azure CLI_ dans le document [Authentification d’un principal du service à l’aide d’Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Cette procédure crée un principal du service qui peut être utilisé pour authentifier la demande de création de cluster.
 
 ##Obtenir un jeton d’authentification
 
-Utilisez le code suivant pour obtenir un nouveau jeton d’Azure. Remplacez __TENANTID__, __APPLICATIONID__ et __PASSWORD__ par les informations ayant été enregistrées lors de la création d’un principal du service :
+Utilisez le code suivant pour obtenir un nouveau jeton d’Azure. Remplacez __TENANTID__, __APPLICATIONID__ et __PASSWORD__ par les informations ayant été enregistrées lors de la création d’un principal du service :
 
     curl -X "POST" "https://login.microsoftonline.com/TENANTID/oauth2/token" \
     -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
@@ -288,7 +288,7 @@ Utilisez le code suivant pour obtenir un nouveau jeton d’Azure. Remplacez __TE
     --data-urlencode "client_secret=PASSWORD" \
     --data-urlencode "resource=https://management.azure.com/"
 
-Si cette demande est acceptée, vous recevez une réponse 200 qui contient un document JSON.
+Si cette demande est acceptée, vous recevez une réponse 200 qui contient un document JSON.
 
 > [AZURE.IMPORTANT] Le document JSON renvoyé par cette demande comporte un élément nommé __access\_token__. La valeur de cet élément est le jeton d’accès à utiliser pour authentifier les demandes effectuées dans les sections suivantes de ce document.
 
@@ -299,7 +299,7 @@ Procédez comme suit pour créer un groupe de ressources. Vous devez créer le g
 * Remplacez __SUBSCRIPTIONID__ par l’ID d’abonnement reçu lors de la création du principal du service.
 * Remplacez __ACCESSTOKEN__ par le jeton d’accès reçu à l’étape précédente.
 * Remplacez __DATACENTERLOCATION__ par le centre de données dans lequel vous voulez créer le groupe de ressources et les ressources. Par exemple, « South Central US ». 
-* Remplacez __GROUPNAME__ par le nom souhaité pour ce groupe :
+* Remplacez __GROUPNAME__ par le nom souhaité pour ce groupe :
 
     curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d $'{ "location": "DATACENTERLOCATION" }’
 
@@ -315,17 +315,17 @@ Procédez comme suit pour déployer la configuration du cluster (modèle et para
 
     curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d "{set your body string to the template and parameters}"
 
-> [AZURE.NOTE] Si vous avez enregistré le document JSON contenant le modèle et les paramètres dans un fichier, vous pouvez utiliser le code suivant à la place de « -d "{ template and parameters}" » :
+> [AZURE.NOTE] Si vous avez enregistré le document JSON contenant le modèle et les paramètres dans un fichier, vous pouvez utiliser le code suivant à la place de « -d "{ template and parameters}" » :
 >
 > ```--data-binary "@/path/to/file.json"```
 
 Si cette demande est acceptée, vous recevez une réponse 200 qui contient un document JSON renfermant des informations sur le déploiement.
 
-> [AZURE.IMPORTANT] Notez que la demande de déploiement a été envoyée, mais que le déploiement n’est pas terminé à ce stade. Le processus de déploiement prend généralement 15 minutes environ.
+> [AZURE.IMPORTANT] Notez que la demande de déploiement a été envoyée, mais que le déploiement n’est pas terminé à ce stade. Le processus de déploiement prend généralement 15 minutes environ.
 
 ##Vérifier l’état d’un déploiement
 
-Pour vérifier l’état du déploiement, procédez comme suit :
+Pour vérifier l’état du déploiement, procédez comme suit :
 
 * Remplacez __SUBSCRIPTIONID__ et __ACCESSTOKEN__ par les valeurs utilisées précédemment. 
 * Remplacez __GROUPNAME__ par le nom du groupe de ressources créé dans la section précédente.
@@ -355,4 +355,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Modèle d’application v2.0 - Web App .NET | Microsoft Azure"
-	description="Génération d’une application web .NET MVC qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leur compte professionnel ou scolaire."
+	pageTitle="Application Web .NET v2.0 Azure AD | Microsoft Azure"
+	description="Génération d’une application web .NET MVC qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leur compte professionnel ou scolaire."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -13,42 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Version préliminaire du modèle d’application v2.0 : Ajouter une connexion à une application web MVC .NET
+# Ajouter une connexion à une application Web MVC .NET
 
-Avec le modèle d’application v2.0, vous pouvez rapidement ajouter une authentification à vos applications web, avec prise en charge des comptes Microsoft personnels et des comptes professionnels ou scolaires. Dans les applications web ASP.NET, vous pouvez y parvenir en utilisant l’intergiciel OWIN de Microsoft inclus dans .NET Framework 4.5.
+Avec le point de terminaison v2.0, vous pouvez rapidement ajouter une authentification à vos applications web, avec prise en charge des comptes Microsoft personnels et des comptes professionnels ou scolaires. Dans les applications web ASP.NET, vous pouvez y parvenir en utilisant l’intergiciel OWIN de Microsoft inclus dans .NET Framework 4.5.
 
-  >[AZURE.NOTE]
-    Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
 
- Ici, nous allons utiliser OWIN pour : 
-- Connecter l’utilisateur à l’application en utilisant Azure AD et le modèle d’application v2.0. 
-- Afficher des informations à propos de l’utilisateur. 
-- Déconnecter l’utilisateur de l’application.
-
-Pour ce faire, vous devez :
-
-1. inscrire une application ;
-2. configurer votre application pour utiliser le pipeline d’authentification OWIN ;
-3. utiliser OWIN pour émettre des demandes de connexion et de déconnexion auprès d’Azure AD ;
-4. afficher les données relatives à l’utilisateur.
-
-Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) ou la cloner :
+ Nous allons créer une application Web qui utilise OWIN pour connecter l’utilisateur, afficher des informations sur l’utilisateur et déconnecter l’utilisateur de l’application.
+ 
+ ## Téléchargement Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) ou la cloner :
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
-## 1\. Inscription d’une application
-Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
+## Inscription d’une application
+Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
-- copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
-- ajouter la plateforme **Web** pour votre application ;
+- copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
+- ajouter la plateforme **Web** pour votre application ;
 - entrer l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
 
-## 2\. Configurez votre application pour utiliser le pipeline d'authentification OWIN
+## Installer et configurer l’authentification OWIN
 Ici, nous allons configurer l’intergiciel OWIN pour utiliser le protocole d’authentification OpenID Connect. OWIN sera utilisé pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur, entre autres.
 
 -	Pour commencer, ouvrez le fichier `web.config` dans la racine du projet, puis entrez les valeurs de configuration de votre application dans la section `<appSettings>`.
@@ -58,12 +48,12 @@ Ici, nous allons configurer l’intergiciel OWIN pour utiliser le protocole d’
 -	Ajoutez ensuite les packages NuGet d'intergiciel (middleware) OWIN au projet à l'aide de la console du gestionnaire de package.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
-PM> Install-Package Microsoft.Owin.Security.Cookies 
-PM> Install-Package Microsoft.Owin.Host.SystemWeb 
+PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
+PM> Install-Package Microsoft.Owin.Security.Cookies
+PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
--	Ajoutez une « classe de démarrage OWIN » au projet nommé `Startup.cs`. Cliquez avec le bouton droit sur le projet --> **Ajouter** --> **Nouvel élément** --> Rechercher « OWIN ». L’intergiciel OWIN appelle la méthode `Configuration(...)` lorsque votre application démarre.
+-	Ajoutez une « classe de démarrage OWIN » au projet nommé `Startup.cs`. Cliquez avec le bouton droit sur le projet --> **Ajouter** --> **Nouvel élément** --> Rechercher « OWIN ». L’intergiciel OWIN appelle la méthode `Configuration(...)` lorsque votre application démarre.
 -	Modifiez la déclaration de classe en `public partial class Startup`. Nous avons déjà mis en œuvre une partie de cette classe pour vous, dans un autre fichier. Dans la méthode `Configuration(...)`, appelez ConfigureAuth(...) pour configurer l’authentification de votre application web.  
 
 ```C#
@@ -92,12 +82,12 @@ public void ConfigureAuth(IAppBuilder app)
 					 app.UseOpenIdConnectAuthentication(
 							 new OpenIdConnectAuthenticationOptions
 							 {
-									 // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+									 // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
 									 // The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
 									 // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
 									 ClientId = clientId,
-									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
+									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
 									 RedirectUri = redirectUri,
 									 Scope = "openid email profile",
 									 ResponseType = "id_token",
@@ -114,10 +104,10 @@ public void ConfigureAuth(IAppBuilder app)
 			 }
 ```
 
-## 3. Utiliser OWIN pour émettre des demandes de connexion et de déconnexion dans Azure AD
-Votre application est maintenant correctement configurée pour communiquer avec le point de terminaison v2.0 en utilisant le protocole d’authentification OpenID Connect. OWIN a pris en charge tous les détails déplaisants de la création de messages d’authentification, de la validation des jetons d’Azure AD et de la gestion des sessions utilisateur. Il ne reste qu’à offrir aux utilisateurs un moyen de se connecter et de se déconnecter.
+## Send authentication requests
+Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in and sign out.
 
-- Vous pouvez utiliser des balises autorisées dans vos contrôleurs pour exiger que l’utilisateur se connecte avant d’accéder à une page donnée. Ouvrez `Controllers\HomeController.cs` et ajoutez la balise `[Authorize]` au contrôleur About.
+- You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
 
 ```C#
 [Authorize]
@@ -174,8 +164,8 @@ else
 }
 ```
 
-## 4\. Afficher les informations utilisateur
-Lors de l’authentification des utilisateurs avec OpenID Connect, le point de terminaison v2.0 renvoie un jeton d’ID à l’application qui contient des [revendications](active-directory-v2-tokens.md#id_tokens) ou des assertions concernant l’utilisateur. Vous pouvez utiliser ces revendications pour personnaliser votre application :
+## Afficher les informations utilisateur
+Lors de l’authentification des utilisateurs avec OpenID Connect, le point de terminaison v2.0 renvoie un jeton d’ID à l’application qui contient des [revendications](active-directory-v2-tokens.md#id_tokens) ou des assertions concernant l’utilisateur. Vous pouvez utiliser ces revendications pour personnaliser votre application :
 
 - Ouvrez le fichier `Controllers\HomeController.cs`. Vous pouvez accéder aux revendications de l’utilisateur dans vos contrôleurs via l’objet principal de sécurité `ClaimsPrincipal.Current`.
 
@@ -199,20 +189,20 @@ public ActionResult About()
 }
 ```
 
-Enfin, générez et exécutez votre application. Connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou scolaire, et notez comment l’identité de l’utilisateur est indiquée dans la barre de navigation supérieure. Vous disposez désormais d’une application web sécurisée à l’aide de protocoles standard et pouvant authentifier les utilisateurs avec leurs comptes personnels et professionnels/scolaires.
+## Exécuter
 
-Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Enfin, générez et exécutez votre application. Connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou scolaire, et notez comment l’identité de l’utilisateur est indiquée dans la barre de navigation supérieure. Vous disposez désormais d’une application web sécurisée à l’aide de protocoles standard et pouvant authentifier les utilisateurs avec leurs comptes personnels et professionnels/scolaires.
+
+Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
 ## Étapes suivantes
 
-Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
+Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
-[Sécuriser une API web avec le modèle d’application v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Sécuriser une API Web avec le point de terminaison v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Pour obtenir des ressources supplémentaires, consultez :
-- [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) 
-- [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Pour obtenir des ressources supplémentaires, consultez : - [Guide de développement v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

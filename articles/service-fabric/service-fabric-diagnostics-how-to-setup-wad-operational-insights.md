@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/20/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Collecte de journaux d’un cluster Service Fabric avec Azure Diagnostics et Operational Insights
@@ -31,14 +31,14 @@ Operational Insights identifie les sources des différents types de journaux cha
 * [Azure Resource Manager](https://azure.microsoft.com/resource-group-overview/)
 
 ## Composants requis
-Les outils suivant sont utilisés pour exécuter certaines opérations décrites dans ce document : * [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [Client Azure Resource Manager](https://github.com/projectkudu/ARMClient)
+Les outils suivant sont utilisés pour exécuter certaines opérations décrites dans ce document : * [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [Client Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 
 ## Les différentes sources de journaux que vous pourriez souhaiter collecter
-1. **Journaux Service Fabric :** émis par la plateforme vers les canaux ETW et EventSource standard. Il existe plusieurs types de journaux :
-  - Événements opérationnels : ces journaux concernent les opérations exécutées par la plateforme Service Fabric. Par exemple : la création d’applications et de services, les modifications d’état des nœuds et les informations de mise à niveau.
+1. **Journaux Service Fabric :** émis par la plateforme vers les canaux ETW et EventSource standard. Il existe plusieurs types de journaux :
+  - Événements opérationnels : ces journaux concernent les opérations exécutées par la plateforme Service Fabric. Par exemple : la création d’applications et de services, les modifications d’état des nœuds et les informations de mise à niveau.
   - [Événements du modèle de programmation Actor](service-fabric-reliable-actors-diagnostics.md)
   - [Événements du modèle de programmation Reliable Services](service-fabric-reliable-services-diagnostics.md)
-2. **Événements d’application :** ces événements sont émis à partir de votre code de services et écrits à l’aide de la classe d’assistance EventSource fournie dans les modèles Visual Studio. Pour plus d’informations concernant l’écriture des journaux à partir de votre application, reportez-vous à [cet article sur la surveillance et diagnostic des services dans une configuration de machine locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+2. **Événements d’application :** ces événements sont émis à partir de votre code de services et écrits à l’aide de la classe d’assistance EventSource fournie dans les modèles Visual Studio. Pour plus d’informations concernant l’écriture des journaux à partir de votre application, reportez-vous à [cet article sur la surveillance et diagnostic des services dans une configuration de machine locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
 ## Déploiement de l’extension Diagnostics sur un cluster Service Fabric pour la collecte et le chargement de journaux
@@ -52,7 +52,7 @@ Pour créer un cluster à l’aide de Resource Manager, vous devez ajouter le fi
 
 Pour afficher les paramètres de Diagnostics dans le modèle Resource Manager, recherchez **WadCfg.** Pour créer un cluster à partir de ce modèle, cliquez simplement sur le bouton **Déployer sur Azure**, disponible via le lien ci-dessus. Vous pouvez également télécharger l’exemple Resource Manager, y apporter des modifications et créer un cluster à partir du modèle modifié en utilisant la commande `New-AzureResourceGroupDeployment` dans une fenêtre Azure PowerShell. Consultez les informations ci-dessous pour connaître les paramètres nécessaires à la commande.
 
-En outre, avant d’appeler cette commande de déploiement, vous devrez peut-être configurer d’autres paramètres. Par exemple : ajouter votre compte Azure (`Add-AzureAccount`), choisir un abonnement (`Select-AzureSubscription`), basculer en mode Resource Manager (`Switch-AzureMode AzureResourceManager`) et créer le groupe de ressources si vous ne l’avez pas encore fait (`New-AzureResourceGroup`).
+En outre, avant d’appeler cette commande de déploiement, vous devrez peut-être configurer d’autres paramètres. Par exemple : ajouter votre compte Azure (`Add-AzureAccount`), choisir un abonnement (`Select-AzureSubscription`), basculer en mode Resource Manager (`Switch-AzureMode AzureResourceManager`) et créer le groupe de ressources si vous ne l’avez pas encore fait (`New-AzureResourceGroup`).
 
 ```powershell
 
@@ -183,7 +183,7 @@ Pour connaître les étapes de création d’un espace de travail Operational In
 [Intégration d’Operational Insights (en anglais)](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### Configuration d’un espace de travail Operational Insights pour l’affichage des journaux du cluster
-Après avoir créé l’espace de travail Operational Insights comme décrit ci-dessus, l’étape suivante consiste à configurer cet espace de travail afin d’extraire les journaux des tables de stockage Azure sur lesquelles ils sont chargés par l’extension Diagnostics, à partir du cluster. À l’heure actuelle, cette configuration ne peut pas être mise en œuvre via le portail Operational Insights et ne peut être effectuée qu’à l’aide des commandes PowerShell. Exécutez le script PowerShell suivant :
+Après avoir créé l’espace de travail Operational Insights comme décrit ci-dessus, l’étape suivante consiste à configurer cet espace de travail afin d’extraire les journaux des tables de stockage Azure sur lesquelles ils sont chargés par l’extension Diagnostics, à partir du cluster. À l’heure actuelle, cette configuration ne peut pas être mise en œuvre via le portail Operational Insights et ne peut être effectuée qu’à l’aide des commandes PowerShell. Exécutez le script PowerShell suivant :
 
 ```powershell
 
@@ -286,31 +286,31 @@ if ($existingConfig) {
 }
 ```
 
-Une fois que vous avez configuré l’espace de travail Operational Insights pour lire à partir des tables Azure dans votre compte de stockage, vous devez vous connecter au portail et accéder à l’onglet **Stockage** associé à la ressource Operational Insights. Vous devriez obtenir le résultat suivant : ![Configuration du stockage Operational Insights dans le portail Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+Une fois que vous avez configuré l’espace de travail Operational Insights pour lire à partir des tables Azure dans votre compte de stockage, vous devez vous connecter au portail et accéder à l’onglet **Stockage** associé à la ressource Operational Insights. Vous devriez obtenir le résultat suivant : ![Configuration du stockage Operational Insights dans le portail Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Recherche et affichage des journaux dans Operational Insights
-Après avoir configuré votre espace de travail Operational Insights pour lire les journaux à partir du compte de stockage spécifié, l’affichage des journaux dans l’interface Operational Insights peut prendre jusqu’à 10 minutes. Pour avoir la certitude que de nouveaux journaux sont bien générés, vous pouvez déployer une application Service Fabric sur votre cluster de manière à générer des événements opérationnels à partir de la plateforme Service Fabric.
+Après avoir configuré votre espace de travail Operational Insights pour lire les journaux à partir du compte de stockage spécifié, l’affichage des journaux dans l’interface Operational Insights peut prendre jusqu’à 10 minutes. Pour avoir la certitude que de nouveaux journaux sont bien générés, vous pouvez déployer une application Service Fabric sur votre cluster de manière à générer des événements opérationnels à partir de la plateforme Service Fabric.
 
-1. Pour afficher les journaux, sélectionnez **Recherche de journal** sur la page principale du portail Operational Insights. ![Option de recherche de journaux Operational Insights](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/log-search-button-oi.png)
+1. Pour afficher les journaux, sélectionnez **Recherche de journal** sur la page principale du portail Operational Insights. ![Option de recherche de journaux Operational Insights](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/log-search-button-oi.png)
 
-2. Sur la page de recherche de journaux, utilisez la requête **Type=ServiceFabricOperationalEvent** pour afficher les journaux opérationnels de votre cluster, comme illustré ci-dessous. Pour afficher tous les journaux du modèle de programmation d’acteur, recherchez **Type = ServiceFabricReliableActorEvent**. Pour afficher tous les journaux du modèle de programmation Reliable Services, tapez **Type = ServiceFabricReliableServiceEvent**. ![Requête et affichage des journaux Operational Insights](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/view-logs-oi.png)
+2. Sur la page de recherche de journaux, utilisez la requête **Type=ServiceFabricOperationalEvent** pour afficher les journaux opérationnels de votre cluster, comme illustré ci-dessous. Pour afficher tous les journaux du modèle de programmation d’acteur, recherchez **Type = ServiceFabricReliableActorEvent**. Pour afficher tous les journaux du modèle de programmation Reliable Services, tapez **Type = ServiceFabricReliableServiceEvent**. ![Requête et affichage des journaux Operational Insights](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/view-logs-oi.png)
 
 ### Exemples de requêtes facilitant la résolution des problèmes
-Voici quelques exemples de scénarios et de requêtes que vous pouvez utiliser pour les résoudre :
+Voici quelques exemples de scénarios et de requêtes que vous pouvez utiliser pour les résoudre :
 
-1. **Pour savoir si la tâche RunAsync a été appelée pour un service spécifique par Service Fabric :** vous pouvez agir ainsi si vous devez vous assurer qu’un service se bloque lors du démarrage. Pour cela, effectuez une recherche en utilisant une requête similaire à celle ci-dessous, en remplaçant le nom du service et de l’application de manière à correspondre à ce que vous avez déployé et analysez les résultats obtenus :
+1. **Pour savoir si la tâche RunAsync a été appelée pour un service spécifique par Service Fabric :** vous pouvez agir ainsi si vous devez vous assurer qu’un service se bloque lors du démarrage. Pour cela, effectuez une recherche en utilisant une requête similaire à celle ci-dessous, en remplaçant le nom du service et de l’application de manière à correspondre à ce que vous avez déployé et analysez les résultats obtenus :
 
     ```
     Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateless1" AND "RunAsync has been invoked"
     ```
 
-2. **Si vous exécutez un service avec état et que vous souhaitez voir si des exceptions ont été levées et marquées comme des échecs par Service Fabric :** recherchez ces événements avec une requête similaire à celle-ci :
+2. **Si vous exécutez un service avec état et que vous souhaitez voir si des exceptions ont été levées et marquées comme des échecs par Service Fabric :** recherchez ces événements avec une requête similaire à celle-ci :
 
     ```
     Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateful1" AND TaskName=StatefulRunAsyncFailure
     ```
 
-3. **Pour rechercher des événements correspondant aux exceptions levées par les méthodes d’acteur dans tous les services et applications déployés :** vous pouvez utiliser une requête de ce type :
+3. **Pour rechercher des événements correspondant aux exceptions levées par les méthodes d’acteur dans tous les services et applications déployés :** vous pouvez utiliser une requête de ce type :
 
     ```
     Type=ServiceFabricReliableActorEvent AND TaskName=ActorMethodThrewException
@@ -325,4 +325,4 @@ Vous devrez mettre à jour la section EtwEventSourceProviderConfiguration dans l
 ## Étapes suivantes
 Vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) et [Reliable Services](service-fabric-reliable-services-diagnostics.md) pour comprendre plus en détail les événements auxquels vous devriez être attentif lors de la résolution des problèmes.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

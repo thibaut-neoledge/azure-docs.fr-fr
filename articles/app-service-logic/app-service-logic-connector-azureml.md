@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jehollan"/>
    
 # Vue d’ensemble
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+
 Le connecteur Azure ML pour Logic Apps permet d’appeler des API Azure ML pour la notation par lots (service d’exécution de lots) et la reformation. Ces fonctionnalités associées aux déclencheurs d’application logique permettent de planifier des tâches de traitement par lots et de configurer la reformation planifiée de modèles.
 
  ![][1]
  
 ## Utilisation et ajout du connecteur Azure Machine Learning dans votre application logique
-Pour commencer, créez une expérience dans Azure ML Studio, puis configurez et déployez un service Web. Vous pouvez ensuite utiliser l'URL et la clé de l'API de l’URL du billet BES qui se trouve sur la page d'aide d’extraction de lots. ([plus d'informations](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
+Pour commencer, créez une expérience dans Azure ML Studio, puis configurez et déployez un service Web. Vous pouvez ensuite utiliser l’URL et la clé de l’API de l’URL du billet BES qui se trouve sur la page d’aide d’extraction de lots ([procédure Machine Learning](../machine-learning/machine-learning-walkthrough-5-publish-web-service.md)).
 
-Pour exécuter une tâche BES à l’aide du connecteur, ajoutez le connecteur Azure ML dans votre application logique. Entrez ensuite les informations requises (voir ci-dessous pour plus d'informations). Pour configurer la reformation, ajoutez un second connecteur Azure ML et renseignez les paramètres d'entrée (voir [ici](machine-learning-retrain-models-programmatically.md) pour plus d'informations sur la configuration d'un modèle pour la reformation).
+Pour exécuter une tâche BES à l’aide du connecteur, ajoutez le connecteur Azure ML dans votre application logique. Entrez ensuite les informations requises (voir ci-dessous pour plus d'informations). Pour configurer la reformation, ajoutez un second connecteur Azure ML et renseignez les paramètres d’entrée (voir [Configuration d’un modèle pour la reformation](../machine-learning/machine-learning-retrain-models-programmatically.md).
 
 ## Exécution d’une tâche d'exécution de lots Azure ML
-Le connecteur Azure ML propose les quatre options suivantes pour les tâches d’exécution de lots (BES) : 1. Traitement par lots avec entrée et sortie : l’expérience dispose de modules d’entrée et de sortie du service Web 2. Traitement par lots sans entrée ni sortie : l’expérience ne dispose pas de modules d’entrée et de sortie du service Web (elle utilise par exemple des modules Lecteur et Enregistreur) 3. Traitement par lots avec entrée uniquement : l’expérience dispose d’un module d'entrée du service Web, mais ne dispose d’aucun module de sortie du service Web (elle utilise par exemple un module Enregistreur) 4. Traitement par lots avec sortie uniquement : l’expérience ne dispose d’aucun module d’entrée du service Web, mais dispose d’un module de sortie du service Web (elle utilise par exemple un module Lecteur) Notez que BES est une requête asynchrone et qu’il peut prendre du temps pour s’exécuter selon la taille de vos données et la complexité du modèle. Une fois la tâche terminée, le connecteur renvoie le résultat de sortie.
+Le connecteur Azure ML propose les quatre options suivantes pour les tâches d’exécution de lots (BES) : 1. Traitement par lots avec entrée et sortie : l’expérience dispose de modules d’entrée et de sortie du service Web 2. Traitement par lots sans entrée ni sortie : l’expérience ne dispose pas de modules d’entrée et de sortie du service Web (elle utilise par exemple des modules Lecteur et Enregistreur) 3. Traitement par lots avec entrée uniquement : l’expérience dispose d’un module d'entrée du service Web, mais ne dispose d’aucun module de sortie du service Web (elle utilise par exemple un module Enregistreur) 4. Traitement par lots avec sortie uniquement : l’expérience ne dispose d’aucun module d’entrée du service Web, mais dispose d’un module de sortie du service Web (elle utilise par exemple un module Lecteur) Notez que BES est une requête asynchrone et qu’il peut prendre du temps pour s’exécuter selon la taille de vos données et la complexité du modèle. Une fois la tâche terminée, le connecteur renvoie le résultat de sortie.
 
-### Exécution d’une tâche d’exécution de lots : avec entrée et sortie
-Si l'expérience Studio dispose de modules d’entrée et de sortie du service Web, vous devez fournir des informations sur le compte et l’emplacement des objets blob de stockage ([plus d’informations](machine-learning-consume-web-services.md)). En outre, vous pouvez inclure des paramètres Global (service Web) s’ils sont définis dans votre expérience ([plus d’informations](machine-learning-web-service-parameters.md)).
+### Exécution d’une tâche d’exécution de lots : avec entrée et sortie
+Si l’expérience Studio dispose de modules d’entrée et de sortie du service web, vous devez [fournir des informations sur le compte et l’emplacement des objets blob de stockage](../machine-learning/machine-learning-consume-web-services.md). En outre, vous pouvez inclure des paramètres Global (service web) s’ils sont définis dans votre expérience ([paramètres du service web Machine Learning](../machine-learning/machine-learning-web-service-parameters.md)).
 
 ![][2]
 
@@ -54,13 +56,13 @@ Utilisez l’action Configurer la reformation pour configurer la reformation pon
  
 ## Sortie du connecteur 
  
-**BES** : une fois le traitement par lots terminé, la sortie du connecteur comprendra les informations suivantes pour chaque sortie du service Web.
+**BES**: une fois le traitement par lots terminé, la sortie du connecteur comprendra les informations suivantes pour chaque sortie du service Web.
  
  ![][6]
  
 Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus de sortie du service Web (par exemple, si vous utilisez un module Enregistreur pour écrire dans une base de données à partir de l'expérience dans le Studio).
 
-**Reformation** : une fois la reformation terminée, la sortie comprendra les informations suivantes.
+**Reformation**: une fois la reformation terminée, la sortie comprendra les informations suivantes.
 
 ![][7]
 
@@ -77,4 +79,4 @@ Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus d
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

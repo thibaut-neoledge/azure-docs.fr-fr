@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comment utiliser Hudson avec Blob Storage | Microsoft Azure"
+	pageTitle="Comment utiliser Hudson avec Blob Storage | Microsoft Azure"
 	description="Description de l’utilisation de la solution Hudson avec le stockage d’objets blob Azure comme référentiel pour des artefacts de build."
 	services="storage"
 	documentationCenter="java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+	ms.date="02/21/2016" 
 	ms.author="robmcm"/>
 
 # Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
@@ -28,11 +28,11 @@ Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Hudson CI
 
 Hudson rend possible l’intégration continue d’un projet de logiciel en permettant aux développeurs d’intégrer aisément les modifications de leur code et de créer automatiquement et fréquemment des builds, d’où une productivité accrue. Les versions des builds sont gérées et les artefacts de build peuvent être téléchargés dans divers référentiels. Dans cet article, vous allez apprendre à utiliser le stockage d'objets blob Azure comme référentiel des artefacts de build. Vous allez également apprendre à télécharger des dépendances depuis le stockage d'objets blob Azure.
 
-Pour plus d'informations sur Hudson, consultez la page de [présentation d'Hudson][].
+Pour plus d'informations sur Hudson, consultez la page de [présentation d'Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## Avantages de l’utilisation du service BLOB ##
 
-L’utilisation du service BLOB pour héberger vos artefacts de build dans un environnement agile présente les avantages suivants :
+L’utilisation du service BLOB pour héberger vos artefacts de build dans un environnement agile présente les avantages suivants :
 
 - Haute disponibilité de vos artefacts de build et/ou dépendances téléchargeables.
 - Performances lorsque votre solution Hudson CI télécharge vos artefacts de build.
@@ -41,14 +41,14 @@ L’utilisation du service BLOB pour héberger vos artefacts de build dans un en
 
 ## Composants requis ##
 
-Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin des éléments suivants :
+Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin des éléments suivants :
 
 - Une solution d'intégration continue Hudson.
 
-    Si vous ne disposez pas d’une solution Hudson CI, vous pouvez en exécuter une à l’aide de la technique suivante :
+    Si vous ne disposez pas d’une solution Hudson CI, vous pouvez en exécuter une à l’aide de la technique suivante :
 
     1. Sur un ordinateur compatible Java, téléchargez le WAR Hudson à partir de <http://hudson-ci.org/>.
-    2. Accédez au dossier contenant le WAR Hudson et exécutez ce dernier à l’aide d’une invite de commandes. Par exemple, si vous avez téléchargé la version 3.1.2 :
+    2. Accédez au dossier contenant le WAR Hudson et exécutez ce dernier à l’aide d’une invite de commandes. Par exemple, si vous avez téléchargé la version 3.1.2 :
 
         `java -jar hudson-3.1.2.war`
 
@@ -62,7 +62,7 @@ Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin de
 
 - Un compte Azure. Pour créer un compte Azure, consultez la page <http://www.azure.com>.
 
-- Un compte de stockage Azure. Si vous ne disposez pas déjà d'un compte de stockage, vous pouvez en créer un en suivant la procédure décrite à la page [Création d'un compte de stockage][].
+- Un compte de stockage Azure. Si vous ne disposez pas déjà d’un compte de stockage, vous pouvez en créer un en suivant la procédure décrite dans la section [Créer un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
 - Une bonne connaissance de la solution Hudson CI est recommandée, mais pas obligatoire, car le contenu suivant emploiera un exemple élémentaire pour décrire la procédure requise lorsque vous utilisez le service BLOB comme référentiel pour les artefacts de build Hudson CI.
 
@@ -84,7 +84,7 @@ Pour utiliser le service BLOB avec Hudson, vous devez installer le plug-in Azure
 
 1. Dans le tableau de bord Hudson, cliquez sur **Manage Hudson**.
 2. Sur la page **Manage Hudson**, cliquez sur **Configure System**.
-3. Dans la section **Configuration du compte Microsoft Azure Storage** :
+3. Dans la section **Configuration du compte Microsoft Azure Storage**:
 
     a. Entrez le nom de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](https://portal.azure.com).
 
@@ -105,7 +105,7 @@ Pour les besoins de la formation, nous devons d’abord créer une tâche qui cr
 1. Dans le tableau de bord Hudson, cliquez sur **New Job**.
 2. Nommez la tâche **MyJob**, cliquez sur **Build a free-style software job**, puis cliquez sur **OK**.
 3. Dans la section **Build** de la configuration de la tâche, cliquez sur **Add build step** et choisissez **Execute Windows batch command**.
-4. Dans **Command**, utilisez les commandes suivantes :
+4. Dans **Command**, utilisez les commandes suivantes :
 
         md text
         cd text
@@ -115,13 +115,13 @@ Pour les besoins de la formation, nous devons d’abord créer une tâche qui cr
 
 5. Dans la section **Actions post-build** de la configuration de la tâche, cliquez sur **Télécharger les artefacts vers le stockage d'objets blob Microsoft Azure**.
 6. Pour **Storage Account Name**, sélectionnez le compte de stockage à utiliser.
-7. Pour **Container Name**, spécifiez le nom du conteneur. Le conteneur est créé s’il n’existe pas déjà au téléchargement des artefacts de build. Vous pouvez utiliser des variables d'environnement : pour cet exemple, entrez **${JOB\_NAME}** comme nom de conteneur.
+7. Pour **Container Name**, spécifiez le nom du conteneur. Le conteneur est créé s’il n’existe pas déjà au téléchargement des artefacts de build. Vous pouvez utiliser des variables d'environnement : pour cet exemple, entrez **${JOB\_NAME}** comme nom de conteneur.
 
     **Conseil**
 
     Sous la section **Command** où vous avez entré un script pour **Execute Windows batch command**, un lien permet d'accéder aux variables d'environnement reconnues par Hudson. Cliquez sur ce lien pour découvrir les noms des variables d’environnement avec leurs descriptions. Notez que les variables d'environnement qui contiennent des caractères spéciaux, telle la variable d'environnement **BUILD\_URL**, ne sont pas autorisées comme nom de conteneur ou chemin virtuel commun.
 
-8. Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cet article. Pour en savoir plus sur les signatures d'accès partagé, consultez la page [Créer et utiliser une signature d'accès partagé](http://go.microsoft.com/fwlink/?LinkId=279889).
+8. Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cet article. Pour en savoir plus sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
 9. [Facultatif] Cliquez sur **Nettoyer le conteneur avant le téléchargement** si vous souhaitez que le contenu du conteneur soit effacé avant le téléchargement des artefacts de build (ne sélectionnez pas cette option si vous ne souhaitez pas effacer le contenu du conteneur).
 10. Pour **List of Artifacts to upload**, entrez **text/*.txt**.
 11. Pour **Common virtual path for uploaded artifacts**, entrez **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -139,7 +139,7 @@ Pour les besoins de la formation, nous devons d’abord créer une tâche qui cr
 
     e. Cliquez sur le conteneur nommé **myjob**, qui correspond à la version en minuscules du nom de tâche attribué à la création de la tâche Hudson. Les noms de conteneurs et les noms d'objets blob sont en minuscules (et sensibles à la casse) dans le stockage Azure. La liste d'objets blob du conteneur nommé **myjob** contient normalement les fichiers **hello.txt** et **date.txt**. Copiez l’URL correspondant à l’un de ces éléments et ouvrez-la dans le navigateur. Le fichier texte qui a été téléchargé apparaît comme un artefact de build.
 
-Une seule action post-build qui télécharge les artefacts dans le stockage d'objet blob Azure peut être créée par tâche. Notez que l'action post-build permettant de télécharger des artefacts sur le stockage d'objets blob Azure peut spécifier différents fichiers (y compris des caractères génériques) et chemins d'accès aux fichiers dans **Liste des artefacts à télécharger** grâce à l'ajout d'un point-virgule comme séparateur. Par exemple, si votre build Hudson produit des fichiers JAR et des fichiers TXT dans le dossier **build** de votre espace de travail et que vous souhaitez télécharger ces deux types de fichiers sur le stockage d'objets blob Azure, entrez ce qui suit dans le champ **Liste des artefacts à télécharger** : **build/*.jar;build/*.txt**. Vous pouvez aussi utiliser un double signe deux-points pour indiquer le chemin à utiliser dans le nom de l’objet blob. Par exemple, si vous souhaitez que les fichiers JAR soient téléchargés à l’aide de fichiers **binaires** dans le chemin d’accès des objets blob et que les fichiers TXT soient téléchargés à l’aide de **notices** dans le chemin d’accès des objets blob, entrez ce qui suit dans le champ **Liste des artefacts à télécharger** : **build/*.jar::binaries;build/*.txt::notices**
+Une seule action post-build qui télécharge les artefacts dans le stockage d'objet blob Azure peut être créée par tâche. Notez que l'action post-build permettant de télécharger des artefacts sur le stockage d'objets blob Azure peut spécifier différents fichiers (y compris des caractères génériques) et chemins d'accès aux fichiers dans **Liste des artefacts à télécharger** grâce à l'ajout d'un point-virgule comme séparateur. Par exemple, si votre build Hudson produit des fichiers JAR et des fichiers TXT dans le dossier **build** de votre espace de travail et que vous souhaitez télécharger ces deux types de fichiers sur le stockage d'objets blob Azure, entrez ce qui suit dans le champ **Liste des artefacts à télécharger**: **build/*.jar;build/*.txt**. Vous pouvez aussi utiliser un double signe deux-points pour indiquer le chemin à utiliser dans le nom de l’objet blob. Par exemple, si vous souhaitez que les fichiers JAR soient téléchargés à l’aide de fichiers **binaires** dans le chemin d’accès des objets blob et que les fichiers TXT soient téléchargés à l’aide de **notices** dans le chemin d’accès des objets blob, entrez ce qui suit dans le champ **Liste des artefacts à télécharger**: **build/*.jar::binaries;build/*.txt::notices**
 
 ## Création d'une étape de génération pour télécharger des éléments depuis un stockage d'objets blob Azure ##
 
@@ -159,22 +159,27 @@ Après avoir exécuté une build, vous pouvez vérifier la sortie de la console 
 
 La section suivante présente les composants du service BLOB.
 
-- **Compte de stockage** : tout accès au stockage Azure s'effectue via un compte de stockage. Il s’agit du plus haut niveau d’espace de noms permettant d’accéder aux objets blob. Un compte peut contenir un nombre illimité de conteneurs, tant que sa taille totale ne dépasse pas 100 To.
-- **Conteneur** : conteneur regroupant un ensemble d’objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob.
-- **Objet blob** : fichier de tout type et de toute taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objet blob, peuvent avoir une taille maximale de 1 To et sont plus efficaces lorsque les plages d'octets d'un fichier sont fréquemment modifiées. Pour plus d’informations sur les blobs, consultez la page [Présentation des objets BLOB de blocs et des objets BLOB de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
-- **Format d'URL** : les objets blob sont adressables à l'aide du format d'URL suivant :
+- **Compte de stockage**: tout accès au stockage Azure s'effectue via un compte de stockage. Il s’agit du plus haut niveau d’espace de noms permettant d’accéder aux objets blob. Un compte peut contenir un nombre illimité de conteneurs, tant que sa taille totale ne dépasse pas 100 To.
+- **Conteneur**: conteneur regroupant un ensemble d’objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob.
+- **Objet blob**: fichier de tout type et de toute taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objet blob, peuvent avoir une taille maximale de 1 To et sont plus efficaces lorsque les plages d'octets d'un fichier sont fréquemment modifiées. Pour plus d’informations sur les objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+- **Format d'URL**: les objets blob sont adressables à l'aide du format d'URL suivant :
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
 
     Le format ci-dessus s’applique au cloud public Azure. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le [portail Azure](https://portal.azure.com) pour déterminer votre URL de point de terminaison.
 
-    Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d'accès, séparés par une barre oblique (**/**). Dans ce didacticiel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L'URL de l'objet blob a donc la forme suivante :
+    Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d'accès, séparés par une barre oblique (**/**). Dans ce didacticiel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L'URL de l'objet blob a donc la forme suivante :
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## Étapes suivantes
 
-  [Création d'un compte de stockage]: http://go.microsoft.com/fwlink/?LinkId=279823
-  [présentation d'Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
+- [Présentation d’Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+- [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
+- [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
+- [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+Pour plus d’informations, consultez également le [Centre pour développeurs Java](https://azure.microsoft.com/develop/java/).
+
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Contrôle du routage et utilisation des appliances virtuelles dans le Gestionnaire de ressources à l'aide d'un modèle | Microsoft Azure"
-   description="Apprenez à contrôler le routage et utiliser des appliances virtuelles dans Azure à l'aide de modèles"
+   pageTitle="Contrôle du routage et utilisation des appliances virtuelles dans Resource Manager à l'aide d’un modèle | Microsoft Azure"
+   description="Découvrez comment contrôler le routage et utiliser des appliances virtuelles dans Azure Resource Manager à l’aide d’un modèle"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Création d'itinéraires définis par l'utilisateur (UDR) à l'aide d'un modèle
+#Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager à l’aide d’un modèle
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -29,9 +29,9 @@
 
 ## Ressources UDR dans un fichier de modèle
 
-Vous pouvez afficher et télécharger l’[exemple de modèle](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
+Vous pouvez afficher et télécharger les [exemples de modèles](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
-La section ci-dessous illustre la définition de l'itinéraire défini par l'utilisateur (UDR) FrontEnd dans le fichier azuredeploy-vnet-nsg-udr.json, selon le scénario ci-dessus.
+La section ci-dessous illustre la définition de l’itinéraire défini par l'utilisateur (UDR) frontal dans le fichier **azuredeploy-vnet-nsg-udr.json**, selon le scénario ci-dessus.
 
 	"apiVersion": "2015-06-15",
 	"type": "Microsoft.Network/routeTables",
@@ -116,15 +116,19 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
-3. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **New-AzureRmResourceGroup**.
+2. Pour créer un groupe de ressources, exécutez l’applet de commande `New-AzureRmResourceGroup`.
 
-		New-AzureRmResourceGroup -Name TestRG -Location westus `
-		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
+		New-AzureRmResourceGroup -Name TestRG -Location westus
 
-	Sortie attendue :
+3. Pour déployer le modèle, exécutez l’applet de commande `New-AzureRmResourceGroupDeployment`.
+
+		New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
+		    -TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
+		    -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json	    	
+
+	Sortie attendue :
 
 		ResourceGroupName : TestRG
 		Location          : westus
@@ -164,18 +168,18 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Déployer le modèle ARM à l'aide de l'interface de ligne de commande Azure
 
 Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande Azure, procédez comme suit.
 
-1. Si vous n'avez jamais utilisé l'interface de ligne de commande Azure, consultez [Installation et configuration de l'interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu'à l'étape vous invitant à sélectionner votre compte et votre abonnement Azure.
-2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+2. Exécutez la commande `azure config mode` pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
 
-	Voici le résultat attendu pour la commande ci-dessus :
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		info:    New mode is arm
 
@@ -201,7 +205,7 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 
 		azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command group create
 		info:    Getting resource group TestRG
@@ -390,6 +394,6 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP]Si vous ne voyez pas toutes les ressources, exécutez la commande **azure group deployment show** pour vérifier que l'état d'approvisionnement du déploiement est défini sur *Succeded*.
+>[AZURE.TIP] Si vous ne voyez pas toutes les ressources, exécutez la commande `azure group deployment show` pour vérifier que l’état d’approvisionnement du déploiement est défini sur *Succeded*.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

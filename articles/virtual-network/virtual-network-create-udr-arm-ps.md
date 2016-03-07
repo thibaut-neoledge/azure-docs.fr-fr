@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Contrôle du routage et utilisation des appliances virtuelles dans le Gestionnaire de ressources à l'aide de PowerShell | Microsoft Azure"
-   description="Apprenez à contrôler le routage et utiliser des appliances virtuelles dans Azure PowerShell"
+   pageTitle="Contrôle du routage et utilisation des appliances virtuelles dans Resource Manager à l’aide de PowerShell | Microsoft Azure"
+   description="Découvrez comment contrôler le routage et utiliser des appliances virtuelles dans Resource Manager à l’aide de PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Création d'itinéraires définis par l'utilisateur (UDR) dans PowerShell
+#Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager à l’aide de PowerShell
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -56,19 +56,19 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
->[AZURE.WARNING]La sortie de la commande ci-dessus affiche le contenu de l’objet de configuration de réseau virtuel, qui existe uniquement sur l’ordinateur sur lequel vous exécutez PowerShell. Vous devez exécuter l’applet de commande **Set-AzureVirtualNetwork** pour enregistrer ces paramètres dans Azure.
+>[AZURE.WARNING] La sortie de la commande ci-dessus affiche le contenu de l’objet de configuration de réseau virtuel, qui existe uniquement sur l’ordinateur sur lequel vous exécutez PowerShell. Vous devez exécuter l’applet de commande **Set-AzureVirtualNetwork** pour enregistrer ces paramètres dans Azure.
 
 7. Enregistrez la nouvelle configuration de sous-réseau dans Azure.
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	Sortie attendue :
+	Sortie attendue :
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : westus
 		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              : 
 		                    Name         Value
@@ -133,7 +133,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	Sortie attendue :
+	Sortie attendue :
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -181,7 +181,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		                    ]
 
 ## Activer le transfert IP sur FW1
-Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez les étapes ci-dessous.
+Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez les étapes ci-dessous.
 
 1. Créez une variable qui contient les paramètres de la carte réseau utilisée par FW1. Dans notre scénario, la carte réseau est nommée **NICFW1**.
 
@@ -192,7 +192,7 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez
 		$nicfw1.EnableIPForwarding = 1
 		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
-	Sortie attendue :
+	Sortie attendue :
 
 		Name                 : NICFW1
 		ResourceGroupName    : TestRG
@@ -236,4 +236,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

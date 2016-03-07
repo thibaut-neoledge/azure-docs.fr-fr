@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles Azure Resource Manager
@@ -24,7 +24,7 @@ Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par 
 
 ## Fonctions numériques
 
-Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
+Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
 
 - [ajouter](#add)
 - [copyIndex](#copyindex)
@@ -107,7 +107,7 @@ Retourne le nombre d’éléments dans un tableau ou le nombre de caractères da
 
 Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
-Vous pouvez aussi l’utiliser avec une chaîne :
+Vous pouvez aussi l’utiliser avec une chaîne :
 
     "parameters": {
         "appName": { "type": "string" }
@@ -159,7 +159,7 @@ Retourne la soustraction des deux entiers fournis.
 
 ## Fonctions de chaîne
 
-Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
+Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
 
 - [base64](#base64)
 - [concat](#concat)
@@ -181,11 +181,11 @@ Pour obtenir le nombre de caractères d’une chaîne ou d’un tableau, consult
 
 **base64 (chaîne\_entrée)**
 
-Retourne la représentation en base 64 de la chaîne d'entrée.
+Retourne la représentation en base 64 de la chaîne d'entrée.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| chaîne\_entrée | Oui | Valeur de chaîne à retourner sous la forme d'une représentation en base 64.
+| chaîne\_entrée | Oui | Valeur de chaîne à retourner sous la forme d'une représentation en base 64.
 
 L'exemple suivant montre comment utiliser la fonction base64.
 
@@ -238,7 +238,7 @@ Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la ga
 | longueur\_totale | Oui | Nombre total de caractères de la chaîne renvoyée.
 | caractère\_de\_remplissage | Oui | Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte.
 
-L’exemple ci-après indique comment remplir la valeur de paramètre fournie par l’utilisateur avec le caractère zéro jusqu’à ce que la chaîne atteigne 10 caractères. Si la valeur de paramètre d’origine comporte plus de 10 caractères, aucun caractère n’est ajouté.
+L’exemple ci-après indique comment remplir la valeur de paramètre fournie par l’utilisateur avec le caractère zéro jusqu’à ce que la chaîne atteigne 10 caractères. Si la valeur de paramètre d’origine comporte plus de 10 caractères, aucun caractère n’est ajouté.
 
     "parameters": {
         "appName": { "type": "string" }
@@ -447,7 +447,7 @@ L’exemple suivant montre comment créer un lien vers un modèle imbriqué en f
 
 ## Fonctions de tableau
 
-Resource Manager fournit les fonctions ci-après pour travailler avec des valeurs de tableau :
+Resource Manager fournit les fonctions ci-après pour travailler avec des valeurs de tableau :
 
 Pour combiner plusieurs tableaux en un seul tableau, utilisez [concat](#concat).
 
@@ -457,7 +457,7 @@ Pour diviser une valeur de chaîne en tableau de valeurs de chaîne, utilisez [f
 
 ## Fonctions de valeur de déploiement
 
-Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
+Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
 
 - [deployment](#deployment)
 - [parameters](#parameters)
@@ -472,7 +472,7 @@ Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonneme
 
 Renvoie des informations sur l’opération de déploiement actuelle.
 
-Cette fonction retourne l’objet transmis au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est passé inline, comme lors de l’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet retourné a le format suivant :
+Cette fonction retourne l’objet transmis au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est passé inline, comme lors de l’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet retourné a le format suivant :
 
     {
         "name": "",
@@ -553,9 +553,10 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 ## Fonctions de ressource
 
-Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
+Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
 
 - [listkeys](#listkeys)
+- [list*](#list)
 - [fournisseurs](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
@@ -569,12 +570,12 @@ Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel,
 
 **listKeys (nom\_ressource ou identificateur\_ressource, version\_api)**
 
-Retourne les clés d'un compte de stockage. L'identificateur de ressource peut être spécifié à l'aide de la [fonction resourceId](./#resourceid) ou en utilisant le format **espacedenoms\_fournisseur/type\_ressource/nom\_ressource**. Vous pouvez utiliser cette fonction pour obtenir les valeurs primaryKey et secondaryKey.
+Retourne les clés pour n’importe quel type de ressource qui prend en charge l’opération listKeys. L'identificateur de ressource peut être spécifié à l'aide de la [fonction resourceId](./#resourceid) ou en utilisant le format **espacedenoms\_fournisseur/type\_ressource/nom\_ressource**. Vous pouvez utiliser cette fonction pour obtenir les valeurs primaryKey et secondaryKey.
   
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| nom\_ressource ou identificateur\_ressource | Oui | Identifiant unique du compte de stockage.
-| version\_api | Oui | Version d'API de l'état d'exécution des ressources.
+| nom\_ressource ou identificateur\_ressource | Oui | Identificateur unique pour la ressource.
+| apiVersion | Oui | Version d'API de l'état d'exécution des ressources.
 
 L'exemple suivant montre comment retourner les clés à partir d'un compte de stockage dans la section outputs.
 
@@ -584,6 +585,19 @@ L'exemple suivant montre comment retourner les clés à partir d'un compte de st
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### list*
+
+**list* (nom\_ressource ou identificateur\_ressource, version\_api)**
+
+Toute opération qui commence par **list** peut être utilisée en tant que fonction dans votre modèle. Cela inclut **listKeys**, comme indiqué ci-dessus, mais également les opérations telles que **list**, **listAdminKeys** et **listStatus**. Lorsque vous appelez la fonction, utilisez le nom réel de la fonction et pas list*. Pour déterminer les types de ressources qui ont une opération de liste, utilisez la commande PowerShell suivante.
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+Ou, récupérez la liste avec l’interface de ligne de commande Azure. L’exemple suivant récupère toutes les opérations pour **apiapps** et utilise l’utilitaire JSON [jq](http://stedolan.github.io/jq/download/) pour filtrer uniquement les opérations de liste.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
 
 <a id="providers" />
 ### fournisseurs
@@ -597,7 +611,7 @@ Retourne des informations sur un fournisseur de ressources et les types de resso
 | espacedenoms\_fournisseur | Oui | Espace de noms du fournisseur.
 | type\_ressource | Non | Type de ressource dans l'espace de noms spécifié.
 
-Chaque type pris en charge est retourné au format suivant :
+Chaque type pris en charge est retourné au format suivant :
 
     {
         "resourceType": "",
@@ -605,7 +619,7 @@ Chaque type pris en charge est retourné au format suivant :
         "apiVersions": [ ]
     }
 
-L'exemple suivant montre comment utiliser la fonction provider :
+L'exemple suivant montre comment utiliser la fonction provider :
 
     "outputs": {
 	    "exampleOutput": {
@@ -628,7 +642,7 @@ Permet à une expression de dériver sa valeur de l'état d'exécution d'une aut
 
 La fonction **reference** dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d'un modèle.
 
-En utilisant la fonction « reference », vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété **dependsOn**. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
+En utilisant la fonction « reference », vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété **dependsOn**. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
 
 L’exemple ci-après référence un compte de stockage déployé dans le même modèle.
 
@@ -680,7 +694,7 @@ L’exemple ci-après référence un compte de stockage figurant dans un autre g
 
 **resourceGroup()**
 
-Retourne un objet structuré qui représente le groupe de ressources actuel. L'objet se présente au format suivant :
+Retourne un objet structuré qui représente le groupe de ressources actuel. L'objet se présente au format suivant :
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
@@ -705,7 +719,7 @@ L'exemple suivant utilise l'emplacement du groupe de ressources pour affecter l'
 
 **resourceId ([nom\_groupe\_ressources], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
 
-Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. L'identificateur est retourné au format suivant :
+Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. L'identificateur est retourné au format suivant :
 
     /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
       
@@ -721,7 +735,7 @@ L'exemple suivant montre comment récupérer les ID de ressources pour un site w
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
     [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
     
-Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de stockage ou un réseau virtuel se trouvant dans un autre groupe de ressources. Le compte de stockage ou le réseau virtuel peut être utilisé sur plusieurs groupes de ressources. Par conséquent, vous ne voulez pas les supprimer lors de la suppression d'un seul groupe de ressources. L'exemple suivant montre comment une ressource d'un groupe de ressources externe peut être facilement utilisée :
+Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de stockage ou un réseau virtuel se trouvant dans un autre groupe de ressources. Le compte de stockage ou le réseau virtuel peut être utilisé sur plusieurs groupes de ressources. Par conséquent, vous ne voulez pas les supprimer lors de la suppression d'un seul groupe de ressources. L'exemple suivant montre comment une ressource d'un groupe de ressources externe peut être facilement utilisée :
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -792,4 +806,4 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
 - Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

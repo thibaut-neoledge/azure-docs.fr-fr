@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2015"
+	ms.date="01/14/2016"
 	ms.author="sstein"/>
 
 # Didacticiel sur la base de données SQL : protéger les données sensibles avec le chiffrement intégral (magasin de certificats Windows)
@@ -51,8 +51,8 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 ## Créer une base de données SQL vide
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
-3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Créer une base de données SQL en quelques minutes](sql-database-getting-started.md).
+2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
+3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Créer une base de données SQL en quelques minutes](sql-database-get-started.md).
 
 	![créer une base de données vide](./media/sql-database-always-encrypted/create-database.png)
 
@@ -545,4 +545,4 @@ Après avoir créé une base de données qui utilise le chiffrement intégral, v
 - [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,56 +1,56 @@
 <properties
-   pageTitle="Gérer vos volumes StorSimple (U2) | Microsoft Azure"
+   pageTitle="Gérer vos volumes StorSimple (U2) | Microsoft Azure"
    description="Explique comment ajouter, modifier, analyser et supprimer des volumes StorSimple et comment les mettre hors connexion si nécessaire."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
-# Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
+# Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## Vue d’ensemble
 
-Ce didacticiel explique comment utiliser le service StorSimple Manager pour créer et gérer des volumes sur l’appareil StorSimple et l’appareil virtuel StorSimple avec la mise à jour Update 2 installée.
+Ce didacticiel explique comment utiliser le service StorSimple Manager pour créer et gérer des volumes sur l’appareil StorSimple et l’appareil virtuel StorSimple avec la mise à jour Update 2 installée.
 
-Le service StorSimple Manager est une extension du portail Azure Classic qui vous permet de gérer votre solution StorSimple à partir d’une seule interface Web. Outre la gestion des volumes, vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services StorSimple, afficher et gérer les appareils, afficher les alertes, ainsi que pour afficher et gérer les stratégies de sauvegarde et le catalogue de sauvegarde.
+Le service StorSimple Manager est une extension du portail Azure Classic qui vous permet de gérer votre solution StorSimple à partir d’une seule interface Web. Outre la gestion des volumes, vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services StorSimple, afficher et gérer les appareils, afficher les alertes, ainsi que pour afficher et gérer les stratégies de sauvegarde et le catalogue de sauvegarde.
 
 ## Types de volume
 
-Les volumes StorSimple peuvent être les suivants :
+Les volumes StorSimple peuvent être les suivants :
 
-- **Volumes épinglés localement **: les données de ces volumes restent en permanence sur l’appareil StorSimple local.
-- **Volumes hiérarchisés **: les données de ces volumes peuvent se disperser dans le cloud.
+- **Volumes épinglés localement **: les données de ces volumes restent en permanence sur l’appareil StorSimple local.
+- **Volumes hiérarchisés **: les données de ces volumes peuvent se disperser dans le cloud.
 
 Un volume d’archivage est un type de volume hiérarchisé. La grande taille des blocs de déduplication utilisée pour les volumes d’archivage permet à l’appareil de transférer des segments de données plus importants vers le cloud.
 
-Si nécessaire, vous pouvez modifier le type de volume local en volume hiérarchisé, et inversement. Pour plus d’informations, consultez [Modification du type de volume](#change-the-volume-type).
+Si nécessaire, vous pouvez modifier le type de volume local en volume hiérarchisé, et inversement. Pour plus d’informations, consultez [Modification du type de volume](#change-the-volume-type).
 
 ### Volumes épinglés localement
 
 Les volumes épinglés localement sont des volumes entièrement configurés qui ne hiérarchisent pas les données dans le cloud, garantissant ainsi que les données principales restent en local, indépendantes de la connexion au cloud. Les données des volumes épinglés localement ne sont pas dédupliquées ni compressées, mais les instantanés des volumes épinglés localement sont dédupliqués.
 
-Les volumes épinglés localement sont totalement configurés. Vous devez donc disposer de suffisamment d’espace sur votre appareil lorsque vous les créez. Vous pouvez configurer des volumes épinglés localement jusqu’à une taille maximale de 9 To sur un appareil StorSimple 8100 et de 24 To sur un appareil 8600. StorSimple réserve l’espace restant local de l’appareil pour les instantanés, les métadonnées et le traitement des données. Vous pouvez augmenter la taille d’un volume épinglé localement pour qu’il occupe l’espace maximal disponible, mais vous ne pouvez pas réduire la taille d’un volume après sa création.
+Les volumes épinglés localement sont totalement configurés. Vous devez donc disposer de suffisamment d’espace sur votre appareil lorsque vous les créez. Vous pouvez configurer des volumes épinglés localement jusqu’à une taille maximale de 9 To sur un appareil StorSimple 8100 et de 24 To sur un appareil 8600. StorSimple réserve l’espace restant local de l’appareil pour les instantanés, les métadonnées et le traitement des données. Vous pouvez augmenter la taille d’un volume épinglé localement pour qu’il occupe l’espace maximal disponible, mais vous ne pouvez pas réduire la taille d’un volume après sa création.
 
-Si vous créez un volume épinglé localement, l’espace disponible pour la création de volumes hiérarchisés est réduit. L’inverse est également vrai : si vous disposez de volumes hiérarchisés, l’espace disponible pour la création des volumes épinglés localement sera inférieur, dans les limites maximales susmentionnées.
+Si vous créez un volume épinglé localement, l’espace disponible pour la création de volumes hiérarchisés est réduit. L’inverse est également vrai : si vous disposez de volumes hiérarchisés, l’espace disponible pour la création des volumes épinglés localement sera inférieur, dans les limites maximales susmentionnées.
 
 ### Volumes hiérarchisés
 
 Les volumes hiérarchisés sont des volumes alloués dynamiquement dans lesquels les données fréquemment sollicitées restent locales sur l’appareil alors que les données moins fréquemment utilisées sont hiérarchisées automatiquement vers le cloud. L’allocation dynamique est une technologie de virtualisation dans laquelle le stockage disponible semble dépasser les ressources physiques. Plutôt que de réserver un espace de stockage suffisant à l’avance, StorSimple utilise l’allocation dynamique pour allouer juste assez d’espace pour répondre aux besoins actuels. La nature évolutive du stockage cloud simplifie cette approche, car StorSimple peut augmenter ou diminuer le stockage cloud pour répondre aux demandes changeantes.
 
-Vous pouvez désigner un volume hiérarchisé comme volume d’archivage en cochant la case **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent**. Les volumes d’archivage utilisent une taille de bloc de déduplication de 512 Ko, tandis que les volumes autres que d’archivage utilisent une taille de bloc de 64 Ko. La grande taille des blocs de déduplication permet à l’appareil de transférer des segments de données plus importants vers le cloud.
+Si vous utilisez le volume à plusieurs niveaux pour les données d’archivage, l’activation de la case à cocher **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent** définit la taille de segment de déduplication pour votre volume sur 512 Ko. Si cette option n’est pas activée, le volume à plusieurs niveaux correspondant utilise une taille de segment de 64 Ko. Une grande taille de segment de déduplication permet à l’appareil d’accélérer le transfert des données d’archivage volumineuses vers le cloud.
 
->[AZURE.NOTE] Les volumes d’archivage créés avec une version antérieure à la mise à jour Update 2 de StorSimple sont importés en tant que volumes hiérarchisés si la case d’archivage est cochée.
+>[AZURE.NOTE] Les volumes d’archivage créés avec une version antérieure à la mise à jour Update 2 de StorSimple sont importés en tant que volumes hiérarchisés si la case d’archivage est cochée.
 
 ### Capacité allouée
 
@@ -59,11 +59,11 @@ Reportez-vous au tableau suivant pour connaître la capacité maximale allouée 
 | | Taille maximale de volume hiérarchisé | Taille maximale de volume épinglé localement |
 |-------------|----------------------------|------------------------------------|
 | **Appareils physiques** | | |
-| 8100 | 64 To | 9 To |
-| 8600 | 64 To | 24 To |
+| 8100 | 64 To | 9 To |
+| 8600 | 64 To | 24 To |
 | **Appareils virtuels** | | |
-| 8010 | 30 To | N/A |
-| 8020 | 64 To | N/A | 
+| 8010 | 30 To | N/A |
+| 8020 | 64 To | N/A | 
 
 ## Page Volumes
 
@@ -73,21 +73,21 @@ La page **Volumes** vous permet de gérer les volumes de stockage alloués sur l
 
 Un volume est constitué d’une série d’attributs :
 
-- **Nom du volume** : nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
+- **Nom du volume**: nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
 
-- **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
+- **État**: peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
 
-- **Capacité** : spécifie le volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes épinglés localement sont totalement configurés et résident sur l’appareil StorSimple. Les volumes hiérarchisés sont alloués dynamiquement et les données dédupliquées. Si les volumes sont alloués dynamiquement, votre appareil ne préalloue pas de capacité de stockage physique localement ou dans le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
+- **Capacité**: spécifie le volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes épinglés localement sont totalement configurés et résident sur l’appareil StorSimple. Les volumes hiérarchisés sont alloués dynamiquement et les données dédupliquées. Si les volumes sont alloués dynamiquement, votre appareil ne préalloue pas de capacité de stockage physique localement ou dans le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
 
-- **Type** : indique si le volume est **Hiérarchisé** (par défaut) ou **Épinglé localement**.
+- **Type**: indique si le volume est **Hiérarchisé** (par défaut) ou **Épinglé localement**.
 
-- **Sauvegarde** : indique si une stratégie de sauvegarde par défaut existe pour le volume.
+- **Sauvegarde**: indique si une stratégie de sauvegarde par défaut existe pour le volume.
 
-- **Accès** : indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
+- **Accès**: indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
 
 - **Analyse** : indique si un volume est ou non en cours d’analyse. Par défaut, l’analyse est activée au moment de la création du volume. Toutefois, elle est désactivée pour un volume cloné. Pour activer l’analyse d’un volume, suivez les instructions indiquées dans [Analyse d’un volume](#monitor-a-volume).
 
-Suivez les instructions de ce didacticiel pour effectuer les tâches suivantes :
+Suivez les instructions de ce didacticiel pour effectuer les tâches suivantes :
 
 - Ajout d’un volume 
 - Modification d’un volume 
@@ -114,8 +114,8 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough-u2.md#step-6-crea
 
   1. Saisissez un **nom** pour le volume.
   2. Dans la liste déroulante, sélectionnez un **type d'utilisation**. Pour les charges de travail qui requièrent que les données soient disponibles localement sur l’appareil en permanence, sélectionnez **Épinglé localement**. Pour tous les autres types de données, sélectionnez **Hiérarchisé**. (**Hiérarchisé** est la valeur par défaut.)
-  3. Si vous avez sélectionné **Hiérarchisé** à l’étape 2, vous pouvez cocher la case **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent** pour configurer un volume d’archivage.
-  4. Indiquez la **capacité allouée** du volume en Go ou To. Consultez la section [Capacité allouée](#provisioned-capacity) pour connaître les tailles maximales pour chaque type d’appareil et de volume. Examinez la **capacité disponible** pour déterminer la quantité de stockage réellement disponible sur votre appareil.
+  3. Si vous avez sélectionné **Hiérarchisé** à l’étape 2, vous pouvez cocher la case **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent** pour configurer un volume d’archivage.
+  4. Indiquez la **capacité allouée** du volume en Go ou To. Consultez la section [Capacité allouée](#provisioned-capacity) pour connaître les tailles maximales pour chaque type d’appareil et de volume. Examinez la **capacité disponible** pour déterminer la quantité de stockage réellement disponible sur votre appareil.
 
 5. Cliquez sur l'icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Si vous configurez un volume épinglé localement, le message suivant s’affiche.
 
@@ -145,7 +145,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 > [AZURE.IMPORTANT] 
 >
 > - Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. 
-> - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation. 
+> - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation. 
 
 #### Pour modifier un volume
 
@@ -165,9 +165,9 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
     > [AZURE.NOTE] Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut** du volume.
 
-6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Le portail Azure Classic affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
+6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Le portail Azure Classic affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
 
-7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
+7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
 
    1. Accédez à **Gestion de l’ordinateur** -> **Gestion des disques**.
    2. Cliquez avec le bouton droit sur **Gestion des disques**, puis sélectionnez **Analyser les disques de nouveau**.
@@ -182,7 +182,7 @@ Pour visionner une vidéo expliquant comment développer un volume, cliquez [ici
 
 ## Modification du type de volume
 
-Vous pouvez modifier le type de volume hiérarchisé en épinglé localement, et inversement. En général, il s’agit de petits volumes existants auxquels vous souhaitez accéder fréquemment. Toutefois, cette conversion ne doit pas être effectuée fréquemment. Raisons motivant la conversion d’un volume hiérarchisé en volume épinglé localement :
+Vous pouvez modifier le type de volume hiérarchisé en épinglé localement, et inversement. En général, il s’agit de petits volumes existants auxquels vous souhaitez accéder fréquemment. Toutefois, cette conversion ne doit pas être effectuée fréquemment. Raisons motivant la conversion d’un volume hiérarchisé en volume épinglé localement :
 
 - Assurance de la disponibilité et des performances des données locales.
 - Élimination des latences du cloud et des problèmes de connexion au cloud.
@@ -261,7 +261,7 @@ Pour supprimer un volume, procédez comme indiqué ci-dessous.
  
 ## Analyse d’un volume
 
-L’analyse de volume vous permet de collecter des statistiques sur les E/S d’un volume. L’analyse est activée par défaut pour les 32 premiers volumes que vous créez. L’analyse des volumes supplémentaires est désactivée par défaut. L’analyse des volumes clonés est également désactivée par défaut.
+L’analyse de volume vous permet de collecter des statistiques sur les E/S d’un volume. L’analyse est activée par défaut pour les 32 premiers volumes que vous créez. L’analyse des volumes supplémentaires est désactivée par défaut. L’analyse des volumes clonés est également désactivée par défaut.
 
 Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un volume.
 
@@ -285,4 +285,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

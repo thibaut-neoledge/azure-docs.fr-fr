@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Services, régions, schémas et versions pris en charge par Resource Manager | Microsoft Azure"
+   pageTitle="Services, régions, schémas et versions pris en charge par Resource Manager | Microsoft Azure"
    description="Décrit les fournisseurs de ressources qui prennent en charge Resource Manager, ainsi que les schémas et versions d’API disponibles et les régions pouvant héberger les ressources."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/23/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Fournisseurs, régions, schémas et versions d’API Resource Manager
@@ -35,9 +35,7 @@ Les tableaux suivants indiquent si les services répertoriés prennent en charge
 | Dynamics Lifecycle Services | Oui | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (version préliminaire) | Oui | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Virtual Machines | Oui | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Machines virtuelles (classique) | Limité | - | - | 
-| Application distante | Non | - | - | 
-| Cloud Services (classique) | Limité (voir ci-dessous) | - | - | - |
+| Machines virtuelles (classique) | Limité | - | - | | Application distante | Non | - | - | | Cloud Services (classique) | Limité (voir ci-dessous) | - | - | - |
 
 Machines virtuelles (classiques) fait référence à des ressources qui ont été déployées via le modèle de déploiement classique, et non via le modèle de déploiement Resource Manager. En général, ces ressources ne prennent pas en charge les opérations de Resource Manager, sauf certaines opérations qui ont été activées. Pour plus d’informations sur ces modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 
@@ -67,7 +65,7 @@ Cloud Services (classique) peut être utilisé avec d’autres ressources classi
 | Search | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | Storage | Oui | [Stockage REST](https://msdn.microsoft.com/library/azure/mt163683.aspx) | [Compte de stockage](resource-manager-template-storage.md) | [Microsoft.Storage](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
 | Base de données SQL | Oui | [Base de données SQL REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
-| SQL Data Warehouse | Oui | | |
+| SQL Data Warehouse | Oui | | |
 | StorSimple | Non | - | - | - | - |
 
 ## Web et mobilité
@@ -76,10 +74,10 @@ Cloud Services (classique) peut être utilisé avec d’autres ressources classi
 | ------- | ------- | -------- | ------ | ------ |
 | API Apps | Oui | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) | [API Apps](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
 | API Management | Oui | [Gestion d’API REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) | | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
-| Logic Apps | Oui | | | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
-| Mobile Apps | Oui | | | |
+| Logic Apps | Oui | | | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
+| Mobile Apps | Oui | | | |
 | Mobile Engagements | Oui | | | [Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
-| Applications Web | Oui | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
+| Applications Web | Oui | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
 
 ## Analyse
 
@@ -114,8 +112,7 @@ Cloud Services (classique) peut être utilisé avec d’autres ressources classi
 | ------- | ------- | -------- | ------ | ------ |
 | BizTalk Services | Oui | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Service Bus | Oui | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Sauvegarde | Non | - | - | - |
-| Récupération de site | Non | - | - | - |
+| Sauvegarde | Non | - | - | - | | Récupération de site | Non | - | - | - |
 
 ## Gestion des identités et des accès 
 
@@ -162,7 +159,7 @@ L’exemple suivant montre comment obtenir tous les fournisseurs de ressources d
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
     
-La sortie doit ressembler à ceci :
+La sortie doit ressembler à ceci :
 
     ProviderNamespace               RegistrationState ResourceTypes
     -----------------               ----------------- -------------
@@ -174,7 +171,7 @@ L’exemple suivant montre comment obtenir les types de ressources d’un fourni
 
     PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
     
-La sortie doit ressembler à ceci :
+La sortie doit ressembler à ceci :
 
     ResourceTypeName                Locations                                         ApiVersions
     ----------------                ---------                                         ------
@@ -184,7 +181,22 @@ La sortie doit ressembler à ceci :
     
 ### Interface de ligne de commande Azure
 
-Vous pouvez enregistrer les informations pour un fournisseur de ressources dans un fichier avec la commande suivante.
+L’exemple suivant montre comment obtenir tous les fournisseurs de ressources disponibles.
+
+    azure provider list
+    
+La sortie doit ressembler à ceci :
+
+    info:    Executing command provider list
+    + Getting ARM registered providers
+    data:    Namespace                        Registered
+    data:    -------------------------------  -------------
+    data:    Microsoft.ApiManagement          Unregistered
+    data:    Microsoft.AppService             Registered
+    data:    Microsoft.Authorization          Registered
+    ...
+
+Vous pouvez enregistrer les informations pour un fournisseur de ressources spécifique dans un fichier avec la commande suivante.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
@@ -204,7 +216,7 @@ L’exemple suivant montre comment obtenir la liste des régions prises en charg
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
-La sortie doit ressembler à ceci :
+La sortie doit ressembler à ceci :
 
     Brazil South
     East Asia
@@ -230,7 +242,7 @@ Vous pouvez également filtrer les emplacements répertoriés à l’aide d’un
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
-Résultat :
+Résultat :
 
     {
       "name": "Microsoft.Web/sites",
@@ -252,7 +264,7 @@ L’exemple suivant montre comment obtenir les versions de l’API disponibles a
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
-La sortie doit ressembler à ceci :
+La sortie doit ressembler à ceci :
     
     2015-08-01
     2015-07-01
@@ -278,4 +290,4 @@ Vous pouvez ouvrir le fichier et rechercher l’élément **apiVersions**.
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

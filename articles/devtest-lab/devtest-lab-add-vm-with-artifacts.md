@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajout d’une machine virtuelle avec des artefacts à un DevTest Lab | Microsoft Azure"
-	description="Créez un ordinateur virtuel à l’aide des artefacts dans le DevTest Lab."
+	pageTitle="Ajout d’une machine virtuelle avec des artefacts à un DevTest Lab | Microsoft Azure"
+	description="Créez un ordinateur virtuel à l’aide des artefacts dans le DevTest Lab."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Ajout d'une machine virtuelle avec des artefacts à un laboratoire de test et développement Azure DevTest Lab
 
-## Vue d'ensemble
+> [AZURE.NOTE] Cliquez sur le lien suivant pour afficher la vidéo d’accompagnement de cet article : [Créer des machines virtuelles avec des artefacts dans un atelier DevTest Labs](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab)
+
+## Vue d’ensemble
 
 Vous créez une machine virtuelle dans un laboratoire de test et développement (DevTest Lab) à partir d'une image de base Azure ou d'une image que vous avez téléchargée dans votre laboratoire.
 
@@ -56,7 +58,7 @@ Cet article vous explique comment créer une machine virtuelle dans votre labora
 
 1. Cliquez sur **Créer** pour ajouter la machine virtuelle spécifiée au laboratoire.
 
-1. Le volet du laboratoire affiche l'état de la création de la machine virtuelle ; premièrement comme **Création en cours**, puis comme **En cours d'exécution** après le démarrage de la machine virtuelle. Pour vous connecter à la machine virtuelle, cliquez sur la machine virtuelle et, à partir du volet de la machine virtuelle, cliquez sur **Connexion**.
+1. Le volet du laboratoire affiche l'état de la création de la machine virtuelle ; premièrement comme **Création en cours**, puis comme **En cours d'exécution** après le démarrage de la machine virtuelle. Pour vous connecter à la machine virtuelle, cliquez sur la machine virtuelle et, à partir du volet de la machine virtuelle, cliquez sur **Connexion**.
 
 ## Sélection et configuration d'un artefact
 
@@ -66,7 +68,7 @@ Lorsque vous créez une machine virtuelle, vous pouvez ajouter des artefacts en 
 
 **Ajout d'un artefact à une machine virtuelle**
 
-Suivez ces étapes pour chaque artefact que vous souhaitez ajouter à votre machine virtuelle :
+Suivez ces étapes pour chaque artefact que vous souhaitez ajouter à votre machine virtuelle :
 
 1. Cliquez sur l'artefact souhaité dans le volet **Ajouter des artefacts** pour afficher un volet qui vous permet de spécifier les paramètres de l'artefact.  
 
@@ -80,7 +82,7 @@ Lorsque vous ajoutez et configurez des artefacts pour votre machine virtuelle, u
 
 **Affichage/modification des artefacts sélectionnés**
 
-Suivez ces étapes pour afficher ou modifier les paramètres de vos artefacts sélectionnés :
+Suivez ces étapes pour afficher ou modifier les paramètres de vos artefacts sélectionnés :
 
 1. En haut du volet **Ajouter des artefacts**, cliquez sur le lien indiquant le nombre d'artefacts ajoutés à la machine virtuelle.
 
@@ -96,6 +98,6 @@ Suivez ces étapes pour afficher ou modifier les paramètres de vos artefacts s�
 
 ## Étapes suivantes
 
-Découvrez comment [créer des artefacts personnalisés pour votre machine virtuelle](devtest-lab-artifact-author.md).
+- Découvrez comment [créer des artefacts personnalisés pour votre machine virtuelle](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

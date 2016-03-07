@@ -12,20 +12,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # Test d’un runbook dans Azure Automation
 Lorsque vous testez un runbook, la [version Brouillon](automation-creating-importing-runbook.md#publishing-a-runbook) est exécutée et toutes les actions qu’il effectue sont finalisées. Aucun historique des tâches n’est créé, mais les flux [Résultat](automation-runbook-output-and-messages.md#output-stream) et [Avertissement et Erreur](automation-runbook-output-and-messages.md#message-streams) s’affichent dans le panneau de sortie du test. Les messages dirigés vers le [flux de messages](automation-runbook-output-and-messages.md#message-streams) s’affiche dans le panneau de résultat uniquement si la variable [$VerbosePreference variable](automation-runbook-output-and-messages.md#preference-variables) a pour valeur Continue.
 
 Bien que la version brouillon soit exécutée, le runbook exécute toujours le flux de travail normalement et effectue des actions sur des ressources dans l’environnement. Pour cette raison, vous devez tester les runbooks uniquement sur des ressources hors production.
 
-La procédure de chaque [type de runbook](automation-runbook-types.md) est identique et il n’y a aucune différence de test entre l’éditeur de texte et l’éditeur graphique dans le portail Azure en version préliminaire.
+La procédure de chaque [type de runbook](automation-runbook-types.md) est identique et il n’y a aucune différence de test entre l’éditeur de texte et l’éditeur graphique dans le portail Azure.
 
 
-## Pour tester le runbook dans le portail Azure en version préliminaire
+## Pour tester le runbook dans le portail Azure
 
-Vous pouvez utiliser n’importe quel [type de runbook](automation-runbook-types.md) dans le portail Azure en version préliminaire.
+Vous pouvez utiliser n’importe quel [type de runbook](automation-runbook-types.md) dans le portail Azure.
 
 1. Ouvrez la version Brouillon du runbook dans l’[éditeur de texte](automation-editing-a-runbook#Portal) ou l’[éditeur graphique](automation-graphical-authoring-intro.md).
 2. Cliquez sur le bouton **Tester** pour ouvrir le panneau de test.
@@ -55,4 +55,4 @@ Vous pouvez uniquement travailler avec des [runbooks de workflow PowerShell](aut
 - [Modification des runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md)
 - [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->
