@@ -24,23 +24,23 @@
 
 Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête de type SQL présenté dans le guide [Référence du langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Cet article décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et sera mis à jour avec de nouveaux modèles de manière continue.
 
-## Exemple de requête : conversions de types de données
-**Description** : définir les types des propriétés sur le flux d'entrée. Par exemple, le poids de la voiture arrive sur le flux d'entrée sous forme de chaînes et doit être converti en INT pour effectuer la synthèse SUM.
+## Exemple de requête : conversions de types de données
+**Description** : définir les types des propriétés sur le flux d'entrée. Par exemple, le poids de la voiture arrive sur le flux d'entrée sous forme de chaînes et doit être converti en INT pour effectuer la synthèse SUM.
 
-**Entrée** :
+**Entrée** :
 
 | Assurez-vous | Time | Poids |
 | --- | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z | "1000" |
 | Honda | 2015-01-01T00:00:02.0000000Z | "2000" |
 
-**Sortie** :
+**Sortie** :
 
 | Assurez-vous | Poids |
 | --- | --- |
 | Honda | 3000 |
 
-**Solution** :
+**Solution** :
 
 	SELECT
     	Make,
@@ -51,13 +51,13 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 		Make,
     	TumblingWindow(second, 10)
 
-**Explication** : utilisation d’une instruction CAST sur le champ Weight pour spécifier son type (voir la liste des types de données pris en charge [ici](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
+**Explication** : utilisation d’une instruction CAST sur le champ Weight pour spécifier son type (voir la liste des types de données pris en charge [ici](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
 
-## Exemple de requête : utilisation de Like/Not like pour déterminer la correspondance de modèle
-**Description** : vérification qu'une valeur de champ sur l'événement correspond à un certain modèle, par exemple renvoyer les immatriculations commençant par A et se terminant par 9
+## Exemple de requête : utilisation de Like/Not like pour déterminer la correspondance de modèle
+**Description** : vérification qu'une valeur de champ sur l'événement correspond à un certain modèle, par exemple renvoyer les immatriculations commençant par A et se terminant par 9
 
-**Entrée** :
+**Entrée** :
 
 | Assurez-vous | LicensePlate | Time |
 | --- | --- | --- |
@@ -65,14 +65,14 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
 | Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
 
-**Sortie** :
+**Sortie** :
 
 | Assurez-vous | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
 | Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
 
-**Solution** :
+**Solution** :
 
 	SELECT
     	*
@@ -81,12 +81,12 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	WHERE
     	LicensePlate LIKE 'A%9'
 
-**Explication** : utilisation de l'instruction LIKE pour vérifier que la valeur du champ LicensePlate commence par A, suivi d’une chaîne de zéro caractère ou plus et se termine par 9.
+**Explication** : utilisation de l'instruction LIKE pour vérifier que la valeur du champ LicensePlate commence par A, suivi d’une chaîne de zéro caractère ou plus et se termine par 9.
 
-## Exemple de requête : spécification de la logique pour différentes casses/valeurs (instructions CASE)
-**Description** : fourniture de calculs différents pour un champ en fonction de certains critères. Par exemple, fourniture d’une description de chaîne pour le nombre de voitures de la même marque, avec une casse spéciale pour 1.
+## Exemple de requête : spécification de la logique pour différentes casses/valeurs (instructions CASE)
+**Description** : fourniture de calculs différents pour un champ en fonction de certains critères. Par exemple, fourniture d’une description de chaîne pour le nombre de voitures de la même marque, avec une casse spéciale pour 1.
 
-**Entrée** :
+**Entrée** :
 
 | Assurez-vous | Time |
 | --- | --- |
@@ -94,14 +94,14 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 | Toyota | 2015-01-01T00:00:03.0000000Z |
 
-**Sortie** :
+**Sortie** :
 
 | CarsPassed | Time |
 | --- | --- | --- |
 | 1 Honda | 2015-01-01T00:00:10.0000000Z |
 | 2 Toyota | 2015-01-01T00:00:10.0000000Z |
 
-**Solution** :
+**Solution** :
 
     SELECT
     	CASE
@@ -115,22 +115,12 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 		Make,
 		TumblingWindow(second, 10)
 
-**Explication** : la clause CASE permet de fournir un calcul différent en fonction de certains critères (dans ce cas, le nombre de voitures dans la fenêtre d'agrégation).
+**Explication** : la clause CASE permet de fournir un calcul différent en fonction de certains critères (dans ce cas, le nombre de voitures dans la fenêtre d'agrégation).
 
-## Exemple de requête : envoi de données vers plusieurs sorties
-**Description** : envoi de données vers plusieurs cibles de sortie depuis un projet unique. Par exemple, une analyse des données pour une alerte de seuil et l’archivage de tous les événements pour le stockage d'objets blob
+## Exemple de requête : envoi de données vers plusieurs sorties
+**Description** : envoi de données vers plusieurs cibles de sortie depuis un projet unique. Par exemple, une analyse des données pour une alerte de seuil et l’archivage de tous les événements pour le stockage d'objets blob
 
-**Entrée** :
-
-| Assurez-vous | Time |
-| --- | --- |
-| Honda | 2015-01-01T00:00:01.0000000Z |
-| Honda | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:01.0000000Z |
-| Toyota | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:03.0000000Z |
-
-**Output1** :
+**Entrée** :
 
 | Assurez-vous | Time |
 | --- | --- |
@@ -140,13 +130,23 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 | Toyota | 2015-01-01T00:00:03.0000000Z |
 
-**Output2** :
+**Output1** :
+
+| Assurez-vous | Time |
+| --- | --- |
+| Honda | 2015-01-01T00:00:01.0000000Z |
+| Honda | 2015-01-01T00:00:02.0000000Z |
+| Toyota | 2015-01-01T00:00:01.0000000Z |
+| Toyota | 2015-01-01T00:00:02.0000000Z |
+| Toyota | 2015-01-01T00:00:03.0000000Z |
+
+**Output2** :
 
 | Assurez-vous | Time | Nombre |
 | --- | --- | --- |
 | Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
 
-**Solution** :
+**Solution** :
 
 	SELECT
 		*
@@ -169,7 +169,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	HAVING
 		[Count] >= 3
 
-**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque*: vous pouvez également réutiliser des résultats d'expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l'avantage supplémentaire d’ouvrir moins de lecteurs à la source d'entrée par exemple.
+**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d’expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l’avantage supplémentaire d’ouvrir moins de lecteurs à la source d’entrée par exemple.
 
 	WITH AllRedCars AS (
 		SELECT
@@ -182,10 +182,10 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## Exemple de requête : comptage des valeurs uniques
-**Description** : compter les valeurs de champ uniques qui apparaissent dans le flux de données dans une fenêtre de temps. Par exemple, combien de voitures de marques différentes sont passées au péage pendant une fenêtre de 2 secondes ?
+## Exemple de requête : comptage des valeurs uniques
+**Description** : compter les valeurs de champ uniques qui apparaissent dans le flux de données dans une fenêtre de temps. Par exemple, combien de voitures de marques différentes sont passées au péage pendant une fenêtre de 2 secondes ?
 
-**Entrée** :
+**Entrée** :
 
 | Assurez-vous | Time |
 | --- | --- |
@@ -202,7 +202,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | 2 | 2015-01-01T00:00:02.000Z |
 | 1 | 2015-01-01T00:00:04.000Z |
 
-**Solution :**
+**Solution :**
 
 	WITH Makes AS (
 	    SELECT
@@ -223,25 +223,25 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	    TumblingWindow(second, 1)
 
 
-**Explication :** une agrégation initiale est effectuée pour obtenir les marques uniques avec leur nombre dans la fenêtre. Ensuite, nous effectuons une agrégation du nombre de marques obtenues. Étant donné que toutes les valeurs uniques dans une fenêtre obtiennent le même horodatage, la deuxième fenêtre d'agrégation doit être minime afin de ne pas agréger 2 fenêtres de la première étape.
+**Explication :** une agrégation initiale est effectuée pour obtenir les marques uniques avec leur nombre dans la fenêtre. Ensuite, nous effectuons une agrégation du nombre de marques obtenues. Étant donné que toutes les valeurs uniques dans une fenêtre obtiennent le même horodatage, la deuxième fenêtre d'agrégation doit être minime afin de ne pas agréger 2 fenêtres de la première étape.
 
-## Exemple de requête : déterminer si une valeur a changé#
-**Description** : examiner une valeur précédente pour déterminer si elle est différente de la valeur actuelle. Par exemple, la voiture actuellement sur la voie de péage est-elle de la même marque que la voiture précédente ?
+## Exemple de requête : déterminer si une valeur a changé#
+**Description** : examiner une valeur précédente pour déterminer si elle est différente de la valeur actuelle. Par exemple, la voiture actuellement sur la voie de péage est-elle de la même marque que la voiture précédente ?
 
-**Entrée** :
+**Entrée** :
 
 | Assurez-vous | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
-**Sortie** :
+**Sortie** :
 
 | Assurez-vous | Time |
 | --- | --- |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
-**Solution** :
+**Solution** :
 
 	SELECT
 		Make,
@@ -251,12 +251,12 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	WHERE
 		LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**Explication** : utilisez LAG pour lire le flux d’entrée de l’événement précédent et obtenir la valeur de la marque. Elle est ensuite comparée à la marque de l’événement en cours, puis l'événement émet une sortie si elles sont différentes.
+**Explication** : utilisez LAG pour lire le flux d’entrée de l’événement précédent et obtenir la valeur de la marque. Elle est ensuite comparée à la marque de l’événement en cours, puis l'événement émet une sortie si elles sont différentes.
 
-## Exemple de requête : recherche du premier événement dans une fenêtre
-**Description** : trouver la première voiture de chaque intervalle de 10 minutes.
+## Exemple de requête : recherche du premier événement dans une fenêtre
+**Description** : trouver la première voiture de chaque intervalle de 10 minutes.
 
-**Entrée** :
+**Entrée** :
 
 | LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
@@ -268,14 +268,14 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 | MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
-**Sortie** :
+**Sortie** :
 
 | LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 
-**Solution** :
+**Solution** :
 
 	SELECT 
 		LicensePlate,
@@ -286,7 +286,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	WHERE 
 		IsFirst(minute, 10) = 1
 
-À présent, nous allons modifier le problème et trouver la première voiture d’une marque donnée dans chaque intervalle de 10 minutes.
+À présent, nous allons modifier le problème et trouver la première voiture d’une marque donnée dans chaque intervalle de 10 minutes.
 
 | LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
@@ -296,7 +296,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 | MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
-**Solution** :
+**Solution** :
 
 	SELECT 
 		LicensePlate,
@@ -307,10 +307,10 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	WHERE 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## Exemple de requête : recherche du dernier événement dans une fenêtre
-**Description** : trouver la dernière voiture de chaque intervalle de 10 minutes.
+## Exemple de requête : recherche du dernier événement dans une fenêtre
+**Description** : trouver la dernière voiture de chaque intervalle de 10 minutes.
 
-**Entrée** :
+**Entrée** :
 
 | LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
@@ -322,14 +322,14 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 | MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
-**Sortie** :
+**Sortie** :
 
 | LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
 | VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
 | MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
-**Solution** :
+**Solution** :
 
 	WITH LastInWindow AS
 	(
@@ -350,12 +350,12 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
 		AND Input.Time = LastInWindow.LastEventTime
 
-**Explication** : la requête comprend deux étapes, la première servant à rechercher l'horodatage le plus récent dans une plage de 10 minutes. La deuxième étape joint les résultats de la première requête avec des flux de données d'origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre.
+**Explication** : la requête comprend deux étapes, la première servant à rechercher l'horodatage le plus récent dans une plage de 10 minutes. La deuxième étape joint les résultats de la première requête avec des flux de données d'origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre.
 
-## Exemple de requête : détection de l’absence d’événements
-**Description** : vérifier qu’un flux de données n’a aucune valeur correspondant à un critère donné. Par exemple, 2 voitures consécutives de la même marque sont-elles entrées sur la voie de péage en 90 secondes ?
+## Exemple de requête : détection de l’absence d’événements
+**Description** : vérifier qu’un flux de données n’a aucune valeur correspondant à un critère donné. Par exemple, 2 voitures consécutives de la même marque sont-elles entrées sur la voie de péage en 90 secondes ?
 
-**Entrée** :
+**Entrée** :
 
 | Assurez-vous | LicensePlate | Time |
 | --- | --- | --- |
@@ -364,13 +364,13 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | Toyota | DEF-987 | 2015-01-01T00:00:03.0000000Z |
 | Honda | GHI-345 | 2015-01-01T00:00:04.0000000Z |
 
-**Sortie** :
+**Sortie** :
 
 | Assurez-vous | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda | 2015-01-01T00:00:02.0000000Z | AAA-999 | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 
-**Solution** :
+**Solution** :
 
 	SELECT
 	    Make,
@@ -383,19 +383,19 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	WHERE
 	    LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**Explication** : utilisez LAG pour lire le flux d’entrée de l’événement précédent et obtenir la valeur de la marque. Comparez-la ensuite à la valeur de Make de l’événement actuel, créez une sortie si elles sont identiques, et utilisez LAG pour obtenir des données sur la voiture précédente.
+**Explication** : utilisez LAG pour lire le flux d’entrée de l’événement précédent et obtenir la valeur de la marque. Comparez-la ensuite à la valeur de Make de l’événement actuel, créez une sortie si elles sont identiques, et utilisez LAG pour obtenir des données sur la voiture précédente.
 
-## Exemple de requête : détection de la durée entre des événements
-**Description** : rechercher la durée d’un événement donné. Par exemple, en fonction d’un parcours web, déterminer le temps passé sur une fonctionnalité.
+## Exemple de requête : détection de la durée entre des événements
+**Description** : rechercher la durée d’un événement donné. Par exemple, en fonction d’un parcours web, déterminer le temps passé sur une fonctionnalité.
 
-**Entrée** :
+**Entrée** :
   
 | Utilisateur | Fonctionnalité | Événement | Time |
 | --- | --- | --- | --- |
 | user@location.com | RightMenu | Démarrer | 2015-01-01T00:00:01.0000000Z |
 | user@location.com | RightMenu | Terminer | 2015-01-01T00:00:08.0000000Z |
   
-**Sortie** :
+**Sortie** :
   
 | Utilisateur | Fonctionnalité | Durée |
 | --- | --- | --- |
@@ -412,12 +412,12 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
     	Event = 'end'
 ````
 
-**Explication** : utilisez la fonction LAST pour récupérer la dernière valeur d’heure quand le type d’événement est « Démarrer ». Notez que la fonction LAST utilise PARTITION BY [user] pour indiquer que le résultat doit être calculé par utilisateur unique. La requête a un seuil maximal de 1 heure pour la différence de temps entre les événements « Démarrer » et « Terminer » (LIMIT DURATION(hour, 1)), mais ce seuil est configurable en fonction des besoins.
+**Explication** : utilisez la fonction LAST pour récupérer la dernière valeur d’heure quand le type d’événement est « Démarrer ». Notez que la fonction LAST utilise PARTITION BY [user] pour indiquer que le résultat doit être calculé par utilisateur unique. La requête a un seuil maximal de 1 heure pour la différence de temps entre les événements « Démarrer » et « Terminer » (LIMIT DURATION(hour, 1)), mais ce seuil est configurable en fonction des besoins.
 
-## Exemple de requête : détection de la durée d’une condition
-**Description** : déterminer sur quelle période un problème s’est produit. Par exemple, supposons qu’un bogue entraînant un poids incorrect pour toutes les voitures (d’un poids supérieur à 20 000 livres) se produit et que nous voulons calculer la durée du bogue.
+## Exemple de requête : détection de la durée d’une condition
+**Description** : déterminer sur quelle période un problème s’est produit. Par exemple, supposons qu’un bogue entraînant un poids incorrect pour toutes les voitures (d’un poids supérieur à 20 000 livres) se produit et que nous voulons calculer la durée du bogue.
 
-**Entrée** :
+**Entrée** :
 
 | Assurez-vous | Time | Poids |
 | --- | --- | --- |
@@ -430,7 +430,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | Honda | 2015-01-01T00:00:07.0000000Z | 26000 |
 | Toyota | 2015-01-01T00:00:08.0000000Z | 2000 |
 
-**Sortie** :
+**Sortie** :
 
 | StartFault | EndFault | FaultDurationSeconds |
 | --- | --- | --- |
@@ -441,7 +441,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 | 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
 | 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
 
-**Solution** :
+**Solution** :
 
 ````
 SELECT 
@@ -453,12 +453,12 @@ WHERE
     AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
 ````
 
-**Explication** : utilisez LAG pour afficher le flux d’entrée de 24 heures et rechercher les instances où StartFault et StopFault sont couvertes par la condition « weight < 20000 » (poids inférieur à 20 000 livres).
+**Explication** : utilisez LAG pour afficher le flux d’entrée de 24 heures et rechercher les instances où StartFault et StopFault sont couvertes par la condition « weight < 20000 » (poids inférieur à 20 000 livres).
 
-## Exemple de requête : remplir les valeurs manquantes
-**Description** : pour le flux des événements qui ont des valeurs manquantes, produire un flux d’événements à intervalles réguliers. Par exemple, générer, toutes les 5 secondes, un événement qui indique le point de données le plus récemment constaté.
+## Exemple de requête : remplir les valeurs manquantes
+**Description** : pour le flux des événements qui ont des valeurs manquantes, produire un flux d’événements à intervalles réguliers. Par exemple, générer, toutes les 5 secondes, un événement qui indique le point de données le plus récemment constaté.
 
-**Entrée** :
+**Entrée** :
 
 | t | value |
 |--------------------------|-------|
@@ -469,7 +469,7 @@ WHERE
 | "2014-01-01T06:01:30" | 5 |
 | "2014-01-01T06:01:35" | 6 |
 
-**Sortie (10 premières lignes)** :
+**Sortie (10 premières lignes)** :
 
 | windowend | lastevent.t | lastevent.value |
 |--------------------------|--------------------------|--------|
@@ -485,7 +485,7 @@ WHERE
 | 2014-01-01T14:01:45.000Z | 2014-01-01T14:01:35.000Z | 6 |
 
     
-**Solution** :
+**Solution** :
 
     SELECT
     	System.Timestamp AS windowEnd,
@@ -495,7 +495,7 @@ WHERE
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Explication** : cette requête va générer des événements toutes les 5 secondes et indiquer le dernier événement précédemment reçu. La durée [Fenêtre récurrente](https://msdn.microsoft.com/library/dn835041.aspx "Fenêtre récurrente - Azure Stream Analytics") détermine la période que remonte la requête pour rechercher le dernier événement (300 secondes, dans cet exemple).
+**Explication** : cette requête va générer des événements toutes les 5 secondes et indiquer le dernier événement précédemment reçu. La durée [Fenêtre récurrente](https://msdn.microsoft.com/library/dn835041.aspx "Fenêtre récurrente - Azure Stream Analytics") détermine la période que remonte la requête pour rechercher le dernier événement (300 secondes, dans cet exemple).
 
 
 ## Obtenir de l'aide
@@ -510,4 +510,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

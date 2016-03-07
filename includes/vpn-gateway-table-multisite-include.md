@@ -1,7 +1,9 @@
-You can configure a connection between your virtual network and multiple on-premises sites. See the table below for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
+Vous pouvez configurer une connexion entre votre réseau virtuel et plusieurs sites locaux. Pour plus d’informations, consultez le tableau ci-après. Nous mettons à jour ce tableau à mesure que de nouveaux articles, de nouveaux modèles de déploiement et des outils supplémentaires sont disponibles pour cette configuration. Quand un article est disponible, ce tableau contient un lien vers celui-ci.
 
-|   | **Classic Deployment**  | **Resource Manager Deployment** |
+| | **Déploiement classique** | **Déploiement Resource Manager** |
 |-----------------------------------------|-------------|---------------------|
-| **Classic Portal**           | Not Supported          |  Not Supported                 |
-| **Azure Portal**             | Not Supported          |  Not Supported                 |
-| **PowerShell**               | [Article](../articles/vpn-gateway/vpn-gateway-multi-site.md) | Yes |
+| **Portail Classic** | Non pris en charge | Non pris en charge |
+| **Portail Azure** | Non pris en charge | Non pris en charge |
+| **PowerShell** | [Article](../articles/vpn-gateway/vpn-gateway-multi-site.md) | Oui |
+
+<!---HONumber=AcomDC_0224_2016-->

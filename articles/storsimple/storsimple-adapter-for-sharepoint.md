@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -23,7 +23,7 @@ StorSimple Adapter for SharePoint est un composant qui vous permet de fournir un
 
 StorSimple Adapter for SharePoint fonctionne comme un fournisseur Remote BLOB Storage (RBS) et utilise la fonctionnalité SQL Server Remote BLOB Storage pour stocker le contenu SharePoint non structuré (sous la forme d’objets blob) sur un serveur de fichiers appuyé par un appareil StorSimple.
 
->[AZURE.NOTE]StorSimple Adapter for SharePoint prend en charge SharePoint Server 2010 Remote BLOB Storage (RBS). Il ne prend pas en charge SharePoint Server 2010 External BLOB Storage (EBS).
+>[AZURE.NOTE] StorSimple Adapter for SharePoint prend en charge SharePoint Server 2010 Remote BLOB Storage (RBS). Il ne prend pas en charge SharePoint Server 2010 External BLOB Storage (EBS).
 
 - Pour télécharger StorSimple Adapter for SharePoint, consultez la rubrique [StorSimple Adapter for SharePoint][1] dans le centre de téléchargement Microsoft.
 
@@ -37,13 +37,13 @@ Dans un site SharePoint, le contenu est stocké comme des données BLOB non stru
 
 Avec RBS, vous devez utiliser un fournisseur RBS comme StorSimple Adapter for SharePoint pour activer RBS dans SharePoint. StorSimple Adapter for SharePoint fonctionne avec RBS, vous permettant de déplacer des objets blob vers un serveur soutenu par le système Microsoft Azure StorSimple. Microsoft Azure StorSimple stocke ensuite les données d’objets blob localement ou dans le cloud, selon leur utilisation. Les objets blob très actifs (généralement appelés données à chaud ou de niveau 1) résident localement. Les données moins actives et les données archivées résident dans le cloud. Après avoir activé RBS sur une base de données de contenu, tout nouveau contenu bloc créé dans SharePoint est stocké sur l’appareil StorSimple et non dans la base de données de contenu.
 
-L’implémentation Microsoft Azure StorSimple de RBS offre les avantages suivants :
+L’implémentation Microsoft Azure StorSimple de RBS offre les avantages suivants :
 
 - En déplaçant le contenu blob vers un serveur distinct, vous pouvez réduire la charge de requête sur SQL Server, ce qui peut améliorer la réactivité du serveur SQL. 
 
 - Azure StorSimple utilise la déduplication et la compression pour réduire la taille des données.
 
-- Azure StorSimple assure la protection des données sous la forme d’instantanés locaux et sur le cloud. En outre, si vous placez la base de données elle-même sur l’appareil StorSimple, vous pouvez sauvegarder ensemble la base de données de contenu et les objets blob afin de limiter les risques de défaillance. (Le déplacement de la base de données de contenu sur l’appareil est uniquement pris en charge pour la série StorSimple 8000. Aucune prise en charge pour les séries 5000 ou 7000.)
+- Azure StorSimple assure la protection des données sous la forme d’instantanés locaux et sur le cloud. En outre, si vous placez la base de données elle-même sur l’appareil StorSimple, vous pouvez sauvegarder ensemble la base de données de contenu et les objets blob afin de limiter les risques de défaillance. (Le déplacement de la base de données de contenu sur l’appareil est uniquement pris en charge pour la série StorSimple 8000. Aucune prise en charge pour les séries 5000 ou 7000.)
 
 - Azure StorSimple inclut des fonctionnalités de récupération d'urgence, notamment le basculement, la récupération de fichier et de volume (y compris une récupération test) et la restauration rapide des données.
 
@@ -89,7 +89,7 @@ Avant de configurer RBS, passez en revue les éléments suivants :
 
 - Si vous ne stockez pas les bases de données de contenu sur l’appareil StorSimple, utilisez les meilleures pratiques à haute disponibilité SQL Server qui prennent en charge RBS. La gestion de clusters SQL Server prend en charge RBS, ce qui n’est pas le cas de la mise en miroir SQL Server.
 
->[AZURE.WARNING]Si vous n’avez pas activé RBS, il est déconseillé de déplacer la base de données de contenu sur l’appareil StorSimple. Il s'agit d'une configuration non testée.
+>[AZURE.WARNING] Si vous n’avez pas activé RBS, il est déconseillé de déplacer la base de données de contenu sur l’appareil StorSimple. Il s'agit d'une configuration non testée.
  
 ## Installation de StorSimple Adapter for SharePoint
 
@@ -115,7 +115,7 @@ StorSimple Adapter for SharePoint fonctionne avec les matériels et logiciels su
 
 L’appareil StorSimple est un appareil en mode bloc et nécessite en tant quel tel un serveur de fichiers sur lequel les données peuvent être hébergées. Nous vous recommandons d'utiliser un serveur distinct plutôt qu’un serveur existant d’une batterie de serveurs SharePoint. Ce serveur de fichiers doit figurer sur le même réseau local (LAN) que l'ordinateur SQL Server qui héberge les bases de données de contenu.
 
->[AZURE.TIP]
+>[AZURE.TIP] 
 >
 >- Si vous configurez votre batterie de serveurs SharePoint pour garantir une haute disponibilité, vous devez également déployer le serveur de fichiers pour une haute disponibilité.
 >
@@ -131,11 +131,11 @@ En outre, assurez-vous que le volume à utiliser pour l'externalisation des obje
 
 - La batterie de serveurs SharePoint doit être configurée pour écrire sur le volume.
 
->[AZURE.NOTE]Après avoir installé et configuré l’adaptateur, l’intégralité de l’externalisation blob doit passer par l’appareil StorSimple (l’appareil présentera les volumes à SQL Server et gérera les niveaux de stockage). Vous ne pouvez pas utiliser d'autres cibles pour l'externalisation blob.
+>[AZURE.NOTE] Après avoir installé et configuré l’adaptateur, l’intégralité de l’externalisation blob doit passer par l’appareil StorSimple (l’appareil présentera les volumes à SQL Server et gérera les niveaux de stockage). Vous ne pouvez pas utiliser d'autres cibles pour l'externalisation blob.
  
 Si vous prévoyez d'utiliser StorSimple Snapshot Manager pour prendre des instantanés des données blob et des bases de données, veillez à installer StorSimple Snapshot Manager sur le serveur de base de données afin qu'il puisse utiliser le service SQL Writer pour implémenter le service Windows Volume Shadow Copy (VSS).
 
->[AZURE.IMPORTANT]StorSimple Snapshot Manager ne prend pas en charge le service SharePoint VSS Writer et ne peut pas prendre des instantanés de données SharePoint cohérents avec l’application. Dans un scénario SharePoint, StorSimple Snapshot Manager fournit uniquement des sauvegardes cohérentes après incident.
+>[AZURE.IMPORTANT] StorSimple Snapshot Manager ne prend pas en charge le service SharePoint VSS Writer et ne peut pas prendre des instantanés de données SharePoint cohérents avec l’application. Dans un scénario SharePoint, StorSimple Snapshot Manager fournit uniquement des sauvegardes cohérentes après incident.
  
 ## Conditions préalables à la configuration d’une batterie de serveurs SharePoint
 
@@ -188,7 +188,7 @@ Utilisez les étapes suivantes pour installer StorSimple Adapter for SharePoint.
 
 Après avoir installé StorSimple Adapter for SharePoint, configurez RBS comme décrit dans la procédure suivante.
 
->[AZURE.TIP]StorSimple Adapter for SharePoint s'intègre à la page Administration centrale de SharePoint, ce qui permet d’activer ou de désactiver RBS sur chaque base de données présente dans la batterie de serveurs SharePoint. Cependant, l'activation ou la désactivation de RBS sur la base de données de contenu entraîne une réinitialisation IIS qui, selon la configuration de votre batterie de serveurs, peut interrompre momentanément la disponibilité du serveur web frontal (WFE) SharePoint. (Des facteurs tels que l'utilisation d'un équilibreur de charge frontal, la charge de travail actuelle du serveur, etc., peuvent limiter voire empêcher cette indisponibilité). Pour protéger les utilisateurs d'une telle interruption, nous vous recommandons d'activer ou de désactiver RBS uniquement lors d’une fenêtre de maintenance planifiée.
+>[AZURE.TIP] StorSimple Adapter for SharePoint s'intègre à la page Administration centrale de SharePoint, ce qui permet d’activer ou de désactiver RBS sur chaque base de données présente dans la batterie de serveurs SharePoint. Cependant, l'activation ou la désactivation de RBS sur la base de données de contenu entraîne une réinitialisation IIS qui, selon la configuration de votre batterie de serveurs, peut interrompre momentanément la disponibilité du serveur web frontal (WFE) SharePoint. (Des facteurs tels que l'utilisation d'un équilibreur de charge frontal, la charge de travail actuelle du serveur, etc., peuvent limiter voire empêcher cette indisponibilité). Pour protéger les utilisateurs d'une telle interruption, nous vous recommandons d'activer ou de désactiver RBS uniquement lors d’une fenêtre de maintenance planifiée.
 
 [AZURE.INCLUDE [storsimple-sharepoint-adapter-configure-rbs](../../includes/storsimple-sharepoint-adapter-configure-rbs.md)]
  
@@ -201,7 +201,7 @@ Ce programme de maintenance (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) est a
 
 Pour plus d'informations sur la configuration et l'utilisation du programme de maintenance, consultez la rubrique [Maintenance de RBS dans SharePoint Server 2013][8].
 
->[AZURE.IMPORTANT]Le programme de maintenance RBS consomme beaucoup de ressources. Vous devez planifier son exécution uniquement pendant les périodes de faible activité au niveau de la batterie de serveurs SharePoint.
+>[AZURE.IMPORTANT] Le programme de maintenance RBS consomme beaucoup de ressources. Vous devez planifier son exécution uniquement pendant les périodes de faible activité au niveau de la batterie de serveurs SharePoint.
 
 ### Suppression immédiate des objets blob orphelins
 
@@ -218,7 +218,7 @@ Si vous avez besoin de supprimer immédiatement des objets blob orphelins, vous 
 
 Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis réinstaller StorSimple Adapter for SharePoint ou pour simplement mettre à niveau ou réinstaller l'adaptateur dans une batterie de serveurs SharePoint existante.
 
->[AZURE.IMPORTANT]Passez en revue les informations suivantes avant d'essayer de mettre à niveau votre logiciel SharePoint et/ou mettre à niveau ou réinstaller StorSimple Adapter for SharePoint :
+>[AZURE.IMPORTANT] Passez en revue les informations suivantes avant d'essayer de mettre à niveau votre logiciel SharePoint et/ou mettre à niveau ou réinstaller StorSimple Adapter for SharePoint :
 >
 >- Les fichiers précédemment déplacés vers le stockage externe via RBS ne sont pas disponibles, jusqu'à ce que la réinstallation soit terminée et la fonctionnalité RBS activée. Pour limiter l'impact sur l'utilisateur, effectuez la mise à niveau ou la réinstallation pendant une fenêtre de maintenance planifiée.
 >
@@ -226,7 +226,7 @@ Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis
 >
 >- Une fois la mise à niveau/réinstallation terminée, vous devez activer RBS pour les bases de données de contenu. Consultez [Configuration de RBS](#configure-rbs) pour plus d'informations.
 >
->- Si vous configurez RBS pour une batterie de serveurs SharePoint avec un très grand nombre de bases de données (plus de 200), la page de l'**Administration centrale de SharePoint** peut expirer. Si cela se produit, actualisez la page. Cela n'affecte pas le processus de configuration.
+>- Si vous configurez RBS pour une batterie de serveurs SharePoint avec un très grand nombre de bases de données (plus de 200), la page de l'**Administration centrale de SharePoint** peut expirer. Si cela se produit, actualisez la page. Cela n'affecte pas le processus de configuration.
 
 [AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
  
@@ -234,11 +234,11 @@ Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis
 
 Les procédures suivantes décrivent comment déplacer les objets BLOB vers les bases de données de contenu SQL Server, puis désinstaller StorSimple Adapter pour SharePoint.
 
->[AZURE.IMPORTANT]Vous devez renvoyer les objets BLOB vers les bases de données de contenu avant de désinstaller le logiciel de l'adaptateur.
+>[AZURE.IMPORTANT] Vous devez renvoyer les objets BLOB vers les bases de données de contenu avant de désinstaller le logiciel de l'adaptateur.
 
 ### Avant de commencer 
 
-Rassemblez les informations suivantes avant de déplacer les données vers les bases de données de contenu SQL Server et de commencer le processus de suppression de l'adaptateur :
+Rassemblez les informations suivantes avant de déplacer les données vers les bases de données de contenu SQL Server et de commencer le processus de suppression de l'adaptateur :
 
 - Les noms de toutes les bases de données pour lesquelles RBS est activé
 - Le chemin d'accès UNC du magasin d'objets BLOB configuré
@@ -255,7 +255,7 @@ Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous deve
 
 2. Ouvrez la page **Administration centrale de SharePoint** et accédez à **Paramètres du système**.
 
-3. Sous **Azure StorSimple**, cliquez sur **Configuration de l'adaptateur StorSimple**.
+3. Sous **Azure StorSimple**, cliquez sur **Configuration de l'adaptateur StorSimple**.
 
 4. Sur la page **Configuration de l'adaptateur StorSimple**, cliquez sur le bouton **Désactiver** sous chaque base de données de contenu que vous souhaitez supprimer du stockage d'objets BLOB externe.
 
@@ -263,7 +263,7 @@ Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous deve
 
 Vous pouvez également utiliser l'applet de commande Microsoft` RBS Migrate()` PowerShell inclus avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
-Après avoir déplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstallation de l'adaptateur](#uninstall-the-adapter).
+Après avoir déplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstallation de l'adaptateur](#uninstall-the-adapter).
 
 ### Désinstallation de l'adaptateur
 
@@ -308,4 +308,4 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/fr-FR/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

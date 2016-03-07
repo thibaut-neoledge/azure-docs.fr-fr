@@ -1,18 +1,19 @@
-There are 3 VPN Gateway SKUs:
+Il existe 3 SKU de passerelle VPN :
 
-- Basic
+- De base
 - Standard
-- High Performance
+- Hautes performances
 
-The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
+Le tableau ci-dessous indique les types de passerelle et le débit total estimé. La tarification varie en fonction des différents SKU de passerelle. Pour plus d'informations sur la tarification, consultez la [tarification de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Cette table s’applique aux modèles de déploiement classique et Resource Manager.
 
 
-|    | **VPN Gateway throughput** | **VPN Gateway max IPsec tunnels** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+| | **Débit de passerelle VPN** | **Tunnels IPsec max de passerelle VPN** | **Débit de passerelle ExpressRoute** | **Passerelle VPN et ExpressRoute coexistants**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **Référence De base** | 100 Mbits/s | 10 | 500 Mbits/s | Non |
+| **Référence Standard** | 100 Mbits/s | 10 | 1 000 Mbits/s | Oui |
+| **Référence Hautes performances** | 200 Mbits/s | 30 | 2 000 Mbits/s | Oui |
 
 
-**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
+**Remarque :** le débit de la passerelle VPN est une estimation calculée à partir de mesures entre réseaux virtuels dans la même région Azure. Il ne s’agit pas d’une garantie de débit pour des connexions entre différents locaux sur Internet, ce chiffre doit être considéré comme une mesure maximale potentielle.
+
+<!---HONumber=AcomDC_0224_2016-->

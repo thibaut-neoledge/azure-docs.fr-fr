@@ -1,12 +1,14 @@
-The table below lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, Policy-based VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+Le tableau ci-dessous répertorie la configuration requise pour les passerelles VPN basées sur des stratégies ou des itinéraires. Cette table s’applique aux modèles de déploiement classique et Resource Manager. Pour le modèle classique, les passerelles VPN basées sur des stratégies sont identiques aux passerelles statiques et les passerelles basées sur des itinéraires sont identiques aux passerelles dynamiques.
 
 
-|   | **Policy-based Basic VPN Gateway** | **Route-based Basic VPN Gateway** | **Route-based Standard VPN Gateway**   | **Route-based High Performance VPN Gateway** |
+| | **Passerelle VPN basée sur des stratégies De base** | **Passerelle VPN basée sur des itinéraires De base** | **Passerelle VPN basée sur des itinéraires Standard** | **Passerelle VPN à hautes performances basée sur des itinéraires** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | Policy-based VPN configuration        | Route-based VPN configuration  | Route-based VPN configuration     | Route-based VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+| **Connectivité de site à site (S2S)** | Configuration de VPN basé sur une stratégie | Configuration de VPN basé sur l’itinéraire | Configuration de VPN basé sur l’itinéraire | Configuration de VPN basé sur l’itinéraire |
+| **Connectivité de point à site (P2S)** | Non pris en charge | Prise en charge (peut coexister avec S2S) | Prise en charge (peut coexister avec S2S) | Prise en charge (peut coexister avec S2S) |
+| **Méthode d’authentification** | Clé prépartagée | Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site | Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site | Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site |
+| **Nombre maximal de connexions de site à site** | 1 | 10 | 10 | 30 |
+| **Nombre maximal de connexions de point à site** | Non pris en charge | 128 | 128 | 128 |
+|**Prise en charge de routage actif (BGP)** | Non pris en charge | Non pris en charge | Non pris en charge | Non pris en charge |
  
+
+<!---HONumber=AcomDC_0224_2016-->

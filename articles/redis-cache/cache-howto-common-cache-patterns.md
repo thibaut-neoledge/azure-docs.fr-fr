@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd" 
-   ms.date="11/24/2015"
+   ms.date="02/23/2016"
    ms.author="riande"/>
 
 # Modèles de cache courants du Cache Redis Azure
@@ -31,10 +31,10 @@ Même s’il est recommandé de ne pas utiliser l’état de session, certaines 
  Grâce au stockage des données dans un cache, l'application peut faire face aux défaillances du système telles que la latence du réseau, les problèmes liés aux services web et les défaillances matérielles. Il est souvent préférable de distribuer les données mises en cache jusqu'à la récupération du service web ou de la base de données, plutôt que d'arriver à la défaillance complète de votre application.
 
 ## Étapes suivantes
-Pour en savoir plus sur l'utilisation du Cache Redis Azure :
+Pour en savoir plus sur l'utilisation du Cache Redis Azure :
  
-- [Documentation sur le cache Redis Azure](https://azure.microsoft.com/documentation/services/cache/) : cette page fournit de nombreux liens utiles concernant l’utilisation du cache Redis Azure.
-- [Application de vidéo MVC avec le cache Redis Azure en 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/) : ce billet de blog constitue un bon point de départ pour utiliser le cache Redis Azure dans une application ASP.NET MVC.
-- [Utilisation de l’état de session avec le cache Redis Azure dans Azure App Service](../app-service-web/web-sites-dotnet-session-state-caching.md) : cette rubrique explique comment utiliser le service de cache Redis Azure pour l’état de session.
+- [Documentation sur le cache Redis Azure](https://azure.microsoft.com/documentation/services/cache/) : cette page fournit de nombreux liens utiles concernant l’utilisation du cache Redis Azure.
+- [Application de vidéo MVC avec le cache Redis Azure en 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/) : ce billet de blog constitue un bon point de départ pour utiliser le cache Redis Azure dans une application ASP.NET MVC.
+- [Utilisation de l’état de session avec le cache Redis Azure dans Azure App Service](../app-service-web/web-sites-dotnet-session-state-caching.md) : cette rubrique explique comment utiliser le service de cache Redis Azure pour l’état de session.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

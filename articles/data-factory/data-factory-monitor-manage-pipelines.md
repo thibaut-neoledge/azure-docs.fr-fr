@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Surveillance et gestion des pipelines d’Azure Data Factory" 
-	description="Découvrez comment utiliser le portail Azure Classic et Azure PowerShell pour analyser et gérer les fabriques de données et les pipelines Azure que vous avez créés." 
+	description="Découvrez comment utiliser le portail Azure Classic et Azure PowerShell pour analyser et gérer les fabriques de données et les pipelines Azure que vous avez créés." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -38,7 +38,7 @@ Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelin
 	Vous devez voir toutes les fabriques de données dans le panneau **Fabriques de données**. 
 4. Dans le panneau Fabriques de données, sélectionnez la fabrique de données qui vous intéresse. La page d’accueil associée devrait apparaître (panneau **Fabrique de données**).
 
-	![Panneau Data Factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+	![Panneau Data Factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### Vue schématique de votre fabrique de données
 La vue schématique d'une fabrique de données est un point unique de surveillance et de gestion de la fabrique de données et de ses ressources.
@@ -47,7 +47,7 @@ Cliquez sur **Schématique** sur la page d'accueil de la fabrique de données ci
 
 ![Vue schématique](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster l’affichage à la taille de l’écran, figer l’affichage schématique, positionner automatiquement les pipelines et les tables, et afficher le lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés).
+Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster l’affichage à la taille de l’écran, figer l’affichage schématique, positionner automatiquement les pipelines et les tables, et afficher le lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés).
  
 
 ### Activités à l'intérieur d'un pipeline 
@@ -57,20 +57,20 @@ Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom po
 2. Dans l'exemple suivant, deux activités dans le pipeline s’affichent avec leurs entrées et leurs sorties. Les activités intitulées **JoinData** du type d'activité Hive HDInsight et **EgressDataAzure** du type d'activité Copy figurent dans cet exemple de pipeline. 
 	
 	![Activités à l'intérieur d'un pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png) 
-3. Vous pouvez revenir à la page d'accueil de Data Factory. Pour ce faire, cliquez sur le lien Data Factory dans l'arborescence de navigation située dans le coin supérieur gauche.
+3. Vous pouvez revenir à la page d'accueil de Data Factory. Pour ce faire, cliquez sur le lien Data Factory dans l'arborescence de navigation située dans le coin supérieur gauche.
 
 	![Revenir à la fabrique de données](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
 ### Affichez l’état de chaque activité à l'intérieur d'un pipeline
 Vous pouvez afficher l'état actuel d'une activité en consultant l'état de l'un des jeux de données générés par l'activité.
 
-Exemple : dans l'exemple suivant, **BlobPartitionHiveActivity** a été correctement exécutée et a produit le jeu de données nommé **PartitionedProductsUsageTable** dont l’état est **Ready** (prêt).
+Exemple : dans l'exemple suivant, **BlobPartitionHiveActivity** a été correctement exécutée et a produit le jeu de données nommé **PartitionedProductsUsageTable** dont l’état est **Ready** (prêt).
 
 ![État du pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Double-cliquez sur **PartitionedProductsUsageTable** dans la vue schématique pour afficher toutes les tranches produites par différentes exécutions d’activité à l'intérieur d'un pipeline. Comme vous le constaterez, l’activité **BlobPartitionHiveActivity** s’est déroulée correctement sur les 8 derniers mois et a produit les tranches dont l’état est **Ready** (prêt).
+Double-cliquez sur **PartitionedProductsUsageTable** dans la vue schématique pour afficher toutes les tranches produites par différentes exécutions d’activité à l'intérieur d'un pipeline. Comme vous le constaterez, l’activité **BlobPartitionHiveActivity** s’est déroulée correctement sur les 8 derniers mois et a produit les tranches dont l’état est **Ready** (prêt).
 
-Voici la liste des différents états possibles des tranches d’un jeu de données d’une fabrique de données :
+Voici la liste des différents états possibles des tranches d’un jeu de données d’une fabrique de données :
 
 <table>
 <tr>
@@ -148,11 +148,11 @@ Si la tranche n'a pas l'état **Prêt**, vous pouvez voir les tranches en amont 
 ![Tranches en amont qui ne sont pas prêtes](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
 ### Diagramme d'état de jeux de données
-Quand vous avez déployé une fabrique de données et que la période d’activation des pipelines est valide, les tranches de données des jeux de données passent d’un état à un autre. Actuellement, l'état de la tranche suit le schéma d'état suivant :
+Quand vous avez déployé une fabrique de données et que la période d’activation des pipelines est valide, les tranches de données des jeux de données passent d’un état à un autre. Actuellement, l'état de la tranche suit le schéma d'état suivant :
 
 ![Schéma d'état](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Le flux de transition d'états des jeux de données de la fabrique de données implique les états suivants : Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
+Le flux de transition d'états des jeux de données de la fabrique de données implique les états suivants : Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
 Les tranches commencent par l’état **Waiting**. Elles attendent alors que les conditions préalables soient respectées avant l’exécution. Ensuite, l’activité est exécutée et la tranche passe à l’état **In-Progress**. L'exécution de l'activité peut alors réussir ou échouer. En fonction du résultat, la tranche passe à l’état **Ready** ou **Failed**.
 
@@ -160,12 +160,12 @@ L'utilisateur peut réinitialiser la tranche en vue de restaurer l’état **Rea
 
 
 ## Gestion des pipelines
-Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, vous pouvez suspendre et reprendre les pipelines en exécutant les applets de commande Azure PowerShell.
+Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, vous pouvez suspendre et reprendre les pipelines en exécutant les applets de commande Azure PowerShell.
 
 ### Suspension et reprise des pipelines
 Vous pouvez suspendre des pipelines à l’aide de l’applet de commande PowerShell **Suspend-AzureRmDataFactoryPipeline**. Utile quand vous avez trouvé un problème de données et que vous ne voulez plus exécuter vos pipelines pour traiter les données tant que ce problème n’est pas résolu.
 
-Par exemple : dans la capture d’écran ci-dessous, un problème a été identifié au niveau du **PartitionProductsUsagePipeline** dans la fabrique de données **productrecgamalbox1dev**. Nous souhaitons donc interrompre ce pipeline.
+Par exemple : dans la capture d’écran ci-dessous, un problème a été identifié au niveau du **PartitionProductsUsagePipeline** dans la fabrique de données **productrecgamalbox1dev**. Nous souhaitons donc interrompre ce pipeline.
 
 ![Pipeline à interrompre](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
@@ -173,7 +173,7 @@ Exécutez la commande PowerShell suivante pour suspendre **PartitionProductsUsag
 
 	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
-Par exemple :
+Par exemple :
 
 	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
@@ -181,18 +181,18 @@ Une fois que le problème a été résolu au niveau du **PartitionProductsUsageP
 
 	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
-Par exemple :
+Par exemple :
 
 	Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 
 ## Débogage de pipelines
-Azure Data Factory offre des fonctionnalités exceptionnelles à travers le portail Azure Classic et Azure PowerShell pour déboguer et dépanner les pipelines.
+Azure Data Factory offre des fonctionnalités exceptionnelles à travers le portail Azure Classic et Azure PowerShell pour déboguer et dépanner les pipelines.
 
 ### Recherche d’erreurs dans un pipeline
 En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données généré par celui-ci est alors en état d'erreur. Vous pouvez déboguer et corriger les erreurs dans la Azure Data Factory à l'aide des mécanismes suivants.
 
-#### Utilisez le portail Azure Classic pour déboguer une erreur :
+#### Utilisez le portail Azure Classic pour déboguer une erreur :
 
 1.	Cliquez sur **AVEC DES ERREURS** sur la mosaïque **JEUX DE DONNÉES** sur la page d’accueil de la fabrique de données.
 	
@@ -216,7 +216,7 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
-	Par exemple :
+	Par exemple :
 
 
 		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -228,13 +228,13 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
 		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
-	Par exemple :
+	Par exemple :
 
 
 		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	La valeur de StartDateTime est l’heure de début de la tranche qui pose problème/l’erreur que vous avez notée à l’étape précédente. La valeur date-heure doit être entourée de guillemets doubles.
-5. 	Vous devez voir la sortie avec les détails sur l'erreur (semblable à cela) :
+5. 	Vous devez voir la sortie avec les détails sur l'erreur (semblable à cela) :
 
 		Id                  	: 841b77c9-d56c-48d1-99a3-8c16c3e77d39
 		ResourceGroupName   	: ADF
@@ -277,18 +277,18 @@ En cas d’échec de validation de la tranche à cause d’une erreur de straté
 
 Vous pouvez réexécuter des échecs à l’aide de l’applet de commande Set-AzureRmDataFactorySliceStatus. Consultez la rubrique [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) pour la syntaxe et pour plus d’informations sur l’applet de commande.
 
-**Exemple :** l’exemple suivant définit l’état de toutes les tranches de la table 'DAWikiAggregatedData' sur 'En attente' dans la fabrique de données Azure 'WikiADF'.
+**Exemple :** l’exemple suivant définit l’état de toutes les tranches de la table 'DAWikiAggregatedData' sur 'En attente' dans la fabrique de données Azure 'WikiADF'.
 
-**Remarque :** UpdateType est défini sur UpstreamInPipeline. Concrètement, l’état « En attente » est défini pour chaque tranche de la table et toutes les tables (en amont) dépendantes qui sont utilisées en tant que tables d’entrée pour les activités du pipeline. Sinon, la valeur « Individual » pour ce paramètre est également possible.
+**Remarque :** UpdateType est défini sur UpstreamInPipeline. Concrètement, l’état « En attente » est défini pour chaque tranche de la table et toutes les tables (en amont) dépendantes qui sont utilisées en tant que tables d’entrée pour les activités du pipeline. Sinon, la valeur « Individual » pour ce paramètre est également possible.
 
 	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Créez des alertes
-Azure consigne les événements utilisateur lorsqu'une ressource Azure (par exemple, une fabrique de données) est créée, mise à jour ou supprimée. Vous pouvez créer des alertes relatives à ces événements. Data Factory vous permet de capturer différentes mesures et de créer des alertes associées. Nous vous recommandons d'utiliser des événements pour la surveillance en temps réel et des mesures pour en savoir plus sur l’utilisation au fil du temps.
+Azure consigne les événements utilisateur lorsqu'une ressource Azure (par exemple, une fabrique de données) est créée, mise à jour ou supprimée. Vous pouvez créer des alertes relatives à ces événements. Data Factory vous permet de capturer différentes mesures et de créer des alertes associées. Nous vous recommandons d'utiliser des événements pour la surveillance en temps réel et des mesures pour en savoir plus sur l’utilisation au fil du temps.
 
 ### Alertes relatives à des événements
-Les événements Azure fournissent des explications utiles sur ce qui se passe dans vos ressources Azure. Azure consigne les événements utilisateur lorsqu'une ressource Azure (par exemple, une fabrique de données) est créée, mise à jour ou supprimée. Lors de l'utilisation du service Azure Data Factory, les événements sont générés lorsque :
+Les événements Azure fournissent des explications utiles sur ce qui se passe dans vos ressources Azure. Azure consigne les événements utilisateur lorsqu'une ressource Azure (par exemple, une fabrique de données) est créée, mise à jour ou supprimée. Lors de l'utilisation du service Azure Data Factory, les événements sont générés lorsque :
 
 - Azure Data Factory est créé, mis à jour ou supprimé.
 - Le traitement des données (appelé au démarrage) est démarré ou terminé.
@@ -296,8 +296,10 @@ Les événements Azure fournissent des explications utiles sur ce qui se passe d
 
 Vous pouvez créer des alertes relatives à ces événements utilisateur et les configurer pour envoyer des notifications par courrier électronique à l'administrateur et aux coadministrateurs de l'abonnement. De plus, vous pouvez spécifier des adresses de messagerie supplémentaires pour les utilisateurs devant recevoir des notifications par courrier électronique lorsque les conditions sont remplies. Cela est très utile lorsque vous souhaitez être averti en cas d’échec et que vous ne souhaitez pas surveiller en continu votre fabrique de données.
 
-#### Configuration d'une définition d'alerte :
-Pour spécifier une définition d'alerte, vous devez créer un fichier JSON décrivant les opérations pour lesquelles vous souhaitez être alerté. Dans l'exemple ci-dessous, l'alerte envoie une notification par courrier électronique pour l’opération RunFinished. Pour être plus précis, une notification par courrier électronique est envoyée lorsqu'une exécution de la fabrique de données est terminée en ayant échoué (État = FailedExecution).
+> [AZURE.NOTE] Le portail n'affiche pas les alertes sur les événements pour l'instant. Utilisez l’[Application de surveillance et gestion](data-factory-monitor-manage-app.md) pour afficher toutes les alertes.
+
+#### Configuration d'une définition d'alerte :
+Pour spécifier une définition d'alerte, vous devez créer un fichier JSON décrivant les opérations pour lesquelles vous souhaitez être alerté. Dans l'exemple ci-dessous, l'alerte envoie une notification par courrier électronique pour l’opération RunFinished. Pour être plus précis, une notification par courrier électronique est envoyée lorsqu'une exécution de la fabrique de données est terminée en ayant échoué (État = FailedExecution).
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -338,7 +340,7 @@ Pour spécifier une définition d'alerte, vous devez créer un fichier JSON déc
 
 Si vous ne voulez pas recevoir d’alerte relative à un échec spécifique, supprimez **subStatus** de la définition JSON précédente.
 
-L'exemple ci-dessus définit l'alerte de toutes les fabriques de données de votre abonnement. Si vous souhaitez configurer l'alerte pour une fabrique de données particulière, vous pouvez spécifier la fabrique de données **resourceUri** dans le bloc **dataSource** comme ci-après :
+L'exemple ci-dessus définit l'alerte de toutes les fabriques de données de votre abonnement. Si vous souhaitez configurer l'alerte pour une fabrique de données particulière, vous pouvez spécifier la fabrique de données **resourceUri** dans le bloc **dataSource** comme ci-après :
 
 	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
 
@@ -355,11 +357,11 @@ OnDemandClusterDeleted | Succeeded
 Consultez [Créer une règle d’alerte](https://msdn.microsoft.com/library/azure/dn510366.aspx) pour plus d’informations sur les éléments JSON utilisés dans l’exemple ci-dessus.
 
 #### Déploiement de l’alerte 
-Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
+Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
-Une fois le déploiement du groupe de ressources réussi, les messages suivants s’affichent :
+Une fois le déploiement du groupe de ressources réussi, les messages suivants s’affichent :
 
 	VERBOSE: 7:00:48 PM - Template is valid.
 	WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
@@ -377,7 +379,7 @@ Une fois le déploiement du groupe de ressources réussi, les messages suivants 
 	Outputs           :
 
 #### Récupération de la liste des déploiements de groupes de ressources Azure
-Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l’applet de commande : **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
+Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l’applet de commande : **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -394,12 +396,12 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 #### Résolution des problèmes des événements utilisateur
 
 
-- Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n’importe quelle opération visible dans le panneau **Événements** :
+- Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n’importe quelle opération visible dans le panneau **Événements** :
 
 	![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
-- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule** :
+- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule** :
 
 
 		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
@@ -459,15 +461,15 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 - Si des événements de génération d'alertes apparaissent sur le panneau du portail mais que vous ne recevez aucune notification par e-mail, vérifiez que votre adresse e-mail est bien configurée de manière à recevoir des e-mails de la part d’expéditeurs externes. Les alertes par e-mail peuvent avoir été bloquées en raison de vos paramètres de messagerie.
 
 ### Alertes relatives à des mesures
-Data Factory vous permet de capturer différentes mesures et de créer des alertes associées. Vous pouvez analyser et créer des alertes relatives à des mesures suivantes pour les tranches de votre fabrique de données.
+Data Factory vous permet de capturer différentes mesures et de créer des alertes associées. Vous pouvez analyser et créer des alertes relatives à des mesures suivantes pour les tranches de votre fabrique de données.
  
 - Exécutions échouées
 - Exécutions réussies
 
 Ces mesures sont très utiles et permettent aux utilisateurs d'obtenir une vue d'ensemble globale des exécutions réussies et échouées dans leur fabrique de données. Des mesures sont émises lors de chaque exécution de tranche de données. Toutes les heures, ces mesures sont regroupées et transférées dans votre compte de stockage. Par conséquent, pour activer les mesures, vous devrez configurer un compte de stockage.
 
-#### Activation des mesures :
-Pour activer les mesures, suivez le chemin suivant à partir du panneau Data Factory :
+#### Activation des mesures :
+Pour activer les mesures, suivez le chemin suivant à partir du panneau Data Factory :
 
 **Analyse** -> **Mesure** -> **Paramètres de diagnostic** -> **Diagnostic**
 
@@ -478,22 +480,22 @@ Dans le panneau **Diagnostic**, cliquez sur **Activé** et sélectionnez le comp
 Par la suite, vous devrez peut-être attendre une heure maximum avant que les mesures ne soient visibles sur le panneau d’analyse. En effet, le regroupement des mesures s’effectue une fois par heure.
 
 
-### Configuration d'une alerte relative à des mesures :
+### Configuration d'une alerte relative à des mesures :
 
-Pour configurer des alertes relatives à des mesures, cliquez sur les éléments suivants à partir du panneau Data Factory : **Analyse** -> **Mesure** -> **Ajouter une alerte** -> **Ajouter une règle d’alerte**.
+Pour configurer des alertes relatives à des mesures, cliquez sur les éléments suivants à partir du panneau Data Factory : **Analyse** -> **Mesure** -> **Ajouter une alerte** -> **Ajouter une règle d’alerte**.
 
 Indiquez les détails de la règle d’alerte, précisez les adresses de messagerie et cliquez sur **OK**.
 
 
 ![Configurer des alertes relatives à des mesures](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
 
-Une fois terminé, une nouvelle règle d'alerte activée devrait apparaître sur la vignette de règles d’alerte, comme suit :
+Une fois terminé, une nouvelle règle d'alerte activée devrait apparaître sur la vignette de règles d’alerte, comme suit :
 
 ![Règles d'alerte activées](./media/data-factory-monitor-manage-pipelines/alert-rule-enabled.png)
 
-Félicitations ! Vous avez configuré votre première alerte relative à des mesures. Dorénavant, des notifications s’afficheront chaque fois qu’une règle d’alerte est signalée, dans la fenêtre d’heure donnée.
+Félicitations ! Vous avez configuré votre première alerte relative à des mesures. Dorénavant, des notifications s’afficheront chaque fois qu’une règle d’alerte est signalée, dans la fenêtre d’heure donnée.
 
-### Notifications d'alerte :
+### Notifications d'alerte :
 Une fois que la règle de configuration correspond à la condition, un e-mail d’alerte vous est envoyé. Une fois que le problème est résolu et que la condition d'alerte est caduque, un message signalant que l’alerte a été résolue vous est envoyé.
 
 Ce comportement se distingue des événements donnant lieu à l’envoi d’une notification dès qu’un échec correspondant à une règle d’alerte a lieu.
@@ -501,7 +503,7 @@ Ce comportement se distingue des événements donnant lieu à l’envoi d’une 
 ### Déploiement d'alertes à l'aide de PowerShell
 Vous pouvez déployer des alertes relatives à des mesures de la même façon que vous le faites pour les événements.
 
-**Définition d’alerte :**
+**Définition d’alerte :**
 
 	{
 	    "contentVersion" : "1.0.0.0",
@@ -543,15 +545,15 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
 
-**Déploiement de l’alerte :**
+**Déploiement de l’alerte :**
 
-Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
+Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
-Le message suivant devrait s’afficher après la réussite du déploiement :
+Le message suivant devrait s’afficher après la réussite du déploiement :
 
 	VERBOSE: 12:52:47 PM - Template is valid.
 	VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
@@ -570,4 +572,13 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 
 Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d’alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour plus d’informations et des exemples.
 
-<!---HONumber=AcomDC_0218_2016-->
+## Déplacer la fabrique de données vers un autre groupe de ressources ou abonnement
+Vous pouvez déplacer une fabrique de données vers un autre groupe de ressources ou abonnement à l'aide du bouton de la barre de commandes **Déplacer** situé sur la page d'accueil de votre fabrique de données.
+
+![Déplacer la fabrique de données](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+
+Vous pouvez également déplacer toutes les ressources associées (notamment les alertes associées à la fabrique de données) en même temps que la fabrique de données.
+
+![Boîte de dialogue Déplacer des ressources](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="02/23/2016"
    ms.author="tomfitz"/>
 
 # Schéma d’un modèle de coffre de clés
@@ -94,7 +94,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 | Nom | Type | Requis | Valeurs autorisées | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
 | clés | array | Oui | Une liste séparée par des virgules contenant les valeurs suivantes : <br />**all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | Les autorisations accordées à cet objet Active Directory pour les clés de ce coffre. Cette valeur doit être spécifiée comme un tableau de valeurs autorisées. |
-| secrets | array | Oui | Une liste séparée par des virgules contenant les valeurs suivantes :<br />**all**<br />**delete**<br />**get**<br />**list**<br />**set** | Les autorisations accordées à cet objet Active Directory pour les clés secrètes de ce coffre. Cette valeur doit être spécifiée comme un tableau de valeurs autorisées. |
+| secrets | array | Oui | Une liste séparée par des virgules contenant les valeurs suivantes :<br />**all**<br />**delete**<br />**get**<br />**list**<br />**set** | Les autorisations accordées à cet objet Active Directory pour les clés secrètes de ce coffre. Cette valeur doit être spécifiée comme un tableau de valeurs autorisées. |
 
 <a id="sku" />
 ### Objet properties.sku
@@ -223,7 +223,6 @@ L'exemple suivant déploie un coffre de clés et la clé secrète.
                 "type": "secrets",
                 "name": "[parameters('secretName')]",
                 "apiVersion": "2015-06-01",
-                "tags": { "displayName": "secret" },
                 "properties": {
                     "value": "[parameters('secretValue')]"
                 },
@@ -243,7 +242,7 @@ Le modèle de démarrage rapide suivant déploie un coffre de clés.
 
 ## Étapes suivantes
 
-- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
+- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
 - Pour obtenir un exemple de référencement d'une clé secrète de coffre de clés lors du déploiement, consultez [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

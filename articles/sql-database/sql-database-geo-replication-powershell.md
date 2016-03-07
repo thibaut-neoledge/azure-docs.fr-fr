@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Configurer la géo-réplication pour Base de données SQL Azure avec PowerShell | Microsoft Azure" 
-    description="géo-réplication active pour Base de données SQL Azure avec PowerShell" 
+    description="géo-réplication active pour Base de données SQL Azure avec PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # Configurer la géo-réplication pour la base de données SQL Azure avec PowerShell
@@ -28,17 +28,17 @@
 
 Cet article vous montre comment configurer la géo-réplication pour une base de données SQL à l’aide de PowerShell.
 
-La géo-réplication permet de créer jusqu’4 réplicas de bases de données (secondaires) dans différents centres de données (régions). Les bases de données secondaires sont disponibles en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire.
+La géo-réplication permet de créer jusqu’4 réplicas de bases de données (secondaires) dans différents centres de données (régions). Les bases de données secondaires sont disponibles en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire.
 
 La géo-réplication est uniquement disponible pour les bases de données Standard et Premium.
 
 Les bases de données standard peuvent avoir un serveur secondaire non accessible en lecture et doivent utiliser la région recommandée. Les bases de données Premium peuvent avoir jusqu’à quatre bases de données secondaires dans l’une des régions disponibles.
 
-Pour configurer la géo-réplication, vous devez disposer des éléments suivants :
+Pour configurer la géo-réplication, vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
-- Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
-- Azure PowerShell 1.0 ou version ultérieure. Vous pouvez télécharger et installer les modules Azure PowerShell en suivant la procédure décrite dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
+- Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **COMPTE GRATUIT** en haut de cette page, puis continuez la lecture de cet article.
+- Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
+- Azure PowerShell 1.0 ou version ultérieure. Vous pouvez télécharger et installer les modules Azure PowerShell en suivant la procédure décrite dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -55,7 +55,7 @@ Après vous être connecté, vous voyez des informations sur l’écran, notamme
 
 ### Sélectionner votre abonnement Azure
 
-Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. Vous pouvez copier l’identifiant d’abonnement à partir des informations affichées à l’étape précédente ou, si vous disposez de plusieurs abonnements et avez besoin de plus de détails, vous pouvez exécuter l’applet de commande **Get-AzureRmSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. L’applet de commande suivante utilise l’identifiant d’abonnement pour définir l’abonnement actuel :
+Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. Vous pouvez copier l’identifiant d’abonnement à partir des informations affichées à l’étape précédente ou, si vous disposez de plusieurs abonnements et avez besoin de plus de détails, vous pouvez exécuter l’applet de commande **Get-AzureRmSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. L’applet de commande suivante utilise l’identifiant d’abonnement pour définir l’abonnement actuel :
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -82,7 +82,7 @@ Si la base de données de partenaire existe déjà (par exemple, suite à l’ar
 
 ### Ajouter une base de données secondaire non accessible en lecture (base de données unique)
 
-La commande suivante crée un réplica secondaire non accessible en lecture de la base de données « mydb » du serveur « srv2 » dans le groupe de ressources « rg2 » :
+La commande suivante crée un réplica secondaire non accessible en lecture de la base de données « mydb » du serveur « srv2 » dans le groupe de ressources « rg2 » :
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
@@ -91,7 +91,7 @@ La commande suivante crée un réplica secondaire non accessible en lecture de l
 
 ### Ajouter une base de données secondaire accessible en lecture (base de données unique)
 
-La commande suivante crée un réplica secondaire accessible en lecture de la base de données « mydb » du serveur « srv2 » dans le groupe de ressources « rg2 » :
+La commande suivante crée un réplica secondaire accessible en lecture de la base de données « mydb » du serveur « srv2 » dans le groupe de ressources « rg2 » :
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
@@ -101,7 +101,7 @@ La commande suivante crée un réplica secondaire accessible en lecture de la ba
 
 ### Ajouter une base de données secondaire non accessible en lecture (base de données élastique)
 
-La commande suivante crée un réplica secondaire non accessible en lecture de la base de données « mydb » dans le pool de la base de données élastique nommé « ElasticPool1 » du serveur « srv2 » dans le groupe de ressources « rg2 » :
+La commande suivante crée un réplica secondaire non accessible en lecture de la base de données « mydb » dans le pool de la base de données élastique nommé « ElasticPool1 » du serveur « srv2 » dans le groupe de ressources « rg2 » :
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
@@ -109,7 +109,7 @@ La commande suivante crée un réplica secondaire non accessible en lecture de l
 
 ### Ajouter un réplica secondaire accessible en lecture (base de données élastique)
 
-La commande suivante crée un réplica secondaire accessible en lecture de la base de données « mydb » dans le pool de la base de données élastique nommé « ElasticPool1 » du serveur « srv2 » dans le groupe de ressources « rg2 » :
+La commande suivante crée un réplica secondaire accessible en lecture de la base de données « mydb » dans le pool de la base de données élastique nommé « ElasticPool1 » du serveur « srv2 » dans le groupe de ressources « rg2 » :
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
@@ -129,7 +129,7 @@ Cette suppression équivaut à un arrêt forcé qui supprime le lien de réplica
 
 Pour supprimer la base de données secondaire, les utilisateurs doivent avoir accès en écriture aux bases de données primaire et secondaire en fonction des rôles. Pour plus de détails, consultez Contrôle d’accès en fonction du rôle.
 
-Ce qui suit permet de supprimer le lien de réplication de la base de données nommée « mydb » pour le serveur « srv2 » du groupe de ressources « rg2 ».
+Ce qui suit permet de supprimer le lien de réplication de la base de données nommée « mydb » pour le serveur « srv2 » du groupe de ressources « rg2 ».
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
@@ -142,13 +142,13 @@ Ce qui suit permet de supprimer le lien de réplication de la base de données n
 
 Utilisez l’applet de commande **Set-AzureRmSqlDatabaseSecondary** avec le paramètre **-Failover** pour promouvoir une base de données secondaire pour qu’elle devienne la nouvelle base de données primaire, rétrogradant ainsi la base de données primaire existante en base de données secondaire. Cette fonctionnalité est conçue pour un basculement planifié, comme au cours des exercices de récupération d’urgence et exige que la base de données primaire soit disponible.
 
-La commande exécute le flux de travail suivant :
+La commande exécute le flux de travail suivant :
 
 1. Basculer temporairement la réplication en mode synchrone. Les transactions en attente seront alors vidées sur la base de données secondaire.
 
 2. Changer les rôles des deux bases de données dans le partenariat de géo-réplication.
 
-Cette séquence garantit qu’aucune perte de données n’aura lieu. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, consultez [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
+Cette séquence garantit qu’aucune perte de données n’aura lieu. Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales. Pour plus d’informations, consultez [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
 > [AZURE.NOTE] Si la base de données primaire n’est pas disponible lorsque la commande est émise, elle échoue avec un message d’erreur indiquant que le serveur principal n’est pas disponible. Dans de rares cas, il est possible que l’opération ne puisse pas se terminer et apparaisse bloquée. Dans ce cas, l’utilisateur peut appeler la commande de basculement forcé (basculement non planifié) et accepter une perte de données.
@@ -157,7 +157,7 @@ Cette séquence garantit qu’aucune perte de données n’aura lieu. Il existe 
 
 Cette applet de commande sera renvoyée lorsque le processus de basculement de la base de données secondaire vers la primaire sera terminé.
 
-La commande suivante bascule les rôles de la base de données nommée « mydb » sur le serveur « srv2 » sous le groupe de ressources « rg2 » vers la base de données primaire. La base de données primaire d’origine à laquelle « db2 » a été connectée bascule sur la base de données secondaire une fois que les deux bases de données sont entièrement synchronisées.
+La commande suivante bascule les rôles de la base de données nommée « mydb » sur le serveur « srv2 » sous le groupe de ressources « rg2 » vers la base de données primaire. La base de données primaire d’origine à laquelle « db2 » a été connectée bascule sur la base de données secondaire une fois que les deux bases de données sont entièrement synchronisées.
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
@@ -176,10 +176,10 @@ Mais comme la limite de restauration dans le temps n’est pas prise en charge s
 > [AZURE.NOTE] Si la commande est émise lorsque les deux bases de données primaire et secondaire sont en ligne, l’ancienne base de données primaire devient la nouvelle base de données secondaire, mais la synchronisation des données n’a pas lieu et une perte de données est possible.
 
 
-Si la base de données primaire compte plusieurs bases de données secondaires, la commande réussit partiellement. La base de données secondaire sur laquelle la commande a été exécutée deviendra la base de données primaire. L’ancienne base de données primaire reste toutefois primaire, en d’autres termes, les deux bases de données primaires sont finalement incompatibles et connectées par un lien de réplication suspendu. L’utilisateur doit alors réparer manuellement cette configuration à l’aide d’une API « suppression de base de données secondaire » sur une de ces bases de données primaires.
+Si la base de données primaire compte plusieurs bases de données secondaires, la commande réussit partiellement. La base de données secondaire sur laquelle la commande a été exécutée deviendra la base de données primaire. L’ancienne base de données primaire reste toutefois primaire, en d’autres termes, les deux bases de données primaires sont finalement incompatibles et connectées par un lien de réplication suspendu. L’utilisateur doit alors réparer manuellement cette configuration à l’aide d’une API « suppression de base de données secondaire » sur une de ces bases de données primaires.
 
 
-La commande suivante bascule les rôles de la base de données nommée « mydb » vers la base de données primaire si le serveur principal n’est pas disponible. La base de données d’origine à laquelle « mydb » était connectée va basculer sur la base de données secondaire une fois qu’elle est revenue est en ligne. À ce stade, la synchronisation peut entraîner une perte de données.
+La commande suivante bascule les rôles de la base de données nommée « mydb » vers la base de données primaire si le serveur principal n’est pas disponible. La base de données d’origine à laquelle « mydb » était connectée va basculer sur la base de données secondaire une fois qu’elle est revenue est en ligne. À ce stade, la synchronisation peut entraîner une perte de données.
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
@@ -192,7 +192,7 @@ Les tâches de surveillance incluent la surveillance de la configuration de géo
 
 [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) peut être utilisé pour extraire des informations sur les liens de réplication directe visibles dans la vue de catalogue sys.geo\_replication\_links.
 
-La commande suivante récupère l’état du lien de réplication entre la base de données primaire « mydb » et secondaire sur le serveur « srv2 » du groupe de ressources « rg2 ».
+La commande suivante récupère l’état du lien de réplication entre la base de données primaire « mydb » et secondaire sur le serveur « srv2 » du groupe de ressources « rg2 ».
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
@@ -215,4 +215,4 @@ La commande suivante récupère l’état du lien de réplication entre la base 
 - [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

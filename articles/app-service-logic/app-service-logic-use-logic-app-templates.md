@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/18/2016"
 	ms.author="klam"/>
 
 # Utiliser les modèles d’application logique
+
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
 
 Les modèles d’application logique sont des applications logiques prédéfinies organisées, conçues pour vous aider à créer vos propres applications d’intégration.
 
 Ces modèles montrent comment utiliser certains des nombreux connecteurs disponibles sur le marché et permettent d’identifier plusieurs fonctionnements pouvant être intégrés dans des applications logiques. Vous pouvez utiliser ces modèles tels quels ou les adapter à votre situation.
 
-Pour commencer à utiliser un modèle d’application logique, accédez à Marketplace et recherchez « Modèle d’application logique ». Choisissez ensuite l’un des modèles d’application logique dans la liste organisée. Sinon, pendant la création d’une application logique, sélectionnez « Déclencheurs et actions » et effectuez une sélection parmi l’ensemble de modèles d’application logique du concepteur.
+Pour commencer à utiliser un modèle d’application logique, accédez à Marketplace et recherchez « Modèle d’application logique ». Choisissez ensuite l’un des modèles d’application logique dans la liste organisée. Sinon, pendant la création d’une application logique, sélectionnez « Déclencheurs et actions » et effectuez une sélection parmi l’ensemble de modèles d’application logique du concepteur.
 
 ## Exemples de modèles disponibles
 
@@ -44,4 +46,4 @@ Modèles simples qui s’intègrent aux services de réseaux sociaux, comme Twit
 Après avoir sélectionné l’un des modèles, finalisez le déploiement comme si vous aviez créé votre propre application logique. La procédure détaillée figure dans la rubrique [Créer une application logique](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

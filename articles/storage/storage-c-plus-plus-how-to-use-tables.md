@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Utilisation du stockage de table (C++) | Microsoft Azure"
+    pageTitle="Utilisation du stockage de table (C++) | Microsoft Azure"
     description="Découvrez comment utiliser le service de stockage de table dans Azure. Les exemples sont écrits en C++."
     services="storage"
     documentationCenter=".net"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/17/2016"
     ms.author="dineshm"/>
 
 # Utilisation du stockage de table à partir de C++
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 ## Vue d’ensemble  
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de table Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Les scénarios traités incluent la **création et la suppression d’une table**, ainsi que l’**utilisation d’entités de table**.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de table Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent la **création et la suppression d’une table**, ainsi que l’**utilisation d’entités de table**.
 
->[AZURE.NOTE] Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 1.0.0, disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/).
+>[AZURE.NOTE] Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 2.2.0, disponible par le biais de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp/).
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -32,26 +32,26 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 ## Création d’une application C++  
 Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent être exécutées dans une application C++. Pour ce faire, vous devez installer la bibliothèque cliente Azure Storage pour C++ et créer un compte Azure Storage dans votre abonnement Azure.
 
-Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
+Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
--	**Linux :** suivez les instructions disponibles dans la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur Entrée.  
+-	**Linux :** suivez les instructions disponibles dans la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
+-	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur Entrée.  
 
 		Install-Package wastorage
 
 ## Configuration de votre application pour accéder au stockage de table  
-Ajoutez l’instruction import suivante au début du fichier C++ dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux tables :
+Ajoutez l’instruction import suivante au début du fichier C++ dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux tables :
 
 	#include "was/storage_account.h"
 	#include "was/table.h"
 
 ## Configuration d’une chaîne de connexion au stockage Azure  
-Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Quand vous exécutez une application cliente, vous devez fournir la chaîne de connexion de stockage dans le format suivant. Utilisez le nom de votre compte de stockage et la clé d’accès de stockage pour le compte de stockage répertorié sur le [portail Azure](https://portal.azure.com) pour les valeurs *AccountName* et *AccountKey*. Pour plus d’informations sur les comptes et les clés d’accès de stockage, consultez [À propos des comptes Azure Storage](storage-create-storage-account.md). Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion :
+Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Quand vous exécutez une application cliente, vous devez fournir la chaîne de connexion de stockage dans le format suivant. Utilisez le nom de votre compte de stockage et la clé d’accès de stockage pour le compte de stockage répertorié sur le [portail Azure](https://portal.azure.com) pour les valeurs *AccountName* et *AccountKey*. Pour plus d’informations sur les comptes et les clés d’accès de stockage, consultez [À propos des comptes Azure Storage](storage-create-storage-account.md). Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion :
 
 	// Define the connection string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Pour tester votre application sur votre ordinateur Windows local, vous pouvez utiliser l’[émulateur de stockage](storage-use-emulator.md) Azure installé avec le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). L’émulateur de stockage est un utilitaire qui simule les services Azure d’objet blob, de file d’attente et de table disponibles sur votre ordinateur de développement local. L’exemple suivant vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion vers votre émulateur de stockage local :
+Pour tester votre application sur votre ordinateur Windows local, vous pouvez utiliser l’[émulateur de stockage](storage-use-emulator.md) Azure installé avec le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). L’émulateur de stockage est un utilitaire qui simule les services Azure d’objet blob, de file d’attente et de table disponibles sur votre ordinateur de développement local. L’exemple suivant vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion vers votre émulateur de stockage local :
 
 	// Define the connection string with Azure storage emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -66,7 +66,7 @@ Vous pouvez utiliser la classe **cloud\_storage\_account** pour représenter les
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-Ensuite, récupérez une référence à une classe **cloud\_table\_client**, car elle vous permet d’obtenir des objets de référence pour les tables et entités stockées dans le service de stockage de Table. Le code suivant crée un objet **cloud\_table\_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :
+Ensuite, récupérez une référence à une classe **cloud\_table\_client**, car elle vous permet d’obtenir des objets de référence pour les tables et entités stockées dans le service de stockage de Table. Le code suivant crée un objet **cloud\_table\_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :
 
 	// Create the table client.
 	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
@@ -87,9 +87,9 @@ Un objet **cloud\_table\_client** vous permet d’obtenir les objets de référe
 	table.create_if_not_exists();  
 
 ## Ajout d’une entité à une table
-Pour ajouter une entité à une table, créez un objet **table\_entity** et transmettez-le à **table\_operation::insert\_entity**. Le code suivant utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d’une entité identifient l’entité de façon unique dans la table. Les requêtes d’entités dont les clés de partition sont identiques sont plus rapides que celles d’entités dont les clés de partition sont différentes, mais le fait d’utiliser différentes clés de partition améliore l’extensibilité des opérations parallèles. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](storage-performance-checklist.md).
+Pour ajouter une entité à une table, créez un objet **table\_entity** et transmettez-le à **table\_operation::insert\_entity**. Le code suivant utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d’une entité identifient l’entité de façon unique dans la table. Les requêtes d’entités dont les clés de partition sont identiques sont plus rapides que celles d’entités dont les clés de partition sont différentes, mais le fait d’utiliser différentes clés de partition améliore l’extensibilité des opérations parallèles. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](storage-performance-checklist.md).
 
-Le code suivant crée une instance de la classe **table\_entity** avec des données client à stocker. Le code appelle ensuite **table\_operation::insert\_entity** pour créer un objet **table\_operation** pour insérer une entité dans une table et y associer la nouvelle entité de table. Enfin, le code appelle la méthode execute sur l’objet **cloud\_table**. Puis le nouvel objet **table\_operation** envoie une demande au service de Table pour insérer la nouvelle entité de client dans la table « people ».
+Le code suivant crée une instance de la classe **table\_entity** avec des données client à stocker. Le code appelle ensuite **table\_operation::insert\_entity** pour créer un objet **table\_operation** pour insérer une entité dans une table et y associer la nouvelle entité de table. Enfin, le code appelle la méthode execute sur l’objet **cloud\_table**. Puis le nouvel objet **table\_operation** envoie une demande au service de Table pour insérer la nouvelle entité de client dans la table « people ».
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -165,12 +165,12 @@ Vous pouvez insérer un lot d’entités dans le service de Table en une seule o
 	// Execute the batch operation.
 	std::vector<azure::storage::table_result> results = table.execute_batch(batch_operation);
 
-Quelques remarques sur les opérations par lot :
+Quelques remarques sur les opérations par lot :
 
--	Vous pouvez effectuer jusqu’à 100 opérations d’insertion, de suppression, de fusion, de remplacement, d’insertion ou fusion et d’insertion ou de remplacement dans n’importe quelle combinaison en un seul lot.  
+-	Vous pouvez effectuer jusqu’à 100 opérations d’insertion, de suppression, de fusion, de remplacement, d’insertion ou fusion et d’insertion ou de remplacement dans n’importe quelle combinaison en un seul lot.  
 -	Une opération par lot peut comporter une opération d’extraction, s’il s’agit de la seule opération du lot.  
 -	Toutes les entités d’une opération par lot doivent avoir la même clé de partition.  
--	Une opération par lot est limitée à une charge utile de données de 4 Mo.  
+-	Une opération par lot est limitée à une charge utile de données de 4 Mo.  
 
 ## Extraction de toutes les entités d’une partition
 Pour exécuter une requête de table pour toutes les entités d’une partition, utilisez un objet **table\_query**. L’exemple de code suivant indique un filtre pour les entités où ’Smith’ est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
@@ -206,7 +206,7 @@ Pour exécuter une requête de table pour toutes les entités d’une partition,
 La requête de cet exemple affiche toutes les entités qui correspondent aux critères de filtre. Si vous avez des tables volumineuses et que vous devez télécharger les entités de table souvent, nous vous recommandons de plutôt stocker vos données dans des objets blob de stockage Azure.
 
 ## Extraction d’un ensemble d’entités dans une partition
-Si vous ne voulez pas exécuter une requête pour toutes les entités d'une partition, vous pouvez spécifier un ensemble en combinant le filtre de clé de partition avec un filtre de clé de ligne. L’exemple de code suivant utilise deux filtres pour obtenir toutes les entités dans la partition « Smith » où la clé de ligne (prénom) commence par une lettre située avant la lettre « E » dans l’ordre alphabétique, puis imprime les résultats de la requête.
+Si vous ne voulez pas exécuter une requête pour toutes les entités d'une partition, vous pouvez spécifier un ensemble en combinant le filtre de clé de partition avec un filtre de clé de ligne. L’exemple de code suivant utilise deux filtres pour obtenir toutes les entités dans la partition « Smith » où la clé de ligne (prénom) commence par une lettre située avant la lettre « E » dans l’ordre alphabétique, puis imprime les résultats de la requête.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -241,7 +241,7 @@ Si vous ne voulez pas exécuter une requête pour toutes les entités d'une part
 	}  
 
 ## Extraction d'une seule entité
-Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **table\_operation::retrieve\_entity** pour spécifier le client « Jeff Smith ». Cette méthode renvoie une seule entité, au lieu d’une collection. De plus, la valeur renvoyée est dans **table\_result**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
+Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **table\_operation::retrieve\_entity** pour spécifier le client « Jeff Smith ». Cette méthode renvoie une seule entité, au lieu d’une collection. De plus, la valeur renvoyée est dans **table\_result**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
@@ -362,7 +362,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques pro
 >[AZURE.NOTE] L’interrogation d’un petit nombre de propriétés d’une entité est une opération plus efficace que l’extraction de toutes les propriétés.
 
 ## Suppression d’une entité
-Il est facile de supprimer une entité après l’avoir récupérée. Une fois que l’entité est extraite, appelez **table\_operation::delete\_entity** avec l’entité à supprimer. Appelez ensuite la méthode **cloud\_table.execute**. Le code suivant récupère et supprime une entité dont la clé de partition est « Smith » et la clé de ligne « Jeff ».
+Il est facile de supprimer une entité après l’avoir récupérée. Une fois que l’entité est extraite, appelez **table\_operation::delete\_entity** avec l’entité à supprimer. Appelez ensuite la méthode **cloud\_table.execute**. Le code suivant récupère et supprime une entité dont la clé de partition est « Smith » et la clé de ligne « Jeff ».
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -406,12 +406,12 @@ Pour finir, l’exemple de code suivant supprime une table d’un compte de stoc
 	azure::storage::table_result delete_result = table.execute(delete_operation);
 
 ## Étapes suivantes
-Les bases du stockage des tables étant assimilées, voir les liens suivants pour en savoir plus sur Azure Storage :
+Les bases du stockage des tables étant assimilées, voir les liens suivants pour en savoir plus sur Azure Storage :
 
 -	[Utilisation du stockage d’objets blob à partir de C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[Utilisation du service de stockage de files d’attente à partir de C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
--	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
+-	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

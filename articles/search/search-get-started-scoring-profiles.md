@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des profils de score dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Utilisation des profils de score dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Paramétrez le classement de recherche avec les profils de score dans Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # Utilisation des profils de score dans Azure Search
@@ -27,11 +27,11 @@ L'exemple d'application illustre des comportements de score à l'aide de donnée
 <a id="sub-1"></a>
 ## Conditions préalables
 
-L’exemple d’application est écrit en C# à l’aide de Visual Studio 2013. Essayez l'édition [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) si vous ne disposez pas déjà d'une copie de Visual Studio.
+L’exemple d’application est écrit en C# à l’aide de Visual Studio 2013. Essayez l'édition [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) si vous ne disposez pas déjà d'une copie de Visual Studio.
 
 Vous avez besoin d'un abonnement Azure et d'un service Azure Search pour suivre ce didacticiel. Reportez-vous à la rubrique [Création d’un service Search dans le portail](search-create-service-portal.md) pour obtenir de l’aide sur la configuration du service.
 
-[AZURE.INCLUDE [Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :](../../includes/free-trial-note.md)]
+[AZURE.INCLUDE [Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
 ## Téléchargement de l'exemple d'application
@@ -52,7 +52,7 @@ Dans l'onglet Code source, cliquez sur **Télécharger** pour obtenir un fichier
 1. Cliquez sur la vignette **Propriétés** pour copier l'URL du service.
 1. Cliquez sur la vignette **Clés** pour copier l'`api-key`.
 
-Quand vous avez terminé d'ajouter l'URL et `api-key` à app.config, les paramètres de l'application doivent ressembler à ceci :
+Quand vous avez terminé d'ajouter l'URL et `api-key` à app.config, les paramètres de l'application doivent ressembler à ceci :
 
    ![][11]
 
@@ -64,9 +64,9 @@ Vous êtes presque prêt à générer et à exécuter l'application, mais avant 
 
 **Schema.json** définit l'index, notamment les profils de score qui sont mis en évidence dans cette démonstration. Notez que le schéma définit tous les champs utilisés dans l'index, y compris les champs non consultables, tels que `margin`, que vous pouvez utiliser dans un profil de score. La syntaxe du profil de score est documentée dans [Ajout d'un profil de score à un index Azure Search](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
-**Data1-3.json** fournit les données, 246 albums sur une poignée de genres. Les données sont une combinaison d'informations sur des albums et des artistes réels, avec des champs fictifs comme `price` et `margin` utilisés pour illustrer les opérations de recherche. Les fichiers de données sont conformes à l'index et sont téléchargés sur votre service Azure Search. Une fois les données téléchargées et indexées, vous pouvez émettre des requêtes.
+**Data1-3.json** fournit les données, 246 albums sur une poignée de genres. Les données sont une combinaison d'informations sur des albums et des artistes réels, avec des champs fictifs comme `price` et `margin` utilisés pour illustrer les opérations de recherche. Les fichiers de données sont conformes à l'index et sont téléchargés sur votre service Azure Search. Une fois les données téléchargées et indexées, vous pouvez émettre des requêtes.
 
-**Program.cs** effectue les opérations suivantes :
+**Program.cs** effectue les opérations suivantes :
 
 - Ouvre une fenêtre de console.
 
@@ -78,26 +78,26 @@ Vous êtes presque prêt à générer et à exécuter l'application, mais avant 
 
 - Remplit l'index en utilisant les fichiers de données.
 
-- Interroge l'index à l'aide de quatre requêtes. Notez que les profils de score sont spécifiés comme un paramètre de requête. Toutes les requêtes recherchent le même terme « best ». La première requête montre le score par défaut. Les trois requêtes restantes utilisent un profil de score.
+- Interroge l'index à l'aide de quatre requêtes. Notez que les profils de score sont spécifiés comme un paramètre de requête. Toutes les requêtes recherchent le même terme « best ». La première requête montre le score par défaut. Les trois requêtes restantes utilisent un profil de score.
 
 <a id="sub-5"></a>
 ## Génération et exécution de l'application
 
-Pour éliminer les problèmes de référence d'assembly ou de connectivité, générez et exécutez l'application pour vous assurer qu'aucun problème ne doit d'abord être résolu. Vous devez voir une application console ouverte en arrière-plan. Les quatre requêtes s'exécutent en séquence sans interruption. Sur de nombreux systèmes, la totalité du programme s'exécute en moins de 15 secondes. Si l'application console contient un message indiquant « Terminé. Appuyez sur ENTRÉE pour continuer », le programme s'est terminé correctement.
+Pour éliminer les problèmes de référence d'assembly ou de connectivité, générez et exécutez l'application pour vous assurer qu'aucun problème ne doit d'abord être résolu. Vous devez voir une application console ouverte en arrière-plan. Les quatre requêtes s'exécutent en séquence sans interruption. Sur de nombreux systèmes, la totalité du programme s'exécute en moins de 15 secondes. Si l'application console contient un message indiquant « Terminé. Appuyez sur ENTRÉE pour continuer », le programme s'est terminé correctement.
 
 Pour comparer les exécutions de la requête, vous pouvez marquer-copier-coller les résultats de la requête à partir de la console et les coller dans un fichier Excel.
 
-L'illustration suivante montre les résultats des trois premières requêtes côte à côte. Toutes les requêtes utilisent le même terme de recherche, « best », qui apparaît dans de nombreux titres d'album.
+L'illustration suivante montre les résultats des trois premières requêtes côte à côte. Toutes les requêtes utilisent le même terme de recherche, « best », qui apparaît dans de nombreux titres d'album.
 
    ![][10]
 
-La première requête montre le score par défaut. Le terme de recherche s'affichant uniquement dans les titres d'album et aucun critère n'étant spécifié, les éléments contenant « best » dans le titre d'album sont retournés dans l'ordre dans lequel le service de recherche les trouve.
+La première requête montre le score par défaut. Le terme de recherche s'affichant uniquement dans les titres d'album et aucun critère n'étant spécifié, les éléments contenant « best » dans le titre d'album sont retournés dans l'ordre dans lequel le service de recherche les trouve.
 
-La deuxième requête utilise un profil de score, mais notez que le profil n'a eu aucun effet. Les résultats sont identiques à ceux de la première requête, car le profil de score met en avant un champ (« genre ») qui n'est pas associé à la requête. Le terme « best » n'existe dans aucun champ « genre » d'un document. Quand un profil de score n'a aucun effet, les résultats sont les mêmes que le score par défaut.
+La deuxième requête utilise un profil de score, mais notez que le profil n'a eu aucun effet. Les résultats sont identiques à ceux de la première requête, car le profil de score met en avant un champ (« genre ») qui n'est pas associé à la requête. Le terme « best » n'existe dans aucun champ « genre » d'un document. Quand un profil de score n'a aucun effet, les résultats sont les mêmes que le score par défaut.
 
-La troisième requête est la première preuve de l'impact du profil de score. Le terme recherché est toujours « best », donc nous travaillons avec le même ensemble d'albums, mais comme le profil de score fournit des critères supplémentaires qui renforcent les champs « rating » et « last-updated », certains éléments sont placés plus haut dans la liste.
+La troisième requête est la première preuve de l'impact du profil de score. Le terme recherché est toujours « best », donc nous travaillons avec le même ensemble d'albums, mais comme le profil de score fournit des critères supplémentaires qui renforcent les champs « rating » et « last-updated », certains éléments sont placés plus haut dans la liste.
 
-L'illustration suivante montre la quatrième et dernière requête, renforcée par le champ « margin ». Le champ « margin » est non consultable et ne peut pas être retourné dans les résultats de la recherche. La valeur « margin » a été ajoutée manuellement à la feuille de calcul pour illustrer le fait que les éléments avec des marges supérieures s'affichent plus haut dans la liste des résultats.
+L'illustration suivante montre la quatrième et dernière requête, renforcée par le champ « margin ». Le champ « margin » est non consultable et ne peut pas être retourné dans les résultats de la recherche. La valeur « margin » a été ajoutée manuellement à la feuille de calcul pour illustrer le fait que les éléments avec des marges supérieures s'affichent plus haut dans la liste des résultats.
 
    ![][9]
 
@@ -110,7 +110,7 @@ Découvrez plus en détail les profils de score. Consultez la rubrique [Ajout d'
 
 Découvrez plus en détail la syntaxe de recherche et les paramètres de requête. Consultez la rubrique [Recherche de documents (API REST Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx) pour plus d'informations.
 
-Vous avez besoin de revenir en arrière et de vous former davantage à la création d'index ? [Regardez cette vidéo](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) pour comprendre les notions de base.
+Vous avez besoin de revenir en arrière et de vous former davantage à la création d'index ? [Regardez cette vidéo](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) pour comprendre les notions de base.
 
 <!--Anchors-->
 [Prerequisites]: #sub-1
@@ -126,4 +126,4 @@ Vous avez besoin de revenir en arrière et de vous former davantage à la créat
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016"    
+	ms.date="02/18/2016"    
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 
 Cette rubrique explique comment effectuer un encodage avancé en personnalisant les présélections de tâches Media Encoder Standard. La présente rubrique décrit [comment utiliser .NET pour créer une tâche d’encodage et générer un travail qui exécute cette tâche](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). Elle présente également la procédure à suivre pour attribuer des paramètres personnalisés et prédéfinis à la tâche d’encodage. Pour obtenir une description des éléments utilisés par les présélections, consultez [ce document](https://msdn.microsoft.com/library/mt269962.aspx).
 
-Il présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes :
+Il présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes :
 
 - [Génération de miniatures](media-services-custom-mes-presets-with-dotnet.md#thumbnails)
 - [Rognage d’une vidéo (extrait)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
@@ -33,7 +33,7 @@ Il présente les présélections personnalisées qui exécutent les tâches d’
 
 ##<a id="encoding_with_dotnet"></a>Codage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 
-Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
+Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
 - Création d’une tâche d’encodage.
 - Obtention d’une référence à l’encodeur Media Encoder Standard.
@@ -135,14 +135,33 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 				    return job.OutputMediaAssets[0];
 				}
 		
-		        static public IAsset EncodeWithOverlay(IAsset assetSource, IAsset assetOverlay, string customPresetFileName)
+		        static public IAsset UploadMediaFilesFromFolder(string folderPath)
+		        {
+		            IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+		
+		            foreach (var af in asset.AssetFiles)
+		            {
+		                // The following code assumes 
+		                // you have an input folder with one MP4 and one overlay image file.
+		                if (af.Name.Contains(".mp4"))
+		                    af.IsPrimary = true;
+		                else
+		                    af.IsPrimary = false;
+		
+		                af.Update();
+		            }
+		
+		            return asset;
+		        }
+		
+		
+		        static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
 		        {
 		            // Declare a new job.
 		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
 		            // Get a media processor reference, and pass to it the name of the 
 		            // processor to use for the specific task.
 		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-		
 		
 		            // Load the XML (or JSON) from the local file.
 		            string configuration = File.ReadAllText(customPresetFileName);
@@ -154,8 +173,8 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 		                TaskOptions.None);
 		
 		            // Specify the input assets to be encoded.
+		            // This asset contains a source file and an overlay file.
 		            task.InputAssets.Add(assetSource);
-		            task.InputAssets.Add(assetOverlay);
 		
 		            // Add an output asset to contain the results of the job. 
 		            task.OutputAssets.AddNew("Output asset",
@@ -167,6 +186,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 		
 		            return job.OutputMediaAssets[0];
 		        }
+		
 
 		        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
 		        {
@@ -404,21 +424,21 @@ Assurez-vous d’examiner la section [Considérations](media-services-custom-mes
 
 ###Considérations
 
-Les considérations suivantes s'appliquent :
+Les considérations suivantes s'appliquent :
 
-- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
-- Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
+- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
+- Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
 
-	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
-	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
-	- Format HH:MM:SS : horodatage, par exemple "Start": "00: 01:00"
+	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
+	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
+	- Format HH:MM:SS : horodatage, par exemple "Start": "00: 01:00"
 
 	Vous pouvez combiner et apparier les notations à votre guise.
 	
-	En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
+	En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
 	
-	- La configuration par défaut est « Start:{Best} ».
-- Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+	- La configuration par défaut est « Start:{Best} ».
+- Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
 ##<a id="trim_video"></a>Rognage d’une vidéo (extrait)
 
@@ -667,11 +687,17 @@ Pour découper vos vidéos, vous pouvez effectuer l’une des présélections ME
 
 ##<a id="overlay"></a>Création d’une superposition
 
-Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
+Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
 
->[AZURE.NOTE]Le paramètre d’opacité de superposition n’est pas actuellement pris en charge.
+Après avoir défini un fichier de présélection, vous devez également indiquer à Media Services quel fichier de la ressource représente l’image de superposition et quel fichier représente la vidéo source sur laquelle vous souhaitez superposer l’image. Le fichier vidéo doit être le fichier **principal**.
 
-Après avoir défini un fichier de présélection, vous devez également indiquer à Media Services quel élément multimédia contient une image de superposition et quel élément multimédia contient la vidéo source sur laquelle vous souhaitez superposer l’image. Consultez l’exemple .NET de la méthode **EncodeWithOverlay** définie ci-dessus.
+L'exemple .NET ci-dessus définit deux fonctions : **UploadMediaFilesFromFolder** et **EncodeWithOverlay**. La fonction UploadMediaFilesFromFolder charge les fichiers d'un dossier (par exemple, BigBuckBunny.mp4 et Image001.png) et définit le fichier mp4 comme fichier principal dans la ressource. La fonction **EncodeWithOverlay** utilise le fichier de présélection personnalisé qu’elle a reçu (par exemple, la présélection suivante) pour créer la tâche d'encodage.
+
+>[AZURE.NOTE]Limitations actuelles :
+>
+>Le paramètre d’opacité de superposition n’est pas pris en charge.
+>
+>Votre fichier vidéo source et le fichier de superposition doivent se trouver dans la même ressource.
 
 ###Présélection JSON
 	
@@ -699,7 +725,7 @@ Après avoir défini un fichier de présélection, vous devez également indique
 	              "InputLoop": true
 	            }
 	          ],
-	          "Source": "Image001.jpg",
+	          "Source": "Image001.png",
 	          "Clip": {
 	            "Duration": "00:00:05"
 	          },
@@ -759,7 +785,7 @@ Après avoir défini un fichier de présélection, vous devez également indique
 	      <Streams />
 	      <Filters>
 	        <VideoOverlay>
-	          <Source>Image001.jpg</Source>
+	          <Source>Image001.png</Source>
 	          <Clip Duration="PT5S" />
 	          <FadeInDuration Duration="PT1S" />
 	          <FadeOutDuration StartTime="PT3S" Duration="PT4S" />
@@ -817,9 +843,9 @@ Après avoir défini un fichier de présélection, vous devez également indique
 
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupera les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
 
-Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».
+Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».
 
-Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et apporter la modification suivante :
+Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et apporter la modification suivante :
 
 ###Présélection JSON
 
@@ -884,4 +910,4 @@ Vous pouvez désactiver le désentrelacement automatique. Cette option n’est p
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

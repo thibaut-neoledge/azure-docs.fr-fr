@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Problèmes connus d’Apache Spark dans HDInsight | Microsoft Azure" 
+	pageTitle="Problèmes connus d’Apache Spark dans HDInsight | Microsoft Azure" 
 	description="Problèmes connus d’Apache Spark dans HDInsight" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 # Problèmes connus d’Apache Spark dans Azure HDInsight (Linux)
@@ -23,13 +23,13 @@ Ce document fait le suivi de tous les problèmes connus pour la version Preview 
 
 ##Livy divulgue une session interactive
  
-**Symptôme :**
+**Symptôme :**
 
-Lorsque Livy est redémarré avec une session interactive (à partir d’Ambari ou à cause d’un redémarrage de la machine virtuelle du nœud principal 0) encore active, une session de travail interactive sera divulguée. Pour cette raison, de nouvelles tâches peuvent rester bloquées à l’état Accepté sans pouvoir être démarrées.
+Lorsque Livy est redémarré avec une session interactive (à partir d’Ambari ou à cause d’un redémarrage de la machine virtuelle du nœud principal 0) encore active, une session de travail interactive sera divulguée. Pour cette raison, de nouvelles tâches peuvent rester bloquées à l’état Accepté sans pouvoir être démarrées.
 
-**Atténuation :**
+**Atténuation :**
 
-Pour contourner ce problème, suivez la procédure ci-après :
+Pour contourner ce problème, suivez la procédure ci-après :
 
 1. SSH dans le nœud principal. 
 2. Exécutez la commande suivante pour rechercher l’ID d’application des tâches interactives démarrées via Livy. 
@@ -46,105 +46,63 @@ De nouvelles tâches commencent à être exécutées.
 
 ##Serveur d’historique Spark non démarré 
 
-**Symptôme :**
+**Symptôme :**
  
 Le serveur d’historique Spark ne démarre pas automatiquement après la création d’un cluster.
 
-**Atténuation :**
+**Atténuation :**
 
 Démarrez manuellement le serveur d’historique à partir d’Ambari.
 
-##Erreur lors du chargement d’un bloc-notes de plus de 2 Mo
+##Erreur lors du chargement d’un bloc-notes de taille supérieure
 
-**Symptôme :**
+**Symptôme :**
 
-Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez de charger un bloc-notes de plus de 2 Mo.
+Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez de charger un bloc-notes de taille supérieure.
 
-**Atténuation :**
+**Atténuation :**
 
-Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues. Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`, et vous pouvez exécuter SSH dans le cluster pour y accéder. Vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle. À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire la taille du bloc-notes au minimum.
+Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues. Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`, et vous pouvez exécuter SSH dans le cluster pour y accéder. Vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle. À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire la taille du bloc-notes au minimum.
 
-Pour éviter cette erreur à l’avenir, gardez en tête les conseils suivants :
+Pour éviter cette erreur à l’avenir, gardez en tête les conseils suivants :
 
-* Il est important que la taille du bloc-notes reste réduite. Aucune sortie de vos travaux sous Spark qui est envoyée à Jupyter n’est conservée dans le bloc-notes. Pour Jupyter, il est en général recommandé d’éviter l’exécution de l’élément `.collect()` sur des RDD ou trames de données larges ; en revanche, si vous souhaitez lire le contenu d’un RDD, pensez à exécuter `.take()` ou `.sample()` afin que votre sortie ne devienne pas trop volumineuse.
+* Il est important que la taille du bloc-notes reste réduite. Aucune sortie de vos travaux sous Spark qui est envoyée à Jupyter n’est conservée dans le bloc-notes. Pour Jupyter, il est en général recommandé d’éviter l’exécution de l’élément `.collect()` sur des RDD ou trames de données larges ; en revanche, si vous souhaitez lire le contenu d’un RDD, pensez à exécuter `.take()` ou `.sample()` afin que votre sortie ne devienne pas trop volumineuse.
 * En outre, lorsque vous enregistrez un bloc-notes, supprimez toutes les cellules de sortie pour réduire sa taille.
 
 
 
 ##Démarrage du bloc-notes plus long que prévu 
 
-**Symptôme :**
+**Symptôme :**
 
 La première instruction du bloc-notes Jupyter à l’aide de Spark Magic peut nécessiter plusieurs minutes.
 
-**Atténuation :**
+**Explication :**
  
-Aucune solution de contournement. Cela nécessite parfois du temps.
+Cela se produit lorsque la première cellule du code est exécutée. En arrière-plan, la configuration de la session est lancée, et les contextes Spark, SQL et Hive sont définis. Une fois ces contextes définis, la première instruction est exécutée et donne l'impression que l'instruction prend beaucoup de temps.
 
 ##Délai d’attente du bloc-notes Jupyter lors de la création de la session
 
-**Symptôme :**
+**Symptôme :**
 
-Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bloc-notes Jupyter expirent en essayant de créer la session. Atténuations :
+Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bloc-notes Jupyter expirent en essayant de créer la session.
 
-1. Libérez certaines ressources de votre cluster Spark :
+**Atténuations :**
+
+1. Libérez certaines ressources de votre cluster Spark :
 
     - Arrêtez les autres blocs-notes Spark en allant dans le menu Fermer et Arrêter ou en cliquant sur Arrêter dans l’explorateur du bloc-notes.
     - Arrêtez les autres applications Spark à partir de YARN.
 
 2. Redémarrez le bloc-notes que vous tentiez de démarrer. Un nombre suffisant de ressources devrait désormais être disponible pour vous permettre de créer une session.
 
-##Problème de format des résultats du bloc-notes
-
-**Symptôme :**
- 
-Les résultats bloc-notes ne sont pas dans le bon format après l’exécution d’une cellule de noyaux Spark et Pyspark Jupyter. Cela comprend les résultats positifs de l’exécution de cellules ainsi que des stacktraces Spark ou d’autres erreurs.
-
-**Atténuation :**
- 
-Ce problème sera résolu dans une version ultérieure.
-
-##Erreurs de frappe dans les exemples de bloc-notes
- 
-- **Bloc-notes Python 4 (Analyse des journaux avec Spark à l’aide d’une bibliothèque personnalisée)**
-
-    « Supposons que vous le copiez vers wasb:///example/data/iislogparser.py » devrait être « Supposons que vous le copiez vers wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py" ».
-
-- **Bloc-notes Python 5 (Spark Machine Learning : analyse prédictive sur les données d’inspection alimentaire à l’aide de MLLib)**
-
-    « Un aperçu rapide peut nous aider à examiner la distribution de ces résultats » contient du code incorrect qui ne s’exécutera pas. Il doit être modifié pour obtenir ce qui suit :
-
-        countResults = df.groupBy('results').count().withColumnRenamed('count', 'cnt').collect() 
-        labels = [row.results for row in countResults] 
-        sizes = [row.cnt for row in countResults] 
-        colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral'] 
-        plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors) plt.axis('equal') 
-        
-- **Bloc-notes Python 5 (Spark Machine Learning : analyse prédictive sur les données d’inspection alimentaire à l’aide de MLLib)**
-
-    Le commentaire final indique que le taux de faux négatifs et le taux de faux positifs s’élèvent respectivement à 12,6 et 16 %. Ces chiffres sont inexacts ; exécutez le code pour afficher le diagramme circulaire avec les véritables pourcentages.
-
-- **Bloc-notes Python 6 et 7**
-
-    La première cellule ne parvient pas à enregistrer la méthode sc.stop() à appeler lorsque le bloc-notes se ferme. Dans certaines circonstances, cela peut entraîner une divulgation des ressources Spark. Vous pouvez éviter cela en vous veillant à exécuter l’importation de atexit; atexit.register(lambda: sc.stop()) dans ces blocs-notes avant de les arrêter. Si vous avez perdu accidentellement des ressources, suivez les instructions ci-dessus pour arrêter mettre fin aux applications YARN divulguées.
-     
-##Impossible de personnaliser les configurations principales/de mémoire
-
-**Symptôme :**
- 
-Vous ne pouvez pas spécifier d’autres configurations principales/de mémoire que la valeur par défaut des noyaux Spark/Pyspark.
-
-**Atténuation :**
- 
-Cette fonctionnalité sera bientôt disponible.
-
 ## Problème d’autorisation dans le répertoire des journaux Spark 
 
-**Symptôme :**
+**Symptôme :**
  
-Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.io.FileNotFoundException: /var/log/spark/sparkdriver\_hdiuser.log (Autorisation refusée) et le journal du pilote n’est pas écrit.
+Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.io.FileNotFoundException: /var/log/spark/sparkdriver\_hdiuser.log (Autorisation refusée) et le journal du pilote n’est pas écrit.
 
-**Atténuation :**
+**Atténuation :**
  
 1. Ajoutez hdiuser au groupe Hadoop. 
 2. Fournissez les autorisations 777 sur /var/log/spark après la création du cluster. 
@@ -153,7 +111,7 @@ Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.i
 
 ##Voir aussi
 
-- [Vue d’ensemble : Apache Spark sur Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
-- [Prise en main : approvisionner Apache Spark sur HDInsight (Linux) et exécuter des requêtes interactives à l’aide de Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
+- [Vue d’ensemble : Apache Spark sur Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
+- [Prise en main : approvisionner Apache Spark sur HDInsight (Linux) et exécuter des requêtes interactives à l’aide de Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

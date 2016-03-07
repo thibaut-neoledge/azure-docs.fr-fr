@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuration d’alertes dans Application Insights" 
+	pageTitle="Configuration d’alertes dans Application Insights" 
 	description="Obtenez des courriers électroniques sur les pannes, les exceptions et les modifications des métriques." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
-# Configuration d’alertes dans Application Insights
+# Configuration d’alertes dans Application Insights
 
-[Visual Studio Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application.
+[Visual Studio Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application.
 
-Application Insights analyse votre application en direct sur un [large éventail de plateformes][platforms] pour vous aider à diagnostiquer les problèmes de performances et comprendre les schémas d’utilisation.
+Application Insights analyse votre application en direct sur un [large éventail de plateformes][platforms] pour vous aider à diagnostiquer les problèmes de performances et comprendre les schémas d’utilisation.
 
-Il existe deux types d’alertes :
+Il existe deux types d’alertes :
  
 * Les **tests Web** indiquent quand votre site est indisponible sur Internet ou répond lentement. [En savoir plus][availability].
 * Les **alertes de métrique** indiquent quand une métrique dépasse une valeur seuil pendant une certaine période, comme le nombre d’échecs, la mémoire ou les affichages de page. 
@@ -32,7 +32,7 @@ Il existe une [page distincte sur les tests Web][availability], nous allons donc
 
 ## Alertes de métrique
 
-Si vous n’avez pas configuré Application Insights pour votre application, [commencez par le faire][start].
+Si vous n’avez pas configuré Application Insights pour votre application, [commencez par le faire][start].
 
 Pour obtenir un message électronique lorsqu’une métrique dépasse un seuil, démarrez dans Metrics Explorer ou à partir de la vignette des Règles d’alerte sur le panneau Vue d’ensemble.
 
@@ -44,7 +44,7 @@ Veillez à noter les unités dans lesquelles vous êtes invité à entrer la val
 
 Le nom que vous donnez à l’alerte doit être unique dans le groupe de ressources (pas uniquement dans votre application).
 
-*Je ne vois pas le bouton Ajouter une alerte.* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez Paramètres -> Utilisateurs. [En savoir plus sur le contrôle d’accès][roles].
+*Je ne vois pas le bouton Ajouter une alerte.* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez Paramètres -> Utilisateurs. [En savoir plus sur le contrôle d’accès][roles].
 
 ## Consultez vos alertes
 
@@ -52,22 +52,22 @@ Vous recevez un e-mail lorsqu’une alerte bascule entre les états inactive et 
 
 L’état actuel de chaque alerte est indiqué dans le panneau Règles d’alerte.
 
-Il existe un résumé de l’activité récente dans la liste déroulante des alertes :
+Il existe un résumé de l’activité récente dans la liste déroulante des alertes :
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-L’historique des modifications d’état figure dans le journal des événements d’opérations :
+L’historique des modifications d’état figure dans le journal des événements d’opérations :
 
-![Sur le panneau Vue d’ensemble, près du bas de la page, cliquez sur « Événements de la semaine dernière »](./media/app-insights-alerts/09-alerts.png)
+![Sur le panneau Vue d’ensemble, près du bas de la page, cliquez sur « Événements de la semaine dernière »](./media/app-insights-alerts/09-alerts.png)
 
-*Ces « événements » sont-ils liés à des événements de télémétrie ou à des événements personnalisés ?*
+*Ces « événements » sont-ils liés à des événements de télémétrie ou à des événements personnalisés ?*
 
 * Non. Ces événements opérationnels sont simplement un journal des opérations qui ont eu lieu dans cette ressource d’application. 
 
 
 ## Fonctionnement des alertes
 
-* Une alerte a deux états : « alerte » et « intègre ». 
+* Une alerte a deux états : « alerte » et « intègre ». 
 
 * Un message électronique est envoyé lorsque l’état de l’alerte change.
 
@@ -77,11 +77,11 @@ L’historique des modifications d’état figure dans le journal des événemen
 
 * La période que vous choisissez spécifie la durée pendant laquelle les mesures sont agrégées. Cela n’affecte pas la fréquence à laquelle l’alerte est évaluée, mais cela dépend de la fréquence d’arrivée des mesures.
 
-* Si aucune donnée n’arrive pour une mesure particulière pendant un certain temps, l’écart a des effets différents sur l’évaluation de l’alerte et sur les graphiques dans Metrics Explorer. Dans Metrics Explorer, si aucune donnée n’apparaît plus longtemps que l’intervalle d’échantillonnage du graphique, le graphique affichera la valeur 0. Cependant, une alerte basée sur la même mesure n’est pas réévaluée et l’état de l’alerte reste inchangé.
+* Si aucune donnée n’arrive pour une mesure particulière pendant un certain temps, l’écart a des effets différents sur l’évaluation de l’alerte et sur les graphiques dans Metrics Explorer. Dans Metrics Explorer, si aucune donnée n’apparaît plus longtemps que l’intervalle d’échantillonnage du graphique, le graphique affichera la valeur 0. Cependant, une alerte basée sur la même mesure n’est pas réévaluée et l’état de l’alerte reste inchangé.
 
     Lorsque les données arrivent par la suite, le graphique revient à une valeur différente de zéro. L’alerte sera évaluée en fonction des données disponibles pour la période spécifiée. Si le nouveau point de données est le seul disponible dans la période, l’agrégat reposera uniquement sur ce point.
 
-* Une alerte peut osciller fréquemment entre les états alerte et intègre même si vous définissez une longue période. Cela peut se produire si la valeur de la mesure est placée autour du seuil. Le seuil est cohérent : la transition vers l’état alerte se produit à la même valeur que la transition vers l’état intègre.
+* Une alerte peut osciller fréquemment entre les états alerte et intègre même si vous définissez une longue période. Cela peut se produire si la valeur de la mesure est placée autour du seuil. Le seuil est cohérent : la transition vers l’état alerte se produit à la même valeur que la transition vers l’état intègre.
 
 
 
@@ -89,17 +89,21 @@ L’historique des modifications d’état figure dans le journal des événemen
 
 Vous pouvez définir des tests Web qui testent n’importe quel site web à partir de points du monde entier. [En savoir plus][availability].
 
-## Quelles sont les alertes à définir ?
+## Quelles sont les alertes à définir ?
 
 Cela dépend de votre application. Pour commencer, il est préférable de ne pas définir un trop grand nombre de métriques. Prenez le temps d’examiner vos graphiques de métriques pendant l’exécution de votre application, pour mieux comprendre comment elle se comporte normalement. Cela vous aidera à trouver des moyens d’améliorer ses performances. Définissez ensuite des alertes qui vous indiquent lorsque les métriques quittent la zone normale.
 
-Les alertes les plus appréciées sont les suivantes :
+Les alertes les plus appréciées sont les suivantes :
 
-* Les [tests Web][availability] sont importants si votre application est un site Web ou un service Web qui est visible sur l’Internet public. Ils vous indiquent si votre site tombe en panne ou répond lentement : même si le problème est plutôt dû au transporteur qu’à votre application. Ce sont des tests synthétiques, qui ne mesurent pas l’expérience réelle de vos utilisateurs.
+* Les [tests Web][availability] sont importants si votre application est un site Web ou un service Web qui est visible sur l’Internet public. Ils vous indiquent si votre site tombe en panne ou répond lentement : même si le problème est plutôt dû au transporteur qu’à votre application. Ce sont des tests synthétiques, qui ne mesurent pas l’expérience réelle de vos utilisateurs.
 * Les [mesures de navigateur][client], surtout les **temps de chargement des pages** de navigateur, sont efficaces pour les applications web. Si votre page comporte un grand nombre de scripts, il peut être intéressant de rechercher des **exceptions du navigateur**. Pour obtenir ces métriques et alertes, vous devez configurer la [surveillance de page Web][client].
-* **Temps de réponse de serveur** et **échec des demandes** pour le côté serveur des applications web. Outre la définition des alertes, gardez un œil sur ces métriques pour voir si elles varient énormément en cas de taux de demandes élevés : cela peut indiquer que votre application manque de ressources.
+* **Temps de réponse de serveur** et **échec des demandes** pour le côté serveur des applications web. Outre la définition des alertes, gardez un œil sur ces métriques pour voir si elles varient énormément en cas de taux de demandes élevés : cela peut indiquer que votre application manque de ressources.
 * **Exceptions du serveur** - pour les afficher, vous devrez peut-être effectuer une [installation supplémentaire](app-insights-asp-net-exceptions.md).
 
+## Automation
+
+* [Utiliser PowerShell pour automatiser la configuration d’alertes](app-insights-powershell-alerts.md)
+* [Utiliser les webhooks pour automatiser la réponse aux alertes](../azure-portal/insights-webhooks-alerts.md)
 
 ## Voir aussi
 
@@ -119,4 +123,4 @@ Les alertes les plus appréciées sont les suivantes :
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

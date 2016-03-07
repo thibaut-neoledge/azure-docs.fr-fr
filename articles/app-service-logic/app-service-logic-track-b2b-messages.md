@@ -13,26 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # Suivre des messages B2B
 
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+
 ## Informations de suivi B2B
 La communication B2B implique un traitement des messages entre des partenaires commerciaux. Les relations sont définies comme des accords entre deux partenaires commerciaux. Une fois la communication établie, il doit exister un moyen de contrôler si elle se produit comme prévu.
 
-Nous avons implémenté le suivi des messages pour les scénarios B2B suivants : AS2, EDIFACT et X12.
+Nous avons implémenté le suivi des messages pour les scénarios B2B suivants : AS2, EDIFACT et X12.
 
 ## AS2
-Une fois que vous avez créé une instance d’une application API AS2, accédez à cette instance et sélectionnez **Suivi**. Dans le présent document, vous pouvez afficher et filtrer toutes les informations de suivi AS2 :
+Une fois que vous avez créé une instance d’une application API AS2, accédez à cette instance et sélectionnez **Suivi**. Dans le présent document, vous pouvez afficher et filtrer toutes les informations de suivi AS2 :
 
 ![][1]
 
 ## EDIFACT
 Une fois que vous avez créé une instance d’une application API EDIFACT, accédez à cette instance et sélectionnez **Suivi**. Dans le présent document, vous pouvez afficher et filtrer toutes les informations de suivi EDIFACT. Vous pouvez aussi afficher dans un même affichage les données au niveau de l’échange, au niveau du groupe et au niveau des documents informatisés.
 
-Si des lots sont créés dans le cadre des accords EDIFACT dans l’application API de Gestion des partenaires commerciaux associée, la section Traitement par lots répertorie tous ces lots. Vous pouvez sélectionner un lot pour voir le message actif (le cas échéant) ainsi que les informations pour les lots terminés :
+Si des lots sont créés dans le cadre des accords EDIFACT dans l’application API de Gestion des partenaires commerciaux associée, la section Traitement par lots répertorie tous ces lots. Vous pouvez sélectionner un lot pour voir le message actif (le cas échéant) ainsi que les informations pour les lots terminés :
 
 ![][2]
 
@@ -45,4 +47,4 @@ Si des lots sont créés dans le cadre des accords X12 dans l’application API 
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

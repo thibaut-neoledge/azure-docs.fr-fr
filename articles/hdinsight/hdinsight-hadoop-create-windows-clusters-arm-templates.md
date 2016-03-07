@@ -19,13 +19,13 @@
 
 # Création de clusters Hadoop basés sur Windows dans HDInsight à l’aide de modèles ARM
 
-[AZURE.INCLUDE [sélecteur](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [sélecteur](../../includes/hdinsight-selector-create-clusters.md)]
 
 Apprenez à créer des clusters HDInsight à l’aide des modèles Azure Resource Manager (ARM). Pour plus d’informations, consultez la page [Déploiement d’une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md). Pour accéder à d’autres outils et fonctions de création de clusters, cliquez sur l’onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-###Configuration requise :
+###Configuration requise :
 
-Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
+Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 - [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) et/ou [CLI Azure](../xplat-cli-install.md). 
@@ -34,12 +34,12 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 
 Le modèle ARM permet de créer facilement, au cours d’une opération unique et coordonnée, des clusters HDInsight, leurs ressources dépendantes (telles que le compte de stockage par défaut) ainsi que d’autres ressources (telles que la base de données Azure SQL pour utiliser Apache Sqoop) correspondant à votre application. Dans le modèle, vous définissez les ressources nécessaires à l'application et vous spécifiez les paramètres de déploiement pour entrer des valeurs pour différents environnements. Le modèle se compose de JSON et d'expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
 
-L’[Annexe A]() propose un modèle ARM permettant de créer un cluster HDInsight avec le compte de stockage Azure dépendant. Utilisez un éditeur de texte pour enregistrer le modèle dans un fichier sur votre station de travail. Vous allez apprendre à appeler le modèle à l’aide de différents outils.
+L’[Annexe A]() propose un modèle ARM permettant de créer un cluster HDInsight avec le compte de stockage Azure dépendant. Utilisez un éditeur de texte pour enregistrer le modèle dans un fichier sur votre station de travail. Vous allez apprendre à appeler le modèle à l’aide de différents outils.
 
-Pour plus d’informations sur les modèles ARM, consultez les rubriques suivantes :
+Pour plus d’informations sur les modèles ARM, consultez les rubriques suivantes :
 
 - [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
-- [Déploiement d’une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md)
+- [Déploiement d’une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md)
 
 
 ## Déployer avec PowerShell
@@ -48,7 +48,7 @@ La procédure suivante crée un cluster HDInsight sous Linux.
 
 **Pour déployer un cluster à l’aide du modèle ARM**
 
-1. Enregistrez le fichier .json de l’[annexe A](#appx-a-arm-template) sur votre poste de travail.
+1. Enregistrez le fichier .json de l’[annexe A](#appx-a-arm-template) sur votre poste de travail.
 2. Définissez les paramètres si nécessaire.
 3. Exécutez le modèle à l’aide du script PowerShell suivant.
 
@@ -106,7 +106,7 @@ Pour plus d’informations, consultez la rubrique [Déploiement avec PowerShell]
 
 ## Déploiement avec l’interface de ligne de commande Azure
 
-L’exemple suivant appelle un modèle ARM pour créer un cluster, son compte de stockage dépendant et son conteneur :
+L’exemple suivant appelle un modèle ARM pour créer un cluster, son compte de stockage dépendant et son conteneur :
 
 	azure login
 	azure config mode arm
@@ -121,19 +121,19 @@ Voir [Déployer avec l’API REST](../resource-group-template-deploy.md#deploy-w
 
 Avec Visual Studio, vous pouvez créer un projet de groupe de ressources et le déployer vers Azure via l’interface utilisateur. Vous sélectionnez le type de ressources à inclure dans votre projet et ces ressources sont automatiquement ajoutées au modèle de gestionnaire de ressources. Le projet fournit également un script PowerShell pour déployer le modèle.
 
-Pour une introduction à l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Pour une introduction à l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Étapes suivantes
-Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
+Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 - Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, voir [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../virtual-machines/arm-template-deployment.md).
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Approvisionner et déployer des microservices de manière prévisible dans Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
-- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](../solution-dev-test-environments.md).
+- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](../solution-dev-test-environments.md).
 - Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez [Création de modèles](../resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, voir [Fonctions des modèles](../resource-group-template-functions.md).
 
 
-##Annexe A : Modèle ARM
+##Annexe A : Modèle ARM
 
 Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Windows avec le compte de stockage Azure dépendant.
 
@@ -285,7 +285,7 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Wind
 
 
 
-##Annexe B : Modèle ARM de création de cluster Linux
+##Annexe B : Modèle ARM de création de cluster Linux
 
 Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linux avec le compte de stockage Azure dépendant.
 
@@ -444,4 +444,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
 	  }
 	}
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

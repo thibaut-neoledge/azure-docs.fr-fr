@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Assistant Index de base de données SQL Azure" 
-   description="L’assistant Index de base de données SQL Azure recommande des nouveaux index pour vos bases de données SQL existantes afin d’améliorer les performances actuelles des requêtes." 
+   pageTitle="Assistant Index de base de données SQL Azure" 
+   description="L’assistant Index de base de données SQL Azure recommande des nouveaux index pour vos bases de données SQL existantes afin d’améliorer les performances actuelles des requêtes." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,27 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/23/2015"
+   ms.date="01/23/2016"
    ms.author="sstein"/>
 
-# Assistant Index de base de données SQL
+# Assistant Index de base de données SQL
 
 Azure SQL Database Index Advisor fournit des recommandations d’index pour vos bases de données SQL existantes afin d’améliorer les performances actuelles des requêtes. Le service SQL Database évalue les performances de l’index en analysant l’historique d’utilisation de votre base de données SQL. Les index les mieux adaptés pour exécuter la charge de travail standard de votre base de données sont recommandés.
 
-Index advisor vous aide à régler les performances de votre base de données en :
+Index advisor vous aide à régler les performances de votre base de données en :
 
-- fournissant des recommandations sur les index à créer (les recommandations ne sont disponibles que pour les index non cluster) ;
-- fournissant des recommandations sur les index à supprimer (les recommandations de suppression d’index sont disponibles en version préliminaire et ne s’appliquent actuellement qu’aux index en double) ;
-- vous permettant de choisir d’appliquer les recommandations d’index automatiquement sans aucune interaction utilisateur (les recommandations automatisées nécessitent que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit activé et en cours d’exécution) ;
+- fournissant des recommandations sur les index à créer (les recommandations ne sont disponibles que pour les index non cluster) ;
+- fournissant des recommandations sur les index à supprimer (les recommandations de suppression d’index sont disponibles en version préliminaire et ne s’appliquent actuellement qu’aux index en double) ;
+- vous permettant de choisir d’appliquer les recommandations d’index automatiquement sans aucune interaction utilisateur (les recommandations automatisées nécessitent que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit activé et en cours d’exécution) ;
 - restaurant automatiquement les recommandations qui ont un impact négatif sur les performances. 
 
 
-Cet article décrit Index Advisor pour les serveurs V12. Les recommandations d’index sont disponibles pour les serveurs V11, mais vous devez exécuter le script Transact-SQL (T-SQL) fourni pour les mettre en œuvre. Le conseiller n’annule pas les opérations d’index sur les serveurs V11 ; vous devez donc surveiller l’impact sur les performances et l’annuler si nécessaire.
+Cet article décrit Index Advisor pour les serveurs V12. Les recommandations d’index sont disponibles pour les serveurs V11, mais vous devez exécuter le script Transact-SQL (T-SQL) fourni pour les mettre en œuvre. Le conseiller n’annule pas les opérations d’index sur les serveurs V11 ; vous devez donc surveiller l’impact sur les performances et l’annuler si nécessaire.
 
 
 ### Autorisations
 
-Pour afficher et créer des recommandations d’index, vous devez disposer des autorisations de [contrôle d’accès basé sur les rôles](role-based-access-control-configure.md) adéquates dans Azure.
+Pour afficher et créer des recommandations d’index, vous devez disposer des autorisations de [contrôle d’accès basé sur les rôles](../active-directory/role-based-access-control-configure.md) adéquates dans Azure.
 
 - Les autorisations **Lecteur**, **Collaborateur de base de données SQL** sont obligatoires pour afficher les recommandations.
 - Les autorisations **Propriétaire**, **Collaborateur de base de données SQL** autorisations sont obligatoires pour exécuter toutes les actions, créer ou supprimer des index et annuler la création d’index.
@@ -43,7 +43,7 @@ Pour afficher et créer des recommandations d’index, vous devez disposer des a
 
 La page Recommandations d’index présente les principaux index suggérés en fonction de leur impact potentiel sur l’amélioration des performances. Vous pouvez également afficher l’état des dernières opérations d’index. Sélectionnez une recommandation ou l’état pour afficher ses détails.
 
-Pour afficher les recommandations d’index :
+Pour afficher les recommandations d’index :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **PARCOURIR** > **Bases de données SQL**, puis sélectionnez votre base de données.
@@ -53,7 +53,7 @@ Pour afficher les recommandations d’index :
 
 ![Index recommandés](./media/sql-database-index-advisor/recommendations.png)
 
-Les recommandations sont triées en fonction de leur impact potentiel sur les performances dans les 4 catégories suivantes :
+Les recommandations sont triées en fonction de leur impact potentiel sur les performances dans les 4 catégories suivantes :
 
 | Impact | Description |
 | :--- | :--- |
@@ -66,13 +66,13 @@ Utilisez l’indicateur d’impact pour identifier les meilleurs candidates à l
 
 ### Suppression de recommandations d’index de la liste
 
-Si votre liste d’index recommandés contient des index que vous souhaitez supprimer de la liste, vous pouvez ignorer la recommandation :
+Si votre liste d’index recommandés contient des index que vous souhaitez supprimer de la liste, vous pouvez ignorer la recommandation :
 
 1. Sélectionnez une recommandation dans la liste des **index recommandés**.
 2. Cliquez sur **Rejeter l’index** dans le volet **Détails sur l’index**.
 
 
-Si vous le souhaitez, vous pouvez rajouter des index rejetés à la liste **Index recommandés** :
+Si vous le souhaitez, vous pouvez rajouter des index rejetés à la liste **Index recommandés** :
 
 1. Dans le volet **Recommandations d’index**, cliquez sur **Afficher les recommandations d’index rejetées**.
 1. Sélectionnez un index rejeté dans la liste pour afficher les détails le concernant.
@@ -82,7 +82,7 @@ Si vous le souhaitez, vous pouvez rajouter des index rejetés à la liste **Inde
 
 ## Application des recommandations d’index
 
-Grâce à Index Advisor, vous pouvez contrôler totalement la façon dont les recommandations d’index sont activées à l’aide d’une des 3 options suivantes.
+Grâce à Index Advisor, vous pouvez contrôler totalement la façon dont les recommandations d’index sont activées à l’aide d’une des 3 options suivantes.
 
 - Appliquer les recommandations individuelles une à la fois.
 - Permettre à Index Advisor d’appliquer automatiquement les recommandations d’index.
@@ -90,7 +90,7 @@ Grâce à Index Advisor, vous pouvez contrôler totalement la façon dont les re
 
 Sélectionnez toute recommandation pour afficher ses détails, puis cliquez sur **Afficher le script** pour savoir exactement comment la recommandation doit être créée.
 
-La base de données demeure en ligne pendant que le conseiller applique la recommandation ; l’utilisation d’Index Advisor n’entraîne jamais la mise hors connexion d’une base de données.
+La base de données demeure en ligne pendant que le conseiller applique la recommandation ; l’utilisation d’Index Advisor n’entraîne jamais la mise hors connexion d’une base de données.
 
 ### Appliquer une recommandation individuelle
 
@@ -106,11 +106,11 @@ Vous pouvez consulter et accepter les recommandations une à la fois.
 
 Vous pouvez configurer Index Advisor de manière à implémenter automatiquement les recommandations. Dès qu’une recommandation est disponible, elle est automatiquement appliquée. Comme avec toutes les opérations d’index gérées par le service, si l’impact sur les performances est négatif, la recommandation est annulée.
 
-1. Dans le panneau **Recommandations d’index**, cliquez sur **Paramètres du conseiller** :
+1. Dans le panneau **Recommandations d’index**, cliquez sur **Paramètres du conseiller** :
 
     ![Paramètres du conseiller](./media/sql-database-index-advisor/settings.png)
 
-2. Définissez le conseiller de manière à **Créer** ou **Supprimer** les index automatiquement :
+2. Définissez le conseiller de manière à **Créer** ou **Supprimer** les index automatiquement :
 
     ![Index recommandés](./media/sql-database-index-advisor/automation.png)
 
@@ -135,7 +135,7 @@ Vous pouvez annuler les index dont l’état est **En attente**. Vous ne pouvez 
 
 ## Surveillance des opérations d’index
 
-L’application d’une recommandation ne se produit pas toujours instantanément. Le portail fournit des informations concernant l’état des opérations d’index. Lorsque vous gérez les index, voici les états possibles de ces index :
+L’application d’une recommandation ne se produit pas toujours instantanément. Le portail fournit des informations concernant l’état des opérations d’index. Lorsque vous gérez les index, voici les états possibles de ces index :
 
 | Statut | Description |
 | :--- | :--- |
@@ -145,7 +145,7 @@ L’application d’une recommandation ne se produit pas toujours instantanémen
 | Échec | L’index n’a pas été créé. Il peut s’agir d’un problème temporaire ou éventuellement d’un changement de schéma dans la table auquel cas le script n’est plus valide. |
 | Annulation | Le processus de création d’index a été annulé ou a été jugé non performant et est automatiquement annulé. |
 
-Cliquez sur une recommandation en cours dans la liste pour afficher ses détails :
+Cliquez sur une recommandation en cours dans la liste pour afficher ses détails :
 
 ![Index recommandés](./media/sql-database-index-advisor/operations.png)
 
@@ -179,4 +179,4 @@ Index Advisor procure des recommandations d’index et une expérience automatis
 
 Surveillez vos recommandations d’index et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. L’assistant Index va continuer à surveiller et à recommander des index pouvant potentiellement améliorer les performances de votre base de données.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

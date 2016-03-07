@@ -17,11 +17,23 @@
 
 # Utilisation du portail Application Insights
 
-Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
+Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
+
+## Le tableau de bord
+
+Lorsque vous vous connectez au [portail Azure](https://portal.azure.com), vous accédez immédiatement au tableau de bord. Vous pouvez le personnaliser ou le placer en mode plein écran. Cet exemple a été personnalisé pour afficher les graphiques principaux qui intéressent ses propriétaires.
+
+
+![Un tableau de bord personnalisé.](./media/app-insights-portal/30.png)
+
+1. Cliquez sur le coin supérieur à tout moment pour revenir au tableau de bord.
+2. L’option **+ Nouveau** permet de créer une nouvelle ressource. Une [ressource Application Insights](app-insights-create-new-resource.md) est un emplacement de stockage et d’analyse des données de télémétrie de votre application.
+3. La barre de navigation ouvre vos ressources existantes.
+4. Modifiez et créez des tableaux de bord à l’aide de la barre d’outils du tableau de bord.
 
 ## Rechercher vos données de télémétrie
 
-Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à la ressource Application Insights que vous avez créée pour votre application.
+Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à la ressource Application Insights que vous avez créée pour votre application.
 
 ![Cliquez sur Parcourir, sélectionnez Application Insights, puis sélectionnez votre application.](./media/app-insights-portal/00-start.png)
 
@@ -38,7 +50,7 @@ Vous pouvez modifier l’intervalle de temps sur lequel portent les graphiques e
 
 Si vous attendez des données qui ne sont pas encore affichées, cliquez sur Actualiser. Les graphiques s’actualisent régulièrement, mais plus les intervalles de temps sur lesquels ils portent sont étendus, plus les intervalles d’actualisation sont longs. Dans la version finale, les données peuvent mettre un certain temps pour passer du pipeline d'analyse au graphique.
 
-Pour effectuer un zoom sur une partie d’un graphique, sélectionnez la partie souhaitée, puis cliquez sur l’icône de loupe :
+Pour effectuer un zoom sur une partie d’un graphique, sélectionnez la partie souhaitée, puis cliquez sur l’icône de loupe :
 
 ![Sélectionnez une partie d'un graphique.](./media/app-insights-portal/12-drag.png)
 
@@ -52,25 +64,25 @@ Pointez votre souris sur le graphique pour afficher les valeurs des mesures à c
 
 La valeur de la mesure à un moment donné est agrégée à l'intervalle d'échantillonnage précédent.
 
-L’intervalle d’échantillonnage, ou « granularité », s’affiche en haut du panneau.
+L’intervalle d’échantillonnage, ou « granularité », s’affiche en haut du panneau.
 
 ![En-tête du panneau.](./media/app-insights-portal/11-grain.png)
 
-Vous pouvez ajuster le niveau de granularité dans le panneau Période :
+Vous pouvez ajuster le niveau de granularité dans le panneau Période :
 
 ![En-tête du panneau.](./media/app-insights-portal/grain.png)
 
-Les niveaux de granularité disponibles dépendent de la période que vous sélectionnez. Les niveaux de granularité explicites sont des alternatives à la granularité « automatique » pour la période.
+Les niveaux de granularité disponibles dépendent de la période que vous sélectionnez. Les niveaux de granularité explicites sont des alternatives à la granularité « automatique » pour la période.
 
 ## Panneau Vue d’ensemble de l’application
 
 Le panneau de vue d’ensemble (page) de votre application affiche un résumé des principales mesures de diagnostic de votre application et constitue une passerelle vers les autres fonctionnalités du portail.
 
-Cliquez sur :
+Cliquez sur :
 
-* **n'importe quel graphique** pour afficher plus de détails ;
-* **Diagnostics** pour accéder à des pages prédéfinies d'autres mesures ;
-* **Metrics Explorer** pour créer des pages de mesures de votre choix ;
+* **n'importe quel graphique** pour afficher plus de détails ;
+* **Diagnostics** pour accéder à des pages prédéfinies d'autres mesures ;
+* **Metrics Explorer** pour créer des pages de mesures de votre choix ;
 * **Rechercher** pour analyser des instances spécifiques d'événements tels que les demandes, les exceptions ou les suivis de journal.
 
 
@@ -83,14 +95,28 @@ Choisissez ce que vous souhaitez afficher sur le panneau Vue d’ensemble. Dans 
 
 ![Cliquez sur Modifier. Faites glisser les vignettes et les graphiques. Ajoutez des vignettes de la galerie. Cliquez ensuite sur Terminé.](./media/app-insights-portal/020-customize.png)
 
-### Personnaliser le tableau de bord Azure
+## Tableaux de bord
+
+Le tableau de bord du portail Azure est la page d’accueil que vous voyez lors de votre première connexion [au portail](https://portal.azure.com). Vous pouvez y rassembler des graphiques et des vignettes (groupes de graphiques) à partir de plusieurs ressources.
+
+![Cliquez sur Modifier. Faites glisser les vignettes et les graphiques. Ajoutez des vignettes de la galerie. Cliquez ensuite sur Terminé.](./media/app-insights-portal/30.png)
+
+Lorsque vous examinez un panneau ou un graphique qui est particulièrement intéressant, vous pouvez l’épingler au tableau de bord. Celui-ci sera affiché lors de votre prochain accès au tableau de bord.
+
+![Pour épingler un graphique, passez la souris sur celui-ci, puis cliquez sur « ... » dans l’en-tête.](./media/app-insights-portal/33.png)
+
+Vous pouvez enregistrer plusieurs tableaux de bord et basculer entre ceux-ci. Lorsque vous épinglez un graphique ou un panneau, il est ajouté au tableau de bord actuel.
+
+![Pour basculer entre les tableaux de bord, cliquez sur Tableau de bord et sélectionnez un tableau de bord enregistré. Pour créer et enregistrer un nouveau tableau de bord, cliquez sur Nouveau. Pour les réorganiser, cliquez sur Modifier.](./media/app-insights-portal/32.png)
+
+Vous pouvez, par exemple, avoir un tableau de bord pour l’affichage en plein écran dans la salle de réunion et un autre pour le développement général.
 
 
-Le tableau de bord du portail Azure est la page d'accueil que vous voyez lors de votre première connexion au portail. Vous pouvez y rassembler des mosaïques (groupes de graphiques) à partir de plusieurs ressources.
+Sur le tableau de bord, un panneau s’affiche sous forme de vignette : cliquez dessus pour accéder au panneau. Un graphique réplique le graphique dans son emplacement d’origine.
 
-Pour épingler une vignette dans la vue d'ensemble Application Insights pour le tableau de bord du portail, sélectionnez l'en-tête de la mosaïque, puis « ... ».
 
-Pour un tableau de bord plus complet, utilisez [Power BI](https://azure.microsoft.com/blog/application-insights-content-pack-for-power-bi/) pour afficher vos données de télémétrie.
+![](./media/app-insights-portal/35.png)
+
 
 ## Panneaux de mesures
 
@@ -103,11 +129,11 @@ Vous pouvez également utiliser le bouton Metrics Explorer pour créer un nouvea
 
 ### Modification des graphiques et des grilles
 
-Pour ajouter un nouveau graphique au panneau :
+Pour ajouter un nouveau graphique au panneau :
 
 ![Dans Metrics Explorer, sélectionnez Ajouter un graphique](./media/app-insights-portal/04-add.png)
 
-Sélectionnez un graphique existant ou un nouveau graphique pour modifier ce qu'il présente :
+Sélectionnez un graphique existant ou un nouveau graphique pour modifier ce qu'il présente :
 
 ![Sélectionner une ou plusieurs mesures](./media/app-insights-portal/08-select.png)
 
@@ -117,23 +143,23 @@ Si vous avez ajouté des [mesures personnalisées](app-insights-api-custom-event
 
 ### Segmenter vos données
 
-Sélectionnez un graphique ou une grille, basculez vers le regroupement et choisissez une propriété de regroupement :
+Sélectionnez un graphique ou une grille, basculez vers le regroupement et choisissez une propriété de regroupement :
 
 ![Activez le regroupement, puis une propriété de regroupement](./media/app-insights-portal/15-segment.png)
 
 Si vous avez ajouté des mesures personnalisées au code de votre application et qu'elles incluent des [valeurs de propriétés](app-insights-api-custom-events-metrics.md#properties), vous pourrez sélectionner la propriété dans la liste.
 
-Le graphique est trop petit pour les données segmentées ? Ajustez la hauteur :
+Le graphique est trop petit pour les données segmentées ? Ajustez la hauteur :
 
 ![Ajustez le curseur.](./media/app-insights-portal/18-height.png)
 
 ### Filtrer vos données
 
-Pour afficher uniquement les mesures d'un jeu de valeurs de propriété sélectionné :
+Pour afficher uniquement les mesures d'un jeu de valeurs de propriété sélectionné :
 
 ![Cliquez sur le filtre, développez une propriété et vérifiez les valeurs](./media/app-insights-portal/19-filter.png)
 
-Si vous ne sélectionnez aucune valeur pour une propriété particulière, c'est la même chose que si vous aviez sélectionné toutes les valeurs : il n'existe aucun filtre sur cette propriété.
+Si vous ne sélectionnez aucune valeur pour une propriété particulière, c'est la même chose que si vous aviez sélectionné toutes les valeurs : il n'existe aucun filtre sur cette propriété.
 
 Notez le nombre d'événements en même temps que chaque valeur de propriété. Lorsque vous sélectionnez les valeurs d'une propriété, le nombre est modifié, en même temps que les autres valeurs de la propriété.
 
@@ -143,7 +169,7 @@ Une fois que vous avez créé des graphiques, enregistrez-les en tant que favori
 
 ![Choisissez Favori](./media/app-insights-portal/21-favorite-save.png)
 
-Pour réafficher le panneau, **allez dans le panneau Vue d'ensemble** et ouvrez Favoris :
+Pour réafficher le panneau, **allez dans le panneau Vue d'ensemble** et ouvrez Favoris :
 
 ![Dans le panneau Vue d'ensemble, cliquez sur Favoris](./media/app-insights-portal/22-favorite-get.png)
 
@@ -159,9 +185,9 @@ Si vous modifiez un panneau, mais que vous souhaitez revenir à la configuration
 
 La recherche affiche des événements individuels tels que les affichages de pages, les demandes, les exceptions, les suivis de journal et les événements personnalisés. Il n'affiche pas des mesures agrégées ou d'instances de l'appel TrackMetric().
 
-> [AZURE.NOTE]Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
+> [AZURE.NOTE] Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 
-Ouvrez la recherche de diagnostic :
+Ouvrez la recherche de diagnostic :
 
 ![Open diagnostic search](./media/app-insights-portal/01-open-Diagnostic.png)
 
@@ -177,16 +203,16 @@ Par exemple, les demandes avec un code de réponse spécifique.
 
 ![Développez une propriété et choisissez une valeur](./media/app-insights-portal/03-response500.png)
 
-Si vous ne choisissez aucune valeur pour une propriété, cela a le même effet que si vous sélectionniez toutes les valeurs : le filtrage sur cette propriété est désactivé.
+Si vous ne choisissez aucune valeur pour une propriété, cela a le même effet que si vous sélectionniez toutes les valeurs : le filtrage sur cette propriété est désactivé.
 
-> [AZURE.NOTE]Si votre application génère un volume important de télémétrie, le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Les événements qui font partie de la même opération seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
+> [AZURE.NOTE] Si votre application génère un volume important de télémétrie, le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Les événements qui font partie de la même opération seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
 
 
 ### Affiner votre recherche
 
 Notez que les nombres à droite des valeurs de filtre affichent le nombre d’occurrences dans le jeu actuellement filtré.
 
-Dans cet exemple, il est clair que la demande `Reports/Employees` provoque la majorité des 500 erreurs :
+Dans cet exemple, il est clair que la demande `Reports/Employees` provoque la majorité des 500 erreurs :
 
 ![Développez une propriété et choisissez une valeur](./media/app-insights-portal/04-failingReq.png)
 
@@ -199,10 +225,10 @@ Une fois que vous avez défini tous les filtres que vous voulez, vous pouvez enr
 ![Cliquez sur Favori, définissez le nom et cliquez sur Enregistrer](./media/app-insights-portal/08-favorite-save.png)
 
 
-Pour réafficher la recherche, **allez dans le panneau Vue d’ensemble** et ouvrez Favoris :
+Pour réafficher la recherche, **allez dans le panneau Vue d’ensemble** et ouvrez Favoris :
 
 ![Vignette des favoris](./media/app-insights-portal/22-favorite-get.png)
 
 Si vous avez enregistré une période relative, le panneau rouvert comporte les données les plus récentes. Si vous avez enregistré une période absolue, vous voyez les mêmes données à chaque fois.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

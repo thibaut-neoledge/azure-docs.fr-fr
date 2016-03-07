@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/05/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli"/>
 
 # Déploiement de StorSimple Virtual Array - Configuration comme un serveur de fichiers (version préliminaire)
@@ -36,7 +36,7 @@ Avant de configurer votre appareil virtuel StorSimple, assurez-vous que :
 
 -   Vous avez configuré un appareil virtuel et vous y êtes connecté comme indiqué dans la rubrique [Configuration de StorSimple Virtual Array dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Configuration de StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md).
 
--   Vous disposez de la clé d'inscription du service StorSimple Manager que vous avez créé pour gérer les appareils virtuels StorSimple. Pour plus d'informations, consultez l’[étape 2 : Obtention de la clé d’inscription](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
+-   Vous disposez de la clé d'inscription du service StorSimple Manager que vous avez créé pour gérer les appareils virtuels StorSimple. Pour plus d'informations, consultez l’[étape 2 : Obtention de la clé d’inscription](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
 
 -   S'il s'agit du deuxième appareil virtuel (ou ultérieur) que vous inscrivez auprès d’un service StorSimple Manager existant, vous devez disposer de la clé de chiffrement des données de service. Cette clé a été générée lorsque le premier appareil a été correctement inscrit auprès de ce service. Si vous avez perdu cette clé, consultez la rubrique [Obtenir la clé de chiffrement des données de service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) pour votre StorSimple Virtual Array.
 
@@ -57,7 +57,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Connectez-vous à l'interface utilisateur web de votre appareil virtuel web en tant que **StorSimpleAdmin**. Entrez le mot de passe administrateur que vous avez modifié à l’étape 3 : démarrage de l’appareil virtuel dans [Configurer StorSimple Virtual Array dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou dans [Configurer StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Connectez-vous à l'interface utilisateur web de votre appareil virtuel web en tant que **StorSimpleAdmin**. Entrez le mot de passe administrateur que vous avez modifié à l’étape 3 : démarrage de l’appareil virtuel dans [Configurer StorSimple Virtual Array dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou dans [Configurer StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
@@ -69,7 +69,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
-	Si vous avez ajouté plusieurs interfaces réseau lors de la configuration de l'appareil, vous pouvez les configurer ici.
+	Si vous avez ajouté plusieurs interfaces réseau lors de la configuration de l'appareil, vous pouvez les configurer ici. Notez que vous pouvez configurer votre interface réseau en IPv4 uniquement ou en IPv4 et IPv6. Les configurations en IPv6 uniquement ne sont pas prises en charge.
 
 1.  Des serveurs DNS sont requis car ils sont utilisés lorsque votre appareil tente de communiquer avec vos fournisseurs de services de stockage cloud ou pour résoudre votre appareil par nom lorsqu’il configuré comme un serveur de fichiers. Dans la page **Paramètres réseau**, sous **Serveurs DNS** :
 
@@ -77,7 +77,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     2.  Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres réseau.
 
-2.  Sur la page **Paramètres de l’appareil** :
+2.  Sur la page **Paramètres de l’appareil** :
 
     1.  Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
 
@@ -113,7 +113,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 	4.  Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres de proxy web configurés.
 
-1.  (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
+1.  (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image10.png)
 
@@ -129,7 +129,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 1.  Configurez les paramètres de cloud de votre appareil. Dans cette étape, vous allez finaliser la configuration de l’appareil local puis inscrire l'appareil auprès du service StorSimple Manager.
 
-    1.  Saisissez la **clé d'inscription de service** que vous avez obtenue à l'[étape 2 : Obtention de la clé d'inscription](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
+    1.  Saisissez la **clé d'inscription de service** que vous avez obtenue à l'[étape 2 : Obtention de la clé d'inscription](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
 
     2.  S'il ne s'agit pas du premier appareil que vous inscrivez auprès de ce service, vous devrez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d'informations, reportez-vous à la section permettant d'obtenir la [clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
 
@@ -144,7 +144,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 ## Étape 2 : Finalisation de la configuration requise pour l’appareil
 
-Pour finaliser la configuration minimale de votre appareil StorSimple, vous devez :
+Pour finaliser la configuration minimale de votre appareil StorSimple, vous devez :
 
 -   Sélectionner un compte de stockage à associer à votre appareil.
 
@@ -158,7 +158,7 @@ Pour finaliser la configuration minimale requise, procédez comme suit dans le [
 
 2.  Cliquez sur **Terminer la configuration de l'appareil** pour démarrer l'Assistant Configurer l'appareil.
 
-3.  Dans l'Assistant Configurer l'appareil, sur la page **Paramètres de base**, procédez comme suit :
+3.  Dans l'Assistant Configurer l'appareil, sur la page **Paramètres de base**, procédez comme suit :
 
 	1.  Spécifiez un compte de stockage à utiliser avec votre appareil. Vous pouvez sélectionner un compte de stockage existant de cet abonnement dans la liste déroulante, ou spécifier **Ajouter** pour choisir un compte d'un autre abonnement.
 
@@ -187,13 +187,13 @@ Pour créer un partage, procédez comme suit dans le [portail Azure Classic](htt
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
-1.  Dans la page **Paramètres de base**, procédez comme suit :
+1.  Dans la page **Paramètres de base**, procédez comme suit :
 
     1.  Spécifiez un nom unique pour votre partage. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
 
     2.  (Facultatif) Fournissez une description du partage. La description permet d'identifier les propriétaires du partage.
 
-    3.  Sélectionnez un type d'utilisation du partage. Le type d'utilisation peut être **À plusieurs niveaux** ou **Épinglé localement**, « À plusieurs niveaux » étant l'option par défaut. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un partage **épinglé localement**. Pour toutes les autres données, sélectionnez un partage **à plusieurs niveaux**.
+    3.  Sélectionnez un type d'utilisation du partage. Le type d'utilisation peut être **À plusieurs niveaux** ou **Épinglé localement**, « À plusieurs niveaux » étant l'option par défaut. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un partage **épinglé localement**. Pour toutes les autres données, sélectionnez un partage **à plusieurs niveaux**.
 
 	La configuration d’un partage épinglé localement est complète, et garantit que les données principales sur le partage sont conservées en local sur l’appareil et ne débordent pas sur le cloud. D’autre part, la configuration d’un partage à plusieurs niveaux est légère, et sa création peut être très rapide. Lorsque vous créez un partage à plusieurs niveaux, 10 % de l'espace sont configurés au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n'avez plus d'espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux.
 
@@ -209,7 +209,7 @@ Pour créer un partage, procédez comme suit dans le [portail Azure Classic](htt
 
 1.  Cliquez sur l’icône en forme de coche ![](./media/storsimple-ova-deploy3-fs-setup/image21.png). Un partage est créé avec les paramètres spécifiés. Par défaut, la surveillance et la sauvegarde seront activées pour le partage.
 
-## Étape 4 : Connexion au partage
+## Étape 4 : Connexion au partage
 
 Vous devrez maintenant vous connecter aux partages que vous avez créés à l'étape précédente. Procédez comme suit sur votre hôte Windows Server.
 
@@ -235,4 +235,4 @@ Regardez la vidéo pour découvrir comment configurer et inscrire StorSimple Vir
 
 Découvrez comment utiliser l'interface utilisateur web locale pour [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

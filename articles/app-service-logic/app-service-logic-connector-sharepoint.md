@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Utilisation du connecteur SharePoint dans des applications logiques | Microsoft Azure App Service"
+   pageTitle="Utilisation du connecteur SharePoint dans des applications logiques | Microsoft Azure App Service"
    description="Comment créer et configurer le connecteur SharePoint ou une application API et l'utiliser dans une application logique d’Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 # Prise en main du connecteur SharePoint et ajout de celui-ci à votre application logique
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
+
 Connexion à SharePoint Server ou à SharePoint Online et permet de gérer des documents et des éléments de liste. Vous pouvez effectuer diverses actions, comme créer, mettre à jour, obtenir et supprimer des documents et éléments de liste. Avec un serveur SharePoint local, vous entrez la chaîne de connexion Service Bus dans le cadre de la configuration du connecteur et installer l'agent détecteur local pour la connexion au serveur.
 
 L'application de la galerie des connecteurs SharePoint Online et SharePoint Server vous propose des déclencheurs et des actions en tant que mécanismes pour interagir avec SharePoint.
@@ -28,17 +30,15 @@ Les applications logiques peuvent se déclencher selon diverses sources de donn�
 Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
-2. Sélectionnez **API Apps** et recherchez « Connecteur SharePoint Online ».
+2. Sélectionnez **API Apps** et recherchez « Connecteur SharePoint Online ».
 3. Entrez le nom, le plan App Service et d'autres propriétés.
-4. Entrez les paramètres de package suivants :
+4. Entrez les paramètres de package suivants :
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*
-URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : **https://microsoft.sharepoint.com/teams/wabstest* URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
-![][1]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][1]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Online.
 
@@ -47,28 +47,26 @@ Une fois cette opération effectuée, vous pouvez alors créer une application l
 Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
-2. Sélectionnez **API Apps** et recherchez « Connecteur SharePoint Server ».
+2. Sélectionnez **API Apps** et recherchez « Connecteur SharePoint Server ».
 3. Entrez le nom, le plan App Service et d'autres propriétés.
-4. Entrez les paramètres de package suivants :
+4. Entrez les paramètres de package suivants :
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*.
-Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la connexion à un site SharePoint. Les options incluent :<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si vous choisissez l'option Default, les identifiants qui exécutent le connecteur SharePoint sont utilisés. Aucun nom d'utilisateur/mot de passe n'est requis. Le nom d'utilisateur et le mot de passe sont requis pour les autres types d'authentification.<br/><br/>**Remarque** L'authentification anonyme n'est pas prise en charge.
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*. Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la connexion à un site SharePoint. Les options incluent :<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si vous choisissez l'option Default, les identifiants qui exécutent le connecteur SharePoint sont utilisés. Aucun nom d'utilisateur/mot de passe n'est requis. Le nom d'utilisateur et le mot de passe sont requis pour les autres types d'authentification.<br/><br/>**Remarque** L'authentification anonyme n'est pas prise en charge.
 Nom d’utilisateur | Non | Entrez un nom d'utilisateur valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 Mot de passe | Non | Entrez un mot de passe valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 URL relatives des bibliothèques de documents/listes | Oui | Entrez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
-![][2]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][2]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Server.
 
 
 ## Utilisation du connecteur SharePoint dans votre application logique
 
-Une fois votre application API créée, vous pouvez utiliser le connecteur SharePoint comme déclencheur ou action pour votre application logique. Pour cela, vous devez procéder comme suit :
+Une fois votre application API créée, vous pouvez utiliser le connecteur SharePoint comme déclencheur ou action pour votre application logique. Pour cela, vous devez procéder comme suit :
 
 1. Créez une application logique et choisissez le même groupe de ressources qui comporte le connecteur SharePoint.
 
@@ -76,24 +74,19 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Share
 
 3. Si le connecteur SharePoint est sélectionné au début de l'application logique, il agit comme un déclencheur. Dans le cas contraire, les actions pourraient être effectuées sur le compte SharePoint à l'aide du connecteur.
 
-4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint :  
-![][3]
+4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint : ![][3]
 
-5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations :  
-![][4]
+5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations : ![][4]
 
-6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom :  
-![][5]
+6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : ![][5]
 
-7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter :  
-![][6]
+7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter : ![][6]
   
-**URL relative configurée pour la bibliothèque de documents**  
-![][7]
+**URL relative configurée pour la bibliothèque de documents** ![][7]
 
 **URL relative configurée pour la liste de documents**
 
-> [AZURE.NOTE]Pour les déclencheurs suivants, l'utilisateur est supposé avoir spécifié « Documents partagés, Listes/Tâches » dans les paramètres de package du connecteur, où « Documents partagés » est une bibliothèque de documents et « Listes/Tâches » est une liste.
+> [AZURE.NOTE]Pour les déclencheurs suivants, l'utilisateur est supposé avoir spécifié « Documents partagés, Listes/Tâches » dans les paramètres de package du connecteur, où « Documents partagés » est une bibliothèque de documents et « Listes/Tâches » est une liste.
 
 ##  Déclencheurs
 Utilisez des déclencheurs pour lancer une application logique.
@@ -107,7 +100,7 @@ Ce déclencheur est déclenché quand un nouveau document est disponible dans Do
 
 Nom | Requis | Description
 --- | --- | ---
-Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
+Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
 Emplacement d'archive | Non | Entrez une URL de dossier valide, relative au site SharePoint, où les documents traités sont archivés.
 Remplacer dans l'archive | Non | Cochez cette option pour remplacer un fichier dans le chemin d'accès de l'archive s'il existe déjà.
 Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -118,9 +111,9 @@ Nom | Description
 --- | ---
 Nom | Nom du document.
 Contenu | Contenu du document.
-ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
+ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
 
-**Remarque** : toutes les colonnes de l'élément de document sont affichées dans les propriétés de sortie.
+**Remarque** : toutes les colonnes de l'élément de document sont affichées dans les propriétés de sortie.
 
 
 ### 2\. Nouvel élément dans les tâches (JSON)
@@ -130,7 +123,7 @@ Ce déclencheur est déclenché quand un nouvel élément est ajouté à la list
 
 Nom | Requis | Description
 --- | --- | ---
-Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les éléments de la liste. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les nouveaux éléments, laissez ce champ vide.
+Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les éléments de la liste. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les nouveaux éléments, laissez ce champ vide.
 Emplacement d'archive | Non | Entrez une URL de dossier valide, relative au site SharePoint, où les éléments de liste traités sont archivés.
 Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
@@ -149,7 +142,7 @@ Ce déclencheur est déclenché quand un nouveau document est disponible dans Do
 
 Nom | Requis | Description
 --- | --- | ---
-Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
+Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
 Emplacement d'archive | Non | Spécifiez une URL de dossier valide, relative au site SharePoint, où les documents traités sont archivés.
 Remplacer dans l'archive | Non | Cochez cette option pour remplacer un fichier dans le chemin d'accès de l'archive s'il existe déjà.
 Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -159,7 +152,7 @@ Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les 
 Nom | Description
 --- | ---
 Contenu | Contenu du document.
-ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
+ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
 
 
 ### 4\. Nouvel élément dans les tâches (XML)
@@ -170,7 +163,7 @@ Ce déclencheur est déclenché quand un nouvel élément est ajouté à la list
 
 Nom | Requis | Description
 --- | --- | ---
-Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les éléments de la liste. Exemple : Commandes approuvées. Pour traiter tous les nouveaux éléments, laissez ce champ vide.
+Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les éléments de la liste. Exemple : Commandes approuvées. Pour traiter tous les nouveaux éléments, laissez ce champ vide.
 Emplacement d'archive | Non | Entrez une URL de dossier valide, relative au site SharePoint, où les éléments de liste traités sont archivés.
 Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les éléments de liste. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
@@ -179,11 +172,11 @@ Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les 
 Nom | Description
 --- | ---
 Contenu | Contenu du document.
-ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
+ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
 
 
 ##  Actions
-Pour les actions suivantes, l'utilisateur est supposé avoir spécifié « Documents partagés, Listes/Tâches » dans les paramètres de package du connecteur, où « Documents partagés » est une bibliothèque de documents et « Listes/Tâches » est une liste.
+Pour les actions suivantes, l'utilisateur est supposé avoir spécifié « Documents partagés, Listes/Tâches » dans les paramètres de package du connecteur, où « Documents partagés » est une bibliothèque de documents et « Listes/Tâches » est une liste.
 
 ### 1\. Télécharger vers les documents partagés (JSON)
 
@@ -195,21 +188,21 @@ Nom | Requis | Description
 --- | --- | ---
 Nom | Oui | Nom du document.
 Contenu | Oui | Contenu du document.
-ContentTransferEncoding | Oui | Encodage de transfert de contenu du message. (« none » ou « base64 »)
+ContentTransferEncoding | Oui | Encodage de transfert de contenu du message. (« none » ou « base64 »)
 Forcer le remplacement | Oui | Si la valeur est TRUE et qu'un document existe avec le nom donné, il est remplacé.
 ReqParam1* | Oui | Il s'agit d'un des paramètres requis pour ajouter un document dans la bibliothèque de documents.
 ReqParam2* | Oui | Il s'agit d'un des paramètres requis pour ajouter un document dans la bibliothèque de documents.
 OptionalParam1* | Non. Avancé | Il s'agit d'un des paramètres facultatifs pour ajouter un document dans la bibliothèque de documents.
 OptionalParam2* | Non. Avancé | Il s'agit d'un des paramètres facultatifs pour ajouter un document dans la bibliothèque de documents.
 
-**Remarque** : tous les paramètres de la bibliothèque de documents sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
+**Remarque** : tous les paramètres de la bibliothèque de documents sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
 
 #### Sortie
 
 Nom | Description
 --- | ---
 ItemId | ItemId du document ajouté dans la bibliothèque de documents.
-État | Un téléchargement réussi du document retourne le code d'état 200 (OK).
+État | Un téléchargement réussi du document retourne le code d'état 200 (OK).
 
 
  
@@ -221,19 +214,19 @@ Cette action obtient le document à partir de la bibliothèque de documents, ét
 
 Nom | Requis | Description
 --- | --- | ---
-URI relatif du document | Non | Entrez l'URL du document, relative à « Documents partagés ». Par exemple, entrez : *myspec1,myfolder/orders*.
+URI relatif du document | Non | Entrez l'URL du document, relative à « Documents partagés ». Par exemple, entrez : *myspec1,myfolder/orders*.
 
 #### Sortie
 
 Nom | Description
 --- | ---
 Contenu | Contenu du document
-ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
-Statut | L'exécution réussie d'une action retourne le code d'état 200 (OK).
+ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
+Statut | L'exécution réussie d'une action retourne le code d'état 200 (OK).
 Param1* | Il s'agit d'un des paramètres d'un document dans la bibliothèque de documents.
 Param2* | Il s'agit d'un des paramètres d'un document dans la bibliothèque de documents.
 
-**Remarque** : tous les paramètres de la bibliothèque de documents sont renseignés de manière dynamique. Ils se trouvent aussi dans la section Avancé.
+**Remarque** : tous les paramètres de la bibliothèque de documents sont renseignés de manière dynamique. Ils se trouvent aussi dans la section Avancé.
 
  
 
@@ -245,13 +238,13 @@ Cette action supprime le document de la bibliothèque de documents, étant donn�
 
 Nom | Requis | Description
 --- | --- | ---
-URI relatif du document | Non | Entrez l'URL du document, relative à « Documents partagés ». Par exemple, entrez : *myspec1,myfolder/orders*.
+URI relatif du document | Non | Entrez l'URL du document, relative à « Documents partagés ». Par exemple, entrez : *myspec1,myfolder/orders*.
 
 #### Sortie
 
 Nom | Description
 --- | ---
-Statut | L'exécution réussie d'une action retourne le code d'état 200 (OK).
+Statut | L'exécution réussie d'une action retourne le code d'état 200 (OK).
 
 
 ### 4\. Insérer dans des tâches (JSON)
@@ -267,14 +260,14 @@ ReqParam2* | Oui | Il s'agit d'un des paramètres requis pour ajouter un éléme
 OptionalParam1* | Non. Avancé | Il s'agit d'un des paramètres requis pour ajouter un élément dans la liste.
 OptionalParam2* | Non. Avancé | Il s'agit d'un des paramètres requis pour ajouter un élément dans la liste.
 
-**Remarque** : tous les paramètres de la liste sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
+**Remarque** : tous les paramètres de la liste sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
 
 #### Sortie
 
 Nom | Description
 --- | ---
 ItemId | ItemId de l'élément de liste ajouté.
-État | Une insertion réussie d'un élément de liste retourne le code d'état 200 (OK).
+État | Une insertion réussie d'un élément de liste retourne le code d'état 200 (OK).
 
 
 ### 5\. Mettre à jour des tâches (JSON)
@@ -291,13 +284,13 @@ ReqParam2* | Non | Il s'agit d'un des paramètres requis pour ajouter un éléme
 OptionalParam1* | Non. Avancé | Il s'agit d'un des paramètres requis pour ajouter un élément dans la liste.
 OptionalParam2* | Non. Avancé | Il s'agit d'un des paramètres requis pour ajouter un élément dans la liste.
 
-**Remarque** : tous les paramètres de la liste sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
+**Remarque** : tous les paramètres de la liste sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
 
 #### Sortie
 
 Nom | Description
 --- | ---
-Statut | Une mise à jour réussie d'un élément de liste retourne le code d'état 200 (OK).
+Statut | Une mise à jour réussie d'un élément de liste retourne le code d'état 200 (OK).
 
 
 ### 6\. Obtenir un élément à partir des tâches (JSON)
@@ -316,9 +309,9 @@ Nom | Description
 --- | ---
 Column1* | Il s'agit d'un des paramètres dans la liste.
 Column2* | Il s'agit d'un des paramètres dans la liste.
-État | Une exécution réussie de l'action retourne le code d'état 200 (OK).
+État | Une exécution réussie de l'action retourne le code d'état 200 (OK).
 
-**Remarque** : les colonnes de la liste sont renseignées de manière dynamique et présentées dans les paramètres de sortie.
+**Remarque** : les colonnes de la liste sont renseignées de manière dynamique et présentées dans les paramètres de sortie.
 
 
 ### 7\. Supprimer un élément des tâches
@@ -335,7 +328,7 @@ ItemId | Oui | ItemId de l'élément de liste.
 
 Nom | Description
 --- | ---
-Statut | Une suppression réussie d'un élément de liste retourne le code d'état 200 (OK).
+Statut | Une suppression réussie d'un élément de liste retourne le code d'état 200 (OK).
 
 
 ### 8\. Répertorier les documents partagés (JSON)
@@ -346,7 +339,7 @@ Cette action répertorie tous les documents dans une bibliothèque de documents.
 
 Nom | Requis | Description
 --- | --- | ---
-Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
+Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
 Requête CAML | Non | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Sortie
@@ -354,7 +347,7 @@ Requête CAML | Non | Entrez une requête Caml valide pour filtrer les documents
 Nom | Description
 --- | ---
 Documents | Tableau de tous les documents. Chaque document comporte les champs suivants : <ul><li>Documents </li><li>Nom</li><li>ID de l'élément</li><li>URL complète de l'élément</li><li>Avancé</li><li>URL de modification de l'élément</li><li>Nom de la liste</li><li>URL complète de la liste</li></ul>
-Statut | Une insertion réussie d'un élément de liste retourne le code d'état 200 (OK).
+Statut | Une insertion réussie d'un élément de liste retourne le code d'état 200 (OK).
 
 
 ### 9\. Télécharger vers les documents partagés (XML)
@@ -367,7 +360,7 @@ Nom | Requis | Description
 --- | --- | ---
 Nom | Oui | Nom du document.
 Contenu | Oui | Contenu du document.
-ContentTransferEncoding | Oui | Encodage de transfert de contenu du message. (« none » ou « base64 »)
+ContentTransferEncoding | Oui | Encodage de transfert de contenu du message. (« none » ou « base64 »)
 Forcer le remplacement | Oui | Si la valeur est TRUE et qu'un document existe avec le nom donné, il est remplacé.
  
 #### Sortie
@@ -375,7 +368,7 @@ Forcer le remplacement | Oui | Si la valeur est TRUE et qu'un document existe av
 Nom | Description
 --- | ---
 XML de sortie | Réponse de l'action Télécharger au format XML.
-État | Un téléchargement réussi du document retourne le code d'état 200 (OK).
+État | Un téléchargement réussi du document retourne le code d'état 200 (OK).
 
 ### 10\. Obtenir à partir des documents partagés (XML)
 
@@ -385,7 +378,7 @@ Cette action obtient le document à partir de la bibliothèque de documents, ét
 
 Nom | Requis | Description
 --- | --- | ---
-URI relatif du document | Non | Entrez l'URL du document, relative à « Documents partagés ». Par exemple, entrez : *myspec1,myfolder/orders*.
+URI relatif du document | Non | Entrez l'URL du document, relative à « Documents partagés ». Par exemple, entrez : *myspec1,myfolder/orders*.
 Type de fichier | Oui | Entrez si le fichier est un fichier binaire ou un fichier texte.
 
 #### Sortie
@@ -393,8 +386,8 @@ Type de fichier | Oui | Entrez si le fichier est un fichier binaire ou un fichie
 Nom | Description
 --- | ---
 XML de sortie | Contenu du document
-ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
-Statut | L'exécution réussie d'une action retourne le code d'état 200 (OK).
+ContentTransferEncoding | Encodage de transfert de contenu du message. (« none » ou « base64 »)
+Statut | L'exécution réussie d'une action retourne le code d'état 200 (OK).
 
 ### 11\. Insérer dans des tâches (XML)
 
@@ -406,14 +399,14 @@ Nom | Requis | Description
 --- | --- | ---
 XML d'entrée | Oui | Message XML qui contient les valeurs des champs de l'élément de liste à insérer. Vous pouvez utiliser l'application API Transform pour générer le message XML.
 
-**Remarque** : tous les paramètres de la liste sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
+**Remarque** : tous les paramètres de la liste sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
 
 #### Sortie
 
 Nom | Description
 --- | ---
 ItemId | ItemId de l'élément de liste ajouté.
-État | Une insertion réussie d'un élément de liste retourne le code d'état 200 (OK).
+État | Une insertion réussie d'un élément de liste retourne le code d'état 200 (OK).
 
 
 ### 12\. Mettre à jour des tâches (XML)
@@ -427,13 +420,13 @@ Nom | Requis | Description
 ItemID | Oui | ItemId de l'élément de liste.
 XML d'entrée | Oui | Message XML qui contient les valeurs des champs de l'élément de liste à insérer. Vous pouvez utiliser l'application API Transform pour générer le message XML.
 
-**Remarque** : tous les paramètres de la liste sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
+**Remarque** : tous les paramètres de la liste sont renseignés de manière dynamique. Les paramètres obligatoires sont visibles et les paramètres facultatifs se trouvent dans la section Avancé.
 
 #### Sortie
 
 Nom | Description
 --- | ---
-Statut | Une mise à jour réussie d'un élément de liste retourne le code d'état 200 (OK).
+Statut | Une mise à jour réussie d'un élément de liste retourne le code d'état 200 (OK).
 
 
 ### 13\. Obtenir un élément à partir des tâches (XML)
@@ -451,7 +444,7 @@ ItemID | Oui | ItemId de l'élément de liste.
 Nom | Description
 --- | ---
 XML de sortie | Message XML qui contient les valeurs des champs de l'élément de liste sélectionné.
-État | Une exécution réussie de l'action retourne le code d'état 200 (OK).
+État | Une exécution réussie de l'action retourne le code d'état 200 (OK).
 
 
 ## Configuration hybride (facultatif)
@@ -465,11 +458,11 @@ Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-ser
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](app-service-api-manage-in-portal.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](../app-service-api/app-service-api-manage-in-portal.md).
 
 
 <!--Image references-->
@@ -481,4 +474,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

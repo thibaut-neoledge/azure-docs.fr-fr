@@ -1,27 +1,30 @@
 <properties 
-   pageTitle="Définition des paramètres DNS dans un fichier de configuration de réseau virtuel | Microsoft Azure"
-   description="Comment modifier les paramètres de serveur DNS dans un réseau virtuel à l'aide d'un fichier de configuration de réseau virtuel"
+   pageTitle="Définition des paramètres DNS dans un fichier de configuration de réseau virtuel | Microsoft Azure"
+   description="Comment modifier les paramètres de serveur DNS dans un réseau virtuel à l’aide d’un fichier de configuration de réseau virtuel dans le modèle de déploiement classique"
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="telmosampaio"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" 
+   tags="azure-service-management" />
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
-   ms.author="joaoma" />
+   ms.date="02/23/2016"
+   ms.author="telmos" />
 
-# Définition des paramètres DNS dans un fichier de configuration de réseau virtuel
+# Définition des paramètres DNS dans un fichier de configuration de réseau virtuel
 
-Un fichier de configuration réseau possède deux éléments que vous pouvez utiliser pour définir les paramètres DNS : **DnsServers** et **DnsServerRef**. Vous pouvez ajouter une liste de serveurs DNS en définissant leur adresse IP et leur nom de référence sur l’élément **DnsServers**. Ensuite, utilisez un élément **DnsServerRef** afin de spécifier les entrées du serveur DNS de l’élément DnsServers qui sont utilisées pour différents sites au sein de votre réseau virtuel.
+Un fichier de configuration réseau possède deux éléments que vous pouvez utiliser pour définir les paramètres DNS : **DnsServers** et **DnsServerRef**. Vous pouvez ajouter une liste de serveurs DNS en définissant leur adresse IP et leur nom de référence sur l’élément **DnsServers**. Ensuite, utilisez un élément **DnsServerRef** afin de spécifier les entrées du serveur DNS de l’élément DnsServers qui sont utilisées pour différents sites au sein de votre réseau virtuel.
 
->[AZURE.IMPORTANT] Pour plus d'informations sur la configuration du fichier de configuration réseau, consultez la section [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md). Pour plus d’informations sur les éléments contenus dans le fichier de configuration réseau, consultez [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique.
 
 Le fichier de configuration réseau peut contenir les éléments suivants. Le titre de chaque élément est associé à une page qui fournit des informations supplémentaires sur les paramètres de valeurs de l’élément.
+
+>[AZURE.IMPORTANT] Pour plus d'informations sur la configuration du fichier de configuration réseau, consultez la section [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md). Pour plus d’informations sur les éléments contenus dans le fichier de configuration réseau, consultez [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 [Élément Dns](http://go.microsoft.com/fwlink/?LinkId=248093)
 
@@ -33,7 +36,7 @@ Le fichier de configuration réseau peut contenir les éléments suivants. Le ti
       </DnsServers>
     </Dns>
 
->[AZURE.WARNING] L’attribut **name** de l’élément **DnsServer** est utilisé uniquement en tant que référence pour l’élément **DnsServerRef**. Il ne représente aucunement le nom d’hôte attribué au serveur DNS. Chaque attribut **DnsServer** doit être unique au sein de l’abonnement Microsoft Azure
+>[AZURE.WARNING] L’attribut **name** de l’élément **DnsServer** est utilisé uniquement en tant que référence pour l’élément **DnsServerRef**. Il ne représente aucunement le nom d’hôte attribué au serveur DNS. Chaque attribut **DnsServer** doit être unique au sein de l’abonnement Microsoft Azure
 
 [Élément de sites de réseau virtuel](http://go.microsoft.com/fwlink/?LinkId=248093)
 
@@ -43,14 +46,12 @@ Le fichier de configuration réseau peut contenir les éléments suivants. Le ti
 	  <DnsServerRef name="ID3" />
 	</DnsServersRef>
 
->[AZURE.NOTE] Pour définir ce paramètre pour l’élément de sites de réseau virtuel, vous devez préalablement le définir dans l’élément DNS. L’attribut *name* DnsServerRef de l’élément de sites de réseau virtuel doit faire référence à une valeur de nom spécifiée dans l’élément DNS pour l’attribut *name* DnsServer.
+>[AZURE.NOTE] Pour définir ce paramètre pour l’élément de sites de réseau virtuel, vous devez préalablement le définir dans l’élément DNS. L’attribut *name* DnsServerRef de l’élément de sites de réseau virtuel doit faire référence à une valeur de nom spécifiée dans l’élément DNS pour l’attribut *name* DnsServer.
 
 ## Étapes suivantes
 
-[Configuration d'un réseau virtuel à l'aide de fichiers de configuration réseau](virtual-networks-using-network-configuration-file.md)
+- Découvrez le [Schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
+- Découvrez le [Schéma de configuration du service Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
+- [Configurer un réseau virtuel à l’aide de fichiers de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
-[Schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
-
-[Schéma de configuration de service Microsoft Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

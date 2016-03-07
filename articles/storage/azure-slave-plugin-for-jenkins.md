@@ -36,7 +36,7 @@ Maintenant que le plug-in est installé, les étapes suivantes consistent à le 
 
 ## Pour configurer le plug-in subordonné Azure avec votre profil d’abonnement
 
-Un profil d'abonnement, également appelé paramètres de publication, est un fichier XML qui contient des informations d'identification sécurisées, ainsi que des informations supplémentaires, dont vous aurez besoin pour utiliser Azure dans votre environnement de développement. Pour configurer le plug-in subordonné Azure, vous avez besoin des éléments suivants :
+Un profil d'abonnement, également appelé paramètres de publication, est un fichier XML qui contient des informations d'identification sécurisées, ainsi que des informations supplémentaires, dont vous aurez besoin pour utiliser Azure dans votre environnement de développement. Pour configurer le plug-in subordonné Azure, vous avez besoin des éléments suivants :
 
 * votre ID d'abonnement
 * un certificat de gestion pour votre abonnement
@@ -108,7 +108,7 @@ Un modèle de machine virtuelle définit les paramètres qui seront utilisés pa
 11. La durée de conservation spécifie le nombre de minutes avant la suppression d'un esclave inactif par Jenkins. Conservez la valeur par défaut de 60. Vous pouvez également choisir d’arrêter le subordonné plutôt que de le supprimer lorsqu’il est inactif. Pour ce faire, cochez la case **Shutdown Only (Do Not Delete) After Retention Time**.
 12. Dans la liste **Usage**, cliquez sur la condition appropriée lorsque ce nœud subordonné sera utilisé. Pour l’instant, cliquez sur **Utilize this node as much as possible**.
 
-	À ce stade, votre formulaire doit ressembler à ce qui suit :
+	À ce stade, votre formulaire doit ressembler à ce qui suit :
 
 	![configuration de modèle général de point de contrôle](./media/azure-slave-plugin-for-jenkins/jenkins-slave-template-general-configuration.png)
 
@@ -204,4 +204,4 @@ Dans cette section, vous allez créer un travail Jenkins qui s'exécutera sur un
 
 Jenkins crée ensuite un nœud subordonné à l’aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l’étape de build pour cette tâche.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

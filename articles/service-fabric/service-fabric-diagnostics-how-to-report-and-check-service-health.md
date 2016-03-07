@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/05/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Signaler et contrôler l’intégrité du service
@@ -23,10 +23,10 @@ Lorsque vos services rencontrent des problèmes, votre capacité à réagir et �
 Cet article vous présente un exemple d’ajout d’un rapport d’intégrité à un service et indique comment l’état d’intégrité peut être contrôlé à l’aide des outils fournis par Service Fabric. Cet article constitue une présentation rapide des fonctionnalités de contrôle d’intégrité dans Service Fabric. Pour plus d’informations, vous pouvez lire la série d’articles détaillés sur l’intégrité, à commencer par le lien situé à la fin de ce document.
 
 ## Composants requis
-Les éléments suivants doivent être installés : * Visual Studio 2015 * Kit de développement logiciel (SDK) Service Fabric
+Les éléments suivants doivent être installés : * Visual Studio 2015 * Kit de développement logiciel (SDK) Service Fabric
 
 ## Pour déployer une application et contrôler son intégrité
-Pour déployer une application et contrôler son intégrité, procédez comme suit :
+Pour déployer une application et contrôler son intégrité, procédez comme suit :
 
 1. Lancez Visual Studio en tant qu'administrateur.
 
@@ -107,4 +107,4 @@ Ce rapport sera conservé dans le gestionnaire de contrôle d’intégrité tant
 ## Étapes suivantes
 [Présentation approfondie de l’intégrité de Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

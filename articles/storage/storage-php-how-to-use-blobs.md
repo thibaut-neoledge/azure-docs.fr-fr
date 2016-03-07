@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de PHP | Microsoft Azure"
+	pageTitle="Utilisation du stockage d’objets blob à partir de PHP | Microsoft Azure"
 	description="Découvrez comment utiliser le service blob Azure pour charger, répertorier, télécharger et supprimer des objets blob. Les exemples de code sont écrits en PHP."
 	documentationCenter="php"
 	services="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # Utilisation du stockage d’objets blob à partir de PHP
@@ -40,9 +40,9 @@ Dans ce guide, vous allez utiliser des fonctionnalités de service qui peuvent �
 
 ## Configuration de votre application pour accéder au service blob
 
-Pour utiliser des API de service blob Azure, vous devez procéder comme suit :
+Pour utiliser des API de service blob Azure, vous devez procéder comme suit :
 
-1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][require_once] ; et
+1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once] ; et
 2. référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
@@ -57,22 +57,22 @@ Dans les exemples ci-dessous, l’instruction `require_once` s’affiche toujour
 
 ## Configuration d’une connexion de stockage Azure
 
-Pour instancier un client de service blob Azure, vous devez disposer d’une chaîne de connexion valide. Le format de la chaîne de connexion du service Blob est le suivant :
+Pour instancier un client de service blob Azure, vous devez disposer d’une chaîne de connexion valide. Le format de la chaîne de connexion du service Blob est le suivant :
 
-Pour accéder à un service en ligne :
+Pour accéder à un service en ligne :
 
 	DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 
-Pour accéder à l’émulateur de stockage :
+Pour accéder à l’émulateur de stockage :
 
 	UseDevelopmentStorage=true
 
 
-Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez :
+Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez :
 
-* lui transmettre directement la chaîne de connexion ; ou
-* utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
-	* Par défaut, il prend en charge une source externe : les variables d’environnement.
+* lui transmettre directement la chaîne de connexion ; ou
+* utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
+	* Par défaut, il prend en charge une source externe : les variables d’environnement.
 	* Vous pouvez ajouter de nouvelles sources via une extension de la classe **ConnectionStringSource**.
 
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
@@ -291,19 +291,19 @@ Enfin, pour supprimer un conteneur d'objets blob, passez le nom du conteneur à 
 Maintenant que vous connaissez les principes de base du service blob Azure, suivez ces liens pour apprendre à exécuter les tâches de stockage plus complexes.
 
 - Consultez le [blog de l’équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
-- Consultez l'exemple d'objet blob de blocs PHP à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
-- Consultez l'exemple d'objet blob de pages PHP à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy)
+- Consultez l’[exemple d’objet blob de blocs PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
+- Consultez l’[exemple d’objet blob de pages PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
+- [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
  
-Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+Pour plus d’informations, consultez également le [Centre de développement PHP](/develop/php/).
 
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
-[require_once]: http://php.net/require_once
+[require\_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

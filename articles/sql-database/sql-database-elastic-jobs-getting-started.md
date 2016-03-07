@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh; ddove" />
 
 # Prise en main de Tâches de bases de données élastiques
 
-Tâches de bases de données élastiques (version préliminaire) pour la base de données SQL Azure vous permet d’exécuter, de manière efficace, des scripts T-SQL qui s'étendent sur plusieurs bases de données, tout en apportant automatiquement de nouvelles tentatives et des garanties d’achèvement éventuel. Pour plus d’informations sur la fonctionnalité Tâches de bases de données élastiques, veuillez consulter la [page de vue d’ensemble des fonctionnalités](sql-database-elastic-jobs-overview.md).
+Tâches de bases de données élastiques (version préliminaire) pour la base de données SQL Azure vous permet d’exécuter, de manière efficace, des scripts T-SQL qui s'étendent sur plusieurs bases de données, tout en apportant automatiquement de nouvelles tentatives et des garanties d’achèvement éventuel. Pour plus d’informations sur la fonctionnalité Tâches de bases de données élastiques, veuillez consulter la [page de vue d’ensemble des fonctionnalités](sql-database-elastic-jobs-overview.md).
 
 Cette rubrique étend l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md). Une fois l’opération terminée, vous apprendrez à créer et à gérer des tâches qui gèrent un groupe de bases de données associées.
 
@@ -33,9 +33,9 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 
 	![invite de commande][1]
 
-2.  Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez cette action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
+2.  Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Entrez « 3 », puis appuyez sur **Entrée**. Répétez cette action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
 
-3.  Le [portail Azure](https://portal.azure.com) affiche alors trois nouvelles bases de données dans votre serveur v12 :
+3.  Le [portail Azure](https://portal.azure.com) affiche alors trois nouvelles bases de données dans votre serveur v12 :
 
 	![Confirmation Visual Studio][2]
 
@@ -140,9 +140,9 @@ Dans ce cas précis, nous créons généralement une cible de carte de partition
 
 ##Exécutez la tâche 
 
-Le script PowerShell suivant peut être utilisé pour exécuter une tâche existante :
+Le script PowerShell suivant peut être utilisé pour exécuter une tâche existante :
 
-Mettez à jour la variable suivante pour refléter le nom de la tâche souhaitée à exécuter :
+Mettez à jour la variable suivante pour refléter le nom de la tâche souhaitée à exécuter :
 
 	$jobName = "create on server dbs"
 	$jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
@@ -158,13 +158,13 @@ Utilisez la même applet de commande **Get-AzureSqlJobExecution** avec le param�
 
 ## Afficher l’état sur plusieurs exécutions de tâches
 
-L’applet de commande **Get-AzureSqlJobExecution** dispose de plusieurs paramètres facultatifs qui peuvent être utilisés pour afficher plusieurs exécutions de tâches, filtrées selon les paramètres fournis. L'exemple suivant présente certaines façons d'utiliser Get-AzureSqlJobExecution :
+L’applet de commande **Get-AzureSqlJobExecution** dispose de plusieurs paramètres facultatifs qui peuvent être utilisés pour afficher plusieurs exécutions de tâches, filtrées selon les paramètres fournis. L'exemple suivant présente certaines façons d'utiliser Get-AzureSqlJobExecution :
 
-Récupérez toutes les exécutions de tâches de niveau supérieur actives :
+Récupérez toutes les exécutions de tâches de niveau supérieur actives :
 
 	Get-AzureSqlJobExecution
 
-Récupérez toutes les exécutions de tâches de niveau supérieur, y compris les exécutions de tâches inactives :
+Récupérez toutes les exécutions de tâches de niveau supérieur, y compris les exécutions de tâches inactives :
 
 	Get-AzureSqlJobExecution -IncludeInactive
 
@@ -173,13 +173,13 @@ Récupérez toutes les exécutions de tâches enfants d'un ID d'exécution de t�
 	$parentJobExecutionId = "{Job Execution Id}"
 	Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
 
-Récupérez toutes les exécutions de tâches créées à l'aide d'une planification/combinaison de tâches, y compris les tâches inactives :
+Récupérez toutes les exécutions de tâches créées à l'aide d'une planification/combinaison de tâches, y compris les tâches inactives :
 
 	$jobName = "{Job Name}"
 	$scheduleName = "{Schedule Name}"
 	Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
 
-Récupérez toutes les tâches ciblant une carte de partitions spécifiée, y compris les tâches inactives :
+Récupérez toutes les tâches ciblant une carte de partitions spécifiée, y compris les tâches inactives :
 
 	$shardMapServerName = "{Shard Map Server Name}"
 	$shardMapDatabaseName = "{Shard Map Database Name}"
@@ -187,19 +187,19 @@ Récupérez toutes les tâches ciblant une carte de partitions spécifiée, y co
 	$target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
 	Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
 
-Récupérez toutes les tâches ciblant une collecte personnalisée spécifiée, y compris les tâches inactives :
+Récupérez toutes les tâches ciblant une collecte personnalisée spécifiée, y compris les tâches inactives :
 
 	$customCollectionName = "{Custom Collection Name}"
 	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 	Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
  
-Récupérez la liste des exécutions de tâches de travail dans l'exécution d'une tâche spécifique :
+Récupérez la liste des exécutions de tâches de travail dans l'exécution d'une tâche spécifique :
 
 	$jobExecutionId = "{Job Execution Id}"
 	$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
 	Write-Output $jobTaskExecutions 
 
-Récupérez les détails d’exécution de tâches de travail :
+Récupérez les détails d’exécution de tâches de travail :
 
 Le script PowerShell suivant peut être utilisé pour afficher les détails d'une exécution de tâches de travail, qui est particulièrement utile lors du débogage des échecs d'exécution.
 
@@ -223,7 +223,7 @@ L'objet JobTaskExecution inclut une propriété pour le cycle de vie de la tâch
 
 ## En attente d’une exécution de tâche à effectuer
 
-Le script PowerShell suivant peut être utilisé pour attendre l’exécution d’une tâche :
+Le script PowerShell suivant peut être utilisé pour attendre l’exécution d’une tâche :
 
 	$jobExecutionId = "{Job Execution Id}"
 	Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
@@ -232,25 +232,25 @@ Le script PowerShell suivant peut être utilisé pour attendre l’exécution d�
 
 Tâches de bases de données prend en charge la création de stratégies d'exécution personnalisées qui peuvent être appliquées lors du démarrage des tâches.
   
-Les stratégies d'exécution permettent de définir :
+Les stratégies d'exécution permettent de définir :
 
-* Le nom : l'identificateur de la stratégie d'exécution.
-* Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de bases de données élastiques.
-* Intervalle avant nouvelle tentative initiale : l'intervalle d'attente avant la première nouvelle tentative.
-* Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
-* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives. La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
-* Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
+* Le nom : l'identificateur de la stratégie d'exécution.
+* Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de bases de données élastiques.
+* Intervalle avant nouvelle tentative initiale : l'intervalle d'attente avant la première nouvelle tentative.
+* Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
+* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives. La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
+* Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
 
-La stratégie d'exécution par défaut utilise les valeurs suivantes :
+La stratégie d'exécution par défaut utilise les valeurs suivantes :
 
-* Le nom : la stratégie d'exécution par défaut
-* Délai d’attente de la tâche : 1 semaine
-* Intervalle avant nouvelle tentative initiale : 100 millisecondes
-* Intervalle maximal avant nouvelle tentative : 30 minutes
-* Coefficient de l'intervalle avant nouvelle tentative : 2
-* Nombre maximal de tentatives : 2 147 483 647
+* Le nom : la stratégie d'exécution par défaut
+* Délai d’attente de la tâche : 1 semaine
+* Intervalle avant nouvelle tentative initiale : 100 millisecondes
+* Intervalle maximal avant nouvelle tentative : 30 minutes
+* Coefficient de l'intervalle avant nouvelle tentative : 2
+* Nombre maximal de tentatives : 2 147 483 647
 
-Créez la stratégie d'exécution souhaitée :
+Créez la stratégie d'exécution souhaitée :
 
 	$executionPolicyName = "{Execution Policy Name}"
 	$initialRetryInterval = New-TimeSpan -Seconds 10
@@ -263,7 +263,7 @@ Créez la stratégie d'exécution souhaitée :
 
 ### Mettez à jour une stratégie d'exécution personnalisée
 
-Mettez à jour la stratégie d'exécution souhaitée :
+Mettez à jour la stratégie d'exécution souhaitée :
 
 	$executionPolicyName = "{Execution Policy Name}"
 	$initialRetryInterval = New-TimeSpan -Seconds 15
@@ -278,10 +278,10 @@ Mettez à jour la stratégie d'exécution souhaitée :
 
 La fonctionnalité Tâches de bases de données élastiques prend en charge les demandes d’annulation de tâches. Si la fonctionnalité Tâches de bases de données élastiques détecte une demande d'annulation d'une tâche en cours d'exécution, il tente d'arrêter la tâche.
 
-La fonctionnalité Tâches de bases de données élastiques peut effectuer une annulation de deux manières différentes :
+La fonctionnalité Tâches de bases de données élastiques peut effectuer une annulation de deux manières différentes :
 
-1. Annulation des tâches en cours d'exécution : si une annulation est détectée pendant qu’une tâche est en cours d'exécution, l'annulation sera tentée au sein de l'aspect de la tâche en cours d'exécution. Par exemple : si une requête de longue durée s’exécute lorsqu'une annulation est tentée, une tentative d'annulation de la requête sera effectuée.
-2. Annulation des tentatives de tâches : si une annulation est détectée par le thread de contrôle avant de lancer l'exécution d'une tâche, le thread de contrôle permettra d’éviter le lancement de la tâche et de déclarer la requête comme étant annulée.
+1. Annulation des tâches en cours d'exécution : si une annulation est détectée pendant qu’une tâche est en cours d'exécution, l'annulation sera tentée au sein de l'aspect de la tâche en cours d'exécution. Par exemple : si une requête de longue durée s’exécute lorsqu'une annulation est tentée, une tentative d'annulation de la requête sera effectuée.
+2. Annulation des tentatives de tâches : si une annulation est détectée par le thread de contrôle avant de lancer l'exécution d'une tâche, le thread de contrôle permettra d’éviter le lancement de la tâche et de déclarer la requête comme étant annulée.
 
 Si une annulation de tâche est demandée pour une tâche parente, la demande d'annulation sera respectée pour la tâche parente et toutes ses tâches enfants.
  
@@ -302,9 +302,9 @@ Pour déclencher la suppression de tâches, utilisez l’applet de commande **Re
 	Remove-AzureSqlJob -JobName $jobName
  
 ## Création d’une cible de base de données personnalisée
-Les cibles de base de données personnalisées peuvent être définies dans Tâches de bases de données élastiques, qui peut être utilisé directement pour l'exécution ou l’inclusion dans un groupe de base de données personnalisé. Dans la mesure où les **pools élastiques de bases de données** ne sont pas encore pris en charge directement via les API PowerShell, vous créez simplement une cible de base de données personnalisée et une cible de collecte de base de données personnalisée qui englobe toutes les bases de données dans le pool.
+Les cibles de base de données personnalisées peuvent être définies dans Tâches de bases de données élastiques, qui peut être utilisé directement pour l'exécution ou l’inclusion dans un groupe de base de données personnalisé. Dans la mesure où les **pools élastiques de bases de données** ne sont pas encore pris en charge directement via les API PowerShell, vous créez simplement une cible de base de données personnalisée et une cible de collecte de base de données personnalisée qui englobe toutes les bases de données dans le pool.
 
-Définissez les variables suivantes pour refléter les informations de base de données souhaitées :
+Définissez les variables suivantes pour refléter les informations de base de données souhaitées :
 
 	$databaseName = "{Database Name}"
 	$databaseServerName = "{Server Name}"
@@ -313,7 +313,7 @@ Définissez les variables suivantes pour refléter les informations de base de d
 ## Créez une cible de collecte de base de données personnalisée
 Une cible de collecte de base de données personnalisée peut être définie pour permettre l'exécution sur plusieurs cibles de base de données définies. Une fois le groupe de base de données créé, les bases de données peuvent être associées à la cible de collecte personnalisée.
 
-Définissez les variables suivantes pour refléter la configuration de la cible de collecte personnalisée souhaitée :
+Définissez les variables suivantes pour refléter la configuration de la cible de collecte personnalisée souhaitée :
 
 	$customCollectionName = "{Custom Database Collection Name}"
 	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
@@ -322,7 +322,7 @@ Définissez les variables suivantes pour refléter la configuration de la cible 
 
 Les cibles de base de données peuvent être associées à des cibles de collecte de base de données personnalisées pour créer un groupe de bases de données. Chaque fois qu’une tâche, visant une cible de collecte de base de données personnalisée, est créée, celle-ci est développée afin de cibler les bases de données associées au groupe durant l'exécution.
 
-Ajoutez la base de données souhaitée pour une collecte personnalisée :
+Ajoutez la base de données souhaitée pour une collecte personnalisée :
 
 	$serverName = "{Database Server Name}"
 	$databaseName = "{Database Name}"
@@ -358,7 +358,7 @@ La table de destination spécifiée sera automatiquement créée s’il n’exis
 
 Le script PowerShell suivant peut être utilisé pour exécuter un script qui collecte ses résultats dans une table spécifiée. Ce script part du principe qu'un script T-SQL, qui génère un jeu de résultats unique, et une cible de collecte de base de données personnalisée ont été créés.
 
-Définissez les valeurs suivantes pour refléter le script, les informations d'identification et les cibles d'exécution souhaités :
+Définissez les valeurs suivantes pour refléter le script, les informations d'identification et les cibles d'exécution souhaités :
 
 	$jobName = "{Job Name}"
 	$scriptName = "{Script Name}"
@@ -381,7 +381,7 @@ Définissez les valeurs suivantes pour refléter le script, les informations d'i
 
 Le script PowerShell suivant peut être utilisé pour créer une planification récurrente. Ce script utilise un intervalle d’une minute, mais New-AzureSqlJobSchedule prend également en charge les paramètres -DayInterval, - HourInterval, - MonthInterval et - WeekInterval. Les planifications qui ne s'exécutent qu'une seule fois peuvent être créées en transmettant - OneTime.
 
-Créez une nouvelle planification :
+Créez une nouvelle planification :
 
 	$scheduleName = "Every one minute"
 	$minuteInterval = 1
@@ -393,7 +393,7 @@ Créez une nouvelle planification :
 
 Un déclencheur de tâches peut être défini pour un travail exécuté selon un calendrier. Le script PowerShell suivant peut être utilisé pour créer un déclencheur de tâches.
 
-Définissez les variables suivantes pour qu’elles correspondent à la tâche et à la planification souhaitées :
+Définissez les variables suivantes pour qu’elles correspondent à la tâche et à la planification souhaitées :
 
 	$jobName = "{Job Name}"
 	$scheduleName = "{Schedule Name}"
@@ -429,10 +429,10 @@ Pour interrompre l'exécution d’une tâche récurrente via un déclencheur de 
 Toutes les lignes de la table **Clients**, stockées dans des partitions différentes, remplissent la feuille Excel.
 
 ## Étapes suivantes
-Vous pouvez maintenant utiliser les fonctions de données puissantes d’Excel. Vous pouvez utiliser la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour vous connecter vos outils d’intégration BI et de données dans la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Vous pouvez vous traiter la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
+Vous pouvez maintenant utiliser les fonctions de données Excel. Utilisez la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour connecter vos outils d’intégration BI et de données à la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Traitez la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
 
 ### Coût
-La fonction de requête de base de données élastique n’entraîne aucuns frais supplémentaires. Toutefois, pour l’instant, cette fonctionnalité n’est disponible que sur les bases de données premium comme point de terminaison, mais les partitions peuvent provenir de n’importe quel niveau de service.
+La fonction de requête de base de données élastique n’entraîne pas de frais supplémentaires. Toutefois, pour l’instant, cette fonctionnalité n’est disponible que sur les bases de données premium comme point de terminaison, mais les partitions peuvent provenir de n’importe quel niveau de service.
 
 Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -447,4 +447,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

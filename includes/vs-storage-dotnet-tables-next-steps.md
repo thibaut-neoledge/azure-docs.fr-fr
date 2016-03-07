@@ -1,11 +1,10 @@
-Maintenant que vous connaissez les bases du stockage des tables Azure, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
+Maintenant que vous connaissez les bases du stockage de tables Azure, consultez les liens suivants pour apprendre à exécuter des tâches de stockage plus complexes.
 
-- Pour plus d’informations sur les API disponibles, consultez la documentation de référence des services de tables dans la [Bibliothèque cliente de Microsoft Azure Storage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731).
-- Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Microsoft Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx).    
-- Découvrez comment simplifier le code que vous écrivez pour travailler avec Azure Storage à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](/app-service-web/websites-dotnet-webjobs-sdk.md)
+- Pour plus d’informations sur les API disponibles, consultez la documentation de référence du service de Table dans la [Bibliothèque cliente Azure Storage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731).
+- Pour découvrir comment simplifier le code que vous écrivez avec Azure Storage, consultez [Présentation du Kit de développement logiciel (SDK) Azure WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk.md)
 - Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-  - Utilisez le [stockage d’objets blob](./storage-dotnet-how-to-use-blobs.md) pour stocker des données structurées.
-  - Utilisez le [stockage de table](./storage-dotnet-how-to-use-tables.md) pour stocker des données structurées.
-  - Utilisez une [base de données SQL](/sql-database/sql-database-dotnet-how-to-use.md) pour stocker des données relationnelles.
+  - Pour utiliser les objets blob Azure Storage, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
+  - Pour utiliser les files d’attente Azure Storage, consultez [Prise en main du stockage de files d’attente Azure à l’aide de .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
+  - Pour stocker les données relationnelles, consultez [Utilisation d’une base de données SQL Azure dans des applications .NET](../articles/sql-database/sql-database-dotnet-how-to-use.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

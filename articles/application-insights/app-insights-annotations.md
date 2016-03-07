@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Annotations de déploiement pour Application Insights | Microsoft Azure"
+    pageTitle="Annotations de version pour Application Insights | Microsoft Azure"
     description="Ajouter des marqueurs déploiement ou de build aux graphiques Metrics Explorer dans Application Insights."
     services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/22/2016"
     ms.author="awills"/>
 
 # Annotations de version dans Application Insights
@@ -39,16 +39,16 @@ Vous devez procéder ainsi une seule fois pour votre compte Visual Studio Team S
 Vous devez effectuer cette opération pour chaque modèle de version dans lequel vous souhaitez créer des annotations de version.
 
 
-1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. (Ou [créez-en une maintenant](app-insights-overview.md) si vous ne l’avez pas encore fait.)
-2. Ouvrez **Paramètres**, **Accès API** et copiez l’**ID Application Insights**.
+1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. (Ou [créez-en une maintenant](app-insights-overview.md) si vous ne l’avez pas encore fait.)
+2. Ouvrez **Paramètres**, **Accès API** et copiez l’**ID Application Insights**.
 
-    ![Dans portal.azure.com, ouvrez votre ressource Application Insights, puis choisissez Paramètres. Ouvrir Accès API. Copiez le fichier](./media/app-insights-annotations/20.png)
+    ![Dans portal.azure.com, ouvrez votre ressource Application Insights, puis choisissez Paramètres. Ouvrir Accès API. Copier l’ID de l’application](./media/app-insights-annotations/20.png)
 
 2. Dans une fenêtre de navigateur distincte, ouvrez (ou créez) le modèle de version qui gère vos déploiements à partir de Visual Studio Team Services.
 
     Ajoutez une tâche, sélectionnez la tâche d’annotation de version d’Application Insights à partir du menu.
 
-    Collez l’**ID de l’application** que vous avez copié à partir du panneau Accès API.
+    Collez l’**ID de l’application** que vous avez copié à partir du panneau Accès API.
 
     ![Dans Visual Studio Team Services, ouvrez Version, sélectionnez une définition de version, puis choisissez Modifier. Cliquez sur Ajouter une tâche, puis sélectionnez la tâche Annotation de version Application Insights. Collez l’ID Application Insights.](./media/app-insights-annotations/30.png)
 
@@ -69,8 +69,13 @@ Vous devez effectuer cette opération pour chaque modèle de version dans lequel
 
 5. Enfin, **enregistrez** la définition de version.
 
-## Annotations de déploiement
+## Annotations de version
 
 Désormais, lorsque vous utilisez le modèle de version pour déployer une nouvelle version, une annotation est envoyée à Application Insights. Les annotations figureront sur les graphiques Metrics Explorer.
 
-<!---HONumber=AcomDC_0121_2016-->
+Cliquez sur un marqueur d’annotation pour ouvrir les détails sur la version, notamment le demandeur, la branche de contrôle de code source, la définition de la version, l’environnement et bien plus encore.
+
+
+![Cliquez sur un marqueur d’annotation de version.](./media/app-insights-annotations/60.png)
+
+<!---HONumber=AcomDC_0224_2016-->

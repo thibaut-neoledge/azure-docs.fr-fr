@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="02/16/2016" 
 	ms.author="awills"/>
 
 # Créer une ressource Application Insights dans Azure
@@ -27,11 +27,11 @@ Après avoir créé la ressource, vous obtenez sa clé d’instrumentation et l�
 
 ## S’inscrire à Microsoft Azure
 
-Si vous n’avez pas de [compte Microsoft, procurez-vous en un dès maintenant](http://live.com). (Si elle utilise des services comme Outlook.com, OneDrive, Windows Phone ou XBox Live, elle dispose d’un compte Microsoft.)
+Si vous n’avez pas de [compte Microsoft, procurez-vous en un dès maintenant](http://live.com). (Si elle utilise des services comme Outlook.com, OneDrive, Windows Phone ou XBox Live, elle dispose d’un compte Microsoft.)
 
 Vous devez également vous abonner à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre Windows Live ID.
 
-Vous avez également la possibilité de créer un nouvel abonnement. L’essai gratuit vous permet d’essayer toutes les fonctionnalités d’Azure. Après l’expiration de la période d’essai, il se peut que la formule d’abonnement proposant un paiement à l’utilisation vous semble appropriée. Celle-ci vous permet de ne pas être facturé pour les services gratuits.
+Vous avez également la possibilité de créer un nouvel abonnement. Le compte gratuit vous permet d’essayer toutes les fonctionnalités d’Azure. Après l’expiration de la période d’essai, il se peut que la formule d’abonnement proposant un paiement à l’utilisation vous semble appropriée. Celle-ci vous permet de ne pas être facturé pour les services gratuits.
 
 Dès que vous êtes abonné, connectez-vous à Application Insights à l’adresse [http://portal.azure.com](https://portal.azure.com), et utilisez votre Live ID pour vous connecter.
 
@@ -39,7 +39,7 @@ Dès que vous êtes abonné, connectez-vous à Application Insights à l’adres
 ## Création d’une ressource Application Insights dans Azure
   
 
-Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressource Application Insights :
+Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressource Application Insights :
 
 ![Cliquez sur Nouveau > Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
@@ -74,7 +74,7 @@ Le SDK inclut des modules standard qui envoient des données de télémétrie sa
 
 Fermez le panneau de démarrage rapide pour revenir au panneau de votre application dans le portail Azure.
 
-Cliquez sur la vignette de recherche pour afficher [Recherche de diagnostic][diagnostic] : les premiers événements y apparaissent.
+Cliquez sur la vignette de recherche pour afficher [Recherche de diagnostic][diagnostic] : les premiers événements y apparaissent.
 
 Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
 
@@ -94,4 +94,4 @@ Vous pouvez écrire un [script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

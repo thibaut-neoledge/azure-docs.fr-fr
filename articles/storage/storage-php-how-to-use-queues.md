@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de files d’attente à partir de PHP | Microsoft Azure"
+	pageTitle="Utilisation du stockage de files d’attente à partir de PHP | Microsoft Azure"
 	description="Découvrez comment utiliser le service de stockage de files d’attente Azure pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en PHP."
 	documentationCenter="php"
 	services="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # Utilisation du stockage de files d'attente à partir de PHP
@@ -42,12 +42,13 @@ Dans ce guide, vous allez utiliser des fonctionnalités du service de File d’a
 
 Pour utiliser les API du stockage de files d’attente Azure, vous devez :
 
-1. référencer le fichier de chargeur automatique à l’aide de l’instruction [require\_once][require_once] ;
+1. référencer le fichier de chargeur automatique à l’aide de l’instruction [require\_once] ;
 2. référencer toutes les classes que vous êtes susceptible d’utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
 
-> [AZURE.NOTE]Cet exemple et d’autres exemples dans cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique `WindowsAzure.php`.
+> [AZURE.NOTE]
+Cet exemple et d’autres exemples dans cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -57,13 +58,13 @@ Dans les exemples ci-dessous, l’instruction `require_once` s’affiche toujour
 
 ## Configuration d’une connexion de stockage Azure
 
-Pour instancier un client de stockage de files d’attente Azure, vous devez disposer d’une chaîne de connexion valide. Le format de la chaîne de connexion du service de File d’attente est le suivant :
+Pour instancier un client de stockage de files d’attente Azure, vous devez disposer d’une chaîne de connexion valide. Le format de la chaîne de connexion du service de File d’attente est le suivant :
 
-Pour accéder à un service en ligne :
+Pour accéder à un service en ligne :
 
 	DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 
-Pour accéder au stockage de l'émulateur :
+Pour accéder au stockage de l'émulateur :
 
 	UseDevelopmentStorage=true
 
@@ -71,8 +72,8 @@ Pour accéder au stockage de l'émulateur :
 Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez utiliser une des techniques suivantes :
 
 * Lui passer directement la chaîne de connexion.
-* Utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
-	* Par défaut, il prend en charge une source externe : les variables d’environnement.
+* Utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
+	* Par défaut, il prend en charge une source externe : les variables d’environnement.
 	* Vous pouvez ajouter de nouvelles sources via une extension de la classe **ConnectionStringSource**.
 
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
@@ -115,7 +116,7 @@ Un objet **QueueRestProxy** vous permet de créer une file d’attente avec la m
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]Ne tenez pas compte de la différence entre majuscules et minuscules pour les clés de métadonnées. Toutes les clés sont lues en minuscules sur le service.
+> [AZURE.NOTE] Ne tenez pas compte de la différence entre majuscules et minuscules pour les clés de métadonnées. Toutes les clés sont lues en minuscules sur le service.
 
 
 ## Ajout d'un message à une file d'attente
@@ -192,7 +193,7 @@ Vous pouvez lire furtivement un ou plusieurs messages au début d'une file d'att
 
 ## Enlèvement du message suivant de la file d'attente
 
-Votre code supprime un message d'une file d'attente en deux étapes. Tout d’abord, vous appelez **QueueRestProxy->listMessages**, ce qui rend le message invisible à tout autre code lu à partir de la file d’attente. Par défaut, ce message reste invisible pendant 30 secondes. (Si le message n’est pas supprimé pendant cette période, il redevient visible dans la file d’attente). Pour finaliser la suppression du message de la file d'attente, vous devez appeler **QueueRestProxy->deleteMessage**. Ce processus de suppression d’un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **deleteMessage** juste après le traitement du message.
+Votre code supprime un message d'une file d'attente en deux étapes. Tout d’abord, vous appelez **QueueRestProxy->listMessages**, ce qui rend le message invisible à tout autre code lu à partir de la file d’attente. Par défaut, ce message reste invisible pendant 30 secondes. (Si le message n’est pas supprimé pendant cette période, il redevient visible dans la file d’attente). Pour finaliser la suppression du message de la file d'attente, vous devez appeler **QueueRestProxy->deleteMessage**. Ce processus de suppression d’un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **deleteMessage** juste après le traitement du message.
 
 	require_once 'vendor\autoload.php';
 
@@ -230,7 +231,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Tout d’ab
 
 ## Modification du contenu d'un message en file d'attente
 
-Vous pouvez modifier le contenu d'un message placé dans la file d'attente en appelant **QueueRestProxy->updateMessage**. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code suivant met à jour le message de la file d’attente avec un nouveau contenu et ajoute 60 secondes au délai d’expiration de la visibilité. Cette opération enregistre l’état de la tâche associée au message et accorde une minute supplémentaire au client pour traiter le message. Vous pouvez utiliser cette technique pour suivre des flux de travail à plusieurs étapes sur les messages de file d'attente, sans devoir reprendre du début si une étape du traitement échoue à cause d'une défaillance matérielle ou logicielle. Normalement, vous conservez aussi un nombre de nouvelles tentatives et si le message est retenté plus de *n* fois, vous le supprimez. Cela protège du déclenchement d'une erreur d'application par un message chaque fois qu'il est traité.
+Vous pouvez modifier le contenu d'un message placé dans la file d'attente en appelant **QueueRestProxy->updateMessage**. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code suivant met à jour le message de la file d’attente avec un nouveau contenu et ajoute 60 secondes au délai d’expiration de la visibilité. Cette opération enregistre l’état de la tâche associée au message et accorde une minute supplémentaire au client pour traiter le message. Vous pouvez utiliser cette technique pour suivre des flux de travail à plusieurs étapes sur les messages de file d'attente, sans devoir reprendre du début si une étape du traitement échoue à cause d'une défaillance matérielle ou logicielle. Normalement, vous conservez aussi un nombre de nouvelles tentatives et si le message est retenté plus de *n* fois, vous le supprimez. Cela protège du déclenchement d'une erreur d'application par un message chaque fois qu'il est traité.
 
 	require_once 'vendor\autoload.php';
 
@@ -272,7 +273,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente en ap
 
 ## Options supplémentaires pour l'extraction de messages
 
-Il existe deux façons de personnaliser la récupération des messages à partir d’une file d’attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de la visibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **getMessages** pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l’aide d’une boucle **for**. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
+Il existe deux façons de personnaliser la récupération des messages à partir d’une file d’attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de la visibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **getMessages** pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l’aide d’une boucle **for**. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
 
 	require_once 'vendor\autoload.php';
 
@@ -373,14 +374,14 @@ Pour supprimer une file d’attente et tous les messages qu’elle contient, app
 
 ## Étapes suivantes
 
-Maintenant que vous connaissez les bases du stockage des files d’attente Azure, consultez les liens suivants pour apprendre à effectuer des tâches de stockage plus complexes :
+Maintenant que vous connaissez les bases du stockage des files d’attente Azure, consultez les liens suivants pour apprendre à effectuer des tâches de stockage plus complexes :
 
 - Consultez le [blog de l’équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
 Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Portal]: portal.azure.com
+[require\_once]: http://www.php.net/manual/en/function.require-once.php
+[Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

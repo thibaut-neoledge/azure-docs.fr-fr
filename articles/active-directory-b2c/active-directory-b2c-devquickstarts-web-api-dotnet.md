@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="dastrock"/>
 
-# Version préliminaire d'Azure AD B2C : appel d'une API Web à partir d'une application Web .NET
+# Version préliminaire d'Azure AD B2C : appel d'une API Web à partir d'une application Web .NET
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Avec Azure AD B2C, vous pouvez ajouter des fonctionnalités de gestion des identités en libre-service puissantes à vos applications Web et API Web en quelques étapes seulement. Cet article vous explique comment créer une application Web de type « liste des tâches » MVC .NET, qui appelle une API Web .NET utilisant des jetons du porteur OAuth 2.0. L'application Web et l'API Web utilisent toutes les deux Azure AD B2C pour gérer les identités des utilisateurs et authentifier les utilisateurs.
+Avec Azure AD B2C, vous pouvez ajouter des fonctionnalités de gestion des identités en libre-service puissantes à vos applications Web et API Web en quelques étapes seulement. Cet article vous explique comment créer une application Web de type « liste des tâches » MVC .NET, qui appelle une API Web .NET utilisant des jetons du porteur OAuth 2.0. L'application Web et l'API Web utilisent toutes les deux Azure AD B2C pour gérer les identités des utilisateurs et authentifier les utilisateurs.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -35,15 +35,15 @@ Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un c
 Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. L'application Web et l'API Web seront alors toutes les deux représentées par un seul **ID d'application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Assurez-vous de
 
 - Inclure une **application web/API web** dans l’application.
-- Saisir `https://localhost:44316/` en tant qu’**URL de réponse** ; il s’agit de l’URL par défaut pour cet exemple de code.
-- Créer une **clé secrète d'application** pour votre application et de la noter. Vous en aurez besoin rapidement.
+- Saisir `https://localhost:44316/` en tant qu’**URL de réponse** ; il s’agit de l’URL par défaut pour cet exemple de code.
+- Créer une **clé secrète d'application** pour votre application et de la noter. Vous en aurez besoin rapidement. Notez que cette valeur doit être [placée dans une séquence d’échappement XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) avant son utilisation.
 - Notez également l'**ID d'application** affecté à votre application. Vous en aurez aussi besoin rapidement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Création de vos stratégies
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Cette application Web contient trois expériences liées à l'identité : l'inscription, la connexion et la modification du profil. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Cette application Web contient trois expériences liées à l'identité : l'inscription, la connexion et la modification du profil. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
 
 - Choisir le **Nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
 - Choisir les revendications **nom d'affichage** et **ID objet** comme revendications d'application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
@@ -53,11 +53,11 @@ Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stra
 
 Une fois vos trois stratégies créées, vous pouvez générer votre application.
 
-Remarque : cet article n'explique pas comment utiliser les stratégies que vous venez de créer. Pour en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C, nous vous recommandons de commencer par lire le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Remarque : cet article n'explique pas comment utiliser les stratégies que vous venez de créer. Pour en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C, nous vous recommandons de commencer par lire le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## 4\. Téléchargement du code
 
-Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) ou cloner la structure :
+Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) ou cloner la structure :
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
@@ -69,7 +69,7 @@ Une fois l’exemple de code téléchargé, ouvrez le fichier Visual Studio `.sl
 
 ## 5\. Configuration du service de tâches
 
-Lorsque le projet `TaskService` reçoit des demandes de `TaskWebApp`, il recherche un jeton d’accès valide pour authentifier la demande. Pour valider le jeton d’accès, vous devez fournir au projet `TaskService` des informations relatives à votre application. Dans le projet `TaskService`, ouvrez le fichier `web.config` qui se trouve à la racine et remplacez les valeurs de la section `<appSettings>` :
+Lorsque le projet `TaskService` reçoit des demandes de `TaskWebApp`, il recherche un jeton d’accès valide pour authentifier la demande. Pour valider le jeton d’accès, vous devez fournir au projet `TaskService` des informations relatives à votre application. Dans le projet `TaskService`, ouvrez le fichier `web.config` qui se trouve à la racine et remplacez les valeurs de la section `<appSettings>` :
 
 ```
 <appSettings>
@@ -87,12 +87,11 @@ Lorsque le projet `TaskService` reçoit des demandes de `TaskWebApp`, il recherc
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-Cet article ne traite pas les détails de la sécurisation du `TaskService`. Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre 
-[article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Cet article ne traite pas les détails de la sécurisation du `TaskService`. Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre [article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Configuration de l’application web de la tâche
+## 6\. Configuration de l’application web de la tâche
 
-Afin que l’`TaskWebApp` communique avec Azure AD B2C, vous devez renseigner certains paramètres communs. Dans le projet `TaskWebApp`, ouvrez le fichier `web.config` qui se trouve à la racine et remplacez les valeurs de la section `<appSettings>` : Ces valeurs seront utilisées dans l’application web.
+Afin que l’`TaskWebApp` communique avec Azure AD B2C, vous devez renseigner certains paramètres communs. Dans le projet `TaskWebApp`, ouvrez le fichier `web.config` qui se trouve à la racine et remplacez les valeurs de la section `<appSettings>` : Ces valeurs seront utilisées dans l’application web.
 
 ```
 <appSettings>
@@ -134,13 +133,13 @@ public class TasksController : Controller
 
 ## 7\. Obtention des jetons d'accès et appel de l'API de tâche
 
-Cette section démontre comment procéder à un échange de jeton OAuth 2.0 dans une application Web à l'aide des bibliothèques et des infrastructures de Microsoft. Si vous n’êtes pas familiarisé avec les **codes d’autorisation** et les **jetons d’accès**, nous vous conseillons de consulter la [référence au protocole OpenID Connect](active-directory-b2c-reference-protocols.md).
+Cette section démontre comment procéder à un échange de jeton OAuth 2.0 dans une application Web à l'aide des bibliothèques et des infrastructures de Microsoft. Si vous n’êtes pas familiarisé avec les **codes d’autorisation** et les **jetons d’accès**, nous vous conseillons de consulter la [référence au protocole OpenID Connect](active-directory-b2c-reference-protocols.md).
 
 #### Obtention d'un code d'autorisation
 
 La première étape pour appeler l’API web `TaskService` consiste à authentifier l’utilisateur et à recevoir un **code d’autorisation** d’Azure AD. Vous pouvez recevoir un code d'autorisation d'Azure AD après l'exécution réussie de n'importe quelle stratégie, y compris les stratégies de connexion, d'inscription et de modification de profil.
 
-Pour commencer, installez l'intergiciel OWIN OpenID Connect à l'aide de la console du gestionnaire de package Visual Studio. Nous allons utiliser OWIN pour envoyer la requête d'authentification à Azure AD et gérer leurs réponses :
+Pour commencer, installez l'intergiciel OWIN OpenID Connect à l'aide de la console du gestionnaire de package Visual Studio. Nous allons utiliser OWIN pour envoyer la requête d'authentification à Azure AD et gérer leurs réponses :
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect -ProjectName TaskWebApp
@@ -148,7 +147,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies -ProjectName TaskWebApp
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskWebApp
 ```
 
-Ouvrez le fichier `App_Start\Startup.Auth.cs`. Il s'agit de l'emplacement où nous allons configurer le pipeline de l'authentification OWIN, en saisissant les détails de votre répertoire B2C et de l'application que vous avez créée :
+Ouvrez le fichier `App_Start\Startup.Auth.cs`. Il s'agit de l'emplacement où nous allons configurer le pipeline de l'authentification OWIN, en saisissant les détails de votre répertoire B2C et de l'application que vous avez créée :
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -214,15 +213,15 @@ public partial class Startup
 
 Votre application Web est désormais configurée pour authentifier l'utilisateur à l'aide de votre répertoire B2C et recevoir un code d'autorisation d'Azure AD. L'étape suivante consiste à échanger ce code d'autorisation contre un jeton d'accès d'Azure AD.
 
-Lorsque vos applications web .NET ont besoin d’obtenir des jetons d’accès d’Azure AD, vous pouvez utiliser la **bibliothèque d’authentification Active Directory (ADAL)**. Vous n'êtes pas obligé d'utiliser la bibliothèque ADAL pour cette procédure, mais elle vous facilite le travail en gérant de nombreux détails, comme l'envoi de messages d'authentification OAuth 2.0, la mise en cache et l'actualisation des jetons.
+Lorsque vos applications web .NET ont besoin d’obtenir des jetons d’accès d’Azure AD, vous pouvez utiliser la **bibliothèque d’authentification Active Directory (ADAL)**. Vous n'êtes pas obligé d'utiliser la bibliothèque ADAL pour cette procédure, mais elle vous facilite le travail en gérant de nombreux détails, comme l'envoi de messages d'authentification OAuth 2.0, la mise en cache et l'actualisation des jetons.
 
-Tout d’abord, installez la bibliothèque ADAL dans le projet `TaskWebApp` à l’aide de la console du gestionnaire de package :
+Tout d’abord, installez la bibliothèque ADAL dans le projet `TaskWebApp` à l’aide de la console du gestionnaire de package :
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskWebApp -IncludePrerelease
 ```
 
-Vous devez à présent transmettre le code d'autorisation à la bibliothèque ADAL afin que celle-ci obtienne des jetons pour vous. L'intergiciel OWIN OpenID Connect fournit une notification pour vous permettre d'utiliser ce code d'autorisation. La notification se déclenche à chaque fois que votre application reçoit un code d'autorisation d'Azure AD. Dans `App_Start\Startup.Auth.cs`, implémentez le gestionnaire de notification `OnAuthorizationCodeReceived` à l’aide de la bibliothèque ADAL :
+Vous devez à présent transmettre le code d'autorisation à la bibliothèque ADAL afin que celle-ci obtienne des jetons pour vous. L'intergiciel OWIN OpenID Connect fournit une notification pour vous permettre d'utiliser ce code d'autorisation. La notification se déclenche à chaque fois que votre application reçoit un code d'autorisation d'Azure AD. Dans `App_Start\Startup.Auth.cs`, implémentez le gestionnaire de notification `OnAuthorizationCodeReceived` à l’aide de la bibliothèque ADAL :
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -251,7 +250,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 #### Obtention d'un jeton d'accès dans les contrôleurs
 
-Maintenant que nous avons obtenu un jeton d’accès pour le serveur principal `TaskService` et l’avons stocké dans le cache de jetons de la bibliothèque ADAL, nous devons l’utiliser. Le `TasksController` est responsable de la communication avec l’API `TaskService`, et envoie des requêtes HTTP à celle-ci pour lire, créer et supprimer des tâches. Avant d'envoyer une requête HTTP, obtenez un jeton d'accès de la bibliothèque ADAL :
+Maintenant que nous avons obtenu un jeton d’accès pour le serveur principal `TaskService` et l’avons stocké dans le cache de jetons de la bibliothèque ADAL, nous devons l’utiliser. Le `TasksController` est responsable de la communication avec l’API `TaskService`, et envoie des requêtes HTTP à celle-ci pour lire, créer et supprimer des tâches. Avant d'envoyer une requête HTTP, obtenez un jeton d'accès de la bibliothèque ADAL :
 
 ```C#
 // Controllers\TasksController.cs
@@ -288,7 +287,7 @@ La bibliothèque ADAL se charge de la mise en cache des jetons, de leur actualis
 
 #### Lecture de tâches à partir de l'API Web
 
-Maintenant que vous disposez d’un jeton, vous pouvez le joindre à la requête HTTP GET dans l’en-tête `Authorization` pour appeler le `TaskService` en toute sécurité :
+Maintenant que vous disposez d’un jeton, vous pouvez le joindre à la requête HTTP GET dans l’en-tête `Authorization` pour appeler le `TaskService` en toute sécurité :
 
 ```C#
 // Controllers\TasksController.cs
@@ -343,7 +342,7 @@ Vous pouvez suivre le même modèle pour l’envoi de requêtes POST et DELETE a
 
 ## 8\. Déconnexion de l'utilisateur
 
-Un détail pour terminer. Lorsque l'utilisateur se déconnecte de l'application Web, vous devriez effacer le cache de jetons de la bibliothèque ADAL pour supprimer les restes de la session authentifiée de l'utilisateur :
+Un détail pour terminer. Lorsque l'utilisateur se déconnecte de l'application Web, vous devriez effacer le cache de jetons de la bibliothèque ADAL pour supprimer les restes de la session authentifiée de l'utilisateur :
 
 ```C#
 // Controllers/AccountController.cs
@@ -372,7 +371,7 @@ public void SignOut()
 
 Pour terminer, générez et exécutez `TaskClient` et `TaskService`. Inscrivez-vous ou connectez-vous à l'application et créez des tâches pour l'utilisateur connecté. Déconnectez-vous et reconnectez-vous par le biais d'un autre utilisateur, ce qui a pour effet de créer des tâches pour cet utilisateur. Notez la façon dont les tâches sont stockées par utilisateur sur l'API, dans la mesure où l'API extrait l'identité de l'utilisateur à partir du jeton d'accès qu'il reçoit.
 
-Pour référence, l'exemple terminé [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l'exemple terminé [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
 
@@ -388,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

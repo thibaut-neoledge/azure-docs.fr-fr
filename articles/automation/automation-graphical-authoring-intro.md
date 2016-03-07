@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Création de graphiques dans Azure Automation
 
@@ -30,7 +30,7 @@ Dans Azure Automation, tous les Runbooks sont des workflows Windows PowerShell. 
 
 ## Vue d'ensemble de l'éditeur graphique
 
-Vous pouvez ouvrir l'éditeur graphique dans le portail Azure en version préliminaire en créant ou en modifiant un Runbook graphique.
+Vous pouvez ouvrir l’éditeur graphique dans le portail Azure en créant ou en modifiant un Runbook graphique.
 
 ![Espace de travail graphique](media/automation-graphical-authoring-intro/graphical-editor.png)
 
@@ -79,7 +79,7 @@ Vous pouvez importer un fichier de Runbook graphique en sélectionnant l’optio
 
 ### Test d'un Runbook graphique
 
-Vous pouvez tester le brouillon d'un Runbook dans le portail Azure en version préliminaire tout en laissant la version publiée du Runbook inchangée, ou vous pouvez tester un Runbook avant sa publication. Cela vous permet de vérifier que le Runbook fonctionne correctement avant de remplacer la version publiée. Lorsque vous testez un Runbook, le Runbook brouillon est exécuté et toutes les actions qu'il effectue sont finalisées. Aucun historique des tâches n'est créé, mais la sortie est affichée dans le volet de sortie du test.
+Vous pouvez tester le brouillon d’un Runbook dans le portail Azure tout en laissant la version publiée du Runbook inchangée, ou vous pouvez tester un Runbook avant sa publication. Cela vous permet de vérifier que le Runbook fonctionne correctement avant de remplacer la version publiée. Lorsque vous testez un Runbook, le Runbook brouillon est exécuté et toutes les actions qu'il effectue sont finalisées. Aucun historique des tâches n'est créé, mais la sortie est affichée dans le volet de sortie du test.
 
 Ouvrez le contrôle Test pour un Runbook en ouvrant le Runbook en vue de sa modification, puis cliquez sur le bouton **Volet de test**.
 
@@ -116,7 +116,7 @@ Sélectionnez l'activité sur le canevas pour configurer ses propriétés et ses
 
 ### Jeux de paramètres
 
-Un jeu de paramètres définit les paramètres obligatoires et facultatifs qui acceptent des valeurs pour une applet de commande particulière. Toutes les applets de commande ont au moins un jeu de paramètres ; certaines en ont plusieurs. Si une applet de commande a plusieurs jeux de paramètres, vous devez sélectionner celui que vous allez utiliser avant de pouvoir configurer les paramètres. Les paramètres que vous pouvez configurer dépendent de l'ensemble de paramètres que vous choisissez. Vous pouvez changer le jeu de paramètres utilisé par une activité en sélectionnant **Jeu de paramètres**, puis en sélectionnant un autre jeu. Dans ce cas, toutes les valeurs de paramètres que vous avez configurées sont perdues.
+Un jeu de paramètres définit les paramètres obligatoires et facultatifs qui acceptent des valeurs pour une applet de commande particulière. Toutes les applets de commande ont au moins un jeu de paramètres ; certaines en ont plusieurs. Si une applet de commande a plusieurs jeux de paramètres, vous devez sélectionner celui que vous allez utiliser avant de pouvoir configurer les paramètres. Les paramètres que vous pouvez configurer dépendent de l'ensemble de paramètres que vous choisissez. Vous pouvez changer le jeu de paramètres utilisé par une activité en sélectionnant **Jeu de paramètres**, puis en sélectionnant un autre jeu. Dans ce cas, toutes les valeurs de paramètres que vous avez configurées sont perdues.
 
 Dans l'exemple suivant, l'applet de commande Get-AzureVM a deux jeux de paramètres. Vous ne pouvez pas configurer les valeurs de paramètres tant que vous n'avez pas sélectionné l'un des jeux de paramètres. Le jeu de paramètres ListAllVMs, qui a un seul paramètre facultatif, sert à retourner toutes les machines virtuelles. La valeur GetVMByServiceandVMName, qui a un paramètre obligatoire et deux paramètres facultatifs, sert à spécifier la machine virtuelle à retourner.
 
@@ -128,7 +128,7 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 | Source de données | Description |
 |:---|:---|
-|Valeur constante|Entrez une valeur pour le paramètre. Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
+|Valeur constante|Entrez une valeur pour le paramètre. Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
 |Sortie d'activité|Sortie d'une activité qui précède l'activité actuelle dans le workflow. Toutes les activités valides sont répertoriées. Sélectionnez simplement l'activité pour utiliser sa sortie comme valeur de paramètre. Si l'activité génère un objet ayant plusieurs propriétés, vous pouvez taper le nom de la propriété après avoir sélectionné l'activité.|
 |Paramètre d'entrée de Runbook|Sélectionnez un paramètre d'entrée de Runbook en tant qu'entrée pour le paramètre de l'activité.|  
 |Ressource variable Automation|Sélectionnez une variable Automation comme entrée.|  
@@ -143,7 +143,7 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 #### Autres paramètres facultatifs
 
-Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier « **-Verbose:$True** ».
+Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier « **-Verbose:$True** ».
 
 ### Nouvelles tentatives d’activité
 
@@ -217,7 +217,7 @@ Pour un lien de type pipeline, vous spécifiez une condition pour un seul objet,
 
 	$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'
 
-Pour un lien de type séquence, la condition est évaluée une seule fois, car un seul tableau contenant la sortie de tous les objets à partir de l'activité source est retourné. C'est pour cette raison qu'un lien séquence ne peut pas être utilisé pour filtrer comme un lien pipeline ; il détermine simplement si l'activité suivante est exécutée ou non. Le code suivant illustre le même exemple d'évaluation de la sortie de Get-AzureVM pour déterminer les machines virtuelles qui sont en cours d'exécution. Dans ce cas, le code parcourt chaque objet du tableau et produit la valeur true si au moins une machine virtuelle est en cours d'exécution. L'activité de destination est responsable de l'analyse de ces données.
+Pour un lien de type séquence, la condition est évaluée une seule fois, car un seul tableau contenant la sortie de tous les objets à partir de l'activité source est retourné. C'est pour cette raison qu'un lien séquence ne peut pas être utilisé pour filtrer comme un lien pipeline ; il détermine simplement si l'activité suivante est exécutée ou non. Le code suivant illustre le même exemple d'évaluation de la sortie de Get-AzureVM pour déterminer les machines virtuelles qui sont en cours d'exécution. Dans ce cas, le code parcourt chaque objet du tableau et produit la valeur true si au moins une machine virtuelle est en cours d'exécution. L'activité de destination est responsable de l'analyse de ces données.
 
 	$test = $false
 	$VMs = $ActivityOutput['Get-AzureVm']
@@ -298,9 +298,9 @@ Vous devez effectuer une authentification au début du Runbook et après chaque 
 
 ### Entrée de Runbook
 
-Un Runbook peut nécessiter une entrée d'un utilisateur lorsqu'il démarre le Runbook via le portail Azure en version préliminaire ou à partir d'un autre Runbook si celui actuel est utilisé en tant qu'enfant. Par exemple, si vous avez un Runbook qui crée une machine virtuelle, vous devrez peut-être fournir des informations telles que le nom de la machine virtuelle et d'autres propriétés chaque fois que vous démarrez le Runbook.
+Un Runbook peut nécessiter une entrée d’un utilisateur lorsqu’il démarre le Runbook via le portail Azure ou à partir d’un autre Runbook si celui actuel est utilisé en tant qu’enfant. Par exemple, si vous avez un Runbook qui crée une machine virtuelle, vous devrez peut-être fournir des informations telles que le nom de la machine virtuelle et d'autres propriétés chaque fois que vous démarrez le Runbook.
 
-Vous acceptez une entrée pour un Runbook en définissant un ou plusieurs paramètres d'entrée. Vous fournissez des valeurs pour ces paramètres chaque fois à chaque démarrage du Runbook. Lorsque vous démarrez un Runbook avec le portail Azure en version préliminaire, il vous invite à fournir des valeurs pour chacun des paramètres d'entrée du Runbook.
+Vous acceptez une entrée pour un Runbook en définissant un ou plusieurs paramètres d'entrée. Vous fournissez des valeurs pour ces paramètres chaque fois à chaque démarrage du Runbook. Lorsque vous démarrez un Runbook avec le portail Azure, il vous invite à fournir des valeurs pour chacun des paramètres d’entrée du Runbook.
 
 Vous pouvez accéder aux paramètres d'entrée d'un Runbook en cliquant sur le bouton **Entrée et sortie** dans la barre d'outils du Runbook.
 
@@ -316,7 +316,7 @@ Chaque paramètre d'entrée est défini par les propriétés figurant dans le ta
 |:---|:---|
 | Nom | Nom unique du paramètre. Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
 | Description | Description facultative du paramètre d'entrée. |
-| Type | Type de données attendu pour la valeur de paramètre. Le portail Azure en version préliminaire fournira un contrôle approprié pour le type de données de chaque paramètre lorsque vous serez invité à indiquer une entrée. |
+| Type | Type de données attendu pour la valeur de paramètre. Le portail Azure fournira un contrôle approprié pour le type de données de chaque paramètre lorsque vous serez invité à indiquer une entrée. |
 | Obligatoire | Spécifie si une valeur doit être fournie pour le paramètre. Le Runbook ne peut pas être démarré si vous ne fournissez pas une valeur pour chaque paramètre obligatoire pour lequel aucune valeur par défaut n'est définie. |
 | Valeur par défaut | Spécifie quelle valeur est utilisée pour le paramètre si aucune n'est pas fournie. Cela peut être Null ou une valeur spécifique. |
 
@@ -419,4 +419,4 @@ L'exemple suivant utilise la sortie d'une activité nommée *Obtenir la connexio
 - [Opérateurs](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

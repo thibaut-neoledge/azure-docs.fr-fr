@@ -34,9 +34,9 @@ Pour que la passerelle de gestion des données puisse se connecter à la base de
 
 ### Exemple : copie de données de Teradata vers Azure Blob
 
-Cet exemple indique comment copier des données à partir d’une base de données Teradata locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Cet exemple indique comment copier des données à partir d’une base de données Teradata locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
  
-L’exemple contient les entités de fabrique de données suivantes :
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -56,8 +56,6 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
 	            "authenticationType": "<authentication type>",
 	            "username": "<username>",
 	            "password": "<password>",
@@ -81,9 +79,9 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 
 **Jeu de données d’entrée Teradata :**
 
-L'exemple suppose que vous avez créé une table « MyTable » dans Teradata et qu'elle contient une colonne appelée « timestamp » pour les données de série chronologique.
+L'exemple suppose que vous avez créé une table « MyTable » dans Teradata et qu'elle contient une colonne appelée « timestamp » pour les données de série chronologique.
 
-La définition de « external » : true et la spécification de la stratégie externalData informent Data Factory qu'il s'agit d'une table externe à Data Factory et non produite par une activité dans Data Factory.
+La définition de « external » : true et la spécification de la stratégie externalData informent Data Factory qu'il s'agit d'une table externe à Data Factory et non produite par une activité dans Data Factory.
 
 	{
 	    "name": "TeradataDataSet",
@@ -92,7 +90,6 @@ La définition de « external » : true et la spécification de la stratégie
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
@@ -110,9 +107,9 @@ La définition de « external » : true et la spécification de la stratégie
 	}
 
 
-**Jeu de données de sortie Azure Blob :**
+**Jeu de données de sortie Azure Blob :**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
 
 	{
 	    "name": "AzureBlobTeradataDataSet",
@@ -220,16 +217,14 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	}
 
 
-## Propriétés du service lié Teradata
+## Propriétés du service lié Teradata
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Teradata.
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-type | Le type de propriété doit être défini sur : **OnPremisesTeradata** | Oui
+type | Le type de propriété doit être défini sur : **OnPremisesTeradata** | Oui
 server | Nom du serveur Teradata. | Oui
-database | Nom de la base de données Teradata. | Oui 
-schema | Nom du schéma dans la base de données. | Non
 authenticationType | Type d'authentification utilisé pour se connecter à la base de données Teradata. Les valeurs possibles sont : Anonyme, De base et Windows. | Oui
 username | Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. | Non 
 password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Non 
@@ -237,15 +232,12 @@ gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pou
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données Teradata locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
 
-## Propriétés de type du jeu de données Teradata
+## Propriétés de type du jeu de données Teradata
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section **typeProperties** pour le jeu de données de type **RelationalTable** (qui inclut le jeu de données Teradata) a les propriétés suivantes.
+La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. Il n’existe aucune propriété de type prise en charge pour le jeu de données Teradata pour l’instant.
 
-Propriété | Description | Requis
--------- | ----------- | --------
-TableName | Nom de la table dans l'instance de base de données Teradata à laquelle le service lié fait référence. | Non (si la **requête** de **RelationalSource** est spécifiée) 
 
 ## Propriétés de type de l’activité de copie Teradata
 
@@ -253,17 +245,17 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Teradata), les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Teradata), les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
-query | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. Par exemple : select * from MyTable. | Non (si **tableName** de **dataset** est spécifiée)
+query | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. Par exemple : select * from MyTable. | Oui
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Mappage de type pour Teradata
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
 2. Conversion de types .NET en types récepteur natifs
@@ -316,4 +308,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->
