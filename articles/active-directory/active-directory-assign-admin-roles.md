@@ -24,17 +24,17 @@ Il est important de comprendre qu’un utilisateur à qui un rôle d’administr
 
 Les rôles d’administrateur disponibles sont les suivants :
 
-- **Administrateur de facturation** : effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
+- **Administrateur de facturation**: effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
 
-- **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
+- **Administrateur général**: peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
 
-- **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
+- **Administrateur de mots de passe**: réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
 
-- **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
+- **Administrateur de services fédérés**: gère les demandes de service et surveille l’état des services.
+> [AZURE.NOTE]
+> Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
 
-	> [AZURE.NOTE] Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
-
-- **Administrateur d’utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
+- **Administrateur d’utilisateurs**: réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
 
 ## Autorisations des administrateurs
 

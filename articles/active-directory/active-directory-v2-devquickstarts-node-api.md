@@ -263,9 +263,9 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 ### Valeurs requises
 
-*IdentityMetadata* : il s’agit de l’emplacement dans lequel passport-azure-ad recherche vos données de configuration pour l’IdP, ainsi que les clés pour la validation des jetons JWT. Vous ne souhaitez probablement pas modifier cela si vous utilisez Azure Active Directory.
+*IdentityMetadata*: il s’agit de l’emplacement dans lequel passport-azure-ad recherche vos données de configuration pour l’IdP, ainsi que les clés pour la validation des jetons JWT. Vous ne souhaitez probablement pas modifier cela si vous utilisez Azure Active Directory.
 
-*audience* : URI de redirection à partir du portail.
+*audience*: URI de redirection à partir du portail.
 
 > [AZURE.NOTE]
 Nous remplaçons régulièrement nos clés. Vérifiez que votre extraction est toujours effectuée à partir de l’URL « openid\_keys » et que l’application peut accéder à Internet.

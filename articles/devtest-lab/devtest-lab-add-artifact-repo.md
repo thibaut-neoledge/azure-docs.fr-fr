@@ -61,7 +61,7 @@ Pour ajouter un référentiel d’artefacts GitHub à votre laboratoire, vous de
 
 1. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Référentiel d’artefacts**.
 
-1. Dans le panneau **Référentiel d’artefacts** :
+1. Dans le panneau **Référentiel d’artefacts**:
 
     1. Entrez un **Nom** pour le référentiel.
     1. Entrez l’**URL de clonage Git** enregistrée.
@@ -91,7 +91,7 @@ Pour ajouter un référentiel d’artefacts Git Visual Studio à votre laboratoi
 
 1. Sous l’onglet **Sécurité**, appuyez sur **Ajouter**.
 
-1. Sur la page **Créer un jeton d’accès personnel** :
+1. Sur la page **Créer un jeton d’accès personnel**:
 
     1. Entrez une **Description** pour le jeton.
     2. Dans la liste **Expire dans**, sélectionnez **180 jours**.

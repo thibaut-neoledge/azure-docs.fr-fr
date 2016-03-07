@@ -183,17 +183,17 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 **A.** Si les deux contrôleurs de votre appareil sont activés et en bon état de fonctionnement, vous serez invité à confirmer l’opération. Vous pouvez choisir de :
 
-- **Redémarrer le contrôleur actif** : un message vous avertit que le redémarrage d’un contrôleur actif entraîne un basculement de l’appareil vers le contrôleur passif. Le contrôleur redémarrera.
+- **Redémarrer le contrôleur actif**: un message vous avertit que le redémarrage d’un contrôleur actif entraîne un basculement de l’appareil vers le contrôleur passif. Le contrôleur redémarrera.
 
-- **Arrêter un contrôleur actif** : un message vous avertit que l’arrêt d’un contrôleur actif entraîne une coupure du service. Vous devrez également appuyer sur le bouton d’alimentation de l’appareil pour activer le contrôleur.
+- **Arrêter un contrôleur actif**: un message vous avertit que l’arrêt d’un contrôleur actif entraîne une coupure du service. Vous devrez également appuyer sur le bouton d’alimentation de l’appareil pour activer le contrôleur.
 
 **Q.** Que se passe-t-il si le contrôleur passif de mon appareil est indisponible ou désactivé, et que je redémarre ou arrête le contrôleur actif ?
 
 **A.** Si le contrôleur passif de votre appareil est indisponible ou désactivé, et que vous choisissez de :
 
-- **Redémarrer le contrôleur actif** : un message vous indiquera que la poursuite de l'opération entraînera une interruption temporaire du service, et vous serez invité à confirmer l’opération.
+- **Redémarrer le contrôleur actif**: un message vous indiquera que la poursuite de l'opération entraînera une interruption temporaire du service, et vous serez invité à confirmer l’opération.
 
-- **Arrêter un contrôleur actif** : un message vous avertit que la poursuite de l’opération entraîne une interruption du service, et que vous devez appuyer sur le bouton d’alimentation d’au moins un des contrôleurs pour activer l’appareil. Vous êtes invité à confirmer l’opération.
+- **Arrêter un contrôleur actif**: un message vous avertit que la poursuite de l’opération entraîne une interruption du service, et que vous devez appuyer sur le bouton d’alimentation d’au moins un des contrôleurs pour activer l’appareil. Vous êtes invité à confirmer l’opération.
 
 **Q.** À quel moment le redémarrage ou l’arrêt du contrôleur peut-il échouer ?
 

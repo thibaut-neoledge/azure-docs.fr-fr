@@ -77,7 +77,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de source
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**Remarque** : le nombre maximal de sources de données que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 sources de données. Le service standard autorise 50 sources de données. Pour plus d’informations, consultez [Limites de service](search-limits-quotas-capacity.md).
+**Remarque**: le nombre maximal de sources de données que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 sources de données. Le service standard autorise 50 sources de données. Pour plus d’informations, consultez [Limites de service](search-limits-quotas-capacity.md).
 
 **Requête**
 
@@ -558,7 +558,7 @@ Code d'état : 204 Pas de contenu est renvoyé en cas de réponse correcte.
 <a name="RunIndexer"></a>
 ## Exécution d'un indexeur ##
 
-En plus de l'exécution périodique planifiée, un indexeur peut également être appelé à la demande via l'opération **Run Indexer** :
+En plus de l'exécution périodique planifiée, un indexeur peut également être appelé à la demande via l'opération **Run Indexer**:
 
 	POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [admin key]

@@ -1,4 +1,11 @@
-<properties pageTitle="Version préliminaire d’Azure AD B2C : appel d'une API Web à partir d'une application Android | Microsoft Azure" description="Cet article décrit comment créer une application Android de type « liste des tâches » qui appelle une API Web node.js utilisant des jetons du porteur OAuth 2.0. L’application Android et l’API Web utilisent toutes les deux Azure AD B2C pour gérer les identités des utilisateurs et authentifier les utilisateurs." services="active-active-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
+<properties
+	pageTitle="Version préliminaire d’Azure AD B2C : appel d'une API Web à partir d'une application Android | Microsoft Azure"
+	description="Cet article décrit comment créer une application Android de type « liste des tâches » qui appelle une API Web node.js utilisant des jetons du porteur OAuth 2.0. L’application Android et l’API Web utilisent toutes les deux Azure AD B2C pour gérer les identités des utilisateurs et authentifier les utilisateurs."
+	services="active-active-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -191,7 +198,14 @@ public class Constants {
 
 
 ```
-**scopes** : étendues que nous transmettons au serveur, que nous souhaitons demander au serveur, pour l’utilisateur qui se connecte. Pour la version préliminaire de B2C, nous transmettons la valeur client\_id. Toutefois, ceci sera modifié pour la lecture des étendues à l'avenir. Ce document sera alors mis à jour. **ADDITIONAL\_SCOPES** : étendues supplémentaires que vous pourriez vouloir utiliser pour votre application. Il sera utilisé dans l’ID d’application **CLIENT\_ID** que vous avez obtenu du portail **REDIRECT\_URL** - la redirection où le jeton devrait être publié. **EXTRA\_QP** - toute information supplémentaire que vous souhaitez transmettre au serveur sous un format URL. **FB\_POLICY** - la stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas. **EMAIL\_SIGNIN\_POLICY** - la stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas. **EMAIL\_SIGNUP\_POLICY** - la stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas.
+**scopes**: étendues que nous transmettons au serveur, que nous souhaitons demander au serveur, pour l’utilisateur qui se connecte. Pour la version préliminaire de B2C, nous transmettons la valeur client\_id. Toutefois, ceci sera modifié pour la lecture des étendues à l'avenir. Ce document sera alors mis à jour.
+**ADDITIONAL\_SCOPES**: étendues supplémentaires que vous pourriez vouloir utiliser pour votre application. Il sera utilisé dans l’ID d’application
+**CLIENT\_ID** que vous avez obtenu du portail
+**REDIRECT\_URL** - la redirection où le jeton devrait être publié.
+**EXTRA\_QP** - toute information supplémentaire que vous souhaitez transmettre au serveur sous un format URL.
+**FB\_POLICY** - la stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas.
+**EMAIL\_SIGNIN\_POLICY** - la stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas.
+**EMAIL\_SIGNUP\_POLICY** - la stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas.
 
 ### Étape 7 : ajout des références à la bibliothèque ADAL Android dans votre projet
 
@@ -262,13 +276,13 @@ Comme vous pouvez le voir, nous définissons les 5 activités que nous utilisero
 
 **AuthenticationActivity** - provient d’ADAL et fournit la vue web de connexion
 
-**LoginActivity** : affiche les stratégies d’authentification et les boutons pour chaque stratégie.
+**LoginActivity**: affiche les stratégies d’authentification et les boutons pour chaque stratégie.
 
-**SettingsActivity** : permet de modifier les paramètres de l’application lors de l’exécution.
+**SettingsActivity**: permet de modifier les paramètres de l’application lors de l’exécution.
 
-**AddTaskActivity** : permet d’ajouter des tâches à nos API REST protégées par Azure AD
+**AddTaskActivity**: permet d’ajouter des tâches à nos API REST protégées par Azure AD
 
-**ToDoActivity** : l’activité principale qui affiche les tâches.
+**ToDoActivity**: l’activité principale qui affiche les tâches.
 
 
 
@@ -893,7 +907,16 @@ Tout d’abord, écrivons notre `getTask` :
  
  **Dans le même fichier** appelé `ToDoActivity.java`
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+ ```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE\_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -978,12 +1001,14 @@ ADAL chiffre les jetons et les stocke dans SharedPreferences par défaut. Vous p
 
 #### Cookies de session dans Webview
 
-Android Webview n’efface pas les cookies de session après la fermeture de l’application. Vous gérez cela avec l’exemple de code suivant : ```
+Android Webview n’efface pas les cookies de session après la fermeture de l’application. Vous gérez cela avec l’exemple de code suivant :
+```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Pour en savoir plus sur les cookies : http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+```
+Pour en savoir plus sur les cookies : http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=AcomDC_0224_2016-->

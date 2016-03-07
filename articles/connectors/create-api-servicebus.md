@@ -133,7 +133,7 @@ Propriétés requises pour ServiceBusMessage :
 
 ContentTransferEncoding
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |

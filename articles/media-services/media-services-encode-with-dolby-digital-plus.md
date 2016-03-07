@@ -594,11 +594,11 @@ Cet attribut détermine le mode de mesure du niveau sonore. Les valeurs autoris�
  
 **ITU\_R\_BS\_1770\_2\_DI** (par défaut) : indique ITU-R BS.1770-2 plus Dialogue Intelligence
 
-**ITU\_R\_BS\_1770\_1\_DI** : indique ITU-R BS.1770-1 plus Dialogue Intelligence
+**ITU\_R\_BS\_1770\_1\_DI**: indique ITU-R BS.1770-1 plus Dialogue Intelligence
 
-**ITU\_R\_BS\_1770\_2** : indique ITU-R BS.1770-2
+**ITU\_R\_BS\_1770\_2**: indique ITU-R BS.1770-2
 
-**LEQA\_DI** : indique Leq(A) plus Dialogue Intelligence
+**LEQA\_DI**: indique Leq(A) plus Dialogue Intelligence
 
 **Remarque :**
 
@@ -636,19 +636,19 @@ Quand une tâche d’encodage spécifie l’utilisation de DPLM, les résultats 
 
 Chaque attribut est décrit ci-dessous.
 
-**DPLMVersionInformation** : chaîne représentant la version du Kit de développement logiciel (SDK) DPLM utilisé.
+**DPLMVersionInformation**: chaîne représentant la version du Kit de développement logiciel (SDK) DPLM utilisé.
 
-**DialogNormalization** : valeur de DialNorm mesurée, en décibels, à partir de l’entrée audio est incorporée dans le flux DD+ de sortie, dans la plage {-31, -30, …, -1} dB.
+**DialogNormalization**: valeur de DialNorm mesurée, en décibels, à partir de l’entrée audio est incorporée dans le flux DD+ de sortie, dans la plage {-31, -30, …, -1} dB.
 
-**IntegratedLoudness** : volume intégré tel que mesuré par DPLM, dans la plage -70 à +10 LKFS/dBFS (dBFS est utilisé uniquement quand Mode est défini sur LEQA\_DI).
+**IntegratedLoudness**: volume intégré tel que mesuré par DPLM, dans la plage -70 à +10 LKFS/dBFS (dBFS est utilisé uniquement quand Mode est défini sur LEQA\_DI).
 
 **IntegratedLoudnessGatingMethod** - Les valeurs valides sont : 0 – Aucun/Pas de fenêtre de mesure (None/Ungated) ; 1 – Signaux vocaux sur intervalle (Speech Gated) ; 2 – Niveau mesuré sur l’intervalle (Level Gated).
 
-**IntegratedLoudnessSpeechPercentage** : ce résultat contient le pourcentage de la chronologie du média d’entrée quand des signaux vocaux sont détectés. Plage de valeurs comprise entre 0 % et 100 %.
+**IntegratedLoudnessSpeechPercentage**: ce résultat contient le pourcentage de la chronologie du média d’entrée quand des signaux vocaux sont détectés. Plage de valeurs comprise entre 0 % et 100 %.
 
-**SamplePeak** : ce résultat contient la valeur d’échantillonnage absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure, et se situe entre -70 et +10 dBFS.
+**SamplePeak**: ce résultat contient la valeur d’échantillonnage absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure, et se situe entre -70 et +10 dBFS.
 
-**TruePeak** : ce résultat contient la valeur true‐peak absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure. Pour obtenir la description du niveau true peak, consultez ITU‐R BS.1770‐2. La plage de valeurs est comprise entre -70 et 12,04 dBTP.
+**TruePeak**: ce résultat contient la valeur true‐peak absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure. Pour obtenir la description du niveau true peak, consultez ITU‐R BS.1770‐2. La plage de valeurs est comprise entre -70 et 12,04 dBTP.
  
 
 ##Parcours d’apprentissage de Media Services

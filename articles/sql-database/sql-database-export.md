@@ -51,7 +51,7 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 2.	Cliquez sur **PARCOURIR TOUT**.
 3.	Cliquez sur **Bases de données SQL**.
 2.	Cliquez sur la base de données à exporter en tant que BACPAC.
-3.	Dans le panneau Base de données SQL, cliquez sur **Exporter** pour ouvrir le panneau **Exporter la base de données** :
+3.	Dans le panneau Base de données SQL, cliquez sur **Exporter** pour ouvrir le panneau **Exporter la base de données**:
 
     ![bouton exporter][1]
 

@@ -93,7 +93,10 @@ Get Container Properties|	Oui|	Non|
 Get Container Metadata|	Oui|	Non|
 Set Container Metadata|	Oui|	Oui|
 Get Container ACL|	Oui|	Non|
-Set Container ACL|	Oui|	Oui (*)| Delete Container| Non| Oui| Lease Container| Oui| Oui| List Blobs| Non| Non 
+Set Container ACL|	Oui|	Oui (*)|
+Delete Container| Non| Oui|
+Lease Container| Oui| Oui|
+List Blobs| Non| Non 
 
 (*) Les autorisations définies par SetContainerACL sont mises en cache et les mises à jour apportées à ces autorisations sont diffusées dans un délai de 30 secondes, période pendant laquelle la cohérence des mises à jour n’est pas garantie.
 
@@ -107,7 +110,16 @@ Get Blob Properties|	Oui|	Oui|
 Set Blob Properties|	Oui|	Oui|
 Get Blob Metadata|	Oui|	Oui|
 Set Blob Metadata|	Oui|	Oui|
-Lease Blob (*)| Oui| Oui| Snapshot Blob| Oui| Oui| Copy Blob| Oui| Oui (pour les objets blob sources et de destination)| Abort Copy Blob| Non| Non| Delete Blob| Non| Oui| Put Block| Non| Non| Put Block List| Oui| Oui| Get Block List| Oui| Non| Put Page| Oui| Oui| Get Page Ranges| Oui| Oui
+Lease Blob (*)| Oui| Oui|
+Snapshot Blob| Oui| Oui|
+Copy Blob| Oui| Oui (pour les objets blob sources et de destination)|
+Abort Copy Blob| Non| Non|
+Delete Blob| Non| Oui|
+Put Block| Non| Non|
+Put Block List| Oui| Oui|
+Get Block List| Oui| Non|
+Put Page| Oui| Oui|
+Get Page Ranges| Oui| Oui
 
 (*) L'opération Lease Blob n'entraîne pas la modification de la balise ETag d'un objet blob.
 

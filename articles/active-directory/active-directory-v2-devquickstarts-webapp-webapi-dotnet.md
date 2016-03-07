@@ -109,7 +109,9 @@ Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAut
 
 - Tout d’abord, installez la version d’évaluation d’ADAL :
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - Ajoutez une autre instruction `using` au fichier `App_Start\Startup.Auth.cs` pour la bibliothèque ADAL. - Ajoutez maintenant une nouvelle méthode, le gestionnaire d'événements `OnAuthorizationCodeReceived`. Ce gestionnaire utilisera ADAL pour acquérir un jeton d’accès à l’API To-Do List et le stockera dans le cache de jetons ADAL pour une utilisation ultérieure :
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` 
+- Ajoutez une autre instruction `using` au fichier `App_Start\Startup.Auth.cs` pour la bibliothèque ADAL. 
+- Ajoutez maintenant une nouvelle méthode, le gestionnaire d'événements `OnAuthorizationCodeReceived`. Ce gestionnaire utilisera ADAL pour acquérir un jeton d’accès à l’API To-Do List et le stockera dans le cache de jetons ADAL pour une utilisation ultérieure :
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -191,6 +193,8 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 ## Étapes suivantes
 
-Pour obtenir des ressources supplémentaires, consultez : - [Guide de développement v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise « adal » StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Pour obtenir des ressources supplémentaires, consultez : 
+- [Guide de développement v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Balise « adal » StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=AcomDC_0224_2016-->

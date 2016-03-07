@@ -62,7 +62,7 @@ Quand vous ajoutez Dropbox à PowerApps Enterprise, vous entrez les valeurs **Cl
 5. Dans la page des paramètres de l’application :
 
 	1. Dans **OAuth 2**, entrez la valeur **URL de redirection** affichée quand vous ajoutez l’API Dropbox dans le portail Azure. Sélectionnez **Ajouter**.  
-	2. Sélectionnez le lien **Show** pour révéler la **question secrète de l’application** :  
+	2. Sélectionnez le lien **Show** pour révéler la **question secrète de l’application**:  
 
 	![Création d’application Dropbox page 2][11]
 

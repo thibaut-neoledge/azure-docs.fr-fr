@@ -27,10 +27,10 @@ Pour spécifier la compression pour un jeu de données, utilisez la propriété 
  
 Notez que la section **compression** a deux propriétés :
   
-- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
-- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**. 
-	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
-	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
+- **Type**: le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
+- **Level**: le taux de compression, qui peut être **Optimal** ou **Fastest**. 
+	- **Fastest**: l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
+	- **Optimal**: l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
 	
 	Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
 

@@ -50,24 +50,24 @@ Les bibliothèques clientes spécifiques à SAP doivent se trouver sur l'ordinat
 5. Sélectionnez le **Connecteur SAP** publié par Microsoft.
 6. Dans le panneau du connecteur SAP, sélectionnez **Créer**.
 7. Dans le nouveau panneau qui s'ouvre, entrez les informations suivantes :  
-	1. **Emplacement** : choisissez l’emplacement géographique où vous souhaitez déployer le connecteur.
-	2. **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-	3. **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-	4. **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
-	5. **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
-	6. **Nom** : entrez un nom pour votre connecteur SAP.
+	1. **Emplacement**: choisissez l’emplacement géographique où vous souhaitez déployer le connecteur.
+	2. **Abonnement**: choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	3. **Groupe de ressources**: sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	4. **Plan d’hébergement web**: sélectionnez ou créez un plan d’hébergement web.
+	5. **Niveau de tarification**: choisissez un niveau de tarification pour le connecteur.
+	6. **Nom**: entrez un nom pour votre connecteur SAP.
 	7. **Paramètres du package**
-		- **Nom du serveur** : entrez le nom du serveur SAP. Par exemple, « ServeurSAP » ou « ServeurSAP.mondomaine.com ».
-		- **Nom d’utilisateur** : entrez un nom d’utilisateur valide pour vous connecter au serveur SAP.
-		- **Mot de passe** : entrez un mot de passe pour vous connecter au serveur SAP.
-		- **Numéro du système** : entrez le numéro du système du serveur d’applications SAP.
-		- **Langue** : entrez la langue d’ouverture de session, par exemple « EN ». Si aucune valeur n'est entrée, « EN » est utilisé par défaut.
-		- **Local** : indiquez si votre serveur SAP est local, derrière un pare-feu ou non. Si la valeur est TRUE, vous devez installer un agent écouteur sur un serveur qui peut accéder à votre serveur SAP. Pour installer cet agent, accédez à la page de résumé de votre application API et sélectionnez Connexion hybride.
-		- **Chaîne de connexion Service Bus** : entrez ce paramètre si votre serveur SAP est local. Il doit s’agir d’une chaîne de connexion d’espace de noms Service Bus valide.
-		- **RFC** : entrez les RFC dans SAP qui sont autorisés à être appelés par le connecteur.
-		- **TRFC** : entrez les TRFC dans SAP qui sont autorisés à être appelés par le connecteur.
-		- **BAPI** : entrez les BAPI dans SAP qui sont autorisés à être appelés par le connecteur.
-		- **IDOC** : entrez les IDOC dans SAP qui peuvent être envoyés par le connecteur.
+		- **Nom du serveur**: entrez le nom du serveur SAP. Par exemple, « ServeurSAP » ou « ServeurSAP.mondomaine.com ».
+		- **Nom d’utilisateur**: entrez un nom d’utilisateur valide pour vous connecter au serveur SAP.
+		- **Mot de passe**: entrez un mot de passe pour vous connecter au serveur SAP.
+		- **Numéro du système**: entrez le numéro du système du serveur d’applications SAP.
+		- **Langue**: entrez la langue d’ouverture de session, par exemple « EN ». Si aucune valeur n'est entrée, « EN » est utilisé par défaut.
+		- **Local**: indiquez si votre serveur SAP est local, derrière un pare-feu ou non. Si la valeur est TRUE, vous devez installer un agent écouteur sur un serveur qui peut accéder à votre serveur SAP. Pour installer cet agent, accédez à la page de résumé de votre application API et sélectionnez Connexion hybride.
+		- **Chaîne de connexion Service Bus**: entrez ce paramètre si votre serveur SAP est local. Il doit s’agir d’une chaîne de connexion d’espace de noms Service Bus valide.
+		- **RFC**: entrez les RFC dans SAP qui sont autorisés à être appelés par le connecteur.
+		- **TRFC**: entrez les TRFC dans SAP qui sont autorisés à être appelés par le connecteur.
+		- **BAPI**: entrez les BAPI dans SAP qui sont autorisés à être appelés par le connecteur.
+		- **IDOC**: entrez les IDOC dans SAP qui peuvent être envoyés par le connecteur.
 	8. Sélectionnez Sélectionner. Après quelques minutes, votre connecteur SAP est créé.
 
 
@@ -97,7 +97,7 @@ Sélectionnez **Installer** pour terminer l’installation du Gestionnaire de co
 ## Valider la connexion hybride
 Accédez au connecteur SAP que vous avez créé via **Parcourir** > **API Apps** > *nom de votre connecteur*
 
-Dans le panneau du connecteur, notez que l’état de la connexion hybride est *En attente* :
+Dans le panneau du connecteur, notez que l’état de la connexion hybride est *En attente*:
 
 ![Connexion hybride - connectée][8]
 

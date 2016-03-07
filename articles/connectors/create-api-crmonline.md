@@ -46,7 +46,7 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 Quand vous ajoutez CRM Online à PowerApps Enterprise, vous entrez les valeurs **ID client** et **Clé d’application** de votre application Azure Active Directory (AAD) Dynamics CRM Online. La valeur **URL de redirection** est également utilisée dans votre application CRM Online. Si vous n’avez pas d’application, vous pouvez utiliser les étapes suivantes pour en créer une :
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez **Active Directory**, puis sélectionnez le nom de client de votre organisation.
-2. Sous l’onglet Applications, sélectionnez **Ajouter**. Dans **AJOUTER UNE APPLICATION** :  
+2. Sous l’onglet Applications, sélectionnez **Ajouter**. Dans **AJOUTER UNE APPLICATION**:  
 
 	1. Entrez un **Nom** pour votre application.  
 	2. Laissez le type d’application sur **Web**.  
@@ -54,7 +54,7 @@ Quand vous ajoutez CRM Online à PowerApps Enterprise, vous entrez les valeurs *
 
 	![Ajouter une application AAD – Informations sur l’application][9]
 
-3. Dans **Propriétés de l’application** :
+3. Dans **Propriétés de l’application**:
 
 	1. Entrez l’**URL de connexion** de votre application. Étant donné que vous allez vous authentifier dans AAD pour PowerApps, définissez l’URL de connexion sur \__https://login.windows.net_.
 2. Entrez un **URI ID d’application** valide pour votre application.  

@@ -72,7 +72,7 @@ Si votre liste d’index recommandés contient des index que vous souhaitez supp
 2. Cliquez sur **Rejeter l’index** dans le volet **Détails sur l’index**.
 
 
-Si vous le souhaitez, vous pouvez rajouter des index rejetés à la liste **Index recommandés** :
+Si vous le souhaitez, vous pouvez rajouter des index rejetés à la liste **Index recommandés**:
 
 1. Dans le volet **Recommandations d’index**, cliquez sur **Afficher les recommandations d’index rejetées**.
 1. Sélectionnez un index rejeté dans la liste pour afficher les détails le concernant.
@@ -106,7 +106,7 @@ Vous pouvez consulter et accepter les recommandations une à la fois.
 
 Vous pouvez configurer Index Advisor de manière à implémenter automatiquement les recommandations. Dès qu’une recommandation est disponible, elle est automatiquement appliquée. Comme avec toutes les opérations d’index gérées par le service, si l’impact sur les performances est négatif, la recommandation est annulée.
 
-1. Dans le panneau **Recommandations d’index**, cliquez sur **Paramètres du conseiller** :
+1. Dans le panneau **Recommandations d’index**, cliquez sur **Paramètres du conseiller**:
 
     ![Paramètres du conseiller](./media/sql-database-index-advisor/settings.png)
 

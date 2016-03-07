@@ -102,9 +102,9 @@ Vous pouvez définir des scripts serveur qui sont enregistrés pour une opérati
 
 Un script d'opération de table doit appeler au moins une des fonctions suivantes de l'[objet request] pour que le client reçoive une réponse.
  
-+ **Fonction execute** : l'opération est effectuée comme demandé et la réponse standard est renvoyée.
++ **Fonction execute**: l'opération est effectuée comme demandé et la réponse standard est renvoyée.
  
-+ **Fonction respond** : une réponse personnalisée est renvoyée.
++ **Fonction respond**: une réponse personnalisée est renvoyée.
 
 > [AZURE.IMPORTANT] Lorsqu'un script possède un chemin de code dans lequel ni **execute** ni **respond** ne sont appelées, il se peut que l'opération soit sans réponse.
 
@@ -116,7 +116,7 @@ Le script suivant appelle la fonction **execute** pour effectuer l'opération de
 
 Dans cet exemple, l'élément est inséré dans la base de données et le code d'état approprié est renvoyé à l'utilisateur.
 
-Quand la fonction **execute** est appelée, l'élément `item`, la [requête][query object] ou la valeur `id` qui a été transmis comme premier argument à la fonction du script est utilisé pour effectuer l'opération. Pour une opération d'insertion, de mise à jour ou de requête, vous pouvez modifier l'élément ou la requête avant d'appeler **execute** :
+Quand la fonction **execute** est appelée, l'élément `item`, la [requête][query object] ou la valeur `id` qui a été transmis comme premier argument à la fonction du script est utilisé pour effectuer l'opération. Pour une opération d'insertion, de mise à jour ou de requête, vous pouvez modifier l'élément ou la requête avant d'appeler **execute**:
 
 	function insert(item, user, request) { 
 	    item.scriptComment =
@@ -182,7 +182,7 @@ Lorsque vous fournissez un gestionnaire **success** à la fonction **execute**, 
 
 La fonction **execute** peut échouer en cas de perte de la connectivité à la base de données, d'un objet non valide ou d'une requête incorrecte. Par défaut, lorsqu'une erreur se produit, les scripts serveur consignent l'erreur et écrivent un résultat d'erreur dans la réponse. Comme Mobile Services fournit une gestion des erreurs par défaut, vous n'avez pas à gérer les erreurs qui peuvent se produire dans le service.
 
-Vous pouvez remplacer la gestion des erreurs par défaut en implémentant une gestion des erreurs explicite si vous souhaitez une action de compensation particulière ou lorsque vous souhaitez utiliser l'objet console global pour écrire des informations détaillées dans le journal. Pour ce faire, fournissez un gestionnaire **error** dans la fonction **execute** :
+Vous pouvez remplacer la gestion des erreurs par défaut en implémentant une gestion des erreurs explicite si vous souhaitez une action de compensation particulière ou lorsque vous souhaitez utiliser l'objet console global pour écrire des informations détaillées dans le journal. Pour ce faire, fournissez un gestionnaire **error** dans la fonction **execute**:
 
 	function update(item, user, request) { 
 	  request.execute({ 
@@ -412,7 +412,7 @@ Mobile Services vous permet de définir plusieurs chemins ou itinéraires dans u
 + `https://<service>.azure-mobile.net/api/calculator/add`
 + `https://<service>.azure-mobile.net/api/calculator/sub`
 
-Plusieurs itinéraires sont définis en exportant une fonction **register**, à qui est transmis un objet **api** (semblable à l'[objet express dans express.js]) qui est utilisé pour enregistrer les itinéraires sous le point de terminaison de l'API personnalisée. L'exemple suivant implémente les méthodes **add** et **sub** dans l'API personnalisée **calculator** :
+Plusieurs itinéraires sont définis en exportant une fonction **register**, à qui est transmis un objet **api** (semblable à l'[objet express dans express.js]) qui est utilisé pour enregistrer les itinéraires sous le point de terminaison de l'API personnalisée. L'exemple suivant implémente les méthodes **add** et **sub** dans l'API personnalisée **calculator**:
 
 		exports.register = function (api) {
 		    api.get('add', add);
@@ -477,17 +477,17 @@ Cette section vous montre comment tirer parti du contrôle de code source pour a
 
 Comme Mobile Services utilise Node.js sur le serveur, vos scripts ont déjà accès aux modules Node.js intégrés. Vous pouvez aussi utiliser le contrôle du code source pour définir vos propres modules ou ajouter d'autres modules Node.js à votre service.
 
-Voici une partie des modules les plus utiles pouvant être utilisés dans vos scripts à l'aide de la fonction globale **require** :
+Voici une partie des modules les plus utiles pouvant être utilisés dans vos scripts à l'aide de la fonction globale **require**:
 
-+ **azure** : expose la fonctionnalité du Kit de développement logiciel (SDK) Azure pour Node.js. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Node.js]. 
-+ **crypto** : fournit la fonctionnalité crypto d'OpenSSL. Pour plus d'informations, consultez la [documentation Node.js][crypto API].
-+ **path** : contient des utilitaires pour utiliser les chemins de fichier. Pour plus d'informations, consultez la [documentation Node.js][path API].
-+ **querystring** : contient des utilitaires pour utiliser les chaînes de requête. Pour plus d'informations, consultez la [documentation Node.js][querystring API].
-+ **request** : envoie des requêtes HTTP aux services REST externes, comme Twitter et Facebook. Pour plus d'informations, consultez la page [Envoyer une requête HTTP].
-+ **sendgrid** : envoie le courrier électronique à l'aide du service de messagerie Sendgrid dans Azure. Pour plus d'informations, consultez la page [Envoi de courrier électronique à partir de Mobile Services avec SendGrid].
-+ **url** : contient des utilitaires pour analyser et résoudre les URL. Pour plus d'informations, consultez la [documentation Node.js][url API].
-+ **util** : contient divers utilitaires, comme le formatage de chaînes et la vérification du type d'objet. Pour plus d'informations, consultez la [documentation Node.js][util API]. 
-+ **zlib** : expose la fonctionnalité de compression, comme gzip et deflate. Pour plus d'informations, consultez la [documentation Node.js][zlib API]. 
++ **azure**: expose la fonctionnalité du Kit de développement logiciel (SDK) Azure pour Node.js. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Node.js]. 
++ **crypto**: fournit la fonctionnalité crypto d'OpenSSL. Pour plus d'informations, consultez la [documentation Node.js][crypto API].
++ **path**: contient des utilitaires pour utiliser les chemins de fichier. Pour plus d'informations, consultez la [documentation Node.js][path API].
++ **querystring**: contient des utilitaires pour utiliser les chaînes de requête. Pour plus d'informations, consultez la [documentation Node.js][querystring API].
++ **request**: envoie des requêtes HTTP aux services REST externes, comme Twitter et Facebook. Pour plus d'informations, consultez la page [Envoyer une requête HTTP].
++ **sendgrid**: envoie le courrier électronique à l'aide du service de messagerie Sendgrid dans Azure. Pour plus d'informations, consultez la page [Envoi de courrier électronique à partir de Mobile Services avec SendGrid].
++ **url**: contient des utilitaires pour analyser et résoudre les URL. Pour plus d'informations, consultez la [documentation Node.js][url API].
++ **util**: contient divers utilitaires, comme le formatage de chaînes et la vérification du type d'objet. Pour plus d'informations, consultez la [documentation Node.js][util API]. 
++ **zlib**: expose la fonctionnalité de compression, comme gzip et deflate. Pour plus d'informations, consultez la [documentation Node.js][zlib API]. 
 
 ###<a name="modules-helper-functions"></a>Procédure : utilisation des modules
 
@@ -519,7 +519,7 @@ Après avoir validé le fichier package.json ou les modules personnalisés sur l
 
 En plus de nécessiter des modules, chaque script serveur peut inclure des fonctions d'assistance. Ce sont des fonctions qui sont séparées de la fonction principale et peuvent être utilisées pour factoriser le code du script.
 
-Dans l'exemple suivant, un script de table est enregistré pour une opération insert, qui inclut la fonction d'assistance **handleUnapprovedItem** :
+Dans l'exemple suivant, un script de table est enregistré pour une opération insert, qui inclut la fonction d'assistance **handleUnapprovedItem**:
 
 
 	function insert(item, user, request) {
@@ -683,7 +683,7 @@ Une fois que vous avez un [objet table], vous pouvez appeler une ou plusieurs fo
 		}
 	}
 
-L'exemple suivant écrit des informations d'audit dans une table **audit** :
+L'exemple suivant écrit des informations d'audit dans une table **audit**:
 
 	function update(item, user, request) {
 		request.execute({ success: insertAuditEntry });
@@ -786,9 +786,9 @@ Stream|Non pris en charge
 
 Le moyen le plus simple d'utiliser les données de table à partir de scripts serveur consiste à utiliser un proxy d'[objet table]. Toutefois, il existe des scénarios plus avancés qui ne sont pas pris en charge par l'[objet table], comme les requêtes de jonction et d'autres requêtes complexes ainsi que l'appel de procédures stockées. Dans ces cas-là, vous devez exécuter des instructions Transact-SQL directement sur la table relationnelle à l'aide de l'[objet mssql]. Cet objet fournit les fonctions suivantes :
 
-- **query** : exécute une requête, spécifiée par une chaîne TSQL ; les résultats sont renvoyés au rappel **success** sur l'objet **options**. La requête peut inclure des paramètres si le paramètre *params* est présent.
-- **queryRaw** : identique à *query*, à l'exception que le jeu de résultats renvoyé à partir de la requête est dans un format « brut » (voir l'exemple ci-dessous).
-- **open** : utilisé pour obtenir une connexion à partir de votre base de données Mobile Services. Vous pouvez ensuite utiliser l'objet de connexion pour appeler les opérations de base de données comme les transactions.
+- **query**: exécute une requête, spécifiée par une chaîne TSQL ; les résultats sont renvoyés au rappel **success** sur l'objet **options**. La requête peut inclure des paramètres si le paramètre *params* est présent.
+- **queryRaw**: identique à *query*, à l'exception que le jeu de résultats renvoyé à partir de la requête est dans un format « brut » (voir l'exemple ci-dessous).
+- **open**: utilisé pour obtenir une connexion à partir de votre base de données Mobile Services. Vous pouvez ensuite utiliser l'objet de connexion pour appeler les opérations de base de données comme les transactions.
 
 Ces méthodes vous donnent progressivement un meilleur contrôle de bas niveau sur le traitement de la requête.
 
@@ -905,7 +905,7 @@ Voici la sortie apparaissant suite à l'exécution de cette requête. Elle conti
 
 Vous pouvez utiliser la méthode **open** pour accéder à la connexion de base de données. Une raison de le faire serait que vous deviez utiliser des transactions de base de données.
 
-La bonne exécution de la méthode **open** entraîne la transmission de la connexion de base de données en paramètre de la fonction **success**. Vous pouvez appeler l'une des fonctions suivantes sur l'objet **connection** : *close*, *queryRaw*, *query*, *beginTransaction*, *commit* et *rollback*.
+La bonne exécution de la méthode **open** entraîne la transmission de la connexion de base de données en paramètre de la fonction **success**. Vous pouvez appeler l'une des fonctions suivantes sur l'objet **connection**: *close*, *queryRaw*, *query*, *beginTransaction*, *commit* et *rollback*.
 
 		    mssql.open({
 		        success: function(connection) {

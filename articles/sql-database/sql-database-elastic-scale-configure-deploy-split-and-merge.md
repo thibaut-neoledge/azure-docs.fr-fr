@@ -162,11 +162,11 @@ Le déploiement et votre environnement peuvent être testés en exécutant les e
 
 Les fichiers de script inclus sont les suivants :
 
-1. **SetupSampleSplitMergeEnvironment.ps1** : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
-2. **ExecuteSampleSplitMerge.ps1** : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
-3. **GetMappings.ps1** : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
-4. **ShardManagement.psm1** : script d’assistance qui encapsule l’API ShardManagement
-5. **SqlDatabaseHelpers.psm1** : script d’assistance pour la création et la gestion des bases de données SQL
+1. **SetupSampleSplitMergeEnvironment.ps1**: configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
+2. **ExecuteSampleSplitMerge.ps1**: exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
+3. **GetMappings.ps1**: exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
+4. **ShardManagement.psm1**: script d’assistance qui encapsule l’API ShardManagement
+5. **SqlDatabaseHelpers.psm1**: script d’assistance pour la création et la gestion des bases de données SQL
 
 <table style="width:100%">
   <tr>

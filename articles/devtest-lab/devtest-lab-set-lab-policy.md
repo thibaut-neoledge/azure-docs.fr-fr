@@ -74,13 +74,13 @@ La stratégie du nombre maximal de machines virtuelles vous permet de spécifier
 
 	![Paramètres](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
 
-1. Dans la section **Stratégie par utilisateur** :
+1. Dans la section **Stratégie par utilisateur**:
  
 	1. Appuyez sur **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
 	
 	1. Si vous avez activé cette stratégie, dans la zone de texte **Nombre maximal de machines virtuelles autorisées par utilisateur**, entrez une valeur numérique indiquant le nombre maximal de machines virtuelles qu’un utilisateur peut créer. Si vous entrez un nombre non valide, l’interface utilisateur affiche le nombre maximal autorisé pour ce champ.
 
-1. Dans la section **Stratégie par laboratoire** :
+1. Dans la section **Stratégie par laboratoire**:
  
 	1. Appuyez sur **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
 	

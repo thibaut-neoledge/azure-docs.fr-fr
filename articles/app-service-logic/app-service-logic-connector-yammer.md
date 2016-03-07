@@ -31,12 +31,12 @@ Pour utiliser le connecteur Yammer, vous devez d’abord créer une instance de 
 2. Recherchez « Connecteur Yammer », sélectionnez-le et sélectionnez **Créer**.
 3. Configurez le connecteur Yammer comme suit : ![][1]
 
-	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-	- **Plan App Service** : sélectionnez ou créez un plan d'hébergement web.
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
-	- **Nom** : indiquez le nom de votre connecteur Yammer.
+	- **Emplacement**: choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+	- **Abonnement**: choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Groupe de ressources**: sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Plan App Service**: sélectionnez ou créez un plan d'hébergement web.
+	- **Niveau de tarification**: choisissez un niveau de tarification pour le connecteur.
+	- **Nom**: indiquez le nom de votre connecteur Yammer.
 
 4. Cliquez sur Créer. Un connecteur Yammer est créé.
 5. Une fois l’instance de l’application API créée, vous pouvez créer une application logique pour utiliser le connecteur Yammer.
@@ -58,7 +58,7 @@ Vous pouvez maintenant utiliser le connecteur Yammer dans le flux.
 
 Vous pouvez utiliser le nouveau message récupéré du déclencheur Yammer (« Nouveau message ») dans d’autres actions du flux. Configurez les propriétés d’entrée du déclencheur Yammer comme suit :
 
-- **ID de groupe** : ID du groupe à partir duquel le nouveau message doit être récupéré. Si l’ID de groupe n’est pas fourni, le message sera récupéré du flux suivant. L’ID de groupe peut être récupéré à partir de l’URL du groupe dans Yammer.
+- **ID de groupe**: ID du groupe à partir duquel le nouveau message doit être récupéré. Si l’ID de groupe n’est pas fourni, le message sera récupéré du flux suivant. L’ID de groupe peut être récupéré à partir de l’URL du groupe dans Yammer.
 		
 	Exemple : l'ID de groupe de l'URL suivant est « 5453203 » : https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203 ![][8] ![][9]
 
@@ -66,11 +66,11 @@ Vous pouvez utiliser le nouveau message récupéré du déclencheur Yammer (« N
 
 Vous pouvez également utiliser le connecteur Yammer comme une action dans vos applications logiques. Tout d'abord, spécifiez un déclencheur pour votre application logique ou cochez la case « exécuter cette logique manuellement » (comme indiqué ci-dessous). Ajoutez le connecteur Yammer, définissez les autorisations et choisissez l'action « Message Post ». Configurez les propriétés d’entrée de l’action « Publier le message » comme suit :
 
-- **Texte du message** : corps du message à publier.
-- **ID de groupe** : indiquez l'ID du groupe vers lequel publier le nouveau message. Si aucun ID de groupe n’est fourni, le message sera publié dans tous les flux de l’entreprise. L’ID de groupe peut être récupéré à partir de l’URL du groupe dans Yammer.  
+- **Texte du message**: corps du message à publier.
+- **ID de groupe**: indiquez l'ID du groupe vers lequel publier le nouveau message. Si aucun ID de groupe n’est fourni, le message sera publié dans tous les flux de l’entreprise. L’ID de groupe peut être récupéré à partir de l’URL du groupe dans Yammer.  
 
 	Exemple : l'ID de groupe de l'URL suivant est « 5453203 » : https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
-- 	**Baliser les utilisateurs** : tableau des noms d'utilisateur du réseau qui doivent être balisés dans le message : ![][10]![][11]
+- 	**Baliser les utilisateurs**: tableau des noms d'utilisateur du réseau qui doivent être balisés dans le message : ![][10]![][11]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).

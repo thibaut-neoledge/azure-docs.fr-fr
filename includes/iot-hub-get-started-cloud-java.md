@@ -125,7 +125,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     import com.microsoft.eventhubs.client.ConnectionStringBuilder;
     ```
 
-7. Ajoutez les variables de niveau classe ci-après à la classe **App** :
+7. Ajoutez les variables de niveau classe ci-après à la classe **App**:
 
     ```
     private static EventHubClient client;
@@ -142,7 +142,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     }
     ```
 
-9. Ajoutez le constructeur ci-après à la classe **MessageReceiver** :
+9. Ajoutez le constructeur ci-après à la classe **MessageReceiver**:
 
     ```
     public MessageReceiver(String partitionId) {

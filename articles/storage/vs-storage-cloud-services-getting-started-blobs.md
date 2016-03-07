@@ -97,7 +97,7 @@ Pour télécharger un fichier vers un objet blob de blocs, obtenez une référen
 
 ## Création d'une liste d'objets blob dans un conteneur
 
-Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite utiliser la méthode **ListBlobs** du conteneur pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre la récupération et la génération de l’URI de chaque élément du conteneur **photos** :
+Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite utiliser la méthode **ListBlobs** du conteneur pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre la récupération et la génération de l’URI de chaque élément du conteneur **photos**:
 
 	// Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -124,7 +124,7 @@ Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir u
 		}
 	}
 
-Comme le montre l’exemple de code précédent, le service blob intègre également le concept de répertoires dans des conteneurs. Vous pouvez donc organiser vos objets blob selon une structure proche de celle des dossiers. Par exemple, prenez l’ensemble d’objets blob de blocs suivant, situé dans un conteneur nommé **photos** :
+Comme le montre l’exemple de code précédent, le service blob intègre également le concept de répertoires dans des conteneurs. Vous pouvez donc organiser vos objets blob selon une structure proche de celle des dossiers. Par exemple, prenez l’ensemble d’objets blob de blocs suivant, situé dans un conteneur nommé **photos**:
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -142,7 +142,7 @@ Quand vous appelez **ListBlobs** pour le conteneur (comme dans l’exemple préc
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Vous pouvez également affecter au paramètre **UseFlatBlobListing** de la méthode **ListBlobs** la valeur **true**. Cette opération se traduit par le renvoi de chaque objet blob en tant que **CloudBlockBlob**, indépendamment du répertoire. Voici l’appel à **ListBlobs** :
+Vous pouvez également affecter au paramètre **UseFlatBlobListing** de la méthode **ListBlobs** la valeur **true**. Cette opération se traduit par le renvoi de chaque objet blob en tant que **CloudBlockBlob**, indépendamment du répertoire. Voici l’appel à **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))

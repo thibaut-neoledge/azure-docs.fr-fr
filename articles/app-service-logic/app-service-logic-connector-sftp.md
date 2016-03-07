@@ -29,19 +29,19 @@ Un connecteur peut être créé dans une application logique ou directement à p
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « Connecteur SFTP », sélectionnez-le et sélectionnez **Créer**.
 3. Configurez le connecteur SFTP comme suit : ![][1]
-	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-	- **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
-	- **Nom** : indiquez le nom de votre connecteur SFTP.
+	- **Emplacement**: choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+	- **Abonnement**: choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Groupe de ressources**: sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Plan d’hébergement web**: sélectionnez ou créez un plan d’hébergement web.
+	- **Niveau de tarification**: choisissez un niveau de tarification pour le connecteur.
+	- **Nom**: indiquez le nom de votre connecteur SFTP.
 	- **Paramètres du package**
-		- **Adresse du serveur** : indiquez le nom ou l’adresse IP du serveur SFTP
-		- **Accepter toute clé d’hôte de serveur SSH** : détermine si n’importe quelle clé d’hôte publique SSH issue du serveur doit être acceptée. Si ce paramètre est désactivé, la clé d’hôte est comparée à la clé spécifiée dans la propriété « Empreinte de la clé d’hôte du serveur SSH ».
-		- **Clé d’hôte du serveur SSH** : spécifiez l’empreinte de la clé d’hôte publique du serveur SSH (*facultatif*).
-		- **Dossier racine** : indiquez le chemin d’accès du dossier racine. Si rien n’est indiqué, le dossier racine sera indiqué par défaut.
-		- **Chiffrement** : indiquez le chiffrement (*facultatif*).
-		- **Port du serveur** : spécifiez le numéro de port du serveur SFTP.
+		- **Adresse du serveur**: indiquez le nom ou l’adresse IP du serveur SFTP
+		- **Accepter toute clé d’hôte de serveur SSH**: détermine si n’importe quelle clé d’hôte publique SSH issue du serveur doit être acceptée. Si ce paramètre est désactivé, la clé d’hôte est comparée à la clé spécifiée dans la propriété « Empreinte de la clé d’hôte du serveur SSH ».
+		- **Clé d’hôte du serveur SSH**: spécifiez l’empreinte de la clé d’hôte publique du serveur SSH (*facultatif*).
+		- **Dossier racine**: indiquez le chemin d’accès du dossier racine. Si rien n’est indiqué, le dossier racine sera indiqué par défaut.
+		- **Chiffrement**: indiquez le chiffrement (*facultatif*).
+		- **Port du serveur**: spécifiez le numéro de port du serveur SFTP.
 4. Cliquez sur Créer. Un connecteur SFTP est créé.
 
 5. Accédez à l’application API tout juste créée en sélectionnant Parcourir -> API Apps -> <Name of the API App just created>. Le composant « Sécurité » apparaît comme non configuré : ![][2]
@@ -62,24 +62,26 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 
 6.	Configurez les propriétés d’entrée du déclencheur SFTP comme suit :
 
-	- **Chemin du dossier** : spécifiez le chemin du dossier dans lequel récupérer les fichiers.
-	- **Type du fichier : texte ou binaire** : sélectionnez le type du fichier.
-	- **Masque de fichiers** : spécifiez le masque à appliquer pour récupérer les fichiers. '*' récupère tous les fichiers dans le dossier spécifié.
-- **Masque de fichiers à exclure** : spécifiez le masque à appliquer pour exclure des fichiers. Si la propriété « Masque de fichiers » est également définie, la propriété « Masque de fichiers à exclure » est appliquée en premier.
+	- **Chemin du dossier**: spécifiez le chemin du dossier dans lequel récupérer les fichiers.
+	- **Type du fichier : texte ou binaire**: sélectionnez le type du fichier.
+	- **Masque de fichiers**: spécifiez le masque à appliquer pour récupérer les fichiers. '*' récupère tous les fichiers dans le dossier spécifié.
+	- **Masque de fichiers à exclure**: spécifiez le masque à appliquer pour exclure des fichiers. Si la propriété « Masque de fichiers » est également définie, la propriété « Masque de fichiers à exclure » est appliquée en premier.
 
 
-	![][9] ![][10]
+	![][9]  
+	![][10]
 
 7.	De même, vous pouvez utiliser les actions SFTP dans le flux. Vous pouvez utiliser l’action « Charger le fichier » pour charger un fichier sur le serveur SFTP. Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
 
-	- **Contenu** : spécifie le contenu du fichier à télécharger.
-	- **Encodage de transfert de contenu** : spécifiez none ou base64.
-	- **Chemin du fichier** : spécifiez le chemin du fichier à charger.
-	- **Remplacer** : spécifiez « true » pour remplacer le fichier existant.
-	- ****Ajouter à la fin si existant ** : spécifiez « true » ou « false ». Lorsque vous spécifiez « true », les données sont ajoutées à la fin du fichier (s’il existe). Lorsque vous spécifiez « false », le fichier est remplacé (s’il existe).
-- **Dossier temporaire** : si cette propriété est définie, l’adaptateur charge le fichier dans le « Chemin du dossier temporaire ». Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans « Chemin du dossier ». Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
+	- **Contenu**: spécifie le contenu du fichier à télécharger.
+	- **Encodage de transfert de contenu**: spécifiez none ou base64.
+	- **Chemin du fichier**: spécifiez le chemin du fichier à charger.
+	- **Remplacer**: spécifiez « true » pour remplacer le fichier existant.
+	- ****Ajouter à la fin si existant **: spécifiez « true » ou « false ». Lorsque vous spécifiez « true », les données sont ajoutées à la fin du fichier (s’il existe). Lorsque vous spécifiez « false », le fichier est remplacé (s’il existe).
+	- **Dossier temporaire**: si cette propriété est définie, l’adaptateur charge le fichier dans le « Chemin du dossier temporaire ». Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans « Chemin du dossier ». Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
 
-	![][11] ![][12]
+	![][11]  
+	![][12]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).

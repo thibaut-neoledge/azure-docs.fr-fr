@@ -1,4 +1,4 @@
-Azure détermine que votre application utilise Python **si les deux conditions suivantes sont remplies** :
+Azure détermine que votre application utilise Python **si les deux conditions suivantes sont remplies**:
 
 - Fichier requirements.txt présent dans le dossier racine
 - N’importe quel fichier .py présent dans le dossier racine ou un fichier runtime.txt spécifiant python

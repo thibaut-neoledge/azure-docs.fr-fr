@@ -101,9 +101,9 @@ Vous pouvez ajouter d’autres technologies telles que Hue ou R à ces types de 
 
 Vous pouvez configurer des clusters HDInsight sur l’un des deux systèmes d’exploitation suivants :
 
-- **HDInsight sous Windows (Windows Server 2012 R2 Datacenter)** : sélectionnez cette option si vous devez intégrer des services basés sur Windows et des technologies destinés à s’exécuter sur le cluster avec Hadoop, ou si vous migrez à partir d’une distribution Hadoop basée sur Windows existante.
+- **HDInsight sous Windows (Windows Server 2012 R2 Datacenter)**: sélectionnez cette option si vous devez intégrer des services basés sur Windows et des technologies destinés à s’exécuter sur le cluster avec Hadoop, ou si vous migrez à partir d’une distribution Hadoop basée sur Windows existante.
 
-- **HDInsight sous Linux (Ubuntu 12.04 LTS pour Linux)** : sélectionnez cette option si vous maîtrisez Linux ou Unix, pour une migration à partir d’une solution Hadoop Linux existante ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+- **HDInsight sous Linux (Ubuntu 12.04 LTS pour Linux)**: sélectionnez cette option si vous maîtrisez Linux ou Unix, pour une migration à partir d’une solution Hadoop Linux existante ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [AZURE.NOTE] Les informations présentes dans ce document supposent que vous utilisez un cluster HDInsight Linux. Pour obtenir des informations spécifiques aux clusters basés sur Windows, consultez [Création de clusters Hadoop Windows dans HDInsight](hdinsight-provision-clusters.md).
 

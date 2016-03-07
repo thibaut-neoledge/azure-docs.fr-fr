@@ -221,7 +221,7 @@ Propriétés requises pour Channel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -240,7 +240,7 @@ Propriétés requises pour Video :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |

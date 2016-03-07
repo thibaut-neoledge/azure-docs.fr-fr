@@ -246,7 +246,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties**:
 
 Propriété | Description |Valeurs autorisées | Requis
 -------- | ----------- | ------------- | --------
@@ -304,7 +304,7 @@ XML | String
 1. Si vous n’avez pas installé le fournisseur .NET pour Oracle, veuillez l’[installer](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html), puis recommencez le scénario. 
 2. Si vous obtenez le message d’erreur même après l’installation du fournisseur, procédez comme suit : 
 	1. Ouvrez le fichier machine.config de .NET 2.0 à partir du dossier : <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Recherchez le **Fournisseur de données Oracle pour .Net**. Vous devez être en mesure de trouver une entrée comme ci-dessous sous **system.data** -> **DbProviderFactories** : « <add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" /> »
+	2. Recherchez le **Fournisseur de données Oracle pour .Net**. Vous devez être en mesure de trouver une entrée comme ci-dessous sous **system.data** -> **DbProviderFactories**: « <add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" /> »
 2.	Copiez cette entrée dans le fichier machine.config dans le dossier v4.0 suivant : <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, et remplacez la version par 4.xxx.x.x.
 3.	Installez « <ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll » dans le Global Assembly Cache (GAC) en exécutant « gacutil /i [chemin d’accès du fournisseur] ».
 

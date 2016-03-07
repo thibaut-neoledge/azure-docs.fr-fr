@@ -49,18 +49,18 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 ### Ajouter une configuration à PowerApps
 Quand vous ajoutez Salesforce à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Salesforce. La valeur **URL de redirection** est également utilisée dans votre application Salesforce. Si vous n’avez pas d’application Salesforce, vous pouvez utiliser les étapes suivantes pour en créer une :
 
-1. [Connectez-vous à la page d’accueil du développeur Salesforce][5], sélectionnez votre profil et sélectionnez **Setup** : ![Page d’accueil Salesforce][6]
+1. [Connectez-vous à la page d’accueil du développeur Salesforce][5], sélectionnez votre profil et sélectionnez **Setup**: ![Page d’accueil Salesforce][6]
 
-3. Sélectionnez **Create**, puis sélectionnez **Apps**. Dans la page **Apps**, sous **Connected Apps**, sélectionnez **New** : ![Création d’applications Salesforce][7]
+3. Sélectionnez **Create**, puis sélectionnez **Apps**. Dans la page **Apps**, sous **Connected Apps**, sélectionnez **New**: ![Création d’applications Salesforce][7]
 
-4. Dans **New Connected App** :
+4. Dans **New Connected App**:
 
 	1. Renseignez le champ **Connected App Name**.  
 	2. Renseignez le champ **API Name**.  
 	3. Renseignez le champ **Contact Email**.  
 	4. Sous _API (Enable OAuth Settings)_, sélectionnez **Enable OAuth Settings**, puis définissez **Callback URL** sur la valeur affichée quand vous ajoutez la nouvelle API Salesforce dans le portail Azure.  
 
-5. Dans la section _Selected OAuth scopes_, ajoutez les étendues suivantes à **Selected OAuth Scopes** :
+5. Dans la section _Selected OAuth scopes_, ajoutez les étendues suivantes à **Selected OAuth Scopes**:
 
 	- Access and manage your Chatter data (chatter\_api)
 	- Access and manage your data (api)

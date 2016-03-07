@@ -98,8 +98,8 @@ REMARQUE : si vous devez effectuer des recherches ou des filtrages qui portent s
 
 Par défaut, un indexeur Azure Search arrête l'indexation dès que l'opération échoue avec le moindre document. Selon votre scénario, vous pouvez choisir de tolérer certains échecs (par exemple, si vous réindexez à plusieurs reprises la totalité de votre source de données). Azure Search fournit deux paramètres d'indexeur qui permettent d'affiner ce comportement :
 
-- **maxFailedItems** : nombre d'éléments dont l'indexation peut échouer avant que l'exécution de l'indexeur soit considérée comme un échec. La valeur par défaut est 0.
-- **maxFailedItemsPerBatch** : nombre d'éléments dont l'indexation peut échouer dans un même lot avant que l'exécution de l'indexeur soit considérée comme un échec. La valeur par défaut est 0.
+- **maxFailedItems**: nombre d'éléments dont l'indexation peut échouer avant que l'exécution de l'indexeur soit considérée comme un échec. La valeur par défaut est 0.
+- **maxFailedItemsPerBatch**: nombre d'éléments dont l'indexation peut échouer dans un même lot avant que l'exécution de l'indexeur soit considérée comme un échec. La valeur par défaut est 0.
 
 Vous pouvez modifier ces valeurs à tout moment en spécifiant un de ces paramètres, ou les deux, au moment de la création ou de la mise à jour de votre indexeur :
 

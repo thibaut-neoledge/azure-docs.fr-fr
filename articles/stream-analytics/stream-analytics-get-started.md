@@ -85,13 +85,13 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 ### Configuration d’un travail Stream Analytics
 
 1.	Dans le portail Azure, cliquez sur **Nouveau > Data Services > Stream Analytics > Création rapide**.
-2.	Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
+2.	Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics**:
 
-	* **Nom du travail** : entrez un nom pour le travail.
+	* **Nom du travail**: entrez un nom pour le travail.
 
-	* **Région** : sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le concentrateur d’événements dans la même région pour être certain d’améliorer les performances et de ne pas payer pour un transfert de données entre différentes régions.
+	* **Région**: sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le concentrateur d’événements dans la même région pour être certain d’améliorer les performances et de ne pas payer pour un transfert de données entre différentes régions.
 
-	* **Compte de stockage** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de toutes les tâches Stream Analytics en cours d’exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
+	* **Compte de stockage**: choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de toutes les tâches Stream Analytics en cours d’exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
 
 3.	Dans le volet gauche, cliquez sur **Stream Analytics** pour afficher une liste des travaux Stream Analytics.
 
@@ -105,21 +105,21 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 3.	Sélectionnez **Hub d’événements**, puis cliquez avec le bouton droit.
 4.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
-	* **Alias d'entrée** : entrez un nom convivial pour cette entrée de travail, comme *CallStream*. Notez que vous utiliserez ce nom dans la requête par la suite.
-	* **Concentrateur d'événements** : si le concentrateur d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le concentrateur d’événements.
+	* **Alias d'entrée**: entrez un nom convivial pour cette entrée de travail, comme *CallStream*. Notez que vous utiliserez ce nom dans la requête par la suite.
+	* **Concentrateur d'événements**: si le concentrateur d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le concentrateur d’événements.
 
 	Si votre concentrateur d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le concentrateur d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du concentrateur d’événements**, le **nom de la stratégie du concentrateur d’événements**, la **clé de stratégie du concentrateur d’événements** et le **nombre de partitions du concentrateur d’événements**.
 
-	* **Nom du concentrateur d'événements** : sélectionnez le nom du concentrateur d'événements.
+	* **Nom du concentrateur d'événements**: sélectionnez le nom du concentrateur d'événements.
 
-	* **Nom de la stratégie du concentrateur d'événements** : sélectionnez la stratégie de concentrateur d’événements créée précédemment dans ce didacticiel.
+	* **Nom de la stratégie du concentrateur d'événements**: sélectionnez la stratégie de concentrateur d’événements créée précédemment dans ce didacticiel.
 
-	* **Groupe de consommateurs du hub d’événements** : saisissez le nom du groupe de consommateurs créé précédemment dans ce didacticiel.
+	* **Groupe de consommateurs du hub d’événements**: saisissez le nom du groupe de consommateurs créé précédemment dans ce didacticiel.
 5.	Cliquez avec le bouton droit.
 6.	Spécifiez les valeurs suivantes :
 
-	* **Format du sérialiseur d'événement** : JSON
-	* **Encodage** : UTF8
+	* **Format du sérialiseur d'événement**: JSON
+	* **Encodage**: UTF8
 7.	Cliquez sur la coche pour ajouter cette source et vérifier que Stream Analytics peut se connecter au concentrateur d’événements.
 
 ### Spécification de la requête du travail
@@ -218,17 +218,17 @@ Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, proc�
 2.	Sélectionnez **STOCKAGE D’OBJETS BLOB**, puis cliquez avec le bouton droit.
 3.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
-	* **ALIAS DE SORTIE** : entrez un nom convivial pour cette sortie de travail.
-	* **ABONNEMENT** : si le stockage d'objets blob que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l'abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
-	* **COMPTE DE STOCKAGE** : sélectionnez le nom du compte de stockage.
-	* **CONTENEUR** : sélectionnez le nom du conteneur.
-	* **PRÉFIXE DU NOM DE FICHIER** : entrez un préfixe de fichier à utiliser lors de l’écriture de la sortie de l’objet blob.
+	* **ALIAS DE SORTIE**: entrez un nom convivial pour cette sortie de travail.
+	* **ABONNEMENT**: si le stockage d'objets blob que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l'abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
+	* **COMPTE DE STOCKAGE**: sélectionnez le nom du compte de stockage.
+	* **CONTENEUR**: sélectionnez le nom du conteneur.
+	* **PRÉFIXE DU NOM DE FICHIER**: entrez un préfixe de fichier à utiliser lors de l’écriture de la sortie de l’objet blob.
 
 4.	Cliquez avec le bouton droit.
 5.	Spécifiez les valeurs suivantes :
 
-	* **FORMAT DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
-	* **ENCODAGE** : UTF8
+	* **FORMAT DU SÉRIALISEUR D’ÉVÉNEMENT**: JSON
+	* **ENCODAGE**: UTF8
 
 6.	Cliquez sur le bouton de vérification pour ajouter cette source et vérifier que Stream Analytics peut se connecter au compte de stockage.
 

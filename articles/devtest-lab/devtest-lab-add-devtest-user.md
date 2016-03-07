@@ -26,11 +26,11 @@ L'accès à un DevTest Lab est contrôlé par le contrôle d'accès en fonction 
 
 L'accès à votre DevTest Lab s'accorde via deux rôles :
 
- - **Propriétaire** : les utilisateurs affectés au rôle **Propriétaire** au niveau de l'abonnement Azure ont un accès complet au labo, y compris aux fonctions de gestion et de surveillance.
+ - **Propriétaire**: les utilisateurs affectés au rôle **Propriétaire** au niveau de l'abonnement Azure ont un accès complet au labo, y compris aux fonctions de gestion et de surveillance.
 
      > [AZURE.NOTE] Les rôles **Propriétaire** qui sont affectés aux niveaux RBAC autres que le niveau de l'abonnement ne sont pas pris en charge dans DevTest Lab. L'affectation d'un utilisateur au rôle **Propriétaire** dans DevTest Lab n'est pas prise en charge.
 
- -  **Utilisateur DevTest Lab** : les utilisateurs affectés au rôle **Utilisateur DevTest Lab** peuvent créer, mettre à jour et supprimer des machines virtuelles dans le labo spécifié. Les utilisateurs peuvent être *internes* (membres d'Azure Active Directory pour l'abonnement) ou *externes* (utilisateurs non membres d'Azure AD, par exemple membres d'une organisation partenaire).
+ -  **Utilisateur DevTest Lab**: les utilisateurs affectés au rôle **Utilisateur DevTest Lab** peuvent créer, mettre à jour et supprimer des machines virtuelles dans le labo spécifié. Les utilisateurs peuvent être *internes* (membres d'Azure Active Directory pour l'abonnement) ou *externes* (utilisateurs non membres d'Azure AD, par exemple membres d'une organisation partenaire).
 	-  Un rôle **Utilisateur DevTest Lab** doit être affecté avec les vignettes **Ajouter des utilisateurs** du labo.
 	-  Les utilisateurs du rôle **Utilisateur DevTest Lab** ne peuvent effectuer ces opérations qu'au sein du labo auquel ils sont affectés. Par exemple, un **Utilisateur DevTest Lab** ne peut pas créer de machine virtuelle avec le service de machine virtuelle de l'abonnement. La création d'une machine virtuelle n'est autorisée qu'à partir du compte DevTest Lab.
 	- Les utilisateurs *externes* doivent posséder un compte dans l'un des domaines de compte Microsoft (@hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com ou une variante spécifique d'un pays).
@@ -91,7 +91,7 @@ Pour ajouter un utilisateur DevTest Lab à votre labo, procédez comme suit :
 
 1. Dans le panneau **Sélectionner un rôle**, cliquez sur **Utilisateur DevTest Lab**
 
-1. Dans le panneau **Ajouter des utilisateurs** :
+1. Dans le panneau **Ajouter des utilisateurs**:
 
 	1. Le panneau **Ajouter des utilisateurs** affiche la liste des utilisateurs intégrés. Si l'utilisateur souhaité est déjà dans la liste, vous pouvez simplement cliquer sur la ligne de l'utilisateur pour le sélectionner. Une coche s'affiche à gauche de l'utilisateur pour indiquer que l'utilisateur a été sélectionné. Pour sélectionner plusieurs utilisateurs, maintenez la touche **&lt;Ctrl>** enfoncée tout en cliquant sur chaque utilisateur. Pour désélectionner un utilisateur, maintenez la touche **&lt;Ctrl>** enfoncée et cliquez sur l'utilisateur. Un compteur en bas du panneau indique le nombre d'utilisateurs sélectionnés.
 

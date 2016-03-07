@@ -42,7 +42,7 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 - [Utilisation d'Hive dans HDInsight](hdinsight-use-hive.md)
 - [Utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
  
-**Conditions préalables** :
+**Conditions préalables**:
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).

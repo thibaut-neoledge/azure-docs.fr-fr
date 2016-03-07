@@ -143,10 +143,10 @@ Ce document ne contient pas la description de la procédure de validation de la 
 ### Valider les revendications
 Quand votre application ou API reçoit un jeton d’ID, elle doit également procéder à quelques vérifications sur les revendications dans le jeton d’ID. Vous avez notamment vu les points suivants :
 
-- Revendication **Audience** : vérifie que le jeton d’ID était bien destiné à votre application.
-- Revendications **Pas avant** et **Heure d’expiration** : vérifient que le jeton d’ID n’est pas arrivé à expiration.
-- Revendication **Émetteur** : vérifie que le jeton a effectivement été émis à votre application par Azure AD.
-- **Valeur à usage unique** : stratégie d’atténuation des attaques par relecture de jetons.
+- Revendication **Audience**: vérifie que le jeton d’ID était bien destiné à votre application.
+- Revendications **Pas avant** et **Heure d’expiration**: vérifient que le jeton d’ID n’est pas arrivé à expiration.
+- Revendication **Émetteur**: vérifie que le jeton a effectivement été émis à votre application par Azure AD.
+- **Valeur à usage unique**: stratégie d’atténuation des attaques par relecture de jetons.
 
 Les valeurs attendues pour ces revendications sont détaillées dans la [section Jeton id\_token](#id-tokens) ci-dessus.
 

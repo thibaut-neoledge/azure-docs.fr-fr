@@ -45,11 +45,13 @@ L’application terminée est également fournie à la fin de ce didacticiel.
 
 ## Obtention d'un répertoire Azure AD B2C
 
-Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes, etc. Si vous n’en possédez pas déjà un, [créez un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin.
+Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes, etc. Si vous n’en possédez pas déjà un,
+[créez un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin.
 
 ## Création d'une application
 
-Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Dans ce cas, l’application cliente et l’API web seront toutes les deux représentées par un seul **ID d’application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
+Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Dans ce cas, l’application cliente et l’API web seront toutes les deux représentées par un seul **ID d’application**,
+car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
 - Inclure une **application web/API web** dans l’application.
 - Entrer `http://localhost/TodoListService` comme **URL de réponse**. Il s’agit de l’URL par défaut pour cet exemple de code.
@@ -60,7 +62,9 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 
 ## Création de vos stratégies
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient 3 expériences liées à l’identité : l’inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos 3 stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient 3
+expériences liées à l’identité : l’inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’
+[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos 3 stratégies, assurez-vous de :
 
 - Choisir le **nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
 - Choisir les revendications **nom d’affichage** et **ID objet** comme revendications d’application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
@@ -70,7 +74,8 @@ Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratég
 
 Une fois vos 3 stratégies créées, vous pouvez générer votre application.
 
-Remarque : cet article n’explique pas comment utiliser les stratégies que vous venez de créer. Pour en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C, commencez par le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Remarque : cet article n’explique pas comment utiliser les stratégies que vous venez de créer. Pour en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C,
+commencez par le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Télécharger Node.js pour votre plateforme
 

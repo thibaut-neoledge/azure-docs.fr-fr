@@ -474,7 +474,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties**:
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- | 
@@ -483,7 +483,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. | True (valeur par défaut), False | Non | 
 
 
-**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties**:
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |

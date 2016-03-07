@@ -106,7 +106,7 @@ Toutes les étapes de l’application logique qui sont requises pour la réponse
 ## Configuration avancée du point de terminaison
 Les applications logiques prennent automatiquement en charge le point de terminaison d’accès direct et utilisent systématiquement la méthode `POST` pour démarrer l’exécution. En outre, l’application API **Écouteur HTTP** prenait déjà en charge la modification des segments d’URL et de la méthode HTTP. Vous pouviez même renforcer la sécurité ou configurer un domaine personnalisé en l’ajoutant à l’hôte d’application API (l’application web hébergeant l’application API).
 
-Cette fonctionnalité est disponible par le biais de la **Gestion des API** : * [Modifier la méthode de la requête](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) * [Modifier les segments de l’URL de la requête](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL) * Configurer vos domaines de la gestion des API sous l’onglet **Configurer** dans le portail Azure Classic * Configurer une stratégie pour vérifier l’authentification de base (**lien nécessaire**)
+Cette fonctionnalité est disponible par le biais de la **Gestion des API**: * [Modifier la méthode de la requête](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) * [Modifier les segments de l’URL de la requête](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL) * Configurer vos domaines de la gestion des API sous l’onglet **Configurer** dans le portail Azure Classic * Configurer une stratégie pour vérifier l’authentification de base (**lien nécessaire**)
 
 ## Résumé de la migration à partir de 2014-12-01-preview
 

@@ -33,10 +33,10 @@ Pour créer et gérer manuellement des utilisateurs dans Azure AD, reportez-vous
 4. Sélectionnez l'onglet **Configurer**.
 5. Accédez à la section **Appareils**.
 6. Dans l’onglet **Appareils**, définissez les éléments suivants :  
-   * **NOMBRE MAXIMAL D’APPAREILS PAR UTILISATEUR** : sélectionnez le nombre maximal d’appareils qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne sera pas en mesure d’ajouter des appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés.
-   * **EXIGER MULTI-FACTOR AUTH POUR JOINDRE DES APPAREILS** : indiquez si les utilisateurs doivent fournir un second facteur d’authentification pour joindre leurs appareils à Azure AD. Pour plus d’informations sur Azure Multi-Factor Authentication, consultez [Prise en main avec Azure Multi-Factor Authentication dans le cloud](multi-factor-authentication-get-started-cloud/).
-   * **LES UTILISATEURS PEUVENT JOINDRE DES APPAREILS À AZURE AD** : sélectionnez les utilisateurs et groupes autorisés à joindre des appareils à Azure AD.
-   * **ADMINISTRATEURS SUPPLÉMENTAIRES SUR LES APPAREILS JOINTS À AZURE AD** : avec Azure AD Premium ou Enterprise Mobility Suite (EMS), vous pouvez choisir les utilisateurs qui bénéficient de droits d’administrateur local sur l’appareil. Les administrateurs globaux et les propriétaires des appareils bénéficient de droits d’administrateur local par défaut.
+   * **NOMBRE MAXIMAL D’APPAREILS PAR UTILISATEUR**: sélectionnez le nombre maximal d’appareils qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne sera pas en mesure d’ajouter des appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés.
+   * **EXIGER MULTI-FACTOR AUTH POUR JOINDRE DES APPAREILS**: indiquez si les utilisateurs doivent fournir un second facteur d’authentification pour joindre leurs appareils à Azure AD. Pour plus d’informations sur Azure Multi-Factor Authentication, consultez [Prise en main avec Azure Multi-Factor Authentication dans le cloud](multi-factor-authentication-get-started-cloud/).
+   * **LES UTILISATEURS PEUVENT JOINDRE DES APPAREILS À AZURE AD**: sélectionnez les utilisateurs et groupes autorisés à joindre des appareils à Azure AD.
+   * **ADMINISTRATEURS SUPPLÉMENTAIRES SUR LES APPAREILS JOINTS À AZURE AD**: avec Azure AD Premium ou Enterprise Mobility Suite (EMS), vous pouvez choisir les utilisateurs qui bénéficient de droits d’administrateur local sur l’appareil. Les administrateurs globaux et les propriétaires des appareils bénéficient de droits d’administrateur local par défaut.
 
 <center>![Configuration de l’inscription des appareils](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 

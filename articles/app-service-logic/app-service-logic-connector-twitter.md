@@ -64,7 +64,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Twitt
 1.	Créez une application logique ou ouvrez une application logique existante : ![][2]
 2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d’applications logiques : ![][3]
 3.	Le connecteur Twitter est répertorié sur le côté droit. Sélectionnez-le pour l’ajouter automatiquement à votre application logique : ![][4]
-4.	Sélectionnez **Autoriser**, entrez vos informations d’identification Twitter, puis sélectionnez **Autoriser l’application** : ![][5]
+4.	Sélectionnez **Autoriser**, entrez vos informations d’identification Twitter, puis sélectionnez **Autoriser l’application**: ![][5]
 
 
 Vous pouvez maintenant configurer le connecteur Twitter pour créer votre flux de travail. Vous pouvez utiliser les tweets récupérés par le déclencheur Twitter dans d’autres actions du flux : ![][6]

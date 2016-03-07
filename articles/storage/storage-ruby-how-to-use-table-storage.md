@@ -100,7 +100,7 @@ Plusieurs méthodes permettent de mettre à jour une entité existante :
 * **insert\_or\_merge\_entity() :** met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
 * **insert\_or\_replace\_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
 
-L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()** :
+L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()**:
 
 	entity = { "content" => "test entity with updated content",
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
@@ -129,7 +129,7 @@ Pour interroger une entité dans une table, utilisez la méthode **get\_entity()
 
 ## Interrogation d’un ensemble d’entités
 
-Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
+Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey**:
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)

@@ -49,7 +49,7 @@ Voici les différentes actions disponibles dans le connecteur SugarCRM :
 
 - Rechercher les doublons dans le module : utilisez cette action pour rechercher les enregistrements en double dans un module.
 
-*Remarque* : pour en savoir plus sur les arguments pris en charge dans une requête, consultez la documentation des [API REST de SugarCRM](https://msdn.microsoft.com/library/dn705870).
+*Remarque*: pour en savoir plus sur les arguments pris en charge dans une requête, consultez la documentation des [API REST de SugarCRM](https://msdn.microsoft.com/library/dn705870).
 
 ## Créer une application API du connecteur SugarCRM
 1.	Accédez à portal.azure.com. Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU dans le coin supérieur gauche du portail Azure.

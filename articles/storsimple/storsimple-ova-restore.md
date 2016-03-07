@@ -79,7 +79,7 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 5.  En bas de la page, cliquez sur **Restaurer comme nouveau**. L’assistant **Restaurer comme nouveau volume** démarre.
 
-1.  Dans la page **Spécifiez un nom et un emplacement** :
+1.  Dans la page **Spécifiez un nom et un emplacement**:
 
 
 	1.  Vérifiez le nom de l’appareil source. Il doit s'agir de l’appareil contenant le volume que vous souhaitez restaurer. La sélection de l'appareil n'est pas disponible. Pour sélectionner un autre appareil source, vous devez quitter l'assistant et sélectionner à nouveau le jeu de sauvegarde.

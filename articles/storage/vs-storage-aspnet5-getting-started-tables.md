@@ -30,7 +30,7 @@ Pour obtenir des informations plus générales sur l’utilisation d’Azure Tab
 
 Pour commencer, vous devez créer une table dans votre compte de stockage. Nous allons vous montrer comment créer une table Azure dans le code. Nous vous indiquerons aussi comment effectuer des opérations de base sur les tables et les entités, telles que l'ajout, la modification et la lecture d’entités de table. Les exemples ont été écrits en code C# et utilisent la bibliothèque du client de stockage Azure pour .NET.
 
-**REMARQUE** : parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code ci-dessous suppose que des méthodes de programmation asynchrone sont utilisées.
+**REMARQUE**: parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code ci-dessous suppose que des méthodes de programmation asynchrone sont utilisées.
 
 ## Accès aux tables dans le code
 

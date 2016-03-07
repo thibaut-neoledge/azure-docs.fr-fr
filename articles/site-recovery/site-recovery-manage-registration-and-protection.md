@@ -30,9 +30,9 @@ Publier des commentaires ou des questions au bas de cet article, ou sur le [Foru
 
 Vous pouvez annuler l’inscription d’un serveur VMM dans un coffre en supprimant le serveur via l’onglet **Serveurs** du portail Microsoft Azure Site Recovery. Notez les points suivants :
 
--  **Serveur VMM connecté** : nous vous recommandons d’annuler l’inscription du serveur VMM lorsqu’il est connecté à Microsoft Azure. Cette opération garantit le nettoyage correct des paramètres sur le serveur VMM local, ainsi que sur les serveurs VMM associés (qui contiennent des clouds mappés sur ceux du serveur à supprimer). En cas de problème de connectivité permanent, nous vous recommandons de supprimer uniquement un serveur non connecté.
+-  **Serveur VMM connecté**: nous vous recommandons d’annuler l’inscription du serveur VMM lorsqu’il est connecté à Microsoft Azure. Cette opération garantit le nettoyage correct des paramètres sur le serveur VMM local, ainsi que sur les serveurs VMM associés (qui contiennent des clouds mappés sur ceux du serveur à supprimer). En cas de problème de connectivité permanent, nous vous recommandons de supprimer uniquement un serveur non connecté.
 - **Serveur VMM non connecté**: si le serveur VMM n’est pas connecté lorsque vous le supprimez, vous devez exécuter un script manuellement afin d’effectuer le nettoyage. Ce script est disponible dans la [galerie Microsoft](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Notez l’ID VMM du serveur, afin d’effectuer le processus de nettoyage manuel.
-- **Serveur VMM dans un cluster** : si vous devez annuler l’inscription d’un serveur VMM déployé au sein d’un cluster, procédez comme suit :
+- **Serveur VMM dans un cluster**: si vous devez annuler l’inscription d’un serveur VMM déployé au sein d’un cluster, procédez comme suit :
 
 	- Si le serveur est connecté, supprimez le serveur VMM connecté sur l’onglet **Serveurs**. Pour désinstaller le fournisseur sur le serveur, connectez-vous sur chaque nœud du cluster et désinstallez-le dans le Panneau de configuration. Exécutez le script de nettoyage indiqué dans la section précédente sur tous les nœuds passifs du cluster, afin de supprimer les entrées d’inscription.
 	- Si le serveur n’est pas connecté, vous devez exécuter le script de nettoyage sur tous les nœuds du cluster.
@@ -151,8 +151,8 @@ Si vous souhaitez arrêter la protection d'une machine virtuelle Hyper-V, vous d
 1. Dans l’onglet **Machines virtuelles** de la page de propriétés du cloud, sélectionnez la machine virtuelle et cliquez sur **Supprimer**.
 2. Sur la page **Confirmer la suppression de la machine virtuelle**, vous pouvez choisir différentes options :
 
-	- **Désactiver la protection** : si vous activez cette option et l’enregistrez, la machine virtuelle n’est plus protégée par Site Recovery. Les paramètres de protection de la machine virtuelle seront automatiquement nettoyés.
-	- **Supprimer du coffre** : si vous sélectionnez cette option, la machine virtuelle est supprimée du coffre Site Recovery uniquement. Les paramètres de protection locale de la machine virtuelle ne seront pas affectés. Vous devez nettoyer manuellement les paramètres en suivant les instructions ci-dessous pour supprimer les paramètres de protection et supprimer la machine virtuelle de l'abonnement Azure.
+	- **Désactiver la protection**: si vous activez cette option et l’enregistrez, la machine virtuelle n’est plus protégée par Site Recovery. Les paramètres de protection de la machine virtuelle seront automatiquement nettoyés.
+	- **Supprimer du coffre**: si vous sélectionnez cette option, la machine virtuelle est supprimée du coffre Site Recovery uniquement. Les paramètres de protection locale de la machine virtuelle ne seront pas affectés. Vous devez nettoyer manuellement les paramètres en suivant les instructions ci-dessous pour supprimer les paramètres de protection et supprimer la machine virtuelle de l'abonnement Azure.
 
 Si vous choisissez de supprimer la machine virtuelle et ses disques durs, ces derniers sont supprimés de l’emplacement cible.
 
@@ -210,13 +210,13 @@ Si vous souhaitez arrêter la protection d'une machine virtuelle VMware ou d’u
 2. Dans **Supprimer une machine virtuelle** sélectionnez l’une des options suivantes :
 
 	- **Désactiver la protection (à utiliser pour les exercices de récupération et les redimensionnements de volumes)**. Vous ne pourrez voir et activer cette option que si vous avez :
-		- **Redimensionné le volume de la machine virtuelle** : lorsque vous redimensionnez un volume, la machine virtuelle passe en état critique. Dans ce cas, sélectionnez cette option. Elle désactive la protection tout en conservant des points de récupération dans Azure. Lorsque vous réactiverez la protection de la machine, les données du volume redimensionné seront transférées vers Azure.
-		- **Exécuté un basculement** : une fois que vous avez testé votre environnement en exécutant un basculement à partir des machines virtuelles VMware locales ou des serveurs physiques vers Azure, sélectionnez cette option pour protéger de nouveau vos machines virtuelles locales. Cette option désactive chaque machine virtuelle. Ensuite, vous devrez réactiver la protection. Notez les points suivants :
+		- **Redimensionné le volume de la machine virtuelle**: lorsque vous redimensionnez un volume, la machine virtuelle passe en état critique. Dans ce cas, sélectionnez cette option. Elle désactive la protection tout en conservant des points de récupération dans Azure. Lorsque vous réactiverez la protection de la machine, les données du volume redimensionné seront transférées vers Azure.
+		- **Exécuté un basculement**: une fois que vous avez testé votre environnement en exécutant un basculement à partir des machines virtuelles VMware locales ou des serveurs physiques vers Azure, sélectionnez cette option pour protéger de nouveau vos machines virtuelles locales. Cette option désactive chaque machine virtuelle. Ensuite, vous devrez réactiver la protection. Notez les points suivants :
 			- La désactivation de la machine virtuelle avec ce paramètre n'affecte pas la machine virtuelle de réplication dans Azure.
 			- Vous ne devez pas désinstaller le service de mobilité de la machine virtuelle.
 	
-	- **Désactiver la protection** : si vous activez cette option et l’enregistrez, la machine n’est plus protégée par Site Recovery. Les paramètres de protection de la machine seront automatiquement nettoyés.
-	- **Supprimer du coffre** : si vous sélectionnez cette option, la machine est supprimée du coffre Site Recovery uniquement. Les paramètres de protection locale de la machine ne seront pas affectés. Pour supprimer les paramètres de la machine et supprimer la machine virtuelle de l’abonnement Azure, vous devez nettoyer les paramètres en désinstallant le service de mobilité.
+	- **Désactiver la protection**: si vous activez cette option et l’enregistrez, la machine n’est plus protégée par Site Recovery. Les paramètres de protection de la machine seront automatiquement nettoyés.
+	- **Supprimer du coffre**: si vous sélectionnez cette option, la machine est supprimée du coffre Site Recovery uniquement. Les paramètres de protection locale de la machine ne seront pas affectés. Pour supprimer les paramètres de la machine et supprimer la machine virtuelle de l’abonnement Azure, vous devez nettoyer les paramètres en désinstallant le service de mobilité.
 	
 		![Supprimer les options](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 

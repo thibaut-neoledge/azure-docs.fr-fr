@@ -33,7 +33,7 @@ L’exemple contient les entités de fabrique de données suivantes :
 
 L'exemple copie toutes les heures les données provenant de l’interrogation d'une source OData vers un objet blob Azure. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié OData** : cet exemple utilise l’authentification de base. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié OData**: cet exemple utilise l’authentification de base. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
     {
 		"name": "ODataLinkedService",

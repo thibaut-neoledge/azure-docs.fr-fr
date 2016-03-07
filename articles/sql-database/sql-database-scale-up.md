@@ -55,12 +55,12 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 2.	Cliquez sur **PARCOURIR TOUT**.
 3.	Cliquez sur **Bases de données SQL**.
 2.	Cliquez sur la base de données à modifier.
-3.	Dans le panneau de la base de données SQL, cliquez sur **Tous les paramètres**, puis sur **Niveau tarifaire (mise à l'échelle de DTU)** :
+3.	Dans le panneau de la base de données SQL, cliquez sur **Tous les paramètres**, puis sur **Niveau tarifaire (mise à l'échelle de DTU)**:
 
     ![niveau tarifaire][1]
 
 
-1.  Sélectionnez un nouveau niveau, puis cliquez sur **Sélectionner** :
+1.  Sélectionnez un nouveau niveau, puis cliquez sur **Sélectionner**:
 
     Le fait de cliquer sur **Sélectionner** envoie une demande de mise à l’échelle pour modifier la couche de base de données. En fonction de la taille de votre base de données, l’opération de mise à l’échelle peut prendre plus ou moins longtemps. Cliquez sur la notification pour obtenir les détails et l’état de l’opération de mise à l’échelle.
 
@@ -68,7 +68,7 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 
     ![sélectionner un niveau de tarification][2]
 
-3.	Dans le ruban gauche, cliquez sur **Notifications** :
+3.	Dans le ruban gauche, cliquez sur **Notifications**:
 
     ![notifications][3]
 

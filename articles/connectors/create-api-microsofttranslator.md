@@ -49,7 +49,7 @@ Lorsque vous ajoutez Microsoft Translator à PowerApps Enterprise, vous entrez l
 
 1. Accédez à [page de développeur Azure Data Market][5] et connectez-vous avec votre compte Microsoft. 
 
-2. Sélectionnez **Inscrire votre application** :
+2. Sélectionnez **Inscrire votre application**:
 
 	1. Entrez une valeur dans le champ **ID de client**.
 	2. Entrez le **nom** de votre application.

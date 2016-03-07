@@ -30,7 +30,7 @@ Le Validateur XML BizTalk utilise des schémas dans le cadre de sa configuration
 
 ![Configuration du Validateur XML BizTalk][1]
 
-Dans le panneau de l’application API, les utilisateurs peuvent configurer des schémas en sélectionnant *Schémas* :
+Dans le panneau de l’application API, les utilisateurs peuvent configurer des schémas en sélectionnant *Schémas*:
 
 ![Partie du schéma du Validateur XML BizTalk][2]
 

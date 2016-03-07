@@ -200,7 +200,7 @@ Propriétés requises pour User :
 
 ID
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |

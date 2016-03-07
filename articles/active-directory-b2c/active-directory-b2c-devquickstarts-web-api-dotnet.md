@@ -87,11 +87,13 @@ Lorsque le projet `TaskService` reçoit des demandes de `TaskWebApp`, il recherc
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-Cet article ne traite pas les détails de la sécurisation du `TaskService`. Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre [article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Cet article ne traite pas les détails de la sécurisation du `TaskService`. Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre
+[article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## 6\. Configuration de l’application web de la tâche
 
-Afin que l’`TaskWebApp` communique avec Azure AD B2C, vous devez renseigner certains paramètres communs. Dans le projet `TaskWebApp`, ouvrez le fichier `web.config` qui se trouve à la racine et remplacez les valeurs de la section `<appSettings>` : Ces valeurs seront utilisées dans l’application web.
+Afin que l’`TaskWebApp` communique avec Azure AD B2C, vous devez renseigner certains paramètres communs. Dans le projet `TaskWebApp`, ouvrez le fichier
+`web.config` qui se trouve à la racine et remplacez les valeurs de la section `<appSettings>` : Ces valeurs seront utilisées dans l’application web.
 
 ```
 <appSettings>

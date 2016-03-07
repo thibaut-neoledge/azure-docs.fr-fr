@@ -63,7 +63,7 @@ Une fois le connecteur d’objet blob de stockage Azure créé, il peut être aj
 
 3. Sélectionnez votre connecteur d’objet blob de stockage Azure dans le volet droit. Le connecteur répertorie les actions disponibles : ![Liste des actions de l’objet blob de stockage Azure][10]
 
-4. Dans ce scénario, nous allons utiliser l'action **Télécharger un objet Blob** : ![Entrées de l’action de téléchargement de l’objet blob][11]
+4. Dans ce scénario, nous allons utiliser l'action **Télécharger un objet Blob**: ![Entrées de l’action de téléchargement de l’objet blob][11]
 
 5. Indiquez les valeurs d’entrée et sélectionnez la case à cocher pour terminer la configuration :
 

@@ -51,11 +51,11 @@ Après avoir configuré ou créé votre connecteur, vous pouvez modifier les val
 Procédez comme suit :
 
 1. Ouvrez votre connecteur ou l’application API. Le panneau de l’application API s’ouvre.
-2. Dans la fenêtre **Bases**, cliquez sur le lien hypertexte sous la propriété de l’hôte. Le lien hypertexte est nommé de la manière suivante : *slackconnector* ou *microsoftsqlconnector123* :
+2. Dans la fenêtre **Bases**, cliquez sur le lien hypertexte sous la propriété de l’hôte. Le lien hypertexte est nommé de la manière suivante : *slackconnector* ou *microsoftsqlconnector123*:
 
 	![][apiapphost]
 
-3. Dans le panneau Hôte d’application API, sélectionnez **Paramètres**. Dans le panneau Paramètres, sélectionnez **Paramètres de l’application**. Vos valeurs de configuration sont répertoriées sous **Paramètres de l’application** :
+3. Dans le panneau Hôte d’application API, sélectionnez **Paramètres**. Dans le panneau Paramètres, sélectionnez **Paramètres de l’application**. Vos valeurs de configuration sont répertoriées sous **Paramètres de l’application**:
 	
 	![][hostsettings]
 
@@ -121,7 +121,10 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 
 ## En savoir plus
 
-[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](../active-directory/role-based-access-control-configure.md)<br/>[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
+[Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>
+[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](../active-directory/role-based-access-control-configure.md)<br/>
+[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->

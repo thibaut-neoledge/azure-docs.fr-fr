@@ -215,7 +215,7 @@ Si vous hébergez votre API web sur **App Service**, la liste des actions dispon
 
 Si vous avez déjà déployé une application API, vous pouvez l’appeler via l’action **HTTP**.
 
-Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouvez disposer du contenu suivant dans votre définition de version de schéma **2014-12-01-preview** : ```
+Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouvez disposer du contenu suivant dans votre définition de version de schéma **2014-12-01-preview**: ```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
     "contentVersion": "1.0.0.0",

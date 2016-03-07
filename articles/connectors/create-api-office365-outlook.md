@@ -691,7 +691,7 @@ Il n’existe aucun paramètre pour cet appel
 
 ## Définition(s) d’objet : 
 
- **TriggerBatchResponse[IDictionary[String,Object]]** :
+ **TriggerBatchResponse[IDictionary[String,Object]]**:
 
 Propriétés requises pour TriggerBatchResponse[IDictionary[String,Object]] :
 
@@ -699,7 +699,7 @@ Propriétés requises pour TriggerBatchResponse[IDictionary[String,Object]] :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -708,13 +708,13 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **SendMessage** : envoyer un message électronique
+ **SendMessage**: envoyer un message électronique
 
 Propriétés requises pour SendMessage :
 
 Subject, Body, To
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -731,13 +731,13 @@ Subject, Body, To
 
 
 
- **SendAttachment** : pièce jointe
+ **SendAttachment**: pièce jointe
 
 Propriétés requises pour SendAttachment :
 
 Name, ContentBytes
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -748,13 +748,13 @@ Name, ContentBytes
 
 
 
- **ReceiveMessage** : recevoir un message électronique
+ **ReceiveMessage**: recevoir un message électronique
 
 Propriétés requises pour ReceiveMessage :
 
 Subject, Body, To
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -775,13 +775,13 @@ Subject, Body, To
 
 
 
- **ReceiveAttachment** : recevoir une pièce jointe
+ **ReceiveAttachment**: recevoir une pièce jointe
 
 Propriétés requises pour ReceiveAttachment :
 
 Id, ContentType, Name, ContentBytes
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -794,13 +794,13 @@ Id, ContentType, Name, ContentBytes
 
 
 
- **DigestMessage** : envoyer un message électronique
+ **DigestMessage**: envoyer un message électronique
 
 Propriétés requises pour DigestMessage :
 
 Subject, Digest, To
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -814,7 +814,7 @@ Subject, Digest, To
 
 
 
- **TriggerBatchResponse[ReceiveMessage]** :
+ **TriggerBatchResponse[ReceiveMessage]**:
 
 Propriétés requises pour TriggerBatchResponse[ReceiveMessage] :
 
@@ -822,7 +822,7 @@ Propriétés requises pour TriggerBatchResponse[ReceiveMessage] :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -831,7 +831,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **DataSetsMetadata** :
+ **DataSetsMetadata**:
 
 Propriétés requises pour DataSetsMetadata :
 
@@ -839,7 +839,7 @@ Propriétés requises pour DataSetsMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -849,7 +849,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TabularDataSetsMetadata** :
+ **TabularDataSetsMetadata**:
 
 Propriétés requises pour TabularDataSetsMetadata :
 
@@ -857,7 +857,7 @@ Propriétés requises pour TabularDataSetsMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -870,7 +870,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **BlobDataSetsMetadata** :
+ **BlobDataSetsMetadata**:
 
 Propriétés requises pour BlobDataSetsMetadata :
 
@@ -878,7 +878,7 @@ Propriétés requises pour BlobDataSetsMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -889,7 +889,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TableMetadata** :
+ **TableMetadata**:
 
 Propriétés requises pour TableMetadata :
 
@@ -897,7 +897,7 @@ Propriétés requises pour TableMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -909,7 +909,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **OptionsEmailSubscription** : modèle d’abonnement au courrier électronique avec options
+ **OptionsEmailSubscription**: modèle d’abonnement au courrier électronique avec options
 
 Propriétés requises pour OptionsEmailSubscription :
 
@@ -917,7 +917,7 @@ Propriétés requises pour OptionsEmailSubscription :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -927,13 +927,13 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **MessageWithOptions** : message électronique avec options de l’utilisateur Message attendu dans le cadre de l’entrée de l’utilisateur
+ **MessageWithOptions**: message électronique avec options de l’utilisateur Message attendu dans le cadre de l’entrée de l’utilisateur
 
 Propriétés requises pour MessageWithOptions :
 
 Subject, Options, To
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -947,7 +947,7 @@ Subject, Options, To
 
 
 
- **SubscriptionResponse** : modèle d’abonnement au courrier électronique d’approbation
+ **SubscriptionResponse**: modèle d’abonnement au courrier électronique d’approbation
 
 Propriétés requises pour SubscriptionResponse :
 
@@ -955,7 +955,7 @@ Propriétés requises pour SubscriptionResponse :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -967,7 +967,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **ApprovalEmailSubscription** : modèle d’abonnement au courrier électronique d’approbation
+ **ApprovalEmailSubscription**: modèle d’abonnement au courrier électronique d’approbation
 
 Propriétés requises pour ApprovalEmailSubscription :
 
@@ -975,7 +975,7 @@ Propriétés requises pour ApprovalEmailSubscription :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -985,13 +985,13 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **ApprovalMessage** : message électronique d’approbation. Message attendu dans le cadre de l’entrée de l’utilisateur
+ **ApprovalMessage**: message électronique d’approbation. Message attendu dans le cadre de l’entrée de l’utilisateur
 
 Propriétés requises pour ApprovalMessage :
 
 Subject, Options, To
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1005,7 +1005,7 @@ Subject, Options, To
 
 
 
- **ApprovalEmailResponse** : réponse par courrier électronique d’approbation
+ **ApprovalEmailResponse**: réponse par courrier électronique d’approbation
 
 Propriétés requises pour ApprovalEmailResponse :
 
@@ -1013,7 +1013,7 @@ Propriétés requises pour ApprovalEmailResponse :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1022,7 +1022,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TablesList** :
+ **TablesList**:
 
 Propriétés requises pour TablesList :
 
@@ -1030,7 +1030,7 @@ Propriétés requises pour TablesList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1039,7 +1039,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Table** :
+ **Table**:
 
 Propriétés requises pour Table :
 
@@ -1047,7 +1047,7 @@ Propriétés requises pour Table :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1057,7 +1057,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Item** :
+ **Item**:
 
 Propriétés requises pour Item :
 
@@ -1065,7 +1065,7 @@ Propriétés requises pour Item :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1074,7 +1074,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **CalendarItemsList** : liste des éléments de calendrier
+ **CalendarItemsList**: liste des éléments de calendrier
 
 Propriétés requises pour CalendarItemsList :
 
@@ -1082,7 +1082,7 @@ Propriétés requises pour CalendarItemsList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1091,7 +1091,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **CalendarItem** : représente un élément de table de calendrier
+ **CalendarItem**: représente un élément de table de calendrier
 
 Propriétés requises pour CalendarItem :
 
@@ -1099,7 +1099,7 @@ Propriétés requises pour CalendarItem :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1108,7 +1108,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **ContactItemsList** : liste des éléments de contact
+ **ContactItemsList**: liste des éléments de contact
 
 Propriétés requises pour ContactItemsList :
 
@@ -1116,7 +1116,7 @@ Propriétés requises pour ContactItemsList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1125,7 +1125,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **ContactItem** : représente un élément de la table de contacts
+ **ContactItem**: représente un élément de la table de contacts
 
 Propriétés requises pour ContactItem :
 
@@ -1133,7 +1133,7 @@ Propriétés requises pour ContactItem :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1142,7 +1142,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **DataSetsList** :
+ **DataSetsList**:
 
 Propriétés requises pour DataSetsList :
 
@@ -1150,7 +1150,7 @@ Propriétés requises pour DataSetsList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -1159,7 +1159,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **DataSet** :
+ **DataSet**:
 
 Propriétés requises pour DataSet :
 
@@ -1167,7 +1167,7 @@ Propriétés requises pour DataSet :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |

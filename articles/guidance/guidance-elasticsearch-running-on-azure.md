@@ -139,7 +139,7 @@ Le coût de cette approche équivaut aux frais d’inscription du nœud client d
 
 Elasticsearch permet d’utiliser plusieurs mécanismes pour implémenter l’équilibrage de la charge de connexion. La liste suivante répertorie certaines approches courantes :
 
-**Équilibrage de la charge basé sur le client** : si vous créez des applications clientes à l’aide des API Elasticsearch.Net ou NEST, vous pouvez utiliser un pool de connexions pour les demandes de connexion de type Tourniquet (round-robin) entre les nœuds, ce qui permet d’équilibrer la charge des demandes sans recourir à un équilibreur de charge externe. L’extrait de code suivant montre comment créer un objet *ElasticsearchClient* configuré avec les adresses de trois nœuds. Les demandes de l’application cliente sont réparties entre ces nœuds :
+**Équilibrage de la charge basé sur le client**: si vous créez des applications clientes à l’aide des API Elasticsearch.Net ou NEST, vous pouvez utiliser un pool de connexions pour les demandes de connexion de type Tourniquet (round-robin) entre les nœuds, ce qui permet d’équilibrer la charge des demandes sans recourir à un équilibreur de charge externe. L’extrait de code suivant montre comment créer un objet *ElasticsearchClient* configuré avec les adresses de trois nœuds. Les demandes de l’application cliente sont réparties entre ces nœuds :
 
 ```csharp
 // C#
@@ -154,7 +154,7 @@ var client = new ElasticsearchClient(config);
 
 > [AZURE.NOTE] Une fonctionnalité similaire est disponible pour les applications Java via [l’API de client de transport][].
 
-**Équilibrage de la charge basé sur le serveur** : vous pouvez utiliser un équilibreur de charge distinct pour distribuer les demandes aux nœuds. Cette approche présente l’avantage de la transparence d’adresse ; il est inutile de configurer les applications clientes avec les détails de chaque nœud, ce qui facilite l’ajout, la suppression ou le déplacement des nœuds sans modifier le code client. La figure ci-dessous illustre une configuration qui utilise un équilibreur de charge pour acheminer les demandes vers un ensemble de nœuds client, bien que la même stratégie puisse être utilisée pour se connecter directement aux nœuds de données si les nœuds client ne sont pas utilisés.
+**Équilibrage de la charge basé sur le serveur**: vous pouvez utiliser un équilibreur de charge distinct pour distribuer les demandes aux nœuds. Cette approche présente l’avantage de la transparence d’adresse ; il est inutile de configurer les applications clientes avec les détails de chaque nœud, ce qui facilite l’ajout, la suppression ou le déplacement des nœuds sans modifier le code client. La figure ci-dessous illustre une configuration qui utilise un équilibreur de charge pour acheminer les demandes vers un ensemble de nœuds client, bien que la même stratégie puisse être utilisée pour se connecter directement aux nœuds de données si les nœuds client ne sont pas utilisés.
 
 ![](media/guidance-elasticsearch/general-clientappinstances.png)
 
@@ -162,7 +162,7 @@ var client = new ElasticsearchClient(config);
 
 > [AZURE.NOTE] Vous pouvez utiliser [l’équilibreur de charge Azure][] pour exposer le cluster sur le réseau Internet public, ou vous pouvez utiliser un [équilibreur de charge interne][] si le cluster et les applications clientes sont contenus entièrement au sein du même réseau virtuel (VNET) privé.
 
-**Équilibrage de charge personnalisé** : vous pouvez utiliser [nginx][] comme serveur proxy inverse à la place de l’équilibreur de charge Azure. Nginx fournit plusieurs méthodes d’équilibrage de la charge, notamment le tourniquet (round robin), le choix du moins connecté (une requête est acheminée vers la destination ayant le moins de connexions en cours) et le hachage basé sur l’adresse IP du client.
+**Équilibrage de charge personnalisé**: vous pouvez utiliser [nginx][] comme serveur proxy inverse à la place de l’équilibreur de charge Azure. Nginx fournit plusieurs méthodes d’équilibrage de la charge, notamment le tourniquet (round robin), le choix du moins connecté (une requête est acheminée vers la destination ayant le moins de connexions en cours) et le hachage basé sur l’adresse IP du client.
 
 > [AZURE.NOTE] Vous pouvez déployer un serveur nginx comme une machine virtuelle Azure. Pour préserver la disponibilité, vous pouvez créer au moins deux serveurs nginx dans le même groupe à haute disponibilité Azure.
 

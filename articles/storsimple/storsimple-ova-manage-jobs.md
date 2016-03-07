@@ -25,22 +25,22 @@ La page **Tâches** est un portail centralisé unique qui permet de consulter et
 
 Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant sur les champs, à savoir :
 
-- **État** : vous pouvez rechercher la totalité des tâches ou celles en cours d’exécution, terminées ou en échec.
-- **De et À** : les tâches peuvent être filtrées selon la date et l'heure.
-- **Type** : le type de tâche peut concerner toutes les tâches, ou les tâches de sauvegarde, de restauration, de basculement, de téléchargement de mises à jour ou d’installation de mises à jour.
-- **Appareils** : les tâches sont initiées sur un appareil spécifique connecté à votre service. Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
+- **État**: vous pouvez rechercher la totalité des tâches ou celles en cours d’exécution, terminées ou en échec.
+- **De et À**: les tâches peuvent être filtrées selon la date et l'heure.
+- **Type**: le type de tâche peut concerner toutes les tâches, ou les tâches de sauvegarde, de restauration, de basculement, de téléchargement de mises à jour ou d’installation de mises à jour.
+- **Appareils**: les tâches sont initiées sur un appareil spécifique connecté à votre service. Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
 
-    - **Type** : le type de tâche peut concerner toutes les tâches, ou les tâches de sauvegarde, de restauration, de basculement, de téléchargement de mises à jour ou d’installation de mises à jour.
+    - **Type**: le type de tâche peut concerner toutes les tâches, ou les tâches de sauvegarde, de restauration, de basculement, de téléchargement de mises à jour ou d’installation de mises à jour.
 
-    - **État** : peut concerner la totalité des tâches ou celles en cours d’exécution, terminées ou en échec.
+    - **État**: peut concerner la totalité des tâches ou celles en cours d’exécution, terminées ou en échec.
 
-    - **Entité** : les tâches peuvent être associées à un volume, un partage ou un appareil.
+    - **Entité**: les tâches peuvent être associées à un volume, un partage ou un appareil.
 
-    - **Appareil** : nom de l'appareil sur lequel la tâche a été lancée.
+    - **Appareil**: nom de l'appareil sur lequel la tâche a été lancée.
 
-    - **Démarré le** : heure à laquelle la tâche a été lancée.
+    - **Démarré le**: heure à laquelle la tâche a été lancée.
 
-    - **Progression** : pourcentage d'achèvement d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
+    - **Progression**: pourcentage d'achèvement d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
 
 La liste des tâches est actualisée toutes les 30 secondes.
 

@@ -416,7 +416,7 @@ Procédez comme suit :
 11. Sélectionnez un certificat dans la liste.
 
 ## Exportation du certificat
-Dans l’**Assistant Exportation de certificat** :
+Dans l’**Assistant Exportation de certificat**:
 
 1. Cliquez sur **Suivant**.
 2. Sélectionnez l’option **Oui**, puis **Exporter la clé privée**.

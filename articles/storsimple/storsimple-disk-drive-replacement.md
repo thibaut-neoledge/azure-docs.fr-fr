@@ -41,7 +41,7 @@ Cette procédure explique comment les verrous anti-effraction sur votre appareil
 
     ![Lecteur de disque verrouillé](./media/storsimple-disk-drive-replacement/IC741056.png)
 
-    **Figure 1** : Verrou anti-effraction engagé
+    **Figure 1**: Verrou anti-effraction engagé
 
     |Étiquette|Description|
     |:----|:----------|
@@ -54,7 +54,7 @@ Cette procédure explique comment les verrous anti-effraction sur votre appareil
 
     ![Lecteur de disque déverrouillé](./media/storsimple-disk-drive-replacement/IC741057.png)
 
-    **Figure 2** : Lecteur de disque déverrouillé
+    **Figure 2**: Lecteur de disque déverrouillé
 
 4. Le lecteur de disque peut maintenant être retiré.
 
@@ -86,13 +86,13 @@ Les lecteurs peuvent être retirés et remplacés pendant que le système foncti
 
     ![Libération de la poignée du lecteur de disque](./media/storsimple-disk-drive-replacement/IC741051.png)
 
-    **Figure 3** : Libération de la poignée du lecteur
+    **Figure 3**: Libération de la poignée du lecteur
 
 5. Quand la poignée du support de lecteur est entièrement en extension, faites glisser le support de lecteur hors du châssis.
 
     ![Retrait du disque hors du lecteur de disque](./media/storsimple-disk-drive-replacement/IC741052.png)
     
-    **Figure 4** : Retrait du lecteur de disque hors du châssis
+    **Figure 4**: Retrait du lecteur de disque hors du châssis
 
 ##     Installez le lecteur de disque de remplacement
 
@@ -104,13 +104,13 @@ Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple 
 
     ![Lecteur de disque avec la poignée en extension](./media/storsimple-disk-drive-replacement/IC741044.png)
 
-    **Figure 5** : Lecteur avec la poignée en extension
+    **Figure 5**: Lecteur avec la poignée en extension
 
 2. Faites glisser le support de lecteur jusqu’au bout dans le châssis.
 
     ![Insertion du disque dans le support de lecteur disque](./media/storsimple-disk-drive-replacement/IC741045.png)
 
-    **Figure 6** : Insertion du support de lecteur dans le châssis
+    **Figure 6**: Insertion du support de lecteur dans le châssis
 
 3. Le support de lecteur étant inséré, fermez la poignée du support de lecteur tout en continuant à pousser le support de lecteur dans le châssis, jusqu’à ce que la poignée du support de lecteur s’enclenche en position verrouillée.
 

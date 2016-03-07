@@ -30,16 +30,16 @@ Publiez des commentaires ou des questions au bas de cet article ou sur le [Forum
 
 Le mappage réseau est utilisé lorsqu’Azure Site Recovery est déployé pour répliquer des machines virtuelles Hyper-V sur Azure ou sur un centre de données secondaire à l’aide de Réplica Hyper-V ou de la réplication SAN.
 
-- **Machines virtuelles Hyper-V de réplication dans les clouds VMM entre deux centres de données locaux** : le mappage réseau effectue le mappage entre des réseaux de machines virtuelles sur un serveur VMM source et des réseaux de machines virtuelles sur un serveur VMM cible, afin d’obtenir les résultats décrits ci-après.
+- **Machines virtuelles Hyper-V de réplication dans les clouds VMM entre deux centres de données locaux**: le mappage réseau effectue le mappage entre des réseaux de machines virtuelles sur un serveur VMM source et des réseaux de machines virtuelles sur un serveur VMM cible, afin d’obtenir les résultats décrits ci-après.
 
-	- **Connexion des machines virtuelles après basculement** : le système vérifie que les machines virtuelles sont connectées aux réseaux appropriés après le basculement. L’ordinateur virtuel de réplication sera connecté au réseau cible mappé au réseau source.
-	- **Positionnement des ordinateurs virtuels de réplication sur les serveurs hôtes** : les ordinateurs virtuels de réplication sont positionnés de manière optimale sur les serveurs hôtes Hyper-V. Ces ordinateurs sont placés sur des hôtes ayant accès aux réseaux de machines virtuelles mappés.
-	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, les machines virtuelles répliquées ne sont pas connectés aux réseaux de machines virtuelles après le basculement.
+	- **Connexion des machines virtuelles après basculement**: le système vérifie que les machines virtuelles sont connectées aux réseaux appropriés après le basculement. L’ordinateur virtuel de réplication sera connecté au réseau cible mappé au réseau source.
+	- **Positionnement des ordinateurs virtuels de réplication sur les serveurs hôtes**: les ordinateurs virtuels de réplication sont positionnés de manière optimale sur les serveurs hôtes Hyper-V. Ces ordinateurs sont placés sur des hôtes ayant accès aux réseaux de machines virtuelles mappés.
+	- **Aucun mappage réseau**: si vous ne configurez pas le mappage réseau, les machines virtuelles répliquées ne sont pas connectés aux réseaux de machines virtuelles après le basculement.
 
-- **Réplication de machines virtuelles Hyper-V dans un cloud VMM local vers Azure** : le mappage réseau effectue un mappage entre les réseaux de machines virtuelles sur le serveur VMM source et les réseaux Azure cible, afin d’obtenir les résultats décrits ci-après.
-	- **Connexion des machines virtuelles après le basculement** : toutes les machines qui basculent sur le même réseau peuvent se connecter les unes aux autres, quel que soit le plan de récupération qui leur est associé.
-	- **Passerelle réseau** : si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles peuvent se connecter à d’autres machines virtuelles locales.
-	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, seules les machines virtuelles ayant basculé au sein d’un même plan de récupération peuvent se connecter les unes aux autres après le basculement vers Azure.
+- **Réplication de machines virtuelles Hyper-V dans un cloud VMM local vers Azure**: le mappage réseau effectue un mappage entre les réseaux de machines virtuelles sur le serveur VMM source et les réseaux Azure cible, afin d’obtenir les résultats décrits ci-après.
+	- **Connexion des machines virtuelles après le basculement**: toutes les machines qui basculent sur le même réseau peuvent se connecter les unes aux autres, quel que soit le plan de récupération qui leur est associé.
+	- **Passerelle réseau**: si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles peuvent se connecter à d’autres machines virtuelles locales.
+	- **Aucun mappage réseau**: si vous ne configurez pas le mappage réseau, seules les machines virtuelles ayant basculé au sein d’un même plan de récupération peuvent se connecter les unes aux autres après le basculement vers Azure.
 
 
 ## Exemple de mappage réseau

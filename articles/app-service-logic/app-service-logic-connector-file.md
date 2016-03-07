@@ -30,15 +30,15 @@ Pour utiliser le connecteur File, vous devez d’abord créer une instance de l�
 2.	Accédez à « Marketplace > Apps API » et recherchez « Connecteur File ».
 3.	Configurez le connecteur File comme suit : ![][1]
 
-	- **Nom** : indiquez le nom du connecteur File.
+	- **Nom**: indiquez le nom du connecteur File.
 	- **Paramètres du package**
-		- **Dossier racine** : indiquez le chemin du dossier racine sur l'ordinateur hôte. Par exemple : D:\\FileConnectorTest
-		- **Chaîne de connexion au Service Bus** : indiquez la chaîne de connexion au Service Bus. Vérifiez que l'espace de noms du Service Bus est de type Standard et NON Basique pour permettre l'utilisation de Service Bus Relays. Service Bus Relay est utilisé pour se connecter au Gestionnaire de connexion hybride.
-	- **Plan App Service** : sélectionnez ou créez un plan App Service.
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+		- **Dossier racine**: indiquez le chemin du dossier racine sur l'ordinateur hôte. Par exemple : D:\\FileConnectorTest
+		- **Chaîne de connexion au Service Bus**: indiquez la chaîne de connexion au Service Bus. Vérifiez que l'espace de noms du Service Bus est de type Standard et NON Basique pour permettre l'utilisation de Service Bus Relays. Service Bus Relay est utilisé pour se connecter au Gestionnaire de connexion hybride.
+	- **Plan App Service**: sélectionnez ou créez un plan App Service.
+	- **Niveau de tarification**: choisissez un niveau de tarification pour le connecteur.
+	- **Groupe de ressources**: sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Abonnement**: choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Emplacement**: choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
 
 4. Cliquez sur Créer. Un connecteur File est créé.
 

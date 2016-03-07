@@ -695,7 +695,7 @@ Dans chaque environnement, vous pouvez ensuite fournir une valeur différente po
 
 ## Exécution d’une étape jusqu’à ce qu’une condition soit remplie
 
-Dans le cas d’une API que vous appelez, vous pouvez souhaiter une réponse avant de continuer. Par exemple, imaginez que vous souhaitez attendre que quelqu’un télécharge un fichier dans un répertoire avant de traiter le fichier. Vous pouvez dans ce cas utiliser la syntaxe *do-until* :
+Dans le cas d’une API que vous appelez, vous pouvez souhaiter une réponse avant de continuer. Par exemple, imaginez que vous souhaitez attendre que quelqu’un télécharge un fichier dans un répertoire avant de traiter le fichier. Vous pouvez dans ce cas utiliser la syntaxe *do-until*:
 
 ```
 {

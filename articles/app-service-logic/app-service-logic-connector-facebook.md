@@ -51,7 +51,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Faceb
 
 1.	Dans votre application logique, ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d'applications logiques et configurer votre flux : ![][3]
 2.	Le connecteur Facebook est répertorié dans la galerie : ![][4]
-3. Sélectionnez le connecteur Facebook pour l'ajouter automatiquement dans le concepteur. Sélectionnez **Autoriser**, entrez vos informations d'identification, puis sélectionnez **Autoriser** : ![][5] ![][6] ![][7] ![][8]
+3. Sélectionnez le connecteur Facebook pour l'ajouter automatiquement dans le concepteur. Sélectionnez **Autoriser**, entrez vos informations d'identification, puis sélectionnez **Autoriser**: ![][5] ![][6] ![][7] ![][8]
 4.	Sélectionnez un déclencheur : ![][9]
 
 Vous pouvez maintenant utiliser les publications récupérées à partir du déclencheur Facebook dans d'autres actions. Dans le flux ci-dessous, chaque fois qu'une nouvelle publication est disponible sur le fil d'actualité Facebook de l'utilisateur, la même publication est tweetée dans le fil d'actualité Twitter de l'utilisateur : ![][10]

@@ -66,13 +66,13 @@ Le portail Azure en version préliminaire est un outil web qui permet de gérer 
 
 	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre à quoi correspondent les entrées du panneau **Source de données**.
 
-	- **Méthode de sélection** : définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d’accès** si vous souhaitez saisir le **Nom de stockage** et la **Clé d’accès** d’un compte de stockage existant.
+	- **Méthode de sélection**: définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d’accès** si vous souhaitez saisir le **Nom de stockage** et la **Clé d’accès** d’un compte de stockage existant.
 
-	- **Sélectionner le compte de stockage / Créer un nouveau** : cliquez sur **Sélectionner le compte de stockage** pour parcourir et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer un nouveau** pour créer un nouveau compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
+	- **Sélectionner le compte de stockage / Créer un nouveau**: cliquez sur **Sélectionner le compte de stockage** pour parcourir et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer un nouveau** pour créer un nouveau compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
 
-	- **Choisir le conteneur par défaut** : utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
+	- **Choisir le conteneur par défaut**: utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
 
-	- **Emplacement** : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
+	- **Emplacement**: zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 
 		> [AZURE.IMPORTANT] La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même région.
 
@@ -92,7 +92,7 @@ Le portail Azure en version préliminaire est un outil web qui permet de gérer 
 
 	* Cliquez sur le menu déroulant **Version HDInsight** et sélectionnez la version à utiliser pour le cluster. Pour plus d’informations, consultez [Versions de clusters HDInsight](hdinsight-component-versioning.md).
 
-	* **Réseau virtuel** : sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel.
+	* **Réseau virtuel**: sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel.
 
 		![Panneau Réseau virtuel](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "Spécifier les détails du réseau virtuel")
 
@@ -130,15 +130,15 @@ Le portail Azure en version préliminaire est un outil web qui permet de gérer 
 
 	![Panneau Cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.Cluster.Blade.png "Propriétés du cluster")
 
-	Utilisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans la section dans la section **Bases** :
+	Utilisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans la section dans la section **Bases**:
 
-	* **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
+	* **Paramètres** et **Tous les paramètres**: affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
 
-	* **Tableau de bord**, **Tableau de bord du cluster** et **URL** : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est un portail Web permettant d’exécuter des tâches sur le cluster.
+	* **Tableau de bord**, **Tableau de bord du cluster** et **URL**: il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est un portail Web permettant d’exécuter des tâches sur le cluster.
 
-	* **Secure Shell** : informations nécessaires à l’accès au cluster à l’aide de SSH.
+	* **Secure Shell**: informations nécessaires à l’accès au cluster à l’aide de SSH.
 
-	* **Supprimer** : permet de supprimer le cluster HDInsight.
+	* **Supprimer**: permet de supprimer le cluster HDInsight.
 
 	* **Démarrage rapide** (![icône nuage et foudre = démarrage rapide](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)) : affiche des informations qui vous aideront à utiliser HDInsight.
 

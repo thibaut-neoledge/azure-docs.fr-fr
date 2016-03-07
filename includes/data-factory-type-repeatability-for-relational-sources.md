@@ -2,7 +2,7 @@
 
 Lors de la copie des données depuis et vers des magasins relationnels, vous devez garder à l’esprit la répétabilité afin d’éviter des résultats imprévus.
 
-**Remarque** : une tranche peut être réexécutée automatiquement dans Azure Data Factory, selon la stratégie relative aux nouvelles tentatives qui a été spécifiée. Il est recommandé de définir une stratégie relative aux nouvelles tentatives pour éviter les échecs passagers. Par conséquent, la répétabilité est un aspect important à prendre en compte pendant le déplacement des données.
+**Remarque**: une tranche peut être réexécutée automatiquement dans Azure Data Factory, selon la stratégie relative aux nouvelles tentatives qui a été spécifiée. Il est recommandé de définir une stratégie relative aux nouvelles tentatives pour éviter les échecs passagers. Par conséquent, la répétabilité est un aspect important à prendre en compte pendant le déplacement des données.
 
 **En tant que source :**
 > [AZURE.NOTE] Les exemples ci-dessous concernent SQL Azure, mais sont applicables à tout autre magasin de données prenant en charge les jeux de données rectangulaires. Vous pouvez ajuster le **type** de source et la propriété de **requête** (par exemple : query au lieu de sqlReaderQuery) pour le magasin de données.

@@ -560,7 +560,7 @@ L’extrait de code JSON suivant définit un service lié Azure Machine Learning
 	  	}
 	}
 
-Dans **Azure ML Studio**, procédez comme suit pour obtenir les valeurs pour **mlEndpoint** et **apiKey** :
+Dans **Azure ML Studio**, procédez comme suit pour obtenir les valeurs pour **mlEndpoint** et **apiKey**:
 
 1. Cliquez sur **SERVICES WEB** dans le menu de gauche.
 2. Cliquez sur le **service web de formation** dans la liste des services web. 

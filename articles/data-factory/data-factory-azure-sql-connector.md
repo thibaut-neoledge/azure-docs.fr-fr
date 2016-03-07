@@ -425,7 +425,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 ### SqlSource
 
-Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties**:
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |

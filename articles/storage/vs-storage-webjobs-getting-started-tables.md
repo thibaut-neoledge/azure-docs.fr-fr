@@ -81,7 +81,7 @@ Lorsque l’exécution de la fonction se termine, la page **Détails des appels*
 
 Pour lire une table, utilisez l’attribut **Table** avec un paramètre **IQueryable<T>** où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
 
-L’exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress** :
+L’exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress**:
 
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,

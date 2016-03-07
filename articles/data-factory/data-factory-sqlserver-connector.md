@@ -453,7 +453,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 ### SqlSource
 
-Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties**:
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -499,7 +499,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 3. Dans la même fenêtre, double-cliquez sur **TCP/IP** pour lancer la fenêtre des **propriétés de TCP/IP**.
 4. Allez sous l’onglet **Adresses IP**. Faites défiler l’écran vers le bas jusqu’à la section **IPAll**. Notez le **Port TCP** (**1433**, par défaut).
 5. Créez une **règle de Pare-feu Windows** sur l’ordinateur pour autoriser le trafic à entrer par ce port.  
-6. **Vérifiez la connexion** : servez-vous de SQL Server Management Studio sur un autre ordinateur pour vous connecter à SQL Server en utilisant un nom qualifié complet. Par exemple : <machine>.<domain>.corp.<company>.com, 1433.
+6. **Vérifiez la connexion**: servez-vous de SQL Server Management Studio sur un autre ordinateur pour vous connecter à SQL Server en utilisant un nom qualifié complet. Par exemple : <machine>.<domain>.corp.<company>.com, 1433.
 
 	> [AZURE.IMPORTANT] 
 	Consultez la rubrique [Considérations liées aux ports et à la sécurité](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) pour en savoir plus.

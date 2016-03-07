@@ -73,7 +73,9 @@ namespace TodoList_WebApp
 -	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
 
 ```C#
-public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+public void ConfigureAuth(IAppBuilder app)
+			 {
+					 app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
 					 app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
@@ -108,7 +110,11 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 - You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
 
 ```C#
-[Authorize] public ActionResult About() { ... ```
+[Authorize]
+public ActionResult About()
+{
+  ...
+```
 
 -	Vous pouvez également utiliser OWIN pour émettre des demandes d’authentification provenant directement de votre code. Ouvrez `Controllers\AccountController.cs`. Dans les actions SignIn() et SignOut(), émettez les demandes de test OpenID Connect et de déconnexion, respectivement.
 

@@ -111,7 +111,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     ![configuration du proxy web](./media/storsimple-ova-deploy3-iscsi-setup/image9.png)
 
-    Dans la page **Proxy web** :
+    Dans la page **Proxy web**:
 
     1. Indiquez l’**URL du proxy web** dans ce format : *adresse http://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
 
@@ -125,7 +125,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     ![paramètres d’heure](./media/storsimple-ova-deploy3-iscsi-setup/image10.png)
 
-    Dans la page **Paramètres de l’heure** :
+    Dans la page **Paramètres de l’heure**:
 
     1. Dans la liste déroulante, définissez le **fuseau horaire** en fonction de l’emplacement géographique de l’appareil déployé. Le fuseau horaire par défaut de votre appareil est PST. Votre appareil utilise ce fuseau horaire pour toutes les opérations planifiées.
 

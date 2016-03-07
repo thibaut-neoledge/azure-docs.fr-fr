@@ -56,9 +56,9 @@ Voici quelques avantages de l’utilisation des nouveaux noyaux.
 
 1. **Contextes prédéfinis**. Avec le noyau **Python2** par défaut disponible avec les blocs-notes Jupyter, vous devez définir les contextes Spark, SQL ou Hive explicitement avant de commencer à utiliser l’application que vous développez. Si vous utilisez les nouveaux noyaux (**PySpark** ou **Spark**), ces contextes sont disponibles par défaut. Ces contextes sont les suivants :
 
-	* **sc** : pour le contexte Spark
-	* **sqlContext** : pour le contexte SQL
-	* **hiveContext** : pour le contexte Hive
+	* **sc**: pour le contexte Spark
+	* **sqlContext**: pour le contexte SQL
+	* **hiveContext**: pour le contexte Hive
 
 
 	Par conséquent, vous n’avez pas à exécuter d’instructions telles que les suivantes pour définir les contextes :

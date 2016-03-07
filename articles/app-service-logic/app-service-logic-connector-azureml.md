@@ -56,13 +56,13 @@ Utilisez l’action Configurer la reformation pour configurer la reformation pon
  
 ## Sortie du connecteur 
  
-**BES** : une fois le traitement par lots terminé, la sortie du connecteur comprendra les informations suivantes pour chaque sortie du service Web.
+**BES**: une fois le traitement par lots terminé, la sortie du connecteur comprendra les informations suivantes pour chaque sortie du service Web.
  
  ![][6]
  
 Notez que ces informations ne seront pas disponibles si vous n'avez pas inclus de sortie du service Web (par exemple, si vous utilisez un module Enregistreur pour écrire dans une base de données à partir de l'expérience dans le Studio).
 
-**Reformation** : une fois la reformation terminée, la sortie comprendra les informations suivantes.
+**Reformation**: une fois la reformation terminée, la sortie comprendra les informations suivantes.
 
 ![][7]
 

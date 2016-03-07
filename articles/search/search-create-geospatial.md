@@ -50,9 +50,9 @@ Cette solution inclut deux projets :
 
 Nous allons utiliser l'API Bing Maps pour réaliser deux opérations.
 
-+ **Géocodage des adresses** : les données incluent des adresses (ville, province, code postal), mais nous avons également besoin des coordonnées de longitude et de latitude d'une adresse pour pouvoir effectuer des recherches géospatiales. Pour obtenir les coordonnées, nous utiliserons l'API de flux de données Bing Maps afin d'envoyer un lot d'adresses à géocoder. Bien que l'utilisation du compte d'essai Bing nous limite à 50 adresses à la fois, ce sera suffisant pour ce didacticiel.
++ **Géocodage des adresses**: les données incluent des adresses (ville, province, code postal), mais nous avons également besoin des coordonnées de longitude et de latitude d'une adresse pour pouvoir effectuer des recherches géospatiales. Pour obtenir les coordonnées, nous utiliserons l'API de flux de données Bing Maps afin d'envoyer un lot d'adresses à géocoder. Bien que l'utilisation du compte d'essai Bing nous limite à 50 adresses à la fois, ce sera suffisant pour ce didacticiel.
 
-+ **Bing Maps** : lors de l'exécution de l'application, nous utiliserons Bing Maps pour afficher les emplacements des magasins, superposés sur une carte Bing.
++ **Bing Maps**: lors de l'exécution de l'application, nous utiliserons Bing Maps pour afficher les emplacements des magasins, superposés sur une carte Bing.
 
 ### Création d'un compte Bing Maps
 

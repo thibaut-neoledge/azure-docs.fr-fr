@@ -58,6 +58,8 @@ Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec
 Après avoir ajouté le suivi ETW personnalisé à votre code de service, vous pouvez générer, déployer et réexécuter l’application pour afficher vos événements dans la visionneuse d’événements de diagnostics. Si vous déboguez l’application en appuyant sur **F5**, la visionneuse d’événements de diagnostics s’ouvre automatiquement.
 
 ## Étapes suivantes
-Le code de traçage que vous avez ajouté à votre application ci-dessus pour le diagnostic local fonctionnera avec les outils que vous pouvez utiliser pour afficher ces événements lors de l’exécution de votre application sur un cluster Azure. Consultez ces articles qui traitent des différentes options pour les outils et décrivent la manière de les configurer. * [Collecte de journaux provenant d’un cluster Service Fabric dans diagnostics Azure et Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Utilisation d’ElasticSearch comme magasin de suivi d’application Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+Le code de traçage que vous avez ajouté à votre application ci-dessus pour le diagnostic local fonctionnera avec les outils que vous pouvez utiliser pour afficher ces événements lors de l’exécution de votre application sur un cluster Azure. Consultez ces articles qui traitent des différentes options pour les outils et décrivent la manière de les configurer. 
+* [Collecte de journaux provenant d’un cluster Service Fabric dans diagnostics Azure et Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) 
+* [Utilisation d’ElasticSearch comme magasin de suivi d’application Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
 <!---HONumber=AcomDC_0224_2016-->

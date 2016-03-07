@@ -49,15 +49,15 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 ### Ajouter une configuration à PowerApps
 Quand vous ajoutez Google Drive à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Google Drive. La valeur **URL de redirection** est également utilisée dans votre application Google. Si vous n’avez pas d’application Google Drive, vous pouvez utiliser les étapes suivantes pour en créer une :
 
-1. Connectez-vous à [Google Developers Console][5], puis sélectionnez **Créer un projet vide** : ![Console développeur de Google][6]
+1. Connectez-vous à [Google Developers Console][5], puis sélectionnez **Créer un projet vide**: ![Console développeur de Google][6]
 
 2. Entrez les propriétés de votre application, puis sélectionnez **Créer**.
-3. Sélectionnez **Utiliser les API Google** : ![Utiliser les API Google][8]  
-4. Dans la présentation, sélectionnez **Drive API** : ![Présentation de l'API Google Drive][9]  
+3. Sélectionnez **Utiliser les API Google**: ![Utiliser les API Google][8]  
+4. Dans la présentation, sélectionnez **Drive API**: ![Présentation de l'API Google Drive][9]  
 5. Sélectionnez **ACTIVER L’API** : ![Activer l’API Google Drive][10]  
 6. Une fois Drive API activé, sélectionnez **IDENTIFIANTS**, puis **ID CLIENT OAUTH 2.0** : ![Ajouter des identifiants][12]  
 7. Sélectionnez **CONFIGURER L’ÉCRAN D’AUTHORISATION**.
-8. Dans **Écran d’autorisation OAuth**, entrez un **nom de produit**, puis sélectionnez **Enregistrer** : ![Configurer l’écran d’autorisation][13]  
+8. Dans **Écran d’autorisation OAuth**, entrez un **nom de produit**, puis sélectionnez **Enregistrer**: ![Configurer l’écran d’autorisation][13]  
 9. Dans la page Créer un ID client :  
 
 	1. Sous **Type d’application**, sélectionnez **Application Web**.

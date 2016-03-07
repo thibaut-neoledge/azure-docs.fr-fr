@@ -153,7 +153,7 @@ PUT high_priority_index
 
 Pour plus d’informations, consultez [Index Recovery Prioritization](https://www.elastic.co/guide/en/elasticsearch/reference/2.0/recovery-prioritization.html#recovery-prioritization) (Hiérarchisation de la récupération des index).
 
-Vous pouvez surveiller le processus de récupération d’un ou de plusieurs index à l’aide de l’API *\_recovery* :
+Vous pouvez surveiller le processus de récupération d’un ou de plusieurs index à l’aide de l’API *\_recovery*:
 
 ```http
 GET /high_priority_index/_recovery?pretty=true

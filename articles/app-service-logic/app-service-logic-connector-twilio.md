@@ -28,15 +28,15 @@ Un connecteur peut être créé dans une application logique ou directement à p
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « Connecteur Twilio », sélectionnez-le et sélectionnez **Créer**.
 3. Configurez le connecteur Twilio comme suit : ![][1]  
-	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-	- **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
-	- **Nom** : indiquez le nom de votre connecteur Twilio.
+	- **Emplacement**: choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+	- **Abonnement**: choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Groupe de ressources**: sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Plan d’hébergement web**: sélectionnez ou créez un plan d’hébergement web.
+	- **Niveau de tarification**: choisissez un niveau de tarification pour le connecteur.
+	- **Nom**: indiquez le nom de votre connecteur Twilio.
 	- **Paramètres du package**
-		- **SID de compte** : identifiant unique du compte. Vous pouvez récupérer le SID de votre compte à l'adresse <https://www.twilio.com/user/account/settings>
-		- **Jeton d’autorisation** : jeton d’autorisation associé au compte. Vous pouvez récupérer ce jeton à l'adresse <https://www.twilio.com/user/account/settings>
+		- **SID de compte**: identifiant unique du compte. Vous pouvez récupérer le SID de votre compte à l'adresse <https://www.twilio.com/user/account/settings>
+		- **Jeton d’autorisation**: jeton d’autorisation associé au compte. Vous pouvez récupérer ce jeton à l'adresse <https://www.twilio.com/user/account/settings>
 
 
 4.	Cliquez sur Créer. Un connecteur Twilio est créé.

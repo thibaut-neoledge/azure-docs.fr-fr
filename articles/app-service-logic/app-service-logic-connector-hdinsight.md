@@ -43,7 +43,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 2. Recherchez « Connecteur HDInsight », sélectionnez-le et sélectionnez **Créer**.
 3. Entrez le nom, le plan App Service et d'autres propriétés.
 4. Dans les paramètres du package, entrez le nom d’utilisateur et le mot de passe du cluster HDInsight. Sélectionnez **OK**.
-5. Sélectionnez **Créer** : ![][1]  
+5. Sélectionnez **Créer**: ![][1]  
 
 ## Configuration de certificat (facultatif) ##
 

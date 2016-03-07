@@ -35,9 +35,9 @@ Microsoft possède trois scénarios principaux d’intégration : identités clo
 
 Les scénarios définis dans la figure ci-dessus sont les suivants :
 
-- **Identités cloud** : ce sont des identités qui existent uniquement dans le cloud. Dans le cas d’Azure AD, elles résideraient en particulier dans votre répertoire Azure AD.
-- **Synchronisée** : ce sont des identités qui existent en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants. Le hachage du mot de passe de l’utilisateur est synchronisé à partir de l’environnement local vers le cloud dans ce que l’on appelle un hachage du mot de passe. Lorsque vous utilisez l’option Synchronisée, l’inconvénient est que si un utilisateur est désactivé dans l’environnement local, l’affichage de l’état du compte dans Azure AD peut prendre jusqu’à 3 heures. Cela est dû à l’intervalle de synchronisation.
-- **Fédérée** : ces identités existent à la fois en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.  
+- **Identités cloud**: ce sont des identités qui existent uniquement dans le cloud. Dans le cas d’Azure AD, elles résideraient en particulier dans votre répertoire Azure AD.
+- **Synchronisée**: ce sont des identités qui existent en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants. Le hachage du mot de passe de l’utilisateur est synchronisé à partir de l’environnement local vers le cloud dans ce que l’on appelle un hachage du mot de passe. Lorsque vous utilisez l’option Synchronisée, l’inconvénient est que si un utilisateur est désactivé dans l’environnement local, l’affichage de l’état du compte dans Azure AD peut prendre jusqu’à 3 heures. Cela est dû à l’intervalle de synchronisation.
+- **Fédérée**: ces identités existent à la fois en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.  
  
 >[AZURE.NOTE]
 Pour plus d’informations sur les options de synchronisation, consultez la rubrique [Intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
@@ -53,7 +53,7 @@ Le tableau suivant vous aidera à déterminer les avantages et inconvénients de
 ### Expérience client
 La stratégie que vous utilisez détermine l’expérience de connexion utilisateur. Les tableaux suivants vous fournissent des informations sur ce que les utilisateurs peuvent attendre de leur expérience de connexion. Notez que tous les fournisseurs d’identité fédérée ne prennent pas en charge l’authentification unique dans tous les scénarios.
 
-**Applications réseau jointes à un domaine et privées** :
+**Applications réseau jointes à un domaine et privées**:
  
 
 | | Identité synchronisée | Identité fédérée |
@@ -64,7 +64,7 @@ La stratégie que vous utilisez détermine l’expérience de connexion utilisat
 | OneDrive Entreprise | Demander les informations d’identification | Authentification unique |
 | Abonnement Office Professionnel Plus | Demander les informations d’identification | Authentification unique |
 
-**Sources externes ou non fiables** :
+**Sources externes ou non fiables**:
 
 | | Identité synchronisée | Identité fédérée |
 |------------------------------|----------------------------|--------------------------------------------------------------|

@@ -110,7 +110,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Ensuite, notez le nom du nœud sur lequel le service a été déployé et démarré dans l’Explorateur de Service Fabric, par exemple, Nœud 1. Accédez au dossier de travail de l’instance d’application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si le déploiement a été exécuté sur le Nœud 2, vous pouvez accéder à ce chemin pour **MyApplicationType** :
+Ensuite, notez le nom du nœud sur lequel le service a été déployé et démarré dans l’Explorateur de Service Fabric, par exemple, Nœud 1. Accédez au dossier de travail de l’instance d’application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si le déploiement a été exécuté sur le Nœud 2, vous pouvez accéder à ce chemin pour **MyApplicationType**:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt

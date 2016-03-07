@@ -457,7 +457,7 @@ Pour utiliser l’API SharePoint, vous devez créer une **connexion**, puis four
 
 ## Définition(s) d’objet : 
 
- **DataSetsMetadata** :
+ **DataSetsMetadata**:
 
 Propriétés requises pour DataSetsMetadata :
 
@@ -465,7 +465,7 @@ Propriétés requises pour DataSetsMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -475,7 +475,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TabularDataSetsMetadata** :
+ **TabularDataSetsMetadata**:
 
 Propriétés requises pour TabularDataSetsMetadata :
 
@@ -483,7 +483,7 @@ Propriétés requises pour TabularDataSetsMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -496,7 +496,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **BlobDataSetsMetadata** :
+ **BlobDataSetsMetadata**:
 
 Propriétés requises pour BlobDataSetsMetadata :
 
@@ -504,7 +504,7 @@ Propriétés requises pour BlobDataSetsMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -515,7 +515,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **BlobMetadata** :
+ **BlobMetadata**:
 
 Propriétés requises pour BlobMetadata :
 
@@ -523,7 +523,7 @@ Propriétés requises pour BlobMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -541,7 +541,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Object** :
+ **Object**:
 
 Propriétés requises pour Object :
 
@@ -549,7 +549,7 @@ Propriétés requises pour Object :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -557,7 +557,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TableMetadata** :
+ **TableMetadata**:
 
 Propriétés requises pour TableMetadata :
 
@@ -565,7 +565,7 @@ Propriétés requises pour TableMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -577,7 +577,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **DataSetsList** :
+ **DataSetsList**:
 
 Propriétés requises pour DataSetsList :
 
@@ -585,7 +585,7 @@ Propriétés requises pour DataSetsList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -594,7 +594,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **DataSet** :
+ **DataSet**:
 
 Propriétés requises pour DataSet :
 
@@ -602,7 +602,7 @@ Propriétés requises pour DataSet :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -612,7 +612,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Table** :
+ **Table**:
 
 Propriétés requises pour Table :
 
@@ -620,7 +620,7 @@ Propriétés requises pour Table :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -630,7 +630,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Item** :
+ **Item**:
 
 Propriétés requises pour Item :
 
@@ -638,7 +638,7 @@ Propriétés requises pour Item :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -647,7 +647,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **ItemsList** :
+ **ItemsList**:
 
 Propriétés requises pour ItemsList :
 
@@ -655,7 +655,7 @@ Propriétés requises pour ItemsList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |
@@ -664,7 +664,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TablesList** :
+ **TablesList**:
 
 Propriétés requises pour TablesList :
 
@@ -672,7 +672,7 @@ Propriétés requises pour TablesList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés**:
 
 
 | Nom | Type de données |

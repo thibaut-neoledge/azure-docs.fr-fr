@@ -29,15 +29,15 @@ Publiez des commentaires ou des questions au bas de cet article ou sur le [Forum
 Le mappage de stockage est uniquement pertinent lorsque vous répliquez des machines virtuelles Hyper-V qui se trouvent dans des clouds VMM à partir d’un centre de données principal vers un centre de données secondaire à l’aide de Réplica Hyper-V ou de la réplication SAN, comme suit :
 
 
-- **Réplication d’un site local vers un autre avec Réplica Hyper-V** : configurez le mappage de stockage en mappant les classifications de stockage sur des serveurs VMM source et cible pour effectuer les opérations suivantes :
+- **Réplication d’un site local vers un autre avec Réplica Hyper-V**: configurez le mappage de stockage en mappant les classifications de stockage sur des serveurs VMM source et cible pour effectuer les opérations suivantes :
 
-	- **Identifier le stockage cible des ordinateurs virtuels de réplica** : les ordinateurs virtuels seront répliqués sur une cible de stockage (partage de SMB ou volumes partagés de cluster (VPC)) que vous choisissez.
-	- **Placement d’ordinateurs virtuels de réplica** : le mappage de stockage permet d’optimiser le positionnement d’ordinateurs virtuels de réplica sur des serveurs hôtes Hyper-V. Les ordinateurs virtuels de réplica seront placés sur des hôtes ayant accès à la classification de stockage mappé.
-	- **Aucun mappage de stockage** : si vous ne configurez aucun mappage de stockage, les machines virtuelles seront répliquées sur l’emplacement de stockage par défaut spécifié sur le serveur hôte Hyper-V associé à la machine virtuelle de réplica.
+	- **Identifier le stockage cible des ordinateurs virtuels de réplica**: les ordinateurs virtuels seront répliqués sur une cible de stockage (partage de SMB ou volumes partagés de cluster (VPC)) que vous choisissez.
+	- **Placement d’ordinateurs virtuels de réplica**: le mappage de stockage permet d’optimiser le positionnement d’ordinateurs virtuels de réplica sur des serveurs hôtes Hyper-V. Les ordinateurs virtuels de réplica seront placés sur des hôtes ayant accès à la classification de stockage mappé.
+	- **Aucun mappage de stockage**: si vous ne configurez aucun mappage de stockage, les machines virtuelles seront répliquées sur l’emplacement de stockage par défaut spécifié sur le serveur hôte Hyper-V associé à la machine virtuelle de réplica.
 
-- **Réplication d’un site local vers un autre avec SAN** : configurez le mappage de stockage en mappant les pools de groupes de stockage sur des serveurs VMM source et cible.
-	- **Spécifier le pool** : spécifie le pool de stockage secondaire qui doit recevoir les données de réplication du pool principal.
-	- **Identifier les pools de stockage cible** : garantit que les numéros d’unités logiques dans un groupe de réplication source sont répliqués dans le pool de stockage cible mappé de votre choix.
+- **Réplication d’un site local vers un autre avec SAN**: configurez le mappage de stockage en mappant les pools de groupes de stockage sur des serveurs VMM source et cible.
+	- **Spécifier le pool**: spécifie le pool de stockage secondaire qui doit recevoir les données de réplication du pool principal.
+	- **Identifier les pools de stockage cible**: garantit que les numéros d’unités logiques dans un groupe de réplication source sont répliqués dans le pool de stockage cible mappé de votre choix.
 
 ## Configurer des classifications de stockage pour la réplication Hyper-V
 

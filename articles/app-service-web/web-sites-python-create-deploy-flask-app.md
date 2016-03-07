@@ -36,7 +36,7 @@ Vous allez créer une application à l’aide de l’infrastructure web Flask (c
 - Git
 - [Python Tools pour Visual Studio][] (PTVS) - Remarque : ceci est facultatif
 
-**Remarque** : la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
+**Remarque**: la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
 
 ### Windows
 
