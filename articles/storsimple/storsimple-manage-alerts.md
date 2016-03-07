@@ -53,7 +53,7 @@ Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour
 
 >[AZURE.NOTE] Vous pouvez entrer un maximum de 20 adresses e-mail par appareil.
 
-Après avoir activé la notification par e-mail pour un appareil, les membres de la liste de notification recevront un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis **storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
+Après avoir activé la notification par e-mail pour un appareil, les membres de la liste de notification recevront un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis *storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
 
 #### Activation de la notification par e-mail des alertes pour un appareil
 
@@ -65,7 +65,7 @@ Après avoir activé la notification par e-mail pour un appareil, les membres de
 
     2. Dans le champ **Envoyer un e-mail aux administrateurs du service**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs de service reçoivent les notifications d’alerte.
 
-    3. Dans le champ **Autres destinataires du message**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format **someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil.
+    3. Dans le champ **Autres destinataires du message**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil.
 
         ![Configuration des notifications des alertes](./media/storsimple-manage-alerts/AlertNotify.png)
 
@@ -254,4 +254,4 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorSi
 
 En savoir plus sur les [erreurs de StorSimple et la résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

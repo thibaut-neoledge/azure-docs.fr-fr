@@ -150,7 +150,7 @@ Le format ORC (Optimized Row Columnar) est un moyen très efficace pour stocker 
 - création d’index toutes les 10 000 lignes, ce qui permet d’ignorer des lignes ;
 - baisse significative de l’exécution du démarrage.
 
-Pour activer le format ORC, vous devez commencer par créer une table avec la clause *Stored as ORC* :
+Pour activer le format ORC, vous devez commencer par créer une table avec la clause *Stored as ORC* :
 
     CREATE TABLE lineitem_orc_part
     	(L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
@@ -218,4 +218,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!----HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->

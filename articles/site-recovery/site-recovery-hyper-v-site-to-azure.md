@@ -227,7 +227,7 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 		- **Taille** : taille cible de la machine virtuelle ayant basculé.
 
 		![Configurer les propriétés des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- Configurez les paramètres supplémentaires des machines virtuelles dans le champ *Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles** *nom\_machine\_virtuelle* > **Configurer**. Cela inclut :
+	- Configurez les paramètres supplémentaires des machines virtuelles dans le champ **Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles** *nom\_machine\_virtuelle* > **Configurer**. Cela inclut :
 
 		- **Cartes réseau** : le nombre de cartes réseau est défini par la taille spécifiée pour la machine virtuelle cible. Vérifiez dans les [spécifications de taille de machine virtuelle](../virtual-machines/virtual-machines-size-specs.md#size-tables) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille.
 
@@ -295,4 +295,4 @@ Exécutez un test de basculement, en procédant comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
