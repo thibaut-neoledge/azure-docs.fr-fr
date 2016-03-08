@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/22/2016"
 	ms.author="bradygaster"/>
 
 # Créer et déployer une application API Java dans Azure App Service
@@ -195,14 +195,14 @@ Dans cette section, vous allez remplacer l’implémentation côté serveur du c
             }
   
             @Override
-            public Response contactsGet()
+            public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
   
             @Override
-            public Response contactsGetById(Integer id)
+            public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
@@ -262,7 +262,7 @@ Dans cette section, vous allez apprendre à créer une nouvelle application API 
 
 	![Configurer Java dans le panneau application API](media/app-service-api-java-api-app/set-up-java.png)
 
-1. Cliquez sur l’élément de menu de paramètre **Informations d’identification de déploiement**, puis fournissez le nom d’utilisateur et le mot de passe que vous souhaitez utiliser pour la publication de fichiers dans votre application API.
+1. Cliquez sur l’élément de menu de paramètre **Informations d’identification de déploiement**, puis fournissez le nom d’utilisateur et le mot de passe que vous souhaitez utiliser pour la publication de fichiers dans votre application API.
 
 	![Définir les informations d’identification de déploiement](media/app-service-api-java-api-app/deployment-credentials.png)
 
@@ -295,4 +295,4 @@ Dans cet article, vous avez pu commencer avec un fichier Swagger JSON et un code
 
 Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le [Centre de développement Java](/develop/java/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

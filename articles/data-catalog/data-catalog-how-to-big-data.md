@@ -1,6 +1,6 @@
 <properties
    pageTitle="Utilisation des sources de données « données volumineuses »"
-   description="Article expliquant comment utiliser Azure Date Catalog avec des sources de données « volumineuses » incluant le stockage d’objets Blob, Azure Data Lake et les fichiers Hadoop HDFS."
+   description="Article de procédure expliquant comment utiliser Azure Data Catalog avec des sources de données « volumineuses », notamment le stockage d’objets blob Azure, Azure Data Lake et les fichiers Hadoop HDFS."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -68,4 +68,4 @@ Les modèles décrits ci-dessus représentent deux organisations de magasin de d
 ## Résumé
 L’inscription des sources de données auprès de **Azure Data Catalog** les facilite leur détection et leur compréhension. En enregistrant et en annotant les fichiers et les répertoires de données volumineuses qui représentent les jeux de données logiques, vous pouvez aider les utilisateurs à trouver et à utiliser les sources de données volumineuses dont ils ont besoin.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

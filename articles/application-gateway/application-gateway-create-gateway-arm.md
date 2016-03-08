@@ -22,9 +22,9 @@ La passerelle Azure Application Gateway est un équilibreur de charge de couche�
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template ](application-gateway-create-gateway-arm-template.md)
+- [Étapes classiques Azure PowerShell](application-gateway-create-gateway.md)
+- [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
+- [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -33,24 +33,24 @@ La passerelle Azure Application Gateway est un équilibreur de charge de couche�
 Cet article vous guide lors des étapes de création, de configuration, de démarrage et de suppression d’une passerelle Application Gateway.
 
 
->[AZURE.IMPORTANT] Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Ce document traite de la création d’une passerelle Application Gateway à l’aide d’Azure Resource Manager Pour utiliser la version classique, accédez à [Création d’un déploiement classique de passerelle Application Gateway à l’aide de PowerShell](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Resource Manager et classique. Attention à bien comprendre les [modèles et outils de déploiement](../azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Ce document traite de la création d’une passerelle Application Gateway à l’aide d’Azure Resource Manager Pour utiliser la version classique, accédez à [Création d’un déploiement classique de passerelle Application Gateway à l’aide de PowerShell](application-gateway-create-gateway.md).
 
 
 
 ## Avant de commencer
 
-1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
+1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Vous allez créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
 3. Les serveurs que vous configurerez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 
 ## Quels sont les éléments nécessaires pour créer une passerelle Application Gateway ?
 
 
-- **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
+- **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
 - **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-- **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-- **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-- **Règle :** la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle *basic* est la distribution de charge par tourniquet (round robin).
+- **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+- **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
+- **Règle :** la règle lie l’écouteur et le pool de serveurs principaux, ainsi qu’elle définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. 
 
 
 
@@ -71,32 +71,23 @@ Procédure de création d’une passerelle Application Gateway :
 
 ## Créer un groupe de ressources pour Resource Manager
 
-Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir l’article [Utilisation de Windows Powershell avec Azure Resource Manager](powershell-azure-resource-manager.md).
+Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows Powershell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-### Étape 1 :
+### Étape 1
+Connectez-vous à Azure Login-AzureRmAccount
 
-		Login-AzureRmAccount
-
-
-
+Vous êtes invité à vous authentifier avec vos informations d’identification.<BR>
 ### Étape 2 :
-
 Vérifiez les abonnements associés au compte.
 
 		Get-AzureRmSubscription
 
-Vous devez indiquer vos informations d’identification.<BR>
-
 ### Étape 3
-
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
-
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
 ### Étape 4
-
 Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
@@ -105,8 +96,7 @@ Azure Resource Manager requiert que tous les groupes de ressources spécifient u
 
 Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l’emplacement « West US ».
 
-
->[AZURE.NOTE] Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, accédez à l’article [Création d’une passerelle d’application avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Consultez [sondes personnalisées et contrôle d’intégrité](application-gateway-probe-overview.md) pour plus d’informations.
+>[AZURE.NOTE] Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez [Création d’une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Pour plus d’informations, découvrez les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md).
 
 
 
@@ -147,7 +137,7 @@ Avant de créer la passerelle Application Gateway, vous devez installer tous les
 
 ### Étape 1 :
 
-Créez une configuration IP de passerelle Application Gateway nommée « gatewayIP01 ». Lorsque la passerelle Application Gateway démarrera, elle sélectionnera une adresse IP à partir du sous-réseau configuré et acheminera le trafic réseau vers les adresses IP du pool IP principal. Gardez à l'esprit que chaque instance utilisera une adresse IP unique.
+Créez une configuration IP de passerelle Application Gateway nommée « gatewayIP01 ». Lorsque la passerelle Application Gateway démarre, elle sélectionne une adresse IP à partir du sous-réseau configuré et achemine le trafic réseau vers les adresses IP du pool IP principal. Gardez à l'esprit que chaque instance utilise une adresse IP unique.
 
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -174,7 +164,6 @@ Configurez le port IP frontal nommé « frontendport01 » pour le point de te
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
-
 ### Étape 5
 
 Créez la configuration IP frontale nommée « fipconfig01 » et associez l’adresse IP publique à cette configuration.
@@ -200,7 +189,7 @@ Configurez la taille d’instance de la passerelle Application Gateway.
 
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
->[AZURE.NOTE]  La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard\_Small, Standard\_Medium et Standard\_Large.
+>[AZURE.NOTE]  La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard\_Small, Standard\_Medium et Standard\_Large.
 
 ## Création d'une passerelle Application Gateway avec New-AzureRmApplicationGateway
 
@@ -213,9 +202,9 @@ Créez une passerelle Application Gateway avec tous les éléments de configurat
 
 Pour supprimer une passerelle Application Gateway, procédez comme suit :
 
-1. Utilisez l’applet de commande **Stop-AzureRmApplicationGateway** pour arrêter la passerelle.
-2. Utilisez l’applet de commande **Remove-AzureRmApplicationGateway** pour supprimer la passerelle.
-3. Vérifiez que la passerelle a bien été supprimée à l’aide de l’applet de commande **Get-AzureRmApplicationGateway**.
+1. Utilisez la cmdlet **Stop-AzureRmApplicationGateway** pour arrêter la passerelle.
+2. Utilisez la cmdlet **Remove-AzureRmApplicationGateway** pour supprimer la passerelle.
+3. Vérifiez que la passerelle a bien été supprimée à l’aide de la cmdlet **Get-AzureRmApplicationGateway**.
 
 ### Étape 1 :
 
@@ -225,12 +214,12 @@ Obtenez l’objet de passerelle Application Gateway et associez-le à une variab
 
 ### Étape 2 :
 
-Utilisez **Stop-AzureRmApplicationGateway** pour arrêter la passerelle Application Gateway.
+Utilisez **Stop-AzureRmApplicationGateway** pour arrêter la passerelle Application Gateway.
 
 	Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 
-Une fois la passerelle Application Gateway arrêtée, utilisez l’applet de commande **Remove-AzureRmApplicationGateway** pour supprimer le service.
+Une fois la passerelle Application Gateway arrêtée, utilisez la cmdlet **Remove-AzureRmApplicationGateway** pour supprimer le service.
 
 
 	Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
@@ -240,7 +229,7 @@ Une fois la passerelle Application Gateway arrêtée, utilisez l’applet de com
 >[AZURE.NOTE] Il est possible d’utiliser le commutateur **-force** pour supprimer le message de confirmation.
 
 
-Pour vérifier que la passerelle a bien été supprimée, vous pouvez utiliser l’applet de commande **Get-AzureRmApplicationGateway**. Cette étape n'est pas requise.
+Pour vérifier que la passerelle a bien été supprimée, vous pouvez utiliser la cmdlet **Get-AzureRmApplicationGateway**. Cette étape n'est pas requise.
 
 
 	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
@@ -248,13 +237,13 @@ Pour vérifier que la passerelle a bien été supprimée, vous pouvez utiliser l
 
 ## Étapes suivantes
 
-Si vous souhaitez configurer le déchargement SSL, consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
+Pour configurer le déchargement SSL, voir [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
 
-Si vous souhaitez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
+Pour configurer une passerelle Application Gateway à utiliser avec un équilibreur de charge interne, voir [Création d’une passerelle Application Gateway avec un équilibreur de charge interne (ILB)](application-gateway-ilb.md).
 
 Si vous souhaitez plus d'informations sur les options d'équilibrage de charge en général, consultez :
 
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

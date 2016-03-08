@@ -11,7 +11,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="01/22/2016"
@@ -22,7 +22,7 @@
 **Base de données unique**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Portail Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@ Vous allez essayer la base de données SQL en créant une base de données uniqu
 
 Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
 
-La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](../resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -66,7 +66,7 @@ Pour authentifier votre application cliente en fonction de l’utilisateur actue
 Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).
-1. Sur la gauche, sélectionnez le service **Active Directory**, sélectionnez le répertoire pour authentifier votre application, puis cliquez sur son **Nom**.
+1. Sur la gauche, sélectionnez le service **Active Directory**, puis sélectionnez le répertoire pour authentifier votre application et cliquez sur son **Nom**.
 
     ![Essayer la base de données SQL : Configurer Azure Active Directory (AAD).][1]
 
@@ -463,4 +463,4 @@ Maintenant que vous avez essayé la base de données SQL et configuré une base 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

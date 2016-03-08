@@ -19,11 +19,11 @@
 
 # Importer des données dans Azure Search à l’aide de .NET
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
+- [Vue d'ensemble](search-what-is-data-import.md)
+- [Portail](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 Cet article explique comment remplir un index à l’aide du [kit de développement logiciel .NET d’Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx). Le contenu ci-dessous est un sous-ensemble de la documentation [Comment utiliser Azure Search à partir d’une application .NET](search-howto-dotnet-sdk.md). Consultez l’article parent pour obtenir la procédure détaillée.
 
@@ -98,7 +98,7 @@ La prochaine étape dans `Main` consiste à remplir l'index créé. Cette opéra
 
         try
         {
-            var batch = IndexBatch.Upload(sitecoreItems);
+            var batch = IndexBatch.Upload(documents);
             indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
@@ -125,4 +125,4 @@ La troisième partie de cette méthode est un bloc catch qui gère un cas d'erre
 
 Enfin, la méthode retarde son exécution de deux secondes. L'indexation s’exécutant en mode asynchrone dans votre service Azure Search, l'exemple d'application doit attendre quelque temps afin de s'assurer que les documents sont disponibles pour la recherche. Ce genre de retard n’est nécessaire que dans les démonstrations, les tests et les exemples d'applications.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

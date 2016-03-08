@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/25/2015"
 	ms.author="bradygaster"/>
 
 # Créer et déployer une application API Node.js dans Azure App Service
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## Composants requis
-1. [Node.js](nodejs.org) en cours d’exécution sur l’ordinateur de développement (cet exemple part du principe que Node.js version 4.2.2 est installé)
+1. [Node.js](http://nodejs.org) en cours d’exécution sur l’ordinateur de développement (cet exemple part du principe que Node.js version 4.2.2 est installé)
 1. Compte [GitHub](https://github.com/)
 1. [Compte d’essai gratuit](https://azure.microsoft.com/pricing/free-trial/) Microsoft Azure
 1. Git installé sur votre station de travail de développement locale
@@ -243,4 +243,4 @@ Grâce aux fonctionnalités intégrées de remise continue fournies par Azure Ap
 
 À partir de cet exemple, vous pourriez ajouter du code aux gestionnaires pour stocker vos données dans une base de données ou sur le disque de votre instance d’application API. Maintenant que le déploiement continu est configuré, pour étendre ou changer les fonctionnalités de votre application API, il vous suffit de modifier et de pousser votre code vers votre dépôt Git.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

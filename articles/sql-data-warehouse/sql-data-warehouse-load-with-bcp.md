@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -49,7 +49,7 @@ Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 - Utilitaire en ligne de commande bcp installé
 - Utilitaire en ligne de commande SQLCMD installé
 
->[AZURE.NOTE]Pour télécharger les utilitaires bcp et sqlcmd, accédez au [Centre de téléchargement Microsoft][].
+>[AZURE.NOTE] Pour télécharger les utilitaires bcp et sqlcmd, accédez au [Centre de téléchargement Microsoft][].
 
 ## Importer des données dans SQL Data Warehouse
 
@@ -78,7 +78,7 @@ WITH
 );
 GO
 ```
->[AZURE.NOTE]Consultez la rubrique [Conception de tables][] dans le groupe de rubriques sur le développement pour obtenir plus d'informations sur les options disponibles dans la clause WITH.
+>[AZURE.NOTE] Consultez la rubrique [Conception de tables][] dans le groupe de rubriques sur le développement pour obtenir plus d'informations sur les options disponibles dans la clause WITH.
 
 ### Étape 2 : Créer un fichier de données source
 
@@ -101,7 +101,7 @@ Ouvrez le Bloc-notes et copiez les lignes de données suivantes dans un nouveau 
 
 Enregistrez-les dans votre répertoire temporaire local, C:\\Temp\\DimDate2.txt.
 
-> [AZURE.NOTE]Il est important de se souvenir que bcp.exe ne prend pas en charge le codage de fichier UTF-8. Utilisez les fichiers ASCII codés ou le codage UTF-16 pour vos fichiers lors de l’utilisation de bcp.exe.
+> [AZURE.NOTE] Il est important de se souvenir que bcp.exe ne prend pas en charge le codage de fichier UTF-8. Utilisez les fichiers ASCII codés ou le codage UTF-16 pour vos fichiers lors de l’utilisation de bcp.exe.
 
 ### Étape 3 : Connecter et importer les données
 Grâce à bcp, vous pouvez connecter et importer les données à l’aide de la commande suivante, qui remplace de manière appropriée les valeurs :
@@ -174,7 +174,7 @@ Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier.
 20150101,1,3
 ```
 
->[AZURE.NOTE]En raison de la nature des systèmes distribués, l’ordre des données peut ne pas être identique entre les différentes bases de données SQL Data Warehouse. Vous pouvez éventuellement utiliser le paramètre queryout pour spécifier la requête Transact-SQL à exécuter.
+>[AZURE.NOTE] En raison de la nature des systèmes distribués, l’ordre des données peut ne pas être identique entre les différentes bases de données SQL Data Warehouse. Vous pouvez éventuellement utiliser le paramètre queryout pour spécifier la requête Transact-SQL à exécuter.
 
 ## Étapes suivantes
 Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][].
@@ -196,4 +196,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

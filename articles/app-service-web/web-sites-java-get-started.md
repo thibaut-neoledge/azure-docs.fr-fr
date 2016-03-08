@@ -19,7 +19,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -27,9 +27,9 @@
 
 Ce didacticiel vous explique comment créer une [application web Java dans Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide du [portail Azure](https://portal.azure.com/). Le portail Azure est une interface web que vous pouvez utiliser pour gérer les ressources Azure.
 
-> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio][] ou [obtenir un essai gratuit][].
+> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio] ou [obtenir un essai gratuit].
 >
-> Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service][]. Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
+> Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service]. Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
 ## Options pour les applications Java
 
@@ -53,7 +53,7 @@ Vous pouvez utiliser différentes méthodes pour configurer une application Java
 	* Vous souhaitez configurer vous-même le conteneur web de A à Z. 
 	* Vous souhaitez utiliser une version de Java qui n’est pas pris en charge dans App Service et voulez la télécharger vous-même.
 
-	Dans ces cas-là, vous pouvez créer une application à l’aide du portail Azure et fournir ensuite manuellement les fichiers d’exécution appropriés. Dans ce cas, les fichiers seront comptabilisés par rapport à vos quotas d’espace de stockage associé à votre plan App Service. Pour plus d’informations, consultez [Charger une application web Java personnalisée dans Azure](https://acom-sandbox.azurewebsites.net/fr-FR/documentation/articles/web-sites-java-custom-upload/).
+	Dans ces cas-là, vous pouvez créer une application à l’aide du portail Azure et fournir ensuite manuellement les fichiers d’exécution appropriés. Dans ce cas, les fichiers seront comptabilisés par rapport à vos quotas d’espace de stockage associé à votre plan App Service. Pour plus d’informations, consultez [Charger une application web Java personnalisée dans Azure](web-sites-java-custom-upload.md).
 
 ## <a name="portal"></a> Créer et configurer une application web Java
 
@@ -91,7 +91,7 @@ Cette section explique comment créer une application web et la configurer pour 
 
 11. Sélectionnez la **version Java** souhaitée.
 
-12. Sélectionnez la **version Java mineure** souhaitée. Si vous sélectionnez **La plus récente**, votre application utilisera la dernière version mineure disponible dans App Service pour cette version majeure de Java. L’élément le **plus récent** est unique pour les applications Java créées à partir de **Paramètres d’Application**. Si vous créez votre application Java à partir de la galerie, vous devez gérer votre propre conteneur et les modifications de la machine virtuelle Java.
+12. Sélectionnez la **version Java mineure** souhaitée. Si vous sélectionnez **La plus récente**, votre application utilisera la dernière version mineure disponible dans App Service pour cette version majeure de Java. L’élément le **plus récent** est unique pour les applications Java créées à partir de **Paramètres d’application**. Si vous créez votre application Java à partir de la galerie, vous devez gérer votre propre conteneur et les modifications de la machine virtuelle Java.
 
 12. Sélectionnez le **conteneur web** souhaité. Si vous sélectionnez un nom de conteneur qui commence par **La plus récente**, votre application sera maintenue à la dernière version de cette version majeure du conteneur web disponible dans App Service.
 
@@ -176,7 +176,6 @@ Pour plus d’informations sur le développement des applications Java dans Azu
 <!-- External Links -->
 [activer les avantages de votre abonnement Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [obtenir un essai gratuit]: http://go.microsoft.com/fwlink/?LinkId=623901
-
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

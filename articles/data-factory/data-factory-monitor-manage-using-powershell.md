@@ -12,22 +12,24 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Didacticiel : Création et surveillance d’une fabrique de données à l’aide d’Azure PowerShell
+# Didacticiel : Créer un pipeline avec l'activité de copie à l'aide d'Azure PowerShell
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Vue d’ensemble du didacticiel](data-factory-get-started.md)
+- [Utilisation de Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Utilisation de Visual Studio](data-factory-get-started-using-vs.md)
+- [Utiliser PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
-Le didacticiel [Prise en main d’Azure Data Factory][adf-get-started] vous montre comment créer et surveiller une fabrique de données Azure à l’aide du [portail Azure][azure-portal]. Dans ce didacticiel, vous allez créer et surveiller une fabrique de données Azure à l’aide d’applets de commande Azure PowerShell. Le pipeline de la fabrique de données que vous créez dans ce didacticiel copie les données à partir d’un objet blob Azure vers une base de données SQL Azure.
+Le didacticiel [Prise en main d’Azure Data Factory][adf-get-started] vous montre comment créer et surveiller une fabrique de données Azure à l’aide du [portail Azure][azure-portal]. Dans ce didacticiel, vous allez créer et surveiller une fabrique de données Azure à l’aide d’applets de commande Azure PowerShell. Le pipeline de la fabrique de données que vous créez dans ce didacticiel utilise une activité de copie pour copier les données d’un objet blob Azure vers une base de données SQL Azure.
+
+L’activité de copie effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un service disponible à l’échelle mondiale qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 > [AZURE.IMPORTANT] 
-Passez en revue l’article [Vue d’ensemble du didacticiel](data-factory-get-started.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
+Passez en revue l'article [Vue d'ensemble du didacticiel](data-factory-get-started.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
 >   
 > cet article ne couvre pas toutes les applets de commande Data Factory. Consultez la [Référence des applets de commande Data Factory](https://msdn.microsoft.com/library/dn820234.aspx) pour obtenir une documentation complète sur les applets de commande Data Factory.
   
@@ -43,7 +45,7 @@ Si vous utilisez une **version < 1.0** d’Azure PowerShell, vous devez utilise
 	1. Exécutez **Add-AzureAccount**, puis entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour vous connecter au portail Azure.
 	2. Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
 	3. Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
-4. Passez en mode AzureResourceManager, car les applets de commande Azure Data Factory sont disponibles uniquement dans ce mode : **Switch-AzureMode AzureResourceManager**.
+4. Passez en mode AzureResourceManager, car les applets de commande d’Azure Data Factory sont disponibles seulement dans ce mode : **Switch-AzureMode AzureResourceManager**.
   
 
 ##Dans ce didacticiel
@@ -57,7 +59,7 @@ Le tableau suivant répertorie les étapes que vous allez exécuter dans le cadr
 [Étape 4 : créer et exécuter un pipeline](#CreateAndRunAPipeline) | Dans cette étape, vous allez créer un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données : **ADFTutorialDataFactoryPSH**. Le pipeline effectue une **activité de copie** qui se charge de copier des données d’objet blob Azure dans une table de base de données Azure de sortie.
 [Étape 5 : surveiller des jeux de données et le pipeline](#MonitorDataSetsAndPipeline) | Dans cette étape, vous allez surveiller les jeux de données et le pipeline à l’aide d’Azure PowerShell.
 
-## <a name="CreateDataFactory"></a> Étape 1 : créer une fabrique de données Azure
+## <a name="CreateDataFactory"></a>Étape 1 : créer une fabrique de données Microsoft Azure
 Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de données Azure nommée **ADFTutorialDataFactoryPSH**.
 
 1. Démarrez Azure PowerShell et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez réexécuter ces commandes.
@@ -420,8 +422,10 @@ Au cours de cette étape, vous allez utiliser Azure PowerShell pour surveiller c
 		PipelineName        : ADFTutorialPipeline
 		Type                : Copy
 
-Consultez la [Référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
+Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
 
+## Voir aussi
+Pour plus d’informations sur l’**activité de copie** dans Azure Data Factory, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -443,4 +447,4 @@ Consultez la [Référence des applets de commande Data Factory][cmdlet-reference
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

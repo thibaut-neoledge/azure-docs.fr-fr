@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="tdykstra"/>
 
 # Création d’une application web ASP.NET dans Azure App Service
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -79,7 +79,7 @@ Le diagramme illustre ce que vous faites dans les étapes de création et de dé
 
 3. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5.2**.
 
-4.  [Azure Application Insights](app-insights-overview.md) surveille la disponibilité, les performances et l’utilisation de votre application web. Décochez la case **Ajouter Application Insights au projet** si vous ne voulez pas l’essayer.
+4.  [Azure Application Insights](../application-insights/app-insights-overview.md) surveille la disponibilité, les performances et l’utilisation de votre application web. Décochez la case **Ajouter Application Insights au projet** si vous ne voulez pas l’essayer.
 
 4. Nommez l’application **MonExemple**.
 
@@ -301,4 +301,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

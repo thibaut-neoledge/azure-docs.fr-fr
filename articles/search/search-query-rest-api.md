@@ -1,70 +1,160 @@
 <properties
-	pageTitle="Générer des requêtes dans Azure Search à l’aide d’appels REST | Microsoft Azure | Service de recherche cloud hébergé"
-	description="Générer une requête de recherche dans Azure Search et utiliser les paramètres de recherche pour filtrer, trier et modeler les résultats de recherche à l’aide de la bibliothèque .NET ou du kit de développement logiciel."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
-    tags="azure-portal"/>
+    pageTitle="Interroger votre index Azure Search à l’aide de l’API REST | Microsoft Azure | Service de recherche cloud hébergé"
+    description="Créez une requête de recherche dans Azure Search et utilisez des paramètres de recherche pour filtrer, trier et formater les résultats de la recherche."
+    services="search"
+    documentationCenter=""
+	authors="ashmaka"
+/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/17/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="02/29/2016"
+    ms.author="ashmaka"/>
 
-# Générer des requêtes dans Azure Search à l’aide d’appels REST
+# Interroger votre index Azure Search à l’aide de l’API REST
 > [AZURE.SELECTOR]
-- [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
+- [Vue d'ensemble](search-query-overview.md)
+- [Explorateur de recherche](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Cet article explique comment construire une requête sur un index à l’aide de l’[API REST d’Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). Une partie du contenu ci-dessous est extrait de l’article [Recherche de documents (API REST du service Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx). Consultez l’article parent pour obtenir plus de contexte.
+Cet article explique comment interroger un index à l’aide de l’[API REST d’Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx). Avant de commencer cette procédure, vous devez avoir [créé un index Azure Search](search-create-index-rest-api.md) et y avoir [ajouté des données](search-import-data-rest-api.md).
 
-Avant l’importation, vous devez disposer d’un index existant associé à des documents qui fournissent des données de recherche.
+## I. Identifier la clé API de requête de votre service Azure Search
+La *clé API* générée pour le service que vous avez configuré représente un composant essentiel de chaque opération de recherche exécutée sur l’API REST Azure Search. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-Pour faire une recherche sur votre index à l’aide de l’API REST, vous devez émettre une requête HTTP GET. Vos paramètres de requête seront définis au sein de l’URL de la requête HTTP.
+1. Pour accéder aux clés API de votre service, vous devez vous connecter au [portail Azure](https://portal.azure.com/)
+2. Accédez au panneau de votre service Azure Search
+3. Cliquez sur l’icône « Clés »
 
-**Demande et en-têtes de demande** :
+Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
+  * Les *clés d’administration* principales et secondaires vous accordent des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des index, des indexeurs et des sources de données. Deux clés sont à votre disposition afin que vous puissiez continuer à utiliser la clé secondaire si vous décidez de régénérer la clé primaire et inversement.
+  * Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
 
-Dans l’URL, vous devrez fournir le nom de votre service, le nom d’index, ainsi que la version appropriée de l’API. La chaîne de requête à la fin de l’URL sera à l’endroit où vous fournissez les paramètres de requête. L’un des paramètres de la chaîne de requête doit être la version API appropriée (la version actuelle de l’API est « 2015-02-28 » au moment de la publication de ce document).
+Dans le cadre de l’interrogation d’un index, vous pouvez utiliser l’une de vos clés de requête. Vos clés d’administration peuvent également vous servir pour exécuter des requêtes, mais il est recommandé d’utiliser une clé de requête dans votre code d’application car cette approche respecte davantage le [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-Dans les en-têtes de demande, vous devez définir le Type de contenu et de fournir la clé d’administration primaire ou secondaire de votre service.
+## II. Formuler votre requête
+Il existe deux façons d’effectuer une [recherche dans votre index à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx). L’une consiste à émettre une requête HTTP POST dans laquelle vos paramètres de requête seront définis dans un objet JSON contenu dans le corps de la requête. L’autre méthode consiste à émettre une requête HTTP GET dans laquelle vos paramètres de requête seront définis à l’intérieur de l’URL de requête. Notez qu’une requête POST comporte des [limites plus souples](https://msdn.microsoft.com/library/azure/dn798927.aspx) que la méthode GET quant à la taille des paramètres de requête. Pour cette raison, nous vous recommandons d’utiliser POST, à moins que la situation justifie l’utilisation de GET.
 
-	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+Pour les méthodes POST et GET, vous devez indiquer dans l’URL de la requête le *nom de votre service*, le *nom de l’index* ainsi que la *version d’API* appropriée (la version actuelle de l’API est celle du `2015-02-28` au moment de la publication de ce document). Pour GET, vous allez renseigner les paramètres de requête au niveau de la *chaîne de requête* à la fin de l’URL. Voici le format URL à utiliser :
 
-Azure Search propose de nombreuses options pour créer des requêtes extrêmement performantes. Pour en savoir plus sur les différents paramètres d’une chaîne de requête, visitez [cette page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
 
-**Exemples :**
+La méthode POST suit un format identique, mais seule la version d’API figure dans les paramètres de chaîne de requête.
 
-Voici quelques exemples avec différentes chaînes de requête. Ces exemples utilisent un index factice nommé « hôtels » :
+Azure Search propose de nombreuses options pour créer des requêtes extrêmement performantes. Pour en savoir plus sur les différents paramètres d’une requête, visitez [cette page](https://msdn.microsoft.com/library/azure/dn798927.aspx). Vous trouverez également ci-dessous quelques exemples de requêtes.
 
-recherche le terme « qualité » dans l’ensemble de l’index :
+#### Exemples de requêtes
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+Voici quelques exemples de requêtes effectuées sur un index nommé « hotels ». Ces requêtes sont présentées aux formats GET et POST.
 
-Rechercher dans l’ensemble de l’index :
+Rechercher le terme « budget » sur la totalité de l’index et retourner uniquement le champ `hotelName` :
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
 
-Rechercher la totalité de l’index et ordonner en fonction d’un champ spécifique (lastRenovationDate) :
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "budget",
+    "select": "hotelName"
+}
+```
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+Rechercher dans l’ensemble de l’index les hôtels à moins de 150 $ par nuit et retourner les champs `hotelId` et `description` :
 
-Une demande de requête réussie entraîne un Code d’état « 200 OK » et les résultats de recherche se trouvent au format JSON dans le corps de réponse. Pour plus d’informations, consultez la section « Réponse » de [cette page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
 
-<!---HONumber=AcomDC_0224_2016-->
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "*",
+    "filter": "baseRate lt 150",
+    "select": "hotelId,description"
+}
+```
+
+Effectuer une recherche sur l’ensemble de l’index, appliquer un tri sur un champ spécifique (`lastRenovationDate`) dans l’ordre décroissant, retenir les deux premiers résultats et afficher uniquement les champs `hotelName` et `lastRenovationDate` :
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "*",
+    "orderby": "lastRenovationDate desc",
+    "select": "hotelName,lastRenovationDate",
+    "top": 2
+}
+```
+
+## III. Envoyer votre requête HTTP
+Maintenant que vous avez formulé votre requête dans l’URL (pour GET) ou dans le corps (pour POST) de votre requête HTTP, vous pouvez définir vos en-têtes de requête et envoyer votre requête.
+
+#### Requête et en-têtes de requête
+Vous devez définir deux en-têtes de requête pour GET, ou trois en-têtes pour POST :
+1. L’en-tête `api-key` doit être défini sur la clé de requête obtenue à l’étape I ci-dessus. Vous pouvez également utiliser une clé d’administration en tant qu’en-tête `api-key`, mais il est recommandé d’utiliser une clé de requête pour pouvoir obtenir exclusivement un accès en lecture seule aux index et aux documents.
+2. L’en-tête `Accept` doit être défini sur `application/json`.
+3. Pour la méthode POST uniquement, l’en-tête `Content-Type` doit également être défini sur `application/json`.
+
+L’exemple ci-dessous illustre une requête HTTP GET permettant d’effectuer une recherche sur l’index « hotels » à l’aide de l’API REST Azure, en utilisant une simple requête qui recherche le terme « motel » :
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+Accept: application/json
+api-key: [query key]
+```
+
+Voici le même exemple de requête, cette fois à l’aide de HTTP POST :
+
+```
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+Content-Type: application/json
+Accept: application/json
+api-key: [query key]
+
+{
+    "search": "motel"
+}
+```
+
+Une demande de requête réussie génère un code d’état `200 OK` et les résultats de recherche sont renvoyés au format JSON dans le corps de la réponse. Voici les résultats obtenus pour la requête ci-dessus, en supposant que l’index « hotels » contient les exemples de données de [cet article](search-import-data-rest-api.md) (notez que JSON a été formaté pour plus de clarté).
+
+```JSON
+{
+    "value": [
+        {
+            "@search.score": 0.59600675,
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "description_fr": "Hôtel le moins cher en ville",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags":["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": {
+                "type": "Point",
+                "coordinates": [-122.131577, 49.678581],
+                "crs": {
+                    "type":"name",
+                    "properties": {
+                        "name": "EPSG:4326"
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+Pour plus d’informations, consultez la section « Réponse » de [cette page](https://msdn.microsoft.com/library/azure/dn798927.aspx). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez [cet article](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+
+<!---HONumber=AcomDC_0302_2016-->

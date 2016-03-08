@@ -3,7 +3,7 @@
     description="Ce didacticiel vous familiarise avec la création, le test et la publication d'un Runbook graphique simple."
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # Mon premier Runbook graphique
@@ -161,4 +161,4 @@ Nous allons maintenant modifier le Runbook afin qu'il tente de démarrer uniquem
 -	[Mon premier Runbook de workflow PowerShell](automation-first-runbook-textual.md)
 -	[Mon premier Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

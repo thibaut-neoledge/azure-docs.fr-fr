@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/08/2016"
@@ -35,7 +35,7 @@ Apache Storm sur HDInsight est un cluster géré intégré dans l‘environneme
 
 	* Prendre en charge une combinaison de plusieurs langages de programmation : il peut lire des données à l‘aide de Java, puis les traiter en utilisant le C#
 	
-		> [AZURE.NOTE]Les topologies C# sont uniquement prises en charge sur les clusters HDInsight Windows.
+		> [AZURE.NOTE] Les topologies C# sont uniquement prises en charge sur les clusters HDInsight Windows.
 
 	* Utiliser l’interface Java **Trident** pour créer des topologies Storm qui prennent en charge « exactement une fois » le traitement des messages, la persistance de magasin de données « transactionnels » et un ensemble d‘opérations d‘analyses courantes de flux de données
 
@@ -53,7 +53,7 @@ Pour découvrir Storm, consultez la rubrique [Prise en main de Storm sur HDInsig
 
 Vous pouvez approvisionner un nouveau cluster Storm sur HDInsight en quelques minutes. Précisez le nom du cluster, sa taille, le compte d‘administrateur et le compte de stockage. Azure créera le cluster, y compris des exemples de topologies et un tableau de bord de gestion web.
 
-> [AZURE.NOTE]Vous pouvez également configurer des clusters Storm en utilisant l’[interface de ligne de commande](../xplat-cli-install.md) ou [Azure PowerShell](../powershell-install-configure.md).
+> [AZURE.NOTE] Vous pouvez également configurer des clusters Storm en utilisant l’[interface de ligne de commande](../xplat-cli-install.md) ou [Azure PowerShell](../powershell-install-configure.md).
 
 Dans les 15 minutes qui suivent l‘envoi de la demande, vous disposerez d’un nouveau cluster actif et prêt pour votre première analyse en temps réel.
 
@@ -101,7 +101,7 @@ Par défaut, Apache Storm est configuré pour n’avoir un seul nœud Nimbus. S
 
 Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de sa création, vous pourriez souhaiter augmenter ou réduire la taille du cluster pour l’adapter à votre charge de travail. Tous les clusters HDInsight permettent de modifier le nombre de nœuds du cluster, même lors du traitement des données.
 
-> [AZURE.NOTE]Pour tirer parti des nouveaux nœuds ajoutés via la mise à l'échelle, vous devrez rééquilibrer les topologies démarrées avant l’augmentation de la taille du cluster.
+> [AZURE.NOTE] Pour tirer parti des nouveaux nœuds ajoutés via la mise à l'échelle, vous devrez rééquilibrer les topologies démarrées avant l’augmentation de la taille du cluster.
 
 ###Support
 
@@ -137,7 +137,7 @@ Apache Storm exécute des**topologies** au lieu de tâches MapReduce que vous c
 
 * **Spout** : consomme des données à partir d‘une source de données et émet un ou plusieurs **flux**.
 
-	> [AZURE.NOTE]Dans de nombreux cas, les données sont lues à partir d‘une file d‘attente telle que Kafka, les files d‘attente Azure Service Bus ou les concentrateurs d‘événements. Les files d‘attente garantissent la conservation des données en cas de panne.
+	> [AZURE.NOTE] Dans de nombreux cas, les données sont lues à partir d‘une file d‘attente telle que Kafka, les files d‘attente Azure Service Bus ou les concentrateurs d‘événements. Les files d‘attente garantissent la conservation des données en cas de panne.
 
 * **Bolt** : consomme des **flux**, effectue le traitement des **tuples** et peut émettre des **flux**. Les bolts sont également chargés d‘écrire des données vers le stockage externe, comme une file d‘attente, HDInsight, HBase, un objet blob ou autre magasin de données.
 
@@ -219,4 +219,4 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->
