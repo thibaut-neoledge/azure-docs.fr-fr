@@ -61,7 +61,8 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
-| Azure IaaS VMs (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) | | Azure IaaS VMs (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Azure IaaS VMs (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Azure IaaS VMs (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
 
 ## Fonctionnalités
 Ces cinq tableaux récapitulent la manière dont les fonctionnalités Azure Backup sont gérées dans chaque composant :
@@ -77,7 +78,9 @@ Ces cinq tableaux récapitulent la manière dont les fonctionnalités Azure Back
 | Sauvegarde incrémentielle | ![Oui][green] | ![Oui][green] | ![Oui][green] | ![Oui][green] |
 | Déduplication de disque | | ![Partiellement][yellow] | ![Partiellement][yellow]| | |
 
-**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Partiellement][yellow]= Prise en charge partielle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+![Partiellement][yellow]= Prise en charge partielle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
 
 Le coffre Azure Backup est la cible de stockage par défaut sur tous les composants. System Center DPM et Azure Backup Server permettent également de disposer d’une copie du disque local, mais seul System Center DPM prend en charge l’écriture de données sur un périphérique de stockage à bande.
 
@@ -98,7 +101,9 @@ La déduplication est prise en charge par System Center DPM et Azure Backup Ser
 | Sécurité du réseau (vers Azure) | ![Oui][green] |![Oui][green] | ![Oui][green] | ![Partiellement][yellow]|
 | Sécurité des données (dans Azure) | ![Oui][green] |![Oui][green] | ![Oui][green] | ![Partiellement][yellow]|
 
-**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Partiellement][yellow]= Prise en charge partielle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+![Partiellement][yellow]= Prise en charge partielle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
 
 L’ensemble du trafic de sauvegarde entre vos serveurs et le coffre Azure Backup est chiffré à l’aide du protocole AES (Advanced Encryption Standard) 256. Les données sont envoyées via une connexion HTTPS sécurisée. Les données de sauvegarde sont également stockées dans le coffre Azure Backup sous une forme chiffrée. Seul le client conserve le mot de passe pour déverrouiller ces données. Microsoft ne peut déchiffrer les données de sauvegarde à aucun moment.
 
@@ -120,7 +125,8 @@ Pour la sauvegarde des machines virtuelles Azure, vous devez configurer explicit
 | Machine virtuelle Azure (Windows) | | | | ![Oui][green] |
 | Machine virtuelle Azure (Linux) | | | | ![Oui][green] |
 
-**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
 
 ### Réseau
 
@@ -131,7 +137,8 @@ Pour la sauvegarde des machines virtuelles Azure, vous devez configurer explicit
 | Protocole réseau (sur le serveur de sauvegarde) | | TCP | TCP | |
 | Protocole réseau (sur le coffre de sauvegarde) | HTTPS | HTTPS | HTTPS | HTTPS |
 
-**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+**Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
 
 Étant donné que l’extension de machine virtuelle lit directement les données à partir du compte Azure Storage via le réseau de stockage, il n’est pas nécessaire d’optimiser ce trafic. Comme le trafic transite sur le réseau de stockage local dans le centre de données Azure, la question de la compression liée aux problèmes de bande passante ne se pose pas véritablement.
 

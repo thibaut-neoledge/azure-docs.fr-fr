@@ -380,7 +380,8 @@ L’application Chrome est créée à l’aide de JavaScript et vous pouvez util
 	- *client* est une instance de **XMLHttpRequest** qui nous permet d’effectuer la requête HTTP POST. Notez que nous mettons à jour l’en-tête **Authorization** avec **sasToken**. La réussite de cet appel enregistre cette instance de l’application Chrome auprès d’Azure Notification Hubs.
 
 
-Vous devez voir l’affichage suivant pour votre dossier à la fin de ceci : ![][21]
+Vous devez voir l’affichage suivant pour votre dossier à la fin de ceci : 
+   	![][21]
 
 ###Installation et test de votre application Chrome
 
@@ -454,7 +455,9 @@ Pour découvrir un exemple de la procédure d’envoi de notifications à l’ai
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans cet exemple simple, vous avez envoyé des notifications à votre application Chrome. En savoir plus sur Notification Hubs dans la [Vue d’ensemble de Notification Hubs]. Pour cibler des utilisateurs spécifiques, reportez-vous au didacticiel [Notification des utilisateurs via Azure Notification Hubs]. Pour segmenter vos utilisateurs par groupes d’intérêt, consultez la page [Dernières nouvelles via Azure Notification Hubs].
+Dans cet exemple simple, vous avez envoyé des notifications à votre application Chrome.
+En savoir plus sur Notification Hubs dans la [Vue d’ensemble de Notification Hubs].
+Pour cibler des utilisateurs spécifiques, reportez-vous au didacticiel [Notification des utilisateurs via Azure Notification Hubs]. Pour segmenter vos utilisateurs par groupes d’intérêt, consultez la page [Dernières nouvelles via Azure Notification Hubs].
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG

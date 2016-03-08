@@ -31,7 +31,7 @@ Pour générer une application acceptant l’inscription et la connexion des con
 
 Vous pouvez accéder au panneau de fonctionnalités B2C à partir du portail Azure ou Azure Classic.
 
-### 1\. Accès via le portail Azure
+### 1. Accès via le portail Azure
 
 Si le panneau de fonctionnalités B2C est épinglé sur votre Tableau d'accueil, vous pouvez le voir dès que vous vous connectez au [portail Azure](https://portal.azure.com/) en tant qu'administrateur général du client B2C.
 
@@ -42,7 +42,7 @@ Vous pouvez également y accéder directement en naviguant vers l’URL [https:/
     > [AZURE.IMPORTANT]
     You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
 
-### 2\. Accès via le portail Azure Classic
+### 2. Accès via le portail Azure Classic
 
 Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. (Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour vous inscrire à Azure.) Accédez à l’extension Active Directory sur la gauche, puis cliquez sur votre client B2C. Sous l’onglet **Démarrage rapide** (le premier à s’ouvrir), cliquez sur **Gestion des paramètres B2C** sous **Administrer**. Cela a pour effet d’ouvrir le panneau de fonctionnalités B2C dans une nouvelle fenêtre ou un nouvel onglet du navigateur.
 

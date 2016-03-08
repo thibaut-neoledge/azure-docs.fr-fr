@@ -43,7 +43,7 @@ Le tableau ci-après peut vous aider à déterminer la meilleure option de conne
 | **CONTRAT SLA** | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) |
 | **Tarification** | [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **Documentation technique** | [Documentation sur la passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation sur la passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
-| ****FAQ ** | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md) |
+| **FAQ ** | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md) |
 
 
 ## Connexions site à site
