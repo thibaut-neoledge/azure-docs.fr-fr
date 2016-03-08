@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="12/24/2015"
+	ms.date="02/26/2016"
 	ms.author="cfowler"/>
 
 # Connexion d’une application web à une application API dans Azure App Service
@@ -43,11 +43,11 @@ Ce didacticiel s'appuie sur la série de didacticiels sur les applications API 
 
 	![Ajouter une référence d’application API Azure...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. Dans **Ajouter client REST API**; sélectionnez Télécharger à partir de l’application API Microsoft Azure et cliquez sur Parcourir. Sélectionnez l’application API à laquelle vous souhaitez vous connecter.
+1. Dans **Ajouter client REST API**, sélectionnez Télécharger à partir de l’application API Microsoft Azure et cliquez sur Parcourir. Sélectionnez l’application API à laquelle vous souhaitez vous connecter.
 
 	![Sélectionner une application API existante](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
-	>[AZURE.NOTE]Le code client pour se connecter à l'application API sera automatiquement généré à partir d'un point de terminaison de l'API Swagger.
+	>[AZURE.NOTE] Le code client pour se connecter à l'application API sera automatiquement généré à partir d'un point de terminaison de l'API Swagger.
 
 1. Pour utiliser le code d’API généré, ouvrez le fichier HomeController.cs, puis remplacez l’action `Contact` par les éléments suivants :
 
@@ -77,16 +77,16 @@ Ce didacticiel s'appuie sur la série de didacticiels sur les applications API 
     &lt;/ul&gt; 
 	</pre>
 
-![Mises à jour du code contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+	![Mises à jour du code contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Déployer l'application web vers Web Apps dans App Service
 
 Suivez les instructions fournies dans [Comment déployer une application web Azure](web-sites-deploy.md).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

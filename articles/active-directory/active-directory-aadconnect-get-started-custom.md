@@ -163,7 +163,9 @@ Ici, vous devez entrer les serveurs spécifiques sur lesquels vous souhaitez ins
 Ici, vous devez entrer les serveurs spécifiques que vous souhaitez utiliser en tant que serveurs proxy d’application web. Les serveurs proxy d’application web sont déployés dans votre DMZ (accès extranet) et prennent en charge les demandes d’authentification provenant de l’extranet. Vous pouvez ajouter un ou plusieurs serveurs selon vos besoins de planification de capacité. Nous vous recommandons d’installer un seul serveur proxy d’application web pour tester et superviser les déploiements avant de déployer des serveurs supplémentaires en ouvrant à nouveau Azure AD Connect après l’installation initiale et de déployer un proxy d’application web sur des serveurs supplémentaires. Nous recommandons généralement d’avoir un nombre suffisant de serveurs proxy pour répondre aux demandes d’authentification à partir de l’intranet.
 
 > [AZURE.NOTE]
-<li> Si le compte que vous utilisez pour installer Azure AD Connect n’est pas un administrateur local sur le ou les serveurs AD FS, vous serez invité à entrer les informations d’identification d’un compte qui dispose des autorisations nécessaires.</li> <li> Vérifiez la connectivité HTTP/HTTPS entre le serveur Azure AD Connect et le serveur proxy d’application web avant de configurer cette étape.</li> <li> Assurez-vous également qu’il existe une connectivité HTTP/HTTPS entre le serveur d’applications web et le serveur AD FS pour autoriser les transmissions de demandes d’authentification.</li>
+<li> Si le compte que vous utilisez pour installer Azure&#160;AD&#160;Connect n’est pas un compte d’administrateur local sur le ou les serveurs AD&#160;FS, vous êtes invité à entrer les informations d’identification d’un compte qui dispose des autorisations suffisantes.</li>
+<li> Vérifiez la connectivité HTTP/HTTPS entre le serveur Azure&#160;AD&#160;Connect et le serveur proxy d’application web avant de configurer cette étape.</li>
+<li> Assurez-vous également qu’il existe une connectivité HTTP/HTTPS entre le serveur d’applications web et le serveur AD&#160;FS pour autoriser les transmissions de demandes d’authentification.</li>
 
 ![Application web](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -174,7 +176,7 @@ Vous devez vous connecter pour que le serveur d’application web puisse établi
 ### Spécification du compte de service pour le service AD FS
 Le service AD FS requiert un compte de service de domaine pour authentifier les utilisateurs et rechercher les informations utilisateur dans Active Directory. Il prend en charge 2 types de compte de service :
 
-- **Compte de service géré de groupe** : il s’agit d’un type de compte de service introduit dans le service de domaine Active Directory avec Windows Server 2012. Ce type de compte fournit des services tels qu’AD FS pour utiliser un seul compte sans avoir à mettre à jour son mot de passe régulièrement. Utilisez cette option si vous avez déjà des contrôleurs de domaine Windows Server 2012 dans le domaine auquel appartiennent vos serveurs AD FS.
+- **Compte de service géré de groupe** : il s’agit d’un type de compte de service introduit dans le service de domaine Active Directory avec Windows Server 2012. Ce type de compte fournit des services tels qu’AD FS pour utiliser un seul compte sans avoir à mettre à jour son mot de passe régulièrement. Utilisez cette option si vous avez déjà des contrôleurs de domaine Windows Server 2012 dans le domaine auquel appartiennent vos serveurs AD FS.
 - **Compte d’utilisateur de domaine** : ce type de compte requiert un mot de passe et des mises à jour régulières, à chaque modification du mot de passe. Utilisez cette option si vous n’avez pas de contrôleur de domaine Windows Server 2012 dans le domaine auquel appartiennent vos serveurs AD FS.
 
 Si vous avez sélectionné le compte de service géré de groupe et que cette fonctionnalité n’a jamais été utilisée dans Active Directory, vous serez également invité à entrer des informations d’identification d’administrateur d’entreprise. Elles serviront à initialiser le magasin de clés et à activer la fonctionnalité dans Active Directory.
@@ -190,6 +192,14 @@ Cette opération permet de configurer la relation de fédération entre AD FS et
 
 ![Domaine Azure AD](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
+
+### Vérification du domaine Azure AD sélectionné pour la fédération
+
+Lorsque vous sélectionnez le domaine à fédérer avec votre annuaire local, Azure AD Connect vous fournit les informations nécessaires pour vérifier le domaine s’il n’est pas déjà vérifié. Cette page vous fournit les enregistrements DNS que vous devez créer dans le bureau d’enregistrement de noms de domaine, ou là où votre serveur DNS est hébergé, afin de terminer la vérification du domaine.</br>
+
+![Domaine Azure AD](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
+
+> [AZURE.NOTE] Azure AD Connect tente de vérifier le domaine pendant l’étape de configuration. Si vous poursuivez la configuration sans ajouter les enregistrements DNS hébergeant votre domaine DNS, l’Assistant n’est pas en mesure d’effectuer la configuration.</br>
 
 ## Pages de configuration et de vérification
 C’est dans cette page que la configuration a réellement lieu.
@@ -217,8 +227,8 @@ Lorsque vous cliquez sur le bouton Vérifier, Azure AD Connect vérifie la confi
 
 Veuillez également vérifier les points suivants :
 
-- Validez la connexion du navigateur à partir d’un ordinateur associé à votre domaine à partir d’Internet Explorer à partir de l’intranet : connectez-vous à https://myapps.microsoft.com et vérifiez la connexion avec votre compte connecté. **Remarqu  :** le compte d’administrateur AD DS intégré n’est pas synchronisé et ne peut pas être utilisé pour la vérification.
-- Validez la connexion du navigateur à partir de n’importe quel appareil à partir de l’extranet : sur un ordinateur personnel ou un appareil mobile, connectez-vous à https://myapps.microsoft.com et entrez votre ID de connexion et votre mot de passe.
+- Validez la connexion du navigateur à partir d’un ordinateur associé au domaine, depuis Internet Explorer et l’intranet : connectez-vous à https://myapps.microsoft.com et vérifiez la connexion avec votre compte connecté. **Remarque :** le compte d’administrateur AD DS intégré n’est pas synchronisé et ne peut pas être utilisé pour la vérification.
+- Validez la connexion du navigateur à partir de n’importe quel appareil depuis l’extranet : sur un ordinateur personnel ou un appareil mobile, connectez-vous à https://myapps.microsoft.com, puis entrez votre ID de connexion et votre mot de passe.
 - Validez la connexion à un client complet : connectez-vous à https://testconnectivity.microsoft.com, sélectionnez l’onglet **Office 365**, puis **Test d’authentification unique dans Office 365**.
 
 ## Étapes suivantes
@@ -228,4 +238,4 @@ Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’
 
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

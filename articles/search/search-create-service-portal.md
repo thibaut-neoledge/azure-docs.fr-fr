@@ -21,7 +21,7 @@
 
 Microsoft Azure Search est un service de recherche cloud hébergé qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit un moteur de recherche et assure le stockage de vos données de recherche, dont l’accès et la gestion peuvent s’effectuer à l’aide du portail Azure, d’un Kit de développement logiciel (SDK) .NET ou d’une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la mise en surbrillance des résultats, la navigation à facettes, les profils de score et le support multilingue. Pour en savoir plus sur Azure Search, consultez [Présentation d’Azure Search](search-what-is-azure-search.md).
 
-Azure Search est disponible à plusieurs niveaux de prix allant du niveau gratuit (partagé) au niveau standard, où le prix dépend de la capacité que vous souhaitez.
+Azure Search est disponible à plusieurs niveaux de prix allant du niveau gratuit (partagé) aux niveaux De base et standard, où le prix dépend de la capacité que vous souhaitez.
 
 ## Ajouter gratuitement Azure Search à votre abonnement
 
@@ -42,7 +42,8 @@ En tant qu’administrateur, vous pouvez ajouter le service Azure Search à un 
 	- Le **niveau de tarification** détermine la capacité et la facturation. Les deux niveaux offrent les mêmes fonctionnalités, mais à des niveaux de ressources différents.
 
 		- La **version gratuite** s'applique aux clusters partagés avec d'autres abonnés. Elle offre une capacité suffisante pour tester les didacticiels et écrire du code de validation technique, mais elle n'est pas destinée aux applications de production. En général, le déploiement d'un service gratuit ne prend que quelques minutes.
-		- La version **standard** s'applique aux ressources dédiées et est hautement évolutive. À l'origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité une fois le service créé. Le déploiement d’un service standard prend plus de temps, environ 15 minutes.
+		- Le niveau **De base (version préliminaire)** s’applique à des ressources dédiées, mais avec des limites et une tarification inférieures pour les plus petites charges de travail. Vous pouvez monter jusqu’à 3 réplicas et 1 partition pour l’exécution de requêtes haute disponibilité.
+		- La version **standard** s'applique aux ressources dédiées et est hautement évolutive. À l’origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité à hauteur de 36 unités de recherche maximum une fois le service créé. Le déploiement d’un service standard prend plus de temps, environ 15 minutes.
 
 	- Les **groupes de ressources** sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, la fonctionnalité Web Apps dans Azure App Service Azure et le stockage d’objets blob Azure, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
 
@@ -126,4 +127,4 @@ Maintenant que votre service est créé, vous pouvez passer aux étapes suivante
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

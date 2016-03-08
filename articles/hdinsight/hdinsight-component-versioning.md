@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 
@@ -38,7 +38,7 @@ Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
 Apache Storm|0\.10.0|0\.9.3|0\.9.1||
 Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
 Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|1\.3.1|||
+Apache Spark|1\.5.2 (Linux uniquement/version expérimentale)|1\.3.1 (Windows uniquement)|||
 
 
 **Obtention d’informations sur les versions actuelles des composants**
@@ -57,7 +57,7 @@ Quand vous créez un cluster par l’intermédiaire des applets de commande Wind
 ##Présentation des fonctionnalités
 Les caractéristiques principales de la plateforme HDInsight sont notamment les suivantes :
 
-- **Spark** : Apache Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse de données volumineuses. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques.
+- **Spark** : Apache Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de données volumineuses. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques.
 
 	Spark permet également d'effectuer des opérations standard de traitement des données sur disque. En évitant les écritures sur disque lors des étapes intermédiaires, Spark améliore l’infrastructure MapReduce traditionnelle. En outre, Spark est compatible avec le système HDFS (Hadoop Distributed File System) et le stockage d’objets blob Azure ; les données existantes peuvent dont être traitées facilement via Spark.
 
@@ -123,7 +123,7 @@ Le contrat de niveau de service est défini en termes de « fenêtre de support
 
 La **Date d’obsolescence** est la date après laquelle la version du cluster ne peut plus être créée sur HDInsight.
 
-> [AZURE.NOTE]Les clusters HDInsight 2.1 et 3.0 fonctionnent tous deux sur le système d’exploitation invité d’Azure [Famille 4](../cloud-services-guestos-update-matrix.md), qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5 et 4.5.1.
+> [AZURE.NOTE] Les clusters HDInsight 2.1 et 3.0 fonctionnent tous deux sur le système d’exploitation invité d’Azure [Famille 4](../cloud-services/cloud-services-guestos-update-matrix.md), qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5 et 4.5.1.
 
 ## Notes de publication de Hortonworks associées aux versions de HDInsight##
 
@@ -167,4 +167,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

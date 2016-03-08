@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Prendre en main Notification Hubs pour les applications Kindle
@@ -74,7 +74,7 @@ Dans le portail, ajoutez la clé secrète client et l’ID client à l’onglet 
 
 ## Configuration de votre application
 
-> [AZURE.NOTE]Lors de la création d’une application, utilisez au moins l’API de niveau 17.
+> [AZURE.NOTE] Lors de la création d’une application, utilisez au moins l’API de niveau 17.
 
 Ajoutez les bibliothèques ADM à votre projet Eclipse :
 
@@ -251,7 +251,7 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 2. Dans l’émulateur, balayez l’écran depuis le haut et cliquez sur **Paramètres**, puis sur **Mon compte**, et inscrivez-vous avec un compte Amazon valide.
 3. Dans Eclipse, exécutez l'application.
 
-> [AZURE.NOTE]Si un problème se produit, vérifiez l'heure de l'émulateur (ou de l'appareil). L'heure doit être exacte. Pour modifier l'heure de l'émulateur Kindle, vous pouvez exécuter la commande suivante depuis le répertoire des outils de plateforme du Kit de développement logiciel (SDK) Android :
+> [AZURE.NOTE] Si un problème se produit, vérifiez l'heure de l'émulateur (ou de l'appareil). L'heure doit être exacte. Pour modifier l'heure de l'émulateur Kindle, vous pouvez exécuter la commande suivante depuis le répertoire des outils de plateforme du Kit de développement logiciel (SDK) Android :
 
 		adb shell  date -s "yyyymmdd.hhmmss"
 
@@ -281,4 +281,4 @@ Pour envoyer un message avec .NET :
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Présentation des connexions hybrides | Microsoft Azure"
-	description="Découvrez les connexions hybrides, y compris la sécurité, les ports TCP et les configurations prises en charge. MABS, WABS."
+	description="Découvrez les connexions hybrides, la sécurité, les ports TCP et les configurations prises en charge. MABS, WABS."
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
 # Aperçu des connexions hybrides
-Cet article présente les connexions hybrides et répertorie les configurations prises en charge ainsi que les ports TCP requis.
+Présentation des connexions hybrides, listes des configurations prises en charge et listes des ports TCP requis
 
 
 ## Présentation des connexions hybrides
@@ -35,7 +35,7 @@ Les avantages des connexions hybrides sont les suivants :
 - Les applications qui utilisent des connexions hybrides accèdent uniquement à la ressource locale spécifique qui est publiée par l'intermédiaire de la connexion hybride.
 - Elles peuvent se connecter à n'importe quelle ressource qui utilise un port TCP statique, par exemple, SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés.
 
-	> [AZURE.NOTE]Actuellement, les services TCP qui utilisent des ports dynamiques (tels que le mode FTP passif ou le mode passif étendu) ne sont pas pris en charge.
+	> [AZURE.NOTE] Actuellement, les services TCP qui utilisent des ports dynamiques (tels que le mode FTP passif ou le mode passif étendu) ne sont pas pris en charge.
 
 - Elles peuvent être utilisées avec toutes les infrastructures prises en charge par Web Apps (.NET, PHP, Java, Python, Node.js) et Mobile Apps (Node.js, .NET).
 - Les applications Web Apps et Mobile Apps peuvent accéder aux ressources locales exactement de la même manière que si le site web ou le service mobile était situé sur votre réseau local. Par exemple, la chaîne de connexion utilisée localement peut également être utilisée sur Azure.
@@ -91,7 +91,7 @@ Port | Raison
 
 ## Étapes suivantes
 
-[Création et gestion des connexions hybrides](integration-hybrid-connection-create-manage.md)<br/> [Connexion d'un site web Azure à une ressource locale](../web-sites-hybrid-connection-get-started.md)<br/> [Connexion à un serveur SQL Server local à partir d'Azure Web Apps](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Azure Mobile Services et connexions hybrides](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[Création et gestion des connexions hybrides](integration-hybrid-connection-create-manage.md)<br/> [Connexion d'un site web Azure à une ressource locale](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/> [Connexion à un serveur SQL Server local à partir d'Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Azure Mobile Services et connexions hybrides](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## Voir aussi
@@ -103,4 +103,4 @@ Port | Raison
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

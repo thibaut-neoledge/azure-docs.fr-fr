@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/05/2016"
+	ms.date="03/02/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # Qu’est-ce qu’Azure Backup ?
@@ -81,6 +81,7 @@ Ces cinq tableaux récapitulent la manière dont les fonctionnalités Azure Back
 **Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 ![Partiellement][yellow]= Prise en charge partielle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+
 Le coffre Azure Backup est la cible de stockage par défaut sur tous les composants. System Center DPM et Azure Backup Server permettent également de disposer d’une copie du disque local, mais seul System Center DPM prend en charge l’écriture de données sur un périphérique de stockage à bande.
 
 #### Sauvegarde incrémentielle
@@ -103,6 +104,7 @@ La déduplication est prise en charge par System Center DPM et Azure Backup Ser
 **Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 ![Partiellement][yellow]= Prise en charge partielle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+
 L’ensemble du trafic de sauvegarde entre vos serveurs et le coffre Azure Backup est chiffré à l’aide du protocole AES (Advanced Encryption Standard) 256. Les données sont envoyées via une connexion HTTPS sécurisée. Les données de sauvegarde sont également stockées dans le coffre Azure Backup sous une forme chiffrée. Seul le client conserve le mot de passe pour déverrouiller ces données. Microsoft ne peut déchiffrer les données de sauvegarde à aucun moment.
 
 >[AZURE.WARNING] La clé utilisée pour chiffrer les données de sauvegarde est disponible uniquement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
@@ -137,6 +139,7 @@ Pour la sauvegarde des machines virtuelles Azure, vous devez configurer explicit
 
 **Clé** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Oui][green]= Prise en charge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Pas de prise en charge
+
 Étant donné que l’extension de machine virtuelle lit directement les données à partir du compte Azure Storage via le réseau de stockage, il n’est pas nécessaire d’optimiser ce trafic. Comme le trafic transite sur le réseau de stockage local dans le centre de données Azure, la question de la compression liée aux problèmes de bande passante ne se pose pas véritablement.
 
 Pour les clients qui protègent leurs données sur un serveur de sauvegarde (System Center DPM ou Azure Backup Server), le trafic généré entre le serveur principal et le serveur de sauvegarde peut également être compressé afin d’économiser de la bande passante.
@@ -184,4 +187,4 @@ Avant de prendre toute décision en matière de sauvegarde et de récupération 
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

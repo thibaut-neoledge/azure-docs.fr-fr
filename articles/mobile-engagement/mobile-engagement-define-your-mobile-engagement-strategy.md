@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="03/01/2016"
 	ms.author="piyushjo" />
 
 # Définir votre stratégie Mobile Engagement
@@ -60,7 +60,7 @@ Comme vous le réalisez peut-être à ce stade, la diffusion de notifications pu
 
 Pour être le plus contextuel possible quand vous communiquez avec votre audience, vous devez connaître le comportement de vos utilisateurs finaux, pour déterminer leur situation en temps réel. La collecte de données permet aux spécialistes marketing de se concentrer vraiment sur l’essentiel pour utiliser les cas d’utilisation et atteindre leurs objectifs de stratégie d’engagement mobile. Pour atteindre les objectifs définis plus tôt, la meilleure pratique ne consiste pas à utiliser toutes les analyses, mais uniquement celles qui vous permettent de vous concentrer sur ce que vous voulez apprendre et sur vos cas pratiques. C’est la bonne méthode pour commencer : essayez, testez et apprenez à utiliser la solution, à envoyer des notifications Push intelligentes et à augmenter la fidélisation pour que l’application devienne un succès.
 
->[AZURE.NOTE]N’oubliez pas : trop de données tuent les données !
+>[AZURE.NOTE] N’oubliez pas : trop de données tuent les données !
 
 ### Cas d’utilisation et meilleures pratiques
 
@@ -113,12 +113,14 @@ Tous ces types de données peuvent être agrémentés de paramètres (*extra-inf
 
 	![][1]
 
-*Cas d’utilisation : données déclaratives* 1. Segmentez les alertes de contenu : collectez des données déclaratives pour segmenter l'audience en fonction des préférences. De cette façon, vous pouvez envoyer une notification push sur un sujet particulier qui intéresse vraiment une audience spécifique. 2. Segmentez l'audience en fonction de l'état de connexion. Collectez des données pour savoir si un utilisateur est connecté ou s'il a créé un compte. Ces données ciblent les utilisateurs finaux qui ne sont pas encore connectés et d’envoyer une notification Push pour inciter l’utilisateur final à effectuer la conversion. ![][2]
+*Cas d’utilisation : données déclaratives*
+1.	Segmentez les alertes de contenu : collectez des données déclaratives pour segmenter l'audience en fonction des préférences. De cette façon, vous pouvez envoyer une notification push sur un sujet particulier qui intéresse vraiment une audience spécifique.
+2.	Segmentez l'audience en fonction de l'état de connexion. Collectez des données pour savoir si un utilisateur est connecté ou s'il a créé un compte. Ces données ciblent les utilisateurs finaux qui ne sont pas encore connectés et d’envoyer une notification Push pour inciter l’utilisateur final à effectuer la conversion. ![][2]
 
 ### Étapes suivantes
 
 - Consultez la page [Concepts de Mobile Engagement] pour en savoir plus sur les concepts Mobile Engagement de base.
-- [Créer un compte Azure Mobile Engagement](mobile-engagement-create-account.md).
+- Consultez l’article [Création d’un compte Azure Mobile Engagement](mobile-engagement-create.md) pour apprendre à créer une collection d’applications Mobile Engagement dans Azure et commencer à gérer vos applications à l’aide du portail Mobile Engagement.
 - Consultez les [Meilleures pratiques](mobile-engagement-getting-started-best-practices.md) pour une étude approfondie.
 - Consultez le [Scénario d’application de jeu](mobile-engagement-gaming-scenario.md) pour en savoir plus sur l’implémentation de Mobile Engagement avec un exemple d’application de jeu. 
 - Consultez le [Scénario d’application multimédia](mobile-engagement-media-scenario.md) pour en savoir plus sur l’implémentation de Mobile Engagement avec un exemple d’application multimédia. 
@@ -132,4 +134,4 @@ Tous ces types de données peuvent être agrémentés de paramètres (*extra-inf
 [Concepts de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Didacticiels]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

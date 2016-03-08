@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 
@@ -39,26 +39,26 @@ Appareils pris en charge
 Configuration requise pour le scénario
 ------------------------------------------------------------------------
 * Abonnement à Office 365 ou Azure Active Directory Premium
-* Locataire Azure Active Directory
+* Un client Azure Active Directory
 * Windows Server Active Directory (Windows Server 2008 ou version ultérieure)
 * Schéma mis à jour dans Windows Server 2012 R2
-* Abonnement à Azure Active Directory Premium
+* Une licence Azure Active Directory Premium
 * Windows Server 2012 R2 Federation Services, configuré pour l’authentification unique à Azure AD
 * Windows Server 2012 R2 Proxy Application Web Microsoft Azure Active Directory Connect (Azure AD Connect). [Téléchargez Azure AD Connect ici](http://www.microsoft.com/fr-FR/download/details.aspx?id=47594).
-* Domaine vérifié. 
+* Domaine vérifié.
 
 Problèmes connus dans cette version
 -------------------------------------------------------------------------------
 * Les stratégies d’accès conditionnel basées sur les appareils nécessitent la réécriture d’objets d’appareil dans Active Directory depuis Azure Active Directory. La réécriture des objets d'appareil dans Active Directory peut prendre jusqu'à 3 heures.
-* Les appareils iOS 7 demandent systématiquement à l'utilisateur de sélectionner un certificat durant l'authentification des certificats clients. 
-* Certaines versions d'iOS8, avant iOS 8.3 ne fonctionnent pas. 
+* Les appareils iOS 7 demandent systématiquement à l'utilisateur de sélectionner un certificat durant l'authentification des certificats clients.
+* Certaines versions d'iOS8, avant iOS 8.3 ne fonctionnent pas.
 
 ## Hypothèses de scénario
-Ce scénario suppose que vous disposez d'un environnement hybride comprenant un locataire Azure AD et un répertoire actif local. Ces locataires doivent être connectés à l'aide d'Azure AD Connect, d'un domaine vérifié et AD FS pour l'authentification unique. La liste de vérification ci-dessous vous aidera à configurer votre environnement jusqu'à l'étape décrite ci-dessus.
+Ce scénario suppose que vous disposez d’un environnement hybride comprenant un client Azure AD et un répertoire Active Directory local. Ces locataires doivent être connectés à l'aide d'Azure AD Connect, d'un domaine vérifié et AD FS pour l'authentification unique. La liste de vérification ci-dessous vous aidera à configurer votre environnement jusqu'à l'étape décrite ci-dessus.
 
-Liste de vérification : configuration requise pour le scénario d'accès conditionnel
+Liste de vérification : configuration requise pour un scénario d’accès conditionnel
 --------------------------------------------------------------
-Connectez votre locataire Azure AD à votre Active Directory local.
+Connectez votre client Azure AD au répertoire Active Directory local.
 
 ## Configuration du service Azure Active Directory Device Registration
 Utilisez ce guide pour déployer et configurer le service Azure Active Directory Device Registration au sein de votre organisation.
@@ -89,11 +89,11 @@ Suivez la liste de vérification ci-dessous pour activer et configurer le servic
 | Task | Référence |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Terminez la 2ème partie de l'activation de l'écriture différée des appareils dans Azure AD Connect. Une fois que vous avez terminé, revenez à ce guide. | [Activation de l'écriture différée des appareils dans Azure AD Connect] (#Upgrade your Active Directory Domain Services Schema) |
-	 
+
 
 ##[Facultatif] 4ème partie : Activer l'authentification multifacteur
 
-Nous vous recommandons fortement de configurer l'une des différentes options pour l'authentification multifacteur. Si vous voulez avoir recours à l'authentification multifacteur, consultez [Choix de la solution de sécurité multifacteur la plus appropriée pour vous](multi-factor-authentication-get-started.md). Cette rubrique inclut une description de chaque solution et des liens pour vous aider à configurer la solution de votre choix.
+Nous vous recommandons fortement de configurer l'une des différentes options pour l'authentification multifacteur. Si vous voulez avoir recours à l'authentification multifacteur, consultez [Choix de la solution de sécurité multifacteur la plus appropriée pour vous](../multi-factor-authentication/multi-factor-authentication-get-started.md). Cette rubrique inclut une description de chaque solution et des liens pour vous aider à configurer la solution de votre choix.
 
 ## 5ème partie : Vérification
 
@@ -109,20 +109,20 @@ Le déploiement est maintenant terminé. Vous pouvez désormais tester certains 
 
 
 
-## Intégrer Azure Active Directory au service Active Directory local
-Ceci vous aidera à intégrer votre locataire Azure AD dans votre service Active Directory local à l'aide d'Azure AD Connect. Bien que les étapes soient disponibles dans le portail Azure, notez les instructions spécifiques répertoriées dans cette section.
+## Intégration d’Azure Active Directory au répertoire Active Directory local
+Cela va vous aider à intégrer le client Azure AD au répertoire Active Directory local à l’aide d’Azure AD Connect. Bien que les étapes soient disponibles dans le portail Azure Classic, notez les instructions spécifiques répertoriées dans cette section.
 
-1.	Ouvrez une session sur le portail Azure en tant qu’administrateur.
+1.	Dans Azure AD, ouvrez le portail Azure Classic à l’aide d’un compte Administrateur général.
 2.	Dans le volet gauche, sélectionnez **Active Directory**.
 3.	Sous l'onglet **Répertoire**, sélectionnez votre répertoire.
 4.	Sélectionnez l'onglet **Intégration de répertoires**.
-5.	Dans la section de **déploiement et de gestion**, suivez les étapes 1 à 3 pour intégrer Azure Active Directory à votre répertoire local.
+5.	Dans la section **déploiement et gestion**, suivez les étapes 1 à 3 pour intégrer Azure Active Directory à votre répertoire local.
   1.	Ajoutez des domaines.
   2.	Installez et exécutez Azure AD Connect : installez Azure AD Connect à l'aide des instructions suivantes, [Installation personnalisée d'Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape.
   >[AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus.[AZURE.NOTE] Il est inutile de configurer les fonctionnalités d'aperçu.
-  
-   
+
+
 
 
 ## Mettre à niveau le schéma des services de domaine Active Directory
@@ -130,7 +130,7 @@ Ceci vous aidera à intégrer votre locataire Azure AD dans votre service Active
 La mise à niveau de votre schéma Active Directory ne peut pas être annulée. Nous vous conseillons de procéder à cette opération tout d'abord dans un environnement de test.
 
 1. Connectez-vous à votre contrôleur de domaine avec un compte disposant des droits d’administrateur d’entreprise et d’administrateur de schéma.
-2. Copiez le répertoire **[media]\\support\\adprep** et les sous-répertoires vers l'un de vos contrôleurs de domaine Active Directory. 
+2. Copiez le répertoire **[media]\\support\\adprep** et les sous-répertoires vers l'un de vos contrôleurs de domaine Active Directory.
 3. [media] correspond au chemin d’accès du support d’installation de Windows Server 2012 R2.
 4. À partir d'une invite de commandes, accédez au répertoire adprep et exécutez la commande suivante : **adprep.exe /forestprep**. Suivez les instructions à l’écran pour terminer la mise à niveau du schéma.
 
@@ -163,7 +163,7 @@ Il s’agit d’une opération ponctuelle que vous devez effectuer pour prépare
 
 ### Préparation d'Azure AD Connect pour l'écriture différée des appareils
 
-1.	Terminez la 1ère partie : préparer AAD Connect. 
+1.	Terminez la Partie 1 : Préparer Azure AD Connect.
 
 
 ## Joindre des appareils à votre espace de travail à l’aide du service Azure Active Directory Device Registration
@@ -249,4 +249,4 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

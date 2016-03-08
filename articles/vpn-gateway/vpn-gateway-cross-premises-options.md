@@ -4,12 +4,12 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/01/2015"
@@ -32,18 +32,18 @@ L’option que vous choisirez peut dépendre de la réponse à différentes ques
 Le tableau ci-après peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
 
 
-| - | **Point à site** | **Site à site** | **ExpressRoute** | 
-|------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------| 
-| **Services Azure pris en charge** | Cloud Services et machines virtuelles | Cloud Services et machines virtuelles | [Liste des services](../expressroute/expressroute-faqs.md#supported-services) | 
-| **Bandes passantes classiques** | Débit agrégé généralement < 100 Mbits/s | Débit agrégé généralement < 100 Mbits/s | 50 Mbits/s, 100 Mbits/s, 200 Mbits/s et 500 Mbits/s, 1 Gbits/s, 2 Gbits/s, 5 Gbits/s, 10 Gbits/s | 
-| **Protocoles pris en charge** | SSTP (Secure Sockets Tunneling Protocol) | IPsec | Connexion directe sur réseaux locaux virtuels, technologies de réseau privé virtuel de NSP (MPLS, VPLS, …) | 
-| **Routage** Basé sur l’itinéraire (dynamique) | Nous prenons en charge les réseaux basés sur des stratégies (routage statique) et basés sur l’itinéraire (VPN à routage dynamique) | BGP | 
-| **Résilience de connexion** | active-passive | active-passive | active-active | 
-| **Cas d’utilisation classique** | Scénarios de prototypage, de développement, de test et de laboratoire pour les services cloud et les machines virtuelles | Scénarios de développement, de test et de laboratoire et charges de travail de production à petite échelle pour les services cloud et les machines virtuelles | Accès à l’ensemble des services Azure (liste validée), charges de travail d’entreprise et stratégiques, Backup, Big Data, Azure en tant que site de récupération d’urgence | 
-| **Contrat de niveau de service** | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/) | 
-| **Tarification** | [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](https://azure.microsoft.com/pricing/details/expressroute/) | 
-| **Documentation technique** | [Documentation de passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation de passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation d’ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) | 
-| **FAQ** | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md) |
+| - | **Point à site** | **Site à site** | **ExpressRoute** |
+|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| **Services pris en charge par Azure** | Cloud Services et Virtual Machines | Cloud Services et Virtual Machines | [Liste des services](../expressroute/expressroute-faqs.md#supported-services) |
+| **Bandes passantes classiques** | En règle générale < 100 Mbit/s agrégés | En règle générale < 100 Mbit/s agrégés | 50 Mbit/s, 100 Mbit/s, 200 Mbit/s, 500 Mbit/s, 1 Gbit/s, 2 Gbit/s, 5 Gbit/s, 10 Gbit/s |
+| **Protocoles pris en charge** | Secure Sockets Tunneling Protocol (SSTP) | IPsec | Connexion directe sur des VLAN, les technologies VPN des fournisseurs de services réseau (MPLS, VPLS,...) |
+| **Routage** | Basé sur un itinéraire (dynamique) | Nous prenons en charge le routage basé sur des stratégies (statique) et basé sur un itinéraire (VPN de routage dynamique) | BGP |
+| **Résilience de connexion** | actif / passif | actif / passif | actif / actif |
+| **Cas d’utilisation classique** | Création de prototypes, scénarios de développement / test / labo pour les services cloud et les machines virtuelles | Scénarios de développement / test / labo et charges de travail de production à petite échelle pour les services cloud et les machines virtuelles | Accès à tous les services Azure (liste validée), charges de travail professionnelles et critiques, sauvegarde, Big Data, Azure sous la forme d'un site de récupération d'urgence |
+| **CONTRAT SLA** | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) | [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/) |
+| **Tarification** | [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Tarification](https://azure.microsoft.com/pricing/details/expressroute/) |
+| **Documentation technique** | [Documentation sur la passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation sur la passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
+| **FAQ ** | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md) | [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md) |
 
 
 ## Connexions site à site
@@ -99,4 +99,4 @@ Pour plus d’informations sur ExpressRoute, consultez [Présentation technique 
 
 Pour plus d’informations, consultez [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md) et [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

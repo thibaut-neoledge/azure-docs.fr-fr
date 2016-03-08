@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/25/2016"
 	ms.author="juliako"/>
 
 
@@ -139,7 +139,7 @@ Notez qu’en plus d’utiliser les fonctionnalités d’empaquetage dynamique, 
 
 ### Encoder
 
-Cette section décrit les étapes à suivre pour encoder votre contenu avec Azure Media Encoder à l’aide du portail Azure Classic.
+Cette section décrit les étapes à suivre pour encoder votre contenu avec Media Encoder Standard à l’aide du portail Azure Classic.
 
 1.  Sélectionnez le fichier que vous souhaitez encoder. Si l’encodage est pris en charge pour ce type de fichier, le bouton **TRAITER** sera activé en bas de la page CONTENU.
 4. Dans la boîte de dialogue **Traiter**, sélectionnez le processeur **Azure Media Encoder**.
@@ -253,4 +253,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

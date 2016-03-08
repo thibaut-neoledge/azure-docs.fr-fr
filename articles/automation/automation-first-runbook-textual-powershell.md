@@ -3,7 +3,7 @@
     description="Ce didacticiel vous familiarise avec la création, le test et la publication d’un Runbook Powershell simple."
     services="automation"
     documentationCenter=""
-    authors="SnehaGunda"
+    authors="mgoedtel"
     manager="stevenka"
     editor="tysonn"/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;sngun"/>
 
 # Mon premier Runbook PowerShell
@@ -127,4 +127,4 @@ Les Runbooks PowerShell ont les mêmes cycle de vie, fonctionnalités et mode de
 -	Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [types de Runbook Azure Automation](automation-runbook-types.md)
 -	Pour plus d’informations sur la fonctionnalité d’assistance de script PowerShell, consultez [prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!-------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

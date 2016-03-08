@@ -12,16 +12,16 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Vue d’ensemble du didacticiel](data-factory-get-started.md)
+- [Utilisation de Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Utilisation de Visual Studio](data-factory-get-started-using-vs.md)
+- [Utiliser PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 
@@ -33,11 +33,13 @@ Ce didacticiel comprend les étapes suivantes :
 [Étape 1 : créer une fabrique de données Azure](#CreateDataFactory) | Dans cette étape, vous allez créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.  
 [Étape 2 : créer des services liés](#CreateLinkedServices) | Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **AzureSqlLinkedService**. StorageLinkedService lie le stockage Azure et AzureSqlLinkedService lie la base de données SQL Azure à ADFTutorialDataFactory. Les données d'entrée pour le pipeline se trouvent dans un conteneur d'objets blob dans le stockage d'objets blob Azure et les données de sortie sont stockées dans une table dans la base de données SQL Azure. Par conséquent, vous ajoutez ces deux magasins de données en tant que services liés à la fabrique de données.      
 [Étape 3 : créer des tables d'entrée et de sortie](#CreateInputAndOutputDataSets) | Dans l'étape précédente, vous avez créé des services liés qui font référence à des magasins de données contenant des données d'entrée/sortie. Dans cette étape, vous allez définir deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d'entrée/sortie qui sont stockées dans les magasins de données. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur d'objets blob qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous spécifiez la table SQL qui stocke les données de sortie. Vous devez également spécifier d'autres propriétés telles que la structure des données, la disponibilité des données, etc. 
-[Étape 4 : créer et exécuter un pipeline](#CreateAndRunAPipeline) | Dans cette étape, vous allez créer un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données ADFTutorialDataFactory. Le pipeline effectue une **activité de copie** qui copie les données d'entrée de l'objet blob Azure vers la table SQL Azure de sortie.
+[Étape 4 : créer et exécuter un pipeline](#CreateAndRunAPipeline) | Dans cette étape, vous allez créer un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données ADFTutorialDataFactory. Le pipeline effectue une **activité de copie** qui copie les données d'entrée de l'objet blob Azure vers la table SQL Azure de sortie. L’activité de copie effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un service disponible à l’échelle mondiale qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md). 
 [Étape 5 : surveiller les tranches et le pipeline](#MonitorDataSetsAndPipeline) | Dans cette étape, vous allez surveiller les tranches de tables d’entrée et de sortie à l’aide du portail Azure.
- 
 
-## <a name="CreateDataFactory"></a>Étape 1 : créer une fabrique de données Azure
+> [AZURE.IMPORTANT] 
+Passez en revue l'article [Vue d'ensemble du didacticiel](data-factory-get-started.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
+
+## <a name="CreateDataFactory"></a>Étape 1 : créer une fabrique de données Microsoft Azure
 Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
 
 1.	Une fois connecté au [portail Azure][azure-portal], cliquez dans le coin inférieur gauche sur **NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Fabrique de données** dans le panneau **Analyse de données**. 
@@ -375,13 +377,11 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 1.	Créer une **fabrique de données** Azure.
 2.	Créer des **services liés** qui lient des magasins de données et des calculs (appelés **Services liés**) à la fabrique de données.
 3.	Créer des **tables** qui décrivent les données d'entrée et de sortie des pipelines.
-4.	Créer des **pipelines**. Un pipeline comprend une ou plusieurs activités. Il traite des entrées et produit des sorties. Définir la période active pour le pipeline en spécifiant l'heure de **Début** et l'heure de **Fin**. La période active définit le délai pendant lequel les tranches de données seront créées. 
+4.	Créer des **pipelines**. Un pipeline comprend une ou plusieurs activités. Il traite des entrées et produit des sorties. Définir la période active pour le pipeline en spécifiant l'heure de **Début** et l'heure de **Fin**. La période active définit le délai pendant lequel les tranches de données seront créées.
 
 
-Pour obtenir une liste des activités prises en charge, consultez la rubrique [Pipelines et activités][msdn-activities] et pour obtenir une liste des services liés pris en charge, consultez la rubrique [Services liés][msdn-linkedservices] dans la bibliothèque MSDN.
- 
-Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer et surveiller une fabrique de données à l'aide d'Azure PowerShell][monitor-manage-using-powershell].
-
+## Voir aussi
+Pour plus d’informations sur l’**activité de copie** dans Azure Data Factory, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -459,4 +459,4 @@ Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer e
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

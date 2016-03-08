@@ -3,7 +3,7 @@
     description="Ce didacticiel présente les procédures de création, de test et de publication d’un runbook textuel simple à l’aide de PowerShell Workflow."
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # Mon premier runbook PowerShell Workflow
@@ -117,4 +117,4 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
 -	[Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 -	[Mon premier Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

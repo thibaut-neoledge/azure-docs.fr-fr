@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="À propos des passerelles VPN pour la connectivité de réseau virtuel entre sites locaux | Microsoft Azure"
+   pageTitle="À propos des passerelles VPN pour la connectivité de réseau virtuel entre sites locaux | Microsoft Azure"
    description="En savoir plus sur les passerelles VPN, qui peuvent être utilisées pour les connexions entre sites locaux pour les configurations hybrides. Cet article traite des SKU de passerelle (De base, Standard et Haute performance), des configurations de coexistence entre une passerelle VPN et ExpressRoute, des types de routage de passerelle (statique, dynamique, basé sur des stratégies, basé sur un itinéraire) et des conditions requises des passerelles pour la connectivité de réseau virtuel, pour les modèles de déploiement classique et Gestionnaire de ressources."
    services="vpn-gateway"
    documentationCenter="na"
@@ -9,7 +9,7 @@
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/19/2016"
@@ -34,11 +34,11 @@ Les passerelles VPN sont conçues pour faire circuler le trafic réseau entre le
 
 ## Types de passerelles VPN
 
-Il existe deux types de VPN :
+Il existe deux types de VPN :
 
-- **Basé sur des stratégies :** les passerelles basées sur des stratégies sont appelées *passerelles statiques* dans le modèle de déploiement classique. La fonctionnalité d'une passerelle statique n'a pas changé, même si le nom a changé. Ce type de passerelle prend en charge les VPN basés sur des stratégies. Les VPN basés sur des stratégies acheminent les paquets via les tunnels IPsec avec des sélecteurs de trafic basés sur des combinaisons de préfixes d'adresses entre votre réseau local et votre réseau virtuel Azure. Les sélecteurs de trafic ou les stratégies sont généralement définis en tant que liste d'accès de vos configurations VPN.
+- **Basé sur des stratégies :** les passerelles basées sur des stratégies sont appelées *passerelles statiques* dans le modèle de déploiement classique. La fonctionnalité d'une passerelle statique n'a pas changé, même si le nom a changé. Ce type de passerelle prend en charge les VPN basés sur des stratégies. Les VPN basés sur des stratégies acheminent les paquets via les tunnels IPsec avec des sélecteurs de trafic basés sur des combinaisons de préfixes d'adresses entre votre réseau local et votre réseau virtuel Azure. Les sélecteurs de trafic ou les stratégies sont généralement définis en tant que liste d'accès de vos configurations VPN.
  
-- **Basé sur un itinéraire :** les passerelles basées sur un itinéraire sont appelées *passerelles dynamiques* dans le modèle de déploiement classique. La fonctionnalité d'une passerelle dynamique n'a pas changé, même si le nom a changé. Les passerelles basées sur un itinéraire implémentent les VPN basés sur un itinéraire. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer les paquets dans leurs interfaces de tunnel VPN correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic pour les VPN basés sur l'itinéraire sont configurés comme universels (ou en caractères génériques).
+- **Basé sur un itinéraire :** les passerelles basées sur un itinéraire sont appelées *passerelles dynamiques* dans le modèle de déploiement classique. La fonctionnalité d'une passerelle dynamique n'a pas changé, même si le nom a changé. Les passerelles basées sur un itinéraire implémentent les VPN basés sur un itinéraire. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer les paquets dans leurs interfaces de tunnel VPN correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic pour les VPN basés sur l'itinéraire sont configurés comme universels (ou en caractères génériques).
 
 Certaines connexions (par exemple, point à site et réseau virtuel à réseau virtuel) ne fonctionnent qu'avec un type de VPN spécifique. Les exigences de la passerelle sont décrites dans l'article qui correspond au scénario de connexion à créer.
 
@@ -62,4 +62,4 @@ Sélectionnez le périphérique VPN pour votre configuration. Consultez l’arti
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

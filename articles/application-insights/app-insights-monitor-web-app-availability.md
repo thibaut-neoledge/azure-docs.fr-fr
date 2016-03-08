@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/11/2016"
+	ms.date="03/01/2016"
 	ms.author="awills"/>
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
@@ -28,6 +28,7 @@ Il existe deux types de tests web :
 * [Test ping d’URL](#set-up-a-url-ping-test) : un test simple que vous pouvez créer dans le portail Azure.
 * [Test web multi-étapes](#multi-step-web-tests) : que vous créez dans Visual Studio Ultimate ou Visual Studio Enterprise et que vous chargez sur le portail.
 
+Vous pouvez créer jusqu’à 10 tests web par ressource d’application.
 
 
 ## Configuration d’un test ping d’URL
@@ -246,6 +247,10 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
     Nous utilisons ces deux termes indifféremment.
 
+* *J’aimerais utiliser les tests de disponibilité sur notre serveur interne qui s’exécute derrière un pare-feu.*
+
+    Configurez votre pare-feu pour autoriser les demandes provenant des adresses IP dans la liste à la fin de cet article.
+
 ## <a name="video"></a>Vidéo
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -257,6 +262,124 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [Résolution des problèmes][qna]
 
 
+## Adresses IP des tests web
+
+Si vous devez ouvrir un pare-feu pour permettre les tests web, voici la liste actuelle des adresses IP. Elle peut évoluer de temps à autre.
+
+Ouvrez les ports 80 (http) et 443 (https).
+
+```
+
+213.199.178.54
+213.199.178.55
+213.199.178.56
+213.199.178.61
+213.199.178.57
+213.199.178.58
+213.199.178.59
+213.199.178.60
+213.199.178.63
+213.199.178.64
+207.46.98.158
+207.46.98.159
+207.46.98.160
+207.46.98.157
+207.46.98.152
+207.46.98.153
+207.46.98.156
+207.46.98.162
+207.46.98.171
+207.46.98.172
+65.55.244.40
+65.55.244.17
+65.55.244.42
+65.55.244.37
+65.55.244.15
+65.55.244.16
+65.55.244.44
+65.55.244.18
+65.55.244.46
+65.55.244.47
+207.46.14.60
+207.46.14.61
+207.46.14.62
+207.46.14.55
+207.46.14.63
+207.46.14.64
+207.46.14.51
+207.46.14.52
+207.46.14.56
+207.46.14.65
+157.55.14.60
+157.55.14.61
+157.55.14.62
+157.55.14.47
+157.55.14.64
+157.55.14.65
+157.55.14.43
+157.55.14.44
+157.55.14.49
+157.55.14.50
+65.54.66.56
+65.54.66.57
+65.54.66.58
+65.54.66.61
+207.46.71.54
+207.46.71.52
+207.46.71.55
+207.46.71.38
+207.46.71.51
+207.46.71.57
+207.46.71.58
+207.46.71.37
+202.89.228.67
+202.89.228.68
+202.89.228.69
+202.89.228.57
+65.54.78.49
+65.54.78.50
+65.54.78.51
+65.54.78.54
+94.245.82.32
+94.245.82.33
+94.245.82.37
+94.245.82.38
+94.245.72.44
+94.245.72.45
+94.245.72.46
+94.245.72.49
+207.46.56.57
+207.46.56.58
+207.46.56.59
+207.46.56.67
+207.46.56.61
+207.46.56.62
+207.46.56.63
+207.46.56.64
+65.55.82.84
+65.55.82.85
+65.55.82.86
+65.55.82.81
+65.55.82.87
+65.55.82.88
+65.55.82.89
+65.55.82.90
+65.55.82.91
+65.55.82.92
+94.245.78.40
+94.245.78.41
+94.245.78.42
+94.245.78.45
+70.37.147.43
+70.37.147.44
+70.37.147.45
+70.37.147.48
+94.245.66.43
+94.245.66.44
+94.245.66.45
+94.245.66.48
+
+```
 
 
 <!--Link references-->
@@ -266,4 +389,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

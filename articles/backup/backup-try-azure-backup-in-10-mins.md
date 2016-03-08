@@ -62,13 +62,13 @@ Pour sauvegarder des fichiers et des données d’un ordinateur Windows dans Azu
 
     Nous vous recommandons de sélectionner l’option de redondance de stockage juste après avoir créé un coffre et avant d’y inscrire des ordinateurs. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
 
-    Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données dans Azure à partir de Windows Server), choisissez l’option de stockage géo-redondant (par défaut).
+    Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données dans Azure à partir de Windows Server), choisissez l’option de [stockage géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) (par défaut).
 
-    Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tertiaire (par exemple, vous utilisez SCDPM pour disposer d’une copie de sauvegarde localement et utilisez Azure pour vos besoins de rétention à long terme), choisissez le stockage localement redondant. Cela vous permet de diminuer les coûts de stockage de données dans Azure tout en fournissant un niveau inférieur de durabilité de vos données pouvant être acceptables pour des copies tertiaires.
+    Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tertiaire (par exemple, vous utilisez SCDPM pour disposer d’une copie de sauvegarde en local et vous utilisez Azure pour vos besoins de rétention à long terme), choisissez le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage). Cela vous permet de diminuer les coûts de stockage de données dans Azure tout en fournissant un niveau inférieur de durabilité de vos données pouvant être acceptables pour des copies tertiaires.
 
     a. Cliquez sur le coffre que vous venez de créer.
 
-    b. Dans la page Démarrage rapide, cliquez sur **Configurer**.
+    b. Dans la page Démarrage rapide, sélectionnez **Configurer**.
 
     ![Configurer l’état du coffre](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
 
@@ -78,9 +78,7 @@ Pour sauvegarder des fichiers et des données d’un ordinateur Windows dans Azu
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
-    >[AZURE.NOTE] Pour en savoir plus sur les options de redondance de stockage, consultez cet article de [présentation](../storage/storage-redundancy.md).
-
-    d. Dans le volet de navigation gauche, cliquez sur **Recovery Services** pour revenir à la liste des ressources pour **Recovery Services**.
+    d. Dans le volet de navigation de gauche, cliquez sur **Recovery Services** pour revenir à la liste des ressources pour **Recovery Services**.
 
     ![Sélectionner un coffre de sauvegarde](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
@@ -108,7 +106,7 @@ Pour sauvegarder des fichiers et des données d’un ordinateur Windows dans Azu
 
     Vous devez à présent télécharger l’agent de sauvegarde.
 
-7. Cliquez sur **Recovery Services** dans le volet de navigation gauche, puis sur le coffre de sauvegarde que vous souhaitez inscrire auprès d’un serveur.
+7. Cliquez sur **Recovery Services** dans le volet de navigation de gauche, puis sur le coffre de sauvegarde que vous souhaitez inscrire auprès d’un serveur.
 
     ![Sélectionner un coffre de sauvegarde](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
@@ -144,7 +142,7 @@ Pour sauvegarder des fichiers et des données d’un ordinateur Windows dans Azu
 
     L’agent Azure Backup installe .NET Framework 4.5 et Windows PowerShell (s’ils ne sont pas déjà installés) pour terminer l’installation.
 
-5. Une fois l’agent installé, cliquez sur **Procéder à l’inscription** pour continuer le flux de travail.
+5. Une fois l’agent installé, cliquez sur **Procéder à l’enregistrement** pour continuer le flux de travail.
 
     ![S’inscrire](./media/backup-try-azure-backup-in-10-mins/register.png)
 
@@ -162,7 +160,7 @@ Pour sauvegarder des fichiers et des données d’un ordinateur Windows dans Azu
 
     ![Chiffrement](./media/backup-try-azure-backup-in-10-mins/encryption.png)
 
-    L’**Assistant Inscription d’un serveur** inscrit le serveur auprès de Microsoft Azure Backup.
+    L’**Assistant d’enregistrement du serveur** inscrit le serveur auprès de Microsoft Azure Backup.
 
     ![Chiffrement](./media/backup-try-azure-backup-in-10-mins/registering-server.png)
 
@@ -194,7 +192,7 @@ Pour sauvegarder des fichiers et des données d’un ordinateur Windows dans Azu
 
     ![Éléments de sauvegarde de Windows Server](./media/backup-try-azure-backup-in-10-mins/selected-items.png)
 
-4. Spécifiez la **planification de sauvegarde** et cliquez sur **Suivant**.
+4. Spécifiez la **planification de sauvegarde**, puis cliquez sur **Suivant**.
 
     Vous pouvez planifier des sauvegardes quotidiennes (au maximum 3 fois par jour) ou hebdomadaires.
 
@@ -210,7 +208,7 @@ Pour sauvegarder des fichiers et des données d’un ordinateur Windows dans Azu
 
 6. Choisissez le type de sauvegarde initiale.
 
-    Vous pouvez effectuer des sauvegardes automatiques sur le réseau ou vous pouvez sauvegarder en mode hors connexion. Le reste de cet article suit le processus de sauvegarde automatique. Si vous préférez effectuer une sauvegarde en mode hors connexion, lisez cet article pour en savoir plus sur le [flux de travail de sauvegarde en mode hors connexion dans Azure Backup](backup-azure-backup-import-export.md).
+    Vous pouvez effectuer des sauvegardes automatiques sur le réseau ou vous pouvez sauvegarder en mode hors connexion. Le reste de cet article suit le processus de sauvegarde automatique. Si vous préférez effectuer une sauvegarde en mode hors connexion, lisez cet article pour en savoir plus sur le [flux de travail de sauvegarde en mode hors connexion dans Azure Backup](backup-azure-backup-import-export.md).
 
     Cliquez sur **Suivant**
 
@@ -232,11 +230,11 @@ Pour sauvegarder des fichiers et des données d’un ordinateur Windows dans Azu
 
     ![Sauvegarder Windows Server maintenant](./media/backup-try-azure-backup-in-10-mins/backup-now-confirmation.png)
 
-11. Cliquez sur **Fermer** pour fermer l’Assistant. Vous pouvez effectuer cette opération avant la fin du **processus de sauvegarde**, qui continuera de s’exécuter en arrière-plan.
+11. Cliquez sur **Fermer** pour fermer l’Assistant. Vous pouvez effectuer cette opération avant la fin du **processus de sauvegarde** lequel continuera de s’exécuter à l’arrière-plan.
 
     ![Sauvegarder Windows Server maintenant](./media/backup-try-azure-backup-in-10-mins/backup-progress.png)
 
-12. Une fois la sauvegarde initiale terminée, la vue **Tâches** de la console Azure Backup indique l’état « Tâche terminée ».
+12. Une fois la sauvegarde initiale terminée, la vue **Tâches** de la console Azure Backup indique l’état « Tâche terminée ».
 
     ![RI terminé](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
@@ -244,8 +242,8 @@ Félicitations ! Vous avez sauvegardé vos fichiers et vos dossiers dans Azure 
 
 ## Étapes suivantes
 - Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
-- En savoir plus sur la [préparation de votre environnement pour sauvegarder des données d’ordinateurs Windows](backup-configure-vault.md)
-- En savoir plus sur la [sauvegarde d’un serveur Windows Server](backup-azure-backup-windows-server.md)
+- En savoir plus sur la [préparation de votre environnement pour sauvegarder des ordinateurs Windows](backup-configure-vault.md)
+- En savoir plus sur la [sauvegarde d’un serveur Windows Server](backup-azure-backup-windows-server.md)
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
