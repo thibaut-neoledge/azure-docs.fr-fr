@@ -51,11 +51,11 @@ Le contenu du dépôt azure-content suit l’organisation de la documentation su
 
 Le dossier *\articles* contient les articles de la documentation mis en forme en tant que fichiers Markdown avec une extension *.md*.
 
-Les articles du répertoire racine sont publiés dans Azure.Microsoft.com. Chemin : **http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
+Les articles du répertoire racine sont publiés dans Azure.Microsoft.com. Chemin : *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
 * **Noms de fichier des articles :** consultez [nos instructions sur l’affectation des noms de fichier](./contributor-guide/file-names-and-locations.md).
 
-Les articles dans leur propre dossier de service sont publiés dans Azure.Microsoft.com. Chemin : 
+Les articles dans leur propre dossier de service sont publiés dans Azure.Microsoft.com. Chemin :
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
 
 * **Sous-dossiers de fichiers multimédias :** le dossier *\articles* contient le dossier *\media* pour les fichiers multimédias des articles du répertoire racine, à l’intérieur duquel figurent des sous-dossiers contenant les images de chaque article. Les dossiers de service contiennent un dossier de fichiers multimédias distinct pour les articles dans chaque dossier de service. Le dossier d’images d’un article porte le même nom que le fichier de l’article, moins l’extension de fichier *.md*.
@@ -68,7 +68,7 @@ Vous pouvez créer des sections de contenu réutilisables à inclure dans un ou 
 
 Ce dossier contient notre modèle Markdown standard avec la mise en forme Markdown de base dont vous avez besoin pour un article.
 
-### \\contributor-guide
+### \contributor-guide
 
 Ce dossier contient des articles qui font partie de notre guide du contributeur.
 
@@ -104,4 +104,4 @@ Les métadonnées d’articles activent certaines fonctionnalités sur le site w
 
 Pour découvrir toutes nos rubriques d’aide, consultez l’[index du guide du contributeur](./contributor-guide/contributor-guide-index.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0307_2016-->
