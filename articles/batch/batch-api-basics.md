@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="01/21/2016"
-	ms.author="yidingz;v-marsma"/>
+	ms.date="02/25/2016"
+	ms.author="yidingz;marsma"/>
 
 # Vue d'ensemble des fonctionnalités d'Azure Batch
 
@@ -44,26 +44,17 @@ Dans les sections qui suivent, vous allez apprendre chacune des ressources menti
 
 ## <a name="resource"></a> Ressources du service Batch
 
-Lorsque vous utilisez le service Azure Batch, vous profiterez des ressources suivantes :
+Lorsque vous utilisez le service Azure Batch, vous utilisez les ressources suivantes :
 
 - [Compte](#account)
-
 - [Nœud de calcul](#computenode)
-
 - [Pool](#pool)
-
 - [Travail](#job)
-
 - [Tâche](#task)
-
 	- [Tâche de démarrage](#starttask)
-
 	- [Tâche du gestionnaire de travaux](#jobmanagertask)
-
 	- [Tâches de préparation et lancement](#jobpreprelease)
-
 	- [Tâches multi-instances](#multiinstance)
-
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>Compte
@@ -223,7 +214,7 @@ Lorsqu’un nœud est supprimé du pool, tous les fichiers stockés dans le nœu
 
 Lorsque vous créez votre solution Azure Batch, une décision de conception doit être prise quant à la procédure et le moment de la création, et la durée sur laquelle les nœuds de calcul de ces pools restent disponibles.
 
-D’un côté, un pool peut être créé pour chaque travail au moment de l’envoi, et ses nœuds peuvent être supprimés dès lors que les tâches cessent de s’exécuter. Ceci permet d’optimiser l’utilisation puisque les nœuds ne sont alloués que lorsque cela est absolument nécessaire et qu’ils s’arrêtent dès qu’ils deviennent inactifs. Cela signifie que le travail doit attendre que les nœuds soient alloués, mais il est important de noter que les tâches seront planifiées sur les nœuds dès qu’elles seront individuellement disponibles, allouées, et que cette tâche de démarrage sera terminée. Batch *n’* attend pas, par exemple, que tous les nœuds d’un pool soient disponibles avant d’affecter des tâches, car cela entraînerait une faible utilisation des nœuds disponibles.
+D’un côté, un pool peut être créé pour chaque travail au moment de l’envoi, et ses nœuds peuvent être supprimés dès lors que les tâches cessent de s’exécuter. Ceci permet d’optimiser l’utilisation puisque les nœuds ne sont alloués que lorsque cela est absolument nécessaire et qu’ils s’arrêtent dès qu’ils deviennent inactifs. Cela signifie que le travail doit attendre que les nœuds soient alloués, mais il est important de noter que les tâches seront planifiées sur les nœuds dès qu’elles seront individuellement disponibles, allouées, et que cette tâche de démarrage sera terminée. Batch *n’*attend pas, par exemple, que tous les nœuds d’un pool soient disponibles avant d’affecter des tâches, car cela entraînerait une faible utilisation des nœuds disponibles.
 
 À l’autre extrémité du spectre, si la priorité absolue consiste à démarrer immédiatement une tâche, un pool eut être créé avant l’heure et ses nœuds seront mis à disposition avant l’envoi de travaux. Dans ce scénario, les tâches du travail peuvent démarrer immédiatement, mais les nœuds peuvent rester inactifs en attendant les tâches à affecter.
 
@@ -231,11 +222,11 @@ Une approche combinée, généralement utilisée pour la gestion de la charge va
 
 ## <a name="scaling"></a>Mise à l'échelle des applications
 
-Avec la [mise à l’échelle automatique](batch-automatic-scaling.md), votre application peut facilement être mise à l’échelle dans un sens ou dans l’autre et s’adapter au calcul dont vous avez besoin. Vous pouvez régler de façon dynamique le nombre de nœuds dans un pool en fonction de la charge de travail actuelle et des statistiques d’utilisation des ressources, ce qui vous permet de réduire le coût total de l’exécution de votre application en utilisant uniquement les ressources nécessaires. Vous pouvez spécifier les paramètres de mise à l’échelle d’un pool lorsqu’il est créé, et mettre à jour la configuration à tout moment.
+Avec la [mise à l’échelle automatique](batch-automatic-scaling.md), le service Batch peut ajuster de manière dynamique le nombre de nœuds de calcul d’un pool en fonction de la charge de travail actuelle et de l’utilisation des ressources de votre scénario de calcul. Cela vous permet de réduire le coût global d’exécution de votre application en utilisant uniquement les ressources dont vous avez besoin et en libérant les autres. Vous pouvez indiquer les paramètres de mise à l’échelle automatique d’un pool au moment de sa création ou les activer plus tard, tout comme vous pouvez mettre à jour ces paramètres dans un pool compatible avec la mise à l’échelle automatique.
 
-Au moment de la réduction automatique du nombre de nœuds, les tâches en cours d’exécution doivent être prises en compte. Une stratégie de désallocation est spécifiée et détermine si les tâches en cours d’exécution doivent être interrompues pour supprimer immédiatement le nœud ou si les tâches peuvent être terminées avant que les nœuds ne soient supprimés. L’utilisation sera optimisée par la définition à zéro du nombre cible de nœuds à la fin d’un travail, mais par l’autorisation des tâches en cours d’être achevées.
+Pour effectuer une telle mise à l’échelle, vous devez indiquer une **formule de mise à l’échelle automatique** pour un pool. Le service Batch utilise la formule suivante pour déterminer le nombre cible de nœuds dans le pool pour le prochain intervalle de mise à l’échelle (intervalle que vous indiquez).
 
-La mise à l’échelle automatique d’une application est exécutée par la spécification d’un jeu de formules de mise à l’échelle. Ces formules peuvent servir à déterminer le nombre de nœuds cible qui se trouvent dans le pool pendant l’intervalle de mise à l’échelle suivant. Par exemple, il se peut qu’un travail exige que vous envoyiez un grand nombre de tâches dont l’exécution doit être planifiée. Vous pouvez attribuer au pool une formule de mise à l’échelle qui règle la taille du pool (nombre de nœuds) en se fondant sur le nombre de tâches en attente actuelle, et le degré d’achèvement de ces tâches. Le service Batch évalue la formule régulièrement et redimensionne le pool en fonction de la charge de travail.
+Par exemple, il se peut qu’un travail exige que vous envoyiez un grand nombre de tâches dont l’exécution doit être planifiée. Vous pouvez attribuer au pool une formule de mise à l’échelle qui règle le nombre de nœuds du pool en fonction du nombre actuel de tâches en attente et du degré d’achèvement de ces tâches. Le service Batch évalue la formule régulièrement et redimensionne le pool en fonction de la charge de travail et des paramètres de votre formule.
 
 Une formule de mise à l’échelle peut être basée sur les mesures suivantes :
 
@@ -245,10 +236,11 @@ Une formule de mise à l’échelle peut être basée sur les mesures suivantes�
 
 - **Mesures de tâches** – Celles-ci sont basées sur l'état des tâches (Actif, En attente et Terminé).
 
-Pour plus d’informations sur la mise à l’échelle automatique d’une application, consultez la section [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md).
+Lorsque la mise à l’échelle automatique diminue le nombre de nœuds de calcul d’un pool, les tâches en cours d’exécution doivent être prises en compte. Pour cela, la formule peut inclure un paramètre de stratégie de désallocation de nœud qui indique si les tâches en cours d’exécution sont arrêtées immédiatement ou autorisées à se terminer avant que le nœud ne soit supprimé du pool.
 
-> [AZURE.TIP]
- Bien que ceci soit rarement nécessaire, il est possible de spécifier des nœuds à supprimer d’un pool. Si un nœud est suspecté d’être moins fiable, par exemple, il peut être supprimé du pool pour empêcher l’attribution des tâches supplémentaires.
+> [AZURE.TIP] Pour optimiser l’utilisation des ressources de calcul, définissez à zéro le nombre cible de nœuds à la fin d’un travail tout en autorisant les tâches en cours à s’achever.
+
+Pour plus d’informations sur la mise à l’échelle automatique d’une application, consultez la section [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md).
 
 ## <a name="cert"></a>Sécurité avec certificats
 
@@ -322,9 +314,27 @@ Les tâches peuvent parfois échouer ou être interrompues. L’application de l
 
 Un problème intermittent peut également provoquer la suspension d’une tâche ou ralentir son exécution. Une durée maximale d’exécution de la tâche peut être définie, et, en cas de dépassement, Batch interrompt l’application de la tâche.
 
-### Prise en compte des « mauvais » nœuds
+### Résolution des problèmes de « mauvais » nœuds de calcul
 
-Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s’exécute une tâche est inclus dans les métadonnées de la tâche. Si des tâches échouent sur un nœud particulier, votre application Batch cliente peut le déterminer et le nœud suspect peut être supprimé du pool. Si des tâches s’exécutent sur un nœud pendant sa suppression, elles sont automatiquement replacées en file d’attente pour être exécutées sur d’autres nœuds.
+Quand certaines de vos tâches échouent, votre application cliente Batch ou un service peut examiner les métadonnées des tâches en échec pour identifier un nœud présentant un dysfonctionnement. Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s’exécute une tâche est inclus dans les métadonnées de la tâche. Une fois ce nœud identifié, vous pouvez effectuer plusieurs actions :
+
+- **Redémarrer le nœud** ([REST][rest_reboot] | [.NET][net_reboot])
+
+	Le fait de redémarrer le nœud peut parfois résoudre des problèmes latents comme des processus bloqués ou défaillants. Notez que si votre pool utilise une tâche de démarrage ou si votre travail utilise une tâche de préparation, ces deux éléments s’exécuteront au redémarrage du nœud.
+
+- **Réinitialiser le nœud** ([REST][rest_reimage] | [.NET][net_reimage])
+
+	Cette opération réinstalle le système d’exploitation sur le nœud. Comme avec le redémarrage d’un nœud, les tâches de démarrage et celles de préparation d’un travail sont relancées une fois le nœud réinitialisé.
+
+- **Supprimer le nœud du pool** ([REST][rest_remove] | [.NET][net_remove])
+
+	Il est parfois nécessaire de supprimer entièrement le nœud à partir du pool.
+
+- **Désactiver la planification des tâches sur le nœud** ([REST][rest_offline] | [.NET][net_offline])
+
+	Cette opération est efficace puisqu’elle place le nœud « hors connexion ». Ainsi, aucune tâche ultérieure ne peut lui être assignée. Toutefois, le nœud est autorisé à poursuivre son exécution et à rester dans le pool. Cela vous permet de faire une recherche approfondie sur la cause des échecs sans perdre les données de la tâche en échec et sans que le nœud n’occasionne d’autres échecs de tâche supplémentaires. Par exemple, vous pouvez désactiver la planification des tâches sur le nœud, puis vous connecter à distance pour examiner les journaux des événements de ce nœud ou encore résoudre d’autres problèmes. Une fois que vous avez terminé votre recherche, vous pouvez remettre le nœud en ligne en activant la planification des tâches ([REST][rest_online], [.NET][net_online]), ou effectuez l’une des actions ci-dessus.
+
+> [AZURE.IMPORTANT] Pour chaque action mentionnée ci-dessus (redémarrer, réinitialiser, supprimer, désactiver la planification des tâches), vous pouvez indiquer la manière dont les tâches en cours d’exécution sur le nœud sont gérées lorsque vous effectuez l’action. Par exemple, lorsque vous désactivez la planification des tâches sur un nœud avec la bibliothèque cliente Batch.NET, vous pouvez indiquer une valeur d’énumération [DisableComputeNodeSchedulingOption][net_offline_option]. Celle-ci sert à préciser s’il faut **interrompre** les tâches en cours d’exécution, les **remettre en file d’attente** pour les planifier sur d’autres nœuds ou finaliser les tâches en cours avant d’exécuter l’action (**TaskCompletion**).
 
 ## Étapes suivantes
 
@@ -353,6 +363,12 @@ Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
 [net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
+[net_reboot]: https://msdn.microsoft.com/library/azure/mt631495.aspx
+[net_reimage]: https://msdn.microsoft.com/library/azure/mt631496.aspx
+[net_remove]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.removefrompoolasync.aspx
+[net_offline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.disableschedulingasync.aspx
+[net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
+[net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx
@@ -365,5 +381,10 @@ Chaque nœud d’un pool se voit attribuer un ID unique et le nœud sur lequel s
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
+[rest_reboot]: https://msdn.microsoft.com/library/azure/dn820171.aspx
+[rest_reimage]: https://msdn.microsoft.com/library/azure/dn820157.aspx
+[rest_remove]: https://msdn.microsoft.com/library/azure/dn820194.aspx
+[rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
+[rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -11,8 +11,8 @@
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/05/2015"
+    ms.topic="get-started-article"
+    ms.date="02/25/2016"
     ms.author="elizapo" />
 
 
@@ -35,4 +35,4 @@ Ce qui paraît logique. Vous pouvez publier une application que vous êtes léga
 
 Notez que vous ne pouvez pas utiliser de contrat de licence d'accès client ou de contrat de licence en volume dans une collection cloud. Vous *pouvez* utiliser un contrat de licence en volume pour activer des applications dans votre collection hybride (sauf pour Office). Vous devez simplement les installer dans votre image de modèle à partir du support de la licence en volume. Suivez les instructions du fournisseur de l'application pour installer des licences dans un environnement Bureau à distance.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

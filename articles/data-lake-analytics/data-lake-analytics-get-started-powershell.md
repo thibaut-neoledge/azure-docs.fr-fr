@@ -45,7 +45,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécuter un travail quelconque. Pour créer un compte Analytique Data Lake, vous devez spécifier les éléments suivants :
 
-- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.  
+- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](../resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.  
 
 	Pour répertorier les groupes de ressources dans votre abonnement :
     
@@ -68,7 +68,7 @@ Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécute
 	        -Name "<Your Data Lake account name>" `
 	        -Location "<Azure Data Center>"  # For example, "East US 2"
 
-	> [AZURE.NOTE]Le nom de compte Data Lake doit contenir uniquement des lettres minuscules et des chiffres.
+	> [AZURE.NOTE] Le nom de compte Data Lake doit contenir uniquement des lettres minuscules et des chiffres.
 
 
 
@@ -135,9 +135,9 @@ Le script PowerShell suivant montre comment obtenir le nom de magasin Data Lake 
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]Le portail Azure fournit une interface utilisateur permettant de copier les fichiers d’exemples de données dans le compte Data Lake Store par défaut. Pour obtenir des instructions, consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE] Le portail Azure fournit une interface utilisateur permettant de copier les fichiers d’exemples de données dans le compte Data Lake Store par défaut. Pour obtenir des instructions, consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-Analytique Data Lake peut également accéder au stockage d’objets blobs Azure. Pour télécharger des données dans le stockage d’objets blobs Azure, consultez [Utilisation d’Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md).
+Analytique Data Lake peut également accéder au stockage d’objets blobs Azure. Pour télécharger des données dans le stockage d’objets blobs Azure, consultez [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md).
 
 ##Envoyer des travaux Analytique Data Lake
 
@@ -174,7 +174,7 @@ Les travaux Analytique Data Lake sont écrits en langage U-SQL. Pour en savoir p
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Les conteneurs d’objets blobs Azure avec autorisations d’accès aux objets blobs publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
+    >[AZURE.NOTE] Les conteneurs d’objets blobs Azure avec autorisations d’accès aux objets blobs publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
     
 	
 **Pour soumettre le travail**
@@ -217,4 +217,4 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

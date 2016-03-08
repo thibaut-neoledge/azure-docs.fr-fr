@@ -34,13 +34,13 @@
 
 ## Avant de commencer
 
-Pour vous familiariser avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](../data-factory/data-factory-introduction.md).
+Pour vous familiariser avec Azure Data Factory, consultez l’article [Présentation d’Azure Data Factory](../data-factory/data-factory-introduction.md).
 
 ### Créer ou identifier des ressources
 
 Avant de commencer ce didacticiel, vous devez disposer des ressources suivantes.
 
-   + **Objet blob Azure Storage** : ce didacticiel utilise l’objet blob Azure Storage comme source de données pour le pipeline Azure Data Factory. Vous devez donc disposer d’un objet blob pour stocker les données d’exemple. Si vous n’en possédez pas, découvrez comment [créer un compte de stockage](../storage/storage-create-storage-account/#create-a-storage-accoun/). 
+   + **Objet blob Azure Storage** : ce didacticiel utilise l’objet blob Azure Storage comme source de données pour le pipeline Azure Data Factory. Vous devez donc disposer d’un objet blob pour stocker les exemples de données. Si vous n’en possédez pas, découvrez comment [créer un compte de stockage](../storage/storage-create-storage-account/#create-a-storage-accoun/). 
 
    + **SQL Data Warehouse** : ce didacticiel déplace les données entre l’objet blob Azure Storage et l’entrepôt SQL Data Warehouse ; vous avez donc besoin de disposer d’un entrepôt de données en ligne contenant les exemples de données AdventureWorksDW. Si vous n’en possédez pas encore, découvrez comment [approvisionner un entrepôt de données](sql-data-warehouse-get-started-provision.md). Si vous disposez bien d’un entrepôt de données mais que vous ne l’avez pas configuré avec les exemples de données, vous pouvez les [charger manuellement](sql-data-warehouse-get-started-manually-load-samples.md).
 
@@ -132,21 +132,6 @@ Après avoir créé les services liés, nous devrons définir les jeux de donné
 
     ````
     {
-        "name": "<dataset name>",
-        "properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "<linked data warehouse name>",
-		    "typeProperties": {
-		      "tableName": "FactInternetSales"
-		    },
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-        }
-    }
-
-    {
 	    "name": "DWDataset",
 		"properties": {
 		    "type": "AzureSqlDWTable",
@@ -226,8 +211,8 @@ Pour plus d’informations, consultez les articles suivants :
 
 Ces rubriques fournissent des informations détaillées sur Azure Data Factory. Elles décrivent la base de données SQL Azure et HDinsight, mais s’appliquent également à Azure SQL Data Warehouse.
 
-- [Didacticiel : Prise en main d’Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline.md). Ce didacticiel est consacré au traitement des données avec Azure Data Factory. Dans ce didacticiel, vous allez apprendre à créer votre premier pipeline qui fait appel à HDInsight pour transformer et analyser des journaux web tous les mois. Notez que ce didacticiel ne couvre aucune activité de copie.
-- [Didacticiel : Copie de données d’un objet blob Azure vers une base de données SQL Azure](../data-factory/data-factory-get-started.md). Ce didacticiel crée un pipeline dans Azure Data Factory pour copier des données d’un objet blob Azure Storage dans une base de données SQL Azure.
+- [Didacticiel : prise en main d’Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline.md). Ce didacticiel est consacré au traitement des données avec Azure Data Factory. Dans ce didacticiel, vous allez apprendre à créer votre premier pipeline qui fait appel à HDInsight pour transformer et analyser des journaux web tous les mois. Notez que ce didacticiel ne couvre aucune activité de copie.
+- [Didacticiel : copie de données d’un objet blob Azure vers une base de données SQL Azure](../data-factory/data-factory-get-started.md). Ce didacticiel crée un pipeline dans Azure Data Factory pour copier des données d’un objet blob Azure Storage dans une base de données SQL Azure.
 - [Didacticiel présentant un scénario réel](../data-factory/data-factory-tutorial.md). Ce didacticiel décrit de manière approfondie l’utilisation d’Azure Data Factory.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

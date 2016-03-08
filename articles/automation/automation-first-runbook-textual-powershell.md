@@ -3,7 +3,7 @@
     description="Ce didacticiel vous familiarise avec la création, le test et la publication d’un Runbook Powershell simple."
     services="automation"
     documentationCenter=""
-    authors="SnehaGunda"
+    authors="mgoedtel"
     manager="stevenka"
     editor="tysonn"/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;sngun"/>
 
 # Mon premier Runbook PowerShell
@@ -36,12 +36,10 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 Nous allons commencer par créer un Runbook simple qui renvoie le texte *Hello World*.
 
 1.	Dans le portail Azure, ouvrez votre compte Automation. La page du compte Automation vous offre un aperçu rapide des ressources de ce compte. Vous devriez déjà posséder certains éléments multimédias. La plupart de ces éléments représentent les modules automatiquement inclus dans un nouveau compte Automation. Vous devriez également disposer de la ressource d’informations d’identification mentionnée dans les [composants requis](#prerequisites).
-2.	Cliquez sur la vignette **Runbooks** pour ouvrir la liste des Runbooks.  
-	![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
+2.	Cliquez sur la vignette **Runbooks** pour ouvrir la liste des Runbooks. ![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
 3.	Créez un Runbook en cliquant sur le bouton **Ajouter un Runbook**, puis sur **Créer un Runbook**.
 4.	Nommez le Runbook *MyFirstRunbook-PowerShell*.
-5.	Dans ce cas précis, nous allons créer un [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks). Par conséquent, sélectionnez **Powershell** comme **Type de Runbook**.  
-	![Types de Runbook](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
+5.	Dans ce cas précis, nous allons créer un [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks). Par conséquent, sélectionnez **Powershell ** comme **Type de Runbook**.![Types de Runbook](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
 6.	Cliquez sur **Créer** pour créer le Runbook et ouvrez l’éditeur textuel.
 
 ## Étape 2 - Ajouter du code au Runbook
@@ -127,4 +125,4 @@ Les Runbooks PowerShell ont les mêmes cycle de vie, fonctionnalités et mode de
 -	Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [types de Runbook Azure Automation](automation-runbook-types.md)
 -	Pour plus d’informations sur la fonctionnalité d’assistance de script PowerShell, consultez [prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!-------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

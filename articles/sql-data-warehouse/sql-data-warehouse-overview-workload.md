@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -28,7 +28,7 @@ Les entrepôts de données incluent des requêtes qui analysent un grand nombre 
 
 - Un entrepôt de données est davantage performant lorsque la configuration de stockage des données est idéale pour les requêtes qui doivent analyser un grand nombre de lignes ou de gros volumes de données. Ce type de tâches d’analyse est plus efficace lorsque les données sont stockées et classées par colonnes, non en lignes. 
 
->[AZURE.NOTE]L’index Columnstore en mémoire, qui utilise le stockage par colonne, procure une compression jusqu'à 10 fois supérieure et des requêtes jusqu'à 100 fois supérieures par rapport aux arborescences binaires traditionnelles dédiées aux requêtes de rapports et d'analyse. Nous considérons les index Columnstore comme la norme en matière de stockage et d’analyse de gros volumes de données dans un entrepôt de données.
+>[AZURE.NOTE] L’index Columnstore en mémoire, qui utilise le stockage par colonne, procure une compression jusqu'à 10 fois supérieure et des requêtes jusqu'à 100 fois supérieures par rapport aux arborescences binaires traditionnelles dédiées aux requêtes de rapports et d'analyse. Nous considérons les index Columnstore comme la norme en matière de stockage et d’analyse de gros volumes de données dans un entrepôt de données.
 
 - Un entrepôt de données présente des exigences différentes d’un système ; il est configuré pour le traitement transactionnel en ligne (OLTP, online transaction processing). Le système OLTP propose de multiples opérations d’insertion, de mise à jour et de suppression. Ces opérations sont dirigées vers des lignes spécifiques de la table. Les recherches de table aboutissent à de meilleurs résultats lorsque les données sont stockées par lignes. Les données peuvent être triées et recherchées rapidement à l’aide d’une approche de type « Diviser pour régner », appelée recherche par arborescence binaire.
 
@@ -38,7 +38,7 @@ Le chargement des données est une phase importante de la charge de travail de l
 
 - Traditionnellement, le processus de chargement est appelé ETL (Extract, Transform and Load, pour extraction, transformation et chargement). Les données doivent généralement être transformées, ceci pour garantir une cohérence avec les autres données de l’entrepôt de données. Auparavant, les entreprises effectuaient les transformations à l’aide de serveurs ETL dédiés. Désormais, en valorisant le traitement massivement parallèle, vous commencez par charger les données dans SQL Data Warehouse, puis effectuez les transformations. Il s’agit du processus ELT (Extract, Load and Transform pour extraction, chargement et transformation), qui devient la norme associée aux charges de travail d’entrepôts de données.
 
-> [AZURE.NOTE]En vous dotant de SQL Server CTP2, vous pouvez effectuer des analyses en temps réel sur une table OLTP. Si cette solution ne constitue pas une alternative au stockage et à l’analyse de données dans un entrepôt de données, elle procure un moyen d’exécuter l’analyse en temps réel.
+> [AZURE.NOTE] En vous dotant de SQL Server CTP2, vous pouvez effectuer des analyses en temps réel sur une table OLTP. Si cette solution ne constitue pas une alternative au stockage et à l’analyse de données dans un entrepôt de données, elle procure un moyen d’exécuter l’analyse en temps réel.
  
 ### Requêtes de rapports et d’analyse
 Les requêtes de rapports et d’analyse sont bien souvent classées en tant que requêtes réduites, intermédiaires ou importantes en fonction du nombre de critères, mais elles sont généralement basées sur des intervalles de temps. La plupart des entrepôts de données comportent une charge de travail hybride, comprenant à la fois des requêtes à courte échéance et à longue échéance. Pour chaque cas, il est important d’identifier ce mélange et de déterminer sa fréquence (horaire, quotidienne, fin du mois, fin de trimestre, etc.). Il est essentiel de comprendre que cette charge de travail hybride de requêtes, couplée à l’accès concurrentiel, permet de planifier de manière appropriée la capacité d’un entrepôt de données.
@@ -73,4 +73,4 @@ Pour commencer à développer votre entrepôt de données, consultez la [vue d�
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

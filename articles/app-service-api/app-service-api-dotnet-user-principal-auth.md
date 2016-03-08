@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="tdykstra"/>
 
@@ -337,4 +337,4 @@ Si vous exécutez correctement l’application sans authentification, puis qu’
 
 Ce didacticiel vous a montré comment utiliser l’authentification du Service d’application pour une application API et comment appeler l’application API à l’aide de la bibliothèque ADAL JS. Dans le didacticiel suivant, vous allez découvrir comment [sécuriser l’accès à votre application API pour les scénarios de service à service](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

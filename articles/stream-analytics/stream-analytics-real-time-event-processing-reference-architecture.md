@@ -13,7 +13,7 @@
 	ms.workload="big-data" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
@@ -63,4 +63,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

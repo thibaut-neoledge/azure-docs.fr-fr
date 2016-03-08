@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
@@ -112,4 +112,4 @@ Pour plus d’informations sur l’authentification à l’aide d’Azure Active
 
 Cet article a décrit les fonctionnalités d’authentification et d’autorisation d’App Service que vous pouvez utiliser pour API Apps. Dans le didacticiel suivant, vous allez apprendre à implémenter l’[authentification utilisateur dans API Service API Apps](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

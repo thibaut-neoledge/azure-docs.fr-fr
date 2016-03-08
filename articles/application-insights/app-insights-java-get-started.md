@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d'Application Insights dans un projet web Java | Microsoft Azure"
-	description="Surveiller les performances et l'utilisation de votre site web Java avec Application Insights"
+	pageTitle="Analyse d’une application web Java avec Application Insights | Microsoft Azure"
+	description="Surveillance des performances et de l’utilisation de votre site web Java avec Application Insights"
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2016"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Prise en main d'Application Insights dans un projet web Java
@@ -52,7 +52,7 @@ Vous devez avoir :
 
 *Choisissez la méthode adaptée à votre projet.*
 
-#### Si vous créez un projet web dynamique dans Eclipse...
+#### Si vous utilisez Eclipse pour créer un projet Maven ou un projet web dynamique...
 
 Utilisez le [Kit de développement logiciel (SDK) Application Insights pour plug-in Java][eclipse].
 
@@ -80,7 +80,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
     </dependencies>
 
 
-* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>1.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](app-insights-release-notes-java.md) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>1.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?* Actualisez les dépendances de votre projet.
 
 #### Si vous utilisez Gradle...
@@ -98,7 +98,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
       // or applicationinsights-core for bare API
     }
 
-* *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).*
+* *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
  * Actualisez les dépendances de votre projet.
 
@@ -118,7 +118,7 @@ Ajouter manuellement le Kit de développement logiciel :
 
 * *Pour mettre à jour le Kit de développement logiciel lorsque nous publions des modifications*
  * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) et remplacez les anciens Kits.
- * Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).
+ * Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -398,4 +398,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

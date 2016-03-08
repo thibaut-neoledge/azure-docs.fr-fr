@@ -1,71 +1,70 @@
-<properties pageTitle="Version préliminaire d'Azure AD B2C : appel d'une API Web à partir d'une application iOS | Microsoft Azure" description="Cet article décrit comment créer une application iOS de type « liste des tâches » qui appelle une API Web node.js utilisant des jetons du porteur OAuth 2.0. L'application iOS et l'API Web utilisent toutes les deux Azure AD B2C pour gérer les identités des utilisateurs et authentifier les utilisateurs." services="active-active-b2c" documentationCenter="ios" authors="brandwe" manager="mbaldwin" editor=""/>
+<properties pageTitle="Version préliminaire d’Azure Active Directory B2C : appel d’une API web depuis une application iOS | Microsoft Azure" description="Cet article décrit comment créer une application iOS de type « liste de tâches » qui appelle une API web Node.js en utilisant les jetons du porteur OAuth 2.0. L’application iOS et l’API web utilisent toutes les deux Azure Active Directory B2C pour gérer les identités des utilisateurs et les authentifier." services="active-active-b2c" documentationCenter="ios" authors="brandwe" manager="mbaldwin" editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
-# Version préliminaire d'Azure AD B2C : appel d'une API Web à partir d'une application iOS
+# Version préliminaire d’Azure AD B2C : appel d’une API web depuis une application iOS
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Avec Azure AD B2C, vous pouvez ajouter des fonctionnalités de gestion des identités en libre-service puissantes à vos applications iOS et API Web en quelques étapes seulement. Cet article vous explique comment créer une application iOS de type « liste des tâches », qui appelle une API Web node.js utilisant des jetons du porteur OAuth 2.0. L'application iOS et l'API Web utilisent toutes les deux Azure AD B2C pour gérer les identités des utilisateurs et authentifier les utilisateurs.
+Avec Azure Active Directory (Azure AD) B2C, vous pouvez ajouter de puissantes fonctionnalités de gestion des identités en libre-service à vos applications iOS et API web, en seulement quelques étapes. Cet article vous explique comment créer une application iOS de type « liste des tâches » qui appelle une API web Node.js en utilisant les jetons du porteur OAuth 2.0. L’application iOS et l’API web utilisent toutes les deux Azure AD B2C pour gérer les identités des utilisateurs et les authentifier.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
-	Ce guide de démarrage rapide nécessite que vous disposiez d'une API Web protégée par Azure AD avec B2C. Nous en avons créé une pour .Net et node.js afin que vous puissiez l'utiliser. Cette procédure pas à pas suppose que l'exemple d'API Web node.js est configuré. Reportez-vous à l'[exemple API Web Azure Active Directory pour Node.js](active-directory-b2c-devquickstarts-api-node.md`).
+	Pour fonctionner correctement, ce démarrage rapide nécessite que vous disposiez déjà d’une API web protégée par Azure AD B2C. Nous en avons créé une pour .Net et Node.js afin que vous puissiez l’utiliser. Cette procédure pas à pas suppose que l’exemple d’API web Node.js est configuré. Pour en savoir plus, voir l’[exemple d’API web Azure Active Directory pour Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
 > [AZURE.NOTE]
-	Cet article ne couvre pas l'implémentation de la connexion, de l'inscription et de la gestion de profil avec Azure AD B2C. Il s'intéresse principalement à l'appel d'API web après que l'utilisateur s'est authentifié. Si ce n'est pas déjà fait, commencez par consulter le [didacticiel de prise en main de l'application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes de base d'Azure AD B2C.
+	Cet article ne couvre pas l’implémentation de la connexion, de l’inscription et de la gestion de profil avec Azure AD B2C. Il s’intéresse principalement à l’appel des API web après l’authentification de l’utilisateur. Si ce n’est pas déjà fait, vous devez commencer par consulter le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes fondamentaux d’Azure AD B2C.
 
-## 1\. Obtention d'un répertoire Azure AD B2C
+## Obtention d'un répertoire Azure AD B2C
 
-Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes et autres. Si vous n’en avez pas encore, reportez-vous à [Créer un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin.
+Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes, etc. Si vous n’en possédez pas déjà un, [créez un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin.
 
-## 2\. Création d'une application
+## Création d'une application
 
-Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. L'application et l'API Web seront alors toutes les deux représentées par un seul **ID d'application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Assurez-vous de
+Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD les informations nécessaires pour communiquer avec votre application en toute sécurité. L’application et l’API web sont alors toutes les deux représentées par un seul **ID d’application**, car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
-- Inclure une **application web/API web** dans l’application.
-- Saisir `http://localhost:3000/auth/openid/return` en tant qu’**URL de réponse** ; il s’agit de l’URL par défaut pour cet exemple de code.
-- Créer une **clé secrète d'application** pour votre application et de la noter. Vous en aurez besoin rapidement. Notez que cette valeur doit être [placée dans une séquence d’échappement XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) avant son utilisation.
-- Notez également l'**ID d'application** affecté à votre application. Vous en aurez aussi besoin rapidement.
+- Insérez une **application web/API web** dans l’application.
+- Entrez `http://localhost:3000/auth/openid/return` comme **URL de réponse**. Il s’agit de l’URL par défaut pour cet exemple de code.
+- Créez une **clé secrète d’application** pour votre application et copiez-la. Vous en aurez besoin ultérieurement.
+- Copiez l’**ID d’application** affecté à votre application. Vous en aurez besoin ultérieurement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3\. Création de vos stratégies
+## Création de vos stratégies
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l'identité : l'inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l'[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l’identité : l’inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création des trois stratégies, assurez-vous de :
 
-- Choisir le **Nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
-- Choisir les revendications **nom d'affichage** et **ID objet** comme revendications d'application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
-- Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement.
+- Choisir le **nom d’affichage** et les attributs d’inscription dans votre stratégie d’inscription.
+- Choisir les revendications **nom d’affichage** et **ID objet** comme revendications d’application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
+- Copier le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies ultérieurement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Une fois vos trois stratégies créées, vous pouvez générer votre application.
+Une fois vos 3 stratégies créées, vous pouvez générer votre application.
 
-Remarque : cet article n'explique pas comment utiliser les stratégies que vous venez de créer. Pour en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C, nous vous recommandons de commencer par lire le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Remarque : cet article n’explique pas comment utiliser les stratégies que vous venez de créer. Pour en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C, commencez par le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## 4\. Téléchargement du code
+## Téléchargement du code
 
-Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip) ou cloner la structure :
+Le code associé à ce didacticiel [est stocké sur GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger la structure du projet sous la forme d’un fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). Vous pouvez également cloner la structure :
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
 ```
 
-> [AZURE.NOTE] **Le téléchargement de la structure est nécessaire pour suivre ce didacticiel.** En raison de la complexité de l’implémentation d’une application entièrement fonctionnelle sur iOS, la **structure** dispose d’un code d’expérience utilisateur qui s’exécutera quand vous aurez terminé le didacticiel ci-dessous. Il s'agit d'une mesure visant à gagner du temps pour le développeur. Le code de l'expérience utilisateur n'est pas associé à la rubrique d'ajout de B2C à une application iOS.
+> [AZURE.NOTE] **Vous devez télécharger la structure pour suivre ce didacticiel.** En raison de la complexité de l’implémentation d’une application entièrement fonctionnelle sur iOS, la **structure** dispose d’un code d’expérience utilisateur qui s’exécute une fois que vous avez terminé le didacticiel. Cette mesure fait gagner du temps au développeur. Le code de l’expérience utilisateur est sans rapport avec la rubrique d’ajout de B2C à une application iOS.
 
-L'application terminée est également [disponible en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) ou sur la branche `complete` du même référentiel.
+L’application terminée est également [disponible en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) ou sur la branche `complete` du même référentiel.
 
-
-Chargez maintenant le podfile à l’aide de Cocoapods. Cette opération crée un nouvel espace de travail XCode que vous allez charger. Si vous n'avez pas Cocoapods, visitez [le site Web pour le programme d'installation cocoapods](https://cocoapods.org).
+Ensuite, chargez `podfile` à l’aide de CocoaPods. Cette opération crée un nouvel espace de travail Xcode que vous allez charger. Si vous n’avez pas CocoaPods, [visitez le site web pour l’installer](https://cocoapods.org).
 
 ```
 $ pod install
@@ -73,9 +72,9 @@ $ pod install
 $ open Microsoft Tasks for Consumers.xcworkspace
 ```
 
-## 5\. Configuration de l'application de la tâche iOS
+## Configuration de l'application de la tâche iOS
 
-Afin que l'application de la tâche iOS communique avec Azure AD B2C, vous devez renseigner certains paramètres communs. Dans le dossier `Microsoft Tasks`, ouvrez le fichier `settings.plist` qui se trouve à la racine et remplacez les valeurs de la section `<dict>`. Ces valeurs seront utilisées dans l'application.
+Afin que l’application de la tâche iOS communique avec Azure AD B2C, vous devez renseigner certains paramètres courants. Dans le dossier `Microsoft Tasks`, ouvrez le fichier `settings.plist` qui se trouve à la racine du projet, puis remplacez les valeurs de la section `<dict>`. Ces valeurs seront utilisées dans l'application.
 
 ```
 <dict>
@@ -110,17 +109,17 @@ Afin que l'application de la tâche iOS communique avec Azure AD B2C, vous devez
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-## 6\. Obtention des jetons d'accès et appel de l'API de tâche
+## Obtention des jetons d'accès et appel de l'API de tâche
 
-Cette section démontre comment procéder à un échange de jeton OAuth 2.0 dans une application Web à l'aide des bibliothèques et des infrastructures de Microsoft. Si vous n’êtes pas familiarisé avec les **codes d’autorisation** et les **jetons d’accès**, nous vous conseillons de consulter les [informations de référence sur le protocole OAuth 2.0](active-directory-b2c-reference-protocols.md).
+Cette section démontre comment procéder à un échange de jeton OAuth 2.0 dans une application web à l’aide des bibliothèques et des infrastructures de Microsoft. Si vous n’êtes pas familiarisé avec les codes d’autorisation et les jetons d’accès, nous vous conseillons de consulter les [informations de référence sur le protocole OAuth 2.0](active-directory-b2c-reference-protocols.md).
 
-#### Créer des fichiers d'en-tête avec nos méthodes que nous allons utiliser.
+### Création de fichiers d’en-tête à l’aide de méthodes
 
-Nous aurons besoin de méthodes pour obtenir un jeton avec notre stratégie sélectionnée, puis appeler notre serveur de la tâche. Configurons-les dès maintenant.
+Pour obtenir un jeton avec la stratégie sélectionnée, puis appeler le serveur de la tâche, vous avez besoin de méthodes. Il vous faut les définir.
 
-Créez un fichier appelé `samplesWebAPIConnector.h` sous /Microsoft Tasks dans votre projet XCode.
+Créez un fichier appelé `samplesWebAPIConnector.h` sous `/Microsoft Tasks` dans votre projet Xcode.
 
-Ajoutez le code suivant pour définir ce que nous devons faire :
+Ajoutez le code suivant pour définir ce que vous devez faire :
 
 ```
 #import <Foundation/Foundation.h>
@@ -150,11 +149,11 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 @end
 ```
 
-Vous verrez qu’il s’agit d’opérations CRUD simples sur notre API, ainsi qu’une méthode `doPolicy` qui vous permet d’obtenir un jeton avec la stratégie sélectionnée.
+Il s’agit de simples opérations de création, lecture, mise à jour et suppression (CRUD) sur votre API, ainsi que d’une méthode `doPolicy`. À l’aide de cette méthode, vous pouvez obtenir un jeton avec la stratégie souhaitée.
 
-Vous verrez également que nous avons deux autres fichiers d'en-tête que nous devons définir et qui contiendront notre élément de tâche et les données de notre stratégie. Créons-les maintenant :
+Notez que deux autres fichiers d’en-tête doivent être définis. Ils vont contenir l’élément de votre tâche et les données de la stratégie. Créez-les maintenant :
 
-Créez un fichier appelé `samplesTaskItem.h` en utilisant le code suivant :
+Créez le fichier `samplesTaskItem.h` en utilisant le code suivant :
 
 ```
 #import <Foundation/Foundation.h>
@@ -169,7 +168,7 @@ Créez un fichier appelé `samplesTaskItem.h` en utilisant le code suivant :
 @end
 ```
 
-Créons également un fichier `samplesPolicyData.h` pour contenir les données de la stratégie :
+Créez également le fichier `samplesPolicyData.h` qui va contenir les données de la stratégie :
 
 ```
 #import <Foundation/Foundation.h>
@@ -183,11 +182,11 @@ Créons également un fichier `samplesPolicyData.h` pour contenir les données d
 
 @end
 ```
-#### Ajout d'une implémentation pour les éléments de tâche et de stratégie
+### Ajout d’une implémentation pour les éléments de tâche et de stratégie
 
-Maintenant que nos fichiers d'en-tête sont en place, nous devons écrire du code pour stocker les données que nous utiliserons dans notre exemple.
+Maintenant que vos fichiers d’en-tête sont en place, vous pouvez écrire du code pour stocker les données que vous allez utiliser dans votre exemple.
 
-Créez un fichier appelé `samplesPolicyData.m` en utilisant le code suivant :
+Créez le fichier `samplesPolicyData.m` en utilisant le code suivant :
 
 ```
 #import <Foundation/Foundation.h>
@@ -216,13 +215,13 @@ Créez un fichier appelé `samplesPolicyData.m` en utilisant le code suivant :
 @end
 ```
 
-#### Écriture de code de configuration pour notre appel dans la bibliothèque ADAL pour iOS
+### Écriture du code de configuration pour l’appel dans la bibliothèque ADAL pour iOS
 
-Le code rapide permettant de stocker les objets de l'interface utilisateur est terminé. Nous devons maintenant écrire du code pour accéder à la bibliothèque ADAL pour iOS avec les paramètres dans notre fichier `settings.plist` afin d’obtenir un jeton d’accès à fournir à notre serveur de la tâche. Cette étape peut se révéler compliquée, donc restez concentré.
+Le code rapide permettant de stocker les objets de l’interface utilisateur est maintenant terminé. Ensuite, vous devez écrire le code permettant d’accéder à la bibliothèque d’authentification Active Directory (ADAL) pour iOS en utilisant les paramètres que vous avez placés dans `settings.plist`. Cela vous permet d’obtenir un jeton d’accès à transmettre au serveur de la tâche.
 
-Tout notre travail sera effectué dans `samplesWebAPIConnector.m`.
+Tout votre travail va être effectué dans `samplesWebAPIConnector.m`.
 
-Tout d’abord, créons notre implémentation `doPolicy()` que nous avons rédigée dans notre fichier d’en-tête `samplesWebAPIConnector.h` :
+Commencez par implémenter le code `doPolicy()` que vous avez écrit dans le fichier d’en-tête `samplesWebAPIConnector.h` :
 
 ```
 +(void) doPolicy:(samplesPolicyData *)policy
@@ -252,21 +251,21 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 ```
 
-Vous constatez que la méthode est relativement simple. Elle prend comme entrée l'objet `samplesPolicyData` que nous avons créé il y a quelques instants, le ViewController parent, puis un rappel. Le rappel est intéressant et nous allons l'examiner en détail.
+La méthode est simple. Elle prend comme entrées l’objet `samplesPolicyData` que vous avez créé, le `ViewController` parent et un rappel. Le rappel est intéressant, et nous allons examiner cela plus en détail.
 
-1. Vous constatez que le `completionBlock` contient ADProfileInfo en tant que type qui sera retourné avec un objet `userInfo`. ADProfileInfo est le type qui contient l'ensemble de la réponse du serveur, en particulier les revendications.
-2. Vous pouvez constater que nous utilisons `readApplicationSettings`. Ceci permet de lire les données fournies dans `settings.plist`.
-3. Enfin, nous avons une méthode `getClaimsWithPolicyClearingCache` plutôt volumineuse. Il s'agit de l'appel réel à la bibliothèque ADAL pour iOS que nous devons écrire. Nous ferons cela plus tard.
+- Notez que `completionBlock` a pour type `ADProfileInfo` et que ce type est renvoyé à l’aide d’un objet `userInfo`. `ADProfileInfo` est le type qui contient toutes les réponses du serveur, y compris les revendications.
+- Notez également `readApplicationSettings`. Cela permet de lire les données fournies dans `settings.plist`.
+- Enfin, vous disposez d’une méthode `getClaimsWithPolicyClearingCache` relativement volumineuse. Il s’agit de l’appel réel à la bibliothèque ADAL pour iOS que vous devez écrire. Nous allons revenir sur ce point ultérieurement.
 
-Écrivons maintenant notre méthode volumineuse `getClaimsWithPolicyClearingCache`. Elle est suffisamment volumineuse pour mériter sa propre section
+Ensuite, écrivez votre méthode `getClaimsWithPolicyClearingCache` volumineuse. Elle l’est suffisamment pour mériter sa propre section.
 
-#### Création de notre appel à la bibliothèque ADAL pour iOS
+### Création de l’appel à la bibliothèque ADAL pour iOS
 
-Si vous avez téléchargé la structure de GitHub, vous verrez que nous en avons déjà plusieurs en place pour nous aider avec l'exemple d'application. Ils suivent tous le modèle suivant : `get(Claims|Token)With<verb>ClearningCache`. En utilisant des conventions Objetive C, ceci se lit presque normalement. Par exemple « obtenir un jeton avec des paramètres supplémentaires que je donne et effacer le cache ». Cela équivaut à `getTokenWithExtraParamsClearingCache()`. Plutôt simple.
+Après avoir téléchargé la structure depuis GitHub, vous constatez que nous disposons déjà de plusieurs appels pour nous aider avec l’exemple d’application. Ils suivent tous le modèle suivant : `get(Claims|Token)With<verb>ClearningCache`. Ils se lisent presque normalement en utilisant des conventions Objective-C. Par exemple, « Obtenir un jeton avec des paramètres supplémentaires que je fournis et effacer le cache » équivaut à `getTokenWithExtraParamsClearingCache()`.
 
-Nous allons écrire « obtenir des revendications et un jeton avec la stratégie que je fournis et ne pas effacer le cache » ou `getClaimsWithPolicyClearingCache`. Nous obtenons toujours un jeton à partir de la bibliothèque ADAL, donc il n'est pas nécessaire de spécifier « Revendications et jeton » dans la méthode. Cependant, vous voulez parfois simplement le jeton sans la surcharge de l'analyse des revendications, donc nous avons fourni une méthode sans Revendications appelée `getTokenWithPolicyClearingCache` dans la structure.
+Vous allez écrire « Obtenir des revendications et un jeton avec la stratégie que je fournis et ne pas effacer le cache » ou `getClaimsWithPolicyClearingCache`. Vous obtenez toujours un jeton à partir de la bibliothèque ADAL. Il n’est donc pas nécessaire de spécifier « revendications et un jeton » dans la méthode. Cependant, vous voulez parfois simplement le jeton sans devoir analyser les revendications. Nous vous proposons donc également dans la structure une méthode sans revendications appelée `getTokenWithPolicyClearingCache`.
 
-Écrivons ce code maintenant :
+Écrivez ce code :
 
 ```
 +(void) getClaimsWithPolicyClearingCache  : (BOOL) clearCache
@@ -314,9 +313,16 @@ Nous allons écrire « obtenir des revendications et un jeton avec la stratégie
 
 ```
 
-La première partie doit vous sembler familière. Nous chargeons les paramètres qui ont été fournis dans `Settings.plist` et les assignons à `data`. Nous configurons ensuite une `ADAuthenticationError` qui traitera toute erreur provenant de la bibliothèque ADAL pour iOS. Nous créons également un `authContext` qui configure notre appel à la bibliothèque ADAL. Nous lui transmettons notre *autorité* pour démarrer. Nous donnons également au `authContext` une référence à notre contrôleur parent, afin de pouvoir le retourner. Nous convertissons également notre `redirectURI` qui était une chaîne dans notre `settings.plist` en type NSURL attendu par la bibliothèque ADAL. Enfin, nous définissons un `correlationId` qui est simplement un UUID qui peut suivre l'appel vers le client et le serveur, et vice versa. Cela est utile pour le débogage.
+La première partie doit vous sembler familière.
 
-À présent, passons à l'appel à la bibliothèque ADAL. C'est à ce moment-là que l'appel diffère de ce à quoi vous pourriez vous attendre avec les utilisations précédentes de la bibliothèque ADAL pour iOS :
+- Chargez les paramètres fournis dans `settings.plist` et affectez-les à `data`.
+- Configurez le paramètre `ADAuthenticationError` qui accepte toutes les erreurs provenant de la bibliothèque ADAL pour iOS.
+- Créez le paramètre `authContext` qui définit votre appel à la bibliothèque ADAL. Vous lui transmettez votre autorité pour commencer.
+- Donnez au paramètre `authContext` une référence au contrôleur parent, pour pouvoir retourner à celui-ci.
+- Convertissez `redirectURI` (auparavant une chaîne dans `settings.plist`) en type NSURL qui correspond à ce qu’attend la bibliothèque ADAL.
+- Configurez `correlationId`. Il s’agit d’un UUID qui peut suivre l’appel sur le client vers le serveur et vice versa. Cela est utile pour le débogage.
+
+Ensuite, vous obtenez l’appel réel à la bibliothèque ADAL. C’est à ce moment-là que l’appel diffère de ce à quoi vous pourriez vous attendre avec les utilisations précédentes de la bibliothèque ADAL pour iOS :
 
 ```
 [authContext acquireTokenWithScopes:data.scopes
@@ -331,19 +337,19 @@ La première partie doit vous sembler familière. Nous chargeons les paramètres
 
 ```
 
-Vous pouvez voir ici que l'appel est assez simple.
+Vous pouvez voir ici que l’appel est assez simple.
 
-**scopes**: étendues transmises au serveur, que nous souhaitons demander au serveur, pour l'utilisateur qui se connecte. Pour la version préliminaire de B2C, nous transmettons la valeur client\_id. Toutefois, ceci sera modifié pour la lecture des étendues à l'avenir. Ce document sera alors mis à jour. **addtionalScopes**: étendues supplémentaires que vous pourriez utiliser pour votre application. Elles seront utilisées à l'avenir. **clientId**: ID de l'application que vous avez obtenu du portail. **redirectURI**: redirection où nous nous attendons à ce que le jeton soit publié. **identifier**: moyen d'identifier l'utilisateur. Ainsi, nous pouvons voir s'il existe un jeton utilisable dans le cache plutôt que de toujours demander un autre jeton au serveur. Vous constatez que ceci est exécuté dans un type appelé `ADUserIdentifier` et nous pouvons spécifier ce que nous voulons utiliser en tant qu'ID. Vous devriez utiliser le nom d’utilisateur. **promptBehavior**: ceci est obsolète et doit être remplacé par AD\_PROMPT\_ALWAYS **extraQueryParameters**: tout contenu supplémentaire que vous souhaitez transmettre au serveur dans un format codé de type URL. **policy**: stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas.
+`scopes`: étendues que vous transmettez au serveur et que vous souhaitez demander depuis le serveur pour un utilisateur qui se connecte. Pour la version préliminaire de B2C, vous transmettez `client_id`. Toutefois, cela est susceptible d’être modifié à l’avenir pour la lecture des étendues. Nous prévoyons de mettre à jour ce document à ce moment-là. `additionalScopes` : étendues supplémentaires à utiliser éventuellement pour votre application. Elles sont censées être utilisées à l’avenir. `clientId` : ID d’application obtenu depuis le portail. `redirectURI` : URI de redirection sur lequel le jeton devrait être publié. `identifier` : moyen d’identifier un utilisateur pour voir s’il existe un jeton utilisable dans le cache. Cela évite de toujours devoir demander un autre jeton au serveur. Vous retrouvez ce paramètre dans un type appelé `ADUserIdentifier`, et vous pouvez indiquer ce que vous voulez utiliser en tant qu’ID. Mieux vaut utiliser `username`. `promptBehavior` : ce paramètre est déconseillé. Il est remplacé par `AD_PROMPT_ALWAYS`. `extraQueryParameters` : tout ce que vous voulez transférer en plus au serveur dans un format encodé URL. `policy` : stratégie appelée. C’est la partie la plus importante de cette procédure pas à pas.
 
-Vous pouvez voir dans completionBlock que nous transmettons le `ADAuthenticationResult` qui contient notre jeton et les informations de profil (si l'appel a réussi)
+Vous pouvez voir dans `completionBlock` que vous transférez `ADAuthenticationResult`. Ce paramètre contient vos informations de jeton et de profil (si l’appel a abouti).
 
-À l'aide du code ci-dessus, vous pouvez obtenir un jeton pour la stratégie que vous fournissez. Nous allons utiliser ce jeton pour appeler l'API.
+À l’aide du code ci-dessus, vous pouvez obtenir un jeton pour la stratégie que vous fournissez. Vous pouvez ensuite utiliser ce jeton pour appeler l’API.
 
-#### Création de nos appels de tâche au serveur
+### Création des appels de tâche au serveur
 
-Maintenant que nous disposons d'un jeton, nous devons le fournir à notre API pour autorisation.
+Maintenant que vous disposez d’un jeton, vous devez le fournir à votre API pour autorisation.
 
-Rappelez-vous que nous avions trois méthodes à implémenter :
+Trois méthodes doivent être implémentées :
 
 ```
 +(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
@@ -358,9 +364,9 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
    completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 ```
 
-Notre `getTasksList` fournit un tableau qui représente les tâches dans notre serveur. `addTask` et `deleteTask` effectuent l'action suivante et renvoient TRUE ou FALSE en cas de réussite.
+`getTasksList` fournit un tableau qui représente les tâches de votre serveur. `addTask` et `deleteTask` effectuent les actions suivantes et renvoient `true` ou `false` en cas de réussite.
 
-Tout d'abord, écrivons notre `getTaskList` :
+Pour commencer, écrivez `getTaskList` :
 
 ```
 
@@ -422,9 +428,9 @@ Tout d'abord, écrivons notre `getTaskList` :
 
 ```
 
-Le cadre de cette procédure pas-à-pas n'inclut pas le code de tâche, mais vous avez peut-être remarqué la chose suivante : une méthode `craftRequest` qui prend l'URL de notre tâche. Cette méthode est ce que nous utilisons pour créer la requête, avec le jeton d'accès que nous avons reçu, pour le serveur. Écrivons cela maintenant.
+Tout ce qui concerne le code de tâche dépasse le cadre de cette procédure pas à pas. Cependant, vous avez peut-être remarqué quelque chose d’intéressant : une méthode `craftRequest` qui prend l’URL de votre tâche. Cette méthode correspond à ce que vous utilisez pour créer la requête pour le serveur, avec le jeton d’accès que vous avez reçu. C’est ce que vous allez écrire maintenant.
 
-Ajoutons le code suivant au fichier `samplesWebAPIConnector.m' :
+Ajoutez le code suivant au fichier `samplesWebAPIConnector.m` :
 
 ```
 +(void) craftRequest : (NSString*)webApiUrlString
@@ -453,9 +459,9 @@ Ajoutons le code suivant au fichier `samplesWebAPIConnector.m' :
 }
 ```
 
-Comme vous pouvez le voir, cette opération prend un URI de site web, lui ajoute le jeton avec l'en-tête `Bearer` dans HTTP, puis nous le retourne. Nous appelons l'API `getTokenClearingCache`, ce qui peut sembler bizarre au premier abord. Mais nous utilisons simplement cet appel pour obtenir un jeton à partir du cache et nous assurer qu'il est toujours valide (les appels getToken* font cela pour nous en effectuant une demande à la bibliothèque ADAL). Nous utilisons ce code dans chaque appel. Maintenant, revenons à la création de nos méthodes de tâche supplémentaires.
+Cette opération prend un URI de site web, lui ajoute le jeton en utilisant l’en-tête `Bearer` dans HTTP, puis vous le renvoie. Vous appelez l’API `getTokenClearingCache`. Cela peut sembler étrange, mais vous utilisez simplement cet appel pour obtenir un jeton à partir du cache et pour vous assurer qu’il est toujours valide. (C’est ce que font pour vous les appels `getToken` en interrogeant la bibliothèque ADAL.) Vous allez utiliser ce code dans chaque appel. Ensuite, vous allez concevoir des méthodes de tâche supplémentaires.
 
-Écrivons notre `addTask` :
+Écrivez `addTask` :
 
 ```
 +(void) addTask:(samplesTaskItem*)task
@@ -510,10 +516,10 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 }
 ```
 
-Cette opération suit le même modèle, mais introduit une autre méthode (finale) que nous devons mettre en œuvre (`convertTaskToDictionary`) qui utilise notre tableau et en fait un objet de dictionnaire qui est plus facilement transformé par les paramètres de requête que nous devons transmettre au serveur. Ce code est très simple :
+Le modèle suivi est identique, à ceci près que cela introduit également la méthode finale que vous devez implémenter `convertTaskToDictionary`. L’objectif est ici de prendre votre tableau et d’en faire un objet Dictionary. Cet objet prend plus facilement la forme des paramètres de requête que vous devez transmettre au serveur. Le code est simple :
 
 ```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
+// Here we have some conversation helpers that allow us to parse passed items into dictionaries for URLEncoding later.
 
 +(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
 {
@@ -528,7 +534,7 @@ Cette opération suit le même modèle, mais introduit une autre méthode (final
 
 ```
 
-Enfin, écrivons notre `deleteTask` :
+Ensuite, écrivez `deleteTask` :
 
 ```
 +(void) deleteTask:(samplesTaskItem*)task
@@ -580,9 +586,9 @@ Enfin, écrivons notre `deleteTask` :
 }
 ```
 
-### Ajouter la déconnexion à notre application.
+### Ajoutez la déconnexion à votre application.
 
-La dernière chose à faire est d'implémenter la déconnexion pour notre application. Ceci est plutôt simple. De nouveau dans notre fichier `sampleWebApiConnector.m` :
+La dernière chose à faire est d’implémenter la déconnexion pour votre application. C’est simple. Dans le fichier `sampleWebApiConnector.m` :
 
 ```
 +(void) signOut
@@ -599,22 +605,22 @@ La dernière chose à faire est d'implémenter la déconnexion pour notre applic
 }
 ```
 
-## 9\. Exécution de l'exemple d'application
+## Exécution de l'exemple d'application
 
-Pour terminer, générez et exécutez les applications dans xCode. Inscrivez-vous ou connectez-vous à l'application et créez des tâches pour l'utilisateur connecté. Déconnectez-vous et reconnectez-vous par le biais d'un autre utilisateur, ce qui a pour effet de créer des tâches pour cet utilisateur.
+Pour terminer, générez et exécutez l’application dans Xcode. Inscrivez-vous ou connectez-vous à l’application, puis créez des tâches pour un utilisateur connecté. Déconnectez-vous et reconnectez-vous avec les identifiants d’un autre utilisateur, puis créez des tâches pour cet utilisateur.
 
-Notez la façon dont les tâches sont stockées par utilisateur sur l'API, dans la mesure où l'API extrait l'identité de l'utilisateur à partir du jeton d'accès qu'il reçoit.
+Notez la façon dont les tâches sont stockées par utilisateur sur l’API, dans la mesure où l’API extrait l’identité de l’utilisateur à partir du jeton d’accès reçu.
 
-Pour référence, l'exemple terminé [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé [ est fourni en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
 ## Étapes suivantes
 
-Vous pouvez maintenant aborder des rubriques B2C plus sophistiquées. Par exemple :
+Vous pouvez maintenant aborder des rubriques B2C plus sophistiquées. Vous pouvez essayer :
 
-[Appel d'une API Web node.js à partir d'une application Web node.js >>]()
+[Appel d’une API web Node.js depuis une application web Node.js]()
 
-[Personnalisation de l'UX de l'application B2C >>]()
+[Personnalisation de l’expérience utilisateur pour une application B2C]()
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

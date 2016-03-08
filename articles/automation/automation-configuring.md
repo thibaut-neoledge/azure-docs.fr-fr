@@ -3,7 +3,7 @@
    description="Décrit les étapes que vous devez effectuer pour configurer Azure Automation pour une première utilisation."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="MGoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Configuration d’Azure Automation
@@ -94,4 +94,4 @@ Vous devez répéter ces lignes après tout [point de contrôle](http://technet.
 - [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

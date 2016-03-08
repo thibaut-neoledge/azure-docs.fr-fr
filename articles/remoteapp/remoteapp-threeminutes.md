@@ -12,8 +12,8 @@
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/05/2015"
+    ms.topic="hero-article"
+    ms.date="02/25/2016"
     ms.author="mbaldwin" />
 
 
@@ -33,6 +33,6 @@ Vous pouvez désormais accéder aux applications s’exécutant en temps réel s
 
 Votre opinion est importante. À la fin de chaque session, vous verrez une boîte de dialogue pour vos commentaires. Si vous avez une minute, envoyez-nous votre avis et faites-nous savoir si vous souhaitez que Microsoft puisse vous contacter pour vous fournir plus d’informations.
 
->[AZURE.NOTE]Comme il s’agit d’un environnement contrôlé à des fins de démonstration, nous n’avons pas activé l’accès internet externe à partir des applications de démonstration publiées. Pour cette raison, des services comme OneDrive ne sont pas accessibles. En outre, le partage du presse-papiers (copier-coller), ainsi que la redirection USB et de l’imprimante sont désactivés.
+>[AZURE.NOTE] Comme il s’agit d’un environnement contrôlé à des fins de démonstration, nous n’avons pas activé l’accès internet externe à partir des applications de démonstration publiées. Pour cette raison, des services comme OneDrive ne sont pas accessibles. En outre, le partage du presse-papiers (copier-coller), ainsi que la redirection USB et de l’imprimante sont désactivés.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->
