@@ -328,4 +328,4 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
