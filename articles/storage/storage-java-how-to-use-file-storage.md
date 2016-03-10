@@ -216,4 +216,4 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

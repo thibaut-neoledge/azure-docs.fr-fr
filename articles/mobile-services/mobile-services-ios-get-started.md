@@ -95,4 +95,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version de serveur principal .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

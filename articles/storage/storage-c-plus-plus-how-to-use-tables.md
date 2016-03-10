@@ -414,4 +414,4 @@ Les bases du stockage des tables étant assimilées, voir les liens suivants pou
 -	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
