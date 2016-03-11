@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Application universelle Windows Azure AD v2.0 | Microsoft Azure"
+	pageTitle="Application universelle Microsoft Azure AD v2.0 | Microsoft Azure"
 	description="Génération d’une application universelle Windows qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leurs comptes professionnel ou scolaire."
 	services="active-directory"
 	documentationCenter=""
@@ -21,4 +21,4 @@
 > [AZURE.NOTE]
 	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
