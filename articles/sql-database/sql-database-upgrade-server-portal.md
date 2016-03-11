@@ -101,7 +101,7 @@ Lorsque toutes les bases de données du serveur sont éligibles, vous pouvez com
 
 Dans le [portail Azure](https://portal.azure.com/), accédez au serveur V12 et cliquez sur **Ajouter un pool**.
 
-- ou -
+ -ou-
 
 Si vous voyez un message indiquant **Cliquez ici pour afficher le pool de base de données élastique recommandé pour votre serveur**, cliquez dessus pour créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d’informations, consultez la rubrique [Pools de base de données élastique recommandés](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
 
@@ -169,4 +169,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
