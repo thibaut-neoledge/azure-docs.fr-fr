@@ -74,7 +74,9 @@ Cet article explique certaines des erreurs courantes que vous pouvez rencontrer 
 
 **Motif de l’erreur :** si votre runbook est un flux de travail PowerShell, il stocke des objets complexes au format désérialisé afin de conserver l’état du runbook si le flux de travail est suspendu.
 
-**Conseils de dépannage :** L’une des trois solutions qui suivent pour corriger ce problème :
+**Conseils de dépannage :**
+
+L’une des trois solutions qui suivent pour corriger ce problème:
 
 1. Si vous transférez des objets complexes d’une applet de commande vers une autre, encapsulez ces applets de commande dans un bloc InlineScript.  
 2. Transmettez le nom ou la valeur dont vous avez besoin depuis l’objet complexe au lieu de transmettre la totalité de l’objet.  
@@ -129,7 +131,9 @@ Cet article explique certaines des erreurs courantes que vous pouvez rencontrer 
 
 - L’applet de commande **New-AzureRmAutomationModule** est utilisée pour charger le module, et vous ne disposez pas du chemin d’accès de stockage complet ou n’avez pas chargé le module en utilisant une URL accessible publiquement.
 
-**Conseils de dépannage :** l’une des solutions qui suivent peut corriger ce problème :
+**Conseils de dépannage :**
+
+L’une des solutions qui suivent peut corriger ce problème:
 
 - Assurez-vous que le module respecte le format suivant : ModuleName.Zip **->** ModuleName ou Numéro de Version **->** (ModuleName.psm1, ModuleName.psd1)
 

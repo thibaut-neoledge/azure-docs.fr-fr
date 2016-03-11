@@ -628,7 +628,7 @@ En outre, envisagez d’implémenter les pratiques suivantes, le cas échéant :
 	}
 	```
 
-* Désactivez le champ * \_all* d’un index si celui-ci n’est pas nécessaire. Le champ *\_all* concatène les valeurs des autres champs du document pour l’analyse et l’indexation. Il est utile d’effectuer des requêtes pouvant correspondre à n’importe quel champ dans un document. Si les clients doivent correspondre aux champs nommés, l’activation du champ *\_all* entraîne simplement une surcharge de stockage et du processeur. L’exemple suivant montre comment désactiver le champ *\_all* du type *logs* dans l’index *systembase*.
+* Désactivez le champ *\_all* d’un index si celui-ci n’est pas nécessaire. Le champ *\_all* concatène les valeurs des autres champs du document pour l’analyse et l’indexation. Il est utile d’effectuer des requêtes pouvant correspondre à n’importe quel champ dans un document. Si les clients doivent correspondre aux champs nommés, l’activation du champ *\_all* entraîne simplement une surcharge de stockage et du processeur. L’exemple suivant montre comment désactiver le champ *\_all* du type *logs* dans l’index *systembase*.
 
 	```http
 	PUT /systembase

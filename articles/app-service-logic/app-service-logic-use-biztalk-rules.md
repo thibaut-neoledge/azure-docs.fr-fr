@@ -115,7 +115,7 @@ Une fois que vous avez créé une application API de règles BizTalk, l'étape s
 
    ![Alt text][4]
 
-2. Sélectionnez « Définitions de vocabulaire ». L'écran de création de vocabulaire s'affiche
+2. Sélectionnez « Définitions de vocabulaire ». L'écran de création de vocabulaire s'affiche  
 3. Sélectionnez « Ajouter » pour commencer l'ajout de nouvelles définitions de vocabulaire.
 Deux types de définitions de vocabulaire sont actuellement prises en charge : les définitions littérales et XML.
 
@@ -133,6 +133,7 @@ Deux types de définitions de vocabulaire sont actuellement prises en charge : l
   6. Sélectionnez *OK*.
 
 ![Alt text][5]
+
 ##Définition XML
 Si le type de vocabulaire choisi est XML, vous devez spécifier les entrées suivantes  
   a.	Schéma : un clic sur cette option ouvre un nouveau panneau où l’utilisateur peut choisir parmi une liste de schémas déjà téléchargés ou en télécharger un nouveau  
@@ -152,14 +153,14 @@ Les noms des définitions créées correspondent par défaut au nom du nœud sé
 ##Création d'une stratégie
 Une fois que le développeur a créé les vocabulaires nécessaires, il incombe normalement à l'analyste d'entreprise de créer des stratégies d'entreprise via le portail Azure.  
 	1. Dans l'application de règles créée figure une thématique Stratégie. Un clic dessus permet à l'utilisateur d'accéder à la page de création de stratégie.  
-	2. Cette page affiche la liste des stratégies de cette application de règles. L'analyste peut ajouter une nouvelle stratégie en tapant un nom de stratégie et en appuyant sur la touche de tabulation deux fois. Plusieurs stratégies peuvent résider dans une même application API de règles. 
-	3. La sélection de la stratégie créée redirige l'utilisateur vers la page de détails de la stratégie, où figurent ses règles. 
-	![Alt text][8] 
+	2. Cette page affiche la liste des stratégies de cette application de règles. L'analyste peut ajouter une nouvelle stratégie en tapant un nom de stratégie et en appuyant sur la touche de tabulation deux fois. Plusieurs stratégies peuvent résider dans une même application API de règles.  
+	3. La sélection de la stratégie créée redirige l'utilisateur vers la page de détails de la stratégie, où figurent ses règles.  
+	![Alt text][8]  
 	4. Sélectionnez « Ajouter » pour ajouter une règle. Un nouveau panneau s'affiche.
 
 ##Création de règles
 Une règle est une collection d'instructions de condition et d'action. Les actions sont exécutées si la condition est remplie. Dans le panneau Créer une règle, donnez un nom unique à la règle (pour cette stratégie) et une description (facultative). 
-La zone Condition (IF) peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge : 
+La zone Condition (IF) peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge :  
 1. 	And : opérateur conditionnel  
 2. 	Or : opérateur conditionnel  
 3. 	does\_not\_exist  
@@ -189,7 +190,7 @@ Les zones de condition et d'action offrent des fonctionnalités Intellisense pou
 ![Alt text][9]
 
 ##Chaînage avant explicite
-Les Règles BizTalk prennent en charge le chaînage avant explicite, donc si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants : 
+Les Règles BizTalk prennent en charge le chaînage avant explicite, donc si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants :  
    1.	update <vocabulary definition> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition.  
    2.	Halt : ce mot clé arrête toutes les exécutions de règles.
 

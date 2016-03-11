@@ -121,7 +121,11 @@ Modifiez le fichier `config.js` et éditez les paramètres de configuration qui 
 | `verbose` | Indique si le script génère une sortie en mode commenté ou non. | `true` |
 | `remote` | Indique si les tests jmeter s’exécutent localement ou sur des serveurs distants | `true` |
 | `cluster.clusterName` | Nom du cluster Elasticsearch. | `elasticsearch` |
-| `cluster.jumpboxIp` | Adresse IP de l’ordinateur jumpbox. |-| | `cluster.username` | Utilisateur administrateur que vous avez créé lors du déploiement de cluster |-| | `cluster.password` | Mot de passe de l’utilisateur admin |-| | `cluster.loadBalancer.ip` | Adresse IP d’équilibreur de charge Elasticsearch |-| | `cluster.loadBalancer.url` | URL d’équilibreur de charge de base |-|
+| `cluster.jumpboxIp` | Adresse IP de l’ordinateur jumpbox. |-| 
+| `cluster.username` | Utilisateur administrateur que vous avez créé lors du déploiement de cluster |-| 
+| `cluster.password` | Mot de passe de l’utilisateur admin |-| 
+| `cluster.loadBalancer.ip` | Adresse IP d’équilibreur de charge Elasticsearch |-| 
+| `cluster.loadBalancer.url` | URL d’équilibreur de charge de base |-|
 
 ## Exécution des tests
 
