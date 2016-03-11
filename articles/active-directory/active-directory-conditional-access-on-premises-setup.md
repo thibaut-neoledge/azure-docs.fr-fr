@@ -120,7 +120,9 @@ Cela va vous aider à intégrer le client Azure AD au répertoire Active Direc
   1.	Ajoutez des domaines.
   2.	Installez et exécutez Azure AD Connect : installez Azure AD Connect à l'aide des instructions suivantes, [Installation personnalisée d'Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape.
-  >[AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus.[AZURE.NOTE] Il est inutile de configurer les fonctionnalités d'aperçu.
+
+  >[AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus.
+  >[AZURE.NOTE] Il est inutile de configurer les fonctionnalités d'aperçu.
 
 
 
@@ -249,4 +251,4 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

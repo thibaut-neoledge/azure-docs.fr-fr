@@ -89,9 +89,18 @@ Copiez les fichiers de paramètres de script de test suivants sur l’ordinateur
 
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) et [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). Ces deux fichiers contiennent les mêmes informations ; le fichier *win* est mis en forme en fonction des chemins et noms de fichiers Windows, tandis que le fichier *nix* est mis en forme en fonction des chemins et noms de fichiers Linux :
 
-  ```ini [DEFAULT] debug=true #if true shows console logs.
+  ```ini
+  [DEFAULT]
+  debug=true #if true shows console logs.
 
-  [RUN] pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #path where tests results are saved. jmx=C:\\Users\\administrator1\\testplan.jmx #path to the JMeter test plan. machines=10.0.0.1,10.0.02,10.0.0.3 #IPs of the Elasticsearch data nodes separated by commas. reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Name of the reports separated by commas. tests=idx1 #Elasticsearch index name to test. properties=run.properties #Name of the properties file. ```
+  [RUN]
+  pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #path where tests results are saved.
+  jmx=C:\\Users\\administrator1\\testplan.jmx #path to the JMeter test plan.
+  machines=10.0.0.1,10.0.02,10.0.0.3 #IPs of the Elasticsearch data nodes separated by commas.
+  reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Name of the reports separated by commas.
+  tests=idx1 #Elasticsearch index name to test.
+  properties=run.properties #Name of the properties file.
+  ```
 
   Modifiez ce fichier pour spécifier les emplacements des résultats des tests, le nom du plan de test JMeter à exécuter, les adresses IP des nœuds de données Elasticsearch, les rapports contenant les données de performances brutes à générer et le (ou les noms) de l’index testé. Si le fichier *run.properties* se trouve dans un autre dossier ou répertoire, spécifiez le chemin complet de ce fichier.
 
@@ -115,4 +124,4 @@ Copiez les fichiers de paramètres de script de test suivants sur l’ordinateur
 [Création d’un environnement de test de performance Elasticsearch sur Azure]: guidance-elasticsearch-creating-performance-testing-environment.md
 [Déploiement d’un échantillonneur JUnit JMeter pour tester les performances d’Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

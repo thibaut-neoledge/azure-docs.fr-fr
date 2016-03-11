@@ -25,7 +25,7 @@ Ce didacticiel explique comment vous pouvez retirer et remplacer un lecteur de d
 
 - Retirer le lecteur de disque
 
--     Installez le lecteur de disque de remplacement
+- Installez le lecteur de disque de remplacement
 
 >[AZURE.IMPORTANT] Avant de retirer et de remplacer un lecteur de disque, passez en revue les informations de sécurité dans [Remplacement de composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
@@ -124,4 +124,4 @@ Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple 
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
