@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/25/2016" 
 	ms.author="nitinme"/>
 
 # Utilisation de Hive avec HDInsight pour analyser les journaux de site web
@@ -47,7 +47,7 @@ Dans cet exemple, vous allez utiliser un cluster HDInsight pour analyser des fic
 	
 	À l’invite, authentifiez-vous au moyen du nom d’utilisateur et du mot de passe d’administrateur que vous avez utilisés lors de l’approvisionnement du cluster.
   
-2. Dans la page web qui s'ouvre, cliquez sur l'onglet **Galerie de mise en route**, puis sous la catégorie **Exemples**, cliquez sur l'exemple **Analyse du journal du site web**.
+2. Dans la page web qui s’ouvre, cliquez sur l’onglet **Galerie de mise en route**, puis sous la catégorie **Solutions avec des exemples de données**, cliquez sur l’exemple **Analyse du journal du site web**.
 
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
 
@@ -61,4 +61,4 @@ Essayez l’exemple suivant : [Analyse des données de capteur au moyen de Hive
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

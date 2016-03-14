@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="msftman" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="deonhe"/>
 
 # Notes de publication pour Azure BizTalk Services
@@ -38,7 +38,7 @@ Les notes de version des Services Microsoft Azure BizTalk reprennent les problè
 * L’option permettant de créer des modèles pour les accords est abandonnée.  
 * Pour le côté envoi de l’accord, vous pouvez maintenant spécifier différents ensembles de délimiteurs pour chaque schéma. Cette configuration est spécifiée dans les paramètres de protocole pour le côté envoi de l’accord. Pour plus d’informations, consultez [Créer un accord X12 dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) et [Créer un accord EDIFACT dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Deux nouvelles entités sont également ajoutées à l’API TPM OM dans le même but. Consultez la page [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) et [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Les constructions XSD standard, et notamment les types dérivés, sont désormais prises en charge. Consultez la page [Utiliser les constructions XSD standard dans vos mappages](https://msdn.microsoft.com/library/azure/dn793987.aspx) et [Utiliser les types dérivés dans les scénarios de mappage et des exemples](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 prend en charge les nouveaux algorithmes MIC pour la signature des messages et de nouveaux algorithmes de chiffrement. [Voir Créer un accord AS2 dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).
+* AS2 prend en charge les nouveaux algorithmes MIC pour la signature des messages et de nouveaux algorithmes de chiffrement. Voir [Créer un accord AS2 dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).
 ## Problèmes connus
 
 ### Problèmes de connectivité après la mise à jour du portail BizTalk Services
@@ -49,7 +49,9 @@ Les notes de version des Services Microsoft Azure BizTalk reprennent les problè
 Installez Visual Studio 2012 Update 3 RC 1 pour résoudre le problème.
 
 ### Référence de projet de liaison personnalisée
-Étudiez les situations suivantes avec un projet BizTalk Services dans une solution Visual Studio : * dans la même solution Visual Studio, il existe un projet BizTalk Services et un projet de liaison personnalisée. Le projet BizTalk Service fait référence à ce fichier de projet de liaison personnalisée. * Le projet de BizTalk Service fait référence à une DLL de liaison/comportement personnalisée.
+Considérez les situations suivantes avec un projet BizTalk Services dans une solution Visual Studio :
+* Dans la même solution Visual Studio, il existe un projet BizTalk Services et un projet de liaison personnalisée. Le projet BizTalk Services comporte une référence à ce fichier de projet de liaison personnalisée. 
+* Le projet BizTalk Services comporte une référence à une DLL de liaison/comportement personnalisée.
 
 Vous « générez » la solution dans Visual Studio avec succès. Ensuite, vous « régénérez » ou « Nettoyez » la solution. Après cela, lorsque vous réexécutez une régénération ou un nettoyage, l’erreur qui suit se produit : Impossible de copier le fichier <Path to DLL> dans « bin\\Debug\\FileName.dll ». Le processus ne peut pas accéder au fichier « bin\\Debug\\FileName.dll », car il est utilisé par un autre processus.
 
@@ -83,9 +85,10 @@ Les pièces jointes aux messages AS2 ne sont pas prises en charge dans les envoi
 ### Ressources : mémoriser le chemin d’accès  
 Lorsque vous ajoutez des **ressources**, la fenêtre de dialogue peut ne pas conserver le chemin d’accès utilisé précédemment pour ajouter une ressource. Pour vous souvenir du chemin d’accès utilisé précédemment, essayez d’ajouter le site web du portail BizTalk Services aux **Sites de confiance** dans Internet Explorer.
 ### Si vous renommez le nom de l’entité d’un pont et fermez le projet sans enregistrer les modifications, la réouverture de l’entité génère une erreur
-Imaginez un scénario dans l’ordre suivant : * Ajoutez un pont (par exemple un pont unidirectionnel XML) à un projet BizTalk Service
+Imaginez un scénario dans l’ordre suivant :
+* Ajoutez un pont (par exemple, un pont unidirectionnel XML) à un projet BizTalk Service  
 
-* Renommez le pont en spécifiant une valeur pour la propriété Nom d’entité. Cette opération renomme le fichier .bridgeconfig associé au nom que vous avez spécifié.  
+* Renommez le pont en spécifiant une valeur pour la propriété Nom d’entité. Cette opération renomme le fichier .bridgeconfig associé au nom que vous avez spécifié.
 
 * Fermez le fichier .bcs (en fermant l’onglet dans Visual Studio) sans enregistrer les modifications.
 
@@ -97,7 +100,8 @@ Dans un projet BizTalk Services, si un schéma ajouté au projet importe un autr
 ### Le message de réponse d’un pont de requête-réponse XML est toujours rédigé avec le jeu de caractères UTF-8
 Dans cette version, le jeu de caractères du message de réponse d’un pont demande-réponse XML est toujours défini sur UTF-8.
 ### Types de données définis par l’utilisateur
-Les adaptateurs BizTalk Adapter Pack présents dans la fonctionnalité BizTalk Adapter Service peuvent utiliser des types de données définis par l’utilisateur pour les opérations d’adaptateur. Lorsque vous utilisez des types de données définis par l’utilisateur, copiez les fichiers (.dll) sur le lecteur:\\Program Files\\Microsoft Service\\BAServiceRuntime\\bin\\ d’adaptateur BizTalk ou dans Global Assembly Cache (GAC) sur le serveur qui héberge le service de l’adaptateur BizTalk. Dans le cas contraire, l’erreur suivante peut se produire sur le client : ```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+Les adaptateurs BizTalk Adapter Pack présents dans la fonctionnalité BizTalk Adapter Service peuvent utiliser des types de données définis par l’utilisateur pour les opérations d’adaptateur. Lorsque vous utilisez des types de données définis par l’utilisateur, copiez les fichiers (.dll) sur le lecteur:\\Program Files\\Microsoft Service\\BAServiceRuntime\\bin\\ d’adaptateur BizTalk ou dans Global Assembly Cache (GAC) sur le serveur qui héberge le service de l’adaptateur BizTalk. Dans le cas contraire, l’erreur suivante peut se produire sur le client :
+```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <faultcode>s:Client</faultcode>
   <faultstring xml:lang="fr-FR">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
   <detail>
@@ -105,8 +109,8 @@ Les adaptateurs BizTalk Adapter Pack présents dans la fonctionnalité BizTalk A
       <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
     </AFConnectRuntimeFault>
   </detail>
-</s:Fault> ```
-> [AZURE.IMPORTANT]Pour installer un fichier dans Global Assembly Cache, il est recommandé d’utiliser GACUtil.exe. Les documents GACUtil.exe expliquent comment utiliser cet outil et les options de ligne de commande Visual Studio.
+</s:Fault> ```  
+> [AZURE.IMPORTANT] Pour installer un fichier dans Global Assembly Cache, il est recommandé d’utiliser GACUtil.exe. Les documents GACUtil.exe expliquent comment utiliser cet outil et les options de ligne de commande Visual Studio.
 
 ### Redémarrage du site web BizTalk Adapter Service
 L’installation de l’**exécution BizTalk Adapter Service*** crée le site web **BizTalk Adapter Service** dans IIS, qui contient l’application **BAService**. L’application **BAService** en interne utilise une liaison de relais pour étendre la portée du point de terminaison de service local sur le cloud. Pour un service hébergé localement, le point de terminaison de relais correspondant est inscrit sur le bus de Service uniquement lorsque le service local démarre.
@@ -119,11 +123,18 @@ Si une transformation contient une opération de mappage **Obtenir une propriét
 ### La propriété Tester le mappage ne s’affiche pas
 Les propriétés **Tester le mappage** ne s’affichent pas dans Visual Studio. Cela peut se produire si la fenêtre **Propriétés** et l’**Explorateur de solutions** ne sont pas ancrées simultanément. Pour résoudre ce problème, ancrez les fenêtres **Propriétés** et l’**Explorateur de solutions**.
 ### La liste déroulante Reformat DateTime est affichée en grisé
-Une opération de mappage de reformatage de DateTime est ajoutée à l’aire de conception et configurée, la liste déroulante Format peut être grisée. Cela peut se produire si l’affichage de l’ordinateur **Moyen-125 %** ou **Plus grand – 150 %**. Pour résoudre l’opération, définissez l’affichage sur **Plus petit -100 % (par défaut)** à l’aide de la procédure ci-dessous : 1. Ouvrez le **Panneau de configuration** et cliquez sur **Apparence et personnalisation**. 2. Cliquez sur **Affichage**. 3. Cliquez sur **Plus petite-100 % (par défaut)**, puis cliquez sur **Appliquer**.
+Une opération de mappage de reformatage de DateTime est ajoutée à l’aire de conception et configurée, la liste déroulante Format peut être grisée. Cela peut se produire si l’affichage de l’ordinateur **Moyen-125 %** ou **Plus grand – 150 %**. Pour résoudre l’opération, définissez l’affichage sur **Plus petit - 100 % (par défaut)** à l’aide de la procédure ci-dessous :
+1. Ouvrez le **Panneau de configuration** et cliquez sur **Apparence et personnalisation**.
+2. Cliquez sur **Affichage**.
+3. Cliquez sur **Plus petite-100 % (par défaut)**, puis cliquez sur **Appliquer**.
 
 La liste déroulante **Format** devrait désormais fonctionner comme prévu.
 ### Duplication des accords dans le portail BizTalk Services
-Prenez en compte le scénario suivant : 1. Création d’un accord à l’aide de l’API OM de gestion des partenaires commerciaux. 2. Ouvrez l’accord dans le portail BizTalk Services dans deux onglets différents. 3. Déployez l’accord depuis les deux onglets. 4. Par conséquent, les deux accords sont alors déployés, ce qui se traduit par des entrées en double dans le portail BizTalk Services
+Examinez le scénario suivant :
+1. Création d’un accord à l’aide de l’API OM de gestion des partenaires commerciaux.
+2. Ouvrez l’accord dans le portail BizTalk Services dans deux onglets différents.
+3. Déployez l’accord depuis les deux onglets.
+4. Par conséquent, les deux accords sont alors déployés, ce qui se traduit par des entrées en double dans le portail BizTalk Services
 
 **Solution de contournement**. Ouvrez l’un des accords dupliqués sur le portail BizTalk Services et annulez le déploiement.
 
@@ -147,7 +158,8 @@ Imaginez un scénario dans lequel vous souhaitez lire un message XML dans le cod
 ### L’envoi de messages à un pont à l’aide de WCF n’évolue pas
 Le message envoyé à un pont à l’aide de WCF n’est pas mis à l’échelle. Il est préférable d’utiliser HttpWebRequest si vous souhaitez un client évolutif.
 ### Mise à niveau : Erreur de fournisseur de jetons après la mise à niveau de la version préliminaire de BizTalk Services vers disponibilité générale
-Il existe un accord EDI ou AS2 avec des lots actifs. Lorsque le service BizTalk Service est mis à niveau de la version préliminaire vers la disponibilité générale, les événements suivants peuvent se produire : * Erreur : le fournisseur de jeton a été dans l’impossibilité de fournir un jeton de sécurité. Le fournisseur de jeton a renvoyé le message : le nom distant ne peut pas être résolu.
+Il existe un accord EDI ou AS2 avec des lots actifs. Lorsque le BizTalk Service est mis à niveau de la version préliminaire vers la disponibilité générale, les événements suivants peuvent se produire :
+* Erreur : Le fournisseur de jetons n’a pas pu fournir de jeton de sécurité. Le fournisseur de jeton a renvoyé le message : le nom distant ne peut pas être résolu.
 
 * Les tâches de traitement par lots sont annulées.
 
@@ -174,4 +186,4 @@ Dans ce document, les termes « pipeline » et « pont » sont utilisés ind
 
 [BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

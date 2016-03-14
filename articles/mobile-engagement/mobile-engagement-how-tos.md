@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="05/12/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Procédure de mise en route pour l’utilisation et la gestion des push en vue d’atteindre vos utilisateurs finaux
@@ -126,12 +126,16 @@ Vous pouvez choisir le mode de remise « À tout moment », qui vous permet de
 ### Planifiez le début de la campagne
 ![Planification 1][18]
 
-Nous sommes le 21 mars et vous devez diffuser une annonce le 22 mars à minuit. Vous n'êtes pas obligé de rester devant l'interface pour envoyer une notification push ! Vous pouvez planifier à l'avance la minute exacte où les notifications seront envoyées. - Décochez la case à cocher « Aucun » et sélectionnez une heure de début - Choisissez la date et l'heure à laquelle vous souhaitez démarrer la campagne push.
+Nous sommes le 21 mars et vous devez diffuser une annonce le 22 mars à minuit. Vous n'êtes pas obligé de rester devant l'interface pour envoyer une notification push ! Vous pouvez planifier à l'avance la minute exacte à laquelle les notifications seront envoyées.
+-    Décochez la case « Aucune » et sélectionnez une heure de début 
+-    Choisissez la date et l'heure auxquelles vous voulez démarrer la campagne push.
 
 ### Planifiez la fin de la campagne
 ![Planification 2][19]
 
-Vous voulez que votre campagne s'arrête le 25 mars à 15 h 00, mais vous savez que vous ne serez pas là pour le faire. Vous n'êtes pas obligé de rester devant l'interface pour envoyer une notification push ! Vous pouvez planifier à l'avance la minute exacte où les notifications seront envoyées. - Cliquez sur la case à cocher « Aucun » et sélectionnez une heure de fin - Choisissez la date et l'heure à laquelle vous souhaitez terminer la campagne push.
+Vous voulez que votre campagne s'arrête le 25 mars à 15 h 00, mais vous savez que vous ne serez pas là pour le faire. Vous n'êtes pas obligé de rester devant l'interface pour envoyer une notification push ! Vous pouvez planifier à l'avance la minute exacte à laquelle votre campagne s'arrêtera.
+-    Cochez la case « Aucune » ou sélectionnez une heure de fin
+-    Choisissez la date et l'heure auxquelles vous voulez arrêter la campagne push.
 
 ### Arrêter manuellement une campagne
 ![Planification 3][20]
@@ -293,4 +297,4 @@ Une vue web est une fenêtre contextuelle avec du contenu web. Cette fenêtre co
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

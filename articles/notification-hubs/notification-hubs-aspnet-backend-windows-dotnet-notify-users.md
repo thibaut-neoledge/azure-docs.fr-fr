@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Notification des utilisateurs via Azure Notification Hubs avec service principal .NET
@@ -48,7 +48,7 @@ Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Ser
 
 
 
-> [AZURE.NOTE]Si vous utilisez Mobile Services comme service principal, consultez la [version consacrée à Mobile Services](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) de ce didacticiel.
+> [AZURE.NOTE] Si vous utilisez Mobile Services comme service principal, consultez la [version consacrée à Mobile Services](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) de ce didacticiel.
 
 
 
@@ -389,4 +389,4 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

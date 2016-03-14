@@ -14,24 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Prendre en main l’API Facebook
-Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore.
+Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore. L’API Facebook peut être utilisée à partir de :
 
-L’API Facebook peut être utilisée à partir d’applications logiques.
+- Logic Apps 
 
->[AZURE.NOTE] Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Facebook](../app-service-logic/app-service-logic-connector-facebook.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Facebook](../app-service-logic/app-service-logic-connector-facebook.md).
 
 
-Avec Facebook, vous pouvez effectuer les opérations suivantes :
+Avec Facebook, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de Facebook. 
 - Utiliser un déclencheur quand une publication est reçue.
 - Utiliser des actions pour publier dans votre journal, obtenir un flux de page et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand il y a une nouvelle publication dans votre journal, vous pouvez la transférer vers votre flux Twitter. 
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 L’API Facebook inclut les déclencheurs et les actions suivants.
@@ -53,14 +53,14 @@ Après avoir créé la connexion, vous entrez les propriétés Facebook. La sect
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Facebook dans d’autres applications logiques.
 
 ## Informations de référence sur l’API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 ### Obtenir un flux à partir de mon journal
 Obtient les flux à partir du journal de l’utilisateur connecté. ```GET: /me/feed```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|fields|string|no|query|(aucun) |Spécifie les champs à retourner. Exemple : id, name, image.|
+|fields|string|no|query|(aucun) |Spécifie les champs à retourner. Exemple : id, name, image.|
 |limit|integer|no|query| (aucun)|Nombre maximal de publications à récupérer|
 |par|string|no|query| (aucun)|Limiter la liste des publications à celles auxquelles est associé un emplacement.|
 |filter|string|no|query| (aucun)|Récupérer uniquement les publications qui correspondent à un filtre de flux particulier.|
@@ -112,7 +112,7 @@ Obtenir des publications à partir du flux d’une page spécifique. ```GET: /{p
 |pageId|string|yes|path| (aucun)|ID de la page à partir de laquelle les publications doivent être récupérées.|
 |limit|integer|no|query| (aucun)|Nombre maximal de publications à récupérer|
 |include\_hidden|booléenne|no|query|(aucun) |Indique s’il faut inclure des publications masquées par la page|
-|fields|string|no|query|(aucun) |Spécifie les champs à retourner. Exemple : id, name, image.|
+|fields|string|no|query|(aucun) |Spécifie les champs à retourner. Exemple : id, name, image.|
 
 #### Response
 |Nom|Description|
@@ -132,7 +132,7 @@ Obtenir des publications à partir du journal d’un utilisateur. ```GET: /{user
 |limit|integer|no|query|(aucun) |Nombre maximal de publications à récupérer|
 |par|string|no|query|(aucun) |Limiter la liste des publications à celles auxquelles est associé un emplacement.|
 |filter|string|no|query| (aucun)|Récupérer uniquement les publications qui correspondent à un filtre de flux particulier.|
-|fields|string|no|query| (aucun)|Spécifie les champs à retourner. Exemple : id, name, image.|
+|fields|string|no|query| (aucun)|Spécifie les champs à retourner. Exemple : id, name, image.|
 
 #### Response
 |Nom|Description|
@@ -174,7 +174,7 @@ Publier un message dans une page Facebook en tant qu’utilisateur connecté. ``
 |---|---|---|
 |données|array|no|
 
-#### PostItem : entrée unique dans le flux d’un profil
+#### PostItem : entrée unique dans le flux d’un profil
 Le profil peut être un utilisateur, une page, une application ou un groupe.
 
 |Nom de la propriété | Type de données |Requis|
@@ -206,7 +206,7 @@ Le profil peut être un utilisateur, une page, une application ou un groupe.
 |updated\_time|string|no|
 |with\_tags|non défini|no|
 
-#### TriggerItem : entrée unique dans le flux d’un profil
+#### TriggerItem : entrée unique dans le flux d’un profil
 Le profil peut être un utilisateur, une page, une application ou un groupe.
 
 |Nom de la propriété | Type de données |Requis|
@@ -309,7 +309,7 @@ Le profil peut être un utilisateur, une page, une application ou un groupe.
 |regions|array|no|
 |cities|array|no|
 
-#### FeedTargetItem : objet qui contrôle le ciblage du flux d’informations pour cette publication
+#### FeedTargetItem : objet qui contrôle le ciblage du flux d’informations pour cette publication
 Tout membre de ces groupes est susceptible de voir cette publication, à la différence des autres personnes. S’applique uniquement aux pages.
 
 |Nom de la propriété | Type de données |Requis|
@@ -433,6 +433,6 @@ Tout membre de ces groupes est susceptible de voir cette publication, à la diff
 
 ## Étapes suivantes
 
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

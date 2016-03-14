@@ -29,8 +29,8 @@ La réplication transactionnelle est une technologie intégrée à SQL Server de
  - SQL Server 2014 SP1 CU3 et versions ultérieures
  - SQL Server 2014 RTM CU10 et versions ultérieures
  - SQL Server 2012 SP2 CU8 et versions ultérieures
- - SQL Server 2013 SP3 dès sa sortie
+ - SQL Server 2012 SP3 
 
 Vous pouvez également utiliser la réplication transactionnelle pour migrer un sous-ensemble de votre base de données locale. La publication que vous répliquez vers une base de données SQL Azure peut être limitée à un sous-ensemble des tables dans la base de données en cours de réplication. Par ailleurs, pour chaque table répliquée, vous pouvez limiter les données à un sous-ensemble de lignes et/ou un sous-ensemble de colonnes.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

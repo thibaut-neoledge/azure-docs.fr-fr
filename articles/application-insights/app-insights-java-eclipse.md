@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Prise en main d’Application Insights avec Java dans Eclipse
@@ -24,12 +24,12 @@ Le Kit de développement logiciel (SDK) Application Insights envoie la télémé
 
 Actuellement, le plug-in fonctionne pour les projets Web dynamiques dans Eclipse. ([Ajout d’Application Insights à d’autres types de projets Java][java].)
 
-Vous devez disposer des éléments suivants :
+Vous devez disposer des éléments suivants :
 
 * Oracle JRE 1.6 ou version ultérieure
 * Un abonnement [Microsoft Azure](https://azure.microsoft.com/). (Vous pouvez commencer par l’[essai gratuit](https://azure.microsoft.com/pricing/free-trial/).)
 * [IDE Eclipse pour développeurs Java EE](http://www.eclipse.org/downloads/), Indigo ou version ultérieure.
-* Windows 7 ou version ultérieure ou Windows Server 2008 ou version ultérieure
+* Windows 7 ou version ultérieure ou Windows Server 2008 ou version ultérieure
 
 ## Installer le Kit de développement logiciel (SDK) sur Eclipse (opération unique)
 
@@ -49,13 +49,22 @@ Suivez les étapes restantes pour chaque projet Java.
 ## Créer une ressource Application Insights dans Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. 
+2. Créez une ressource Application Insights.  
+
+    ![Cliquez sur + et choisissez Ajouter Application Insights.](./media/app-insights-java-eclipse/01-create.png)  
+3. Définissez le type d’application sur Application web Java.  
+
+    ![Indiquez le nom, choisissez l’application web Java, puis cliquez sur Créer.](./media/app-insights-java-eclipse/02-create.png)  
+4. Obtenez la clé d'instrumentation de la nouvelle ressource. Vous devrez la coller rapidement dans le code de votre projet.  
+
+    ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/03-key.png)
+
 
 ## Ajout de Application Insights à votre projet
 
 1. Ajoutez Application Insights à partir du menu contextuel de votre projet Web Java.
 
-    ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-eclipse/02-context-menu.png)
+    ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/02-context-menu.png)
 
 2. Collez la clé d’instrumentation que vous avez obtenue sur le portail Azure.
 
@@ -99,7 +108,7 @@ Insérez l'extrait de code dans l’en-tête de vos fichiers HTML.
 
 #### Affichage des données côté client
 
-Ouvrez et utilisez vos pages web mises à jour. Attendez une minute ou deux, puis revenez dans Application Insights et ouvrez le panneau d'utilisation. (Dans le panneau Vue d'ensemble, faites défiler vers le bas et cliquez sur Utilisation.)
+Ouvrez et utilisez vos pages web mises à jour. Attendez une minute ou deux, puis revenez dans Application Insights et ouvrez le panneau d'utilisation. (Dans le panneau Vue d'ensemble, faites défiler vers le bas et cliquez sur Utilisation.)
 
 Les mesures liées au nombre de consultations de la page, à l’utilisateur et à la session s’affichent dans le panneau d’utilisation :
 
@@ -111,7 +120,7 @@ Les mesures liées au nombre de consultations de la page, à l’utilisateur et 
 
 Publiez maintenant votre application sur le serveur, laissez le temps aux usagers de l’utiliser, puis observez les données de télémétrie qui s’affichent sur le portail.
 
-* Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
+* Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
 
  * dc.services.VisualStudio.com:443
  * dc.services.visualstudio.com:80
@@ -119,7 +128,7 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
  * f5.services.visualstudio.com:80
 
 
-* Sur les serveurs Windows, installez :
+* Sur les serveurs Windows, installez :
 
  * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
 
@@ -127,11 +136,11 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
 
 ## Exceptions et échecs de requêtes
 
-Les exceptions non gérées sont collectées automatiquement :
+Les exceptions non gérées sont collectées automatiquement :
 
 ![](./media/app-insights-java-eclipse/21-exceptions.png)
 
-Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
+Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
 * [Insérez des appels à TrackException dans votre code](app-insights-api-custom-events-metrics.md#track-exception). 
 * [Installez l’agent Java sur votre serveur](app-insights-java-agent.md). Vous spécifiez les méthodes que vous souhaitez surveiller.
@@ -151,7 +160,7 @@ Dans le panneau Vue d'ensemble, faites défiler vers le bas et cliquez sur la vi
 
 ### Personnaliser la collecte des compteurs de performances
 
-Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier ApplicationInsights.xml :
+Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier ApplicationInsights.xml :
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
@@ -170,13 +179,13 @@ Vous pouvez spécifier d'autres compteurs de performances à collecter.
       </Jmx>
     </PerformanceCounters>
 
-*	`displayName` : nom affiché sur le portail Application Insights.
-*	`objectName` : nom de l'objet JMX.
-*	`attribute`  attribut du nom d'objet JMX à récupérer
-*	`type` (facultatif) : type d'attribut d'objet JMX :
- *	Par défaut : un type simple, comme int ou long.
- *	`composite` : les données du compteur de performances sont au format « Attribute.Data »
- *	`tabular` : les données du compteur de performances sont au format ligne de tableau
+*	`displayName` : nom affiché sur le portail Application Insights.
+*	`objectName` : nom de l'objet JMX.
+*	`attribute`  attribut du nom d'objet JMX à récupérer
+*	`type` (facultatif) : type d'attribut d'objet JMX :
+ *	Par défaut : un type simple, comme int ou long.
+ *	`composite` : les données du compteur de performances sont au format « Attribute.Data »
+ *	`tabular` : les données du compteur de performances sont au format ligne de tableau
 
 
 
@@ -191,10 +200,10 @@ Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/win
       </Windows>
     </PerformanceCounters>
 
-*	displayName : nom affiché sur le portail Application Insights.
-*	categoryName : catégorie du compteur de performances (objet de performances) à laquelle ce compteur de performances est associé.
-*	counterName : nom du compteur de performances.
-*	instanceName : nom de l'instance de catégorie de compteur de performances ou une chaîne vide ("") si la catégorie contient une seule instance. Si categoryName est Process et que le compteur de performance que vous souhaitez collecter vient du processus en cours de la JVM sur laquelle votre application s'exécute, spécifiez `"__SELF__"`.
+*	displayName : nom affiché sur le portail Application Insights.
+*	categoryName : catégorie du compteur de performances (objet de performances) à laquelle ce compteur de performances est associé.
+*	counterName : nom du compteur de performances.
+*	instanceName : nom de l'instance de catégorie de compteur de performances ou une chaîne vide ("") si la catégorie contient une seule instance. Si categoryName est Process et que le compteur de performance que vous souhaitez collecter vient du processus en cours de la JVM sur laquelle votre application s'exécute, spécifiez `"__SELF__"`.
 
 Les compteurs de performances sont visibles en tant que mesures personnalisées dans [Metrics Explorer][metrics].
 
@@ -203,13 +212,13 @@ Les compteurs de performances sont visibles en tant que mesures personnalisées 
 
 ### Compteurs de performances Unix
 
-* [Installez collectd avec le plug-in Application Insights](app-insights-java-collectd.md) pour obtenir une grande variété de données sur le système et le réseau.
+* [Installez collectd avec le plug-in Application Insights](app-insights-java-collectd.md) pour obtenir une grande variété de données sur le système et le réseau.
 
 ## Tests web de disponibilité
 
 Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour exécuter la [configuration][availability], faites défiler la liste vers le bas pour cliquer sur Disponibilité.
 
-![Faites défiler vers le bas, cliquez sur Disponibilité, puis sur Ajouter un test web](./media/app-insights-java-eclipse/31-config-web-test.png)
+![Faites défiler vers le bas, cliquez sur Disponibilité, puis sur Ajouter un test web](./media/app-insights-java-eclipse/31-config-web-test.png)
 
 Vous obtenez des graphiques du temps de réponse, ainsi que des notifications par courrier électronique si votre site ne fonctionne plus.
 
@@ -260,4 +269,4 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

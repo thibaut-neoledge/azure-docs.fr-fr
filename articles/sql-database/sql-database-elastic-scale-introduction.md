@@ -21,7 +21,7 @@
 Les fonctionnalités de **base de données élastique** vous permettent d'utiliser les ressources virtuellement illimitées de la **base de données SQL Azure** afin de créer des solutions pour les charges de travail transactionnelles et en particulier les applications Software as a Service (SaaS). Les fonctionnalités de base de données élastique se composent des éléments suivants :
 
 * Outils de base de données élastique : ces deux outils simplifient le développement et la gestion des solutions de base de données partitionnées. Ces outils incluent la [bibliothèque cliente de la base de données élastique](sql-database-elastic-database-client-library.md) et l’[outil de fusion et de fractionnement de la base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md). 
-* [Pools de bases de données élastiques](sql-database-elastic-pool-guidance.md) (version préliminaire) : un pool est un ensemble de bases de données auquel vous pouvez à tout moment ajouter ou supprimer des bases de données. Les bases de données du pool partagent une quantité fixe de ressources (également appelées unités de débit ou DTU). Vous payez un prix fixe pour les ressources, ce qui vous permet de calculer facilement les coûts tout en gérant les performances. 
+* [Pools de bases de données élastiques](sql-database-elastic-pool-guidance.md) (version préliminaire) : un pool est un ensemble de bases de données auquel vous pouvez à tout moment ajouter ou supprimer des bases de données. Les bases de données du pool partagent une quantité fixe de ressources (également appelées unités de transaction de bases de données ou DTU). Vous payez un prix fixe pour les ressources, ce qui vous permet de calculer facilement les coûts tout en gérant les performances. 
 * [Tâches de base de données élastique](sql-database-elastic-jobs-overview.md) (version préliminaire) : utilisez des tâches pour gérer un grand nombre de bases de données SQL Azure. Exécutez facilement les opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte télémétrique du client (customer) à l’aide des tâches.
 * [Requête de base de données élastique](sql-database-elastic-query-overview.md) (version préliminaire) : vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données. Cela permet une connexion à des outils de création de rapports comme Excel, PowerBI, Tableau, etc.
 
@@ -108,4 +108,4 @@ Que pouvons-nous améliorer ? Cette rubrique explique-t-elle la fonctionnalité
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

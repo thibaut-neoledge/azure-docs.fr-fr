@@ -117,7 +117,8 @@ Plusieurs fonctionnalités Azure Active Directory sont disponibles via les édit
 
 
 
-<br> <hr>
+<br>
+<hr>
 ## Fonctionnalités communes
 #### Objets d’annuaire 
 
@@ -152,7 +153,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 - [Vue d’ensemble du service Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Authentification unique (SSO)
 
 **Type :** Fonctionnalités communes
@@ -172,7 +174,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Gestion des applications avec Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Modification libre-service du mot de passe pour les utilisateurs du cloud
 
 **Type :** Fonctionnalités communes
@@ -188,7 +191,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 - [Comment mettre à jour votre mot de passe](active-directory-passwords-update-your-own-password.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Connect (moteur de synchronisation qui étend les annuaires locaux dans Azure Active Directory) 
 
 **Type :** Fonctionnalités communes
@@ -204,7 +208,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Rapports d’utilisation/de sécurité
 
 **Type :** Fonctionnalités communes
@@ -220,7 +225,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Fonctionnalités Premium et de base
 #### Approvisionnement/gestion des accès par groupe
@@ -238,7 +244,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Utilisation d’un groupe pour gérer l’accès aux applications SaaS](active-directory-accessmanagement-group-saasapps.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud
 
 **Type :** Fonctionnalités de base
@@ -254,7 +261,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Réinitialisation du mot de passe Azure AD pour les utilisateurs et les administrateurs](active-directory-passwords.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Image de l’entreprise (personnalisation des pages de connexion/volet d’accès)
 
 **Type :** Fonctionnalités de base
@@ -270,7 +278,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Proxy d’application
 
 **Type :** Fonctionnalités de base
@@ -286,7 +295,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Offrir un accès à distance sécurisé aux applications locales](active-directory-application-proxy-get-started.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Un contrat SLA à 99,9 %
 
 **Type :** Fonctionnalités de base
@@ -302,7 +312,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Fonctionnalités Premium
 #### Gestion d’applications et de groupes libre-service/ajout d’applications libre-service/groupes dynamiques
@@ -350,7 +361,8 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 - [Présentation d'Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Licence d’accès client MIM + serveur MIM 
 
 Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les licences Windows Server (toutes les éditions). Étant donné que Microsoft Identity Manager s’exécute sur un système d’exploitation Windows Server, tant que le serveur exécute une copie valide et sous licence de Windows Server, Microsoft Identity Manager peut être installé et utilisé sur ce serveur. Aucune autre licence séparée n’est nécessaire pour Microsoft Identity Manager Server.
@@ -383,7 +395,8 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 - [Détection des applications cloud non gérées avec Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Connect Health
 
 **Type :** Fonctionnalités Premium
@@ -399,7 +412,8 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 - [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](active-directory-aadconnect-health.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Substitution automatique des mots de passe pour les comptes de groupe
 
 **Type :** Fonctionnalités Premium
@@ -412,7 +426,8 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 | | | ![Vérification][12]| |
 
 
-<br> <hr>
+<br>
+<hr>
 ## Azure Active Directory Join - Fonctionnalités propres à Windows 10
 #### Joindre un appareil à Azure AD, Desktop SSO, Microsoft Passport pour Azure AD, récupération Bitlocker de l’administrateur
 
@@ -448,10 +463,11 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 **Fonctionnalités préliminaires disponibles :**
 
 - [B2B Collaboration](active-directory-b2b-collaboration-overview.md)
-- Accès conditionnel
 - [Unités administratives](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [Intégration d’applications HR](active-directory-saas-workday-inbound-tutorial.md)
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
@@ -467,4 +483,4 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>
 
 # Contrôle du trafic entrant vers un environnement App Service
@@ -49,13 +49,13 @@ La liste suivante présente les ports utilisés par un environnement App Service
 ## Connectivité sortante et configuration DNS requise ##
 Pour qu’un environnement App Service fonctionne correctement, il requiert un accès sortant à Azure Storage dans le monde entier, ainsi que la base de données SQL dans la même région Azure. Si l'accès Internet sortant est bloqué sur le réseau virtuel, les environnements App Service ne pourront pas accéder à ces points de terminaison Azure.
 
-Les environnements App Service nécessitent également une infrastructure DNS valide configurée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement du redémarrage d’un environnement propagé à l’aide de l’icône « Redémarrer » située en haut du panneau de gestion de l’environnement App Service du [nouveau portail de gestion][NewPortal] force l’environnement à récupérer la nouvelle configuration DNS.
+Les environnements App Service nécessitent également une infrastructure DNS valide configurée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement d'un redémarrage d'un environnement propagé à l'aide de l'icône « Redémarrer » située en haut du panneau de gestion de l'environnement App Service du [portail Azure][NewPortal] force l'environnement à récupérer la nouvelle configuration DNS.
 
 La liste suivante détaille les exigences de connectivité et la configuration DNS requise pour un environnement App Service :
 
 -  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier. Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.  
 -  Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service. Les points de terminaison de base de données SQL se résolvent dans le domaine suivant : *database.windows.net*.
--  Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM). Cela inclut la connectivité sortante avec *management.core.windows.net* et *management.azure.com*. 
+-  Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM). Cela inclut la connexion sortante à *management.core.windows.net* et *management.azure.com*. 
 -  Connectivité réseau sortante avec *ocsp.msocsp.com*. Cela est nécessaire pour prendre en charge la fonctionnalité SSL.
 -  La configuration DNS pour le réseau virtuel doit être capable de résoudre tous les points de terminaison et les domaines mentionnés dans les points précédents. Si ces points de terminaison ne peuvent pas être résolus, les tentatives de création d'environnement App Service échoueront et les environnements App Service existants seront marqués comme non intègres.
 -  S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau contenant l'environnement App Service. 
@@ -147,5 +147,6 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [NewPortal]: https://portal.azure.com
 
 <!-- IMAGES -->
+ 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

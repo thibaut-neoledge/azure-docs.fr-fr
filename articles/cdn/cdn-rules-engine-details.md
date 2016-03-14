@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Informations sur les fonctionnalités et conditions de correspondance du moteur de règles Azure Content Delivery Network (CDN)" 
-	description="Cette rubrique répertorie les descriptions détaillées des fonctionnalités et conditions de correspondance disponibles pour le moteur de règles Azure Content Delivery Network (CDN)." 
-	services="cdn" 
-	documentationCenter="" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Informations sur les fonctionnalités et conditions de correspondance du moteur de règles Azure Content Delivery Network (CDN)"
+	description="Cette rubrique répertorie les descriptions détaillées des fonctionnalités et conditions de correspondance disponibles pour le moteur de règles Azure Content Delivery Network (CDN)."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
 # Informations sur les fonctionnalités et conditions de correspondance du moteur de règles CDN
-	
+
 Cette rubrique répertorie les descriptions détaillées des fonctionnalités et conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
 
-> [AZURE.NOTE]Le moteur de règles exige le niveau CDN Premium. Pour plus d’informations sur les fonctionnalités des niveaux CDN Standard et Premium, consultez [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md).
+> [AZURE.NOTE] Le moteur de règles exige le niveau CDN Premium. Pour plus d’informations sur les fonctionnalités des niveaux CDN Standard et Premium, consultez [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md).
 
 ## Conditions de correspondance
 
@@ -45,7 +45,7 @@ Nom | Objectif
 -----|--------
 Numéro AS | Identifie les requêtes issues d’un réseau particulier.
 Pays | Identifie les requêtes provenant des pays spécifiés.
- 
+
 
 ### Origine
 
@@ -102,9 +102,9 @@ Ces fonctionnalités sont conçues pour contrôler l’accès au contenu.
 Nom | Objectif
 -----|--------
 Refuser l’accès | Détermine si toutes les requêtes sont rejetées avec une réponse 403 Interdit.
-Authentification de jeton | Détermine si l’authentification basée sur les jetons est appliquée à une requête. 
-Code de refus d’authentification de jeton | Détermine le type de réponse à retourner à un utilisateur quand une requête est refusée en raison de l’authentification basée sur les jetons. 
-Ignorer la casse de l’URL pour l’authentification de jeton | Détermine si les comparaisons d’URL effectuées par l’authentification basée sur les jetons respectent la casse. 
+Authentification de jeton | Détermine si l’authentification basée sur les jetons est appliquée à une requête.
+Code de refus d’authentification de jeton | Détermine le type de réponse à retourner à un utilisateur quand une requête est refusée en raison de l’authentification basée sur les jetons.
+Ignorer la casse de l’URL pour l’authentification de jeton | Détermine si les comparaisons d’URL effectuées par l’authentification basée sur les jetons respectent la casse.
 Paramètre d’authentification de jeton | Détermine si le paramètre de chaîne de requête de l’authentification basée sur les jetons doit être renommé.
 
 ### Mise en cache
@@ -114,29 +114,29 @@ Ces fonctionnalités sont conçues pour personnaliser la mise en cache du conten
 Nom | Objectif
 -----|--------
 Paramètres de bande passante | Détermine si les paramètres de limitation de bande passante (c.-à-d., ec\_rate et ec\_prebuf) sont actifs.
-Limitation de bande passante | Limite la bande passante pour la réponse fournie par nos serveurs Edge. 
+Limitation de bande passante | Limite la bande passante pour la réponse fournie par nos serveurs Edge.
 Ignorer le cache | Détermine si la requête peut exploiter notre technologie de mise en cache.
 Traitement d’en-tête de contrôle de cache | Contrôle la génération des en-têtes de contrôle de cache par le serveur Edge quand la fonctionnalité Âge maximal externe est active.
-Chaîne de requête de clé de cache | Détermine si la clé de cache inclut ou exclut les paramètres de chaîne de requête associés à une requête. 
-Réécriture de la clé de cache | Réécrit la clé de cache associée à une requête. 
-Remplissage de cache complet | Détermine ce qui se passe quand une requête génère une absence de cache partielle sur un serveur Edge. 
-Compresser les types de fichiers | Définit les formats de fichier à compresser sur le serveur. 
+Chaîne de requête de clé de cache | Détermine si la clé de cache inclut ou exclut les paramètres de chaîne de requête associés à une requête.
+Réécriture de la clé de cache | Réécrit la clé de cache associée à une requête.
+Remplissage de cache complet | Détermine ce qui se passe quand une requête génère une absence de cache partielle sur un serveur Edge.
+Compresser les types de fichiers | Définit les formats de fichier à compresser sur le serveur.
 Âge maximal interne par défaut | Détermine l’intervalle d’âge maximal par défaut pour la revalidation du cache entre le serveur Edge et le serveur d’origine.
-Expiration du traitement d’en-tête | Contrôle la génération de l’expiration des en-têtes par un serveur Edge quand la fonctionnalité Âge maximal externe est active. 
-Âge maximal externe | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le navigateur et le serveur Edge. 
-Forcer l’âge maximal interne | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le serveur Edge et le serveur d’origine. 
-Prise en charge H.264 (téléchargement progressif HTTP) | Détermine les types de formats de fichier H.264 qui peuvent être utilisés pour diffuser du contenu. 
+Expiration du traitement d’en-tête | Contrôle la génération de l’expiration des en-têtes par un serveur Edge quand la fonctionnalité Âge maximal externe est active.
+Âge maximal externe | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le navigateur et le serveur Edge.
+Forcer l’âge maximal interne | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le serveur Edge et le serveur d’origine.
+Prise en charge H.264 (téléchargement progressif HTTP) | Détermine les types de formats de fichier H.264 qui peuvent être utilisés pour diffuser du contenu.
 Honorer la requête non-cache | Détermine si les requêtes non-cache d’un client HTTP sont transmises au serveur d’origine.
 Ignorer la requête non-cache d’origine | Détermine si notre CDN ignore certaines directives remises par un serveur d’origine.
-Ignorer les plages inacceptables | Détermine la réponse à retourner aux clients quand une requête génère un code d’état 416 Plage demandée non satisfaisante. 
+Ignorer les plages inacceptables | Détermine la réponse à retourner aux clients quand une requête génère un code d’état 416 Plage demandée non satisfaisante.
 Obsolescence maximale interne | Contrôle la durée après l’expiration normale d’une ressource mise en cache pendant laquelle cette ressource peut être remise depuis un serveur Edge quand ce serveur Edge ne parvient pas à la revalider avec le serveur d’origine.
-Partage de cache partiel | Détermine si une requête peut générer du contenu partiellement mis en cache. 
-Prévalider le contenu mis en cache | Détermine si du contenu mis en cache peut faire l’objet d’une revalidation anticipée avant l’expiration de sa durée de vie. 
+Partage de cache partiel | Détermine si une requête peut générer du contenu partiellement mis en cache.
+Prévalider le contenu mis en cache | Détermine si du contenu mis en cache peut faire l’objet d’une revalidation anticipée avant l’expiration de sa durée de vie.
 Actualiser les fichiers de cache de zéro octet | Détermine la façon dont nos serveurs Edge gèrent la requête d’un client HTTP liée à une ressource de cache de 0 octet.
-Définir les codes d’état pouvant être mis en cache | Définit l’ensemble des codes d’état qui peuvent générer du contenu mis en cache. 
+Définir les codes d’état pouvant être mis en cache | Définit l’ensemble des codes d’état qui peuvent générer du contenu mis en cache.
 Rendre obsolète la remise de contenu en cas d’erreur | Détermine si du contenu mis en cache qui a expiré est remis quand une erreur se produit pendant la revalidation du cache ou l’extraction du contenu demandé à partir du serveur d’origine du client.
-Rendre obsolète pendant la revalidation | Améliore les performances en permettant à nos serveurs Edge de rendre obsolète le client pour le demandeur pendant la revalidation. 
-Commentaire | La fonctionnalité Commentaire permet d’ajouter une remarque dans une règle. 
+Rendre obsolète pendant la revalidation | Améliore les performances en permettant à nos serveurs Edge de rendre obsolète le client pour le demandeur pendant la revalidation.
+Commentaire | La fonctionnalité Commentaire permet d’ajouter une remarque dans une règle.
 
 ### En-têtes
 
@@ -144,11 +144,11 @@ Ces fonctionnalités sont conçues pour ajouter, modifier ou supprimer des en-t�
 
 Nom | Objectif
 -----|--------
-En-tête de réponse Age | Détermine si un en-tête de réponse Age est inclus dans la réponse envoyée au demandeur. 
+En-tête de réponse Age | Détermine si un en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
 En-têtes de réponse de cache de débogage | Détermine si une réponse peut inclure l’en-tête de réponse X-EC-Debug qui fournit des informations sur la stratégie de cache de la ressource demandée.
 Modifier l’en-tête de requête client | Remplace, complète ou supprime un en-tête dans une requête.
 Modifier l’en-tête de réponse client | Remplace, complète ou supprime un en-tête dans une réponse.
-Définir un en-tête personnalisé d’adresse IP client | Permet d’ajouter l’adresse IP du client demandeur à la requête sous la forme d’en-tête de requête personnalisé. 
+Définir un en-tête personnalisé d’adresse IP client | Permet d’ajouter l’adresse IP du client demandeur à la requête sous la forme d’en-tête de requête personnalisé.
 
 ### Journaux
 
@@ -156,7 +156,7 @@ Ces fonctionnalités sont conçues pour personnaliser les données stockées dan
 
 Nom | Objectif
 -----|--------
-Champ de fichier journal personnalisé 1 | Détermine le format et le contenu à attribuer au champ de fichier journal personnalisé dans un fichier journal brut. 
+Champ de fichier journal personnalisé 1 | Détermine le format et le contenu à attribuer au champ de fichier journal personnalisé dans un fichier journal brut.
 Journaliser la chaîne de requête | Détermine si une chaîne de requête est stockée avec l’URL dans les journaux d’accès.
 
 ### Optimisation
@@ -165,9 +165,9 @@ Ces fonctionnalités déterminent si une requête subit les optimisations fourni
 
 Nom | Objectif
 -----|--------
-Edge Optimizer | Détermine si Edge Optimizer peut être appliqué à une requête. 
-Edge Optimizer – Instancier la configuration | Instancie ou active la configuration Edge Optimizer associée à un site. 
- 
+Edge Optimizer | Détermine si Edge Optimizer peut être appliqué à une requête.
+Edge Optimizer – Instancier la configuration | Instancie ou active la configuration Edge Optimizer associée à un site.
+
 
 ### Origine
 
@@ -175,8 +175,8 @@ Ces fonctionnalités sont conçues pour contrôler la manière dont le CDN commu
 
 Nom | Objectif
 -----|--------
-Nombre maximal de requêtes toujours actives | Définit le nombre maximal de requêtes pour une connexion toujours active avant sa fermeture. 
-En-têtes spéciaux de proxy | Définit l’ensemble des en-têtes de requête propres à CDN à transmettre depuis un serveur Edge vers un serveur d’origine. 
+Nombre maximal de requêtes toujours actives | Définit le nombre maximal de requêtes pour une connexion toujours active avant sa fermeture.
+En-têtes spéciaux de proxy | Définit l’ensemble des en-têtes de requête propres à CDN à transmettre depuis un serveur Edge vers un serveur d’origine.
 
 ### Spécialité
 
@@ -185,8 +185,8 @@ Ces fonctionnalités sont des fonctionnalités avancées que seuls les utilisate
 Nom | Objectif
 -----|--------
 Méthodes HTTP pouvant être mises en cache | Détermine l’ensemble des méthodes HTTP supplémentaires pouvant être mises en cache sur notre réseau.
-Taille de corps de requête pouvant être mise en cache | Définit le seuil permettant de déterminer si une réponse POST peut être mise en cache. 
- 
+Taille de corps de requête pouvant être mise en cache | Définit le seuil permettant de déterminer si une réponse POST peut être mise en cache.
+
 
 ### URL
 
@@ -194,9 +194,9 @@ Ces fonctionnalités permettent de rediriger ou de réécrire une requête vers 
 
 Nom | Objectif
 -----|--------
-Suivre les redirections | Détermine si les requêtes peuvent être redirigées vers le nom d’hôte défini dans l’en-tête Location retourné par un serveur d’origine du client. 
-Redirection d'URL | Redirige les requêtes via l’en-tête Location. 
-Réécriture d’URL | Réécrit l’URL de la requête. 
+Suivre les redirections | Détermine si les requêtes peuvent être redirigées vers le nom d’hôte défini dans l’en-tête Location retourné par un serveur d’origine du client.
+Redirection d'URL | Redirige les requêtes via l’en-tête Location.
+Réécriture d’URL | Réécrit l’URL de la requête.
 
 ### Pare-feu d’applications web
 
@@ -206,4 +206,4 @@ La fonctionnalité Pare-feu d’applications web détermine si une requête est 
 * [Vue d'ensemble d'Azure CDN](cdn-overview.md)
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

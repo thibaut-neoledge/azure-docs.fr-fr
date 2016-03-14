@@ -30,7 +30,7 @@ Avec Azure Backup et Azure Import/Export, vous téléchargez simplement et direc
 2. Avant de lancer le flux de travail, assurez-vous qu’un archivage de sauvegarde Azure a été créé, que les informations d’identification de coffre ont été téléchargées, que l’agent Azure Backup a été installé sur votre serveur/client Windows ou votre serveur System Center Data Protection Manager (SCDPM) et que l’ordinateur est inscrit dans l’archivage de sauvegarde Azure.
 3. Téléchargez les paramètres du fichier de publication Azure [ici](https://manage.windowsazure.com/publishsettings) sur l’ordinateur duquel vous prévoyez de sauvegarder les données.
 4. Préparez un *emplacement intermédiaire*, qui peut être un partage réseau ou un disque supplémentaire sur l’ordinateur. Assurez-vous que l’emplacement intermédiaire dispose de suffisamment d’espace disque pour stocker votre copie initiale. Par exemple, si vous tentez de sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go (bien qu’une quantité inférieure soit utilisée). La zone intermédiaire est un « stockage temporaire » utilisé temporairement pendant ce flux de travail.
-5. Enregistreur de disque SATA externe et disque SATA de 3,5 pouces externe : seuls les disques durs SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs de plus de 6 To ne sont pas pris en charge. Vous pouvez raccorder un disque SATA II/III par voie externe à la plupart des ordinateurs à l'aide d'un adaptateur USB SATA II/III. Consultez la documentation d’Azure Import/Export pour connaître la dernière série de disques pris en charge par le service.
+5. Enregistreur de disque SATA externe et disque SATA de 3,5 pouces externe : seuls les disques durs SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs de plus de 8 To ne sont pas pris en charge. Vous pouvez raccorder un disque SATA II/III par voie externe à la plupart des ordinateurs à l'aide d'un adaptateur USB SATA II/III. Consultez la documentation d’Azure Import/Export pour connaître la dernière série de disques pris en charge par le service.
 6. Activez BitLocker sur l’ordinateur auquel est connecté l’enregistreur de disque SATA.
 7. Téléchargez l’outil Azure Import/Export [ici](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) sur l’ordinateur auquel est connecté l’enregistreur de disque SATA.
 
@@ -119,4 +119,4 @@ Une fois que les données de sauvegarde initiales sont disponibles dans votre co
 - Pour toute question sur le flux de travail Azure Import/Export, reportez-vous à cet [article](../storage/storage-import-export-service.md).
 - Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question concernant le flux de travail.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

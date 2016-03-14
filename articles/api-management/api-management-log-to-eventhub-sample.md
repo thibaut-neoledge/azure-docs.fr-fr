@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="11/10/2015"
+    ms.date="02/19/2016"
     ms.author="v-darmi"/>
 
 # Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope
@@ -268,4 +268,4 @@ Le service de gestion des API Azure fournit un emplacement idéal pour capturer 
 	-	[Référence de stratégie log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!----HONumber=Nov15_HO3--->
+<!---HONumber=AcomDC_0302_2016-->

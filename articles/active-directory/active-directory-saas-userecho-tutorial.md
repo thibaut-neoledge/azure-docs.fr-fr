@@ -120,9 +120,9 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Pour **SAML-enabled**, sélectionnez **Yes**.
 
-    b. Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur UserEcho**, copiez la valeur de l’**URL du service d’authentification unique** et collez-la. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez le contenu et collez-le dans la zone de texte **URL d’authentification unique SAML**.
+    b. Dans le portail Azure Classic, sur la page Configurer l’authentification unique sur UserEcho, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL d’authentification unique SAML**.
 
-    c. Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur UserEcho**, copiez la valeur de l’**URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion distante**.
+    c. Dans le portail Azure Classic, sur la page de boîte de dialogue Configurer l’authentification unique sur UserEcho, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion distante**.
 
     d. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte **Certificat X.509**.
 
@@ -253,4 +253,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

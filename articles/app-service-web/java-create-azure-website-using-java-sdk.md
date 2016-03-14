@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/25/2016" 
 	ms.author="v-donntr"/>
 
 
@@ -541,7 +541,14 @@ Un autre outil que vous pouvez utiliser pour publier l’application est FileZil
 1. Dans FileZilla, cliquez sur **Fichier > Gestionnaire de Sites**.
 2. Dans la boîte de dialogue **Gestionnaire de Sites**, cliquez sur **Nouveau Site**. Un nouveau site FTP vierge apparaît dans **Sélectionnez une entrée** vous invitant à fournir un nom. Dans le cadre de cette procédure, nommez-le `AzureWebDemo-FTP`.
 
-    Sous l’onglet **Général**, spécifiez les paramètres suivants :- **Hôte :** entrez le **Nom d’hôte FTP** que vous avez copié à partir du tableau de bord. - **Port :** (laissez ce champ vierge, comme il s’agit d’un transfert passif ; le serveur déterminera le port à utiliser.) - **Protocole :** FTP - Protocole de Transfert de Fichiers - **Chiffrement :** Connexion FTP simple - **Type d’authentification :** Normale - **Utilisateur :** entrez le déploiement / utilisateur FTP que vous avez copié à partir du tableau de bord. Il s’agit du nom d’utilisateur FTP complet, qui se présente sous la forme *nomappweb\\nomutilisateur*.- **Mot de passe :** entrez le mot de passe que vous avez spécifié lorsque vous avez défini les informations d’identification de déploiement.
+    Dans l’onglet **Configurer**, spécifiez les paramètres suivants :
+    - **Hôte :** Entrez le **Nom d'hôte FTP** que vous avez copié à partir du tableau de bord.
+    - **Port :** (Laissez ce champ vide, car il s'agit d'un transfert passif et le serveur déterminera le port à utiliser.)
+    - **Protocole :** FTP File Transfer Protocol
+    - **Chiffrement :** Utiliser un chiffrement FTP simple
+    - **Type d'ouverture de session :** Normal
+    - **Utilisateur :** Entrez l’utilisateur FTP / déploiement que vous avez copié à partir du tableau de bord. Il s'agit du nom d'utilisateur FTP complet, qui se présente sous la forme *nomappweb\\nomutilisateur*.
+    - **Mot de passe :** Entrez le mot de passe que vous avez spécifié lorsque vous avez défini les informations d'identification de déploiement.
 
     Sous l’onglet **Paramètres de transfert**, sélectionnez **Passif**.
 
@@ -594,10 +601,10 @@ Cette procédure crée une application web App Service. La ressource vous sera f
 [boîte à outils Azure pour Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
 [Portail Azure Classic]: https://manage.windowsazure.com
 [Qu'est-ce qu'un annuaire Azure AD]: http://technet.microsoft.com/library/jj573650.aspx
-[Créer et télécharger un certificat de gestion pour Microsoft Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Créer et télécharger un certificat de gestion pour Microsoft Azure]: ../cloud-services/cloud-services-certs-create.md
 [Outil de gestion de clés et de certificats (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
-[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

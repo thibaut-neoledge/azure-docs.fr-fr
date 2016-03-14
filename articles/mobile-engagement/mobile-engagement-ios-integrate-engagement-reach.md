@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #Comment intégrer Engagement Reach sur iOS
 
-> [AZURE.IMPORTANT]Vous devez suivre la procédure d'intégration décrite dans la procédure Intégration d'Engagement sur un document iOS avant de suivre ce guide.
+> [AZURE.IMPORTANT] Vous devez suivre la procédure d'intégration décrite dans la procédure Intégration d'Engagement sur un document iOS avant de suivre ce guide.
 
 
 ### Activer votre application pour recevoir des notifications Push Silent
@@ -116,7 +116,7 @@ Enfin, vous devez informer le Kit de développement logiciel (SDK) Engagement lo
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE]La méthode ci-dessus est introduite dans iOS 7. Si vous ciblez iOS < 7, assurez-vous d'implémenter la méthode `application:didReceiveRemoteNotification:` dans votre délégué d'application et d'appeler `applicationDidReceiveRemoteNotification` sur EngagementAgent en transmettant nil au lieu de l'argument `handler` :
+> [AZURE.NOTE] La méthode ci-dessus est introduite dans iOS 7. Si vous ciblez iOS < 7, assurez-vous d'implémenter la méthode `application:didReceiveRemoteNotification:` dans votre délégué d'application et d'appeler `applicationDidReceiveRemoteNotification` sur EngagementAgent en transmettant nil au lieu de l'argument `handler` :
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -124,7 +124,7 @@ Enfin, vous devez informer le Kit de développement logiciel (SDK) Engagement lo
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
 	}
 
-> [AZURE.IMPORTANT]Par défaut, Engagement Reach contrôle le completionHandler. Si vous souhaitez répondre manuellement au bloc `handler` de votre code, vous pouvez utiliser nil pour l’argument `handler` et contrôler le bloc de fin vous-même. Consultez le type `UIBackgroundFetchResult` d'une liste de valeurs possibles.
+> [AZURE.IMPORTANT] Par défaut, Engagement Reach contrôle le completionHandler. Si vous souhaitez répondre manuellement au bloc `handler` de votre code, vous pouvez utiliser nil pour l’argument `handler` et contrôler le bloc de fin vous-même. Consultez le type `UIBackgroundFetchResult` d'une liste de valeurs possibles.
 
 
 ### Exemple complet
@@ -216,7 +216,7 @@ Le fichier nib fourni doit respecter les règles suivantes :
 -   Les sous-vues doivent être du même type que celles qui se trouvent dans le fichier nib fourni nommé `AENotificationView.xib`
 -   Les sous-vues doivent comporter les mêmes balises que celles qui se trouvent dans le fichier nib nommé `AENotificationView.xib`
 
-> [AZURE.TIP]Copiez simplement le fichier nib fourni, nommé `AENotificationView.xib`, puis commencez à travailler. Attention, la vue à l'intérieur de ce fichier nib est associée à la classe `AENotificationView`. Cette classe a redéfini la méthode `layoutSubViews` pour déplacer et redimensionner ses sous-vues en fonction du contexte. Vous avez peut-être besoin de la remplacer par une `UIView` ou votre classe de vue personnalisée.
+> [AZURE.TIP] Copiez simplement le fichier nib fourni, nommé `AENotificationView.xib`, puis commencez à travailler. Attention, la vue à l'intérieur de ce fichier nib est associée à la classe `AENotificationView`. Cette classe a redéfini la méthode `layoutSubViews` pour déplacer et redimensionner ses sous-vues en fonction du contexte. Vous avez peut-être besoin de la remplacer par une `UIView` ou votre classe de vue personnalisée.
 
 Si vous avez besoin de personnaliser davantage vos notifications (si vous souhaitez par exemple charger votre vue directement à partir du code), il est recommandé d'examiner le code source et la documentation de classe fournis de `Protocol ReferencesDefaultNotifier` et `AENotifier`.
 
@@ -240,7 +240,7 @@ Si votre implémentation de `AENotifier` contourne le comportement par défaut,
 -   Vous n'étendez pas `AEDefaultNotifier`, par exemple, vous avez implémenté la gestion des catégories à partir de zéro.
 -   Vous avez substitué `prepareNotificationView:forContent:`, veillez à mapper au moins `onNotificationActioned` ou `onNotificationExited` sur l'un des contrôles de votre interface utilisateur.
 
-> [AZURE.WARNING]Si `handleNotification:` lève une exception, le contenu est supprimé et `drop` est appelé. Cela est signalé dans les statistiques et les campagnes suivantes peuvent maintenant être traitées.
+> [AZURE.WARNING] Si `handleNotification:` lève une exception, le contenu est supprimé et `drop` est appelé. Cela est signalé dans les statistiques et les campagnes suivantes peuvent maintenant être traitées.
 
 #### Incluez des notifications dans le cadre d'une vue existante
 
@@ -264,7 +264,7 @@ Vous pouvez décider d'inclure notre disposition de notifications dans vos affic
 
 La macro `NOTIFICATION_AREA_VIEW_TAG` se trouve dans `AEDefaultNotifier.h`.
 
-> [AZURE.NOTE]Le notificateur par défaut détecte automatiquement que la disposition de notification est incluse dans cet affichage et nr lui ajoute pas de superposition.
+> [AZURE.NOTE] Le notificateur par défaut détecte automatiquement que la disposition de notification est incluse dans cet affichage et nr lui ajoute pas de superposition.
 
 ### Annonces et sondages
 
@@ -283,7 +283,7 @@ Pour créer une catégorie d'annonce, vous devez étendre **AEAnnouncementViewCo
 	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 	[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]Chaque fois qu'un utilisateur clique sur une notification pour une annonce avec la catégorie « my\\_category », votre contrôleur d'affichage enregistré (dans ce cas `MyCustomAnnouncementViewController`) sera initialisé en appelant la méthode `initWithAnnouncement:` et l'affichage sera ajouté à la fenêtre de l'application actuelle.
+> [AZURE.NOTE] Chaque fois qu'un utilisateur clique sur une notification pour une annonce avec la catégorie « my\\_category », votre contrôleur d'affichage enregistré (dans ce cas `MyCustomAnnouncementViewController`) sera initialisé en appelant la méthode `initWithAnnouncement:` et l'affichage sera ajouté à la fenêtre de l'application actuelle.
 
 Dans votre implémentation de la classe `AEAnnouncementViewController`, vous devez lire la propriété `announcement` pour initialiser vos sous-vues. Prenons l'exemple ci-dessous, dans lequel deux étiquettes sont initialisées à l'aide des propriétés `title` et `body` de la classe `AEReachAnnouncement` :
 
@@ -316,7 +316,7 @@ Les sondages peuvent être personnalisés de la même manière :
 
 Cette fois, les `MyCustomPollViewController` fournis doivent étendre `AEPollViewController`. Vous pouvez également choisir d'étendre à partir du contrôleur par défaut : `AEDefaultPollViewController`.
 
-> [AZURE.IMPORTANT]N'oubliez pas d'appeler `action` (`submitAnswers:` pour les contrôleurs d'affichage personnalisé de sondage) ou la méthode `exit` avant que le contrôleur d'affichage ne soit ignoré. Dans le cas contraire, les statistiques ne seront pas envoyées (c'est-à-dire aucune analyse de la campagne) et surtout, les campagnes suivantes ne recevront pas de notification avant que le processus de l'application soit redémarré.
+> [AZURE.IMPORTANT] N'oubliez pas d'appeler `action` (`submitAnswers:` pour les contrôleurs d'affichage personnalisé de sondage) ou la méthode `exit` avant que le contrôleur d'affichage ne soit ignoré. Dans le cas contraire, les statistiques ne seront pas envoyées (c'est-à-dire aucune analyse de la campagne) et surtout, les campagnes suivantes ne recevront pas de notification avant que le processus de l'application soit redémarré.
 
 ##### Exemple d'implémentation
 
@@ -416,4 +416,4 @@ Comme pour la personnalisation de notification avancée, il est recommandé d'ex
 
 	@end
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

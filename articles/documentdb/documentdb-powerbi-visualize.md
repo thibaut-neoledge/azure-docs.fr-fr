@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/26/2016" 
 	ms.author="hawong"/>
 
 # Didacticiel de Power BI pour DocumentDB : visualiser les données à l'aide du connecteur Power BI
@@ -194,4 +194,4 @@ Pour partager votre rapport, vous devez disposer d’un compte dans PowerBI.com.
 - Cliquez [ici](https://support.powerbi.com/knowledgebase) pour en savoir plus sur Power BI.
 - Pour en savoir plus sur DocumentDB, cliquez [ici](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

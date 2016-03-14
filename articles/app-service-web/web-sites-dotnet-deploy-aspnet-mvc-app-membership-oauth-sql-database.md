@@ -13,7 +13,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
@@ -35,7 +35,7 @@ Vous apprendrez ce qui suit :
 * Stocker des données relationnelles dans le cloud à l’aide d’une base de données SQL Azure.
 * Déployer un projet web qui utilise une base de données associée à une [application web](http://go.microsoft.com/fwlink/?LinkId=529714) dans Azure App Service.
 
->[AZURE.NOTE]Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting).
+>[AZURE.NOTE] Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting).
 >
 >Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -390,7 +390,7 @@ L’étape suivante consiste à activer la fonctionnalité [Migrations Code Firs
 
 ## Ajout d'un fournisseur OAuth2
 
->[AZURE.NOTE]Pour des instructions détaillées sur la façon d’utiliser les portails de développeurs Google et Facebook, ce didacticiel renvoie à des didacticiels sur le site ASP.NET. Toutefois, Google et Facebook modifient leurs sites plus fréquemment que ces didacticiels sont mis à jour, et ils sont désormais obsolètes. Si vous rencontrez un problème de suivi des instructions, consultez le commentaire Disqus proposé à la fin de ce didacticiel pour obtenir la liste de ce qui a changé.
+>[AZURE.NOTE] Pour des instructions détaillées sur la façon d’utiliser les portails de développeurs Google et Facebook, ce didacticiel renvoie à des didacticiels sur le site ASP.NET. Toutefois, Google et Facebook modifient leurs sites plus fréquemment que ces didacticiels sont mis à jour, et ils sont désormais obsolètes. Si vous rencontrez un problème de suivi des instructions, consultez le commentaire Disqus proposé à la fin de ce didacticiel pour obtenir la liste de ce qui a changé.
 
 [OAuth](http://oauth.net/ "http://oauth.net/") est un protocole ouvert permettant de mettre en place une authentification sécurisée dans une méthode simple et standardisée à partir d’applications Web, mobiles ou de bureau. Le modèle Internet d'ASP.NET MVC utilise OAuth pour exposer Facebook, Twitter, Google et Microsoft comme fournisseurs d'authentification. Même si ce didacticiel utilise uniquement Google comme fournisseur d'authentification, vous pouvez facilement modifier le code pour utiliser n'importe quel autre fournisseur. La procédure à suivre pour implémenter d’autres fournisseurs ressemble assez à celle présentée dans ce didacticiel. Pour utiliser Facebook comme fournisseur d’authentification, consultez le didacticiel [Application MVC 5 avec Facebook, Twitter, LinkedIn et authentification Google OAuth2](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) (en anglais).
 
@@ -445,7 +445,7 @@ Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle 
 
 	![image du code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé *user1@contoso.com* et ajoute *user1@contoso.com* au rôle *canEdit*. Pour plus d’informations, consultez les [didacticiels Identité ASP.NET](http://www.asp.net/identity/overview/features-api) sur le site ASP.NET.
+	Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé **user1@contoso.com* et ajoute **user1@contoso.com* au rôle *canEdit*. Pour plus d’informations, consultez les [didacticiels Identité ASP.NET](http://www.asp.net/identity/overview/features-api) sur le site ASP.NET.
 
 ## Utilisation de code temporaire pour ajouter de nouveaux utilisateurs de réseaux sociaux au rôle peutModifier  ##
 
@@ -501,7 +501,7 @@ Dans la **Console du Gestionnaire de package**, actionnez la touche Haut pour af
 
 		Update-Database
 
-La commande **Update-Database** exécute la méthode **Seed**, ce qui a pour effet d’exécuter la méthode **AddUserAndRole** ajoutée précédemment. La méthode **AddUserAndRole** crée l’utilisateur *user1@contoso.com* et l’ajoute au rôle *canEdit*.
+La commande **Update-Database** exécute la méthode **Seed**, ce qui a pour effet d’exécuter la méthode **AddUserAndRole** ajoutée précédemment. La méthode **AddUserAndRole** crée l’utilisateur **user1@contoso.com* et l’ajoute au rôle *canEdit*.
 
 ## Protection de l’application à l’aide du protocole SSL et de l’attribut Authorize ##
 
@@ -509,8 +509,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 1. Ouvrez le fichier *App\_Start\\FilterConfig.cs* et remplacez la méthode *RegisterGlobalFilters* par le code suivant (qui ajoute les deux filtres) :
 
-		public static void
-		RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -589,9 +588,9 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 1. Cliquez sur le lien Modifier de la page. Vous serez redirigé vers la page de connexion (car un nouvel utilisateur local n’est pas ajouté au rôle *canEdit*).
 
-1. Connectez-vous en tant que *user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous êtes redirigé vers la page de modification que vous aviez sélectionnée.
+1. Connectez-vous en tant que **user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous êtes redirigé vers la page de modification que vous aviez sélectionnée.
 
-	Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que *user1@contoso.com* a été ajoutée.
+	Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que **user1@contoso.com* a été ajoutée.
 
 1. Vérifiez que vous pouvez effectuer des modifications.
 
@@ -615,7 +614,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 1. Cliquez sur **Publier**.
 
-1. Connectez-vous en tant que *user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
+1. Connectez-vous en tant que **user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
 
 1. Déconnectez-vous.
 
@@ -699,7 +698,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Notez l’ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l’ID de *user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
+1. Notez l’ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l’ID de **user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -707,7 +706,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. Vérifiez que les **UserId** sont ceux de *user1@contoso.com* et du compte Google de votre inscription.
+3. Vérifiez que les **UserId** sont ceux de **user1@contoso.com* et du compte Google de votre inscription.
 
 ## Résolution de problèmes
 
@@ -723,9 +722,9 @@ Si vous rencontrez des problèmes, voici quelques suggestions pour essayer de le
 
 Vous avez créé une application web MVC ASP.NET de base qui authentifie les utilisateurs. Pour plus d’informations sur les tâches d’authentification courantes et la manière de sécuriser les données sensibles, reportez-vous aux didacticiels suivants.
 
-- [Création d’une application web ASP.NET MVC 5 sécurisée avec authentification, confirmation par courrier électronique et réinitialisation des mots de passe](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset) (en anglais)
-- [Application ASP.NET MVC 5 avec SMS et authentification à deux facteurs par courrier électronique](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication) (en anglais)
-- [Meilleures pratiques pour le déploiement de mots de passe et d’autres données sensibles dans ASP.NET et Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (en anglais) 
+- [Création d’une application web ASP.NET MVC 5 sécurisée avec authentification, confirmation par courrier électronique et réinitialisation des mots de passe (en anglais)](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset)
+- [Application ASP.NET MVC 5 avec SMS et authentification à deux facteurs par courrier électronique (en anglais)](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication)
+- [Meilleures pratiques pour le déploiement de mots de passe et d’autres données sensibles dans ASP.NET et Azure (en anglais)](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) 
 - [Création d’une application ASP.NET MVC 5 avec une authentification OAuth2 pour Facebook et Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) en anglais). Inclut des instructions sur l’ajout de données de profil à la base de données d’inscription d’utilisateur, ainsi que sur l’utilisation de Facebook comme fournisseur d’authentification.
 - [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 
@@ -737,7 +736,7 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 
 ## Changements apportés
 
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -798,4 +797,4 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

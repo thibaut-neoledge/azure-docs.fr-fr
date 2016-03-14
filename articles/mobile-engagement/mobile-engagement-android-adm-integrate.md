@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 
 #Comment intégrer ADM à Engagement
 
-> [AZURE.IMPORTANT]Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
+> [AZURE.IMPORTANT] Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 >
 > Ce document ne vous sera utile que si vous avez intégré le module de couverture et configuré une remise de campagnes à tout moment. Pour intégrer les couvertures campagnes à votre application, lisez d'abord « Comment intégrer le module de couverture Engagement sur Android ».
 
@@ -29,7 +29,7 @@ L'intégration d'ADM permet à votre application d’être envoyée lorsque vous
 
 Les charges utiles ADM envoyées vers le Kit de développement logiciel (SDK) contiennent toujours la clé `azme` dans l'objet de données. Donc si vous utilisez ADM à d’autres fins dans votre application, vous pouvez filtrer les notifications push en fonction de cette clé.
 
-> [AZURE.IMPORTANT]Seuls les appareils Amazon Kindle exécutant Android 4.0.3 ou version ultérieure sont pris en charge par Amazon Device Messaging. Vous pouvez toutefois intégrer ce code en toute sécurité sur d'autres appareils.
+> [AZURE.IMPORTANT] Seuls les appareils Amazon Kindle exécutant Android 4.0.3 ou version ultérieure sont pris en charge par Amazon Device Messaging. Vous pouvez toutefois intégrer ce code en toute sécurité sur d'autres appareils.
 
 ##S'inscrire à ADM
 
@@ -112,4 +112,4 @@ Vous pouvez maintenant sélectionner l'option À tout moment lors de la créatio
 [intégré ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [cette procédure]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

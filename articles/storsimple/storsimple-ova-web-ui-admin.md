@@ -12,21 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/17/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# Utiliser l'interface utilisateur web pour gérer votre StorSimple Virtual Array (version préliminaire)
+# Utiliser l'interface utilisateur web pour gérer votre StorSimple Virtual Array
 
 ![flux du processus d'installation](./media/storsimple-ova-web-ui-admin/manage4.png)
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Les didacticiels de cet article s'appliquent à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local) exécutant la version 1.1.1.0 (version préliminaire). Cet article décrit certains des flux de travail et certaines tâches de gestion complexes qui peuvent être effectués sur StorSimple Virtual Array. Il existe deux interfaces utilisateur qui peuvent être utilisées pour gérer StorSimple Virtual Array : l'interface utilisateur de service StorSimple Manager (également appelée interface utilisateur du portail) et l'interface utilisateur web locale de l'appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web.
-
->[AZURE.IMPORTANT] 
->
->- StorSimple Virtual Array est en version préliminaire et est destiné à des fins d'évaluation et de planification du déploiement. L'installation de cette version préliminaire dans un environnement de production n'est pas prise en charge. 
->- Si vous rencontrez des problèmes avec StorSimple Virtual Array, publiez-les sur le [forum MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
+Les didacticiels de cet article s'appliquent à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local) exécutant la version de mise à la disposition générale (mars 2016). Cet article décrit certains des flux de travail et certaines tâches de gestion complexes qui peuvent être effectués sur StorSimple Virtual Array. Vous pouvez gérer StorSimple Virtual Array à l’aide de l'interface utilisateur du service StorSimple Manager (également appelée interface utilisateur du portail) et de l'interface utilisateur web locale de l'appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web.
 
 Cet article inclut les didacticiels suivants :
 
@@ -136,4 +131,4 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 
 Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

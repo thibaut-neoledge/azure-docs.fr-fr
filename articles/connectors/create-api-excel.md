@@ -1,5 +1,5 @@
 <properties
-pageTitle="Ajouter l’API Excel à PowerApps Enterprise | Microsoft Azure"
+pageTitle="Ajouter l’API Excel à PowerApps Enterprise | Microsoft Azure"
 description="Vue d'ensemble de l'API Excel avec les paramètres de l'API REST"
 services=""	
 documentationCenter="" 	
@@ -14,38 +14,35 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Prendre en main l’API Excel
 
-Connectez-vous à Excel pour insérer une ligne, supprimer une ligne, et bien plus encore.
+Connectez-vous à Excel pour insérer une ligne, supprimer une ligne, et bien plus encore. L’API Excel peut être utilisée à partir de :
 
-L'API Excel peut être utilisée à partir de PowerApps Enterprise.
+- PowerApps
 
 Avec Excel, vous pouvez :
 
 - Ajouter l’API Excel à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
 
-Pour plus d'informations sur l'ajout d'une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
-
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 ## Déclencheurs et actions
 Excel inclut les actions suivantes. Il n'y a aucun déclencheur.
 
 |Déclencheur|Actions|
 |--- | ---|
-|Aucun | <ul><li>Obtenir des lignes</li><li>Insérer une ligne</li><li>Supprimer une lignes</li><li>Obtenir une ligne</li><li>Obtenir des tables</li><li>Mettre à jour une ligne</li></ul>
+|Aucun | <ul><li>Obtenir des lignes</li><li>Insérer une ligne</li><li>Supprimer une ligne</li><li>Obtenir une ligne</li><li>Obtenir des tables</li><li>Mettre à jour une ligne</li></ul>
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Informations de référence sur l'API REST Swagger
-#### Cette documentation concerne la version 1.0.
-
+S’applique à la version 1.0.
 
 ### Insère une nouvelle ligne dans le tableau Excel.
-**```POST: /datasets/{dataset}/tables/{table}/items```**
+```POST: /datasets/{dataset}/tables/{table}/items```
 
 
 
@@ -62,12 +59,12 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
-------
+
 
 
 
 ### Récupère une seule ligne d'un tableau Excel
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**
+```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -84,12 +81,12 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
-------
+
 
 
 
 ### Supprime une ligne d'un tableau Excel
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -106,12 +103,12 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
-------
+
 
 
 
 ### Met à jour une ligne existante dans un tableau Excel
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -129,11 +126,11 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
-------
 
 
 
-## Définition d'objet
+
+## Définitions d'objet
 
 #### DataSetsMetadata
 
@@ -211,4 +208,4 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) [Créer une application PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/25/2016" 
 	ms.author="billmath"/>
 
 # Problèmes avec Azure Multi-Factor Authentication
@@ -124,6 +124,9 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous pouvez chang
 
 Si vous disposez d’un nouveau téléphone et que vous devez modifier le numéro de contact principal utilisé par l’authentification MFA, vous pouvez procéder de deux manières.
 
+>[AZURE.IMPORTANT]
+Il est important de configurer un numéro de téléphone d’authentification secondaire. Étant donné que vous utilisez probablement le même téléphone pour votre numéro de téléphone principal et votre application mobile, le numéro de téléphone secondaire est le seul moyen dont vous disposez pour revenir à votre compte en cas de perte ou de vol de votre téléphone.
+
 La première utilise une méthode d’authentification secondaire. Si vous avez spécifié un numéro de téléphone d’authentification secondaire, vous pouvez l’utiliser pour vous connecter. ![Paramétrage](./media/multi-factor-authentication-end-user-manage/altphone.png) Notez que, dans la capture d’écran ci-dessus, deux numéros de téléphone ont été configurés, l’un se terminant par 67 et l’autre par 30.
   
 Pour vous connecter à l’aide de votre autre numéro de téléphone, suivez la procédure de connexion normale, puis sélectionnez simplement **Utiliser une autre option de vérification**. ![Vérification différente](./media/multi-factor-authentication-end-user-manage/differentverification.png)
@@ -131,9 +134,6 @@ Pour vous connecter à l’aide de votre autre numéro de téléphone, suivez la
 Sélectionnez ensuite votre autre numéro de téléphone. Dans ce cas, vous devez sélectionner **M’appeler au + X XXXXXXXX30**.
 
 ![Autre téléphone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-
->[AZURE.IMPORTANT]
-Il est important de configurer un numéro de téléphone d’authentification secondaire. Étant donné que vous utilisez probablement le même téléphone pour votre numéro de téléphone principal et votre application mobile, le numéro de téléphone secondaire est le seul moyen dont vous disposez pour revenir à votre compte en cas de perte ou de vol de votre téléphone.
 
 La seconde consiste à contacter votre administrateur ou la personne qui a configuré l’authentification MFA pour vous. Vous devez uniquement effectuer cette opération si vous n’avez pas configuré un numéro de téléphone d’authentification secondaire. Vous devrez contacter votre administrateur ou la personne qui a configuré l’authentification MFA pour lui demander d’effacer vos paramètres. À la prochaine connexion, vous serez donc invité à configurer de nouveau [l’authentification multifacteur (Multi-Factor Authentication)](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
@@ -172,4 +172,4 @@ En outre, vous pouvez contacter votre administrateur ou la personne qui a config
 
 Enfin, veillez à laisser des commentaires détaillés sur cette page afin que nous puissions la mettre à jour, et que nous continuions à l’améliorer en fournissant plus d’informations.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

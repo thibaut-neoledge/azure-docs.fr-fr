@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter l’API Microsoft Translator à PowerApps Enterprise ou des applications logiques | Microsoft Azure"
+	pageTitle="Ajouter l’API Microsoft Translator à PowerApps Enterprise ou des applications logiques | Microsoft Azure"
 	description="Vue d'ensemble de l'API Microsoft Translator avec les paramètres de l'API REST"
 	services=""
     suite=""
@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Prendre en main l'API Microsoft Translator
-Connectez-vous à Microsoft Translator pour traduire un texte, détecter une langue, et bien plus encore.
+Connectez-vous à Microsoft Translator pour traduire un texte, détecter une langue, et bien plus encore. L’API Microsoft Translator peut être utilisée à partir de :
 
-L'API Microsoft Translator peut être utilisée à partir de PowerApps Enterprise et d'applications logiques.
+- PowerApps 
+- Logic Apps 
 
 Avec Microsoft Translator, vous pouvez :
 
@@ -29,7 +30,7 @@ Avec Microsoft Translator, vous pouvez :
 - Utiliser des actions pour traduire un texte, détecter une langue, et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Par exemple, lorsqu'un fichier est créé dans Dropbox, vous pouvez traduire le texte qu’il contient dans une autre langue à l'aide de Microsoft Translator.
 - Ajouter l’API Microsoft Translator à PowerApps Enterprise Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
 
-Pour plus d'informations sur l'ajout d'une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,11 +50,11 @@ Lorsque vous ajoutez Microsoft Translator à PowerApps Enterprise, vous entrez l
 
 1. Accédez à [page de développeur Azure Data Market][5] et connectez-vous avec votre compte Microsoft. 
 
-2. Sélectionnez **Inscrire votre application**:
+2. Sélectionnez **Inscrire votre application** :
 
-	1. Entrez une valeur dans le champ **ID de client**.
+	1. Entrez une valeur dans le champ **ID client**.
 	2. Entrez le **nom** de votre application.
-	3. Entrez une valeur factice comme **url de redirection**. Par exemple, entrez : **https://contosoredirecturl*.
+	3. Entrez une valeur factice comme **URL de redirection**. Par exemple, entrez **https://contosoredirecturl*.
 4. Entrez une **description**.
 	5. Sélectionnez **Créer**.  
 
@@ -63,6 +64,7 @@ Maintenant copiez/collez les valeurs **ID client** et **clé secrète client** d
 
 
 ## Informations de référence sur l'API REST Swagger
+S’applique à la version 1.0.
 
 ### Détecter la langue    
 Détecte la langue source du texte. ```GET: /Detect```
@@ -84,7 +86,7 @@ Effectue la synthèse vocale d’un texte sous forme d’un flux audio au format
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |query|string|yes|query|(aucun) |Texte à convertir|
-|language|string|yes|query|(aucun) |Code de la langue pour la synthèse vocale (exemple : « fr-FR »)|
+|language|string|yes|query|(aucun) |Code de la langue pour la synthèse vocale (exemple : « fr-FR »)|
 
 #### Response
 |Nom|Description|
@@ -94,7 +96,7 @@ Effectue la synthèse vocale d’un texte sous forme d’un flux audio au format
 
 
 ### Traduire le texte    
-Traduit le texte dans une langue spécifique à l'aide de Microsoft Translator. ```GET: /Translate```
+Traduit le texte dans une langue spécifique à l’aide de Microsoft Translator. ```GET: /Translate```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -144,7 +146,7 @@ Il n'existe aucun paramètre pour cet appel.
 
 
 ## Étapes suivantes
-Après avoir ajouté l'API Microsoft Translator à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l'API dans leurs applications.
+Après avoir ajouté l’API Microsoft Translator à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l'API dans leurs applications.
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -153,4 +155,4 @@ Après avoir ajouté l'API Microsoft Translator à PowerApps Enterprise, [donnez
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

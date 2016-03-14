@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="06/29/2015"
+	ms.date="02/25/2016"
 	ms.author="himad"/>
 
 
@@ -47,4 +47,4 @@ L’interface utilisateur de gestion permet de fournir un nombre d’accès conc
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

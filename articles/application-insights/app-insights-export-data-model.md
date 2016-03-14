@@ -475,11 +475,13 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     ipv4 context.location.clientip      
 * 
-    Adresse IPv4 du client au format xxx.xxx.xxx.xxx.   
+    Adresse IPv4 du client au format xxx.xxx.xxx.xxx.
+
+     Pour résoudre les problèmes liés à la confidentialité, le dernier octet est toujours défini sur 0.
 
     *Valeur par défaut :* en cas de valeur Null, le champ est défini par défaut sur l’adresse IP HTTP capturée au niveau du point de terminaison de collecte de données.
 
-    *Exemples*<br/> 0.123.63.143<br/>123.203.131.197
+    *Exemples*<br/> 186.123.63.0<br/>123.203.131.0
 
 **continent**
 
@@ -629,7 +631,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     *Dérivation :* normalisation sous la forme &lt;telemetryType.name&gt;
 
-**remoteDependencyType**
+**type**
 
     string remotedependency.remotedependencytype      Max: 100
 * 
@@ -989,4 +991,4 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

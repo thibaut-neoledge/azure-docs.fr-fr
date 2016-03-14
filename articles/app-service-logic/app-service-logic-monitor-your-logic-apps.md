@@ -2,7 +2,7 @@
 	pageTitle="Analyser vos applications logiques dans Azure App Service | Microsoft Azure" 
 	description="Comment voir ce que vos applications logiques ont fait" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="stepsic"/>
 
 # Analyser vos applications logiques
 
-Après avoir créé une application logique (en suivant la procédure de la section [Créer une application logique](app-service-logic-create-a-logic-app.md)), vous pouvez consulter l’historique complet de son exécution dans le portail Azure. Pour afficher l’historique, sélectionnez **Parcourir**, **Web + mobile**, puis **Logic Apps**. Une liste de toutes les applications logiques de votre abonnement s’affiche. Une application logique peut être **Activée** ou **Désactivée**. Lorsqu’une application logique est **activée**, les déclencheurs l’exécutent en réponse à des événements déclencheurs. Une application logique **désactivée** n’est pas exécutée en réponse à des événements.
+Une fois que vous avez [créé une application logique](app-service-logic-create-a-logic-app.md), vous pouvez consulter l'historique complet de son exécution dans le portail Azure. Pour afficher l’historique, sélectionnez **Parcourir**, puis **Applications logiques**. Une liste de toutes les applications logiques de votre abonnement s’affiche. Vous pouvez sélectionner n'importe quelle application logique et l’**Activer** ou la **Désactiver**. Lorsqu’une application logique est **activée**, les déclencheurs l’exécutent en réponse à des événements déclencheurs. Une application logique **désactivée** n’est pas exécutée en réponse à des événements.
 
 ![Vue d’ensemble](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
@@ -33,7 +33,7 @@ Quand le panneau de votre application logique s'affiche, deux sections sont dign
 
 Cette liste d’exécutions indique l’**Heure de début**, l’**Identificateur d’exécution** (vous pouvez l’utiliser lors de l’appel de l’API REST) et la **Durée** des exécutions. Sélectionnez n’importe quelle ligne pour afficher les détails de cette exécution.
 
-Le panneau de détails contient un graphique avec la durée d'exécution et la séquence de toutes les actions de l'exécution. En dessous figure la liste complète de toutes les actions qui ont été exécutées :
+Le panneau de détails contient un graphique avec la durée d'exécution et la séquence de toutes les actions de l'exécution. Voici la liste complète de toutes les actions qui ont été exécutées :
 
 ![Exécution et actions](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
@@ -53,7 +53,7 @@ Notez que pour les déclencheurs d’*émission*, l’heure de début de l’ex�
 
 ## Activer le contrôle de version
 
-Il existe une fonctionnalité supplémentaire qui n’est pas disponible actuellement dans l’interface utilisateur (elle le sera prochainement), mais qui est accessible via [l’API REST](http://go.microsoft.com/fwlink/p/?LinkID=525617&clcid=0x409). Quand vous mettez à jour la définition d’une application logique, la version précédente de la définition est stockée. En effet, si une exécution est déjà en cours, elle fait référence à la version de l’application logique qui existait lors du démarrage de l’exécution. Les définitions d'exécutions ne peuvent pas changer quand elles sont en cours. L’API REST d’historique des versions vous donne accès à ces informations.
+Il existe une fonctionnalité supplémentaire qui n’est pas disponible actuellement dans l’interface utilisateur (elle le sera prochainement), mais qui est accessible via l’[API REST](https://msdn.microsoft.com/library/azure/mt643788.aspx). Quand vous mettez à jour la définition d’une application logique, la version précédente de la définition est stockée. En effet, si une exécution est déjà en cours, elle fait référence à la version de l’application logique qui existait lors du démarrage de l’exécution. Les définitions d'exécutions ne peuvent pas changer quand elles sont en cours. L’API REST d’historique des versions vous donne accès à ces informations.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

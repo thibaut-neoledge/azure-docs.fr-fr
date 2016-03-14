@@ -3,8 +3,8 @@
 	description="Découvrez comment encoder avec Media Encoder Premium Workflow. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #Encodage avancé avec Media Encoder Premium Workflow
@@ -30,7 +30,7 @@ Vous trouverez dans les rubriques suivantes des détails concernant **Media Enco
 
 - [Formats pris en charge par le flux de travail Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) : présente les formats et les codecs pris en charge par **Media Encoder Premium Workflow**.
 
-- La section [Comparer les encodeurs](media-services-encode-asset.md#compare_encoders) compare les fonctionnalités d'encodage de **Media Encoder Premium Workflow**, **Media Encoder Standard** et d'**Azure Media Encoder**.
+- La section [Comparer les encodeurs](media-services-encode-asset.md#compare_encoders) compare les fonctionnalités d’encodage de **Media Encoder Premium Workflow** et de **Media Encoder Standard**.
 
 Cette rubrique montre comment encoder avec **Media Encoder Premium Workflow** en utilisant .NET.
 
@@ -279,4 +279,4 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

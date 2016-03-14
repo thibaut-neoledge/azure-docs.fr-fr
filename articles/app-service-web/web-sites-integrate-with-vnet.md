@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="ccompy"/>
 
 # Intégrer une application à un réseau Azure Virtual Network #
@@ -56,7 +56,7 @@ Voici quelques informations à garder à l’esprit avant de connecter votre app
 
 Vous pouvez connecter un site Web à un réseau virtuel nouveau ou existant. Si vous créez un réseau, outre la création du réseau virtuel, une passerelle de routage dynamique est préconfigurée pour vous et le réseau VPN de point à site est activé.
 
->[AZURE.NOTE]La configuration d’une nouvelle intégration au réseau virtuel peut prendre plusieurs minutes.
+>[AZURE.NOTE] La configuration d’une nouvelle intégration au réseau virtuel peut prendre plusieurs minutes.
 
 Pour activer l’intégration au réseau virtuel, accédez aux paramètres de votre application, puis sélectionnez Mise en réseau. L’interface utilisateur qui s’ouvre offre trois options de mise en réseau. Ce guide porte uniquement sur l’intégration au réseau virtuel. Cependant, les connexions hybrides et environnements App Service sont décrits plus loin dans ce document.
 
@@ -87,7 +87,7 @@ Si vous souhaitez créer un réseau virtuel, n’oubliez pas que vous pouvez act
 
 Sachez que si vous souhaitez que ce réseau virtuel puisse se connecter à vos autres réseaux, vous devez éviter de choisir un espace d’adressage IP qui chevauche ces réseaux.
 
->[AZURE.NOTE]La fourniture complète de passerelles fonctionnelles à un nouveau réseau virtuel peut prendre jusqu’à 30 minutes. L’interface utilisateur est mise à jour à la fin du processus.
+>[AZURE.NOTE] La fourniture complète de passerelles fonctionnelles à un nouveau réseau virtuel peut prendre jusqu’à 30 minutes. L’interface utilisateur est mise à jour à la fin du processus.
 
 ![][3]
 
@@ -156,7 +156,7 @@ Deux actions clés sont possibles. D’une part, vous avez la possibilité d’a
 
 La fonctionnalité d’intégration au réseau virtuel offre notamment l’avantage suivant : si votre réseau virtuel est connecté à votre réseau local avec une connexion VPN de site à site, vos applications peuvent accéder à vos ressources locales à partir de votre application. Pour que cela fonctionne, vous devrez peut-être mettre à jour votre passerelle VPN locale avec les itinéraires relatifs à votre plage IP de point à site. Lorsque vous configurez le réseau VPN de site à site pour la première fois, les scripts utilisés pour le configurer doivent définir les itinéraires, y compris votre réseau VPN de point à site. Si vous ajoutez le réseau VPN de point à site après avoir créé votre réseau VPN de site à site, vous devrez mettre à jour les itinéraires manuellement. La procédure détaillée dépend de la passerelle et n’est pas décrite ici.
 
->[AZURE.NOTE]La fonctionnalité d’intégration au réseau virtuel fonctionne avec un réseau VPN de site à site pour l’accès aux ressources locales. Cependant, actuellement, elle ne fonctionne pas avec un réseau VPN ExpressRoute à cette fin.
+>[AZURE.NOTE] La fonctionnalité d’intégration au réseau virtuel fonctionne avec un réseau VPN de site à site pour l’accès aux ressources locales. Cependant, actuellement, elle ne fonctionne pas avec un réseau VPN ExpressRoute à cette fin.
 
 ##Détails de la tarification##
 Lorsque vous utilisez la fonctionnalité d’intégration au réseau virtuel, vous devez connaître quelques nuances concernant la tarification. L’utilisation de cette fonctionnalité implique 3 coûts :
@@ -167,7 +167,7 @@ Lorsque vous utilisez la fonctionnalité d’intégration au réseau virtuel, vo
 
 Pour que vos applications puissent utiliser cette fonctionnalité, elles doivent faire partie d’un plan App Service Standard ou Premium. Pour plus d’informations sur les coûts, voir : [Tarification App Service][ASPricing].
 
-En raison du mode de gestion des réseaux VPN de point à site, vous encourez systématiquement des coûts liés aux données sortantes lors de la connexion pour l’intégration au réseau virtuel, et ce, même si le réseau virtuel est situé dans le même centre de données. Pour connaître ces coûts, voir :[Détails de la tarification de transfert de données][DataPricing].
+En raison du mode de gestion des réseaux VPN de point à site, vous encourez systématiquement des coûts liés aux données sortantes lors de la connexion pour l’intégration au réseau virtuel, et ce, même si le réseau virtuel est situé dans le même centre de données. Pour connaître ces coûts, voir : [Détails de la tarification de transfert de données][DataPricing].
 
 Les passerelles de réseau virtuel représentent le dernier élément de coût. Si vous n’utilisez pas les passerelles à d’autres fins, par exemple pour des réseaux VPN de site à site, vous payez la prise en charge de la fonctionnalité d’intégration au réseau virtuel par les passerelles. Pour plus d’informations sur ces coûts, voir : [tarification de passerelle VPN][VNETPricing].
 
@@ -225,7 +225,11 @@ N’oubliez pas que vous ne connaissez pas l’adresse IP de la plage d’adress
 ####Ressources locales####
 Si vous ne pouvez pas accéder aux ressources locales, commencez par vérifier si vous pouvez accéder à une ressource de votre réseau virtuel. Si cela fonctionne, les étapes suivantes sont assez faciles. À partir d’une machine virtuelle de votre réseau virtuel, vous devez tenter d’accéder à l’application locale. Vous pouvez utiliser Telnet ou un utilitaire ping TCP. Si votre machine virtuelle ne peut pas accéder à votre ressource locale, commencez par vérifier que votre connexion VPN de site à site fonctionne. Si c’est le cas, vérifiez les éléments indiqués précédemment, ainsi que la configuration et l’état de la passerelle locale.
 
-À présent, si la machine virtuelle hébergée sur votre réseau virtuel peut accéder à votre système local mais que votre application n’y parvient pas, cela est probablement dû à l’une des raisons suivantes : - vos itinéraires ne sont pas configurés avec vos plages d’adresses IP de point à site dans votre passerelle locale - les groupes de sécurité de votre réseau empêchent l’accès à votre plage d’adresses IP de point à site - vos pare-feu locaux bloquent le trafic à partir de votre plage d’adresses IP de point à site - un itinéraire défini par l’utilisateur dans votre réseau virtuel empêche votre trafic de point à site d’atteindre votre réseau local.
+Maintenant, si votre machine virtuelle hébergée sur réseau virtuel peut atteindre votre système local, mais que votre application ne le peut pas, la raison est probablement l'une des suivantes :
+- vos itinéraires ne sont pas configurés avec vos plages IP de point à site dans votre passerelle locale
+- vos groupes de sécurité réseau bloquent l'accès de votre plage IP de point à site
+- vos pare-feu local locaux bloquent le trafic à partir de votre plage IP de point à site
+- vous avez un itinéraire défini par l’utilisateur (UDR) dans votre réseau virtuel qui empêche votre trafic de point à site d'atteindre votre réseau local
 
 ## Connexions hybrides et environnements App Service##
 Trois fonctionnalités permettent d’accéder aux ressources hébergées sur le réseau virtuel. Il s'agit de :
@@ -265,4 +269,4 @@ Outre les différences fonctionnelles, il existe également des différences de 
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

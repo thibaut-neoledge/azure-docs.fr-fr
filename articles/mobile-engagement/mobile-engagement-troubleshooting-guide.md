@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="10/22/2015"
+   ms.date="02/26/2016"
    ms.author="piyushjo"/>
 
 # Azure Mobile Engagement - Guide de dépannage
@@ -28,7 +28,7 @@ En règle générale, vous devez systématiquement vérifier les éléments suiv
 1. Assurez-vous que vous avez exécuté toutes les opérations requises pour l’intégration, comme décrit dans nos [didacticiels de prise en main](mobile-engagement-windows-store-dotnet-get-started.md),
 2. que vous utilisez bien la dernière version du kit de développement logiciel de la plateforme, 
 3. que vous effectuez les tests sur un périphérique réel et un émulateur, car certains problèmes sont spécifiques à l’émulateur, 
-4. que vous n’atteignez pas les limites/seuils d’Engagement Mobile qui sont mentionnés [ici](azure-subscription-service-limits.md).
+4. que vous n’atteignez pas les limites/seuils d’Engagement Mobile qui sont mentionnés [ici](../azure-subscription-service-limits.md).
 5. Si vous n’êtes pas en mesure de vous connecter au backend du service Engagement Mobile ou si voyez pas les données chargées en continu, assurez-vous qu’il n’y a pas d’incident de service en cours [ici](https://azure.microsoft.com/status/)
 
 ## problèmes d’« Analyse »
@@ -89,6 +89,7 @@ Vous trouverez d’autres instructions de dépannage spécifiques de plateforme 
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
 	- Assurez-vous qu’il ne manque pas une autorisation ou que l’une d’elle n’est pas mal configurée dans le fichier manifeste Android.
+	- Assurez-vous que le numéro de projet que vous ajoutez à votre application cliente provient du même compte que celui où vous avez obtenu la clé du serveur GCM. Toute incompatibilité entre les deux empêchera la sortie de vos notifications push. 
 	- Si vous recevez des notifications système, mais pas dans l’application, passez en revue la [section Spécifier une icône de notifications](mobile-engagement-android-get-started.md), car il est probable que vous ne spécifiez pas l’icône correcte dans le fichier manifeste Android. 
 	- Si vous envoyez une notification BigPicture, assurez-vous, au cas où vous disposez de serveurs d’images externes, qu’ils sont en mesure de prendre en charge HTTP « GET » et « HEAD ».
 
@@ -120,4 +121,4 @@ Si vous ne parvenez pas à résoudre le problème vous-même, vous pouvez :
 	- Version du kit de développement logiciel Mobile Engagement (par exemple, le kit de développement logiciel Android v2.1.0)
 	- Détails de l’erreur avec message d’erreur exact et scénario
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

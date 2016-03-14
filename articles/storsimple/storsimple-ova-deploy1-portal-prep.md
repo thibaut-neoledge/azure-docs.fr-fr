@@ -13,24 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Déploiement de StorSimple Virtual Array - Préparation du portail (version préliminaire)
+# Déploiement de StorSimple Virtual Array - Préparation du portail
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
 ## Vue d'ensemble 
 
-Cet article s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version 1.1.1.0 (version préliminaire publique) uniquement. Il s’agit du premier article de la série de didacticiels sur le déploiement nécessaires pour déployer complètement votre tableau virtuel en tant que serveur de fichiers ou serveur iSCSI. Cet article décrit la préparation nécessaire pour créer et configurer votre service StorSimple Manager avant la configuration d'un tableau virtuel. Cet article contient également des liens vers une liste de vérification de la configuration du déploiement ainsi que la configuration requise.
+Cet article s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version de mise à la disposition générale (mars 2016). Il s’agit du premier article de la série de didacticiels sur le déploiement nécessaires pour déployer complètement votre tableau virtuel en tant que serveur de fichiers ou serveur iSCSI. Cet article décrit la préparation nécessaire pour créer et configurer votre service StorSimple Manager avant la configuration d'un tableau virtuel. Cet article contient également des liens vers une liste de vérification de la configuration du déploiement ainsi que la configuration requise.
 
 Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. Nous vous recommandons de consulter la liste de contrôle de configuration du déploiement avant de commencer. La préparation du portail prendra moins de 10 minutes.
 
 Les informations de déploiement StorSimple publiées dans cet article s'appliquent uniquement aux tableaux virtuels StorSimple.
-
-> [AZURE.IMPORTANT]
-> 
-> Cette version préliminaire publique est destinée uniquement à des fins d’évaluation et de planification du déploiement. L'installation de cette version préliminaire dans un environnement de production n'est pas prise en charge.
 
 ### Prise en main
 
@@ -43,8 +39,8 @@ Consultez les articles suivants dans l'ordre indiqué pour déployer votre StorS
 | **#** | **Dans cette étape** | **Vous effectuerez ceci...** | **Utilisez ces documents.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **Configuration du portail Azure Classic** | Créez et configurez votre service StorSimple Manager avant de configurer un appareil virtuel StorSimple. |[Préparation du portail](storsimple-ova-deploy1-portal-prep.md)| 
-|2\. | **Configuration du tableau virtuel** | Pour Hyper-V, configurez et connectez-vous à un appareil virtuel StorSimple sur un système hôte exécutant Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2. <br></br> <br></br> Pour VMware, configurez et connectez-vous à un appareil virtuel local StorSimple sur un système hôte exécutant VMware ESXi 5.5 et versions ultérieures.| [Configuration d’un tableau virtuel dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-ova-deploy2-provision-vmware.md)|
-|3\. | **Configuration du tableau virtuel** | Pour votre serveur de fichiers, effectuez la configuration initiale, inscrivez votre serveur de fichiers StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les partages SMB. <br></br> <br></br> Pour votre serveur iSCSI, effectuez la configuration initiale, inscrivez votre serveur iSCSI StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les volumes iSCSI.| [Configuration d’un tableau comme serveur de fichiers](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configuration d’un tableau comme serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)|
+|2\. | **Configuration du tableau virtuel** | Pour Hyper-V, configurez et connectez-vous à un appareil virtuel StorSimple sur un système hôte exécutant Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2. <br></br> <br></br> Pour VMware, configurez et connectez-vous à un appareil virtuel local StorSimple sur un système hôte exécutant VMware ESXi 5.5 et versions ultérieures.<br></br>| [Configuration d’un tableau virtuel dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-ova-deploy2-provision-vmware.md)|
+|3\. | **Configuration du tableau virtuel** | Pour votre serveur de fichiers, effectuez la configuration initiale, inscrivez votre serveur de fichiers StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les partages SMB. <br></br> <br></br> Pour votre serveur iSCSI, effectuez la configuration initiale, inscrivez votre serveur iSCSI StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les volumes iSCSI.| [Configuration d’un tableau virtuel comme serveur de fichiers](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configuration d’un virtuel tableau comme serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)|
 
 #### Vidéos de déploiement
 
@@ -130,7 +126,7 @@ Une seule instance du service StorSimple Manager peut gérer plusieurs appareils
 
 Une fois le service StorSimple Manager opérationnel, vous devez obtenir la clé d’inscription. Cette clé est utilisée pour inscrire et connecter votre appareil StorSimple auprès du service.
 
-Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/).
+Procédez comme suit dans le [Portail Azure Classic](https://manage.windowsazure.com/).
 
 
 [AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
@@ -143,22 +139,30 @@ Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure
 
 Après avoir obtenu la clé d'inscription du service, vous devrez télécharger l'image de l’appareil virtuel appropriée pour configurer un appareil virtuel sur le système hôte. Les images d’appareil virtuel sont spécifiques au système d'exploitation et peuvent être téléchargées depuis la page Démarrage rapide du portail Azure Classic.
 
-Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/).
+> [AZURE.IMPORTANT] Le logiciel exécuté sur StorSimple Virtual Array peut uniquement servir en association avec le service Storsimple Manager.
+
+
+Procédez comme suit dans le [Portail Azure Classic](https://manage.windowsazure.com/).
 
 #### Pour obtenir l'image de l’appareil virtuel
 
 1.  À la page **Service StorSimple Manager**, cliquez sur le service que vous avez créé. La page **Démarrage rapide** s’affiche. (Vous pouvez cliquer sur l’icône de démarrage rapide à tout moment ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) pour accéder à la page **Démarrage rapide**.)
 
 
-1.  Téléchargez le disque dur virtuel approprié sur un partage réseau de votre centre de données. Des disques durs virtuels distincts sont disponibles pour :
+1.  Téléchargez le disque dur virtuel (VHD) ou le VHDX approprié sur un partage réseau de votre centre de données. Des images distinctes sont disponibles pour :
 
+	-   Hyper-V 2012 et versions ultérieures
+	
 	-   Hyper-V 2008 R2 et versions ultérieures
 
 	-   VMWare ESXi 5.5 et versions ultérieures
 
+	> [AZURE.IMPORTANT] Le logiciel exécuté sur StorSimple Virtual Array peut uniquement servir en association avec le service Storsimple Manager.
+
+
 1.  Cliquez sur l'image correspondant au système d'exploitation que vous allez utiliser pour configurer l’appareil virtuel. Vous serez dirigé vers le Centre de téléchargement Microsoft.
 
-1.  Si vous utilisez Hyper-V, téléchargez le disque dur virtuel pour Hyper-V 2008 R2 et versions ultérieures. Si vous utilisez VMware, téléchargez le VMDK. Le disque dur virtuel est un fichier compressé de 4,77 Go, et le VMDK est un fichier de 4,75 Go. La durée de téléchargement du fichier dépend de votre connexion Internet.
+1.  Si vous utilisez Hyper-V, téléchargez le VHDX pour Hyper-V 2012 ou le VDH pour Hyper-V 2008 R2 et versions ultérieures. Si vous utilisez VMware, téléchargez le VMDK. Le VHDX est un fichier compressé de 4,77 Go, le VHD est un fichier de 4,77 Go et le VMDK est un fichier de 4,75 Go. La durée de téléchargement du fichier dépend de votre connexion Internet.
 
 2.  Décompressez le fichier et notez l'emplacement décompressé sur votre lecteur local.
 
@@ -207,4 +211,4 @@ L'étape suivante consiste à configurer une machine virtuelle pour votre appare
 
 -   [Configurer StorSimple Virtual Array dans VMware](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

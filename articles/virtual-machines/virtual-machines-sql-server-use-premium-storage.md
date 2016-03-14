@@ -22,7 +22,7 @@
 
 ## Vue d'ensemble
 
-Le [stockage Premium Azure](../storage-premium-storage-preview-portal.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) IaaS.
+Le [stockage Premium Azure](../storage/storage-premium-storage.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) IaaS.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
@@ -149,7 +149,7 @@ Une fois que vous avez mappé les disques durs virtuels aux disques physiques da
 
 Les performances de stockage dépendent de la taille de la machine virtuelle DS* spécifiée et des tailles des disques durs virtuels. Les machines virtuelles offrent différentes tolérances pour le nombre de disques durs virtuels peuvent être connectés et la bande passante maximale prise en charge (Mo/s). Pour connaître les numéros de bande passante spécifiques, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](virtual-machines-size-specs.md).
 
-Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d'informations, [consultez le tableau des opérations d'E/S et des types de disque](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whfr-FRing-premium-storage).
+Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d'informations, [consultez le tableau des opérations d'E/S et des types de disque](../storage-premium-storage.md#scalability-and-performance-targets-whfr-FRing-premium-storage).
 
 Enfin, notez que les machines virtuelles prennent en charge différentes bandes passantes maximales pour tous les disques connectés. Sous une charge élevée, vous risquez de saturer la bande passante de disque maximale disponible pour cette taille de rôle de machine virtuelle. Par exemple un disque Standard\_DS14 prendra en charge jusqu'à 512 Mo/s ; par conséquent, avec trois disques P30, vous pourriez saturer la bande passante de disque de la machine virtuelle. Mais dans cet exemple, la limite de débit peut être dépassée selon la combinaison d'opérations d'E/S en lecture et écriture.
 
@@ -258,7 +258,7 @@ L'exemple suivant montre comment placer le disque dur virtuel du système d'expl
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 
-### Création d’une machine virtuelle pour utiliser un stockage Premium avec une image personnalisée
+### Création d’une machine virtuelle pour utiliser Premium Storage avec une image personnalisée
 
 Ce scénario vous montre où sont placées les images personnalisées existantes qui résident sur un compte de stockage Standard. Comme mentionné, si vous souhaitez placer le disque dur virtuel du système d'exploitation sur un stockage Premium, vous devez copier l'image existante sur le compte de stockage Standard et la transférer vers un stockage Premium pour pouvoir l'utiliser. Si vous disposez d'une image locale, vous pouvez également utiliser cette méthode pour la copier directement sur le compte de stockage Premium.
 
@@ -402,7 +402,6 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 1. Copiez les sauvegardes complètes et effectuez une restauration avec **NORECOVERY**.
 1. Copiez les objets dépendants 'out of user DB', notamment que les connexions.
 1. Créez un nouvel équilibreur de charge interne (ILB) ou utilisez un équilibreur de charge externe (ELB), puis configurez ensuite les points de terminaison d'équilibrage de charge sur les deux nouveaux nœuds.
-
 > [AZURE.NOTE] Vérifiez que la configuration du point de terminaison est correcte pour tous les nœuds avant de continuer.
 
 1. Arrêtez l'accès de l'utilisateur/application à SQL Server (si vous utilisez des pools de stockage).
@@ -1118,7 +1117,7 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 	![Appendix15][25]
 
 ## Ressources supplémentaires
-- [Stockage Premium Azure](../storage-premium-storage-preview-portal.md)
+- [Stockage Premium Azure](../storage/storage-premium-storage.md)
 - [Machines virtuelles](https://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md)
 
@@ -1149,4 +1148,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!----HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0302_2016-->

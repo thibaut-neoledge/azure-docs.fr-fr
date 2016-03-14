@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 Azure AD simplifie l’externalisation de la gestion des identités de votre application web en fournissant une authentification unique avec seulement quelques lignes de code. Dans les applications web Java, vous pouvez y parvenir en utilisant l’implémentation Microsoft d’ADAL4J communautaire.
 
-  Ici, nous allons utiliser ADAL4J pour : - Connecter l’utilisateur à l’application en utilisant Azure AD comme fournisseur d’identité. - Afficher des informations à propos de l’utilisateur. - Déconnecter l’utilisateur de l’application.
+  Ici, nous allons utiliser ADAL4J pour :
+- connecter l’utilisateur à l’application à l’aide d’Azure AD comme fournisseur d’identité ;
+- afficher des informations sur l’utilisateur ;
+- déconnecter l’utilisateur de l’application.
 
 Pour ce faire, vous devez :
 
@@ -265,4 +268,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

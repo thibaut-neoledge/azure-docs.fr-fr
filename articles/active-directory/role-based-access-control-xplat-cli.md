@@ -19,8 +19,8 @@
 # Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure (Azure CLI) #
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](/role-based-access-control-xplat-cli-install.md)
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Interface de ligne de commande Azure](role-based-access-control-xplat-cli.md)
 
 Le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
@@ -30,7 +30,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser l’interface de ligne de 
 
 ## Composants requis ##
 
-Avant d’utiliser l’interface de ligne de commande Azure pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
+Pour pouvoir utiliser Azure CLI pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
 
 - Azure CLI version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure CLI](../xplat-cli-install.md).
 - Consultez également les didacticiels suivants afin de vous familiariser avec la configuration et l’utilisation d’Azure Resource Manager dans Azure CLI : [Utilisation d’Azure CLI avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
@@ -140,12 +140,12 @@ Ensuite, lorsque vous tentez d’exécuter d’autres applets de commande comme 
 
 Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide d’Azure CLI, ainsi que sur les rubriques associées :
 
-- [Contrôle d’accès en fonction du rôle dans Azure](../role-based-access-control-configure.md)
+- [Contrôle d’accès en fonction du rôle dans Azure](role-based-access-control-configure.md)
 - [Installer et configurer Azure CLI](../xplat-cli-install.md)
 - [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
-- [Utilisation de groupes de ressources pour gérer vos ressources Azure](../azure-preview-portal-using-resource-groups.md) : découvrez comment créer et gérer des groupes de ressources dans le portail de gestion Azure.
-- [Blog Azure](http://blogs.msdn.com/windowsazure) : découvrez les nouvelles fonctionnalités d’Azure.
+- [Utilisation du portail Azure pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md) : découvrez comment créer et gérer des groupes de ressources dans le portail Azure.
+- [Blog Azure](http://blogs.msdn.com/windowsazure) : découvrez les nouvelles fonctionnalités d'Azure.
 - [Configurer le contrôle d’accès en fonction du rôle à l’aide de Windows PowerShell](role-based-access-control-powershell.md)
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

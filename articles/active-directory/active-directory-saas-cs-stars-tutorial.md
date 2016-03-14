@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer CS Stars av
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à CS Stars. 
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à CS Stars (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory.
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Pour configurer l’intégration d’Azure AD avec CS Stars, vous avez besoin d
 - Un abonnement CS Stars pour lequel l’authentification unique est activée
 
 
-> [AZURE.NOTE]Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -56,7 +56,7 @@ Pour configurer l’intégration de CS Stars avec Azure AD, vous devez ajouter 
 
 **Pour ajouter CS Stars à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation de gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Active Directory][1]<br>
+1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Active Directory][1]<br>
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -87,11 +87,11 @@ Pour configurer et tester l’authentification unique Azure AD avec CS Stars, v
 
 ### Configuration de l’authentification unique Azure AD
 
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD et de configurer l’authentification unique dans votre application CS Stars.<br>
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application CS Stars.<br>
 
 **Pour configurer l’authentification unique Azure AD avec CS Stars, procédez comme suit :**
 
-1. Dans le portail Azure AD, sur la page d’intégration d’applications **CS Stars**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br>![Configurer l’authentification unique][6]<br>
+1. Dans le portail Azure Classic, sur la page d’intégration d’applications **CS Stars**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br>![Configurer l’authentification unique][6]<br>
 
 2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à CS Stars**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][7]<br>
 
@@ -99,7 +99,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
  
      3\.1. dans la zone de texte **URL d’authentification**, saisissez l’URL que vos utilisateurs utilisent pour se connecter à votre application CS Stars (par exemple : « **https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2*).
 
-     >[AZURE.NOTE]Si vous ne connaissez pas la valeur exacte, contactez votre représentant Marsh ClearSight.
+     > [AZURE.NOTE] Si vous ne connaissez pas la valeur exacte, contactez votre représentant Marsh ClearSight.
 
      3\.2. Cliquez sur **Next**.
  
@@ -108,7 +108,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 5. Pour activer l’authentification unique pour CS Stars, contactez votre représentant Marsh ClearSigh et remettez le fichier de métadonnées.
 
 
-6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][10]<br>
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][10]<br>
 
 7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][11]<br>
 
@@ -116,11 +116,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**. <br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**. <br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation de gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
+1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -140,7 +140,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
   5. Cliquez sur **Next**.
 
-7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)<br>
+7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **créer**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)<br>
  
 8. Sur la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)<br>
   1. Notez la valeur **Nouveau mot de passe**.
@@ -163,7 +163,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à CS Stars, procédez comme suit :**
 
-1. Dans le portail Azure, pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut. <br> <br>![Affecter des utilisateurs][201]<br>
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 2. Dans la liste des applications, sélectionnez **CS Stars**. <br><br>![Affecter des utilisateurs][202]<br>
 1. Dans le menu situé en haut de l’écran, cliquez sur **Utilisateurs**.<br> <br><br>![Affecter des utilisateurs][203]<br>
 1. Dans la liste des utilisateurs, sélectionnez **Britta Simon**.
@@ -205,4 +205,4 @@ L’objectif de cette section consiste à tester la configuration de l’authent
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="02/28/2016" 
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -140,6 +140,17 @@ Votre niveau de tarification détermine la durée de conservation des données d
 * Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées pour une minute pendant 30 jours et pour une heure ou un jour (selon le type) pendant 13 mois.
 
 
+## Échantillonnage
+
+L’[échantillonnage](app-insights-sampling.md) est une méthode vous permettant de réduire les données de télémétrie conservées par votre application, tout en conservant la capacité de trouver des événements connexes lors des recherches de diagnostic, ainsi que le décompte des événements corrects. L’échantillonnage vous permet de respecter votre quota mensuel.
+
+Il existe plusieurs formes d’échantillonnage. Nous vous recommandons d’utiliser l’[échantillonnage adaptatif](app-insights-sampling.md), qui s’ajuste automatiquement au volume de télémétrie que votre application envoie. Il fonctionne dans le Kit de développement logiciel (SDL) de votre application web, afin de réduire le trafic de télémétrie sur le réseau. Vous pouvez l’utiliser si l’infrastructure de votre application web est .NET : installez la dernière version (bêta) du Kit de développement logiciel (SDK).
+
+Comme alternative, vous pouvez définir l’*échantillonnage d’ingestion* dans le panneau Quotas et tarification. Cette forme d’échantillonnage fonctionne au niveau où les données de télémétrie issues de votre application entrent dans le service Application Insights. Il n’affecte pas le volume de télémétrie envoyé depuis votre application, mais il réduit le volume conservé par le service.
+
+![Dans le panneau Quotas et tarification, cliquez sur la vignette Exemples et sélectionnez une fraction d’échantillonnage.](./media/app-insights-sampling/04.png)
+
+L’échantillonnage est un moyen efficace de réduire les coûts et de respecter votre quota mensuel. L’algorithme d’échantillonnage conserve les éléments associés à la télémétrie, afin que, lorsque vous utilisez la recherche par exemple, vous puissiez trouver la demande liée à une exception spécifique. L’algorithme conserve également le décompte correct. Cela vous permet de voir les valeurs correctes des taux de demandes, des taux d’exception et des autres compteurs dans Metric Explorer.
 
 
 ## Consultation de la facture de votre abonnement à Azure
@@ -162,4 +173,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

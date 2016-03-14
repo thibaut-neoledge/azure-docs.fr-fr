@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2015"
+	ms.date="02/16/2016"
 	ms.author="nitinme"/>
 
 # Personnalisation de clusters HDInsight basés sur Windows à l'aide d'une action de script
@@ -62,16 +62,18 @@ Nom | Script
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Utilisation d’une action de script pour personnaliser un cluster")
 
 	<table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Nom</td>
-		<td>Indiquez un nom pour l'action de script.</td></tr>
-	<tr><td>URI du script</td>
-		<td>Spécifiez l’URI du script appelé pour personnaliser les clusters.</td></tr>
-	<tr><td>Head/Worker</td>
-		<td>Spécifiez les nœuds (**Head** ou **Worker**) sur lesquels le script de personnalisation est exécuté.</b>.
-	<tr><td>Paramètres</td>
-		<td>Spécifiez les paramètres, si le script le demande.</td></tr>
-</table>Appuyez sur ENTRÉE pour ajouter plusieurs actions de script et installer plusieurs composants sur le cluster.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Nom</td>
+			<td>Indiquez un nom pour l'action de script.</td></tr>
+		<tr><td>URI du script</td>
+			<td>Spécifiez l’URI du script appelé pour personnaliser les clusters.</td></tr>
+		<tr><td>Head/Worker</td>
+			<td>Spécifiez les nœuds (**Head** ou **Worker**) sur lesquels le script de personnalisation est exécuté.</b>.
+		<tr><td>Paramètres</td>
+			<td>Spécifiez les paramètres, si le script le demande.</td></tr>
+	</table>
+
+	Appuyez sur ENTRÉE pour ajouter plusieurs actions de script et installer plusieurs composants sur le cluster.
 
 3. Cliquez sur **Sélectionner** pour enregistrer la configuration d’action de script et poursuivre la création du cluster.
 
@@ -175,6 +177,7 @@ L’exemple suivant montre comment installer Spark sur un cluster HDInsight bas�
 
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 2. Utilisez les instructions using suivantes dans le fichier Program.cs :
 
@@ -187,6 +190,7 @@ L’exemple suivant montre comment installer Spark sur un cluster HDInsight bas�
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.Resources;
 
 3. Placez le code dans la classe en procédant comme suit :
 
@@ -212,6 +216,9 @@ L’exemple suivant montre comment installer Spark sur un cluster HDInsight bas�
 
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+            
+            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
@@ -316,4 +323,4 @@ Consultez [Développer des scripts d’action de script pour HDInsight][hdinsigh
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Procédure de création d’un cluster"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/29/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : historique de publication des versions
@@ -24,8 +24,19 @@ Cet article est conçu pour vous aider à conserver la trace des versions qui on
 
 Liens connexes :
 
+- Différentes méthodes pour [effectuer une mise à niveau depuis une version précédente vers la dernière](active-directory-aadconnect-upgrade-previous-version.md) version Azure AD Connect.
 - Pour plus d'informations sur les autorisations requises pour appliquer une mise à jour, consultez [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.110.0
+Publié : février 2016
+
+**Problèmes résolus :**
+
+- La mise à niveau à partir de versions antérieures ne fonctionne pas si l'installation n'est pas dans le dossier **C:\\Program Files** par défaut.
+- Si vous installez et désélectionnez **Lancer le processus de synchronisation...** à la fin de l'assistant d’installation, la réexécution du l'assistant d’installation n'activera pas le planificateur.
+- Le planificateur ne fonctionne pas comme prévu sur les serveurs où le format de date et d'heure n'est pas fr-FR. Il bloque également `Get-ADSyncScheduler` pour renvoyer les heures appropriées.
+- Si vous avez installé une version antérieure d'Azure AD Connect avec ADFS comme option de connexion et mise à niveau, vous ne pouvez pas réexécuter l'assistant d’installation.
 
 ## 1\.1.105.0
 Publié : février 2016
@@ -34,11 +45,11 @@ Publié : février 2016
 
 - Fonctionnalité [Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) pour les clients de la configuration rapide.
 - Prise en charge pour l’administrateur général à l’aide de l’authentification MFA et de la gestion PIM dans l’Assistant d’installation.
-    - Vous devez autoriser votre proxy pour autoriser le trafic vers https://secure.aadcdn.microsoftonline-p.com si vous utilisez l’authentification MFA.
+    - Vous devez permettre à votre proxy d’autoriser le trafic vers https://secure.aadcdn.microsoftonline-p.com si vous utilisez l’authentification MFA.
     - Vous devez ajouter https://secure.aadcdn.microsoftonline-p.com à votre liste de sites de confiance pour que l’authentification MFA fonctionne correctement.
 - Autorisez la modification de la méthode de connexion de l’utilisateur après l’installation initiale.
-- Autorisez le [filtrage domaine et unité organisationnelle](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) dans l’Assistant d’installation. Cela permet également la connexion à des forêts dans lesquelles tous les domaines ne sont pas disponibles.
-- Le [Planificateur](active-directory-aadconnectsync-feature-scheduler.md) est intégré au moteur de synchronisation.
+- Autorisez le [Filtrage domaine et unité organisationnelle](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) dans l’assistant d’installation. Cela permet également la connexion à des forêts dans lesquelles tous les domaines ne sont pas disponibles.
+- Le [planificateur](active-directory-aadconnectsync-feature-scheduler.md) est intégré au moteur de synchronisation.
 
 **Fonctionnalités promues de version préliminaire à disponibilité générale :**
 
@@ -237,4 +248,4 @@ Publiée : septembre 2014
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

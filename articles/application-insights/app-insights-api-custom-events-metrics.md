@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -196,7 +196,29 @@ Si vous avez plusieurs onglets dans différentes pages HTML, vous pouvez aussi s
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
+#### Affichages de la page de durée
 
+Par défaut, les heures déclarées « Temps de chargement de l’affichage de la page » sont mesurées à partir du moment où le navigateur envoie la demande, jusqu’à ce que l’événement de chargement de la page du navigateur soit appelé.
+
+Au lieu de cela, vous pouvez :
+
+* Définir une durée explicite dans l’appel [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview).
+ * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
+* Utiliser les appels de minutage d’affichage de la page `startTrackPage` et `stopTrackPage`.
+
+*JavaScript*
+
+    // To start timing a page:
+    appInsights.startTrackPage("Page1");
+
+...
+
+    // To stop timing and log the page:
+    appInsights.stopTrackPage("Page1", url, properties, measurements);
+
+Le nom que vous utilisez comme premier paramètre associe les appels de démarrage et d’arrêt. Le nom de la page actuelle est utilisé par défaut.
+
+Les durées de chargement de la page résultantes affichées dans Metric Explorer sont dérivées de l’intervalle entre les appels de démarrage et d’arrêt. C’est à vous de décider quel intervalle de temps vous voulez mesurer.
 
 ## Suivi des requêtes
 
@@ -436,7 +458,7 @@ Il existe certaines [limites au nombre de propriétés, de valeurs de propriét�
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE]Veillez à ne pas journaliser des informations personnelles dans les propriétés.
+> [AZURE.NOTE] Veillez à ne pas journaliser des informations personnelles dans les propriétés.
 
 **Si vous avez utilisé des mesures**, ouvrez Metrics Explorer et sélectionnez la mesure à partir du groupe personnalisé :
 
@@ -479,7 +501,7 @@ Si cela est plus pratique, vous pouvez collecter les paramètres d'un événemen
 
     telemetry.TrackEvent(event);
 
-> [AZURE.WARNING]Ne réutilisez pas la même instance d’élément de télémétrie (`event` dans cet exemple) pour appeler Track*() plusieurs fois. Cela peut provoquer un envoi de données de télémétrie configurées de façon incorrecte.
+> [AZURE.WARNING] Ne réutilisez pas la même instance d’élément de télémétrie (`event` dans cet exemple) pour appeler Track*() plusieurs fois. Cela peut provoquer un envoi de données de télémétrie configurées de façon incorrecte.
 
 #### <a name="timed"></a> Événements de durée
 
@@ -736,4 +758,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

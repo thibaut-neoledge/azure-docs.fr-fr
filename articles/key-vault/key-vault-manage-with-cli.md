@@ -24,7 +24,7 @@ Ce didacticiel vous aide à démarrer avec Azure Key Vault pour créer un conten
 
 **Durée estimée :** 20 minutes
 
->[AZURE.NOTE]Ce didacticiel n’inclut pas d’instructions sur l’écriture de l’application Azure abordée dans une des étapes, qui montre comment autoriser une application à utiliser une clé ou un secret dans le coffre de clés.
+>[AZURE.NOTE]  Ce didacticiel n’inclut pas d’instructions sur l’écriture de l’application Azure abordée dans une des étapes, qui montre comment autoriser une application à utiliser une clé ou un secret dans le coffre de clés.
 >
 >Actuellement, vous ne pouvez pas configurer Azure Key Vault dans le portail Azure. À la place, utilisez ces instructions de l’interface de ligne de commande interplateforme. Ou, pour des instructions Azure PowerShell, consultez [ce didacticiel équivalent](key-vault-get-started.md).
 
@@ -68,7 +68,7 @@ ou si vous voulez vous connecter en tapant de façon interactive
 
     azure login
 
->[AZURE.NOTE]La méthode par connexion fonctionne uniquement avec un compte professionnel. Il s’agit d’un utilisateur géré par votre organisation et défini dans le client Azure Active Directory de votre organisation.
+>[AZURE.NOTE]  La méthode par connexion fonctionne uniquement avec un compte professionnel. Il s’agit d’un utilisateur géré par votre organisation et défini dans le client Azure Active Directory de votre organisation.
 
 
 Si vous ne possédez pas de compte professionnel et que vous utilisez un compte Microsoft pour vous connecter à votre abonnement Azure, vous pouvez en créer un facilement en procédant comme suit.
@@ -153,7 +153,7 @@ Examinons la clé ou le secret que vous venez de créer :
 Cette étape est généralement effectuée par un développeur et sur un ordinateur distinct. Bien que non spécifique d’Azure Key Vault, elle est incluse ici par souci d’exhaustivité.
 
 
->[AZURE.IMPORTANT]Pour suivre le didacticiel, le compte, le coffre et l’application que vous inscrivez dans cette étape doivent tous se trouver dans le même répertoire Azure.
+>[AZURE.IMPORTANT] Pour suivre le didacticiel, le compte, le coffre et l’application que vous inscrivez dans cette étape doivent tous se trouver dans le même répertoire Azure.
 
 Les applications qui utilisent un coffre de clés doivent s’authentifier à l’aide d’un jeton à partir d’Azure Active Directory. Pour ce faire, le propriétaire de l’application doit d’abord inscrire l’application dans Azure Active Directory. À la fin de l’inscription, le propriétaire de l’application obtient les valeurs suivantes :
 
@@ -185,11 +185,11 @@ Pour autoriser l’application à accéder à la clé ou au secret dans le coffr
 
 Par exemple, si le nom de votre coffre est ContosoKeyVault, que l’application que vous souhaitez autoriser a l’ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed et que vous souhaitez autoriser l’application à déchiffrer et à signer avec des clés dans le coffre, exécutez la commande suivante :
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '["decrypt","sign"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
 Si vous souhaitez autoriser cette même application à lire les éléments secrets de votre coffre, exécutez la commande suivante :
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
 
 ## Si vous souhaitez utiliser un module de sécurité matériel (HSM) ##
 
@@ -256,4 +256,4 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

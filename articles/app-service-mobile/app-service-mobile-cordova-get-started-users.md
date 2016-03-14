@@ -40,7 +40,7 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 
 ##<a name="add-authentication"></a>Ajout de l’authentification à l’application
 
-1. Ouvrez votre projet dans **Visual Studio**, puis ouvrez le fichier <tt>www/index.html</tt> pour modification.
+1. Ouvrez votre projet dans **Visual Studio**, puis ouvrez le fichier `www/index.html` pour modification.
 
 2. Localisez la balise META `Content-Security-Policy` dans la section d’en-tête. Vous devez ajouter l’hôte OAuth à la liste des ressources autorisées.
 
@@ -54,16 +54,17 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 
     Voici un exemple Content-Security-Policy (implémenté pour Azure Active Directory) :
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Vous devez remplacer <tt>https://login.windows.net</tt> par l’hôte OAuth du tableau ci-dessus. Consultez la [documentation Content-Security-Policy] pour en savoir plus sur cette balise META.
+    Vous devez remplacer `https://login.windows.net` par l’hôte OAuth du tableau ci-dessus. Consultez la [documentation Content-Security-Policy] pour en savoir plus sur cette balise META.
 
     Notez que certains fournisseurs d’authentification ne requièrent aucune modification Content-Security-Policy avec des appareils mobiles appropriés. Par exemple, aucune modification de l’approche Content-Security-Policy n’est nécessaire lorsque vous recourez à l’authentification Google sur un appareil Android.
 
-3. Ouvrez le fichier <tt>www/js/index.js</tt> pour le modifier. Bien que le projet soit développé et exécuté avec les modifications déjà apportées, nous vous recommandons d’appeler explicitement une méthode login() afin de lancer une action de connexion. Recherchez la méthode `onDeviceReady()`. Sous le code de création de client, ajoutez les éléments suivants :
+3. Ouvrez le fichier `www/js/index.js` pour modification, recherchez la méthode `onDeviceReady()` et, sous le code de création du client, ajoutez le code suivant :
 
         // Login to the service
-        client.login('SDK Provider_Name')
+        client.login('SDK_Provider_Name')
             .then(function () {
 
                 // BEGINNING OF ORIGINAL CODE
@@ -82,11 +83,11 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 
             }, handleError);
 
-    Par exemple, pour Azure Active Directory, utilisez :
+    Notez que ce code remplace le code existant qui crée la référence de table et actualise l'interface utilisateur.
 
-        client.login('aad')
+    La méthode login() lance l'authentification auprès du fournisseur. La méthode login() est une méthode asynchrone qui renvoie une promesse JavaScript. Le reste de l’initialisation est placé au sein de la réponse de promesse, de manière à ce qu’aucune exécution n’intervienne avant la fin de la méthode login().
 
-    La méthode login() est une méthode asynchrone qui renvoie une promesse JavaScript. Le reste de l’initialisation est placé au sein de la réponse de promesse, de manière à ce qu’aucune exécution n’intervienne avant la fin de la méthode login().
+4. Dans le code que vous venez d'ajouter, remplacez `SDK_Provider_Name` par le nom de votre fournisseur de connexion. Par exemple, pour Azure Active Directory, utilisez `client.login('aad')`.
 
 4. Exécutez votre projet. Une fois que le projet a terminé l’initialisation, votre application affiche la page de connexion OAuth du fournisseur d’authentification choisi.
 
@@ -102,4 +103,4 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 [Notifications Push]: app-service-mobile-cordova-get-started-push.md
 [À propos de l’authentification]: app-service-mobile-auth.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

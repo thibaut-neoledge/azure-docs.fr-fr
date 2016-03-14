@@ -59,6 +59,19 @@ Utilisez le tableau suivant pour déterminer si vous pouvez basculer vers un aut
 | Update 2 à Update 1 (1, 1.1, 1.2) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous la forme à plusieurs niveaux. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
 | Update 2 à Update 2 (version ultérieure) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous le type de volume de départ ; à plusieurs niveaux pour à plusieurs niveaux et épinglés localement pour épinglés localement. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
 
+
+#### Basculement partiel entre les versions du logiciel
+
+Suivez ces instructions si vous envisagez d’effectuer un basculement partiel à l’aide d’un appareil source StorSimple exécutant la Mise à jour préliminaire 1 vers une cible exécutant la Mise à jour 1 ou une version ultérieure.
+
+
+| Basculement partiel à partir de | Autorisé pour un appareil physique | Autorisé pour un appareil virtuel |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+|Mise à jour préliminaire 1 (Version 0.1, 0.2, 0.3) à la Mise à jour 1 ou version ultérieure | Oui, voici le meilleur conseil pratique. | Oui, voici le meilleur conseil pratique. |
+
+
+>[AZURE.TIP] Une modification des métadonnées du cloud et du format des données dans la Mise à jour 1 et les versions ultérieures. Par conséquent, nous ne recommandons pas un basculement partiel de la Mise à jour préliminaire 1 à la Mise à jour 1 ou à une version ultérieure. Si vous devez effectuer un basculement partiel, nous vous recommandons de commencer par appliquer la Mise à jour 1 ou une version ultérieure sur les deux les appareils (source et cible), puis effectuez le basculement.
+
 ## Basculement vers un autre appareil physique
 
 Procédez comme suit pour restaurer votre appareil vers un appareil physique.
@@ -162,4 +175,4 @@ S’il existe des appareils StorSimple inscrits juste avant un incident, ces pé
 - Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

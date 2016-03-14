@@ -3,7 +3,7 @@
 	description="Découvrez comment cibler les sorties de transformations de données Stream Analytics vers des options de stockage de données. Utilisez également Power BI pour les résultats d’analyse."
 	keywords="transformation de données, résultats d’analyse, options de stockage de données"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
-	documentationCenter=""
+	documentationCenter="" 
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="jeffstok"/>
 
 # Cibler les sorties de transformations de données Stream Analytics vers des outils d’analyse et des options de stockage des données
@@ -39,7 +39,7 @@ Vous pouvez utiliser une [base de données SQL Azure](https://azure.microsoft.c
 
 ## Stockage d'objets blob ##
 
-Le stockage d’objets blob offre une solution peu coûteuse et évolutive pour stocker de grandes quantités de données non structurées dans le cloud. Pour une présentation du stockage d’objets blob Azure et de son utilisation, consultez [Utilisation du stockage d’objets blob](./articles/storage-dotnet-how-to-use-blobs.md).
+Le stockage d’objets blob offre une solution peu coûteuse et évolutive pour stocker de grandes quantités de données non structurées dans le cloud. Pour une présentation du stockage d’objets blob Azure et de son utilisation, consultez [Utilisation du stockage d’objets blob](../storage/storage-dotnet-how-to-use-blobs.md).
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie d’objets blob.
 
@@ -118,7 +118,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche des résultats d’analyse. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par des métriques.
 
-> [AZURE.NOTE] À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
+> [AZURE.NOTE] À ce stade, la création et la configuration de sorties Power BI sont prises en charge uniquement dans le portail Azure Classic.
 
 ### Autorisation d’un compte Power BI
 
@@ -159,7 +159,7 @@ Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et acc�
 
 ## Stockage de tables
 
-Le [stockage de tables Azure](./articles/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu'une application puisse être mise à l'échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
+Le [stockage de tables Azure](../storage/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu'une application puisse être mise à l'échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
@@ -267,4 +267,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

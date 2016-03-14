@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,7 +93,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
  
      a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site QuickHelp (par ex. : * https://quickhelp.com/bsiazure/*).
 
-     >[AZURE.NOTE] Contactez votre équipe de support QuickHelp si vous ignorez la valeur de l’URL d’authentification.
+     > [AZURE.NOTE] Contactez votre équipe de support QuickHelp si vous ignorez la valeur de l’URL d’authentification.
 
      b. Cliquez sur **Next**.
 
@@ -255,4 +255,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

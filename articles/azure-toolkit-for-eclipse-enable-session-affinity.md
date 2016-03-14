@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
@@ -49,7 +49,7 @@ Pour obtenir un exemple montrant comment gérer les données de session lorsque 
 
 [Kit de ressources Azure pour Eclipse][]
 
-[Création d'une application Hello World pour Azure dans Eclipse][]
+[Création d’une application « Hello World » pour Azure dans Eclipse][]
 
 [Installation du kit de ressources Azure pour Eclipse][]
 
@@ -61,7 +61,7 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 [Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Comment gérer les données de session avec l'affinité de session]: http://go.microsoft.com/fwlink/?LinkID=699539
 [Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
@@ -69,4 +69,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

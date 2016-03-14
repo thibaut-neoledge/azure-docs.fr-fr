@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
-#Guide de dépannage de la vidéo en flux continu
+#Guide de dépannage de la vidéo en flux continu 
 
 Cette rubrique fournit des suggestions sur la façon de résoudre certains problèmes de vidéo en flux continu.
 
@@ -65,6 +65,12 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 
 	**Étapes de dépannage** : accédez à l’onglet « Point de terminaison de diffusion en continu » dans l’outil AMSE et vérifiez qu’un point de terminaison de diffusion en continu est en cours d’exécution avec une unité de diffusion en continu.
 	
+###Problème : vous aimeriez voir les journaux de l’encodeur 
+
+- **Problème potentiel** : impossible de trouver des journaux qui pourraient aider à déboguer des problèmes.
+
+	**Étapes de dépannage** : en général, les journaux Wirecast se trouvent sous C:\\Users{username}\\AppData\\Roaming\\Wirecast\\
+
 >[AZURE.NOTE] Si, après avoir suivi la procédure de dépannage, vous ne pouvez toujours pas diffuser en flux continu, envoyez un ticket de support à l’aide du portail Azure Classic.
 
 ##Parcours d’apprentissage de Media Services
@@ -75,4 +81,4 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

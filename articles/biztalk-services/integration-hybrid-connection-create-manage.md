@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@ Cette rubrique répertorie ces étapes.
 
 Vous pouvez créer une connexion hybride dans le portail Azure avec Web Apps **ou** BizTalk Services.
 
-**Pour créer des connexions hybrides à l’aide de Web Apps**, consultez la page [Connexion d’Azure Web Apps à une ressource locale](../web-sites-hybrid-connection-get-started.md).
+**Pour créer des connexions hybrides à l’aide de Web Apps**, consultez la page [Connexion d’Azure Web Apps à une ressource locale](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 **Pour créer des connexions hybrides dans BizTalk Services** :
 
@@ -61,9 +61,9 @@ Port | Entrez le numéro de port de la ressource locale. Par exemple, si vous ut
 
 ## <a name="LinkWebSite"></a>Liaison de votre application Azure Web Apps ou Azure Mobile Apps
 
-Pour lier l’application Azure Web Apps à une connexion hybride existante, sélectionnez **Utiliser une connexion hybride existante** dans le panneau Connexions hybrides. Consultez la page [Connexion d’une application web Azure à une ressource locale](../web-sites-hybrid-connection-get-started.md).
+Pour lier l’application Azure Web Apps à une connexion hybride existante, sélectionnez **Utiliser une connexion hybride existante** dans le panneau Connexions hybrides. Consultez la page [Connexion d’une application web Azure à une ressource locale](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-Pour lier l’application Azure Mobile Apps à une connexion hybride existante, sélectionnez **Ajouter une connexion hybride** lors de la modification ou de la création d’un service mobile. Consultez la page [Azure Mobile Services et connexions hybrides](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Pour lier l’application Azure Mobile Apps à une connexion hybride existante, sélectionnez **Ajouter une connexion hybride** lors de la modification ou de la création d’un service mobile. Consultez la page [Azure Mobile Services et connexions hybrides](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 
 ## <a name="InstallHCM"></a>Installation locale du Gestionnaire de connexions hybrides
@@ -85,7 +85,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. On the on-premises resource, install the Hybrid Connection Manager from the MSI file. 
 4. Using Windows PowerShell, type: 
 > Add-HybridConnection -ConnectionString “*Your On-Premises Connection String that you copied*” 
--->
+--> 
 
 #### Informations complémentaires
 - Les connexions hybrides prennent en charge les ressources locales installées sur les systèmes d'exploitation suivants :
@@ -119,7 +119,9 @@ Pour gérer vos connexions hybrides, vous pouvez :
 
 	**Gérer la connexion** répertorie les chaînes de connexion locales et d’application. Vous pouvez copier les chaînes de connexion ou régénérer la clé d’accès utilisée dans la chaîne de connexion.
 
-	**Si vous sélectionnez Régénérer**, la clé d’accès partagé utilisée dans la chaîne de connexion est modifiée. Procédez comme suit : - Dans le portail Azure Classic, sélectionnez **Clés de synchronisation** dans l’application Azure. - Réexécutez l’**Installation locale**. Lorsque vous réexécutez l'installation locale, la ressource locale est automatiquement configurée pour utiliser la chaîne de connexion principale mise à jour.
+	**Si vous sélectionnez Régénérer**, la clé d’accès partagé utilisée dans la chaîne de connexion est modifiée. Effectuez les actions suivantes :
+	- Dans le portail Azure Classic, sélectionnez **Clés de synchronisation** dans l’application Azure.
+	- Réexécutez l’**Installation locale**. Lorsque vous réexécutez l'installation locale, la ressource locale est automatiquement configurée pour utiliser la chaîne de connexion principale mise à jour.
 
 
 #### Utilisation d’une stratégie de groupe pour contrôler les ressources locales utilisées par une connexion hybride
@@ -138,7 +140,7 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 
 ## Suivant
 
-[Connexion d’applications web Azure à une ressource locale](../web-sites-hybrid-connection-get-started.md) [Connexion à un serveur SQL Server local à partir d’Azure Web Apps](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Azure Mobile Services et connexions hybrides](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Aperçu des connexions hybrides](integration-hybrid-connection-overview.md)
+[Connexion d’applications web Azure à une ressource locale](../app-service-web/web-sites-hybrid-connection-get-started.md) [Connexion à un serveur SQL Server local à partir d’Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Azure Mobile Services et connexions hybrides](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Aperçu des connexions hybrides](integration-hybrid-connection-overview.md)
 
 
 ## Voir aussi
@@ -150,4 +152,4 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

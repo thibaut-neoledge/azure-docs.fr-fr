@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/25/2016" 
 	ms.author="awills"/>
 
 # Échantillonnage, filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
@@ -24,9 +24,7 @@ Vous pouvez écrire et configurer des plug-ins pour le Kit de développement log
 Actuellement, ces fonctionnalités sont disponibles pour le Kit de développement logiciel (SDK) ASP.NET.
 
 * L'[échantillonnage](#sampling) réduit le volume des données de télémétrie sans affecter les statistiques. Il maintient ensemble les points de données liés de sorte que vous pouvez naviguer entre eux pour diagnostiquer un problème. Dans le portail, les nombres totaux sont multipliés pour compenser l'échantillonnage.
- * L'échantillonnage à débit fixe vous permet de déterminer le pourcentage d'événements qui sont transmis.
- * L'échantillonnage adaptatif (la valeur par défaut pour ASP.NET SDK de 2.0.0-beta3) ajuste automatiquement le débit d'échantillonnage en fonction du volume de vos données de télémétrie. Vous pouvez définir un volume cible.
-* Le [filtrage](#filtering) vous permet de sélectionner ou de modifier la télémétrie dans le Kit de développement logiciel (SDK) avant son envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Il s'agit d'une approche plus simple que l'échantillonnage pour réduire le trafic. Cela vous permet de mieux contrôler ce qui est transmis, mais vous devez être conscient que cela affectera vos statistiques ; par exemple, si vous filtrez toutes les demandes réussies.
+* Le [filtrage](#filtering) vous permet de sélectionner ou de modifier la télémétrie dans le Kit de développement logiciel (SDK) avant l'envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Il s'agit d'une approche plus simple que l'échantillonnage pour réduire le trafic. Cela vous permet de mieux contrôler ce qui est transmis, mais vous devez être conscient que cela affectera vos statistiques ; par exemple, si vous filtrez toutes les demandes réussies.
 * [Ajoutez des propriétés](#add-properties) à n'importe quelle télémétrie envoyée à partir de votre application, notamment les données de télémétrie fournies par les modules standard. Par exemple, vous pouvez ajouter des valeurs calculées ou des numéros de version permettant de filtrer les données dans le portail.
 * [L'API SDK](app-insights-api-custom-events-metrics.md) est utilisée pour envoyer des événements et des mesures personnalisés.
 
@@ -42,10 +40,15 @@ Avant de commencer :
 
 L'[échantillonnage](app-insights-sampling.md) est la méthode recommandée pour réduire le trafic tout en conservant la précision des statistiques. Le filtre sélectionne les éléments associés afin que vous puissiez naviguer entre les éléments en cours de diagnostic. Le nombre d’événements est ajusté dans Metrics Explorer pour compenser les éléments filtrés.
 
-* L'échantillonnage adaptatif est recommandé. Il ajuste automatiquement le pourcentage d'échantillonnage de façon à obtenir un volume spécifique de demandes. Actuellement uniquement disponible pour la télémétrie ASP.NET côté serveur.  
+* L'échantillonnage adaptatif est recommandé. Il ajuste automatiquement le pourcentage d'échantillonnage de façon à obtenir un volume spécifique de demandes. Actuellement uniquement disponible pour la télémétrie ASP.NET côté serveur. 
 * Une option d'[échantillonnage à débit fixe](app-insights-sampling.md) est également disponible. Vous spécifiez le pourcentage d'échantillonnage. Disponible pour le code d'application web ASP.NET et les pages Web JavaScript. Le client et le serveur synchronisent leur échantillonnage de façon à ce que vous puissiez naviguer entre les demandes et les affichages de pages associés dans Search.
+* L’échantillonnage d’ingestion fonctionne lorsque la télémétrie est reçue sur le portail Application Insights. Il peut donc être utilisé, quel que soit le Kit de développement logiciel (SDK) que vous utilisez. Cela ne réduit pas le trafic de télémétrie sur le réseau, mais cela réduit le volume traité et stocké dans Application Insights. Seules les données de télémétrie conservées sont incluses dans votre quota mensuel. 
 
-### Pour activer l'échantillonnage
+### Pour activer l’échantillonnage d’ingestion
+
+Dans la barre Paramètres, ouvrez le panneau Quotas et tarification. Cliquez sur Échantillonnage et sélectionnez un taux d’échantillonnage.
+
+### Pour activer l’échantillonnage adaptatif
 
 **Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d'Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
@@ -404,4 +407,4 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

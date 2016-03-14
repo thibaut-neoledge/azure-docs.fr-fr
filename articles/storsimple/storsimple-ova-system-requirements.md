@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Configuration système requise pour StorSimple Virtual Array (version préliminaire)
+# Configuration système requise pour StorSimple Virtual Array
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Cet article décrit la configuration système requise importante pour Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel local StorSimple ou appareil virtuel StorSimple) et pour les clients de stockage accédant au tableau. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
@@ -34,10 +34,6 @@ Les informations de configuration système requise StorSimple publiées dans cet
  
 - Pour les appareils de la gamme 7000, accédez à [Configuration système requise pour votre appareil de la gamme StorSimple 5000-7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
-> [AZURE.IMPORTANT]
-> 
-> - Cette version d'évaluation publique est uniquement destinée à l'évaluation. L'installation de cette version préliminaire dans un environnement de production n'est pas prise en charge.
-> - Si vous rencontrez des problèmes avec StorSimple Virtual Array, publiez-les sur le [forum MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=StorSimple).  
 
 ## Configuration logicielle requise
 
@@ -102,4 +98,4 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 
 -   [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

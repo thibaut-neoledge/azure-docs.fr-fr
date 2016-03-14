@@ -13,16 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Gestion du Contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell
+
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API REST](role-based-access-control-manage-access-rest.md)
+
 
 ## Répertorier les rôles pour le contrôle d’accès basé sur les rôles (RBAC)
+
+>[AZURE.IMPORTANT] Pour pouvoir utiliser les applets de commande de cet article, vous devez [installer les applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) dans PowerShell.
+
 ### Répertorier tous les rôles disponibles
 Pour répertorier les rôles RBAC pouvant être affectés et inspecter les opérations auxquelles ils accordent l'accès, utilisez :
 
@@ -151,4 +156,4 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

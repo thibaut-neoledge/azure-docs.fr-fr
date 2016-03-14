@@ -3,7 +3,7 @@
    description="La création de graphiques vous permet de créer des Runbooks pour Azure Automation sans utiliser de code. Cet article propose une introduction à la création de graphiques et tous les détails nécessaires pour commencer à créer Runbook graphique."
    services="automation"   
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Création de graphiques dans Azure Automation
@@ -116,7 +116,7 @@ Sélectionnez l'activité sur le canevas pour configurer ses propriétés et ses
 
 ### Jeux de paramètres
 
-Un jeu de paramètres définit les paramètres obligatoires et facultatifs qui acceptent des valeurs pour une applet de commande particulière. Toutes les applets de commande ont au moins un jeu de paramètres ; certaines en ont plusieurs. Si une applet de commande a plusieurs jeux de paramètres, vous devez sélectionner celui que vous allez utiliser avant de pouvoir configurer les paramètres. Les paramètres que vous pouvez configurer dépendent de l'ensemble de paramètres que vous choisissez. Vous pouvez changer le jeu de paramètres utilisé par une activité en sélectionnant **Jeu de paramètres**, puis en sélectionnant un autre jeu. Dans ce cas, toutes les valeurs de paramètres que vous avez configurées sont perdues.
+Un jeu de paramètres définit les paramètres obligatoires et facultatifs qui acceptent des valeurs pour une applet de commande particulière. Toutes les applets de commande ont au moins un jeu de paramètres ; certaines en ont plusieurs. Si une applet de commande a plusieurs jeux de paramètres, vous devez sélectionner celui que vous allez utiliser avant de pouvoir configurer les paramètres. Les paramètres que vous pouvez configurer dépendent de l'ensemble de paramètres que vous choisissez. Vous pouvez changer le jeu de paramètres utilisé par une activité en sélectionnant **Jeu de paramètres**, puis en sélectionnant un autre jeu. Dans ce cas, toutes les valeurs de paramètres que vous avez configurées sont perdues.
 
 Dans l'exemple suivant, l'applet de commande Get-AzureVM a deux jeux de paramètres. Vous ne pouvez pas configurer les valeurs de paramètres tant que vous n'avez pas sélectionné l'un des jeux de paramètres. Le jeu de paramètres ListAllVMs, qui a un seul paramètre facultatif, sert à retourner toutes les machines virtuelles. La valeur GetVMByServiceandVMName, qui a un paramètre obligatoire et deux paramètres facultatifs, sert à spécifier la machine virtuelle à retourner.
 
@@ -128,7 +128,7 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 | Source de données | Description |
 |:---|:---|
-|Valeur constante|Entrez une valeur pour le paramètre. Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
+|Valeur constante|Entrez une valeur pour le paramètre. Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
 |Sortie d'activité|Sortie d'une activité qui précède l'activité actuelle dans le workflow. Toutes les activités valides sont répertoriées. Sélectionnez simplement l'activité pour utiliser sa sortie comme valeur de paramètre. Si l'activité génère un objet ayant plusieurs propriétés, vous pouvez taper le nom de la propriété après avoir sélectionné l'activité.|
 |Paramètre d'entrée de Runbook|Sélectionnez un paramètre d'entrée de Runbook en tant qu'entrée pour le paramètre de l'activité.|  
 |Ressource variable Automation|Sélectionnez une variable Automation comme entrée.|  
@@ -143,7 +143,7 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 #### Autres paramètres facultatifs
 
-Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier « **-Verbose:$True** ».
+Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier « **-Verbose:$True** ».
 
 ### Nouvelles tentatives d’activité
 
@@ -217,7 +217,7 @@ Pour un lien de type pipeline, vous spécifiez une condition pour un seul objet,
 
 	$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'
 
-Pour un lien de type séquence, la condition est évaluée une seule fois, car un seul tableau contenant la sortie de tous les objets à partir de l'activité source est retourné. C'est pour cette raison qu'un lien séquence ne peut pas être utilisé pour filtrer comme un lien pipeline ; il détermine simplement si l'activité suivante est exécutée ou non. Le code suivant illustre le même exemple d'évaluation de la sortie de Get-AzureVM pour déterminer les machines virtuelles qui sont en cours d'exécution. Dans ce cas, le code parcourt chaque objet du tableau et produit la valeur true si au moins une machine virtuelle est en cours d'exécution. L'activité de destination est responsable de l'analyse de ces données.
+Pour un lien de type séquence, la condition est évaluée une seule fois, car un seul tableau contenant la sortie de tous les objets à partir de l'activité source est retourné. C'est pour cette raison qu'un lien séquence ne peut pas être utilisé pour filtrer comme un lien pipeline ; il détermine simplement si l'activité suivante est exécutée ou non. Le code suivant illustre le même exemple d'évaluation de la sortie de Get-AzureVM pour déterminer les machines virtuelles qui sont en cours d'exécution. Dans ce cas, le code parcourt chaque objet du tableau et produit la valeur true si au moins une machine virtuelle est en cours d'exécution. L'activité de destination est responsable de l'analyse de ces données.
 
 	$test = $false
 	$VMs = $ActivityOutput['Get-AzureVm']
@@ -419,4 +419,4 @@ L'exemple suivant utilise la sortie d'une activité nommée *Obtenir la connexio
 - [Opérateurs](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Application Insights pour les applications web qui sont déjà actives
@@ -23,7 +23,7 @@ Si vous disposez d’une application web qui est déjà en cours d’exécution 
 
 Vous devrez vous abonner à [Microsoft Azure](https://azure.com).
 
-> [AZURE.NOTE]La procédure décrite ici ajoute le Kit de développement logiciel (SDK) à votre application web au moment de l’exécution. Cette opération est utile si vous ne souhaitez pas mettre à jour ni régénérer votre code source. Mais si vous le pouvez, nous vous recommandons plutôt d’[ajouter le Kit de développement logiciel au code source](app-insights-java-get-started.md). Cette approche vous offre davantage d’options, telles que l’écriture de code pour effectuer le suivi de l’activité des utilisateurs.
+> [AZURE.NOTE] La procédure décrite ici ajoute le Kit de développement logiciel (SDK) à votre application web au moment de l’exécution. Cette opération est utile si vous ne souhaitez pas mettre à jour ni régénérer votre code source. Mais si vous le pouvez, nous vous recommandons plutôt d’[ajouter le Kit de développement logiciel au code source](app-insights-java-get-started.md). Cette approche vous offre davantage d’options, telles que l’écriture de code pour effectuer le suivi de l’activité des utilisateurs.
 
 ## 1\. Obtenir une clé d'instrumentation Application Insights
 
@@ -139,4 +139,4 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

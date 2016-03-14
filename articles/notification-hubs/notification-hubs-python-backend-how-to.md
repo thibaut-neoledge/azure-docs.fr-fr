@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs à partir de Python
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 Vous pouvez accéder à toutes les fonctionnalités Notification Hubs à partir d'un serveur principal Java/PHP/Python/Ruby en utilisant l'interface REST Notification Hub, comme décrit dans la rubrique MSDN [API REST Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
 
-> [AZURE.NOTE]Ceci est un exemple d’implémentation de référence pour l’implémentation des envois de notifications dans Python. Il ne s’agit pas du Kit de développement logiciel (SDK) de Notification Hub Python officiellement pris en charge.
+> [AZURE.NOTE] Ceci est un exemple d’implémentation de référence pour l’implémentation des envois de notifications dans Python. Il ne s’agit pas du Kit de développement logiciel (SDK) de Notification Hub Python officiellement pris en charge.
 
-> [AZURE.NOTE]Cet exemple a été écrit à l’aide de Python 3.4.
+> [AZURE.NOTE] Cet exemple a été écrit à l’aide de Python 3.4.
 
 Dans cette rubrique, nous vous montrons comment :
 
@@ -33,7 +33,7 @@ Dans cette rubrique, nous vous montrons comment :
 
 Vous pouvez suivre le [didacticiel de prise en main](notification-hubs-windows-store-dotnet-get-started.md) pour la plateforme mobile de votre choix, en implémentant la partie concernant le serveur principal dans Python.
 
-> [AZURE.NOTE]L’étendue de l’exemple est limitée uniquement à l’envoi de notifications et il n’effectue aucune gestion des inscriptions.
+> [AZURE.NOTE] L’étendue de l’exemple est limitée uniquement à l’envoi de notifications et il n’effectue aucune gestion des inscriptions.
 
 ## Interface client
 L'interface client principale peut fournir les mêmes méthodes que celles disponibles dans le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx). Cela vous permet de traduire directement les didacticiels et les exemples actuellement disponibles sur ce site et fournis par la communauté sur Internet.
@@ -391,4 +391,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

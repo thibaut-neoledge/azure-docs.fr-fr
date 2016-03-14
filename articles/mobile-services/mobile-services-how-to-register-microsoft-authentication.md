@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/25/2016" 
 	ms.author="glenga"/>
 
 # Inscrire votre application pour utiliser un compte Microsoft pour l'authentification
@@ -31,7 +31,7 @@ Cette rubrique montre comment inscrire votre application mobile afin d'utiliser 
 
 ##Inscription de votre application du Windows Store auprès du Centre de développement Windows
 
-Les applications du Windows Store doivent d'abord être enregistrées auprès du Centre de développement Windows.
+Les applications du Windows Store doivent d'abord être enregistrées auprès du Centre de développement Windows. Grâce à l’inscription, votre application Windows sera en mesure d’utiliser les comportements d’authentification unique.
 
 >[AZURE.NOTE]Les applications Windows Phone 8, Silverlight Windows Phone 8.1 et non-Windows ne sont pas concernées par cette section.
 
@@ -48,12 +48,16 @@ Les applications du Windows Store doivent d'abord être enregistrées auprès du
 6. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services** > **Notifications Push**.
 
 7. Sur la page **Notifications Push**, cliquez sur **Site des services Microsoft Live** sous **Windows Push Notification Services (WNS) et Microsoft Azure Mobile Services**.
+ 
+	La page des paramètres de l’application du compte Microsoft de votre application s’affiche.
 
-La page du compte Microsoft de votre application s'affiche. Ensuite, vous obtenez les informations d'authentification dont Azure a besoin pour utiliser l'authentification Microsoft avec votre application.
+8. Prenez note de la valeur **SID du package**. Vous pouvez enregistrer cette valeur SID dans le portail Azure pour activer l’authentification unique et les notifications Push pour votre application Windows.
+
+Ensuite, vous configurerez l’authentification par compte Microsoft pour votre application Windows, à partir de l’étape 4 dans la section suivante.
 
 ## Configuration de l'enregistrement de votre compte Microsoft et connexion à Mobile Services
 
-La première étape de cette section s'applique uniquement aux applications Windows Phone 8, Silverlight Windows Phone 8.1 et non-Windows Store. Pour ces applications, vous pouvez également ignorer l'identificateur de sécurité de package (SID), qui est uniquement disponible pour les applications du Windows Store.
+Si vous avez déjà inscrit votre application Windows dans la section précédente, vous pouvez passer à l’étape 2.
 
 1. Pour une application non-Windows Store, accédez à la page [Mes applications](http://go.microsoft.com/fwlink/p/?LinkId=262039) dans le Centre des développeurs de compte Microsoft, connectez-vous avec votre compte Microsoft (si nécessaire), cliquez sur **Créer une application**, puis saisissez le **Nom de l’application** et cliquez sur **J’accepte**.
 
@@ -74,7 +78,7 @@ La première étape de cette section s'applique uniquement aux applications Wind
    	![Paramètres d'application du compte Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
 
 
-    > [AZURE.NOTE]La clé secrète client est une information d'identification de sécurité importante. Ne la partagez avec personne et ne la distribuez pas avec votre application. Seules les inscriptions d'application du Windows Store affichent un champ SID du package.
+    > [AZURE.NOTE] La clé secrète client est une information d'identification de sécurité importante. Ne la partagez avec personne et ne la distribuez pas avec votre application. Seules les inscriptions d'application du Windows Store affichent un champ SID du package.
 
 4. Dans le [portail Azure Classic], cliquez sur l’onglet **Identité** du service mobile, entrez l’ID du client, la clé secrète client et le SID du package obtenus auprès de votre fournisseur d’identité, puis cliquez sur **Enregistrer**.
 
@@ -93,4 +97,4 @@ Votre service mobile et votre application sont désormais configurés pour utili
 
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

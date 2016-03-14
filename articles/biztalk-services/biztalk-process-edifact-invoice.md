@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
 # Didacticiel : Processus de facturation EDIFACT à l’aide des Services BizTalk Azure
 Vous pouvez utiliser le portail BizTalk Services pour configurer et déployer des accords X12 et EDIFACT. Dans ce didacticiel, nous allons étudier comment créer un accord EDIFACT destiné à l’échange de factures entre partenaires commerciaux. Ce didacticiel a été rédigé à partir d’une solution de bout en bout faisant intervenir deux partenaires commerciaux, Northwind et Contoso qui échangent des messages EDIFACT.
@@ -46,7 +46,7 @@ Pour achever le scénario, nous utilisons des files d’attente Service Bus pour
 
 ## Composants requis
 
-*   Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/hh690931.aspx). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
+*   Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
 
 *   Vous devez posséder un abonnement BizTalk Services. Pour obtenir des instructions, consultez la page [Création d’un service BizTalk à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=302280). Pour ce didacticiel, supposons que vous disposez d’un abonnement BizTalk Services, appelé **contosowabs**.
 
@@ -113,7 +113,7 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
     3.  Sur l’onglet **Protocole**, sous la section **schémas**, téléchargez le schéma **EFACT\_D93A\_INVOIC.xsd**. Ce schéma est disponible avec l’exemple de package.
 
         ![][4]  
-    4.  Sur l’onglet **Transport**, spécifiez les détails pour les files d’attente Service Bus. Pour le côté envoi de l’accord, nous utilisons la file d’attente **northwindreceive** pour envoyer la facture EDIFACT à Northwind, et la file d’attente **Exécution suspendue** pour acheminer les messages ayant échoué en cours de traitement et suspendus. Vous avez créé ces files d’attente à l’[Étape 1 : créer les files d’attente Service Bus](#BKMK_Queue).
+    4.  Sur l’onglet **Transport**, spécifiez les détails pour les files d’attente Service Bus. Pour le côté envoi de l’accord, nous utilisons la file d’attente **northwindreceive** pour envoyer la facture EDIFACT à Northwind, et la file d’attente **Exécution suspendue** pour acheminer les messages ayant échoué en cours de traitement et suspendus. Vous avez créé ces files d’attente à l’**Étape 1 : créer les files d’attente Service Bus** (dans cette rubrique).
 
         ![][5]
 
@@ -129,9 +129,10 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
 
     4.  Sur l’onglet **Itinéraire**, créez un filtre pour vous assurer que seuls les accusés de réception de Northwind sont acheminés vers Contoso. Sous **Paramètres d’itinéraire**, cliquez sur **Ajouter** pour créer le filtre de routage.
 
-        ![][6] 1. Fournir des valeurs pour **Nom de la règle**, **Règle de routage** et **Destination d’itinéraire** comme indiqué dans l’image.
+        ![][6]
+        1.  Fournir des valeurs pour **Nom de la règle**, **Règle de routage** et **Destination d’itinéraire** comme indiqué dans l’image.
 
-        2.  Cliquez sur **Save**.
+        2.  Cliquez sur **Enregistrer**.
 
     5.  De retour sur l’onglet **Itinéraire**, spécifiez l’endroit vers lequel acheminer les accusés de réception suspendus (accusés de réception qui échouent en cours du traitement). Définissez le type de transport sur Azure Service Bus, le type de destination d’itinéraire sur **File d’attente**, le type d’authentification sur **Signature d’accès partagé** (SAS), fournissez la chaîne de connexion SAP pour l’espace de noms Service Bus, puis saisissez le nom de la file d’attente en tant que **Suspendu**.
 
@@ -312,4 +313,4 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

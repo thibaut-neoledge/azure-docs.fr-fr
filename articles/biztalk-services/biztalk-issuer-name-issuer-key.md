@@ -4,7 +4,7 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -59,7 +59,7 @@ En résumé : Nom de l’émetteur = Nom de l’identité du service Clé de 
 
 Dans le volet de navigation de gauche, vous pouvez également sélectionner **Active Directory** pour récupérer les valeurs Access Control.
 
-> [AZURE.IMPORTANT]Lorsqu'un espace de noms Access Control est créé au moyen d'**Active Directory**, une identité de service n'est **pas** créée automatiquement. Lorsque vous approvisionnez un service BizTalk, un espace de noms Access Control, une identité de service appelée « Owner » (nom de l'émetteur), un mot de passe (clé de l'émetteur) et une clé symétrique sont automatiquement créés.<br /> La page [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942) fournit des informations supplémentaires sur les identités de service Access Control.
+> [AZURE.IMPORTANT] Lorsqu'un espace de noms Access Control est créé au moyen d'**Active Directory**, une identité de service n'est **pas** créée automatiquement. Lorsque vous approvisionnez un service BizTalk, un espace de noms Access Control, une identité de service appelée « Owner » (nom de l'émetteur), un mot de passe (clé de l'émetteur) et une clé symétrique sont automatiquement créés.<br /> La page [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942) fournit des informations supplémentaires sur les identités de service Access Control.
 
 
 ## Nom et clé de l'émetteur Service Bus
@@ -71,9 +71,7 @@ Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter 
 2. Dans le volet de navigation de gauche, sélectionnez **Service Bus**.
 3. Sélectionnez votre espace de noms. Dans la barre des tâches, sélectionnez **Informations de connexion**. Cette action affiche l'**Émetteur par défaut** (Nom de l'émetteur) et la **Clé par défaut** (Clé de l'émetteur). Leurs valeurs peuvent être copiées.  
 
-En résumé :  
-Nom de l’émetteur = Émetteur par défaut  
-Clé de l’émetteur = Clé par défaut
+En résumé : Nom de l’émetteur = Émetteur par défaut Clé de l’émetteur = Clé par défaut
 
 ## Suivant
 Autres rubriques Azure BizTalk Services :
@@ -94,4 +92,4 @@ Autres rubriques Azure BizTalk Services :
 - [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

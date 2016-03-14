@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #Notes de publication
@@ -54,8 +54,8 @@
 -   Version initiale d'Azure Engagement Mobile
 -   La configuration d'appId/sdkKey est remplacée par une configuration de chaîne de connexion.
 -   Suppression de l'API pour envoyer et recevoir des messages XMPP arbitraires d'entités XMPP arbitraires.
--   Suppression de l'API pour envoyer et recevoir des messages entre périphériques.
+-   Suppression de l'API pour envoyer et recevoir des messages entre appareils.
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

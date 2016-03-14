@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="02/19/2016"
 	ms.author="dastrock"/>
 
-# Version préliminaire d’Azure AD B2C : Générer une application web .NET
+# Version préliminaire d’Azure AD B2C : Générer une application web .NET
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
@@ -30,7 +30,7 @@ Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un c
 
 ## Création d'une application
 
-Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
+Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
 - Inclure une **application web/API web** dans l’application.
 - Entrer `https://localhost:44316/` comme **URL de réponse**. Il s’agit de l’URL par défaut pour cet exemple de code.
@@ -40,7 +40,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 
 ## Création de vos stratégies
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création des trois stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création des trois stratégies, assurez-vous de :
 
 - Choisir **Inscription par le biais d’un ID utilisateur** ou **Inscription par le biais d’une adresse e-mail** dans le panneau des fournisseurs d’identité.
 - Choisir **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
@@ -53,7 +53,7 @@ Une fois vos trois stratégies créées, vous pouvez générer votre application
 
 ## Télécharger le code et configurer l’authentification
 
-Le code associé à cet exemple [est stocké sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger la structure de projet sous la forme d’un fichier zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). Vous pouvez également cloner la structure :
+Le code associé à cet exemple [est stocké sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger la structure de projet sous la forme d’un fichier zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). Vous pouvez également cloner la structure :
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -61,7 +61,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Ope
 
 L’exemple terminé est également [disponible en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) ou sur la branche `complete` du même dépôt.
 
-Une fois l’exemple de code téléchargé, ouvrez le fichier .sln Visual Studio pour commencer.
+Une fois l’exemple de code téléchargé, ouvrez le fichier .sln Visual Studio pour commencer.
 
 Votre application communique avec Azure AD B2C en envoyant des requêtes d’authentification HTTP qui indiquent la stratégie à exécuter dans le cadre de la requête. Pour les applications web .NET, vous pouvez utiliser la bibliothèque OWIN de Microsoft pour envoyer des requêtes d’authentification OpenID Connect, exécuter les stratégies, gérer les sessions utilisateur, etc.
 
@@ -173,7 +173,7 @@ public partial class Startup
 ```
 
 ## Envoyer des demandes d’authentification à Azure AD
-Votre application est maintenant correctement configurée pour communiquer avec Azure AD B2C en utilisant le protocole d’authentification OpenID Connect. OWIN a pris en charge tous les détails de la création de messages d’authentification, de la validation des jetons d’Azure AD et de la gestion des sessions utilisateur. Il ne reste plus qu’à initier le flux de chaque utilisateur.
+Votre application est maintenant correctement configurée pour communiquer avec Azure AD B2C en utilisant le protocole d’authentification OpenID Connect. OWIN a pris en charge tous les détails de la création de messages d’authentification, de la validation des jetons d’Azure AD et de la gestion des sessions utilisateur. Il ne reste plus qu’à initier le flux de chaque utilisateur.
 
 Quand un utilisateur sélectionne **S’inscrire**, **Se connecter** ou **Modifier le profil** dans l’application web, l’action associée est appelée dans le `Controllers\AccountController.cs`. Dans tous les cas, vous pouvez utiliser les méthodes OWIN intégrées pour déclencher la bonne stratégie :
 
@@ -245,7 +245,7 @@ public ActionResult Claims()
   ...
 ```
 
-Vous pouvez également utiliser OWIN pour déconnecter l’utilisateur de l’application. Dans `Controllers\AccountController.cs` :
+Vous pouvez également utiliser OWIN pour déconnecter l’utilisateur de l’application. Dans `Controllers\AccountController.cs` :
 
 ```C#
 // Controllers\AccountController.cs
@@ -264,7 +264,7 @@ public void SignOut()
 }
 ```
 
-Par défaut, OWIN n’envoie pas les stratégies que vous spécifiez dans `AuthenticationProperties` à Azure AD. Toutefois, vous pouvez modifier les demandes qu'OWIN génère dans la notification `RedirectToIdentityProvider`. Utilisez cette notification dans `App_Start\Startup.Auth.cs` pour extraire le point de terminaison approprié pour chaque stratégie à partir des métadonnées de la stratégie. Cela garantit que la requête appropriée est envoyée vers Azure AD pour chaque stratégie que votre application souhaite exécuter.
+Par défaut, OWIN n’envoie pas les stratégies que vous spécifiez dans `AuthenticationProperties` à Azure AD. Toutefois, vous pouvez modifier les demandes qu'OWIN génère dans la notification `RedirectToIdentityProvider`. Utilisez cette notification dans `App_Start\Startup.Auth.cs` pour extraire le point de terminaison approprié pour chaque stratégie à partir des métadonnées de la stratégie. Cela garantit que la requête appropriée est envoyée vers Azure AD pour chaque stratégie que votre application souhaite exécuter.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -310,7 +310,7 @@ Enfin, vous pouvez générer et exécuter votre application. Inscrivez-vous à l
 
 ## Ajout d’IDP sociaux
 
-Actuellement, l’application prend uniquement en charge l’inscription et la connexion d’utilisateurs avec des **comptes locaux**. Il s’agit de comptes stockés dans votre répertoire B2C qui utilisent un nom d’utilisateur et un mot de passe. Avec Azure AD B2C, vous pouvez ajouter la prise en charge d’autres **fournisseurs d’identité** sans modifier votre code.
+Actuellement, l’application prend uniquement en charge l’inscription et la connexion d’utilisateurs avec des **comptes locaux**. Il s’agit de comptes stockés dans votre répertoire B2C qui utilisent un nom d’utilisateur et un mot de passe. Avec Azure AD B2C, vous pouvez ajouter la prise en charge d’autres **fournisseurs d’identité** sans modifier votre code.
 
 Pour ajouter des fournisseurs d’identité sociaux à votre application, commencez par suivre les instructions détaillées figurant dans ces articles. Pour chaque fournisseur d’identité que vous souhaitez prendre en charge, vous devez inscrire une application dans ce système et obtenir un ID client.
 
@@ -319,11 +319,11 @@ Pour ajouter des fournisseurs d’identité sociaux à votre application, commen
 - [Définir Amazon en tant qu’IDP](active-directory-b2c-setup-amzn-app.md)
 - [Définir LinkedIn en tant qu’IDP](active-directory-b2c-setup-li-app.md)
 
-Après avoir ajouté les fournisseurs d’identité à votre répertoire B2C, vous devez modifier chacune de vos trois stratégies pour inclure ces nouveaux fournisseurs, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, exécutez à nouveau l’application. Les nouveaux fournisseurs d’identité doivent être ajoutés comme options d’inscription et de connexion dans chacune de vos expériences relatives à l’identité.
+Après avoir ajouté les fournisseurs d’identité à votre répertoire B2C, vous devez modifier chacune de vos trois stratégies pour inclure ces nouveaux fournisseurs, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, exécutez à nouveau l’application. Les nouveaux fournisseurs d’identité doivent être ajoutés comme options d’inscription et de connexion dans chacune de vos expériences relatives à l’identité.
 
 Vous pouvez tester vos stratégies et observer le résultat sur votre exemple d’application. Ajoutez ou supprimez des fournisseurs d’identité, manipulez des revendications d’application ou modifiez des attributs d’inscription. Faites des essais jusqu’à ce que vous compreniez la façon dont les stratégies, les requêtes d’authentification et la bibliothèque OWIN sont liées.
 
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -341,4 +341,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

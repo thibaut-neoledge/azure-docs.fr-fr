@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="02/26/2016"
 	ms.author="john.dehavilland"/>
 
 # Déployer une application web avec MSDeploy, un nom d’hôte personnalisé et un certificat SSL
@@ -197,4 +197,4 @@ Le PowerShell suivant montre le déploiement complet appelant Deploy-azureresour
 
 À ce stade, votre application doit être déployée, et vous devez être en mesure d’y accéder via https://www.yourcustomdomain.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

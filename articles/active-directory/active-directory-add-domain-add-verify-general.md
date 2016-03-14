@@ -103,7 +103,7 @@ S’il s’est écoulé plus de 72 heures depuis que vous avez apporté des mod
 
 ## Vérifiez votre domaine personnalisé pour la fédération avec votre annuaire local
 
-1.  Téléchargez et exécutez Azure AD Connect. L’outil Azure AD Connect [vous invitera à ajouter les entrées DNS qu’il vous fournit](active-directory-aadconnect-get-started-custom.md#select-the-azure-ad-domain-that-you-wish-to-federate).
+1.  Téléchargez et exécutez Azure AD Connect. L’outil Azure AD Connect [vous invitera à ajouter les entrées DNS qu’il vous fournit](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 ## Noms de domaine de troisième niveau
 
@@ -125,4 +125,4 @@ Une fois votre domaine vérifié, vous pouvez le configurer pour qu’il fonctio
 - [Modifier le bureau d’enregistrement DNS pour votre nom de domaine personnalisé](active-directory-add-domain-change-registrar.md)
 - [Supprimer un domaine personnalisé dans Azure Active Directory](active-directory-add-domain-delete-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

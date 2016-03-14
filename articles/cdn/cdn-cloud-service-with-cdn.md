@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Intégration d'un service cloud à Azure CDN" 
-	description="Didacticiel qui explique comment déployer un service cloud qui traite le contenu à partir d'un point de terminaison CDN Azure intégré" 
-	services="cdn, cloud-services" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Intégration d'un service cloud à Azure CDN"
+	description="Didacticiel qui explique comment déployer un service cloud qui traite le contenu à partir d'un point de terminaison CDN Azure intégré"
+	services="cdn, cloud-services"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
-# <a name="intro"></a> Intégration d’un service cloud à Azure CDN 
+# <a name="intro"></a> Intégration d’un service cloud à Azure CDN
 
 Vous pouvez intégrer un service cloud à Azure CDN pour distribuer du contenu à partir de l'emplacement du service cloud. Cette approche offre les avantages suivants :
 
 - Facilité de déploiement et de mise à jour des images, scripts et feuilles de style dans les annuaires de projet du service cloud
-- Facilité de mise à niveau des package NuGet dans votre service cloud (par exemple, les versions de jQuery ou de Bootstrap) 
+- Facilité de mise à niveau des package NuGet dans votre service cloud (par exemple, les versions de jQuery ou de Bootstrap)
 - Gestion de votre application web et de votre contenu CDN, le tout depuis la même interface Visual Studio
 - Flux de travail unifié pour le déploiement de votre application web et de votre contenu CDN
 - Intégration du regroupement et de la minimisation d'ASP.NET avec Azure CDN
@@ -35,7 +35,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 -	[Configuration des paramètres du cache pour le contenu statique de votre service cloud](#caching)
 -	[Distribution du contenu à partir d'actions de contrôleur via Azure CDN](#controller)
 -	[Traitement du contenu regroupé et minimisé via Azure CDN tout en préservant le débogage des scripts dans Visual Studio](#bundling)
--	[Configuration de secours de vos scripts et feuilles de style CSS quand votre service Azure CDN est hors connexion](#fallback) 
+-	[Configuration de secours de vos scripts et feuilles de style CSS quand votre service Azure CDN est hors connexion](#fallback)
 
 ## Ce que vous allez créer ##
 
@@ -48,9 +48,9 @@ Ce didacticiel nécessite les éléments suivants :
 -	Un [compte Microsoft Azure](/account/) actif.
 -	Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
-> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel :
-> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. 
-> + Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :
+> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu'ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web.
+> + Vous pouvez [activer les avantages de l'abonnement MSDN](/pricing/member-offers/msdn-benefits-details/) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
 <a name="deploy"></a>
 ## Déploiement d'un service cloud ##
@@ -93,7 +93,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 	>[AZURE.NOTE] La publication des services cloud prend beaucoup de temps. L'option Activer Web Deploy pour tous les rôles accélère notablement le débogage de votre service cloud en fournissant des mises à jour rapides (mais provisoires) à vos rôles web. Pour en savoir plus sur cette option, consultez la page [Publication d'un service cloud en utilisant les Outils Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Quand le **Journal des activités Microsoft Azure** indique que la publication est **Terminée**, vous devez créer un point de terminaison CDN intégré à ce service cloud.
-	
+
 	>[AZURE.WARNING] Si, après la publication, le service cloud déployé affiche un écran d'erreur, il est probable que le service cloud que vous avez déployé utilise un [système d'exploitation invité qui n'inclut pas .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Vous pouvez contourner ce problème en [déployant .NET 4.5.2 en tant que tâche de démarrage](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## Créer un profil CDN
@@ -107,7 +107,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 1. Dans le [portail de gestion Azure](https://portal.azure.com), cliquez sur **Nouveau** dans l'angle supérieur gauche. Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
 
     Le panneau du nouveau profil CDN s'affiche.
-    
+
     ![Nouveau profil CDN][new-cdn-profile]
 
 2. Entrez un nom pour votre profil CDN.
@@ -129,15 +129,15 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 1. Dans le [portail de gestion Azure](https://portal.azure.com), accédez à votre profil CDN. Vous l'avez peut-être épinglé au tableau de bord à l'étape précédente. Dans le cas contraire, vous le trouverez en cliquant sur **Parcourir**, puis **Profils CDN** et en cliquant sur le profil auquel vous voulez ajouter le point de terminaison.
 
     Le panneau du profil CDN s'affiche.
-    
+
     ![Profil CDN][cdn-profile-settings]
-    
+
 2. Cliquez sur le bouton **Ajouter un point de terminaison**.
 
     ![Bouton Ajouter un point de terminaison][cdn-new-endpoint-button]
 
     Le panneau **Ajouter un point de terminaison** s’affiche.
-    
+
     ![Panneau Ajouter un point de terminaison][cdn-add-endpoint]
 
 3. Entrez un **nom** pour ce point de terminaison CDN. Ce nom servira à accéder à vos ressources en cache au niveau du domaine `<EndpointName>.azureedge.net`.
@@ -155,7 +155,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
     ![Point de terminaison CDN][cdn-endpoint-success]
 
     > [AZURE.NOTE] Le point de terminaison ne sera pas immédiatement disponible pour utilisation. La propagation de l'inscription à travers le réseau CDN peut prendre jusqu'à 90 minutes. Les utilisateurs qui tentent d'utiliser immédiatement le nom de domaine CDN peuvent recevoir le code d'état 404 jusqu'à ce que le contenu soit disponible via le CDN.
-	
+
 ## Test du point de terminaison CDN
 
 Lorsque l'état de la publication est **Terminé**, ouvrez une fenêtre de navigateur et accédez à l'adresse **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Dans ma configuration, cette URL est la suivante :
@@ -174,7 +174,7 @@ De même, vous pouvez accéder à toute URL accessible publiquement à l’adres
 
 -	un fichier .js à partir du chemin d'accès /Script ;
 -	un fichier de contenu à partir du chemin d'accès /Content ;
--	un contrôleur/une action ; 
+-	un contrôleur/une action ;
 -	si la chaîne de requête est activée sur le point de terminaison CDN, une URL avec des chaînes de requête.
 
 En fait, dans la configuration ci-dessus, vous pouvez héberger l'ensemble du service cloud à partir de **http://*&lt;cdnName>*.azureedge.net/**. Si je me rends à l'adresse ****http://camservice.azureedge.net/**, j'obtiens le résultat de l'action à partir de Home/Index.
@@ -184,7 +184,7 @@ En fait, dans la configuration ci-dessus, vous pouvez héberger l'ensemble du se
 Cependant, cela ne signifie pas que c'est toujours (ou généralement) une bonne idée pour traiter l'ensemble du service cloud via Azure CDN. Mises en garde éventuelles :
 
 -	Cette approche nécessite que l'ensemble de votre site soit public, car Azure CDN ne peut pas traiter du contenu privé pour le moment.
--	Si le point de terminaison CDN passe hors connexion quelle qu'en soit la raison (maintenance prévue ou erreur utilisateur), l'ensemble de votre service cloud passe hors connexion à moins qu'il soit possible de rediriger les clients vers l'URL d'origine **http://*&lt;serviceName>*.cloudapp.net/**. 
+-	Si le point de terminaison CDN passe hors connexion quelle qu'en soit la raison (maintenance prévue ou erreur utilisateur), l'ensemble de votre service cloud passe hors connexion à moins qu'il soit possible de rediriger les clients vers l'URL d'origine **http://*&lt;serviceName>*.cloudapp.net/**.
 -	Même avec les paramètres Cache-Control personnalisés (voir [Configuration des options de mise en cache des fichiers statiques dans votre service cloud](#caching)), un point de terminaison CDN n'améliore pas les performances des contenus très dynamiques. Si vous avez essayé de charger la page d'accueil depuis votre point de terminaison CDN (voir ci-dessus), notez qu'il faut environ 5 secondes pour charger la page d'accueil par défaut la première fois, alors qu'il s'agit d'une page relativement simple. Imaginez ce qui se passe du côté client si cette page comporte un contenu dynamique qui doit s'actualiser toutes les minutes. Le traitement du contenu dynamique depuis un point de terminaison CDN nécessite une brève expiration du cache qui se traduit en fréquentes erreurs dans le cache au niveau du point de terminaison. Cela nuit aux performances ou à votre service cloud, et va à l'encontre de la fonction d'un réseau de distribution de contenu (CDN).
 
 La solution alternative consiste à déterminer au cas par cas le contenu à traiter à partir d'Azure CDN dans votre service cloud. À cette fin, vous avez déjà vu comment accéder à des fichiers de contenu individuels depuis le point de terminaison CDN. Je vais vous montrer comment traiter une action sur un contrôleur donné via le point de terminaison CDN dans la section [Distribution de contenu à partir d'actions de contrôleur via Azure CDN](#controller).
@@ -242,18 +242,18 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 		using System.Web.Hosting;
 		using System.Web.Mvc;
 		using System.Web.UI;
-		
+
 		namespace WebRole1.Controllers
 		{
 		    public class MemeGeneratorController : Controller
 		    {
 		        static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
-		
+
 		        public ActionResult Index()
 		        {
 		            return View();
 		        }
-		
+
 		        [HttpPost, ActionName("Index")]
 		        public ActionResult Index_Post(string top, string bottom)
 		        {
@@ -262,10 +262,10 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 		            {
 		                Memes.Add(identifier, new Tuple<string, string>(top, bottom));
 		            }
-		
+
 		            return Content("<a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme</a>");
 		        }
-		
+
 		        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
 		        public ActionResult Show(string id)
 		        {
@@ -274,7 +274,7 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 		            {
 		                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 		            }
-		
+
 		            if (Debugger.IsAttached) // Preserve the debug experience
 		            {
 		                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
@@ -284,13 +284,13 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 		                return Redirect(string.Format("http://<yourCdnName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
 		            }
 		        }
-		
+
 		        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 		        public ActionResult Generate(string top, string bottom)
 		        {
 		            string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
 		            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-		
+
 		            using (Graphics graphics = Graphics.FromImage(bitmap))
 		            {
 		                SizeF size = new SizeF();
@@ -303,23 +303,23 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 		                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
 		                }
 		            }
-		
+
 		            MemoryStream ms = new MemoryStream();
 		            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
 		            return File(ms.ToArray(), "image/png");
 		        }
-		
+
 		        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
 		        {
 		            // Compute actual size, shrink if needed
 		            while (true)
 		            {
 		                size = g.MeasureString(text, font);
-		
+
 		                // It fits, back out
 		                if (size.Height < i.Height &&
 		                     size.Width < i.Width) { return font; }
-		
+
 		                // Try a smaller font (90% of old size)
 		                Font oldFont = font;
 		                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
@@ -340,7 +340,7 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 4. Ouvrez le nouveau fichier *Views\\MemeGenerator\\Index.cshtml* et remplacez son contenu par le simple code HTML suivant pour envoyer les superlatifs :
 
 		<h2>Meme Generator</h2>
-		
+
 		<form action="" method="post">
 		    <input type="text" name="top" placeholder="Enter top text here" />
 		    <br />
@@ -371,7 +371,7 @@ Quand vous envoyez les valeurs du formulaire dans `/MemeGenerator/Index`, la mé
 			return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
 		}
 	}
-	
+
 Si votre débogueur local est lié, vous effectuez un débogage normal avec une redirection locale. S'il est exécuté dans le service cloud, il redirige vers :
 
 	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
@@ -433,22 +433,22 @@ Procédez comme suit pour l'intégration du regroupement et de la minimisation 
 		    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
 		        .GetName().Version.ToString();
 		    var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
 		                "~/Scripts/jquery-{version}.js"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
 		                "~/Scripts/jquery.validate*"));
-		
+
 		    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 		    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
 		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
 		                "~/Scripts/modernizr-*"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
 		                "~/Scripts/bootstrap.js",
 		                "~/Scripts/respond.js"));
-		
+
 		    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
 		                "~/Content/bootstrap.css",
 		                "~/Content/site.css"));
@@ -465,31 +465,31 @@ Procédez comme suit pour l'intégration du regroupement et de la minimisation 
 		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	Ce constructeur indique au regroupement et à la minimisation ASP.NET de restituer des fichiers de script individuels lorsqu'ils sont débogués localement, mais d'utiliser l'adresse CDN spécifiée pour accéder au script en question. Cependant, notez deux caractéristiques importantes avec cette URL CDN correctement formatée :
-	
+
 	-	L'origine de cette URL CDN est `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, qui est en vérité le répertoire virtuel du regroupement de script dans votre service cloud.
 	-	Comme vous utilisez un constructeur CDN, la balise du script CDN pour le regroupement ne contient plus la chaîne de caractères de la version automatiquement générée dans l'URL restituée. Vous devez créer manuellement une chaîne de version unique à chaque modification du regroupement de script pour forcer une erreur dans le cache de votre réseau de distribution de contenu (CDN) Azure. En même temps, cette chaîne de version unique doit rester constante tout au long du déploiement pour un accès maximal au cache de votre réseau de distribution de contenu (CDN) Azure après le déploiement du regroupement.
 	-	La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\\AssemblyInfo.cs* dans votre projet de rôle web. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '*'. Par exemple :
 
 			[assembly: AssemblyVersion("1.0.0.*")]
-	
+
 		Toute autre stratégie pour simplifier la génération d'une chaîne unique tout au long d'un déploiement fonctionne dans ce cas.
 
 3. Republiez le service cloud et accédez à la page d'accueil.
- 
+
 4. Affichez le code HTML de la page. Vous devez voir l'URL CDN restituée avec une chaîne de version unique chaque fois que vous republiez des modifications dans votre service cloud. Par exemple :
 
 		...
-		
+
 		<link href="http://camservice.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-		
+
 		<script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
-		
+
 		...
-		
+
 		<script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
-		
+
 		<script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
-		
+
 		...
 
 5. Dans Visual Studio, tapez `F5` pour déboguer le service cloud.
@@ -497,19 +497,19 @@ Procédez comme suit pour l'intégration du regroupement et de la minimisation 
 6. Affichez le code HTML de la page. Vous voyez chaque fichier de script restitué individuellement de façon à effectuer un débogage cohérent dans Visual Studio.
 
 		...
-		
+
 		    <link href="/Content/bootstrap.css" rel="stylesheet"/>
 		<link href="/Content/site.css" rel="stylesheet"/>
-		
+
 		    <script src="/Scripts/modernizr-2.6.2.js"></script>
-		
+
 		...
-		
+
 		    <script src="/Scripts/jquery-1.10.2.js"></script>
-		
+
 		    <script src="/Scripts/bootstrap.js"></script>
 		<script src="/Scripts/respond.js"></script>
-		
+
 		...   
 
 <a name="fallback"></a>
@@ -527,41 +527,41 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 		        .GetName().Version.ToString();
 		    var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
 		    bundles.UseCdn = true;
-		
-		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+
+		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
 						{ CdnFallbackExpression = "window.jquery" }
 		                .Include("~/Scripts/jquery-{version}.js"));
-		
-		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+
+		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval"))
 						{ CdnFallbackExpression = "$.validator" }
 		            	.Include("~/Scripts/jquery.validate*"));
-		
+
 		    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 		    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer"))
 						{ CdnFallbackExpression = "window.Modernizr" }
 						.Include("~/Scripts/modernizr-*"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
 						{ CdnFallbackExpression = "$.fn.modal" }
 		        		.Include(
 			              		"~/Scripts/bootstrap.js",
 			              		"~/Scripts/respond.js"));
-		
+
 		    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
 		                "~/Content/bootstrap.css",
 		                "~/Content/site.css"));
 		}
 
 	Quand `CdnFallbackExpression` n’a pas la valeur null, le script est injecté dans le code HTML pour tester où le regroupement est correctement chargé et, dans le cas contraire, pour accéder au regroupement directement depuis le serveur web d’origine. Cette propriété doit être configurée avec une expression JavaScript qui teste si le regroupement CDN correspondant est correctement chargé. L'expression nécessaire pour tester chaque regroupement est différente en fonction du contenu. Pour les regroupements par défaut ci-dessus :
-	
+
 	-	`window.jquery` est défini dans jquery-{version}.js
 	-	`$.validator` est défini dans jquery.validate.js
 	-	`window.Modernizr` est défini dans modernizer-{version}.js
 	-	`$.fn.modal` est défini dans bootstrap.js
-	
+
 	Vous aurez peut-être remarqué que je n’ai pas configuré CdnFallbackExpression pour le regroupement `~/Cointent/css`. Cela est dû au fait qu’un [bogue dans System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) injecte une balise `<script>` pour le fichier CSS de secours à la place de la balise attendue `<link>`.
-	
+
 	Il existe néanmoins un bon [mécanisme de secours pour les styles](https://github.com/EmberConsultingGroup/StyleBundleFallback) proposé par [Ember Consulting Group](https://github.com/EmberConsultingGroup).
 
 2. Pour utiliser cette solution pour le CSS, créez un fichier .cs dans le répertoire *App\_Start*, en le nommant *StyleBundleExtensions.cs*, puis remplacez son contenu par du [code issu de GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
@@ -583,7 +583,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 5. Affichez le code HTML de la page. Vous devez trouver des scripts injectés similaires à ce qui suit :
 
 		...
-		
+
 	    <link href="http://az632148.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 		<script>(function() {
 		                var loadFallback,
@@ -603,18 +603,18 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 		                }
 		                return true;
 		            }())||document.write('<script src="/Content/css"><\/script>');</script>
-		
+
 		    <script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
 		<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
-		
-		... 
-		
+
+		...
+
 		    <script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 		<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
-		
+
 		    <script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
 		<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
-		
+
 		...
 
 
@@ -637,4 +637,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

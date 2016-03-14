@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -83,7 +83,7 @@ Chaque point de données du graphique est un agrégat des valeurs de données re
 
 Les mesures sont agrégées de différentes façons :
 
- * **Sum** ajoute les valeurs de tous les points de données reçus pendant un intervalle d'échantillonnage ou la période du graphique.
+ * **Sum** ajoute les valeurs de tous les points de données reçus pendant un intervalle d’échantillonnage ou la période du graphique.
  * **Average** divise la somme par le nombre de points de données reçus durant l'intervalle.
  * **Unique** est utilisé pour comptabiliser les nombres d'utilisateurs et de comptes. Sur l’intervalle d’échantillonnage ou sur la période du graphique, la figure indique le nombre d’utilisateurs différents dans cette période.
 
@@ -214,4 +214,4 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

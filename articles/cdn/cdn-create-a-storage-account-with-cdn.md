@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Utilisation de CDN | Microsoft Azure" 
-	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Utilisation de CDN | Microsoft Azure"
+	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
@@ -71,7 +71,7 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 1. Dans le [portail de gestion Azure](https://portal.azure.com), cliquez sur **Nouveau** dans l'angle supérieur gauche. Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
 
     Le panneau du nouveau profil CDN s'affiche.
-    
+
     ![Nouveau profil CDN][new-cdn-profile]
 
 2. Entrez un nom pour votre profil CDN.
@@ -93,15 +93,15 @@ Un profil CDN est une collection de points de terminaison CDN. Chaque profil con
 1. Dans le [portail de gestion Azure](https://portal.azure.com), accédez à votre profil CDN. Vous l'avez peut-être épinglé au tableau de bord à l'étape précédente. Dans le cas contraire, vous le trouverez en cliquant sur **Parcourir**, puis **Profils CDN** et en cliquant sur le profil auquel vous voulez ajouter le point de terminaison.
 
     Le panneau du profil CDN s'affiche.
-    
+
     ![Profil CDN][cdn-profile-settings]
-    
+
 2. Cliquez sur le bouton **Ajouter un point de terminaison**.
 
     ![Bouton Ajouter un point de terminaison][cdn-new-endpoint-button]
 
     Le panneau **Ajouter un point de terminaison** s’affiche.
-    
+
     ![Panneau Ajouter un point de terminaison][cdn-add-endpoint]
 
 3. Entrez un **nom** pour ce point de terminaison CDN. Ce nom servira à accéder à vos ressources en cache au niveau du domaine `<EndpointName>.azureedge.net`.
@@ -154,4 +154,4 @@ Un objet déjà mis en cache dans le CDN y reste jusqu'à ce que sa durée de vi
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

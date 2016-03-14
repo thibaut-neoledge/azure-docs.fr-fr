@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/01/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -56,7 +56,11 @@ La mise à l’échelle automatique d’un **environnement App Service** est mie
 ###Présentation du scénario
 Frank est administrateur système pour une entreprise. Il a migré une partie des charges de travail qu’il gère vers un **environnement App Service **.
 
-L’**environnement App Service ** est configuré pour une mise à l’échelle manuelle comme suit : * Serveurs frontaux : 3 * Pool de travail 1:10 * Pool de travail 2:5 * Pool de travail 3:5
+L’**environnement App Service** est configuré sur mise à l'échelle manuelle, comme suit :
+* Serveurs frontaux : 3
+* Pool de travail 1 : 10
+* Pool de travail 2 : 5
+* Pool de travail 3 : 5
 
 Le **Pool de travail 1** est utilisé pour les charges de travail, tandis que le **pool de travail 2** et le **pool de travail 3** sont utilisés pour les charges de travail de développement et d’assurance qualité.
 
@@ -124,7 +128,7 @@ Dans le cas de la règle de *mise à l’échelle automatique – Mise à l’é
 
 Cela signifie que le **plan de service d’application** de production peut augmenter d’un taux maximal de **8** instances par heure durant la semaine et de **4** instances par heure durant le week-end. Et il peut libérer des instances à un taux maximal de **4** instances par heure durant la semaine et de **6** instances par heure durant les week-ends.
 
-Si plusieurs **plans de service d’application** sont hébergés dans un **pool de travail**, le **taux total d’inflation** doit être calculé et représenter la *somme* du taux d’inflation de tous les **plans de service d’application** hébergés dans ce **pool de travail**.
+Si plusieurs **plans App Service** sont hébergés dans un **pool de travail**, le **taux total d’inflation** doit être calculé et représenter la *somme* du taux d’inflation de tous les **plans App Service** hébergés dans ce **pool de travail**.
 
 ![][ASP-Total-Inflation]
 
@@ -155,22 +159,22 @@ Avec cette information, Frank peut définir le profil et les règles de mise à 
 |	**Durée :** 20 minutes |	**Durée :** 30 minutes |
 |	**Agrégation de temps :** moyenne |	**Agrégation de temps :** moyenne |
 |	**Action :** augmenter le nombre de 8 |	**Action :** augmenter le nombre de 3 |
-|	**Refroidissement (minutes) :** 90 |	**Refroidissement (minutes) :** 90 |
+|	**Refroidissement (minutes) :** 180 |	**Refroidissement (minutes) :** 180 |
 | | |
 |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
 |	**Ressource :** Pool de travail 1 |	**Ressource :** Pool de travail 1 |
 |	**Mesure :** Employés disponibles |	**Mesure :** Employés disponibles |
-|	**Fonctionnement :** supérieur à 8 |	**Fonctionnement :** inférieur à 3 |
+|	**Fonctionnement :** supérieur à 8 |	**Fonctionnement :** supérieur à 3 |
 |	**Durée :** 20 minutes |	**Durée :** 15 minutes |
 |	**Agrégation de temps :** moyenne |	**Agrégation de temps :** moyenne |
 |	**Action :** diminuer le nombre de 2 |	**Action :** diminuer le nombre de 3 |
-|	**Refroidissement (minutes) :** 90 |	**Refroidissement (minutes) :** 90 |
+|	**Refroidissement (minutes) :** 120 |	**Refroidissement (minutes) :** 120 |
 
 La plage cible définie dans le profil est calculée par le nombre d’instances minimales du profil pour le **plan de service d’application** + la mémoire tampon.
 
 La plage maximale est la somme du maximum de toutes les plages pour tous les **plans de service d’application** hébergés dans le **pool de travail**.
 
-L’augmentation correspondant aux règles de mise à l’échelle doit être définie à au moins 1 X le **taux d’inflation du plan de service d’application** pour la mise à l’échelle supérieure.
+L’augmentation correspondant aux règles de mise à l’échelle doit être définie comme au moins 1 fois le **taux d’inflation du plan App Service** pour la mise à l’échelle supérieure.
 
 La réduction correspondant aux règles de mise à l’échelle doit être définie sur un chiffre compris entre 1/2 X et 1 X le **taux d’inflation du plan de service d’application** pour une mise à l’échelle inférieure.
 
@@ -199,7 +203,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les s
 |	**Durée :** 20 minutes |
 |	**Agrégation de temps :** moyenne |
 |	**Action :** augmenter le nombre de 3 |
-|	**Refroidissement (minutes) :** 90 |
+|	**Refroidissement (minutes) :** 120 |
 | |
 |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
 |	**Ressource :** Pool de travail 1 |
@@ -208,7 +212,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les s
 |	**Durée :** 20 minutes |
 |	**Agrégation de temps :** moyenne |
 |	**Action :** diminuer le nombre de 3 |
-|	**Refroidissement (minutes) :** 90 |
+|	**Refroidissement (minutes) :** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -227,4 +231,4 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les s
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

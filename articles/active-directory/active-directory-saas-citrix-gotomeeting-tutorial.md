@@ -8,10 +8,11 @@
 
 <tags 
     ms.service="active-directory" 
-    ms.devlang="na" ms.topic="article" 
+    ms.devlang="na" 
+    ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/18/2015" 
+    ms.date="02/29/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Citrix GoToMeeting  
@@ -38,7 +39,7 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
 ###Pour activer l’intégration d’applications pour Citrix GoToMeeting, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700993.png "Active Directory")
 
@@ -90,17 +91,17 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
      6\.1. Sélectionnez **Manual**.
 
-     6\.2. Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **URL de la page de connexion**, puis collez-la dans la zone de texte **Sign-in page URL**.
+     6\.2. Dans le portail Azure Classic, sur la page de boîte de dialogue **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **URL de la page de connexion**, puis collez-la dans la zone de texte **Sign-in page URL**.
 
-     6\.3. Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **URL de la page de déconnexion**, puis collez-la dans la zone de texte **Sign-out page URL**.
+     6\.3. Dans le portail Azure Classic, sur la page de boîte de dialogue **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **URL de la page de déconnexion**, puis collez-la dans la zone de texte **Sign-out page URL**.
 
-     6\.4. Dans le portail Azure, dans la page **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **Identity Provider Entity ID**.
+     6\.4. Dans le portail Azure Classic, sur la page **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **Identity Provider Entity ID**.
 
      6\.5. Pour charger votre certificat téléchargé, cliquez sur **Upload Certificate**.
 
      6\.6. Cliquez sur **Enregistrer**.
 
-6.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configurer l’authentification unique")
 
@@ -115,9 +116,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 Cette section décrit l’activation de l’approvisionnement des comptes d’utilisateur Active Directory sur Citrix GoToMeeting.
 
-###Pour configurer l’approvisionnement des utilisateurs, procédez comme suit :
+###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1.  Dans le Portail de gestion Azure, dans la page d’intégration d’applications **Citrix GoToMeeting**, cliquez sur **Effectuer la configuration de l’utilisateur** pour ouvrir la boîte de dialogue **Effectuer la configuration de l’utilisateur**.
+1.  Dans le portail Azure Classic, sur la page d’intégration d’applications **Citrix GoToMeeting**, cliquez sur **Configurer l’approvisionnement de l’utilisateur** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement de l’utilisateur**.
 
     ![Configurer l’approvisionnement des utilisateurs](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configurer l’approvisionnement des utilisateurs")
 
@@ -140,19 +141,19 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Citrix GoToMeeting, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Citrix GoToMeeting**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC767830.png "Oui")
 
 Vous devez maintenant attendre 10 minutes et vérifier que le compte a été synchronisé avec Dropbox for Business.
 
-Une première étape de vérification consiste à contrôler l’état d’approvisionnement en cliquant sur le tableau de bord dans la page d’intégration d’applications **Citrix GoToMeeting** dans le Portail de gestion Azure.
+Une première étape de vérification consiste à contrôler l’état d’approvisionnement en cliquant sur le tableau de bord sur la page d’intégration d’applications **Citrix GoToMeeting** dans le portail Azure Classic.
 
 ![Tableau de bord](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "Tableau de bord")
 
@@ -164,4 +165,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

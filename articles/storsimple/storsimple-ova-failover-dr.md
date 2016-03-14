@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array (version préliminaire)
+# Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array
 
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Cet article décrit la récupération d'urgence pour votre Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel local StorSimple), y compris les étapes détaillées permettant de basculer vers un autre appareil virtuel en cas de sinistre. Un basculement vous permet de migrer vos données à partir d'un appareil *source* dans le centre de données vers un autre appareil *cible* situé à un emplacement géographique identique ou différent. Le basculement de l'appareil s'applique à l'ensemble de l'appareil. Lors du basculement, les données de cloud pour l'appareil source deviennent la propriété de l'appareil cible.
 
@@ -27,7 +27,7 @@ Le basculement de l'appareil est orchestré via la fonctionnalité de récupéra
 
 ![](./media/storsimple-ova-failover-dr/image16.png)
 
-Cet article s'applique aux StorSimple Virtual Arrays (version préliminaire) uniquement. Pour le basculement d'un appareil de la gamme 8000, consultez [Basculement et récupération d'urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
+Cet article s'applique aux StorSimple Virtual Arrays uniquement. Pour le basculement d'un appareil de la gamme 8000, consultez [Basculement et récupération d'urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 
 ## Qu'est-ce que la récupération d'urgence ?
@@ -174,4 +174,4 @@ Si l'une des vérifications préalables n'est pas satisfaite, des erreurs s'affi
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array à l'aide de l'interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

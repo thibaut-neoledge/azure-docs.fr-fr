@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation
 
-Cet article décrit l’onglet **SEGMENTS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**. Pour plus d'informations, consultez [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+Cet article décrit l’onglet **SEGMENTS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles.
 
 La section Segments de l'interface utilisateur vous permet de segmenter vos utilisateurs en fonction des différents comportements et analyses que vous pouvez obtenir à partir de l'application et via l'API Segments. Les segments sont calculés une première fois 24 heures après leur création, puis recalculés toutes les 24 heures à partir des dernières informations d'analyse. Une fois un segment calculé, il affiche un graphique « Historique journalier » chaque jour.
 
 
->[AZURE.NOTE]De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+>[AZURE.NOTE] De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 
 ## Créer des segments
 Vous pouvez créer un segment à partir de 10 critères maximum sur une période passée donnée de 60 jours maximum à partir de la section Analyse. Par exemple, vous pouvez créer un segment à partir des personnes ayant consulté certaines pages ou recherché un contenu spécifique dans votre application au cours des 10 derniers jours. Ces informations sont disponibles dans la section Analyse. Vous pouvez donc les utiliser pour créer un segment, puis configurer une notification Push pour cibler ce sous-ensemble d'utilisateurs afin de les faire revenir à l'application.
@@ -197,4 +197,4 @@ Une fois votre critère défini, il apparaît dans la synthèse du segment. Comm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

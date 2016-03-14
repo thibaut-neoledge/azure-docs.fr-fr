@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #Comment intégrer Engagement à Android
 
 > [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 - [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
 Cette procédure décrit la méthode la plus simple pour activer les fonctions d'analyse et de surveillance dans votre application Android.
 
-> [AZURE.IMPORTANT]Le niveau minimum de l'API SDK Android doit être égal ou supérieur à 10 (Android 2.3.3 ou version ultérieure).
+> [AZURE.IMPORTANT] Le niveau minimum de l'API SDK Android doit être égal ou supérieur à 10 (Android 2.3.3 ou version ultérieure).
 
 Les étapes suivantes suffisent à activer la création de journaux nécessaires au calcul de l'ensemble des statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les éléments techniques. Le rapport des journaux nécessaire pour calculer d'autres statistiques telles que les événements, les erreurs et les tâches, doit être généré manuellement à l'aide de l'API Engagement (consultez la rubrique [Utilisation de l'API de balisage Mobile Engagement avancé dans votre Android](mobile-engagement-android-use-engagement-api.md) étant donné que ces statistiques dépendent de l'application.
 
@@ -34,7 +34,8 @@ Les étapes suivantes suffisent à activer la création de journaux nécessaires
 
 Téléchargez le kit de développement logiciel (SDK) Android [ici](https://aka.ms/vq9mfn) Récupérez `mobile-engagement-VERSION.jar` et placez-les dans le dossier `libs` de votre projet Android (créez le dossier de la bibliothèque si celui-ci n’existe pas).
 
-> [AZURE.IMPORTANT]Si vous générez votre package d'application avec ProGuard, vous devez conserver certaines classes. Vous pouvez utiliser l'extrait de configuration suivant :
+> [AZURE.IMPORTANT]
+Si vous générez votre package d'application avec ProGuard, vous devez conserver certaines classes. Vous pouvez utiliser l'extrait de configuration suivant :
 >
 >
 			-keep public class * extends android.os.IInterface
@@ -65,11 +66,11 @@ La chaîne de connexion de votre application est affichée sur le portail Azure.
 
 -   Remplacez `<Your application name>` par le nom de votre application.
 
-> [AZURE.TIP]L'attribut `android:label` vous permet de choisir le nom du service Engagement tel qu'il apparaîtra aux utilisateurs finaux dans l'écran Services en cours d'exécution de leur téléphone. Il est recommandé de définir cet attribut sur `"<Your application name>Service"` (par exemple `"AcmeFunGameService"`).
+> [AZURE.TIP] L'attribut `android:label` vous permet de choisir le nom du service Engagement tel qu'il apparaîtra aux utilisateurs finaux dans l'écran Services en cours d'exécution de leur téléphone. Il est recommandé de définir cet attribut sur `"<Your application name>Service"` (par exemple `"AcmeFunGameService"`).
 
 La spécification de l'attribut `android:process` permet au service Engagement d'être exécuté dans le cadre de son propre processus (l'exécution d'Engagement dans le même processus que votre application peut rendre votre thread principal/d'interface utilisateur moins réactif).
 
-> [AZURE.NOTE]Tout code que vous placez dans `Application.onCreate()` et autres rappels d'application sera exécuté pour l'ensemble des processus de votre application, y compris le service Engagement. Cela peut avoir des effets indésirables (tels que des allocations de mémoire et des threads inutiles dans le processus Engagement, ou des récepteurs ou services de diffusion en double).
+> [AZURE.NOTE] Tout code que vous placez dans `Application.onCreate()` et autres rappels d'application sera exécuté pour l'ensemble des processus de votre application, y compris le service Engagement. Cela peut avoir des effets indésirables (tels que des allocations de mémoire et des threads inutiles dans le processus Engagement, ou des récepteurs ou services de diffusion en double).
 
 Si vous remplacez `Application.onCreate()`, il est recommandé d'ajouter l'extrait de code suivant au début de la fonction `Application.onCreate()` :
 
@@ -125,7 +126,7 @@ Pour activer la création d'un rapport à partir de tous les journaux nécessair
 			  }
 			}
 
-> [AZURE.IMPORTANT]Lorsque vous utilisez `EngagementListActivity` ou `EngagementExpandableListActivity`, assurez-vous que tout appel à `requestWindowFeature(...);` est effectué avant l'appel à `super.onCreate(...);`. Dans le cas contraire, un incident se produira.
+> [AZURE.IMPORTANT] Lorsque vous utilisez `EngagementListActivity` ou `EngagementExpandableListActivity`, assurez-vous que tout appel à `requestWindowFeature(...);` est effectué avant l'appel à `super.onCreate(...);`. Dans le cas contraire, un incident se produira.
 
 Nous fournissons des sous-classes de `FragmentActivity` et `MapActivity`. Toutefois, pour éviter les problèmes avec les applications qui utilisent **ProGuard**, nous ne les avons pas incluses dans `engagement.jar`.
 
@@ -135,7 +136,7 @@ Vous trouverez ces classes dans le dossier `src`. Vous pourrez les copier dans v
 
 Si vous ne pouvez pas ou ne voulez pas surcharger vos classes `Activity`, vous pouvez démarrer et terminer vos activités en appelant les méthodes `EngagementAgent` directement.
 
-> [AZURE.IMPORTANT]Le Kit de développement logiciel (SDK) Android n'appelle jamais la méthode `endActivity()`, même quand l'application est fermée (sur Android, les applications ne sont en fait jamais fermées). Il est donc *FORTEMENT* recommandé d'appeler la méthode `startActivity()` dans le rappel `onResume` de *TOUTES* vos activités, et la méthode `endActivity()` dans le rappel `onPause()` de *TOUTES* vos activités. Il s'agit de la seule façon d'empêcher la fuite de sessions. Dans le cas d'une fuite de session, le service Engagement n'est jamais déconnecté du serveur principal d'Engagement (étant donné que le service reste connecté tant qu'une session est en cours).
+> [AZURE.IMPORTANT] Le Kit de développement logiciel (SDK) Android n'appelle jamais la méthode `endActivity()`, même quand l'application est fermée (sur Android, les applications ne sont en fait jamais fermées). Il est donc *FORTEMENT* recommandé d'appeler la méthode `startActivity()` dans le rappel `onResume` de *TOUTES* vos activités, et la méthode `endActivity()` dans le rappel `onPause()` de *TOUTES* vos activités. Il s'agit de la seule façon d'empêcher la fuite de sessions. Dans le cas d'une fuite de session, le service Engagement n'est jamais déconnecté du serveur principal d'Engagement (étant donné que le service reste connecté tant qu'une session est en cours).
 
 Voici un exemple :
 
@@ -231,7 +232,7 @@ Par défaut, le rapport d'emplacement en temps réel est uniquement actif quand 
     engagementConfiguration.setBackgroundRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-> [AZURE.NOTE]Quand l'application s'exécute en arrière-plan, seuls les emplacements réseau sont signalés, même si vous avez activé le GPS.
+> [AZURE.NOTE] Quand l'application s'exécute en arrière-plan, seuls les emplacements réseau sont signalés, même si vous avez activé le GPS.
 
 Le rapport d'emplacement en arrière-plan sera arrêté si l'utilisateur redémarre son appareil. Pour configurer un redémarrage automatique au moment du démarrage, ajoutez ce qui suit :
 
@@ -381,4 +382,4 @@ Vous pouvez ensuite ajouter un `CheckBoxPreference` dans votre disposition préf
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

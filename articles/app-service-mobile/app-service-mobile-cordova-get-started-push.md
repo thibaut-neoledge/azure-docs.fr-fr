@@ -76,25 +76,31 @@ Vous devez vous assurer que votre projet d’application Apache Cordova est prê
 
 ### Installer le plug-in de notification Push Apache Cordova
 
-En mode natif, les applications Apache Cordova ne gèrent pas les fonctionnalités de réseau ou d’appareils. Ces fonctionnalités sont fournies par des plug-ins publiés sur [npm] ou sur GitHub. Le plug-in `phonegap-plugin-push` est utilisé pour gérer les notifications Push du réseau. Pour procéder à l’installation à partir de la ligne de commande :
+En mode natif, les applications Apache Cordova ne gèrent pas les fonctionnalités de réseau ou d’appareils. Ces fonctionnalités sont fournies par des plug-ins publiés sur [npm](https://www.npmjs.com/) ou sur GitHub. Le plug-in `phonegap-plugin-push` est utilisé pour gérer les notifications Push du réseau.
+
+Vous pouvez installer le plug-in de notification Push de l’une des façons suivantes :
+
+**À partir de l'invite de commandes :**
 
     cordova plugin add phonegap-plugin-push
 
-Pour installer le plug-in dans Visual Studio :
+**À partir de Visual Studio :**
 
 1.  Ouvrez le fichier `config.xml` à partir de l’Explorateur de solutions.
-2.  Cliquez sur **Plug-ins** (à gauche), puis sur **Personnalisé** (sur la partie supérieure).
-3.  Sélectionnez **Git** comme source d’installation. Entrez `https://github.com/phonegap/phonegap-plugin-push` comme source
-4.  Cliquez sur la flèche en regard de la source d’installation, puis cliquez sur **Ajouter**.
+2.  Cliquez sur **Plug-ins** > **Personnalisé**, sélectionnez **Git** comme source d'installation, puis entrez `https://github.com/phonegap/phonegap-plugin-push` comme source.
+	
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	
+4.  Cliquez sur la flèche en regard de la source d’installation, puis cliquez sur **Ajouter**
 
-Le plug-in de notification Push est désormais installé.
+Le plug-in de notification Push est maintenant installé.
 
 ### Installez les services Android Google Play.
 
 Le plug-in de notification Push PhoneGap sollicite les services Google Play. Pour effectuer l’installation :
 
-1.  Ouvrez **Visual Studio**.
-2.  Cliquez sur **Outils** > **Android** > **Gestionnaire du Kit de développement logiciel (SDK) Android**.
+1.  Ouvrez **Visual Studio**
+2.  Cliquez sur **Outils** > **Android** > **Gestionnaire du Kit de développement logiciel (SDK) Android**
 3.  Cochez les cases en regard des kits de développement à installer du dossier Extras. Les packages suivants sont requis :
     * Bibliothèque de prise en charge Android 23 ou version ultérieure
     * Référentiel de prise en charge Android 20 ou version ultérieure
@@ -107,64 +113,69 @@ Les bibliothèques actuellement requises figurent dans la [documentation d’ins
 
 ### Inscrire votre appareil pour les notifications Push au démarrage
 
-Ajoutez un appel à `registerForPushNotifications()` durant le rappel du processus de connexion, ou en bas de la méthode `onDeviceReady()` :
+1. Ajoutez un appel à **registerForPushNotifications** durant le rappel du processus de connexion, ou en bas de la méthode **onDeviceReady** :
 
-    // Login to the service
-    client.login('google')
-        .then(function () {
-            // Create a table reference
-            todoItemTable = client.getTable('todoitem');
+ 
+		// Login to the service.
+		client.login('google')
+		    .then(function () {
+		        // Create a table reference
+		        todoItemTable = client.getTable('todoitem');
+		
+		        // Refresh the todoItems
+		        refreshDisplay();
+		
+		        // Wire up the UI Event Handler for the Add Item
+		        $('#add-item').submit(addItemHandler);
+		        $('#refresh').on('click', refreshDisplay);
+		
+				// Added to register for push notifications.
+		        registerForPushNotifications();
+		
+		    }, handleError);
 
-            // Refresh the todoItems
-            refreshDisplay();
+	Cet exemple illustre l'appel à **registerForPushNotifications** une fois l'authentification réussie, ce qui est recommandé lors de l'utilisation conjointe des notifications Push et de l'authentification dans votre application.
 
-            // Wire up the UI Event Handler for the Add Item
-            $('#add-item').submit(addItemHandler);
-            $('#refresh').on('click', refreshDisplay);
+2. Ajoutez la nouvelle méthode `registerForPushNotifications()` comme suit :
 
-            registerForPushNotifications();
+	    // Register for Push Notifications.
+		// Requires that phonegap-plugin-push be installed.
+	    var pushRegistration = null;
+	    function registerForPushNotifications() {
+	        pushRegistration = PushNotification.init({
+	            android: {
+	                senderID: 'Your_Project_ID'
+	            },
+	            ios: {
+	                alert: 'true',
+	                badge: 'true',
+	                sound: 'true'
+	            },
+	            wns: {
+	
+	            }
+	        });
+	
+	        pushRegistration.on('registration', function (data) {
+	            client.push.register('gcm', data.registrationId);
+	        });
+	
+	        pushRegistration.on('notification', function (data, d2) {
+	            alert('Push Received: ' + data.message);
+	        });
+	
+	        pushRegistration.on('error', handleError);
+	    }
 
-        }, handleError);
-
-Implémentez `registerForPushNotifications()` comme suit :
-
-    /**
-     * Register for Push Notifications - requires the phonegap-plugin-push be installed
-     */
-    var pushRegistration = null;
-    function registerForPushNotifications() {
-        pushRegistration = PushNotification.init({
-            android: {
-                senderID: 'YourProjectID'
-            },
-            ios: {
-                alert: 'true',
-                badge: 'true',
-                sound: 'true'
-            },
-            wns: {
-
-            }
-        });
-
-        pushRegistration.on('registration', function (data) {
-            client.push.register('gcm', data.registrationId);
-        });
-
-        pushRegistration.on('notification', function (data, d2) {
-            alert('Push Received: ' + data.message);
-        });
-
-        pushRegistration.on('error', handleError);
-    }
-
-Remplacez _VotreIDProjet_ par l’ID de projet numérique associé à votre application de [Google Developer Console].
+3. Dans le code ci-dessus, remplacez `Your_Project_ID` par l’ID de projet numérique associé à votre application de [Google Developer Console].
 
 ## Test de l'application avec le service mobile publié
 
 Pour tester l’application, associez directement un téléphone Android à l’aide d’un câble USB. À la place de l’**Émulateur Google Android**, sélectionnez **Appareil**. Visual Studio télécharge l’application sur l’appareil, et l’exécute. Vous interagissez alors avec l’application sur l’appareil.
 
 Améliorez votre expérience du développement. Les applications de partage d’écran comme [Mobizen] peuvent vous aider à développer une application Android, en projetant votre écran Android sur un navigateur web, sur votre PC.
+
+Vous pouvez également tester l'application Android sur l'émulateur Android. N'oubliez pas d’ajouter d’abord un compte Google à l'émulateur.
 
 ##<a name="next-steps"></a>Étapes suivantes
 
@@ -185,4 +196,4 @@ Améliorez votre expérience du développement. Les applications de partage d’
 [Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/fr-FR/features/cordova-vs.aspx
 [Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

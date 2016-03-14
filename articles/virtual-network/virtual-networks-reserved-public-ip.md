@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="IP réservée | Microsoft Azure"
    description="Fonctionnement et gestion des adresses IP réservées"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -34,12 +34,12 @@ Assurez-vous que vous comprenez le fonctionnement des [adresses IP](virtual-net
   - Les adresses IP réservées peuvent être utilisées uniquement pour les machines virtuelles et les rôles d'instance de service cloud exposés par une adresse IP virtuelle.
 1. Combien d’adresses IP réservées puis-je avoir ?  
   - Pour le moment, tous les abonnements Azure peuvent utiliser 20 adresses IP réservées. Toutefois, vous pouvez demander à obtenir des adresses IP réservées supplémentaires. Pour en savoir plus, consultez la page [Abonnement Azure et limites du service](../azure-subscription-service-limits/).
-1. L’obtention d’adresses IP réservées est-elle payante ? 
+1. L’obtention d’adresses IP réservées est-elle payante ?
   - Pour plus d’informations sur la tarification, consultez la page [Tarification des adresses IP réservées](http://go.microsoft.com/fwlink/?LinkID=398482).
-1. Comment réserver une adresse IP ? 
-  - Vous pouvez utiliser PowerShell ou l’[API REST de gestion Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) pour demander une adresse IP réservée à une région particulière. Azure réservera une adresse IP à partir de cette région et l'associera à votre abonnement. Vous pouvez ensuite utiliser l'adresse IP réservée dans cette région. Vous ne pouvez pas réserver une adresse IP à l'aide du portail de gestion.
-1. Puis-je l'utiliser avec des réseaux virtuels basés sur un groupe d'affinités ? 
-  - Les adresses IP réservées sont uniquement prises en charge dans les réseaux virtuels régionaux. Elles ne sont pas prises en charge dans les réseaux virtuels associés à des groupes d’affinités. Pour plus d'informations sur l'association d'un réseau virtuel à une région ou un groupe d'affinités, consultez la page [À propos des réseaux virtuels et groupes d’affinités régionaux](virtual-networks-migrate-to-regional-vnet.md). 
+1. Comment réserver une adresse IP ?
+  - Vous pouvez utiliser PowerShell ou l’[API REST de gestion Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) pour réserver une adresse IP dans une région particulière. Cette adresse IP réservée est associée à votre abonnement. Vous ne pouvez pas réserver une adresse IP à l'aide du portail de gestion.
+1. Puis-je l'utiliser avec des réseaux virtuels basés sur un groupe d'affinités ?
+  - Les adresses IP réservées sont uniquement prises en charge dans les réseaux virtuels régionaux. Elles ne sont pas prises en charge dans les réseaux virtuels associés à des groupes d’affinités. Pour plus d'informations sur l'association d'un réseau virtuel à une région ou un groupe d'affinités, consultez la page [À propos des réseaux virtuels et groupes d’affinités régionaux](virtual-networks-migrate-to-regional-vnet.md).
 
 ## Gestion des adresses IP virtuelles réservées
 
@@ -47,19 +47,19 @@ Avant de pouvoir utiliser une adresse IP réservée, vous devez l'ajouter à vot
 
 	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
-Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address*:
+Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address* :
 
 	Get-AzureReservedIP
 
 	ReservedIPName       : MyReservedIP
 	Address              : 23.101.114.211
 	Id                   : d73be9dd-db12-4b5e-98c8-bc62e7c42041
-	Label                : 
+	Label                :
 	Location             : Central US
 	State                : Created
 	InUse                : False
-	ServiceName          : 
-	DeploymentName       : 
+	ServiceName          :
+	DeploymentName       :
 	OperationDescription : Get-AzureReservedIP
 	OperationId          : 55e4f245-82e4-9c66-9bd8-273e815ce30a
 	OperationStatus      : Succeeded
@@ -67,6 +67,13 @@ Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vo
 Une fois une adresse IP réservée, elle reste associée à votre abonnement jusqu'à ce que vous la supprimiez. Pour supprimer l'adresse IP réservée ci-dessus, exécutez la commande PowerShell suivante :
 
 	Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
+
+## Comment réserver l’adresse IP d’un service cloud existant
+
+Vous pouvez réserver l’adresse IP d’un service cloud existant en ajoutant le paramètre *- ServiceName*. Pour réserver l’adresse IP d’un service cloud *TestService* dans les *États-Unis du Centre*, exécutez la commande PowerShell suivante :
+
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -ServiceName TestService
+
 
 ## Association d’une adresse IP réservée à un service cloud
 Le script ci-dessous crée une adresse IP réservée, puis l’associe à un nouveau service cloud nommé *TestService*.
@@ -96,8 +103,8 @@ Le script ci-dessous crée un service cloud nommé *TestService2* avec une nouve
 	Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
 
 ## Association d’une adresse réservée à un service cloud à l’aide d’un fichier de configuration de service
-Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d’un fichier de configuration de service (CSCFG). L’exemple de code xml ci-dessous indique comment configurer un service cloud pour l’utilisation d’une adresse IP réservée nommée *MyReservedIP* :
-	
+Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d’un fichier de configuration de service (CSCFG). L’exemple de code xml ci-dessous indique comment configurer un service cloud pour l’utilisation d’une adresse IP réservée nommée *MyReservedIP* :
+
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
 	  <Role name="WebRole1">
@@ -123,4 +130,4 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 
 - En savoir plus sur [les adresses IP publiques de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip).
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

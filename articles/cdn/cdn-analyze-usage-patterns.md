@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Analyse des modèles d'utilisation CDN" 
-	description="Vous pouvez afficher les modèles d'utilisation pour votre CDN via les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d'accès au cache, les données transférées IPV4/IPV6." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Analyse des modèles d'utilisation CDN"
+	description="Vous pouvez afficher les modèles d'utilisation pour votre CDN via les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d'accès au cache, les données transférées IPV4/IPV6."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
-# Analyse des modèles d'utilisation CDN 
+# Analyse des modèles d'utilisation CDN
 
 Vous pouvez afficher les modèles d'utilisation pour votre contenu via les rapports suivants :
 
@@ -25,7 +25,7 @@ Vous pouvez afficher les modèles d'utilisation pour votre contenu via les rappo
 - Correspondances
 - États du cache
 - Taux d'accès au cache
-- Données IPV4/IPV6 transférées 
+- Données IPV4/IPV6 transférées
 
 ## Bande passante
 
@@ -33,8 +33,8 @@ Le rapport relatif à la bande passante consiste en un graphique et un tableau d
 
 - Sélectionnez Tous les nœuds Edge pour afficher le trafic à partir de tous les nœuds ou choisissez une région/un nœud spécifique dans la liste déroulante.
 - Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
-- Vous pouvez exporter et télécharger les données en cliquant sur l'icône de feuille Excel située en regard de « go ». 
- 
+- Vous pouvez exporter et télécharger les données en cliquant sur l'icône de feuille Excel située en regard de « go ».
+
 Le rapport est mis à jour toutes les 5 minutes.
 
 ![Rapport de la bande passante](./media/cdn-reports/cdn-bandwidth.png)
@@ -46,7 +46,7 @@ Ce rapport consiste en un graphique et un tableau de données indiquant l'utilis
 - Sélectionnez Tous les nœuds Edge pour afficher le trafic à partir de tous les nœuds ou choisissez une région/un nœud spécifique dans la liste déroulante.
 - Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
 - Vous pouvez exporter et télécharger les données en cliquant sur l'icône de feuille Excel située en regard de « go ».
- 
+
 Le rapport est mis à jour toutes les 5 minutes.
 
 ![Rapport des données transférées](./media/cdn-reports/cdn-data-transferred.png)
@@ -54,7 +54,7 @@ Le rapport est mis à jour toutes les 5 minutes.
 ## Correspondances (codes d'état)
 
 Ce rapport décrit la distribution des codes d'état de demande pour votre contenu. Chaque demande de contenu génère un code d'état HTTP. Le code d'état décrit comment les POP Edge ont géré la demande. Par exemple, les codes d'état 2xx indiquent que la demande a été correctement servie à un client, tandis qu'un code d'état 4xx indique une erreur. Pour plus d'informations sur les codes d'état HTTP, consultez [codes d'état](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
- 
+
 - Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
 - Vous pouvez exporter et télécharger les données en cliquant sur la feuille Excel située en regard de « go ».
 
@@ -66,10 +66,10 @@ Ce rapport décrit la distribution des correspondances et des absences dans le c
 
 ![Rapport des états du cache](./media/cdn-reports/cdn-cache-statuses.png)
 
-### Les états de cache principaux sont les suivants : 
+### Les états de cache principaux sont les suivants :
 
 - TCP\_HIT : traités à partir d’Edge. L'objet était en cache et n'avait pas dépassé son max-age.
-- TCP\_HIT : traité à partir de l’origine. L'objet n'était pas dans le cache et la réponse a été renvoyée à l'origine. 
+- TCP\_HIT : traité à partir de l’origine. L'objet n'était pas dans le cache et la réponse a été renvoyée à l'origine.
 - TCP\_EXPIRED \_MISS : traités à partir de l'origine après la revalidation avec l'origine. L'objet était en cache mais avait dépassé son max-age. Une revalidation avec l’origine a entraîné un remplacement de l'objet de cache par une nouvelle réponse de l'origine.
 - TCP\_EXPIRED \_HIT : traités à partir de Edge après la revalidation avec l'origine. L'objet était en cache mais avait dépassé son max-age. Une revalidation avec le serveur d'origine n’a entraîné aucune modification de l’objet de cache.
 
@@ -112,12 +112,12 @@ Le rapport fournit les informations suivantes :
 
 - Le contenu demandé a été mis en cache sur le serveur POP le plus proche du demandeur.
 - La requête a été traitée directement à partir du Edge de notre réseau.
-- La demande ne nécessitait pas de revalidation avec le serveur d'origine. 
+- La demande ne nécessitait pas de revalidation avec le serveur d'origine.
 
 Le rapport n'inclut pas :
 
 - Les requêtes refusées en raison des options de filtrage par pays.
-- Les demandes de ressources dont les en-têtes indiquent qu'elles ne doivent pas être mises en cache. Par exemple, les en-têtes Cache-Control: private, Cache-Control: no-cache, ou Pragma: no-cache empêchent la mise en cache d’une ressource. 
+- Les demandes de ressources dont les en-têtes indiquent qu'elles ne doivent pas être mises en cache. Par exemple, les en-têtes Cache-Control: private, Cache-Control: no-cache, ou Pragma: no-cache empêchent la mise en cache d’une ressource.
 - Les demandes de plage d'octets pour le contenu partiellement mis en cache.
 
 La formule est : (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
@@ -128,7 +128,7 @@ La formule est : (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
 
 ![Rapport des taux d'accès au cache](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
-## Données IPV4/IPV6 transférées 
+## Données IPV4/IPV6 transférées
 
 Ce rapport affiche la distribution de l'utilisation du trafic entre IPV4 et IPV6.
 
@@ -142,4 +142,4 @@ Ce rapport affiche la distribution de l'utilisation du trafic entre IPV4 et IPV6
 
 Les rapports peuvent uniquement être générés pour les 18 derniers mois.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

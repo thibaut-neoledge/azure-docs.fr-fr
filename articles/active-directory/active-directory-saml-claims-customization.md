@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory
@@ -54,9 +54,7 @@ Par exemple, si vous devez envoyer le service auquel appartient l’utilisateur 
 
 Si pour un utilisateur donné, il n’y a pas de valeur stockée pour un attribut sélectionné, aucune revendication ne sera émise dans le jeton.
 
-**Remarque :** **user.onpremisesecurityidentifier** et **user.onpremisesamaccountname** sont uniquement pris en charge lors de la synchronisation des données utilisateur issues de l’annuaire Active Directory local en utilisant la dernière version préliminaire de l’outil AAD Connect. Vous pouvez télécharger la version préliminaire de l’outil de connexion sur le lien ci-dessous :
-
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+**Remarque :** **user.onpremisesecurityidentifier** et **user.onpremisesamaccountname** sont uniquement pris en charge lors de la synchronisation des données utilisateur issues de l’annuaire Active Directory local en utilisant l’[outil Azure AD Connect](active-directory-aadconnect.md).
 
 ## Articles connexes
 
@@ -70,4 +68,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

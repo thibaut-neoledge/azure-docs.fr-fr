@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Utiliser le service Policy pour gérer les ressources et contrôler l’accès
@@ -46,7 +46,7 @@ De même, une organisation peut contrôler le catalogue de services ou appliquer
 
 ## Structure de la définition de stratégie
 
-Une définition de stratégie est créée à l’aide de JSON. Elle se compose d’un ou plusieurs opérateurs logiques/conditions qui définissent les actions et d’un résultat qui indique ce qui se passe quand les conditions sont remplies.
+Une définition de stratégie est créée à l’aide de JSON. Elle se compose d’un ou plusieurs opérateurs logiques/conditions qui définissent les actions et d’un résultat qui indique ce qui se passe quand les conditions sont remplies. Le schéma est publié à l’adresse [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
 
 Essentiellement, une stratégie contient les éléments suivants :
 
@@ -90,15 +90,45 @@ Une condition évalue si un **champ** ou une **source** répond à certains crit
 
 ## Champs et sources
 
-Les conditions sont formées à partir de champs et de sources. Un champ représente des propriétés dans la charge utile de la requête de ressource. Une source représente les caractéristiques de la requête elle-même.
+Les conditions sont formées à partir de champs et de sources. Un champ représente des propriétés dans la charge utile de la requête de ressource qui est utilisée pour décrire l'état de la ressource. Une source représente les caractéristiques de la requête elle-même.
 
 Les sources et champs suivants sont pris en charge :
 
-Champs : **name**, **kind**, **type**, **location**, **tags**, **tags.***.
+Champs : **name**, **kind**, **type**, **location**, **tags**, **tags.*** et **property alias**.
 
 Sources : **action**.
 
+L’alias de propriété est un nom pouvant servir de définition de stratégie pour accéder aux propriétés propres au type de ressource, telles que les paramètres et les références (SKU). Il fonctionne sur toutes les versions d’API pour lesquelles la propriété existe. Les alias peuvent être récupérés à l'aide de l'API REST ci-dessous (la prise en charge Powershell sera ajoutée ultérieurement) :
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+La définition d'un alias se présente de la façon suivante. Comme vous pouvez le voir, un alias définit des chemins dans différentes versions d'API, même en cas de changement de nom de propriété.
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+Actuellement, les alias pris en charge sont les suivants :
+
+| Nom d'alias | Description |
+| ---------- | ----------- |
+| {resourceType}/sku.name | Les types de ressources pris en charge sont les suivants : Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | Le type de ressource pris en charge est Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Le type de ressource pris en charge est Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+
+
 Pour obtenir plus d’informations sur les actions, consultez [RBAC - Rôles prédéfinis](active-directory/role-based-access-built-in-roles.md). Actuellement, la stratégie fonctionne uniquement sur les demandes PUT.
+
 
 ## Exemples de définition de stratégie
 
@@ -168,6 +198,35 @@ L’exemple ci-dessous illustre l’utilisation de la source. Il indique que seu
         "effect" : "deny"
       }
     }
+
+### Utiliser des références (SKU) approuvées
+
+L'exemple ci-dessous illustre l'utilisation d'alias de propriété pour restreindre les SKU. Dans l'exemple ci-dessous, seule l’utilisation de Standard\_LRS et Standard\_GRS est approuvée pour les comptes de stockage.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
 
 ### Conventions d’affectation de noms
 
@@ -327,4 +386,4 @@ Pour afficher tous les événements liés au résultat « audit », vous pouve
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

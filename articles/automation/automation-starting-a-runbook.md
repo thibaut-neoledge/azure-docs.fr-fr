@@ -3,7 +3,7 @@
    description="Résume les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook dans Azure Automation et fournit des détails sur l'utilisation du portail Azure et de Windows PowerShell."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren"/>
 
 # Démarrage d'un Runbook dans Azure Automation
@@ -22,8 +22,8 @@ Le tableau suivant vous aide à déterminer la méthode de démarrage d'un Runbo
 | **MÉTHODE** | **CARACTÉRISTIQUES** |
 |-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Portail Azure](#starting-a-runbook-with-the-azure-portal) | <li>Méthode la plus simple avec une interface utilisateur interactive.<br> <li>Formulaire pour fournir les valeurs de paramètres simples.<br> <li>Suivi aisé de l'état des tâches.<br> <li>Accès authentifié avec ouverture de session Azure. |
-| [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) | <li>Appel à partir de la ligne de commande avec les applets de commande Windows PowerShell.<br> <li>Possibilité d'inclusion dans une solution automatisée à plusieurs étapes.<br> <li>Demande authentifiée avec un certificat ou un principal du service / principal d'utilisateur OAuth.<br> <li>Fourniture de valeurs de paramètres simples et complexes.<br> <li>Suivi de l'état des tâches.<br> <li>Client requis pour prendre en charge les applets de commande PowerShell. |
-| [API Azure Automation](http://msdn.microsoft.com/library/azure/mt163849.aspx) | <li>Méthode la plus souple, mais également la plus complexe.<br> <li>Appel à partir de n'importe quel code personnalisé qui peut envoyer des requêtes HTTP.<br> <li>Requête authentifiée avec un certificat ou un principal du service / principal d'utilisateur Oauth.<br> <li>Fourniture de valeurs de paramètres simples et complexes.<br> <li>Suivi de l'état des tâches. |
+| [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) | <li>Appel à partir de la ligne de commande avec les applets de commande Windows PowerShell.<br> <li>Possibilité d'inclusion dans une solution automatisée à plusieurs étapes.<br> <li>Demande authentifiée avec un certificat ou un principal du service / principal d'utilisateur OAuth.<br> <li>Fourniture de valeurs de paramètres simples et complexes.<br> <li>Suivi de l'état des tâches.<br> <li>Client requis pour prendre en charge les applets de commande PowerShell. |
+| [API Azure Automation](http://msdn.microsoft.com/library/azure/mt163849.aspx) | <li>Méthode la plus souple, mais également la plus complexe.<br> <li>Appel à partir de n'importe quel code personnalisé qui peut envoyer des requêtes HTTP.<br> <li>Requête authentifiée avec un certificat ou un principal du service / principal d'utilisateur Oauth.<br> <li>Fourniture de valeurs de paramètres simples et complexes.<br> <li>Suivi de l'état des tâches. |
 | [Webhooks](automation-webhooks.md) | <li>Démarrage d'un Runbook à partir d'une simple requête HTTP.<br> <li>Authentification avec un jeton de sécurité dans l'URL.<br> <li>Le client ne peut pas remplacer les valeurs de paramètre spécifiées lors de la création du Webhook. Le Runbook peut définir un paramètre unique qui est rempli avec les détails de la requête HTTP.<br> <li>Aucune possibilité de suivre l'état des tâches via l'URL du Webhook. |
 | [Répondre à une alerte Azure](automation-webhooks.md) | <li>Démarrer un Runbook en réponse à une alerte Azure.<br> <li>Configurer webhook pour Runbook et lien vers l'alerte.<br> <li>Authentification avec un jeton de sécurité dans l'URL.<br> <li>Actuellement, prend en charge l'alerte sur Metrics uniquement. |
 | [Planification](automation-scheduling-a-runbook.md) | <li>Démarrage automatique du Runbook selon une planification horaire, quotidienne ou hebdomadaire.<br> <li>Manipulation de la planification via le portail Azure, les applets de commande PowerShell ou les API Azure.<br> <li>Fourniture des valeurs de paramètres à utiliser avec la planification. |
@@ -87,7 +87,7 @@ Le service web Azure Automation fournit des fonctionnalités spécifiques pour l
 
 ### Valeurs nommées
 
-Si le paramètre est un type de données [object], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs nommées : *{"Nom1":Valeur1, "Nom2":Valeur2, "Nom3":Valeur3}*. Ces valeurs doivent avoir des types simples. Le Runbook reçoit le paramètre comme [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx) avec des propriétés correspondant à chaque valeur nommée.
+Si le paramètre est un type de données [object], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs nommées : *{"Nom1":Valeur1, "Nom2":Valeur2, "Nom3":Valeur3}*. Ces valeurs doivent avoir des types simples. Le Runbook reçoit le paramètre comme [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx) avec des propriétés correspondant à chaque valeur nommée.
 
 Considérez le Runbook de test suivant qui accepte un paramètre nommé user.
 
@@ -189,4 +189,4 @@ jsmith
 
 -	L’architecture de runbook présentée dans cet article fournit une description détaillée des runbooks hybrides. Pour plus d’informations, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,8 +3,8 @@
    description="Découvrez comment Azure Backup gère les données chiffrées à l'aide de BitLocker ou dmcrypt lors de la sauvegarde d'une machine virtuelle IaaS. Cet article vous présente les différences entre les expériences de sauvegarde et de restauration avec des disques chiffrés."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
+   authors="markgalioto"
+   manager="jwhit"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="11/27/2015"
-   ms.author="aashishr"/>
+   ms.author="markgal; jimpark"/>
 
 # Gestion des disques chiffrés lors de la sauvegarde des machines virtuelles
 
@@ -42,7 +42,7 @@ Cette solution est composée de nombreuses parties qui doivent être configurés
 | Restauration des données | Azure Backup | Utilisez Azure Backup pour restaurer des disques ou une machine virtuelle entière à partir d'un point de récupération. Les données ne sont pas déchiffrées par Azure Backup dans le cadre de l'opération de restauration.|
 | Déchiffrement | BitLocker ou dmcrypt | Pour lire des données sur un disque de données restauré ou une machine virtuelle restaurée, le logiciel a besoin de la clé du logiciel de gestion des clés. Sans la clé appropriée, les données ne peuvent pas être déchiffrées. |
 
-> [AZURE.IMPORTANT]La gestion des clés, y compris la substitution, ne fait pas partie d'Azure Backup. Cet aspect doit être géré indépendamment, mais il est très important pour l'opération de sauvegarde/restauration globale.
+> [AZURE.IMPORTANT]  La gestion des clés, y compris la substitution, ne fait pas partie d'Azure Backup. Cet aspect doit être géré indépendamment, mais il est très important pour l'opération de sauvegarde/restauration globale.
 
 ## CloudLink SecureVM
 
@@ -62,4 +62,4 @@ Lorsque vous avez besoin de substituer ou de modifier des clés pour les machine
 - [Guide de déploiement - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Déploiement et utilisation de SecureVM - vidéo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

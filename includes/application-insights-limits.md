@@ -14,6 +14,7 @@ Longueur du nom de propriété | 100 | 100
 Longueur de la valeur de propriété | 1 000 | 1 000
 Longueur des messages de trace et d’exception | 10000 | 10000
 Longueur du nom de la mesure | 100 | 100
+Tests de disponibilité | 10 | 10
 
 <sup>1</sup> Un point de données est une valeur métrique individuelle ou un événement, avec les mesures et les propriétés jointes.
 
@@ -21,4 +22,4 @@ Longueur du nom de la mesure | 100 | 100
  
 [Tarification et quotas dans Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser Azure Notification Hubs à partir d’un serveur principal Java." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs à partir de Java
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -52,7 +52,7 @@ Génération de :
 	
 	NamespaceManager namespaceManager = new NamespaceManager("connection string")
 
-**Création d’un hub de notification :**
+**Création d’un concentrateur de notification :**
 	
 	NotificationHubDescription hub = new NotificationHubDescription("hubname");
 	hub.setWindowsCredential(new WindowsCredential("sid","key"));
@@ -66,7 +66,7 @@ Génération de :
 	
 	hub = namespaceManager.getNotificationHub("hubname");
 
-**Mise à jour d’un hub de notification :**
+**Mise à jour d’un concentrateur de notification :**
 	
 	hub.setMpnsCredential(new MpnsCredential("mpnscert", "mpnskey"));
 	hub = namespaceManager.updateNotificationHub(hub);
@@ -303,4 +303,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

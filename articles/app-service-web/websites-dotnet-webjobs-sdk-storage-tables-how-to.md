@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 # Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs
@@ -141,7 +141,7 @@ L’exemple de code suivant utilise un objet `CloudTable` pour ajouter une entit
 		    tableBinding.Execute(insertOperation);
 		}
 
-Pour en savoir plus sur l’utilisation de l’objet `CloudTable`, voir [Utilisation du stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables.md).
+Pour en savoir plus sur l’utilisation de l’objet `CloudTable`, voir [Utilisation du stockage de tables à partir de .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
 ## <a id="queues"></a>Sujets connexes traités dans l’article de procédure relatif aux files d’attente
 
@@ -163,4 +163,4 @@ Les sujets abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des tables Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

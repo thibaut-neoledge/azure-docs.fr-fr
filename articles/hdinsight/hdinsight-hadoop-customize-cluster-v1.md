@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/26/2016" 
 	ms.author="nitinme"/>
 
 # Personnaliser des clusters HDInsight à l'aide d'une action de script
@@ -69,16 +69,18 @@ Nom | Script
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Utilisation d’une action de script pour personnaliser un cluster")
 	
 	<table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Nom</td>
-		<td>Indiquez un nom pour l'action de script.</td></tr>
-	<tr><td>URI du script</td>
-		<td>Spécifiez l’URI du script appelé pour personnaliser les clusters.</td></tr>
-	<tr><td>Type de nœud</td>
-		<td>Spécifiez les nœuds sur lesquels le script de personnalisation est exécuté. Vous avez le choix entre <b>Tous les nœuds</b>, <b>Nœuds principaux uniquement</b> et <b>Nœuds de travail uniquement</b>.
-	<tr><td>Paramètres</td>
-		<td>Spécifiez les paramètres, si le script le demande.</td></tr>
-</table>Vous pouvez ajouter plusieurs actions de script pour installer plusieurs composants sur le cluster.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Nom</td>
+			<td>Indiquez un nom pour l'action de script.</td></tr>
+		<tr><td>URI du script</td>
+			<td>Spécifiez l’URI du script appelé pour personnaliser les clusters.</td></tr>
+		<tr><td>Type de nœud</td>
+			<td>Spécifiez les nœuds sur lesquels le script de personnalisation est exécuté. Vous avez le choix entre <b>Tous les nœuds</b>, <b>Nœuds principaux uniquement</b> et <b>Nœuds de travail uniquement</b>.
+		<tr><td>Paramètres</td>
+			<td>Spécifiez les paramètres, si le script le demande.</td></tr>
+	</table>
+
+	Vous pouvez ajouter plusieurs actions de script pour installer plusieurs composants sur le cluster.
 
 3. Cliquez sur la coche pour démarrer l’approvisionnement du cluster.
   
@@ -176,4 +178,4 @@ Consultez [Développer des scripts d’action de script pour HDInsight][hdinsigh
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Procédure d’approvisionnement d’un cluster"
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

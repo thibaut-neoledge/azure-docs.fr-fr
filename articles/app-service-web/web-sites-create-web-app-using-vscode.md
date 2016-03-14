@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="erikre"/>
 
 # Création d’une application Web ASP.NET 5 dans Visual Studio Code
@@ -22,7 +22,7 @@
 
 Ce didacticiel explique comment créer une application Web ASP.NET 5 à l’aide de [Visual Studio Code (VS Code)](http://code.visualstudio.com//Docs/whyvscode) et comment le déployer dans [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-> [AZURE.NOTE]Même si cet article fait référence aux applications Web, il s’applique également aux applications API et aux applications mobiles.
+> [AZURE.NOTE] Même si cet article fait référence aux applications Web, il s’applique également aux applications API et aux applications mobiles.
 
 ASP.NET 5 est une nouvelle conception significative d'ASP.NET. ASP.NET 5 est une nouvelle infrastructure open source et interplateforme qui vous permet de créer des applications Web modernes basées sur le cloud à l'aide de .NET. Pour plus d’informations, consultez la page [Présentation d’ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). Pour plus d'informations sur les applications Web Azure App Service, consultez la [Vue d'ensemble de Web Apps](app-service-web-overview.md).
 
@@ -45,7 +45,7 @@ Ce didacticiel est conçu pour vous aider à créer des applications à l’aide
 
 	Ceci téléchargera le script DNVM et le placera dans le répertoire de votre profil utilisateur.
 
-2. **Redémarrez Windows** pour terminer l’installation de DNVM.
+2. **Redémarrez Windows** pour terminer l'installation de DNVM.
 
 	Après le redémarrage de Windows, vous pouvez ouvrir l'invite de commandes pour vérifier l'emplacement de DNVM en entrant la commande suivante :
 
@@ -71,7 +71,7 @@ Ce didacticiel est conçu pour vous aider à créer des applications à l’aide
 
 		dnvm use 1.0.0-update1 –p
 
-> [AZURE.NOTE]Pour accéder à des instructions plus détaillées sur l’installation de cette fonction sur des systèmes OS X, Linux et Windows, consultez la rubrique [Installation d’ASP.NET 5 et de DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
+> [AZURE.NOTE] Pour accéder à des instructions plus détaillées sur l’installation de cette fonction sur des systèmes OS X, Linux et Windows, consultez la rubrique [Installation d’ASP.NET 5 et de DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
 ## Création de l'application Web 
 
@@ -83,7 +83,7 @@ Cette section vous indique comment structurer une nouvelle application Web ASP.N
 
 		npm install -g yo grunt-cli generator-aspnet bower
 
-	> [AZURE.NOTE]Vous pouvez obtenir un avertissement suggérant que votre version de npm est obsolète. Cet avertissement ne doit pas affecter ce didacticiel.
+	> [AZURE.NOTE] Vous pouvez obtenir un avertissement suggérant que votre version de npm est obsolète. Cet avertissement ne doit pas affecter ce didacticiel.
 
 3. Entrez la commande suivante dans l'invite de commandes pour créer le dossier du projet et structurer l'application.
 
@@ -115,7 +115,7 @@ Maintenant que vous avez créé l'application Web et extrait tous les packages N
 
 		dnx: Run Command
 
-	> [AZURE.NOTE]Si le serveur Omnisharp n'est pas en cours d'exécution, il démarrera. Entrez de nouveau la commande ci-dessus.
+	> [AZURE.NOTE] Si le serveur Omnisharp n'est pas en cours d'exécution, il démarrera. Entrez de nouveau la commande ci-dessus.
 
 	Ensuite, sélectionnez la commande suivante pour exécuter votre application web :
 		
@@ -123,7 +123,7 @@ Maintenant que vous avez créé l'application Web et extrait tous les packages N
 
 	La fenêtre de commande affiche que l'application a démarré. Si la fenêtre de commande n'affiche pas ce message, vérifiez le coin inférieur gauche de VS Code pour découvrir les erreurs repérées dans votre projet.
 	
-	> [AZURE.NOTE]L’émission d’une commande à partir de la **palette de commandes** nécessite un caractère **>** au début de la ligne de commande. Vous pouvez afficher les détails relatifs à la commande **web** dans le fichier *project.json*.
+	> [AZURE.NOTE] L’émission d’une commande à partir de la **palette de commandes** nécessite un caractère **>** au début de la ligne de commande. Vous pouvez afficher les détails relatifs à la commande **web** dans le fichier *project.json*.
 
 2. Ouvrez un navigateur et accédez à l'URL suivante.
 
@@ -169,7 +169,7 @@ Git est un système de contrôle de version distribué permettant de déployer v
 
 4. Sélectionnez l'application Web que vous avez créée dans ce didacticiel.
 
-5. Faites défiler le panneau de l’application Web vers le bas jusqu'à la section **Déploiement**, puis cliquez sur **Configurer le déploiement continu**.
+5. Dans le panneau de l’application Web, cliquez sur **Paramètres** > **Déploiement continu**.
 
 	![Hôte d’application Web Azure](./media/web-sites-create-web-app-using-vscode/14-azure-deployment.png)
 
@@ -185,9 +185,9 @@ Git est un système de contrôle de version distribué permettant de déployer v
 
 	* Créez un nom d'utilisateur et un mot de passe. Vous aurez besoin de ce mot de passe lorsque vous configurerez Git.
 
-	* Cliquez sur **Save**.
+	* Cliquez sur **Enregistrer**.
 
-9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L’URL du dépôt Git distant vers lequel vous allez déployer se trouve sous **URL GIT**.
+9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous **URL GIT**.
 
 10. Copiez la valeur **URL GIT** pour pouvoir l’utiliser plus tard dans le didacticiel.
 
@@ -241,7 +241,7 @@ Dans cette section, vous créerez un référentiel Git local et vous effectuerez
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Si vous apportez des modifications à votre application, vous pouvez republier directement dans VS Code à l'aide de la fonctionnalité intégrée de Git en sélectionnant l'option **Valider tout** suivie de l'option **Push**. Vous trouverez l'option **Push** dans le menu déroulant à côté des boutons **Valider tout** et **Actualiser**.
+> [AZURE.NOTE] Si vous apportez des modifications à votre application, vous pouvez republier directement dans VS Code à l'aide de la fonctionnalité intégrée de Git en sélectionnant l'option **Valider tout** suivie de l'option **Push**. Vous trouverez l'option **Push** dans le menu déroulant à côté des boutons **Valider tout** et **Actualiser**.
 
 Si vous avez besoin de collaborer sur un projet, envisagez d'alterner les commandes push vers GitHub et les commandes push vers Azure.
 
@@ -262,4 +262,4 @@ Cette opération peut être réalisée de deux manières :
 ## Résumé
 Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d’informations sur VS Code, consultez l’article [Pourquoi Visual Studio Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

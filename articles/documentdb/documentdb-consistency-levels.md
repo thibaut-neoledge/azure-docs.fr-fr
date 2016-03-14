@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Niveaux de cohérence dans DocumentDB | Microsoft Azure" 
-	description="Découvrez les quatre niveaux de cohérence proposés par DocumentDB et les niveaux de performance associés qui permettent de faire des compromis avisés entre cohérence finale, disponibilité et latence." 
+<properties
+	pageTitle="Niveaux de cohérence dans DocumentDB | Microsoft Azure"
+	description="Découvrez les quatre niveaux de cohérence proposés par DocumentDB et les niveaux de performance associés qui permettent de faire des compromis avisés entre cohérence finale, disponibilité et latence."
 	keywords="cohérence éventuelle, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="cgronlun" 
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="cgronlun"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/23/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/24/2016"
 	ms.author="mimig"/>
 
 # Utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans DocumentDB
 
 Les développeurs doivent souvent choisir entre les deux extrêmes que constituent une cohérence forte et une cohérence éventuelle. En réalité, il existe plusieurs niveaux intermédiaires entre ces deux extrêmes. Dans la plupart des scénarios réels, les applications bénéficient de compromis affinés entre cohérence, disponibilité et latence. DocumentDB offre quatre niveaux de cohérence bien définis et les niveaux de performances associés. Cela permet aux développeurs d’applications de trouver des compromis prévisibles entre cohérence, disponibilité et latence.
- 
+
 Toutes les ressources système, notamment les comptes de base de données, les bases de données, les collections, les utilisateurs et les autorisations sont toujours extrêmement cohérentes en ce qui concerne les lectures et requêtes. Les niveaux de cohérence s'appliquent uniquement aux ressources définies par l'utilisateur. Pour les requêtes et les opérations de lecture sur les ressources définies par l'utilisateur, dont les documents, les pièces jointes, les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur, DocumentDB propose les quatre niveaux de cohérence suivants :
 
  - Forte cohérence
@@ -34,17 +34,17 @@ Ces niveaux de cohérence bien définis et granulaires vous permettent de trouve
 
 Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base de données qui s'applique à toutes les collections (parmi l'ensemble des bases de données) sous votre compte de base de données. Par défaut, toutes les lectures et requêtes émises vers les ressources définies par l'utilisateur utilisent le niveau de cohérence par défaut spécifié sur le compte de base de données. Vous pouvez néanmoins réduire le niveau de cohérence d’une demande de lecture/requête donnée en spécifiant l’en-tête de demande [x-ms-consistency-level]. Les quatre types de niveaux de cohérence pris en charge par le protocole de réplication de DocumentDB sont décrits brièvement ci-dessous.
 
->[AZURE.NOTE]Dans les prochaines versions, nous envisageons de prendre en charge le remplacement du niveau de cohérence par défaut, et ce collection par collection.
+>[AZURE.NOTE] Dans les prochaines versions, nous envisageons de prendre en charge le remplacement du niveau de cohérence par défaut, et ce collection par collection.
 
 **Fort** : cette cohérence garantit qu’une écriture est visible uniquement après sa validation durable par le quorum majoritaire de réplicas. Une écriture est soit validée durablement de manière synchrone par les quorums principal et secondaire, soit abandonnée. Une lecture est toujours reconnue par le quorum de lecture majoritaire : un client ne voit jamais une écriture partielle ou non validée. Il est assuré de lire la toute dernière écriture reconnue.
- 
+
 La cohérence forte fournit des garanties absolues concernant la cohérence des données, mais offre un niveau de performances inférieur en termes de lecture et d'écriture.
 
 **En fonction de l’obsolescence** : ce niveau de cohérence garantit l’ordre global de propagation des écritures avec la possibilité que des lectures soient retardées derrière les écritures par, au plus, des préfixes K. La lecture est toujours reconnue par un quorum majoritaire de réplicas. La réponse d'une demande de lecture spécifie son actualisation relative (en termes de K). Grâce au niveau En fonction de l’obsolescence, vous pouvez définir un seuil configurable d’obsolescence (sous forme de préfixes ou de durée) pour les lectures pour trouver un compromis entre latence et cohérence dans l’état stable.
 
 Le niveau En fonction de l'obsolescence fournit un comportement plus prévisible pour la cohérence des lectures, tout en offrant des écritures avec la latence la plus faible. Comme les lectures sont reconnues par un quorum majoritaire, la latence associée n'est pas la plus faible offerte par le système. Le niveau En fonction de l’obsolescence est approprié pour les scénarios où une forte cohérence, bien que souhaitable, est délicate à mettre en œuvre. Si vous affectez une valeur arbitrairement élevée à « l’intervalle d’obsolescence » de la cohérence en fonction de l’obsolescence, l’ordre global total des écritures est quand même préservé. Ce niveau fournit une meilleure garantie que les niveaux Session ou Éventuel.
 
->[AZURE.NOTE]Le niveau En fonction de l’obsolescence garantit des lectures unitones uniquement sur les demandes de lecture explicites. La réponse que répercute le serveur aux demandes d’écriture n’offre aucune garantie liée à l’obsolescence.
+>[AZURE.NOTE] Le niveau En fonction de l’obsolescence garantit des lectures unitones uniquement sur les demandes de lecture explicites. La réponse que répercute le serveur aux demandes d’écriture n’offre aucune garantie liée à l’obsolescence.
 
 **Par session** : contrairement aux modèles de cohérence globaux offerts par les niveaux de cohérence Fort et En fonction de l’obsolescence, le niveau Par session est adapté à une session client spécifique. Il est généralement suffisant, car il fournit des lectures unitones garanties, des écritures et la possibilité de lire vos propres écritures. Une demande de lecture pour le niveau de cohérence Session (Par session) est émise sur un réplica pouvant servir la version demandée par le client (portion du cookie de session).
 
@@ -60,11 +60,15 @@ Le niveau Éventuel fournit la cohérence la plus faible en matière de lecture,
 
 2. Dans le panneau **Comptes DocumentDB**, sélectionnez le compte de base de données à modifier.
 
-3. Dans le panneau du compte, dans l’objectif **Configuration**, cliquez sur la vignette **Cohérence par défaut**.
+3. Dans le panneau du compte, si le panneau **Paramètres** n’est pas déjà ouvert, cliquez sur l’icône **Paramètres** dans la barre de commandes supérieure.
 
-4. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
+4. Dans le panneau **Tous les paramètres**, cliquez sur l’entrée **Cohérence par défaut** sous **Fonctionnalité**.
 
-	![Capture d’écran mettant en avant la vignette Cohérence par défaut, les paramètres de la cohérence et le bouton Enregistrer](./media/documentdb-consistency-levels/database-consistency-level.png)
+	![Capture d’écran montrant l’icône Paramètres et l’entrée Cohérence par défaut](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+
+5. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
+
+	![Capture d’écran montrant le niveau de cohérence et le bouton Enregistrer](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Niveaux de cohérence des requêtes
 
@@ -83,9 +87,8 @@ Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents 
 
 -	Doug Terry. La cohérence des données répliquées basée sur l’exemple du baseball. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Le niveau Par session garantit des données répliquées peu cohérentes. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Cohérence des compromis en termes de conception de systèmes de base de données distribuée moderne : CAP n’est qu’une partie de l’histoire. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
+-	Daniel Abadi. Cohérence des compromis en termes de conception de systèmes de base de données distribuée moderne : CAP n’est qu’une partie de l’histoire. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilités en fonction de l’obsolescence (PBS) pour les quorums partiels pratiques. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Niveau de cohérence Éventuel repensé. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

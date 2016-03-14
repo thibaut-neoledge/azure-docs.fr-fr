@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # Kit Microsoft Azure IoT device SDK pour C - En savoir plus sur le sérialiseur
@@ -28,7 +28,7 @@ Toutes les procédures décrites dans cet article sont basées sur des exemples 
 
 ## Le langage de modélisation
 
-L’[article d’introduction](iot-hub-device-sdk-c-intro.md) de cette série a présenté le langage de modélisation du **Kit SDK d’appareils Azure IoT pour C** via l’exemple fourni dans l’application **simplesample\_amqp** :
+L’[article d’introduction](iot-hub-device-sdk-c-intro.md) de cette série a présenté le langage de modélisation du **Kit SDK d’appareils Azure IoT pour C** via l’exemple fourni dans l’application **simplesample\_amqp** :
 
 ```
 BEGIN_NAMESPACE(WeatherStation);
@@ -56,7 +56,7 @@ Cet exemple n’illustre pas les types de données supplémentaires pris en char
 
 ### Types de données pris en charge
 
-Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
+Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
 
 | Type | Description |
 |-------------------------|----------------------------------------|
@@ -164,7 +164,7 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 
 Cette fonction sérialise l’événement de données et l’envoie à IoT Hub à l’aide de la commande **IoTHubClient\_SendEventAsync**. Il s’agit du même code que le code traité dans les articles précédents (**SendAsync** encapsule la logique dans une fonction pratique).
 
-**GetDateTimeOffset** est une autre fonction d’assistance utilisée dans le code précédent. Cette fonction transforme l’heure donnée en une valeur de type **EDM\_DATE\_TIME\_OFFSET** :
+**GetDateTimeOffset** est une autre fonction d’assistance utilisée dans le code précédent. Cette fonction transforme l’heure donnée en une valeur de type **EDM\_DATE\_TIME\_OFFSET** :
 
 ```
 EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
@@ -190,7 +190,7 @@ Si nous exécutons ce code, le message suivant est envoyé à IoT Hub :
 
 Remarquez que la sérialisation se fait en JSON, le format généré par la bibliothèque **sérialiseur**. Notez également que chaque membre de l’objet JSON sérialisé correspond aux membres de la structure **TestType** définie dans notre modèle. Les valeurs correspondent également exactement à celles que nous avons utilisées dans le code. Toutefois, notez que les données binaires sont codées en base 64 : « AQID » est l’encodage en base 64 de {0x01, 0x02, 0x03}.
 
-Cet exemple montre l’avantage que procure l’utilisation de la bibliothèque **sérialiseur** : elle permet d’envoyer le code JSON dans le cloud, sans avoir à gérer explicitement la sérialisation dans notre application. Il vous suffit de définir les valeurs des événements de données dans notre modèle, puis d’appeler des API simples pour envoyer ces événements dans le cloud.
+Cet exemple montre l’avantage que procure l’utilisation de la bibliothèque **sérialiseur** : elle permet d’envoyer le code JSON dans le cloud, sans avoir à gérer explicitement la sérialisation dans notre application. Il vous suffit de définir les valeurs des événements de données dans notre modèle, puis d’appeler des API simples pour envoyer ces événements dans le cloud.
 
 Avec les informations ci-dessus, nous pouvons définir des modèles qui incluent la plage des types de données pris en charge, notamment des types complexes (et le cas échéant, nous pouvons même inclure des types complexes au sein d’autres types complexes). Cependant, le code JSON sérialisé généré par l’exemple ci-dessus soulève un point important. La *façon* dont nous envoyons des données avec la bibliothèque **serializer** détermine exactement comment le code JSON est formé. C’est ce point particulier que nous allons ensuite aborder.
 
@@ -204,7 +204,7 @@ Nous souhaitons modéliser un thermostat qui mesure la température et l’humid
 
 Sur la base de ce scénario, nous allons montrer deux façons différentes de modéliser les données et nous allons expliquer l’effet de la modélisation sur la sortie sérialisée.
 
-### Modèle 1
+### Modèle n° 1
 
 Voici la première version d’un modèle prenant en charge le scénario précédent :
 
@@ -297,7 +297,7 @@ Avec ce modèle, vous pouvez voir comment d’autres événements peuvent facile
 
 À présent, nous allons modifier le modèle afin qu’il inclue les mêmes données, mais avec une structure différente.
 
-### Modèle 2
+### Modèle n° 2
 
 Voici un modèle alternatif à celui proposé ci-dessus :
 
@@ -311,7 +311,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 
 Dans ce cas, nous avons éliminé les macros **DECLARE\_STRUCT** et nous définissons simplement les éléments de données à partir de notre scénario à l’aide de types simples du langage de modélisation.
 
-Pour le moment, nous allons ignorer l’événement **Time**. Ceci mis à part, voici le code pour entrer l’événement **Temperature** :
+Pour le moment, nous allons ignorer l’événement **Time**. Ceci mis à part, voici le code pour entrer l’événement **Temperature** :
 
 ```
 time_t now;
@@ -373,7 +373,7 @@ En d’autres termes, vous pouvez vous attendre à ce que ce code soit identique
 
 {"Temperature":75, "Humidity":45}
 
-Cela peut sembler étrange, étant donné que notre modèle définit **Temperature** et **Humidity** comme deux événements *distincts* :
+Cela peut sembler étrange, étant donné que notre modèle définit **Temperature** et **Humidity** comme deux événements *distincts* :
 
 ```
 DECLARE_MODEL(Thermostat,
@@ -396,7 +396,7 @@ WITH_DATA(TemperatureAndHumidityEvent, TemperatureAndHumidity),
 );
 ```
 
-Si nous avions utilisé ce modèle, il serait plus facile de comprendre l’envoi de **Temperature** et **Humidity** dans le même message sérialisé. Cependant, il peut être difficile de comprendre ce fonctionnement quand vous transmettez les deux événements de données dans la macro **SERIALIZE** à l’aide du modèle 2.
+Si nous avions utilisé ce modèle, il serait plus facile de comprendre l’envoi de **Temperature** et **Humidity** dans le même message sérialisé. Cependant, il peut être difficile de comprendre ce fonctionnement quand vous transmettez les deux événements de données dans la macro **SERIALIZE** à l’aide du modèle n° 2.
 
 Ce comportement est plus facile à comprendre si vous connaissez les hypothèses envisagées par la bibliothèque **serializer**. Pour que ce soit plus clair, revenons à notre modèle :
 
@@ -431,7 +431,7 @@ Il peut arriver que vous souhaitiez envoyer uniquement *certaines* propriétés 
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Cela génère exactement le même événement sérialisé que si nous avions défini un **TemperatureEvent** avec un membre **Temperature** et **Time**, comme nous l’avons fait avec le modèle 1. Dans ce cas, nous avons pu générer exactement le même événement sérialisé à l’aide d’un modèle différent (modèle 2), car nous avons appelé **SERIALIZE** différemment.
+Cela génère exactement le même événement sérialisé que si nous avions défini un **TemperatureEvent** avec un membre **Temperature** et **Time**, comme nous l’avons fait avec le modèle n° 1. Dans ce cas, nous avons pu générer exactement le même événement sérialisé à l’aide d’un modèle différent (modèle n° 2), car nous avons appelé **SERIALIZE** différemment.
 
 Ici, le point important est que si vous transmettez plusieurs événements de données dans **SERIALIZE**, cela suppose que chaque événement est une propriété dans un objet JSON unique.
 
@@ -528,17 +528,25 @@ Cette section décrit tout ce que vous devez savoir au moment de l’envoi d’�
 
 ## Configuration des macros
 
-Si vous utilisez la bibliothèque **Serializer**, il convient de connaître une partie importante du SDK, accessible ici :
+Si vous utilisez la bibliothèque **Serializer**, il convient de connaître une partie importante du SDK, accessible dans la bibliothèque azure-c-shared-utility. Si vous avez cloné le référentiel Azure-iot-sdks à partir de GitHub à l’aide de l’option récursive, vous trouverez cette bibliothèque d’utilitaire partagé ici :
 
 ```
-.\\c\\common\\tools\\macro\_utils\_h\_generator.
+.\\c\\azure-c-shared-utility
 ```
 
-Ce dossier contient une solution Visual Studio appelée **macro\_utils\_h\_generator.sln** :
+Si vous n’avez pas cloné la bibliothèque, vous pouvez la trouver [ici](https://github.com/Azure/azure-c-shared-utility).
+
+Dans la bibliothèque de l’utilitaire partagé, vous trouverez le dossier suivant :
+
+```
+azure-c-shared-utility\\macro\_utils\_h\_generator.
+```
+
+Ce dossier contient une solution Visual Studio appelée **macro\_utils\_h\_generator.sln** :
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 
-Le programme de cette solution génère le fichier **macro\_utils.h** figurant dans le répertoire .\\c\\common\\inc. Un fichier macro\_utils.h par défaut est inclus avec le SDK. Cette solution vous permet de modifier certains paramètres, puis de recréer le fichier d’en-tête en fonction de ces paramètres.
+Le programme de cette solution génère le fichier **macro\_utils.h**. Un fichier macro\_utils.h par défaut est inclus avec le SDK. Cette solution vous permet de modifier certains paramètres, puis de recréer le fichier d’en-tête en fonction de ces paramètres.
 
 Les deux paramètres essentiels dont vous devez vous préoccuper sont **nArithmetic** et **nMacroParameters** qui sont définis dans ces deux lignes du fichier macro\_utils.tt :
 
@@ -566,7 +574,7 @@ Comme mentionné précédemment, **DECLARE\_MODEL** est une simple macro C. Le n
 
   ![](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.PNG)
 
-Le paramètre **nArithmetic** concerne davantage le fonctionnement interne du langage de la macro que votre application. Il contrôle le nombre total de membres que vous pouvez avoir dans votre modèle, y compris les macros **DECLARE\_STRUCT**. Donc si vous commencez à voir des erreurs du compilateur comme celles-ci, essayez d’augmenter **nArithmetic** :
+Le paramètre **nArithmetic** concerne davantage le fonctionnement interne du langage de la macro que votre application. Il contrôle le nombre total de membres que vous pouvez avoir dans votre modèle, y compris les macros **DECLARE\_STRUCT**. Donc si vous commencez à voir des erreurs du compilateur comme celles-ci, essayez d’augmenter **nArithmetic** :
 
    ![](media/iot-hub-device-sdk-c-serializer/03-nArithmeticCompilerErrors.PNG)
 
@@ -636,7 +644,7 @@ En ce qui concerne les autres informations d’identification sur l’appareil, 
 
 Enfin, si vous utilisez la bibliothèque **sérialiseur**, vous pouvez définir des options de configuration avec **IoTHubClient\_LL\_SetOption** tout comme vous l’avez fait pendant l’utilisation de la bibliothèque **IoTHubClient**.
 
-Les API d’initialisation sont des fonctionnalités secondaires uniques de la bibliothèque **sérialiseur**. Avant de pouvoir commencer à travailler avec la bibliothèque, vous devez appeler **serializer\_init** :
+Les API d’initialisation sont des fonctionnalités secondaires uniques de la bibliothèque **sérialiseur**. Avant de pouvoir commencer à travailler avec la bibliothèque, vous devez appeler **serializer\_init** :
 
 ```
 serializer_init(NULL);
@@ -644,7 +652,7 @@ serializer_init(NULL);
 
 Cet appel doit être effectué juste avant l’appel de **IoTHubClient\_CreateFromConnectionString**.
 
-De même, quand vous avez fini d’utiliser la bibliothèque, le dernier appel effectué est normalement l’appel de **serializer\_deinit** :
+De même, quand vous avez fini d’utiliser la bibliothèque, le dernier appel effectué est normalement l’appel de **serializer\_deinit** :
 
 ```
 serializer_deinit();
@@ -658,4 +666,4 @@ Cet article décrit en détail les aspects uniques de la bibliothèque **sérial
 
 Ceci conclut également la série en trois parties sur le développement d’applications avec le **Kit Azure IoT device SDK pour C**. Ces informations devraient suffire pour vous aider à commencer et à bien comprendre le fonctionnement des API. Pour plus d’informations, il existe quelques exemples du kit de développement logiciel non couverts ici. Sinon, la [documentation du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks) est une ressource précieuse pour obtenir des informations complémentaires.
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

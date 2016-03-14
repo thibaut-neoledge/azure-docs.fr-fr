@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel : Utilisation de l'activité de copie dans un pipeline Azure Data Factory"
+	pageTitle="Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure"
 	description="Ce didacticiel vous montre comment utiliser l'activité de copie dans un pipeline Azure Data Factory pour copier des données depuis un objet blob Azure vers une base de données SQL Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -16,14 +16,16 @@
 	ms.date="02/01/2016"
 	ms.author="spelluru"/>
 
-# Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL
+# Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Vue d’ensemble du didacticiel](data-factory-get-started.md)
+- [Utilisation de Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Utiliser PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Utilisation de Visual Studio](data-factory-get-started-using-vs.md)
 
-Le didacticiel de cet article vous aide à comprendre rapidement comment utiliser le service Azure Data Factory. Ce didacticiel crée une fabrique de données Azure et un pipeline dans la fabrique de données pour copier des données d'un stockage d'objets blob Azure dans une base de données SQL Azure.
+Ce didacticiel crée une fabrique de données Azure et un pipeline avec une activité de copie pour copier des données d’un stockage d’objets blob Azure dans une base de données SQL Azure.
+
+L’activité de copie effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un service disponible à l’échelle mondiale qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 > [AZURE.NOTE] Pour obtenir une présentation détaillée du service Data Factory, consultez l'article [Présentation d'Azure Data Factory][data-factory-introduction].
 
@@ -98,7 +100,9 @@ Effectuez les actions suivantes :
 - Cliquez sur le lien [Utilisation de Data Factory Editor](data-factory-get-started-using-editor.md) situé dans la partie supérieure pour effectuer le didacticiel à l’aide de Data Factory Editor, qui fait partie du portail Azure Classic.
 - Cliquez sur le lien [Utilisation de PowerShell](data-factory-monitor-manage-using-powershell.md) situé dans la partie supérieure pour effectuer le didacticiel à l'aide d'Azure PowerShell.
 - Cliquez sur le lien [Utilisation de Visual Studio](data-factory-get-started-using-vs.md) situé dans la partie supérieure pour suivre le didacticiel à l’aide de Visual Studio 2013.
- 
+
+## activité de copie
+Pour plus d’informations sur l’activité de copie dans Azure Data Factory, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 
 <!--Link references-->
@@ -111,4 +115,4 @@ Effectuez les actions suivantes :
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

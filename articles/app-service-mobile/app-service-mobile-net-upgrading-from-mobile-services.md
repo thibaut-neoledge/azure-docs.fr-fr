@@ -74,7 +74,7 @@ Mobile Apps fournit une nouveau [Kit de développement logiciel (SDK) Mobile App
 
 À ce stade, vous avez un projet qui ne fait plus référence aux SDK Mobile Services.
 
-Ensuite, vous allez ajouter des références aux SDK Mobile Apps. Pour cette mise à niveau, la plupart des développeurs préfèrent télécharger et installer le package `Micrsoft.Azure.Mobile.Server.Quickstart`, car il permet d’extraire la totalité de l’ensemble requis.
+Ensuite, vous allez ajouter des références aux SDK Mobile Apps. Pour cette mise à niveau, la plupart des développeurs préfèrent télécharger et installer le package `Microsoft.Azure.Mobile.Server.Quickstart`, car il permet d’extraire la totalité de l’ensemble requis.
 
 De nombreuses erreurs de compilateur proviennent des différences entre les SDK, mais elles sont faciles à corriger et elles sont décrites plus loin dans cette section.
 
@@ -277,4 +277,4 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [tarification App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
 [Présentation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

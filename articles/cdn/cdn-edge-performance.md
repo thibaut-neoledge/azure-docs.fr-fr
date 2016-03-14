@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Analyser les performances de serveurs Edge" 
-	description="Analyser les performances du nœud de périmètre dans Microsoft Azure CDN. Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Analyser les performances de serveurs Edge"
+	description="Analyser les performances du nœud de périmètre dans Microsoft Azure CDN. Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # Analyser les performances du nœud de périmètre dans Microsoft Azure CDN
@@ -21,7 +21,7 @@
 ## Vue d'ensemble
 Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN. Ces informations peuvent ensuite être exploitées pour générer des statistiques de tendances, ce qui vous permet d’obtenir des informations sur la manière dont vos ressources sont mises en cache et distribuées à vos clients. Vous pouvez ensuite formuler une stratégie sur la façon d’optimiser la distribution de votre contenu et déterminer les problèmes à résoudre afin de mieux tirer parti du CDN. Vous pourrez ainsi non seulement améliorer les performances de diffusion des données mais également réduire vos coûts CDN.
 
-> [AZURE.NOTE]Edge Performance Analytics est une fonctionnalité de niveau CDN Premium. Pour obtenir une comparaison des fonctionnalités CDN Standard et Premium, consultez l’article [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md).
+> [AZURE.NOTE] Edge Performance Analytics est une fonctionnalité de niveau CDN Premium. Pour obtenir une comparaison des fonctionnalités CDN Standard et Premium, consultez l’article [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md).
 >
 > Tous les rapports utilisent la notation UTC/GMT lorsque vous spécifiez une date ou une heure.
 
@@ -29,7 +29,7 @@ Edge Performance Analytics fournit des informations précises sur le trafic et l
 
 Les données d’activité CDN doivent être collectées par le module Edge Performance Analytics pour que ce dernier puisse générer les rapports correspondants. Ce processus intervient une fois par jour et traite l’activité recensée au cours de la journée précédente. Autrement dit, les statistiques d’un rapport représentent un échantillon des statistiques du jour au moment du traitement, et ne contiennent donc pas nécessairement le jeu de données complet correspondant à la date du jour. Ces rapports visent essentiellement à évaluer les performances. Ils ne doivent pas être utilisés à des fins de facturation ou pour générer des statistiques numériques exactes.
 
-> [AZURE.NOTE]Les données brutes à partir desquelles sont générés les rapports Edge Performance Analytics sont disponibles pendant au moins 90 jours.
+> [AZURE.NOTE] Les données brutes à partir desquelles sont générés les rapports Edge Performance Analytics sont disponibles pendant au moins 90 jours.
 
 ## Tableau de bord
 
@@ -46,11 +46,11 @@ Ce tableau de bord se décompose comme suit :
 1. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer**.
 
 	![Bouton Gérer du panneau de profil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	Le portail de gestion CDN s’ouvre.
-	
+
 2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Edge Performance Analytics**. Cliquez sur **Tableau de bord**.
-	
+
 	Le tableau de bord d’analyse des nœuds de périmètre s’affiche.
 
 ### Graphique
@@ -98,7 +98,7 @@ Ces mesures ont pour but de fournir des informations sur les mesures de réducti
 * Réduction des coûts d'exploitation via le CDN.
 * Réduction des dépenses CDN grâce à l’efficacité du cache et à la compression.
 
-> [AZURE.NOTE]Les nombres associés au volume de trafic représentent le trafic qui a été utilisé pour les calculs de rapports et de pourcentages ; ils ne peuvent afficher qu’une partie du trafic total pour les clients consommant de gros volumes de données.
+> [AZURE.NOTE] Les nombres associés au volume de trafic représentent le trafic qui a été utilisé pour les calculs de rapports et de pourcentages ; ils ne peuvent afficher qu’une partie du trafic total pour les clients consommant de gros volumes de données.
 
 Champ | Description
 ------|------------
@@ -143,13 +143,13 @@ Chaque rapport de ce module contient un graphique et des statistiques sur l’ut
 1. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer**.
 
 	![Bouton Gérer du panneau de profil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	Le portail de gestion CDN s’ouvre.
-	
+
 2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Edge Performance Analytics**. Cliquez sur **HTTP Large Object**.
-	
+
 	L’écran des rapports d’analyse des nœuds de périmètre s’affiche.
-	
+
 Rapport | Description
 -------|------------
 Daily Summary | Permet d’afficher les tendances du trafic quotidien sur une période spécifiée. Chaque barre sur ce graphique représente une date particulière. La taille de la barre indique le nombre total de correspondances recensées à cette date.
@@ -157,7 +157,7 @@ Hourly Summary | Permet d’afficher les tendances du trafic horaire sur une pé
 Protocoles | Affiche la répartition du trafic entre les protocoles HTTP et HTTPS. Un graphique en anneau indique le pourcentage de correspondances recensées pour chaque type de protocole.
 HTTP Methods | Permet d’identifier rapidement les méthodes HTTP utilisées pour les demandes de données. En règle générale, les méthodes de demande HTTP les plus courantes sont GET, HEAD et POST. Un graphique en anneau indique le pourcentage de correspondances recensées pour chaque type de méthode de demande HTTP.
 URLs | Contient un graphique affichant les 10 URL les plus demandées. Une barre s’affiche pour chaque URL. La hauteur de la barre indique le nombre de correspondances qu’une URL donnée a généré au cours de la période couverte par le rapport. Les statistiques correspondant aux 100 URL les plus demandées s’affichent directement sous ce graphique.
-CNAMEs | Contient un graphique qui affiche les 10 principaux enregistrements CNAME utilisés pour demander des ressources au cours de la période couverte par le rapport. Les statistiques correspondant aux 100 enregistrements CNAME les plus demandés s’affichent directement sous ce graphique. 
+CNAMEs | Contient un graphique qui affiche les 10 principaux enregistrements CNAME utilisés pour demander des ressources au cours de la période couverte par le rapport. Les statistiques correspondant aux 100 enregistrements CNAME les plus demandés s’affichent directement sous ce graphique.
 Origins | Contient un graphique qui affiche les 10 principaux CDN ou serveurs d’origine du client à partir desquels ont émises des demandes de ressources sur une période de temps spécifiée. Les statistiques correspondant aux 100 CDN ou serveurs d’origine client les plus demandés s’affichent directement sous ce graphique. Les serveurs d’origine client sont identifiés par le nom défini dans l’option Directory Name.
 Geo POPs | Affiche la quantité de trafic acheminé via un point de présence (POP) particulier. L’abréviation à trois lettres représente un POP dans notre réseau CDN.
 Clients | Contient un graphique qui affiche les 10 clients ayant demandé des ressources sur une période de temps spécifiée. Dans le cadre de ce rapport, on considère que toutes les demandes provenant de la même adresse IP émanent du même client. Les statistiques correspondant aux 100 premiers clients s’affichent directement sous ce graphique. Ce rapport est utile pour déterminer les modèles d’activité de téléchargement pour vos principaux clients.
@@ -192,4 +192,4 @@ HTTP Response Codes | Fournit une liste des codes d’état HTTP (par exemple, 2
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 * [Rapports HTTP avancés](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN -Rapports HTTP avancés" 
-	description="Rapports HTTP avancés dans Microsoft Azure CDN. Ces rapports fournissent des informations détaillées sur l’activité CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN -Rapports HTTP avancés"
+	description="Rapports HTTP avancés dans Microsoft Azure CDN. Ces rapports fournissent des informations détaillées sur l’activité CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # Rapports HTTP avancés dans Microsoft Azure CDN
@@ -22,18 +22,18 @@
 
 Ce document présente les rapports HTTP avancés disponibles dans Microsoft Azure CDN. Ces rapports fournissent des informations détaillées sur l’activité CDN.
 
-> [AZURE.NOTE]Les rapports HTTP avancés désignent une fonctionnalité de niveau CDN Premium. Pour obtenir une comparaison des fonctionnalités CDN Standard et Premium, consultez l’article [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md).
+> [AZURE.NOTE] Les rapports HTTP avancés désignent une fonctionnalité de niveau CDN Premium. Pour obtenir une comparaison des fonctionnalités CDN Standard et Premium, consultez l’article [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md).
 
 ## Accès aux rapports HTTP avancés
 
 1. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer**.
 
 	![Bouton Gérer du panneau de profil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
-	
+
 	Le portail de gestion CDN s’ouvre.
-	
+
 2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Advanced HTTP Reports**. Cliquez sur **HTTP Large Platform**.
-	
+
 	Les options de rapport sont affichées.
 
 ## Rapports géographiques (à partir d’une carte)
@@ -52,7 +52,7 @@ World Map | Ce rapport vous permet de visualiser la demande mondiale de votre co
 United States Map | Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée aux États-Unis. Chaque État est coloré sur la carte pour indiquer le pourcentage d’accès associé à cette région.
 Canada Map | Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée au Canada. Chaque province est colorée sur la carte pour indiquer le pourcentage d’accès associé à cette région.
 Europe Map | Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée en Europe. Chaque pays est coloré sur la carte pour indiquer le pourcentage d’accès associé à cette région.
-Asia Pacific Map | Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée en Asie. Chaque pays est coloré sur la carte pour indiquer le pourcentage d’accès associé à cette région. 
+Asia Pacific Map | Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée en Asie. Chaque pays est coloré sur la carte pour indiquer le pourcentage d’accès associé à cette région.
 
 ## Rapports géographiques (graphiques à barres)
 
@@ -84,7 +84,7 @@ Lors de la génération de ce type de rapport, un graphique à barres fournit un
 
 La partie gauche du graphique (axe y) indique le nombre d’accès recensés à la date spécifiée. Chaque jour couvert par le rapport est annoté sous forme de date (au format AAAA-MM-JJ) directement sous le graphique (axe x).
 
-> [AZURE.TIP]Si vous pointez sur une barre, le nombre total d’accès recensés à cette date s’affichera sous la forme d’une info-bulle.
+> [AZURE.TIP] Si vous pointez sur une barre, le nombre total d’accès recensés à cette date s’affichera sous la forme d’une info-bulle.
 
 Vous pouvez afficher sous le graphique à barres les données qui ont été utilisées pour générer ce graphique. Vous y trouverez le nombre total d’accès et la quantité de données transférées (en Go) pour chaque jour couvert par le rapport.
 
@@ -96,7 +96,7 @@ Lors de la génération de ce type de rapport, un graphique à barres fournit un
 
 La partie gauche du graphique (axe y) indique le nombre d’accès recensés pendant l’heure spécifiée. Chaque heure couverte par le rapport est annotée sous forme de date/heure (au format AAAA-MM-JJ hh:mm) directement sous le graphique (axe x). L’heure est affichée au format 24 heures et repose sur le fuseau horaire UTC/GMT.
 
-> [AZURE.TIP]Si vous pointez sur une barre, le nombre total d’accès recensés pendant l’heure en question s’affichera sous la forme d’une info-bulle.
+> [AZURE.TIP] Si vous pointez sur une barre, le nombre total d’accès recensés pendant l’heure en question s’affichera sous la forme d’une info-bulle.
 
 Vous pouvez afficher sous le graphique à barres les données qui ont été utilisées pour générer ce graphique. Vous y trouverez le nombre total d’accès et la quantité de données transférées (en Go) pour chaque heure couverte par le rapport.
 
@@ -104,7 +104,7 @@ Vous pouvez afficher sous le graphique à barres les données qui ont été util
 
 Le rapport By File vous permet d’afficher la quantité de demande et de trafic générés sur une plateforme spécifique pour les ressources les plus demandées. Lors de la génération de ce type de rapport, un graphique à barres est généré pour les 10 ressources les plus demandées au cours de la période spécifiée.
 
-> [AZURE.NOTE]Dans le cadre de ce rapport, les URL edge CNAME sont converties en URL CDN équivalentes. Cela permet un décompte précis du nombre total d’accès associés à une ressource indépendamment de l’URL CDN ou edge CNAME utilisée pour la demande.
+> [AZURE.NOTE] Dans le cadre de ce rapport, les URL edge CNAME sont converties en URL CDN équivalentes. Cela permet un décompte précis du nombre total d’accès associés à une ressource indépendamment de l’URL CDN ou edge CNAME utilisée pour la demande.
 
 La partie gauche du graphique (axe y) indique le nombre de demandes recensées pour chaque ressource pendant la période spécifiée. Le nom de fichier correspondant à chacune des 10 ressources les plus demandées est annoté directement sous le graphique (axe x).
 
@@ -122,7 +122,7 @@ Vous pouvez afficher sous le graphique à barres les données qui ont été util
 
 Le rapport By File Type vous permet d’afficher la quantité de demande et de trafic recensés par type de fichier. Lors de la génération de ce type de rapport, un graphique en anneau indique le pourcentage d’accès généré par les 10 principaux types de fichiers.
 
-> [AZURE.TIP]Si vous pointez sur une tranche du graphique, le type de contenu Internet correspondant à ce type de fichier s’affichera sous la forme d’une info-bulle.
+> [AZURE.TIP] Si vous pointez sur une tranche du graphique, le type de contenu Internet correspondant à ce type de fichier s’affichera sous la forme d’une info-bulle.
 
 Vous pouvez afficher sous le graphique en anneau les données qui ont été utilisées pour générer ce graphique. Vous obtenez alors l’extension du nom de fichier/le type de contenu Internet, le nombre total d’accès, le pourcentage d’accès, la quantité de données transférées (en Go) et le pourcentage de données transférées pour chacun des 250 principaux types de fichiers.
 
@@ -164,13 +164,13 @@ Vous pouvez afficher sous le graphique à barres les données qui ont été util
 
 Le rapport By Download vous permet d’analyser les modèles de téléchargement pour vos contenus les plus demandés. La partie supérieure du rapport contient un graphique à barres qui compare les tentatives de téléchargement aux téléchargements terminés pour les 10 ressources les plus demandées. Chaque barre est colorée selon qu’il s’agit d’une tentative de téléchargement (bleu) ou d’un téléchargement terminé (vert).
 
-> [AZURE.NOTE]Dans le cadre de ce rapport, les URL edge CNAME sont converties en URL CDN équivalentes. Cela permet un décompte précis de toutes les statistiques associées à une ressource indépendamment de l’URL CDN ou edge CNAME utilisée pour la demande.
+> [AZURE.NOTE] Dans le cadre de ce rapport, les URL edge CNAME sont converties en URL CDN équivalentes. Cela permet un décompte précis de toutes les statistiques associées à une ressource indépendamment de l’URL CDN ou edge CNAME utilisée pour la demande.
 
 La partie gauche du graphique (axe y) indique le nom de fichier pour chacune des 10 ressources les plus demandées. Le nombre total de tentatives de téléchargement/téléchargements terminés est annoté directement sous le graphique (axe x).
 
 Les informations suivantes figurent sous le graphique pour les 250 ressources les plus demandées : chemin d’accès relatif (y compris nom de fichier), nombre de tentatives avant téléchargement complet, nombre de demandes recensées et pourcentage de demandes ayant abouti à un téléchargement complet.
 
-> [AZURE.TIP]Notre CDN n’est pas informé par un client HTTP (par exemple, un navigateur) lorsqu’une ressource a été entièrement téléchargée. Par conséquent, nous devons déterminer si une ressource a été entièrement téléchargée en fonction des codes d’état et des demandes de plage d’octets. Pour ce calcul, la première chose à faire est de déterminer si les résultats de la demande génèrent un code d’état de 200 (succès de la requête). Dans ce cas, nous examinons les demandes de plage d’octets pour vérifier qu’elles couvrent bien l’ensemble de la ressource. Enfin, nous comparons la quantité de données transférées à la taille de la ressource demandée. Si les données transférées sont supérieures ou égales à la taille du fichier et si les demandes de plage d’octets sont appropriées pour cette ressource, l’accès sera alors considéré comme un téléchargement complet.
+> [AZURE.TIP] Notre CDN n’est pas informé par un client HTTP (par exemple, un navigateur) lorsqu’une ressource a été entièrement téléchargée. Par conséquent, nous devons déterminer si une ressource a été entièrement téléchargée en fonction des codes d’état et des demandes de plage d’octets. Pour ce calcul, la première chose à faire est de déterminer si les résultats de la demande génèrent un code d’état de 200 (succès de la requête). Dans ce cas, nous examinons les demandes de plage d’octets pour vérifier qu’elles couvrent bien l’ensemble de la ressource. Enfin, nous comparons la quantité de données transférées à la taille de la ressource demandée. Si les données transférées sont supérieures ou égales à la taille du fichier et si les demandes de plage d’octets sont appropriées pour cette ressource, l’accès sera alors considéré comme un téléchargement complet.
 >
 >Puisque ce rapport repose sur des interprétations, rappelez-vous que la cohérence et la précision de ce rapport peut être affectée pour les raisons suivantes :
 >
@@ -181,7 +181,7 @@ Les informations suivantes figurent sous le graphique pour les 250 ressources l
 
 Le rapport By 404 Errors vous permet d’identifier le type de contenu qui génère le plus grand nombre de codes d’état « 404 Not Found ». La partie supérieure du rapport contient un graphique à barres qui regroupe les 10 principales ressources ayant donné lieu au renvoi d’un code d’état « 404 Not Found ». Ce graphique à barres compare le nombre total de demandes aux demandes ayant généré un code d’état « 404 Not Found » pour les ressources concernées. Chaque barre est codée par couleur. Une barre jaune indique que la demande a généré un code d’état « 404 Not Found ». Une barre rouge indique le nombre total de demandes pour la ressource concernée.
 
-> [AZURE.NOTE]Dans le cadre de ce rapport, notez les points suivants :
+> [AZURE.NOTE] Dans le cadre de ce rapport, notez les points suivants :
 >
 >* Un accès représente une demande de ressource, quel que soit le code d’état.
 >* Les URL edge CNAME sont converties en URL CDN équivalentes. Cela permet un décompte précis de toutes les statistiques associées à une ressource indépendamment de l’URL CDN ou edge CNAME utilisée pour la demande.
@@ -196,4 +196,4 @@ Les informations suivantes figurent sous le graphique pour les 250 ressources l
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 * [Analyser les performances de serveurs Edge](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

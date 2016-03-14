@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/15/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Créer une application web .NET MVC dans Azure App Service avec authentification AD FS
@@ -65,7 +65,7 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 
 	Vous verrez que le code envoie simplement une demande d’authentification pour authentifier l’utilisateur à l’aide de WS-Federation. Toute l’authentification est configurée dans App\_Start\\Startup.Auth.cs.
 
-4.  Ouvrez App_Start\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
+4.  Ouvrez App\_Start\\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -82,27 +82,27 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 5.	Dans App\_Start\\Startup.Auth.cs, modifiez les définitions de chaînes statiques comme illustré ci-dessous :
 	<pre class="prettyprint">
 	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
-
-    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-    </pre>
+	<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+	<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+	<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+	<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+	
+	<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+	</pre>
 
 6.	Vous allez maintenant effectuer les modifications correspondantes dans le fichier Web.config. Ouvrez le fichier Web.config et modifiez les paramètres d’application comme illustré ci-dessous :
 	<pre class="prettyprint">
-	&lt;appSettings&gt>
+	&lt;appSettings>
 	  &lt;add key="webpages:Version" value="3.0.0.0" />
 	  &lt;add key="webpages:Enabled" value="false" />
 	  &lt;add key="ClientValidationEnabled" value="true" />
 	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-	  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" />;</del></mark>
-	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" />;</del></mark>
-	  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" />;</del></mark>
-	  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" />;</mark>
-	  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" />;</mark>
-
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+	  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" /></del></mark>
+	  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" /></mark>
+	  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" /></mark>
+	
 	&lt;/appSettings>
 	</pre>
 
@@ -135,9 +135,9 @@ Ici, vous allez publier l’application dans une application web d’App Servic
 
 11. Dans Visual Studio, ouvrez **Web.Release.config** dans votre projet. Insérez le code XML suivant dans la balise `<configuration>`, puis remplacez la valeur de clé par l’URL de votre application web de publication.
 	<pre class="prettyprint">
-&lt;appSettings>
-   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
+	&lt;appSettings>
+	   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	&lt;/appSettings></pre>
 
 Lorsque vous avez terminé, deux identificateurs de partie de confiance sont configurés dans votre projet, un pour votre environnement de débogage dans Visual Studio et un pour l’application web publiée dans Azure. Vous allez configurer une approbation de partie de confiance pour chacun des deux environnements dans AD FS. Pendant le débogage, les paramètres d’application du fichier Web.config sont utilisés pour que votre configuration **Debug** fonctionne avec AD FS, et après la publication (par défaut, la configuration de **Release** est publiée), un fichier Web.config transformé est téléchargé et il intègre les modifications de paramètre d’application dans Web.Release.config.
 
@@ -199,18 +199,20 @@ Maintenant, vous devez configurer une approbation de partie de confiance dans Ge
 10.	Sélectionnez **Envoyer les revendications à l’aide d’une règle personnalisée**, puis cliquez sur **Suivant**.
 11.	Collez la langue de règle suivante dans la zone **Règle personnalisée**, nommez la règle **Identificateur de session** et cliquez sur **Terminer**.  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-	=> add(
-		store = "_OpaqueIdStore",
-		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-		query = "{0};{1};{2};{3};{4}",
-		param = "useEntropy",
-		param = c1.Value,
-		param = c1.OriginalIssuer,
-		param = "",
-		param = c2.Value);
-</pre>Votre règle personnalisée doit ressembler à ceci :
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+		=> add(
+			store = "_OpaqueIdStore",
+			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+			query = "{0};{1};{2};{3};{4}",
+			param = "useEntropy",
+			param = c1.Value,
+			param = c1.OriginalIssuer,
+			param = "",
+			param = c2.Value);
+	</pre>
+
+	Votre règle personnalisée doit ressembler à ceci :
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -263,21 +265,21 @@ Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, 
 1. Ouvrez Controllers\\HomeController.cs.
 2. Décorez les méthodes d’action `About` et `Contact` similaires à celles ci-dessous, à l’aide des appartenances aux groupes de sécurité de l’utilisateur authentifié.  
 	<pre class="prettyprint">
-    <mark>[Authorize(Roles="Groupe de test")]</mark>
-    public ActionResult About()
-    {
-       ViewBag.Message = "Page de description de votre application.";
-
-        return View();
-    }
-
-    <mark>[Authorize(Roles="Admins du domaine")]</mark>
-    public ActionResult Contact()
-    {
-    ViewBag.Message = "Votre page de contacts.";
-
-    return View();
-    }
+	<mark>[Authorize(Roles="Groupe de test")]</mark>
+	public ActionResult About()
+	{
+	    ViewBag.Message = "Page de description de votre application.";
+	
+	    return View();
+	}
+	
+	<mark>[Authorize(Roles="Admins du domaine")]</mark>
+	public ActionResult Contact()
+	{
+	    ViewBag.Message = "Votre page de contacts.";
+	
+	    return View();
+	}
 	</pre>
 
 	Étant donné que j’ai ajouté **Utilisateur de test** à **Groupe de test** dans mon environnement de laboratoire AD FS, je vais utiliser le groupe de test pour tester l’autorisation sur `About`. Pour `Contact`, je vais tester le cas négatif de **Admins du domaine**, auquel l’**utilisateur de test** n’appartient pas.
@@ -287,12 +289,13 @@ Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, 
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Si vous examinez cette erreur dans l’Observateur d’événements sur le serveur AD FS, vous verrez ce message d’exception : <pre class="prettyprint"> 
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made ’6’ requests in the last ’11’ seconds.</mark> Contact your administrator for details.
-	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
-	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+	Si vous examinez cette erreur dans l'Observateur d'événements sur le serveur AD FS, vous voyez ce message d'exception :
+	<pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042&#160;: <mark>la même session de navigateur client a fait des demandes «&#160;6&#160;» au cours des dernières «&#160;11&#160;» secondes.</mark> Contactez votre administrateur pour obtenir des informations complémentaires.
+	   à Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(contexte WrappedHttpListenerContext)
+	   à Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(contexte WSFederationContext, réponse MSISSignInResponse)
+	   à Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   à Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(contexte WrappedHttpListenerContext)
 	</pre>
 
 	Cela se produit, car, par défaut, MVC renvoie une erreur 401 Non autorisé lorsque les rôles d’un utilisateur ne sont pas autorisés. Cela déclenche une demande de réauthentification auprès de votre fournisseur d’identité (AD FS). Étant donné que l’utilisateur est déjà authentifié, AD FS renvoie la même page, qui émet alors une autre erreur 401, créant ainsi une boucle de redirection. Vous devez remplacer la méthode `HandleUnauthorizedRequest` de AuthorizeAttribute par une logique simple pour obtenir un affichage adéquat au lieu de continuer la boucle de redirection.
@@ -353,4 +356,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données 
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

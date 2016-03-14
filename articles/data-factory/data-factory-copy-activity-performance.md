@@ -63,11 +63,11 @@ Les étapes classiques que nous vous suggérons pour régler les performances de
 3. **Étendez la configuration à l’ensemble de vos données** Lorsque vous êtes satisfait des résultats et des performances de l’exécution, vous pouvez étendre la définition du jeu de données et de la période active du pipeline pour couvrir l’ensemble des données.
 
 ## Performances de référence
-> [AZURE.IMPORTANT]**Exclusion :** les données ci-dessous ont été publiées dans le seul but de fournir des conseils et de proposer une planification de haut niveau. La bande passante, le matériel, la configuration et autres aspects sont supposés figurer parmi les meilleurs de leur catégorie. Utilisez ces données uniquement en guise de référence. Le débit de déplacement des données que vous observez dépend d’une série de variables. Reportez-vous aux sections ultérieurement pour découvrir comment vous pouvez éventuellement régler et obtenir de meilleures performances pour vos besoins en matière de déplacement des données. Ces données seront mises à jour au fur et à mesure des ajouts de fonctionnalités et améliorations des performances.
+> [AZURE.IMPORTANT] **Exclusion :** les données ci-dessous ont été publiées dans le seul but de fournir des conseils et de proposer une planification de haut niveau. La bande passante, le matériel, la configuration et autres aspects sont supposés figurer parmi les meilleurs de leur catégorie. Utilisez ces données uniquement en guise de référence. Le débit de déplacement des données que vous observez dépend d’une série de variables. Reportez-vous aux sections ultérieurement pour découvrir comment vous pouvez éventuellement régler et obtenir de meilleures performances pour vos besoins en matière de déplacement des données. Ces données seront mises à jour au fur et à mesure des ajouts de fonctionnalités et améliorations des performances.
 
 ![Matrice des performances](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE]**Bientôt disponible :** nous sommes en train d’améliorer les performances de base, et le tableau ci-dessous présentera bientôt des valeurs de débit meilleures et en plus grand nombre.
+> [AZURE.NOTE] **Bientôt disponible :** nous sommes en train d’améliorer les performances de base, et le tableau ci-dessous présentera bientôt des valeurs de débit meilleures et en plus grand nombre.
 
 Points à noter :
 
@@ -76,19 +76,19 @@ Points à noter :
 - En ce qui concerne les magasins de données Microsoft Azure, la source et le récepteur sont dans la même région Azure.
 - Dans le cas du déplacement de données hybrides (de locales vers le cloud, ou de cloud vers locales), la passerelle de gestion des données (instance unique) était hébergée sur un ordinateur différent de celui du magasin de données local, à l’aide de la configuration suivante. Notez qu’avec une seule exécution d’activité sur la passerelle, l’opération de copie ne consommait qu’une petite partie de la bande passante réseau et des ressources de processeur et de mémoire de cet ordinateur.
 	<table>
-<tr>
-	<td>UC</td>
-	<td>32 cœurs 2,20 GHz Intel Xeon® E5-2660 v2</td>
-</tr>
-<tr>
-	<td>Mémoire</td>
-	<td>128 GO</td>
-</tr>
-<tr>
-	<td>Réseau</td>
-	<td>Interface Internet : 10 Gbits/s&#160;; interface intranet : 40 Gbits/s</td>
-</tr>
-</table>
+	<tr>
+		<td>UC</td>
+		<td>32 cœurs 2,20 GHz Intel Xeon® E5-2660 v2</td>
+	</tr>
+	<tr>
+		<td>Mémoire</td>
+		<td>128 GO</td>
+	</tr>
+	<tr>
+		<td>Réseau</td>
+		<td>Interface Internet : 10 Gbits/s&#160;; interface intranet : 40 Gbits/s</td>
+	</tr>
+	</table>
 
 ## Considérations sur la source
 ### Généralités
@@ -218,10 +218,10 @@ Dans ce cas, la compression de données BZIP2 pourrait ralentir l’ensemble du 
 Voici quelques références relatives à la surveillance et au réglage des performances pour quelques magasins de données pris en charge :
 
 - Azure Storage (y compris les objets blob Azure et la table Azure) : [Objectifs d’évolutivité d’Azure Storage](../storage/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité d’Azure Storage](../storage//storage-performance-checklist.md)
-- Base de données SQL Azure : vous pouvez [surveiller les performances](../sql-database/sql-database-service-tiers.md#monitoring-performance) et vérifier le pourcentage de l’unité de débit de base de données (UDBD).
+- Base de données SQL Azure : vous pouvez [surveiller les performances](../sql-database/sql-database-service-tiers.md#monitoring-performance) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
 - Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU). Voir [Performances et mise à l’échelle élastiques avec SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
 - Azure DocumentDB : [Niveaux de performances dans DocumentDB](../documentdb/documentdb-performance-levels.md).
 - SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx).
 - Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

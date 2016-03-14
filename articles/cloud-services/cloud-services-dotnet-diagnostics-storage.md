@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="10/21/2015"
+  ms.date="02/20/2016"
   ms.author="robb" />
 
 # Stocker et afficher des données de diagnostic dans Azure Storage
@@ -52,7 +52,7 @@ Pour le kit de développement logiciel 2.5 et versions ultérieures, la demande
 Pour le kit de développement logiciel 2.4 et versions antérieures, vous pouvez demander le transfert de données de diagnostic via le fichier de configuration et par programmation. L’approche par programmation vous permet également d’effectuer des transferts à la demande.
 
 
->[AZURE.IMPORTANT]Lorsque vous transférez des données de diagnostic vers un compte de stockage Microsoft Azure, vous encourez des frais pour les ressources de stockage qui utilise vos données de diagnostic.
+>[AZURE.IMPORTANT] Lorsque vous transférez des données de diagnostic vers un compte de stockage Microsoft Azure, vous encourez des frais pour les ressources de stockage qui utilise vos données de diagnostic.
 
 ## Stockez les données de diagnostic
 
@@ -83,14 +83,15 @@ Les données du journal sont stockées dans le stockage Blob ou de Table avec le
 ## Outils permettant d’afficher les données de diagnostic
 Plusieurs outils sont disponibles pour afficher les données après leur transfert vers le stockage. Par exemple :
 
-- **Explorateur de serveurs dans Visual Studio** : -si vous avez installé Microsoft Azure Tools pour Microsoft Visual Studio, vous pouvez utiliser le nœud de stockage Azure dans l’Explorateur de serveurs pour afficher des objets blobs en lecture seule et les données du tableau depuis vos comptes de stockage Azure. Vous pouvez afficher des données à partir de votre compte d’émulateur de stockage local et de comptes de stockage que vous avez créés pour Azure. Pour plus d’informations, voir la section [Consultation des ressources de stockage avec l’Explorateur de serveurs](https://msdn.microsoft.com/library/ff683677.aspx).
+- Explorateur de serveurs dans Visual Studio : si vous avez installé Microsoft Azure Tools pour Microsoft Visual Studio, vous pouvez utiliser le nœud de stockage Azure dans l’Explorateur de serveurs pour afficher des objets blobs en lecture seule et les données du tableau depuis vos comptes de stockage Azure. Vous pouvez afficher des données à partir de votre compte d’émulateur de stockage local et de comptes de stockage que vous avez créés pour Azure. Pour plus d’informations, consultez [Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- **Azure Storage Explorer de Neudesic** : [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) est un outil d’interface graphique utilisateur pour examiner et modifier les données de vos projets de stockage Azure, notamment les journaux de vos applications Azure. Pour télécharger cet outil, consultez [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
+- [Azure Storage Explorer de Neudesic](http://azurestorageexplorer.codeplex.com/) est un outil d’interface graphique utilisateur pour examiner et modifier les données de vos projets de stockage Azure, notamment les journaux de vos applications Azure.
 
-- Azure Diagnostics Manager par Cerebrata : [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) est un client Windows (WPF) qui assure la gestion des diagnostics Azure. Il vous permet de consulter, de télécharger et de gérer les données de diagnostic recueillies par les applications qui s’exécutent dans Azure. Pour télécharger cet outil, consultez [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx).
+- [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) inclut Azure Diagnostics Manager qui vous permet d’afficher, de télécharger et de gérer les données de diagnostic collectées par les applications s’exécutant dans Azure.
+
 
 ## Étapes suivantes
 
 [Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

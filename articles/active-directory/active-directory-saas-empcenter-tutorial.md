@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/18/2015" 
+    ms.date="02/29/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à EmpCenter
@@ -37,7 +37,7 @@ Cette section décrit l'activation de l'intégration de l'application pour EmpCe
 
 ###Pour activer l'intégration d’applications pour EmpCenter, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-empcenter-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD puis dans la page d’intégration d’applications **EmpCenter**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic puis sur la page d’intégration d’applications **EmpCenter**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configurer l’authentification unique")
 
@@ -80,8 +80,8 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
     ![Configurer les paramètres d’application](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurer les paramètres d’application")
 
-    1.  Dans la zone de texte **URL d’authentification**, entrez l'URL utilisée par vos utilisateurs pour se connecter à votre application EmpCenter (par exemple : **https://partner-authenticati.empcenter.com/workforce/SSO.do*).
-    2.  Cliquez sur **Suivant**
+    1.  Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application EmpCenter (par exemple : **https://partner-authenticati.empcenter.com/workforce/SSO.do*).
+2.  Cliquez sur **Suivant**
 
 4.  Dans la page **Configurer l’authentification unique sur EmpCenter**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -89,16 +89,16 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
 5.  Envoyez le fichier de métadonnées téléchargé à votre équipe de support technique EmpCenter.
 
-    >[AZURE.NOTE]Votre équipe de support technique EmpCenter doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l'authentification unique aura été activée pour votre abonnement.
+    >[AZURE.NOTE] Votre équipe de support technique EmpCenter doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
 
-6.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
   
 Pour permettre aux utilisateurs Azure AD de se connecter à EmpCenter, vous devez les approvisionner dans EmpCenter. Dans le cas d’EmpCenter, les comptes d'utilisateur doivent être créés par votre équipe de support EmpCenter.
 
->[AZURE.NOTE]Vous pouvez utiliser n'importe quel outil ou API de création de compte utilisateur, fourni par EmpCenter, pour approvisionner des comptes utilisateur Azure Active Directory.
+>[AZURE.NOTE] Vous pouvez utiliser n'importe quel outil ou API de création de compte utilisateur, fourni par EmpCenter, pour approvisionner des comptes utilisateur Azure Active Directory.
 
 ##Affectation d’utilisateurs
   
@@ -106,7 +106,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à EmpCenter, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte de test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **EmpCenter**, cliquez sur **Affecter des utilisateurs**.
 
@@ -118,4 +118,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

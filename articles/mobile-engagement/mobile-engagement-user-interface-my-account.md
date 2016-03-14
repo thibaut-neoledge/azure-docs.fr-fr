@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/22/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Gestion du profil de votre compte et test des périphériques
  
-Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**. Pour plus d'informations, consultez [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles.
  
 Pour accéder à la page Mon compte, cliquez sur votre compte en haut de la page.
 
@@ -27,7 +27,7 @@ La section Mon compte de l'interface utilisateur vous permet d'afficher et de mo
 ![Mon compte 1][7]
 
 ## Profil :
-Vous pouvez afficher ou modifier tous les paramètres de votre compte affichés ci-dessous. Vous pouvez également autoriser un autre utilisateur à utiliser votre application grâce à son adresse de messagerie depuis la section [Accueil](mobile-engagement-interface-home.md).
+Vous pouvez afficher ou modifier tous les paramètres de votre compte affichés ci-dessous. Vous pouvez également autoriser un autre utilisateur à utiliser votre application grâce à son adresse de messagerie depuis la section [Accueil](mobile-engagement-user-interface-home.md).
 
 ![Mon compte 2][8]
 
@@ -151,4 +151,4 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

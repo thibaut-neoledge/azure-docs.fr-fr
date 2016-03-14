@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #comment intégrer GCM à Mobile Engagement
 
-> [AZURE.IMPORTANT]Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
+> [AZURE.IMPORTANT] Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 >
 > Ce document ne vous sera utile que si vous avez intégré le module de couverture et configuré une remise de campagnes à tout moment. Pour intégrer les couvertures campagnes à votre application, lisez d'abord « Comment intégrer le module de couverture Engagement sur Android ».
 
@@ -28,7 +28,7 @@ L’intégration de GCM permet à votre application de recevoir des notification
 
 Les charges GCM envoyées vers le Kit de développement logiciel (SDK) contiennent toujours la clé `azme` dans l’objet de données. Donc si vous utilisez GCM à d’autres fins dans votre application, vous pouvez filtrer les notifications Push en fonction de cette clé.
 
-> [AZURE.IMPORTANT]Seuls les appareils disposant d’Android 2.2 ou version ultérieure, de Google Play et d’une connexion d’arrière-plan à Google peuvent faire l’objet d’une notification Push à l’aide de GCM. Toutefois, vous pouvez intégrer ce code en toute sécurité sur les appareils non pris en charge (car il utilise uniquement des intentions).
+> [AZURE.IMPORTANT] Seuls les appareils disposant d’Android 2.2 ou version ultérieure, de Google Play et d’une connexion d’arrière-plan à Google peuvent faire l’objet d’une notification Push à l’aide de GCM. Toutefois, vous pouvez intégrer ce code en toute sécurité sur les appareils non pris en charge (car il utilise uniquement des intentions).
 
 ##S'inscrire à GCM et activer le service GCM
 
@@ -40,7 +40,7 @@ Suivez cette procédure pour activer GCM dans votre compte. Ne lisez pas la sec
 
 Cette procédure explique que le **Numéro de projet** est utilisé comme l'**ID d'expéditeur GCM**. Vous en aurez besoin plus loin dans cette procédure.
 
-> [AZURE.IMPORTANT]Le **Numéro de projet** ne doit pas être confondu avec l'**ID du projet**. L'ID du projet peut désormais être différencié (c'est un nom dans les nouveaux projets). L’élément que vous devez intégrer dans le SDK Engagement est le **Numéro de projet**. Celui-ci se trouve dans le menu **Aperçu** de la [Console développeurs de Google].
+> [AZURE.IMPORTANT] Le **Numéro de projet** ne doit pas être confondu avec l'**ID du projet**. L'ID du projet peut désormais être différencié (c'est un nom dans les nouveaux projets). L’élément que vous devez intégrer dans le SDK Engagement est le **Numéro de projet**. Celui-ci se trouve dans le menu **Aperçu** de la [Console développeurs de Google].
 
 ##Intégration du SDK
 
@@ -103,7 +103,7 @@ Au moment de la rédaction de ce document (5 février 2014), la procédure à 
 
 Vous pouvez maintenant sélectionner l'option À tout moment lors de la création d'annonces et de sondages dans le module de couverture.
 
-> [AZURE.IMPORTANT]Engagement a besoin d'une **clé serveur**. Une clé Android ne peut pas être utilisée par les serveurs d'Engagement.
+> [AZURE.IMPORTANT] Engagement a besoin d'une **clé serveur**. Une clé Android ne peut pas être utilisée par les serveurs d'Engagement.
 
 ##Test
 
@@ -116,4 +116,4 @@ Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégra
 [Console développeur Google]: https://cloud.google.com/console
 [Console développeurs de Google]: https://cloud.google.com/console
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

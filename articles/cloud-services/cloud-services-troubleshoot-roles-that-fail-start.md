@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="daleche" />
 
 # Résoudre les problèmes de démarrage des rôles de service cloud
@@ -71,7 +71,7 @@ Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher de
 
 1. Assurez-vous que le Kit de développement logiciel (SDK) Azure 1.3 ou ultérieur est installé.
 
-2. Lors du déploiement de la solution à l’aide de Visual Studio, choisissez Configurer les connexions Bureau à distance... Pour plus d’informations sur la configuration de la connexion Bureau à distance, consultez l’article [Utilisation du Bureau à distance avec des rôles Azure](https://msdn.microsoft.com/library/gg443832.aspx).
+2. Lors du déploiement de la solution à l’aide de Visual Studio, choisissez Configurer les connexions Bureau à distance... Pour plus d’informations sur la configuration de la connexion Bureau à distance, consultez l’article [Utilisation du Bureau à distance avec des rôles Azure](../vs-azure-tools-remote-desktop-roles.md).
 
 3. Dans le portail Microsoft Azure Classic, une fois que l’instance affiche l’état **Prêt**, cliquez sur l’une des instances de rôle.
 
@@ -167,4 +167,4 @@ Affichez plus d’[articles de résolution des problèmes](..\?tag=top-support-i
 
 Pour découvrir comment résoudre les problèmes de rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

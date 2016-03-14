@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="02/29/2016" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs : instructions relatives au diagnostic
@@ -75,7 +75,7 @@ Si vous utilisez des modèles, assurez-vous que vous suivez les instructions dé
 
 En supposant que le hub de notification est correctement configuré et que les balises/expressions de balises ont été utilisées correctement afin de trouver des cibles valides auxquelles envoyer les notifications, NH déclenche plusieurs lots de traitement en parallèle, chaque lot envoyant des messages à un ensemble d’inscriptions.
 
-> [AZURE.NOTE]Étant donné que le traitement est effectué en parallèle, l’ordre dans lequel les notifications sont remises n’est pas garanti.
+> [AZURE.NOTE] Étant donné que le traitement est effectué en parallèle, l’ordre dans lequel les notifications sont remises n’est pas garanti.
 
 Azure Notifications Hub est optimisé pour un modèle de remise de message « au plus une fois ». Cela signifie qu’il entreprend une déduplication, afin qu’aucune notification ne soit remise plusieurs fois à un même périphérique. Pour s’en assurer, il est nécessaire d’examiner les inscriptions et de vérifier qu’un seul message est envoyé par identificateur de périphérique, avant son envoi au PNS. Étant donné que chaque lot est envoyé au PNS, qui à son tour accepte et valide les inscriptions, il est possible que le PNS détecte une erreur sur une ou plusieurs inscriptions d’un lot, renvoie une erreur à Azure NH, arrête le traitement et supprime ainsi l’intégralité du lot. Cela est particulièrement vrai pour un APNS qui utilise un protocole de flux TCP. Étant donné que notre configuration est optimisée pour la remise « au plus une fois », il convient de noter qu’il n’y aura pas de nouvelle tentative pour le lot ayant échoué, dans la mesure où nous ne savons pas exactement si le PNS a supprimé le lot entier ou seulement une partie. PNS indique cependant à Azure NH l’inscription qui a provoqué l’échec. Il convient de supprimer cette inscription de notre base de données, conformément à ces retours. Cela implique qu’il est possible qu’un lot d’inscriptions ou un sous-ensemble de celui-ci ne reçoive pas de notification. Toutefois, étant donné que nous avons supprimé l’inscription erronée, les chances de réussite d’un envoi seront plus élevées lors de la prochaine tentative. Lorsque l’échelle du nombre de périphériques cibles grandit (certains de nos clients envoient une notification à des millions d’appareils), la suppression d’un lot ici ou là ne change pas beaucoup le pourcentage global des périphériques qui reçoivent des notifications. Toutefois, si vous envoyez uniquement quelques notifications et que vous êtes confronté à certaines erreurs PNS, l’ensemble ou la plupart des notifications peuvent ne pas être reçues. Si vous rencontrez ce problème à plusieurs reprises, vous devez identifier tous les enregistrements incorrects et les supprimer. Vous devez absolument supprimer tout enregistrement manuel, étant donné qu’ils représentent la cause la plus courante de suppression des notifications. S’il s’agit d’un environnement de test, vous pouvez aussi supprimer directement toutes les inscriptions, étant donné que, lors de leur ouverture sur les périphériques, les applications effectueront une nouvelle tentative et se réinscriront auprès de Notification Hubs, ce qui vous assure que toutes les inscriptions créées par la suite seront valides.
 
@@ -115,7 +115,7 @@ Nous examinerons ici les différents moyens pour diagnostiquer et trouver les ca
 
 	![][8]
  
-	> [AZURE.NOTE]Les fonctionnalités de Visual Studio pour modifier les enregistrements doivent uniquement servir au cours du développement/test, avec un nombre limité d’enregistrements. Si vous avez besoin de corriger vos enregistrements en bloc, envisagez d'utiliser la fonctionnalité d'exportation/importation d'enregistrements ici : [Exportation/importation d'enregistrements](https://msdn.microsoft.com/library/dn790624.aspx)
+	> [AZURE.NOTE] Les fonctionnalités de Visual Studio pour modifier les enregistrements doivent uniquement servir au cours du développement/test, avec un nombre limité d’enregistrements. Si vous avez besoin de corriger vos enregistrements en bloc, envisagez d'utiliser la fonctionnalité d'exportation/importation d'enregistrements ici : [Exportation/importation d'enregistrements](https://msdn.microsoft.com/library/dn790624.aspx)
 
 2. **Explorateur Service Bus**
 
@@ -179,7 +179,7 @@ Supposons que vous utilisiez le Kit de développement logiciel (SDK) .NET pour e
  
 Ce message indique que des informations d’identification non valides sont configurées dans le hub de notification ou qu’il existe un problème avec les inscriptions sur le hub. La marche à suivre recommandée consiste à supprimer cet enregistrement afin de permettre au client de le recréer avant d’envoyer le message.
  
-> [AZURE.NOTE]Notez que l’utilisation de cette propriété est très limitée et par conséquent, vous devez uniquement l’utiliser dans un environnement de développement et de test avec un ensemble limité d’enregistrements. Nous envoyons uniquement des notifications de débogage à 10 périphériques. Nous avons également une limite de traitement des envois de débogage de 10 par minute.
+> [AZURE.NOTE] Notez que l’utilisation de cette propriété est très limitée et par conséquent, vous devez uniquement l’utiliser dans un environnement de développement et de test avec un ensemble limité d’enregistrements. Nous envoyons uniquement des notifications de débogage à 10 périphériques. Nous avons également une limite de traitement des envois de débogage de 10 par minute.
 
 ###Révision de la télémétrie 
 
@@ -206,7 +206,7 @@ Plus de détails ici :
 - [Accès par programme à la télémétrie]
 - [Exemple d’accès à la télémétrie via les API] 
 
-> [AZURE.NOTE]Plusieurs fonctionnalités liées à la télémétrie, comme l’**Exportation/importation des enregistrements**, l’**accès à la télémétrie via les API**, etc., sont uniquement disponibles en niveau Standard. Si vous essayez d’utiliser ces fonctionnalités et que vous disposez d’un niveau Libre ou De base, vous obtenez un message d’exception lors de l’utilisation du Kit de développement logiciel (SDK) et une erreur HTTP 403 (interdit) lorsque vous les utilisez directement à partir des API REST. Assurez-vous que vous n’êtes pas passé au niveau Standard par le biais du portail Azure Classic.
+> [AZURE.NOTE] Plusieurs fonctionnalités liées à la télémétrie, comme l’**Exportation/importation des enregistrements**, l’**accès à la télémétrie via les API**, etc., sont uniquement disponibles en niveau Standard. Si vous essayez d’utiliser ces fonctionnalités et que vous disposez d’un niveau Libre ou De base, vous obtenez un message d’exception lors de l’utilisation du Kit de développement logiciel (SDK) et une erreur HTTP 403 (interdit) lorsque vous les utilisez directement à partir des API REST. Assurez-vous que vous n’êtes pas passé au niveau Standard par le biais du portail Azure Classic.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -239,4 +239,4 @@ Plus de détails ici :
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

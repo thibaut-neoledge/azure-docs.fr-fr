@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="02/29/2016"
    ms.author="robb" />
 
 # Créer et utiliser des compteurs de performances dans une application Azure
@@ -22,9 +22,9 @@ Cet article décrit les avantages et la façon de placer des compteurs de perfor
 Les compteurs de performances disponibles pour Windows Server, IIS et ASP.NET peuvent être recueillis et utilisés pour déterminer l’état de vos rôles Azure web, worker et machines virtuelles. Vous pouvez également créer et utiliser des compteurs de performance personnalisés.
 
 Vous pouvez examiner les données du compteur de performances
-1 directement sur l’hôte d’application avec l’outil d’analyse des performances auquel on accède à l’aide de Bureau à distance
-2. Avec System Center Operations Manager en utilisant le Pack d’administration Azure 
-3. Avec d’autres outils d’analyse ayant accès aux données de diagnostic transférées vers le stockage Azure. Voir [Stocker et afficher des données de diagnostic dans Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) pour plus d’informations.
+1. Directement sur l’hôte d’application avec l’outil d’analyse des performances auquel on accède à l’aide de Bureau à distance
+2. Avec System Center Operations Manager en utilisant le Pack d’administration Azure
+3. Avec d’autres outils d’analyse ayant accès aux données de diagnostic transférées vers le stockage Azure. Voir [Stocker et afficher des données de diagnostic dans Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) pour plus d’informations.  
 
 Pour plus d’informations sur la configuration des performances de votre application dans le [portail Azure Classic](http://manage.azure.com/), consultez la page [Surveillance des services cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
@@ -56,22 +56,13 @@ Azure fournit un sous-ensemble des compteurs de performances disponibles pour Wi
 |ASP.NET v4.0.30319 |Demandes rejetées |Compteurs de performances pour ASP.NET|
 |Mémoire |Nombre d’octets disponibles |Compteurs de performance mémoire|
 |Mémoire |Octets dédiés |Compteurs de performance mémoire|
-|Processeur(\_Total) |% temps processeur |Compteurs de performances pour ASP.NET|
-|TCPv4 |Échecs de connexion |Objet TCP|
-|TCPv4 |Connexions établies |Objet TCP|
-|TCPv4 |Réinitialisation des connexions |Objet TCP|
-|TCPv4 |Segments envoyés/s |Objet TCP|
-|Interface réseau(*) |Octets reçus/s |Objet d’interface réseau|
-|Interface réseau(*) |Octets envoyés/s |Objet d’interface réseau|
-|Interface réseau(Microsoft Virtual Machine Bus Network Adapter \_2)|Octets reçus/s|Objet d’interface réseau|
-|Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Octets envoyés/s|Objet d’interface réseau |
-|Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Nombre total d’octets/s|Objet d’interface réseau|
+|Processeur(\_Total) |% temps processeur |Compteurs de performances pour ASP.NET| |TCPv4 |Échecs de connexion |Objet TCP| |TCPv4 |Connexions établies |Objet TCP| |TCPv4 |Réinitialisation des connexions |Objet TCP| |TCPv4 |Segments envoyés/s |Objet TCP| |Interface réseau(*) |Octets reçus/s |Objet d’interface réseau| |Interface réseau(*) |Octets envoyés/s |Objet d’interface réseau| |Interface réseau(Microsoft Virtual Machine Bus Network Adapter \_2)|Octets reçus/s|Objet d’interface réseau| |Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Octets envoyés/s|Objet d’interface réseau | |Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Nombre total d’octets/s|Objet d’interface réseau|
 
 ## Créer et ajouter des compteurs de performance personnalisés à votre application
 
 Azure assure la prise en charge pour créer et modifier des compteurs de performance personnalisés pour les rôles web et worker. Les compteurs peuvent être utilisés pour suivre et surveiller le comportement spécifique à l’application. Vous pouvez créer et supprimer des catégories de compteurs de performance personnalisés et spécificateurs depuis une tâche de démarrage, un rôle web ou un rôle de travail avec des autorisations de niveau élevé.
 
->[AZURE.NOTE]Les codes qui modifient des compteurs de performance personnalisés doivent avoir des autorisations élevées pour s’exécuter. Si le code est dans un rôle web ou un rôle de travail, le rôle doit inclure la balise <Runtime executionContext="elevated" /> dans le fichier ServiceDefinition.csdef pour que le rôle s’initialise correctement.
+>[AZURE.NOTE] Les codes qui modifient des compteurs de performance personnalisés doivent avoir des autorisations élevées pour s’exécuter. Si le code est dans un rôle web ou un rôle de travail, le rôle doit inclure la balise <Runtime executionContext="elevated" /> dans le fichier ServiceDefinition.csdef pour que le rôle s’initialise correctement.
 
 Vous pouvez envoyer des données de compteurs de performance personnalisés vers le stockage Azure grâce à l’agent de diagnostics.
 
@@ -83,7 +74,7 @@ Azure met en mémoire cache les données de compteur de performance avec d’aut
 
 Chaque instance de compteur de performance configurée est enregistrée à un taux d’échantillonnage spécifié et les données échantillonnées sont transférées au compte de stockage par demande de transfert planifiée ou demande de transfert à la demande. Les transferts automatiques peuvent être planifiés au maximum une fois par minute. Les données de compteur de performance transférées par l’agent de diagnostics sont stockées dans un tableau, WADPerformanceCountersTable, dans le compte de stockage. Cette table peut-être accessible et interrogée avec les méthodes de l’API standard de stockage Azure. Voir [Exemple de compteur de performance Microsoft Azure](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9) pour obtenir un exemple d’interrogation et d’affichage des données de compteur de performances du tableau WADPerformanceCountersTable.
 
->[AZURE.NOTE]Selon la fréquence de transfert de l’agent de diagnostics et de la latence de la file d’attente, les données de compteur de performance les plus récentes du compte de stockage peuvent être obsolètes pendant plusieurs minutes.
+>[AZURE.NOTE] Selon la fréquence de transfert de l’agent de diagnostics et de la latence de la file d’attente, les données de compteur de performance les plus récentes du compte de stockage peuvent être obsolètes pendant plusieurs minutes.
 
 ## Activer les compteurs de performance à l’aide du fichier de configuration de diagnostics
 
@@ -144,7 +135,7 @@ Pour conserver vos informations de diagnostic dans votre compte Azure Storage, v
 
 Dans le kit de développement logiciel (SDK) Azure 2.5, le compte de stockage peut être spécifié dans le fichier diagnostics.wadcfgx.
 
->[AZURE.NOTE]Ces instructions s’appliquent uniquement au kit de développement logiciel Azure 2.4 et versions antérieures. Dans le kit de développement logiciel (SDK) Azure 2.5, le compte de stockage peut être spécifié dans le fichier diagnostics.wadcfgx.
+>[AZURE.NOTE] Ces instructions s’appliquent uniquement au kit de développement logiciel Azure 2.4 et versions antérieures. Dans le kit de développement logiciel (SDK) Azure 2.5, le compte de stockage peut être spécifié dans le fichier diagnostics.wadcfgx.
 
 Pour définir les chaînes de connexion :
 
@@ -179,7 +170,7 @@ Pour créer un simple compteur de performances personnalisé nommé « \\MyCust
 2. Ajoutez l'élément Runtime à l'élément WebRole ou WorkerRole pour permettre une exécution avec des privilèges élevés :
 
     ```
-    <RuntimeexecutionContext="elevated"/>
+    <runtime executioncontext="elevated"/>
     ```
 3. Enregistrez le fichier .
 4. Ouvrez le fichier de diagnostics (diagnostics.wadcfg dans le Kit de développement logiciel 2.4 et antérieur ou diagnostics.wadcfgx dans le kit de développement logiciel 2.5 et versions ultérieures) et ajoutez le code suivant à DiagnosticMonitorConfiguration : 
@@ -318,11 +309,6 @@ Les entités mappent vers les objets C# en utilisant une classe personnalisée d
 
 
 ## Étapes suivantes
+[Afficher d’autres articles sur les diagnostics Azure](../azure-diagnostics.md)
 
-Maintenant que vous avez appris les principes de base de la collecte de compteurs de performances, suivez ces liens pour savoir comment implémenter des scénarios de dépannage plus complexes.
-
-[Meilleures pratiques de dépannage pour développer des applications Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx)
-
-[Surveillance des services cloud](./how-to-monitor-a-cloud-service.md)
-
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

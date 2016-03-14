@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Prendre en main l’API SMTP
-Se connecter à un serveur SMTP pour envoyer un courrier électronique.
+Se connecter à un serveur SMTP pour envoyer un courrier électronique. L’API SMTP peut être utilisée à partir de :
 
-L'API SMTP peut être utilisée à partir d'applications logiques.
+- Logic Apps
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur SMTP](../app-service-logic/app-service-logic-connector-smtp.md).
 
-Avec SMTP, vous pouvez effectuer les opérations suivantes :
+Avec SMTP, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d'activité incluant l'envoi de courriers électroniques à l'aide du protocole SMTP. 
 - Utiliser une action pour envoyer un courrier électronique. Cette action obtient une réponse, puis met la sortie à la disposition d'autres actions. Par exemple, s’il existe un nouveau fichier sur votre serveur FTP, vous pouvez prendre ce fichier et l’envoyer par courrier électronique en tant que pièce jointe à l'aide du protocole SMTP. 
@@ -41,7 +41,7 @@ Pour l'API SMTP, l'action suivante est disponible. Il n'y a aucun déclencheur.
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à SMTP
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
+Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -49,11 +49,12 @@ Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs su
 | Nom d'utilisateur |Oui |Entrez le nom d'utilisateur pour vous connecter au serveur SMTP. |
 | Mot de passe | Oui|Entrez le mot de passe de l’utilisateur. |
 
-Après avoir créé la connexion, vous entrez les propriétés SMTP, notamment les valeurs To ou CC. La section **Informations de référence sur l'API REST** dans cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez les propriétés SMTP, notamment les valeurs To ou CC. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion SMTP dans d'autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
+S’applique à la version 1.0.
 
 ### Envoyer un message électronique
 Envoie un message électronique à un ou plusieurs destinataires. ```POST: /SendEmail```
@@ -93,4 +94,4 @@ Envoie un message électronique à un ou plusieurs destinataires. ```POST: /Send
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

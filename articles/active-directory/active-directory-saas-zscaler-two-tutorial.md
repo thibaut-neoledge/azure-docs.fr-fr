@@ -2,7 +2,7 @@
     pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler Two | Microsoft Azure" 
     description="Découvrez comment utiliser Zscaler Two avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="02/29/2016" 
+    ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Zscaler Two
 
@@ -39,7 +39,7 @@ Cette section décrit l’activation de l’intégration d’applications pour Z
 
 ###Pour activer l’intégration d’applications pour Zscaler Two, procédez comme suit :
 
-1.  Dans le volet de navigation gauche du portail de gestion Azure, cliquez sur **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zscaler-two-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **Zscaler Two** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Sur la page d’intégration d’applications **Zscaler Two** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-two-tutorial/IC800202.png "Configurer l’authentification unique")
 
@@ -83,7 +83,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "Configurer l’URL de l’application")
 
-    >[AZURE.NOTE]Vous pouvez obtenir la valeur réelle de votre environnement auprès de l’équipe du support technique Zscaler Two.
+    >[AZURE.NOTE] Vous pouvez obtenir la valeur réelle de votre environnement auprès de l’équipe du support technique Zscaler Two.
 
 4.  Dans la page **Configurer l’authentification unique sur Zscaler Two**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -110,7 +110,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification unique](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "Authentification unique")
 
-    1.  Dans la page **Configurer l’authentification unique sur Zscaler Two** du portail Azure, copiez la valeur **URL de la demande d’authentification**, puis collez-la dans la zone de texte **URL of the SAML Portal to which users are sent for authentication**.
+    1.  Sur la page **Configurer l’authentification unique sur Zscaler Two** du portail Azure Classic, copiez la valeur **URL de la demande d’authentification**, puis collez-la dans la zone de texte **URL of the SAML Portal to which users are sent for authentication**.
     2.  Dans la zone de texte **Attribute containing Login Name**, tapez **NameID**.
     3.  Pour charger le certificat téléchargé, cliquez sur **Zscaler pem**.
     4.  Sélectionnez **Enable SAML Auto-Provisioning**.
@@ -122,7 +122,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Cliquez sur **Enregistrer**.
     2.  Cliquez sur **Activate Now**.
 
-11. Dans la boîte de dialogue **Configurer l’authentification unique sur Zscaler Two** du portail Azure, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
+11. Dans la boîte de dialogue **Configurer l’authentification unique sur Zscaler Two** du portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-two-tutorial/IC800211.png "Configurer l’authentification unique")
 
@@ -181,7 +181,7 @@ Pour pouvoir se connecter à Zscaler Two, les utilisateurs d’Azure AD doivent
     1.  Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups** ainsi que l’attribut **Department** du compte AAD valide que vous souhaitez approvisionner.
     2.  Cliquez sur **Save**.
 
->[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler Two pour approvisionner des comptes d’utilisateurs Azure AD.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler Two pour approvisionner des comptes d’utilisateurs Azure AD.
 
 ##Affectation d’utilisateurs
   
@@ -189,7 +189,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Zscaler Two, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Zscaler Two**, cliquez sur **Affecter des utilisateurs**.
 
@@ -201,4 +201,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

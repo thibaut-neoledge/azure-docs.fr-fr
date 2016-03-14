@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/26/2016"
    ms.author="andkjell"/>
 
 # Planificateur Azure AD Connect Sync
@@ -50,10 +50,12 @@ Pour afficher vos paramètres de configuration en cours, accédez à PowerShell 
 
 Vous pouvez modifier tous ces paramètres avec `Set-ADSyncScheduler` Le paramètre IsStagingModeEnabled peut uniquement être défini par l’Assistant d’installation.
 
+La configuration du planificateur est stockée dans Azure AD. Si vous avez un serveur intermédiaire, toute modification sur le serveur principal aura également un effet sur le serveur intermédiaire (à l'exception de IsStagingModeEnabled).
+
 ## Démarrer le planificateur
 Par défaut, le planificateur s’exécutera toutes les 30 minutes. Dans certains cas, vous souhaiterez peut-être exécuter un cycle de synchronisation entre les cycles planifiés ou vous devrez exécuter un autre type de synchronisation.
 
-**Cycle de synchronisation delta ** Un cycle de synchronisation delta comprend les étapes suivantes :
+**Cycle de synchronisation delta** Un cycle de synchronisation delta comprend les étapes suivantes :
 
 - Importation delta sur tous les connecteurs
 - Synchronisation delta sur tous les connecteurs
@@ -96,4 +98,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

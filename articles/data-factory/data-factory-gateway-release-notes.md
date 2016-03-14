@@ -22,8 +22,13 @@ Un des défis de l’intégration de données modernes consiste à déplacer en 
 
 Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus.
 
+## Version actuelle (1.10.5892.1)
 
-## Version actuelle (1.9.5865.2)
+• Améliorations des performances • Résolutions des bogues
+
+## Versions antérieures
+
+## 1\.9.5865.2
 
 - Capacité de mise à jour automatique Zero Touch
 - Nouvelle icône de barre d’état système avec des indicateurs d’état de la passerelle
@@ -32,9 +37,6 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 - Script PowerShell disponible pour activer/désactiver la mise à jour automatique 
 - Amélioration des performances
 - Résolution des bogues
-
-
-## Versions antérieures
 
 ## 1\.8.5822.1
 
@@ -132,4 +134,4 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 ### Pourquoi le Gestionnaire de sources de données tente-t-il de se connecter à une passerelle ?
 Il s’agit d’une conception de sécurité. Elle vous permet uniquement de configurer des sources de données locales pour l’accès au cloud au sein de votre réseau d’entreprise, et vos informations d’identification ne circulent pas en dehors de votre pare-feu d’entreprise. Assurez-vous que votre ordinateur peut atteindre l’ordinateur sur lequel la passerelle est installée.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

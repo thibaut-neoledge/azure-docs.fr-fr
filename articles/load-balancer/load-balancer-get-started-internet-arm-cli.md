@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Prise en main de la création d’un équilibreur de charge accessible sur Internet à l’aide de l’interface de ligne de commande
@@ -35,17 +35,17 @@ Nous allons aborder la séquence de tâches individuelles qui doivent être exé
 
 Vous devez créer et configurer les objets suivants pour déployer un équilibreur de charge.
 
-- Configuration d’adresses IP frontales : contient les adresses IP publiques pour le trafic réseau entrant. 
+- Configuration d’adresses IP frontales : contient les adresses IP publiques pour le trafic réseau entrant. 
 
-- Pool d’adresses principales : contient des interfaces réseau (NIC) pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibreur de charge.
+- Pool d’adresses principales : contient des interfaces réseau (NIC) pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibreur de charge.
 
-- Règles d’équilibrage de la charge : contient des règles de mappage d’un port public situé sur l’équilibreur de charge pour le pool d’adresses principales.
+- Règles d’équilibrage de la charge : contient des règles de mappage d’un port public situé sur l’équilibreur de charge pour le pool d’adresses principales.
 
-- Règles NAT entrantes : contient des règles de mappage d’un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
+- Règles NAT entrantes : contient des règles de mappage d’un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
 
-- Sondes : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
+- Sondes : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
 
-Pour obtenir plus d’informations sur les composants de l’équilibreur de charge avec Azure Resource Manager, consultez la page [Support d’Azure Resource Manager pour l’équilibrage de charge](load-balancer-arm.md).
+Pour obtenir plus d’informations sur les composants de l’équilibreur de charge avec Azure Resource Manager, consultez la page [Support d’Azure Resource Manager pour l’équilibrage de charge](load-balancer-arm.md).
 
 ## Configurer l’interface de ligne de commande pour utiliser le gestionnaire de ressources
 
@@ -55,13 +55,13 @@ Pour obtenir plus d’informations sur les composants de l’équilibreur de cha
 
 		azure config mode arm
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    New mode is arm
 
 ## Créez un réseau virtuel et une adresse IP publique pour le pool d’adresses IP frontales
 
-### Étape 1 :
+### Étape 1 :
 
 Créez un réseau virtuel (VNet) nommé *NRPVnet* dans l’emplacement Est des États-Unis à l’aide d’un groupe de ressources nommé *NRPRG*.
 
@@ -71,9 +71,9 @@ Créez un sous-réseau nommé *NRPVnetSubnet* avec un bloc CIDR 10.0.0.0/24 dans
 
 	azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
 
-### Étape 2
+### Étape 2
 
-Créez une adresse IP publique nommée *NRPPublicIP* pour qu’elle soit utilisée par un pool d’adresses IP frontales avec le nom DNS *loadbalancernrp.westus.cloudapp.azure.com*. La commande ci-dessous utilise le type d’allocation statique et un délai d’inactivité de 4 minutes.
+Créez une adresse IP publique nommée *NRPPublicIP* pour qu’elle soit utilisée par un pool d’adresses IP frontales avec le nom DNS *loadbalancernrp.westus.cloudapp.azure.com*. La commande ci-dessous utilise le type d’allocation statique et un délai d’inactivité de 4 minutes.
 
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
@@ -90,37 +90,37 @@ Dans l’exemple suivant, la commande suivante crée un équilibreur de charge n
 
 L’exemple ci-dessous crée le pool d’IP frontal qui reçoit le trafic réseau entrant pour l’équilibreur de charge et le pool d’IP principal où le pool frontal envoie le trafic de réseau équilibré.
 
-### Étape 1 : 
+### Étape 1 : 
 
 Créez un pool d’IP frontal associant l’IP publique créée lors de l’étape précédente et l’équilibreur de charge.
 
 	azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
 
-### Étape 2 : 
+### Étape 2 : 
 
-Configurez un pool d’adresses principal utilisé pour recevoir le trafic entrant à partir du pool d’adresses IP frontal :
+Configurez un pool d’adresses principal utilisé pour recevoir le trafic entrant à partir du pool d’adresses IP frontal :
 
 	azure network lb address-pool create NRPRG NRPlb NRPbackendpool
 
 ## Créer des règles LB, des règles NAT et de sonde
 
-L’exemple ci-dessous crée les éléments suivants :
+L’exemple ci-dessous crée les éléments suivants :
 
-- une règle NAT pour transférer l’ensemble du trafic sur le port 21 vers le port 22<sup>1</sup> ;
-- une règle NAT transférer l’ensemble du trafic sur le port 23 vers le port 22 ;
-- une règle d’équilibreur de charge pour équilibrer tout le trafic entrant sur le port 80 vers le port 80 des adresses du pool principal ;
+- une règle NAT pour transférer l’ensemble du trafic sur le port 21 vers le port 22<sup>1</sup> ;
+- une règle NAT transférer l’ensemble du trafic sur le port 23 vers le port 22 ;
+- une règle d’équilibreur de charge pour équilibrer tout le trafic entrant sur le port 80 vers le port 80 des adresses du pool principal ;
 - une règle de sonde qui vérifie l’état d’intégrité dans une page nommée *HealthProbe.aspx*.
 
-<sup>1</sup> Les règles NAT sont associées à une instance de machine virtuelle spécifique derrière l’équilibreur de charge. Le trafic réseau entrant vers le port 21 est envoyé à une machine virtuelle spécifique sur le port 22 associé à une règle NAT dans l’exemple ci-dessous. Vous devez choisir un protocole pour la règle NAT : UDP ou TCP. Il est impossible d'attribuer les deux protocoles au même port.
+<sup>1</sup> Les règles NAT sont associées à une instance de machine virtuelle spécifique derrière l’équilibreur de charge. Le trafic réseau entrant vers le port 21 est envoyé à une machine virtuelle spécifique sur le port 22 associé à une règle NAT dans l’exemple ci-dessous. Vous devez choisir un protocole pour la règle NAT : UDP ou TCP. Il est impossible d'attribuer les deux protocoles au même port.
 
-### Étape 1
+### Étape 1
 
 Créer les règles NAT.
 
 	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
 	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
 
-Paramètres :
+Paramètres :
 
 - **-g** - nom de groupe de ressources
 - **-l** - nom d’un équilibreur de charge 
@@ -129,12 +129,12 @@ Paramètres :
 - **-f** - port frontal à utiliser (la commande probe utilise -f pour définir le chemin d’accès de sondage)
 - **-b** - port de serveur principal à utiliser
 
-### Étape 2 :
+### Étape 2 :
 
 Créez une règle d’équilibreur de charge.
 
 	azure network lb rule create nrprg nrplb lbrule -p tcp -f 80 -b 80 -t NRPfrontendpool -o NRPbackendpool
-### Étape 3
+### Étape 3
 
 Créer une sonde d’intégrité.
 
@@ -145,13 +145,13 @@ Créer une sonde d’intégrité.
 
 **-g** - groupe de ressources **-l** - nom du jeu d’équilibrage de charge **-n** - nom de la sonde d’intégrité **-p** - protocole utilisé par la sonde d’intégrité **-i** - intervalle de sondage, en secondes **-c** - nombre de contrôles
 
-### Étape 4
+### Étape 4
 
 Enregistrer vos paramètres.
 
 	azure network lb show nrprg nrplb
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network lb show
 	+ Looking up the load balancer "nrplb"
@@ -216,13 +216,13 @@ Sortie attendue :
 
 Vous devez créer des cartes réseau (ou modifier des cartes existantes) et les associer à des règles NAT, des règles d’équilibreur de charge et des sondes.
 
-### Étape 1 : 
+### Étape 1 : 
 
 Créez une carte réseau nommée *lb-nic1-be*, puis associez-la à la règle NAT *rdp1* et au premier (et unique) pool d’adresses principales *NRPbackendpool*.
 	
 	azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
-Paramètres :
+Paramètres :
 
 - **-g** - nom de groupe de ressource
 - **-n** - nom de la ressource de carte réseau
@@ -232,7 +232,7 @@ Paramètres :
 - **-e** - ID de la règle NAT qui sera associée à la ressource de la carte d’interface réseau - commence par /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
 
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network nic create
 	+ Looking up the network interface "lb-nic1-be"
@@ -258,13 +258,13 @@ Sortie attendue :
 	data:
 	info:    network nic create command OK
 
-### Étape 2 :
+### Étape 2 :
 
 Créez une carte réseau nommée *lb-nic2-be*, puis associez-la à la règle NAT *rdp2* et au premier (et unique) pool d’adresses principales *NRPbackendpool*.
 
  	azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
-### Étape 3 
+### Étape 3 
 
 Créez une machine virtuelle nommée *web1*, puis associez-la à la carte réseau nommée *lb-nic1-be*. Un compte de stockage appelé *web1nrp* a été créé avant d’exécuter la commande ci-dessous.
 
@@ -272,7 +272,7 @@ Créez une machine virtuelle nommée *web1*, puis associez-la à la carte résea
 
 >[AZURE.IMPORTANT] Les machines virtuelles d’un équilibreur de charge doivent se trouver dans le même groupe à haute disponibilité. Utilisez `azure availset create` pour créer un groupe à haute disponibilité.
 
-La sortie se présente comme suit :
+La sortie se présente comme suit :
 
 	info:    Executing command vm create
 	+ Looking up the VM "web1"
@@ -293,9 +293,9 @@ La sortie se présente comme suit :
 
 >[AZURE.NOTE] Le message vous informant qu’**il s’agit d’une carte réseau sans publicIP configuré** est un comportement attendu, car la carte réseau créée pour l’équilibreur de charge se connecte à Internet à l’aide de l’adresse IP publique de l’équilibreur de charge.
 
-Si la carte réseau *lb-nic1-be* est associée à la règle NAT *rdp1*, vous pouvez vous connecter à *web1* en utilisant le protocole RDP via le port 3441 de l’équilibreur de charge.
+Si la carte réseau *lb-nic1-be* est associée à la règle NAT *rdp1*, vous pouvez vous connecter à *web1* en utilisant le protocole RDP via le port 3441 de l’équilibreur de charge.
 
-### Étape 4
+### Étape 4
 
 Créez une machine virtuelle nommée *web2*, puis associez-la à la carte réseau nommée *lb-nic2-be*. Un compte de stockage appelé *web1nrp* a été créé avant d’exécuter la commande ci-dessous.
 
@@ -307,7 +307,7 @@ Vous pouvez ajouter des règles faisant référence à l'équilibreur de charge 
 
 	azure network lb rule create -g nrprg -l nrplb -n lbrule2 -p tcp -f 8080 -b 8051 -t frontendnrppool -o NRPbackendpool
 
-Paramètres :
+Paramètres :
 
 **-g** - nom du groupe de ressources<br> **-l** - nom de l’équilibreur de charge<BR> **-n** - nom de règle de l’équilibreur de charge<BR> **-p** - protocole<BR> **-f** - port frontal<BR> **-b** - port de serveur principal <BR> **-t** - nom du port frontal<BR> **-b** - nom du pool de serveur principal <BR>
 
@@ -328,4 +328,4 @@ Où **nrprg** correspond au groupe de ressources et **nrplb** au nom de l’équ
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

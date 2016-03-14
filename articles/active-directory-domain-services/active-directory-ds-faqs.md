@@ -56,6 +56,8 @@ Non. Vous ne pouvez pas modifier les appartenances aux groupes dans des domaines
 #### Puis-je étendre le schéma du domaine fourni par les services de domaine Azure AD ?
 Non. Le schéma est administré par Microsoft pour le domaine géré. Les extensions de schéma ne sont pas prises en charge par les services de domaine Azure AD.
 
+### Puis-je modifier les enregistrements DNS fournis par les services de domaine Azure AD ?
+Oui. Les utilisateurs qui font partie du groupe d'administration (c.-à-d. « AAD DC Administrators ») disposent d’autorisations DNS Admin pour modifier les enregistrements DNS.
 
 ### Facturation et disponibilité
 
@@ -74,4 +76,4 @@ Pour obtenir la liste des régions Azure où les services de domaine Azure AD s
 #### Quand les services de domaine Azure AD seront-ils mis à la disposition générale ?
 Nous ne pouvons actuellement fournir aucun calendrier quant à la mise à disposition générale du service.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

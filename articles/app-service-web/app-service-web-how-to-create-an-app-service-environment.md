@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
@@ -30,7 +30,13 @@ Pour créer un ASE, les clients doivent entrer les informations suivantes :
 - sélection d’un réseau virtuel Azure et d’un sous-réseau
 - définition du pool de ressources ASE
 
-Détails importants concernant chacun de ces éléments : - Le nom de l’ASE est utilisé dans le sous-domaine pour les applications créées dans cet ASE - Toutes les applications créées dans un ASE se trouvent dans le même abonnement que l’ASE lui-même. - Si vous n’avez pas accès à l’abonnement utilisé pour créer l’ASE, vous ne pouvez pas utiliser l’ASE pour créer des applications. - Les réseaux virtuels utilisés pour héberger un ASE doivent être des réseaux virtuels v1 classiques régionaux. - Le sous-réseau utilisé pour héberger l’ASE ne doit contenir aucune autre ressource de calcul. - Un seul ASE peut exister dans un sous-réseau.
+Il existe quelques détails importants pour chacun de ces éléments.
+- Le nom de l'ASE servira dans le sous-domaine de toutes les applications faites dans cet ASE
+- Toutes les applications faites dans un ASE se trouveront dans le même abonnement que l'ASE lui-même
+- Si vous n'avez pas accès à l'abonnement utilisé pour faire l'ASE, vous ne pouvez pas utiliser l'ASE pour créer des applications
+- Les réseaux virtuels utilisés pour héberger un ASE doivent être des réseaux virtuels « v1 » classiques régionaux 
+- Le sous-réseau utilisé pour héberger l’ASE ne doit contenir aucune autre ressource de calcul
+- Il ne peut exister qu’un seul ASE dans un sous-réseau
 
 Chaque déploiement d'ASE est un service hébergé qu'Azure gère et tient à jour. Les ressources de calcul qui hébergent les rôles système d'ASE ne sont pas accessibles au client, mais le client gère la quantité d'instances et leur taille.
 
@@ -68,7 +74,9 @@ Si vous utilisez l'interface utilisateur de création de réseau virtuel, vous d
 
 L’emplacement du réseau virtuel est celui de l’ASE, car celui-ci est déployé dans le réseau virtuel.
 
-Une fois votre réseau virtuel spécifié ou sélectionné, vous devez créer ou sélectionner un sous-réseau approprié. Vous devez ici fournir les informations suivantes : - Nom du sous-réseau - Plage du sous-réseau en notation CIDR
+Une fois votre réseau virtuel spécifié ou sélectionné, vous devez créer ou sélectionner un sous-réseau approprié. Les détails que vous devez fournir sont les suivants :
+- Nom du sous-réseau
+- Plage de sous-réseau en notation CIDR
 
 La notation CIDR (Classless Inter-Domain Routing) se présente sous la forme d’une adresse IP séparée de la valeur CIDR par une barre oblique, comme ceci : *10.0.0.0/22*. La valeur CIDR représente le nombre de bits de début masqués sur l’adresse IP affichée. Pour faire simple, la valeur CIDR fournit une plage d’adresses IP. Dans cet exemple, 10.0.0.0/22 représente une plage de 1 024 adresses ou comprise entre 10.0.0.0 et 10.0.3.255. Un /23 signifie 512 adresses, et ainsi de suite.
 
@@ -155,4 +163,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

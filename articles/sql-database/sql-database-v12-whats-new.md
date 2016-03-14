@@ -53,7 +53,7 @@ Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir
 ## Plus de performances pour le niveau Premium, nouveaux niveaux de performances
 
 
-Dans la version 12 (V12), nous avons augmenté les unités de base de données (UDBD) affectées à tous les niveaux de performances Premium de 25 %, sans coût supplémentaire. Les gains de performances sont possibles grâce aux nouvelles fonctionnalités, comme :
+Dans la version 12 (V12), nous avons augmenté les unités de transaction de base de données (DTU) affectées à tous les niveaux de performances Premium de 25 %, sans coût supplémentaire. Les gains de performances sont possibles grâce aux nouvelles fonctionnalités, comme :
 
 
 - La prise en charge des [index columnstore](http://msdn.microsoft.com/library/gg492153.aspx) en mémoire.
@@ -161,4 +161,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

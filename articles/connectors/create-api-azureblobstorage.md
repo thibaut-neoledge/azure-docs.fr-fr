@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Prise en main de l’API de stockage d’objets blob
-Connectez-vous à un objet blob Azure pour gérer les fichiers d’un conteneur d'objets blob, par exemple pour créer des fichiers, supprimer des fichiers et bien plus encore.
+Connectez-vous à un objet blob Azure pour gérer les fichiers d’un conteneur d'objets blob, par exemple pour créer des fichiers, supprimer des fichiers et bien plus encore. L’API de stockage d’objets blob Azure peut être utilisée à partir de :
 
-L'API de stockage d'objets blob Azure peut être utilisée à partir d'applications logiques.
+- Logic apps 
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur d’objet blob de stockage Azure](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
 
@@ -36,28 +36,28 @@ L’objet blob Azure inclut les actions suivantes. Il n'y a aucun déclencheur.
 
 | Déclencheurs | Actions|
 | --- | --- |
-| Aucune. | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire une archive dans un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu du fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide de </li><li>Mettre à jour le fichier</li></ul> |
+| Aucune. | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire une archive dans un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu du fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide de</li><li>Mettre à jour le fichier</li></ul> |
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à un objet blob Azure
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs de compte de stockage suivantes :
+Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs de compte de stockage suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
 |Nom du compte de stockage Azure | yes | Nom de votre compte de stockage d’objets blob|
 |Clé d'accès au compte de stockage Azure | yes | Clé d’accès associée à votre compte de stockage d’objets blob.|
 
-Après avoir créé la connexion, vous entrez les propriétés des objets blob, telles que le chemin du dossier ou le nom du fichier. La section **Informations de référence sur l'API REST** dans cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez les propriétés des objets blob, telles que le chemin du dossier ou le nom du fichier. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion blob dans d'autres applications logiques.
  
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier
-Télécharge un fichier local vers un stockage d'objets blob Azure. ```POST: /datasets/default/files```
+Télécharge un fichier vers le stockage d’objets blob Azure. ```POST: /datasets/default/files```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -72,13 +72,13 @@ Télécharge un fichier local vers un stockage d'objets blob Azure. ```POST: /da
 |default|L’opération a échoué.|
 
 ### Copier un fichier
-Copie un fichier dans un stockage d’objets blob Azure.```POST: /datasets/default/copyFile```
+Copie un fichier vers le stockage d’objets blob Azure. ```POST: /datasets/default/copyFile```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |URL du fichier source|
 |destination|string|yes|query| (aucun)|Chemin de destination du fichier dans le stockage d’objets blob, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -88,7 +88,7 @@ Copie un fichier dans un stockage d’objets blob Azure.```POST: /datasets/defau
 
 
 ### Supprimer un fichier
-Supprime un fichier du stockage d'objets blob Azure. ```DELETE: /datasets/default/files/{id}```
+Supprime un fichier du stockage d’objets blob Azure. ```DELETE: /datasets/default/files/{id}```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -102,13 +102,13 @@ Supprime un fichier du stockage d'objets blob Azure. ```DELETE: /datasets/defaul
 
 
 ### Extraire une archive dans un dossier
-Extrait un fichier d'archive vers un dossier dans le stockage d’objets blob Azure (exemple : .zip). ```POST: /datasets/default/ExtractFolderV2```
+Extrait un fichier d’archive vers un dossier dans le stockage d’objets blob Azure (exemple : .zip). ```POST: /datasets/default/ExtractFolderV2```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|yes|query| (aucun)|Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun) |Chemin d'accès au dossier dans le stockage d’objets blob Azure où extraire le contenu de l'archive|
-|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -160,7 +160,7 @@ Extrait les métadonnées d’un fichier du stockage d’objets blob Azure à l'
 
 
 ### Obtenir les métadonnées d’un fichier à l'aide du chemin
-Extrait les métadonnées d’un fichier du stockage d’objets blob Azure à l'aide du chemin. ```GET: /datasets/default/GetFileByPath```
+Extrait les métadonnées d’un fichier du stockage d’objets blob Azure à l’aide du chemin. ```GET: /datasets/default/GetFileByPath```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -174,7 +174,7 @@ Extrait les métadonnées d’un fichier du stockage d’objets blob Azure à l'
 
 
 ### Mettre à jour un fichier
-Met à jour un fichier dans le stockage d'objets blob Azure. ```PUT: /datasets/default/files/{id}```
+Met à jour un fichier dans le stockage d’objets blob Azure. ```PUT: /datasets/default/files/{id}```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -234,4 +234,4 @@ Met à jour un fichier dans le stockage d'objets blob Azure. ```PUT: /datasets/d
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

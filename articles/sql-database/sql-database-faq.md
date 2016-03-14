@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/11/2015"
-   ms.author="jeffreyg"/>
+   ms.date="02/25/2016"
+   ms.author="sashan"/>
 
 # Forum Aux Questions de base de données SQL
 
@@ -74,4 +74,19 @@ Le stockage de sauvegarde est le stockage associé à vos sauvegardes de bases d
 ## Je passe de services Web/Business à de nouveaux niveaux de service, que dois-je savoir ?
 Les bases de données Web et Business SQL Azure sont désormais supprimées. Les niveaux De base, Standard, Premium et Élastique remplacent les bases de données Web et Business. Nous disposons d’un Forum aux questions supplémentaires qui devrait vous aider dans cette période de transition. [Forum aux questions sur la disparition des éditions Web et Business](sql-database-web-business-sunset-faq.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+## Quel décalage de réplication est attendu lors de la réplication géographique d’une base de données entre deux régions au sein de la même zone géographique Azure ?  
+Nous prenons actuellement en charge un RPO de 5 secondes et le décalage de réplication est inférieure à cette mesure tant que la zone géographique secondaire est hébergée dans la région associée dans Azure et se trouve au même niveau de service.
+
+## Quel est le décalage réplication attendu lorsque la zone géographique secondaire est créée dans la même région que la base de données primaire ?  
+En se basant sur des données empiriques, il y a peu de différence entre la réplication intra-région et inter-région si la région associée recommandée par Azure est utilisée.
+
+## Si une défaillance du réseau entre deux régions se produit, comment la logique de nouvelle tentative fonctionne-t-elle lorsque la géo-réplication est définie ?  
+En cas de déconnexion, une nouvelle tentative de rétablissement des connexions est effectuée toutes les 10 secondes.
+
+## Que puis-je faire pour garantir qu’une modification critique de la base de données primaire est répliquée ?
+La zone géographique secondaire est un réplica asynchrone et nous n’essayons pas de conserver une synchronisation complète avec la zone principale. Mais nous fournissons une méthode pour forcer la synchronisation. Elle est conçue pour assurer la réplication des modifications critiques (par exemple, la mise à jour d’un mot de passe). Elle a un impact sur les performances, car elle bloque le thread appelant jusqu’à ce que toutes les transactions validées soient répliquées. Pour plus d’informations, consultez [sp\_wait\_for\_database\_copy\_sync](https://msdn.microsoft.com/library/dn467644.aspx).
+
+## Quels outils sont disponibles pour surveiller le décalage de réplication entre la base de données primaire et la zone géographique secondaire ?
+Nous exposons le décalage de réplication en temps réel entre la base de données primaire et la zone géographique secondaire par le biais d’une vue de gestion dynamique (DMV). Pour plus d’informations, consultez [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
+
+<!---HONumber=AcomDC_0302_2016-->

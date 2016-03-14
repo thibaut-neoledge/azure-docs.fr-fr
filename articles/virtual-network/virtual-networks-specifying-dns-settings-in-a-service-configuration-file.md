@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Définition des paramètres DNS dans un fichier de configuration de service
@@ -29,7 +29,7 @@ Un fichier de configuration de service peut contenir un élément DnsServers av
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING]L’attribut **name** de l’élément **DnsServer** est utilisé uniquement en tant que nom de référence. Il ne représente aucunement le nom d’hôte attribué au serveur DNS. Chaque valeur d’attribut **DnsServer** doit être unique au sein de l’abonnement Microsoft Azure.
+>[AZURE.WARNING] L’attribut **name** de l’élément **DnsServer** est utilisé uniquement en tant que nom de référence. Il ne représente aucunement le nom d’hôte attribué au serveur DNS. Chaque valeur d’attribut **DnsServer** doit être unique au sein de l’abonnement Microsoft Azure.
 
 ## Voir aussi
 
@@ -41,4 +41,4 @@ Un fichier de configuration de service peut contenir un élément DnsServers av
 
 [À propos des paramètres de réseau virtuel dans le Portail de gestion](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

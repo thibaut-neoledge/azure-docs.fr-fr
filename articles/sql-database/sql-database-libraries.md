@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="pehteh"/>
 
 # Bibliothèques de connexions pour SQL Database et SQL Server
@@ -28,10 +28,10 @@ Le tableau suivant affiche les bibliothèques publiées par Microsoft. La colonn
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | Multiplateforme (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 + | Fournisseur SQL Server pour .NET Framework | . |
 | PHP | Windows | [PHP pour SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0 + | Pilote PHP pour SQL Server | [Lien](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC pour SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 + | Pilote JDBC de type 4 qui fournit la connectivité de base de données via l’API JDBC standard | [Lien](http://msdn.microsoft.com/library/dn425070.aspx) |
+| Java | Windows | [JDBC pour SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 + | Pilote JDBC de type 4 qui fournit la connectivité de base de données via l’API JDBC standard | [Lien](https://msdn.microsoft.com/library/mt654048.aspx) |
 | ODBC | Windows | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | [Lien](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | . |
-| ODBC | Redhat Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | . |
+| ODBC | Suse Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | [Lien](https://msdn.microsoft.com/fr-FR/library/hh568451.aspx) |
+| ODBC | Redhat Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | [Lien](https://msdn.microsoft.com/fr-FR/library/hh568451.aspx) |
 
 ### Prise en charge ODBC
 
@@ -52,20 +52,22 @@ Pour plus d’informations, consultez :
 
 ## Bibliothèques tierces
 
-> [AZURE.IMPORTANT]Le tableau suivant affiche les bibliothèques publiées par des tiers selon les termes du contrat de licence tiers. Vous êtes responsable de la vérification et du respect des licences tierces pertinentes, afin de pouvoir utiliser ces bibliothèques. Vous utilisez ces bibliothèques à vos risques et périls. Microsoft n’offre aucune garantie, expresse ou implicite, concernant les informations fournies ici. Ces dernières sont fournies uniquement pour le confort des utilisateurs. Aucun élément du présent paragraphe n’implique une quelconque approbation de la part de Microsoft. <br/><br/>Il est de la responsabilité de la communauté des développeurs de mettre à jour et de gérer les informations figurant dans la section relative aux bibliothèques tierces, en utilisant le référentiel [azure-content](http://github.com/Azure/azure-content/) appartenant à **Azure** sur le site GitHub.com. Microsoft encourage les développeurs à mettre à jour cette section. Le personnel de Microsoft n’a *pas* l’intention de gérer les informations de cette section, en partie parce qu’il existe des experts nettement plus familiarisés avec chaque bibliothèque tierce. Merci !
+> [AZURE.IMPORTANT] Le tableau suivant affiche les bibliothèques publiées par des tiers selon les termes du contrat de licence tiers. Vous êtes responsable de la vérification et du respect des licences tierces pertinentes, afin de pouvoir utiliser ces bibliothèques. Vous utilisez ces bibliothèques à vos risques et périls. Microsoft n’offre aucune garantie, expresse ou implicite, concernant les informations fournies ici. Ces dernières sont fournies uniquement pour le confort des utilisateurs. Aucun élément du présent paragraphe n’implique une quelconque approbation de la part de Microsoft. <br/><br/>Il est de la responsabilité de la communauté des développeurs de mettre à jour et de gérer les informations figurant dans la section relative aux bibliothèques tierces, en utilisant le référentiel [azure-content](http://github.com/Azure/azure-content/) appartenant à **Azure** sur le site GitHub.com. Microsoft encourage les développeurs à mettre à jour cette section. Le personnel de Microsoft n’a *pas* l’intention de gérer les informations de cette section, en partie parce qu’il existe des experts nettement plus familiarisés avec chaque bibliothèque tierce. Merci !
 
 Le tableau suivant affiche les bibliothèques publiées par des tiers, tels que d’autres entreprises ou la communauté. Les bibliothèques publiées par Microsoft sont limitées à la section précédente de cette rubrique.
 
 | Plateforme | Bibliothèques |
 | :-- | :-- |
-| Python | [pymssql *(org, stable)*](http://pymssql.org/en/stable/)<br/><br/>[pymssql *(org)*](http://pymssql.org/) |
-| Node.js | [Tedious *(npmjs)*](http://www.npmjs.com/package/tedious) |
-| Node.js | [Node-MSSQL *(github, patriksimek)*](https://github.com/patriksimek/node-mssql)<br/><br/>[Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
-| Node.js | [Edge.js *(github com, tjanczuk)*](https://github.com/tjanczuk/edge)<br/><br/>[Edge.js *(tjanczuk, github e/s)*](http://tjanczuk.github.io/edge/) |
-| . | [FreeTDS *(org)*](http://www.freetds.org/) |
+| Ruby | [tinytds *(organisation stable)*](https://rubygems.org/gems/tiny_tds/versions/0.7.0) |
+| GO | [go-mssqldb *(organisation stable)*](https://github.com/denisenkom/go-mssqldb) |
+| Python | [pymssql *(organisation stable)*](http://pymssql.org/en/stable/) |
+| Node.js | [Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
+| C++ | [FreeTDS *(org)*](http://www.freetds.org/) |
+
+
 
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

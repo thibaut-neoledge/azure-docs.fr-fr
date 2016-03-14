@@ -13,17 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure
 
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API REST](role-based-access-control-manage-access-rest.md)
 
 ## Répertorier les rôles pour le contrôle d’accès basé sur les rôles (RBAC)
+
+>[AZURE.IMPORTANT] Pour pouvoir utiliser les applets de commande de cet article, vous devez [installer Azure CLI](../xplat-cli-install.md).
+
 ###	Répertorier tous les rôles disponibles
 Pour répertorier tous les rôles, utilisez :
 
@@ -54,7 +57,7 @@ L'exemple suivant illustre les affectations de rôle valables pour le groupe *ph
 
 ###	Répertorier les affectations de rôles d'un utilisateur, notamment les rôles affectés à des groupes d'utilisateurs
 
-L’exemple suivant montre les affectations de rôle efficaces sur l’utilisateur.**sameert@aaddemo.com*.
+L’exemple suivant montre les affectations de rôle effectives sur l’utilisateur **sameert@aaddemo.com*.
 
 ![Ligne de commande Azure RBAC - liste des affectations de rôle azure par utilisateur - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -154,4 +157,4 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

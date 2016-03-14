@@ -26,7 +26,7 @@ StorSimple utilise la [hiérarchisation du stockage](#automatic-storage-tiering)
 
 Avec StorSimple Update 2, vous pouvez identifier les volumes appropriés comme étant *épinglés localement* afin de garantir que les données primaires restent locales sur l'appareil et ne sont pas hiérarchisées vers le cloud. Cela vous permet d'exécuter des charges de travail qui sont sensibles à la latence de cloud, telles que des charges de travail des machines virtuelles et SQL, sur les volumes épinglés localement, tout en continuant à utiliser le cloud pour la sauvegarde. Pour plus d'informations sur les volumes épinglés localement, consultez [Utiliser le service StorSimple Manager pour gérer les volumes](storsimple-manage-volumes-u2.md).
 
-StorSimple Update 2 vous permet également de créer des appareils virtuels StorSimple qui tirent parti des faibles latences et des hautes performances fournies par Azure Premium Storage. Pour plus d'informations sur les appareils virtuels StorSimple Premium, consultez [Déployer et gérer un appareil virtuel StorSimple dans Azure](storsimple-virtual-device-u1.md). Pour plus d’informations sur Azure Premium Storage, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage-preview-portal.md).
+StorSimple Update 2 vous permet également de créer des appareils virtuels StorSimple qui tirent parti des faibles latences et des hautes performances fournies par Azure Premium Storage. Pour plus d'informations sur les appareils virtuels StorSimple Premium, consultez [Déployer et gérer un appareil virtuel StorSimple dans Azure](storsimple-virtual-device-u1.md). Pour plus d’informations sur Azure Premium Storage, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
 
 Outre la gestion du stockage, les fonctionnalités de protection des données StorSimple permettent de créer des sauvegardes à la demande et planifiées, puis de les stocker localement ou dans le cloud. Les sauvegardes sont effectuées sous la forme d’instantanés incrémentiels, ce qui signifie qu’elles peuvent être créés et restaurés rapidement. Les instantanés cloud peuvent être d’une importance critique dans les scénarios de récupération d’urgence, car ils remplacent les systèmes de stockage secondaire (comme la sauvegarde sur bande) et vous permettent de restaurer des données sur votre centre de données ou sur d’autres sites si nécessaire.
 
@@ -99,7 +99,7 @@ L’appareil virtuel présente les caractéristiques suivantes :
 - Vous pouvez créer un nombre illimité d’appareils virtuels dans le cloud, et les activer/désactiver selon vos besoins. 
 - Il peut aider à simuler les environnements locaux dans les scénarios de test et de développement ou de récupération d’urgence, tout en facilitant la récupération au niveau des éléments à partir de sauvegardes. 
 
-Avec la solution Update 2 et version ultérieure, le périphérique virtuel StorSimple est disponible en deux modèles : l'appareil 8010 (anciennement appelé le modèle 1100) et l’appareil 8020. L’appareil 8010 possède une capacité maximale de 30 To. L’appareil 8020, qui tire parti d’Azure Premium Storage, possède une capacité maximale de 64 To. (Azure Premium Storage stocke les données sur des disques SSD, alors qu’avec un stockage standard les données sont stockées sur des disques durs.) Notez que vous devez disposer d'un compte Azure Premium Storage pour utiliser le stockage premium. Pour plus d’informations sur le stockage premium, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage-preview-portal.md).
+Avec la solution Update 2 et version ultérieure, le périphérique virtuel StorSimple est disponible en deux modèles : l'appareil 8010 (anciennement appelé le modèle 1100) et l’appareil 8020. L’appareil 8010 possède une capacité maximale de 30 To. L’appareil 8020, qui tire parti d’Azure Premium Storage, possède une capacité maximale de 64 To. (Azure Premium Storage stocke les données sur des disques SSD, alors qu’avec un stockage standard les données sont stockées sur des disques durs.) Notez que vous devez disposer d'un compte Azure Premium Storage pour utiliser le stockage premium. Pour plus d’informations sur le stockage premium, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
 
 Pour plus d'informations sur les appareils virtuels StorSimple, consultez [Déployer et gérer un appareil virtuel StorSimple dans Azure](storsimple-virtual-device-u1.md).
 
@@ -177,7 +177,7 @@ Microsoft Azure StorSimple organise automatiquement les données en niveaux logi
 
 Pour permettre un accès rapide, StorSimple stocke les données très actives sur des disques SSD de l’appareil StorSimple. Il stocke les données occasionnellement utilisées sur des disques durs de l’appareil ou sur des serveurs du centre de données. Il déplace les données inactives, les données de sauvegarde et les données conservées à des fins d’archivage ou de conformité vers le cloud.
 
->[AZURE.NOTE]Dans la solution Update 2 ou version ultérieure, vous pouvez spécifier qu’un volume est épinglé localement, auquel cas les données restent sur l’appareil local et ne sont pas hiérarchisées vers le cloud.
+>[AZURE.NOTE] Dans la solution Update 2 ou version ultérieure, vous pouvez spécifier qu’un volume est épinglé localement, auquel cas les données restent sur l’appareil local et ne sont pas hiérarchisées vers le cloud.
 
 StorSimple ajuste et réorganise les données et modifie les affectations de stockage conformément aux modifications du schéma d’utilisation. Par exemple, certaines informations peuvent devenir moins actives au fil du temps. À mesure que leur utilisation diminue, elles sont transférées d’un disque SSD vers le disque dur, puis vers le cloud. Si ces mêmes données redeviennent actives, elles sont transférées à nouveau sur le dispositif de stockage.
 
@@ -195,7 +195,7 @@ Le processus de hiérarchisation du stockage se déroule comme suit :
 
 L’allocation dynamique est une technologie de virtualisation dans laquelle le stockage disponible semble dépasser les ressources physiques. Plutôt que de réserver un espace de stockage suffisant à l’avance, StorSimple utilise l’allocation dynamique pour allouer juste assez d’espace pour répondre aux besoins actuels. La nature évolutive du stockage cloud simplifie cette approche, car StorSimple peut augmenter ou diminuer le stockage cloud pour répondre aux demandes changeantes.
 
->[AZURE.NOTE]Les volumes épinglés localement ne sont pas alloués de façon dynamique. Le stockage alloué à un volume local est approvisionné dans son intégralité lorsque le volume est créé.
+>[AZURE.NOTE] Les volumes épinglés localement ne sont pas alloués de façon dynamique. Le stockage alloué à un volume local est approvisionné dans son intégralité lorsque le volume est créé.
 
 ### Déduplication et compression
 
@@ -203,7 +203,7 @@ Microsoft Azure StorSimple utilise la compression des données et la déduplicat
 
 La déduplication réduit la quantité globale de données stockées en éliminant les redondances dans le jeu de données stocké. Lorsque des données sont modifiées, StorSimple ignore les informations non modifiées et enregistre uniquement les modifications. En outre, StorSimple réduit la quantité de données stockées en identifiant et en supprimant les informations inutiles.
 
->[AZURE.NOTE]Les données sur les volumes épinglés localement ne sont pas dédupliquées ou compressées. Toutefois, les sauvegardes de volumes épinglés localement sont dédupliquées et compressées.
+>[AZURE.NOTE] Les données sur les volumes épinglés localement ne sont pas dédupliquées ou compressées. Toutefois, les sauvegardes de volumes épinglés localement sont dédupliquées et compressées.
 
 ## Terminologie StorSimple 
 
@@ -278,4 +278,4 @@ En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

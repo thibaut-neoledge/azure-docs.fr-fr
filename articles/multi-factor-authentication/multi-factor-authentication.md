@@ -13,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.topic="article" 
+	ms.date="02/29/2016"
 	ms.author="billmath"/>
 
 # Présentation d'Azure Multi-Factor Authentication
@@ -117,9 +117,10 @@ Messages de bienvenue personnalisés pour les appels téléphoniques| | | *
 Personnalisation de l'ID d'appelant pour les appels téléphoniques| | | *
 Confirmation d’événement| | | *
 Adresses IP approuvées| | | *
-Suspendre MFA pour les appareils mémorisés (aperçu public)| | | *
+Mémoriser MFA pour les appareils fiables |* | * | *
 SDK MFA| | | *
 MFA pour des applications locales utilisant le serveur MFA| | | *
+Options de vérification sélectionnables (version préliminaire publique)|* | * | *
 
 
 ## Comment obtenir Azure Multi-Factor Authentication ?
@@ -136,9 +137,11 @@ Quand vous utilisez un fournisseur Azure Multi-Factor Authentication, vous avez 
 - **Par utilisateur**. Généralement, pour les entreprises qui veulent activer l'authentification multifacteur pour un nombre fixe d'employés qui s'authentifient régulièrement.
 - **Par authentification**. Généralement, pour les entreprises qui veulent activer l'authentification multifacteur pour un nombre important d’utilisateurs externes qui s'authentifient ponctuellement.
 
+Azure Multi-Factor Authentication fournit des méthodes de vérification sélectionnables pour cloud et pour serveur. Cela signifie que vous pouvez choisir les méthodes disponibles que vos utilisateurs peuvent utiliser avec l’authentification multifacteur. Cette fonctionnalité est actuellement en version préliminaire publique pour la version cloud de l’authentification multifacteur. Pour plus d’informations, consultez [Méthodes de vérification sélectionnables](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+
 Pour plus d’informations sur la tarification, consultez la [tarification d’Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-Choisissez le modèle qui convient le mieux à votre organisation : celui basé sur le nombre d’utilisateurs ou celui basé sur la consommation. Passez ensuite à la [Prise en main](multi-factor-authentication-get-started.md).
+Choisissez le modèle qui convient le mieux à votre organisation : celui basé sur le nombre d’utilisateurs ou celui basé sur la consommation. Puis, pour la prise en main, reportez-vous à [Mise en route](multi-factor-authentication-get-started.md).
 
 ## Choix de la solution de sécurité multifacteur la plus appropriée pour vous
 
@@ -198,7 +201,7 @@ Contournement à usage unique | ● | ●
 Messages de bienvenue personnalisés pour les appels téléphoniques | ● | ●
 ID d'appelant personnalisable pour les appels téléphoniques | ● | ●
 Adresses IP approuvées | ● | ●
-Suspendre MFA pour les appareils mémorisés (aperçu public) | ● |  
+Mémoriser MFA pour les appareils fiables (version préliminaire publique) | ● |  
 Accès conditionnel | ● | ●
 Cache | ● | ●
 
@@ -206,4 +209,4 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

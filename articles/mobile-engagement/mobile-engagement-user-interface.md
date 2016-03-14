@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Utilisation de l’interface utilisateur (IU) d’Azure Mobile Engagement
@@ -133,4 +133,4 @@ Une fois que vous avez intégré le Kit de développement logiciel[(SDK)][Link 5
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

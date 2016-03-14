@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,9 +33,9 @@ Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne
     <tr>
         <td><strong>Obtenir les outils</strong></td>
 
-        <td>Téléchargez le Kit de développement logiciel (SDK) de BizTalk Services pour installer les modèles de projet Visual Studio sur votre ordinateur de développement local. Ces modèles créent <strong>BizTalk Services</strong> (pont) et les projets Visual Studio des <strong>artefacts de service BizTalk</strong> (Transformation) qui sont déployés sur votre service BizTalk. 
+        <td>Téléchargez le Kit de développement logiciel (SDK) de BizTalk Services pour installer les modèles de projet Visual Studio sur votre ordinateur de développement local. Ces modèles créent <strong>BizTalk Services</strong> (pont) et les projets Visual Studio des <strong>artefacts de service BizTalk</strong> (Transformation) qui sont déployés sur votre service BizTalk.
         <br/><br/>
-		Les pages <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services</a> et <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installation du Kit de développement logiciel (SDK) Azure BizTalk Services</a> présentent les procédures de prise en main. 
+		Les pages <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services</a> et <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installation du Kit de développement logiciel (SDK) Azure BizTalk Services</a> présentent les procédures de prise en main.
         </td>
     </tr>
 
@@ -44,7 +44,7 @@ Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne
 
         <td>Ouvre le portail Azure BizTalk Services hébergé sur Azure, qui vous permet d'ajouter des partenaires et de créer des contrats EDI X12, AS2 et EDIFACT.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        La rubrique <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuration de composants pour la messagerie EDI sur le portail BizTalk Services</a> reprend la procédure de mise en route.
         </td>
     </tr>
 
@@ -236,17 +236,15 @@ Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**i
 
 ##### Pour supprimer ou afficher des mesures dans le graphique :
 1. Sélectionnez l'onglet **Surveiller**.
-2. Sélectionnez **Ajouter des métriques** dans la barre des tâches :  
-![Sélectionnez Ajouter des métriques.][AddMetrics]
+2. Sélectionnez **Ajouter des métriques** dans la barre des tâches : ![Sélectionnez Ajouter des métriques.][AddMetrics]
 3. Vérifiez les mesures de performances que vous souhaitez afficher.
 4. Sélectionnez la coche pour revenir à l'onglet **Surveiller**.
 5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.  
 
-	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique:  
-![La mesure Utilisation du processeur apparaît en grisé][GrayedMetric]  
+	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique :![La mesure Utilisation du processeur apparaît en grisé  
+][GrayedMetric]
 
-	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique:  
-![La mesure Utilisation du processeur est activée][EnabledMetric]
+	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique :![La mesure Utilisation du processeur est activée][EnabledMetric]
 
 6. Pour supprimer une mesure du graphique affiché et de la liste, sélectionnez **Supprimer une métrique** dans la barre des tâches. Pour réintégrer la mesure dans la liste, sélectionnez **Ajouter des métriques** dans la barre des tâches, vérifiez la mesure et cochez la case pour revenir à l'onglet **Surveiller**. Sélectionnez le cercle en grisé pour activer la mesure.
 
@@ -339,7 +337,7 @@ Les connexions hybrides connectent une application Azure, comme Sites web ou Mob
 
 Pour créer des connexions hybrides à l'aide de Sites Web, Azure, consultez la page [Connexion hybride : connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Pour utiliser les connexions hybrides dans Azure Mobile Services, consultez [Azure Mobile Services et connexions hybrides](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Pour utiliser les connexions hybrides dans Azure Mobile Services, consultez [Azure Mobile Services et connexions hybrides](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consultez [Connexions hybrides](integration-hybrid-connection-overview.md).
 
@@ -365,4 +363,4 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

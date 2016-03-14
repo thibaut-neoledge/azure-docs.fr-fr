@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis DocumentDB à l’aide d’Azure Data Factory
@@ -379,6 +379,14 @@ Exemple :
 	  }
 	}
 
+### Schéma par Data Factory
+Pour les magasins de données sans schéma comme DocumentDB, le service Data Factory déduit le schéma de l’une des manières suivantes :
+
+1.	Si vous spécifiez la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory respecte cette structure en tant que schéma. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
+2.	Si vous ne spécifiez pas la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory déduit le schéma à l’aide de la première ligne dans les données. Dans ce cas, si la première ligne ne contient pas le schéma complet, certaines colonnes ne seront pas incluses dans le résultat de l’opération de copie.
+
+Par conséquent, pour les sources de données sans schéma, la meilleure pratique consiste à définir la structure des données à l’aide de la propriété **structure**.
+
 ## Propriétés de type de l'activité de copie DocumentDB Azure
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
@@ -411,7 +419,7 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 
 	**Réponse :** si les enregistrements ont un champ « ID » et que l'opération de copie tente d'insérer un enregistrement avec le même ID, l'opération de copie génère une erreur.
  
-3. **Question :** Data Factory prend-il en charge le [partitionnement de données basé sur un intervalle ou sur le hachage]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/) ?
+3. **Question :** Data Factory prend-il en charge le [partitionnement de données basé sur un intervalle ou sur le hachage](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/) ?
 
 	**Réponse :** non. 
 4. **Question :** puis-je indiquer plusieurs collections DocumentDB pour une table ?
@@ -419,4 +427,4 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 	**Réponse :** non. Il n’est possible d’indiquer qu’une collection pour le moment.
      
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

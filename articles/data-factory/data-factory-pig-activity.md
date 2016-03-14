@@ -68,7 +68,7 @@ inputs | Entrée(s) utilisée(s) par l'activité pig | Non
 outputs | Sortie(s) produite(s) par l'activité pig | Oui
 linkedServiceName | Référence au cluster HDInsight enregistré comme un service lié dans Data Factory | Oui
 script | Spécifier le script en ligne pig | Non
-chemin d'accès du script | Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Ces deux éléments ne peuvent pas être utilisés ensemble | Non
+chemin d'accès du script | Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Notez que le nom de fichier respecte la casse. | Non
 defines | Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig | Non
 
 ## Exemple
@@ -186,4 +186,4 @@ Pour paramétrer le script pig, procédez comme suit :
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

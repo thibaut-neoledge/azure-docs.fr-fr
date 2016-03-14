@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/01/2016"
    ms.author="larryfr"/>
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser le spout et le bolt Event 
 
 ##Vue d’ensemble de l’exemple
 
-L’exemple [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub) contient deux topologies :
+L’exemple [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) contient deux topologies :
 
 __com.microsoft.example.EventHubWriter__ écrit des données aléatoires dans un Azure Event Hub. Les données sont générées par un spout et comprennent un ID d’appareil aléatoire et une valeur d’appareil. Ainsi, elles simulent certains matériels qui émettent un ID de chaîne et une valeur numérique.
 
@@ -280,10 +280,12 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 4. Sélectionnez **Configurer**, puis créez deux nouvelles stratégies d’accès en utilisant les informations suivantes.
 
 	<table>
-<tr><th>Nom</th><th>Autorisations</th></tr>
-<tr><td>Writer</td><td>Envoyer</td></tr>
-<tr><td>Lecteur</td><td>Écouter</td></tr>
-</table>Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Cela crée les stratégies d’accès partagé qui seront utilisées pour envoyer (writer) et écouter (reader) ce concentrateur d’événements.
+	<tr><th>Nom</th><th>Autorisations</th></tr>
+	<tr><td>Writer</td><td>Envoyer</td></tr>
+	<tr><td>Lecteur</td><td>Écouter</td></tr>
+	</table>
+
+	Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Cela crée les stratégies d’accès partagé qui seront utilisées pour envoyer (writer) et écouter (reader) ce concentrateur d’événements.
 
 	![stratégies](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -291,7 +293,7 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 
 ## Télécharger et générer le projet
 
-1. Téléchargez le projet à partir de GitHub : [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub). Vous pouvez télécharger le package dans une archive .zip ou utiliser [git](https://git-scm.com/) pour cloner le projet localement.
+1. Téléchargez le projet à partir de GitHub : [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub). Vous pouvez télécharger le package dans une archive .zip ou utiliser [git](https://git-scm.com/) pour cloner le projet localement.
 
 2. Utilisez les commandes suivantes pour installer les packages inclus dans le projet dans votre référentiel Maven local. Ces commandes activent le spout et le bolt de l’Event Hub, ainsi que la possibilité d’utiliser HdfsBolt pour écrire dans le stockage Azure (WASB).
 
@@ -476,4 +478,4 @@ Pour plus d’informations sur l’utilisation de l’interface utilisateur de S
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

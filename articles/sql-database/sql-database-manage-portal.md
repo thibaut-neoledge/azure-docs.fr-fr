@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
+- [Portail Azure](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,14 +34,14 @@ Le [portail Azure](https://portal.azure.com/) permet de créer, de surveiller et
 
 Le portail Azure fournit un ensemble d’actions communes à exécuter sur les bases de données, accessibles dans la partie supérieure d’un panneau de base de données. Vous pouvez restaurer une base de données à un moment donné, l’ouvrir dans Visual Studio, la copier vers un nouveau serveur et l’exporter vers un compte Microsoft Azure Storage.
 
-- [Restauration d’une base de données SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Restauration d’une base de données SQL](sql-database-user-error-recovery.md)
 - [Ouvrir une base de données SQL dans Visual Studio](sql-database-connect-query.md)
 - [Exporter une base de données SQL](sql-database-export.md)
 
 ## 2\. Surveillance des bases de données
 ![Surveillance des bases de données](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
 
-Par défaut, les bases de données SQL Microsoft Azure proposent des graphiques de surveillance des unités de débit de base de données (DTU), de la taille des bases de données et de l’intégrité des connexions. Ces graphiques de surveillance peuvent être personnalisés et étendus afin d’inclure le pourcentage de CPU, le pourcentage d’E/S des données, les blocages, le pourcentage d’E/S des fichiers journaux, voire le pourcentage des demandes bloquées par le pare-feu. Pour en savoir plus sur la personnalisation des graphiques de surveillance, cliquez [ici][Azure part monitoring].
+Par défaut, les bases de données SQL Microsoft Azure proposent des graphiques de surveillance des unités de transaction de base de données (DTU), de la taille des bases de données et de l’intégrité des connexions. Ces graphiques de surveillance peuvent être personnalisés et étendus afin d’inclure le pourcentage de CPU, le pourcentage d’E/S des données, les blocages, le pourcentage d’E/S des fichiers journaux, voire le pourcentage des demandes bloquées par le pare-feu. Pour en savoir plus sur la personnalisation des graphiques de surveillance, cliquez [ici][Azure part monitoring].
 
 En outre, des règles d’alerte peuvent être configurées pour surveiller une métrique spécifique et signaler à un administrateur ou à coadministrateur désigné qu’un seuil prédéfini a été atteint. Pour plus d’informations sur la configuration des règles d’alertes dans le portail Azure Classic, consultez [ce lien][Azure part monitoring].
 
@@ -85,4 +85,4 @@ Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliqu
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

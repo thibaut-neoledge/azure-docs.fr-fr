@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2016"
+  ms.date="02/24/2016"
   ms.author="andrl"/>
 
 # Portail de la communauté
@@ -62,6 +62,15 @@ Fichier Swagger d’API REST DocumentDB qui peut être facilement déployé en t
 
 Extraire sur [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
+
+### fluent-plugin-documentdb
+
+*par Yoichi Kawasaki*
+
+fluent-plugin-documentdb est un plug-in Fluentd pour la création de sortie vers Azure DocumentDB.
+
+En savoir plus sur [Github](https://github.com/yokawasa/fluent-plugin-documentdb) et [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
+
 <br/><br/>
 
 *Retrouvez d’autres projets Open source DocumentDB sur [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
@@ -79,6 +88,12 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 <br/>
 
 **Publications de la Communauté :**
+
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *par Yoichi Kawasaki*
+
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *par Peter Mannerhult*
+
+* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *par George Saadeh*
 
 * [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *par Robert Sheldon*
 
@@ -138,7 +153,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, État du Texas, États-Unis | 28 janvier 2016 | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montréal, QC, Canada | 1er décembre 2015 | n/a |
 | [Meetup : SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 novembre 2015 | n/a |
-| [Sommet PASS 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | Du 27 au 30 octobre 2015 | n/a |
+| [Sommet PASS 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | Du 27 au 30 octobre 2015 | [Développement d’applications modernes sur Azure](https://www.youtube.com/watch?v=k5Z24HX-RyQ) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | David Makogon, Ryan Crawcour | Columbus, OHIO | 23 octobre 2015 | n/a |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Leonard Lobel | Sofia, Bulgarie | 10 octobre 2015 | n/a |
 | [SQL samedi #429 - Porto 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Leonard Lobel | Porto, Portugal | 3 octobre 2015 | n/a |
@@ -167,6 +182,8 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Afficher | Intervenant | Date | Épisode |
 | ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| Groupe d’utilisateurs d’intégration | Han Wong | 17 février 2016 | [Analyser et visualiser des données non relationnelles avec DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Channel 9 : Applications modernes | Tara Shankar Jana | 13 décembre 2016 | [Adopter une approche moderne pour les données dans vos applications](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 10 décembre 2015 | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Groupe d’utilisateurs d’intégration | Howard Edidin | 9 novembre 2015 | [DocumentDB Azure pour l’intégration des services de santé – 2e partie](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Groupe d’utilisateurs d’intégration | Howard Edidin | 5 octobre 2015 | [DocumentDB Azure pour l’intégration des services de santé](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
@@ -267,4 +284,4 @@ Les assistants DocumentDB sont des responsables de la communauté qui ont fait p
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

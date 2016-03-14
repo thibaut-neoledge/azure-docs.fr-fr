@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Vue d'ensemble d'Azure CDN" 
-	description="Découvrez le réseau de distribution de contenu (CDN) Azure et comment l'utiliser pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Vue d'ensemble d'Azure CDN"
+	description="Découvrez le réseau de distribution de contenu (CDN) Azure et comment l'utiliser pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
@@ -28,11 +28,11 @@ Le CDN offre aux développeurs une solution globale pour la distribution de cont
 Les avantages de l'utilisation du CDN pour mettre en cache des données Azure sont notamment les suivants :
 
 - De meilleures performances et une expérience utilisateur plus agréable pour les utilisateurs finaux qui se trouvent éloignés d'une source de contenu et qui utilisent des applications ayant recours à de nombreux « trajets Internet » pour charger le contenu
-- Une diffusion à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple au début de l'événement du lancement d'un produit. 
+- Une diffusion à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple au début de l'événement du lancement d'un produit.
 
 
 >[AZURE.IMPORTANT] Quand vous créez ou activez un point de terminaison CDN, sa propagation dans le monde entier peut prendre jusqu’à 90 minutes.
- 
+
 Quand une demande d’objet est effectuée pour la première fois au CDN, l’objet est récupéré directement de son emplacement d’origine source. Cette origine peut être un compte de stockage Azure, une application web, un service cloud ou toute origine personnalisée qui accepte les demandes web publiques. Quand une demande est effectuée à l'aide de la syntaxe CDN, elle est redirigée vers le point de terminaison CDN le plus proche de l'emplacement à partir duquel elle a été faite pour fournir l'accès à l'objet. Si l'objet est introuvable sur ce point de terminaison, il est récupéré du service et mis en cache au point de terminaison, où un paramètre de durée de vie est géré pour l'objet mis en cache.
 
 ## Fonctionnalités Standard
@@ -61,4 +61,4 @@ Le niveau Premium de CDN comprend toutes les fonctionnalités du niveau Standard
 - [Rapports HTTP avancés](cdn-advanced-http-reports.md)
 - [Statistiques en temps réel](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->
