@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Basculement et récupération d’urgence StorSimple | Microsoft Azure"
+   pageTitle="Basculement et récupération d’urgence StorSimple | Microsoft Azure"
    description="Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou un appareil virtuel."
    services="storsimple"
    documentationCenter=""
@@ -35,13 +35,13 @@ Dans un scénario de récupération d’urgence, l’appareil principal cesse de
 
 ## Considérations relatives au basculement d’appareil
 
-En cas de sinistre, vous pouvez choisir de basculer votre appareil StorSimple :
+En cas de sinistre, vous pouvez choisir de basculer votre appareil StorSimple :
 
-- vers un appareil physique ; 
-- vers lui-même ;
+- vers un appareil physique ; 
+- vers lui-même ;
 - vers un appareil virtuel.
 
-Pour tout basculement d’appareil, tenez compte des éléments suivants :
+Pour tout basculement d’appareil, tenez compte des éléments suivants :
 
 - Pour la récupération d’urgence, tous les volumes dans les conteneurs de volume doivent être hors connexion et les conteneurs de volume doivent être associés à un instantané de cloud. 
 - Les appareils cibles disponibles pour la récupération d’urgence possèdent un espace suffisant pour accueillir les conteneurs de volume sélectionnés. 
@@ -57,7 +57,20 @@ Utilisez le tableau suivant pour déterminer si vous pouvez basculer vers un aut
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
 | Update 2 à pré-Update 1 (version 0.1, 0.2, 0.3) | Non | Non |
 | Update 2 à Update 1 (1, 1.1, 1.2) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous la forme à plusieurs niveaux. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
-| Update 2 à Update 2 (version ultérieure) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous le type de volume de départ ; à plusieurs niveaux pour à plusieurs niveaux et épinglés localement pour épinglés localement. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
+| Update 2 à Update 2 (version ultérieure) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous le type de volume de départ ; à plusieurs niveaux pour à plusieurs niveaux et épinglés localement pour épinglés localement. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
+
+
+#### Basculement partiel entre les versions du logiciel
+
+Suivez ces instructions si vous envisagez d’effectuer un basculement partiel à l’aide d’un appareil source StorSimple exécutant la Mise à jour préliminaire 1 vers une cible exécutant la Mise à jour 1 ou une version ultérieure.
+
+
+| Basculement partiel à partir de | Autorisé pour un appareil physique | Autorisé pour un appareil virtuel |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+|Mise à jour préliminaire 1 (Version 0.1, 0.2, 0.3) à la Mise à jour 1 ou version ultérieure | Oui, voici le meilleur conseil pratique. | Oui, voici le meilleur conseil pratique. |
+
+
+>[AZURE.TIP] Une modification des métadonnées du cloud et du format des données dans la Mise à jour 1 et les versions ultérieures. Par conséquent, nous ne recommandons pas un basculement partiel de la Mise à jour préliminaire 1 à la Mise à jour 1 ou à une version ultérieure. Si vous devez effectuer un basculement partiel, nous vous recommandons de commencer par appliquer la Mise à jour 1 ou une version ultérieure sur les deux les appareils (source et cible), puis effectuez le basculement.
 
 ## Basculement vers un autre appareil physique
 
@@ -73,7 +86,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 1. Sur la page **Appareils**, cliquez sur **Basculement**.
 
-1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
+1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
@@ -107,13 +120,13 @@ Procédez comme suit si vous disposez d’un seul appareil et devez effectuer un
 
 1. Sélectionnez l’ancien appareil (état hors connexion) et cliquez sur **Basculement**. Dans l’Assistant qui s’affiche, basculez cet appareil et spécifiez l’appareil cible en tant qu’appareil nouvellement inscrit. Pour obtenir des instructions détaillées, reportez-vous à la section [Basculer vers un autre appareil physique](#fail-over-to-another-physical-device).
 
-1. Un travail de restauration de l’appareil sera créé ; vous pouvez le surveiller à partir de la page **Travaux**.
+1. Un travail de restauration de l’appareil sera créé ; vous pouvez le surveiller à partir de la page **Travaux**.
 
 1. Une fois la tâche terminée, accédez au nouvel appareil et à la page **Conteneurs de volume**. Tous les conteneurs de volume de l’ancien appareil doivent désormais être migrés vers le nouvel appareil.
 
 ## Basculement vers un appareil virtuel StorSimple
 
-Vous devez avoir créé et configuré un appareil virtuel StorSimple avant d’exécuter cette procédure. En cas d'exécution d'Update 2, pensez à utiliser un appareil virtuel 8020 pour la récupération d'urgence avec 64 To et le stockage Premium.
+Vous devez avoir créé et configuré un appareil virtuel StorSimple avant d’exécuter cette procédure. En cas d'exécution d'Update 2, pensez à utiliser un appareil virtuel 8020 pour la récupération d'urgence avec 64 To et le stockage Premium.
  
 Procédez comme suit pour restaurer votre appareil vers un appareil virtuel StorSimple cible.
 
@@ -127,7 +140,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 1. Sur la page **Appareils**, cliquez sur **Basculement**.
 
-1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement**, procédez comme suit :
+1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement**, procédez comme suit :
 													
 	a. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
@@ -162,4 +175,4 @@ S’il existe des appareils StorSimple inscrits juste avant un incident, ces pé
 - Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

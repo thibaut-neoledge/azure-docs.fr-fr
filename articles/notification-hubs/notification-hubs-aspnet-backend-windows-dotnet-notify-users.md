@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Notification des utilisateurs via Azure Notification Hubs avec service principal .NET
@@ -41,14 +41,14 @@ Le code complet de ce didacticiel est disponible sur GitHub [ici](https://github
 
 ##Composants requis
 
-Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
+Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
 
-+ [Prise en main de Notification Hubs]<br/>Ce didacticiel vous permet de créer votre concentrateur de notification, de réserver le nom de l’application et de vous inscrire pour recevoir des notifications. Ce didacticiel part du principe que vous avez déjà effectué ces étapes. Si ce n’est pas le cas, suivez les étapes de la rubrique [Prise en main de Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md), en particulier les sections [Inscription de votre application pour le Windows Store](notification-hubs-windows-store-dotnet-get-started.md#register-your-app-for-the-windows-store) et [Configuration de votre concentrateur de notification](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). En particulier, assurez-vous que vous avez bien entré les valeurs de **SID du package** et **Clé secrète client** dans le portail, dans l'onglet **Configurer** de votre concentrateur de notification. Cette procédure de configuration est décrite dans la section [Configuration de votre concentrateur de notification](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). Il s’agit d’une étape importante : si les informations d’identification sur le portail ne correspondent pas à celles spécifiées pour le nom d’application que vous avez choisi, la notification Push ne fonctionnera pas.
-
-
++ [Prise en main de Notification Hubs]<br/>Ce didacticiel vous permet de créer votre concentrateur de notification, de réserver le nom de l’application et de vous inscrire pour recevoir des notifications. Ce didacticiel part du principe que vous avez déjà effectué ces étapes. Si ce n’est pas le cas, suivez les étapes de la rubrique [Prise en main de Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md), en particulier les sections [Inscription de votre application pour le Windows Store](notification-hubs-windows-store-dotnet-get-started.md#register-your-app-for-the-windows-store) et [Configuration de votre concentrateur de notification](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). En particulier, assurez-vous que vous avez bien entré les valeurs de **SID du package** et **Clé secrète client** dans le portail, dans l'onglet **Configurer** de votre concentrateur de notification. Cette procédure de configuration est décrite dans la section [Configuration de votre concentrateur de notification](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). Il s’agit d’une étape importante : si les informations d’identification sur le portail ne correspondent pas à celles spécifiées pour le nom d’application que vous avez choisi, la notification Push ne fonctionnera pas.
 
 
-> [AZURE.NOTE]Si vous utilisez Mobile Services comme service principal, consultez la [version consacrée à Mobile Services](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) de ce didacticiel.
+
+
+> [AZURE.NOTE] Si vous utilisez Mobile Services comme service principal, consultez la [version consacrée à Mobile Services](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) de ce didacticiel.
 
 
 
@@ -61,7 +61,7 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 
 1. Dans Visual Studio, ouvrez la solution que vous avez créée lors du didacticiel [Prise en main de Notification Hubs didacticiel].
 
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **(Windows 8.1)**, puis cliquez sur **Gérer les packages NuGet**.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **(Windows 8.1)**, puis cliquez sur **Gérer les packages NuGet**.
 
 3. Dans la partie gauche, cliquez sur **En ligne**.
 
@@ -71,12 +71,12 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 
 6. Dans la zone **Rechercher**, entrez **Json.net**. Installez le package **Json.NET**, puis fermez la fenêtre du Gestionnaire de package NuGet.
 
-7. Répétez les étapes ci-dessus pour le projet **(Windows Phone 8.1)** afin d’installer le package NuGet **JSON.NET** pour le projet Windows Phone.
+7. Répétez les étapes ci-dessus pour le projet **(Windows Phone 8.1)** afin d’installer le package NuGet **JSON.NET** pour le projet Windows Phone.
 
 
-8. Dans l’Explorateur de solutions, dans le projet **(Windows 8.1)**, double-cliquez sur **MainPage.xaml** pour l’ouvrir dans l’éditeur de Visual Studio.
+8. Dans l’Explorateur de solutions, dans le projet **(Windows 8.1)**, double-cliquez sur **MainPage.xaml** pour l’ouvrir dans l’éditeur de Visual Studio.
 
-9. Dans le code XML de **MainPage.xaml**, remplacez la section `<Grid>` par le code suivant. Ce code ajoute une zone de texte Nom d’utilisateur et Mot de passe pour l’authentification de l’utilisateur. Il ajoute également des zones de texte pour le message de notification et la balise username qui doit recevoir la notification :
+9. Dans le code XML de **MainPage.xaml**, remplacez la section `<Grid>` par le code suivant. Ce code ajoute une zone de texte Nom d’utilisateur et Mot de passe pour l’authentification de l’utilisateur. Il ajoute également des zones de texte pour le message de notification et la balise username qui doit recevoir la notification :
 
         <Grid>
             <Grid.RowDefinitions>
@@ -128,11 +128,11 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
         </Grid>
 
 
-10. Dans l’Explorateur de solutions, dans le projet **(Windows Phone 8.1)**, ouvrez **MainPage.xaml** et remplacez la section Windows Phone 8.1 `<Grid>` par le code précédent. L’interface doit ressembler à ce qui suit.
+10. Dans l’Explorateur de solutions, dans le projet **(Windows Phone 8.1)**, ouvrez **MainPage.xaml** et remplacez la section Windows Phone 8.1 `<Grid>` par le code précédent. L’interface doit ressembler à ce qui suit.
 
 	![][13]
 
-11. Dans l’Explorateur de solutions, ouvrez le fichier **MainPage.xaml.cs** pour les projets **(Windows 8.1)** et **(Windows Phone 8.1)**. Ajoutez les instructions `using` suivantes au début des deux fichiers :
+11. Dans l’Explorateur de solutions, ouvrez le fichier **MainPage.xaml.cs** pour les projets **(Windows 8.1)** et **(Windows Phone 8.1)**. Ajoutez les instructions `using` suivantes au début des deux fichiers :
 
 		using System.Net.Http;
 		using Windows.Storage;
@@ -141,13 +141,13 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 		using Windows.UI.Popups;
 		using System.Threading.Tasks;
 
-12. Dans **MainPage.xaml.cs** pour les projets **(Windows 8.1)** et **(Windows Phone 8.1)**, ajoutez le membre suivant à la classe `MainPage`. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
+12. Dans **MainPage.xaml.cs** pour les projets **(Windows 8.1)** et **(Windows Phone 8.1)**, ajoutez le membre suivant à la classe `MainPage`. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
 
         private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
 
 
 
-13. Ajoutez le code ci-dessous à la classe MainPage dans **MainPage.xaml.cs** pour les projets **(Windows 8.1)** et **(Windows Phone 8.1)**.
+13. Ajoutez le code ci-dessous à la classe MainPage dans **MainPage.xaml.cs** pour les projets **(Windows 8.1)** et **(Windows Phone 8.1)**.
 
 	La méthode `PushClick` correspond au gestionnaire de clic du bouton **Envoyer des notifications Push**. Elle appelle le serveur principal pour déclencher une notification vers tous les appareils avec une balise de nom d’utilisateur correspondant au paramètre `to_tag`. Le message de notification est envoyé en tant que contenu JSON dans le corps de la demande.
 
@@ -244,7 +244,7 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 	Cette classe encapsule les appels REST nécessaires pour contacter le service principal de l'application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx). Notez qu'il utilise un jeton d'autorisation qui se trouve dans le stockage local lorsque vous cliquez sur le bouton **Se connecter et s'inscrire**.
 
 
-16. Ajoutez les instructions `using` suivantes au début du fichier RegisterClient.cs :
+16. Ajoutez les instructions `using` suivantes au début du fichier RegisterClient.cs :
 
 		using Windows.Storage;
 		using System.Net;
@@ -345,17 +345,17 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 
 ## Test de l’application
 
-1. Lancez l’application sur Windows 8.1 et Windows Phone 8.1. Pour Windows Phone 8.1, vous pouvez exécuter l’instance dans l’émulateur ou avec un appareil ciblé.
+1. Lancez l’application sur Windows 8.1 et Windows Phone 8.1. Pour Windows Phone 8.1, vous pouvez exécuter l’instance dans l’émulateur ou avec un appareil ciblé.
 
-2. Dans l’instance Windows 8.1 de l’application, entrez un **Nom d’utilisateur** et un **Mot de passe**, comme indiqué dans l’écran ci-dessous. Ces informations d’identification doivent différer du nom d’utilisateur et du mot de passe entrés sur Windows Phone.
+2. Dans l’instance Windows 8.1 de l’application, entrez un **Nom d’utilisateur** et un **Mot de passe**, comme indiqué dans l’écran ci-dessous. Ces informations d’identification doivent différer du nom d’utilisateur et du mot de passe entrés sur Windows Phone.
 
 
 3. Cliquez sur **Se connecter et s’inscrire** et vérifiez le contenu de la boîte de dialogue indiquant que vous êtes connecté. Cette opération active également le bouton **Envoyer des notifications Push**.
 
     ![][14]
 
-4. Sur l'instance Windows Phone 8.1, entrez une chaîne de nom d’utilisateur dans les champs **Nom d’utilisateur** et **Mot de passe**, puis cliquez sur **Se connecter et s’inscrire**.
-5. Puis, dans le champ **Balise de nom d’utilisateur**, entrez le nom d’utilisateur enregistré sur Windows 8.1. Entrez un message de notification, puis cliquez sur **Envoyer des notifications Push**.
+4. Sur l'instance Windows Phone 8.1, entrez une chaîne de nom d’utilisateur dans les champs **Nom d’utilisateur** et **Mot de passe**, puis cliquez sur **Se connecter et s’inscrire**.
+5. Puis, dans le champ **Balise de nom d’utilisateur**, entrez le nom d’utilisateur enregistré sur Windows 8.1. Entrez un message de notification, puis cliquez sur **Envoyer des notifications Push**.
 
     ![][16]
 
@@ -389,4 +389,4 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

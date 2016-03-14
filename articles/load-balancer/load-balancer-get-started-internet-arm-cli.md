@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Prise en main de la création d’un équilibreur de charge accessible sur Internet à l’aide de l’interface de ligne de commande
@@ -328,4 +328,4 @@ Où **nrprg** correspond au groupe de ressources et **nrplb** au nom de l’équ
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -386,7 +386,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- | 
 | folderPath | Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. Exemple : monconteneurblob\\mondossierblob\\ | Oui |
-| filename | <p>Nom de l’objet blob. fileName est facultatif. </p><p>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.</p><p>Quand fileName n’est pas spécifié, la copie inclut tous les objets Blob dans folderPath pour le jeu de données d’entrée.</p><p>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)</p> | Non |
+| fileName | <p>Nom de l’objet Blob. fileName est facultatif et sensible à la casse.</p><p>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.</p><p>Quand fileName n’est pas spécifié, la copie inclut tous les objets Blob dans folderPath pour le jeu de données d’entrée.</p><p>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)</p> | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez la [section Utilisation de la propriété partitionedBy](#Leveraging-partitionedBy-property) ci-dessous pour obtenir plus d’informations et des exemples. | Non
 | format | Deux types de formats sont pris en charge : **TextFormat**, **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de ces valeurs. Lorsque le format est TextFormat, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section [Définition de TextFormat](#specifying-textformat) ci-dessous pour plus de détails. | Non
 | compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** pour l’instant. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
@@ -474,16 +474,16 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties**:
+**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Spécifie s'il faut traiter une chaîne null ou vide en tant que valeur null. | TRUE<br/>FALSE | Non |
+| treatEmptyAsNull | Spécifie s'il faut traiter une chaîne null ou vide en tant que valeur null. <p>Notez que lorsque la propriété **quoteChar** est spécifiée, une chaîne vide entre guillemets peut également être traitée comme une valeur null avec cette propriété.</p> | TRUE(default) <br/>FALSE | Non |
 | skipHeaderLineCount | Indique le nombre de lignes à ignorer. Applicable uniquement quand le jeu de données d’entrée utilise **TextFormat**. | Entier compris entre 0 et Max. | Non | 
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. | True (valeur par défaut), False | Non | 
 
 
-**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties**:
+**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -511,4 +511,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 avec la structure
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

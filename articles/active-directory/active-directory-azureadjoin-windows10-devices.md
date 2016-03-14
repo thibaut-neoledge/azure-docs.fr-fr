@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 # Utilisation d’appareils Windows 10 sur votre lieu de travail
@@ -64,7 +64,7 @@ Certaines entreprises utilisent Azure AD Join comme principale méthode de dépl
 
 Les circonscriptions scolaires et les universités, par exemple, peuvent utiliser Active Directory pour la gestion du personnel et Azure AD pour la gestion des étudiants. Certaines entreprises peuvent souhaiter gérer leurs bureaux distants ou leurs services commerciaux dans Azure AD. Les deux méthodes (Azure AD Join et jonction de domaine) peuvent être utilisées au sein d’une organisation hybride. Azure AD Join peut être un bon complément de la jonction de domaine dans le cas de déploiement d’appareils dans un environnement de travail.
 
-**Si ses ressources d’entreprise sont essentiellement accessibles via le cloud, votre organisation peut bénéficier d’avantages supplémentaires si**:
+**Si ses ressources d’entreprise sont essentiellement accessibles via le cloud, votre organisation peut bénéficier d’avantages supplémentaires si** :
 
 - vous pouvez supprimer des dépendances sur une infrastructure d’identité locale ;
 - vous pouvez simplifier votre modèle de déploiement d’appareils en remplaçant les solutions de création d’images par une configuration en libre-service ;
@@ -175,4 +175,4 @@ Les utilisateurs procédant à une mise à niveau depuis des appareils Windows 8
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

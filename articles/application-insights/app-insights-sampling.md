@@ -26,11 +26,36 @@ La fonction d’échantillonnage, actuellement disponible en version bêta, est 
 
 Il existe trois autres méthodes d’échantillonnage :
 
-* L’**échantillonnage adaptatif** ajuste automatiquement le pourcentage d’échantillonnage de façon à obtenir un volume spécifique de demandes. L’échantillonnage adaptatif est activé par défaut dans le Kit de développement logiciel (SDK) Application Insights pour ASP.NET, version 2.0.0-beta3 ou version ultérieure. 
-* Une option d’**échantillonnage à débit fixe** est également disponible dans la version 2 du Kit de développement logiciel (SDK) et les versions ultérieures. Vous spécifiez le pourcentage d'échantillonnage. Ceci fonctionne sur le client JavaScript et le serveur ASP.NET. Le client et le serveur synchronisent leur échantillonnage de façon à ce que vous puissiez naviguer entre les demandes et les affichages de pages associés dans Search.
-* **Échantillonnage d’ingestion**. Ceci se produit au niveau du service Application Insights. Le Kit de développement logiciel (SDK) envoie toutes les données de télémétrie à partir du navigateur et du serveur, mais nous n’en conservons qu’un pourcentage. Cette méthode est adaptative. Elle ne fonctionne que si votre application envoie plus qu’un volume minimal de télémétrie, et uniquement si le Kit de développement logiciel (SDK) n’effectue aucun autre type d’échantillonnage. Cette méthode est également influencée par le niveau de tarification que vous utilisez. Bien que le trafic ne soit pas réduit, cela vous permet de respecter votre quota mensuel.
+* L’**échantillonnage adaptatif** ajuste automatiquement le volume de données de télémétrie envoyées depuis le Kit de développement logiciel (SDK) dans votre application ASP.NET. Il s’agit du comportement par défaut depuis la version 2.0.0-beta3 du Kit de développement logiciel (SDK).
+* L’**échantillonnage à débit fixe** réduit le volume de données de télémétrie envoyées depuis votre serveur ASP.NET et les navigateurs de vos utilisateurs. Vous définissez le débit.
+* L’**échantillonnage d’ingestion** réduit le volume de données de télémétrie conservées par le service Application Insights, à un débit défini par vous-même. Le trafic des données de télémétrie n’est pas réduit, mais cela vous permet de respecter votre quota mensuel. 
 
-## Activation de l’échantillonnage adaptatif
+## Échantillonnage d’ingestion
+
+Cette forme d’échantillonnage fonctionne au niveau où les données de télémétrie issues de votre serveur web, des navigateurs et des appareils atteignent le point de terminaison du service Application Insights. Bien qu’elle ne réduise pas le trafic des données de télémétrie envoyées à partir de votre application, elle réduit la quantité traitée et conservée (et facturée) par Application Insights.
+
+Utilisez ce type d’échantillonnage si votre application dépasse souvent son quota mensuel et que vous ne pouvez recourir à aucun type d’échantillonnage basé sur le Kit de développement logiciel (SDK).
+
+Définissez le taux d’échantillonnage dans le panneau Quota + tarification :
+
+![Dans le panneau Vue d’ensemble de l’application, cliquez sur Paramètres, Quota + tarification, Échantillons conservés, sélectionnez un taux d’échantillonnage, puis cliquez sur Mettre à jour.](./media/app-insights-sampling/04.png)
+
+Comme d’autres types d’échantillonnage, l’algorithme conserve les éléments de télémétrie associés. Par exemple, quand vous inspectez les données de télémétrie dans Search, vous pouvez trouver la demande liée à une exception spécifique. Les données de mesure telles que les taux de demandes et le taux d’exceptions sont correctement conservées.
+
+
+
+## Échantillonnage adaptatif sur votre serveur web
+
+L’échantillonnage adaptatif est disponible pour le Kit de développement logiciel (SDK) Application Insights pour ASP.NET version 2.0.0-beta3 et ultérieures et est activé par défaut.
+
+
+L’échantillonnage adaptatif a une incidence sur le volume de données de télémétrie envoyées à partir de votre application de serveur web au service Application Insights. Le volume est automatiquement maintenu en deçà d’un débit de trafic maximal spécifié.
+
+Il ne fonctionne pas quand les volumes de données de télémétrie sont bas ; ainsi, une application en mode débogage ou un site web faiblement utilisé ne sont pas affectés.
+
+Pour atteindre le volume cible, certaines des données de télémétrie générées sont ignorées. Toutefois, comme d’autres types d’échantillonnage, l’algorithme conserve les éléments de télémétrie associés. Par exemple, quand vous inspectez les données de télémétrie dans Search, vous pouvez trouver la demande liée à une exception spécifique.
+
+Les données de mesure telles que le taux de demandes et le taux d’exceptions sont ajustées pour compenser le taux d’échantillonnage, afin qu’elles affichent des valeurs approximativement correctes dans Metrics Explorer.
 
 **Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d’Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
@@ -148,11 +173,17 @@ Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 10
 Si vous avez activé l’échantillonnage à débit fixe sur le serveur, les clients et le serveur se synchronisent de façon à ce que, dans Search, vous puissiez naviguer entre les demandes et les affichages de pages associés.
 
 
-## Activation de l’échantillonnage à débit fixe sur votre serveur
+## Échantillonnage à débit fixe pour les sites web ASP.NET
+
+L’échantillonnage à débit fixe réduit le trafic envoyé depuis votre serveur web et les navigateurs web. À la différence de l’échantillonnage adaptatif, il réduit les données de télémétrie à un débit fixe choisi par vos soins. En outre, il synchronise l’échantillonnage client et serveur afin que les éléments associés soient conservés ; par exemple, si vous examinez un affichage de page dans Search, vous pouvez trouver sa demande associée.
+
+L’algorithme d’échantillonnage conserve les éléments associés. Pour chaque événement de requête HTTP, celui-ci et ses événements associés sont ignorés ou transmis.
+
+Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions sont multipliés par un facteur pour compenser le taux d’échantillonnage, afin qu’ils soient approximativement corrects.
 
 1. **Mettez à jour les packages NuGet de votre projet** vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
 
-2. **Désactivez l’échantillonnage adaptatif**: dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), supprimez ou commentez le nœud `AdaptiveSamplingTelemetryProcessor`.
+2. **Désactivez l’échantillonnage adaptatif** : dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), supprimez ou commentez le nœud `AdaptiveSamplingTelemetryProcessor`.
 
     ```xml
 
@@ -212,7 +243,7 @@ Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, 
 
 ## Quand utiliser l’échantillonnage ?
 
-L’échantillonnage adaptatif est automatiquement activé si vous utilisez la version 2.0.0-beta3 du Kit de développement logiciel (SDK) ASP.NET, ou une version ultérieure. Quelle que soit la version du Kit de développement logiciel (SDK) que vous utilisez, l’échantillonnage d’ingestion (sur notre serveur) peut fonctionner s’il n’existe aucun échantillonnage dans le Kit de développement logiciel (SDK).
+L’échantillonnage adaptatif est automatiquement activé si vous utilisez la version 2.0.0-beta3 du Kit de développement logiciel (SDK) ASP.NET, ou une version ultérieure. Quelle que soit la version du Kit de développement logiciel (SDK) que vous utilisez, vous pouvez utiliser l’échantillonnage d’ingestion (sur notre serveur).
 
 L’échantillonnage n’est pas utile pour la plupart des applications de taille petite à moyenne. Pour obtenir les informations de diagnostic les plus utiles et les statistiques les plus précises, le mieux est de collecter les données sur toutes vos activités utilisateur.
 
@@ -223,19 +254,26 @@ Les principaux avantages de l’échantillonnage sont les suivants :
 * Pour respecter le [quota](app-insights-pricing.md) de points de données pour votre niveau tarifaire. 
 * Pour réduire le trafic réseau généré par la collecte de données de télémétrie. 
 
-### Échantillonnage fixe ou adaptatif ?
+### Quel type d’échantillonnage dois-je utiliser ?
 
-Tous les types d’échantillonnage ne fonctionnent que lorsqu’un seuil de trafic spécifique est dépassé. Par exemple, il n’affecte pas les sessions de débogage ou les sites peu utilisés.
 
-Utilisez l’échantillonnage à débit fixe si :
+**Utiliser l’échantillonnage d’ingestion dans les situations suivantes :**
 
+* Vous dépassez souvent votre quota mensuel de données de télémétrie.
+* Vous utilisez une version du Kit de développement logiciel (SDK) qui ne prend pas en charge l’échantillonnage, telle que les versions Java ou ASP.NET antérieures à la version 2.
+* Vous obtenez un volume élevé de données de télémétrie des navigateurs web de vos utilisateurs.
+
+**Utilisez l’échantillonnage à débit fixe si :**
+
+* Vous utilisez la version 2.0.0 ou ultérieure du Kit de développement logiciel (SDK) Application Insights pour les services web ASP.NET, et
 * Vous voulez disposer d’un échantillonnage synchronisé entre le client et le serveur afin de pouvoir naviguer entre les événements connexes sur le client et le serveur (tels que les affichages de pages et les requêtes http) lorsque vous étudiez des événements dans [Search](app-insights-diagnostic-search.md).
 * Vous êtes sûr du pourcentage d’échantillonnage approprié pour votre application. Il doit être suffisamment élevé pour obtenir des mesures précises, mais inférieur au pourcentage engendrant le dépassement de votre quota de tarification et des limites de limitation. 
-* Vous ne déboguez pas votre application. Lorsque vous appuyez sur F5 et testez quelques pages de votre application, vous souhaitez voir l’ensemble des données de télémétrie.
 
-Dans le cas contraire, nous vous recommandons d’utiliser l’échantillonnage adaptatif. Cette option est activée par défaut dans le Kit de développement logiciel (SDK) du serveur ASP.NET.
 
-Si vous n’utilisez pas l’échantillonnage sur le Kit de développement logiciel (SDK) (si, par exemple, vous utilisez Java ou si vous désactivez l’échantillonnage dans ApplicationInsights.config), l’échantillonnage d’ingestion peut fonctionner lorsque les données arrivent au niveau du service Application Insights. Il s’agit d’une forme d’échantillonnage adaptatif.
+**Utilisez l’échantillonnage adaptatif :**
+
+Dans le cas contraire, nous vous recommandons d’utiliser l’échantillonnage adaptatif. Cette option est activée par défaut dans le Kit de développement logiciel (SDK) du serveur ASP.NET, version 2.0.0-beta3 ou ultérieure. Comme il ne réduit pas le trafic jusqu’à un certain débit minimum, il n’affecte pas un site peu utilisé.
+
 
 ## Comment fonctionne l’échantillonnage ?
 
@@ -257,11 +295,11 @@ L’échantillonnage adaptatif ajoute un composant qui contrôle la vitesse de t
 
 ## Échantillonnage et kit de développement logiciel JavaScript
 
-Le SDK (JavaScript) côté client participe à l’échantillonnage parallèlement au SDK côté serveur. Les pages instrumentés enverront uniquement les données de télémétrie côté client provenant des mêmes utilisateurs que le SDK côté serveur a décidé d’échantillonner. Cette logique est conçue pour préserver l’intégrité de la session utilisateur côté client et côté serveur. En partant de n’importe quel élément de télémétrie dans Application Insights, vous retrouverez donc tous les autres éléments de télémétrie associés à l’utilisateur ou à la session en question.
+Le Kit de développement logiciel (SDK) (JavaScript) côté client participe à l’échantillonnage à débit fixe parallèlement au Kit de développement logiciel (SDK) côté serveur. Les pages instrumentés enverront uniquement les données de télémétrie côté client provenant des mêmes utilisateurs que le SDK côté serveur a décidé d’échantillonner. Cette logique est conçue pour préserver l’intégrité de la session utilisateur côté client et côté serveur. En partant de n’importe quel élément de télémétrie dans Application Insights, vous retrouverez donc tous les autres éléments de télémétrie associés à l’utilisateur ou à la session en question.
 
 *Mes données de télémétrie côté client et côté serveur n’affichent pas les échantillons coordonnés que vous décrivez ci-dessus.*
 
-* Vérifiez que vous avez activé l’échantillonnage à la fois sur le serveur et sur le client.
+* Vérifiez que vous avez activé l’échantillonnage à débit fixe à la fois sur le serveur et sur le client.
 * Assurez-vous que vous utilisez bien le kit de développement logiciel version 2.0 ou ultérieure.
 * Vérifiez que vous définissez le même pourcentage d’échantillonnage dans le client et dans le serveur.
 
@@ -304,4 +342,4 @@ Le SDK (JavaScript) côté client participe à l’échantillonnage parallèleme
 
  * Initialisez une instance distincte de TelemetryClient avec une nouvelle instance TelemetryConfiguration (et non la valeur Active par défaut). Utilisez cette instance pour envoyer vos événements rares.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

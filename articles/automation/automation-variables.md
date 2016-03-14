@@ -3,7 +3,7 @@
    description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks et configurations DSC d’Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Ressources de variables dans Azure Automation
@@ -188,4 +188,4 @@ L'illustration suivante montre comment filtrer les objets qui sont stockés dans
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

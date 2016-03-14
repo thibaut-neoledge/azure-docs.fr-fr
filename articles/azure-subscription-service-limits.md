@@ -24,15 +24,17 @@ Ce document présente quelques-unes des limites Microsoft Azure les plus commune
 
 > [AZURE.NOTE] Si vous souhaitez élever la limite au-dessus de la **Limite par défaut**, vous pouvez [ouvrir gratuitement un incident auprès du service client](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Les limites ne peuvent pas être supérieures à la valeur **Limite maximale** dans les tableaux ci-dessous. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables.
 
-## Limites et Azure Resource Manager
+## Limites et Azure Resource Manager
 
 Il est désormais possible de combiner plusieurs ressources Azure en un seul groupe de ressources Azure. Lorsque vous utilisez des groupes de ressources, les limites qui étaient auparavant mondiales sont désormais gérées au niveau régional avec Azure Resource Manager. Pour plus d’informations sur les groupes de ressources Azure, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
 
 Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compte des différences de limites lorsque vous utilisez Azure Resource Manager. Par exemple, vous disposez d’une table **Limites d'abonnement** et d’une table **Limites d'abonnement - Azure Resource Manager**. Lorsqu'une limite s'applique aux deux scénarios, elle apparaît uniquement dans le premier tableau. Sauf indication contraire, les limites sont globales dans toutes les régions.
 
-> [AZURE.NOTE] Il est important de souligner que les quotas de ressources dans les groupes de ressources Azure sont accessibles par votre abonnement par région, et non par abonnement, comme les quotas de gestion des services. Nous allons utiliser des quotas de base à titre d'exemple. Si vous avez besoin de demander une augmentation du quota avec la prise en charge de cœurs, vous devez choisir le nombre de noyaux souhaité et les régions concernées, et effectuer une demande spécifique de quotas de base de groupes de ressources Azure pour les volumes et régions choisis. Par conséquent, si vous avez besoin de 30 cœurs en Europe de l'Ouest pour exécuter votre application, vous devez demander spécifiquement 30 cœurs en Europe de l'Ouest. Néanmoins, il n’y aura pas d’augmentation du quota de base dans les autres régions. Seule la région Europe de l'Ouest disposera du quota de 30 cœurs.
-> <!-- --> 
+> [AZURE.NOTE] Il est important de souligner que les quotas de ressources dans les groupes de ressources Azure sont accessibles par votre abonnement par région, et non par abonnement, comme les quotas de gestion des services. Nous allons utiliser des quotas de base à titre d'exemple. Si vous avez besoin de demander une augmentation du quota avec la prise en charge de cœurs, vous devez choisir le nombre de noyaux souhaité et les régions concernées, et effectuer une demande spécifique de quotas de base de groupes de ressources Azure pour les volumes et régions choisis. Par conséquent, si vous avez besoin de 30 cœurs en Europe de l'Ouest pour exécuter votre application, vous devez demander spécifiquement 30 cœurs en Europe de l'Ouest. Néanmoins, il n’y aura pas d’augmentation du quota de base dans les autres régions. Seule la région Europe de l'Ouest disposera du quota de 30 cœurs.
+<!-- -->
 Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)
+
+
 ## Limites de service spécifique
 
 - [Active Directory](#active-directory-limits)
@@ -47,6 +49,7 @@ Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes 
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [Base de données de documents](#documentdb-limits)
 - [IoT Hub](#iot-hub-limits)
@@ -123,7 +126,7 @@ Pour plus d'informations sur les limites des comptes de stockage, consultez [Obj
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### Limites du nombre de disques de machine virtuelle 
+#### Limites du nombre de disques de machine virtuelle
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
@@ -178,17 +181,15 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 
 ### Limites Azure Search
 
-Le niveau tarifaire détermine la capacité et les limites de votre service de recherche.
+Les niveaux tarifaires déterminent la capacité et les limites de votre service de recherche. Les niveaux sont les suivants :
 
-####Niveau standard
+- **Gratuit** : service mutualisé, partagé avec d'autres abonnés Azure, destiné à des projets d'évaluation et de développement de petite taille.
+- Le niveau **De base (version préliminaire)** fournit des ressources informatiques dédiées aux charges de production à petite échelle. Ce niveau est actuellement en version préliminaire et bénéficie d'un tarif réduit.
+- **Standard (S1 et S2)** : pour les charges de production. Une version à capacité plus importante (**S2**) est disponible sur demande (envoyer un courrier électronique à azuresearch_contact@microsoft.com).
 
-[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
-####Niveau Partagé (ce niveau, qui fait partie d’un service mutualisé, est gratuit pour les abonnés Azure)
-
-[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
-
-Pour en savoir plus sur les limites en place sur les clés, combinaisons réplica-partition, requêtes, réponses et la façon d’obtenir un haut niveau de disponibilité pour différentes charges de travail, consultez [Limites de service d’Azure Search](search/search-limits-quotas-capacity.md).
+Pour en savoir plus sur les autres limites, telles que la taille du document, les clés, les demandes et les réponses, voir [Limites de service dans Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Limites de Media Services
 
@@ -219,6 +220,8 @@ Pour en savoir plus sur les limites en place sur les clés, combinaisons réplic
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
+### Limites Data Lake Analytics
+[AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### Limites Stream Analytics
 
@@ -238,7 +241,7 @@ Pour en savoir plus sur les limites en place sur les clés, combinaisons réplic
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
 
-### Limites Operational Insights
+### Limites Operational Insights
 
 [AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
@@ -281,4 +284,4 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

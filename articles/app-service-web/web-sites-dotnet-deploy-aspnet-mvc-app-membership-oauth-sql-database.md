@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service" 
-	description="Découvrez comment développer une application ASP.NET MVC 5 avec une base de données SQL principale, ajouter l’authentification et l’autorisation et la déployer dans Azure." 
+	description="Découvrez comment développer une application ASP.NET MVC 5 avec une base de données SQL principale, ajouter l’authentification et l’autorisation et la déployer dans Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
@@ -13,39 +13,39 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
 # Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service
 
-Ce didacticiel vous montre comment générer une application Web ASP.NET MVC 5 sécurisée qui permet aux utilisateurs de se connecter avec des informations d’identification Facebook ou Google. L’application est une liste de contacts utilisant Entity Framework ADO.NET pour accéder à la base de données. Vous allez déployer cette application dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+Ce didacticiel vous montre comment générer une application Web ASP.NET MVC 5 sécurisée qui permet aux utilisateurs de se connecter avec des informations d’identification Facebook ou Google. L’application est une liste de contacts utilisant Entity Framework ADO.NET pour accéder à la base de données. Vous allez déployer cette application dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-À la fin du didacticiel, vous disposerez d’une application web pilotée par les données sécurisée et fonctionnelle dans le cloud et utilisant une base de données du cloud. L’illustration suivante montre la page de connexion une fois l’application terminée :
+À la fin du didacticiel, vous disposerez d’une application web pilotée par les données sécurisée et fonctionnelle dans le cloud et utilisant une base de données du cloud. L’illustration suivante montre la page de connexion une fois l’application terminée :
 
 ![page de connexion][rxb]
 
-Vous apprendrez ce qui suit :
+Vous apprendrez ce qui suit :
 
-* Créer un projet web ASP.NET MVC 5 sécurisé dans Visual Studio
-* Authentifier et autoriser des utilisateurs qui se connectent avec leurs informations d’identification à partir de leurs comptes Google ou Facebook (authentification de fournisseur de réseaux sociaux à l’aide de [OAuth 2.0](http://oauth.net/2 "http://oauth.net/2")).
+* Créer un projet web ASP.NET MVC 5 sécurisé dans Visual Studio
+* Authentifier et autoriser des utilisateurs qui se connectent avec leurs informations d’identification à partir de leurs comptes Google ou Facebook (authentification de fournisseur de réseaux sociaux à l’aide de [OAuth 2.0](http://oauth.net/2 "http://oauth.net/2")).
 * Authentifier et autoriser des utilisateurs qui s’inscrivent dans une base de données gérée par l’application (authentification locale utilisant [Identité ASP.NET](http://asp.net/identity/)).
-* Utiliser le code d’ADO.NET Entity Framework 6 avant de lire et d’écrire des données dans une base de données SQL.
+* Utiliser le code d’ADO.NET Entity Framework 6 avant de lire et d’écrire des données dans une base de données SQL.
 * Utiliser Migrations Code First d’Entity Framework avant de déployer une base de données.
 * Stocker des données relationnelles dans le cloud à l’aide d’une base de données SQL Azure.
 * Déployer un projet web qui utilise une base de données associée à une [application web](http://go.microsoft.com/fwlink/?LinkId=529714) dans Azure App Service.
 
->[AZURE.NOTE]Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting).
+>[AZURE.NOTE] Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting).
 >
->Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Configuration requise
 
 Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-Pour configurer votre environnement de développement, vous devez installer [Visual Studio 2013 Update 5](http://go.microsoft.com/fwlink/?LinkId=390521) ou une version ultérieure, ainsi que la dernière version du [Kit de développement logiciel Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Cet article a été écrit pour Visual Studio Update 4 et le kit de développement logiciel 2.8.1. Les mêmes instructions s’appliquent à Visual Studio 2015 avec la dernière version du [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installée, mais la présentation de certains écrans peut différer des illustrations.
+Pour configurer votre environnement de développement, vous devez installer [Visual Studio 2013 Update 5](http://go.microsoft.com/fwlink/?LinkId=390521) ou une version ultérieure, ainsi que la dernière version du [Kit de développement logiciel Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Cet article a été écrit pour Visual Studio Update 4 et le kit de développement logiciel 2.8.1. Les mêmes instructions s’appliquent à Visual Studio 2015 avec la dernière version du [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installée, mais la présentation de certains écrans peut différer des illustrations.
 
-## Création d'une application ASP.NET MVC 5
+## Création d'une application ASP.NET MVC 5
 
 ### Création du projet
 
@@ -59,7 +59,7 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 
 	![Boîte de dialogue Nouveau projet](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13newprojdb.png)
  
-	**Remarque :** veillez à entrer « ContactManager ». Les blocs de code que vous allez copier plus tard partent du principe que le nom du projet est GestionnaireContacts.
+	**Remarque :** veillez à entrer « ContactManager ». Les blocs de code que vous allez copier plus tard partent du principe que le nom du projet est GestionnaireContacts.
 
 1. Dans la boîte de dialogue **Nouveau projet ASP.NET**, sélectionnez le modèle **MVC**. Vérifiez que l’option **Authentification** est définie sur **Comptes d’utilisateur individuels**, que l’option **Héberger dans le cloud** est cochée et que **App Service** est sélectionné.
 
@@ -73,15 +73,15 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 
 2. Si vous souhaitez spécifier un nom pour votre application web, modifiez la valeur dans la zone **Nom de l’application web**.
 
-	Ce nom doit être unique dans le domaine azurewebsites.net, car l’URL de l’application web sera {nom}.azurewebsites.net. L’Assistant Configuration suggère un nom unique en ajoutant un numéro au nom du projet « Gestionnairecontacts ». Nous allons l’utiliser pour ce didacticiel.
+	Ce nom doit être unique dans le domaine azurewebsites.net, car l’URL de l’application web sera {nom}.azurewebsites.net. L’Assistant Configuration suggère un nom unique en ajoutant un numéro au nom du projet « Gestionnairecontacts ». Nous allons l’utiliser pour ce didacticiel.
 
-5. Dans la liste déroulante **Plan App Service**, sélectionnez **Créer un plan App Service** et entrez un nom, par exemple « StandardWeb », comme illustré ci-dessous.
+5. Dans la liste déroulante **Plan App Service**, sélectionnez **Créer un plan App Service** et entrez un nom, par exemple « StandardWeb », comme illustré ci-dessous.
 
 	Si vous préférez, vous pouvez sélectionner un plan App Service que vous avez déjà. Pour plus d’informations sur les plans App Service, consultez la rubrique [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-5. Dans la liste déroulante **Groupe de ressources**, sélectionnez **Créer un groupe de ressources** et entrez un nom, par exemple « ExampleMVC », comme illustré ci-dessous.
+5. Dans la liste déroulante **Groupe de ressources**, sélectionnez **Créer un groupe de ressources** et entrez un nom, par exemple « ExampleMVC », comme illustré ci-dessous.
 
-	Si vous préférez, vous pouvez sélectionner un groupe de ressources que vous avez déjà. Cependant, si vous créez un groupe de ressources et que vous l’utilisez uniquement dans le cadre de ce didacticiel, vous pourrez supprimer facilement toutes les ressources Azure créées aux fins du didacticiel lorsque vous n’en aurez plus besoin. Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+	Si vous préférez, vous pouvez sélectionner un groupe de ressources que vous avez déjà. Cependant, si vous créez un groupe de ressources et que vous l’utilisez uniquement dans le cadre de ce didacticiel, vous pourrez supprimer facilement toutes les ressources Azure créées aux fins du didacticiel lorsque vous n’en aurez plus besoin. Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
 7. Sélectionnez une région proche de chez vous.
 
@@ -101,7 +101,7 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 
 4. Cliquez sur **OK**.
 
-	Visual Studio crée le projet web GestionnaireContacts, crée le groupe de ressources et le plan App Service que vous avez spécifié, et crée une application web dans Azure App Service avec le nom spécifié.
+	Visual Studio crée le projet web GestionnaireContacts, crée le groupe de ressources et le plan App Service que vous avez spécifié, et crée une application web dans Azure App Service avec le nom spécifié.
 
 ### Définition de l'en-tête et du pied de page de la page
 
@@ -156,7 +156,7 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 		</body>
 		</html>
 
-	Ce code remplace le nom de l’application dans l’en-tête et le pied de page « Mon application ASP.NET » et « Nom de l’application » par « Gestionnaire de contacts » et « Démonstration GC ».
+	Ce code remplace le nom de l’application dans l’en-tête et le pied de page « Mon application ASP.NET » et « Nom de l’application » par « Gestionnaire de contacts » et « Démonstration GC ».
  
 ### Exécution locale de l'application
 
@@ -186,13 +186,13 @@ Voilà, vous avez fait tout ce qu'il fallait pour créer l'application que vous 
 
 ## Activation du protocole SSL pour le projet ##
 
-1. Dans l’**Explorateur de solutions**, cliquez sur le projet **ContactManager**, puis appuyez sur F4 pour ouvrir la fenêtre **Propriétés**.
+1. Dans l’**Explorateur de solutions**, cliquez sur le projet **ContactManager**, puis appuyez sur F4 pour ouvrir la fenêtre **Propriétés**.
 
 3. Définissez **SSL activé** sur **True**.
 
 4. Copiez l’**URL SSL**.
 
-	L’URL SSL est https://localhost:44300/ sauf si vous avez déjà créé des applications Web SSL.
+	L’URL SSL est https://localhost:44300/ sauf si vous avez déjà créé des applications Web SSL.
 
 	![activer SSL][rxSSL]
  
@@ -204,11 +204,11 @@ Voilà, vous avez fait tout ce qu'il fallait pour créer l'application que vous 
 
 	![activer SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr1.png)
  
-1. Assurez-vous que Microsoft Internet Explorer est le navigateur par défaut pour Visual Studio, comme indiqué sur l’image ci-dessous :
+1. Assurez-vous que Microsoft Internet Explorer est le navigateur par défaut pour Visual Studio, comme indiqué sur l’image ci-dessous :
 
 	![navigateur par défaut](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss12.PNG)
 
-	Le sélecteur de navigateur vous permet d’indiquer le navigateur utilisé par Visual Studio. Vous pouvez sélectionner plusieurs navigateurs et faire en sorte que Visual Studio mette à jour chaque navigateur lorsque vous apportez des modifications. Pour plus d’informations, consultez [Utilisation du lien de navigateur dans Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link) (en anglais).
+	Le sélecteur de navigateur vous permet d’indiquer le navigateur utilisé par Visual Studio. Vous pouvez sélectionner plusieurs navigateurs et faire en sorte que Visual Studio mette à jour chaque navigateur lorsque vous apportez des modifications. Pour plus d’informations, consultez [Utilisation du lien de navigateur dans Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link) (en anglais).
 
  	![sélecteur de navigateur](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss13.png)
 
@@ -282,7 +282,7 @@ La fonctionnalité de génération de modèles automatique ASP.NET MVC peut gén
 
 1. Dans la **classe du contexte des données**, sélectionnez **ApplicationDbContext (GestionnaireContacts.Models)**. **ApplicationDbContext** est utilisé pour la base de données d’appartenance et nos données de contact.
 
-1. Dans la zone de texte **Controller name**, entrez « CmController » pour le nom du contrôleur.
+1. Dans la zone de texte **Controller name**, entrez « CmController » pour le nom du contrôleur.
 
 	![Boîte de dialogue New data ctx](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -298,13 +298,13 @@ L’étape suivante consiste à activer la fonctionnalité [Migrations Code Firs
 
 	![Console du Gestionnaire de package dans le menu Outils](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
-2. Dans la fenêtre **Console du Gestionnaire de package**, entrez la commande suivante :
+2. Dans la fenêtre **Console du Gestionnaire de package**, entrez la commande suivante :
 
 		enable-migrations
 
 	La commande **enable-migrations** crée un dossier *Migrations*, dans lequel elle place un fichier *Configuration.cs* que vous pouvez modifier pour amorcer la base de données et configurer les migrations.
 
-2. Dans la fenêtre **Console du Gestionnaire de package**, entrez la commande suivante :
+2. Dans la fenêtre **Console du Gestionnaire de package**, entrez la commande suivante :
 
 		add-migration Initial
 
@@ -315,11 +315,11 @@ L’étape suivante consiste à activer la fonctionnalité [Migrations Code Firs
 
 3. Ouvrez le fichier *Migrations\\Configuration.cs*.
 
-4. Ajoutez l’instruction `using` suivante :
+4. Ajoutez l’instruction `using` suivante :
 
     	 using ContactManager.Models;
 
-5. Remplacez la méthode *Seed* par le code suivant :
+5. Remplacez la méthode *Seed* par le code suivant :
 
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
@@ -374,7 +374,7 @@ L’étape suivante consiste à activer la fonctionnalité [Migrations Code Firs
 
 	Ce code initialise (amorce) la base de données avec les informations de contact. Pour plus d’informations sur l’amorçage de la base de données, consultez la page [Amorçage et débogage des bases de données Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
-6. Dans la **Console du Gestionnaire de package**, entrez la commande suivante :
+6. Dans la **Console du Gestionnaire de package**, entrez la commande suivante :
 
 		update-database
 
@@ -382,7 +382,7 @@ L’étape suivante consiste à activer la fonctionnalité [Migrations Code Firs
 
 	La commande **update-database** exécute la première migration qui entraîne la création de la base de données. Par défaut, la base de données est créée en tant que base de données SQL Server Express LocalDB.
 
-7. Appuyez sur Ctrl+F5 pour exécuter l’application, puis cliquez sur le lien **CM Demo** ou accédez à https://localhost:(port#)/Cm.
+7. Appuyez sur Ctrl+F5 pour exécuter l’application, puis cliquez sur le lien **CM Demo** ou accédez à https://localhost:(port#)/Cm.
 
 	L'application affiche les données amorcées, ainsi que des liens pour les modifier, les supprimer ou obtenir des informations supplémentaires. Vous pouvez créer, modifier, supprimer et afficher les données.
 
@@ -390,28 +390,28 @@ L’étape suivante consiste à activer la fonctionnalité [Migrations Code Firs
 
 ## Ajout d'un fournisseur OAuth2
 
->[AZURE.NOTE]Pour des instructions détaillées sur la façon d’utiliser les portails de développeurs Google et Facebook, ce didacticiel renvoie à des didacticiels sur le site ASP.NET. Toutefois, Google et Facebook modifient leurs sites plus fréquemment que ces didacticiels sont mis à jour, et ils sont désormais obsolètes. Si vous rencontrez un problème de suivi des instructions, consultez le commentaire Disqus proposé à la fin de ce didacticiel pour obtenir la liste de ce qui a changé.
+>[AZURE.NOTE] Pour des instructions détaillées sur la façon d’utiliser les portails de développeurs Google et Facebook, ce didacticiel renvoie à des didacticiels sur le site ASP.NET. Toutefois, Google et Facebook modifient leurs sites plus fréquemment que ces didacticiels sont mis à jour, et ils sont désormais obsolètes. Si vous rencontrez un problème de suivi des instructions, consultez le commentaire Disqus proposé à la fin de ce didacticiel pour obtenir la liste de ce qui a changé.
 
-[OAuth](http://oauth.net/ "http://oauth.net/") est un protocole ouvert permettant de mettre en place une authentification sécurisée dans une méthode simple et standardisée à partir d’applications Web, mobiles ou de bureau. Le modèle Internet d'ASP.NET MVC utilise OAuth pour exposer Facebook, Twitter, Google et Microsoft comme fournisseurs d'authentification. Même si ce didacticiel utilise uniquement Google comme fournisseur d'authentification, vous pouvez facilement modifier le code pour utiliser n'importe quel autre fournisseur. La procédure à suivre pour implémenter d’autres fournisseurs ressemble assez à celle présentée dans ce didacticiel. Pour utiliser Facebook comme fournisseur d’authentification, consultez le didacticiel [Application MVC 5 avec Facebook, Twitter, LinkedIn et authentification Google OAuth2](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) (en anglais).
+[OAuth](http://oauth.net/ "http://oauth.net/") est un protocole ouvert permettant de mettre en place une authentification sécurisée dans une méthode simple et standardisée à partir d’applications Web, mobiles ou de bureau. Le modèle Internet d'ASP.NET MVC utilise OAuth pour exposer Facebook, Twitter, Google et Microsoft comme fournisseurs d'authentification. Même si ce didacticiel utilise uniquement Google comme fournisseur d'authentification, vous pouvez facilement modifier le code pour utiliser n'importe quel autre fournisseur. La procédure à suivre pour implémenter d’autres fournisseurs ressemble assez à celle présentée dans ce didacticiel. Pour utiliser Facebook comme fournisseur d’authentification, consultez le didacticiel [Application MVC 5 avec Facebook, Twitter, LinkedIn et authentification Google OAuth2](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) (en anglais).
 
 En plus de l’authentification, ce didacticiel utilise également des rôles pour l’implémentation d’autorisations. Seuls les utilisateurs ajoutés au rôle *canEdit* peuvent modifier les données (et donc créer, modifier ou supprimer des contacts).
 
-1. Suivez les instructions du didacticiel [Application MVC 5 avec Facebook, Twitter, LinkedIn et authentification Google OAuth2 ](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog) (en anglais) sous **Création d’une application Google pour OAuth2 afin de configurer une application Google pour OAuth2**.
+1. Suivez les instructions du didacticiel [Application MVC 5 avec Facebook, Twitter, LinkedIn et authentification Google OAuth2 ](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog) (en anglais) sous **Création d’une application Google pour OAuth2 afin de configurer une application Google pour OAuth2**.
 
 3. Exécutez et testez l’application pour vérifier que vous pouvez vous connecter à l’aide de l’authentification Google.
 
-2. Pour créer des boutons de réseaux sociaux avec icônes fournisseur, consultez [Boutons de réseaux sociaux pour ASP.NET MVC 5](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5).
+2. Pour créer des boutons de réseaux sociaux avec icônes fournisseur, consultez [Boutons de réseaux sociaux pour ASP.NET MVC 5](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5).
 
 ## Utilisation de l’API d’appartenance
 
 Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle *peutModifier* à la base de données d’appartenance. Seuls les utilisateurs du rôle *peutModifier* pourront modifier les données. Il est recommandé de nommer les rôles en fonction des actions qu’ils peuvent effectuer, c’est pourquoi *peutModifier* est un meilleur nom que *admin*. Lorsque votre application évolue, vous pouvez ajouter de nouveaux rôles tels que *canDeleteMembers*, plus parlant que le nom *superAdmin*.
 
-1. Ouvrez le fichier *migrations\\configuration.cs* et ajoutez les instructions `using` suivantes :
+1. Ouvrez le fichier *migrations\\configuration.cs* et ajoutez les instructions `using` suivantes :
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
 
-1. Ajoutez la méthode **AddUserAndRole** suivante à la classe :
+1. Ajoutez la méthode **AddUserAndRole** suivante à la classe :
 
 		bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
 		{
@@ -432,7 +432,7 @@ Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle 
 		    return ir.Succeeded;
 		}
 
-1. Appelez la nouvelle méthode à partir de la méthode **Seed** :
+1. Appelez la nouvelle méthode à partir de la méthode **Seed** :
 
 		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
 		{
@@ -441,7 +441,7 @@ Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle 
 		        // Code removed for brevity
 		}
 
-	Les images suivantes indiquent les modifications apportées à la méthode *Seed* :
+	Les images suivantes indiquent les modifications apportées à la méthode *Seed* :
 
 	![image du code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
@@ -457,7 +457,7 @@ Dans cette section, vous allez modifier temporairement la méthode **ExternalLog
 
 		await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   Le code ci-dessus ajoute les utilisateurs récemment enregistrés au rôle « peutModifier », qui leur permet d’accéder aux méthodes d’action pour modifier les données. L’extrait suivant montre la nouvelle ligne de code en contexte.
+   Le code ci-dessus ajoute les utilisateurs récemment enregistrés au rôle « peutModifier », qui leur permet d’accéder aux méthodes d’action pour modifier les données. L’extrait suivant montre la nouvelle ligne de code en contexte.
 
 		  // POST: /Account/ExternalLoginConfirmation
 		  [HttpPost]
@@ -497,7 +497,7 @@ Dans cette section, vous allez modifier temporairement la méthode **ExternalLog
 
 Plus loin dans ce didacticiel, vous allez déployer l’application sur Azure, en vous connectant avec Google ou un autre fournisseur d’authentification tiers. Ceci vous permettra d’ajouter votre compte récemment inscrit au rôle *peutModifier*. Les utilisateurs trouvant l’URL de votre application web et possédant un ID Google peuvent ensuite s’inscrire et mettre à jour votre base de données. Pour empêcher que cela se produise, vous pouvez arrêter le site. Vous pouvez vérifier quels utilisateurs sont rattachés au rôle *peutModifier* en examinant la base de données.
 
-Dans la **Console du Gestionnaire de package**, actionnez la touche Haut pour afficher la commande suivante :
+Dans la **Console du Gestionnaire de package**, actionnez la touche Haut pour afficher la commande suivante :
 
 		Update-Database
 
@@ -505,9 +505,9 @@ La commande **Update-Database** exécute la méthode **Seed**, ce qui a pour eff
 
 ## Protection de l’application à l’aide du protocole SSL et de l’attribut Authorize ##
 
-Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) pour limiter l’accès aux méthodes d’action. Les utilisateurs anonymes pourront uniquement afficher la méthode d’action **Index** du contrôleur d’accueil. Les utilisateurs inscrits pourront afficher les données de contact (pages **Index** et **Détails** du contrôleur Cm), les pages « À propos de » et « Contact ». Seuls les utilisateurs du rôle *peutModifier* pourront accéder aux méthodes d’action qui modifient les données.
+Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) pour limiter l’accès aux méthodes d’action. Les utilisateurs anonymes pourront uniquement afficher la méthode d’action **Index** du contrôleur d’accueil. Les utilisateurs inscrits pourront afficher les données de contact (pages **Index** et **Détails** du contrôleur Cm), les pages « À propos de » et « Contact ». Seuls les utilisateurs du rôle *peutModifier* pourront accéder aux méthodes d’action qui modifient les données.
 
-1. Ouvrez le fichier *App\_Start\\FilterConfig.cs* et remplacez la méthode *RegisterGlobalFilters* par le code suivant (qui ajoute les deux filtres) :
+1. Ouvrez le fichier *App\_Start\\FilterConfig.cs* et remplacez la méthode *RegisterGlobalFilters* par le code suivant (qui ajoute les deux filtres) :
 
 		public static void
 		RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -533,7 +533,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 	Si vous effectuez une recherche globale pour *AllowAnonymous*, vous pouvez voir qu’il est utilisé dans les méthodes de connexion et d’inscription du contrôleur Compte.
 
-1. Dans *CmController.cs*, ajoutez `[Authorize(Roles = "canEdit")]` aux méthodes HttpGet et HttpPost qui modifient les données (Create, Edit, Delete, toutes les méthodes d’action à l’exception d’Index et Details) dans le contrôleur *Cm*. Une partie du code terminé est affichée ci-dessous :
+1. Dans *CmController.cs*, ajoutez `[Authorize(Roles = "canEdit")]` aux méthodes HttpGet et HttpPost qui modifient les données (Create, Edit, Delete, toutes les méthodes d’action à l’exception d’Index et Details) dans le contrôleur *Cm*. Une partie du code terminé est affichée ci-dessous :
 
 		// GET: Cm/Create
 		[Authorize(Roles = "canEdit")]
@@ -589,7 +589,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 1. Cliquez sur le lien Modifier de la page. Vous serez redirigé vers la page de connexion (car un nouvel utilisateur local n’est pas ajouté au rôle *canEdit*).
 
-1. Connectez-vous en tant que *user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous êtes redirigé vers la page de modification que vous aviez sélectionnée.
+1. Connectez-vous en tant que *user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous êtes redirigé vers la page de modification que vous aviez sélectionnée.
 
 	Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que *user1@contoso.com* a été ajoutée.
 
@@ -615,13 +615,13 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 1. Cliquez sur **Publier**.
 
-1. Connectez-vous en tant que *user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
+1. Connectez-vous en tant que *user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
 
 1. Déconnectez-vous.
 
 1. Accédez à la [Google Developers Console](https://console.developers.google.com/) et, sur l’onglet, **Informations d’identification**, mettez à jour les URI de redirection et les origines JavaScript pour utiliser l’URL Azure.
 
-1. Connectez-vous en utilisant votre compte Google ou Facebook. Cela ajoutera votre compte Google ou Facebook au rôle **peutModifier**. Si vous obtenez une erreur HTTP 400 avec le message *L’URI de redirection dans la demande : https://contactmanager{my version}.azurewebsites.net/signin-google ne correspond pas à une URI de redirection enregistrée.*, vous devrez patienter jusqu’à ce que les modifications apportées soient répercutées. Si vous obtenez cette erreur après plus de quelques minutes, vérifiez que les URI sont corrects.
+1. Connectez-vous en utilisant votre compte Google ou Facebook. Cela ajoutera votre compte Google ou Facebook au rôle **peutModifier**. Si vous obtenez une erreur HTTP 400 avec le message *L’URI de redirection dans la demande : https://contactmanager{my version}.azurewebsites.net/signin-google ne correspond pas à une URI de redirection enregistrée.*, vous devrez patienter jusqu’à ce que les modifications apportées soient répercutées. Si vous obtenez cette erreur après plus de quelques minutes, vérifiez que les URI sont corrects.
 
 ### Arrêtez l’application web pour empêcher d’autres personnes de s’inscrire.  
 
@@ -635,7 +635,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 ### Suppression de AddToRoleAsync, Publish et Test
 
-1. Commentez ou supprimez le code suivant à partir de la méthode **ExternalLoginConfirmation** dans le contrôleur Compte :
+1. Commentez ou supprimez le code suivant à partir de la méthode **ExternalLoginConfirmation** dans le contrôleur Compte :
 
 		await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
@@ -677,19 +677,19 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 2. Vérifiez que vous pouvez modifier les données en étant connecté avec ce compte.
 
-	**Remarque :** vous ne pouvez pas vous déconnecter de Google à partir de cette application pour ensuite vous connecter à un autre compte Google avec le même navigateur. Si vous utilisez un seul navigateur, vous devez accéder à Google et vous déconnecter. Vous pouvez vous connecter avec un autre compte à partir du même authentificateur tiers (tel que Google) en utilisant un autre navigateur.
+	**Remarque :** vous ne pouvez pas vous déconnecter de Google à partir de cette application pour ensuite vous connecter à un autre compte Google avec le même navigateur. Si vous utilisez un seul navigateur, vous devez accéder à Google et vous déconnecter. Vous pouvez vous connecter avec un autre compte à partir du même authentificateur tiers (tel que Google) en utilisant un autre navigateur.
 
 	Si vous n'avez pas indiqué le prénom et le nom de vos informations de compte Google, une NullReferenceException se produit.
 
 ## Examen de la base de données SQL Azure ##
 
-1. Dans l’**Explorateur de serveurs**, accédez à **Azure > Bases de données SQL > {votre base de données}**
+1. Dans l’**Explorateur de serveurs**, accédez à **Azure > Bases de données SQL > {votre base de données}**
 
-2. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**.
+2. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**.
  
 	![ouvrir dans SSOX](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr12.png)
  
-3. Si vous ne vous êtes pas encore connecté à cette base de données, vous serez peut-être invité à ajouter une règle de pare-feu afin d’autoriser l’accès à votre adresse IP actuelle. L’adresse IP sera automatiquement préremplie. Il vous suffira de cliquer sur **Ajouter une règle de pare-feu** pour activer l’accès.
+3. Si vous ne vous êtes pas encore connecté à cette base de données, vous serez peut-être invité à ajouter une règle de pare-feu afin d’autoriser l’accès à votre adresse IP actuelle. L’adresse IP sera automatiquement préremplie. Il vous suffira de cliquer sur **Ajouter une règle de pare-feu** pour activer l’accès.
 
 	![obtenir une règle de pare-feu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/addfirewallrule.png)
 
@@ -713,21 +713,21 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 Si vous rencontrez des problèmes, voici quelques suggestions pour essayer de les résoudre.
 
-* Erreurs de configuration de base de données SQL : assurez-vous que le Kit de développement logiciel (SDK) actuel est installé. Les versions antérieures à la version 2.8.1 contiennent un bogue qui, dans certains scénarios, provoque des erreurs au moment où Visual Studio essaie de créer le serveur de base de données ou la base de données.
-* Message d’erreur « Opération non prise en charge pour votre type d’offre d’abonnement » lors de la création de ressources Azure : comme ci-dessus.
-* Erreurs lors du déploiement : pensez à consulter l’article [Déploiement ASP.NET de base](web-sites-dotnet-get-started.md). Ce scénario de déploiement est plus simple et, si vous avez le même problème, il sera certainement plus facile à isoler. Par exemple, dans certains environnements d’entreprise, un pare-feu d’entreprise peut empêcher Web Deploy d’établir les genres de connexions à Azure nécessaires.
-* Aucune option pour sélectionner la chaîne de connexion dans l’Assistant de publication Web lors du déploiement : si vous avez utilisé une autre méthode pour créer vos ressources Azure (par exemple, vous essayez de déployer vers une application web et une base de données SQL créée dans le portail), la base de données SQL peut ne pas être associée à l’application web. La solution la plus simple consiste à créer une application web et une base de données en utilisant Visual Studio comme indiqué dans le didacticiel. Vous n’êtes pas obligé de reprendre le didacticiel du début. Dans l’Assistant de publication web, vous pouvez choisir de créer une application web ; vous obtiendrez la même boîte de dialogue de création de ressources Azure que lorsque vous créez le projet.
-* Les indications pour les portails de développeurs Google ou Facebook sont obsolètes : consultez le commentaire Disqus proposé à la fin de ce didacticiel.
+* Erreurs de configuration de base de données SQL : assurez-vous que le Kit de développement logiciel (SDK) actuel est installé. Les versions antérieures à la version 2.8.1 contiennent un bogue qui, dans certains scénarios, provoque des erreurs au moment où Visual Studio essaie de créer le serveur de base de données ou la base de données.
+* Message d’erreur « Opération non prise en charge pour votre type d’offre d’abonnement » lors de la création de ressources Azure : comme ci-dessus.
+* Erreurs lors du déploiement : pensez à consulter l’article [Déploiement ASP.NET de base](web-sites-dotnet-get-started.md). Ce scénario de déploiement est plus simple et, si vous avez le même problème, il sera certainement plus facile à isoler. Par exemple, dans certains environnements d’entreprise, un pare-feu d’entreprise peut empêcher Web Deploy d’établir les genres de connexions à Azure nécessaires.
+* Aucune option pour sélectionner la chaîne de connexion dans l’Assistant de publication Web lors du déploiement : si vous avez utilisé une autre méthode pour créer vos ressources Azure (par exemple, vous essayez de déployer vers une application web et une base de données SQL créée dans le portail), la base de données SQL peut ne pas être associée à l’application web. La solution la plus simple consiste à créer une application web et une base de données en utilisant Visual Studio comme indiqué dans le didacticiel. Vous n’êtes pas obligé de reprendre le didacticiel du début. Dans l’Assistant de publication web, vous pouvez choisir de créer une application web ; vous obtiendrez la même boîte de dialogue de création de ressources Azure que lorsque vous créez le projet.
+* Les indications pour les portails de développeurs Google ou Facebook sont obsolètes : consultez le commentaire Disqus proposé à la fin de ce didacticiel.
 
 ## Étapes suivantes
 
 Vous avez créé une application web MVC ASP.NET de base qui authentifie les utilisateurs. Pour plus d’informations sur les tâches d’authentification courantes et la manière de sécuriser les données sensibles, reportez-vous aux didacticiels suivants.
 
-- [Création d’une application web ASP.NET MVC 5 sécurisée avec authentification, confirmation par courrier électronique et réinitialisation des mots de passe](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset) (en anglais)
-- [Application ASP.NET MVC 5 avec SMS et authentification à deux facteurs par courrier électronique](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication) (en anglais)
-- [Meilleures pratiques pour le déploiement de mots de passe et d’autres données sensibles dans ASP.NET et Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (en anglais) 
-- [Création d’une application ASP.NET MVC 5 avec une authentification OAuth2 pour Facebook et Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) en anglais). Inclut des instructions sur l’ajout de données de profil à la base de données d’inscription d’utilisateur, ainsi que sur l’utilisation de Facebook comme fournisseur d’authentification.
-- [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+- [Création d’une application web ASP.NET MVC 5 sécurisée avec authentification, confirmation par courrier électronique et réinitialisation des mots de passe (en anglais)](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset)
+- [Application ASP.NET MVC 5 avec SMS et authentification à deux facteurs par courrier électronique (en anglais)](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication)
+- [Meilleures pratiques pour le déploiement de mots de passe et d’autres données sensibles dans ASP.NET et Azure (en anglais)](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) 
+- [Création d’une application ASP.NET MVC 5 avec une authentification OAuth2 pour Facebook et Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) en anglais). Inclut des instructions sur l’ajout de données de profil à la base de données d’inscription d’utilisateur, ainsi que sur l’utilisation de Facebook comme fournisseur d’authentification.
+- [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 
 Pour un didacticiel plus avancé sur l’utilisation d’Entity Framework, consultez [Prise en main d’Entity Framework et de MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) (en anglais).
 
@@ -737,7 +737,7 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 
 ## Changements apportés
 
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -798,4 +798,4 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,21 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# Sauvegarder votre StorSimple Virtual Array (version préliminaire)
+# Sauvegarder votre StorSimple Virtual Array
 
-## Vue d’ensemble 
+## Vue d'ensemble 
 
-Ce didacticiel s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version 1.1.1.0 (version préliminaire) uniquement.
+Ce didacticiel s'applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version de mise à la disposition générale (mars 2016).
 
 StorSimple Virtual Array est un périphérique virtuel local de stockage cloud hybride qui peut être configuré comme un serveur de fichiers ou un serveur iSCSI. Il peut créer des sauvegardes, restaurer des données à partir de sauvegardes et effectuer le basculement d'un appareil si une récupération d'urgence est nécessaire. Configuré comme serveur de fichiers, il permet également la récupération au niveau de l’élément. Ce didacticiel explique comment utiliser le portail Azure Classic ou l'interface utilisateur web StorSimple pour créer des sauvegardes planifiées et manuelles de votre StorSimple Virtual Array.
 
->[AZURE.IMPORTANT] 
->
->- StorSimple Virtual Array est en version préliminaire et est destiné à des fins d'évaluation et de planification du déploiement. L'installation de cette version préliminaire dans un environnement de production n'est pas prise en charge. 
->- Si vous rencontrez des problèmes avec StorSimple Virtual Array, publiez-les sur le [forum MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 ## Sauvegarder des partages et des volumes
 
@@ -86,7 +82,7 @@ Procédez comme suit dans le portail Azure Classic pour afficher les sauvegardes
 
 1. Dans la page du service StorSimple Manager, cliquez sur l’onglet **Catalogue de sauvegarde**.
 
-2. Sélectionnez un jeu de sauvegarde comme suit :
+2. Sélectionnez un jeu de sauvegarde comme suit :
 
     1. Sélectionnez le périphérique.
 
@@ -108,4 +104,4 @@ Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarde
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -17,6 +17,10 @@
 	ms.author="heidist"/>
 
 # Prise en main de l'API REST de gestion Azure Search
+> [AZURE.SELECTOR]
+- [Portail](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [API REST](search-get-started-management-api.md)
 
 L'API REST de gestion Azure Search est une autre solution de programmation permettant d'effectuer des tâches d'administration dans le portail. Les opérations de gestion de service incluent la création ou la suppression du service, la mise à l'échelle du service et la gestion des clés. Ce didacticiel est fourni avec un exemple d'application cliente qui montre l'API de gestion des services. Il inclut également les étapes de configuration nécessaires pour exécuter l'exemple dans votre environnement de développement local.
 
@@ -119,7 +123,7 @@ Dans cette section, vous allez modifier la solution dans Visual Studio, en rempl
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-Si vous n'avez pas encore [téléchargé l'exemple d'application à partir de Github](https://github.com/Azure-Samples/search-dotnet-management-api/), vous en aurez besoin pour cette étape.
+Si vous n’avez pas encore [téléchargé l’exemple d’application à partir de Github](https://github.com/Azure-Samples/search-dotnet-management-api/), vous en aurez besoin pour cette étape.
 
 1. Ouvrez **ManagementAPI.sln** dans Visual Studio.
 
@@ -204,4 +208,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

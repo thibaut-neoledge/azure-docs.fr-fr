@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2016"
-   ms.author="joaoma" />
+   ms.date="02/24/2016"
+   ms.author="telmos" />
 
 # Résolution de noms pour les machines virtuelles et les instances de rôle
 
@@ -86,15 +86,15 @@ Le client DNS Windows par défaut possède un cache DNS intégré. Certaines dis
 
 Un certain nombre de packages de mise en cache DNS différents sont disponibles, par exemple, dnsmasq. Voici les étapes pour installer dnsmasq sur les distributions les plus courantes :
 
-- **Ubuntu (utilise resolvconf)**:
+- **Ubuntu (utilise resolvconf)** :
 	- installez simplement le package dnsmasq (« sudo apt-get install dnsmasq »).
-- **SUSE (utilise netconf)**:
+- **SUSE (utilise netconf)** :
 	- installez le package dnsmasq (« sudo zypper install dnsmasq ») 
 	- activez le service dnsmasq (« systemctl enable dnsmasq.service ») 
 	- démarrez le service dnsmasq (« systemctl start dnsmasq.service ») 
 	- modifiez « /etc/sysconfig/network/config » et remplacez NETCONFIG\_DNS\_FORWARDER="" par « dnsmasq »
 	- mettez à jour resolv.conf (netconfig update) pour définir le cache en tant que programme de résolution DNS local
-- **OpenLogic (utilise NetworkManager)**:
+- **OpenLogic (utilise NetworkManager)** :
 	- installez le package dnsmasq (« sudo yum install dnsmasq »)
 	- activez le service dnsmasq (« systemctl enable dnsmasq.service »)
 	- démarrez le service dnsmasq (« systemctl start dnsmasq.service »)
@@ -181,4 +181,4 @@ Le fichier de configuration de service est créé pour chaque service cloud que 
 
 [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Prendre en main l’API SFTP
-Connectez-vous à un serveur SFTP pour gérer vos fichiers. Vous pouvez effectuer différentes tâches sur le serveur SFTP, telles que le chargement de fichiers et la suppression de fichiers.
+Connectez-vous à un serveur SFTP pour gérer vos fichiers. Vous pouvez effectuer différentes tâches sur le serveur SFTP, telles que le chargement de fichiers et la suppression de fichiers. L’API SFTP peut être utilisée à partir de :
 
-L’API SFTP peut être utilisée à partir d’applications logiques.
+- Logic Apps
 
->[AZURE.NOTE] Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
 
 Avec SFTP, vous pouvez effectuer les opérations suivantes :
 
@@ -30,7 +30,7 @@ Avec SFTP, vous pouvez effectuer les opérations suivantes :
 - Utiliser un déclencheur quand un fichier est mis à jour.
 - Utiliser des actions pour créer des fichiers, supprimer des fichiers et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, vous pouvez obtenir le contenu d’un fichier, puis mettre à jour une base de données SQL. 
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Déclencheurs et actions
@@ -38,7 +38,7 @@ L’API SFTP propose les déclencheurs et les actions suivants.
 
 Déclencheurs | Actions
 --- | ---
-<ul><li>Quand un fichier est créé ou modifié</li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Mettre à jour un fichier</li><li>Quand un fichier est créé ou modifié</li></ul>
+<ul><li>Quand un fichier est créé ou modifié </li></ul> | <ul><li>Créer un fichier</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Mettre à jour un fichier</li><li>Quand un fichier est créé ou modifié</li></ul>
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
@@ -58,7 +58,8 @@ Après avoir créé la connexion, vous entrez les propriétés SFTP, telles que 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion SFTP dans d’autres applications logiques.
 
 
-## Informations de référence sur l’API REST Swagger
+## Informations de référence sur l'API REST Swagger
+S'applique à la version 1.0.
 
 ### Créer un fichier
 Charge un fichier dans SFTP. ```POST: /datasets/default/files```
@@ -67,7 +68,7 @@ Charge un fichier dans SFTP. ```POST: /datasets/default/files```
 | ---|---|---|---|---|---|
 |folderPath|string|yes|query|(aucun) |Chemin unique du dossier dans SFTP|
 |name|string|yes|query| (aucun)|Nom du fichier|
-|body|chaîne (binaire) |yes|body|(aucun) |Contenu du fichier à créer dans SFTP|
+|body|string(binary) |yes|body|(aucun) |Contenu du fichier à créer dans SFTP|
 
 #### Response
 |Nom|Description|
@@ -108,7 +109,7 @@ Extrait un fichier d’archive dans un dossier à l’aide de SFTP (exemple : .z
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|source|string|yes|query|(aucun) |Chemin du fichier d’archive|
+|source|string|yes|query|(aucun) |Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun) |Chemin du dossier de destination|
 |overwrite|booléenne|no|query|(aucun)|Remplace les fichiers de destination si la valeur est « true »|
 
@@ -180,7 +181,7 @@ Met à jour le contenu d’un fichier à l’aide de SFTP. ```PUT: /datasets/def
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun) |Identificateur unique du fichier dans SFTP|
-|body|chaîne (binaire) |yes|body| (aucun)|Contenu du fichier à mettre à jour dans SFTP|
+|body|string(binary) |yes|body| (aucun)|Contenu du fichier à mettre à jour dans SFTP|
 
 #### Response
 |Nom|Description|
@@ -203,7 +204,7 @@ Déclenche un flux quand un fichier est modifié dans SFTP. ```GET: /datasets/de
 |default|L’opération a échoué.|
 
 
-## Définitions d’objet
+## Définitions d'objet
 
 #### DataSetsMetadata
 
@@ -247,6 +248,6 @@ Déclenche un flux quand un fichier est modifié dans SFTP. ```GET: /datasets/de
 
 
 ## Étapes suivantes
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

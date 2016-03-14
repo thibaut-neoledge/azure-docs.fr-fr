@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurer PHP dans Azure App Service Web Apps | Microsoft Azure"
-	description="Découvrez comment configurer l’installation PHP par défaut ou ajouter une installation PHP personnalisée pour Web Apps dans Azure App Service."
+	description="Découvrez comment configurer l’installation PHP par défaut ou ajouter une installation PHP personnalisée pour Web Apps dans Azure App Service."
 	services="app-service"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/26/2016"
 	ms.author="tomfitz"/>
 
 #Configurer PHP dans Azure App Service Web Apps
 
 ## Introduction
 
-Ce guide vous explique comment configurer le runtime PHP intégré pour Web Apps dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), fournir un runtime PHP personnalisé et activer des extensions. Pour utiliser App Service, souscrivez à la [version d’évaluation gratuite]. Pour tirer le meilleur parti de ce guide, commencez par créer une application web PHP dans App Service.
+Ce guide vous explique comment configurer le runtime PHP intégré pour Web Apps dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), fournir un runtime PHP personnalisé et activer des extensions. Pour utiliser App Service, souscrivez à la [version d’évaluation gratuite]. Pour tirer le meilleur parti de ce guide, commencez par créer une application web PHP dans App Service.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Modification de la version intégrée de PHP
-Par défaut, PHP 5.4 est installé et immédiatement utilisable lorsque vous créez une application web App Service. Pour afficher la révision de version disponible, sa configuration par défaut et les extensions activées, la méthode idéale consiste à déployer un script qui appelle la fonction [phpinfo()].
+Par défaut, PHP 5.4 est installé et immédiatement utilisable lorsque vous créez une application web App Service. Pour afficher la révision de version disponible, sa configuration par défaut et les extensions activées, la méthode idéale consiste à déployer un script qui appelle la fonction [phpinfo()].
 
-Les versions PHP 5.5 et PHP 5.6 sont également disponibles, mais ne sont pas activées par défaut. Pour mettre à jour la version de PHP, procédez au choix comme suit :
+Les versions PHP 5.5 et PHP 5.6 sont également disponibles, mais ne sont pas activées par défaut. Pour mettre à jour la version de PHP, procédez au choix comme suit :
 
 ### Portail Azure
 
@@ -53,7 +53,7 @@ Les versions PHP 5.5 et PHP 5.6 sont également disponibles, mais ne sont pas 
 
         PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
 
-3. La version de PHP est maintenant définie. Vous pouvez confirmer les paramètres suivants :
+3. La version de PHP est maintenant définie. Vous pouvez confirmer les paramètres suivants :
 
         PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
@@ -69,7 +69,7 @@ L’interface de ligne de commande Azure nécessite l’installation de **Node.j
 
         azure site set --php-version [5.4 | 5.5] {site-name}
 
-3. La version de PHP est maintenant définie. Vous pouvez confirmer les paramètres suivants :
+3. La version de PHP est maintenant définie. Vous pouvez confirmer les paramètres suivants :
 
         azure site show {site-name}
 
@@ -81,14 +81,14 @@ Quel que soit le runtime PHP intégré, vous pouvez modifier toute option de con
 ### Modification des paramètres de configuration PHP\_INI\_USER, PHP\_INI\_PERDIR et PHP\_INI\_ALL
 
 1. Ajoutez un fichier [.user.ini] à votre répertoire racine.
-2. Ajoutez des paramètres de configuration au fichier `.user.ini` en utilisant la même syntaxe que pour le fichier `php.ini`. Par exemple, si vous souhaitez activer le paramètre `display_errors` et régler le paramètre `upload_max_filesize` sur 10M, votre fichier `.user.ini` doit contenir le texte suivant :
+2. Ajoutez des paramètres de configuration au fichier `.user.ini` en utilisant la même syntaxe que pour le fichier `php.ini`. Par exemple, si vous souhaitez activer le paramètre `display_errors` et régler le paramètre `upload_max_filesize` sur 10M, votre fichier `.user.ini` doit contenir le texte suivant :
 
 		; Example Settings
 		display_errors=On
 		upload_max_filesize=10M
 
 3. Déployez votre application web.
-4. Redémarrez l’application web. (Le redémarrage est nécessaire, car la fréquence à laquelle PHP lit les fichiers `.user.ini` est régie par le paramètre `user_ini.cache_ttl`, un paramètre système réglé sur 300 secondes (5 minutes) par défaut. Le redémarrage de l’application web force PHP à lire les nouveaux paramètres dans le fichier `.user.ini`.)
+4. Redémarrez l’application web. (Le redémarrage est nécessaire, car la fréquence à laquelle PHP lit les fichiers `.user.ini` est régie par le paramètre `user_ini.cache_ttl`, un paramètre système réglé sur 300 secondes (5 minutes) par défaut. Le redémarrage de l’application web force PHP à lire les nouveaux paramètres dans le fichier `.user.ini`.)
 
 Au lieu d’utiliser un fichier `.user.ini`, vous pouvez utiliser la fonction [ini\_set()] dans des scripts afin de définir des options de configuration qui ne sont pas des directives de niveau système.
 
@@ -96,7 +96,7 @@ Au lieu d’utiliser un fichier `.user.ini`, vous pouvez utiliser la fonction [i
 
 1. Ajoutez un paramètre d’application à votre application web avec la clé `PHP_INI_SCAN_DIR` et valeur `d:\home\site\ini`.
 2. Créez un fichier `settings.ini` à l’aide de la console Kudu (http://&lt;site-name&gt;.scm.azurewebsite.net) dans le répertoire `d:\home\site\ini`.
-3. Ajoutez des paramètres de configuration au fichier `settings.ini` en utilisant la même syntaxe que pour un fichier php.ini. Par exemple, si vous souhaitiez pointer le paramètre `curl.cainfo` vers un fichier `*.crt` et régler le paramètre « wincache.maxfilesize » à 512 ko, votre fichier `settings.ini` doit contenir le texte :
+3. Ajoutez des paramètres de configuration au fichier `settings.ini` en utilisant la même syntaxe que pour un fichier php.ini. Par exemple, si vous souhaitiez pointer le paramètre `curl.cainfo` vers un fichier `*.crt` et régler le paramètre « wincache.maxfilesize » à 512 ko, votre fichier `settings.ini` doit contenir le texte :
 
 		; Example Settings
 		curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
@@ -104,12 +104,12 @@ Au lieu d’utiliser un fichier `.user.ini`, vous pouvez utiliser la fonction [i
 4. Redémarrez votre application Web pour charger les modifications.
 
 ## Activation d’extensions dans le runtime PHP par défaut
-Comme indiqué dans la section précédente, la méthode idéale pour afficher la version PHP par défaut, sa configuration par défaut et les extensions activées consiste à déployer un script qui appelle [phpinfo()]. Pour activer des extensions supplémentaires, procédez comme suit :
+Comme indiqué dans la section précédente, la méthode idéale pour afficher la version PHP par défaut, sa configuration par défaut et les extensions activées consiste à déployer un script qui appelle [phpinfo()]. Pour activer des extensions supplémentaires, procédez comme suit :
 
 ### Configuration par des paramètres ini
 
 1. Ajoutez un répertoire `ext` dans le répertoire `d:\home\site`.
-2. Placez les fichiers `.dll` dans le répertoire `ext` (par exemple, `php_mongo.dll` et `php_xdebug.dll`). Assurez-vous que les extensions sont compatibles avec la version par défaut de PHP (qui, au moment où nous écrivons ces lignes, est PHP 5.4), ainsi qu'avec VC9 et NTS (Non-Thread Safe).
+2. Placez les fichiers `.dll` dans le répertoire `ext` (par exemple, `php_mongo.dll` et `php_xdebug.dll`). Assurez-vous que les extensions sont compatibles avec la version par défaut de PHP (qui, au moment où nous écrivons ces lignes, est PHP 5.4), ainsi qu'avec VC9 et NTS (Non-Thread Safe).
 3. Ajoutez un paramètre d’application à votre application web avec la clé `PHP_INI_SCAN_DIR` et valeur `d:\home\site\ini`.
 4. Dans `d:\home\site\ini`, créez un fichier `ini` appelé `extensions.ini`.
 5. Ajoutez des paramètres de configuration au fichier `extensions.ini` en utilisant la même syntaxe que pour un fichier php.ini. Par exemple, si vous souhaitez activer les extensions MongoDB et XDebug, votre fichier `extensions.ini` doit contenir le texte :
@@ -122,14 +122,14 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 ### Configuration par un paramètre d’application
 
 1. Ajoutez un répertoire `bin` au répertoire racine.
-2. Placez les fichiers `.dll` dans le répertoire `bin` (par exemple, `php_mongo.dll`). Assurez-vous que les extensions sont compatibles avec la version par défaut de PHP (qui, au moment où nous écrivons ces lignes, est PHP 5.4), ainsi qu'avec VC9 et NTS (Non-Thread Safe).
+2. Placez les fichiers `.dll` dans le répertoire `bin` (par exemple, `php_mongo.dll`). Assurez-vous que les extensions sont compatibles avec la version par défaut de PHP (qui, au moment où nous écrivons ces lignes, est PHP 5.4), ainsi qu'avec VC9 et NTS (Non-Thread Safe).
 3. Déployez votre application web.
 4. Accédez à votre application web dans le portail Azure, puis cliquez sur le bouton **Paramètres**.
 
 	![Paramètres d’application web][settings-button]
 
 5. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**, puis accédez à la section **Paramètres de l’application**.
-6. Dans la section **Paramètres de l’application**, créez une clé **PHP\_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\\your-ext-file**.
+6. Dans la section **Paramètres de l’application**, créez une clé **PHP\_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\\your-ext-file**.
 
 	![Activer une extension dans les paramètres d'application][php-extensions]
 
@@ -141,10 +141,10 @@ Les extensions Zend sont également prises en charge par la clé **PHP\_ZENDEXTE
 
 
 ## Utilisation d’un runtime PHP personnalisé
-Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runtime PHP que vous fournissez pour exécuter des scripts PHP. Le runtime en question peut être configuré par un fichier `php.ini` que vous avez également déclaré. Pour utiliser un runtime PHP personnalisé avec Web Apps, suivez la procédure ci-après.
+Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runtime PHP que vous fournissez pour exécuter des scripts PHP. Le runtime en question peut être configuré par un fichier `php.ini` que vous avez également déclaré. Pour utiliser un runtime PHP personnalisé avec Web Apps, suivez la procédure ci-après.
 
-1. Obtenez une version de PHP pour Windows, compatible avec NTS (Non-Thread-Safe), VC9 ou VC11. Les versions récentes de PHP pour Windows sont disponibles à l’adresse suivante : [http://windows.php.net/download/]. Les versions précédentes se trouvent dans l’archive disponible ici : [http://windows.php.net/downloads/releases/archives/].
-2. Modifiez le fichier `php.ini` de votre runtime. Notez que tout paramètre de configuration correspondant à une directive de niveau système uniquement est ignoré par Web Apps. Pour plus d'informations sur les directives de niveau système uniquement, consultez la page [Liste des directives du php.ini].
+1. Obtenez une version de PHP pour Windows, compatible avec NTS (Non-Thread-Safe), VC9 ou VC11. Les versions récentes de PHP pour Windows sont disponibles à l’adresse suivante : [http://windows.php.net/download/]. Les versions précédentes se trouvent dans l’archive disponible ici : [http://windows.php.net/downloads/releases/archives/].
+2. Modifiez le fichier `php.ini` de votre runtime. Notez que tout paramètre de configuration correspondant à une directive de niveau système uniquement est ignoré par Web Apps. Pour plus d'informations sur les directives de niveau système uniquement, consultez la page [Liste des directives du php.ini].
 3. Vous pouvez éventuellement ajouter des extensions à votre runtime PHP et les activer dans le fichier `php.ini`.
 4. Ajoutez un répertoire `bin` à votre répertoire racine, puis placez-y le répertoire contenant votre runtime PHP (par exemple, `bin\php`).
 5. Déployez votre application web.
@@ -164,7 +164,7 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -189,4 +189,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

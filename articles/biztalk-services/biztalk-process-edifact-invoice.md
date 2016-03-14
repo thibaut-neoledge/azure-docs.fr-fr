@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Didacticiel : traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Services Azure BizTalk Services"
+   pageTitle="Didacticiel : traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Services Azure BizTalk Services"
    description="Comment créer et configurer le connecteur Box ou une application API et l'utiliser dans une application logique d’Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
-# Didacticiel : Processus de facturation EDIFACT à l’aide des Services BizTalk Azure
+# Didacticiel : Processus de facturation EDIFACT à l’aide des Services BizTalk Azure
 Vous pouvez utiliser le portail BizTalk Services pour configurer et déployer des accords X12 et EDIFACT. Dans ce didacticiel, nous allons étudier comment créer un accord EDIFACT destiné à l’échange de factures entre partenaires commerciaux. Ce didacticiel a été rédigé à partir d’une solution de bout en bout faisant intervenir deux partenaires commerciaux, Northwind et Contoso qui échangent des messages EDIFACT.
 
 ## Exemple basé sur ce didacticiel
@@ -24,7 +24,7 @@ Ce didacticiel s’articule autour d’un exemple, **Envoi de factures EDIFACT �
 
 >[AZURE.NOTE] Étant donné que cette solution implique l’envoi d’un message d’un pont EAI vers un pont EDI, elle il réutilise le [l’exemple de chaînage du pont BizTalk Services](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
 
-## Que fait la solution ?
+## Que fait la solution ?
 
 Dans cette solution, Northwind reçoit des factures EDIFACT de la part de Contoso. Ces factures ne sont pas dans un format EDI standard. Par conséquent, avant d’envoyer la facture à Northwind, elle doit être transformée en facture EDIFACT (également appelé INVOIC). À la réception, Northwind doit traiter la facture EDIFACT et renvoyer un message de contrôle (également appelé CONTRL) à Contoso.
 
@@ -46,7 +46,7 @@ Pour achever le scénario, nous utilisons des files d’attente Service Bus pour
 
 ## Composants requis
 
-*   Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/hh690931.aspx). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
+*   Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
 
 *   Vous devez posséder un abonnement BizTalk Services. Pour obtenir des instructions, consultez la page [Création d’un service BizTalk à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=302280). Pour ce didacticiel, supposons que vous disposez d’un abonnement BizTalk Services, appelé **contosowabs**.
 
@@ -56,14 +56,14 @@ Pour achever le scénario, nous utilisons des files d’attente Service Bus pour
 
 *   Vous devez disposer du kit de développement logiciel BizTalk Services. Vous pouvez télécharger le kit de développement logiciel sur [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)
 
-## Étape 1 : créer les files d’attente Service Bus  
-Cette solution utilise des files d’attente Service Bus pour l’échange de messages entre partenaires commerciaux. Contoso et Northwind envoient aux files d’attente des messages qui sont ensuite utilisés par les ponts IAE et/ou EDI. Pour cette solution, vous avez besoin de trois files d’attente Service Bus :
+## Étape 1 : créer les files d’attente Service Bus  
+Cette solution utilise des files d’attente Service Bus pour l’échange de messages entre partenaires commerciaux. Contoso et Northwind envoient aux files d’attente des messages qui sont ensuite utilisés par les ponts IAE et/ou EDI. Pour cette solution, vous avez besoin de trois files d’attente Service Bus :
 
-*   **northwindreceive** : c’est celle sur laquelle Northwind reçoit la facture de Contoso.
+*   **northwindreceive** : c’est celle sur laquelle Northwind reçoit la facture de Contoso.
 
-*   **contosoreceive** : contoso reçoit l’accusé de réception de Northwind sur cette file d’attente.
+*   **contosoreceive** : contoso reçoit l’accusé de réception de Northwind sur cette file d’attente.
 
-*   **suspendu** : c’est la file d’attente sur laquelle tous les messages suspendus sont acheminés. Les messages sont suspendus s’ils échouent en cours du traitement.
+*   **suspendu** : c’est la file d’attente sur laquelle tous les messages suspendus sont acheminés. Les messages sont suspendus s’ils échouent en cours du traitement.
 
 Vous pouvez créer ces files d’attente Service Bus à l’aide d’une application cliente incluse dans l’exemple de package.
 
@@ -78,7 +78,7 @@ Vous pouvez créer ces files d’attente Service Bus à l’aide d’une applica
 
 5.  Quittez le client de didacticiel en cours d’exécution. Ouvrez, cliquez sur **Service Bus** > **_Votre espace de noms Service Bus_** > **Files d’attente** et vérifiez que les trois files d’attente ont bien été générées.
 
-## Étape 2 : créer et déployer l’accord de partenariat commercial
+## Étape 2 : créer et déployer l’accord de partenariat commercial
 Créez un accord de partenariat commercial entre Contoso et Northwind. Un accord de partenariat commercial définit un contrat commercial entre les deux partenaires commerciaux, par exemple, le schéma de message et le protocole de messagerie à utiliser, etc. Un accord de partenariat commercial comprend deux ponts EDI, l’un servant à envoyer des messages à des partenaires commerciaux (appelé **pont d’envoi EDI**) et l’autre, à recevoir des messages de partenaires commerciaux (appelé **pont de réception EDI**).
 
 Dans le cadre de cette solution, le pont d’envoi EDI correspond au côté envoi de l’accord et est utilisé pour envoyer la facture EDIFACT de Contoso à Northwind. De même, le pont de réception EDI est associé au côté réception de l’accord et est utilisé pour recevoir des accusés de réception de la part de Northwind.
@@ -113,7 +113,7 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
     3.  Sur l’onglet **Protocole**, sous la section **schémas**, téléchargez le schéma **EFACT\_D93A\_INVOIC.xsd**. Ce schéma est disponible avec l’exemple de package.
 
         ![][4]  
-    4.  Sur l’onglet **Transport**, spécifiez les détails pour les files d’attente Service Bus. Pour le côté envoi de l’accord, nous utilisons la file d’attente **northwindreceive** pour envoyer la facture EDIFACT à Northwind, et la file d’attente **Exécution suspendue** pour acheminer les messages ayant échoué en cours de traitement et suspendus. Vous avez créé ces files d’attente à l’[Étape 1 : créer les files d’attente Service Bus](#BKMK_Queue).
+    4.  Sur l’onglet **Transport**, spécifiez les détails pour les files d’attente Service Bus. Pour le côté envoi de l’accord, nous utilisons la file d’attente **northwindreceive** pour envoyer la facture EDIFACT à Northwind, et la file d’attente **Exécution suspendue** pour acheminer les messages ayant échoué en cours de traitement et suspendus. Vous avez créé ces files d’attente à l’**Étape 1 : créer les files d’attente Service Bus** (dans cette rubrique).
 
         ![][5]
 
@@ -129,9 +129,10 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
 
     4.  Sur l’onglet **Itinéraire**, créez un filtre pour vous assurer que seuls les accusés de réception de Northwind sont acheminés vers Contoso. Sous **Paramètres d’itinéraire**, cliquez sur **Ajouter** pour créer le filtre de routage.
 
-        ![][6] 1. Fournir des valeurs pour **Nom de la règle**, **Règle de routage** et **Destination d’itinéraire** comme indiqué dans l’image.
+        ![][6]
+        1.  Fournir des valeurs pour **Nom de la règle**, **Règle de routage** et **Destination d’itinéraire** comme indiqué dans l’image.
 
-        2.  Cliquez sur **Save**.
+        2.  Cliquez sur **Enregistrer**.
 
     5.  De retour sur l’onglet **Itinéraire**, spécifiez l’endroit vers lequel acheminer les accusés de réception suspendus (accusés de réception qui échouent en cours du traitement). Définissez le type de transport sur Azure Service Bus, le type de destination d’itinéraire sur **File d’attente**, le type d’authentification sur **Signature d’accès partagé** (SAS), fournissez la chaîne de connexion SAP pour l’espace de noms Service Bus, puis saisissez le nom de la file d’attente en tant que **Suspendu**.
 
@@ -141,24 +142,24 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
 
     *   Sur l’onglet **Paramètres de réception**, sous **Transport**, notez le point de terminaison. Pour envoyer un message de Northwind vers Contoso avec le pont de réception EDI, vous devez recevoir un message à ce point de terminaison.
 
-## Étape 3 : créer et déployer le projet BizTalk Services
+## Étape 3 : créer et déployer le projet BizTalk Services
 
 Au cours de l’étape précédente, vous avez déployé les accords d’envoi et de réception EDI pour traiter les accusés de réception et les factures EDIFACT. Ces accords peuvent également traiter des messages conformes au schéma de message EDIFACT standard. Toutefois, selon le scénario de cette solution, Contoso envoie à Northwind une facture respectant un schéma propriétaire interne. Donc, avant que le message soit envoyé vers le pont d’envoi EDI, il doit être converti au schéma de facture EDIFACT standard. C’est à ça que sert le projet IAE BizTalk Services.
 
-Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message fait lui aussi partie de l’exemple que vous avez téléchargé. Le projet inclut les artefacts suivants :
+Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message fait lui aussi partie de l’exemple que vous avez téléchargé. Le projet inclut les artefacts suivants :
 
-*   **INHOUSEINVOICE. XSD** : schéma de la facture maison envoyée à Northwind.
+*   **INHOUSEINVOICE. XSD** : schéma de la facture maison envoyée à Northwind.
 
-*   **EFACT\_D93A\_INVOIC. XSD** : schéma de la facture EDIFACT standard.
+*   **EFACT\_D93A\_INVOIC. XSD** : schéma de la facture EDIFACT standard.
 
-*   **EFACT\_4.1\_CONTRL. XSD** : schéma de l’accusé de réception EDIFACT que Northwind envoie à Contoso.
+*   **EFACT\_4.1\_CONTRL. XSD** : schéma de l’accusé de réception EDIFACT que Northwind envoie à Contoso.
 
-*   **INHOUSEINVOICE\_to\_D93AINVOIC. TRFM** : conversion permettant de mapper le schéma de facture maison sur le schéma de facture EDIFACT standard.
+*   **INHOUSEINVOICE\_to\_D93AINVOIC. TRFM** : conversion permettant de mapper le schéma de facture maison sur le schéma de facture EDIFACT standard.
 
 ### Créer le projet BizTalk Services
 1.  Dans la solution Visual Studio, développez le projet InvoiceProcessingBridge, puis ouvrez le fichier **MessageFlowItinerary.bcs**.
 
-2.  Cliquez n’importe où dans la zone de dessin et définissez l’**URL du Service BizTalk** dans la zone de propriété pour spécifier le nom de votre abonnement BizTalk Services. Par exemple : `https://contosowabs.biztalk.windows.net`.
+2.  Cliquez n’importe où dans la zone de dessin et définissez l’**URL du Service BizTalk** dans la zone de propriété pour spécifier le nom de votre abonnement BizTalk Services. Par exemple : `https://contosowabs.biztalk.windows.net`.
 
     ![][7]  
 3.  Dans la boîte à outils, faites glisser un **pont Xml unidirectionnel** sur la zone de dessin. Définissez les propriétés **Nom de l’entité** et **Adresse Relative** du pont **ProcessInvoiceBridge**. Double-cliquez sur **ProcessInvoiceBridge** pour ouvrir la surface de configuration de pont.
@@ -173,7 +174,7 @@ Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message
 
 7.  Dans l’Explorateur de solutions, développez **MessageFlowItinerary.bcs** et double-cliquez sur le fichier **EDIBridge.config**. Remplacez le contenu du fichier **EDIBridge.config** par le code suivant.
 
-    > [AZURE.NOTE] Pourquoi dois-je modifier le fichier .config ? Le point de terminaison de service externe que nous avons ajouté à la zone de dessin du pont représente les ponts EDI que nous avons déployés précédemment. Les ponts EDI sont bidirectionnels et présentent un côté envoi et un côté réception. Toutefois, le pont IAE que nous avons ajouté au concepteur de pont est un pont unidirectionnel. Par conséquent, pour gérer les modèles d’échange de messages différents des deux ponts, nous utilisons un comportement de pont personnalisé en incluant sa configuration dans le fichier .config. En outre, le comportement personnalisé gère également l’authentification au niveau du point de terminaison du pont d’envoi EDI. Ce comportement personnalisé est disponible sous forme d’exemple distinct dans l’[exemple de chaînage de pont BizTalk Services - IAE à EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Cette solution réutilise l’exemple.
+    > [AZURE.NOTE] Pourquoi dois-je modifier le fichier .config ? Le point de terminaison de service externe que nous avons ajouté à la zone de dessin du pont représente les ponts EDI que nous avons déployés précédemment. Les ponts EDI sont bidirectionnels et présentent un côté envoi et un côté réception. Toutefois, le pont IAE que nous avons ajouté au concepteur de pont est un pont unidirectionnel. Par conséquent, pour gérer les modèles d’échange de messages différents des deux ponts, nous utilisons un comportement de pont personnalisé en incluant sa configuration dans le fichier .config. En outre, le comportement personnalisé gère également l’authentification au niveau du point de terminaison du pont d’envoi EDI. Ce comportement personnalisé est disponible sous forme d’exemple distinct dans l’[exemple de chaînage de pont BizTalk Services - IAE à EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Cette solution réutilise l’exemple.
     
     ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -237,7 +238,7 @@ Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message
 
 1.  Sur l’ordinateur dans lequel vous avez créé le projet BizTalk Services, téléchargez et installez le certificat SSL de votre abonnement BizTalk Services. Depuis BizTalk Services, cliquez sur le **Tableau de bord**, puis cliquez sur **Télécharger le certificat SSL**. Double-cliquez sur le certificat et suivez les instructions pour achever l’installation. Veillez à installer le certificat sous le magasin de certificats **Autorités de certification racines de confiance**.
 
-2.  Dans Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur le projet **InvoiceProcessingBridge**, puis cliquez sur **Déployer**.
+2.  Dans Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur le projet **InvoiceProcessingBridge**, puis cliquez sur **Déployer**.
 
 3.  Fournissez les valeurs comme indiqué dans l’image, puis cliquez sur **Déployer**. Vous pouvez obtenir les informations d’identification ACS pour les Services BizTalk en cliquant sur **Informations de connexion** sur le tableau de bord BizTalk Services.
 
@@ -245,12 +246,12 @@ Le projet BizTalk Services **InvoiceProcessingBridge** qui transforme le message
 
     Dans le panneau de sortie, copiez le point de terminaison sur lequel le pont IAE est déployé, par exemple, `https://contosowabs.biztalk.windows.net/default/ProcessInvoiceBridge`. Vous aurez besoin de cette URL de point de terminaison ultérieurement.
 
-## Étape 4 : tester la solution
+## Étape 4 : tester la solution
 
 
 Dans cette rubrique, nous allons étudier comment tester la solution à l’aide de l’application **Client de didacticiel** fournie dans le cadre de l’exemple.
 
-1.  Dans Visual Studio, appuyez sur la touche F5 pour lancer le **Client du didacticiel**.
+1.  Dans Visual Studio, appuyez sur la touche F5 pour lancer le **Client du didacticiel**.
 
 2.  Suite à l’opération qui a créé les files d’attente Service Bus, les valeurs d’écran sont en principe pré-renseignées . Cliquez sur **Next**.
 
@@ -272,10 +273,10 @@ Dans cette rubrique, nous allons étudier comment tester la solution à l’aide
 
     ![][16]
 
-## Étape 5 (facultatif) : envoyer la facture EDIFACT en lots 
+## Étape 5 (facultatif) : envoyer la facture EDIFACT en lots 
 Les ponts EDI BizTalk Services prennent également en charge le traitement par lots des messages sortants. Cette fonctionnalité est utile pour la réception de partenaires qui préfèrent recevoir un lot de messages (respectant certains critères) plutôt que des messages individuels.
 
-L’aspect le plus important du travail avec des lots est la publication réelle du lot, également appelée critère de publication. Les critères de publication peuvent être déterminés en fonction de la façon dont les partenaires de réception veulent recevoir leurs messages. Si le traitement par lots est activé, le pont EDI n’envoie pas de message sortant vers le partenaire de réception jusqu’à ce que les critères de déclenchement soient atteints. Par exemple, un critère de traitement par lot basé sur la taille des messages distribue un lot uniquement lorsque « n » messages sont regroupés. Un critère de traitement par lots peut également être basé sur le temps, et faire en sorte qu’un lot soit envoyé à heure fixe chaque jour. Dans cette solution, nous essayons des critères basés sur la taille des messages.
+L’aspect le plus important du travail avec des lots est la publication réelle du lot, également appelée critère de publication. Les critères de publication peuvent être déterminés en fonction de la façon dont les partenaires de réception veulent recevoir leurs messages. Si le traitement par lots est activé, le pont EDI n’envoie pas de message sortant vers le partenaire de réception jusqu’à ce que les critères de déclenchement soient atteints. Par exemple, un critère de traitement par lot basé sur la taille des messages distribue un lot uniquement lorsque « n » messages sont regroupés. Un critère de traitement par lots peut également être basé sur le temps, et faire en sorte qu’un lot soit envoyé à heure fixe chaque jour. Dans cette solution, nous essayons des critères basés sur la taille des messages.
 
 1.  Dans le portail BizTalk Services, cliquez sur l’accord que vous avez créé précédemment. Cliquez sur Paramètres d’envoi > Traitement par lot > Ajouter un lot.
 
@@ -289,7 +290,7 @@ L’aspect le plus important du travail avec des lots est la publication réelle
     ![][18]  
 5.  Consultez le résumé, puis cliquez sur **Enregistrer**. Cliquez sur **Déployer** pour redéployer l’accord.
 
-6.  Revenez au **client du didacticiel**, cliquez sur **Envoyer la facture maison** et suivez les invites pour envoyer la facture. Vous remarquerez qu’aucune facture n’est reçue par Northwind, car la taille de lot n’est pas atteinte. Répétez cette étape encore deux fois afin d’avoir trois messages de facturation envoyés à Northwind. Cela satisfait les critères de lancement par lot de 3 messages et vous devez maintenant voir une facture chez Northwind.
+6.  Revenez au **client du didacticiel**, cliquez sur **Envoyer la facture maison** et suivez les invites pour envoyer la facture. Vous remarquerez qu’aucune facture n’est reçue par Northwind, car la taille de lot n’est pas atteinte. Répétez cette étape encore deux fois afin d’avoir trois messages de facturation envoyés à Northwind. Cela satisfait les critères de lancement par lot de 3 messages et vous devez maintenant voir une facture chez Northwind.
 
 
 <!--Image references-->
@@ -312,4 +313,4 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

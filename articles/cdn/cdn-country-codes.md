@@ -1,33 +1,33 @@
-<properties 
-	pageTitle="CDN : codes de pays" 
-	description="La fonctionnalité de Filtrage par pays utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN : codes de pays"
+	description="La fonctionnalité de Filtrage par pays utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 #Codes de pays
 
-La fonctionnalité de **Filtrage par pays** utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé. Le tableau suivant contient tous les codes de pays. Si vous spécifiez « EU » (Europe) ou « AP » (Asie/Pacifique), un sous-ensemble des adresses IP issues de n'importe quel pays de ces régions est bloqué ou autorisé. Pour plus d'informations sur l'utilisation de la fonctionnalité de filtrage par pays, consultez [Restriction de l'accès à votre contenu par pays](cdn-restrict-access-by-country.md).
+La fonctionnalité de **Filtrage par pays** utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé. Le tableau suivant contient tous les codes de pays. Si vous spécifiez « EU » (Europe) ou « AP » (Asie/Pacifique), un sous-ensemble des adresses IP issues de n'importe quel pays de ces régions est bloqué ou autorisé. Pour plus d'informations sur l'utilisation de la fonctionnalité de filtrage par pays, consultez [Restriction de l'accès à votre contenu par pays](cdn-restrict-access-by-country.md).
 
 | Code | Pays | Informations supplémentaires                                                                                                                                                                                                                               
 |--------------|----------------------------------------------|------------------------------------------------------|
-| A1 | Proxy anonyme | Ce code de pays identifie un ensemble d'adresses IP utilisées par des sites Web de navigation anonyme (anonymiseurs) ou des services VPN. Ces types de services permettent de contourner les restrictions d'adresses IP de géolocalisation. |                                                                        
-| A2 | Fournisseur satellite | Ce code de pays identifie un ensemble d'adresses IP utilisées par les ISP satellite pour accéder à Internet depuis plusieurs pays (par exemple, le Nigeria et le Ghana). | 
+| A1 | Proxy anonyme | Ce code de pays identifie un ensemble d'adresses IP utilisées par des sites Web de navigation anonyme (anonymiseurs) ou des services VPN. Ces types de services permettent de contourner les restrictions d'adresses IP de géolocalisation. |                                                                        
+| A2 | Fournisseur satellite | Ce code de pays identifie un ensemble d'adresses IP utilisées par les ISP satellite pour accéder à Internet depuis plusieurs pays (par exemple, le Nigeria et le Ghana). |
 | AF | Afghanistan | |
 | AL | Albanie | |
-| DZ | Algérie | | 
-| AS | Samoa américaines | | 
+| DZ | Algérie | |
+| AS | Samoa américaines | |
 | AD | Andorre | |
 | AO | Angola | |
 | AI | Anguilla | |
@@ -36,13 +36,13 @@ La fonctionnalité de **Filtrage par pays** utilise des codes de pays pour défi
 | AR | Argentine | |
 | AM | Arménie | |
 | AW | Aruba | |
-| AP | Région Asie/Pacifique | Ce code de pays identifie un ensemble d'adresses IP réparties dans la région Asie/Pacifique. Le pays d'origine pour cet ensemble d'adresses IP est inconnu. Plus important encore, ce code de pays ne couvre pas toutes les adresses IP dans la région Asie/Pacifique. [En savoir plus](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge_Base/Geolocation_EU_AP.htm).|     
+| AP | Région Asie/Pacifique | Ce code de pays identifie un ensemble d'adresses IP réparties dans la région Asie/Pacifique. Le pays d'origine pour cet ensemble d'adresses IP est inconnu. Plus important encore, ce code de pays ne couvre pas toutes les adresses IP dans la région Asie/Pacifique. [En savoir plus](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge_Base/Geolocation_EU_AP.htm).|     
 | AU | Australie | |
 | AT | Autriche | |
-| AZ | Azerbaïdjan | | 
+| AZ | Azerbaïdjan | |
 | BS | Les Bahamas | |
-| BH | Bahreïn | | 
-| BD | Bangladesh | | 
+| BH | Bahreïn | |
+| BD | Bangladesh | |
 | BB | Barbade | |
 | BY | Bélarus | |
 | BE | Belgique | |
@@ -93,7 +93,7 @@ La fonctionnalité de **Filtrage par pays** utilise des codes de pays pour défi
 | ER | Érythrée | |
 | EE | Estonie | |
 | ET | Éthiopie | |
-| EU | Europe | Ce code de pays identifie un ensemble d'adresses IP réparties dans l’Europe. Le pays d'origine pour cet ensemble d'adresses IP est inconnu. Plus important encore, ce code de pays ne couvre pas toutes les adresses IP dans l’Europe. [En savoir plus](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge_Base/Geolocation_EU_AP.htm). |        
+| EU | Europe | Ce code de pays identifie un ensemble d'adresses IP réparties dans l’Europe. Le pays d'origine pour cet ensemble d'adresses IP est inconnu. Plus important encore, ce code de pays ne couvre pas toutes les adresses IP dans l’Europe. [En savoir plus](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge_Base/Geolocation_EU_AP.htm). |        
 | FK | Îles Falkland (Malouines) | |
 | FO | Féroé (îles) | |
 | FJ | Fidji | |
@@ -268,4 +268,4 @@ La fonctionnalité de **Filtrage par pays** utilise des codes de pays pour défi
 | ZM | Zambie | |
 | ZW | Zimbabwe | |
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

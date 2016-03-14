@@ -15,13 +15,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Prendre en main l’API Bing Search 
-Connecte-vous à Bing Search pour rechercher des actualités, des vidéos et bien plus encore.
+Connecte-vous à Bing Search pour rechercher des actualités, des vidéos et bien plus encore. L’API Bing Search peut être utilisée à partir de :
 
-L’API Bing Search peut être utilisée à partir de PowerApps et d’applications logiques.
+- Logic Apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic Apps](../articles/connectors/create-api-bingsearch.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
 
 Avec Bing Search, vous pouvez effectuer les opérations suivantes :
 
@@ -31,7 +37,7 @@ Avec Bing Search, vous pouvez effectuer les opérations suivantes :
 
 Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 Bing Search inclut les actions suivantes. Il n’y a aucun déclencheur.
@@ -82,7 +88,7 @@ Récupère des vidéos à partir d’une recherche Bing. ```GET: /Video```
 |market|string|no|query|(aucun) |Marché ou région pour affiner la recherche (exemple : fr-FR)|
 |longitude|number|no|query|(aucun) |Longitude (coordonnée est/ouest) pour affiner la recherche (exemple : 47.603450)|
 |latitude|number|no|query|(aucun) |Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
-|videoFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>Par exemple : « Duration:Short+Resolution:High »</p>|
+|videoFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Par exemple : « Duration:Short+Resolution:High »|
 |videoSortBy|string|no|query|(aucun) |Ordre de tri des résultats. Valeurs valides : <ul><li>Date</li><li>Relevance</li></ul> <p>L’ordre de tri en fonction de la date est décroissant.</p>|
 
 #### Response
@@ -104,7 +110,7 @@ Récupère des images à partir d’une recherche Bing. ```GET: /Image```
 |market|string|no|query|(aucun) |Marché ou région pour affiner la recherche (exemple : fr-FR)|
 |longitude|number|no|query| (aucun)|Longitude (coordonnée est/ouest) pour affiner la recherche (exemple : 47.603450)|
 |latitude|number|no|query|(aucun) |Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
-|imageFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[largeur]</li><li>Size:Height:[hauteur]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>Par exemple : « Size:Small+Aspect:Square »</p>|
+|imageFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Par exemple : « Size:Small+Aspect:Square »|
 
 #### Response
 |Nom|Description|
@@ -189,9 +195,9 @@ Récupère la totalité des sites web, vidéos, images, etc. à partir d’une r
 |longitude|number|no|query|(aucun) |Longitude (coordonnée est/ouest) pour affiner la recherche (exemple : 47.603450)|
 |latitude|number|no|query|(aucun) |Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
 |webFileType|string|no|query|(aucun) |Type de fichier pour affiner la recherche (exemple : « DOC »)|
-|videoFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>Par exemple : « Duration:Short+Resolution:High »</p>|
+|videoFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Par exemple : « Duration:Short+Resolution:High »|
 |videoSortBy|string|no|query|(aucun) |Ordre de tri des résultats. Valeurs valides : <ul><li>Date</li><li>Relevance</li></ul> <p>L’ordre de tri en fonction de la date est décroissant.</p>|
-|imageFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[largeur]</li><li>Size:Height:[hauteur]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>Par exemple : « Size:Small+Aspect:Square »</p>|
+|imageFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Par exemple : « Size:Small+Aspect:Square »|
 |newsSortBy|string|no|query|(aucun) |Ordre de tri des résultats. Valeurs valides : <ul><li>Date</li><li>Relevance</li></ul> <p>L’ordre de tri en fonction de la date est décroissant.</p>|
 |newsCategory|string|no|query|(aucun) |Catégorie d’actualités pour affiner la recherche (exemple : « rt\_Business »)|
 |newsLocationOverride|string|no|query|(aucun) |Remplacement pour la détection du lieu par Bing. Ce paramètre s’applique uniquement au marché fr-FR. Le format d’entrée est « US ».<state /> (Exemple : « US.WA »)|
@@ -280,7 +286,7 @@ Récupère la totalité des sites web, vidéos, images, etc. à partir d’une r
 |WebResultsTotal|integer|no|
 |ImageResultsTotal|integer|no|
 |VideoResultsTotal|integer|no|
-|NewsResultsTotal|integer|
+|NewsResultsTotal|integer|no|
 |SpellSuggestionsTotal|integer|no|
 |WebResults|array|no|
 |ImageResults|array|no|
@@ -293,6 +299,6 @@ Récupère la totalité des sites web, vidéos, images, etc. à partir d’une r
 
 Après avoir ajouté l’API Bing Search à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
 
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

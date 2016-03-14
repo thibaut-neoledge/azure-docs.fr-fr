@@ -18,7 +18,7 @@
 
 # Déployer un groupe de ressources avec un modèle Azure Resource Manager
 
-Cette rubrique explique comment utiliser les modèles Azure Resource Manager pour déployer vos ressources dans Azure. Elle montre comment déployer vos ressources à l’aide d’Azure PowerShell, de l’interface de ligne de commande Azure, de l’API REST ou du portail Azure.
+Cette rubrique explique comment utiliser les modèles Azure Resource Manager pour déployer vos ressources dans Azure. Elle montre comment déployer vos ressources à l’aide d’Azure PowerShell, d’Azure CLI, de l’API REST ou du portail Azure.
 
 Pour une introduction à Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](./resource-group-overview.md). Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
@@ -284,4 +284,4 @@ Pour savoir comment définir des paramètres dans le modèle, consultez la secti
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs" 
-	description="Découvrez comment utiliser le stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Créez des tables, ajoutez des entités à des tables et lisez les tables existantes." 
+	pageTitle="Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs" 
+	description="Découvrez comment utiliser le stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Créez des tables, ajoutez des entités à des tables et lisez les tables existantes." 
 	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
-# Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs
+# Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs
 
 ## Vue d’ensemble
 
 Ce guide fournit des exemples de code C# qui indiquent comment lire et écrire des tables de stockage Azure à l’aide du [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) version 1.x.
 
-Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md) ou [plusieurs comptes de stockage](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+Ce guide suppose que vous savez [comment créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md) ou [plusieurs comptes de stockage](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 		
 Certains extraits de code illustrent l’attribut `Table` utilisé dans des fonctions [appelées manuellement](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), c’est-à-dire sans utiliser l’un des attributs de déclenchement.
 
@@ -61,7 +61,7 @@ En général, le type que vous utilisez avec `ICollector` dérive de l’éléme
 		    public string Name { get; set; }
 		}
 
-Si vous souhaitez utiliser directement l’API Microsoft Azure Storage, vous pouvez ajouter un paramètre `CloudStorageAccount` à la signature de méthode.
+Si vous souhaitez utiliser directement l’API Microsoft Azure Storage, vous pouvez ajouter un paramètre `CloudStorageAccount` à la signature de méthode.
 
 ## <a id="monitor"></a> Surveillance en temps réel
 
@@ -81,7 +81,7 @@ Lorsque l’exécution de la fonction se termine, la page **Détails des appels*
 
 Pour lire une table, utilisez l’attribut `Table` avec un paramètre `IQueryable<T>`, dans lequel le type `T` dérive de `TableEntity` ou implémente `ITableEntity`.
 
-L’exemple de code suivant lit et enregistre toutes les lignes de la table `Ingress` :
+L’exemple de code suivant lit et enregistre toutes les lignes de la table `Ingress` :
  
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -99,7 +99,7 @@ L’exemple de code suivant lit et enregistre toutes les lignes de la table `Ing
 
 Il existe un constructeur d’attribut `Table` présentant deux paramètres supplémentaires, qui vous permettent de spécifier la clé de partition et la clé de ligne lorsque vous souhaitez effectuer une liaison avec une entité de table unique.
 
-L’exemple de code suivant lit une ligne de table pour une entité `Person` basée sur des valeurs de clé de partition et de clé de ligne reçues dans un message en file d’attente :
+L’exemple de code suivant lit une ligne de table pour une entité `Person` basée sur des valeurs de clé de partition et de clé de ligne reçues dans un message en file d’attente :
 
 		public static void ReadTableEntity(
 		    [QueueTrigger("inputqueue")] Person personInQueue,
@@ -141,13 +141,13 @@ L’exemple de code suivant utilise un objet `CloudTable` pour ajouter une entit
 		    tableBinding.Execute(insertOperation);
 		}
 
-Pour en savoir plus sur l’utilisation de l’objet `CloudTable`, voir [Utilisation du stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables.md).
+Pour en savoir plus sur l’utilisation de l’objet `CloudTable`, voir [Utilisation du stockage de tables à partir de .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
 ## <a id="queues"></a>Sujets connexes traités dans l’article de procédure relatif aux files d’attente
 
-Pour en savoir plus sur la gestion du traitement de tables déclenché par un message en file d’attente, ou pour consulter des scénarios relatifs au Kit de développement logiciel (SDK) WebJobs non spécifiques du traitement des tables, voir [Comment utiliser le stockage de la file d’attente Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
+Pour en savoir plus sur la gestion du traitement de tables déclenché par un message en file d’attente, ou pour consulter des scénarios relatifs au Kit de développement logiciel (SDK) WebJobs non spécifiques du traitement des tables, voir [Comment utiliser le stockage de la file d’attente Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
-Les sujets abordés dans cet article sont les suivants :
+Les sujets abordés dans cet article sont les suivants :
 
 * Fonctions asynchrones
 * Instances multiples
@@ -160,7 +160,7 @@ Les sujets abordés dans cet article sont les suivants :
 
 ## <a id="nextsteps"></a>Étapes suivantes
 
-Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des tables Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
+Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des tables Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

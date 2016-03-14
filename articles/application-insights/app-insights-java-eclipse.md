@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Prise en main d’Application Insights avec Java dans Eclipse
@@ -49,13 +49,22 @@ Suivez les étapes restantes pour chaque projet Java.
 ## Créer une ressource Application Insights dans Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. 
+2. Créez une ressource Application Insights.  
+
+    ![Cliquez sur + et choisissez Ajouter Application Insights.](./media/app-insights-java-eclipse/01-create.png)  
+3. Définissez le type d’application sur Application web Java.  
+
+    ![Indiquez le nom, choisissez l’application web Java, puis cliquez sur Créer.](./media/app-insights-java-eclipse/02-create.png)  
+4. Obtenez la clé d'instrumentation de la nouvelle ressource. Vous devrez la coller rapidement dans le code de votre projet.  
+
+    ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/03-key.png)
+
 
 ## Ajout de Application Insights à votre projet
 
 1. Ajoutez Application Insights à partir du menu contextuel de votre projet Web Java.
 
-    ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-eclipse/02-context-menu.png)
+    ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/02-context-menu.png)
 
 2. Collez la clé d’instrumentation que vous avez obtenue sur le portail Azure.
 
@@ -260,4 +269,4 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

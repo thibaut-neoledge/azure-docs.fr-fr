@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Modèle de données Application Insights" 
+	pageTitle="Modèle de données Application Insights" 
 	description="Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres." 
 	services="application-insights" 
     documentationCenter=""
@@ -15,13 +15,13 @@
 	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
-# Modèle d’exportation de données Application Insights
+# Modèle d’exportation de données Application Insights
 
-Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits de développement logiciel (SDK) [Application Insights](app-insights-overview.md) au portail. Vous verrez ces propriétés dans les données issues d’une [exportation continue](app-insights-export-telemetry.md). Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](app-insights-metrics-explorer.md) et dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
+Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits de développement logiciel (SDK) [Application Insights](app-insights-overview.md) au portail. Vous verrez ces propriétés dans les données issues d’une [exportation continue](app-insights-export-telemetry.md). Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](app-insights-metrics-explorer.md) et dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
 
 Plusieurs [exemples](app-insights-export-telemetry.md#code-samples) illustrent comment les utiliser.
 
-Le « &lt;telemetryType&gt; » de la première section est un espace réservé pour tout nom de type de télémétrie : affichage, demande, etc.
+Le « &lt;telemetryType&gt; » de la première section est un espace réservé pour tout nom de type de télémétrie : affichage, demande, etc.
 
 
 ## &lt;telemetryType&gt;
@@ -32,19 +32,19 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Conteneur des propriétés de paire clé/valeur (KVP) fournissant l’extensibilité sur les éléments de télémétrie AppInsights pour l’ajout de métriques personnalisés. 
 
-    *Dérivation :* les noms de mesure présentent une longueur maximale de 100 caractères.
+    *Dérivation :* les noms de mesure présentent une longueur maximale de 100 caractères.
 
-    *Valeur par défaut :* si la clé existe, mais que la valeur est manquante, alors count = 1, value = 0, min/max = 0.
+    *Valeur par défaut :* si la clé existe, mais que la valeur est manquante, alors count = 1, value = 0, min/max = 0.
 
 **<property>**
 
     KVPs <string, string> <telemetryType>.properties      Max: 100
 * 
-    Conteneur des propriétés de paire clé/valeur fournissant l’extensibilité sur les éléments de télémétrie AppInsights pour l’ajout de propriétés personnalisées. Le développeur a la possibilité de fournir une liste de paires clé/valeur associée à un élément de télémétrie. Chaque clé fait l’objet d’un suivi, et il est possible de fournir un maximum de 200 clés uniques par clé d’instrumentation (application) AppInsights. Une clé présente une longueur maximale de 100 caractères. Toutes les valeurs sont traitées en tant que chaînes et peuvent comporter jusqu’à 1 000 caractères. Chaque propriété est initialement classée en tant que dimension, autorisant ainsi des fonctionnalités de segmentation reposant sur l’ensemble de valeurs de chaque propriété. La cardinalité de chaque ensemble de valeurs fait l’objet d’un suivi par clé de propriété. Lorsque la cardinalité d’une clé dépasse 100 valeurs uniques, la propriété est classée en tant qu’attribut. Un attribut peut faire l’objet d’une recherche, mais ne peut pas constituer la cible de segmentation (agrégation ou regroupement). 
+    Conteneur des propriétés de paire clé/valeur fournissant l’extensibilité sur les éléments de télémétrie AppInsights pour l’ajout de propriétés personnalisées. Le développeur a la possibilité de fournir une liste de paires clé/valeur associée à un élément de télémétrie. Chaque clé fait l’objet d’un suivi, et il est possible de fournir un maximum de 200 clés uniques par clé d’instrumentation (application) AppInsights. Une clé présente une longueur maximale de 100 caractères. Toutes les valeurs sont traitées en tant que chaînes et peuvent comporter jusqu’à 1 000 caractères. Chaque propriété est initialement classée en tant que dimension, autorisant ainsi des fonctionnalités de segmentation reposant sur l’ensemble de valeurs de chaque propriété. La cardinalité de chaque ensemble de valeurs fait l’objet d’un suivi par clé de propriété. Lorsque la cardinalité d’une clé dépasse 100 valeurs uniques, la propriété est classée en tant qu’attribut. Un attribut peut faire l’objet d’une recherche, mais ne peut pas constituer la cible de segmentation (agrégation ou regroupement). 
 
-    *Dérivation :* les noms de propriété présentent une taille maximale de 100 caractères, et les valeurs de propriété une taille maximale de 1 024 caractères.
+    *Dérivation :* les noms de propriété présentent une taille maximale de 100 caractères, et les valeurs de propriété une taille maximale de 1 024 caractères.
 
-    *Valeur par défaut :* si la clé existe, mais que la valeur est manquante, alors value = Null.
+    *Valeur par défaut :* si la clé existe, mais que la valeur est manquante, alors value = Null.
 
 **count**
 
@@ -52,7 +52,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Comptage de l’élément de télémétrie   
 
-    *Dérivation :* en cas de valeur Null, count = 1.
+    *Dérivation :* en cas de valeur Null, count = 1.
 
 **duration**
 
@@ -60,7 +60,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Durée de l’élément de télémétrie. Dans le cas d’une demande, il s’agit de la durée d’exécution de la demande. 
 
-    *Valeur par défaut :* R1 : dans le cas d’un affichage, ce champ est facultatif.
+    *Valeur par défaut :* R1 : dans le cas d’un affichage, ce champ est facultatif.
 
 **message**
 
@@ -74,7 +74,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Nom de l’élément de télémétrie. Ce nom n’est pas unique sur l’ensemble des instances et représente un regroupement de types de télémétrie. Dans le cas des affichages, le nom est défini par défaut sur la valeur URLData.base. Dans le cas des événements, il s’agit d’une étiquette fournie par le développeur. Dans le cas des requêtes, il s’agit d’une forme lisible de la demande, par exemple contrôleur\\action. 
 
-    *Exemples*<br/> Noms d’affichage :<br/>70-486 Question d’examen 1<br/>À propos de - Mon application ASP.NET<br/><br/>Noms de demande :<br/>POST /Components/WebHandlers/ItemCompare.ashx<br/>GET /signalr/poll<br/>GET /signalr/negotiate
+    *Exemples*<br/> Noms d’affichage :<br/>70-486 Question d’examen 1<br/>À propos de - Mon application ASP.NET<br/><br/>Noms de demande :<br/>POST /Components/WebHandlers/ItemCompare.ashx<br/>GET /signalr/poll<br/>GET /signalr/negotiate
 
 **severity**
 
@@ -86,9 +86,9 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     string <telemetrytype>.url      Max: 2048
 * 
-    URL de page consultée, d’événement, de demande ou de RDD. URL complète, prise en charge dans les recherches en texte intégral et dans les exportations. Ce champ peut présenter une cardinalité très importante et correspond à un attribut. Il est analysé sous la forme d’un ensemble d’éléments de données urlData utilisable pour les agrégations dans Metrics Explorer. 
+    URL de page consultée, d’événement, de demande ou de RDD. URL complète, prise en charge dans les recherches en texte intégral et dans les exportations. Ce champ peut présenter une cardinalité très importante et correspond à un attribut. Il est analysé sous la forme d’un ensemble d’éléments de données urlData utilisable pour les agrégations dans Metrics Explorer. 
 
-    *Valeur par défaut :* R2 : sur remotedepencyType, si dependencyType = HTTP, ce champ est obligatoire.<br/> Sur clientperformanceType, ce champ est obligatoire.
+    *Valeur par défaut :* R2 : sur remotedepencyType, si dependencyType = HTTP, ce champ est obligatoire.<br/> Sur clientperformanceType, ce champ est obligatoire.
 
     *Exemples*<br/> https://icecream.contoso.com/main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>http://fabrikam-oats.azurewebsites.net/index.htm
 
@@ -98,7 +98,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Partie de l’élément de données d’URL excluant l’hôte et les paramètres de requête. Il s’agit de l’URI racine. Cette valeur est utilisable pour la segmentation/l’agrégation. 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
     *Exemples*<br/> /main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>/default.aspx<br/>/Patients/Search/<br/>
 
@@ -108,7 +108,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Texte de la balise de hachage de l’élément de données d’URL 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
 **urlData.host**
 
@@ -116,7 +116,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Hôte de l’élément de données d’URL. Si l’élément de données d’URL est un URI local, ce champ est représenté comme étant vide. 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
     *Exemples*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
 
@@ -218,7 +218,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     string basicexception.problemid      Max: 100
 * 
-    *Dérivation :* voir l’annexe concernant l’analyse de piles d’appels. 
+    *Dérivation :* voir l’annexe concernant l’analyse de piles d’appels. 
 
 **Exceptions.Assembly**
 
@@ -287,7 +287,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     simpleMetric clientperformance.perftotal   ms   
 * 
-    Temps total du chargement de l’affichage. Pour les clients web, cette valeur équivaut au « temps de chargement de la page ». Ce minutage est capturé à l’aide de l’API perfTiming de navigateur moderne. 
+    Temps total du chargement de l’affichage. Pour les clients web, cette valeur équivaut au « temps de chargement de la page ». Ce minutage est capturé à l’aide de l’API perfTiming de navigateur moderne. 
 
 **receiveResponse**
 
@@ -346,7 +346,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     string context.data.samplerate      Max: 100
 * 
-    Taux d’échantillonnage du producteur de données (SDK). Une valeur différente de 1 signifie que les métriques associés à cet élément de télémétrie représentent les valeurs échantillonnées. Par conséquent, dans le cas d’un taux d’échantillonnage de 0,05, tout élément de télémétrie 1 représenterait un nombre de 20. 
+    Taux d’échantillonnage du producteur de données (SDK). Une valeur différente de 1 signifie que les métriques associés à cet élément de télémétrie représentent les valeurs échantillonnées. Par conséquent, dans le cas d’un taux d’échantillonnage de 0,05, tout élément de télémétrie 1 représenterait un nombre de 20. 
 
 **iPhone**
 
@@ -354,9 +354,9 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Navigateur du client 
 
-    *Valeur par défaut :* en cas de valeur Null, la valeur par défaut est définie en fonction du traitement de l’agent utilisateur. Pour plus d’informations, voir l’annexe relative à l’analyse de l’agent utilisateur.
+    *Valeur par défaut :* en cas de valeur Null, la valeur par défaut est définie en fonction du traitement de l’agent utilisateur. Pour plus d’informations, voir l’annexe relative à l’analyse de l’agent utilisateur.
 
-    *Exemples*<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
+    *Exemples*<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
 
 **browserVersion**
 
@@ -364,9 +364,9 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Version du navigateur du client 
 
-    *Valeur par défaut :* en cas de valeur Null, la valeur par défaut est définie en fonction du traitement de l’agent utilisateur. Pour plus d’informations, voir l’annexe relative à l’analyse de l’agent utilisateur.
+    *Valeur par défaut :* en cas de valeur Null, la valeur par défaut est définie en fonction du traitement de l’agent utilisateur. Pour plus d’informations, voir l’annexe relative à l’analyse de l’agent utilisateur.
 
-    *Exemples*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
+    *Exemples*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
 
 **deploymentId**
 
@@ -402,7 +402,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Système d’exploitation du client 
 
-    *Valeur par défaut :* en cas de valeur Null, la valeur par défaut est définie en fonction du traitement de l’agent utilisateur. Pour plus d’informations, voir l’annexe relative à l’analyse de l’agent utilisateur.
+    *Valeur par défaut :* en cas de valeur Null, la valeur par défaut est définie en fonction du traitement de l’agent utilisateur. Pour plus d’informations, voir l’annexe relative à l’analyse de l’agent utilisateur.
 
     *Exemples*<br/> Windows<br/>iOS iPad<br/>Nokia
 
@@ -412,9 +412,9 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Version du système d’exploitation du client 
 
-    *Valeur par défaut :* en cas de valeur Null, la valeur par défaut est définie en fonction du traitement de l’agent utilisateur. Pour plus d’informations, voir l’annexe relative à l’analyse de l’agent utilisateur.
+    *Valeur par défaut :* en cas de valeur Null, la valeur par défaut est définie en fonction du traitement de l’agent utilisateur. Pour plus d’informations, voir l’annexe relative à l’analyse de l’agent utilisateur.
 
-    *Exemples*<br/> Windows XP<br/>iOS 8.3<br/>Nokia Série 40<br/>Windows 7<br/>Windows 8
+    *Exemples*<br/> Windows XP<br/>iOS 8.3<br/>Nokia Série 40<br/>Windows 7<br/>Windows 8
 
 **roleInstance**
 
@@ -434,9 +434,9 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Hauteur d’écran de l’application sur le matériel client au moment de l’enregistrement de l’élément de télémétrie. Si cette valeur n’est pas fournie explicitement, elle découle d’une transformation de l’élément de données screenresolution. 
 
-    *Dérivation :* valeur analysée à partir de context.device.screenresolution si cet élément est présent.
+    *Dérivation :* valeur analysée à partir de context.device.screenresolution si cet élément est présent.
 
-    *Exemples*<br/> 360<br/>1 280<br/>1 920
+    *Exemples*<br/> 360<br/>1 280<br/>1 920
 
 **screenResolution**
 
@@ -444,7 +444,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Résolution d’écran au moment de la capture de l’élément de télémétrie par l’application. Cette résolution peut basculer entre portrait et paysage au cours d’une session. Lorsque cet attribut est transmis au niveau session, il s’agit de la première résolution d’écran capturée pour représenter la session complète. 
 
-    *Exemples*<br/> Hauteur/largeur de résolution d’écran<br/>360 X 640<br/>1 280 X 800<br/>1 920 x 1 080
+    *Exemples*<br/> Hauteur/largeur de résolution d’écran<br/>360 X 640<br/>1 280 X 800<br/>1 920 x 1 080
 
 **screenWidth**
 
@@ -452,9 +452,9 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Largeur d’écran de l’application sur le matériel client au moment de l’enregistrement de l’élément de télémétrie. Si cette valeur n’est pas fournie explicitement, elle découle d’une transformation de l’élément de données screenresolution. 
 
-    *Dérivation :* valeur analysée à partir de context.device.screenresolution si cet élément est présent.
+    *Dérivation :* valeur analysée à partir de context.device.screenresolution si cet élément est présent.
 
-    *Exemples*<br/> 640<br/>800<br/>1 080
+    *Exemples*<br/> 640<br/>800<br/>1 080
 
 
 **aiAgentVersion**
@@ -475,11 +475,13 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     ipv4 context.location.clientip      
 * 
-    Adresse IPv4 du client au format xxx.xxx.xxx.xxx.   
+    Adresse IPv4 du client au format xxx.xxx.xxx.xxx.
 
-    *Valeur par défaut :* en cas de valeur Null, le champ est défini par défaut sur l’adresse IP HTTP capturée au niveau du point de terminaison de collecte de données.
+     Pour résoudre les problèmes liés à la confidentialité, le dernier octet est toujours défini sur 0.
 
-    *Exemples*<br/> 0.123.63.143<br/>123.203.131.197
+    *Valeur par défaut :* en cas de valeur Null, le champ est défini par défaut sur l’adresse IP HTTP capturée au niveau du point de terminaison de collecte de données.
+
+    *Exemples*<br/> 186.123.63.0<br/>123.203.131.0
 
 **continent**
 
@@ -530,7 +532,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Si issynthetic = true, cet élément de données représente la source des données synthétiques. 
 
-    *Valeur par défaut :* en cas de valeur Null, le système inspecte l’agent utilisateur pour rechercher des sources synthétiques connues (robots d’indexation, etc.) et peut alors définir la source sur cette base.
+    *Valeur par défaut :* en cas de valeur Null, le système inspecte l’agent utilisateur pour rechercher des sources synthétiques connues (robots d’indexation, etc.) et peut alors définir la source sur cette base.
 
 **syntheticTransaction**
 
@@ -538,15 +540,15 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Indicateur précisant que l’élément de télémétrie a été généré par suite de tests synthétiques et non d’une activité utilisateur réelle. 
 
-    *Valeur par défaut :* en cas de valeur Null, l’agent utilisateur est inspecté par rapport à une liste connue d’agents synthétiques. Si une correspondance est trouvée, ce champ est défini sur la valeur true.<br/>Si la correspondance d’agent utilisateur est nulle, le champ prend la valeur false.
+    *Valeur par défaut :* en cas de valeur Null, l’agent utilisateur est inspecté par rapport à une liste connue d’agents synthétiques. Si une correspondance est trouvée, ce champ est défini sur la valeur true.<br/>Si la correspondance d’agent utilisateur est nulle, le champ prend la valeur false.
 
 **session.Id**
 
     String context.session.id      Max: 100
 * 
-    Identificateur unique d’une interaction d’utilisateurs réels avec une application. Cette interaction constitue une « session ». Toutes les données de télémétrie générées par l’application sous la même clé d’instrumentation iKey doivent contenir cet identificateur unique. <br/><br/>Une session se définit par une série d’événements consécutifs au sein d’une même interaction utilisateur. Une période de plus de 30 minutes sans événement de télémétrie signale la fin d’une session.   
+    Identificateur unique d’une interaction d’utilisateurs réels avec une application. Cette interaction constitue une « session ». Toutes les données de télémétrie générées par l’application sous la même clé d’instrumentation iKey doivent contenir cet identificateur unique. <br/><br/>Une session se définit par une série d’événements consécutifs au sein d’une même interaction utilisateur. Une période de plus de 30 minutes sans événement de télémétrie signale la fin d’une session.   
 
-    *Valeur par défaut :* non valide sur MetricType, BillingType.
+    *Valeur par défaut :* non valide sur MetricType, BillingType.
 
     *Exemples*<br/> CFFC8B21-9828-4F56-AD7C-B6B5AC26B133
 
@@ -627,9 +629,9 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Nom de la dépendance distante 
 
-    *Dérivation :* normalisation sous la forme &lt;telemetryType.name&gt;
+    *Dérivation :* normalisation sous la forme &lt;telemetryType.name&gt;
 
-**remoteDependencyType**
+**type**
 
     string remotedependency.remotedependencytype      Max: 100
 * 
@@ -672,9 +674,9 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     boolean request.success      
 * 
-    Indicateur précisant si la demande a réussi. Un code de réponse obtenu dans les 200 s est considéré comme une réussite. 
+    Indicateur précisant si la demande a réussi. Un code de réponse obtenu dans les 200 s est considéré comme une réussite. 
 
-    *Valeur par défaut :* en cas de valeur Null, le champ est défini par défaut sur true.
+    *Valeur par défaut :* en cas de valeur Null, le champ est défini par défaut sur true.
 
 
 ## sessionmetric
@@ -683,37 +685,37 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     Long sessionmetric.anonymoususerdurationsincelastvisit      
 * 
-    Temps écoulé depuis la dernière visite effectuée par cet identificateur d’utilisateur anonyme. Lors de la première visite, ce champ est vide. Pour chaque visite ultérieure, il s’agit du temps écoulé entre les visites, exprimé en nombre de jours. Une valeur de 3 signifie que 3 jours se sont écoulés entre l’instance de session précédente et cette instance de session. 
+    Temps écoulé depuis la dernière visite effectuée par cet identificateur d’utilisateur anonyme. Lors de la première visite, ce champ est vide. Pour chaque visite ultérieure, il s’agit du temps écoulé entre les visites, exprimé en nombre de jours. Une valeur de 3 signifie que 3 jours se sont écoulés entre l’instance de session précédente et cette instance de session. 
 
 **anonymousUserSessionCount**
 
     Long sessionmetric.anonymoususersessioncount      
 * 
-    Nombre de visites de l’utilisateur anonyme. Il s’agit d’un compteur incrémentiel du nombre total de sessions historiques correspondant à cet identificateur d’utilisateur anonyme unique. Chaque session ouverte par cet identificateur incrémente le compteur. Ce compteur est effacé si l’identificateur d’utilisateur n’est pas rencontré dans un délai de 30 jours. Passé ce délai, le compteur est réinitialisé, et la prochaine visite de l’identificateur d’utilisateur sera considérée comme un nouvel utilisateur. 
+    Nombre de visites de l’utilisateur anonyme. Il s’agit d’un compteur incrémentiel du nombre total de sessions historiques correspondant à cet identificateur d’utilisateur anonyme unique. Chaque session ouverte par cet identificateur incrémente le compteur. Ce compteur est effacé si l’identificateur d’utilisateur n’est pas rencontré dans un délai de 30 jours. Passé ce délai, le compteur est réinitialisé, et la prochaine visite de l’identificateur d’utilisateur sera considérée comme un nouvel utilisateur. 
 
 **authenticatedAccountDurationSinceLastVisit**
 
     Long sessionmetric.authenticatedaccountdurationsincelastvisit      
 * 
-    Temps écoulé depuis la dernière visite effectuée par cet identificateur de compte. Lors de la première visite, ce champ est vide. Pour chaque visite ultérieure, il s’agit du temps écoulé entre les visites, exprimé en nombre de jours. Une valeur de 3 signifie que 3 jours se sont écoulés entre l’instance de session précédente et cette instance de session. 
+    Temps écoulé depuis la dernière visite effectuée par cet identificateur de compte. Lors de la première visite, ce champ est vide. Pour chaque visite ultérieure, il s’agit du temps écoulé entre les visites, exprimé en nombre de jours. Une valeur de 3 signifie que 3 jours se sont écoulés entre l’instance de session précédente et cette instance de session. 
 
 **authenticatedAccountSessionCount**
 
     Long sessionmetric.authenticatedaccountsessioncount      
 * 
-    Nombre de visites de l’identificateur de compte authentifié. Il s’agit d’un compteur incrémentiel du nombre total de sessions historiques correspondant à cet identificateur de compte unique. Chaque session ouverte par cet identificateur incrémente le compteur. Ce compteur est effacé si l’identificateur d’utilisateur n’est pas rencontré dans un délai de 30 jours. Passé ce délai, le compteur est réinitialisé, et la prochaine visite de l’identificateur d’utilisateur sera considérée comme un nouvel utilisateur. 
+    Nombre de visites de l’identificateur de compte authentifié. Il s’agit d’un compteur incrémentiel du nombre total de sessions historiques correspondant à cet identificateur de compte unique. Chaque session ouverte par cet identificateur incrémente le compteur. Ce compteur est effacé si l’identificateur d’utilisateur n’est pas rencontré dans un délai de 30 jours. Passé ce délai, le compteur est réinitialisé, et la prochaine visite de l’identificateur d’utilisateur sera considérée comme un nouvel utilisateur. 
 
 **authenticatedUserDurationSinceLastVisit**
 
     Long sessionmetric.authenticateduserdurationsincelastvisit      
 * 
-    Temps écoulé depuis la dernière visite effectuée par cet identificateur d’utilisateur authentifié. Lors de la première visite, ce champ est vide. Pour chaque visite ultérieure, il s’agit du temps écoulé entre les visites, exprimé en nombre de jours. Une valeur de 3 signifie que 3 jours se sont écoulés entre l’instance de session précédente et cette instance de session. 
+    Temps écoulé depuis la dernière visite effectuée par cet identificateur d’utilisateur authentifié. Lors de la première visite, ce champ est vide. Pour chaque visite ultérieure, il s’agit du temps écoulé entre les visites, exprimé en nombre de jours. Une valeur de 3 signifie que 3 jours se sont écoulés entre l’instance de session précédente et cette instance de session. 
 
 **authenticatedUserSessionCount**
 
     Long sessionmetric.authenticatedusersessioncount      
 * 
-    Nombre de visites de l’identificateur d’utilisateur authentifié. Il s’agit d’un compteur incrémentiel du nombre total de sessions historiques correspondant à cet identificateur d’utilisateur authentifié unique. Chaque session ouverte par cet identificateur incrémente le compteur. Ce compteur est effacé si l’identificateur d’utilisateur n’est pas rencontré dans un délai de 30 jours. Passé ce délai, le compteur est réinitialisé, et la prochaine visite de l’identificateur d’utilisateur sera considérée comme un nouvel utilisateur. 
+    Nombre de visites de l’identificateur d’utilisateur authentifié. Il s’agit d’un compteur incrémentiel du nombre total de sessions historiques correspondant à cet identificateur d’utilisateur authentifié unique. Chaque session ouverte par cet identificateur incrémente le compteur. Ce compteur est effacé si l’identificateur d’utilisateur n’est pas rencontré dans un délai de 30 jours. Passé ce délai, le compteur est réinitialisé, et la prochaine visite de l’identificateur d’utilisateur sera considérée comme un nouvel utilisateur. 
 
 **crashCount**
 
@@ -733,7 +735,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Premier événement de la session. Cette information découle de l’élément event.name et est disponible en tant que segmentation/agrégation pour les métriques sessionMetric. 
 
-    *Dérivation :* valeur découlant de l’élément event.name.
+    *Dérivation :* valeur découlant de l’élément event.name.
 
 **entryUrl**
 
@@ -741,7 +743,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Première URL de la session. Cette information découle de l’élément urlData.base et est disponible en tant que segmentation/agrégation pour les métriques sessionMetric. 
 
-    *Dérivation :* valeur découlant de l’élément &lt;telemetryType&gt;.Url.
+    *Dérivation :* valeur découlant de l’élément &lt;telemetryType&gt;.Url.
 
 **eventCount**
 
@@ -761,7 +763,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Dernier événement de la session. Cette information découle de l’élément event.name et est disponible en tant que segmentation/agrégation pour les métriques sessionMetric. 
 
-    *Dérivation :* valeur découlant de l’élément event.name.
+    *Dérivation :* valeur découlant de l’élément event.name.
 
 **exitUrl**
 
@@ -769,7 +771,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Dernière URL de la session. Cette information découle de l’élément urlData.base et est disponible en tant que segmentation/agrégation pour les métriques sessionMetric. 
 
-    *Dérivation :* valeur découlant de l’élément &lt;telemetryType&gt;.Url.
+    *Dérivation :* valeur découlant de l’élément &lt;telemetryType&gt;.Url.
 
 **pageBounceCount**
 
@@ -777,7 +779,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Nombre de sessions de rebond représenté par cet élément de télémétrie sessionMetric. Une session de rebond est une session créée sur la base d’un affichage d’élément de télémétrie unique. 
 
-    *Dérivation :* si sessionMetric.viewCount + sessionMetric.requestCount = 1, alors 1 sinon 0
+    *Dérivation :* si sessionMetric.viewCount + sessionMetric.requestCount = 1, alors 1 sinon 0
 
 **pageCount**
 
@@ -921,7 +923,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     string view.referralurl      Max: 2048
 * 
-    URL de référence de la page consultée. URL complète, prise en charge dans les recherches en texte intégral et dans les exportations. Ce champ peut présenter une cardinalité très importante et correspond à un attribut. Il est analysé dans un ensemble d’éléments de données referralData utilisable pour les agrégations dans Metrics Explorer. 
+    URL de référence de la page consultée. URL complète, prise en charge dans les recherches en texte intégral et dans les exportations. Ce champ peut présenter une cardinalité très importante et correspond à un attribut. Il est analysé dans un ensemble d’éléments de données referralData utilisable pour les agrégations dans Metrics Explorer. 
 
 **referrerData.base**
 
@@ -929,7 +931,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Partie de l’URL de référence excluant l’hôte et les paramètres de requête. Il s’agit de l’URI racine. Cette valeur est utilisable pour la segmentation/l’agrégation. 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
 **referrerData.hashTag**
 
@@ -937,7 +939,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Texte de la balise de hachage de l’URL de référence 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
 **referrerData.host**
 
@@ -945,7 +947,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Hôte de l’URL de référence. Si l’URL est un URI local, ce champ est représenté comme étant vide. 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
 **referrerData.port**
 
@@ -953,7 +955,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Port de l’URL de référence, s’il est représenté sur l’URL complète. Dans le cas contraire, ce champ est vide. 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
 **referrerData.protocol**
 
@@ -961,7 +963,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Protocole (HTTP, FTP, etc.) de l’URL de référence 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
     *Exemples*<br/> http<br/>https
 
@@ -971,7 +973,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Tableau des noms de paramètre de requête de l’URL de référence 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
 **referrerData.queryParameters.value**
 
@@ -979,7 +981,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Tableau des valeurs de paramètre de requête analysées à partir de l’URL des données de référence. 
 
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
+    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
 
 
@@ -989,4 +991,4 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

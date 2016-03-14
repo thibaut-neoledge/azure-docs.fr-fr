@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/26/2016" 
 	ms.author="tomfitz"/>
 
 # Mettre en service une application Web avec une base de données SQL
@@ -22,7 +22,7 @@ Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Ma
 
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
+Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
 
 Pour le modèle complet, consultez [Modèle d'application Web avec une base de données SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
@@ -30,7 +30,7 @@ Pour le modèle complet, consultez [Modèle d'application Web avec une base de d
 
 ## Ce que vous allez déployer
 
-Dans ce modèle, vous allez déployer :
+Dans ce modèle, vous allez déployer :
 
 - une application Web
 - Serveur de base de données SQL
@@ -39,7 +39,7 @@ Dans ce modèle, vous allez déployer :
 - Règles d'alerte
 - App Insights
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
@@ -132,7 +132,7 @@ Le nom correspondant au niveau de performances pour l'édition.
 
 ## Ressources à déployer
 
-### Base de données SQL et serveur SQL Server
+### Base de données SQL et serveur SQL Server
 
 Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est spécifié dans le paramètre **serverName** et l'emplacement est spécifié dans le paramètre **serverLocation**. Lorsque vous créez le serveur, vous devez fournir un nom et un mot de passe de connexion pour l'administrateur du serveur de base de données.
 
@@ -182,7 +182,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### Application web
+### Application web
 
     {
       "apiVersion": "2015-08-01",
@@ -457,4 +457,4 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

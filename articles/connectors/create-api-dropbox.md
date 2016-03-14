@@ -15,13 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Prendre en main l’API Dropbox 
-Connectez-vous à Dropbox pour effectuer des tâches de gestion de fichiers, telles que la création ou la récupération de fichiers.
+Connectez-vous à Dropbox pour effectuer des tâches de gestion de fichiers, telles que la création ou la récupération de fichiers. L’API Dropbox peut être utilisée à partir de :
 
-L’API Dropbox peut être utilisée à partir de PowerApps Enterprise et d’applications logiques.
+- Logic Apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic Apps](../articles/connectors/create-api-dropbox.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
 Avec Dropbox, vous pouvez effectuer les opérations suivantes :
 
@@ -32,7 +37,7 @@ Avec Dropbox, vous pouvez effectuer les opérations suivantes :
 
 Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 Dropbox inclut les déclencheurs et les actions suivants.
@@ -62,7 +67,7 @@ Quand vous ajoutez Dropbox à PowerApps Enterprise, vous entrez les valeurs **Cl
 5. Dans la page des paramètres de l’application :
 
 	1. Dans **OAuth 2**, entrez la valeur **URL de redirection** affichée quand vous ajoutez l’API Dropbox dans le portail Azure. Sélectionnez **Ajouter**.  
-	2. Sélectionnez le lien **Show** pour révéler la **question secrète de l’application**:  
+	2. Sélectionnez le lien **Show** pour révéler la **question secrète de l’application** :  
 
 	![Création d’application Dropbox page 2][11]
 
@@ -78,7 +83,8 @@ Après avoir créé la connexion, vous entrez les propriétés Dropbox, telles q
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Dropbox dans d’autres applications logiques.
 
-## Informations de référence sur l’API REST Swagger
+## Informations de référence sur l'API REST Swagger
+S'applique à la version 1.0.
 
 ### Créer un fichier    
 Charge un fichier sur Dropbox. ```POST: /datasets/default/files```
@@ -87,7 +93,7 @@ Charge un fichier sur Dropbox. ```POST: /datasets/default/files```
 | ---|---|---|---|---|---|
 |folderPath|string|yes|query|(aucun) |Chemin du dossier Dropbox sur lequel charger le fichier|
 |name|string|yes|query|(aucun) |Nom du fichier à créer dans Dropbox|
-|body|chaîne (binaire) |yes|body|(aucun) |Contenu du fichier à charger sur Dropbox|
+|body|string(binary) |yes|body|(aucun) |Contenu du fichier à charger sur Dropbox|
 
 #### Response
 |Nom|Description|
@@ -145,7 +151,7 @@ Extrait un fichier d’archive dans un dossier de Dropbox (exemple : .zip). **``
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|source|string|yes|query|(aucun) |Chemin du fichier d’archive|
+|source|string|yes|query|(aucun) |Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun) |Chemin dans Dropbox indiquant où extraire le contenu de l’archive|
 |overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
 
@@ -218,7 +224,7 @@ Met à jour un fichier dans Dropbox. ```PUT: /datasets/default/files/{id}```
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path| (aucun)|Identificateur unique du fichier à mettre à jour dans Dropbox|
-|body|chaîne (binaire) |yes|body|(aucun) |Contenu du fichier à mettre à jour dans Dropbox|
+|body|string(binary) |yes|body|(aucun) |Contenu du fichier à mettre à jour dans Dropbox|
 
 #### Response
 |Nom|Description|
@@ -241,7 +247,7 @@ Déclenche un flux quand un fichier est modifié dans un dossier Dropbox. ```GET
 |default|L’opération a échoué.|
 
 
-## Définitions d’objet
+## Définitions d'objet
 
 #### DataSetsMetadata
 
@@ -286,7 +292,7 @@ Déclenche un flux quand un fichier est modifié dans un dossier Dropbox. ```GET
 ## Étapes suivantes
 Après avoir ajouté l’API Dropbox à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
 
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 <!--References-->
@@ -298,4 +304,4 @@ Après avoir ajouté l’API Dropbox à PowerApps Enterprise, [donnez aux utilis
 [10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

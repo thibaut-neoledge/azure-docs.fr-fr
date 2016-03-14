@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
-# Utilisation de l’interface utilisateur (IU) d’Azure Mobile Engagement
+# Utilisation de l’interface utilisateur (IU) d’Azure Mobile Engagement
  
-## Introduction :
-Une fois que vous avez intégré le Kit de développement logiciel[(SDK)][Link 5] d’Azure Mobile Engagement dans votre application et que vous comprenez les [concepts][Link 6] de base d’Azure Mobile Engagement, vous pouvez interagir de deux façons avec Azure Mobile Engagement pour votre application : les utilisateurs standard peuvent utiliser l’[interface utilisateur][Link 1] et les développeurs peuvent utiliser HTTP REST basé sur les [API][Link 4]. Si vous rencontrez des difficultés, consultez les [Guides de résolution des problèmes][Link 2] d'Azure Mobile Engagement.
+## Introduction :
+Une fois que vous avez intégré le Kit de développement logiciel[(SDK)][Link 5] d’Azure Mobile Engagement dans votre application et que vous comprenez les [concepts][Link 6] de base d’Azure Mobile Engagement, vous pouvez interagir de deux façons avec Azure Mobile Engagement pour votre application : les utilisateurs standard peuvent utiliser l’[interface utilisateur][Link 1] et les développeurs peuvent utiliser HTTP REST basé sur les [API][Link 4]. Si vous rencontrez des difficultés, consultez les [Guides de résolution des problèmes][Link 2] d'Azure Mobile Engagement.
 
-## Articles sur l’interface utilisateur :
+## Articles sur l’interface utilisateur :
 
 - [Navigation][Link 12]
 - [Accueil][Link 13]
@@ -133,4 +133,4 @@ Une fois que vous avez intégré le Kit de développement logiciel[(SDK)][Link 5
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/22/2016"
+      ms.date="02/25/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Démarrage rapide pour l'API Graph Azure AD
@@ -28,10 +28,10 @@ L’API Graph Azure Active Directory (AD) donne accès par programme à Azure AD
 
 Dans l'API Graph, pour accéder aux données et objets d'annuaire (en d'autres termes, les ressources ou les entités) sur lesquels vous souhaitez effectuer des opérations CRUD, vous pouvez utiliser des URL basées sur le protocole OData (Open Data). Les URL utilisées dans l'API Graph se composent de quatre parties principales : racine de service, identificateur de locataire, chemin d'accès de ressource et options de chaîne de requête : `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Prenons l'exemple de l'URL suivante : `https://graph.windows.net/contoso.com/groups?api-version=1.5`.
 
-- **Racine de service**: dans l'API Graph Azure AD, la racine du service est toujours https://graph.windows.net.
-- **Identificateur de locataire**: cela peut être un nom de domaine (inscrit) vérifié, dans l'exemple ci-dessus, contoso.com. Cela peut également être un ID d'objet locataire ou l’alias « myorganiztion » ou « me ». Pour plus d'informations, consultez [Traitement des entités et opérations dans l'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview) (en anglais).
-- **Chemin d'accès de ressource**: cette section d'une URL identifie la ressource avec laquelle interagir (utilisateurs, groupes, utilisateur ou groupe spécifique, etc.) Dans l'exemple ci-dessus, il s’agit de « groupes de niveau supérieur » auquel adresser ce jeu de ressources. Vous pouvez également adresser une entité spécifique, par exemple « users/{objectId} » ou « users/userPrincipalName ».
-- **Paramètres de requête**: ? sépare la section du chemin d'accès de ressource de la section des paramètres de requête. Le paramètre de requête « api-version » est requis sur toutes les demandes dans l'API Graph. L'API Graph prend également en charge les options de requête OData suivantes : **$filter**, **$orderby**, **$expand**, **$top** et **$format**. Les options de requête suivantes ne sont pas prises en charge actuellement : **$count**, **$inlinecount** et **$skip**. Pour plus d'informations, consultez [Options de requêtes, de filtres et de pagination prises en charge dans l'API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
+- **Racine de service** : dans l'API Graph Azure AD, la racine du service est toujours https://graph.windows.net.
+- **Identificateur de locataire** : cela peut être un nom de domaine (inscrit) vérifié, dans l'exemple ci-dessus, contoso.com. Cela peut également être un ID d'objet locataire ou l’alias « myorganiztion » ou « me ». Pour plus d'informations, consultez [Traitement des entités et opérations dans l'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview) (en anglais).
+- **Chemin d'accès de ressource** : cette section d'une URL identifie la ressource avec laquelle interagir (utilisateurs, groupes, utilisateur ou groupe spécifique, etc.) Dans l'exemple ci-dessus, il s’agit de « groupes de niveau supérieur » auquel adresser ce jeu de ressources. Vous pouvez également adresser une entité spécifique, par exemple « users/{objectId} » ou « users/userPrincipalName ».
+- **Paramètres de requête** : ? sépare la section du chemin d'accès de ressource de la section des paramètres de requête. Le paramètre de requête « api-version » est requis sur toutes les demandes dans l'API Graph. L'API Graph prend également en charge les options de requête OData suivantes : **$filter**, **$orderby**, **$expand**, **$top** et **$format**. Les options de requête suivantes ne sont pas prises en charge actuellement : **$count**, **$inlinecount** et **$skip**. Pour plus d'informations, consultez [Options de requêtes, de filtres et de pagination prises en charge dans l'API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
 ## Versions d'API Graph
 
@@ -66,11 +66,12 @@ Voici la sortie que vous pouvez voir si vous accédez à l'explorateur graphique
 
 ![explorateur api graph Azure AD](./media/active-directory-graph-api-quickstart/screen_shot.jpg)
 
-**Charger l'explorateur graphique**: pour charger l'outil, accédez à [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Cliquez sur **Utiliser la société de démonstration** pour exécuter l'explorateur graphique sur les données d'un exemple de locataire. Vous n'avez pas besoin d'informations d'identification pour utiliser la société de démonstration. Vous pouvez également cliquer sur **Connexion** pour vous connecter avec vos informations d'identification de compte Azure AD afin d'exécuter l'explorateur graphique sur votre locataire. Si vous exécutez l'explorateur graphique sur votre propre client, vous ou votre administrateur devrez donner votre consentement lors de la connexion. Si vous avez un abonnement à Office 365, vous disposez automatiquement d'un client Azure AD. Les informations d'identification que vous utilisez pour vous connecter à Office 365 sont, en fait, des comptes Azure AD. Vous pouvez les utiliser avec l'explorateur graphique.
+**Charger l'explorateur graphique** : pour charger l'outil, accédez à [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Cliquez sur **Utiliser la société de démonstration** pour exécuter l'explorateur graphique sur les données d'un exemple de locataire. Vous n'avez pas besoin d'informations d'identification pour utiliser la société de démonstration. Vous pouvez également cliquer sur **Connexion** pour vous connecter avec vos informations d'identification de compte Azure AD afin d'exécuter l'explorateur graphique sur votre locataire. Si vous exécutez l'explorateur graphique sur votre propre client, vous ou votre administrateur devrez donner votre consentement lors de la connexion. Si vous avez un abonnement à Office 365, vous disposez automatiquement d'un client Azure AD. Les informations d'identification que vous utilisez pour vous connecter à Office 365 sont, en fait, des comptes Azure AD. Vous pouvez les utiliser avec l'explorateur graphique.
 
-**Exécuter une requête**: pour exécuter une requête, entrez votre requête dans la zone de texte de requête, puis cliquez sur **GET** ou sur la touche **Entrée**. Les résultats s’affichent dans la zone de réponse. Par exemple, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` affiche la liste de tous les objets de groupe figurant dans l'annuaire de démonstration.
+**Exécuter une requête** : pour exécuter une requête, entrez votre requête dans la zone de texte de requête, puis cliquez sur **GET** ou sur la touche **Entrée**. Les résultats s’affichent dans la zone de réponse. Par exemple, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` affiche la liste de tous les objets de groupe figurant dans l'annuaire de démonstration.
 
-Notez les fonctionnalités et les limitations de l'Explorateur de graphique suivantes : Fonctionnalité de saisie semi-automatique sur des jeux de ressources. Pour voir celle-ci en action, cliquez sur **Utiliser la société de démonstration**, puis cliquez sur la zone de texte de requête (où figure l'URL de la société). Vous pouvez sélectionner un jeu de ressources dans la liste déroulante.
+Notez les fonctionnalités et les limitations de l'Explorateur de graphique suivantes :
+- Fonctionnalité de saisie semi-automatique sur des jeux de ressources. Pour voir celle-ci en action, cliquez sur **Utiliser la société de démonstration**, puis cliquez sur la zone de texte de requête (où figure l'URL de la société). Vous pouvez sélectionner un jeu de ressources dans la liste déroulante.
 
 - Prend en charge les alias d’adressage « me » et « myorganization ». Par exemple, vous pouvez utiliser `https://graph.windows.net/me?api-version=1.5` pour renvoyer l'objet utilisateur de l'utilisateur connecté, ou `https://graph.windows.net/myorganization/users?api-version=1.5` pour renvoyer tous les utilisateurs dans l'annuaire actif. Notez que l’utilisation de l’alias « me » renvoie une erreur pour la société de démonstration, car aucun utilisateur connecté ne fait la demande.
 
@@ -86,9 +87,9 @@ Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser le débogue
 
 Dans l'exemple ci-dessous, vous allez utiliser le débogueur web Fiddler pour créer un nouveau groupe de sécurité « MyTestGroup » dans votre annuaire Azure AD.
 
-**Obtenir un jeton d'accès**: pour accéder à Azure AD Graph, les clients doivent tout d'abord s'authentifier auprès d'Azure AD. Pour plus d’informations, consultez la page [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
+**Obtenir un jeton d'accès** : pour accéder à Azure AD Graph, les clients doivent tout d'abord s'authentifier auprès d'Azure AD. Pour plus d’informations, consultez la page [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
 
-**Composer et exécuter une requête**: procédez comme suit :
+**Composer et exécuter une requête** : procédez comme suit :
 
 1. Ouvrez le débogueur Web Fiddler et basculez vers l’onglet **Composer**.
 2. Dans la mesure où vous souhaitez créer un groupe de sécurité, sélectionnez **Publier** comme méthode HTTP dans le menu déroulant. Pour plus d'informations sur les opérations et les autorisations relatives à un objet de groupe, consultez [Groupe](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) dans [Référence de l'API REST Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
@@ -125,4 +126,4 @@ Pour plus d'informations sur les entités et les types Azure AD exposés par Gra
 
 En savoir plus sur l’[API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

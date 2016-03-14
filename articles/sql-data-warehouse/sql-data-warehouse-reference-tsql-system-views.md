@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Vues système SQL Data Warehouse | Microsoft Azure"
-   description="Des liens vers le contenu des vues système pour SQL Data Warehouse"
+   pageTitle="Vues système SQL Data Warehouse | Microsoft Azure"
+   description="Des liens vers le contenu des vues système pour SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/17/2016"
+   ms.date="02/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Vues système
 
-## Vues de catalogue SQL Data Warehouse
+## Vues de catalogue SQL Data Warehouse
 
 - [sys.pdw\_column\_distribution\_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 - [sys.pdw\_database\_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
@@ -27,8 +27,6 @@
 - [sys.pdw\_diag\_sessions](http://msdn.microsoft.com/library/mt203890.aspx)
 - [sys.pdw\_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 - [sys.pdw\_index\_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
-- [sys.pdw\_loader\_backup\_run\_details](http://msdn.microsoft.com/library/mt203877.aspx)
-- [sys.pdw\_loader\_backup\_runs](http://msdn.microsoft.com/library/mt203884.aspx)
 - [sys.pdw\_nodes\_column\_store\_dictionaries](http://msdn.microsoft.com/library/mt203902.aspx)
 - [sys.pdw\_nodes\_column\_store\_row\_groups](http://msdn.microsoft.com/library/mt203880.aspx)
 - [sys.pdw\_nodes\_column\_store\_segments](http://msdn.microsoft.com/library/mt203916.aspx)
@@ -40,7 +38,7 @@
 - [sys.pdw\_table\_distribution\_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 - [sys.pdw\_table\_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## Vues de gestion dynamique SQL Data Warehouse
+## Vues de gestion dynamique SQL Data Warehouse
 
 - [sys.dm\_pdw\_diag\_processing\_stats](http://msdn.microsoft.com/library/mt203914.aspx)
 - [sys.dm\_pdw\_dms\_cores](http://msdn.microsoft.com/library/mt203911.aspx)
@@ -60,7 +58,7 @@
 - [sys.dm\_pdw\_waits](http://msdn.microsoft.com/library/mt203909.aspx)
 - [sys.dm\_pdw\_lock\_waits](http://msdn.microsoft.com/library/mt203901.aspx)
 
-## Vues de catalogue SQL Server
+## Vues de catalogue SQL Server
 
 - [sys.all\_columns](http://msdn.microsoft.com/library/ms177522.aspx)
 - [sys.all\_objects](http://msdn.microsoft.com/library/ms178618.aspx)
@@ -113,18 +111,18 @@
 - [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 - [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
-## Liste des vues de gestion dynamique SQL Server disponibles dans SQL Data Warehouse
+## Liste des vues de gestion dynamique SQL Server disponibles dans SQL Data Warehouse
 
-SQL Data Warehouse expose de nombreuses vues de gestion dynamique SQL Server. Ces vues, lorsqu’elles sont interrogées dans SQL Data Warehouse, signalent l'état de la base de données SQL en cours d'exécution sur les distributions.
+SQL Data Warehouse expose de nombreuses vues de gestion dynamique SQL Server. Ces vues, lorsqu’elles sont interrogées dans SQL Data Warehouse, signalent l'état de la base de données SQL en cours d'exécution sur les distributions.
 
-Puisque SQL Data Warehouse est basé sur la technologie MPP de Microsoft, SQL Data Warehouse et l’entrepôt de données parallèles (PDW) du système de plateforme d’analyse utilisent les mêmes vues système.
+Puisque SQL Data Warehouse est basé sur la technologie MPP de Microsoft, SQL Data Warehouse et l’entrepôt de données parallèles (PDW) du système de plateforme d’analyse utilisent les mêmes vues système.
 
-C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne appelée « pdw\_node\_id ». Il s'agit de l'identificateur du nœud de calcul. Dans PDW, le nœud de calcul est un concept plus fort pour l'architecture. Dans SQL Data Warehouse, l'architecture s’appuie davantage sur les distributions.
+C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne appelée « pdw\_node\_id ». Il s'agit de l'identificateur du nœud de calcul. Dans PDW, le nœud de calcul est un concept plus fort pour l'architecture. Dans SQL Data Warehouse, l'architecture s’appuie davantage sur les distributions.
 
->[AZURE.NOTE] Pour utiliser ces vues, insérez « pdw\_nodes\_ » dans le nom, comme indiqué dans le tableau suivant.
+>[AZURE.NOTE] Pour utiliser ces vues, insérez « pdw\_nodes\_ » dans le nom, comme indiqué dans le tableau suivant.
 
 
-| Nom de la vue de gestion dynamique dans SQL Data Warehouse | Lien vers la rubrique Transact-SQL SQL Server sur MSDN |
+| Nom de la vue de gestion dynamique dans SQL Data Warehouse | Lien vers la rubrique Transact-SQL SQL Server sur MSDN |
 | :----------------------------- | :-------------------------------------------- |
 | sys.dm\_pdw\_nodes\_db\_file\_space\_usage | [sys.dm\_db\_file\_space\_usage (Transact-SQL)](http://msdn.microsoft.com/library/ms174412.aspx) |
 | sys.dm\_pdw\_nodes\_db\_index\_usage\_stats | [sys.dm\_db\_index\_usage\_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms188755.aspx) |
@@ -182,7 +180,7 @@ C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne 
 | sys.dm\_pdw\_nodes\_tran\_session\_transactions | [sys.dm\_tran\_session\_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm\_pdw\_nodes\_tran\_top\_version\_generators | [sys.dm\_tran\_top\_version\_generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## Vues de gestion dynamique PolyBase SQL Server 2016 disponibles dans SQL Data Warehouse
+## Vues de gestion dynamique PolyBase SQL Server 2016 disponibles dans SQL Data Warehouse
 
 - [sys.dm\_exec\_compute\_node\_errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)
 - [sys.dm\_exec\_compute\_node\_status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)
@@ -195,9 +193,9 @@ C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne 
 - [sys.dm\_exec\_external\_operations (Transact-SQL)](https://msdn.microsoft.com/library/mt146391.aspx)
 - [sys.dm\_exec\_external\_work (Transact-SQL)](https://msdn.microsoft.com/library/mt146375.aspx)
 
-## Vues information\_schema SQL Server
+## Vues information\_schema SQL Server
 
-Voici des liens vers les vues du schéma d'informations SQL Server disponibles dans SQL Server PDW. Toutes les vues INFORMATION\_SCHEMA que vous souhaitiez découvrir dans SQL Server sont disponibles dans SQL Server PDW .
+Voici des liens vers les vues du schéma d'informations SQL Server disponibles dans SQL Server PDW. Toutes les vues INFORMATION\_SCHEMA que vous souhaitiez découvrir dans SQL Server sont disponibles dans SQL Server PDW .
 
 - [CHECK\_CONSTRAINTS (Transact-SQL)](http://msdn.microsoft.com/library/ms189772.aspx)
 - [COLUMN\_DOMAIN\_USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms189447.aspx)
@@ -220,16 +218,16 @@ Voici des liens vers les vues du schéma d'informations SQL Server disponibles 
 - [VIEWS (Transact-SQL)](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Étapes suivantes
-Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL Data Warehouse][].
+Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble de référence de SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
+[vue d’ensemble de référence de SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -30,7 +30,7 @@ Cet article répertorie les étapes requises pour préparer votre environnement 
 Si vous avez déjà suivi l’ensemble des étapes générales ci-dessus, vous pouvez démarrer la [sauvegarde de vos machines Windows](backup-azure-backup-windows-server.md). Sinon, exécutez les étapes détaillées ci-dessous pour vérifier que votre environnement est prêt.
 
 ## Avant de commencer
-Pour préparer votre environnement pour la sauvegarde de machines Windows, vous avez besoin d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un [compte d’évaluation gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
+Pour préparer votre environnement pour la sauvegarde de machines Windows, vous avez besoin d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
 
 ## Créer un archivage de sauvegarde
 Pour sauvegarder des fichiers et données à partir d’une machine Windows ou de Data Protection Manager (DPM) dans Azure ou lors de la sauvegarde de machines virtuelles IaaS dans Azure, vous devez créer un archivage de sauvegarde dans la région géographique où vous voulez stocker les données.
@@ -53,11 +53,35 @@ Pour sauvegarder des fichiers et données à partir d’une machine Windows ou d
 
     ![Création d’un archivage](./media/backup-configure-vault/creatingvault1.png)
 
-    Une fois l’opération terminée, un message vous indique que l’archivage a bien été créé. L’archivage est également répertorié dans les ressources Recovery Services en tant que **Actif**. ![Création d’un état de l’archivage](./media/backup-configure-vault/backupvaultstatus1.png)
+    Une fois l’opération terminée, un message vous indique que l’archivage a bien été créé. Le coffre est également répertorié dans les ressources Recovery Services en tant que **Actif**.
 
-> [AZURE.IMPORTANT] Nous vous recommandons d’identifier votre option de redondance de stockage juste après la création de l’archivage et avant l’inscription d’une machine dans l’archivage. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
->
-> **Pour en savoir plus sur les options de redondance de stockage, consultez cette [vue d’ensemble](backup-azure-storage-redundancy-options.md).**
+    ![Création d’un état de l’archivage](./media/backup-configure-vault/backupvaultstatus1.png)
+
+    >[AZURE.IMPORTANT] Nous vous recommandons d’identifier votre option de redondance de stockage juste après la création de l’archivage et avant l’inscription d’une machine dans l’archivage. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
+
+4. Sélectionnez les options de **redondance de stockage**.
+
+    Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données dans Azure à partir de Windows Server), choisissez l’option de [stockage géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) (par défaut).
+
+    Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tertiaire (par exemple, vous utilisez SCDPM pour disposer d’une copie de sauvegarde localement et utilisez Azure pour vos besoins de rétention à long terme), choisissez le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage). Cela vous permet de diminuer les coûts de stockage de données dans Azure tout en fournissant un niveau inférieur de durabilité de vos données pouvant être acceptables pour des copies tertiaires.
+
+    En savoir plus sur les options de stockage [géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) et [localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) dans cette [présentation](../storage/storage-redundancy.md).
+
+    a. Cliquez sur le coffre que vous venez de créer.
+
+    b. Dans la page Démarrage rapide, cliquez sur **Configurer**.
+
+    ![Configurer l’état du coffre](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
+
+    c. Choisissez l’option de redondance de stockage appropriée.
+
+    Vous devez cliquer sur **Enregistrer** si vous avez sélectionné **Localement redondant**, car **Géo-redondant** est l’option par défaut.
+
+    ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
+
+    d. Dans le volet de navigation gauche, cliquez sur **Recovery Services** pour revenir à la liste des ressources pour **Recovery Services**.
+
+    ![Sélectionner un coffre de sauvegarde](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
 ## Téléchargement du fichier d’informations d’identification de coffre
 Le serveur local (client Windows ou Windows Server ou serveur Data Protection Manager) doit être authentifié avec un archivage de sauvegarde avant de pouvoir sauvegarder des données dans Azure. L’authentification s’effectue à l’aide des « informations d’identification du coffre ». Le fichier d’informations d’identification de coffre est téléchargé via un canal sécurisé depuis le portail Azure et le service Azure Backup n’a pas connaissance de la clé privée du certificat, qui n’est pas conservée dans le portail ou le service.
@@ -68,9 +92,9 @@ En savoir plus sur l’[utilisation des informations d’identification de coffr
 
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
 
-2. Cliquez sur **Recovery Services** dans le volet de navigation gauche et sélectionnez l’archivage de sauvegarde que vous avez créé.
+2. Cliquez sur **Recovery Services** dans le volet de navigation gauche et sélectionnez le coffre de sauvegarde que vous avez créé.
 
-3.  Cliquez sur l’icône du cloud pour accéder à la page de *démarrage rapide* de l’archivage de sauvegarde.
+3.  Cliquez sur l’icône du cloud pour accéder à la page de *démarrage rapide* du coffre de sauvegarde.
 
     ![Aperçu rapide](./media/backup-configure-vault/quickview.png)
 
@@ -111,7 +135,7 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
 
     L’agent Azure Backup installe .NET Framework 4.5 et Windows PowerShell (s’il n’est pas déjà installé) pour terminer l’installation.
 
-6. Une fois l’agent installé, cliquez sur **Procéder à l’enregistrement** pour continuer le flux de travail.
+6. Une fois l’agent installé, cliquez sur **Procéder à l’inscription** pour continuer le flux de travail.
 
     ![S’inscrire](./media/backup-configure-vault/register.png)
 
@@ -136,9 +160,9 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
     La machine est désormais inscrite dans l’archivage et vous êtes prêt à démarrer la sauvegarde dans Microsoft Azure.
 
 ## Étapes suivantes
-- Inscription pour un [compte d’évaluation gratuite de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
+- Ouvrir [gratuitement un compte Azure](https://azure.microsoft.com/free/)
 - [Sauvegarder un serveur ou un ordinateur client Windows](backup-azure-backup-windows-server.md).
 - Si vous avez encore des questions, consultez le [Forum aux questions Azure Backup](backup-azure-backup-faq.md).
-- Rendez-vous sur le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

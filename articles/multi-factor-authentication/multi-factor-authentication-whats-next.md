@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/26/2016" 
 	ms.author="billmath"/>
 
 # Configuration d’Azure Multi-Factor Authentication
@@ -35,7 +35,7 @@ Fonctionnalité| Description| Éléments
 [Mise en cache](#caching)|La mise en cache vous permet de définir une période spécifique pour que les tentatives d'authentification suivantes aboutissent automatiquement. |Installation et configuration de la mise en cache de l’authentification.
 [Adresses IP approuvées](#trusted-ips)|Adresses IP approuvées est une fonctionnalité d'authentification multifacteur qui permet aux administrateurs d'un client géré ou fédéré de contourner l'authentification multifacteur des utilisateurs qui se connectent à partir de l'intranet local de l'entreprise.|Configurer et définir les adresses IP qui ne sont pas soumis à l'authentification multifacteur	
 [Mots de passe d'application](#app-passwords)|Mots de passe d'application permet à une application, qui ne prend pas en charge MFA, de contourner l'authentification multifacteur et de continuer à fonctionner.|Informations sur les mots de passe d'application.
-[Interrompre Multi-Factor Authentication pour les appareils et les navigateurs mémorisés (version préliminaire publique)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|Vous permet d’interrompre l'authentification MFA pour un nombre défini de jours après qu'un utilisateur soit parvenu à se connecter à l'aide de MFA.|Informations sur l'activation de cette fonctionnalité et la configuration du nombre de jours.
+[Mémoriser Multi-Factor Authentication pour les appareils et les navigateurs mémorisés](#remember-multi-factor-authentication-for-devices-users-trust)|Vous permet de mémoriser des appareils pour un nombre défini de jours après qu’un utilisateur soit parvenu à se connecter à l’aide de MFA.|Informations sur l'activation de cette fonctionnalité et la configuration du nombre de jours.
 [Méthodes de vérification sélectionnables (version préliminaire publique)](#selectable-verification-methods-public-preview)|Vous permet de choisir les méthodes d'authentification disponibles pour les utilisateurs.|Informations sur l'activation ou la désactivation des méthodes d'authentification spécifiques telles que les messages d'appel ou de texte.
 
 
@@ -331,25 +331,25 @@ Les utilisateurs pourront également créer des mots de passe d’application pa
 
 ![Mots de passe d'application](./media/multi-factor-authentication-whats-next/myapp.png)
 
-## Interrompre Multi-Factor Authentication pour les appareils et les navigateurs mémorisés (version préliminaire publique)
+## Mémoriser Multi-Factor Authentication pour les appareils utilisateur de confiance
 
-L’interruption de Multi-Factor Authentication pour les navigateurs et appareils mémorisés est une fonctionnalité qui permet de donner aux utilisateurs la possibilité d’interrompre MFA pour un nombre défini de jours après l'exécution d’une connexion réussie à l'aide de MFA. Cette fonctionnalité gratuite facilite grandement la tâche des utilisateurs de MFA. Toutefois, étant donné que les utilisateurs sont autorisés à interrompre MFA, cette fonctionnalité peut réduire la sécurité du compte.
+La mémorisation Multi-Factor Authentication pour les appareils et les navigateurs de confiance est une fonctionnalité disponible gratuitement pour tous les utilisateurs MFA. Elle vous permet de donner aux utilisateurs la possibilité de contourner MFA pour un nombre défini de jours après une connexion réussie à l’aide de l’authentification multifacteur. Ceci permet d’améliorer la facilité d’utilisation pour vos utilisateurs.
 
-Pour vous assurer que les comptes d'utilisateur sont sécurisés, vous devez restaurer Multi-Factor Authentication sur leurs appareils pour l’un des scénarios suivants :
+Toutefois, étant donné que les utilisateurs sont autorisés à mémoriser MFA pour les appareils de confiance, cette fonctionnalité peut réduire la sécurité du compte. Pour garantir la sécurité du compte, vous devez restaurer Multi-Factor Authentication sur leurs appareils pour l’un des scénarios suivants :
 
 - Si leur compte d'entreprise est devenu compromis
 - Si un appareil mémorisé a été perdu ou volé
 
 > [AZURE.NOTE] Cette fonctionnalité est implémentée comme un cache de cookie du navigateur. Elle ne fonctionnera pas si les cookies de votre navigateur ne sont pas activés.
 
-### Activation/désactivation de MFA pour les appareils mémorisés et définis
+### Activation et désactivation de Mémoriser MFA
 
 1. Connectez-vous au portail Azure Classic.
 2. Cliquez à gauche sur Active Directory.
-3. Dans Active Directory, cliquez sur le répertoire sur lequel vous souhaitez configurer Interrompre Multi-Factor Authentication pour les appareils mémorisés.
+3. Dans Active Directory, cliquez sur le répertoire pour lequel vous souhaitez configurer Mémoriser Multi-Factor Authentication pour les appareils.
 4. Dans le répertoire que vous avez sélectionné, cliquez sur Configurer.
 5. Dans la section Authentification multifacteur, cliquez sur Gérer les paramètres de service.
-6. Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs d’interrompre l'authentification multifacteur pour qu’un appareil puisse être mémorisé**. ![Interrompre les appareils](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
+6. Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs de mémoriser l’authentification multifacteur pour les appareils de confiance**. ![Mémoriser des appareils](./media/multi-factor-authentication-whats-next/remember.png)
 8. Définissez le nombre de jours pendant lesquels vous souhaitez autoriser l’interruption. La valeur par défaut est de 14 jours.
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
@@ -372,8 +372,8 @@ Méthode|Description
 3. Sous Active Directory, cliquez sur le répertoire pour lequel vous souhaitez activer ou désactiver les méthodes d'authentification.
 4. Dans le répertoire que vous avez sélectionné, cliquez sur Configurer.
 5. Dans la section Authentification multifacteur, cliquez sur Gérer les paramètres de service.
-6. Dans les options de vérification de la page Paramètres de service, sélectionnez/désélectionnez les options que vous souhaitez utiliser.</br></br> ![Interrompre les appareils](./media/multi-factor-authentication-whats-next/authmethods.png)
+6. Dans les options de vérification de la page Paramètres de service, sélectionnez/désélectionnez les options que vous souhaitez utiliser.</br></br> ![Options de vérification](./media/multi-factor-authentication-whats-next/authmethods.png)
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

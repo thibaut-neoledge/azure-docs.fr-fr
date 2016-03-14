@@ -47,8 +47,21 @@ Pour utiliser l’API Yammer, vous devez créer une **connexion**, puis fournir 
 | ---|---|---|
 |Jeton|Oui|Indiquez les informations d’identification Yammer.|
 
+Suivez ces étapes pour vous connecter à Yammer et terminer la configuration de la **connexion** à Yammer dans votre application logique :
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
+1. Sélectionnez **Périodicité**
+2. Sélectionnez une **Fréquence** et entrez un **Intervalle**
+3. Sélectionnez **Ajouter une action** ![Configurer Yammer][1]
+4. Entrez Yammer dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant Yammer dans leur nom
+5. Sélectionnez **Yammer - Obtenir tous les messages**
+6. Sélectionnez **Se connecter à Yammer** : ![Configurer Yammer][2]
+7. Entrez vos informations d’identification Yammer pour vous connecter et autoriser l’application ![Configurer Yammer][3]  
+8. Vous êtes redirigé vers la page de connexion de votre organisation. **Autorisez** Yammer à interagir avec votre application logique : ![Configurer Yammer][4] 
+9. Après vous être connecté, revenez à votre application logique pour la terminer en configurant la section **Yammer - Obtenir tous les messages** et en ajoutant les autres déclencheurs et actions dont vous avez besoin. ![Configurer Yammer][5]  
+10. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menu supérieure.
+
+
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
 ## Informations de référence sur l’API REST Yammer
 Cette documentation concerne la version 1.0.
@@ -185,6 +198,12 @@ Si l’ID de groupe est fourni, le message est publié dans le groupe spécifié
 
 
 ## Étapes suivantes
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-yammer/connectionconfig1.png
+[2]: ./media/create-api-yammer/connectionconfig2.png
+[3]: ./media/create-api-yammer/connectionconfig3.png
+[4]: ./media/create-api-yammer/connectionconfig4.png
+[5]: ./media/create-api-yammer/connectionconfig5.png
+
+<!---HONumber=AcomDC_0302_2016-->

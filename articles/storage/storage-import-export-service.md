@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Utilisation du service Import/Export pour transférer des données vers le stockage d’objets blob | Microsoft Azure"
 	description="Découvrez comment créer des tâches d’importation et d’exportation dans le portail Azure Classic pour transférer des données vers Blob Storage."
-	authors="robinsh"
-	manager="carmonm"
+	authors="renashahmsft"
+	manager="aungoo"
 	editor="tysonn"
 	services="storage"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="02/29/2016"
 	ms.author="renash"/>
 
 
@@ -34,7 +34,7 @@ Cet article offre une vue d’ensemble du service Import/Export et explique comm
 
 ## Présentation du service Import/Export ##
 
-Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une *tâche*. Il peut s'agir d'une *tâche d'importation* ou d'une *tâche d'exportation*:
+Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une *tâche*. Il peut s'agir d'une *tâche d'importation* ou d'une *tâche d'exportation* :
 
 - Une tâche d’importation vise à transférer des données locales vers des objets blob de votre compte de stockage Azure.
 - Une tâche d'exportation vise à transférer des données stockées sous forme d'objets blob dans votre compte de stockage sur des disques durs qui vous sont ensuite expédiés.
@@ -51,7 +51,7 @@ Lorsque vous créez une tâche d'importation ou d'exportation, vous avez égalem
 
 1.	**Abonnement et comptes de stockage :** vous devez être titulaire d'un abonnement Azure et posséder un ou plusieurs comptes de stockage classiques pour pouvoir utiliser le service Import/Export. Chaque tâche ne peut servir à transférer des données que vers ou à partir d'un seul compte de stockage classique. Autrement dit, une tâche ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account). 
 
-  > [AZURE.NOTE] Si vous avez un compte de stockage ARM, contactez le support Azure.
+  > [AZURE.NOTE] Les comptes de stockage utilisant le modèle ARM ne sont pas encore pris en charge.
 
 2.	**Disques durs :** seuls les disques durs internes SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs sont pris en charge jusqu’à 8 To. Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS. Vous pouvez raccorder un disque SATA II/III par voie externe à la plupart des ordinateurs à l’aide d’un adaptateur USB SATA II/III externe.
 3.	**Chiffrement BitLocker :** toutes les données stockées sur les disques durs doivent être chiffrées à l’aide de BitLocker avec des clés de chiffrement protégées par des mots de passe numériques.
@@ -230,7 +230,8 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 
 - Non. Tous les lecteurs doivent être préparés avec BitLocker.
 
-**Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?** - Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande PreviewExport de l’outil Azure Import/Export. Pour plus d'informations, consultez la section [Aperçu de l'utilisation du lecteur pour une tâche d'exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
+**Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?**
+- Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande PreviewExport de l’outil Azure Import/Export. Pour plus d'informations, consultez la section[ Aperçu de l'utilisation du lecteur pour une tâche d'exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
 
 ### Expédition
 
@@ -276,7 +277,7 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 
 **Pourquoi l’état de ma tâche sur le portail Classic indique-t-il *En cours d’expédition* alors que le site du transporteur indique que mon package est livré ?**
 
-- L’état du portail passe de *En cours d’expédition* à *En cours de transfert* au démarrage du traitement du lecteur. Si le lecteur a atteint l’installation, mais que son traitement n'a pas démarré, l’état de votre tâche indiquera *En cours d’expédition*.
+- L’état du portail passe de *En cours d’expédition* à *En cours de transfert* au démarrage du traitement du lecteur. Si le lecteur a atteint l’installation alors que son traitement n'a pas démarré, l’état de votre tâche indiquera *En cours d’expédition*.
 
 ## Voir aussi
 
@@ -287,4 +288,4 @@ Dans le cas des tâches d’exportation, vous pouvez afficher et copier les clé
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

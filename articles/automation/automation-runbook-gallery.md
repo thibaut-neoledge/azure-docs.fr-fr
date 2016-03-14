@@ -1,18 +1,18 @@
-<properties 
+<properties
 	pageTitle="Galeries de runbooks et de modules pour Azure Automation | Microsoft Azure"
 	description="Des runbooks et des modules de Microsoft et de la communauté sont disponibles pour l’installation et l’utilisation dans votre environnement Azure Automation. Cet article décrit comment accéder à ces ressources et comment partager vos runbooks dans la galerie."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
-<tags 
+<tags
 	ms.service="automation"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/18/2016"
+	ms.date="03/02/2016"
 	ms.author="magoedte;bwren" />
 
 
@@ -33,19 +33,31 @@ Vous pouvez uniquement importer directement à partir de la galerie de runbooks 
 ### Pour importer un runbook à partir de la galerie de runbooks avec le portail Azure Classic
 
 1. Dans le portail de gestion Azure, cliquez sur **Nouveau**, **Services d’application**, **Automation**, **Runbook**, **À partir de la galerie**.
-2. Sélectionnez une catégorie pour afficher les runbooks associés, puis sélectionnez un runbook pour afficher les informations le concernant. Une fois que vous avez sélectionné le runbook souhaité, cliquez sur la flèche droite.<br> ![Galerie de runbooks](media/automation-runbook-gallery/runbook-gallery.png)
+2. Sélectionnez une catégorie pour afficher les runbooks associés, puis sélectionnez un runbook pour afficher les informations le concernant. Une fois que vous avez sélectionné le runbook souhaité, cliquez sur la flèche droite.
+
+    ![Galerie de runbooks](media/automation-runbook-gallery/runbook-gallery.png)
+
 3. Passez en revue le contenu du runbook et prenez note des conditions requises dans la description. Cliquez sur la flèche droite lorsque vous avez terminé.
 4. Entrez les détails du runbook, puis cliquez sur la coche. Le nom du runbook est déjà renseigné.
 5. Le runbook apparaît sur l’onglet **Runbooks** pour le compte Automation.
 
 ### Pour importer un runbook à partir de la galerie de runbooks avec le portail Azure
 
-1. Dans le portail Azure, ouvrez votre compte Automation. 
+1. Dans le portail Azure, ouvrez votre compte Automation.
 2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des runbooks.
-3. Cliquez sur le bouton **Parcourir la galerie**. <br> ![Bouton Parcourir la galerie](media/automation-runbook-gallery/browse-gallery-button.png)
-4. Recherchez l’élément de la galerie qui vous intéresse et sélectionnez-le pour afficher les informations le concernant. <br> ![Parcourir la galerie](media/automation-runbook-gallery/browse-gallery.png)
+3. Cliquez sur le bouton **Parcourir la galerie**.
+
+    ![Bouton Parcourir la galerie](media/automation-runbook-gallery/browse-gallery-button.png)
+
+4. Recherchez l’élément de la galerie qui vous intéresse et sélectionnez-le pour afficher les informations le concernant.
+
+    ![Parcourir la galerie](media/automation-runbook-gallery/browse-gallery.png)
+
 4. Cliquez sur **Afficher le projet source** pour afficher l’élément dans le [Centre de scripts TechNet](http://gallery.technet.microsoft.com/).
-5. Pour importer un élément, cliquez dessus pour afficher les informations le concernant, puis cliquez sur le bouton **Importer**.<br> ![Bouton Importer](media/automation-runbook-gallery/gallery-item-detail.png)
+5. Pour importer un élément, cliquez dessus pour afficher les informations le concernant, puis cliquez sur le bouton **Importer**.
+
+    ![Bouton Importer](media/automation-runbook-gallery/gallery-item-detail.png)
+
 6. Vous pouvez également modifier le nom du runbook, puis cliquer sur **OK** pour importer le runbook.
 5. Le runbook apparaît sur l’onglet **Runbooks** pour le compte Automation.
 
@@ -77,27 +89,43 @@ Microsoft vous invite à ajouter à la galerie de runbooks des runbooks dont vou
  - Gestion du cycle de vie des machines virtuelles
 
 
-- Automation met à jour la galerie toutes les heures, donc vous ne verrez pas vos contributions immédiatement. Si vous ne voyez pas votre runbook dans la galerie après une heure, vérifiez les conditions requises dans la section [Ajout d’un runbook dans la galerie de runbooks](#AddRunbook).
+- Automation met à jour la galerie toutes les heures, donc vous ne verrez pas vos contributions immédiatement.
 
 ## Modules dans PowerShell Gallery
 
 Les modules PowerShell contiennent des applets de commande que vous pouvez utiliser dans vos runbooks ; des modules existants que vous pouvez installer dans Azure Automation sont disponibles dans [PowerShell Gallery](http://www.powershellgallery.com). Vous pouvez lancer cette galerie à partir du portail Azure et les installer directement dans Azure Automation, ou vous pouvez les télécharger et les installer manuellement. Vous ne pouvez pas installer les modules directement depuis le portail Azure Classic, mais vous pouvez les télécharger et les installer comme vous le feriez avec tout autre module.
 
-### Pour importer un module à partir de PowerShell Gallery avec le portail Azure
+### Pour importer un module à partir d’Automation Module Gallery avec le portail Azure
 
-1. Dans le portail Azure, ouvrez votre compte Automation. 
+1. Dans le portail Azure, ouvrez votre compte Automation.
 2. Cliquez sur la vignette **Ressources** pour ouvrir la liste des ressources.
 3. Cliquez sur la vignette **Modules** pour ouvrir la liste des modules.
-3. Cliquez sur le bouton **PowerShell Gallery** pour lancer la PowerShell Gallery dans une autre fenêtre de navigateur. <br> ![PowerShell Gallery](media/automation-runbook-gallery/powershell-gallery-button.png)
-4. Cliquez sur le menu **Modules** pour accéder à la liste des modules disponibles.<br> ![Bouton PowerShell Gallery](media/automation-runbook-gallery/powershell-gallery.png)
-4. Recherchez un module qui vous intéresse et sélectionnez-le pour en afficher les détails.
-5. Pour installer le module directement dans Azure Automation, cliquez sur le bouton **Déployer dans Azure Automation**.<br> ![Bouton PowerShell Gallery](media/automation-runbook-gallery/powershell-gallery-detail.png)
-6. Vous revenez au portail Azure dans un volet **Déploiement personnalisé**. Spécifiez si vous allez installer le module dans un **compte Automation nouveau ou existant** et le **nom du compte Automation**. L’**emplacement du compte Automation** est ignoré si vous utilisez un compte existant. 
-7. Sélectionnez **Groupe de ressources** et spécifiez un groupe de ressources existant ou créez-en un pour le module.
-6. Vous devez sélectionner **Mentions légales** et cliquer sur **Acheter**. Notez que, malgré le nom de ce bouton, vous n’êtes pas réellement facturé pour l’installation d’un module.
-7. Cliquez sur **Créer** pour importer le module. Cette opération peut prendre quelques minutes, car chaque activité doit être extraite.  
-8. Vous recevrez une notification indiquant que le module est en cours de déploiement et une notification indiquant que le processus est terminé. 
+4. Cliquez sur le bouton **Parcourir la galerie**. Le panneau Parcourir la galerie s’affiche.
 
+    ![Galerie du module](media/automation-runbook-gallery/modules-blade.png) <br>
+5. Une fois que vous avez lancé le panneau Parcourir la galerie, vous pouvez exécuter une recherche à l’aide des champs suivants :
+
+   - Nom du module
+   - Balises
+   - Auteur
+   - Nom Applet de commande/Ressource DSC
+
+6. Recherchez un module qui vous intéresse et sélectionnez-le pour en afficher les détails. Lorsque vous explorez un module spécifique, vous pouvez afficher plus d’informations le concernant, y compris un lien vers PowerShell Gallery, les dépendances requises et toutes les applets de commande et/ou les ressources DSC que contient le module.
+
+    ![Détails du module PowerShell](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
+
+7. Pour installer le module directement dans Azure Automation, cliquez sur le bouton **Importer**.
+
+    ![Bouton Importer le module](media/automation-runbook-gallery/module-import-button.png)
+
+8. Lorsque vous cliquez sur le bouton Importer, le nom du module que vous êtes sur le point d’importer s’affiche. Si toutes les dépendances sont installées, le bouton **OK** est actif. S'il manque des dépendances, vous devrez les importer avant de pouvoir importer ce module.
+9. Cliquez sur **OK** pour importer le module et le panneau du module est lancé. Quand Azure Automation importe un module dans votre compte, il extrait les métadonnées sur le module et les applets de commande.
+
+    ![Panneau Importer le module](media/automation-runbook-gallery/module-import-blade.png)
+
+    Cette opération peut prendre quelques minutes, car chaque activité doit être extraite.
+10. Vous recevrez une notification indiquant que le module est en cours de déploiement et une notification indiquant que le processus est terminé.
+11. Une fois le module importé, les activités disponibles s’affichent et vous pouvez en utiliser les ressources dans vos runbooks et la Configuration d’état souhaité.
 
 ## Demande d’un runbook ou d’un module
 
@@ -108,4 +136,4 @@ Vous pouvez envoyer des demandes à [User Voice](https://feedback.azure.com/foru
 - [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
 - [Apprentissage du workflow PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

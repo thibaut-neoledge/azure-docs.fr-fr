@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="emgerner"/>
+	ms.date="02/29/2016"
+	ms.author="jehine"/>
 
 # Utilisation du stockage d’objets blob Azure à partir de Python
 
@@ -57,14 +57,14 @@ Après cette modification, tous les utilisateurs d'Internet peuvent afficher les
 
 ## Charger un objet blob dans un conteneur
 
-Pour créer un objet blob de blocs et télécharger des données, utilisez la méthode **create\_block\_blob\_from\_path**, **create\_block\_blob\_from\_stream**, **create\_block\_blob\_from\_bytes** ou **create\_block\_blob\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour créer un objet blob de blocs et télécharger des données, utilisez les méthodes **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** ou **create\_blob\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
-**create\_block\_blob\_from\_path** télécharge le contenu d’un fichier à partir du chemin spécifié. **create\_block\_blob\_from\_stream** télécharge le contenu à partir d’un fichier/flux déjà ouvert. **create\_block\_blob\_from\_bytes** télécharge un tableau d’octets. **create\_block\_blob\_from\_text** télécharge la valeur de texte spécifiée à l’aide du codage indiqué (UTF-8 par défaut).
+**create\_blob\_from\_path** télécharge le contenu d’un fichier à partir du chemin spécifié. **create\_blob\_from\_stream** télécharge le contenu à partir d’un fichier/flux déjà ouvert. **create\_blob\_from\_bytes** télécharge un tableau d’octets. **create\_blob\_from\_text** télécharge la valeur de texte spécifiée à l’aide de l’encodage indiqué (UTF-8 par défaut).
 
 L’exemple suivant charge le contenu du fichier **sunset.png** dans l’objet blob **myblob**.
 
 	from azure.storage.blob import ContentSettings
-	block_blob_service.create_block_blob_from_path(
+	block_blob_service.create_blob_from_path(
         'mycontainer',
         'myblockblob',
         'sunset.png',
@@ -126,4 +126,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

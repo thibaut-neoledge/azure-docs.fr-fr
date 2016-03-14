@@ -62,8 +62,8 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
  
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
-| Utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 heures |
-| Utilisateurs gérés par Azure Active Directory (AAD) | | 14 jours après l'exécution de la dernière tranche, si aucune tranche basée sur un service lié OAuth n’a été exécutée durant 14 jours depuis la dernière exécution. <p>90 jours, si une tranche basée sur un service liés OAuth est exécutée au moins une fois tous les 14 jours.</p> |
+| Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 heures |
+| Comptes d’utilisateurs gérés par Azure Active Directory (AAD) | | 14 jours après la dernière exécution de tranche de données. <p>90 jours, si une tranche basée sur un service liés OAuth est exécutée au moins une fois tous les 14 jours.</p> |
 
 Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
 
@@ -156,7 +156,7 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 Propriété | Description | Requis
 :-------- | :----------- | :--------
 type | La propriété de type doit être définie sur **DataLakeAnalyticsU-SQL**. | Oui
-scriptPath | Chemin d'accès au dossier qui contient le script SQL-U. | Non (si vous utilisez le script)
+scriptPath | Chemin d'accès au dossier qui contient le script SQL-U. Notez que le nom de fichier respecte la casse. | Non (si vous utilisez le script)
 scriptLinkedService | Service lié qui lie le stockage qui contient le script à la fabrique de données | Non (si vous utilisez le script)
 script | Spécifiez un script en ligne au lieu de spécifier scriptPath et scriptLinkedService. Par exemple : « script » : « Test CRÉER BASE DE DONNÉES ». | Non (si vous utilisez scriptPath et scriptLinkedService)
 degreeOfParallelism | Le nombre maximal de nœuds qui seront utilisés simultanément pour exécuter le travail. | Non
@@ -257,4 +257,4 @@ Les valeurs des paramètres **@in** et **@out** dans le script U-SQL ci-dessus s
 
 Vous pouvez aussi spécifier d’autres propriétés viz. degreeOfParallelism, la priorité, etc. dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

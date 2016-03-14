@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Notifications Push sécurisées avec Azure Notification Hubs
@@ -26,16 +26,16 @@
 
 ##Vue d'ensemble
 
-La prise en charge des notifications Push dans Microsoft Azure vous permet d’accéder à une infrastructure Push conviviale, multiplateforme avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications grand public et d’entreprise destinées aux plateformes mobiles.
+La prise en charge des notifications Push dans Microsoft Azure vous permet d’accéder à une infrastructure Push conviviale, multiplateforme avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications grand public et d’entreprise destinées aux plateformes mobiles.
 
 En raison de contraintes liées à la réglementation ou à la sécurité, une application peut avoir besoin d'inclure dans la notification des informations qui ne peuvent pas être transmises via l'infrastructure de notification Push standard. Ce didacticiel montre comment procéder en envoyant des informations sensibles par l'intermédiaire d'une connexion authentifiée sécurisée entre l'appareil client et le serveur principal de l'application.
 
-Globalement, le processus est le suivant :
+Globalement, le processus est le suivant :
 
-1. Le serveur principal de l'application :
-	- stocke la charge utile sécurisée dans la base de données principale ;
+1. Le serveur principal de l'application :
+	- stocke la charge utile sécurisée dans la base de données principale ;
 	- envoie l'ID de cette notification à l'appareil (aucune information sécurisée n'est envoyée).
-2. L'application qui se trouve sur l'appareil, lorsqu'elle reçoit la notification :
+2. L'application qui se trouve sur l'appareil, lorsqu'elle reçoit la notification :
 	- L'appareil contacte le serveur principal en demandant la charge utile sécurisée.
 	- L’application peut afficher la charge utile sous la forme d’une notification sur l’appareil.
 
@@ -43,7 +43,7 @@ Veuillez noter que dans le flux précédent (et dans ce didacticiel), nous parto
 
 Ce didacticiel sur les notifications Push sécurisées montre comment envoyer une notification Push en toute sécurité. Il s'appuie sur le didacticiel [Envoi de notifications à des utilisateurs](notification-hubs-aspnet-backend-ios-notify-users.md). Vous devez donc suivre ce dernier au préalable.
 
-> [AZURE.NOTE]Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre hub de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md).
+> [AZURE.NOTE] Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre hub de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -53,17 +53,17 @@ Maintenant que vous avez modifié le serveur principal de votre application pour
 
 Pour cela, nous devons écrire la logique permettant de récupérer le contenu sécurisé auprès du serveur principal de l'application.
 
-1. Dans **AppDelegate.m**, assurez-vous que l’application s’inscrit aux notifications sans assistance afin qu’elle traite l’ID de notification envoyé à partir du serveur principal. Ajoutez l’option **UIRemoteNotificationTypeNewsstandContentAvailability** dans didFinishLaunchingWithOptions :
+1. Dans **AppDelegate.m**, assurez-vous que l’application s’inscrit aux notifications sans assistance afin qu’elle traite l’ID de notification envoyé à partir du serveur principal. Ajoutez l’option **UIRemoteNotificationTypeNewsstandContentAvailability** dans didFinishLaunchingWithOptions :
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 
-2. Dans **AppDelegate.m**, ajoutez une section d'implémentation au début, avec la déclaration qui suit :
+2. Dans **AppDelegate.m**, ajoutez une section d'implémentation au début, avec la déclaration qui suit :
 
 		@interface AppDelegate ()
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. Ensuite, ajoutez le code qui suit dans la section d’implémentation, en remplaçant l’espace réservé `{back-end endpoint}` par le point de terminaison de votre serveur principal que vous avez obtenu précédemment :
+3. Ensuite, ajoutez le code qui suit dans la section d’implémentation, en remplaçant l’espace réservé `{back-end endpoint}` par le point de terminaison de votre serveur principal que vous avez obtenu précédemment :
 
 ```
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
@@ -121,7 +121,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 	![][IOS1]
 
 
-6. Dans **AppDelegate.m**, ajoutez la méthode suivante pour gérer les notifications Push :
+6. Dans **AppDelegate.m**, ajoutez la méthode suivante pour gérer les notifications Push :
 
 		-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 		{
@@ -148,7 +148,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 
 ## Exécution de l'application
 
-Pour exécuter l'application, procédez comme suit :
+Pour exécuter l'application, procédez comme suit :
 
 1. Dans XCode, exécutez l’application sur un appareil iOS physique (les notifications Push ne fonctionnent pas dans le simulateur).
 
@@ -158,4 +158,4 @@ Pour exécuter l'application, procédez comme suit :
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="02/03/2016"   
+	ms.date="03/01/2016"   
 	ms.author="juliako"/>
 
 #Utiliser l’encodeur NewTek TriCaster pour envoyer un flux en direct à débit binaire unique
@@ -27,6 +27,9 @@
 Cette rubrique explique comment configurer l’encodeur en direct [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel. Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure Classic pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+
+>[AZURE.NOTE]Lors de l'utilisation de Tricaster pour l’envoi dans un flux de contribution pour Azure Media Services, il peut y avoir des problèmes vidéo/audio dans votre événement en direct si vous utilisez certaines fonctionnalités de Tricaster, telles que le découpage rapide entre des flux ou le basculement de/vers les ardoises. L’équipe AMS travaille à la résolution de ces problèmes. En attendant, il est déconseillé d’utiliser ces fonctionnalités.
+
 
 ##Composants requis
 
@@ -54,7 +57,7 @@ Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectio
 
 3. Cliquez sur **Créer un canal**. ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
->[AZURE.NOTE] Le démarrage du canal peut prendre jusqu’à 20 minutes.
+>[AZURE.NOTE] Le démarrage du canal peut prendre jusqu’à 20 minutes.
 
 
 Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
@@ -65,19 +68,19 @@ Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-serv
 
 Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le reste de cette section décrit la procédure de configuration plus en détail.
 
-**Vidéo** :
+**Vidéo** :
  
-- Codec : H.264 
-- Profil : Élevé (niveau 4.0) 
-- Débit binaire : 5 000 kbit/s 
-- Image clé : 2 secondes (60 secondes) 
-- Fréquence d’images : 30
+- Codec : H.264 
+- Profil : Élevé (niveau 4.0) 
+- Débit binaire : 5 000 kbit/s 
+- Image clé : 2 secondes (60 secondes) 
+- Fréquence d’images : 30
  
-**Audio** :
+**Audio** :
 
-- Codec : AAC (LC) 
-- Débit binaire : 192 kbit/s 
-- Taux d’échantillonnage : 44,1 kHz
+- Codec : AAC (LC) 
+- Débit binaire : 192 kbit/s 
+- Taux d’échantillonnage : 44,1 kHz
 
 
 ###Configuration
@@ -119,7 +122,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
->[AZURE.IMPORTANT] Avant de cliquer sur **Flux**, vous **devez** vérifier que le canal est prêt. Veillez également à ne pas laisser le canal à l’état d’exécution sans un flux de contribution d’entrée pendant plus de 15 minutes.
+>[AZURE.IMPORTANT] Avant de cliquer sur **Flux**, vous **devez** vérifier que le canal est prêt. Veillez également à ne pas laisser le canal à l’état d’exécution sans un flux de contribution d’entrée pendant plus de 15 minutes.
 
 ##Tester la lecture
   
@@ -137,11 +140,11 @@ Si vous recevez une erreur, vous devrez réinitialiser le canal et ajuster les p
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
 
-2. Nommez le programme et, si nécessaire, ajustez la **longueur de la fenêtre d’archive** (qui est de 4 heures par défaut). Vous pouvez également spécifier un emplacement de stockage ou conserver la valeur par défaut.
+2. Nommez le programme et, si nécessaire, ajustez la **longueur de la fenêtre d’archive** (qui est de 4 heures par défaut). Vous pouvez également spécifier un emplacement de stockage ou conserver la valeur par défaut.
 3. Cochez la case **Démarrer le programme maintenant**.
 4. Cliquez sur **Créer le programme**.  
   
-	Remarque : la création d’un programme prend moins de temps que la création d’un canal.
+	Remarque : la création d’un programme prend moins de temps que la création d’un canal.
  
 5. Une fois le programme en cours d’exécution, vérifiez que la lecture fonctionne. Pour ce faire, cliquez avec le bouton droit sur le programme, placez le pointeur sur **Lire le(s) programme(s)**, puis sélectionnez **avec Azure Media Player**.
 6. Après confirmation, cliquez à nouveau avec le bouton droit sur le programme et sélectionnez **Copier l’URL de sortie dans le Presse-papiers** (ou obtenez cette information à l’aide de l’option **Informations et paramètres du programme** du menu). 
@@ -162,4 +165,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

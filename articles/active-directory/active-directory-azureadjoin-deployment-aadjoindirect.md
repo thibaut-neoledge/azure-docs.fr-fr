@@ -8,8 +8,13 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/10/2016"
-
+<tags 
+ms.service="active-directory" 
+ms.workload="identity" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="02/26/2016"
 	ms.author="femila"/>
 
 # Scénarios d’utilisation et considérations relatives au déploiement pour Azure AD Join
@@ -87,4 +92,4 @@ Vous pouvez configurer vos employés et utilisateurs afin qu’ils utilisent leu
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

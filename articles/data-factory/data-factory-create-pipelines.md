@@ -224,18 +224,18 @@ Le tableau suivant décrit les propriétés dans les définitions JSON du pipeli
 
 Balise | Description | Requis
 --- | ----------- | --------
-name | Nom de l'activité ou du pipeline. Spécifiez un nom qui représente l’action que l’activité ou le pipeline doit exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un nombre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> | Oui 
+name | Nom de l'activité ou du pipeline. Spécifiez un nom qui représente l’action que l’activité ou le pipeline doit exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un nombre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> | Oui 
 description | Texte décrivant l’utilisation de l’activité ou du pipeline | Oui 
 type | Spécifie le type de l’activité. Consultez les articles [Activités de déplacement des données](data-factory-data-movement-activities.md) et [Activités de transformation des données](data-factory-data-transformation-activities.md) pour différents types d'activités. | 
 Entrées Oui | Tables d'entrées utilisées par l'activité<p>// une table d'entrée<br/>« entrées » : [ { « nom » : « inputtable1 » } ],</p><p>// deux tables d'entrée<br/>« entrées » : [ { « nom » : « inputtable1 » }, { « nom » : « inputtable2 » } ],</p> | 
 Sorties Oui | Tables de sortie utilisées par l'activité.<p>// une table de sortie<br/>« sorties » : [ { « nom » : « outputtable1 » } ],</p><p>//deux tables de sortie<br/>« sorties » : [ { « nom » : « outputtable1 » }, { « nom » : « outputtable2 » } ],</p> | 
 linkedServiceName Oui | Nom du service lié utilisé par l'activité. <p>Une activité peut nécessiter que vous indiquiez le service lié qui effectue la liaison avec l'environnement de calcul requis.</p> | Oui pour Activité de HDInsight et Activité de notation par lot Azure Machine Learning<p>Non pour toutes les autres</p>
-typeProperties | Les propriétés de la section typeProperties dépendent du type de l'activité. Consultez l'article sur chaque activité pour en savoir plus | 
-Non policy | Stratégies qui affectent le comportement d'exécution de l'activité. Si aucune valeur n'est spécifiée, les stratégies par défaut seront utilisées. Faites défiler vers le bas pour plus d'informations | 
-Non start | Date-heure de début pour le pipeline. Doit se trouver au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. <p>Ensemble, les propriétés de début et de fin spécifient la période active du pipeline. Les segments de sortie sont uniquement générés dans cette période active.</p> | No<p>Si vous spécifiez une valeur pour la propriété end, vous devez en spécifier une pour la propriété start.</p><p>Les heures de début et de fin peuvent être toutes les deux non renseignées pour créer un pipeline, mais elles doivent avoir toutes les deux une valeur pour définir une période active d’exécution du pipeline. Si vous ne spécifiez pas d’heures de début et de fin lors de la création d’un pipeline, vous pouvez les définir à l’aide de l’applet de commande Set-AzureRmDataFactoryPipelineActivePeriod ultérieurement.</p> 
+typeProperties | Les propriétés de la section typeProperties dépendent du type de l'activité. Consultez l'article sur chaque activité pour en savoir plus | Non 
+policy | Stratégies qui affectent le comportement d'exécution de l'activité. Si aucune valeur n'est spécifiée, les stratégies par défaut seront utilisées. Faites défiler vers le bas pour plus d'informations | Non 
+start | Date-heure de début pour le pipeline. Doit se trouver au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. <p>Ensemble, les propriétés de début et de fin spécifient la période active du pipeline. Les segments de sortie sont uniquement générés dans cette période active.</p> | No<p>Si vous spécifiez une valeur pour la propriété end, vous devez en spécifier une pour la propriété start.</p><p>Les heures de début et de fin peuvent être toutes les deux non renseignées pour créer un pipeline, mais elles doivent avoir toutes les deux une valeur pour définir une période active d’exécution du pipeline. Si vous ne spécifiez pas d’heures de début et de fin lors de la création d’un pipeline, vous pouvez les définir à l’aide de l’applet de commande Set-AzureRmDataFactoryPipelineActivePeriod ultérieurement.</p> 
 end | Date-heure de fin du pipeline. Si spécifiée, doit être au format ISO. Par exemple : 2014-10-14T17:32:41Z <p>Pour exécuter le pipeline indéfiniment, spécifiez 9999-09-09 comme valeur pour la propriété end.</p>| No <p>Si vous spécifiez une valeur pour la propriété start, vous devez en spécifier une pour la propriété end.</p><p>Consultez les remarques sur la propriété **start**.</p> 
-isPaused | Si la valeur est true, le pipeline ne s’exécute pas. Valeur par défaut = false. Vous pouvez utiliser cette propriété pour activer ou désactiver. | 
-Non scheduler | La propriété « scheduler » est utilisée pour définir la planification souhaitée pour l'activité. Les sous-propriétés sont les mêmes que celles de la [propriété de disponibilité dans un jeu de données](data-factory-create-datasets.md#Availability).| No | 
+isPaused | Si la valeur est true, le pipeline ne s’exécute pas. Valeur par défaut = false. Vous pouvez utiliser cette propriété pour activer ou désactiver. | Non 
+scheduler | La propriété « scheduler » est utilisée pour définir la planification souhaitée pour l'activité. Les sous-propriétés sont les mêmes que celles de la [propriété de disponibilité dans un jeu de données](data-factory-create-datasets.md#Availability).| No | 
 
 ### Types d'activité
 Azure Data Factory fournit un large éventail d’activités de [déplacement des données](data-factory-data-movement-activities.md) et de [transformation des données](data-factory-data-transformation-activities.md).
@@ -252,6 +252,37 @@ timeout | TimeSpan | 00:00:00 | Délai d'expiration de l'activité. Exemple : 00
 delay | TimeSpan | 00:00:00 | Spécifiez le délai avant le début du traitement des données du segment.<p>L'exécution de l'activité pour un segment de données est démarré une fois que le Délai est au-delà de la durée d'exécution prévue.</p><p>Exemple : 00:10:00 (implique un délai de 10 minutes)</p>
 longRetry | Entier<p>Valeur max : 10</p> | 1 | Le nombre de nouvelles tentatives longues avant l’échec de l’exécution du segment.<p>Les tentatives longRetry sont espacées par longRetryInterval. Par conséquent, si vous devez spécifier un délai entre chaque tentative, utilisez longRetry. Si les valeurs Retry et longRetry sont spécifiées, chaque tentative longRetry inclut des tentatives Retry et le nombre maximal de tentatives sera égal à Retry * longRetry.</p><p>Par exemple, si la stratégie de l’activité inclut :<br/>Retry : 3<br/>longRetry : 2<br/>longRetryInterval : 01:00:00<br/></p><p>Supposons qu’il existe un seul segment à exécuter (dont l’état est En attente) et que l’exécution de l’activité échoue à chaque fois. Au départ, il y aurait 3 tentatives consécutives d'exécution. Après chaque tentative, l'état du segment serait Retry. Une fois les 3 premières tentatives terminées, l’état du segment serait LongRetry.</p><p>Après une heure (c’est-à-dire la valeur de longRetryInteval), il y aurait un autre ensemble de 3 tentatives consécutives d’exécution. Ensuite, l'état du segment serait Failed et aucune autre tentative ne serait exécutée. Par conséquent, 6 tentatives ont été exécutées.</p><p>Remarque : si une exécution réussit, l’état du segment est défini sur Ready et aucune nouvelle tentative n’est exécutée.</p><p>La valeur longRetry peut être utilisée dans les situations où les données dépendantes arrivent à des moments non déterministes ou lorsque l’environnement global où le traitement des données se produit est relativement douteux. Dans ces cas, l’exécution de nouvelles tentatives l’une après l’autre peut ne pas être utile et procéder ainsi après un intervalle de temps précis produit la sortie désirée.</p><p>Mise en garde : ne définissez pas de valeurs élevées pour longRetry ou longRetryInterval. En général, les valeurs élevées entraînent d'autres problèmes systémiques</p> 
 longRetryInterval | TimeSpan | 00:00:00 | Le délai entre les nouvelles tentatives longues 
+
+## Activités de chaîne
+Si vous avez plusieurs activités dans un pipeline et qu’elles ne sont pas dépendantes (la sortie d’une activité n’est pas une entrée dans une autre activité), les activités peuvent s’exécuter en parallèle si les tranches de données d’entrée pour les activités sont prêtes.
+
+Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement.
+
+Considérez l’exemple suivant :
+ 
+1.	Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de **sortie** **D2**.
+2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données d’**entrée** **D2** et produit le jeu de données de sortie D3.
+ 
+Dans ce scénario, l’activité A1 s’exécutera lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécutera lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 ne sera pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
+
+La vue de diagramme se présente comme suit :
+
+![Chaînage des activités dans deux pipelines](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+
+La vue de diagramme avec les deux activités dans le même pipeline se présente comme suit :
+
+![Chaînage des activités dans le même pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+
+## Planification et exécution
+Vous savez désormais en quoi consistent les pipelines et les activités. Vous avez également observé comment ils sont définis et vous avez obtenu un aperçu des activités dans Azure Data Factory. À présent, examinons leur exécution.
+
+Un pipeline est actif uniquement entre son heure de début et son heure de fin. Il n'est pas exécuté avant l'heure de début, ni après l'heure de fin. Lorsque le pipeline est suspendu, il n'est pas exécuté, quelle que soit son heure de début et de fin. Pour qu'un pipeline soit exécuté, il ne doit pas être suspendu. En fait, ce n'est pas le pipeline qui est exécuté. Ce sont les activités dans le pipeline qui sont exécutées. Toutefois, cela se produit dans le contexte global du pipeline.
+
+Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour comprendre le fonctionnement de planification et de l’exécution dans Azure Data Factory.
+
+### Traitement en parallèle des tranches
+Définissez la valeur de **concurrency** dans la définition de l’activité JSON sur une valeur supérieure à 1, afin que plusieurs tranches soient traitées en parallèle par plusieurs instances de l’activité au moment de l’exécution. Ceci est très utile lors du traitement de tranches précédentes.
+
 
 ## Création et gestion d'un pipeline
 Azure Data Factory fournit plusieurs mécanismes pour créer et déployer des pipelines (qui à leur tour contiennent une ou plusieurs activités).
@@ -276,15 +307,19 @@ Azure Data Factory fournit plusieurs mécanismes pour créer et déployer des pi
 
 	**Remarque :** pendant le déploiement, le service Azure Data Factory effectue quelques vérifications de validation pour aider à résoudre les problèmes courants. S'il existe une erreur, les informations correspondantes s'affichent. Effectuez des actions correctives et redéployez le pipeline créé. Vous pouvez utiliser l'éditeur pour mettre à jour et supprimer un pipeline.
 
+Consultez la page [Prise en main d’Azure Data Factory (Data Factory Editor)](data-factory-build-your-first-pipeline-using-editor.md) pour connaître la procédure de bout en bout de création d’une fabrique de données avec un pipeline.
+
 ### Utilisation du plug-in Visual Studio
-Vous pouvez utiliser Visual Studio pour créer et déployer des pipelines dans Azure Data Factory. Pour plus d’informations, consultez [Didacticiel : copier des données depuis le stockage Azure vers Azure SQL (Visual Studio)](data-factory-get-started-using-vs.md).
+Vous pouvez utiliser Visual Studio pour créer et déployer des pipelines dans Azure Data Factory. Pour en savoir plus, consultez la page [[Prise en main d’Azure Data Factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) pour connaître la procédure de bout en bout de création d’une fabrique de données avec un pipeline.
+
 
 ### Utilisation de Microsoft Azure PowerShell
 Vous pouvez utiliser Azure PowerShell pour créer des pipelines dans Azure Data Factory. Par exemple, vous avez défini le pipeline JSON dans un fichier sous c:\\DPWikisample.json. Vous pouvez le télécharger dans votre instance Azure Data Factory comme indiqué dans l'exemple suivant.
 
 	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-Pour en savoir plus sur cette applet de commande, consultez [Applet de commande New-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt619358.aspx).
+Consultez la page [Prise en main d’Azure Data Factory (Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md) pour connaître la procédure de bout en bout de création d’une fabrique de données avec un pipeline.
+
 
 ### Utilisation de l'API REST
 Vous pouvez également créer et déployer le pipeline avec les API REST. Ce mécanisme peut être utilisé pour créer des pipelines par programme. Pour en savoir plus, consultez [Créer ou mettre à jour un pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
@@ -292,13 +327,9 @@ Vous pouvez également créer et déployer le pipeline avec les API REST. Ce mé
 ### Utilisation du kit de développement logiciel (SDK) .NET
 Vous pouvez aussi créer et déployer le pipeline avec le kit de développement logiciel (SDK) .NET. Ce mécanisme peut être utilisé pour créer des pipelines par programme. Pour en savoir plus, consultez [Créer, gérer et surveiller les fabriques de données par programme](data-factory-create-data-factories-programmatically.md).
 
+### Utilisation du modèle ARM (Azure Resource Manager)
+Vous pouvez créer et déployer le pipeline à l’aide d’un modèle Azure Resource Manager (ARM). Pour en savoir plus, consultez [Prise en main d’Azure Data Factory (Azure Resource Manager)](data-factory-build-your-first-pipeline-using-arm.md).
 
-## Planification et exécution
-Vous savez désormais en quoi consistent les pipelines et les activités. Vous avez également observé comment ils sont définis et vous avez obtenu un aperçu des activités dans Azure Data Factory. À présent, examinons leur exécution.
-
-Un pipeline est actif uniquement entre son heure de début et son heure de fin. Il n'est pas exécuté avant l'heure de début, ni après l'heure de fin. Lorsque le pipeline est suspendu, il n'est pas exécuté, quelle que soit son heure de début et de fin. Pour qu'un pipeline soit exécuté, il ne doit pas être suspendu.
-
-En fait, ce n'est pas le pipeline qui est exécuté. Ce sont les activités dans le pipeline qui sont exécutées. Toutefois, cela se produit dans le contexte global du pipeline. Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour comprendre le fonctionnement de planification et de l’exécution dans Azure Data Factory.
 
 ## Gérer et surveiller  
 Une fois qu'un pipeline est déployé, vous pouvez gérer et surveiller les pipelines, les segments et les exécutions. Pour plus d’informations, consultez l’article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
@@ -335,4 +366,4 @@ Une fois qu'un pipeline est déployé, vous pouvez gérer et surveiller les pipe
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="03/01/2016"
    ms.author="tomfitz"/>
 
 # Fournisseurs, régions, schémas et versions d’API Resource Manager
@@ -35,9 +35,7 @@ Les tableaux suivants indiquent si les services répertoriés prennent en charge
 | Dynamics Lifecycle Services | Oui | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (version préliminaire) | Oui | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Virtual Machines | Oui | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Machines virtuelles (classique) | Limité | - | - | 
-| Application distante | Non | - | - | 
-| Cloud Services (classique) | Limité (voir ci-dessous) | - | - | - |
+| Machines virtuelles (classique) | Limité | - | - | | Application distante | Non | - | - | | Cloud Services (classique) | Limité (voir ci-dessous) | - | - | - |
 
 Machines virtuelles (classiques) fait référence à des ressources qui ont été déployées via le modèle de déploiement classique, et non via le modèle de déploiement Resource Manager. En général, ces ressources ne prennent pas en charge les opérations de Resource Manager, sauf certaines opérations qui ont été activées. Pour plus d’informations sur ces modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 
@@ -53,7 +51,7 @@ Cloud Services (classique) peut être utilisé avec d’autres ressources classi
 | ExpressRoute | Oui | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | | [expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
 | Load Balancer | Oui | [Équilibreur de charge REST](https://msdn.microsoft.com/library/azure/mt163651.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
 | Traffic Manager | Oui | [Traffic Manager REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
-| Virtual Network | Oui| [Réseau virtuel REST](https://msdn.microsoft.com/fr-FR/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
+| Virtual Network | Oui| [Réseau virtuel REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
 | Passerelle VPN | Oui | [Passerelle de réseau REST](https://msdn.microsoft.com/library/azure/mt163859.aspx) | | [virtualNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworkGateways%22&type=Code) <br /> [localNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FlocalNetworkGateways%22&type=Code) <br />[connexions](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Fconnections%22&type=Code) |
 
 
@@ -90,8 +88,7 @@ Cloud Services (classique) peut être utilisé avec d’autres ressources classi
 | Data Lake Store | Oui | | | |
 | HDInsights | Oui | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Stream Analytics | Oui | [Stream Analytics REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| Machine Learning | Non | - | - | 
-| Catalogue de données | Non | - | - |
+| Machine Learning | Non | - | - | | Catalogue de données | Non | - | - |
 
 ## Internet des Objets
 
@@ -153,9 +150,11 @@ Azure Active Directory fait appel au Gestionnaire de ressources pour prendre en 
 
 Lorsque vous déployez des ressources, vous devez fréquemment récupérer des informations sur les fournisseurs et les types de ressources. Vous pouvez récupérer ces informations via l’API REST, Azure PowerShell ou Azure CLI.
 
+Pour fonctionner avec un fournisseur de ressources, ce fournisseur de ressources doit être enregistré avec votre compte. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Les exemples ci-dessous illustrent comment connaître l’état d’inscription d’un fournisseur de ressources, et l’inscrire si nécessaire.
+
 ### API REST
 
-Pour obtenir tous les fournisseurs de ressources disponibles, notamment leur type, leur emplacement, les versions d’API et l’état de l’inscription, utilisez l’opération [Répertorier tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Pour obtenir tous les fournisseurs de ressources disponibles, notamment leur type, leur emplacement, les versions d’API et l’état de l’inscription, utilisez l’opération [Répertorier tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx). Si vous devez inscrire un fournisseur de ressources, consultez [Inscription d'un abonnement auprès d'un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
@@ -183,6 +182,10 @@ La sortie doit ressembler à ceci :
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
     ...
     
+Pour inscrire un fournisseur de ressources, fournissez l'espace de noms :
+
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+
 ### Interface de ligne de commande Azure
 
 L’exemple suivant montre comment obtenir tous les fournisseurs de ressources disponibles.
@@ -203,6 +206,10 @@ La sortie doit ressembler à ceci :
 Vous pouvez enregistrer les informations pour un fournisseur de ressources spécifique dans un fichier avec la commande suivante.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+Pour inscrire un fournisseur de ressources, fournissez l'espace de noms :
+
+    azure provider register -n Microsoft.ServiceBus
 
 ## Régions prises en charge
 
@@ -294,4 +301,4 @@ Vous pouvez ouvrir le fichier et rechercher l’élément **apiVersions**.
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

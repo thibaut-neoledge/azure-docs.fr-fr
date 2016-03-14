@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/25/2016"
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure Data Lake Store à l’aide d’Azure Data Factory
@@ -417,9 +417,8 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
 
 | Type d’utilisateur | Expire après |
 | :-------- | :----------- | 
-| Utilisateur non AAD (@hotmail.com, @live.com, etc.). | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans un autre [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que le client de la fabrique de données. | 12 heures |
-| L’utilisateur AAD et la source OAuth se trouvent dans le même client que le client de la fabrique de données. | 14 jours |
+| Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 heures |
+| Comptes d’utilisateurs gérés par Azure Active Directory (AAD) | | 14 jours après la dernière exécution de tranche de données. <p>90 jours, si une tranche basée sur un service lié OAuth est exécutée au moins une fois tous les 14 jours.</p> |
 
 Pour éviter ou résoudre cette erreur, vous devrez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** lors de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante.
 
@@ -460,7 +459,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | Propriété | Description | Requis |
 | :-------- | :----------- | :-------- |
 | folderPath | Chemin d’accès au conteneur et au dossier dans le magasin Azure Data Lake | Oui |
-| fileName | <p>Le nom du fichier dans le magasin Azure Data Lake. fileName est facultative. </p><p>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.</p><p>Quand fileName n’est pas spécifié, la copie inclut tous le fichier dans folderPath pour le jeu de données d’entrée.</p><p>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)</p> | Non |
+| fileName | <p>Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. </p><p>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.</p><p>Quand fileName n’est pas spécifié, la copie inclut tous le fichier dans folderPath pour le jeu de données d’entrée.</p><p>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)</p> | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez la section propriété Leveraging partitionedBy ci-dessous pour obtenir plus d’informations et des exemples. | Non |
 | format | Deux types de formats sont pris en charge : **TextFormat**, **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de ces valeurs. Lorsque le format est TextFormat, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section [Définition de TextFormat](#specifying-textformat) ci-dessous pour plus de détails. | Non |
 | compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** pour l’instant. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
@@ -566,10 +565,10 @@ Pour spécifier la compression pour un jeu de données, utilisez la propriété 
  
 Notez que la section **compression** a deux propriétés :
   
-- **Type**: le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
-- **Level**: le taux de compression, qui peut être **Optimal** ou **Fastest**. 
-	- **Fastest**: l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
-	- **Optimal**: l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
+- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
+- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**. 
+	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
+	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
 	
 	Pour plus d'informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
 
@@ -587,7 +586,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-**AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties**:
+**AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -595,7 +594,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 
 
-**AzureDataLakeStoreSink** prend en charge les propriétés suivantes dans la section **typeProperties**:
+**AzureDataLakeStoreSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -608,4 +607,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

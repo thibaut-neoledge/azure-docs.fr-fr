@@ -12,17 +12,17 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/14/2015"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="tdykstra"/>
 
 # Créer une tâche web .NET dans Azure App Service
 
-Ce didacticiel montre comment écrire du code pour une simple application ASP.NET MVC 5 à plusieurs niveaux utilisant le [kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md).
+Ce didacticiel montre comment écrire du code pour une simple application ASP.NET MVC 5 à plusieurs niveaux utilisant le [kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md).
 
 L’objectif du [kit de développement logiciel (SDK) WebJobs](websites-webjobs-resources.md) consiste à simplifier le code que vous écrivez pour les tâches web courantes, telles que le traitement d’image, le traitement de la file d’attente, l’agrégation RSS, la maintenance des fichiers et l’envoi des messages électroniques. Le kit de développement logiciel (SDK) WebJobs dispose de fonctionnalités intégrées fonctionnant avec le stockage Azure et Service Bus et servant à planifier des tâches, à gérer des erreurs et à nombreux autres scénarios courants. En outre, il est évolutif et il existe un [référentiel open source contenant les extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
-L'exemple d'application concerne un panneau d'affichage publicitaire. Les utilisateurs peuvent télécharger des images pour les annonces ; un processus principal convertit les images en miniatures. La page de liste des annonces affiche des miniatures et la page de détails des annonces affiche les images en taille réelle. Voici une capture d'écran :
+L'exemple d'application concerne un panneau d'affichage publicitaire. Les utilisateurs peuvent télécharger des images pour les annonces ; un processus principal convertit les images en miniatures. La page de liste des annonces affiche des miniatures et la page de détails des annonces affiche les images en taille réelle. Voici une capture d'écran :
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
@@ -30,24 +30,24 @@ Cet exemple d’application fonctionne avec des [files d’attente Azure](http:/
 
 ## <a id="prerequisites"></a>Configuration requise
 
-Ce didacticiel suppose que vous savez utiliser les projets [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) dans Visual Studio.
+Ce didacticiel suppose que vous savez utiliser les projets [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) dans Visual Studio.
 
-Ce didacticiel a été écrit pour Visual Studio 2013. Si vous ne disposez pas de Visual Studio, l’installation sera lancée pour vous automatiquement, lors de l’installation du Kit de développement logiciel (SDK) Azure pour .NET.
+Ce didacticiel a été écrit pour Visual Studio 2013. Si vous ne disposez pas de Visual Studio, l’installation sera lancée pour vous automatiquement, lors de l’installation du Kit de développement logiciel (SDK) Azure pour .NET.
 
-Le didacticiel peut être utilisé avec Visual Studio 2015. Toutefois, avant d’exécuter l’application localement, vous devez modifier la partie `Data Source` de la chaîne de connexion SQL Server LocalDB dans les fichiers Web.config et App.config de `Data Source=(localdb)\v11.0` à `Data Source=(LocalDb)\MSSQLLocalDB`.
+Le didacticiel peut être utilisé avec Visual Studio 2015. Toutefois, avant d’exécuter l’application localement, vous devez modifier la partie `Data Source` de la chaîne de connexion SQL Server LocalDB dans les fichiers Web.config et App.config de `Data Source=(localdb)\v11.0` à `Data Source=(LocalDb)\MSSQLLocalDB`.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
 
 ## <a id="learn"></a>Contenu
 
-Ce didacticiel explique comment effectuer les tâches suivantes :
+Ce didacticiel explique comment effectuer les tâches suivantes :
 
-* configuration de votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;
-* création du projet d'application console qui se déploie automatiquement comme une tâche web Azure lorsque vous déployez le projet web associé ;
-* test d'un serveur principal de Kit de développement logiciel (SDK) WebJobs localement sur l'ordinateur de développement ;
-* publication d’une application avec un serveur principal de tâches web dans une application web d’App Service ;
-* téléchargement et enregistrement de fichiers dans le service Blob Azure ;
-* utilisation du Kit de développement logiciel (SDK) Azure WebJobs avec des files d'attente et des objets blob Azure Storage.
+* configuration de votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;
+* création du projet d'application console qui se déploie automatiquement comme une tâche web Azure lorsque vous déployez le projet web associé ;
+* test d'un serveur principal de Kit de développement logiciel (SDK) WebJobs localement sur l'ordinateur de développement ;
+* publication d’une application avec un serveur principal de tâches web dans une application web d’App Service ;
+* téléchargement et enregistrement de fichiers dans le service Blob Azure ;
+* utilisation du Kit de développement logiciel (SDK) Azure WebJobs avec des files d'attente et des objets blob Azure Storage.
 
 ## <a id="contosoads"></a>Architecture de l’application
 
@@ -57,13 +57,13 @@ L'application stocke les publicités dans une base de données SQL et utilise En
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-Lorsqu’un utilisateur charge une image, l’application web la stocke dans un [objet blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et stocke les informations publicitaires dans la base de données avec une URL pointant vers l’objet blob. En même temps, il écrit un message dans une file d'attente Azure. Dans un processus principal s’exécutant en tant qu’Azure WebJob, le Kit de développement logiciel (SDK) WebJobs interroge la file d’attente sur la présence de nouveaux messages. Lorsqu'un nouveau message arrive, la tâche web crée une vignette pour cette image et met à jour le champ de la base de données des URL des vignettes pour cette publicité. Le schéma suivant montre l'interaction des parties de l'application :
+Lorsqu’un utilisateur charge une image, l’application web la stocke dans un [objet blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et stocke les informations publicitaires dans la base de données avec une URL pointant vers l’objet blob. En même temps, il écrit un message dans une file d'attente Azure. Dans un processus principal s’exécutant en tant qu’Azure WebJob, le Kit de développement logiciel (SDK) WebJobs interroge la file d’attente sur la présence de nouveaux messages. Lorsqu'un nouveau message arrive, la tâche web crée une vignette pour cette image et met à jour le champ de la base de données des URL des vignettes pour cette publicité. Le schéma suivant montre l'interaction des parties de l'application :
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
 [AZURE.INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
 
-Les instructions du didacticiel s’appliquent au Kit de développement logiciel (SDK) Azure pour .NET 2.7.1 ou pour une version ultérieure.
+Les instructions du didacticiel s’appliquent au Kit de développement logiciel (SDK) Azure pour .NET 2.7.1 ou pour une version ultérieure.
 
 ## <a id="storage"></a>Création d'un compte de stockage Azure
 
@@ -88,7 +88,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 5. Choisissez la région la proche de vous dans la liste déroulante **Région ou groupe d’affinités**.
 
-	Ce paramètre spécifie le centre de données Azure qui hébergera votre compte de stockage. Pour ce didacticiel, votre choix ne fera pas une grande différence. Toutefois, dans le cas d’une application web de production, vous souhaitez que votre serveur web et votre compte de stockage soient situés dans la même région afin de minimiser la latence et les frais d’acheminement des données. Le centre de données de l’application web (que vous créerez par la suite) doit être aussi proche que possible des navigateurs qui accèdent à l’application afin de réduire la latence.
+	Ce paramètre spécifie le centre de données Azure qui hébergera votre compte de stockage. Pour ce didacticiel, votre choix ne fera pas une grande différence. Toutefois, dans le cas d’une application web de production, vous souhaitez que votre serveur web et votre compte de stockage soient situés dans la même région afin de minimiser la latence et les frais d’acheminement des données. Le centre de données de l’application web (que vous créerez par la suite) doit être aussi proche que possible des navigateurs qui accèdent à l’application afin de réduire la latence.
 
 6. Dans la liste déroulante **Réplication**, sélectionnez **Redondant en local**.
 
@@ -116,18 +116,18 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 1. Ouvrez le fichier d'application *Web.config* dans le projet ContosoAdsWeb.
 
-	Ce fichier contient des chaînes de connexion SQL et de stockage Azure pour utiliser des objets blob et des files d'attente.
+	Ce fichier contient des chaînes de connexion SQL et de stockage Azure pour utiliser des objets blob et des files d'attente.
 
 	La chaîne de connexion SQL pointe vers une base de données [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx).
 
 	La chaîne de connexion de stockage est un exemple qui comporte des espaces réservés pour la clé d’accès et le nom du compte stockage. Vous allez le remplacer par une chaîne de connexion qui a le nom et la clé de votre compte de stockage.
 
-	<pre class="prettyprint">&lt;connectionStrings&gt;
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
+	<pre class="prettyprint">&lt;connectionStrings>
+	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+	&lt;/connectionStrings></pre>
 
-	La chaîne de connexion de stockage est nommée AzureWebJobsStorage, car il s'agit du nom que le Kit de développement logiciel (SDK) WebJobs utilise par défaut. Nous utilisons ce nom ici pour qu’il ne vous reste plus qu’à définir une seule valeur de chaîne de connexion dans l’environnement Azure.
+	La chaîne de connexion de stockage est nommée AzureWebJobsStorage, car il s'agit du nom que le Kit de développement logiciel (SDK) WebJobs utilise par défaut. Nous utilisons ce nom ici pour qu’il ne vous reste plus qu’à définir une seule valeur de chaîne de connexion dans l’environnement Azure.
 
 2. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre compte de stockage sous le nœud **Stockage**, puis cliquez sur **Propriétés**.
 
@@ -145,19 +145,19 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 6. Ouvrez le fichier *App.config* dans le projet ContosoAdsWebJob.
 
-	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Vous pouvez utiliser des comptes de stockage distincts pour les données et la journalisation de l’application, ainsi qu’utiliser [plusieurs comptes de stockage pour les données](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). Pour ce didacticiel, vous allez utiliser un seul compte de stockage. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. 
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-       &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-     &lt;/connectionStrings&gt;
-         &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-     &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Vous pouvez utiliser des comptes de stockage distincts pour les données et la journalisation de l’application, ainsi qu’utiliser [plusieurs comptes de stockage pour les données](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). Pour ce didacticiel, vous allez utiliser un seul compte de stockage. Les chaînes de connexion comportent des espaces réservés pour les clés de compte de stockage.
+  	<pre class="prettyprint">&lt;configuration>
+	&lt;connectionStrings>
+	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
+	&lt;/connectionStrings>
+	    &lt;startup>
+	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	&lt;/startup>
+	&lt;/configuration></pre>
 
-	Par défaut, le Kit de développement logiciel (SDK) WebJobs recherche les chaînes de connexion AzureWebJobsStorage et AzureWebJobsDashboard. Vous pouvez également stocker la [chaîne de connexion comme vous le souhaitez et la transmettre explicitement à l’objet `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
+	Par défaut, le Kit de développement logiciel (SDK) WebJobs recherche les chaînes de connexion AzureWebJobsStorage et AzureWebJobsDashboard. Vous pouvez également stocker la [chaîne de connexion comme vous le souhaitez et la transmettre explicitement à l’objet `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
 7. Remplacez les chaînes de connexion de stockage par la chaîne de connexion que vous avez copiée précédemment.
 
@@ -171,7 +171,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 	![Contoso Ads home page](./media/websites-dotnet-webjobs-sdk-get-started/home.png)
 
-2. Pour démarrer la tâche web principale de l'application, cliquez avec le bouton droit sur le projet ContosoAdsWebJob dans l'**Explorateur de solutions**, puis sur **Débogage** > **Démarrer une nouvelle instance**.
+2. Pour démarrer la tâche web principale de l'application, cliquez avec le bouton droit sur le projet ContosoAdsWebJob dans l'**Explorateur de solutions**, puis sur **Débogage** > **Démarrer une nouvelle instance**.
 
 	Une fenêtre d'application console s'ouvre et affiche des messages de journalisation indiquant que l'objet JobHost du Kit de développement logiciel (SDK) WebJobs a commencé à s'exécuter.
 
@@ -197,24 +197,24 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 	![Details page](./media/websites-dotnet-webjobs-sdk-get-started/details.png)
 
-Vous avez exécuté l'application sur votre ordinateur local. Elle utilise une base de données SQL Server sur votre ordinateur, mais travaille sur des files d'attente et des objets blob dans le cloud. Dans la section suivante, vous allez exécuter l'application dans le cloud en utilisant une base de données du cloud ainsi que des objets blob et des files d'attente du cloud.
+Vous avez exécuté l'application sur votre ordinateur local. Elle utilise une base de données SQL Server sur votre ordinateur, mais travaille sur des files d'attente et des objets blob dans le cloud. Dans la section suivante, vous allez exécuter l'application dans le cloud en utilisant une base de données du cloud ainsi que des objets blob et des files d'attente du cloud.
 
 ## <a id="runincloud"></a>Exécuter l’application dans le cloud
 
-Pour exécuter l'application dans le cloud, procédez comme suit :
+Pour exécuter l'application dans le cloud, procédez comme suit :
 
-* Procédez au déploiement dans Web Apps. Visual Studio crée automatiquement une application web dans App Service et une instance Base de données SQL.
+* Procédez au déploiement dans Web Apps. Visual Studio crée automatiquement une application web dans App Service et une instance Base de données SQL.
 * Configurez l’application pour l’utilisation de votre base de données SQL et de votre compte de stockage Azure.
 
 Après avoir créé quelques publicités dans le cloud, vous afficherez le tableau de bord du Kit de développement logiciel (SDK) WebJobs pour voir les fonctions de surveillance enrichies qu'il offre.
 
-### Déployer dans Web Apps
+### Déployer dans Web Apps
 
 1. Fermez le navigateur et la fenêtre d'application console.
 
-2. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet ContosoAdsWeb, puis cliquez sur **Publier**.
+2. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet ContosoAdsWeb, puis cliquez sur **Publier**.
 
-3. À l’étape **Profil** de l’assistant **Publier le site Web**, cliquez sur **Applications web Microsoft Azure**.
+3. À l’étape **Profil** de l’assistant **Publier le site Web**, cliquez sur **Applications web Microsoft Azure**.
 
 	![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)
 
@@ -226,15 +226,15 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 	![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
 
-6. Dans la boîte de dialogue **Créer une application web dans Microsoft Azure**, entrez un nom unique dans la zone **Nom de l’application web**.
+6. Dans la boîte de dialogue **Créer une application web dans Microsoft Azure**, entrez un nom unique dans la zone **Nom de l’application web**.
 
 	L’URL complète se compose de ce que vous avez entré ici et de .azurewebsites.net (comme indiqué en regard de la zone de texte **Nom de l’application web**). Par exemple, si l’application web porte le nom ContosoAds, l’URL sera ContosoAds.azurewebsites.net.
 
-7. Dans la liste déroulante [Plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), sélectionnez **Créer un plan App Service**. Entrez un nom pour le plan App Service, par exemple : ContosoAdsPlan.
+7. Dans la liste déroulante [Plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), sélectionnez **Créer un plan App Service**. Entrez un nom pour le plan App Service, par exemple : ContosoAdsPlan.
 
 8. Dans la liste déroulante [Groupe de ressources](../resource-group-overview.md), sélectionnez **Créer un groupe de ressources**.
 
-9. Entrez un nom pour le groupe de ressources, par exemple : ContosoAdsGroup.
+9. Entrez un nom pour le groupe de ressources, par exemple : ContosoAdsGroup.
 
 10. Dans la liste déroulante **Région**, sélectionnez la région que vous avez choisie pour votre compte de stockage.
 
@@ -256,7 +256,7 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 	![Create web app on Microsoft Azure dialog](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)
 
-	Visual Studio crée la solution, le projet web, l’application web dans Azure, ainsi que l’instance Azure SQL Database.
+	Visual Studio crée la solution, le projet web, l’application web dans Azure, ainsi que l’instance Azure SQL Database.
 
 14. À l'étape **Connexion** de l'Assistant **Publier le site web**, cliquez sur **Suivant**.
 
@@ -266,13 +266,13 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 	![Settings step](./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png)
 
-	Vous n'avez pas besoin d'utiliser la boîte de dialogue de connexion pour définir la chaîne de connexion SQL, car vous allez la définir plus tard dans l'environnement Azure.
+	Vous n'avez pas besoin d'utiliser la boîte de dialogue de connexion pour définir la chaîne de connexion SQL, car vous allez la définir plus tard dans l'environnement Azure.
 
 	Vous pouvez ignorer les avertissements dans cette page.
 
-	* Normalement, le compte de stockage que vous utilisez lors de l'exécution dans Azure est différent de celui que vous utilisez localement. Néanmoins, pour ce didacticiel, vous utilisez le même dans les deux environnements. Il n'est donc pas nécessaire de transformer la chaîne de connexion AzureWebJobsStorage. Même si vous voulez vraiment utiliser un autre compte de stockage dans le cloud, vous n'avez pas besoin de transformer la chaîne de connexion du fait que l'application utilise un paramètre de l'environnement Azure lorsqu'elle s'exécute dans Azure. Nous aborderons cela plus tard dans ce didacticiel.
+	* Normalement, le compte de stockage que vous utilisez lors de l'exécution dans Azure est différent de celui que vous utilisez localement. Néanmoins, pour ce didacticiel, vous utilisez le même dans les deux environnements. Il n'est donc pas nécessaire de transformer la chaîne de connexion AzureWebJobsStorage. Même si vous voulez vraiment utiliser un autre compte de stockage dans le cloud, vous n'avez pas besoin de transformer la chaîne de connexion du fait que l'application utilise un paramètre de l'environnement Azure lorsqu'elle s'exécute dans Azure. Nous aborderons cela plus tard dans ce didacticiel.
 
-	* Dans ce didacticiel, vous n'allez pas modifier le modèle de données utilisé pour la base de données ContosoAdsContext ; il n'est donc pas nécessaire d'utiliser Migrations Entity Framework Code First pour le déploiement. Code First crée automatiquement une base de données la première fois que l'application essaie d'accéder aux données SQL.
+	* Dans ce didacticiel, vous n'allez pas modifier le modèle de données utilisé pour la base de données ContosoAdsContext ; il n'est donc pas nécessaire d'utiliser Migrations Entity Framework Code First pour le déploiement. Code First crée automatiquement une base de données la première fois que l'application essaie d'accéder aux données SQL.
 
 	Dans ce didacticiel, les valeurs par défaut des options sous **Options de publication des fichiers** sont correctes.
 
@@ -280,35 +280,35 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 	![Click Start Preview](./media/websites-dotnet-webjobs-sdk-get-started/previewstep.png)
 
-	Vous pouvez ignorer l'avertissement indiquant qu'aucune base de données n'est en cours de publication. Entity Framework Code First crée la base de données ; il n'est pas nécessaire de la publier.
+	Vous pouvez ignorer l'avertissement indiquant qu'aucune base de données n'est en cours de publication. Entity Framework Code First crée la base de données ; il n'est pas nécessaire de la publier.
 
-	La fenêtre d’aperçu indique que les fichiers binaires et de configuration du projet WebJob sont copiés dans le dossier *app\_data\\jobs\\continuous* de l’application web.
+	La fenêtre d’aperçu indique que les fichiers binaires et de configuration du projet WebJob sont copiés dans le dossier *app\_data\\jobs\\continuous* de l’application web.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
 17. Cliquez sur **Publier**.
 
-	Visual Studio déploie l'application et ouvre l'URL de la page d'accueil dans le navigateur.
+	Visual Studio déploie l'application et ouvre l'URL de la page d'accueil dans le navigateur.
 
-	Vous ne pouvez pas utiliser l’application web tant que vous n’avez pas défini les chaînes de connexion dans l’environnement Azure à la section suivante. Une page d’erreur ou la page d’accueil s’affiche en fonction des options de création de l’application web et de la base de données que vous avez sélectionnées auparavant.
+	Vous ne pouvez pas utiliser l’application web tant que vous n’avez pas défini les chaînes de connexion dans l’environnement Azure à la section suivante. Une page d’erreur ou la page d’accueil s’affiche en fonction des options de création de l’application web et de la base de données que vous avez sélectionnées auparavant.
 
 ### Configurez l’application pour l’utilisation de votre base de données SQL et de votre compte de stockage Azure.
 
-Par sécurité, il est conseillé [d'éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Vous pouvez définir une chaîne de connexion et d’autres paramètres dans l’environnement Azure. Les API de configuration ASP.NET sélectionnent automatiquement ces valeurs quand l’application s’exécute dans Azure. Vous pouvez définir ces valeurs dans Azure à l’aide de l’**Explorateur de serveurs**, du portail Azure, de Windows PowerShell ou de l’interface de ligne de commande interplateforme. Pour plus d’informations, consultez [Fonctionnement des chaînes d’application et des chaînes de connexion](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+Par sécurité, il est conseillé [d'éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Vous pouvez définir une chaîne de connexion et d’autres paramètres dans l’environnement Azure. Les API de configuration ASP.NET sélectionnent automatiquement ces valeurs quand l’application s’exécute dans Azure. Vous pouvez définir ces valeurs dans Azure à l’aide de l’**Explorateur de serveurs**, du portail Azure, de Windows PowerShell ou de l’interface de ligne de commande interplateforme. Pour plus d’informations, consultez [Fonctionnement des chaînes d’application et des chaînes de connexion](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
-Dans cette section, vous utilisez l’**Explorateur de serveurs** pour définir des valeurs de chaînes de connexion dans Azure.
+Dans cette section, vous utilisez l’**Explorateur de serveurs** pour définir des valeurs de chaînes de connexion dans Azure.
 
 7. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre application web sous **Azure > {votre groupe de ressources}**, puis cliquez sur **Afficher les paramètres**.
 
 	La fenêtre **Application web Azure** s’ouvre dans l’onglet **Configuration**.
 
-9. Remplacez le nom de la chaîne de connexion DefaultConnection par ContosoAdsContext.
+9. Remplacez le nom de la chaîne de connexion DefaultConnection par ContosoAdsContext.
 
-	Azure a automatiquement créé cette chaîne de connexion lorsque vous avez créé l’application web avec une base de données associée ; il présente donc déjà la valeur de chaîne de connexion adéquate. Vous remplacez simplement le nom par celui que votre code recherche.
+	Azure a automatiquement créé cette chaîne de connexion lorsque vous avez créé l’application web avec une base de données associée ; il présente donc déjà la valeur de chaîne de connexion adéquate. Vous remplacez simplement le nom par celui que votre code recherche.
 
-9. Ajoutez deux chaînes de connexion nommées AzureWebJobsStorage et AzureWebJobsDashboard. Définissez le type sur Personnalisé et configurez la valeur de la chaîne de connexion avec celle que vous avez utilisée auparavant pour les fichiers *Web.config* et *App.config*. Vérifiez que vous incluez la chaîne de connexion complète, et pas uniquement la clé d'accès, sans guillemets.
+9. Ajoutez deux chaînes de connexion nommées AzureWebJobsStorage et AzureWebJobsDashboard. Définissez le type sur Personnalisé et configurez la valeur de la chaîne de connexion avec celle que vous avez utilisée auparavant pour les fichiers *Web.config* et *App.config*. Vérifiez que vous incluez la chaîne de connexion complète, et pas uniquement la clé d'accès, sans guillemets.
 
-	Le Kit de développement logiciel (SDK) WebJobs utilise ces chaînes de connexion : une pour les données de l'application et une pour la journalisation. Comme nous l'avons vu précédemment, le code du programme web frontal utilise aussi la chaîne pour les données de l'application.
+	Le Kit de développement logiciel (SDK) WebJobs utilise ces chaînes de connexion : une pour les données de l'application et une pour la journalisation. Comme nous l'avons vu précédemment, le code du programme web frontal utilise aussi la chaîne pour les données de l'application.
 
 9. Cliquez sur **Enregistrer**.
 
@@ -326,9 +326,9 @@ Dans cette section, vous utilisez l’**Explorateur de serveurs** pour définir 
 
 10. Créez une publicité comme vous l'avez fait lorsque vous avez exécuté l'application localement.
 
-	La page Index s'affiche d'abord sans vignette.
+	La page Index s'affiche d'abord sans vignette.
 
-11.	Actualisez la page après quelques secondes : la vignette s'affiche.
+11.	Actualisez la page après quelques secondes : la vignette s'affiche.
 
 	Si la miniature n’apparaît pas, vous devrez patienter environ une minute pour que WebJob redémarre. Si après quelques instants vous ne voyez toujours pas la miniature lorsque vous actualisez la page, WebJob n’a peut-être pas démarré automatiquement. Dans ce cas, accédez à l’onglet WebJobs sur la page [portail Classic](https://manage.windowsazure.com) de votre application web, puis cliquez sur **Démarrer**.
 
@@ -350,35 +350,35 @@ Dans cette section, vous utilisez l’**Explorateur de serveurs** pour définir 
 
 	![WebJobs SDK dashboard](./media/websites-dotnet-webjobs-sdk-get-started/wjfunctiondetails.png)
 
-	Le bouton **Rappeler la fonction** de cette page commande à l'infrastructure du SDK de rappeler la fonction et vous permet de modifier les données déjà transmises à la fonction.
+	Le bouton **Rappeler la fonction** de cette page commande à l'infrastructure du SDK de rappeler la fonction et vous permet de modifier les données déjà transmises à la fonction.
 
->[AZURE.NOTE]Lorsque le test est terminé, supprimez l’application web et l’instance Base de données SQL. L’application web est gratuite, mais l’instance Base de données SQL et le compte de stockage engendrent des frais (minimaux du fait de la petite taille). De même, si vous laissez l’application web s’exécuter, toute personne trouvant votre URL peut créer et afficher des publicités. Dans le portail Classic, accédez à l’onglet **Tableau de bord** de votre application web, puis cliquez sur le bouton **Supprimer** au bas de la page. Vous pouvez en même temps cocher une case pour supprimer l'instance Base de données SQL. Si vous souhaitez empêcher temporairement l’accès à l’application web, cliquez plutôt sur **Arrêter**. Dans ce cas, les frais continuent à s'accumuler pour la base de données SQL et le compte de stockage. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
+>[AZURE.NOTE] Lorsque le test est terminé, supprimez l’application web et l’instance Base de données SQL. L’application web est gratuite, mais l’instance Base de données SQL et le compte de stockage engendrent des frais (minimaux du fait de la petite taille). De même, si vous laissez l’application web s’exécuter, toute personne trouvant votre URL peut créer et afficher des publicités. Dans le portail Classic, accédez à l’onglet **Tableau de bord** de votre application web, puis cliquez sur le bouton **Supprimer** au bas de la page. Vous pouvez en même temps cocher une case pour supprimer l'instance Base de données SQL. Si vous souhaitez empêcher temporairement l’accès à l’application web, cliquez plutôt sur **Arrêter**. Dans ce cas, les frais continuent à s'accumuler pour la base de données SQL et le compte de stockage. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
 
 ## <a id="create"></a>Créer l’application intégralement
 
-Dans cette section, vous effectuerez les tâches suivantes :
+Dans cette section, vous effectuerez les tâches suivantes :
 
-* création d'une solution Visual Studio avec un projet web ;
-* ajout d'un projet de bibliothèque de classes pour la couche d'accès aux données partagée par le programme frontal et le programme principal ;
-* ajout d'un projet d'application console pour le programme principal, le déploiement de tâches web étant activé ;
-* ajout de packages NuGet ;
-* définition des références d'un projet ;
-* copie des fichiers de code et de configuration de l'application téléchargée que vous avez utilisée dans la section précédente de ce didacticiel ;
-* examen des parties du code qui fonctionnent avec les objets blob, les files d'attente et le Kit de développement logiciel (SDK) WebJobs Azure.
+* création d'une solution Visual Studio avec un projet web ;
+* ajout d'un projet de bibliothèque de classes pour la couche d'accès aux données partagée par le programme frontal et le programme principal ;
+* ajout d'un projet d'application console pour le programme principal, le déploiement de tâches web étant activé ;
+* ajout de packages NuGet ;
+* définition des références d'un projet ;
+* copie des fichiers de code et de configuration de l'application téléchargée que vous avez utilisée dans la section précédente de ce didacticiel ;
+* examen des parties du code qui fonctionnent avec les objets blob, les files d'attente et le Kit de développement logiciel (SDK) WebJobs Azure.
 
-### Création d'une solution Visual Studio avec un projet web et un projet de bibliothèque de classes
+### Création d'une solution Visual Studio avec un projet web et un projet de bibliothèque de classes
 
-1. Dans Visual Studio, sélectionnez **Nouveau**, **Projet** dans le menu **Fichier**.
+1. Dans Visual Studio, sélectionnez **Nouveau**, **Projet** dans le menu **Fichier**.
 
-2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#** > **Web** > **Application Web ASP.NET**.
+2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#** > **Web** > **Application Web ASP.NET**.
 
-3. Nommez le projet ContosoAdsWeb, la solution ContosoAdsWebJobsSDK (modifiez le nom de la solution si vous la placez dans le même dossier que la solution téléchargée) et cliquez sur **OK**.
+3. Nommez le projet ContosoAdsWeb, la solution ContosoAdsWebJobsSDK (modifiez le nom de la solution si vous la placez dans le même dossier que la solution téléchargée) et cliquez sur **OK**.
 
 	![Nouveau projet](./media/websites-dotnet-webjobs-sdk-get-started/newproject.png)
 
-5. Dans la boîte de dialogue **Nouveau projet ASP.NET**, sélectionnez le modèle MVC et désactivez la case à cocher **Héberger dans le cloud** sous **Microsoft Azure**.
+5. Dans la boîte de dialogue **Nouveau projet ASP.NET**, sélectionnez le modèle MVC et désactivez la case à cocher **Héberger dans le cloud** sous **Microsoft Azure**.
 
-	Si vous sélectionnez l’option **Héberger dans le cloud**, Visual Studio crée automatiquement une application web Azure et une base de données SQL. Comme vous les avez déjà créés, vous n'avez pas besoin de le faire lorsque vous créez le projet. Si vous voulez en créer un, activez cette case à cocher. Vous pouvez alors configurer la nouvelle application web et la base de données SQL comme vous l'avez fait précédemment quand vous avez déployé l'application.
+	Si vous sélectionnez l’option **Héberger dans le cloud**, Visual Studio crée automatiquement une application web Azure et une base de données SQL. Comme vous les avez déjà créés, vous n'avez pas besoin de le faire lorsque vous créez le projet. Si vous voulez en créer un, activez cette case à cocher. Vous pouvez alors configurer la nouvelle application web et la base de données SQL comme vous l'avez fait précédemment quand vous avez déployé l'application.
 
 5. Cliquez sur **Modifier l'authentification**.
 
@@ -390,35 +390,35 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 8. Dans la boîte de dialogue **Nouveau projet ASP.NET**, cliquez sur **OK**.
 
-	Visual Studio crée la solution et le projet web.
+	Visual Studio crée la solution et le projet web.
 
 9. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur la solution (et non sur le projet) et choisissez **Ajouter** > **Nouveau projet**.
 
-11. Dans la boîte de dialogue **Ajouter un nouveau projet**, sélectionnez **Visual C#** > **Bureau Windows** > **Bibliothèque de classes**.
+11. Dans la boîte de dialogue **Ajouter un nouveau projet**, sélectionnez **Visual C#** > **Bureau Windows** > **Bibliothèque de classes**.
 
 10. Nommez le projet *ContosoAdsCommon*, puis cliquez sur **OK**.
 
-	Ce projet contient le contexte Entity Framework et le modèle de données que le programme frontal et le programme principal vont utiliser. Vous pouvez également définir les classes associées à Entity Framework dans le projet web et faire référence à ce projet de tâche web. Mais, dans ce cas, ce dernier aura une référence inutile aux assemblys web.
+	Ce projet contient le contexte Entity Framework et le modèle de données que le programme frontal et le programme principal vont utiliser. Vous pouvez également définir les classes associées à Entity Framework dans le projet web et faire référence à ce projet de tâche web. Mais, dans ce cas, ce dernier aura une référence inutile aux assemblys web.
 
-### Ajout d'un projet d'application console dont le déploiement de tâches web est activé
+### Ajout d'un projet d'application console dont le déploiement de tâches web est activé
 
-1. Cliquez avec le bouton droit sur le projet web (et non sur la solution ou le projet de bibliothèque de classes), puis cliquez sur **Ajouter** > **Nouveau projet de tâche web Azure**.
+1. Cliquez avec le bouton droit sur le projet web (et non sur la solution ou le projet de bibliothèque de classes), puis cliquez sur **Ajouter** > **Nouveau projet de tâche web Azure**.
 
 	![New Azure WebJob Project menu selection](./media/websites-dotnet-webjobs-sdk-get-started/newawjp.png)
 
-2. Dans la boîte de dialogue **Ajouter une tâche web Azure**, entrez ContosoAdsWebJob pour le **Nom du projet** et le **Nom de la tâche web**. Laissez **Mode d'exécution de la tâche web** sur **Exécuter en continu**.
+2. Dans la boîte de dialogue **Ajouter une tâche web Azure**, entrez ContosoAdsWebJob pour le **Nom du projet** et le **Nom de la tâche web**. Laissez **Mode d'exécution de la tâche web** sur **Exécuter en continu**.
 
 3.  Cliquez sur **OK**.
 
-	Visual Studio crée une application console configurée pour se déployer comme une tâche web lorsque vous déployez le projet web. Pour cela, il a effectué les tâches suivantes après la création du projet :
+	Visual Studio crée une application console configurée pour se déployer comme une tâche web lorsque vous déployez le projet web. Pour cela, il a effectué les tâches suivantes après la création du projet :
 
-	* ajout d'un fichier *webjob-publish-settings.json* dans le dossier des propriétés du projet de tâche web ;
-	* ajout d'un fichier *webjobs-list.json* dans le dossier des propriétés du projet web ;
-	* installation du package NuGet Microsoft.Web.WebJobs.Publish dans le projet de tâche web.
+	* ajout d'un fichier *webjob-publish-settings.json* dans le dossier des propriétés du projet de tâche web ;
+	* ajout d'un fichier *webjobs-list.json* dans le dossier des propriétés du projet web ;
+	* installation du package NuGet Microsoft.Web.WebJobs.Publish dans le projet de tâche web.
 
-	Pour plus d’informations sur ces modifications, consultez la rubrique [Déployer des tâches web à l’aide de Visual Studio](websites-dotnet-deploy-webjobs.md).
+	Pour plus d’informations sur ces modifications, consultez la rubrique [Déployer des tâches web à l’aide de Visual Studio](websites-dotnet-deploy-webjobs.md).
 
-### Ajout de packages NuGet
+### Ajout de packages NuGet
 
 Le nouveau modèle de projet pour un projet de tâche web installe automatiquement le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) du Kit de développement logiciel (SDK) WebJobs et ses dépendances.
 
@@ -428,32 +428,32 @@ L’une des dépendances du Kit de développement logiciel WebJobs installée au
 
 2. Dans le volet de gauche, sélectionnez **Packages installés**.
 
-3. Recherchez le package *Azure Storage* et cliquez sur **Gérer**.
+3. Recherchez le package *Azure Storage* et cliquez sur **Gérer**.
 
-4. Dans la boîte de dialogue **Sélectionner les projets**, activez la case à cocher **ContosoAdsWeb**, puis cliquez sur **OK**.
+4. Dans la boîte de dialogue **Sélectionner les projets**, activez la case à cocher **ContosoAdsWeb**, puis cliquez sur **OK**.
 
-	Ces trois projets ont recours à Entity Framework pour utiliser les données de la base de données SQL.
+	Ces trois projets ont recours à Entity Framework pour utiliser les données de la base de données SQL.
 
 5. Dans le volet gauche, sélectionnez **En ligne**.
 
-6. Recherchez le package NuGet *EntityFramework* et installez-le dans les trois projets.
+6. Recherchez le package NuGet *EntityFramework* et installez-le dans les trois projets.
 
 
 ### Définition des références de projet
 
-Les projets web et de tâches web utilisent la base de données SQL ; les deux nécessitent une référence au projet ContosoAdsCommon.
+Les projets web et de tâches web utilisent la base de données SQL ; les deux nécessitent une référence au projet ContosoAdsCommon.
 
 1. Dans le projet ContosoAdsWeb, définissez une référence au projet ContosoAdsCommon. Cliquez avec le bouton droit sur le projet ContosoAdsWeb, puis cliquez sur **Ajouter** > **Référence**. Dans la boîte de dialogue **Gestionnaire de références**, sélectionnez **Solution** > **Projets** > **ContosoAdsCommon** et cliquez sur **OK**.
 
-1. Dans le projet ContosoAdsWebJob, définissez une référence au projet ContosoAdsCommon.
+1. Dans le projet ContosoAdsWebJob, définissez une référence au projet ContosoAdsCommon.
 
 	Le projet web nécessite des références pour utiliser des images et accéder aux chaînes de connexion.
 
-3. Dans le projet ContosoAdsWebJob, définissez une référence à `System.Drawing` et `System.Configuration`.
+3. Dans le projet ContosoAdsWebJob, définissez une référence à `System.Drawing` et `System.Configuration`.
 
 ### Ajout de fichiers de code et de configuration
 
-Ce didacticiel n'explique pas comment [créer des contrôleurs et des vues MVC à l'aide de la structure](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), [comment écrire du code Entity Framework qui fonctionne avec les bases de données SQL Server](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc), [ni les bases de la programmation asynchrone dans ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async). Il ne reste donc qu'à copier les fichiers de code et de configuration de la solution téléchargée dans la nouvelle solution. Ensuite, les sections suivantes montrent et expliquent les éléments essentiels de ce code.
+Ce didacticiel n'explique pas comment [créer des contrôleurs et des vues MVC à l'aide de la structure](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), [comment écrire du code Entity Framework qui fonctionne avec les bases de données SQL Server](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc), [ni les bases de la programmation asynchrone dans ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async). Il ne reste donc qu'à copier les fichiers de code et de configuration de la solution téléchargée dans la nouvelle solution. Ensuite, les sections suivantes montrent et expliquent les éléments essentiels de ce code.
 
 Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton droit sur le projet ou le dossier, puis cliquez sur **Ajouter** > **Élément existant**. Sélectionnez les fichiers et cliquez sur **Ajouter**. Si un message vous demande si vous souhaitez remplacer les fichiers existants, cliquez sur **Oui**.
 
@@ -467,10 +467,10 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 	- *Web.config*
 	- *Global.asax.cs*  
-	- Dans le dossier *Controllers*: *AdController.cs*.
-	- Dans le dossier *Views\\Shared*: fichier *\_Layout.cshtml*
-	- Dans le dossier *Views\\Home*: *Index.cshtml*
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*<br/><br/>
+	- Dans le dossier *Controllers* : *AdController.cs*.
+	- Dans le dossier *Views\\Shared* : fichier *\_Layout.cshtml*
+- Dans le dossier *Views\\Home* : *Index.cshtml*.
+	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
 
 3. Dans le projet ContosoAdsWebJob, ajoutez les fichiers suivants du projet téléchargé.
 
@@ -482,9 +482,9 @@ Vous pouvez maintenant générer, exécuter et déployer l'application en suivan
 
 ## <a id="code"></a>Vérifier le code de l’application
 
-Les sections suivantes présentent le code utilisé avec le Kit de développement logiciel (SDK) WebJobs et des objets blob et des files d'attente Azure.
+Les sections suivantes présentent le code utilisé avec le Kit de développement logiciel (SDK) WebJobs et des objets blob et des files d'attente Azure.
 
-> [AZURE.NOTE]Pour le code spécifique au Kit de développement logiciel (SDK) WebJobs, accédez aux sections [Program.cs et Functions.cs](#programcs).
+> [AZURE.NOTE] Pour le code spécifique au kit de développement logiciel (SDK) WebJobs, accédez aux sections [Program.cs et Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -531,7 +531,7 @@ Le fichier Ad.cs définit une énumération des catégories de publicité et une
 
 ### ContosoAdsCommon - ContosoAdsContext.cs
 
-La classe ContosoAdsContext spécifie que la classe Ad est utilisée dans une collection DbSet, qui est stockée par Entity Framework dans une base de données SQL.
+La classe ContosoAdsContext spécifie que la classe Ad est utilisée dans une collection DbSet, qui est stockée par Entity Framework dans une base de données SQL.
 
 		public class ContosoAdsContext : DbContext
 		{
@@ -545,7 +545,7 @@ La classe ContosoAdsContext spécifie que la classe Ad est utilisée dans une co
 		    public System.Data.Entity.DbSet<Ad> Ads { get; set; }
 		}
 
-La classe a deux constructeurs. Le premier est utilisé par le projet web et spécifie le nom d'une chaîne de connexion stockée dans le fichier Web.config de l'environnement d'exécution Azure. Le second vous permet de passer la chaîne de connexion existante. Le projet de rôle de travail, qui ne comporte pas de fichier Web.config. nécessite cette opération. Vous avez vu précédemment où est stockée cette chaîne de connexion, et vous allez voir comme le code la récupère quand il instancie la classe DbContext.
+La classe a deux constructeurs. Le premier est utilisé par le projet web et spécifie le nom d'une chaîne de connexion stockée dans le fichier Web.config de l'environnement d'exécution Azure. Le second vous permet de passer la chaîne de connexion existante. Le projet de rôle de travail, qui ne comporte pas de fichier Web.config. nécessite cette opération. Vous avez vu précédemment où est stockée cette chaîne de connexion, et vous allez voir comme le code la récupère quand il instancie la classe DbContext.
 
 ### ContosoAdsCommon - BlobInformation.cs
 
@@ -577,7 +577,7 @@ La classe `BlobInformation` permet de stocker les informations d’un objet blob
 
 Le code appelé par la méthode `Application_Start` crée un conteneur d’objets blob *images* et une file d’attente *images*, s’ils n’existent pas déjà. Cela garantit que, lorsque vous commencez à utiliser un nouveau compte de stockage, le conteneur d'objets blob et la file d'attente nécessaires sont créés automatiquement.
 
-Le code a accès au compte de stockage en utilisant la chaîne de connexion du fichier *Web.config* ou l'environnement d'exécution Azure.
+Le code a accès au compte de stockage en utilisant la chaîne de connexion du fichier *Web.config* ou l'environnement d'exécution Azure.
 
 		var storageAccount = CloudStorageAccount.Parse
 		    (ConfigurationManager.ConnectionStrings["AzureWebJobsStorage"].ToString());
@@ -595,7 +595,7 @@ Il obtient ensuite une référence au conteneur d'objets blob *images*, crée le
 		        });
 		}
 
-Du code similaire obtient une référence à la file d'attente *blobnamerequest* et crée une nouvelle file d'attente. Dans ce cas, aucune modification des autorisations n'est nécessaire. Plus loin dans ce didacticiel, la section [ResolveBlobName](#resolveblobname) explique pourquoi la file d'attente dans laquelle l'application web écrit est utilisée uniquement pour obtenir les noms des objets blob et non pour créer des vignettes.
+Du code similaire obtient une référence à la file d'attente *blobnamerequest* et crée une nouvelle file d'attente. Dans ce cas, aucune modification des autorisations n'est nécessaire. Plus loin dans ce didacticiel, la section [ResolveBlobName](#resolveblobname) explique pourquoi la file d'attente dans laquelle l'application web écrit est utilisée uniquement pour obtenir les noms des objets blob et non pour créer des vignettes.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
@@ -603,7 +603,7 @@ Du code similaire obtient une référence à la file d'attente *blobnamerequest*
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Le fichier *\_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
+Le fichier *\_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -618,7 +618,7 @@ Le fichier *Views\\Home\\Index.cshtml* affiche les liens de catégorie sur la pa
 
 Dans le fichier *AdController.cs*, le constructeur appelle la méthode `InitializeStorage` pour créer les objets de la bibliothèque cliente Azure Storage, qui fournissent une API pour les objets blob et les files d’attente.
 
-Le code obtient ensuite une référence au conteneur d'objets blob *images* comme vu précédemment dans *Global.asax.cs*. Ce faisant, il définit une [stratégie de nouvelles tentatives](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) par défaut appropriée pour une application web. La stratégie de nouvelles tentatives d'interruption exponentielle par défaut peut suspendre l'application web pendant plus d'une minute en cas de tentatives répétées pour une erreur temporaire. La stratégie de nouvelle tentative spécifiée ici laisse 3 secondes après chaque nouvelle tentative, jusqu'à 3.
+Le code obtient ensuite une référence au conteneur d'objets blob *images* comme vu précédemment dans *Global.asax.cs*. Ce faisant, il définit une [stratégie de nouvelles tentatives](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) par défaut appropriée pour une application web. La stratégie de nouvelles tentatives d'interruption exponentielle par défaut peut suspendre l'application web pendant plus d'une minute en cas de tentatives répétées pour une erreur temporaire. La stratégie de nouvelle tentative spécifiée ici laisse 3 secondes après chaque nouvelle tentative, jusqu'à 3.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -674,7 +674,7 @@ Le code de la méthode HttpPost `Edit` est similaire, mais si l’utilisateur s�
 		    ad.ImageURL = imageBlob.Uri.ToString();
 		}
 
-Voici le code qui supprime les objets blob lorsque vous supprimez une publicité :
+Voici le code qui supprime les objets blob lorsque vous supprimez une publicité :
 
 		private async Task DeleteAdBlobsAsync(Ad ad)
 		{
@@ -698,11 +698,11 @@ Voici le code qui supprime les objets blob lorsque vous supprimez une publicité
 
 ### ContosoAdsWeb - Views\\Ad\\Index.cshtml et Details.cshtml
 
-Le fichier *Index.cshtml* affiche des vignettes avec les autres données de publicité :
+Le fichier *Index.cshtml* affiche des vignettes avec les autres données de publicité :
 
 		<img  src="@Html.Raw(item.ThumbnailURL)" />
 
-Le fichier *Details.cshtml* affiche l'image intégrale :
+Le fichier *Details.cshtml* affiche l'image intégrale :
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
@@ -728,7 +728,7 @@ Lorsque la tâche web démarre, la méthode `Main` appelle la méthode `JobHost.
 
 ### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - Méthode GenerateThumbnail
 
-Le Kit de développement logiciel (SDK) WebJobs appelle cette méthode lorsqu'un message de file d'attente est reçu. Cette méthode crée une vignette et place son URL dans la base de données.
+Le Kit de développement logiciel (SDK) WebJobs appelle cette méthode lorsqu'un message de file d'attente est reçu. Cette méthode crée une vignette et place son URL dans la base de données.
 
 		public static void GenerateThumbnail(
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
@@ -756,25 +756,25 @@ Le Kit de développement logiciel (SDK) WebJobs appelle cette méthode lorsqu'un
 		    }
 		}
 
-* L’attribut `QueueTrigger` demande au Kit de développement logiciel (SDK) WebJobs d’appeler cette méthode lorsqu’un nouveau message est reçu dans la file d’attente thumbnailrequest.
+* L’attribut `QueueTrigger` demande au Kit de développement logiciel (SDK) WebJobs d’appeler cette méthode lorsqu’un nouveau message est reçu dans la file d’attente thumbnailrequest.
 
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 
-	L’objet `BlobInformation` dans le message de file d’attente est automatiquement désérialisé dans le paramètre `blobInfo`. Lorsque la méthode est terminée, le message de file d'attente est supprimé. Si la méthode échoue avant de se terminer, le message de file d'attente n'est pas supprimé ; après un bail de 10 minutes, il est libéré pour être à nouveau sélectionné et traité. Cette séquence ne se répète pas indéfiniment si un message provoque toujours une exception. Après 5 tentatives ayant échoué de traitement d'un message, celui-ci est déplacé dans la file d'attente nommée {queuename}-poison. Vous pouvez configurer le nombre maximal de tentatives.
+	L’objet `BlobInformation` dans le message de file d’attente est automatiquement désérialisé dans le paramètre `blobInfo`. Lorsque la méthode est terminée, le message de file d'attente est supprimé. Si la méthode échoue avant de se terminer, le message de file d'attente n'est pas supprimé ; après un bail de 10 minutes, il est libéré pour être à nouveau sélectionné et traité. Cette séquence ne se répète pas indéfiniment si un message provoque toujours une exception. Après 5 tentatives ayant échoué de traitement d'un message, celui-ci est déplacé dans la file d'attente nommée {queuename}-poison. Vous pouvez configurer le nombre maximal de tentatives.
 
-* Les deux attributs `Blob` fournissent des objets qui sont liés aux objets blob : un pour l’objet blob d’image existant et un pour le nouvel objet blob miniature créé par la méthode.
+* Les deux attributs `Blob` fournissent des objets qui sont liés aux objets blob : un pour l’objet blob d’image existant et un pour le nouvel objet blob miniature créé par la méthode.
 
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 
-	Les noms des objets blob proviennent des propriétés de l’objet `BlobInformation` reçu dans le message de file d’attente ((`BlobName` et `BlobNameWithoutExtension`). Pour profiter de toutes les fonctionnalités de la bibliothèque cliente de stockage, vous pouvez utiliser des objets blob à l’aide de la classe `CloudBlockBlob`. Si vous voulez réutiliser du code écrit pour des objets `Stream`, optez pour la classe `Stream`.
+	Les noms des objets blob proviennent des propriétés de l’objet `BlobInformation` reçu dans le message de file d’attente ((`BlobName` et `BlobNameWithoutExtension`). Pour profiter de toutes les fonctionnalités de la bibliothèque cliente de stockage, vous pouvez utiliser des objets blob à l’aide de la classe `CloudBlockBlob`. Si vous voulez réutiliser du code écrit pour des objets `Stream`, optez pour la classe `Stream`.
 
-Pour plus d’informations sur l’écriture de fonctions utilisant des attributs du Kit de développement logiciel (SDK) WebJobs, voir les ressources suivantes :
+Pour plus d’informations sur l’écriture de fonctions utilisant des attributs du Kit de développement logiciel (SDK) WebJobs, voir les ressources suivantes :
 
-* [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+* [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-* [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-* [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
+* [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
 
 > [AZURE.NOTE]
 >
@@ -804,9 +804,9 @@ Pour plus d’informations, consultez [Mise à l’échelle WebJobs](websites-we
 
 Pour vous assurer que vos WebJobs sont toujours en cours d’exécution sur toutes les instances de votre application web, vous devez activer la fonctionnalité [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx).
 
-### Utilisation du Kit de développement logiciel (SDK) WebJobs en dehors de WebJobs
+### Utilisation du Kit de développement logiciel (SDK) WebJobs en dehors de WebJobs
 
-Un programme qui utilise le Kit SDK WebJobs ne doit pas obligatoirement s’exécuter dans Azure dans une tâche web. Il peut s'exécuter localement, ou dans d'autres environnements tels qu'un rôle de travail de service cloud ou un service Windows. Toutefois, vous ne pouvez accéder au tableau de bord du Kit de développement logiciel (SDK) WebJobs que par le biais d’une application web Azure. Pour utiliser le tableau de bord, vous devez connecter l’application web au compte de stockage que vous utilisez en définissant la chaîne de connexion AzureWebJobsDashboard sous l’onglet **Configurer** du portail Classic. Vous pouvez ensuite accéder au tableau de bord à l’aide de l’URL suivante :
+Un programme qui utilise le Kit SDK WebJobs ne doit pas obligatoirement s’exécuter dans Azure dans une tâche web. Il peut s'exécuter localement, ou dans d'autres environnements tels qu'un rôle de travail de service cloud ou un service Windows. Toutefois, vous ne pouvez accéder au tableau de bord du Kit de développement logiciel (SDK) WebJobs que par le biais d’une application web Azure. Pour utiliser le tableau de bord, vous devez connecter l’application web au compte de stockage que vous utilisez en définissant la chaîne de connexion AzureWebJobsDashboard sous l’onglet **Configurer** du portail Classic. Vous pouvez ensuite accéder au tableau de bord à l’aide de l’URL suivante :
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -816,4 +816,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!-------HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

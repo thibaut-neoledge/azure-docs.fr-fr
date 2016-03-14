@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -21,7 +21,10 @@ Vous souhaitez effectuer une analyse personnalisée de votre télémétrie ? Ou 
 
 L’exportation continue est disponible pendant la période d’essai gratuite et sur les [plans de tarification Standard et Premium](https://azure.microsoft.com/pricing/details/application-insights/).
 
-(Si vous souhaitez uniquement effectuer une [exportation unique](app-insights-metrics-explorer.md#export-to-excel) de ce que vous voyez sur un panneau de mesures ou de recherche, cliquez sur Exporter en haut du panneau. Et si vous souhaitez visualiser des données dans Power BI, utilisez [l’adaptateur](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), qui n’utilise *pas* l’exportation continue.)
+>[AZURE.NOTE] Si vous cherchez à [explorer vos données dans Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), vous pouvez le faire sans utiliser l’exportation continue.
+>
+>Et si vous souhaitez uniquement effectuer une [exportation unique](app-insights-metrics-explorer.md#export-to-excel) de ce que vous voyez sur un panneau de mesures ou de recherche, cliquez sur Exporter en haut du panneau.
+
 
 ## Créer un compte de stockage
 
@@ -209,4 +212,4 @@ L’exportation continue redémarre.
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Connectez-vous à Azure Service Bus pour envoyer et recevoir des messages. Vous pouvez effectuer des actions comme envoyer vers une file d'attente, envoyer vers une rubrique, recevoir d’une file d'attente, recevoir d'un abonnement, etc.
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Azure Service Bus](../app-service-logic/app-service-logic-connector-Azure Service Bus.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version du schéma 2014-12-01-preview, cliquez sur [Azure Service Bus](../app-service-logic/app-service-logic-connector-azureservicebus.md).
 
 Avec Azure Service Bus, vous pouvez :
 
@@ -56,6 +56,17 @@ Pour utiliser l'API Azure Service Bus, vous devez créer une **connexion**, puis
 |Propriété| Requis|Description|
 | ---|---|---|
 |ConnectionString|Oui|Fournir une chaîne de connexion Azure Service Bus|  
+
+Suivez ces étapes pour créer une **connexion** à Service Bus que vous pourrez ensuite utiliser dans votre application logique :
+
+1. Sélectionnez **Périodicité**
+2. Sélectionnez une **Fréquence** et entrez un **Intervalle** ![Configurer Service Bus][1] 
+3. Sélectionnez **Ajouter une action** ![Configurer Service Bus][2]   
+4. Entrez **Service Bus** dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant Service Bus dans leur nom
+5. Sélectionnez **Service Bus - Envoyer un message** ![Configurer Service Bus][3]
+7. Entrez un **nom de connexion** et une **chaîne de connexion**, puis sélectionnez **Créer une connexion** : ![Configurer Service Bus][4]
+7. Une fois la connexion créée, la boîte de dialogue **Envoyer un message** s’affiche. Entrez les informations nécessaires pour envoyer un message. ![Configurer Service Bus][5]
+8. Utilisez le bouton **Enregistrer** dans le menu supérieur pour enregistrer votre travail.    
 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
@@ -133,7 +144,7 @@ Propriétés requises pour ServiceBusMessage :
 
 ContentTransferEncoding
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -147,4 +158,11 @@ ContentTransferEncoding
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-servicebus/connectionconfig1.png
+[2]: ./media/create-api-servicebus/connectionconfig2.png
+[3]: ./media/create-api-servicebus/connectionconfig3.png
+[4]: ./media/create-api-servicebus/connectionconfig4.png
+[5]: ./media/create-api-servicebus/connectionconfig5.png
+[6]: ./media/create-api-servicebus/connectionconfig6.png
+
+<!---HONumber=AcomDC_0302_2016-->

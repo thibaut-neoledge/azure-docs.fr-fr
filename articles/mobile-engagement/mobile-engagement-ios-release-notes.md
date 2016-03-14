@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #Notes de publication
@@ -24,23 +24,23 @@
 
 ##3\.2.0 (10/08/2015)
 
--   Activation de Bitcode dans le Kit de développement logiciel (SDK) pour qu’il fonctionne avec **Xcode 7**.
+-   Activation de Bitcode dans le Kit de développement logiciel (SDK) pour qu’il fonctionne avec **Xcode 7**.
 -   Correction de bogues liés aux notifications dans l’application.
 -   Modification des notifications dans l’application pour qu’elles soient plus fiables en cas de batterie faible et dans d’autres cas de figure.
 -   Suppression des journaux de console supplémentaires générés par la bibliothèque tierce.
 
 ##3\.1.0 (26/08/2015)
 
--   Résolution d’un bogue de compatibilité iOS 9 avec une bibliothèque tierce. Ce bogue provoquait des blocages pendant l’envoi des résultats des sondages, d’informations sur l’application ou de données supplémentaires.
+-   Résolution d’un bogue de compatibilité iOS 9 avec une bibliothèque tierce. Ce bogue provoquait des blocages pendant l’envoi des résultats des sondages, d’informations sur l’application ou de données supplémentaires.
 
 ##3\.0.0 (19/06/2015)
 
 -   Mobile Engagement utilise des notifications Push Silent.
--   Prise en charge d’iOS 4.X abandonnée. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 6.
+-   Prise en charge d’iOS 4.X abandonnée. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 6.
 
 ##2\.2.0 (21/05/2015)
 
--   L’ID d’appareil Mobile Engagement pour les appareils iOS version 6 et inférieure est désormais basé sur un GUID généré au moment de l’installation.
+-   L’ID d’appareil Mobile Engagement pour les appareils iOS version 6 et inférieure est désormais basé sur un GUID généré au moment de l’installation.
 
 ##2\.1.0 (24/04/2015)
 
@@ -54,8 +54,8 @@
 -   Version initiale d'Azure Engagement Mobile
 -   La configuration d'appId/sdkKey est remplacée par une configuration de chaîne de connexion.
 -   Suppression de l'API pour envoyer et recevoir des messages XMPP arbitraires d'entités XMPP arbitraires.
--   Suppression de l'API pour envoyer et recevoir des messages entre périphériques.
+-   Suppression de l'API pour envoyer et recevoir des messages entre appareils.
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

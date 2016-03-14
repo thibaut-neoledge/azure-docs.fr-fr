@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
@@ -26,23 +26,23 @@ Pour plus d’informations sur les API et les erreurs, consultez [Informations d
 
 ## Fonctionnement
 
-Un modèle d’application SaaS courant consiste à attribuer une base de données à chaque client. Les besoins en ressources de chaque client (base de données) sont imprévisibles (processeur, E/S, mémoire exprimés en DTU). Avec ces pics et creux de demande, comment allouer des ressources ? Deux options : (1) le surprovisionnement des ressources sur la base de pics d’utilisation (et le surpaiement). Ou (2) le sous-provisionnement pour réduire les coûts, au détriment des performances et de la satisfaction des clients pendant les pics.
-
-Les pools de base de données élastique sont une solution à ce problème.
+Un modèle d’application SaaS courant consiste à attribuer une base de données à chaque client. Les besoins en ressources de chaque client (base de données) en matière de mémoire, d’E/S et de processeur sont imprévisibles. Avec ces pics et creux de demande, comment allouer des ressources ? En règle générale, vous avez deux options : soit le surprovisionnement de ressources en fonction des pics d’utilisation et des coûts trop élevés, soit le sous- provisionnement pour réduire les coûts, au détriment des performances et de la satisfaction client pendant les pics. Grâce aux pools de base de données élastiques, les bases de données obtiennent les ressources de performances dont elles ont besoin, quand elles en ont besoin, dans le cadre d’un mécanisme d’allocation de ressources simple et d’un budget prévisible.
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
-Grâce à ces derniers, les bases de données obtiennent les ressources de performances dont elles ont besoin, quand elles en ont besoin, dans le cadre d’un mécanisme d’allocation de ressources simple et d’un budget prévisible. Un pool bénéficie d’un nombre défini d’eDTU, pour un prix donné. Au sein du pool, les différentes bases de données peuvent en toute souplesse s’adapter automatiquement en fonction des paramètres définis. Si la charge est élevée, une base de données peut consommer plus d’eDTU pour répondre à la demande. Les bases de données soumises à des charges légères en consomment moins, tandis que celles qui ne sont soumises à aucune charge n’en consomment pas du tout. L’approvisionnement des ressources pour l’ensemble du pool plutôt que pour des bases de données uniques simplifie vos tâches de gestion. En outre, vous disposez d’un budget prévisible pour le pool.
+Dans la base de données SQL, la mesure relative d’une capacité de base de données pour traiter des demandes de ressources est exprimée en unités de transaction de base de données (DTU)pour les bases de données uniques et en DTU élastiques (eDTU) pour les pools de base de données élastiques. Pour en savoir plus sur les DTU et les eDTU, consultez la page [Présentation de la base de données SQL](sql-database-technical-overview.md#understand-dtus).
+
+Un pool bénéficie d’un nombre défini d’eDTU, pour un prix donné. Au sein du pool, les différentes bases de données peuvent en toute souplesse s’adapter automatiquement en fonction des paramètres définis. Si la charge est élevée, une base de données peut consommer plus d’eDTU pour répondre à la demande. Les bases de données soumises à des charges légères en consomment moins, tandis que celles qui ne sont soumises à aucune charge n’en consomment pas du tout. L’approvisionnement des ressources pour l’ensemble du pool plutôt que pour des bases de données uniques simplifie vos tâches de gestion. En outre, vous disposez d’un budget prévisible pour le pool.
 
 Vous pouvez ajouter des eDTU à un pool existant sans que les bases de données connaissent de temps d’arrêt ou soient affectées. De même, si les eDTU supplémentaires ne sont plus nécessaires, ils peuvent être supprimés à partir d’un pool existant à tout moment.
 
 De plus, vous pouvez ajouter des bases de données au pool ou en retirer. Si une base de données finit par sous-utiliser les ressources, retirez-la.
 
-## Quelles bases de données mettre dans un pool ?
+## Quelles bases de données mettre dans un pool ?
 
 ![Bases de données SQL partageant des eDTU dans un pool de base de données élastique.][1]
 
-Les bases de données qui sont d’excellents candidats pour les pools de base de données élastiques ont généralement des périodes d’activité et d’autres périodes d’inactivité. Dans l’exemple ci-dessus, vous affichez l’activité d’une base de données unique, de 4 bases de données et enfin d’un pool de base de données élastique avec 20 bases de données. Les bases de données dont l’activité varie au fil du temps sont d’excellents candidats pour les pools élastiques, car elles ne sont pas toutes actives en même temps et peuvent partager des eDTU. Toutes les bases de données n'adoptent pas ce schéma. Les bases de données qui ont une demande en ressources constante sont mieux adaptées aux niveaux de service De base, Standard et Premium dans lesquels les ressources sont affectées individuellement.
+Les bases de données qui sont d’excellents candidats pour les pools de base de données élastiques ont généralement des périodes d’activité et d’autres périodes d’inactivité. Dans l’exemple ci-dessus, vous affichez l’activité d’une base de données unique, de 4 bases de données et enfin d’un pool de base de données élastique avec 20 bases de données. Les bases de données dont l’activité varie au fil du temps sont d’excellents candidats pour les pools élastiques, car elles ne sont pas toutes actives en même temps et peuvent partager des eDTU. Toutes les bases de données n'adoptent pas ce schéma. Les bases de données qui ont une demande en ressources constante sont mieux adaptées aux niveaux de service De base, Standard et Premium dans lesquels les ressources sont affectées individuellement.
 
 [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
 
@@ -53,7 +53,7 @@ Les bases de données qui sont d’excellents candidats pour les pools de base d
 
 Un pool simplifie les tâches de gestion grâce à l’exécution des scripts dans des **[tâches élastiques](sql-database-elastic-jobs-overview.md)**. Une tâche de base de données élastique élimine pratiquement le caractère fastidieux d’un nombre élevé de bases de données. Pour commencer, consultez [Prise en main de Tâches de bases de données élastiques](sql-database-elastic-jobs-getting-started.md).
 
-Pour plus d’informations sur les autres outils de bases de données élastiques, consultez [Parcours d’apprentissage des outils de base de données élastique](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Pour plus d’informations sur les autres outils, consultez le [Parcours d’apprentissage des outils de bases de données élastique](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Fonctionnalités de continuité des activités pour les bases de données d’un pool
 
@@ -61,11 +61,11 @@ Dans la version préliminaire actuelle, les bases de données élastiques prenne
 
 ### Limite de restauration dans le temps
 
-Les bases de données qui se trouvent dans un pool de bases de données élastiques sont sauvegardées automatiquement par le système et la stratégie de rétention de la sauvegarde est la même que le niveau de service correspondant pour les bases de données uniques. Pour résumer, les bases de données dans chaque niveau ont une plage de restauration différente :
+Les bases de données qui se trouvent dans un pool de bases de données élastiques sont sauvegardées automatiquement par le système et la stratégie de rétention de la sauvegarde est la même que le niveau de service correspondant pour les bases de données uniques. Pour résumer, les bases de données dans chaque niveau ont une plage de restauration différente :
 
-* **Pool de base** : restauration possible à un point quelconque au cours des 7 derniers jours. 
-* **Pool standard** : restauration possible à un point quelconque au cours des 14 derniers jours.
-* **Pool premium** : restauration possible à un point quelconque au cours des 35 derniers jours. 
+* **Pool de base** : restauration possible à un point quelconque au cours des 7 derniers jours. 
+* **Pool standard** : restauration possible à un point quelconque au cours des 14 derniers jours.
+* **Pool premium** : restauration possible à un point quelconque au cours des 35 derniers jours. 
 
 Lors de l’aperçu, les bases de données dans un pool seront restaurées vers une base de données dans le même pool. Les bases de données supprimées seront toujours restaurées comme une base de données autonome en dehors du pool dans le niveau de performance le plus bas pour ce niveau de service. Par exemple, une base de données élastique dans un pool Standard est supprimée sera restaurée comme une base de données S0. Vous pouvez effectuer des opérations de restauration de bases de données à l'aide du portail Azure ou par programmation en utilisant l'API REST. La prise en charge des applets de commande PowerShell sera bientôt disponible.
 
@@ -86,4 +86,4 @@ Par contre, il est possible d’exporter une base de données depuis un pool. Ac
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

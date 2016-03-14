@@ -18,10 +18,14 @@
 	ms.author="heidist"/>
 
 # Gestion de votre service Search sur Microsoft Azure
+> [AZURE.SELECTOR]
+- [Portail](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [API REST](search-get-started-management-api.md)
 
 Azure Search est un service cloud avec une API HTTP qu'il est possible d'utiliser dans des applications de recherche personnalisées. Notre service Search fournit le moteur d'analyse de texte avec recherche en texte intégral, des fonctionnalités de recherche avancée, un espace de stockage de données de recherche et une syntaxe de commande de requête.
 
-Cet article vous explique comment administrer un service Search dans le [portail Azure](https://portal.azure.com). Vous pouvez également utiliser la nouvelle fonctionnalité d’analyse du trafic des recherches pour comprendre l’activité au niveau de l’index. Pour démarrer, consultez [Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](search-traffic-analytics.md).
+Cet article vous explique comment administrer un service Search dans le [portail Azure](https://portal.azure.com). Vous pouvez également utiliser la nouvelle fonctionnalité d’analyse du trafic des recherches pour comprendre l’activité au niveau de l’index. Pour démarrer, consultez [Activation et utilisation de la fonctionnalité Azure Search du trafic](search-traffic-analytics.md).
 
 Vous pouvez également utiliser l'API REST de gestion. Pour en savoir plus, consultez les articles [Prise en main de l'API REST de gestion Azure Search](search-get-started-management-api.md) et [Informations de référence sur l'API REST de gestion Azure Search](http://msdn.microsoft.com/library/azure/dn832684.aspx).
 
@@ -32,7 +36,7 @@ En tant qu'administrateur configurant un service Search, l'une de vos premières
 
 Les abonnés existants peuvent bénéficier gratuitement d'un service partagé. Celui-ci est recommandé à des fins de formation, pour les tests de validation technique et pour les projets de développement de faible envergure. Le service partagé est limité à 50 Mo de stockage, trois index et un certain nombre de documents (la limite stricte est de 10 000 documents, même si la capacité de 50 Mo n'a pas été atteinte). Les performances ne sont pas garanties avec le service partagé. Dès lors, si vous développez une application de recherche de production, pensez plutôt à utiliser la recherche standard.
 
-La recherche standard est facturable, car vous bénéficiez d'une infrastructure et de ressources dédiées, utilisées uniquement par votre abonnement. La recherche standard est allouée dans des lots de partitions (stockage) et de réplicas (charges de travail de service) définis par l'utilisateur, et facturée par unité de recherche. Vous pouvez faire évoluer les partitions ou les réplicas séparément, en ajoutant des ressources suivant les besoins.
+Les recherches de base et standard sont facturables, car vous bénéficiez d'une infrastructure et de ressources dédiées, utilisées uniquement par votre abonnement. Les recherches de base et standard sont allouées dans des lots de partitions (stockage) et de réplicas (charges de travail de service) définis par l'utilisateur, et facturées par unité de recherche. Vous pouvez faire évoluer les partitions ou les réplicas séparément, en ajoutant des ressources suivant les besoins.
 
 Pour planifier la capacité nécessaire et comprendre l'impact de la facturation, nous vous recommandons les liens suivants :
 
@@ -43,7 +47,7 @@ Quand vous êtes prêt à vous inscrire, consultez [Créer un service Search dan
 
 ##Analyse de recherche
 
-Vous pouvez activer la collecte de données sur l'activité de recherche des utilisateurs pour comprendre le fonctionnement de votre service de recherche, les termes qui sont utilisés et si ces termes ont renvoyé des résultats. Un pack de contenu Power BI est le meilleur moyen pour analyser et visualiser ces données. La première étape consiste à activer l'analyse du trafic de recherche. Consultez [Analyse de votre trafic Azure Search](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) pour découvrir comment procéder.
+Vous pouvez activer la collecte de données sur l'activité de recherche des utilisateurs pour comprendre le fonctionnement de votre service de recherche, les termes qui sont utilisés et si ces termes ont renvoyé des résultats. Un pack de contenu Power BI est le meilleur moyen pour analyser et visualiser ces données. La première étape consiste à activer l'analyse du trafic de recherche. Consultez [Analyse de votre trafic Azure Search (en anglais)](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) pour découvrir comment procéder.
 
 <a id="sub-2"></a>
 ## Tâches d'administration
@@ -104,9 +108,9 @@ Dans cette version préliminaire publique, l'analyse des ressources se limite au
 
 Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application.
 
-L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d'informations, consultez [Limites et contraintes](search-limits-quotas-capacity.md).
+L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d’informations, consultez [Limites de service Search](search-limits-quotas-capacity.md).
 
-+	[Obtention de statistiques d’index](http://msdn.microsoft.com/library/dn798942.aspx)
++	[Obtention de statistiques d'index](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Nombre de documents](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [AZURE.NOTE] Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites.
@@ -115,15 +119,15 @@ L'API du service Search vous permet d'obtenir le nombre de documents et d'index.
 <a id="sub-6"></a>
 ## Augmentation ou réduction d'échelle
 
-Au départ, chaque service de recherche comporte, au minimum, un réplica et une partition. Si vous vous êtes inscrit pour bénéficier de ressources dédiées à l'aide du niveau de tarification Standard, vous pouvez cliquer sur la vignette **METTRE À L'ÉCHELLE** dans le tableau de bord des services pour réajuster le nombre de partitions et de réplicas utilisés par votre service.
+Au départ, chaque service de recherche comporte, au minimum, un réplica et une partition. Si vous vous êtes inscrit pour bénéficier de ressources dédiées à l'aide des niveaux de tarification [De base et Standard](search-limits-quotas-capacity.md), vous pouvez cliquer sur la vignette **SCALE** (MISE À L'ÉCHELLE) sur le tableau de bord des services pour réajuster le nombre de partitions et de réplicas utilisés par votre service.
 
-Lorsque vous ajoutez une ressource, le service l'utilise automatiquement. Aucune autre action n'est requise de votre part. Il y aura cependant un léger décalage avant que l'effet de la nouvelle ressource ne soit perceptible. L'approvisionnement des ressources supplémentaires demande au moins 15 minutes.
+Lorsque vous ajoutez des capacités à travers l’une des ressources, le service les utilise automatiquement. Aucune autre action n'est requise de votre part. Il y aura cependant un léger décalage avant que l'effet de la nouvelle ressource ne soit perceptible. L'approvisionnement des ressources supplémentaires demande au moins 15 minutes.
 
  ![][10]
 
 ### Ajout de réplicas
 
-Pour augmenter le nombre de requêtes par seconde (RPS) ou parvenir à une haute disponibilité, il convient d'ajouter des réplicas. Chaque réplica comporte une copie d'un index. L'ajout d'un réplica se traduit donc par un index supplémentaire pouvant être utilisé pour satisfaire les demandes de requête. En règle générale, on estime actuellement qu'il faut au moins 3 réplicas pour disposer d'une haute disponibilité.
+Pour augmenter le nombre de requêtes par seconde (RPS) ou parvenir à une haute disponibilité, il convient d'ajouter des réplicas. Chaque réplica comporte une copie d'un index. L'ajout d'un réplica se traduit donc par un index supplémentaire pouvant être utilisé pour satisfaire les demandes de requête. En règle générale, on estime actuellement qu'il faut au moins 3 réplicas pour disposer d'une haute disponibilité (consultez [Planification de la capacité](search-capacity-planning.md) pour plus de détails).
 
 Un service de recherche qui comporte davantage de réplicas peut équilibrer la charge des demandes de requête sur un plus grand nombre d'index. Pour un nombre de requêtes donné, le débit sera plus élevé si davantage de copies de l'index sont disponibles pour leur traitement. Si vous constatez une latence des requêtes, la mise en ligne des répliques supplémentaires aura, à n'en pas douter, un effet positif sur les performances.
 
@@ -133,7 +137,9 @@ Bien que l'ajout de réplicas à votre service entraîne une augmentation du dé
 
 Pour la plupart des applications de service, le nombre de réplicas est plus important que les partitions. La majorité des applications qui font usage de la recherche peuvent, en effet, tenir aisément dans une seule partition capable de prendre en charge jusqu'à 15 millions de documents.
 
-Vous pouvez ajouter des partitions lorsqu'un plus grand nombre de documents est nécessaire. Notez que les partitions sont ajoutées par multiples de 12 (1, 2, 3, 4, 6 ou 12). Il s'agit d'un artefact de partitionnement (ou sharding) ; un index est créé dans 12 fragments (ou shards) qui peuvent tous être stockés dans 1 partition ou répartis équitablement dans 2, 3, 4, 6 ou 12 partitions (un fragment par partition).
+Vous pouvez ajouter des partitions lorsqu'un plus grand nombre de documents est nécessaire si vous êtes inscrit au service Standard. Le niveau De base ne fournit pas d’autres partitions.
+
+Au niveau Standard, les partitions sont ajoutées par multiples de 12 (notamment 1, 2, 3, 4, 6 ou 12). Il s'agit d'un artefact de partitionnement (ou sharding) ; un index est créé dans 12 fragments (ou shards) qui peuvent tous être stockés dans 1 partition ou répartis équitablement dans 2, 3, 4, 6 ou 12 partitions (un fragment par partition).
 
 ### Suppression de réplicas
 
@@ -200,4 +206,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

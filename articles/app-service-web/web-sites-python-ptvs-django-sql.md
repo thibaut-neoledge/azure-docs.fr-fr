@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Django et SQL Database sur Azure avec Python Tools 2.2 pour Visual Studio" 
-	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application web Django qui stocke les données dans une instance de base de données SQL et de la déployer dans Azure App Service Web Apps." 
+	pageTitle="Django et SQL Database sur Azure avec Python Tools 2.2 pour Visual Studio" 
+	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application web Django qui stocke les données dans une instance de base de données SQL et de la déployer dans Azure App Service Web Apps." 
 	services="app-service\web" 
 	tags="python"
 	documentationCenter="python" 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/13/2015"
+	ms.date="02/25/2016"
 	ms.author="huguesv"/>
 
 
 
 
-# Django et SQL Database sur Azure avec Python Tools 2.2 pour Visual Studio 
+# Django et SQL Database sur Azure avec Python Tools 2.2 pour Visual Studio 
 
-Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio] afin de créer une application web de sondage simple, à l’aide de l’un des exemples de modèle PTVS. Ce didacticiel est également disponible en [vidéo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
+Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio] afin de créer une application web de sondage simple, à l’aide de l’un des exemples de modèle PTVS. Ce didacticiel est également disponible en [vidéo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
 Nous allons découvrir comment utiliser une base de données SQL hébergée sur Azure, comment configurer l’application web pour utiliser une base de données SQL et comment publier l’application web sur [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -30,15 +30,16 @@ Visitez le [Centre de développement Python] pour consulter d’autres articles 
 
 ## Composants requis
 
- - Visual Studio 2013 ou 2015
- - [Python Tools 2.2 pour Visual Studio]
+ - Visual Studio 2013 ou 2015
+ - [Python Tools 2.2 pour Visual Studio]
  - [Python Tools 2.2 pour Visual Studio Samples VSIX]
- - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015]
- - [Python 2.7 32 bits]
+ - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015]
+ - [Python 2.7 32 bits]
+ - Django 1.6 ou version antérieure
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Création du projet
 
@@ -54,7 +55,7 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
   	![Boîte de dialogue Packages externes](./media/web-sites-python-ptvs-django-sql/PollsDjangoExternalPackages.png)
 
-1.  Sélectionnez **Python 2.7** comme interpréteur de base.
+1.  Sélectionnez **Python 2.7** comme interpréteur de base.
 
   	![Boîte de dialogue Ajouter un environnement virtuel](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
@@ -90,11 +91,11 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
 Pour la base de données, nous allons créer une base de données SQL Azure.
 
-Pour cela, procédez comme suit :
+Pour cela, procédez comme suit :
 
 1.  Connectez-vous au [portail Azure].
 
-1.  En bas du panneau de navigation, cliquez sur **NOUVEAU**, puis sur **Données + stockage** > **Base de données SQL**.
+1.  En bas du panneau de navigation, cliquez sur **NOUVEAU**, puis sur **Données + stockage** > **Base de données SQL**.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
 
@@ -116,7 +117,7 @@ Pour cela, procédez comme suit :
 
 Dans cette section, nous allons configurer notre application web pour utiliser la base de données SQL que nous venons de créer. Nous allons également installer les packages Python supplémentaires requis pour utiliser des bases de données SQL avec Django. Nous exécuterons ensuite l’application web en local.
 
-1.  Dans Visual Studio, ouvrez **settings.py** à partir du dossier *ProjectName*. Collez temporairement la chaîne de connexion dans l’éditeur. Celle-ci se présente au format suivant :
+1.  Dans Visual Studio, ouvrez **settings.py** à partir du dossier *ProjectName*. Collez temporairement la chaîne de connexion dans l’éditeur. Celle-ci se présente au format suivant :
 
         Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
@@ -156,7 +157,7 @@ Modifiez la définition de `DATABASES` pour utiliser les valeurs ci-dessus.
 1.  Exécutez l’application avec `F5`. Les sondages créés à l’aide de la fonction **Create Sample Polls** et les données soumises par vote sont sérialisés dans la base de données SQL.
 
 
-## Publication de l’application web dans Azure App Service
+## Publication de l’application web dans Azure App Service
 
 Le Kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service Web Apps.
 
@@ -181,7 +182,7 @@ Le Kit de développement logiciel (SDK) Azure .NET offre un moyen simple de dép
 
 1.  Votre navigateur web ouvre automatiquement l’application web publiée. L’application doit fonctionner comme prévu et utiliser la base de données **SQL** hébergée sur Azure.
 
-    Félicitations !
+    Félicitations !
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
 
@@ -192,12 +193,12 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 - [Documentation relative à Python Tools for Visual Studio]
   - [Projets web]
   - [Projets de service cloud]
-  - [Débogage à distance sur Microsoft Azure]
+  - [Débogage à distance sur Microsoft Azure]
 - [Documentation Django]
 - [Base de données SQL]
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 
 <!--Link references-->
@@ -206,17 +207,17 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 
 <!--External Link references-->
 [portail Azure]: https://portal.azure.com
-[Python Tools pour Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.2 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.2 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 pour Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Documentation relative à Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
-[Débogage à distance sur Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Débogage à distance sur Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Projets web]: http://go.microsoft.com/fwlink/?LinkId=624027
 [Projets de service cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Documentation Django]: https://www.djangoproject.com/
 [Base de données SQL]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

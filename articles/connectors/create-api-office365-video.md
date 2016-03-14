@@ -14,62 +14,55 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/18/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Prendre en main l'API Office 365 Video
+Connexion à Office 365 Video pour obtenir des informations sur une vidéo Office 365, la liste des vidéos, et bien plus encore. L’API Office 365 Video peut être utilisée à partir de :
 
-L'API Office 365 Video fournit une API compatible avec les vidéos et canaux d'Office 365.
+- Logic Apps 
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Office365 Video Connector](../app-service-logic/app-service-logic-connector-Office365 Video Connector.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Cette API n’est pas pris en charge sur les versions de schéma précédentes.
 
 Avec Office 365 Video, vous pouvez :
 
-* Créer des applications logiques
+- Créer votre flux d’activité en fonction des données que vous obtenez d’Office 365 Video. 
+- Utiliser des actions pour vérifier l’état du portail vidéo, obtenir une liste de toutes les vidéos dans un canal, et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Vous pouvez, par exemple, utiliser l’API Bing Search pour rechercher des vidéos Office 365, puis utiliser l’API Office 365 Video pour obtenir des informations relatives à cette vidéo. Si la vidéo répond à vos besoins, vous pouvez la publier sur Facebook. 
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## À propos des déclencheurs et des actions
+## Déclencheurs et actions
 
-L’API Office 365 Video peut être utilisée en tant qu'action ; il n'y a aucun déclencheur. Toutes les API prennent en charge les données aux formats JSON et XML.
+L’API Office 365 Users met à votre disposition les actions ci-après. Il n'y a aucun déclencheur.
 
- L'API Office 365 Video met à votre disposition les actions et/ou les déclencheurs ci-après.
+| Déclencheurs | Actions|
+| --- | --- |
+| Aucun | <ul><li>Vérifier l’état du portail vidéo</li><li>Obtenir tous les canaux visibles</li><li>Obtenir l’URL de la lecture du manifeste Azure Media Services pour une vidéo</li><li>Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo</li><li>Obtient des informations sur une vidéo Office 365 particulière</li><li>Répertorie toutes les vidéos Office 365 présentes dans un canal</li></ul>
 
-### Actions de l’API Office 365 Video
-Vous pouvez effectuer les actions suivantes :
+Toutes les API prennent en charge les données aux formats JSON et XML.
 
-|Action|Description|
-|--- | ---|
-|IsVideoPortalEnabled|Vérifie l'état du portail vidéo pour voir si des services vidéo sont activés.|
-|ListViewableChannels|Obtient tous les canaux que l'utilisateur peut afficher|
-|ListVideos|Répertorie toutes les vidéos Office 365 présentes dans un canal|
-|GetVideo|Obtient des informations sur une vidéo Office 365 particulière|
-|GetPlaybackUrl|Obtenir l'URL de la lecture du manifeste Azure Media Services pour une vidéo|
-|GetStreamingKeyAccessToken|Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo|
-ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour utiliser l'API Office 365 Video, vous créez d'abord une **connexion** puis fournissez les détails de ces propriétés :
+## Créer une connexion à l’API Office 365 Video
+Quand vous ajoutez cette API à vos applications logiques, vous devez vous connecter à votre compte Office 365 Video et autoriser les applications logiques à se connecter à votre compte.
 
-|Propriété| Requis|Description|
-| ---|---|---|
-|Jeton|Oui|Fournir les informations d'identification SharePoint Online|
+1. Connectez-vous à votre compte Office 365 Video.
+2. Autorisez vos applications logiques à se connecter à votre compte Office 365 et à l’utiliser. 
 
+Après avoir créé la connexion, vous entrez les propriétés Office 365 Video, comme le nom du client ou l’ID du canal. La section **Informations de référence sur l'API REST** dans cette rubrique décrit ces propriétés.
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette même connexion Office 365 Video dans d’autres applications logiques.
 
-## Informations de référence sur l’API REST Office 365 Video
-#### Cette documentation concerne la version 1.0.
+## Informations de référence sur l'API REST Swagger
+S’applique à la version 1.0.
 
-
-### Vérifie l'état du portail vidéo pour voir si des services vidéo sont activés.
-**```GET: /{tenant}/IsEnabled```**
-
-
+### Vérifie l’état du portail vidéo 
+Vérifie l’état du portail vidéo pour voir si les services vidéo sont activés. ```GET: /{tenant}/IsEnabled```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |locataire|string|yes|path|(aucun)|Le nom du client pour le répertoire dont fait partie l'utilisateur|
 
 
-### Voici les réponses possibles :
+#### Response
 
 |Nom|Description|
 |---|---|
@@ -79,21 +72,18 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |404|Introuvable|
 |500|Erreur interne du serveur|
 |default|L’opération a échoué.|
-------
 
 
 
-### Obtient tous les canaux que l'utilisateur peut afficher
-**```GET: /{tenant}/Channels```**
-
-
+### Obtenir tous les canaux visibles 
+Permet d’obtenir tous les canaux que l’utilisateur est autorisé à afficher. ```GET: /{tenant}/Channels```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |locataire|string|yes|path|(aucun)|Le nom du client pour le répertoire dont fait partie l'utilisateur|
 
 
-### Voici les réponses possibles :
+#### Response
 
 |Nom|Description|
 |---|---|
@@ -103,14 +93,12 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |404|Introuvable|
 |500|Erreur interne du serveur|
 |default|L’opération a échoué.|
-------
 
 
 
-### Répertorie toutes les vidéos Office 365 présentes dans un canal
-**```GET: /{tenant}/Channels/{channelId}/Videos```**
 
-
+### Répertorie toutes les vidéos Office 365 présentes dans un canal 
+Répertorie toutes les vidéos Office 365 présentes dans un canal. ```GET: /{tenant}/Channels/{channelId}/Videos```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -118,7 +106,7 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |channelId|string|yes|path|(aucun)|L'ID du canal où les vidéos doivent être récupérées|
 
 
-### Voici les réponses possibles :
+#### Response
 
 |Nom|Description|
 |---|---|
@@ -128,14 +116,12 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |404|Introuvable|
 |500|Erreur interne du serveur|
 |default|L’opération a échoué.|
-------
 
 
 
-### Obtient des informations sur une vidéo Office 365 particulière
-**```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}```**
 
-
+### Obtient des informations sur une vidéo Office 365 particulière 
+Obtient des informations sur une vidéo Office 365 particulière. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -144,7 +130,7 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |videoId|string|yes|path|(aucun)|L'ID de la vidéo|
 
 
-### Voici les réponses possibles :
+#### Response
 
 |Nom|Description|
 |---|---|
@@ -154,14 +140,12 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |404|Introuvable|
 |500|Erreur interne du serveur|
 |default|L’opération a échoué.|
-------
 
 
 
-### Obtenir l'URL de la lecture du manifeste Azure Media Services pour une vidéo
-**```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl```**
 
-
+### Obtenir l'URL de la lecture du manifeste Azure Media Services pour une vidéo 
+Obtenir l’URL de la lecture du manifeste Azure Media Services pour une vidéo. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -171,7 +155,7 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |streamingFormatType|string|yes|query|(aucun)|Type de format de la diffusion en continu. 1 - Smooth Streaming ou MPEG-DASH. 0 - HLS Streaming|
 
 
-### Voici les réponses possibles :
+#### Response
 
 |Nom|Description|
 |---|---|
@@ -181,14 +165,12 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |404|Introuvable|
 |500|Erreur interne du serveur|
 |default|L’opération a échoué.|
-------
 
 
 
-### Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo
-**```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```**
 
-
+### Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo 
+Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -197,7 +179,7 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |videoId|string|yes|path|(aucun)|L'ID de la vidéo|
 
 
-### Voici les réponses possibles :
+#### Response
 
 |Nom|Description|
 |---|---|
@@ -207,57 +189,36 @@ ActionsTableReplaceMeLater## Créer une connexion à l'API Office 365 Video Pour
 |404|Introuvable|
 |500|Erreur interne du serveur|
 |default|L’opération a échoué.|
-------
 
 
+## Définitions d'objet
 
-## Définition(s) d'objet : 
+#### Channel : classe de canal
 
- **Channel** : classe de canal
-
-Propriétés requises pour Channel :
-
-
-Aucune des propriétés n’est obligatoire.
-
-
-**Toutes les propriétés**:
+| Nom | Type de données | Requis|
+|---|---|---|
+|ID|string|no|
+|Intitulé|string|no|
+|Description|string|no|
 
 
-| Nom | Type de données |
-|---|---|
-|ID|string|
-|Intitulé|string|
-|Description|string|
+#### Vidéo 
 
-
-
- **Video** : classe de vidéo
-
-Propriétés requises pour Video :
-
-
-Aucune des propriétés n’est obligatoire.
-
-
-**Toutes les propriétés**:
-
-
-| Nom | Type de données |
-|---|---|
-|ID|string|
-|Intitulé|string|
-|Description|string|
-|CreationDate|string|
-|Propriétaire|string|
-|ThumbnailUrl|string|
-|VideoUrl|string|
-|VideoDuration|integer|
-|VideoProcessingStatus|integer|
-|ViewCount|integer|
+| Nom | Type de données |Requis|
+|---|---|---|
+|ID|string|no|
+|Intitulé|string|no|
+|Description|string|no|
+|CreationDate|string|no|
+|Propriétaire|string|no|
+|ThumbnailUrl|string|no|
+|VideoUrl|string|no|
+|VideoDuration|integer|no|
+|VideoProcessingStatus|integer|no|
+|ViewCount|integer|no|
 
 
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

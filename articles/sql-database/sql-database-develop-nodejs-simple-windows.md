@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="02/29/2016"
 	ms.author="meetb"/>
 
 
@@ -33,7 +33,7 @@ Cette rubrique présente un exemple de code Node.js que vous pouvez utiliser pou
 Les éléments logiciels suivants doivent être présents sur votre ordinateur de développement client.
 
 
--  [Node.js](https://nodejs.org/en/download/) : cliquez sur le programme d'installation Windows et téléchargez le programme d'installation msi approprié. Après le téléchargement, exécutez le fichier msi pour installer Node.js
+-  [Node.js](https://nodejs.org/en/download/) : cliquez sur le programme d'installation Windows et téléchargez le programme d'installation msi approprié. Après le téléchargement, exécutez le fichier msi pour installer Node.js
 
 
 ### Installer les modules requis
@@ -53,11 +53,11 @@ Une fois votre ordinateur configuré avec **node**, ouvrez cmd.exe et accédez a
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
 
-## Étape 1 : obtenir les informations de connexion
+## Étape 1 : obtenir les informations de connexion
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Étape 2 : se connecter
+## Étape 2 : se connecter
 
 La fonction de [nouvelle connexion](http://pekim.github.io/tedious/api-connection.html) est utilisée pour la connexion à la base de données SQL.
 
@@ -76,7 +76,7 @@ La fonction de [nouvelle connexion](http://pekim.github.io/tedious/api-connectio
 	});
 
 
-## Étape 3 : exécuter une requête
+## Étape 3 : exécuter une requête
 
 
 Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Request()](http://pekim.github.io/tedious/api-request.html). Si l'instruction renvoie des lignes, par exemple une instruction select, vous pouvez les récupérer à l'aide de la fonction [request.on()](http://pekim.github.io/tedious/api-request.html). S'il n'y a aucune ligne, la fonction [request.on()](http://pekim.github.io/tedious/api-request.html) renvoie des listes vides.
@@ -125,7 +125,7 @@ Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Reque
 	}
 
 
-## Étape 4 : insérer une ligne
+## Étape 4 : insérer une ligne
 
 Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL] (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
@@ -169,4 +169,4 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 		connection.execSql(request);
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

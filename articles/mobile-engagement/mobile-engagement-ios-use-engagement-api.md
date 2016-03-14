@@ -13,31 +13,31 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 
 #Utilisation de l'API Engagement sur iOS
 
-Ce document est un module complémentaire du document Intégration d'Engagement sur iOS : il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
+Ce document est un module complémentaire du document Intégration d'Engagement sur iOS : il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
 
 Rappelez-vous que si vous souhaitez qu’Engagement établisse uniquement le rapport des sessions, des activités, des incidents et des informations techniques de votre application, dans ce cas le moyen le plus simple est de faire `UIViewController`hériter tous vos objets personnalisés de la classe `EngagementViewController` correspondante.
 
 Si vous souhaitez aller plus loin, par exemple si vous avez besoin de signaler des événements, des erreurs et des tâches spécifiques à l'application, ou si vous devez signaler les activités de votre application d'une autre manière que celle implémentée dans les classes `EngagementViewController`, vous devez alors utiliser l'API Engagement.
 
-L'API Engagement est fournie par la classe `EngagementAgent`. Une instance de cette classe peut être récupérée en appelant la méthode statique `[EngagementAgent shared]` (notez que l'objet `EngagementAgent` retourné est un singleton).
+L'API Engagement est fournie par la classe `EngagementAgent`. Une instance de cette classe peut être récupérée en appelant la méthode statique `[EngagementAgent shared]` (notez que l'objet `EngagementAgent` retourné est un singleton).
 
 Avant les appels d'API, l'objet `EngagementAgent` doit être initialisé en appelant la méthode `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
 ##Concepts liés à Engagement
 
-Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engagement-concepts.md) courants pour la plateforme iOS.
+Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engagement-concepts.md) courants pour la plateforme iOS.
 
-### `Session` et `Activity`
+### `Session` et `Activity`
 
-Une *activité* est généralement associée à un écran de l'application, c'est-à-dire que l'*activité* démarre lorsque l'écran s'affiche et s'arrête lorsque l'écran est fermé. C'est le cas lorsque le Kit de développement logiciel (SDK) Engagement est intégré à l'aide des classes `EngagementViewController`.
+Une *activité* est généralement associée à un écran de l'application, c'est-à-dire que l'*activité* démarre lorsque l'écran s'affiche et s'arrête lorsque l'écran est fermé. C'est le cas lorsque le Kit de développement logiciel (SDK) Engagement est intégré à l'aide des classes `EngagementViewController`.
 
-Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de fractionner un écran donné en plusieurs sous-parties pour obtenir plus d'informations sur l'utilisation de cet écran (par exemple la fréquence et la durée d'utilisation des boîtes de dialogue dans cet écran).
+Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de fractionner un écran donné en plusieurs sous-parties pour obtenir plus d'informations sur l'utilisation de cet écran (par exemple la fréquence et la durée d'utilisation des boîtes de dialogue dans cet écran).
 
 ##Rapports d'activités
 
@@ -51,7 +51,7 @@ Vous devez appeler `startActivity()` chaque fois que l'activité utilisateur cha
 
 			[[EngagementAgent shared] endActivity];
 
-> [AZURE.WARNING]Vous ne devez **JAMAIS** appeler cette fonction vous-même, sauf si vous souhaitez fractionner une utilisation de votre application dans plusieurs sessions : un appel de cette fonction mettrait immédiatement fin à la session en cours, et par conséquent un appel ultérieur à `startActivity()` démarrerait une nouvelle session. Cette fonction est appelée automatiquement par le SDK lorsque votre application est fermée.
+> [AZURE.WARNING] Vous ne devez **JAMAIS** appeler cette fonction vous-même, sauf si vous souhaitez fractionner une utilisation de votre application dans plusieurs sessions : un appel de cette fonction mettrait immédiatement fin à la session en cours, et par conséquent un appel ultérieur à `startActivity()` démarrerait une nouvelle session. Cette fonction est appelée automatiquement par le SDK lorsque votre application est fermée.
 
 ##Rapports d'événements
 
@@ -59,7 +59,7 @@ Vous devez appeler `startActivity()` chaque fois que l'activité utilisateur cha
 
 Les événements de session servent généralement à signaler les actions effectuées par un utilisateur lors de sa session.
 
-**Exemple sans données supplémentaires :**
+**Exemple sans données supplémentaires :**
 
 	@implementation MyViewController {
 	   [...]
@@ -73,7 +73,7 @@ Les événements de session servent généralement à signaler les actions effec
 	   [...]
 	}
 
-**Exemple avec des données supplémentaires :**
+**Exemple avec des données supplémentaires :**
 
 	@implementation MyViewController {
 	   [...]
@@ -94,7 +94,7 @@ Les événements de session servent généralement à signaler les actions effec
 
 Contrairement aux événements de session, les événements d'autonomes peuvent être utilisés en dehors du contexte d'une session.
 
-**Exemple :**
+**Exemple :**
 
 	[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
@@ -104,7 +104,7 @@ Contrairement aux événements de session, les événements d'autonomes peuvent 
 
 Les erreurs de session servent généralement à signaler les erreurs affectant l'utilisateur lors de sa session.
 
-**Exemple :**
+**Exemple :**
 
 	/** The user has entered invalid data in a form */
 	@implementation MyViewController {
@@ -122,13 +122,13 @@ Les erreurs de session servent généralement à signaler les erreurs affectant 
 
 Contrairement aux erreurs de session, les erreurs autonomes peuvent être utilisées en dehors du contexte d'une session.
 
-**Exemple :**
+**Exemple :**
 
 	[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
 ##Rapports de travaux
 
-**Exemple :**
+**Exemple :**
 
 Supposons que vous voulez créer un rapport de la durée de votre processus de connexion :
 
@@ -149,9 +149,9 @@ Supposons que vous voulez créer un rapport de la durée de votre processus de c
 
 Les erreurs peuvent être associées à un travail en cours d'exécution plutôt qu'à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
-Supposons que vous souhaitez signaler une erreur pendant le processus de connexion :
+Supposons que vous souhaitez signaler une erreur pendant le processus de connexion :
 
 	[...]
 	-(void)signin
@@ -187,9 +187,9 @@ Supposons que vous souhaitez signaler une erreur pendant le processus de connexi
 
 Les événements peuvent être associés à un travail en cours d'exécution au lieu de se rapporter à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
-Supposons que nous disposons d'un réseau social et que nous utilisons une tâche pour signaler la durée totale pendant laquelle l'utilisateur est connecté au serveur. L'utilisateur peut recevoir des messages de ses amis : il s'agit d'un événement de tâche.
+Supposons que nous disposons d'un réseau social et que nous utilisons une tâche pour signaler la durée totale pendant laquelle l'utilisateur est connecté au serveur. L'utilisateur peut recevoir des messages de ses amis : il s'agit d'un événement de tâche.
 
 	[...]
 	- (void) signin
@@ -217,9 +217,9 @@ Des données arbitraires peuvent être associées à des événements, des erreu
 
 Ces données peuvent être structurées, elles utilisent la classe NSDictionary d'iOS.
 
-Notez que les données supplémentaires peuvent contenir des `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou d'autres instances `NSDictionary`.
+Notez que les données supplémentaires peuvent contenir des `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou d'autres instances `NSDictionary`.
 
-> [AZURE.NOTE]Le paramètre supplémentaire est sérialisé au format JSON. Si vous souhaitez transmettre des objets différents de ceux décrits ci-dessus, vous devez implémenter la méthode suivante dans votre classe :
+> [AZURE.NOTE] Le paramètre supplémentaire est sérialisé au format JSON. Si vous souhaitez transmettre des objets différents de ceux décrits ci-dessus, vous devez implémenter la méthode suivante dans votre classe :
 >
 			 -(NSString*)JSONRepresentation;
 >
@@ -236,7 +236,7 @@ Notez que les données supplémentaires peuvent contenir des `arrays(NSArray, NS
 
 #### de clés symétriques
 
-Chaque clé dans `NSDictionary` doit correspondre à l'expression régulière suivante :
+Chaque clé dans `NSDictionary` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
@@ -244,9 +244,9 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les données supplémentaires sont limitées à **1024** caractères par appel (une fois codées au format JSON par l'agent Engagement).
+Les données supplémentaires sont limitées à **1024** caractères par appel (une fois codées au format JSON par l'agent Engagement).
 
-Dans l'exemple précédent, le JSON envoyé au serveur compte 58 caractères :
+Dans l'exemple précédent, le JSON envoyé au serveur compte 58 caractères :
 
 	{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
@@ -254,11 +254,11 @@ Dans l'exemple précédent, le JSON envoyé au serveur compte 58 caractères :
 
 Vous pouvez signaler manuellement les informations de suivi (ou toutes autres informations spécifiques aux applications) à l'aide de la fonction `sendAppInfo:`.
 
-Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné.
+Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné.
 
-Comme c'est le cas avec les suppléments d'événement, la classe `NSDictionary` est utilisée pour extraire des informations de l'application. Notez que les tableaux ou sous-dictionnaires seront traités en tant que chaînes plates (à l'aide de la sérialisation JSON).
+Comme c'est le cas avec les suppléments d'événement, la classe `NSDictionary` est utilisée pour extraire des informations de l'application. Notez que les tableaux ou sous-dictionnaires seront traités en tant que chaînes plates (à l'aide de la sérialisation JSON).
 
-**Exemple :**
+**Exemple :**
 
 	NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
 	[appInfo setObject:@"female" forKey:@"gender"];
@@ -269,7 +269,7 @@ Comme c'est le cas avec les suppléments d'événement, la classe `NSDictionary
 
 #### de clés symétriques
 
-Chaque clé dans `NSDictionary` doit correspondre à l'expression régulière suivante :
+Chaque clé dans `NSDictionary` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
@@ -277,10 +277,10 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les informations sur l'application sont limitées à **1024** caractères par appel (une fois codées au format JSON par l'agent Engagement).
+Les informations sur l'application sont limitées à **1024** caractères par appel (une fois codées au format JSON par l'agent Engagement).
 
-Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
+Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
 	{"birthdate":"1983-12-07","gender":"female"}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

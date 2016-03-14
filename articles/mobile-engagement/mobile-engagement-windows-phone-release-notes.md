@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight" 
-	description="Azure Mobile Engagement - Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight" 					
+	pageTitle="Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight" 
+	description="Azure Mobile Engagement - Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
-#Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight
+#Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight
 
 ##3\.2.0 (22/01/2016)
 Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.3.0**
@@ -38,9 +38,9 @@ Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
 
 ##2\.0.0 (17/02/2015)
 
--   Version initiale d'Azure Mobile Engagement
+-   Version initiale d'Azure Mobile Engagement
 -   La configuration d'appId/sdkKey est remplacée par une configuration de chaîne de connexion.
 -   Améliorations de sécurité.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

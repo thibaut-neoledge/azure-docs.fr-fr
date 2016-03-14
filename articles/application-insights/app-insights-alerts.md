@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Configuration d’alertes dans Application Insights
@@ -38,11 +38,13 @@ Pour obtenir un message électronique lorsqu’une métrique dépasse un seuil, 
 
 ![Dans le panneau Règles d’alerte, cliquez sur Ajouter une alerte. Définissez votre application comme ressource à mesurer, fournissez un nom pour l’alerte et sélectionnez une métrique.](./media/app-insights-alerts/01-set-metric.png)
 
-Définissez la ressource avant les autres propriétés. **Choisissez la ressource « (composants) »**si vous souhaitez définir des alertes sur les mesures de performances ou d'utilisation.
-
-Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
-
-Le nom que vous donnez à l’alerte doit être unique dans le groupe de ressources (pas uniquement dans votre application).
+* Définissez la ressource avant les autres propriétés. **Choisissez la ressource « (composants) »**si vous souhaitez définir des alertes sur les mesures de performances ou d'utilisation.
+* Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
+* Le nom que vous donnez à l’alerte doit être unique dans le groupe de ressources (pas uniquement dans votre application).
+* Si vous cochez la case « Envoyer des e-mails aux propriétaires... », les alertes seront envoyées par courrier électronique à toute personne ayant accès à cette ressource.
+* Si vous spécifiez « E-mails supplémentaires », les alertes seront envoyées à ces personnes ou groupes (que vous ayez ou non coché la case « Envoyer des e-mails aux propriétaires »). 
+* Définissez une [adresse de webhook](../azure-portal/insights-webhooks-alerts.md) si vous avez configuré une application web qui répondra aux alertes. Elle sera appelée lorsque l'alerte sera Activée (c’est-à-dire déclenchée) ou Résolue.
+* Vous pouvez désactiver ou activer l'alerte avec les boutons en haut du panneau.
 
 *Je ne vois pas le bouton Ajouter une alerte.* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez Paramètres -> Utilisateurs. [En savoir plus sur le contrôle d’accès][roles].
 
@@ -67,9 +69,11 @@ L’historique des modifications d’état figure dans le journal des événemen
 
 ## Fonctionnement des alertes
 
-* Une alerte a deux états : « alerte » et « intègre ». 
+* Une alerte a trois états : « Jamais activée », « Activée » et « Résolue ». L’état Activé signifie que la condition spécifiée était vraie lors de la dernière évaluation.
 
-* Un message électronique est envoyé lorsque l’état de l’alerte change.
+* Une notification est générée lorsqu'une alerte change d'état. (Si la condition d'alerte était déjà vraie lorsque vous avez créé l'alerte, il est possible que vous ne receviez pas de notification tant que la condition n’est pas fausse.)
+
+* Chaque notification génère un message électronique si vous avez coché la case E-mails ou fourni des adresses de messagerie électronique. Vous pouvez également consulter la liste déroulante Notifications.
 
 * Une alerte est évaluée chaque fois qu’une mesure arrive, mais pas autrement.
 
@@ -123,4 +127,4 @@ Les alertes les plus appréciées sont les suivantes :
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

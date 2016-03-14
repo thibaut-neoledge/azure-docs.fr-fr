@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="02/25/2016"
    ms.author="v-sharos" />
 
 # Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
@@ -73,17 +73,17 @@ La page **Volumes** vous permet de gérer les volumes de stockage alloués sur l
 
 Un volume est constitué d’une série d’attributs :
 
-- **Nom du volume**: nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
+- **Nom du volume** : nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
 
-- **État**: peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
+- **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
 
-- **Capacité**: spécifie le volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes épinglés localement sont totalement configurés et résident sur l’appareil StorSimple. Les volumes hiérarchisés sont alloués dynamiquement et les données dédupliquées. Si les volumes sont alloués dynamiquement, votre appareil ne préalloue pas de capacité de stockage physique localement ou dans le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
+- **Capacité** : spécifie le volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes épinglés localement sont totalement configurés et résident sur l’appareil StorSimple. Les volumes hiérarchisés sont alloués dynamiquement et les données dédupliquées. Si les volumes sont alloués dynamiquement, votre appareil ne préalloue pas de capacité de stockage physique localement ou dans le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
 
-- **Type**: indique si le volume est **Hiérarchisé** (par défaut) ou **Épinglé localement**.
+- **Type** : indique si le volume est **Hiérarchisé** (par défaut) ou **Épinglé localement**.
 
-- **Sauvegarde**: indique si une stratégie de sauvegarde par défaut existe pour le volume.
+- **Sauvegarde** : indique si une stratégie de sauvegarde par défaut existe pour le volume.
 
-- **Accès**: indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
+- **Accès** : indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
 
 - **Analyse** : indique si un volume est ou non en cours d’analyse. Par défaut, l’analyse est activée au moment de la création du volume. Toutefois, elle est désactivée pour un volume cloné. Pour activer l’analyse d’un volume, suivez les instructions indiquées dans [Analyse d’un volume](#monitor-a-volume).
 
@@ -182,18 +182,32 @@ Pour visionner une vidéo expliquant comment développer un volume, cliquez [ici
 
 ## Modification du type de volume
 
-Vous pouvez modifier le type de volume hiérarchisé en épinglé localement, et inversement. En général, il s’agit de petits volumes existants auxquels vous souhaitez accéder fréquemment. Toutefois, cette conversion ne doit pas être effectuée fréquemment. Raisons motivant la conversion d’un volume hiérarchisé en volume épinglé localement :
+Vous pouvez modifier le type de volume hiérarchisé en épinglé localement, et inversement. Toutefois, cette conversion ne doit pas être effectuée fréquemment. Raisons motivant la conversion d’un volume hiérarchisé en volume épinglé localement :
 
 - Assurance de la disponibilité et des performances des données locales.
 - Élimination des latences du cloud et des problèmes de connexion au cloud.
 
-Un volume épinglé localement est entièrement configuré lors de sa création. Si vous convertissez un volume hiérarchisé en volume épinglé localement, StorSimple vérifie que vous disposez d’un espace suffisant sur l’appareil avant de démarrer la conversion. Si tel n’est pas le cas, vous recevez une erreur et l’opération est annulée.
+En général, il s’agit de petits volumes existants auxquels vous souhaitez accéder fréquemment. Un volume épinglé localement est entièrement configuré lors de sa création. Si vous convertissez un volume hiérarchisé en volume épinglé localement, StorSimple vérifie que vous disposez d’un espace suffisant sur l’appareil avant de démarrer la conversion. Si tel n’est pas le cas, vous recevez une erreur et l’opération est annulée.
 
 > [AZURE.NOTE] Avant de commencer la conversion d’un volume hiérarchisé en volume épinglé localement, vérifiez que vous tenez compte de l’espace requis par les autres charges de travail.
 
 Vous souhaiterez peut-être modifier un volume épinglé localement en volume hiérarchisé si vous avez besoin d’espace supplémentaire pour configurer d’autres volumes. Lorsque vous convertissez le volume épinglé localement en volume hiérarchisé, la capacité disponible sur l’appareil augmente de la taille de la capacité libérée. Si des problèmes de connectivité empêchent la conversion d’un volume de type local en volume de type hiérarchisé, le volume local présente les propriétés d’un volume hiérarchisé tant que la conversion n’est pas terminée. Cela tient au fait que certaines données peuvent avoir été dispersées dans le cloud. Ces données dispersées continuent d’occuper l’espace local sur l’appareil qui ne peut pas être libéré tant que l’opération n’est pas redémarrée ni terminée.
 
 >[AZURE.NOTE] La conversion d’un volume peut prendre un certain temps. Vous ne pouvez pas l’annuler une fois qu’elle a commencé. Le volume reste en ligne pendant la conversion, et vous pouvez effectuer des sauvegardes, mais vous ne pouvez pas développer ni restaurer le volume pendant l’exécution de la conversion.
+
+Conversion d’un volume hiérarchisé en un volume épinglé localement peut affecter les performances du périphérique. En outre, les facteurs suivants peuvent augmenter le temps que nécessaire pour terminer la conversion :
+
+- La bande passante est insuffisante.
+- L’appareil est plein et déborde déjà sur le cloud.
+- Il n’existe aucune sauvegarde actuelle.
+
+Pour réduire les effets de ces facteurs :
+
+- Passez en revue vos stratégies de limitation de bande passante et assurez-vous qu’une bande passante dédiée de 40 Mbits/s est disponible.
+- Planifiez la conversion pendant les heures creuses.
+- Effectuez une sauvegarde avant de commencer la conversion.
+
+Si vous convertissez plusieurs volumes (prenant en charge différentes charges de travail), vous devez donner la priorité à la conversion de volume afin que les volumes de priorité élevée soient convertis en premier. Par exemple, vous devez convertir des volumes hébergeant des machines virtuelles ou des volumes avec des charges de travail SQL avant de convertir des volumes avec des charges de travail à partage de fichiers.
 
 #### Pour modifier le type de volume
 
@@ -285,4 +299,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

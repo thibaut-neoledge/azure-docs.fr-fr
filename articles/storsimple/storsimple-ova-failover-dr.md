@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array (version préliminaire)
+# Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array
 
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Cet article décrit la récupération d'urgence pour votre Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel local StorSimple), y compris les étapes détaillées permettant de basculer vers un autre appareil virtuel en cas de sinistre. Un basculement vous permet de migrer vos données à partir d'un appareil *source* dans le centre de données vers un autre appareil *cible* situé à un emplacement géographique identique ou différent. Le basculement de l'appareil s'applique à l'ensemble de l'appareil. Lors du basculement, les données de cloud pour l'appareil source deviennent la propriété de l'appareil cible.
 
@@ -27,10 +27,10 @@ Le basculement de l'appareil est orchestré via la fonctionnalité de récupéra
 
 ![](./media/storsimple-ova-failover-dr/image16.png)
 
-Cet article s'applique aux StorSimple Virtual Arrays (version préliminaire) uniquement. Pour le basculement d'un appareil de la gamme 8000, consultez [Basculement et récupération d'urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
+Cet article s'applique aux StorSimple Virtual Arrays uniquement. Pour le basculement d'un appareil de la gamme 8000, consultez [Basculement et récupération d'urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 
-## Qu'est-ce que la récupération d'urgence ?
+## Qu'est-ce que la récupération d'urgence ?
 
 Dans un scénario de récupération d’urgence, l’appareil principal cesse de fonctionner. Dans ce cas, vous pouvez déplacer les données de cloud associées à l’appareil défaillant vers un autre appareil en utilisant l’appareil principal en tant que *source* et en spécifiant un autre appareil en tant que *cible*. Ce processus est appelé le *basculement*. Pendant le basculement, la propriété de tous les volumes ou les partages de l'appareil source change et ceux-ci sont transférés vers l'appareil cible. Aucun filtrage des données n'est autorisé.
 
@@ -42,7 +42,7 @@ La récupération d'urgence est modelée comme une restauration complète de l'a
 
 ### Composants requis
 
-Pour n'importe quel basculement d'appareil, les conditions préalables suivantes doivent être satisfaites :
+Pour n'importe quel basculement d'appareil, les conditions préalables suivantes doivent être satisfaites :
 
 - L'appareil source doit se trouver dans un état **Désactivé**.
 
@@ -111,7 +111,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 5. Sélectionnez l'appareil désactivé et en bas de la page, cliquez sur **Basculement**.
 
-6. Dans l'Assistant de confirmation du basculement qui s'affiche, procédez comme suit :
+6. Dans l'Assistant de confirmation du basculement qui s'affiche, procédez comme suit :
 
     1. Dans la liste déroulante des appareils disponibles, choisissez un **appareil cible.** Seuls les appareils possédant la capacité suffisante sont affichés dans la liste déroulante.
 
@@ -174,4 +174,4 @@ Si l'une des vérifications préalables n'est pas satisfaite, des erreurs s'affi
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array à l'aide de l'interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

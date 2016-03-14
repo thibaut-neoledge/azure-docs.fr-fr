@@ -74,6 +74,7 @@ Chaque serveur principal Node.js Azure App Service Mobile Apps démarre en tant 
 Cette application crée une simple WebAPI optimisée pour les applications mobiles avec un seul point de terminaison (`/tables/TodoItem`) qui fournit un accès non authentifié à un datastore SQL sous-jacent à l’aide d’un schéma dynamique. Cette API est adaptée pour les démarrages rapides de bibliothèques client suivants :
 
 - [Android Client QuickStart]
+- [Apache Cordova Client QuickStart]
 - [iOS Client QuickStart]
 - [Windows Store Client QuickStart]
 - [Xamarin.iOS Client QuickStart]
@@ -430,6 +431,67 @@ La propriété d’accès peut prendre trois valeurs :
 
 Si la propriété d’accès n’est pas définie, l’accès non authentifié est autorisé.
 
+### <a name="howto-tables-getidentity"></a>Procédure : utilisation des revendications d'authentification avec vos tables
+
+Vous pouvez configurer un certain nombre de revendications qui sont demandées lors de la configuration de l'authentification. Ces revendications ne sont normalement pas disponibles via l’objet `context.user`. Toutefois, elles peuvent être récupérées à l'aide de la méthode `context.user.getIdentity()`. La méthode `getIdentity()` renvoie une promesse qui correspond à un objet. L'objet est indexé par la méthode d'authentification (facebook, google, twitter, microsoftaccount ou aad).
+
+Par exemple, si vous configurez l'authentification de compte Microsoft et demandez la revendication des adresses de messagerie, vous pouvez ajouter l'adresse de messagerie à l'enregistrement avec les éléments suivants :
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+Pour voir les revendications disponibles, utilisez un navigateur web pour afficher le point de terminaison `/.auth/me` de votre site.
+
 ### <a name="howto-tables-disabled"></a>Procédure : désactiver l’accès à des opérations de table spécifiques
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
@@ -561,7 +623,7 @@ Vous préférerez probablement activer la prise en charge de Swagger uniquement 
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Le point de terminaison swagger se trouve dans http://_yoursite_.azurewebsites.net/swagger. Vous pouvez accéder à l’interface utilisateur Swagger via le point de terminaison `/swagger/ui`. Notez que Swagger génère une erreur pour le point de terminaison / si vous décidez de demander une authentification sur l’ensemble de votre application. Pour obtenir de meilleurs résultats, autorisez les demandes non authentifiées via les paramètres d’authentification et d’autorisation d’Azure App Service. Vous pouvez ensuite contrôler l’authentification en utilisant la propriété `table.access`.
+Le point de terminaison Swagger se trouve dans http://_yoursite_.azurewebsites.net/swagger. Vous pouvez accéder à l’interface utilisateur Swagger via le point de terminaison `/swagger/ui`. Notez que Swagger génère une erreur pour le point de terminaison / si vous décidez de demander une authentification sur l’ensemble de votre application. Pour obtenir de meilleurs résultats, autorisez les demandes non authentifiées via les paramètres d’authentification et d’autorisation d’Azure App Service. Vous pouvez ensuite contrôler l’authentification en utilisant la propriété `table.access`.
 
 Vous pouvez également ajouter l’option Swagger à votre fichier `azureMobile.js` si vous voulez activer la prise en charge de Swagger uniquement dans le cadre d’un développement en local.
 
@@ -617,7 +679,7 @@ Chaque paramètre correspond à l’un des verbes RESTful standard : GET, POST, 
 
 ### <a name="howto-customapi-auth"></a>Procédure : exiger une authentification pour l’accès à une API personnalisée
 
-Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access**:
+Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
 
 	var api = {
 		get: function (req, res, next) {
@@ -645,7 +707,7 @@ Vous pouvez également spécifier l’authentification sur des opérations spéc
 
 Pour les API personnalisées qui requièrent une authentification, vous devez utiliser le même jeton que celui utilisé pour le point de terminaison des tables.
 
-### <a name="howto-customapi-auth"></a>Gestion des téléchargements de fichiers volumineux
+### <a name="howto-customapi-auth"></a>Procédure : gestion des téléchargements de fichiers volumineux
 
 Le Kit de développement logiciel (SDK) Azure Mobile Apps utilise l’[intergiciel corps-parser](https://github.com/expressjs/body-parser) pour accepter et décoder le contenu du corps de votre demande. Vous pouvez préconfigurer corps-parser pour accepter les téléchargements de fichiers plus volumineux :
 
@@ -727,12 +789,12 @@ Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal,
 
 Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
 
-+ **Modifier les autorisations**: modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
-+ **Modifier le script**: le fichier de script de la table est ouvert dans l’éditeur Visual Studio Team Services.
-+ **Gérer un schéma**: ajouter ou supprimer des colonnes ou modifier l’index de la table.
-+ **Effacer la table**: tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
-+ **Supprimer des lignes**: supprimer des lignes de données spécifiques.
-+ **Afficher les journaux de diffusion en continu**: permet de vous connecter au service de journaux de diffusion en continu de votre site.
++ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
++ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur Visual Studio Team Services.
++ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
++ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
++ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
++ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
 
 ###<a name="work-easy-apis"></a>Procédure : utiliser l’outil Easy APIs dans le portail Azure
 
@@ -766,6 +828,7 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 
 <!-- URLs -->
 [Android Client QuickStart]: app-service-mobile-android-get-started.md
+[Apache Cordova Client QuickStart]: app-service-mobile-cordova-get-started.md
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
@@ -803,4 +866,4 @@ Dans l’éditeur, vous pouvez également exécuter le code sur le site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

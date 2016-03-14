@@ -7,7 +7,7 @@
    manager="carmonm"
    editor="tysonn" 
    tags="azure-service-management" />
-<tags 
+<tags  
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -15,6 +15,7 @@
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
    ms.author="telmos" />
+
 
 # Définition des paramètres DNS dans un fichier de configuration de réseau virtuel
 
@@ -50,8 +51,8 @@ Le fichier de configuration réseau peut contenir les éléments suivants. Le ti
 
 ## Étapes suivantes
 
-- Découvrez le [Schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
-- Découvrez le [Schéma de configuration du service Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
-- [Configurer un réseau virtuel à l’aide de fichiers de configuration réseau](virtual-networks-using-network-configuration-file.md).
+- Découvrez le [schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
+- Découvrez le [schéma de configuration du service Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
+- [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

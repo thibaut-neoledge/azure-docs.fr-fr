@@ -27,7 +27,7 @@ Avec le connecteur Slack, vous pouvez :
 
 * créer des applications logiques.
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## À propos des déclencheurs et des actions
 
@@ -48,8 +48,21 @@ Pour utiliser l’API Slack, vous devez créer une **connexion**, puis fournir l
 | ---|---|---|
 |Jeton|Oui|Fournir les informations d’identification de Slack|
 
+Suivez ces étapes pour vous connecter à Slack et terminer la configuration de la **connexion** à Slack dans votre application logique :
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
+1. Sélectionnez **Périodicité**
+2. Sélectionnez une **Fréquence** et entrez un **Intervalle**
+3. Sélectionnez **Ajouter une action** ![Configurer Slack][1]  
+4. Entrez Slack dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant Slack dans leur nom
+5. Sélectionnez **Slack - Publier un message**
+6. Sélectionnez **Se connecter à Slack** : ![Configurer Slack][2]
+7. Entrez vos informations d’identification Slack pour vous connecter et autoriser l’application ![Configurer Slack][3]  
+8. Vous êtes redirigé vers la page de connexion de votre organisation. **Autorisez** Slack à interagir avec votre application logique : ![Configurer Slack][5] 
+9. Une fois l’autorisation terminée, vous serez redirigé vers votre application logique pour la terminer en configurant la section **Slack - Obtenir tous les messages**. Ajouter les autres déclencheurs et actions dont vous avez besoin. ![Configurer Slack][6]
+10. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menu supérieure.
+
+
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
 
 ## Informations de référence sur l’API REST Slack
 #### Cette documentation concerne la version 1.0.
@@ -92,7 +105,7 @@ Pour utiliser l’API Slack, vous devez créer une **connexion**, puis fournir l
 
 ## Définition(s) d’objet : 
 
- **Message**: message Yammer
+ **Message** : message Yammer
 
 Propriétés requises pour Message :
 
@@ -100,7 +113,7 @@ Propriétés requises pour Message :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -129,13 +142,13 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **PostOperationRequest**: représente une demande de publication sur Yammer pour le connecteur Yammer
+ **PostOperationRequest** : représente une demande de publication sur Yammer pour le connecteur Yammer
 
 Propriétés requises pour PostOperationRequest :
 
 body
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -168,7 +181,7 @@ body
 
 
 
- **MessageList**: liste des messages
+ **MessageList** : liste des messages
 
 Propriétés requises pour MessageList :
 
@@ -176,7 +189,7 @@ Propriétés requises pour MessageList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -185,7 +198,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **MessageBody**: corps du message
+ **MessageBody** : corps du message
 
 Propriétés requises pour MessageBody :
 
@@ -193,7 +206,7 @@ Propriétés requises pour MessageBody :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -204,7 +217,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **LikedBy**: aimé par
+ **LikedBy** : aimé par
 
 Propriétés requises pour LikedBy :
 
@@ -212,7 +225,7 @@ Propriétés requises pour LikedBy :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -222,7 +235,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **YammmerEntity**: aimé par
+ **YammmerEntity** : aimé par
 
 Propriétés requises pour YammmerEntity :
 
@@ -230,7 +243,7 @@ Propriétés requises pour YammmerEntity :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -244,7 +257,7 @@ Aucune des propriétés n’est obligatoire.
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 ## Définition(s) d’objet : 
 
- **WebResultModel**: résultats de la recherche sur le web par Bing
+ **WebResultModel** : résultats de la recherche sur le web par Bing
 
 Propriétés requises pour WebResultModel :
 
@@ -252,7 +265,7 @@ Propriétés requises pour WebResultModel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -265,7 +278,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **VideoResultModel**: résultats de la recherche de vidéos par Bing
+ **VideoResultModel** : résultats de la recherche de vidéos par Bing
 
 Propriétés requises pour VideoResultModel :
 
@@ -273,7 +286,7 @@ Propriétés requises pour VideoResultModel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -287,7 +300,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **ThumbnailModel**: propriétés de miniature de l’élément multimédia
+ **ThumbnailModel** : propriétés de miniature de l’élément multimédia
 
 Propriétés requises pour ThumbnailModel :
 
@@ -295,7 +308,7 @@ Propriétés requises pour ThumbnailModel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -308,7 +321,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **ImageResultModel**: résultats de la recherche d’images par Bing
+ **ImageResultModel** : résultats de la recherche d’images par Bing
 
 Propriétés requises pour ImageResultModel :
 
@@ -316,7 +329,7 @@ Propriétés requises pour ImageResultModel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -330,7 +343,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **NewsResultModel**: résultats de la recherche d’actualités par Bing
+ **NewsResultModel** : résultats de la recherche d’actualités par Bing
 
 Propriétés requises pour NewsResultModel :
 
@@ -338,7 +351,7 @@ Propriétés requises pour NewsResultModel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -352,7 +365,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **SpellResultModel**: résultats des suggestions orthographiques de Bing
+ **SpellResultModel** : résultats des suggestions orthographiques de Bing
 
 Propriétés requises pour SpellResultModel :
 
@@ -360,7 +373,7 @@ Propriétés requises pour SpellResultModel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -370,7 +383,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **RelatedSearchResultModel**: résultats de la recherche liée par Bing
+ **RelatedSearchResultModel** : résultats de la recherche liée par Bing
 
 Propriétés requises pour RelatedSearchResultModel :
 
@@ -378,7 +391,7 @@ Propriétés requises pour RelatedSearchResultModel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -389,7 +402,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **CompositeSearchResultModel**: résultats de la recherche composite par Bing
+ **CompositeSearchResultModel** : résultats de la recherche composite par Bing
 
 Propriétés requises pour CompositeSearchResultModel :
 
@@ -397,7 +410,7 @@ Propriétés requises pour CompositeSearchResultModel :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -417,7 +430,7 @@ Aucune des propriétés n’est obligatoire.
 
 ## Définition(s) d’objet : 
 
- **PostOperationResponse**: représente une réponse de l’opération de publication du connecteur Slack pour publier sur Slack
+ **PostOperationResponse** : représente une réponse de l’opération de publication du connecteur Slack pour publier sur Slack
 
 Propriétés requises pour PostOperationResponse :
 
@@ -425,7 +438,7 @@ Propriétés requises pour PostOperationResponse :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -438,7 +451,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **MessageItem**: message de canal.
+ **MessageItem** : message de canal.
 
 Propriétés requises pour MessageItem :
 
@@ -446,7 +459,7 @@ Propriétés requises pour MessageItem :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés**:
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -461,4 +474,11 @@ Aucune des propriétés n’est obligatoire.
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-slack/connectionconfig1.png
+[2]: ./media/create-api-slack/connectionconfig2.png
+[3]: ./media/create-api-slack/connectionconfig3.png
+[4]: ./media/create-api-slack/connectionconfig4.png
+[5]: ./media/create-api-slack/connectionconfig5.png
+[6]: ./media/create-api-slack/connectionconfig6.png
+
+<!---HONumber=AcomDC_0302_2016-->

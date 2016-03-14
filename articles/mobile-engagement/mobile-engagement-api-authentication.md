@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Utilisation des API pour l'authentification
@@ -92,9 +92,7 @@ Lors de cette opération, notez les informations suivantes qui vous serviront ul
 
 Il s'agit d'une autre façon d’effectuer les étapes susmentionnées à l'aide d'un script PowerShell.
 
-1. Récupérez la dernière version d’Azure PowerShell.
-
-	La version 1.2.1 est actuellement disponible [ici](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016) en téléchargement.
+1. Récupérez la dernière version d’Azure PowerShell. Consultez ce [lien](../powershell-install-configure.md) pour obtenir des instructions de téléchargement. 
 
 2. Ouvrez Windows PowerShell en mode administrateur et assurez-vous que vous avez installé les [applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx).
 
@@ -127,9 +125,9 @@ Il s'agit d'une autre façon d’effectuer les étapes susmentionnées à l'aide
 
 	Une fois le script terminé, il affiche quatre valeurs qui doivent être authentifiées par programmation avec Active Directory : **TenantId**, **SubscriptionId**, **ApplicationId** et **Secret**.
 
-	Copiez ces valeurs pour référence. Pour obtenir maintenant un jeton d'accès, vous utilisez la valeur TenantId `{TENANT_ID}`, la valeur ApplicationId `{CLIENT_ID}` et la valeur Secret `{CLIENT_SECRET}`.
+	Copiez ces valeurs pour référence. Pour obtenir maintenant un jeton d’accès, vous utilisez la valeur TenantId `{TENANT_ID}`, la valeur ApplicationId `{CLIENT_ID}` et la valeur Secret `{CLIENT_SECRET}`.
 
-8. Vérifiez sur le portail de gestion Azure qu'une nouvelle application Active Directory apparaît sous **Afficher les applications que ma société possède**.
+8. Vérifiez sur le portail de gestion Azure qu’une nouvelle application Active Directory apparaît sous **Afficher les applications que ma société possède**.
 
 #### Procédure d'obtention d'un jeton valide
 
@@ -155,7 +153,7 @@ Voici un exemple de réponse :
 	5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_T
 	OKEN}}
 
-Cet exemple incluait l'encodage de l'URL des paramètres POST, et la valeur `resource` est en fait `https://management.core.windows.net/`. Veillez également à encoder l'URL `{CLIENT_SECRET}` car elle peut contenir des caractères spéciaux.
+Cet exemple incluait l’encodage de l’URL des paramètres POST, et la valeur `resource` est en fait `https://management.core.windows.net/`. Veillez également à encoder l’URL `{CLIENT_SECRET}` car elle peut contenir des caractères spéciaux.
 
 Dans chaque appel d'API, incluez l'en-tête de requête d'autorisation :
 
@@ -182,6 +180,7 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
->[AZURE.NOTE] <br/> 1. Ignorez l'adresse la racine de l'API car elle s'appliquait aux API précédentes.<br/> 2. Vous devez utiliser le nom de ressource de l'application qui est différent du nom de l'application elle-même.
+>[AZURE.NOTE] <br/>
+>1. Ignorez l’adresse racine de l’API car elle s’appliquait aux API précédentes.<br/> 2. Vous devez utiliser le nom de ressource de l'application qui est différent du nom de l'application elle-même. 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -243,6 +243,25 @@ Une fois que vous avez relancé l’exécution et que la tranche de 9-10 h pour 
 
 Pour de plus amples informations sur la spécification et le suivi de dépendances de chaîne complexe des activités et des groupes de données de suivi, reportez-vous aux sections ci-dessous.
 
+## Chaînage des activités
+Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement.
+
+Considérez l’exemple suivant :
+ 
+1.	Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de **sortie** **D2**.
+2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données d’**entrée** **D2** et produit le jeu de données de sortie D3.
+ 
+Dans ce scénario, l’activité A1 s’exécutera lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécutera lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 ne sera pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
+
+La vue de diagramme se présente comme suit :
+
+![Chaînage des activités dans deux pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+La vue de diagramme avec les deux activités dans le même pipeline se présente comme suit :
+
+![Chaînage des activités dans le même pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+
 ## Modélisation des jeux de données avec des fréquences différentes
 
 Dans les exemples ci-dessus, les fréquences de planification des jeux de données d’entrée et de sortie et l’intervalle d’activité sont les mêmes. Certains scénarios exigent que la fréquence de génération d’une sortie à soit différente de celles d’une ou de plusieurs entrées. Data factory prend en charge la modélisation de ces scénarios.
@@ -511,9 +530,6 @@ L’activité Hive accepte les 2 entrées et génère une tranche de sortie tous
 	}
 
 
-## Chaînage des activités
-Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement. Ce chaînage se produit au niveau de la tranche horaire (une unité discrète au sein d’un jeu de données).
-
 ## Variables système et fonctions Data Factory   
 
 Pour obtenir la liste des fonctions et variables système prises en charge par Azure Data Factory, consultez [Variables système et fonctions Data Factory](data-factory-functions-variables.md)
@@ -616,4 +632,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

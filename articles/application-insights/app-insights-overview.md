@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Présentation d’Application Insights" 
-	description="Suivez l’utilisation et les performances de votre application web en ligne ou de votre application Smart Device. Détection, tri et diagnostic des problèmes Surveillez et améliorez le succès auprès de vos utilisateurs en continu." 
+	pageTitle="Analyse avec Application Insights" 
+	description="Analyse d’application web et d’appareil. Suivez l’utilisation et les performances de votre application web en ligne. Détection, tri et diagnostic des problèmes Surveillez et améliorez le succès auprès de vos utilisateurs en continu." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,18 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
-# Présentation d’Application Insights
+# Présentation d’Application Insights
 
-Application Insights est un service d’analyse extensible qui surveille votre application en direct. Il vous permet de détecter et diagnostiquer les problèmes de performances et de comprendre ce que font les utilisateurs avec votre application. Il est conçu pour les développeurs, pour vous aider à améliorer en permanence les performances et la convivialité de votre application.
+Application Insights est un service d’analyse extensible qui surveille votre application en direct. Il vous permet de détecter et diagnostiquer les problèmes de performances et de comprendre ce que font les utilisateurs avec votre application. Il est conçu pour les développeurs, pour vous aider à améliorer en permanence les performances et la convivialité de votre application.
 
 ![Créez un graphique des statistiques d'activité de l’utilisateur ou explorez des événements spécifiques.](./media/app-insights-overview/00-sample.png)
 
 Il fonctionne avec les applications web et les applications autonomes sur un large éventail de plates-formes : .NET ou J2EE, hébergées sur site ou dans le cloud.
 
-Application Insights est destiné à l'équipe de développement. Avec lui, vous pouvez :
+Application Insights est destiné à l'équipe de développement. Avec lui, vous pouvez :
 
 * [Analyser les modèles d'utilisation][knowUsers] pour mieux comprendre vos utilisateurs et améliorer sans cesse votre application. 
  * Nombre de pages consultées, les utilisateurs nouveaux et qui reviennent, la géolocalisation, les plateformes ainsi que d’autres analyses d’utilisation principales
@@ -41,7 +41,7 @@ Les données de télémétrie recueillies à partir de votre application sont st
 
 
 
-Vous voulez bénéficier d’une analyse encore plus approfondie ? [Exportez](app-insights-export-telemetry.md) vos données [vers SQL](app-insights-code-sample-export-telemetry-sql-database.md)[vers Power BI](app-insights-export-power-bi.md) ou vers vos propres outils.
+Vous voulez bénéficier d’une analyse encore plus approfondie ? [Exportez](app-insights-export-telemetry.md) vos données [vers SQL](app-insights-code-sample-export-telemetry-sql-database.md)[vers Power BI](app-insights-export-power-bi.md) ou vers vos propres outils.
 
 ![Affichage des données dans Power BI](./media/app-insights-overview/210.png)
 
@@ -52,9 +52,9 @@ Il existe des Kits de développement logiciel pour un nombre croissant de platef
  * [Serveurs ASP.NET][greenbrown] sur Azure ou votre serveur IIS
  * [Azure Cloud Services](app-insights-cloudservices.md)
  * [les serveurs J2EE][java]
- * [les pages Web][client] : HTML + JavaScript
+ * [les pages Web][client] : HTML + JavaScript
  * [Applications de bureau et de serveurs Windows][desktop]
- * [Autres plateformes][platforms] : Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+ * [Autres plateformes][platforms] : Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
 Application Insights peut également obtenir la télémétrie à partir des applications Web ASP.NET existantes sans les recréer.
 
@@ -67,9 +67,9 @@ Vous installez un petit Kit de développement logiciel (SDK) dans votre applicat
 
 ![Le Kit de développement logiciel (SDK) Application Insights dans votre application envoie la télémétrie aux ressources Application Insights dans le portail Azure.](./media/app-insights-overview/01-scheme.png)
 
-Le Kit de développement logiciel (SDK) dispose de plusieurs modules qui recueillent les données de télémétrie, pour compter les utilisateurs, les sessions et les performances, par exemple. Vous pouvez également écrire votre propre code personnalisé pour envoyer des données de télémétrie au portail. La télémétrie personnalisée est particulièrement utile pour suivre les récits utilisateur : vous pouvez compter des événements comme les clics des boutons, la réalisation d’objectifs spécifiques ou les erreurs des utilisateurs.
+Le Kit de développement logiciel (SDK) dispose de plusieurs modules qui recueillent les données de télémétrie, pour compter les utilisateurs, les sessions et les performances, par exemple. Vous pouvez également écrire votre propre code personnalisé pour envoyer des données de télémétrie au portail. La télémétrie personnalisée est particulièrement utile pour suivre les récits utilisateur : vous pouvez compter des événements comme les clics des boutons, la réalisation d’objectifs spécifiques ou les erreurs des utilisateurs.
 
-Pour les serveurs ASP.NET et les applications web Azure, vous pouvez également installer [Status Monitor][redfield], qui a deux utilisations. Il vous permet de :
+Pour les serveurs ASP.NET et les applications web Azure, vous pouvez également installer [Status Monitor][redfield], qui a deux utilisations. Il vous permet de :
 
 * surveiller une application web sans la régénérer ou la réinstaller.
 * suivre les appels aux modules dépendants.
@@ -84,12 +84,12 @@ L'impact sur les performances est très faible. Le suivi des appels n’entraîn
 
 ## Pour commencer
 
-1. Vous devrez vous abonner à [Microsoft Azure](http://azure.com). L'inscription est gratuite et vous pouvez choisir le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) gratuit d'Application Insights.
+1. Vous devrez vous abonner à [Microsoft Azure](http://azure.com). L'inscription est gratuite et vous pouvez choisir le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) gratuit d'Application Insights.
 
 2. Connectez-vous au [portail Azure](https://portal.azure.com).
 3. Créez une ressource Application Insights. C’est ici que vous pouvez afficher les données de votre application.
 
-    ![Ajouter, Services de développement, Application Insights](./media/app-insights-overview/11-new.png)
+    ![Ajouter, Services de développement, Application Insights](./media/app-insights-overview/11-new.png)
 
     Choisissez votre type d’application.
 
@@ -107,16 +107,16 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
 [Exemples et procédures pas à pas](app-insights-code-samples.md)
 
-[SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) : packages NuGet que vous pouvez installer (et désinstaller) sous forme d'ajouts au Kit de développement logiciel (SDK) Application Insights. Essayez-les et envoyez-nous vos commentaires !
+[SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) : packages NuGet que vous pouvez installer (et désinstaller) sous forme d'ajouts au Kit de développement logiciel (SDK) Application Insights. Essayez-les et envoyez-nous vos commentaires !
 
 
 ## Support et commentaires
 
-* Questions et problèmes :
+* Questions et problèmes :
  * [Résolution des problèmes][qna]
  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/fr-FR/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Bogues :
+* Bogues :
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions
  * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
@@ -151,4 +151,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

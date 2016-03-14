@@ -1,36 +1,37 @@
-## Create a backup vault for a VM
+## Création d’un coffre de sauvegarde pour une machine virtuelle
 
-A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that will be applied to the virtual machines being backed up.
+Un coffre de sauvegarde est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. Le coffre de sauvegarde contient également les stratégies de sauvegarde qui seront appliquées aux machines virtuelles en cours de sauvegarde.
 
-This image shows the relationships between the various Azure Backup entities:
-![Azure Backup entities and relationships](./media/backup-create-vault-for-vms/vault-policy-vm.png)
+Cette image illustre les relations entre les différentes entités Azure Backup : ![Entités et relations Azure Backup](./media/backup-create-vault-for-vms/vault-policy-vm.png)
 
-To create a backup vault:
+Pour créer un archivage de sauvegarde :
 
-1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure](http://manage.windowsazure.com/).
 
-2. In the Azure portal click **New** > **Hybrid Integration** > **Backup**. When you click **Backup**, you will automatically switch to the classic portal (shown after the Note).
+2. Dans le portail Azure, cliquez sur **Nouveau** > **Intégration hybride** > **Sauvegarde**. Lorsque vous cliquez sur **Sauvegarde**, vous accédez automatiquement à la version classique du portail (illustrée après la remarque).
 
-    ![Ibiza portal](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
+    ![Portail Ibiza](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
 
-    >[AZURE.NOTE] If your subscription was last used in the classic portal, then your subscription may open in the classic portal. In this event, to create a backup vault, click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create** (see the image below).
+    >[AZURE.NOTE] Si la dernière utilisation de votre abonnement s’est déroulée dans le portail classique, alors il est possible que votre abonnement s’ouvre dans le portail classique. Dans ce cas, pour créer un coffre de sauvegarde, cliquez sur **Nouveau** > **Data Services** > **Recovery Services** > **Coffre de sauvegarde** > **Création rapide** (voir l’image ci-dessous).
 
-    ![Create backup vault](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
+    ![Créer un archivage de sauvegarde](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
 
-3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+3. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
 
-4. In **Region**, select the geographic region for the vault. The vault must be in the same region as the virtual machines that you want to protect. If you have virtual machines in multiple regions, you must create a backup vault in each region. There is no need to specify storage accounts to store the backup data--the backup vault and the Azure Backup service handle this automatically.
+4. Dans **Region**, sélectionnez la région géographique du coffre. L’archivage doit se trouver dans la même région que les machines virtuelles que vous souhaitez protéger. Si vous avez des machines virtuelles dans plusieurs régions, vous devez créer un coffre de sauvegarde dans chaque région. Il est inutile de spécifier des comptes de stockage pour stocker les données de sauvegarde : l’archivage de sauvegarde et le service Azure Backup s’en chargent automatiquement.
 
-5. In **Subscription** select the subscription you want to associate with the backup vault. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. Sous **Abonnement**, sélectionnez l’abonnement à associer au coffre de sauvegarde. Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
 
-5. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
+5. Cliquez sur **Create vault**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d'état en bas du portail.
 
-    ![Create vault toast notification](./media/backup-create-vault-for-vms/creating-vault.png)
+    ![Créer une notification toast l’archivage](./media/backup-create-vault-for-vms/creating-vault.png)
 
-6. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+6. Un message confirme que le coffre a été correctement créé. Il est répertorié dans la page **Recovery Services** comme étant **Actif**. Veillez à choisir l’option de redondance de stockage appropriée juste après la création de l’archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
-    ![List of backup vaults](./media/backup-create-vault-for-vms/backup_vaultslist.png)
+    ![Liste des archivages de sauvegarde](./media/backup-create-vault-for-vms/backup_vaultslist.png)
 
-7. Click the backup vault to go to the **Quick Start** page, where the instructions for backing up Azure virtual machines are shown.
+7. Cliquez sur l’archivage de sauvegarde pour accéder à la page **Démarrage rapide** où sont affichées les instructions pour la sauvegarde des machines virtuelles Azure.
 
-    ![Virtual machine backup instructions on the Dashboard page](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+    ![Instructions de sauvegarde de machines virtuelles dans la page Tableau de bord](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+
+<!---HONumber=AcomDC_0302_2016-->

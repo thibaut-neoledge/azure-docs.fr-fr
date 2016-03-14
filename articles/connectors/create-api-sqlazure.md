@@ -14,18 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # Prise en main de l'API SQL Azure
 Connectez-vous à SQL Azure pour gérer vos tables et vos lignes, par exemple pour insérer des lignes, obtenir des tables, et bien plus encore.
 
-L'API SQL Azure peut être utilisée à partir d'applications logiques.
+L’API SQL Azure peut être utilisée à partir de :
+
+- Logic Apps 
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur SQL](../app-service-logic/app-service-logic-connector-sql.md).
 
-Avec SQL, vous pouvez :
+Avec SQL Azure, vous pouvez :
 
 - Créer votre flux d'activité en fonction des données que vous obtenez de SQL Azure. 
 - Utiliser des actions pour obtenir une ligne, insérer une ligne, et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Par exemple, vous pouvez obtenir une ligne de données à partir de SQL Azure, puis ajouter ces données à Excel. 
@@ -49,14 +51,15 @@ Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs su
 | ---|---|---|
 |SQL Connection String|Oui|Entrer votre chaîne de connexion SQL Azure|
 
-Après avoir créé la connexion, vous entrez vos propriétés SQL, telles que le nom de la table. La section **Informations de référence sur l'API REST** dans cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez vos propriétés SQL, telles que le nom de la table. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
-## Référence d’API REST
+## Informations de référence sur l'API REST Swagger
+S’applique à la version 1.0.
 
 ### Obtenir une ligne 
-Récupère une seule ligne d'une table SQL. ```GET: /datasets/default/tables/{table}/items/{id}```
+Récupère une seule ligne d’une table SQL. ```GET: /datasets/default/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -71,15 +74,15 @@ Récupère une seule ligne d'une table SQL. ```GET: /datasets/default/tables/{ta
 
 
 ### Obtenir des lignes 
-Extrait des lignes d'une table SQL. ```GET: /datasets/default/tables/{table}/items```
+Extrait des lignes d’une table SQL. ```GET: /datasets/default/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Nom de la table SQL|
-|$skip|integer|no|query|(aucun)|Nombre d'entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d'entrées à récupérer (valeur par défaut : 256)|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d'entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l'ordre des entrées|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
+|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
 #### Response
 |Nom|Description|
@@ -104,7 +107,7 @@ Insère une nouvelle ligne dans une table SQL. ```POST: /datasets/default/tables
 
 
 ### Supprimer la ligne 
-Supprime une ligne d'une table SQL. ```DELETE: /datasets/default/tables/{table}/items/{id}```
+Supprime une ligne d’une table SQL. ```DELETE: /datasets/default/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -119,7 +122,7 @@ Supprime une ligne d'une table SQL. ```DELETE: /datasets/default/tables/{table}/
 
 
 ### Obtenir des tables 
-Extrait des tables à partir d'une base de données SQL. ```GET: /datasets/default/tables```
+Extrait des tables à partir d’une base de données SQL. ```GET: /datasets/default/tables```
 
 Il n'existe aucun paramètre pour cet appel.
 
@@ -224,4 +227,4 @@ Met à jour une ligne existante dans une table SQL. ```PATCH: /datasets/default/
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

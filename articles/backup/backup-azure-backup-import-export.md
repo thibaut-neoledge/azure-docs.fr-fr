@@ -16,7 +16,7 @@
    ms.author="jimpark;"/>
 
 # Flux de travail de la sauvegarde hors connexion dans Azure Backup
-Azure Backup est très efficace pour permettre d’économiser les coûts de réseau et de stockage. Azure Backup compresse non seulement les données, mais effectue également une sauvegarde complète une seule fois, suivie de sauvegardes deltas et incrémentielles. Par conséquent, si un volume de fichiers de 10 To est en cours de sauvegarde, Azure Backup envoie 10 To dans le cadre de la réplication initiale et uniquement les deltas dans le cadre de la réplication différentielle. Par conséquent, la bande passante maximale du réseau étendu (WAN) est requise pendant la réplication initiale. Pour réduire la dépendance du réseau étendu lors de la réplication initiale, Azure Backup prend en charge la sauvegarde en mode hors connexion à l’aide du service Azure Import/Export.
+Azure Backup est très efficace pour permettre d’économiser les coûts de réseau et de stockage. Azure Backup compresse non seulement les données, mais effectue également une sauvegarde complète une seule fois, suivie de sauvegardes deltas et incrémentielles. Par conséquent, si un volume de fichiers de 10 To est en cours de sauvegarde, Azure Backup envoie 10 To dans le cadre de la réplication initiale et uniquement les deltas dans le cadre de la réplication différentielle. Par conséquent, la bande passante maximale du réseau étendu (WAN) est requise pendant la réplication initiale. Pour réduire la dépendance du réseau étendu lors de la réplication initiale, Azure Backup prend en charge la sauvegarde en mode hors connexion à l’aide du service Azure Import/Export.
 
 Azure Backup est profondément intégré au service Azure Import/Export qui vous permet de transférer rapidement les données de sauvegarde initiales. Si vous devez transférer des téraoctets de données de sauvegarde initiales sur un réseau à latence élevée et à faible bande passante, vous pouvez utiliser le service Azure Import/Export pour expédier la copie de sauvegarde initiale sur un ou plusieurs disques durs à un centre de données Azure. Cet article fournit une vue d’ensemble des étapes requises pour effectuer ce flux de travail.
 
@@ -29,8 +29,8 @@ Avec Azure Backup et Azure Import/Export, vous téléchargez simplement et direc
 1. Il est important de vous familiariser avec le flux de travail d’Azure Import/Export, qui est indiqué [ici](../storage/storage-import-export-service.md).
 2. Avant de lancer le flux de travail, assurez-vous qu’un archivage de sauvegarde Azure a été créé, que les informations d’identification de coffre ont été téléchargées, que l’agent Azure Backup a été installé sur votre serveur/client Windows ou votre serveur System Center Data Protection Manager (SCDPM) et que l’ordinateur est inscrit dans l’archivage de sauvegarde Azure.
 3. Téléchargez les paramètres du fichier de publication Azure [ici](https://manage.windowsazure.com/publishsettings) sur l’ordinateur duquel vous prévoyez de sauvegarder les données.
-4. Préparez un *emplacement intermédiaire*, qui peut être un partage réseau ou un disque supplémentaire sur l’ordinateur. Assurez-vous que l’emplacement intermédiaire dispose de suffisamment d’espace disque pour stocker votre copie initiale. Par exemple, si vous tentez de sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go (bien qu’une quantité inférieure soit utilisée). La zone intermédiaire est un « stockage temporaire » utilisé temporairement pendant ce flux de travail.
-5. Enregistreur de disque SATA externe et disque SATA de 3,5 pouces externe : seuls les disques durs SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs de plus de 6 To ne sont pas pris en charge. Vous pouvez raccorder un disque SATA II/III par voie externe à la plupart des ordinateurs à l'aide d'un adaptateur USB SATA II/III. Consultez la documentation d’Azure Import/Export pour connaître la dernière série de disques pris en charge par le service.
+4. Préparez un *emplacement intermédiaire*, qui peut être un partage réseau ou un disque supplémentaire sur l’ordinateur. Assurez-vous que l’emplacement intermédiaire dispose de suffisamment d’espace disque pour stocker votre copie initiale. Par exemple, si vous tentez de sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go (bien qu’une quantité inférieure soit utilisée). La zone intermédiaire est un « stockage temporaire » utilisé temporairement pendant ce flux de travail.
+5. Enregistreur de disque SATA externe et disque SATA de 3,5 pouces externe : seuls les disques durs SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs de plus de 8 To ne sont pas pris en charge. Vous pouvez raccorder un disque SATA II/III par voie externe à la plupart des ordinateurs à l'aide d'un adaptateur USB SATA II/III. Consultez la documentation d’Azure Import/Export pour connaître la dernière série de disques pris en charge par le service.
 6. Activez BitLocker sur l’ordinateur auquel est connecté l’enregistreur de disque SATA.
 7. Téléchargez l’outil Azure Import/Export [ici](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) sur l’ordinateur auquel est connecté l’enregistreur de disque SATA.
 
@@ -45,14 +45,14 @@ Les informations fournies dans cette section concernent la fin du flux de travai
 
     L’écran correspondant dans SCDPM se présente comme suit. <br/> ![Écran d’importation DPM](./media/backup-azure-backup-import-export/dpmoffline.png)
 
-    où :
+    où :
 
-    - **Emplacement intermédiaire** : fait référence à l’emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. Il peut s’agir d’un partage réseau ou de l’ordinateur local.
-    - **Nom de la tâche d’importation Azure** : dans le cadre de ce flux de travail, vous devez créer une *tâche d’importation* dans le portail Azure (traitée dans la dernière partie du document). Fournissez une entrée que vous utiliserez également plus tard dans le portail Azure.
-    - **Paramètres de publication Azure** : il s’agit d’un fichier XML qui contient des informations sur le profil de votre abonnement. Il contient également les informations d’identification sécurisées associées à votre abonnement. Le fichier peut être téléchargé [ici](https://manage.windowsazure.com/publishsettings). Fournissez le chemin d’accès local au fichier de paramètres de publication.
-    - **ID d’abonnement Azure** : fournissez l’ID d’abonnement Azure dans lequel vous prévoyez de lancer la tâche d’importation Azure. Si vous avez plusieurs abonnements Azure, utilisez l’ID associé à la tâche d’importation.
-    - **Compte de stockage Azure** : entrez le nom du compte de stockage Azure qui sera associé à cette tâche d’importation.
-    - **Conteneur de stockage Azure** : entrez le nom de l’objet blob de stockage cible où les données de cette tâche seront importées.
+    - **Emplacement intermédiaire** : fait référence à l’emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. Il peut s’agir d’un partage réseau ou de l’ordinateur local.
+    - **Nom de la tâche d’importation Azure** : dans le cadre de ce flux de travail, vous devez créer une *tâche d’importation* dans le portail Azure (traitée dans la dernière partie du document). Fournissez une entrée que vous utiliserez également plus tard dans le portail Azure.
+    - **Paramètres de publication Azure** : il s’agit d’un fichier XML qui contient des informations sur le profil de votre abonnement. Il contient également les informations d’identification sécurisées associées à votre abonnement. Le fichier peut être téléchargé [ici](https://manage.windowsazure.com/publishsettings). Fournissez le chemin d’accès local au fichier de paramètres de publication.
+    - **ID d’abonnement Azure** : fournissez l’ID d’abonnement Azure dans lequel vous prévoyez de lancer la tâche d’importation Azure. Si vous avez plusieurs abonnements Azure, utilisez l’ID associé à la tâche d’importation.
+    - **Compte de stockage Azure** : entrez le nom du compte de stockage Azure qui sera associé à cette tâche d’importation.
+    - **Conteneur de stockage Azure** : entrez le nom de l’objet blob de stockage cible où les données de cette tâche seront importées.
 
 Enregistrez toutes ces informations séparément, car elles devront être entrées une nouvelle fois dans les étapes suivantes.
 
@@ -99,14 +99,14 @@ Enregistrez toutes ces informations séparément, car elles devront être entré
 
     ![Portail](./media/backup-azure-backup-import-export/azureportal.png)
 
-2. À l’étape 1 de l’Assistant, précisez que vous avez préparé votre lecteur et que le fichier journal du lecteur est disponible. À l’étape 2 de l’Assistant, fournissez les coordonnées de la personne responsable de cette tâche d’importation.
-3. À l’étape 3, téléchargez les fichiers journaux de lecteur que vous avez obtenus dans la section précédente.
-4. À l’étape 4, entrez un nom descriptif pour la tâche d’importation qui a été entrée lors de la création de la stratégie de sauvegarde/du groupe de protection. Notez que le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, qu'il doit commencer par une lettre et qu'il ne peut pas contenir d'espaces. Le nom que choisissez vous servira à suivre la tâche pendant et après son exécution.
+2. À l’étape 1 de l’Assistant, précisez que vous avez préparé votre lecteur et que le fichier journal du lecteur est disponible. À l’étape 2 de l’Assistant, fournissez les coordonnées de la personne responsable de cette tâche d’importation.
+3. À l’étape 3, téléchargez les fichiers journaux de lecteur que vous avez obtenus dans la section précédente.
+4. À l’étape 4, entrez un nom descriptif pour la tâche d’importation qui a été entrée lors de la création de la stratégie de sauvegarde/du groupe de protection. Notez que le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, qu'il doit commencer par une lettre et qu'il ne peut pas contenir d'espaces. Le nom que choisissez vous servira à suivre la tâche pendant et après son exécution.
 5. Sélectionnez ensuite la région du centre de données dans la liste. Cette dernière indique à quel centre de données et à quelle adresse vous devez expédier votre colis.
 
     ![Contrôleur de domaine](./media/backup-azure-backup-import-export/dc.png)
 
-6. À l'étape 5, sélectionnez votre transporteur dans la liste, puis entrez son numéro de compte. Microsoft utilise ce compte pour réexpédier vos lecteurs une fois la tâche d’importation terminée.
+6. À l'étape 5, sélectionnez votre transporteur dans la liste, puis entrez son numéro de compte. Microsoft utilise ce compte pour réexpédier vos lecteurs une fois la tâche d’importation terminée.
 
 7. Expédiez le disque et entrez le numéro de suivi pour suivre l’état de l’expédition. Dès que le disque arrive dans le centre de données, il est copié dans le compte de stockage et l’état est mis à jour.
 
@@ -119,4 +119,4 @@ Une fois que les données de sauvegarde initiales sont disponibles dans votre co
 - Pour toute question sur le flux de travail Azure Import/Export, reportez-vous à cet [article](../storage/storage-import-export-service.md).
 - Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question concernant le flux de travail.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

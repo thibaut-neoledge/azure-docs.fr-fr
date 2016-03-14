@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="12/24/2015"
+   ms.date="02/26/2016"
    ms.author="sumuth"/>
 
 # Utiliser efficacement les environnements DevOps pour vos applications web
@@ -22,13 +22,13 @@ Cet article vous montre comment configurer et gérer les déploiements d’appli
 La configuration de plusieurs environnements de développement peut être une tâche complexe, car vous devez assurer le suivi et la gestion des ressources (calcul, application web, base de données, cache, etc.) sur ces différents environnements et déployer le contenu d’un environnement sur l’autre.
 
 ## Configuration d’un environnement hors production (intermédiaire, développement, assurance qualité)
-Une fois que votre application web de production est installée et fonctionne, l’étape suivante consiste à créer un environnement hors production. Pour utiliser les emplacements de déploiement, assurez-vous que vous fonctionnez bien en mode plan App Service **Standard** ou **Premium**. Les emplacements de déploiement sont en fait des applications web dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications web peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
+Une fois que votre application web de production est installée et fonctionne, l’étape suivante consiste à créer un environnement hors production. Pour utiliser les emplacements de déploiement, assurez-vous que vous fonctionnez bien en mode plan App Service **Standard** ou **Premium**. Les emplacements de déploiement sont en fait des applications web dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications web peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
 
 1. Vous pouvez valider les modifications d’une application web dans un emplacement de déploiement intermédiaire avant de l’échanger avec l’emplacement de production.
 2. Déployer d’abord une application web vers un emplacement et la basculer ensuite en production garantit que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela élimine les temps d’arrêt lorsque vous déployez votre application web. La redirection du trafic est transparente et aucune demande n’est abandonnée en cas d’opération de basculement. Ce flux de travail peut être entièrement automatisé en configurant [Échange automatique](web-sites-staged-publishing.md#configure-auto-swap-for-your-web-app) lorsqu’aucune validation n’est requise avant l’échange.
-3. À l’issue d’un échange, l’emplacement occupé par une application web précédemment intermédiaire dispose désormais de l’application web précédemment en production. Si les modifications basculées sur l’emplacement de production n’ont pas les résultats escomptés, vous pouvez effectuer un basculement équivalent pour récupérer la « dernière application correcte connue ».
+3. À l’issue d’un échange, l’emplacement occupé par une application web précédemment intermédiaire dispose désormais de l’application web précédemment en production. Si les modifications basculées sur l’emplacement de production n’ont pas les résultats escomptés, vous pouvez effectuer un basculement équivalent pour récupérer la « dernière application correcte connue ».
 
-Pour configurer un emplacement de déploiement intermédiaire, consultez [Configuration des environnements intermédiaires pour les applications web dans Azure App Service](web-sites-staged-publishing.md). Chaque environnement doit inclure son propre ensemble de ressources, par exemple, si votre application web utilise une base de données, les applications web de production et intermédiaire doivent toutes les deux utiliser des bases de données distinctes. Ajoutez des ressources d’environnement de développement intermédiaire telles qu’une base de données, un espace de stockage ou une mémoire cache pour la configuration de votre environnement de développement intermédiaire.
+Pour configurer un emplacement de déploiement intermédiaire, consultez [Configuration des environnements intermédiaires pour les applications web dans Azure App Service](web-sites-staged-publishing.md). Chaque environnement doit inclure son propre ensemble de ressources, par exemple, si votre application web utilise une base de données, les applications web de production et intermédiaire doivent toutes les deux utiliser des bases de données distinctes. Ajoutez des ressources d’environnement de développement intermédiaire telles qu’une base de données, un espace de stockage ou une mémoire cache pour la configuration de votre environnement de développement intermédiaire.
 
 ## Exemples d’utilisation de plusieurs environnements de développement
 
@@ -66,9 +66,9 @@ Avant de créer un emplacement intermédiaire, configurez votre code d’applica
 
 
 
-Créez un dossier sous la racine de l’application web appelée `config` et ajoutez deux fichiers : `wp-config.azure.php` et `wp-config.local.php`, qui représentent respectivement votre environnement azure et à votre environnement local.
+Créez un dossier sous la racine de l’application web appelée `config` et ajoutez deux fichiers : `wp-config.azure.php` et `wp-config.local.php`, qui représentent respectivement votre environnement azure et à votre environnement local.
 
-Copiez ce qui suit dans `wp-config.local.php` :
+Copiez ce qui suit dans `wp-config.local.php` :
 
 ```
 	
@@ -116,7 +116,7 @@ Copiez ce qui suit dans `wp-config.local.php` :
 
 la définition des clés de sécurité ci-dessus peut empêcher le piratage de votre application web. Alors, utilisez des valeurs uniques. Si vous devez générer la chaîne des clés de sécurité mentionnée ci-dessus, vous pouvez accéder au générateur automatique pour créer de nouvelles clés/valeurs en utilisant ce [lien](https://api.wordpress.org/secret-key/1.1/salt)
 
-Copiez le code suivant dans `wp-config.azure.php` :
+Copiez le code suivant dans `wp-config.azure.php` :
 
 
 ```
@@ -174,7 +174,7 @@ Copiez le code suivant dans `wp-config.azure.php` :
 #### Utiliser des chemins relatifs
 Enfin, il s’agit de permettre à l’application WordPress d’utiliser des chemins d’accès relatifs. WordPress stocke les informations d’URL dans la base de données. Le déplacement du contenu d’un environnement vers un autre devient alors plus difficile, car vous devez mettre à jour la base de données à chaque fois que vous passez d’un environnement local à un environnement intermédiaire ou d’un emplacement intermédiaire à des environnements de production. Pour réduire les risques de problèmes liés au déploiement d’une base de données à chaque déploiement d’un environnement à l’autre, utilisez le [complément de liens à la racine relative](https://wordpress.org/plugins/root-relative-urls/) qui peut être installé à l’aide du tableau de bord Administrateur WordPress ou effectuez un téléchargement manuel de ce dernier à partir d’[ici](https://downloads.wordpress.org/plugin/root-relative-urls.zip).
 
-Ajoutez les entrées suivantes à votre fichier `wp-config.php` avant le commentaire `That's all, stop editing!` :
+Ajoutez les entrées suivantes à votre fichier `wp-config.php` avant le commentaire `That's all, stop editing!` :
 
 ```
 
@@ -187,7 +187,7 @@ Ajoutez les entrées suivantes à votre fichier `wp-config.php` avant le comment
 Activez le module complémentaire grâce au menu `Plugins` dans le tableau de bord WordPress Administrator. Enregistrez les paramètres permalink pour l’application WordPress.
 
 #### Le fichier `wp-config.php` final
-Les mises à jour WordPress Core n’affecteront pas vos fichiers `wp-config.php`, `wp-config.azure.php` et `wp-config.local.php`. À la fin de cette procédure, le fichier `wp-config.php` se présentera comme suit :
+Les mises à jour WordPress Core n’affecteront pas vos fichiers `wp-config.php`, `wp-config.azure.php` et `wp-config.local.php`. À la fin de cette procédure, le fichier `wp-config.php` se présentera comme suit :
 
 ```
 
@@ -246,8 +246,8 @@ Les mises à jour WordPress Core n’affecteront pas vos fichiers `wp-config.php
 ```
 
 #### Configuration d’un environnement intermédiaire
-Supposons que vous avez déjà une application web WordPress en cours d’exécution sur Azure Web. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à votre application web WordPress. 
-Dans le cas contraire, vous pouvez en créer une dans marketplace. Cliquez [ici](web-sites-php-web-site-gallery.md) pour en savoir plus. Cliquez sur **Paramètres** -> **Emplacements de déploiement** -> **Ajouter** pour créer un emplacement de déploiement avec la copie intermédiaire. Un emplacement de déploiement est une autre application web qui partage les ressources de l’application web primaire créée plus haut.
+Supposons que vous avez déjà une application web WordPress en cours d’exécution sur Azure Web. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à votre application web WordPress. Dans le cas contraire, vous pouvez en créer une dans marketplace. Cliquez [ici](web-sites-php-web-site-gallery.md) pour en savoir plus. 
+Cliquez sur **Paramètres** -> **Emplacements de déploiement** -> **Ajouter** pour créer un emplacement de déploiement avec la copie intermédiaire. Un emplacement de déploiement est une autre application web qui partage les ressources de l’application web primaire créée plus haut.
 
 ![Créer un emplacement de déploiement intermédiaire](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -260,13 +260,13 @@ Mettez à jour les chaînes de connexion de votre emplacement de déploiement in
 #### Configurer les paramètres d’application spécifiques à l’environnement
 Les développeurs peuvent stocker des paires clés de valeur dans Azure en tant qu’informations de configuration associées à une application web appelée Paramètres de l’application. Lors de l’exécution, App Service Web Apps récupère automatiquement ces valeurs pour vous et les met à la disposition du code exécuté dans votre application web. Du point de vue de la sécurité, il s’agit d’un avantage, car les informations sensibles telles que les chaînes de connexion de base de données avec des mots de passe ne sont jamais affichées sous forme de texte en clair dans un fichier tel que `wp-config.php`.
 
-La procédure définie ci-dessous est utile lorsque vous exécutez des mises à jour, car elle inclut à la fois les modifications de fichier et les modifications de base de données pour une application WordPress :
+La procédure définie ci-dessous est utile lorsque vous exécutez des mises à jour, car elle inclut à la fois les modifications de fichier et les modifications de base de données pour une application WordPress :
 
 - Mise à jour de la version de WordPress
 - Ajout, modification ou mise à jour d’un module complémentaire
 - Ajout, modification ou mise à jour des thèmes
 
-Configuration des paramètres d’application pour :
+Configuration des paramètres d’application pour :
 
 - les informations de base de données
 - l’activation/Désactivation de la journalisation WordPress
@@ -290,8 +290,8 @@ Parcourir et tester votre application web intermédiaire. Si l’on prend en com
 
 ![Échanger les modifications de l’aperçu pour WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]
- > Si, pour votre scénario, vous n’avez besoin que de fichiers push (sans mise à jour de base de données), **vérifiez** le **Paramètre d’emplacement ** de tous les *paramètres d’application* et les *paramètres de chaînes de connexion* associés à la base de données dans le panneau de paramètre d’application web au sein du portail Azure avant de procéder à l’échange. Dans ce cas DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, le paramètre de chaîne de connexion par défaut ne s’affichent pas dans les modifications de présentation au moment de procéder à l’**échange**. À ce stade, lorsque vous terminez l’opération d’**échange**, l’application web WordPress obtient **UNIQUEMENT** les fichiers mis à jour.
+ > [AZURE.NOTE]
+ Si, pour votre scénario, vous n’avez besoin que de fichiers Push (sans mise à jour de base de données), **vérifiez** le **Paramètre d’emplacement ** de tous les *paramètres d’application* et les *paramètres de chaînes de connexion* associés à la base de données dans le panneau de paramètre d’application web au sein du portail Azure avant de procéder à l’échange. Dans ce cas DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, le paramètre de chaîne de connexion par défaut ne s’affichent pas dans les modifications de présentation au moment de procéder à l’**échange**. À ce stade, lorsque vous terminez l’opération d’**échange**, l’application web WordPress obtient **UNIQUEMENT** les fichiers mis à jour.
 
 Avant de procéder à l’échange, voici l’application web de production WordPress
 ![Application web de production avant l’échange d’emplacements](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
@@ -300,7 +300,7 @@ Après l’opération d’échange, le thème a été mis à jour sur votre appl
 
 ![Application web de production après l’échange d’emplacements](./media/app-service-web-staged-publishing-realworld-scenarios/8afswap.png)
 
-Si vous devez procéder à une **restauration** , vous pouvez accéder aux paramètres de l’application web de production, puis cliquer sur le bouton **Échange** pour basculer l’application web et la base de données de l’emplacement de production vers l’emplacement intermédiaire. Il est important de retenir que, si des modifications de base de données sont incluses dans une opération d’**échange** à un moment donné, lors du redéploiement de l’application web intermédiaire suivant, vous devez déployer les modifications de la base de données à la base de données actuelle pour votre application web intermédiaire qui peut être la base de données de production ou la base de données intermédiaire précédente.
+Si vous devez procéder à une **restauration**, vous pouvez accéder aux paramètres de l’application web de production, puis cliquer sur le bouton **Échange** pour basculer l’application web et la base de données de l’emplacement de production vers l’emplacement intermédiaire. Il est important de retenir que, si des modifications de base de données sont incluses dans une opération d’**échange** à un moment donné, lors du redéploiement de l’application web intermédiaire suivant, vous devez déployer les modifications de la base de données à la base de données actuelle pour votre application web intermédiaire qui peut être la base de données de production ou la base de données intermédiaire précédente.
 
 #### Résumé
 Pour généraliser le processus pour une application avec base de données
@@ -313,7 +313,7 @@ Pour généraliser le processus pour une application avec base de données
 6. Placer votre application web de production en mode maintenance ou verrouillé et le contenu de la base de données de synchronisation de l’environnement de production avec les environnements intermédiaires et de développement.
 7. Effectuer un déploiement dans un environnement intermédiaire et de test
 8. Déployer dans un environnement de production
-9. Répéter les étapes 4 à 6
+9. Répéter les étapes 4 à 6
 
 ### Umbraco
 Dans cette section, vous allez apprendre comment Umbraco CMS utilise un module personnalisé pour effectuer un déploiement sur plusieurs environnements DevOps. Cet exemple offre une approche différente de la gestion de plusieurs environnements de développement.
@@ -377,7 +377,10 @@ Pour réaliser la configuration, vous devez mettre à jour le fichier courier.co
   </repositories>
  ```
 
-Sous `<repositories>`, entrez l'URL du site de production et les informations utilisateur. Si vous utilisez le fournisseur d'appartenances Umbraco par défaut, ajoutez l'ID de l'utilisateur Administration dans la section <user> . Si vous utilisez un fournisseur d'appartenances Umbraco personnalisé, utilisez les éléments `<login>`,`<password>` pour que le module Courier2 sache comment se connecter au site de production. Pour plus d'informations, consultez la [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) du module Courier.
+Sous `<repositories>`, entrez l'URL du site de production et les informations utilisateur.  
+Si vous utilisez le fournisseur d'appartenances Umbraco par défaut, ajoutez l'ID de l'utilisateur Administration dans la section <user>. Si vous utilisez un fournisseur d'appartenances Umbraco personnalisé, utilisez les éléments `<login>`, `<password>` pour que le module Courier2 sache comment se connecter au site de production.  
+Pour plus d'informations, consultez la [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) du module Courier.  
+
 
 De même, installez le module Courier sur votre site de production et configurez-le de manière à ce qu'il pointe vers l'application web intermédiaire dans le fichier courier.config concerné, comme indiqué ici
 
@@ -433,9 +436,9 @@ Une fois la mise à niveau de votre site de développement local terminée, publ
 
 ![Vue d’ensemble de l’échange pour le déploiement de CMS Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Avantage de l’échange de l’application Web et de base de données :
-1. Vous avez la possibilité de revenir à la version précédente de votre application web grâce à un autre **échange** en cas de problème d'application. 
-2. En cas de mise à niveau, vous devez déployer des fichiers et une base de données d’application web intermédiaire vers l’application web de production et la base de données. De nombreuses choses peuvent mal se passer lors du déploiement de fichiers et d’une base de données. Grâce à la fonction d’**échange** d’emplacements, il est possible de réduire les temps d’arrêt pendant une mise à niveau, ainsi que les risques de panne susceptibles de se produire lors du déploiement de modifications. 
+Avantage de l’échange de l’application Web et de base de données :
+1. Vous avez la possibilité de revenir à la version précédente de votre application web grâce à un autre **échange** en cas de problème d'application.
+2. En cas de mise à niveau, vous devez déployer des fichiers et une base de données d’application web intermédiaire vers l’application web de production et la base de données. De nombreuses choses peuvent mal se passer lors du déploiement de fichiers et d’une base de données. Grâce à la fonction d’**échange** d’emplacements, il est possible de réduire les temps d’arrêt pendant une mise à niveau, ainsi que les risques de panne susceptibles de se produire lors du déploiement de modifications.
 3. Vous avez la possibilité d'exécuter un **test A/B** à l'aide de la fonction [Test en production](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
 Cet exemple montre la flexibilité de la plateforme sur laquelle vous pouvez élaborer des modules personnalisés similaires au module Umbraco Courier pour gérer le déploiement sur les environnements.
@@ -447,4 +450,4 @@ Cet exemple montre la flexibilité de la plateforme sur laquelle vous pouvez él
 
 [Comment limiter l’accès web aux emplacements de déploiement hors production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

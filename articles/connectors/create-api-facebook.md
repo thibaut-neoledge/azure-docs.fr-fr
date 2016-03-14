@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Prendre en main l’API Facebook
-Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore.
+Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore. L’API Facebook peut être utilisée à partir de :
 
-L’API Facebook peut être utilisée à partir d’applications logiques.
+- Logic Apps 
 
->[AZURE.NOTE] Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Facebook](../app-service-logic/app-service-logic-connector-facebook.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Facebook](../app-service-logic/app-service-logic-connector-facebook.md).
 
 
 Avec Facebook, vous pouvez effectuer les opérations suivantes :
@@ -31,7 +31,7 @@ Avec Facebook, vous pouvez effectuer les opérations suivantes :
 - Utiliser un déclencheur quand une publication est reçue.
 - Utiliser des actions pour publier dans votre journal, obtenir un flux de page et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand il y a une nouvelle publication dans votre journal, vous pouvez la transférer vers votre flux Twitter. 
 
-Pour ajouter une opération à des applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 L’API Facebook inclut les déclencheurs et les actions suivants.
@@ -433,6 +433,6 @@ Tout membre de ces groupes est susceptible de voir cette publication, à la diff
 
 ## Étapes suivantes
 
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
