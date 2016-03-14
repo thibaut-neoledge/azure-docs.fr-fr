@@ -18,18 +18,18 @@ ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Prendre en main l’API Salesforce
-Connectez-vous à Salesforce et créez des objets, obtenez des objets et bien plus encore. L’API Salesforce peut être utilisée à partir de :
+Connectez-vous à Salesforce et créez des objets, obtenez des objets et bien plus encore. L’API Salesforce peut être utilisée à partir de :
 
 - PowerApps 
-- Logic Apps 
+- Logic Apps 
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [API Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
 
-Avec Salesforce, vous pouvez effectuer les opérations suivantes :
+Avec Salesforce, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de Salesforce. 
 - Utiliser des déclencheurs quand un objet est créé ou mis à jour.
-- Utiliser des actions pour créer un objet, supprimer un objet et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un objet est créé dans Salesforce, vous pouvez envoyer un message électronique à l’aide d’Office 365.
+- Utiliser des actions pour créer un objet, supprimer un objet et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un objet est créé dans Salesforce, vous pouvez envoyer un message électronique à l’aide d’Office 365.
 - Ajouter l’API Salesforce à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
 
 Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
@@ -48,27 +48,27 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 ## Créer une connexion à Salesforce 
 
 ### Ajouter une configuration à PowerApps
-Quand vous ajoutez Salesforce à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Salesforce. La valeur **URL de redirection** est également utilisée dans votre application Salesforce. Si vous n’avez pas d’application Salesforce, vous pouvez utiliser les étapes suivantes pour en créer une :
+Quand vous ajoutez Salesforce à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Salesforce. La valeur **URL de redirection** est également utilisée dans votre application Salesforce. Si vous n’avez pas d’application Salesforce, vous pouvez utiliser les étapes suivantes pour en créer une :
 
-1. [Connectez-vous à la page d’accueil du développeur Salesforce][5], sélectionnez votre profil et sélectionnez **Setup** : ![Page d’accueil Salesforce][6]
+1. [Connectez-vous à la page d’accueil du développeur Salesforce][5], sélectionnez votre profil et sélectionnez **Setup** : ![Page d’accueil Salesforce][6]
 
-3. Sélectionnez **Create**, puis sélectionnez **Apps**. Dans la page **Apps**, sous **Connected Apps**, sélectionnez **New** : ![Création d’applications Salesforce][7]
+3. Sélectionnez **Create**, puis sélectionnez **Apps**. Dans la page **Apps**, sous **Connected Apps**, sélectionnez **New** : ![Création d’applications Salesforce][7]
 
-4. Dans **New Connected App** :
+4. Dans **New Connected App** :
 
 	1. Renseignez le champ **Connected App Name**.  
 	2. Renseignez le champ **API Name**.  
 	3. Renseignez le champ **Contact Email**.  
 	4. Sous _API (Enable OAuth Settings)_, sélectionnez **Enable OAuth Settings**, puis définissez **Callback URL** sur la valeur affichée quand vous ajoutez la nouvelle API Salesforce dans le portail Azure.  
 
-5. Dans la section _Selected OAuth scopes_, ajoutez les étendues suivantes à **Selected OAuth Scopes** :
+5. Dans la section _Selected OAuth scopes_, ajoutez les étendues suivantes à **Selected OAuth Scopes** :
 
 	- Access and manage your Chatter data (chatter\_api)
 	- Access and manage your data (api)
 	- Allow access to your unique identifier (openid)
 	- Perform requests on your behalf at any time (refresh\_token, offline\_access)
 
-6. Cliquez sur **Save** pour enregistrer vos modifications : ![Nouvelle application Salesforce][8]
+6. Cliquez sur **Save** pour enregistrer vos modifications : ![Nouvelle application Salesforce][8]
 
 Maintenant, copiez/collez les valeurs **Clé d’application** et **Question secrète de l’application** dans votre configuration Salesforce dans le portail Azure.
 
@@ -83,7 +83,7 @@ Après avoir créé la connexion, vous entrez les propriétés Salesforce, telle
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion dans d’autres applications logiques.
 
 ## Informations de référence sur l’API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 
 ### Créer un objet
@@ -91,7 +91,7 @@ Crée un objet Salesforce. ```POST: /datasets/default/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
 |item| |yes|body|(aucun)|Objet Salesforce à créer|
 
 ### Response
@@ -107,7 +107,7 @@ Récupère un objet Salesforce. ```GET: /datasets/default/tables/{table}/items/{
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
 |id|string|yes|path|(aucun)|Identificateur unique de l’objet Salesforce à récupérer|
 
 ### Response
@@ -124,7 +124,7 @@ Supprime un objet Salesforce. ```DELETE: /datasets/default/tables/{table}/items/
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
 |id|string|yes|path|(aucun)|Identificateur unique de l’objet Salesforce à supprimer|
 
 ### Response
@@ -140,7 +140,7 @@ Met à jour un objet Salesforce. ```PATCH: /datasets/default/tables/{table}/item
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
 |id|string|yes|path|(aucun)|Identificateur unique de l’objet Salesforce à mettre à jour|
 |item| |yes|body|(aucun)|Objet Salesforce avec des propriétés modifiées|
 
@@ -157,9 +157,9 @@ Déclenche un flux quand un objet est créé dans Salesforce. ```GET: /datasets/
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
@@ -176,9 +176,9 @@ Déclenche un flux quand un objet est modifié dans Salesforce. ```GET: /dataset
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|table|string|yes|path|(aucun)|Type de SObject Salesforce (exemple : « Lead »)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 

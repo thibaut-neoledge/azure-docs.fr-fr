@@ -19,14 +19,14 @@
 
 
 # Prendre en main l’API Twitter
-Connectez-vous à Twitter pour publier un tweet, obtenir le fil d’un utilisateur et bien plus encore. L’API Twitter peut être utilisée à partir de :
+Connectez-vous à Twitter pour publier un tweet, obtenir le fil d’un utilisateur et bien plus encore. L’API Twitter peut être utilisée à partir de :
 
 - PowerApps 
-- Logic Apps 
+- Logic Apps 
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
 
-Avec Twitter, vous pouvez effectuer les opérations suivantes :
+Avec Twitter, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de Twitter. 
 - Utiliser des déclencheurs quand il y a un nouveau tweet.
@@ -51,7 +51,7 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 ## Créer la connexion à Twitter
 
 ### Ajouter une configuration à PowerApps
-Quand vous ajoutez Twitter à PowerApps Enterprise, vous entrez les valeurs **Clé de consommateur** et **Question secrète de consommateur** de votre application Twitter. La valeur **URL de redirection** est également utilisée dans votre application Twitter. Si vous n’avez pas d’application Twitter, vous pouvez utiliser les étapes suivantes pour en créer une :
+Quand vous ajoutez Twitter à PowerApps Enterprise, vous entrez les valeurs **Clé de consommateur** et **Question secrète de consommateur** de votre application Twitter. La valeur **URL de redirection** est également utilisée dans votre application Twitter. Si vous n’avez pas d’application Twitter, vous pouvez utiliser les étapes suivantes pour en créer une :
 
 1. Connectez-vous à [Twitter](https://apps.twitter.com).
 
@@ -80,7 +80,7 @@ Après avoir créé la connexion, vous entrez les propriétés Twitter, telles q
 
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 ### Publier un nouveau tweet 
 Tweet. ```POST: /posttweet```
@@ -107,7 +107,7 @@ Déclenche un flux de travail quand un nouveau tweet publié correspond à votre
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|searchQuery|string|yes|query|(aucun)|Texte de requête (vous pouvez utiliser les opérateurs de requête pris en charge par Twitter : http://www.twitter.com/search)|
+|searchQuery|string|yes|query|(aucun)|Texte de requête (vous pouvez utiliser les opérateurs de requête pris en charge par Twitter : http://www.twitter.com/search)|
 
 #### Response
 |Nom|Description|
@@ -142,7 +142,7 @@ Récupère les tweets et retweets les plus récents publiés par mes abonnés et
 
 
 ### Obtenir un utilisateur 
-Récupère les détails de l’utilisateur spécifié (exemple : nom d’utilisateur, description, nombre d’abonnés, etc.). ```GET: /user```
+Récupère les détails de l’utilisateur spécifié (exemple : nom d’utilisateur, description, nombre d’abonnés, etc.). ```GET: /user```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -185,7 +185,7 @@ Récupère une collection de tweets pertinents correspondant à une requête sp�
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|searchQuery|string|yes|query|(aucun)|Texte de requête (vous pouvez utiliser les opérateurs de requête pris en charge par Twitter : http://www.twitter.com/search)|
+|searchQuery|string|yes|query|(aucun)|Texte de requête (vous pouvez utiliser les opérateurs de requête pris en charge par Twitter : http://www.twitter.com/search)|
 |maxResults|integer|no|query|20|Nombre maximal de tweets à récupérer|
 
 #### Response
@@ -280,7 +280,7 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 
 ## Définitions d’objet
 
-### TweetModel : représentation d’un objet tweet
+### TweetModel : représentation d’un objet tweet
 
 | Nom de la propriété | Type de données | Requis |
 |---|---| --- | 
@@ -291,7 +291,7 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 |TweetedBy|string|yes|
 |MediaUrls|array|no|
 
-### UserDetailsModel : représentation des détails d’un utilisateur Twitter
+### UserDetailsModel : représentation des détails d’un utilisateur Twitter
 
 |Nom de la propriété | Type de données | Requis |
 |---|---|---|
@@ -304,7 +304,7 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 |StatusesCount|integer|no|
 |FriendsCount|integer|no|
 
-### TweetResponseModel : modèle de représentation d’un tweet publié
+### TweetResponseModel : modèle de représentation d’un tweet publié
 
 | Nom | Type de données | Requis |
 |---|---|---|

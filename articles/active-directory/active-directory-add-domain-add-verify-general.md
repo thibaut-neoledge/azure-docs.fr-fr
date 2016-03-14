@@ -20,7 +20,7 @@
 
 Pour ajouter un nom de domaine personnalisé et vérifier s’il est utilisable avec Azure Active Directory, vous devez procéder comme suit.
 
-1.  Effectuez l’une des actions suivantes :
+1.  Effectuez l’une des actions suivantes :
 
     -   [Ajouter un nom de domaine personnalisé qui est fédéré avec Active Directory localement](#add-a-custom-domain-name-that-will-be-federated)
 
@@ -56,7 +56,7 @@ Pour plus d’informations sur l’intégration d’annuaire local à l’aide d
 
 ## Ajouter un nom de domaine personnalisé qui n’est pas fédéré
 
-La plupart des noms de domaines personnalisés sont des domaines de deuxième niveau « contoso.com ».
+La plupart des noms de domaines personnalisés sont des domaines de deuxième niveau « contoso.com ».
 
 **Pour ajouter le nom de domaine personnalisé à votre annuaire Azure AD**
 
@@ -87,7 +87,7 @@ Si le domaine est déjà enregistré auprès d’un bureau d’enregistrement de
 Si vous avez ajouté un domaine personnalisé, mais que le domaine n’a pas encore été vérifié, l’état indique **Non vérifié**.
 
 ## Vérifiez un nom de domaine personnalisé que vous n’allez pas fédérer avec un annuaire local
-Une fois que tous les enregistrements que vous avez créés pour votre domaine ont été ajoutés avec succès par le biais du système DNS à votre bureau d’enregistrement de domaines, procédez comme suit :
+Une fois que tous les enregistrements que vous avez créés pour votre domaine ont été ajoutés avec succès par le biais du système DNS à votre bureau d’enregistrement de domaines, procédez comme suit :
 
 1.  Dans Azure Active Directory dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Domaines**.
 
@@ -99,7 +99,7 @@ Une fois que tous les enregistrements que vous avez créés pour votre domaine o
 
     -   En cas d’échec de la vérification du domaine, les modifications que vous avez éventuellement effectuées auprès du bureau d’enregistrement de domaines peuvent nécessiter du temps pour se propager. Annulez la vérification et réessayez ultérieurement.
 
-S’il s’est écoulé plus de 72 heures depuis que vous avez apporté des modifications à votre domaine, connectez-vous au site web du bureau d’enregistrement de domaines et vérifiez que vous avez correctement entré les informations d’alias. Si vous avez entré les informations de manière incorrecte, vous devez supprimer l’enregistrement DNS incorrect et en créer un autre avec les informations correctes.
+S’il s’est écoulé plus de 72 heures depuis que vous avez apporté des modifications à votre domaine, connectez-vous au site web du bureau d’enregistrement de domaines et vérifiez que vous avez correctement entré les informations d’alias. Si vous avez entré les informations de manière incorrecte, vous devez supprimer l’enregistrement DNS incorrect et en créer un autre avec les informations correctes.
 
 ## Vérifiez votre domaine personnalisé pour la fédération avec votre annuaire local
 
@@ -107,11 +107,11 @@ S’il s’est écoulé plus de 72 heures depuis que vous avez apporté des mod
 
 ## Noms de domaine de troisième niveau
 
-Vous pouvez utiliser des domaines de troisième niveau comme « europe.contoso.com » avec Azure AD. Pour ajouter et utiliser un domaine de troisième niveau :
+Vous pouvez utiliser des domaines de troisième niveau comme « europe.contoso.com » avec Azure AD. Pour ajouter et utiliser un domaine de troisième niveau :
 
-1.  Ajoutez et vérifiez le domaine de deuxième niveau « contoso.com ».
+1.  Ajoutez et vérifiez le domaine de deuxième niveau « contoso.com ».
 
-2.  Ajouter des sous-domaines comme « europe.contoso.com » à Azure AD. Quand vous ajoutez un sous-domaine d’un domaine de deuxième niveau vérifié, le domaine de troisième niveau est automatiquement vérifié par Azure AD. Vous n’avez pas besoin d’ajouter davantage d’entrées DNS.
+2.  Ajouter des sous-domaines comme « europe.contoso.com » à Azure AD. Quand vous ajoutez un sous-domaine d’un domaine de deuxième niveau vérifié, le domaine de troisième niveau est automatiquement vérifié par Azure AD. Vous n’avez pas besoin d’ajouter davantage d’entrées DNS.
 
 Ces étapes peuvent également être effectuées à l’aide de PowerShell et Graph.
 

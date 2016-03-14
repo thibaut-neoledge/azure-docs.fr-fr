@@ -26,7 +26,7 @@ En général, les clients utilisent l'interface frontale de Mobile Engagement po
 
 Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint remplit une liste SharePoint de données marketing, dont les éléments sont récupérés par un processus automatisé qui se connecte au système Mobile Engagement à l'aide des API REST disponibles afin de créer une campagne marketing à partir des données SharePoint.
  
-> [AZURE.IMPORTANT] En général, vous pouvez utiliser cet exemple comme point de départ pour comprendre comment appeler les API REST Mobile Engagement, car il détaille les deux principaux aspects de l'appel des API : l’authentification et le passage des paramètres.
+> [AZURE.IMPORTANT] En général, vous pouvez utiliser cet exemple comme point de départ pour comprendre comment appeler les API REST Mobile Engagement, car il détaille les deux principaux aspects de l'appel des API : l’authentification et le passage des paramètres.
 
 ## Intégration de SharePoint
 1. L'exemple de liste SharePoint ressemble à ceci. **Titre**, **Catégorie**, **Titre de notification**, **Message** et **URL** sont utilisés pour créer l'annonce. Une colonne appelée **IsProcessed** est utilisée par l’exemple de processus d'automatisation sous la forme d'un programme de console. Vous pouvez exécuter ce programme de console comme un WebJob Azure de façon à le planifier. Vous pouvez également utiliser directement le flux de travail SharePoint pour programmer la création et l'activation de l'annonce lorsqu'un élément est inséré dans la liste SharePoint. Dans cet exemple, nous utilisons le programme de console qui parcourt les éléments de la liste SharePoint et crée une annonce dans Azure Mobile Engagement pour chacun d'eux avant de définir l’indicateur **IsProcessed** sur true lors de la réussite de la création de l’annonce.
@@ -187,7 +187,7 @@ Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint re
             }
         }
 
-6. Une fois l'annonce activée, vous devriez voir apparaître une chose similaire sur le portail Mobile Engagement :
+6. Une fois l'annonce activée, vous devriez voir apparaître une chose similaire sur le portail Mobile Engagement :
 
 	![][4]
 

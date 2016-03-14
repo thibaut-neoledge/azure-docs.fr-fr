@@ -20,7 +20,7 @@
  
 Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modifier le contenu de vos annonces, sondages, Push de données et vignettes (Windows Phone uniquement). Le paramètre du contenu des campagnes Push est spécifique au type de campagne.
  
-### Types de contenu :
+### Types de contenu :
 - Annonces
 - Sondages
 - Push de données
@@ -29,77 +29,77 @@ Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modif
 ## Contenu des annonces
  ![Reach-Content1][30]
 
-### Choisissez le type de votre annonce :
--    Notification uniquement : il s’agit d’une simple notification standard. Cela signifie que si un utilisateur clique dessus, aucun affichage supplémentaire n'apparaîtra. Seule l'action qui y est associée s'affichera.
--    Annonce texte : il s’agit d’une notification qui invite l’utilisateur à regarder une vue de texte.
--    Annonce Web : il s’agit d’une notification qui invite l’utilisateur à regarder l’affichage Web.
+### Choisissez le type de votre annonce :
+-    Notification uniquement : il s’agit d’une simple notification standard. Cela signifie que si un utilisateur clique dessus, aucun affichage supplémentaire n'apparaîtra. Seule l'action qui y est associée s'affichera.
+-    Annonce texte : il s’agit d’une notification qui invite l’utilisateur à regarder une vue de texte.
+-    Annonce Web : il s’agit d’une notification qui invite l’utilisateur à regarder l’affichage Web.
 
 ### Voir aussi
 - [Reach - Procédures - Annonces][Link 3] 
 
-### À propos des annonces d'affichage Web :
-Les occurrences du modèle « {deviceid} » dans le code HTML ou le code JavaScript que vous fournissez ici seront automatiquement remplacées par l'identificateur de l'appareil qui affiche l'annonce. Il s'agit d'un moyen simple pour récupérer les identificateurs d'appareil Azure Mobile Engagement dans un service Web externe hébergé dans votre arrière-guichet. Si vous souhaitez créé un affichage Web plein écran (sans utiliser les boutons par défaut Action et Quitter que nous offrons), vous pouvez utiliser les fonctions suivantes depuis le code JavaScript de votre annonce d'affichage Web :
+### À propos des annonces d'affichage Web :
+Les occurrences du modèle « {deviceid} » dans le code HTML ou le code JavaScript que vous fournissez ici seront automatiquement remplacées par l'identificateur de l'appareil qui affiche l'annonce. Il s'agit d'un moyen simple pour récupérer les identificateurs d'appareil Azure Mobile Engagement dans un service Web externe hébergé dans votre arrière-guichet. Si vous souhaitez créé un affichage Web plein écran (sans utiliser les boutons par défaut Action et Quitter que nous offrons), vous pouvez utiliser les fonctions suivantes depuis le code JavaScript de votre annonce d'affichage Web :
 
--    effectuer l’action de l’annonce : ReachContent.actionContent()
--    quitter l’annonce : ReachContent.actionContent()
+-    effectuer l’action de l’annonce : ReachContent.actionContent()
+-    quitter l’annonce : ReachContent.actionContent()
  
-### Choisissez votre action :
+### Choisissez votre action :
 
-### À propos des URL d'action :
+### À propos des URL d'action :
 Toute URL qui peut être interprétée par le système d'exploitation d'un appareil cible peut être utilisée comme une URL d'action. Toute URL dédiée pouvant être prise en charge par votre application (par exemple pour permettre à vos utilisateurs de passer à un écran spécifique) peut également être utilisée comme URL d'action. Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'identificateur de l'appareil réalisant l'action. Cela peut être utilisé pour récupérer facilement des identificateurs d'appareil Azure Mobile Engagement via un service Web externe hébergé dans votre arrière-guichet.
 
 - **Actions Android et iOS**
     - Ouvrir une page Web
     - http://[web-site-domain\] 
-    - Exemple :http://www.azure.com
+    - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
     - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
-    - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Envoyer un SMS
     - sms:[numéro de téléphone] 
-    - Exemple :sms:2125551212
+    - Exemple :sms:2125551212
     - Composer un numéro de téléphone
     - tel:[numéro de téléphone] 
-    - Exemple :tel:2125551212
+    - Exemple :tel:2125551212
 - **Actions Android uniquement**
     - Télécharger une application du Play Store
     - market://details?id=[app package] 
-    - Exemple :market://details?id=com.microsoft.office.word
+    - Exemple :market://details?id=com.microsoft.office.word
     - Démarrer une recherche géolocalisée
     - geo:0,0?q=[requête de recherche] 
-    - Exemple :geo:0,0?q=starbucks,paris
+    - Exemple :geo:0,0?q=starbucks,paris
 - **Actions iOS uniquement**
     - Télécharger une application depuis le Magasin d'applications
     - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
-    - Exemple :http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+    - Exemple :http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Actions Windows
     - Ouvrir une page Web
     - http://[web-site-domain\] 
-    - Exemple :http://www.azure.com
+    - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
     - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
-    - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Envoyer un SMS (application Skype du Store requise)
     - sms:[numéro de téléphone] 
-    - Exemple :sms:2125551212
+    - Exemple :sms:2125551212
     - Composer un numéro de téléphone (application Skype du Store requise)
     - tel:[numéro de téléphone] 
-    - Exemple :tel:2125551212
+    - Exemple :tel:2125551212
     - Télécharger une application du Play Store
     - ms-windows-store:PDP?PFN=[ID de package d’application] 
-    - Exemple :ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
+    - Exemple :ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - Démarrer une recherche Bing Cartes
     - bingmaps:?q=[requête de recherche] 
-    - Exemple :bingmaps:?q=starbucks,paris
+    - Exemple :bingmaps:?q=starbucks,paris
     - Utiliser un modèle personnalisé
     - [schéma personnalisé]://[paramètres du schéma personnalisé] 
-    - Exemple :myCustomProtocol://myCustomParams
+    - Exemple :myCustomProtocol://myCustomParams
     - Utiliser un package de données (application du Store pour la lecture d'extension requise)
     - [dossier][données].[extension] 
-    - Exemple :myfolderdata.txt
+    - Exemple :myfolderdata.txt
  
-### Génération d'une URL de suivi :
--    Consultez la section « Paramètres » de la <UI Documentation> pour les instructions relatives à la génération d'une URL de suivi qui permettra aux utilisateurs de télécharger une autre de vos applications.
+### Génération d'une URL de suivi :
+-    Consultez la section « Paramètres » de la <UI Documentation> pour les instructions relatives à la génération d'une URL de suivi qui permettra aux utilisateurs de télécharger une autre de vos applications.
  
 ### Définition du texte de votre annonce
 Remplissez le titre, le contenu et le texte des boutons de votre annonce. Vous pouvez cibler une audience pour une future campagne suivant les commentaires Reach indiquant la façon dont les utilisateurs ont répondu à cette campagne. Le ciblage de l'audience peut se baser sur les commentaires déterminant si la campagne a été envoyée par notification Push, si elle a obtenu une réponse, si elle a été activée ou quittée.
@@ -116,14 +116,14 @@ Remplissez le titre, le contenu et le texte des boutons de votre annonce. Vous p
 ## Contenu des Push de données
 ![Reach-Content3][32]
 
-### Choisissez le type de vos données :
+### Choisissez le type de vos données :
 - Texte
 - Données binaires
 - Données Base64
 
 ### Définition du contenu de vos données
-- Si vous sélectionnez une transmission de type push des données de texte, copiez et collez le texte dans la boîte « contenu ».
-- Si vous sélectionnez une transmission de type push de données binaires ou base64, utilisez le bouton « Télécharger votre fichier » pour télécharger votre fichier.
+- Si vous sélectionnez une transmission de type push des données de texte, copiez et collez le texte dans la boîte « contenu ».
+- Si vous sélectionnez une transmission de type push de données binaires ou base64, utilisez le bouton « Télécharger votre fichier » pour télécharger votre fichier.
 - Vous pouvez cibler une audience pour une future campagne suivant les commentaires Reach indiquant la façon dont les utilisateurs ont répondu à cette campagne. Le ciblage de l'audience est déterminé selon que la campagne est issue d'une transmission de type push, qu'elle a obtenu une réponse, qu'elle a été activée ou quittée.
 
 ### Voir aussi

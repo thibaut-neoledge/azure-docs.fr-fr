@@ -18,11 +18,11 @@
 
 # Les métadonnées d’App Service API Apps pour la détection d’API et la création de code 
 
-La prise en charge des métadonnées d’API [Swagger 2.0](http://swagger.io/) est intégrée aux applications API App Service. Vous n’êtes pas obligé d’utiliser Swagger, mais si vous le faites, vous pouvez tirer parti des fonctionnalités d’applications API qui facilitent la détection et la consommation.
+La prise en charge des métadonnées d’API [Swagger 2.0](http://swagger.io/) est intégrée aux applications API App Service. Vous n’êtes pas obligé d’utiliser Swagger, mais si vous le faites, vous pouvez tirer parti des fonctionnalités d’applications API qui facilitent la détection et la consommation.
 
 ## Point de terminaison Swagger
 
-Vous pouvez spécifier un point de terminaison qui fournit les métadonnées de JSON Swagger 2.0 pour une application API dans une propriété de l’application API. Le point de terminaison peut être associé à l’URL de base de l’application API ou une URL absolue. Les URL absolues peuvent pointer hors de l’application API.
+Vous pouvez spécifier un point de terminaison qui fournit les métadonnées de JSON Swagger 2.0 pour une application API dans une propriété de l’application API. Le point de terminaison peut être associé à l’URL de base de l’application API ou une URL absolue. Les URL absolues peuvent pointer hors de l’application API.
 
 Pour de nombreux clients en aval (par exemple, génération de code Visual Studio et flux d’ajout d’API de PowerApps), l’URL doit être accessible publiquement (c’est-à-dire non protégée par une authentification de l’utilisateur ou du service). Autrement dit, si vous utilisez l’authentification App Service et que vous souhaitez exposer la définition d’API depuis votre application, vous devez utiliser l’option d’authentification qui permet au trafic anonyme d’atteindre votre API. Pour plus d’informations, consultez la page [Authentification et autorisation pour les applications d’API dans Azure App Service](app-service-api-authentication.md).
 
@@ -36,7 +36,7 @@ Dans le [portail Azure](https://portal.azure.com/), l’URL du point de terminai
 
 Vous pouvez également configurer l’URL de définition d’API pour une application API à l’aide d’outils tels qu’Azure PowerShell, l’interface de ligne de commande ou l’[Explorateur de ressources](https://resources.azure.com/).
 
-Définissez la propriété `apiDefinition` du type de ressource Microsoft.Web/sites/config pour votre ressource <site name>/web. Par exemple, dans **Explorateur de ressources**, accédez à **abonnements > {votre abonnement} > resourceGroups > {votre groupe de ressources} > fournisseurs > Microsoft.Web > sites > {votre site} > config > web**, et vous verrez la propriété cors :
+Définissez la propriété `apiDefinition` du type de ressource Microsoft.Web/sites/config pour votre ressource <site name>/web. Par exemple, dans **Explorateur de ressources**, accédez à **abonnements > {votre abonnement} > resourceGroups > {votre groupe de ressources} > fournisseurs > Microsoft.Web > sites > {votre site} > config > web**, et vous verrez la propriété cors :
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"

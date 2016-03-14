@@ -52,7 +52,7 @@ Le moteur de règles vous permet de personnaliser comment sont gérées les requ
 
 	![Fonctionnalité CDN](./media/cdn-rules-engine/cdn-new-feature.png)
 
-	>[AZURE.NOTE] Comme avec les conditions de correspondance, en cliquez sur l'icône d'information bleue à gauche de la nouvelle fonctionnalité pour obtenir plus d'informations sur cette fonctionnalité. Dans le cas de **Forcer l'âge maximal interne**, nous remplaçons les en-têtes **Cache-Control** et **Expires** de la ressource, afin de contrôler quand le nœud de périmètre CDN actualise la ressource à partir de l'origine. Notre exemple de 300 secondes signifie que le nœud de périmètre CDN met la ressource en cache pendant 5 minutes avant l'actualisation de la ressource à partir de son origine.
+	>[AZURE.NOTE] Comme avec les conditions de correspondance, en cliquez sur l'icône d'information bleue à gauche de la nouvelle fonctionnalité pour obtenir plus d'informations sur cette fonctionnalité. Dans le cas de **Forcer l'âge maximal interne**, nous remplaçons les en-têtes **Cache-Control** et **Expires** de la ressource, afin de contrôler quand le nœud de périmètre CDN actualise la ressource à partir de l'origine. Notre exemple de 300 secondes signifie que le nœud de périmètre CDN met la ressource en cache pendant 5 minutes avant l'actualisation de la ressource à partir de son origine.
 	>
 	>Pour obtenir la liste complète des fonctionnalités, consultez [Informations sur les fonctionnalités et conditions de correspondance du moteur de règles](cdn-rules-engine-details.md#features).
 

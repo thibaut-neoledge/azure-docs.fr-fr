@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Préparer votre environnement à la sauvegarde d’un serveur Windows ou d’un ordinateur client Windows | Microsoft Azure"
+	pageTitle="Préparer votre environnement à la sauvegarde d’un serveur Windows ou d’un ordinateur client Windows | Microsoft Azure"
 	description="Préparez votre environnement à des fenêtres de sauvegarde en créant un coffre de sauvegarde, en téléchargeant les informations d’identification et en installant l’agent de sauvegarde."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""
-	keywords="coffre de sauvegarde ; agent de sauvegarde ; fenêtres de sauvegarde ;"/>
+	keywords="coffre de sauvegarde ; agent de sauvegarde ; fenêtres de sauvegarde ;"/>
 
 <tags
 	ms.service="backup"
@@ -25,7 +25,7 @@ Cet article répertorie les étapes requises pour préparer votre environnement 
 | :------: | ---- | ------- |
 | 1 | [création d'un coffre](#create-a-backup-vault) | Créez un coffre dans le [portail de gestion Azure Backup](http://manage.windowsazure.com). |
 | 2 | [Télécharger les informations d’identification du coffre](#download-the-vault-credential-file) | Téléchargez les informations d’identification qui serviront à inscrire la machine Windows dans l’archivage de sauvegarde. |
-| 3 | [Installer l’agent Azure Backup](#download-install-and-register-the-azure-backup-agent) | Installez l’agent et inscrivez le serveur dans l’archivage de sauvegarde à l’aide des informations d’identification du coffre. |
+| 3 | [Installer l’agent Azure Backup](#download-install-and-register-the-azure-backup-agent) | Installez l’agent et inscrivez le serveur dans l’archivage de sauvegarde à l’aide des informations d’identification du coffre. |
 
 Si vous avez déjà suivi l’ensemble des étapes générales ci-dessus, vous pouvez démarrer la [sauvegarde de vos machines Windows](backup-azure-backup-windows-server.md). Sinon, exécutez les étapes détaillées ci-dessous pour vérifier que votre environnement est prêt.
 
@@ -35,7 +35,7 @@ Pour préparer votre environnement pour la sauvegarde de machines Windows, vous 
 ## Créer un archivage de sauvegarde
 Pour sauvegarder des fichiers et données à partir d’une machine Windows ou de Data Protection Manager (DPM) dans Azure ou lors de la sauvegarde de machines virtuelles IaaS dans Azure, vous devez créer un archivage de sauvegarde dans la région géographique où vous voulez stocker les données.
 
-**Pour créer un archivage de sauvegarde :**
+**Pour créer un archivage de sauvegarde :**
 
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
 
@@ -63,7 +63,7 @@ Pour sauvegarder des fichiers et données à partir d’une machine Windows ou d
 
     Si vous utilisez Azure en tant que point de terminaison de stockage de sauvegarde principal (par exemple, vous sauvegardez vos données dans Azure à partir de Windows Server), choisissez l’option de [stockage géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) (par défaut).
 
-    Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tertiaire (par exemple, vous utilisez SCDPM pour disposer d’une copie de sauvegarde localement et utilisez Azure pour vos besoins de rétention à long terme), choisissez le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage). Cela vous permet de diminuer les coûts de stockage de données dans Azure tout en fournissant un niveau inférieur de durabilité de vos données pouvant être acceptables pour des copies tertiaires.
+    Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tertiaire (par exemple, vous utilisez SCDPM pour disposer d’une copie de sauvegarde localement et utilisez Azure pour vos besoins de rétention à long terme), choisissez le [stockage localement redondant](../storage/storage-redundancy.md#locally-redundant-storage). Cela vous permet de diminuer les coûts de stockage de données dans Azure tout en fournissant un niveau inférieur de durabilité de vos données pouvant être acceptables pour des copies tertiaires.
 
     En savoir plus sur les options de stockage [géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) et [localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) dans cette [présentation](../storage/storage-redundancy.md).
 
@@ -84,11 +84,11 @@ Pour sauvegarder des fichiers et données à partir d’une machine Windows ou d
     ![Sélectionner un coffre de sauvegarde](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
 ## Téléchargement du fichier d’informations d’identification de coffre
-Le serveur local (client Windows ou Windows Server ou serveur Data Protection Manager) doit être authentifié avec un archivage de sauvegarde avant de pouvoir sauvegarder des données dans Azure. L’authentification s’effectue à l’aide des « informations d’identification du coffre ». Le fichier d’informations d’identification de coffre est téléchargé via un canal sécurisé depuis le portail Azure et le service Azure Backup n’a pas connaissance de la clé privée du certificat, qui n’est pas conservée dans le portail ou le service.
+Le serveur local (client Windows ou Windows Server ou serveur Data Protection Manager) doit être authentifié avec un archivage de sauvegarde avant de pouvoir sauvegarder des données dans Azure. L’authentification s’effectue à l’aide des « informations d’identification du coffre ». Le fichier d’informations d’identification de coffre est téléchargé via un canal sécurisé depuis le portail Azure et le service Azure Backup n’a pas connaissance de la clé privée du certificat, qui n’est pas conservée dans le portail ou le service.
 
 En savoir plus sur l’[utilisation des informations d’identification de coffre pour s’authentifier auprès du service Azure Backup](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
-**Pour télécharger les informations d’identification de coffre sur un ordinateur local :**
+**Pour télécharger les informations d’identification de coffre sur un ordinateur local :**
 
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
 
@@ -102,7 +102,7 @@ En savoir plus sur l’[utilisation des informations d’identification de coffr
 
     ![Télécharger](./media/backup-configure-vault/downloadvc.png)
 
-    Le portail générera une information d'identification de coffre en combinant le nom du coffre et la date actuelle. Le fichier d’informations d’identification de coffre est utilisé uniquement pendant le flux de travail d’inscription et expire au bout de 48 heures.
+    Le portail générera une information d'identification de coffre en combinant le nom du coffre et la date actuelle. Le fichier d’informations d’identification de coffre est utilisé uniquement pendant le flux de travail d’inscription et expire au bout de 48 heures.
 
     Le fichier d’informations d’identification de coffre peut être téléchargé à partir du portail.
 
@@ -115,25 +115,25 @@ En savoir plus sur l’[utilisation des informations d’identification de coffr
 ## Téléchargement, installation et inscription de l’agent Azure Backup
 Après avoir créé l’archivage de sauvegarde Azure, un agent doit être installé sur chacune de vos machines Windows (Windows Server, client Windows, System Center Data Protection Manager ou Azure Backup Server) pour permettre la sauvegarde des données et des applications dans Azure.
 
-**Pour télécharger, installer et inscrire l’agent :**
+**Pour télécharger, installer et inscrire l’agent :**
 
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
 
 2. Cliquez sur **Recovery Services**, puis sélectionnez le coffre de sauvegarde que vous souhaitez enregistrer avec un serveur.
 
-3. Dans la page de démarrage rapide, cliquez sur **Windows Server ou System Center Data Protection Manager ou Windows Client > Enregistrer**.
+3. Dans la page de démarrage rapide, cliquez sur **Windows Server ou System Center Data Protection Manager ou Windows Client > Enregistrer**.
 
     ![Enregistrer l’agent](./media/backup-configure-vault/agent.png)
 
 4. Une fois le téléchargement de *MARSagentinstaller.exe* terminé, cliquez sur **Exécuter** (ou double-cliquez sur **MARSAgentInstaller.exe** dans l’emplacement d’enregistrement). Choisissez le *dossier d’installation* et le *dossier de cache* requis pour l’agent, puis cliquez sur **Suivant**.
 
-    L’emplacement de cache spécifié doit présenter un espace libre au moins égal à 5 % du volume des données de sauvegarde.
+    L’emplacement de cache spécifié doit présenter un espace libre au moins égal à 5 % du volume des données de sauvegarde.
 
     ![Espace de travail et cache](./media/backup-configure-vault/recovery-services-agent-setup-wizard-1.png)
 
 5. Si vous utilisez un serveur proxy pour vous connecter à Internet, dans l’écran **Configuration du proxy**, entrez les détails du serveur proxy. Si vous utilisez un proxy authentifié, entrez les informations de nom d’utilisateur et mot de passe, puis cliquez sur **Suivant**.
 
-    L’agent Azure Backup installe .NET Framework 4.5 et Windows PowerShell (s’il n’est pas déjà installé) pour terminer l’installation.
+    L’agent Azure Backup installe .NET Framework 4.5 et Windows PowerShell (s’il n’est pas déjà installé) pour terminer l’installation.
 
 6. Une fois l’agent installé, cliquez sur **Procéder à l’inscription** pour continuer le flux de travail.
 
@@ -143,13 +143,13 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
 
     ![Informations d’identification du coffre](./media/backup-configure-vault/vc.png)
 
-    Le fichier d’informations d’identification du coffre est uniquement valide pendant 48 heures (à partir de son téléchargement depuis le portail). Si vous rencontrez une erreur dans cet écran (par exemple, « Le fichier d’informations d’identification du coffre a expiré »), connectez-vous au portail Azure et téléchargez de nouveau le fichier d’informations d’identification du coffre.
+    Le fichier d’informations d’identification du coffre est uniquement valide pendant 48 heures (à partir de son téléchargement depuis le portail). Si vous rencontrez une erreur dans cet écran (par exemple, « Le fichier d’informations d’identification du coffre a expiré »), connectez-vous au portail Azure et téléchargez de nouveau le fichier d’informations d’identification du coffre.
 
     Assurez-vous que le fichier d’informations d’identification du coffre se trouve dans un emplacement accessible par le programme d’installation. Si vous rencontrez des erreurs liées à l’accès, copiez le fichier d’informations d’identification d’archivage dans un emplacement temporaire sur cet ordinateur et recommencez l’opération.
 
-    Si vous rencontrez une erreur indiquant que les informations d’identification du coffre ne sont pas valides (par exemple, « Informations d’identification du coffre fournies non valides. »), cela signifie que le fichier est endommagé ou qu’il ne contient pas les dernières informations d’identification associées au service de récupération. Recommencez l’opération après avoir téléchargé un nouveau fichier d’informations d’identification de coffre à partir du portail. Cette erreur se produit généralement si l’utilisateur clique sur l’option *Télécharger les informations d’identification du coffre* coup sur coup. Dans ce cas, seul le dernier fichier d’informations d’identification du coffre est valide.
+    Si vous rencontrez une erreur indiquant que les informations d’identification du coffre ne sont pas valides (par exemple, « Informations d’identification du coffre fournies non valides. »), cela signifie que le fichier est endommagé ou qu’il ne contient pas les dernières informations d’identification associées au service de récupération. Recommencez l’opération après avoir téléchargé un nouveau fichier d’informations d’identification de coffre à partir du portail. Cette erreur se produit généralement si l’utilisateur clique sur l’option *Télécharger les informations d’identification du coffre* coup sur coup. Dans ce cas, seul le dernier fichier d’informations d’identification du coffre est valide.
 
-8. Sur l’écran **Paramètre de chiffrement**, vous pouvez *générer* ou *fournir* une phrase secrète (16 caractères minimum). Pensez à enregistrer le mot de passe dans un emplacement sécurisé.
+8. Sur l’écran **Paramètre de chiffrement**, vous pouvez *générer* ou *fournir* une phrase secrète (16 caractères minimum). Pensez à enregistrer le mot de passe dans un emplacement sécurisé.
 
     ![Chiffrement](./media/backup-configure-vault/encryption.png)
 

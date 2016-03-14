@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Comment utiliser l'API Engagement sur Windows Phone Silverlight" 
-	description="Comment utiliser l'API Engagement sur Windows Phone Silverlight"	
+	pageTitle="Comment utiliser l'API Engagement sur Windows Phone Silverlight" 
+	description="Comment utiliser l'API Engagement sur Windows Phone Silverlight"	
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -16,9 +16,9 @@
 	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
-#Comment utiliser l'API Engagement sur Windows Phone Silverlight
+#Comment utiliser l'API Engagement sur Windows Phone Silverlight
 
-Ce document vient compléter celui intitulé [Comment intégrer Mobile Engagement à votre application Windows Phone Silverlight](../mobile-engagement-windows-phone-integrate-engagement/). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
+Ce document vient compléter celui intitulé [Comment intégrer Mobile Engagement à votre application Windows Phone Silverlight](../mobile-engagement-windows-phone-integrate-engagement/). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
 
 Si vous souhaitez qu'Engagement signale uniquement les sessions, activités, incidents et informations techniques de votre application, la méthode la plus simple consiste à configurer toutes vos sous-classes `PhoneApplicationPage` de manière à ce qu'elles héritent de la classe `EngagementPage`.
 
@@ -34,9 +34,9 @@ Les parties suivantes décrivent plus en détail les concepts de Mobile Engageme
 
 ### `Session` et `Activity`
 
-Une *activité* est généralement associée à une page de l'application, c'est-à-dire que l'*activité* démarre lorsque la page est affichée et s'arrête lorsque la page est fermée : c'est le cas lorsque le Kit de développement logiciel Engagement est intégré à l'aide de la classe `EngagementPage`.
+Une *activité* est généralement associée à une page de l'application, c'est-à-dire que l'*activité* démarre lorsque la page est affichée et s'arrête lorsque la page est fermée : c'est le cas lorsque le Kit de développement logiciel Engagement est intégré à l'aide de la classe `EngagementPage`.
 
-Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée pendant laquelle les boîtes de dialogue sont utilisées à l'intérieur de cette page).
+Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée pendant laquelle les boîtes de dialogue sont utilisées à l'intérieur de cette page).
 
 ##Rapports d'activités
 
@@ -104,7 +104,7 @@ Dès qu'une tâche suivie par un travail est terminée, vous devez appeler la m�
 
 ##Rapports d'événements
 
-Il existe trois types d'événements :
+Il existe trois types d'événements :
 
 -   Événements autonomes
 -   Événements de session
@@ -132,7 +132,7 @@ Les événements de session servent généralement à signaler les actions effec
 
 #### Exemple
 
-**Sans données :**
+**Sans données :**
 
 			EngagementAgent.Instance.SendSessionEvent("sessionEvent");
 			
@@ -140,7 +140,7 @@ Les événements de session servent généralement à signaler les actions effec
 			
 			EngagementAgent.Instance.SendSessionEvent("sessionEvent", null);
 
-**Avec données :**
+**Avec données :**
 
 			Dictionary<object, object> extras = new Dictionary<object,object>();
 			extras.Add("name", "data");
@@ -160,7 +160,7 @@ Les événements de travail servent généralement à signaler les actions effec
 
 ##Rapports d'erreurs
 
-Il existe trois types d'erreurs :
+Il existe trois types d'erreurs :
 
 -   Erreurs autonomes
 -   Erreurs de session
@@ -214,11 +214,11 @@ L'agent fournit deux méthodes pour gérer les incidents.
 
 #### Exemple
 
-Vous pouvez envoyer une exception à tout moment en appelant :
+Vous pouvez envoyer une exception à tout moment en appelant :
 
 			EngagementAgent.Instance.SendCrash(aCatchedException);
 
-Vous pouvez également utiliser un paramètre facultatif pour mettre fin à la session Engagement en même temps que l'envoi de l'incident. Pour ce faire, appelez :
+Vous pouvez également utiliser un paramètre facultatif pour mettre fin à la session Engagement en même temps que l'envoi de l'incident. Pour ce faire, appelez :
 
 			EngagementAgent.Instance.SendCrash(new Exception("example"), terminateSession: true);
 
@@ -236,7 +236,7 @@ Cette méthode met **TOUJOURS** fin aux travaux et à la session Engagement apr�
 
 #### Exemple
 
-Vous pouvez l'utiliser pour implémenter votre propre gestionnaire UnhandledException (notamment si vous avez désactivé la fonctionnalité de signalement automatique des incidents d'Engagement). Par exemple, dans la méthode `Application_UnhandledException` du fichier `App.xaml.cs` :
+Vous pouvez l'utiliser pour implémenter votre propre gestionnaire UnhandledException (notamment si vous avez désactivé la fonctionnalité de signalement automatique des incidents d'Engagement). Par exemple, dans la méthode `Application_UnhandledException` du fichier `App.xaml.cs` :
 
 			// In your App.xaml.cs file
 			
@@ -254,7 +254,7 @@ Vous pouvez l'utiliser pour implémenter votre propre gestionnaire UnhandledExce
 
 			void OnActivated(ActivatedEventArgs e)
 
-Quand l'utilisateur navigue vers l'avant, en dehors d'une application, le système d'exploitation tente de placer l'application dans un état dormant après le déclenchement de l'événement Deactivated. Ensuite, l'application est désactivée (« Tombstoning »). Au cours de ce processus, l'application est arrêtée, mais certaines données sur l'état de l'application et les pages individuelles au sein de l'application sont conservées.
+Quand l'utilisateur navigue vers l'avant, en dehors d'une application, le système d'exploitation tente de placer l'application dans un état dormant après le déclenchement de l'événement Deactivated. Ensuite, l'application est désactivée (« Tombstoning »). Au cours de ce processus, l'application est arrêtée, mais certaines données sur l'état de l'application et les pages individuelles au sein de l'application sont conservées.
 
 Vous devez insérer `EngagementAgent.Instance.OnActivated(e)` dans la méthode `Application_Activated` à partir du fichier App.xaml.cs pour réinitialiser l'agent Engagement une fois l'application désactivée.
 
@@ -279,11 +279,11 @@ Vous pouvez obtenir l'ID de périphérique Engagement en appelant cette méthode
 
 Des données arbitraires peuvent être associées à un événement, à une erreur, à une activité ou à un travail. Ces données peuvent être structurées à l'aide d'un dictionnaire. Les clés et les valeurs peuvent être de n'importe quel type.
 
-Les données de suppléments sont sérialisées ; par conséquent, si vous souhaitez insérer votre propre type dans des suppléments, vous devez ajouter un contrat de données pour ce type.
+Les données de suppléments sont sérialisées ; par conséquent, si vous souhaitez insérer votre propre type dans des suppléments, vous devez ajouter un contrat de données pour ce type.
 
 ### Exemple
 
-Nous créons une classe nommée « Person ».
+Nous créons une classe nommée « Person ».
 
 			using System.Runtime.Serialization;
 			
@@ -330,7 +330,7 @@ Ensuite, nous ajoutons une instance `Person` à un supplément.
 
 #### de clés symétriques
 
-Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
+Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
@@ -338,7 +338,7 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les suppléments sont limités à **1 024** caractères par appel.
+Les suppléments sont limités à **1 024** caractères par appel.
 
 ##Rapports d'informations sur l'application
 
@@ -348,7 +348,7 @@ Les suppléments sont limités à **1 024** caractères par appel.
 
 Vous pouvez signaler manuellement les informations de suivi (ou toute autre information spécifique à l'application) à l'aide de la fonction SendAppInfo().
 
-Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné. Comme pour les suppléments d'événements, utilisez un Dictionary<object, object> pour joindre des informations.
+Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné. Comme pour les suppléments d'événements, utilisez un Dictionary<object, object> pour joindre des informations.
 
 ### Exemple
 
@@ -364,7 +364,7 @@ Notez que ces informations peuvent être envoyées de façon incrémentielle : 
 
 #### de clés symétriques
 
-Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
+Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
@@ -372,9 +372,9 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les informations de l'application sont limitées à **1 024** caractères par appel.
+Les informations de l'application sont limitées à **1 024** caractères par appel.
 
-Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
+Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
 			{"subscription":"2013-12-07","premium":"true"}
  

@@ -22,10 +22,10 @@ Une fois que vous avez [créé une application logique](app-service-logic-create
 
 ![Vue d’ensemble](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
-Quand le panneau de votre application logique s'affiche, deux sections sont dignes d'intérêt :
+Quand le panneau de votre application logique s'affiche, deux sections sont dignes d'intérêt :
 
-- **Résumé** : indique l’état le plus récent et constitue un point d’entrée pour la modification de votre application logique.
-- **Toutes les exécutions** : affiche la liste des exécutions de cette application logique.
+- **Résumé** : indique l’état le plus récent et constitue un point d’entrée pour la modification de votre application logique.
+- **Toutes les exécutions** : affiche la liste des exécutions de cette application logique.
 
 ## Afficher les exécutions de votre application
 
@@ -33,7 +33,7 @@ Quand le panneau de votre application logique s'affiche, deux sections sont dign
 
 Cette liste d’exécutions indique l’**Heure de début**, l’**Identificateur d’exécution** (vous pouvez l’utiliser lors de l’appel de l’API REST) et la **Durée** des exécutions. Sélectionnez n’importe quelle ligne pour afficher les détails de cette exécution.
 
-Le panneau de détails contient un graphique avec la durée d'exécution et la séquence de toutes les actions de l'exécution. Voici la liste complète de toutes les actions qui ont été exécutées :
+Le panneau de détails contient un graphique avec la durée d'exécution et la séquence de toutes les actions de l'exécution. Voici la liste complète de toutes les actions qui ont été exécutées :
 
 ![Exécution et actions](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
@@ -43,13 +43,13 @@ L’**ID de suivi** est une autre information importante. Cet identificateur est
 
 ## Afficher l’historique du déclencheur 
 
-Les déclencheurs d’interrogation vérifient une API à intervalles réguliers, mais ne démarrent pas nécessairement une exécution ; tout dépend de la réponse (par exemple `200` signifie qu’il faut exécuter et `202` signifie qu’il ne faut pas exécuter). L’historique du déclencheur vous permet de voir tous les appels qui ont lieu, mais qui n’exécutent pas l’application logique (les réponses `202`).
+Les déclencheurs d’interrogation vérifient une API à intervalles réguliers, mais ne démarrent pas nécessairement une exécution ; tout dépend de la réponse (par exemple `200` signifie qu’il faut exécuter et `202` signifie qu’il ne faut pas exécuter). L’historique du déclencheur vous permet de voir tous les appels qui ont lieu, mais qui n’exécutent pas l’application logique (les réponses `202`).
 
 ![Historique du déclencheur](./media/app-service-logic-monitor-your-logic-apps/triggerhistory.png)
 
 Pour chaque déclencheur, vous pouvez voir s’il s’est **déclenché**, s’il ne s’est pas déclenché ou s’il a rencontré une erreur (il a alors **échoué**). Pour découvrir la raison pour laquelle le déclencheur a échoué, sélectionnez le lien **Sorties**. S’il s’est déclenché, sélectionnez le lien **Exécuter** pour voir ce qui est arrivé après le déclenchement.
 
-Notez que pour les déclencheurs d’*émission*, l’heure de début de l’exécution n’est *pas* indiquée ici. Au lieu de cela, vous voyez les appels *Inscription pour rappel*, qui sont passés lorsque l’application logique s’inscrit pour être rappelée. Si votre déclencheur d’émission ne fonctionne pas, il peut s’agir d’un problème d’inscription (que vous pouvez voir au niveau des Sorties) ; sinon, vous devez examiner cette API en particulier.
+Notez que pour les déclencheurs d’*émission*, l’heure de début de l’exécution n’est *pas* indiquée ici. Au lieu de cela, vous voyez les appels *Inscription pour rappel*, qui sont passés lorsque l’application logique s’inscrit pour être rappelée. Si votre déclencheur d’émission ne fonctionne pas, il peut s’agir d’un problème d’inscription (que vous pouvez voir au niveau des Sorties) ; sinon, vous devez examiner cette API en particulier.
 
 ## Activer le contrôle de version
 

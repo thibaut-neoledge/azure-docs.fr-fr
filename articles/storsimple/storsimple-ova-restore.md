@@ -37,7 +37,7 @@ Avant d'essayer de restaurer des partages, assurez-vous de disposer de suffisamm
 
 2.  En bas de la page, cliquez sur **Restaurer comme nouveau**.
 
-3.  Cette opération lance l’assistant **Restaurer comme nouveau partage**. Dans la page **Spécifiez un nom et un emplacement** :
+3.  Cette opération lance l’assistant **Restaurer comme nouveau partage**. Dans la page **Spécifiez un nom et un emplacement** :
 
 
 	1.  Vérifiez le nom de l’appareil source. Il doit s'agir de l’appareil contenant le partage que vous souhaitez restaurer. La sélection de l'appareil est grisée. Pour sélectionner un autre appareil source, vous devez quitter l'assistant et sélectionner à nouveau le jeu de sauvegarde.
@@ -52,7 +52,7 @@ Avant d'essayer de restaurer des partages, assurez-vous de disposer de suffisamm
 
 1.  Une fois le travail de restauration terminé, la restauration démarre et une autre notification apparaît. Pour surveiller la progression de la restauration, cliquez sur **Afficher le travail**. Vous accédez alors à la page **Travaux**.
 
-2.  Vous pouvez suivre la progression de la restauration. Une fois la restauration terminée à 100 %, accédez à la page **Partages** sur votre appareil.
+2.  Vous pouvez suivre la progression de la restauration. Une fois la restauration terminée à 100 %, accédez à la page **Partages** sur votre appareil.
 
 3.  Vous pouvez maintenant afficher le nouveau partage restauré dans la liste des partages sur votre appareil. Notez que la restauration est effectuée pour le même type de partage. Un partage à plusieurs niveaux est restauré comme un partage à plusieurs niveaux, et un partage épinglé localement comme un partage épinglé localement.
 
@@ -74,7 +74,7 @@ Pour effectuer une restauration à partir d’une sauvegarde, procédez comme su
 
 5.  En bas de la page, cliquez sur **Restaurer comme nouveau**. L’assistant **Restaurer comme nouveau volume** démarre.
 
-1.  Dans la page **Spécifiez un nom et un emplacement** :
+1.  Dans la page **Spécifiez un nom et un emplacement** :
 
 
 	1.  Vérifiez le nom de l’appareil source. Il doit s'agir de l’appareil contenant le volume que vous souhaitez restaurer. La sélection de l'appareil n'est pas disponible. Pour sélectionner un autre appareil source, vous devez quitter l'assistant et sélectionner à nouveau le jeu de sauvegarde.

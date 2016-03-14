@@ -20,7 +20,7 @@
 
 # Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA afin de créer et d’envoyer des applications Spark Scala (Linux)
 
-Cet article fournit des instructions pas à pas sur le développement d’applications Spark écrites en Scala et leur envoi à un cluster HDInsight Spark à l’aide du plug-in HDInsight pour IntelliJ IDEA. Vous pouvez utiliser le plug-in de différentes manières :
+Cet article fournit des instructions pas à pas sur le développement d’applications Spark écrites en Scala et leur envoi à un cluster HDInsight Spark à l’aide du plug-in HDInsight pour IntelliJ IDEA. Vous pouvez utiliser le plug-in de différentes manières :
 
 * Pour développer une application Spark Scala et l’envoyer à un cluster HDInsight Spark
 * Pour accéder à vos ressources de cluster Azure HDInsight Spark
@@ -32,14 +32,14 @@ Cet article fournit des instructions pas à pas sur le développement d’applic
 **Configuration requise**
 
 * Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer [ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* IntelliJ IDEA. Cet article utilise la version 15.0.1. Vous pouvez l’installer [ici](https://www.jetbrains.com/idea/download/). 
+* IntelliJ IDEA. Cet article utilise la version 15.0.1. Vous pouvez l’installer [ici](https://www.jetbrains.com/idea/download/). 
 
 
 ## Installer le plug-in Scala pour IntelliJ IDEA
 
-Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in Scala, lancez IntelliJ IDEA et parcourez les étapes suivantes pour installer le plug-in :
+Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in Scala, lancez IntelliJ IDEA et parcourez les étapes suivantes pour installer le plug-in :
 
 1. Démarrer IntelliJ IDEA, puis à partir de l'écran d’accueil, cliquez sur **Configure**, puis sur **Plugins**.
 
@@ -72,8 +72,8 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 2. Dans la fenêtre suivante, fournissez les informations de projet.
 
 	* Fournissez un nom de projet et un emplacement de projet.
-	* Pour **Project SDK**, vérifiez que vous indiquez une version de Java supérieure à la version 7.
-	* Pour **Scala SDK**, cliquez sur **Create**, cliquez sur **Download**, puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
+	* Pour **Project SDK**, vérifiez que vous indiquez une version de Java supérieure à la version 7.
+	* Pour **Scala SDK**, cliquez sur **Create**, cliquez sur **Download**, puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
 	
 		![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
@@ -106,7 +106,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 
 		![Ajouter le code source](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
-	3. Dans le fichier **MyClusterApp.scala**, collez le code suivant. Ce code lit les données du fichier HVAC.csv (disponible sur tous les clusters HDInsight Spark), récupère les lignes qui contiennent uniquement un chiffre dans la septième colonne du fichier CSV et écrit la sortie dans **/HVACOut**, sous le conteneur de stockage par défaut du cluster.
+	3. Dans le fichier **MyClusterApp.scala**, collez le code suivant. Ce code lit les données du fichier HVAC.csv (disponible sur tous les clusters HDInsight Spark), récupère les lignes qui contiennent uniquement un chiffre dans la septième colonne du fichier CSV et écrit la sortie dans **/HVACOut**, sous le conteneur de stockage par défaut du cluster.
 
 
 			import org.apache.spark.SparkConf
@@ -206,8 +206,8 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
 2. Dans la fenêtre suivante, fournissez les informations de projet.
 
 	* Fournissez un nom de projet et un emplacement de projet.
-	* Pour **Project SDK**, vérifiez que vous indiquez une version de Java supérieure à la version 7.
-	* Pour **Scala SDK**, cliquez sur **Create**, cliquez sur **Download**, puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
+	* Pour **Project SDK**, vérifiez que vous indiquez une version de Java supérieure à la version 7.
+	* Pour **Scala SDK**, cliquez sur **Create**, cliquez sur **Download**, puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
 	
 		![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
@@ -239,7 +239,7 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
 
 		![Ajouter le code source](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-local-scala-code-object.png)
 
-	3. Dans le fichier **MyLocalApp.scala**, collez le code suivant. Ce code lit un exemple de fichier de texte d’entrée sur votre ordinateur et affiche le nombre de lignes dans ce fichier texte contenant les caractères « a » et « b ».
+	3. Dans le fichier **MyLocalApp.scala**, collez le code suivant. Ce code lit un exemple de fichier de texte d’entrée sur votre ordinateur et affiche le nombre de lignes dans ce fichier texte contenant les caractères « a » et « b ».
 
 
 			import org.apache.spark.SparkContext
@@ -274,14 +274,14 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
 
 ## Convertir des applications IntelliJ IDEA existantes pour qu’elles utilisent le plug-in Outils HDInsight
 
-Vous pouvez également convertir vos applications Spark Scala existantes créées dans IntelliJ IDEA pour qu’elles soient compatibles avec le plug-in Outils HDInsight. Cette opération vous permet d’utiliser l’outil pour envoyer les applications à un cluster HDInsight Spark. Pour ce faire, vous pouvez procéder comme suit :
+Vous pouvez également convertir vos applications Spark Scala existantes créées dans IntelliJ IDEA pour qu’elles soient compatibles avec le plug-in Outils HDInsight. Cette opération vous permet d’utiliser l’outil pour envoyer les applications à un cluster HDInsight Spark. Pour ce faire, vous pouvez procéder comme suit :
 
 1. Pour une application Spark Scala existante créée à l’aide d’IntelliJ IDEA, ouvrez le fichier .iml associé.
-2. Au niveau de la racine se trouve un élément **module** tel que celui-ci :
+2. Au niveau de la racine se trouve un élément **module** tel que celui-ci :
 
 		<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
 
-3. Ajoutez `UniqueKey="HDInsightTool"` à la fin de l’élément **module**, qui doit alors ressembler à ceci :
+3. Ajoutez `UniqueKey="HDInsightTool"` à la fin de l’élément **module**, qui doit alors ressembler à ceci :
 
 		<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
@@ -290,17 +290,17 @@ Vous pouvez également convertir vos applications Spark Scala existantes créée
 ## <a name="seealso"></a>Voir aussi
 
 
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### Scénarios
 
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -316,6 +316,6 @@ Vous pouvez également convertir vos applications Spark Scala existantes créée
 
 ### Gérer des ressources
 
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 <!---HONumber=AcomDC_0302_2016-->

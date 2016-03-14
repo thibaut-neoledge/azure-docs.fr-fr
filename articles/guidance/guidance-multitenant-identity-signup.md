@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Inscription et intégration de locataire dans des applications multi-locataires | Microsoft Azure"
+   pageTitle="Inscription et intégration de locataire dans des applications multi-locataires | Microsoft Azure"
    description="Comment intégrer des locataires à une application multi-locataire"
    services=""
    documentationCenter="na"
@@ -21,25 +21,25 @@
 
 Cet article fait [partie d’une série]. Un [exemple d’application] accompagne également cette série.
 
-Cet article décrit comment implémenter un processus d’_inscription_ dans une application multi-locataire, ce qui permet à un client d’inscrire son organisation à votre application. Il existe plusieurs raisons d’implémenter un processus d’inscription :
+Cet article décrit comment implémenter un processus d’_inscription_ dans une application multi-locataire, ce qui permet à un client d’inscrire son organisation à votre application. Il existe plusieurs raisons d’implémenter un processus d’inscription :
 
 -	Autoriser un administrateur Active Directory à consentir que l’ensemble de l’organisation du client utilise l’application.
 -	Collecter des informations relatives au paiement par carte de crédit ou d’autres informations du client.
 -	Effectuer toute configuration par locataire en une seule fois nécessaire à votre application.
 
-## Consentement administrateur et autorisations Azure AD
+## Consentement administrateur et autorisations Azure AD
 
-Pour s’authentifier auprès d’Azure AD, une application doit accéder au répertoire de l’utilisateur. L’application doit avoir au minimum une autorisation de lecteur du profil utilisateur. La première fois qu’un utilisateur se connecte, Azure AD affiche une page de consentement qui répertorie les autorisations demandées. En cliquant sur **Accepter**, l’utilisateur accorde l’autorisation à l’application.
+Pour s’authentifier auprès d’Azure AD, une application doit accéder au répertoire de l’utilisateur. L’application doit avoir au minimum une autorisation de lecteur du profil utilisateur. La première fois qu’un utilisateur se connecte, Azure AD affiche une page de consentement qui répertorie les autorisations demandées. En cliquant sur **Accepter**, l’utilisateur accorde l’autorisation à l’application.
 
-Par défaut, le consentement est accordé par utilisateur. Chaque utilisateur qui se connecte voit la page de consentement. Toutefois, Azure AD prend également en charge le _consentement administrateur_, qui permet à un administrateur Active Directory de donner son consentement pour l’intégralité d’une organisation.
+Par défaut, le consentement est accordé par utilisateur. Chaque utilisateur qui se connecte voit la page de consentement. Toutefois, Azure AD prend également en charge le _consentement administrateur_, qui permet à un administrateur Active Directory de donner son consentement pour l’intégralité d’une organisation.
 
-Quand le flux de consentement administrateur est utilisé, la page de consentement indique que l’administrateur Active Directory accorde l’autorisation pour le compte de l’intégralité du locataire :
+Quand le flux de consentement administrateur est utilisé, la page de consentement indique que l’administrateur Active Directory accorde l’autorisation pour le compte de l’intégralité du locataire :
 
 ![Invite de consentement administrateur](media/guidance-multitenant-identity/admin-consent.png)
 
-Une fois que l’administrateur a cliqué sur **Accepter**, les autres utilisateurs appartenant au même locataire peuvent se connecter, et Azure AD omet alors l’écran de consentement.
+Une fois que l’administrateur a cliqué sur **Accepter**, les autres utilisateurs appartenant au même locataire peuvent se connecter, et Azure AD omet alors l’écran de consentement.
 
-Seul un administrateur Active Directory peut donner un consentement administrateur, car il accorde l’autorisation pour le compte de l’ensemble de l’organisation. Si un utilisateur non-administrateur tente de s’authentifier avec le flux de consentement administrateur, Azure AD affiche une erreur :
+Seul un administrateur Active Directory peut donner un consentement administrateur, car il accorde l’autorisation pour le compte de l’ensemble de l’organisation. Si un utilisateur non-administrateur tente de s’authentifier avec le flux de consentement administrateur, Azure AD affiche une erreur :
 
 ![Erreur de consentement](media/guidance-multitenant-identity/consent-error.png)
 
@@ -47,22 +47,22 @@ Si l’application nécessite des autorisations supplémentaires ultérieurement
 
 ## Implémentation de l’inscription du locataire
 
-Pour l’application [Surveys de Tailspin][Tailspin], nous avons défini plusieurs conditions requises pour le processus d’inscription :
+Pour l’application [Surveys de Tailspin][Tailspin], nous avons défini plusieurs conditions requises pour le processus d’inscription :
 
 -	Un locataire doit s’inscrire avant que des utilisateurs puissent se connecter.
 -	L’inscription utilise le flux de consentement administrateur.
 -	L’inscription ajoute le locataire de l’utilisateur à la base de données de l’application.
 -	Une fois un locataire inscrit, l’application affiche une page d’intégration.
 
-Dans cette section, nous allons passer en revue notre implémentation de la procédure d’inscription. Il est important de comprendre que l’opposition de l’« inscription » et de la « connexion » est un concept d’application. Pendant le flux d’authentification, Azure AD ne sais pas, de façon intrinsèque, si l’utilisateur est en cours d’inscription. C’est à l’application d’effectuer le suivi du contexte.
+Dans cette section, nous allons passer en revue notre implémentation de la procédure d’inscription. Il est important de comprendre que l’opposition de l’« inscription » et de la « connexion » est un concept d’application. Pendant le flux d’authentification, Azure AD ne sais pas, de façon intrinsèque, si l’utilisateur est en cours d’inscription. C’est à l’application d’effectuer le suivi du contexte.
 
-Quand un utilisateur anonyme visite l’application Surveys, deux boutons s’affichent à lui : un pour se connecter et un pour « abonner votre société » (inscription).
+Quand un utilisateur anonyme visite l’application Surveys, deux boutons s’affichent à lui : un pour se connecter et un pour « abonner votre société » (inscription).
 
 ![Page d’inscription de l’application](media/guidance-multitenant-identity/sign-up-page.png)
 
 Ces boutons appellent des actions dans la classe [AccountController].
 
-L’action `SignIn` renvoie un **ChallegeResult**, ce qui entraîne la redirection, par le middleware OpenID Connect, vers le point de terminaison d’authentification. Il s’agit de la façon par défaut de déclencher l’authentification dans ASP.NET Core 1.0.
+L’action `SignIn` renvoie un **ChallegeResult**, ce qui entraîne la redirection, par le middleware OpenID Connect, vers le point de terminaison d’authentification. Il s’agit de la façon par défaut de déclencher l’authentification dans ASP.NET Core 1.0.
 
 ```csharp
 [AllowAnonymous]
@@ -78,7 +78,7 @@ public IActionResult SignIn()
 }
 ```
 
-Comparez maintenant l’action `SignUp` :
+Comparez maintenant l’action `SignUp` :
 
 ```csharp
 [AllowAnonymous]
@@ -97,19 +97,19 @@ public IActionResult SignUp()
 }
 ```
 
-Comme `SignIn`, l’action `SignUp` renvoie également un `ChallengeResult`. Mais cette fois, nous ajoutons une information d’état aux `AuthenticationProperties` dans le `ChallengeResult` :
+Comme `SignIn`, l’action `SignUp` renvoie également un `ChallengeResult`. Mais cette fois, nous ajoutons une information d’état aux `AuthenticationProperties` dans le `ChallengeResult` :
 
--	signup : indicateur booléen signalant que l’utilisateur a commencé le processus d’inscription.
+-	signup : indicateur booléen signalant que l’utilisateur a commencé le processus d’inscription.
 
 Les informations d’état dans `AuthenticationProperties` sont ajoutées au paramètre [state] OpenID Connect, qui effectue des allers-retours pendant le flux d’authentification.
 
 ![Paramètre d’état](media/guidance-multitenant-identity/state-parameter.png)
 
-Une fois que l’utilisateur s’authentifie dans Azure AD et qu’il est redirigé vers l’application, le ticket d’authentification contient l’état. Nous utilisons cela pour garantir que la valeur « signup » est conservée dans l’intégralité du flux d’authentification.
+Une fois que l’utilisateur s’authentifie dans Azure AD et qu’il est redirigé vers l’application, le ticket d’authentification contient l’état. Nous utilisons cela pour garantir que la valeur « signup » est conservée dans l’intégralité du flux d’authentification.
 
 ## Ajout de l’invite de consentement administrateur
 
-Dans Azure AD, le flux de consentement administrateur est déclenché en ajoutant un paramètre « prompt » à la chaîne de requête dans la demande d’authentification :
+Dans Azure AD, le flux de consentement administrateur est déclenché en ajoutant un paramètre « prompt » à la chaîne de requête dans la demande d’authentification :
 
 ```
 /authorize?prompt=admin_consent&...
@@ -132,9 +132,9 @@ public override Task RedirectToAuthenticationEndpoint(RedirectContext context)
 
 > [AZURE.NOTE] Consultez la page [SurveyAuthenticationEvents.cs].
 
-Le paramètre ` ProtocolMessage.Prompt` indique au middleware d’ajouter le paramètre « prompt » à la demande d’authentification.
+Le paramètre ` ProtocolMessage.Prompt` indique au middleware d’ajouter le paramètre « prompt » à la demande d’authentification.
 
-Notez que l’invite est nécessaire uniquement pendant l’inscription. Une connexion normale ne doit pas l’inclure. Pour faire la distinction entre les deux, nous vérifions la valeur `signup` dans l’état d’authentification. La méthode d’extension suivante vérifie cette condition :
+Notez que l’invite est nécessaire uniquement pendant l’inscription. Une connexion normale ne doit pas l’inclure. Pour faire la distinction entre les deux, nous vérifions la valeur `signup` dans l’état d’authentification. La méthode d’extension suivante vérifie cette condition :
 
 ```csharp
 internal static bool IsSigningUp(this BaseControlContext context)
@@ -172,7 +172,7 @@ internal static bool IsSigningUp(this BaseControlContext context)
 
 > [AZURE.NOTE] Consultez la page [BaseControlContextExtensions.cs].
 
-> [AZURE.NOTE] Remarque : Ce code inclut une solution de contournement pour un bogue connu dans ASP.NET Core 1.0 RC1. Dans l’événement `RedirectToAuthenticationEndpoint`, il n’existe aucun moyen d’obtenir les propriétés d’authentification qui contiennent l’état « signup ». Pour résoudre ce problème, la méthode `AccountController.SignUp` met également l’état « signup » dans le `HttpContext`. Cela fonctionne car `RedirectToAuthenticationEndpoint` se produit avant la redirection. Nous avons donc toujours le même `HttpContext`.
+> [AZURE.NOTE] Remarque : Ce code inclut une solution de contournement pour un bogue connu dans ASP.NET Core 1.0 RC1. Dans l’événement `RedirectToAuthenticationEndpoint`, il n’existe aucun moyen d’obtenir les propriétés d’authentification qui contiennent l’état « signup ». Pour résoudre ce problème, la méthode `AccountController.SignUp` met également l’état « signup » dans le `HttpContext`. Cela fonctionne car `RedirectToAuthenticationEndpoint` se produit avant la redirection. Nous avons donc toujours le même `HttpContext`.
 
 ## Inscription d’un locataire
 
@@ -180,11 +180,11 @@ L’application Surveys stocke certaines informations sur chaque locataire et ut
 
 ![Table Tenant](media/guidance-multitenant-identity/tenant-table.png)
 
-Dans la table Tenant, IssuerValue est la valeur de la revendication de l’émetteur pour le locataire. Pour Azure AD, cette valeur est `https://sts.windows.net/<tentantID>` et elle donne une valeur unique par client.
+Dans la table Tenant, IssuerValue est la valeur de la revendication de l’émetteur pour le locataire. Pour Azure AD, cette valeur est `https://sts.windows.net/<tentantID>` et elle donne une valeur unique par client.
 
 Quand un nouveau locataire se connecte, l’application Surveys écrit un enregistrement de locataire dans la base de données. Cela se produit à l’intérieur de l’événement `AuthenticationValidated`. (Ne le faites pas avant cet événement, car le jeton d’ID n’est alors pas être validé, et vous ne pouvez donc pas approuver les valeurs de revendication.) Consultez la page [Authentication].
 
-Voici le code approprié de l’application Surveys :
+Voici le code approprié de l’application Surveys :
 
 ```csharp
 public override async Task AuthenticationValidated(AuthenticationValidatedContext context)
@@ -232,13 +232,13 @@ public override async Task AuthenticationValidated(AuthenticationValidatedContex
 
 > [AZURE.NOTE] Consultez la page [SurveyAuthenticationEvents.cs].
 
-Ce code effectue les actions suivantes :
+Ce code effectue les actions suivantes :
 
 1.	Vérifier si la valeur d’émetteur du locataire se trouve déjà dans la base de données. Si le locataire ne s’est pas inscrit, `FindByIssuerValueAsync` renvoie la valeur null.
-2.	Si l’utilisateur s’inscrit :
+2.	Si l’utilisateur s’inscrit :
   1.	Ajouter le locataire à la base de données (`SignUpTenantAsync`).
   2.	Ajouter l’utilisateur authentifié à la base de données (`CreateOrUpdateUserAsync`).
-3.	Sinon, exécuter le flux de connexion normal :
+3.	Sinon, exécuter le flux de connexion normal :
   1.	Si l’émetteur du locataire est introuvable dans la base de données, cela signifie que le locataire n’est pas inscrit, et le client doit s’inscrire. Dans ce cas, lever une exception pour provoquer l’échec de l’authentification.
   2.	Sinon, créer un enregistrement de base de données pour cet utilisateur, s’il n’existe pas déjà (`CreateOrUpdateUserAsync`).
 
@@ -273,13 +273,13 @@ private async Task<Tenant> SignUpTenantAsync(BaseControlContext context, TenantM
 }
 ```
 
-Voici un résumé de l’intégralité du flux d’inscription dans l’application Surveys :
+Voici un résumé de l’intégralité du flux d’inscription dans l’application Surveys :
 
 1.	L’utilisateur clique sur le bouton **S’inscrire**.
-2.	L’action `AccountController.SignUp` renvoie un résultat du test. L’état d’authentification inclut la valeur de « signup ».
+2.	L’action `AccountController.SignUp` renvoie un résultat du test. L’état d’authentification inclut la valeur de « signup ».
 3.	Dans l’événement `RedirectToAuthenticationEndpoint`, ajoutez l’invite `admin_consent`.
-4.	Le middleware OpenID Connect redirige vers Azure AD et l’utilisateur s’authentifie.
-5.	Dans l’événement `AuthenticationValidated`, recherchez l’état « signup ».
+4.	Le middleware OpenID Connect redirige vers Azure AD et l’utilisateur s’authentifie.
+5.	Dans l’événement `AuthenticationValidated`, recherchez l’état « signup ».
 6.	Ajoutez le locataire à la base de données.
 
 

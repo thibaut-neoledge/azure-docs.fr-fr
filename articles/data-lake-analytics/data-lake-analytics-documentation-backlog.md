@@ -51,7 +51,7 @@ Domaine |Rubrique | location
 Service | Coordination du déploiement de Data Lake Analytics avec d’autres services Azure à l’aide de modèles ARM | [location](data-lake-analytics-manage-use-powershell.md)
 
 ## Comment envoyer des commentaires sur le backlog
-Plusieurs possibilités vous sont données pour fournir des commentaires sur le backlog :
+Plusieurs possibilités vous sont données pour fournir des commentaires sur le backlog :
 
 * Ajouter un commentaire ci-dessous
 * Envoyer une requête de tirage sur ce document dans le [référentiel de contenu Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Ressources de certificats dans Azure Automation | Microsoft Azure"
-   description="Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par des Runbooks ou configurations DSC pour s’authentifier auprès des ressources Azure et tierces. Cet article présente les certificats et leur utilisation dans la création textuelle et graphique."
+   description="Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par des Runbooks ou configurations DSC pour s’authentifier auprès des ressources Azure et tierces. Cet article présente les certificats et leur utilisation dans la création textuelle et graphique."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -17,13 +17,13 @@
 
 # Ressources de certificats dans Azure Automation
 
-Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’être accessibles par les Runbooks ou configurations DSC à l’aide de l’activité **Get-AutomationCertificate**. Cette méthode vous permet de créer des Runbooks et des configurations DSC qui utilisent des certificats pour l’authentification ou les ajoute aux ressources Azure ou tierces.
+Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’être accessibles par les Runbooks ou configurations DSC à l’aide de l’activité **Get-AutomationCertificate**. Cette méthode vous permet de créer des Runbooks et des configurations DSC qui utilisent des certificats pour l’authentification ou les ajoute aux ressources Azure ou tierces.
 
 >[AZURE.NOTE] Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
 
-## Applets de commande Windows PowerShell
+## Applets de commande Windows PowerShell
 
-Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources de certificats Automation avec Windows PowerShell. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md), utilisable dans les Runbooks Automation et les configurations DSC.
+Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources de certificats Automation avec Windows PowerShell. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md), utilisable dans les Runbooks Automation et les configurations DSC.
 
 |Applets de commande|Description|
 |:---|:---|
@@ -34,17 +34,17 @@ Les applets de commande du tableau suivant sont utilisées pour créer et gérer
 
 ## Activités pour accéder aux certificats
 
-Les activités du tableau suivant sont utilisées pour accéder aux certificats dans un Runbook ou dans une configuration DSC.
+Les activités du tableau suivant sont utilisées pour accéder aux certificats dans un Runbook ou dans une configuration DSC.
 
 |Activités|Description|
 |:---|:---|
-|Get-AutomationCertificate|Obtient un certificat à utiliser dans un Runbook ou dans une configuration DSC.|
+|Get-AutomationCertificate|Obtient un certificat à utiliser dans un Runbook ou dans une configuration DSC.|
 
 >[AZURE.NOTE] Évitez d’utiliser des variables dans le paramètre –Name de GetAutomationCertificate, car cela complique la découverte des dépendances entre les configurations de Runbooks ou DSC et les ressources de certificats au moment de la conception.
 
 ## Création d’un certificat
 
-Lorsque vous créez un certificat, vous téléchargez un fichier cer ou pfx dans Azure Automation. Si vous marquez le certificat comme exportable, vous pouvez également le transférer du magasin de certificats Azure Automation. S’il n’est pas exportable, il peut uniquement être utilisé pour la signature dans le Runbook ou la configuration DSC.
+Lorsque vous créez un certificat, vous téléchargez un fichier cer ou pfx dans Azure Automation. Si vous marquez le certificat comme exportable, vous pouvez également le transférer du magasin de certificats Azure Automation. S’il n’est pas exportable, il peut uniquement être utilisé pour la signature dans le Runbook ou la configuration DSC.
 
 ### Pour créer un certificat avec le portail Azure Classic
 
@@ -67,7 +67,7 @@ Lorsque vous créez un certificat, vous téléchargez un fichier cer ou pfx dans
 1. Cliquez sur **Créer** pour enregistrer la nouvelle ressource de certificat.
 
 
-### Pour créer un certificat avec Windows PowerShell
+### Pour créer un certificat avec Windows PowerShell
 
 Les exemples de commandes suivants montrent comment créer un certificat Automation et le marquer comme exportable. Cette opération importe un fichier pfx existant.
 

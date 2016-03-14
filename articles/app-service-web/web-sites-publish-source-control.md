@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déploiement continu à l’aide de Git dans Azure App Service" 
+	pageTitle="Déploiement continu à l’aide de Git dans Azure App Service" 
 	description="Découvrez comment utiliser Git pour publier une application web Azure, puis activer le déploiement continu à partir de Bitbucket, CodePlex, Dropbox, GitHub ou Mercurial." 
 	services="app-service" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
-# Déploiement continu à l’aide de Git dans Azure App Service
+# Déploiement continu à l’aide de Git dans Azure App Service
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 

@@ -19,18 +19,18 @@ ms.author="mandia"/>
 
 # Prendre en main l’API OneDrive
 
-Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API OneDrive peut être utilisée à partir de :
+Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API OneDrive peut être utilisée à partir de :
 
 - PowerApps 
-- Logic Apps 
+- Logic Apps 
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [API OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
 
-Avec OneDrive, vous pouvez effectuer les opérations suivantes :
+Avec OneDrive, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de OneDrive. 
 - Utiliser des déclencheurs quand un fichier est créé ou mis à jour.
-- Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans OneDrive, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
+- Utiliser des actions pour créer un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un fichier est créé dans OneDrive, vous pouvez l’envoyer par courrier électronique à l’aide d’Office 365.
 - Ajouter l’API OneDrive à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
 
 Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
@@ -49,13 +49,13 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 ## Créer une connexion à OneDrive
 
 ### Ajouter une configuration à PowerApps
-Quand vous ajoutez OneDrive à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application OneDrive. La valeur **URL de redirection** est également utilisée dans votre application OneDrive. Si vous n’avez pas d’application OneDrive, vous pouvez utiliser les étapes suivantes pour en créer une :
+Quand vous ajoutez OneDrive à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application OneDrive. La valeur **URL de redirection** est également utilisée dans votre application OneDrive. Si vous n’avez pas d’application OneDrive, vous pouvez utiliser les étapes suivantes pour en créer une :
 
 1. Accédez à la [page de création d’application][5] dans _Centre de développement de compte Microsoft_ et connectez-vous avec votre _compte Microsoft_.
 
-2. Entrez le **nom de votre application**, puis acceptez le contrat : ![Nouvelle application OneDrive][6]
+2. Entrez le **nom de votre application**, puis acceptez le contrat : ![Nouvelle application OneDrive][6]
 
-3. Dans Paramètres :
+3. Dans Paramètres :
 
 	1. Sélectionnez **Paramètres de l’API**.  
 	2. Définissez l’**URL de redirection** sur la valeur affichée quand vous ajoutez la nouvelle API OneDrive dans le portail Azure.  
@@ -76,7 +76,7 @@ Après avoir créé la connexion, vous entrez les propriétés OneDrive, telles 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion dans d’autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 
 ### Obtenir les métadonnées d’un fichier à l’aide de l’identifiant
@@ -202,7 +202,7 @@ Copie un fichier dans OneDrive. ```POST: /datasets/default/copyFile```
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun)|URL du fichier source|
 |destination|string|yes|query|(aucun)|Chemin de destination du fichier dans OneDrive, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|false|Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|false|Remplace le fichier de destination si la valeur est « true »|
 
 
 ### Response
@@ -255,7 +255,7 @@ Extrait un dossier dans OneDrive. ```POST: /datasets/default/extractFolderV2```
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun)|Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun)|Chemin dans OneDrive indiquant où extraire le contenu de l’archive|
-|overwrite|booléenne|no|query|false|Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|false|Remplace les fichiers de destination si la valeur est « true »|
 
 
 ### Response

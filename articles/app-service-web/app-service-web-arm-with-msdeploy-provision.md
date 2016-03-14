@@ -25,13 +25,13 @@ Pour en savoir plus sur la création de modèles, voir [Création de modèles Az
 
 Vous allez déployer une application web ASP.NET. La première étape consiste à créer une application web simple (vous pouvez également choisir d’utiliser une application web existante, auquel cas vous pouvez ignorer cette étape).
 
-Ouvrez Visual Studio 2015 et sélectionnez Fichier > Nouveau Projet. Dans la boîte de dialogue qui s’affiche, choisissez Web > Application Web ASP.NET. Sous Modèles, choisissez Web et le modèle MVC. Pour _Modifier le type d’authentification_, sélectionnez _Aucune authentification_ uniquement pour simplifier le plus possible l’exemple d’application.
+Ouvrez Visual Studio 2015 et sélectionnez Fichier > Nouveau Projet. Dans la boîte de dialogue qui s’affiche, choisissez Web > Application Web ASP.NET. Sous Modèles, choisissez Web et le modèle MVC. Pour _Modifier le type d’authentification_, sélectionnez _Aucune authentification_ uniquement pour simplifier le plus possible l’exemple d’application.
 
 À ce stade, vous obtiendrez une application web ASP.Net prête à l’emploi à utiliser dans le cadre de votre processus de déploiement.
 
 ###Créer un package MSDeploy
 
-L’étape suivante consiste à créer le package afin de déployer l’application web sur Azure. Pour ce faire, enregistrez votre projet, puis exécutez la commande suivante à partir de la ligne de commande :
+L’étape suivante consiste à créer le package afin de déployer l’application web sur Azure. Pour ce faire, enregistrez votre projet, puis exécutez la commande suivante à partir de la ligne de commande :
 
 	msbuild yourwebapp.csproj /t:Package /p:PackageLocation="path\to\package.zip"
 
@@ -74,7 +74,7 @@ Nous allons commencer par un modèle ARM de base qui va créer une application w
 		}
 	}
 
-Vous devrez ainsi modifier la ressource d’application web pour prendre une ressource MSDeploy imbriquée. Vous pourrez ainsi référencer le package créé précédemment et donner à Azure Resource Manager comme instruction d’utiliser MSDeploy afin de déployer le package sur Azure WebApp. Vous trouverez ci-dessous la ressource Microsoft.Web/sites avec une ressource MSDeploy imbriquée :
+Vous devrez ainsi modifier la ressource d’application web pour prendre une ressource MSDeploy imbriquée. Vous pourrez ainsi référencer le package créé précédemment et donner à Azure Resource Manager comme instruction d’utiliser MSDeploy afin de déployer le package sur Azure WebApp. Vous trouverez ci-dessous la ressource Microsoft.Web/sites avec une ressource MSDeploy imbriquée :
 
     {
         "name": "[variables('webAppName')]",
@@ -116,13 +116,13 @@ Vous devrez ainsi modifier la ressource d’application web pour prendre une res
         ]
     }
 
-À présent, vous remarquerez que la ressource MSDeploy utilise une propriété **packageUri** est définie comme suit :
+À présent, vous remarquerez que la ressource MSDeploy utilise une propriété **packageUri** est définie comme suit :
 
 	"packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
 Ce **packageUri** accepte l’uri de compte de stockage qui pointe vers le compte de stockage dans lequel vous allez télécharger le zip de package. Le Gestionnaire de ressources Azure s’appuie sur [Signatures d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) pour balayer le package localement depuis le compte de stockage lorsque vous déployez le modèle. Ce processus sera automatisé via un script PowerShell qui téléchargera le package et appellera l’API de gestion Azure pour créer les clés requises et transférer ces informations dans le modèle en tant que paramètres (*\_artifactsLocation* et *\_artifactsLocationSasToken*). Vous devrez définir des paramètres pour le dossier et le nom de fichier dans lequel le package téléchargé sous le conteneur de stockage.
 
-Vous devez ensuite ajouter une autre ressource imbriquée pour configurer les liaisons du nom d’hôte et tirer parti d’un domaine personnalisé. Vous devez d’abord vous assurer que vous êtes propriétaire du nom d’hôte et configurer ce dernier pour qu’Azure le vérifie. Consultez [Configurer un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md). Une fois cette opération effectuée, vous pouvez ajouter les éléments suivants à votre modèle dans la section des ressources Microsoft.Web/sites :
+Vous devez ensuite ajouter une autre ressource imbriquée pour configurer les liaisons du nom d’hôte et tirer parti d’un domaine personnalisé. Vous devez d’abord vous assurer que vous êtes propriétaire du nom d’hôte et configurer ce dernier pour qu’Azure le vérifie. Consultez [Configurer un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md). Une fois cette opération effectuée, vous pouvez ajouter les éléments suivants à votre modèle dans la section des ressources Microsoft.Web/sites :
 
 	{
 		"apiVersion": "2015-08-01",
@@ -151,7 +151,7 @@ Enfin, vous devez ajouter une autre ressource de niveau supérieur, Microsoft.We
 	    }
 	}
 
-Vous devez disposer d’un certificat SSL valide pour pouvoir configurer cette ressource. Une fois que vous avez ce certificat valide, vous devez extraire les octets pfx sous forme de chaîne Base64. Pour ce faire, vous pouvez utiliser la commande PowerShell suivante :
+Vous devez disposer d’un certificat SSL valide pour pouvoir configurer cette ressource. Une fois que vous avez ce certificat valide, vous devez extraire les octets pfx sous forme de chaîne Base64. Pour ce faire, vous pouvez utiliser la commande PowerShell suivante :
 
 	$fileContentBytes = get-content 'C:\path\to\cert.pfx' -Encoding Byte
 
@@ -165,7 +165,7 @@ Vous pouvez ensuite la transférer en tant que paramètre de modèle de déploie
 
 Les étapes finales servent à rassembler les différents éléments pour obtenir un déploiement de bout en bout. Pour rendre le déploiement plus facile, vous pouvez utiliser le script PowerShell **Deploy-azureresourcegroup.ps1** qui est ajouté lorsque vous créez un projet de groupe de ressources Azure dans Visual Studio pour faciliter le téléchargement de tous les artefacts requis dans le modèle. Il vous oblige à créer un compte de stockage que vous voulez utiliser à l’avance. Pour cet exemple, j’ai créé un compte de stockage partagé pour y télécharger le package.zip. Le script utilisera AzCopy pour télécharger le package sur le compte de stockage. Accédez à l’emplacement du dossier de l’artefact et le script téléchargera automatiquement tous les fichiers de ce répertoire dans le conteneur de stockage nommé. Après avoir appelé Deploy-azureresourcegroup.ps1, vous devez mettre à jour les liaisons SSL pour associer le nom d’hôte personnalisé avec votre certificat SSL.
 
-Le PowerShell suivant montre le déploiement complet appelant Deploy-azureresourcegroup.ps1 :
+Le PowerShell suivant montre le déploiement complet appelant Deploy-azureresourcegroup.ps1 :
 
 	#Set resource group name
 	$rgName = "Name-of-resource-group"

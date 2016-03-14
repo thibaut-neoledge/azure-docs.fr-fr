@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Azure" 
-	description="Découvrez les commandes et surveillez les performances sous les onglets du portail Azure Classic de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS" 
+	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Azure" 
+	description="Découvrez les commandes et surveillez les performances sous les onglets du portail Azure Classic de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -25,7 +25,7 @@ Après avoir créé votre service BizTalk et déployé votre application, vous p
 
 La première fois que vous ouvrez le portail Azure Classic, l’onglet **TOUS LES ÉLÉMENTS** s’affiche automatiquement. Pour afficher votre service BizTalk, sélectionnez-le sous l'onglet **Tous les éléments**. Vous pouvez aussi sélectionner l'onglet **BIZTALK SERVICES**, puis le nom de votre service BizTalk.
 
-Une nouvelle fenêtre apparaît avec les onglets suivants : La présente rubrique décrit ces onglets.
+Une nouvelle fenêtre apparaît avec les onglets suivants : La présente rubrique décrit ces onglets.
 
 ## Démarrage rapide (![Quick Start][QuickStart])
 Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne pas être disponibles.
@@ -55,7 +55,7 @@ Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne
 </table>
 
 
-Dans la barre des tâches située en bas, vous pouvez :
+Dans la barre des tâches située en bas, vous pouvez :
 
 <table border="1">
 
@@ -101,18 +101,18 @@ On parle de «&#160;clés de substitution&#160;» pour décrire ce processus. L'
 ## Tableau de bord
 Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne pas être disponibles.
 
-Lorsque vous sélectionnez le nom de votre service BizTalk, l'onglet Tableau de bord apparaît. Dans le tableau de bord, vous pouvez :
+Lorsque vous sélectionnez le nom de votre service BizTalk, l'onglet Tableau de bord apparaît. Dans le tableau de bord, vous pouvez :
 
-##### Vue d’ensemble de l’utilisation : montre le nombre de connexions hybrides utilisées.
+##### Vue d’ensemble de l’utilisation : montre le nombre de connexions hybrides utilisées.
 Affiche également l'utilisation des données en Go.
 
-##### Graphique métrique : illustre une liste fixe de mesures de performances.
+##### Graphique métrique : illustre une liste fixe de mesures de performances.
 Ces mesures fournissent des valeurs en temps réel concernant l'intégrité du service BizTalk. Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**intervalle** de temps des mesures affichées sur le graphique.
 
 Pour une description de ces mesures de performances, accédez à la section [Mesures disponibles](#Metrics) dans cette rubrique.
 
 
-##### Aperçu rapide : dresse la liste des propriétés de votre service BizTalk.
+##### Aperçu rapide : dresse la liste des propriétés de votre service BizTalk.
 
 <table border="1">
 
@@ -178,10 +178,10 @@ La section <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Explication
 </tr>
 </table>
 
-La page [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280) indique la procédure de création d’un service BizTalk Services.
+La page [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280) indique la procédure de création d’un service BizTalk Services.
 
 
-##### Gérer, Informations de connexion, Clés de synchronisation et Supprimer dans la barre des tâches :
+##### Gérer, Informations de connexion, Clés de synchronisation et Supprimer dans la barre des tâches :
 
 <table border="1">
 
@@ -227,29 +227,31 @@ On parle de «&#160;clés de substitution&#160;» pour décrire ce processus. L'
 ## Surveiller
 Ne s'applique pas à l'édition gratuite.
 
-Lorsque vous sélectionnez le nom de votre service BizTalk, l'onglet Surveiller est disponible et affiche les éléments suivants :
+Lorsque vous sélectionnez le nom de votre service BizTalk, l'onglet Surveiller est disponible et affiche les éléments suivants :
 
-##### Graphique métrique : affiche les mesures de performances sélectionnées.
+##### Graphique métrique : affiche les mesures de performances sélectionnées.
 Ces mesures fournissent des valeurs en temps réel concernant l'intégrité du service BizTalk. Vous choisissez les mesures de performances devant s'afficher (jusqu'à six mesures de performances simultanément).
 
 Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**intervalle** de temps des mesures qui sont affichées.
 
-##### Pour supprimer ou afficher des mesures dans le graphique :
+##### Pour supprimer ou afficher des mesures dans le graphique :
 1. Sélectionnez l'onglet **Surveiller**.
-2. Sélectionnez **Ajouter des métriques** dans la barre des tâches : ![Sélectionnez Ajouter des métriques.][AddMetrics]
+2. Sélectionnez **Ajouter des métriques** dans la barre des tâches :  
+![Sélectionnez Ajouter des métriques.][AddMetrics]
 3. Vérifiez les mesures de performances que vous souhaitez afficher.
 4. Sélectionnez la coche pour revenir à l'onglet **Surveiller**.
-5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.  
+5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.
 
-	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique :![La mesure Utilisation du processeur apparaît en grisé  
-][GrayedMetric]
+	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique:  
+![La mesure Utilisation du processeur apparaît en grisé][GrayedMetric]  
 
-	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique :![La mesure Utilisation du processeur est activée][EnabledMetric]
+	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique:  
+![La mesure Utilisation du processeur est activée][EnabledMetric]
 
 6. Pour supprimer une mesure du graphique affiché et de la liste, sélectionnez **Supprimer une métrique** dans la barre des tâches. Pour réintégrer la mesure dans la liste, sélectionnez **Ajouter des métriques** dans la barre des tâches, vérifiez la mesure et cochez la case pour revenir à l'onglet **Surveiller**. Sélectionnez le cercle en grisé pour activer la mesure.
 
 ## <a name="Metrics"></a>Mesures disponibles
-Les mesures/compteurs de performances suivants sont disponibles :
+Les mesures/compteurs de performances suivants sont disponibles :
 
 <table border="1">
 
@@ -315,13 +317,13 @@ Dans un scénario de réponse à la demande, la mesure est incrémentée lorsque
 
 
 ## Mise à l'échelle
-Dans l'onglet Mettre à l'échelle, vous pouvez ajouter ou soustraire le nombre d'unités utilisées par votre service BizTalk. Par défaut, une seule unité est configurée. Vous pouvez ajouter des unités supplémentaires afin de mettre à l'échelle votre service BizTalk. Lorsque vous augmentez la mise à l'échelle, vous augmentez le débit. La quantité de ressources augmente également, y compris les ponts déployés, les contrats, les connexions métier et la puissance de traitement. Par exemple, vous augmentez la mise à l'échelle de 1 à 2 unités. Dans ce cas, vous pouvez doubler le nombre de ponts, les contrats, les connexions métier et la puissance de traitement.
+Dans l'onglet Mettre à l'échelle, vous pouvez ajouter ou soustraire le nombre d'unités utilisées par votre service BizTalk. Par défaut, une seule unité est configurée. Vous pouvez ajouter des unités supplémentaires afin de mettre à l'échelle votre service BizTalk. Lorsque vous augmentez la mise à l'échelle, vous augmentez le débit. La quantité de ressources augmente également, y compris les ponts déployés, les contrats, les connexions métier et la puissance de traitement. Par exemple, vous augmentez la mise à l'échelle de 1 à 2 unités. Dans ce cas, vous pouvez doubler le nombre de ponts, les contrats, les connexions métier et la puissance de traitement.
 
 Certaines éditions BizTalk n'offrent pas de possibilité de mise à l'échelle. Dans ce cas, une seule unité est autorisée. Pour déterminer le nombre d'unités auquel votre édition peut être mise à l'échelle, consultez le [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md).
 
 L'augmentation du nombre d'unités peut avoir un impact sur les tarifs. Si vous augmentez les unités, sélectionnez **Enregistrer** pour afficher un message indiquant s'il y a un impact sur la facturation. Vous choisissez ensuite de continuer. Lorsque vous augmentez le nombre d'unités, le statut du service BizTalk passe d'Actif à Mis à jour. En état de mise à jour, votre service BizTalk continue de s'exécuter.
 
-Le [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md) définit une « unité ».
+Le [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md) définit une « unité ».
 
 
 ## Configuration
@@ -335,7 +337,7 @@ Définit l'état de la sauvegarde sur Aucun ou Automatique. Lorsqu'il est défin
 ## <a name="HybridConnections"></a>Connexions hybrides
 Les connexions hybrides connectent une application Azure, comme Sites web ou Mobile Services, à une ressource locale qui utilise un port TCP statique, par exemple SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides sont gérées dans BizTalk Services dans le portail Azure Classic.
 
-Pour créer des connexions hybrides à l'aide de Sites Web, Azure, consultez la page [Connexion hybride : connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538).
+Pour créer des connexions hybrides à l'aide de Sites Web, Azure, consultez la page [Connexion hybride : connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
 Pour utiliser les connexions hybrides dans Azure Mobile Services, consultez [Azure Mobile Services et connexions hybrides](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
@@ -344,7 +346,7 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 
 
 ## Suivant
-À présent que vous connaissez bien les différents onglets, vous pouvez accéder à davantage d'informations sur les fonctionnalités Azure BizTalk Services :
+À présent que vous connaissez bien les différents onglets, vous pouvez accéder à davantage d'informations sur les fonctionnalités Azure BizTalk Services :
 
 - [Limitation dans BizTalk Services](biztalk-throttling-thresholds.md)  
 - [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)  
@@ -353,8 +355,8 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 ## Voir aussi
 - [Connexions hybrides](integration-hybrid-connection-overview.md)  
 - [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](biztalk-editions-feature-chart.md)  
-- [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](biztalk-provision-services.md)  
-- [BizTalk Services : tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)  
+- [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](biztalk-provision-services.md)  
+- [BizTalk Services : tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)  
 - [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png

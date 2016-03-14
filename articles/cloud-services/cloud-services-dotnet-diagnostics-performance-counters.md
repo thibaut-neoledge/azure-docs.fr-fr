@@ -26,7 +26,7 @@ Vous pouvez examiner les données du compteur de performances
 2. Avec System Center Operations Manager en utilisant le Pack d’administration Azure
 3. Avec d’autres outils d’analyse ayant accès aux données de diagnostic transférées vers le stockage Azure. Voir [Stocker et afficher des données de diagnostic dans Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) pour plus d’informations.  
 
-Pour plus d’informations sur la configuration des performances de votre application dans le [portail Azure Classic](http://manage.azure.com/), consultez la page [Surveillance des services cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+Pour plus d’informations sur la configuration des performances de votre application dans le [portail Azure Classic](http://manage.azure.com/), consultez la page [Surveillance des services cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
 Pour obtenir d'autres instructions détaillées sur la création d'une stratégie de journalisation et de suivi, et sur l'utilisation des diagnostics et des autres techniques pour résoudre les problèmes et optimiser les applications Azure, consultez la page [Meilleures pratiques de dépannage pour développer des applications Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
@@ -39,7 +39,7 @@ Les compteurs de performance ne sont pas activés par défaut. Votre application
 
 Azure fournit un sous-ensemble des compteurs de performances disponibles pour Windows Server, IIS et la pile ASP.NET. Le tableau suivant répertorie certains des compteurs de performance présentant un intérêt particulier pour les applications Azure.
 
-|Catégorie de compteur : Objet (Instance)|Nom de compteur |Référence|
+|Catégorie de compteur : Objet (Instance)|Nom de compteur |Référence|
 |---|---|---|
 |Exceptions CLR .NET (_Global_)|# Nombre d’exceptions levées/s |Compteurs de performance des exceptions|
 |Mémoire CLR .NET (_Global_) |% de temps dans GC |Compteurs de performance mémoire|
@@ -56,7 +56,16 @@ Azure fournit un sous-ensemble des compteurs de performances disponibles pour Wi
 |ASP.NET v4.0.30319 |Demandes rejetées |Compteurs de performances pour ASP.NET|
 |Mémoire |Nombre d’octets disponibles |Compteurs de performance mémoire|
 |Mémoire |Octets dédiés |Compteurs de performance mémoire|
-|Processeur(\_Total) |% temps processeur |Compteurs de performances pour ASP.NET| |TCPv4 |Échecs de connexion |Objet TCP| |TCPv4 |Connexions établies |Objet TCP| |TCPv4 |Réinitialisation des connexions |Objet TCP| |TCPv4 |Segments envoyés/s |Objet TCP| |Interface réseau(*) |Octets reçus/s |Objet d’interface réseau| |Interface réseau(*) |Octets envoyés/s |Objet d’interface réseau| |Interface réseau(Microsoft Virtual Machine Bus Network Adapter \_2)|Octets reçus/s|Objet d’interface réseau| |Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Octets envoyés/s|Objet d’interface réseau | |Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Nombre total d’octets/s|Objet d’interface réseau|
+|Processeur(\_Total) |% temps processeur |Compteurs de performances pour ASP.NET|
+|TCPv4 |Échecs de connexion |Objet TCP|
+|TCPv4 |Connexions établies |Objet TCP|
+|TCPv4 |Réinitialisation des connexions |Objet TCP|
+|TCPv4 |Segments envoyés/s |Objet TCP|
+|Interface réseau(*) |Octets reçus/s |Objet d’interface réseau|
+|Interface réseau(*) |Octets envoyés/s |Objet d’interface réseau|
+|Interface réseau(Microsoft Virtual Machine Bus Network Adapter \_2)|Octets reçus/s|Objet d’interface réseau|
+|Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Octets envoyés/s|Objet d’interface réseau |
+|Interface réseau (Microsoft Virtual Machine Bus Network Adapter \_2)|Nombre total d’octets/s|Objet d’interface réseau|
 
 ## Créer et ajouter des compteurs de performance personnalisés à votre application
 
@@ -82,17 +91,17 @@ Utilisez la procédure suivante pour activer les compteurs de performances dans 
 
 ## Configuration requise
 
-Cette section part du principe que vous avez importé le moniteur de diagnostics dans votre application et que vous avez ajouté le fichier de configuration de diagnostic à votre solution Visual Studio (diagnostics.wadcfg dans le kit de développement logiciel 2.4 et version antérieure ou diagnostics.wadcfgx dans le kit de développement logiciel 2.5 et ultérieur). Voir les étapes 1 et 2 dans [Activation de Diagnostics dans Azure Cloud Services et Virtual Machines](./cloud-services-dotnet-diagnostics.md) pour plus d’informations.
+Cette section part du principe que vous avez importé le moniteur de diagnostics dans votre application et que vous avez ajouté le fichier de configuration de diagnostic à votre solution Visual Studio (diagnostics.wadcfg dans le kit de développement logiciel 2.4 et version antérieure ou diagnostics.wadcfgx dans le kit de développement logiciel 2.5 et ultérieur). Voir les étapes 1 et 2 dans [Activation de Diagnostics dans Azure Cloud Services et Virtual Machines](./cloud-services-dotnet-diagnostics.md) pour plus d’informations.
 
-## Étape 1 : collecte et stockage de données de compteurs de performances
+## Étape 1 : collecte et stockage de données de compteurs de performances
 
-Après avoir ajouté le fichier diagnostics à votre solution Visual Studio, vous pouvez configurer la collecte et le stockage de données de compteurs de performances dans une application Azure. Pour cela, vous devez ajouter des compteurs de performances au fichier diagnostics. Dans un premier temps, les données de diagnostic, y compris les compteurs de performances, sont collectées au niveau de l'instance. Sachant que les données sont conservées dans la table WADPerformanceCountersTable du service de Table Azure, vous serez également amené à spécifier le compte de stockage dans votre application. Si vous testez votre application en local dans l'émulateur de calcul, vous pouvez également stocker les données de diagnostic en local dans l'émulateur de stockage. Avant de stocker les données de diagnostic, vous devez accéder au [portail Azure Classic](http://manage.windowsazure.com/) et créer un compte de stockage. Pour éviter de payer des frais de bande passante externes et réduire le temps de réponse, il est recommandé de situer votre compte de stockage dans la même région que votre application Azure.
+Après avoir ajouté le fichier diagnostics à votre solution Visual Studio, vous pouvez configurer la collecte et le stockage de données de compteurs de performances dans une application Azure. Pour cela, vous devez ajouter des compteurs de performances au fichier diagnostics. Dans un premier temps, les données de diagnostic, y compris les compteurs de performances, sont collectées au niveau de l'instance. Sachant que les données sont conservées dans la table WADPerformanceCountersTable du service de Table Azure, vous serez également amené à spécifier le compte de stockage dans votre application. Si vous testez votre application en local dans l'émulateur de calcul, vous pouvez également stocker les données de diagnostic en local dans l'émulateur de stockage. Avant de stocker les données de diagnostic, vous devez accéder au [portail Azure Classic](http://manage.windowsazure.com/) et créer un compte de stockage. Pour éviter de payer des frais de bande passante externes et réduire le temps de réponse, il est recommandé de situer votre compte de stockage dans la même région que votre application Azure.
 
 ### Ajouter des compteurs de performances au fichier de diagnostics
 
 Il existe de nombreux compteurs que vous pouvez utiliser. L’exemple suivant montre plusieurs compteurs de performances qui sont recommandés pour la surveillance des rôles web et worker.
 
-Ouvrez le fichier de diagnostics (diagnostics.wadcfg dans le Kit de développement logiciel 2.4 et antérieur ou diagnostics.wadcfgx dans le kit de développement logiciel 2.5 et versions ultérieures) et ajoutez le code suivant à l’élément DiagnosticMonitorConfiguration :
+Ouvrez le fichier de diagnostics (diagnostics.wadcfg dans le Kit de développement logiciel 2.4 et antérieur ou diagnostics.wadcfgx dans le kit de développement logiciel 2.5 et versions ultérieures) et ajoutez le code suivant à l’élément DiagnosticMonitorConfiguration :
 
 ```
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
@@ -123,9 +132,9 @@ Ouvrez le fichier de diagnostics (diagnostics.wadcfg dans le Kit de développeme
 
 L'attribut bufferQuotaInMB spécifie la capacité maximale de stockage du système du fichiers disponible pour le type de collecte de données (journaux Azure, journaux IIS, etc.). La valeur par défaut est 0. Lorsque le quota est atteint, les données les plus anciennes sont supprimées à mesure que de nouvelles données sont ajoutées. La somme de toutes les propriétés bufferQuotaInMB doit être supérieure à la valeur de l'attribut OverallQuotaInMB. Pour plus d'informations sur la façon de déterminer la quantité de stockage nécessaire à la collecte de données de diagnostic, consultez la section Configuration de WAD de la page [Meilleures pratiques de dépannage pour développer des applications Azure](https://msdn.microsoft.com/library/windowsazure/hh771389.aspx).
 
-L'attribut scheduledTransferPeriod spécifie le délai entre les transferts de données planifiés, arrondi à la minute supérieure. Dans les exemples suivants, sa valeur est définie sur PT30M (30 minutes). Si la définition d'une période de transfert plus courte, par exemple 1 minute, peut avoir des conséquences néfastes sur les performances de l'application en production, cela peut s'avérer utile en phase de test pour obtenir des diagnostics rapides. La période de transfert planifiée doit être suffisamment courte pour éviter que les données de diagnostic soient remplacées au niveau de l'instance, mais suffisamment longue pour qu'elle n'ait pas d'incidence sur les performances de votre application.
+L'attribut scheduledTransferPeriod spécifie le délai entre les transferts de données planifiés, arrondi à la minute supérieure. Dans les exemples suivants, sa valeur est définie sur PT30M (30 minutes). Si la définition d'une période de transfert plus courte, par exemple 1 minute, peut avoir des conséquences néfastes sur les performances de l'application en production, cela peut s'avérer utile en phase de test pour obtenir des diagnostics rapides. La période de transfert planifiée doit être suffisamment courte pour éviter que les données de diagnostic soient remplacées au niveau de l'instance, mais suffisamment longue pour qu'elle n'ait pas d'incidence sur les performances de votre application.
 
-L’attribut counterSpecifier spécifie le compteur de performances à relever. L’attribut sampleRate spécifie le taux auquel le compteur de performance est échantillonné, dans ce cas, 30 secondes.
+L’attribut counterSpecifier spécifie le compteur de performances à relever. L’attribut sampleRate spécifie le taux auquel le compteur de performance est échantillonné, dans ce cas, 30 secondes.
 
 Une fois que vous avez ajouté les compteurs de performances à collecter, enregistrez vos modifications dans le fichier diagnostics. Ensuite, vous devez spécifier le compte de stockage dans lequel les données de diagnostic seront conservées.
 
@@ -133,13 +142,13 @@ Une fois que vous avez ajouté les compteurs de performances à collecter, enreg
 
 Pour conserver vos informations de diagnostic dans votre compte Azure Storage, vous devez spécifier une chaîne de connexion dans le fichier de configuration (ServiceConfiguration.cscfg) de votre service.
 
-Dans le kit de développement logiciel (SDK) Azure 2.5, le compte de stockage peut être spécifié dans le fichier diagnostics.wadcfgx.
+Dans le kit de développement logiciel (SDK) Azure 2.5, le compte de stockage peut être spécifié dans le fichier diagnostics.wadcfgx.
 
->[AZURE.NOTE] Ces instructions s’appliquent uniquement au kit de développement logiciel Azure 2.4 et versions antérieures. Dans le kit de développement logiciel (SDK) Azure 2.5, le compte de stockage peut être spécifié dans le fichier diagnostics.wadcfgx.
+>[AZURE.NOTE] Ces instructions s’appliquent uniquement au kit de développement logiciel Azure 2.4 et versions antérieures. Dans le kit de développement logiciel (SDK) Azure 2.5, le compte de stockage peut être spécifié dans le fichier diagnostics.wadcfgx.
 
-Pour définir les chaînes de connexion :
+Pour définir les chaînes de connexion :
 
-1. Ouvrez le fichier ServiceConfiguration.Cloud.cscfg à l’aide de l’éditeur de texte de votre choix, puis définissez la chaîne de connexion de votre stockage. Les valeurs de *AccountName* et de *AccountKey* se trouvent dans le portail Azure Classic, dans le tableau de bord du compte de stockage, sous Gérer les clés.
+1. Ouvrez le fichier ServiceConfiguration.Cloud.cscfg à l’aide de l’éditeur de texte de votre choix, puis définissez la chaîne de connexion de votre stockage. Les valeurs de *AccountName* et de *AccountKey* se trouvent dans le portail Azure Classic, dans le tableau de bord du compte de stockage, sous Gérer les clés.
 
     ```
     <ConfigurationSettings>
@@ -158,22 +167,22 @@ Pour définir les chaînes de connexion :
 Dès lors que les chaînes de connexion sont définies, une fois déployée, votre application conserve les données de diagnostic dans votre compte de stockage.
 4. Enregistrez et générez votre projet, puis déployez votre application.
 
-## Étape 2 : (facultatif) création de compteurs de performances personnalisés
+## Étape 2 : (facultatif) création de compteurs de performances personnalisés
 
 Outre les compteurs de performances prédéfinis, vous pouvez ajouter les vôtres pour surveiller les rôles Web ou de travail. Les compteurs de performances personnalisés permettent de suivre et de surveiller le comportement propre à une application. Vous pouvez les créer ou les supprimer dans une tâche de démarrage, un rôle Web ou un rôle de travail avec des autorisations élevées.
 
-Étape 2 : L’agent de diagnostics Azure actualise la configuration du compteur de performance à partir du fichier .wadcfg une minute après le démarrage. Si vous créez des compteurs de performance personnalisés dans la méthode OnStart et vos tâches de démarrage prennent plus d’une minute pour s’exécuter, vos compteurs de performance personnalisés ne seront pas créés lorsque l’agent de Diagnostics Microsoft Azure tente de les charger. Dans ce scénario, vous verrez qu’Azure Diagnostics capture correctement toutes les données de diagnostic, excepté les compteurs de performance personnalisés. Pour résoudre ce problème, créez les compteurs de performance dans une tâche de démarrage ou déplacez certaines de vos tâches de démarrage vers la méthode OnStart après avoir créé les compteurs de performances.
+Étape 2 : L’agent de diagnostics Azure actualise la configuration du compteur de performance à partir du fichier .wadcfg une minute après le démarrage. Si vous créez des compteurs de performance personnalisés dans la méthode OnStart et vos tâches de démarrage prennent plus d’une minute pour s’exécuter, vos compteurs de performance personnalisés ne seront pas créés lorsque l’agent de Diagnostics Microsoft Azure tente de les charger. Dans ce scénario, vous verrez qu’Azure Diagnostics capture correctement toutes les données de diagnostic, excepté les compteurs de performance personnalisés. Pour résoudre ce problème, créez les compteurs de performance dans une tâche de démarrage ou déplacez certaines de vos tâches de démarrage vers la méthode OnStart après avoir créé les compteurs de performances.
 
-Pour créer un simple compteur de performances personnalisé nommé « \\MyCustomCounterCategory\\MyButton1Counter », procédez comme suit :
+Pour créer un simple compteur de performances personnalisé nommé « \\MyCustomCounterCategory\\MyButton1Counter », procédez comme suit :
 
 1. Ouvrez le fichier de définition de service (CSDEF) de votre application.
-2. Ajoutez l'élément Runtime à l'élément WebRole ou WorkerRole pour permettre une exécution avec des privilèges élevés :
+2. Ajoutez l'élément Runtime à l'élément WebRole ou WorkerRole pour permettre une exécution avec des privilèges élevés :
 
     ```
     <runtime executioncontext="elevated"/>
     ```
 3. Enregistrez le fichier .
-4. Ouvrez le fichier de diagnostics (diagnostics.wadcfg dans le Kit de développement logiciel 2.4 et antérieur ou diagnostics.wadcfgx dans le kit de développement logiciel 2.5 et versions ultérieures) et ajoutez le code suivant à DiagnosticMonitorConfiguration : 
+4. Ouvrez le fichier de diagnostics (diagnostics.wadcfg dans le Kit de développement logiciel 2.4 et antérieur ou diagnostics.wadcfgx dans le kit de développement logiciel 2.5 et versions ultérieures) et ajoutez le code suivant à DiagnosticMonitorConfiguration : 
 
     ```
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
@@ -181,7 +190,7 @@ Pour créer un simple compteur de performances personnalisé nommé « \\MyCust
     </PerformanceCounters>
     ```
 5. Enregistrez le fichier .
-6. Créez la catégorie de compteur de performances personnalisée dans la méthode OnStart de votre rôle avant d'appeler base.OnStart. L'exemple C# suivant permet de créer une catégorie personnalisée, si elle n'existe pas déjà :
+6. Créez la catégorie de compteur de performances personnalisée dans la méthode OnStart de votre rôle avant d'appeler base.OnStart. L'exemple C# suivant permet de créer une catégorie personnalisée, si elle n'existe pas déjà :
 
     ```
     public override bool OnStart()
@@ -211,7 +220,7 @@ Pour créer un simple compteur de performances personnalisé nommé « \\MyCust
     return base.OnStart();
     }
     ```
-7. Mettez à jour les compteurs dans l'application. Dans l'exemple suivant, un compteur de performances personnalisé est mis à jour lors d'événements Button1\_Click :
+7. Mettez à jour les compteurs dans l'application. Dans l'exemple suivant, un compteur de performances personnalisé est mis à jour lors d'événements Button1\_Click :
 
     ```
     protected void Button1_Click(object sender, EventArgs e)
@@ -230,11 +239,11 @@ Pour créer un simple compteur de performances personnalisé nommé « \\MyCust
 
 Les données du compteur de performances personnalisé vont être collectées par le moniteur de diagnostics Azure.
 
-## Étape 3 : interrogation des données de compteurs de performances
+## Étape 3 : interrogation des données de compteurs de performances
 
 Une fois votre application déployée et exécutée, le moniteur de diagnostics commence à collecter les compteurs de performances et à conserver ces données dans le stockage Azure. Pour examiner les données des compteurs de performances dans la table WADPerformanceCountersTable, vous pouvez utiliser des outils tels que l’Explorateur de serveurs de Visual Studio, [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) ou [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) de Cerebrata. Vous pouvez également interroger le service de Table par programme en [C#](../storage/storage-dotnet-how-to-use-tables.d), [Java](../storage/storage-java-how-to-use-table-storage.md), [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md) ou [PHP](../storage/storage-php-how-to-use-table-storage.md).
 
-Dans l'exemple C# suivant, une requête simple est exécutée sur la table WADPerformanceCountersTable et les données de diagnostic sont enregistrées dans un fichier CSV. Une fois que les compteurs de performances sont enregistrés dans un fichier CSV, vous pouvez visualiser les données à l'aide des fonctionnalités de création de graphiques de Microsoft Excel ou d'un autre outil. Veillez à ajouter une référence à Microsoft.WindowsAzure.Storage.dll, qui figure dans le Kit de développement logiciel (SDK) Azure pour .NET d'octobre 2012 et les versions ultérieures. L’assembly est installé dans le répertoire %Program Files%\\Microsoft SDKs\\Microsoft Azure.NET SDK\\version-num\\ref\\.
+Dans l'exemple C# suivant, une requête simple est exécutée sur la table WADPerformanceCountersTable et les données de diagnostic sont enregistrées dans un fichier CSV. Une fois que les compteurs de performances sont enregistrés dans un fichier CSV, vous pouvez visualiser les données à l'aide des fonctionnalités de création de graphiques de Microsoft Excel ou d'un autre outil. Veillez à ajouter une référence à Microsoft.WindowsAzure.Storage.dll, qui figure dans le Kit de développement logiciel (SDK) Azure pour .NET d'octobre 2012 et les versions ultérieures. L’assembly est installé dans le répertoire %Program Files%\\Microsoft SDKs\\Microsoft Azure.NET SDK\\version-num\\ref\\.
 
 ```
     using Microsoft.WindowsAzure.Storage;

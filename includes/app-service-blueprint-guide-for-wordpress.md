@@ -1,6 +1,6 @@
 ## WordPress et Azure App Service
 
-* [Qu'est-ce que WordPress ?](https://wordpress.org/)
+* [Qu'est-ce que WordPress ?](https://wordpress.org/)
 * [Configuration d'une application web WordPress d'entreprise](../articles/app-service-web/web-sites-php-enterprise-wordpress.md)
 * [Achat d'hébergement MySQL partagé ClearDB pour votre application WordPress](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
 * [Achat d'un cluster MySQL dédié ClearDB pour votre application WordPress](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
@@ -9,7 +9,7 @@
 * [Déploiement de WordPress pris en charge par le cluster de réplication MySQL avec une configuration maître-esclave](/documentation/templates/mysql-replication/)
 * [Déploiement d'une application WordPress prise en charge par la base de données SQL Azure gérée par ProjectNami](/marketplace/partners/projectnami/projectnami/)
   
-## Chapitre 2 : Résolution des problèmes de l'application WordPress
+## Chapitre 2 : Résolution des problèmes de l'application WordPress
 
 * [Résolution des problèmes de votre application WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Collecte des données de télémétrie d'utilisation à l'aide du service Azure Application Insights](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
@@ -18,7 +18,7 @@
 * [Utilisation de différentes règles de correction automatique pour automatiser la résolution des incidents en temps réel](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [Sauvegarde de votre application web](../articles/app-service-web/web-sites-backup.md) et [Restauration de votre application web](../articles/app-service-web/web-sites-restore.md)
 
-## Chapitre 3 : Performances
+## Chapitre 3 : Performances
 
 * [Accélération de l'application web WordPress](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
 * [Activation du cache Redis](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) à l'aide du [plug-in de cache Redis](https://wordpress.org/plugins/wp-redis/)

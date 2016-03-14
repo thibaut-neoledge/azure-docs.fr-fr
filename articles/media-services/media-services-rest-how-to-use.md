@@ -27,7 +27,7 @@ Microsoft Azure Media Services est un service qui accepte les demandes HTTP ODat
 
 Les considérations suivantes s'appliquent lors de l'utilisation de REST.
 
-- Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) tel que décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+- Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) tel que décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 - Lors de l’utilisation de JSON et la spécification pour utiliser le mot clé ** \_\_metadata ** dans la demande (par exemple, pour fait référence à un objet lié) vous DEVEZ définir l’en-tête **Accept** au [format JSON détaillé](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (voir l’exemple suivant). OData ne comprend pas la propriété **\_\_metadata** dans la demande, sauf si vous la définissez de façon détaillée.
 
@@ -49,7 +49,7 @@ Les considérations suivantes s'appliquent lors de l'utilisation de REST.
 
 ## En-têtes de requête HTTP standard pris en charge par Media Services
 
-Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requis, que vous devez inclure dans votre requête, et un ensemble d’en-têtes facultatifs que vous pouvez également inclure. Le tableau suivant répertorie les en-têtes requis :
+Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requis, que vous devez inclure dans votre requête, et un ensemble d’en-têtes facultatifs que vous pouvez également inclure. Le tableau suivant répertorie les en-têtes requis :
 
 
 En-tête|Type|Valeur
@@ -63,15 +63,15 @@ MaxDataServiceVersion|Décimal|3\.0
 
 >[AZURE.NOTE] Étant donné que Media Services utilise OData pour exposer son référentiel de métadonnées de ressources sous-jacent via les API REST, les en-têtes DataServiceVersion et MaxDataServiceVersion doivent être inclus dans une requête. Toutefois, s’ils ne le sont pas, Media Services suppose que la valeur DataServiceVersion utilisée est 3.0.
 
-Voici un ensemble d’en-têtes facultatifs :
+Voici un ensemble d’en-têtes facultatifs :
 
 En-tête|Type|Valeur
 ---|---|---
-Date|Date RFC 1123|Horodatage de la demande
-Acceptation|Type de contenu|Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contiendra le flux d’objets blob en tant que charge utile.
-Accept-Encoding|Gzip, deflate|Codage GZIP et DEFLATE, le cas échéant. Remarque : pour les ressources volumineuses, Media Services peut ignorer cet en-tête et retourner des données non compressées.
-Accept-Language|« en », « es » et ainsi de suite.|Spécifie la langue préférée pour la réponse.
-Accept-Charset|Type de jeu de caractères comme « UTF-8 »|La valeur par défaut est UTF-8.
+Date|Date RFC 1123|Horodatage de la demande
+Acceptation|Type de contenu|Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contiendra le flux d’objets blob en tant que charge utile.
+Accept-Encoding|Gzip, deflate|Codage GZIP et DEFLATE, le cas échéant. Remarque : pour les ressources volumineuses, Media Services peut ignorer cet en-tête et retourner des données non compressées.
+Accept-Language|« en », « es » et ainsi de suite.|Spécifie la langue préférée pour la réponse.
+Accept-Charset|Type de jeu de caractères comme « UTF-8 »|La valeur par défaut est UTF-8.
 X-HTTP-Method|Méthode HTTP|Permet aux clients ou pare-feu ne prenant pas en charge les méthodes HTTP comme PUT ou DELETE d’utiliser ces méthodes, acheminées via un appel GET.
 Content-Type|Type de contenu|Le type de contenu du corps de la requête dans les demandes PUT ou POST.
 client-request-id|String|Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p>Les valeurs doivent être limitées à 2096b (2k).
@@ -85,14 +85,14 @@ En-tête|Type|Valeur
 ---|---|---
 request-id|String|Un identificateur unique pour l’opération actuelle, généré par le service.
 client-request-id|String|Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant.
-Date|Date RFC 1123|La date à laquelle la requête a été traitée.
+Date|Date RFC 1123|La date à laquelle la requête a été traitée.
 Content-Type|Varie|Le type de contenu du corps de la réponse.
 Content-Encoding|Varie|Gzip ou deflate, le cas échéant.
 
 
 ## Verbes HTTP standard pris en charge par Media Services
 
-Voici une liste complète des verbes HTTP pouvant être utilisés lors de requêtes HTTP :
+Voici une liste complète des verbes HTTP pouvant être utilisés lors de requêtes HTTP :
 
 
 Verbe|Description
@@ -106,14 +106,14 @@ HEAD|Retourne les métadonnées d’un objet d’une réponse GET.
 
 ##Limitation
 
-Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) tel que décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d'API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
+Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) tel que décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d'API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
 
 
 ## Découverte du modèle Media Services
 
-Pour rendre les entités Media Services plus détectables, l’opération $metadata peut être utilisée. Elle vous permet de récupérer l’ensemble des types d’entité, des propriétés d’entité, des associations, des fonctions, des actions valides, etc. L’exemple suivant montre comment construire l’URI : https://media.windows.net/API/$metadata.
+Pour rendre les entités Media Services plus détectables, l’opération $metadata peut être utilisée. Elle vous permet de récupérer l’ensemble des types d’entité, des propriétés d’entité, des associations, des fonctions, des actions valides, etc. L’exemple suivant montre comment construire l’URI : https://media.windows.net/API/$metadata.
 
-Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhaitez afficher les métadonnées dans un navigateur ou n’incluez pas l’en-tête x-ms-version dans votre requête.
+Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhaitez afficher les métadonnées dans un navigateur ou n’incluez pas l’en-tête x-ms-version dans votre requête.
 
 
 

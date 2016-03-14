@@ -20,7 +20,7 @@
 
 Si vous stockez des données historiques dans une table distincte, vous pouvez configurer Stretch Database pour migrer la totalité de la table. Si votre table contient à la fois des données historiques et des données actuelles, d’autre part, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer. Le prédicat de filtre doit appeler une fonction tabulaire inline. Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer.
 
-Dans la version CTP 3.1 via RC0, l’option permettant de spécifier un prédicat n’est pas disponible dans l’assistant Activation de base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer l’extension de base de données avec cette option. Pour en savoir plus, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+Dans la version CTP 3.1 via RC0, l’option permettant de spécifier un prédicat n’est pas disponible dans l’assistant Activation de base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer l’extension de base de données avec cette option. Pour en savoir plus, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
 
@@ -42,7 +42,7 @@ Les paramètres de la fonction doivent être des identificateurs pour les colonn
 La liaison de schéma est nécessaire pour éviter que les colonnes utilisées par le prédicat de filtre soient supprimées ou modifiées.
 
 ### Valeur de retour
-Si la fonction retourne un résultat non vide, la ligne est éligible à la migration ; autrement dit, si la fonction ne retourne aucune ligne, la ligne ne peut être retenue pour la migration.
+Si la fonction retourne un résultat non vide, la ligne est éligible à la migration ; autrement dit, si la fonction ne retourne aucune ligne, la ligne ne peut être retenue pour la migration.
 
 ### Conditions
 Le <*prédicat*> peut comporter une condition, ou plusieurs reliées entre elles par l’opérateur logique AND.
@@ -281,8 +281,8 @@ Vous ne pouvez pas utiliser de sous-requêtes ou de fonctions non déterministes
     GO
     ```
 
-## Comment Stretch Database applique-t-il le prédicat de filtre ?
-Stretch Database applique le prédicat de filtre à la table et détermine les lignes éligibles à l’aide de l’opérateur CROSS APPLY. Par exemple :
+## Comment Stretch Database applique-t-il le prédicat de filtre ?
+Stretch Database applique le prédicat de filtre à la table et détermine les lignes éligibles à l’aide de l’opérateur CROSS APPLY. Par exemple :
 
 ```tsql
 SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column2)
@@ -290,7 +290,7 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 Si la fonction retourne un résultat non vide pour la ligne, la ligne éligible à la migration.
 
 ## Ajouter un prédicat de filtre à une table
-Ajoutez un prédicat de filtre à une table en exécutant l’instruction ALTER TABLE et en spécifiant une fonction tabulaire inline existante comme valeur du paramètre FILTER\_PREDICATE. Par exemple :
+Ajoutez un prédicat de filtre à une table en exécutant l’instruction ALTER TABLE et en spécifiant une fonction tabulaire inline existante comme valeur du paramètre FILTER\_PREDICATE. Par exemple :
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -305,7 +305,7 @@ Après avoir lié la fonction à la table en tant que prédicat, les éléments 
 -   Les colonnes utilisées par la fonction sont liées par schéma. Vous ne pouvez pas modifier ces colonnes tant qu’une table utilise la fonction comme prédicat de filtre.
 
 ## Supprimer un prédicat de filtre d’une table
-Pour migrer la table entière plutôt que des lignes sélectionnées, supprimez le FILTER\_PREDICATE existant en lui affectant la valeur null. Par exemple :
+Pour migrer la table entière plutôt que des lignes sélectionnées, supprimez le FILTER\_PREDICATE existant en lui affectant la valeur null. Par exemple :
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -316,7 +316,7 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 Une fois que vous avez supprimé le prédicat de filtre, toutes les lignes de la table sont éligibles à la migration.
 
 ## Remplacer un prédicat de filtre existant
-Vous pouvez remplacer le prédicat de filtre spécifié précédemment en exécutant à nouveau l’instruction ALTER TABLE et en spécifiant une nouvelle valeur pour le paramètre FILTER\_PREDICATE. Par exemple :
+Vous pouvez remplacer le prédicat de filtre spécifié précédemment en exécutant à nouveau l’instruction ALTER TABLE et en spécifiant une nouvelle valeur pour le paramètre FILTER\_PREDICATE. Par exemple :
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (

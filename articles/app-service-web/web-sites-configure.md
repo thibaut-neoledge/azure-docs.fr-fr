@@ -19,13 +19,13 @@
 
 # Configurer des applications web dans Azure App Service #
 
-Cet article explique comment configurer une application Web à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+Cet article explique comment configurer une application Web à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Paramètres de l’application
 
-1. Sur le [portail Azure](https://portal.azure.com/), ouvrez le panneau de l’application Web.
+1. Sur le [portail Azure](https://portal.azure.com/), ouvrez le panneau de l’application Web.
 2. Cliquez sur **Tous les paramètres**.
 3. Cliquez sur **Paramètres de l’application**.
 
@@ -33,55 +33,55 @@ Cet article explique comment configurer une application Web à l’aide du [port
 
 Le panneau **Paramètres de l’application** regroupe différents paramètres sous plusieurs catégories.
 
-### Paramètres généraux :
+### Paramètres généraux :
 
-**Versions d'infrastructure**. Définissez ces options si votre application utilise l'une de ces infrastructures :
+**Versions d'infrastructure**. Définissez ces options si votre application utilise l'une de ces infrastructures :
 
-- **.NET Framework** : définissez la version du .NET Framework. 
-- **PHP** : définissez la version du langage PHP ou choisissez **INACTIF** pour désactiver PHP.
-- **Java** : sélectionnez la version du langage Java, ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
-- **Python** : sélectionnez la version du langage Python, ou choisissez **INACTIF** pour désactiver Python.
+- **.NET Framework** : définissez la version du .NET Framework. 
+- **PHP** : définissez la version du langage PHP ou choisissez **INACTIF** pour désactiver PHP.
+- **Java** : sélectionnez la version du langage Java, ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
+- **Python** : sélectionnez la version du langage Python, ou choisissez **INACTIF** pour désactiver Python.
 
 Pour des raisons techniques, l’activation de Java pour votre application désactive les options .NET, PHP et Python.
 
-<a name="platform"></a> **Plate-forme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
+<a name="platform"></a> **Plate-forme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
 
-**WebSockets**. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre application Web utilise [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).
+**WebSockets**. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre application Web utilise [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).
 
 <a name="alwayson"></a> **Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des tâches Web en continu, activez l’option **Toujours actif**. Sinon, les tâches Web risquent de ne pas s’exécuter de façon fiable.
 
 **Version de pipeline gérée**. Définit le [mode pipeline](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application) d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez une application web qui demande une version plus ancienne d’IIS.
 
-**Basculement automatique**. Si vous activez le basculement automatique pour un emplacement de déploiement, App Service fera basculer l’application web en production automatiquement lorsque vous enverrez une mise à jour sur cet emplacement. Pour plus d’informations, consultez [Déployer vers des emplacements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
+**Basculement automatique**. Si vous activez le basculement automatique pour un emplacement de déploiement, App Service fera basculer l’application web en production automatiquement lorsque vous enverrez une mise à jour sur cet emplacement. Pour plus d’informations, consultez [Déployer vers des emplacements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
 
 
 ### Débogage
 
-**Débogage à distance** Active le débogage distant. Quand cette option est activée, vous pouvez utiliser le débogueur distant de Visual Studio pour vous connecter directement à votre application web. Le débogage à distance reste activé pendant 48 heures.
+**Débogage à distance** Active le débogage distant. Quand cette option est activée, vous pouvez utiliser le débogueur distant de Visual Studio pour vous connecter directement à votre application web. Le débogage à distance reste activé pendant 48 heures.
 
 
 ### Paramètres de l'application
 
 Cette section contient des paires nom/valeur qui seront chargées par votre application web au démarrage.
 
-- Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 
+- Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 
 
-- Les applications PHP, Python, Java et Node peuvent accéder à ces paramètres sous forme de variables d'environnement au moment de l'exécution. Pour chaque paramètre d'application, deux variables d'environnement sont créées : l'une avec le nom spécifié par l'entrée du paramètre d'application, et l'autre avec le préfixe APPSETTING\_. Elles contiennent toutes les deux la même valeur.
+- Les applications PHP, Python, Java et Node peuvent accéder à ces paramètres sous forme de variables d'environnement au moment de l'exécution. Pour chaque paramètre d'application, deux variables d'environnement sont créées : l'une avec le nom spécifié par l'entrée du paramètre d'application, et l'autre avec le préfixe APPSETTING\_. Elles contiennent toutes les deux la même valeur.
 
 ### Chaînes de connexion
 
 Chaînes de connexion des ressources liées.
 
-Pour les applications .NET, ces chaînes de connexion sont incluses dans les paramètres des `connectionStrings` de votre configuration .NET au moment de l’exécution, en remplacement des entrées existantes où la clé est identique à celle du nom de la base de données liée.
+Pour les applications .NET, ces chaînes de connexion sont incluses dans les paramètres des `connectionStrings` de votre configuration .NET au moment de l’exécution, en remplacement des entrées existantes où la clé est identique à celle du nom de la base de données liée.
 
-Pour les applications PHP, Python, Java et Node, ces paramètres sont disponibles en tant que variables d'environnement au moment de l'exécution, avec le type de connexion comme préfixe. Les préfixes de la variable d'environnement sont les suivants :
+Pour les applications PHP, Python, Java et Node, ces paramètres sont disponibles en tant que variables d'environnement au moment de l'exécution, avec le type de connexion comme préfixe. Les préfixes de la variable d'environnement sont les suivants :
 
-- SQL Server : SQLCONNSTR\_
-- MySQL : MYSQLCONNSTR\_
-- Base de données SQL : SQLAZURECONNSTR\_
-- Personnalisé : CUSTOMCONNSTR\_
+- SQL Server : SQLCONNSTR\_
+- MySQL : MYSQLCONNSTR\_
+- Base de données SQL : SQLAZURECONNSTR\_
+- Personnalisé : CUSTOMCONNSTR\_
 
-Par exemple, si une chaîne de connexion MySql se nomme `connectionstring1`, elle est accessible par le biais de la variable d’environnement `MYSQLCONNSTR_connectionString1`.
+Par exemple, si une chaîne de connexion MySql se nomme `connectionstring1`, elle est accessible par le biais de la variable d’environnement `MYSQLCONNSTR_connectionString1`.
 
 ### Documents par défaut
 
@@ -105,24 +105,24 @@ Pour configurer des applications et des répertoires virtuels, spécifiez chaque
 
 ## Activation des journaux de diagnostic
 
-Pour activer les journaux de diagnostic, procédez comme suit :
+Pour activer les journaux de diagnostic, procédez comme suit :
 
 1. Dans le panneau de votre application Web, cliquez sur **Tous les paramètres**.
 2. Cliquez sur **Journaux de diagnostic**. 
 
-Options liées à l'écriture des journaux de diagnostic à partir d'une application web qui prend en charge la journalisation :
+Options liées à l'écriture des journaux de diagnostic à partir d'une application web qui prend en charge la journalisation :
 
-- **Journalisation des applications**. Enregistre des journaux d’application dans le système de fichiers. La journalisation s’étend sur une période de 12 heures. 
+- **Journalisation des applications**. Enregistre des journaux d’application dans le système de fichiers. La journalisation s’étend sur une période de 12 heures. 
 
 **Niveau**. Lorsque la journalisation des applications est activée, cette option indique la quantité d’informations qui sera enregistrée (Erreur, Avertissement, Information ou Détaillé).
 
-**Journalisation du serveur Web**. Les journaux sont enregistrés au format de fichier journal étendu W3C.
+**Journalisation du serveur Web**. Les journaux sont enregistrés au format de fichier journal étendu W3C.
 
 **Messages d’erreur détaillés**. Enregistre des messages d’erreur détaillés dans des fichiers .htm. Les fichiers sont enregistrés sous /LogFiles/DetailedErrors.
 
 **Suivi des demandes ayant échoué**. Enregistre les demandes ayant échoué dans des fichiers XML. Les fichiers sont enregistrés sous /LogFiles/W3SVC*xxx*, où xxx est un identificateur unique. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Veillez à télécharger le fichier XSL, car il fournit des fonctionnalités de mise en forme et de filtrage du contenu des fichiers XML.
 
-Pour afficher les fichiers journaux, vous devez créer des informations d’identification FTP, comme suit :
+Pour afficher les fichiers journaux, vous devez créer des informations d’identification FTP, comme suit :
 
 1. Dans le panneau de votre application Web, cliquez sur **Tous les paramètres**.
 2. Cliquez sur **Informations d’identification du déploiement**.
@@ -132,7 +132,7 @@ Pour afficher les fichiers journaux, vous devez créer des informations d’iden
 ![](./media/web-sites-configure/configure03.png)
 
 
-Le nom d’utilisateur FTP complet est « app\\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
+Le nom d’utilisateur FTP complet est « app\\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -140,41 +140,41 @@ Le nom d’utilisateur FTP complet est « app\\username », où *app* représ
 
 ### SSL 
 
-En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d’informations, consultez [Activer le protocole HTTPS pour une application Web](web-sites-configure-ssl-certificate.md).
+En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d’informations, consultez [Activer le protocole HTTPS pour une application Web](web-sites-configure-ssl-certificate.md).
 
-Pour afficher vos certificats téléchargés, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
+Pour afficher vos certificats téléchargés, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
 
 ### Noms de domaine
 
-Ajouter des noms de domaine personnalisés pour votre application web. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md).
+Ajouter des noms de domaine personnalisés pour votre application web. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md).
 
-Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
+Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
 
 ### Déploiements
 
 - Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications Web dans Azure App Service](web-sites-publish-source-control.md)
-- Emplacements de déploiement Consultez [Configurer des environnements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md)
+- Emplacements de déploiement Consultez [Configurer des environnements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md)
 
-Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
+Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
 
 
 ### Analyse
 
-En mode De base ou Standard, vous pouvez tester la disponibilité des points de terminaison HTTP ou HTTPS, à partir de trois emplacements géo-distribués au maximum. Un test de surveillance échoue si le code de réponse HTTP est une erreur (4xx ou 5xx) ou si la réponse prend plus de 30 secondes. Un point de terminaison est considéré comme disponible s'il passe avec succès les différents tests de surveillance à partir de tous les emplacements spécifiés.
+En mode De base ou Standard, vous pouvez tester la disponibilité des points de terminaison HTTP ou HTTPS, à partir de trois emplacements géo-distribués au maximum. Un test de surveillance échoue si le code de réponse HTTP est une erreur (4xx ou 5xx) ou si la réponse prend plus de 30 secondes. Un point de terminaison est considéré comme disponible s'il passe avec succès les différents tests de surveillance à partir de tous les emplacements spécifiés.
 
 Pour plus d’informations, consultez [Surveillance de l’état d’un point de terminaison Web](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Étapes suivantes
 
 - [Configurer un nom de domaine personnalisé](web-sites-custom-domain-name.md)
-- [Activer le protocole HTTPS](web-sites-configure-ssl-certificate.md)
-- [Faire évoluer une application Web dans Azure App Service](web-sites-scale.md)
-- [Surveiller les applications Web dans Azure App Service](web-sites-monitor.md)
+- [Activer le protocole HTTPS](web-sites-configure-ssl-certificate.md)
+- [Faire évoluer une application Web dans Azure App Service](web-sites-scale.md)
+- [Surveiller les applications Web dans Azure App Service](web-sites-monitor.md)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
 <!---HONumber=AcomDC_0302_2016-->

@@ -23,7 +23,7 @@ Le service Azure API Management prend en charge la [mise en cache de réponses H
 Le service API Management utilise un cache de données partagé par client, afin que vous puissiez continuer à accéder aux mêmes données mises en cache lorsque vous déployez plusieurs unités. Lorsque vous gérez un déploiement dans plusieurs régions, chacune des régions comporte cependant des caches indépendants. C’est pourquoi il est important de ne pas traiter le cache sous la forme d’un magasin de données où il représente la seule source de certains éléments d’informations. Si vous procédez ainsi, et que vous décidez ensuite de tirer parti du déploiement dans plusieurs régions, les clients ayant des utilisateurs nomades risquent de perdre l’accès à ces données mises en cache.
 
 ## Mise en cache de fragments
-Il peut arriver que, dans les réponses renvoyées, une partie des données soit difficile à déterminer bien qu’elles restent à jour pendant un laps de temps raisonnable. Pensez, par exemple, à un service généré par une compagnie aérienne qui fournit des informations concernant les réservations de vol, l’état du vol, etc. Si l’utilisateur est membre du programme de points de fidélité de la compagnie aérienne, il obtiendrait également des informations relatives à l’état actuel de son adhésion et au nombre de miles cumulé. Ces informations relatives à l’utilisateur peuvent être stockées dans un autre système, mais il peut être souhaitable de les inclure dans les réponses renvoyées concernant les réservations et l’état du vol. Cette opération peut être effectuée à l’aide d’un processus appelé « mise en cache de fragments ». La représentation primaire peut être renvoyée par le serveur d’origine à l’aide d’un type de jeton pour indiquer l’emplacement où les informations relatives à l’utilisateur doivent être insérées.
+Il peut arriver que, dans les réponses renvoyées, une partie des données soit difficile à déterminer bien qu’elles restent à jour pendant un laps de temps raisonnable. Pensez, par exemple, à un service généré par une compagnie aérienne qui fournit des informations concernant les réservations de vol, l’état du vol, etc. Si l’utilisateur est membre du programme de points de fidélité de la compagnie aérienne, il obtiendrait également des informations relatives à l’état actuel de son adhésion et au nombre de miles cumulé. Ces informations relatives à l’utilisateur peuvent être stockées dans un autre système, mais il peut être souhaitable de les inclure dans les réponses renvoyées concernant les réservations et l’état du vol. Cette opération peut être effectuée à l’aide d’un processus appelé « mise en cache de fragments ». La représentation primaire peut être renvoyée par le serveur d’origine à l’aide d’un type de jeton pour indiquer l’emplacement où les informations relatives à l’utilisateur doivent être insérées.
 
 Observez la réponse JSON suivante renvoyée par une API du serveur principal.
 
@@ -37,7 +37,7 @@ Observez la réponse JSON suivante renvoyée par une API du serveur principal.
       "userprofile" : "$userprofile$"
     }  
 
-Voici la ressource secondaire disponible à l’emplacement `/userprofile/{userid}` :
+Voici la ressource secondaire disponible à l’emplacement `/userprofile/{userid}` :
 
      { "username" : "Bob Smith", "Status" : "Gold" }
 
@@ -156,7 +156,7 @@ Une fois que l’on combine toutes ces étapes, on obtient une stratégie sembla
 
 Cette approche de mise en cache est principalement utilisée dans les sites web où le script HTML est composé côté serveur afin de pouvoir être restitué sur une seule page. Elle peut toutefois être également utile dans les API où les clients ne peuvent pas effectuer de mise en cache HTTP côté client, ou lorsqu’il est préférable de ne pas confier cette responsabilité au client.
 
-Ce même type de mise en cache de fragments peut également être effectué sur les serveurs web principaux qui utilisent un serveur de mise en cache Redis ; il est cependant utile de s’appuyer sur le service API Management pour exécuter cette opération lorsque les fragments mis en cache proviennent de serveurs principaux différents de ceux des réponses principales.
+Ce même type de mise en cache de fragments peut également être effectué sur les serveurs web principaux qui utilisent un serveur de mise en cache Redis ; il est cependant utile de s’appuyer sur le service API Management pour exécuter cette opération lorsque les fragments mis en cache proviennent de serveurs principaux différents de ceux des réponses principales.
 
 ## Contrôle de version transparent
 Il n’est pas rare que plusieurs versions différentes d’une implémentation d’une API soient prises en charge simultanément. Cette prise en charge simultanée permet, par exemple, de supporter des environnements différents (environnements de développement, de test, de production, etc.) ou bien de prendre en charge les versions antérieures de l’API pour laisser aux consommateurs de l’API le temps de migrer vers des versions plus récentes.

@@ -17,7 +17,7 @@
  
 # Archivé
 
-Le contenu a été déplacé vers [Prise en main d’Application Insights pour Java](app-insights-java-get-started.md)
+Le contenu a été déplacé vers [Prise en main d’Application Insights pour Java](app-insights-java-get-started.md)
  
 
 <!---HONumber=AcomDC_0302_2016-->

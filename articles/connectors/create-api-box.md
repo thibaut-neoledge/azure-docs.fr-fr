@@ -18,9 +18,9 @@
    ms.author="mandia"/>
 
 # Prendre en main l’API Box
-Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore. L'API Box peut être utilisée à partir de :
+Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore. L'API Box peut être utilisée à partir de :
 
-- Logic Apps 
+- Logic Apps 
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Box](../app-service-logic/app-service-logic-connector-box.md).
 
@@ -52,7 +52,7 @@ Après avoir créé la connexion, vous entrez les propriétés de Box. La sectio
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Box dans d'autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier
 Charge un fichier sur Box. ```POST: /datasets/default/files```
@@ -91,7 +91,7 @@ Copie un fichier vers Box. ```POST: /datasets/default/copyFile```
 | ---|---|---|---|---|---|
 |source|string|Oui|query|Aucun |URL du fichier source|
 |destination|string|Oui|query| Aucun|Chemin de destination du fichier dans Box, y compris le nom de fichier cible|
-|overwrite|booléenne|Non|query| Aucun|Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|Non|query| Aucun|Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -116,13 +116,13 @@ Supprime un fichier de Box. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Extraire une archive dans un dossier
-Extrait un fichier d’archive dans un dossier de Box (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
+Extrait un fichier d’archive dans un dossier de Box (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|Oui|query| |Chemin du fichier d'archive|
 |destination|string|Oui|query| |Chemin dans Box indiquant où extraire le contenu de l'archive|
-|overwrite|booléenne|Non|query| |Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|Non|query| |Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|

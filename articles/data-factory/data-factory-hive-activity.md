@@ -103,7 +103,7 @@ Le **script Hive** pour traiter ces données se présente comme suit :
 
 Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectuer les opérations suivantes :
 
-1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
+1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
 2. Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
 3. Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « HiveSampleIn » et le jeu de données de sortie « HiveSampleOut »
 4. Copiez la requête Hive en tant que fichier vers le stockage d'objets blob Azure configuré à l'étape 2 ci-dessus. Si le service lié pour l'hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service de stockage Azure lié distinct et référencez-le dans la configuration de l'activité. Utilisez **scriptPath** pour spécifier le chemin d'accès au fichier de requête Hive et à **scriptLinkedService** afin de spécifier le stockage Azure qui contient le fichier de script.
@@ -150,7 +150,7 @@ Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectue
 
 Prenons l'exemple où des journaux de jeux sont reçus quotidiennement dans le stockage blob Azure et conservés dans un dossier partitionné par date et par heure. Vous souhaitez paramétrer le script Hive et fournir dynamiquement l'emplacement du dossier d'entrée pendant l'exécution mais aussi produire la sortie partitionnée par date et par heure.
 
-Pour paramétrer le script Hive, procédez comme suit :
+Pour paramétrer le script Hive, procédez comme suit :
 
 - Définissez les paramètres dans **defines**.
 

@@ -22,13 +22,13 @@
 
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps est une solution de choix pour les applications métier. Il s’agit d’applications intranet qui doivent être sécurisées pour une utilisation professionnelle interne. Elles nécessitent généralement une authentification, le plus souvent par rapport à un annuaire d’entreprise, et une forme d’accès ou d’intégration aux données et services locaux.
 
-Voici les principaux avantages du déplacement des applications métier vers App Service Web Apps :
+Voici les principaux avantages du déplacement des applications métier vers App Service Web Apps :
 
 -  Montée et descente en puissance selon les charges de travail dynamiques, par exemple avec une application qui gère les analyses de performances annuelles. Dans le cas d’une grande entreprise, le trafic connaît une très forte augmentation pendant la période d’analyse. Azure offre des options de mise à l'échelle permettant à une entreprise d'accroître ses capacités pendant la période de fort trafic tout en réalisant des économies avec des capacités réduites pendant tout le reste de l'année. 
 -  Intérêt porté sur le développement d’applications, plutôt que sur l’acquisition et la gestion d’infrastructures
--  Meilleure prise en charge des employés et partenaires pour une utilisation de l’application à partir de n’importe quel endroit. Les utilisateurs n'ont en effet pas besoin d'être connectés au réseau de l'entreprise pour pouvoir utiliser l'application, et cela évite au service informatique de devoir mettre en place des solutions de proxy inverse complexes. Plusieurs options d'authentification sont disponibles pour protéger l'accès aux applications ;
+-  Meilleure prise en charge des employés et partenaires pour une utilisation de l’application à partir de n’importe quel endroit. Les utilisateurs n'ont en effet pas besoin d'être connectés au réseau de l'entreprise pour pouvoir utiliser l'application, et cela évite au service informatique de devoir mettre en place des solutions de proxy inverse complexes. Plusieurs options d'authentification sont disponibles pour protéger l'accès aux applications ;
 
-Voici un exemple d’une application métier exécutée sur App Service Web Apps. Il indique les actions possibles lorsque vous vous contentez de combiner des applications web avec d’autres services, pour un investissement technique minime. **Cliquez sur un élément de la topographie pour en savoir plus.**
+Voici un exemple d’une application métier exécutée sur App Service Web Apps. Il indique les actions possibles lorsque vous vous contentez de combiner des applications web avec d’autres services, pour un investissement technique minime. **Cliquez sur un élément de la topographie pour en savoir plus.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
@@ -39,15 +39,15 @@ Ce guide présente les domaines et les tâches parmi les plus courants s’adapt
 
 Apportez vos ressources web existantes dans App Service Web Apps à partir d’une variété de langages et d’infrastructures.
 
-Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe à partir des options de contrôle de code source populaires, comme [Visual Studio], [Visual Studio Team Services] et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe à partir des options de contrôle de code source populaires, comme [Visual Studio], [Visual Studio Team Services] et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
 ## Sécuriser vos ressources
 
 Sécurisez les ressources par chiffrement, authentifiez les utilisateurs d’entreprise locaux et distants, et autorisez l’utilisation des ressources pour ces utilisateurs.
 
-Protégez les ressources internes contre les écoutes clandestines avec [HTTPS]. Le nom de domaine ***.azurewebsites.net** a déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez importer votre certificat SSL pour celui-ci dans App Service Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, consultez [Détails de la tarification d’App Service].
+Protégez les ressources internes contre les écoutes clandestines avec [HTTPS]. Le nom de domaine ***.azurewebsites.net** a déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez importer votre certificat SSL pour celui-ci dans App Service Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, consultez [Détails de la tarification d’App Service].
 
-[Authentifiez les utilisateurs] par rapport à l’annuaire d’entreprise. App Service Web Apps peut authentifier les utilisateurs avec des fournisseurs d’identité locaux tels que les services AD FS (Active Directory Federation Services) ou avec un client Azure Active Directory qui a été synchronisé avec votre déploiement Active Directory d’entreprise. Les utilisateurs peuvent accéder à vos propriétés web dans Web Apps via l’authentification unique lorsqu’ils sont sur site ou sur le terrain. Les services existants, comme Office 365 ou Microsoft Intune, utilisent déjà Azure Active Directory. La fonctionnalité d’[authentification simple] permet d’activer facilement l’authentification avec le même client Azure Active Directory de votre application web.
+[Authentifiez les utilisateurs] par rapport à l’annuaire d’entreprise. App Service Web Apps peut authentifier les utilisateurs avec des fournisseurs d’identité locaux tels que les services AD FS (Active Directory Federation Services) ou avec un client Azure Active Directory qui a été synchronisé avec votre déploiement Active Directory d’entreprise. Les utilisateurs peuvent accéder à vos propriétés web dans Web Apps via l’authentification unique lorsqu’ils sont sur site ou sur le terrain. Les services existants, comme Office 365 ou Microsoft Intune, utilisent déjà Azure Active Directory. La fonctionnalité d’[authentification simple] permet d’activer facilement l’authentification avec le même client Azure Active Directory de votre application web.
 
 [Autorisez les utilisateurs] à utiliser les propriétés web. Avec un minimum de code supplémentaire, vous pouvez intégrer le même modèle de codage ASP.NET local dans App Service Web Apps en utilisant la décoration `[Authorize]`, par exemple. Vous conservez un contrôle d’accès précis d’une grande souplesse, équivalent à celui des applications que vous gérez sur site.
 
@@ -65,13 +65,13 @@ Optimisez votre application métier via la mise à l’échelle automatique, la 
 
 La capacité de [mise à l’échelle] d’App Service Web Apps répond aux besoins de votre application métier, quelle que soit la taille de votre charge de travail. Mettez votre application web manuellement à l’échelle via le [portail Azure], par programmation via l’[API de gestion de service] ou des [scripts PowerShell] ou automatiquement via la fonctionnalité de mise à l’échelle automatique. Au niveau **Standard**, la fonctionnalité de mise à l’échelle automatique vous permet dimensionner une application web automatiquement selon l’utilisation du processeur. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
 
-Améliorez la réactivité de votre application web avec le [cache Redis Azure]. Utilisez-le pour mettre en cache les données des bases de données principales et d’autres éléments, par exemple l’[état de session ASP.NET] et le [cache de sortie].
+Améliorez la réactivité de votre application web avec le [cache Redis Azure]. Utilisez-le pour mettre en cache les données des bases de données principales et d’autres éléments, par exemple l’[état de session ASP.NET] et le [cache de sortie].
 
 Maintenez la haute disponibilité de votre application web à l’aide d’[Azure Traffic Manager]. À l’aide de la méthode **Basculement**, Traffic Manager achemine automatiquement le trafic vers un site secondaire en cas de problème sur le site primaire.
 
 ## Surveillance et analyse
 
-Tenez-vous informé des performances de votre application web avec Azure ou des outils tiers. Recevez des alertes concernant les événements critiques liés à l’application web. Grâce à Application Insight ou à la fonction d’analyse de journaux web du logiciel HDInsight, vous pouvez mieux connaître les utilisateurs.
+Tenez-vous informé des performances de votre application web avec Azure ou des outils tiers. Recevez des alertes concernant les événements critiques liés à l’application web. Grâce à Application Insight ou à la fonction d’analyse de journaux web du logiciel HDInsight, vous pouvez mieux connaître les utilisateurs.
 
 Obtenez un [aperçu rapide] des mesures de performances et des quotas de ressources actuels de l’application web dans le panneau de cette dernière sur le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Pour une évaluation complète de la disponibilité, des performances et de l’utilisation de votre application web, utilisez [Azure Application Insights] et ses puissantes fonctionnalités d’utilisation, de diagnostic et de dépannage. Vous pouvez également utiliser un outil tiers comme [New Relic] pour obtenir des données de surveillance avancées sur vos applications web.
 
@@ -81,9 +81,9 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 
 - [Documentation d’App Service Web Apps](/services/app-service/web/)
 - [Plan d’apprentissage pour Azure App Service Web Apps](/documentation/learning-paths/appservice-webapps/)
-- [Blog web sur Microsoft Azure](/blog/topics/web/)
+- [Blog web sur Microsoft Azure](/blog/topics/web/)
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -115,7 +115,7 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 [Troy Hunt]: https://twitter.com/troyhunt
 [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure]: http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [cache Redis Azure]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[état de session ASP.NET]: https://msdn.microsoft.com/library/azure/dn690522.aspx
+[état de session ASP.NET]: https://msdn.microsoft.com/library/azure/dn690522.aspx
 [cache de sortie]: https://msdn.microsoft.com/library/azure/dn798898.aspx
 [Azure Traffic Manager]: http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
 

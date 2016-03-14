@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Emplacements des points de présence (POP) du réseau de distribution de contenu (CDN) Azure"
-	description="Cette rubrique répertorie les emplacements des points de présence (POP) du réseau de distribution de contenu (CDN) Azure"
+	pageTitle="Emplacements des points de présence (POP) du réseau de distribution de contenu (CDN) Azure"
+	description="Cette rubrique répertorie les emplacements des points de présence (POP) du réseau de distribution de contenu (CDN) Azure"
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -17,7 +17,7 @@
 	ms.author="casoper"/>
 
 
-#Emplacements des points de présence (POP) du réseau de distribution de contenu (CDN) Azure
+#Emplacements des points de présence (POP) du réseau de distribution de contenu (CDN) Azure
 
 Cette rubrique répertorie les emplacements des points de présence (POP) actuels de Microsoft Azure CDN.
 

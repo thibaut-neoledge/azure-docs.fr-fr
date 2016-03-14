@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Résoudre les problèmes de démarrage des rôles | Microsoft Azure"
+   pageTitle="Résoudre les problèmes de démarrage des rôles | Microsoft Azure"
    description="Vous trouverez ici quelques raisons courantes des problèmes de démarrage d’un rôle de service cloud. Nous vous présentons également des solutions à ces problèmes."
    services="cloud-services"
    documentationCenter=""
@@ -24,36 +24,36 @@ Voici des solutions à quelques problèmes courants liés à l’échec du déma
 
 Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/).
 
-Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 ## DLL ou dépendances manquantes
 
-Les rôles qui ne répondent pas ou qui basculent sans cesse entre les états **Initialisation**, **Occupé** et **Arrêt** peuvent être dus à l’absence de bibliothèques DLL ou d’assemblys.
+Les rôles qui ne répondent pas ou qui basculent sans cesse entre les états **Initialisation**, **Occupé** et **Arrêt** peuvent être dus à l’absence de bibliothèques DLL ou d’assemblys.
 
-Symptômes liés à l’absence de bibliothèques DLL ou d’assemblys :
+Symptômes liés à l’absence de bibliothèques DLL ou d’assemblys :
 
 - Votre instance de rôle alterne entre les états **Initialisation**, **Occupé** et **Arrêt**.
 - Votre instance de rôle est passée à l’état **Prêt**, mais le page ne s’affiche pas lorsque vous accédez à votre application web.
 
 Plusieurs méthodes sont recommandées pour rechercher une solution à ces problèmes.
 
-## Diagnostiquer les problèmes de DLL manquante dans un rôle web
+## Diagnostiquer les problèmes de DLL manquante dans un rôle web
 
-Lorsque vous accédez à un site web déployé dans un rôle web et que le navigateur affiche une erreur de serveur semblable à ce qui suit, cela peut indiquer qu’une bibliothèque DLL est manquante.
+Lorsque vous accédez à un site web déployé dans un rôle web et que le navigateur affiche une erreur de serveur semblable à ce qui suit, cela peut indiquer qu’une bibliothèque DLL est manquante.
 
-![Erreur de serveur dans l’application « / ».](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
+![Erreur de serveur dans l’application « / ».](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## Diagnostiquer les problèmes en désactivant les erreurs personnalisées
 
 Vous pouvez afficher des informations plus complètes sur les erreurs en configurant le fichier web.config du rôle web pour qu’il désactive le mode d’erreur personnalisée et en redéployant le service.
 
-Pour afficher des erreurs plus détaillées sans utiliser le Bureau à distance :
+Pour afficher des erreurs plus détaillées sans utiliser le Bureau à distance :
 
 1. Ouvrez la solution dans Microsoft Visual Studio.
 
 2. Dans l’**Explorateur de solutions**, recherchez et ouvrez le fichier web.config.
 
-3. Dans le fichier web.config, recherchez la section system.web et ajoutez la ligne suivante :
+3. Dans le fichier web.config, recherchez la section system.web et ajoutez la ligne suivante :
 
     ```xml
     <customErrors mode="Off" />
@@ -63,13 +63,13 @@ Pour afficher des erreurs plus détaillées sans utiliser le Bureau à distance�
 
 5. Recréez le package et redéployez le service.
 
-Une fois le service redéployé, un message d’erreur s’affiche avec le nom de la DLL ou de l’assembly manquant.
+Une fois le service redéployé, un message d’erreur s’affiche avec le nom de la DLL ou de l’assembly manquant.
 
 ## Diagnostiquer les problèmes en affichant l’erreur à distance
 
-Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher des informations plus complètes sur l’erreur à distance. Pour afficher les erreurs à l’aide du Bureau à distance, procédez comme suit :
+Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher des informations plus complètes sur l’erreur à distance. Pour afficher les erreurs à l’aide du Bureau à distance, procédez comme suit :
 
-1. Assurez-vous que le Kit de développement logiciel (SDK) Azure 1.3 ou ultérieur est installé.
+1. Assurez-vous que le Kit de développement logiciel (SDK) Azure 1.3 ou ultérieur est installé.
 
 2. Lors du déploiement de la solution à l’aide de Visual Studio, choisissez Configurer les connexions Bureau à distance... Pour plus d’informations sur la configuration de la connexion Bureau à distance, consultez l’article [Utilisation du Bureau à distance avec des rôles Azure](../vs-azure-tools-remote-desktop-roles.md).
 
@@ -89,23 +89,23 @@ Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher de
 
 10. Entrez l’adresse et le nom de l’application Web. Par exemple, `http://<IPV4 Address>/default.aspx`.
 
-L’accès au site web renvoie maintenant des messages d’erreur plus explicites :
+L’accès au site web renvoie maintenant des messages d’erreur plus explicites :
 
-* Erreur de serveur dans l’application « / ».
+* Erreur de serveur dans l’application « / ».
 
-* Description : une exception non gérée s’est produite lors de l’exécution de la requête Web en cours. Veuillez consulter l’arborescence des appels de procédure pour plus d’informations sur l’erreur et sa source dans le code.
+* Description : une exception non gérée s’est produite lors de l’exécution de la requête Web en cours. Veuillez consulter l’arborescence des appels de procédure pour plus d’informations sur l’erreur et sa source dans le code.
 
-* Détails de l’exception : System.IO.FIleNotFoundException : impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35 » ou l’une de ses dépendances. Le système ne peut pas trouver le fichier spécifié.
+* Détails de l’exception : System.IO.FIleNotFoundException : impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35 » ou l’une de ses dépendances. Le système ne peut pas trouver le fichier spécifié.
 
-Par exemple :
+Par exemple :
 
-![Erreur de serveur explicite dans l’application « / »](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
+![Erreur de serveur explicite dans l’application « / »](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## Diagnostiquer les problèmes à l’aide de l’émulateur de calcul
 
 Vous pouvez utiliser l’émulateur de calcul Microsoft Azure pour diagnostiquer et résoudre les problèmes de dépendances manquantes et les erreurs du fichier web.config.
 
-Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic, vous devez utiliser un ordinateur ou une machine virtuelle disposant d’une nouvelle installation de Windows. Pour mieux simuler l’environnement Azure, utilisez Windows Server 2008 R2 x64.
+Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic, vous devez utiliser un ordinateur ou une machine virtuelle disposant d’une nouvelle installation de Windows. Pour mieux simuler l’environnement Azure, utilisez Windows Server 2008 R2 x64.
 
 1. Installez la version autonome du [SDK Azure](https://azure.microsoft.com/downloads/)
 
@@ -117,19 +117,19 @@ Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic
 
 5. Sur le nouvel ordinateur, ouvrez une fenêtre d’invite de commandes du Kit de développement logiciel (SDK) Azure et tapez `csrun.exe /devstore:start`.
 
-6. À l’invite de commandes, tapez `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
+6. À l’invite de commandes, tapez `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
 
 7. Au démarrage du rôle, le détail de l’erreur s’affiche dans Internet Explorer. Vous pouvez également utiliser les outils de dépannage Windows standard pour diagnostiquer le problème.
 
 ## Diagnostiquer les problèmes à l’aide d’IntelliTrace
 
-Pour les rôles de travail et les rôles web qui utilisent .NET Framework 4, vous pouvez utiliser l’utilitaire [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), qui est disponible dans [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
+Pour les rôles de travail et les rôles web qui utilisent .NET Framework 4, vous pouvez utiliser l’utilitaire [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), qui est disponible dans [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
 
-Pour déployer le service avec la fonction IntelliTrace activée, procédez comme suit :
+Pour déployer le service avec la fonction IntelliTrace activée, procédez comme suit :
 
-1. Vérifiez que le Kit de développement logiciel (SDK) Azure 1.3 ou ultérieur est installé.
+1. Vérifiez que le Kit de développement logiciel (SDK) Azure 1.3 ou ultérieur est installé.
 
-2. Déployez la solution à l’aide de Visual Studio. Au cours du déploiement, cochez la case **Activer IntelliTrace pour les rôles .NET 4**.
+2. Déployez la solution à l’aide de Visual Studio. Au cours du déploiement, cochez la case **Activer IntelliTrace pour les rôles .NET 4**.
 
 3. Une fois l’instance démarrée, ouvrez l’**Explorateur de serveurs**.
 
@@ -141,13 +141,13 @@ Pour déployer le service avec la fonction IntelliTrace activée, procédez comm
 
 7. Recherchez la section du résumé relative aux exceptions. S’il existe des exceptions, la section s’intitule **Données d’exception**.
 
-8. Développez les **Données d’exception** et recherchez les erreurs **System.IO.FileNotFoundException** semblables à ce qui suit :
+8. Développez les **Données d’exception** et recherchez les erreurs **System.IO.FileNotFoundException** semblables à ce qui suit :
 
 ![Données d’exception, fichier ou assembly manquant](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
-## Résoudre les problèmes de DLL et d’assemblys manquants
+## Résoudre les problèmes de DLL et d’assemblys manquants
 
-Pour résoudre les erreurs liées à des DLL et des assemblies manquants, procédez comme suit :
+Pour résoudre les erreurs liées à des DLL et des assemblies manquants, procédez comme suit :
 
 1. Ouvrez la solution dans Visual Studio.
 
@@ -159,7 +159,7 @@ Pour résoudre les erreurs liées à des DLL et des assemblies manquants, procé
 
 5. Redéployez le service cloud.
 
-Après avoir vérifié que toutes les erreurs ont été corrigées, vous pouvez déployer le service sans cocher la case **Activer IntelliTrace pour les rôles .NET 4**.
+Après avoir vérifié que toutes les erreurs ont été corrigées, vous pouvez déployer le service sans cocher la case **Activer IntelliTrace pour les rôles .NET 4**.
 
 ## Étapes suivantes
 

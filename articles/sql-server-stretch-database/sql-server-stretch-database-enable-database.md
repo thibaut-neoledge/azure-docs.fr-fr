@@ -34,7 +34,7 @@ L’activation de Stretch Database sur une table ou une base de données nécess
 
 -   Recueillez les informations dont vous avez besoin pour créer une base de données distante ou sélectionner une base de données distante existante, et pour créer une règle de pare-feu qui autorise votre serveur local à communiquer avec le serveur distant.
 
-## <a name="EnableTSQLServer"></a>Condition préalable : Autorisation pour activer Stretch Database sur le serveur
+## <a name="EnableTSQLServer"></a>Condition préalable : Autorisation pour activer Stretch Database sur le serveur
 Avant de pouvoir activer Stretch Database sur une base de données ou une table, vous devez l’activer sur le serveur local. Cette opération nécessite des autorisations sysadmin ou serveradmin.
 
 -   Si vous disposez des autorisations d’administration nécessaires, l’Assistant **Activer la base de données pour Stretch** configure le serveur pour Stretch.

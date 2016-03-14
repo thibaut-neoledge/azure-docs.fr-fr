@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob Azure à partir de Python | Microsoft Azure"
+	pageTitle="Utilisation du stockage d’objets blob Azure à partir de Python | Microsoft Azure"
 	description="Découvrez comment utiliser le service BLOB Azure à partir de Python pour charger, répertorier, télécharger et supprimer des objets blob."
 	services="storage"
 	documentationCenter="python"
@@ -34,7 +34,7 @@ Selon le type d'objet blob que vous souhaitez utiliser, créez un objet **BlockB
 
 	from azure.storage.blob import BlockBlobService
 
-Le code suivant crée un objet **BlockBlobService** à l’aide du nom et de la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
+Le code suivant crée un objet **BlockBlobService** à l’aide du nom et de la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le nom et la clé réels de votre compte.
 
 	block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey')
 
@@ -57,7 +57,7 @@ Après cette modification, tous les utilisateurs d'Internet peuvent afficher les
 
 ## Charger un objet blob dans un conteneur
 
-Pour créer un objet blob de blocs et télécharger des données, utilisez les méthodes **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** ou **create\_blob\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour créer un objet blob de blocs et télécharger des données, utilisez les méthodes **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** ou **create\_blob\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
 **create\_blob\_from\_path** télécharge le contenu d’un fichier à partir du chemin spécifié. **create\_blob\_from\_stream** télécharge le contenu à partir d’un fichier/flux déjà ouvert. **create\_blob\_from\_bytes** télécharge un tableau d’octets. **create\_blob\_from\_text** télécharge la valeur de texte spécifiée à l’aide de l’encodage indiqué (UTF-8 par défaut).
 
@@ -81,7 +81,7 @@ Pour répertorier les objets blob dans un conteneur, utilisez la méthode **list
 
 ## Télécharger des objets blob
 
-Pour télécharger les données d’un objet blob, utilisez **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes** ou **get\_blob\_to\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour télécharger les données d’un objet blob, utilisez **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes** ou **get\_blob\_to\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
 L’exemple suivant illustre l’utilisation de **get\_blob\_to\_path** pour télécharger le contenu de l’objet blob **myblob** et le stocker dans le fichier **out-sunset.png**.
 
@@ -97,7 +97,7 @@ Pour supprimer un objet blob, appelez **delete\_blob**.
 
 Il est optimisé pour les opérations d’ajout, telles que la journalisation. Comme un objet blob de blocs, un objet blob d’ajout est composé de blocs. Mais lorsqu’il est ajouté à un objet blob d’ajout, un nouveau bloc l’est toujours à la fin. Vous ne pouvez pas mettre à jour ou supprimer un bloc dans un objet blob d’ajout. Les ID de bloc dans un objet blob d’ajout ne sont pas visibles, comme pour un objet blob de blocs.
 
-Chaque bloc d’un objet blob d’ajout peut avoir une taille différente (jusqu’à 4 Mo), et un objet blob d’ajout peut contenir au maximum 50 000 blocs. La taille maximale d’un objet blob d’ajout est donc légèrement supérieure à 195 Go (4 Mo x 50 000 blocs).
+Chaque bloc d’un objet blob d’ajout peut avoir une taille différente (jusqu’à 4 Mo), et un objet blob d’ajout peut contenir au maximum 50 000 blocs. La taille maximale d’un objet blob d’ajout est donc légèrement supérieure à 195 Go (4 Mo x 50 000 blocs).
 
 L’exemple ci-dessous crée un objet blob d’ajout et y ajoute des données pour simuler une opération de journalisation simple.
 
@@ -120,10 +120,10 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 - [Centre de développement Python](/develop/python/)
 - [API REST des services d’Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
 - [Blog de l'équipe Azure Storage]
-- [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]
+- [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]
 
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
-[Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
+[Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
 <!---HONumber=AcomDC_0302_2016-->

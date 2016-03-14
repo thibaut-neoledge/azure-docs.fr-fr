@@ -17,9 +17,9 @@
 	ms.date="02/28/2016"
 	ms.author="heidist"/>
 
-# Limites de service d’Azure Search
+# Limites de service d’Azure Search
 
-Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent de l’ajout d’Azure Search avec le niveau de tarification **Gratuit**, **De base** ou **Standard**.
+Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent de l’ajout d’Azure Search avec le niveau de tarification **Gratuit**, **De base** ou **Standard**.
 
 - Le niveau **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Il s’agit d’une option sans coût supplémentaire pour les abonnés existants et qui vous permet de tester le service avant de vous inscrire pour obtenir des ressources dédiées. 
 - Le niveau **De base (version préliminaire)** fournit des ressources informatiques dédiées aux charges de production à petite échelle. Ce niveau est actuellement en version préliminaire et bénéficie d’un [tarif réduit](https://azure.microsoft.com/pricing/details/search/).
@@ -33,24 +33,24 @@ Les limites maximales de stockage, de charges de travail et de quantités d’in
 
 ## Limites de clé API
 
-Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés d’administration sont spécifiées dans l’en-tête de la demande et accordent un accès complet en lecture et en écriture au service. Les clés de requête sont en lecture seule, spécifiées dans l’URL et généralement distribuées aux applications clientes.
+Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés d’administration sont spécifiées dans l’en-tête de la demande et accordent un accès complet en lecture et en écriture au service. Les clés de requête sont en lecture seule, spécifiées dans l’URL et généralement distribuées aux applications clientes.
 
-- 2 clés administrateur maximum par service
-- 50 clés de requête maximum par service
+- 2 clés administrateur maximum par service
+- 50 clés de requête maximum par service
 
 ## Limites de requête
 
-- 16 Mo maximum par requête <sup>1</sup>
-- La longueur maximale d’une URL est de 8 Ko
-- 1 000 documents maximum par lot de charges, de fusions ou de suppressions d’index
-- 32 champs maximum dans la clause $orderby
-- La taille maximale des termes de recherche du texte encodé en UTF-8 est de 32 766 octets (32 Ko moins 2 octets)
+- 16 Mo maximum par requête <sup>1</sup>
+- La longueur maximale d’une URL est de 8 Ko
+- 1 000 documents maximum par lot de charges, de fusions ou de suppressions d’index
+- 32 champs maximum dans la clause $orderby
+- La taille maximale des termes de recherche du texte encodé en UTF-8 est de 32 766 octets (32 Ko moins 2 octets)
 
 ## Limites de réponse
 
-- 1 000 documents maximum retournés par page de résultats de recherche
-- 100 suggestions maximum retournées par requête d’API de suggestion
+- 1 000 documents maximum retournés par page de résultats de recherche
+- 100 suggestions maximum retournées par requête d’API de suggestion
 
-<sup>1</sup> Dans Azure Search, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
+<sup>1</sup> Dans Azure Search, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
 
 <!---HONumber=AcomDC_0302_2016-->

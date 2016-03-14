@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Notes de version pour la passerelle de gestion des données | Microsoft Azure Data Factory" 
-	description="Notes de version pour la passerelle de gestion des données" 
+	pageTitle="Notes de version pour la passerelle de gestion des données | Microsoft Azure Data Factory" 
+	description="Notes de version pour la passerelle de gestion des données" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -18,7 +18,7 @@
 
 # Notes de version pour la passerelle de gestion des données
 
-Un des défis de l’intégration de données modernes consiste à déplacer en toute transparence des données vers et depuis un site local et le cloud. Azure Data Factory facilite cette intégration avec la passerelle de gestion des données Microsoft, qui est un agent pouvant être installé en local pour activer le déplacement de données hybrides.
+Un des défis de l’intégration de données modernes consiste à déplacer en toute transparence des données vers et depuis un site local et le cloud. Azure Data Factory facilite cette intégration avec la passerelle de gestion des données Microsoft, qui est un agent pouvant être installé en local pour activer le déplacement de données hybrides.
 
 Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus.
 
@@ -69,8 +69,8 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 
 - Prise en charge des outils de diagnostic dans le Gestionnaire de configuration
 - Prise en charge des colonnes de table pour les sources de données tabulaires pour Microsoft Azure Data Factory
-- Prise en charge de SQL DW pour Microsoft Azure Data Factory
-- Prise en charge de Reclusive dans BlobSource et FileSource pour Microsoft Azure Data Factory
+- Prise en charge de SQL DW pour Microsoft Azure Data Factory
+- Prise en charge de Reclusive dans BlobSource et FileSource pour Microsoft Azure Data Factory
 - Prise en charge de CopyBehavior (MergeFiles, PreserveHierarchy et FlattenHierarchy) dans BlobSink et FileSink avec copie binaire pour Microsoft Azure Data Factory
 - Prise en charge du signalement de progression de l’activité de copie pour Microsoft Azure Data Factory
 - Prise en charge de la validation de connectivité des sources de données pour Microsoft Azure Data Factory
@@ -85,21 +85,21 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 
 ### 1\.6.5658.1
 
-- Prise en charge du récepteur de fichier pour Microsoft Azure Data Factory
-- Prise en charge de la conservation de la hiérarchie dans une copie binaire pour Microsoft Azure Data Factory
-- Prise en charge de l’idempotence de l’activité de copie pour Microsoft Azure Data Factory
+- Prise en charge du récepteur de fichier pour Microsoft Azure Data Factory
+- Prise en charge de la conservation de la hiérarchie dans une copie binaire pour Microsoft Azure Data Factory
+- Prise en charge de l’idempotence de l’activité de copie pour Microsoft Azure Data Factory
 - Résolution des bogues
 
 ### 1\.6.5640.1
 
-- Prise en charge de 3 sources de données supplémentaires pour Microsoft Azure Data Factory (ODBC, OData, HDFS)
-- Prise en charge du caractère guillemet dans l’analyseur CSV pour Microsoft Azure Data Factory
+- Prise en charge de 3 sources de données supplémentaires pour Microsoft Azure Data Factory (ODBC, OData, HDFS)
+- Prise en charge du caractère guillemet dans l’analyseur CSV pour Microsoft Azure Data Factory
 - Prise en charge de la compression (BZip2)
 - Résolution des bogues
 
 ### 1\.5.5612.1
 
-- Prise en charge de 5 bases de données relationnelles pour Microsoft Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata et Sybase)
+- Prise en charge de 5 bases de données relationnelles pour Microsoft Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata et Sybase)
 - Prise en charge de la compression (Gzip et Deflate)
 - Amélioration des performances
 - Résolution des bogues
@@ -107,15 +107,15 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 
 ### 1\.4.5549.1
 
-- Ajout de la prise en charge de source de données Oracle pour Microsoft Azure Data Factory
+- Ajout de la prise en charge de source de données Oracle pour Microsoft Azure Data Factory
 - Amélioration des performances
 - Résolution des bogues
 
 ### 1\.4.5492.1
 
-- Binaire unifié qui prend en charge à la fois des services Microsoft Azure Data Factory et Office 365 Power BI
+- Binaire unifié qui prend en charge à la fois des services Microsoft Azure Data Factory et Office 365 Power BI
 - Affinage du processus d’inscription et de l’interface utilisateur de configuration
-- Microsoft Azure Data Factory : prise en charge des entrées et sorties Azure pour la source de données SQL Server
+- Microsoft Azure Data Factory : prise en charge des entrées et sorties Azure pour la source de données SQL Server
 
 ### 1\.2.5303.1
 
@@ -127,11 +127,11 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 
 ### 1\.0.5144.2
 
-- Aucune modification affectant les scénarios Microsoft Azure Data Factory. 
+- Aucune modification affectant les scénarios Microsoft Azure Data Factory. 
 
 ## Questions et réponses
 
-### Pourquoi le Gestionnaire de sources de données tente-t-il de se connecter à une passerelle ?
+### Pourquoi le Gestionnaire de sources de données tente-t-il de se connecter à une passerelle ?
 Il s’agit d’une conception de sécurité. Elle vous permet uniquement de configurer des sources de données locales pour l’accès au cloud au sein de votre réseau d’entreprise, et vos informations d’identification ne circulent pas en dehors de votre pare-feu d’entreprise. Assurez-vous que votre ordinateur peut atteindre l’ordinateur sur lequel la passerelle est installée.
 
 <!---HONumber=AcomDC_0302_2016-->

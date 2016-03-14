@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Envoi de tâches Hadoop dans HDInsight | Microsoft Azure"
+	pageTitle="Envoi de tâches Hadoop dans HDInsight | Microsoft Azure"
 	description="Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop."
 	editor="cgronlun"
 	manager="paulettm"
@@ -19,9 +19,9 @@
 
 # Envoi de tâches Hadoop dans HDInsight
 
-Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce et Hive et comment utiliser le Kit de développement logiciel (SDK) HDInsight .NET pour envoyer des tâches MapReduce, des tâches de diffusion Hadoop et des tâches Hive.
+Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce et Hive et comment utiliser le Kit de développement logiciel (SDK) HDInsight .NET pour envoyer des tâches MapReduce, des tâches de diffusion Hadoop et des tâches Hive.
 
-> [AZURE.NOTE] Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d'informations sur l'utilisation d'un client Linux, OS X ou Unix avec MapReduce, Hive ou Pig dans HDInsight, consultez les articles suivants et sélectionnez les liens **SSH** ou **Curl** de chacun :
+> [AZURE.NOTE] Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d'informations sur l'utilisation d'un client Linux, OS X ou Unix avec MapReduce, Hive ou Pig dans HDInsight, consultez les articles suivants et sélectionnez les liens **SSH** ou **Curl** de chacun :
 >
 > - [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 > - [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
@@ -29,7 +29,7 @@ Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce
 
 ###Composants requis
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - Un **cluster Azure HDInsight**. Pour obtenir des instructions, consultez [Prendre en main HDInsight][hdinsight-get-started] ou [Créer des clusters Hadoop dans HDInsight][hdinsight-provision].
 - **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installer Azure PowerShell 1.0 et versions ultérieures](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
@@ -42,9 +42,9 @@ Consultez [Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Win
 
 Consultez [Exécution de requêtes Hive avec PowerShell](hdinsight-hadoop-use-hive-powershell.md)
 
-## Soumission de tâches Hive avec Visual Studio
+## Soumission de tâches Hive avec Visual Studio
 
-Consultez [Prise en main des outils HDInsight Hadoop pour Visual Studio][hdinsight-visual-studio-tools].
+Consultez [Prise en main des outils HDInsight Hadoop pour Visual Studio][hdinsight-visual-studio-tools].
 
 ##Envoi de tâches Sqoop avec PowerShell
 
@@ -61,7 +61,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
-2. Utilisez le code suivant :
+2. Utilisez le code suivant :
 
 		using System;
 		using System.Collections.Generic;
@@ -233,10 +233,10 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 
 ##Exécution de travaux Hive à l'aide des outils HDInsight pour Visual Studio
 
-Vous pouvez exécuter des requêtes Hive et Pig à l'aide des outils HDInsight pour Visual Studio Consultez [Prise en main des outils Hadoop de Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
+Vous pouvez exécuter des requêtes Hive et Pig à l'aide des outils HDInsight pour Visual Studio Consultez [Prise en main des outils Hadoop de Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ##Étapes suivantes
-Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
+Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main d'Azure HDInsight][hdinsight-get-started]
 * [Créer des clusters Hadoop dans HDInsight][hdinsight-provision]

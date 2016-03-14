@@ -23,7 +23,7 @@ Le fournisseur de connexions SharePoint met à votre disposition une API pour ut
 
 >[AZURE.NOTE] Cette version de l’article s’applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [SharePoint](../app-service-logic/app-service-logic-connector-SharePoint.md).
 
-Avec SharePoint, vous pouvez effectuer les opérations suivantes :
+Avec SharePoint, vous pouvez effectuer les opérations suivantes :
 
 * Créer des applications logiques
 * Créer des applications PowerApps  
@@ -32,12 +32,12 @@ Pour ajouter une opération aux applications logiques, consultez [Créer une app
 
 ## À propos des déclencheurs et des actions
 
-L’API SharePoint peut être utilisée en tant qu’action ; elle possède un ou plusieurs déclencheurs. Toutes les API prennent en charge les données aux formats JSON et XML.
+L’API SharePoint peut être utilisée en tant qu’action ; elle possède un ou plusieurs déclencheurs. Toutes les API prennent en charge les données aux formats JSON et XML.
 
 L’API SharePoint met à votre disposition les actions et/ou les déclencheurs ci-après.
 
 ### Actions SharePoint
-Vous pouvez effectuer les actions suivantes :
+Vous pouvez effectuer les actions suivantes :
 
 |Action|Description|
 |--- | ---|
@@ -55,7 +55,7 @@ Vous pouvez effectuer les actions suivantes :
 |DeleteItem|Supprime un élément d’une liste SharePoint|
 |PatchItem|Met à jour un élément dans une liste SharePoint|
 ### Déclencheurs SharePoint
-Vous pouvez écouter les événements suivants :
+Vous pouvez écouter les événements suivants :
 
 |Déclencheur | Description|
 |--- | ---|
@@ -66,7 +66,7 @@ Vous pouvez écouter les événements suivants :
 
 
 ## Créer une connexion à SharePoint
-Pour utiliser l’API SharePoint, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
+Pour utiliser l’API SharePoint, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -74,11 +74,11 @@ Pour utiliser l’API SharePoint, vous devez créer une **connexion**, puis four
 
 Pour vous connecter à **SharePoint Online**, vous devez fournir votre identité (nom d’utilisateur et mot de passe, informations d’identification de la carte à puce, etc.) à SharePoint Online. Une fois que vous avez été authentifié, vous pouvez alors utiliser l’API SharePoint Online dans votre application logique.
 
-Dans le Concepteur de votre application logique, procédez comme suit pour vous connecter à SharePoint afin de créer la **connexion** à utiliser dans votre application logique :
+Dans le Concepteur de votre application logique, procédez comme suit pour vous connecter à SharePoint afin de créer la **connexion** à utiliser dans votre application logique :
 
-1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant SharePoint dans leur nom : ![Configurer SharePoint][1]  
+1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant SharePoint dans leur nom : ![Configurer SharePoint][1]  
 2. Sélectionnez **SharePoint Online - Quand un fichier est créé**   
-3. Sélectionnez **Connexion à SharePoint Online** : ![Configurer SharePoint][2]    
+3. Sélectionnez **Connexion à SharePoint Online** : ![Configurer SharePoint][2]    
 4. Entrez vos informations d’identification SharePoint pour vous connecter et vous authentifier auprès de SharePoint ![Configurer SharePoint][3]     
 5. Une fois l’authentification terminée, vous serez redirigé vers votre application logique pour la terminer en configurant la boîte de dialogue **Quand un fichier est créé** de SharePoint. ![Configurer SharePoint][4]  
 6. Vous pouvez ensuite ajouter d’autres déclencheurs et actions dont vous avez besoin pour terminer votre application logique.   
@@ -87,7 +87,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 >[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques ou applications PowerApps, ou les deux.
 
 ## Informations de référence sur l’API REST de SharePoint
-#### Cette documentation concerne la version 1.0.
+#### Cette documentation concerne la version 1.0.
 
 
 ### Obtenir les métadonnées d’un fichier dans la bibliothèque de documents
@@ -101,7 +101,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |id|string|yes|path|(aucun)|Identificateur unique du fichier|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -123,7 +123,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |body| |yes|body|(aucun)|Contenu du fichier|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -144,7 +144,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |id|string|yes|path|(aucun)|Identificateur unique du fichier|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -165,7 +165,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |path|string|yes|query|(aucun)|Chemin du fichier|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -186,7 +186,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |path|string|yes|query|(aucun)|Chemin du fichier|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -207,7 +207,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |id|string|yes|path|(aucun)|Identificateur unique du fichier|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -230,7 +230,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |body| |yes|body|(aucun)|Contenu du fichier|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -253,7 +253,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |overwrite|booléenne|no|query|false|Indique si un fichier existant doit être remplacé|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -274,7 +274,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |folderId|string|yes|query|(aucun)|Identificateur unique du dossier dans SharePoint|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -295,7 +295,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |folderId|string|yes|query|(aucun)|Identificateur unique du dossier dans SharePoint|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -318,7 +318,7 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 |overwrite|booléenne|no|query|false|Indique si un fichier existant doit être remplacé|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -335,15 +335,15 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
+|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
 |table|string|yes|path|(aucun)|Nom de la liste SharePoint|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -360,15 +360,15 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
+|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
 |table|string|yes|path|(aucun)|Nom de la liste SharePoint|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -385,12 +385,12 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
+|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
 |table|string|yes|path|(aucun)|Nom de la liste SharePoint|
 |item| |yes|body|(aucun)|Élément à créer|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -407,12 +407,12 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
+|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
 |table|string|yes|path|(aucun)|Nom de la liste SharePoint|
 |id|integer|yes|path|(aucun)|Identificateur unique de l’élément à récupérer|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -429,12 +429,12 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
+|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
 |table|string|yes|path|(aucun)|Nom de la liste SharePoint|
 |id|integer|yes|path|(aucun)|Identificateur unique de l’élément à supprimer|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -451,13 +451,13 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
+|dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|)
 |table|string|yes|path|(aucun)|Nom de la liste SharePoint|
 |id|integer|yes|path|(aucun)|Identificateur unique de l’élément à mettre à jour|
 |item| |yes|body|(aucun)|Élément avec des propriétés modifiées|
 
 
-### Voici les réponses possibles :
+### Voici les réponses possibles :
 
 |Nom|Description|
 |---|---|
@@ -467,17 +467,17 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
 
 
 
-## Définition(s) d’objet : 
+## Définition(s) d’objet : 
 
- **DataSetsMetadata** :
+ **DataSetsMetadata** :
 
-Propriétés requises pour DataSetsMetadata :
+Propriétés requises pour DataSetsMetadata :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -487,15 +487,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TabularDataSetsMetadata** :
+ **TabularDataSetsMetadata** :
 
-Propriétés requises pour TabularDataSetsMetadata :
+Propriétés requises pour TabularDataSetsMetadata :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -508,15 +508,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **BlobDataSetsMetadata** :
+ **BlobDataSetsMetadata** :
 
-Propriétés requises pour BlobDataSetsMetadata :
+Propriétés requises pour BlobDataSetsMetadata :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -527,15 +527,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **BlobMetadata** :
+ **BlobMetadata** :
 
-Propriétés requises pour BlobMetadata :
+Propriétés requises pour BlobMetadata :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -553,15 +553,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Object** :
+ **Object** :
 
-Propriétés requises pour Object :
+Propriétés requises pour Object :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -569,15 +569,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TableMetadata** :
+ **TableMetadata** :
 
-Propriétés requises pour TableMetadata :
+Propriétés requises pour TableMetadata :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -589,15 +589,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **DataSetsList** :
+ **DataSetsList** :
 
-Propriétés requises pour DataSetsList :
+Propriétés requises pour DataSetsList :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -606,15 +606,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **DataSet** :
+ **DataSet** :
 
-Propriétés requises pour DataSet :
+Propriétés requises pour DataSet :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -624,15 +624,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Table** :
+ **Table** :
 
-Propriétés requises pour Table :
+Propriétés requises pour Table :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -642,15 +642,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Item** :
+ **Item** :
 
-Propriétés requises pour Item :
+Propriétés requises pour Item :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -659,15 +659,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **ItemsList** :
+ **ItemsList** :
 
-Propriétés requises pour ItemsList :
+Propriétés requises pour ItemsList :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -676,15 +676,15 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **TablesList** :
+ **TablesList** :
 
-Propriétés requises pour TablesList :
+Propriétés requises pour TablesList :
 
 
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |

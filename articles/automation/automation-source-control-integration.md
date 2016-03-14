@@ -25,19 +25,19 @@ Le contrôle du code source vous permet de transmettre le code à partir d’Azu
 >[AZURE.NOTE] Le contrôle de code source prend en charge l’extraction et la transmission de [runbooks de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), ainsi que des [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks). Les [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) ne sont pas encore pris en charge.<br><br>
 
 
-Deux étapes simples sont requises pour configurer le contrôle de code source pour votre compte Automation. Une seule étape suffit si vous possédez déjà un compte GitHub. Il s'agit de :
-## Étape 1 : Création d’un référentiel GitHub
+Deux étapes simples sont requises pour configurer le contrôle de code source pour votre compte Automation. Une seule étape suffit si vous possédez déjà un compte GitHub. Il s'agit de :
+## Étape 1 : Création d’un référentiel GitHub
 
-Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez lier à Azure Automation, connectez-vous à votre compte existant et commencez à partir de l’étape 2 ci-dessous. Sinon, accédez à [GitHub](https://github.com/), inscrivez-vous pour obtenir un compte et [créez un référentiel](https://help.github.com/articles/create-a-repo/).
+Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez lier à Azure Automation, connectez-vous à votre compte existant et commencez à partir de l’étape 2 ci-dessous. Sinon, accédez à [GitHub](https://github.com/), inscrivez-vous pour obtenir un compte et [créez un référentiel](https://help.github.com/articles/create-a-repo/).
 
 
-## Étape 2 : Configuration du contrôle de code source dans Azure Automation
+## Étape 2 : Configuration du contrôle de code source dans Azure Automation
 
 1. Dans le panneau Compte Automation du portail Azure, cliquez sur **Définir le contrôle de code source.** 
  
     ![Définition du contrôle de code source](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
-2. Le panneau **Contrôle de code source** s'ouvre. Vous pouvez configurer les détails de votre compte GitHub. Vous trouverez ci-dessous la liste des paramètres à configurer :
+2. Le panneau **Contrôle de code source** s'ouvre. Vous pouvez configurer les détails de votre compte GitHub. Vous trouverez ci-dessous la liste des paramètres à configurer :
 
     |**Paramètre** |**Description** |
     |:---|:---| 
@@ -48,7 +48,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
     |Chemin d’accès au dossier de runbooks | Le chemin d’accès au dossier de runbooks spécifie le chemin d’accès dans le référentiel GitHub à partir duquel vous souhaitez transmettre ou extraire votre code. Il doit être saisi au format **/nomdossier/nomsous-dossier**. Seuls les runbooks du chemin d’accès au dossier de runbooks seront synchronisés avec votre compte Automation. Les runbooks des sous-dossiers du chemin d’accès au dossier de runbooks ne seront **PAS** synchronisés. Utilisez **/** pour synchroniser tous les runbooks dans le référentiel. |
 
 
-3. Par exemple, si vous disposez d'un référentiel nommé **PowerShellScripts** qui contient un dossier nommé **RootFolder**, lequel contient un dossier nommé **SubFolder**. Vous pouvez utiliser les chaînes suivantes pour synchroniser chaque niveau de dossier :
+3. Par exemple, si vous disposez d'un référentiel nommé **PowerShellScripts** qui contient un dossier nommé **RootFolder**, lequel contient un dossier nommé **SubFolder**. Vous pouvez utiliser les chaînes suivantes pour synchroniser chaque niveau de dossier :
 
     1. Pour synchroniser des runbooks à partir du **référentiel**, le chemin d'accès au dossier de runbooks est */*.
     2. Pour synchroniser les runbooks à partir de **RootFolder**, le chemin d'accès au dossier de runbooks est */RootFolder*.
@@ -64,7 +64,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
 
     ![Valeurs du référentiel](media/automation-source-control-integration/automation_03_RepoValues.png)
 
-6. Après avoir configuré le contrôle de code source, les ressources Automation suivantes sont créées dans votre compte Automation : deux [ressources de variables](automation-variables.md) sont créées.
+6. Après avoir configuré le contrôle de code source, les ressources Automation suivantes sont créées dans votre compte Automation : deux [ressources de variables](automation-variables.md) sont créées.
       
     * La variable **Microsoft.Azure.Automation.SourceControl.Connection** contient les valeurs de la chaîne de connexion, comme illustré ci-dessous.  
 
@@ -72,7 +72,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
     |:---|:---|
     | Nom | Microsoft.Azure.Automation.SourceControl.Connection |
     | Type | String |
-    | Valeur | {"Branch" :<*Nom de votre branche*>,"RunbookFolderPath" :<*Chemin d’accès au dossier de runbooks*>,"ProviderType" :<*possède une valeur 1 pour GitHub*>,"Repository" :<*Nom de votre référentiel*>,"Username" :<*Votre nom d’utilisateur GitHub*>} | <br>
+    | Valeur | {"Branch" :<*Nom de votre branche*>,"RunbookFolderPath" :<*Chemin d’accès au dossier de runbooks*>,"ProviderType" :<*possède une valeur 1 pour GitHub*>,"Repository" :<*Nom de votre référentiel*>,"Username" :<*Votre nom d’utilisateur GitHub*>} | <br>
 
 
     * La variable **Microsoft.Azure.Automation.SourceControl.OauthToken** contient la valeur chiffrée sécurisée de votre OAuthToken.  
@@ -85,7 +85,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
 
     ![Variables](media/automation-source-control-integration/automation_04_Variables.png)
 
-    * Le **contrôle de code source Automation** est ajouté en tant qu'application autorisée à votre compte GitHub. Pour afficher l'application : à partir de votre page d'accueil GitHub, accédez à **Profil** > **Paramètres** > **Applications**. Cette application permet à Azure Automation de synchroniser votre référentiel GitHub sur un compte Automation.  
+    * Le **contrôle de code source Automation** est ajouté en tant qu'application autorisée à votre compte GitHub. Pour afficher l'application : à partir de votre page d'accueil GitHub, accédez à **Profil** > **Paramètres** > **Applications**. Cette application permet à Azure Automation de synchroniser votre référentiel GitHub sur un compte Automation.  
 
     ![Application Git](media/automation-source-control-integration/automation_05_GitApplication.png)
 
@@ -95,7 +95,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
 
 ### Archiver un runbook à partir d’Azure Automation vers le contrôle de code source
 
-L’archivage de runbooks vous permet de transmettre les modifications apportées à un runbook dans Azure Automation dans votre référentiel de contrôle de code source. Voici les étapes permettant d’archiver un runbook :
+L’archivage de runbooks vous permet de transmettre les modifications apportées à un runbook dans Azure Automation dans votre référentiel de contrôle de code source. Voici les étapes permettant d’archiver un runbook :
 
 1. À partir de votre compte Automation, [créez un runbook textuel](automation-first-runbook-textual.md) ou [modifiez un runbook textuel existant](automation-edit-textual-runbook.md). Ce runbook peut être un flux de travail PowerShell ou un runbook de script PowerShell.  
 
@@ -110,7 +110,7 @@ L’archivage de runbooks vous permet de transmettre les modifications apportée
 
     ![Message d’archivage](media/automation-source-control-integration/automation_07_CheckinMessage.png)
 
-4. L'archivage démarre le runbook de contrôle du code source : **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. Ce runbook se connecte à GitHub et transmet les modifications d’Azure Automation à votre référentiel. Pour afficher l'historique de la tâche d’archivage, revenez à l'onglet **Intégration du contrôle de code source**, puis cliquez pour ouvrir le panneau Synchronisation du référentiel. Ce panneau affiche toutes vos tâches de contrôle de code source. Sélectionnez la tâche à afficher et cliquez dessus pour afficher les détails.
+4. L'archivage démarre le runbook de contrôle du code source : **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. Ce runbook se connecte à GitHub et transmet les modifications d’Azure Automation à votre référentiel. Pour afficher l'historique de la tâche d’archivage, revenez à l'onglet **Intégration du contrôle de code source**, puis cliquez pour ouvrir le panneau Synchronisation du référentiel. Ce panneau affiche toutes vos tâches de contrôle de code source. Sélectionnez la tâche à afficher et cliquez dessus pour afficher les détails.
 
     ![Runbook d’archivage](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
@@ -120,19 +120,19 @@ L’archivage de runbooks vous permet de transmettre les modifications apportée
 
     ![Entrée d’archivage](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-6. Actualisez votre référentiel GitHub une fois la tâche terminée pour afficher les modifications. Votre référentiel doit intégrer une validation avec un message de validation : ***Nom de runbook* mis à jour dans Azure Automation**.
+6. Actualisez votre référentiel GitHub une fois la tâche terminée pour afficher les modifications. Votre référentiel doit intégrer une validation avec un message de validation : ***Nom de runbook* mis à jour dans Azure Automation**.
 
 
 
 ### Synchroniser des runbooks à partir du contrôle de code source vers Azure Automation 
 
-Le bouton de synchronisation dans le panneau Synchronisation du référentiel vous permet d’extraire tous les runbooks dans le chemin d’accès au dossier de runbooks de votre référentiel vers votre compte Automation. Le même référentiel peut être synchronisé vers plusieurs comptes Automation. Voici les étapes permettant de synchroniser un runbook :
+Le bouton de synchronisation dans le panneau Synchronisation du référentiel vous permet d’extraire tous les runbooks dans le chemin d’accès au dossier de runbooks de votre référentiel vers votre compte Automation. Le même référentiel peut être synchronisé vers plusieurs comptes Automation. Voici les étapes permettant de synchroniser un runbook :
 
 1. À partir du compte Automation dans lequel vous configurez le contrôle de code source, ouvrez le **panneau Intégration du contrôle de code source/Synchronisation du référentiel** et cliquez sur **Synchroniser**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour continuer.  
 
     ![Bouton de synchronisation](media/automation-source-control-integration/automation_10_SyncButtonwithMessage.png)
 
-2. La synchronisation démarre le runbook : **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. Ce runbook se connecte à GitHub et extrait les modifications de votre référentiel vers Azure Automation. Vous devez voir une nouvelle tâche dans le panneau **Synchronisation du référentiel** pour cette action. Pour afficher plus d'informations sur la tâche de synchronisation, cliquez pour ouvrir le panneau des détails de la tâche.
+2. La synchronisation démarre le runbook : **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. Ce runbook se connecte à GitHub et extrait les modifications de votre référentiel vers Azure Automation. Vous devez voir une nouvelle tâche dans le panneau **Synchronisation du référentiel** pour cette action. Pour afficher plus d'informations sur la tâche de synchronisation, cliquez pour ouvrir le panneau des détails de la tâche.
  
     ![Runbook de synchronisation](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
@@ -156,8 +156,8 @@ Pour vous déconnecter de votre compte GitHub, ouvrez le panneau Synchronisation
 
 ## Étapes suivantes
 
-Pour obtenir plus d’informations sur le contrôle de code source, consultez les ressources suivantes :
-- [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+Pour obtenir plus d’informations sur le contrôle de code source, consultez les ressources suivantes :
+- [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 - [Voter pour votre système de contrôle de code source préféré](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 - [Azure Automation : Intégration du contrôle de code source de Runbook à l’aide de Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
 

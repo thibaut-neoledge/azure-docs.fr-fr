@@ -24,7 +24,7 @@
 Cet article explique comment attacher des disques nouveaux et existants à une machine virtuelle via le portail Azure. Avant cela, passez en revue les conseils suivants :
 
 - La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
-- Pour utiliser le stockage de Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
+- Pour utiliser le stockage de Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
 - Les disques attachés aux machines virtuelles sont en fait des fichiers .vhd dans un compte de stockage Azure. Pour en savoir plus, voir la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
 - Pour un nouveau disque, vous n’avez pas besoin de le créer au préalable, car Azure le crée lorsque vous l’attachez.
 - Pour un disque existant, le fichier .vhd doit être disponible dans un compte de stockage Azure. Vous pouvez utiliser un fichier .vhd présent, s’il n’est attaché à aucune autre machine virtuelle, ou charger votre propre fichier .vhd sur le compte de stockage.
@@ -43,7 +43,7 @@ Cet article explique comment attacher des disques nouveaux et existants à une m
 
 Continuez en suivant les instructions pour attacher un disque nouveau ou existant.
 
-## Option 1 : attacher un nouveau disque
+## Option 1 : attacher un nouveau disque
 
 1.	Dans le panneau **Disques**, cliquez sur **Attacher un nouveau disque**.
 
@@ -53,7 +53,7 @@ Continuez en suivant les instructions pour attacher un disque nouveau ou existan
 
 3.	Après qu’Azure a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
 
-## Option 2 : attacher un disque existant
+## Option 2 : attacher un disque existant
 
 1.	Dans le panneau **Disques**, cliquez sur **Attacher un disque existant**.
 
@@ -73,10 +73,10 @@ Continuez en suivant les instructions pour attacher un disque nouveau ou existan
 
 ## Étapes suivantes
 
-Une fois le disque ajouté, vous devez le préparer pour utilisation dans le système d’exploitation de la machine virtuelle :
+Une fois le disque ajouté, vous devez le préparer pour utilisation dans le système d’exploitation de la machine virtuelle :
 
-- Pour Linux, consultez « Initialisation d’un nouveau disque de données sous Linux » dans cet [article](virtual-machines-linux-how-to-attach-disk.md).
-- Pour Windows, consultez « Initialisation d’un nouveau disque de données sous Windows Server » dans cet [article](storage-windows-attach-disk.md).
+- Pour Linux, consultez « Initialisation d’un nouveau disque de données sous Linux » dans cet [article](virtual-machines-linux-how-to-attach-disk.md).
+- Pour Windows, consultez « Initialisation d’un nouveau disque de données sous Windows Server » dans cet [article](storage-windows-attach-disk.md).
 
 ## Ressources supplémentaires
 

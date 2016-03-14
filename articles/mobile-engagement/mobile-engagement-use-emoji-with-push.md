@@ -18,15 +18,15 @@
 
 #Utiliser l’émoticône Emoji dans les notifications push
 
-Vous pouvez inclure des émoticônes Emoji dans votre notification Push en quelques étapes simples :
+Vous pouvez inclure des émoticônes Emoji dans votre notification Push en quelques étapes simples :
 
 1. Recherchez d’abord l’Emoji à insérer dans le message. Veillez à ce qu’elle soit prise en charge par l’appareil cible. En effet, l’ajout d’émoticônes Emoji nouvellement approuvées aux plateformes d’appareils peut prendre un certain temps. 
 
-2. Sur **Windows** : vous pouvez accéder à ce [lien](http://apps.timwhitlock.info/emoji/tables/unicode) et copier l’icône « Native ».
+2. Sur **Windows** : vous pouvez accéder à ce [lien](http://apps.timwhitlock.info/emoji/tables/unicode) et copier l’icône « Native ».
 
 	![][7]
 
-3. Sur **Mac** : les émoticônes Emoji se trouvent dans l’application Dictionnaire sous Modifier -> Emoji et symboles.
+3. Sur **Mac** : les émoticônes Emoji se trouvent dans l’application Dictionnaire sous Modifier -> Emoji et symboles.
 
 	![][6]
 
@@ -40,7 +40,9 @@ Vous pouvez inclure des émoticônes Emoji dans votre notification Push en quelq
 
 7. Lorsque vous exécutez un test ou activez l'annonce, une notification s’affiche avec l'émoticône spécifiée.
 
-	![][3] ![][4] ![][5]
+	![][3] 
+	![][4]
+	![][5]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png

@@ -75,7 +75,7 @@ defines | Spécifier les paramètres sous forme de paires clé/valeur pour le r�
 
 Prenons un exemple d'analyse de journaux de jeux où vous souhaitez identifier le temps passé par les utilisateurs à jouer à des jeux créés par votre entreprise.
  
-Voici un exemple de journal de jeu séparé par des virgules (,) et contenant les champs suivants : ProfileID, SessionStart, Duration, SrcIPAddress et GameType.
+Voici un exemple de journal de jeu séparé par des virgules (,) et contenant les champs suivants : ProfileID, SessionStart, Duration, SrcIPAddress et GameType.
 
 	1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
 	1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
@@ -83,7 +83,7 @@ Voici un exemple de journal de jeu séparé par des virgules (,) et contenant le
 	1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
 	.....
 
-Le **script pig** pour traiter ces données se présente comme suit :
+Le **script pig** pour traiter ces données se présente comme suit :
 
 	PigSampleIn = LOAD 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/samplein/' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
 	
@@ -93,11 +93,11 @@ Le **script pig** pour traiter ces données se présente comme suit :
 	
 	Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/sampleoutpig/' USING PigStorage (',');
 
-Pour exécuter ce script pig dans un pipeline Data Factory, vous devez effectuer les opérations suivantes :
+Pour exécuter ce script pig dans un pipeline Data Factory, vous devez effectuer les opérations suivantes :
 
-1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
-2.	Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
-3.	Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « PigSampleIn » et le jeu de données de sortie « PigSampleOut ».
+1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
+2.	Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
+3.	Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « PigSampleIn » et le jeu de données de sortie « PigSampleOut ».
 4.	Copiez la requête pig en tant que fichier vers le stockage d'objets blob Azure configuré à l'étape 2 ci-dessus. Si le service lié pour l'hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service de stockage Azure lié distinct et référencez-le dans la configuration de l'activité. Utilisez **scriptPath** pour spécifier le chemin d'accès au fichier de requête pig et à **scriptLinkedService** afin de spécifier le stockage Azure qui contient le fichier de script.
 	
 	> [AZURE.NOTE] Vous pouvez également fournir le script en ligne pig dans la définition d'activité à l'aide de la propriété **script**, mais cela n'est pas recommandé car tous les caractères spéciaux du script au sein du document JSON doivent être placés dans une séquence d'échappement, ce qui risque d’entraîner des problèmes de débogage. La meilleure pratique consiste à suivre l’étape 4.
@@ -140,7 +140,7 @@ Pour exécuter ce script pig dans un pipeline Data Factory, vous devez effectuer
 
 Prenons l'exemple où des journaux de jeux sont reçus quotidiennement dans le stockage blob Azure et conservés dans un dossier partitionné par date et par heure. Vous souhaitez paramétrer le script pig et fournir dynamiquement l'emplacement du dossier d'entrée pendant l'exécution mais aussi produire la sortie partitionnée par date et par heure.
  
-Pour paramétrer le script pig, procédez comme suit :
+Pour paramétrer le script pig, procédez comme suit :
 
 - Définissez les paramètres dans **defines**.
 
@@ -179,7 +179,7 @@ Pour paramétrer le script pig, procédez comme suit :
 		  }
 		}  
 	  
-- Dans le script pig, reportez-vous aux paramètres à l'aide de ’**$parameterName**’ comme indiqué dans l'exemple suivant :
+- Dans le script pig, reportez-vous aux paramètres à l'aide de ’**$parameterName**’ comme indiqué dans l'exemple suivant :
 
 		PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);	
 		GroupProfile = Group PigSampleIn all;		

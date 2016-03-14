@@ -42,7 +42,7 @@ La fonctionnalité Stretch Database fournit une prise en charge complète de la 
     ```
 
 ## <a name="MoreInfo"></a>Plus d’informations sur la sauvegarde et la restauration
-Les sauvegardes sur une base de données où Stretch Database est activée contiennent uniquement les données locales et les données éligibles à la limite dans le temps où la sauvegarde s’exécute. Ces sauvegardes contiennent également des informations sur le point de terminaison distant où se trouvent les données distantes de la base de données. On appelle cela une « sauvegarde partielle ». Les sauvegardes complètes qui contiennent toutes les données de la base de données, à la fois locales et distantes, ne sont pas prises en charge.
+Les sauvegardes sur une base de données où Stretch Database est activée contiennent uniquement les données locales et les données éligibles à la limite dans le temps où la sauvegarde s’exécute. Ces sauvegardes contiennent également des informations sur le point de terminaison distant où se trouvent les données distantes de la base de données. On appelle cela une « sauvegarde partielle ». Les sauvegardes complètes qui contiennent toutes les données de la base de données, à la fois locales et distantes, ne sont pas prises en charge.
 
 ![Schéma de sauvegarde Stretch Database][StretchBackupImage1]
 

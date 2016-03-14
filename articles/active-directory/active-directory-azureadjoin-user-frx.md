@@ -19,15 +19,15 @@
 
 # Configuration d’un nouvel appareil avec Azure AD lors de l’installation
 
-Sous Windows 10, les utilisateurs peuvent joindre leur appareil à Azure Active Directory (Azure AD) au cours de l’introduction de l’interface logicielle lors de la première utilisation. Ce système permet aux entreprises de distribuer des appareils emballés à leurs employés et étudiants, ou de les laisser choisir leur propre appareil (CYOD). Si l’édition Windows 10 Professionnel ou Windows 10 Entreprise est installée sur un appareil, l'expérience par défaut est le processus d'installation des appareils d'entreprise.
+Sous Windows 10, les utilisateurs peuvent joindre leur appareil à Azure Active Directory (Azure AD) au cours de l’introduction de l’interface logicielle lors de la première utilisation. Ce système permet aux entreprises de distribuer des appareils emballés à leurs employés et étudiants, ou de les laisser choisir leur propre appareil (CYOD). Si l’édition Windows 10 Professionnel ou Windows 10 Entreprise est installée sur un appareil, l'expérience par défaut est le processus d'installation des appareils d'entreprise.
 
-## Pour joindre un appareil à Azure AD
+## Pour joindre un appareil à Azure AD
 
 
 1. Lorsque vous mettez sous tension votre nouveau périphérique et démarrez le processus d'installation, le message **Préparation** s’affiche. Suivez les invites pour configurer votre appareil.
 2. Commencez par personnaliser votre région et votre langue. Ensuite, acceptez les termes du contrat de licence du logiciel Microsoft. ![Personnalisation pour votre région](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Sélectionnez le réseau que vous souhaitez utiliser pour la connexion à Internet.
-4. Sélectionnez si vous utilisez un périphérique personnel ou un périphérique appartenant à l'entreprise. S’il s’agit d’un périphérique appartenant à l’entreprise, cliquez sur **Ce périphérique appartient à mon organisation**. L'expérience Azure AD Join démarre. Voici un des écrans que vous voyez si vous utilisez Windows 10 Professionnel.
+4. Sélectionnez si vous utilisez un périphérique personnel ou un périphérique appartenant à l'entreprise. S’il s’agit d’un périphérique appartenant à l’entreprise, cliquez sur **Ce périphérique appartient à mon organisation**. L'expérience Azure AD Join démarre. Voici un des écrans que vous voyez si vous utilisez Windows 10 Professionnel.
 <center>
 ![Qui possède cet écran d’ordinateur](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)
 
@@ -45,8 +45,8 @@ Sous Windows 10, les utilisateurs peuvent joindre leur appareil à Azure Active
 > [AZURE.NOTE] Joindre un domaine Active Directory Windows Server local dans Windows Out-of-Box Experience n'est pas pris en charge. Par conséquent, si vous souhaitez joindre un ordinateur à un domaine, vous devez sélectionner le lien **Configurer plutôt Windows à l'aide d'un compte local**. Vous pouvez ensuite joindre le domaine à partir des paramètres de votre ordinateur comme vous l’avez déjà fait auparavant.
 
 ## Informations supplémentaires
-* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Authentification des identités sans mot de passe avec Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)

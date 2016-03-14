@@ -38,7 +38,7 @@ La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile
 
     Pour obtenir une référence à une table de synchronisation, utilisez la méthode `syncTableWithName`. Pour supprimer la fonctionnalité de synchronisation hors connexion, utilisez plutôt `tableWithName`.
 
-2. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Voici le code approprié dans la méthode `QSTodoService.init` :
+2. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Voici le code approprié dans la méthode `QSTodoService.init` :
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -50,7 +50,7 @@ La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile
 
 	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-3. Les méthodes `pullData` et `syncData` effectuent l’opération de synchronisation réelle : `syncData` commence par transmettre par push les nouvelles modifications, puis `pullData` appelle pour obtenir les données à partir du serveur principal distant.
+3. Les méthodes `pullData` et `syncData` effectuent l’opération de synchronisation réelle : `syncData` commence par transmettre par push les nouvelles modifications, puis `pullData` appelle pour obtenir les données à partir du serveur principal distant.
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -61,7 +61,7 @@ La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile
             }];
         }
 
-    Ensuite, la méthode `pullData` obtient de nouvelles données qui correspondent à une requête :
+    Ensuite, la méthode `pullData` obtient de nouvelles données qui correspondent à une requête :
 
         -(void)pullData:(QSCompletionBlock)completion
         {
@@ -96,13 +96,13 @@ La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile
 
 Lorsque vous utilisez un magasin de données de base hors connexion, vous devez définir certaines tables et certains champs dans le modèle de données. L'exemple d'application comprend déjà un modèle de données avec le format correct. Dans cette section, nous allons découvrir ces tables et comment elles sont utilisées.
 
-- Ouvrez **QSDataModel.xcdatamodeld**. Quatre tables sont définies : trois sont utilisées par le Kit de développement logiciel (SDK) et la dernière par les éléments de la tâche :
-      * MS\_TableOperations : pour le suivi des éléments qui doivent être synchronisés avec le serveur
-      * MS\_TableOperationErrors : pour le suivi des erreurs qui se produisent pendant la synchronisation hors connexion
-      * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
-      * TodoItem : pour le stockage des actions. Les colonnes système **createdAt**, **updatedAt** et **version** sont des propriétés système facultatives.
+- Ouvrez **QSDataModel.xcdatamodeld**. Quatre tables sont définies : trois sont utilisées par le Kit de développement logiciel (SDK) et la dernière par les éléments de la tâche :
+      * MS\_TableOperations : pour le suivi des éléments qui doivent être synchronisés avec le serveur
+      * MS\_TableOperationErrors : pour le suivi des erreurs qui se produisent pendant la synchronisation hors connexion
+      * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
+      * TodoItem : pour le stockage des actions. Les colonnes système **createdAt**, **updatedAt** et **version** sont des propriétés système facultatives.
 
->[AZURE.NOTE] Le Kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **``** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
+>[AZURE.NOTE] Le Kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **``** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
 
 - Lorsque vous utilisez la fonctionnalité de synchronisation hors connexion, vous devez définir les tables système comme illustré ci-dessous.
 
@@ -163,13 +163,13 @@ Dans cette section, vous allez modifier l'application afin qu'elle ne se synchro
 
 1. Dans **QSTodoListViewController.m**, modifiez la méthode **viewDidLoad** pour supprimer l’appel à `[self refresh]` à la fin de la méthode. Maintenant, les données ne seront pas synchronisées avec le serveur au démarrage de l'application, mais seront remplacées par le contenu du magasin local.
 
-2. Dans **QSTodoService.m**, modifiez la définition de `addItem` afin que la synchronisation ne se fasse qu’une fois l’élément inséré. Supprimez le bloc `self syncData` et remplacez-le par ce qui suit :
+2. Dans **QSTodoService.m**, modifiez la définition de `addItem` afin que la synchronisation ne se fasse qu’une fois l’élément inséré. Supprimez le bloc `self syncData` et remplacez-le par ce qui suit :
 
             if (completion != nil) {
                 dispatch_async(dispatch_get_main_queue(), completion);
             }
 
-3. Modifiez la définition de `completeItem` comme illustré ci-dessus. Supprimez le bloc de `self syncData` et remplacez-le par ce qui suit :
+3. Modifiez la définition de `completeItem` comme illustré ci-dessus. Supprimez le bloc de `self syncData` et remplacez-le par ce qui suit :
 
             if (completion != nil) {
                 dispatch_async(dispatch_get_main_queue(), completion);
@@ -179,20 +179,20 @@ Dans cette section, vous allez modifier l'application afin qu'elle ne se synchro
 
 Dans cette section, vous allez vous connecter à une URL incorrecte pour simuler un scénario hors connexion. Quand vous ajoutez des éléments de données, ils sont placés dans le magasin local des données de base, mais ne sont pas synchronisés vers le backend mobile.
 
-1. Définissez l’URL de l’application mobile dans **QSTodoService.m** sur une URL non valide, puis réexécutez l’application :
+1. Définissez l’URL de l’application mobile dans **QSTodoService.m** sur une URL non valide, puis réexécutez l’application :
 
         self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
 
 2. Ajoutez des tâches ou marquez-en certaines comme terminées. Fermez le simulateur (ou forcez la fermeture de l'application) et redémarrez. Vérifiez que vos modifications ont bien été rendues persistantes.
 
-3. Affichez le contenu de la table TodoItem distante :
+3. Affichez le contenu de la table TodoItem distante :
 
     + Pour un backend Node.js, accédez au [portail Azure](https://portal.azure.com/), puis dans votre backend d’application mobile, cliquez sur **Easy Tables** > **TodoItem** pour afficher le contenu de la table `TodoItem`.
    	+ Pour un backend .NET, affichez le contenu de la table avec un outil SQL, par exemple SQL Server Management Studio ou un client REST, comme Fiddler ou Postman.
 
-    Vérifiez que les nouveaux éléments n’ont *pas* été synchronisés avec le serveur :
+    Vérifiez que les nouveaux éléments n’ont *pas* été synchronisés avec le serveur :
 
-4. Remplacez l’URL par l’URL correcte dans **QSTodoService.m** et réexécutez l’application. Effectuez l’actualisation en faisant glisser la liste des éléments vers le bas. Vous verrez un compteur de progression et le texte « Synchronisation... ».
+4. Remplacez l’URL par l’URL correcte dans **QSTodoService.m** et réexécutez l’application. Effectuez l’actualisation en faisant glisser la liste des éléments vers le bas. Vous verrez un compteur de progression et le texte « Synchronisation... ».
 
 5. Affichez de nouveau les données TodoItem. Les nouveaux éléments TodoItems et ceux modifiés doivent maintenant s'afficher.
 
@@ -225,7 +225,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 <!-- URLs. -->
 
@@ -238,7 +238,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 <!---HONumber=AcomDC_0302_2016-->

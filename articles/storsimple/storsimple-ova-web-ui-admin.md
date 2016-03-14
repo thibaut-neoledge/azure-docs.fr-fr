@@ -23,7 +23,7 @@
 
 Les didacticiels de cet article s'appliquent à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local) exécutant la version de mise à la disposition générale (mars 2016). Cet article décrit certains des flux de travail et certaines tâches de gestion complexes qui peuvent être effectués sur StorSimple Virtual Array. Vous pouvez gérer StorSimple Virtual Array à l’aide de l'interface utilisateur du service StorSimple Manager (également appelée interface utilisateur du portail) et de l'interface utilisateur web locale de l'appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web.
 
-Cet article inclut les didacticiels suivants :
+Cet article inclut les didacticiels suivants :
 
 - Obtenir la clé de chiffrement des données de service
 - Résoudre les erreurs d'installation de l'interface utilisateur web

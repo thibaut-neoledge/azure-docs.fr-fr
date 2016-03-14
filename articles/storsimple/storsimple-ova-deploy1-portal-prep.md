@@ -68,7 +68,7 @@ Vous trouverez ici les conditions préalables à la configuration de votre servi
 
 ### Pour le service StorSimple Manager
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
 -   Vous disposez d’un compte Microsoft doté d’informations d’identification d’accès.
 
@@ -94,17 +94,17 @@ Avant de déployer un appareil virtuel, assurez-vous que :
 
 ### Pour le réseau du centre de données 
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
 -   Le réseau de votre centre de données est configuré conformément à la configuration réseau requise pour votre appareil StorSimple. Pour plus d'informations, consultez la [Configuration système requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 
--   Votre appareil virtuel StorSimple a une bande passante Internet dédiée de 5 Mbits/s (ou plus) disponible à tout moment. La bande passante ne doit pas être partagée avec d’autres applications.
+-   Votre appareil virtuel StorSimple a une bande passante Internet dédiée de 5 Mbits/s (ou plus) disponible à tout moment. La bande passante ne doit pas être partagée avec d’autres applications.
 
 ## Préparation étape par étape
 
 Utilisez la procédure pas à pas suivante afin de préparer votre portail pour le service StorSimple Manager.
 
-## Étape 1 : Création d’un nouveau service
+## Étape 1 : Création d’un nouveau service
 
 Une seule instance du service StorSimple Manager peut gérer plusieurs appareils StorSimple 1200. Procédez comme suit pour créer une instance du service StorSimple Manager. Si vous disposez d'un service StorSimple Manager existant pour gérer vos appareils 1200, ignorez cette étape et passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
 
@@ -118,10 +118,10 @@ Une seule instance du service StorSimple Manager peut gérer plusieurs appareils
 > - Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#optional-step-configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
 > 
 
-> - Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
+> - Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
 
 
-## Étape 2 : Obtention de la clé d’inscription
+## Étape 2 : Obtention de la clé d’inscription
 
 
 Une fois le service StorSimple Manager opérationnel, vous devez obtenir la clé d’inscription. Cette clé est utilisée pour inscrire et connecter votre appareil StorSimple auprès du service.
@@ -149,7 +149,7 @@ Procédez comme suit dans le [Portail Azure Classic](https://manage.windowsazure
 1.  À la page **Service StorSimple Manager**, cliquez sur le service que vous avez créé. La page **Démarrage rapide** s’affiche. (Vous pouvez cliquer sur l’icône de démarrage rapide à tout moment ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) pour accéder à la page **Démarrage rapide**.)
 
 
-1.  Téléchargez le disque dur virtuel (VHD) ou le VHDX approprié sur un partage réseau de votre centre de données. Des images distinctes sont disponibles pour :
+1.  Téléchargez le disque dur virtuel (VHD) ou le VHDX approprié sur un partage réseau de votre centre de données. Des images distinctes sont disponibles pour :
 
 	-   Hyper-V 2012 et versions ultérieures
 	
@@ -162,7 +162,7 @@ Procédez comme suit dans le [Portail Azure Classic](https://manage.windowsazure
 
 1.  Cliquez sur l'image correspondant au système d'exploitation que vous allez utiliser pour configurer l’appareil virtuel. Vous serez dirigé vers le Centre de téléchargement Microsoft.
 
-1.  Si vous utilisez Hyper-V, téléchargez le VHDX pour Hyper-V 2012 ou le VDH pour Hyper-V 2008 R2 et versions ultérieures. Si vous utilisez VMware, téléchargez le VMDK. Le VHDX est un fichier compressé de 4,77 Go, le VHD est un fichier de 4,77 Go et le VMDK est un fichier de 4,75 Go. La durée de téléchargement du fichier dépend de votre connexion Internet.
+1.  Si vous utilisez Hyper-V, téléchargez le VHDX pour Hyper-V 2012 ou le VDH pour Hyper-V 2008 R2 et versions ultérieures. Si vous utilisez VMware, téléchargez le VMDK. Le VHDX est un fichier compressé de 4,77 Go, le VHD est un fichier de 4,77 Go et le VMDK est un fichier de 4,75 Go. La durée de téléchargement du fichier dépend de votre connexion Internet.
 
 2.  Décompressez le fichier et notez l'emplacement décompressé sur votre lecteur local.
 
@@ -174,19 +174,19 @@ Regardez la vidéo afin d’obtenir des instructions pas à pas pour prendre en 
 
 
 
-## Étape facultative : configuration d’un nouveau compte de stockage pour le service
+## Étape facultative : configuration d’un nouveau compte de stockage pour le service
 
 Il s’agit d’une étape facultative que vous devez exécuter uniquement si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service.
 
 Si vous devez créer un compte de stockage Azure dans une autre région, consultez la page [Création d’un compte de stockage](storage-create-storage-account.md#create-a-storage-account) pour obtenir des instructions détaillées.
 
-Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/) sur la page du service StorSimple Manager pour ajouter un compte de stockage Microsoft Azure existant.
+Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/) sur la page du service StorSimple Manager pour ajouter un compte de stockage Microsoft Azure existant.
 
 #### Pour ajouter un compte de stockage
 
 1.  Sur la page d’accueil du service StorSimple Manager, sélectionnez votre service et double-cliquez dessus. La page **Démarrage rapide** s’affiche. Sélectionnez la page **Configurer**.
 
-2.  Cliquez sur **Ajouter/modifier un compte de stockage**. Dans la boîte de dialogue **Ajouter/modifier un compte de stockage**, procédez comme suit :
+2.  Cliquez sur **Ajouter/modifier un compte de stockage**. Dans la boîte de dialogue **Ajouter/modifier un compte de stockage**, procédez comme suit :
 
 	1.  Cliquez sur **Ajouter nouveau**.
 

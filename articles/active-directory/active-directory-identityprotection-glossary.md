@@ -70,7 +70,7 @@ Méthode d’authentification imposant l’utilisation d’au moins deux modes d
 Détection d’anomalies et évaluation du risque d’un événement, tel qu’une tentative de connexion consécutive à l’événement, concernant un événement qui a déjà eu lieu.
 
 ### Condition de stratégie 	
-Partie d’une stratégie de sécurité qui définit les entités (groupes, utilisateurs, applications, plateformes d’appareils, états d’appareils, plages d’adresses IP, types de client) incluses dans la stratégie ou qui en sont exclues.
+Partie d’une stratégie de sécurité qui définit les entités (groupes, utilisateurs, applications, plateformes d’appareils, états d’appareils, plages d’adresses IP, types de client) incluses dans la stratégie ou qui en sont exclues.
 
 ### Règle de stratégie 	
 Partie d’une stratégie de sécurité qui décrit les circonstances entraînant le déclenchement de la stratégie ainsi que les actions exécutées lors du déclenchement de la stratégie.
@@ -82,7 +82,7 @@ Action visant à protéger l’organisation des dommages liés à l’utilisatio
 Utilisateur qui, au moment d’un événement à risque, possédait des autorisations d’administration permanentes ou temporaires sur une ou plusieurs ressources dans Azure Active Directory. Il peut s’agir, par exemple, d’un administrateur global, d’un administrateur de facturation, d’un administrateur de service, d’un administrateur d’utilisateurs ou encore d’un administrateur de mots de passe.
 
 ###Temps réel 	
-Voir « Détection en temps réel ».
+Voir « Détection en temps réel ».
 
 ###Détection en temps réel 	
 Détection d’anomalies et évaluation du risque d’un événement, tel qu’une tentative de connexion, effectuée avant d’autoriser la poursuite de la progression d’un événement.
@@ -118,7 +118,7 @@ Indication (élevée, moyenne ou faible) de la gravité de la vulnérabilité, v
 Application d’une mesure corrective (par exemple, changement de mot de passe ou réimageage d’un ordinateur) dans le but de rétablir la sécurité d’une identité potentiellement corrompue.
 
 ### Stratégie de sécurité
-Ensemble de règles et conditions de stratégie. Une stratégie peut être appliquée à des entités, telles que des utilisateurs, groupes, applications, appareils, plateformes d’appareils, états d’appareils, plages d’adresses IP et types de clients Auth2.0. Lorsqu’une stratégie est activée, elle est évaluée chaque fois qu’un jeton est généré pour une ressource sur une entité incluse dans la stratégie.
+Ensemble de règles et conditions de stratégie. Une stratégie peut être appliquée à des entités, telles que des utilisateurs, groupes, applications, appareils, plateformes d’appareils, états d’appareils, plages d’adresses IP et types de clients Auth2.0. Lorsqu’une stratégie est activée, elle est évaluée chaque fois qu’un jeton est généré pour une ressource sur une entité incluse dans la stratégie.
 
 ### Se connecter (v) 
 Processus d’authentification d’une identité dans Azure Active Directory.
@@ -126,29 +126,29 @@ Processus d’authentification d’une identité dans Azure Active Directory.
 ### Connexion (n) 
 Processus ou action d’authentification d’une identité dans Azure Active Directory et événement qui capture cette opération.
 
-###Connexion à partir d’une adresse IP anonyme 	
-Événement à risque déclenché après une réussite de connexion à partir d’une adresse IP ayant été identifiée comme adresse IP proxy anonyme.
+###Connexion à partir d’une adresse IP anonyme 	
+Événement à risque déclenché après une réussite de connexion à partir d’une adresse IP ayant été identifiée comme adresse IP proxy anonyme.
 
 ###Connexion à partir d’un appareil infecté 
-Événement à risque déclenché lors d’une connexion provenant d’une adresse IP utilisée par un ou plusieurs appareils corrompus qui tentent activement de communiquer avec un serveur robot.
+Événement à risque déclenché lors d’une connexion provenant d’une adresse IP utilisée par un ou plusieurs appareils corrompus qui tentent activement de communiquer avec un serveur robot.
 
-###Connexion à partir d’une adresse IP affichant une activité suspecte 
-Événement à risque déclenché après une réussite de connexion à partir d’une adresse IP associée à un grand nombre de tentatives de connexion effectuées pendant une courte période sur plusieurs comptes d’utilisateur.
+###Connexion à partir d’une adresse IP affichant une activité suspecte 
+Événement à risque déclenché après une réussite de connexion à partir d’une adresse IP associée à un grand nombre de tentatives de connexion effectuées pendant une courte période sur plusieurs comptes d’utilisateur.
 
 ###Connexion à partir d’un emplacement inconnu 
-Événement à risque déclenché lorsqu’un utilisateur parvient à se connecter depuis un nouvel emplacement (adresse IP, latitude/longitude et ASN).
+Événement à risque déclenché lorsqu’un utilisateur parvient à se connecter depuis un nouvel emplacement (adresse IP, latitude/longitude et ASN).
 
 ###Risque à la connexion 	
-Voir « Niveau de risque (connexion) »
+Voir « Niveau de risque (connexion) »
 
 ###Stratégie en matière de risque à la connexion 	
 Stratégie d’accès conditionnel consistant à évaluer le risque associé à une connexion spécifique et qui applique des mesures d’atténuation à partir de règles et de conditions prédéfinies.
 
 ###Risque de compromission de l’utilisateur 	
-Voir « Niveau de risque (compromission de l’utilisateur) »
+Voir « Niveau de risque (compromission de l’utilisateur) »
 
 ###Risque de l’utilisateur 	
-Voir « Niveau de risque (compromission de l’utilisateur) ».
+Voir « Niveau de risque (compromission de l’utilisateur) ».
 
 ###Stratégie de risque d’utilisateur 	
 Stratégie d’accès conditionnel consistant à évaluer la connexion et qui applique des mesures d’atténuation à partir de règles et de conditions prédéfinies.

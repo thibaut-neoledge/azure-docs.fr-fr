@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights pour les applications web qui sont déjà actives" 
+	pageTitle="Application Insights pour les applications web qui sont déjà actives" 
 	description="Commencez à surveiller une application web qui est déjà en cours d’exécution sur votre serveur." 
 	services="application-insights" 
     documentationCenter="java"
@@ -15,13 +15,13 @@
 	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
-# Application Insights pour les applications web qui sont déjà actives
+# Application Insights pour les applications web qui sont déjà actives
 
 *Application Insights est à l'état de version préliminaire.*
 
-Si vous disposez d’une application web qui est déjà en cours d’exécution sur votre serveur J2EE, vous pouvez commencer à la surveiller avec [Application Insights](app-insights-overview.md) sans avoir à modifier le code ni à recompiler votre projet. Grâce à cette option, vous obtenez des informations sur les requêtes HTTP envoyées à votre serveur, les exceptions non gérées et les compteurs de performances.
+Si vous disposez d’une application web qui est déjà en cours d’exécution sur votre serveur J2EE, vous pouvez commencer à la surveiller avec [Application Insights](app-insights-overview.md) sans avoir à modifier le code ni à recompiler votre projet. Grâce à cette option, vous obtenez des informations sur les requêtes HTTP envoyées à votre serveur, les exceptions non gérées et les compteurs de performances.
 
-Vous devrez vous abonner à [Microsoft Azure](https://azure.com).
+Vous devrez vous abonner à [Microsoft Azure](https://azure.com).
 
 > [AZURE.NOTE] La procédure décrite ici ajoute le Kit de développement logiciel (SDK) à votre application web au moment de l’exécution. Cette opération est utile si vous ne souhaitez pas mettre à jour ni régénérer votre code source. Mais si vous le pouvez, nous vous recommandons plutôt d’[ajouter le Kit de développement logiciel au code source](app-insights-java-get-started.md). Cette approche vous offre davantage d’options, telles que l’écriture de code pour effectuer le suivi de l’activité des utilisateurs.
 
@@ -40,7 +40,7 @@ Vous devrez vous abonner à [Microsoft Azure](https://azure.com).
 
 ## 2\. Télécharger le Kit de développement logiciel (SDK)
 
-1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
+1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
 2. Sur votre serveur, extrayez le contenu du Kit de développement logiciel dans le répertoire à partir duquel les fichiers binaires de votre projet sont chargés. Si vous utilisez Tomcat, le contenu est généralement extrait sous `webapps<your_app_name>\WEB-INF\lib`.
 
 
@@ -83,7 +83,7 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 
 * La clé d'instrumentation est envoyée avec chaque élément de télémétrie et indique à Application Insights de l'afficher dans votre ressource.
 * Le composant de demande HTTP est facultatif. Il envoie automatiquement la télémétrie concernant les demandes et les temps de réponse au portail.
-* La corrélation des événements est un complément au composant de demande HTTP. Il assigne un identificateur à chaque demande reçue par le serveur et l'ajoute comme propriété de chaque élément de télémétrie en tant que propriété « Operation.Id ». Il vous permet de mettre en corrélation la télémétrie associée à chaque demande en définissant un filtre dans [recherche de diagnostic](app-insights-diagnostic-search.md).
+* La corrélation des événements est un complément au composant de demande HTTP. Il assigne un identificateur à chaque demande reçue par le serveur et l'ajoute comme propriété de chaque élément de télémétrie en tant que propriété « Operation.Id ». Il vous permet de mettre en corrélation la télémétrie associée à chaque demande en définissant un filtre dans [recherche de diagnostic](app-insights-diagnostic-search.md).
 
 
 ## 4\. Ajouter un filtre HTTP

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Mise en cache de jetons d’accès dans une application multi-locataire | Microsoft Azure"
+   pageTitle="Mise en cache de jetons d’accès dans une application multi-locataire | Microsoft Azure"
    description="Mise en cache des jetons d’accès utilisés pour appeler une API web de serveur principal"
    services=""
    documentationCenter="na"
@@ -22,9 +22,9 @@
 
 Cet article fait [partie d’une série]. Un [exemple d’application] accompagne également cette série.
 
-Il est relativement coûteux d’obtenir un jeton d’accès OAuth, car cette opération requiert une requête HTTP au point de terminaison de jeton. Par conséquent, il est bon de mettre en cache les jetons lorsque cela est possible. La [bibliothèque ADAL (Active Directory Authentication Library)][ADAL] met automatiquement en cache les jetons obtenus à partir d’Azure AD, notamment des jetons d’actualisation.
+Il est relativement coûteux d’obtenir un jeton d’accès OAuth, car cette opération requiert une requête HTTP au point de terminaison de jeton. Par conséquent, il est bon de mettre en cache les jetons lorsque cela est possible. La [bibliothèque ADAL (Active Directory Authentication Library)][ADAL] met automatiquement en cache les jetons obtenus à partir d’Azure AD, notamment des jetons d’actualisation.
 
-ADAL fournit une implémentation de cache de jeton par défaut. Toutefois, ce cache de jeton est destiné aux applications clientes natives et n’est _pas_ approprié pour les applications web :
+ADAL fournit une implémentation de cache de jeton par défaut. Toutefois, ce cache de jeton est destiné aux applications clientes natives et n’est _pas_ approprié pour les applications web :
 
 -	Il s’agit d’une instance statique, qui n’est pas thread-safe.
 -	Elle ne convient pas pour un grand nombre d’utilisateurs, car les jetons de tous les utilisateurs sont placés dans le même dictionnaire.
@@ -34,12 +34,12 @@ Au lieu de cela, vous devez implémenter un cache de jeton personnalisé qui dé
 
 La classe `TokenCache` stocke un dictionnaire de jetons, indexées par émetteur, ressource, ID de client et utilisateur. Un cache de jeton personnalisé doit écrire ce dictionnaire dans un magasin de stockage, comme un cache Redis.
 
-Dans l’application Surveys de Tailspin, la classe `DistributedTokenCache` implémente le cache de jeton. Cette implémentation utilise l’abstraction [IDistributedCache][distributed-cache] d’ASP.NET Core 1.0. De cette façon, toute implémentation d’`IDistributedCache` peut être utilisée comme magasin de stockage.
+Dans l’application Surveys de Tailspin, la classe `DistributedTokenCache` implémente le cache de jeton. Cette implémentation utilise l’abstraction [IDistributedCache][distributed-cache] d’ASP.NET Core 1.0. De cette façon, toute implémentation d’`IDistributedCache` peut être utilisée comme magasin de stockage.
 
 -	Par défaut, l’application Surveys utilise un cache Redis.
--	Pour un serveur web d’instance unique, vous pouvez utiliser le [cache en mémoire][in-memory-cache] d’ASP.NET Core 1.0. (Cette option est également idéale pour exécuter l’application localement pendant le développement.)
+-	Pour un serveur web d’instance unique, vous pouvez utiliser le [cache en mémoire][in-memory-cache] d’ASP.NET Core 1.0. (Cette option est également idéale pour exécuter l’application localement pendant le développement.)
 
-> [AZURE.NOTE] Actuellement, le cache Redis n’est pas pris en charge pour .NET Core.
+> [AZURE.NOTE] Actuellement, le cache Redis n’est pas pris en charge pour .NET Core.
 
 `DistributedTokenCache` stocke les données du cache sous la forme de paires clé/valeur dans le magasin de stockage. La clé est l’identifiant utilisateur plus l’ID client. Le magasin de stockage contient donc des données du cache distinctes pour chaque combinaison unique de client/utilisateur.
 
@@ -49,16 +49,16 @@ Le magasin de stockage est partitionné par utilisateur. Pour chaque requête HT
 
 ## Chiffrement des jetons mis en cache
 
-Les jetons sont des données sensibles, car ils accordent l’accès aux ressources d’un utilisateur. (De plus, contrairement au mot de passe d’un utilisateur, vous ne pouvez pas simplement stocker un hachage du jeton.) Par conséquent, il est essentiel d’éviter que les jetons soient compromis. La cache sauvegardé dans Redis est protégé par un mot de passe, mais si une personne obtient ce mot de passe, elle peut accéder à tous les jetons d’accès mis en cache. C’est pourquoi le `DistributedTokenCache` chiffre tout ce qu’il écrit dans le magasin de stockage. Le chiffrement est effectué à l’aide des API de [protection des données][data-protection] ASP.NET Core 1.0.
+Les jetons sont des données sensibles, car ils accordent l’accès aux ressources d’un utilisateur. (De plus, contrairement au mot de passe d’un utilisateur, vous ne pouvez pas simplement stocker un hachage du jeton.) Par conséquent, il est essentiel d’éviter que les jetons soient compromis. La cache sauvegardé dans Redis est protégé par un mot de passe, mais si une personne obtient ce mot de passe, elle peut accéder à tous les jetons d’accès mis en cache. C’est pourquoi le `DistributedTokenCache` chiffre tout ce qu’il écrit dans le magasin de stockage. Le chiffrement est effectué à l’aide des API de [protection des données][data-protection] ASP.NET Core 1.0.
 
-> [AZURE.NOTE] Si vous effectuez un déploiement sur des sites web Azure, les clés de chiffrement sont sauvegardées dans le stockage réseau et synchronisées sur toutes les machines (consultez [Gestion des clés][key-management]). Par défaut, les clés ne sont pas chiffrées lors de l’exécution dans des sites web Azure, mais vous pouvez [activer le chiffrement à l’aide d’un certificat X.509][x509-cert-encryption].
+> [AZURE.NOTE] Si vous effectuez un déploiement sur des sites web Azure, les clés de chiffrement sont sauvegardées dans le stockage réseau et synchronisées sur toutes les machines (consultez [Gestion des clés][key-management]). Par défaut, les clés ne sont pas chiffrées lors de l’exécution dans des sites web Azure, mais vous pouvez [activer le chiffrement à l’aide d’un certificat X.509][x509-cert-encryption].
 
 
 ## Implémentation de DistributedTokenCache
 
 La classe [DistributedTokenCache][DistributedTokenCache] dérive de la classe [TokenCache][tokencache-class] ADAL.
 
-Dans le constructeur, la classe `DistributedTokenCache` crée une clé pour l’utilisateur actuel et charge le cache à partir du magasin de stockage :
+Dans le constructeur, la classe `DistributedTokenCache` crée une clé pour l’utilisateur actuel et charge le cache à partir du magasin de stockage :
 
 ```csharp
 public DistributedTokenCache(
@@ -78,7 +78,7 @@ public DistributedTokenCache(
 }
 ```
 
-La clé est créée en concaténant l’identifiant utilisateur et l’ID client. Ces deux éléments proviennent de revendications se trouvant dans le `ClaimsPrincipal` de l’utilisateur :
+La clé est créée en concaténant l’identifiant utilisateur et l’ID client. Ces deux éléments proviennent de revendications se trouvant dans le `ClaimsPrincipal` de l’utilisateur :
 
 ```csharp
 private static string BuildCacheKey(ClaimsPrincipal claimsPrincipal)
@@ -133,7 +133,7 @@ public void AfterAccessNotification(TokenCacheNotificationArgs args)
 }
 ```
 
-TokenCache envoie deux autres événements :
+TokenCache envoie deux autres événements :
 
 - `BeforeWrite`. Appelé juste avant que la bibliothèque ADAL effectue une opération d’écriture dans le cache. Vous pouvez l’utiliser pour implémenter une stratégie d’accès concurrentiel.
 - `BeforeAccess`. Appelé juste avant que la bibliothèque ADAL effectue une opération de lecture à partir du cache. Vous pouvez recharger ici le cache pour obtenir la version la plus récente.

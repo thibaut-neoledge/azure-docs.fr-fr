@@ -19,7 +19,7 @@
    
 # Conventions d’affectation de noms recommandées pour les ressources Azure
 
-Le choix du nom de chaque ressource dans Microsoft Azure est essentiel à plusieurs titres :
+Le choix du nom de chaque ressource dans Microsoft Azure est essentiel à plusieurs titres :
 
 - Il est difficile de modifier un nom ultérieurement.
 - Les noms doivent répondre aux exigences du type de ressource correspondant.
@@ -34,7 +34,7 @@ La clé du succès consiste à mettre en place les conventions d’affectation d
 
 L’affectation de noms détaillés aux abonnements Azure permet de mieux comprendre leur contexte et leur objet. Lorsque vous travaillez dans un environnement qui peut contenir de nombreux abonnements, l’application d’une convention d’affectation de noms partagée permet de gagner considérablement en clarté.
 
-À titre d’exemple, nous recommandons le modèle suivant pour nommer des abonnements :
+À titre d’exemple, nous recommandons le modèle suivant pour nommer des abonnements :
 
 `<Company> <Department (optional)> <Product Line (optional)> <Environment>`
 
@@ -59,7 +59,7 @@ L’affectation de noms détaillés aux abonnements Azure permet de mieux compre
 
 Lorsque vous nommez des ressources dans Azure, il est recommandé d’utiliser des préfixes ou des suffixes courants pour identifier le type et le contexte de la ressource. Alors que toutes les informations sur le type, les métadonnées et le contexte sont disponibles par programme, l’utilisation d’affixes courants simplifie l’identification visuelle. Lorsque vous incorporez des affixes dans votre convention d’affectation de noms, il est important d’indiquer clairement s’il sera placé au début du nom (préfixe) ou à la fin (suffixe).
 
-Voici deux exemples de noms possibles pour un service hébergeant un moteur de calcul :
+Voici deux exemples de noms possibles pour un service hébergeant un moteur de calcul :
 
 - SvcCalculationEngine (préfixe)
 - CalculationEngineSvc (suffixe)
@@ -91,7 +91,7 @@ D’une manière générale, évitez d’utiliser des caractères spéciaux (`-`
 | Storage | Nom du compte de stockage (données) | Globale | 3-24 | Minuscules | Alphanumérique | `<service short name><type><number>` | `profxdata001` |
 | Storage | Nom du compte de stockage (disques) | Globale | 3-24 | Minuscules | Alphanumérique | `<vm name without dashes>st<number>` | `profxsql001st0` |
 | Storage | Nom du conteneur | Compte de stockage | 3-63 |	Minuscules | Alphanumériques et tiret | `<context>` | `logs` |
-| Storage | Nom de l’objet blob | Conteneur | 1-1024 | Respect de la casse | Tout caractère d’URL | `<variable based on blob usage>` | `<variable based on blob usage>` |
+| Storage | Nom de l’objet blob | Conteneur | 1-1024 | Respect de la casse | Tout caractère d’URL | `<variable based on blob usage>` | `<variable based on blob usage>` |
 | Storage | Nom de la file d'attente | Compte de stockage | 3-63 | Minuscules | Alphanumériques et tiret | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
 | Storage | Nom de la table | Compte de stockage | 3-63 |Non-respect de la casse | Alphanumérique | `<service short name>-<context>` | `awesomeservice-logs` |
 | Storage | Nom de fichier | Compte de stockage | 3-63 | Minuscules | Alphanumérique | `<variable based on blob usage>` | `<variable based on blob usage>` |
@@ -112,23 +112,23 @@ D’une manière générale, évitez d’utiliser des caractères spéciaux (`-`
 
 ## Organisation des ressources à l’aide de balises
 
-Azure Resource Manager prend en charge le balisage d’entités avec des chaînes de texte arbitraires pour identifier le contexte et simplifier l’automatisation. Par exemple, une balise telle que `"sqlVersion: "sql2014ee"` peut identifier toute machine virtuelle d’un déploiement exécutant SQL Server 2014 Enterprise Edition, permettant d’exécuter un script automatisé sur ces derniers. Les balises doivent être intégrées aux conventions d’affectation de noms choisies pour préciser ou améliorer le contexte.
+Azure Resource Manager prend en charge le balisage d’entités avec des chaînes de texte arbitraires pour identifier le contexte et simplifier l’automatisation. Par exemple, une balise telle que `"sqlVersion: "sql2014ee"` peut identifier toute machine virtuelle d’un déploiement exécutant SQL Server 2014 Enterprise Edition, permettant d’exécuter un script automatisé sur ces derniers. Les balises doivent être intégrées aux conventions d’affectation de noms choisies pour préciser ou améliorer le contexte.
 
 > [AZURE.TIP] Elles offrent également l’avantage de s’étendre sur les groupes de ressources, ce qui vous permet de lier et mettre en corrélation les entités dans des environnements disparates.
 
-Chaque ressource ou groupe de ressources peut inclure un maximum de **15** balises. Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères.
+Chaque ressource ou groupe de ressources peut inclure un maximum de **15** balises. Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères.
 
 Pour plus d’informations sur le balisage des ressources, consultez [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
 
-Les balises sont notamment utilisées dans les cas suivants :
+Les balises sont notamment utilisées dans les cas suivants :
 
-- **Facturation** ; regroupement et association des ressources à des codes de facturation interne ou externe
-- **Identification du contexte de service** ; identification de groupes parmi les groupes de ressources pour les opérations courantes et à des fins de regroupement
-- **Contrôle d’accès et contexte de sécurité** ; identification du rôle d’administrateur en fonction du portefeuille, du système, du service, de l’application, de l’instance, etc. 
+- **Facturation** ; regroupement et association des ressources à des codes de facturation interne ou externe
+- **Identification du contexte de service** ; identification de groupes parmi les groupes de ressources pour les opérations courantes et à des fins de regroupement
+- **Contrôle d’accès et contexte de sécurité** ; identification du rôle d’administrateur en fonction du portefeuille, du système, du service, de l’application, de l’instance, etc. 
 
-> [AZURE.TIP] Effectuez un balisage précoce et fréquent. Il est préférable de mettre en place un système de balisage de base et de l’affiner progressivement, plutôt que d’avoir à effectuer des adaptations a posteriori.
+> [AZURE.TIP] Effectuez un balisage précoce et fréquent. Il est préférable de mettre en place un système de balisage de base et de l’affiner progressivement, plutôt que d’avoir à effectuer des adaptations a posteriori.
 
-Voici un exemple d’approche de balisage courante :
+Voici un exemple d’approche de balisage courante :
 
 | Nom de la balise | Clé | Exemple | Commentaire |
 | -------- | --- | ------- | ------- |
@@ -156,7 +156,7 @@ Pour les topologies de grande envergure notamment, il convient de nommer les mac
 
 ###	Comptes de stockage et entités de stockage
 
-Il existe deux principaux cas d’utilisation de comptes de stockage : sauvegarde des disques pour les machines virtuelles et stockage de données dans les objets blob, les files d’attente et les tables. Pour les comptes de stockage utilisés pour les disques de machine virtuelle, la convention d’affectation de noms doit impliquer leur association au nom de la machine virtuelle parent (de par la nécessité potentielle de disposer de plusieurs comptes de stockage pour les références (SKU) de machines virtuelles haut de gamme, il convient également d’utiliser un suffixe numérique).
+Il existe deux principaux cas d’utilisation de comptes de stockage : sauvegarde des disques pour les machines virtuelles et stockage de données dans les objets blob, les files d’attente et les tables. Pour les comptes de stockage utilisés pour les disques de machine virtuelle, la convention d’affectation de noms doit impliquer leur association au nom de la machine virtuelle parent (de par la nécessité potentielle de disposer de plusieurs comptes de stockage pour les références (SKU) de machines virtuelles haut de gamme, il convient également d’utiliser un suffixe numérique).
 
 > [AZURE.TIP] Les comptes de stockage (pour les données ou les disques) doivent suivre une convention d’affectation de noms permettant d’exploiter plusieurs comptes de stockage (par exemple, en utilisant systématiquement un suffixe numérique).
 
@@ -166,9 +166,9 @@ Cependant, si vous mappez un domaine personnalisé (tel que www.contoso.com) au 
 
 Pour plus d’informations sur la configuration de cette fonctionnalité, consultez [Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage](../storage/storage-custom-domain-name.md).
 
-Pour plus d’informations sur l’affectation de noms aux objets blob, conteneurs et tables :
+Pour plus d’informations sur l’affectation de noms aux objets blob, conteneurs et tables :
 
-- [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](https://msdn.microsoft.com/library/dd135715.aspx)
+- [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](https://msdn.microsoft.com/library/dd135715.aspx)
 - [Affectation de noms pour les files d’attente et les métadonnées](https://msdn.microsoft.com/library/dd179349.aspx).
 - [Noms de table](https://msdn.microsoft.com/library/azure/dd179338.aspx)
 
@@ -178,18 +178,18 @@ Vous ne pouvez pas modifier le nom d’un compte de stockage ou d’un conteneur
 
 > [AZURE.TIP] Nous vous recommandons d’établir une convention d’affectation de noms pour tous les types et comptes de stockage avant de commencer le développement d’un nouveau service ou d’une nouvelle application.
 
-## Exemple : déploiement d’un service multiniveau
+## Exemple : déploiement d’un service multiniveau
 
-Dans cet exemple, nous allons définir une configuration de service multiniveau intégrant des serveurs frontaux IIS (hébergés dans des machines virtuelles Windows Server), avec SQL Server (hébergé dans deux machines virtuelles Windows Server), un cluster ElasticSearch (hébergé dans 6 machines virtuelles Linux) et les comptes de stockage, les réseaux virtuels, le groupe de ressources et l’équilibreur de charge associés.
+Dans cet exemple, nous allons définir une configuration de service multiniveau intégrant des serveurs frontaux IIS (hébergés dans des machines virtuelles Windows Server), avec SQL Server (hébergé dans deux machines virtuelles Windows Server), un cluster ElasticSearch (hébergé dans 6 machines virtuelles Linux) et les comptes de stockage, les réseaux virtuels, le groupe de ressources et l’équilibreur de charge associés.
 
-Nous commencerons par définir les conventions contextuelles de cette application :
+Nous commencerons par définir les conventions contextuelles de cette application :
 
 | Entité | Convention | Description |
 | ------ | ---------- | ------------ |  
 | Nom du service | `profx` | Le nom court de l’application ou du service en cours de déploiement |
 | Environnement | `prod` | Il s’agit du déploiement de production (par opposition à l’aq, au test, etc.). |
 
-À partir de cette ligne de base, nous pouvons définir les conventions pour chacun des types de ressource :
+À partir de cette ligne de base, nous pouvons définir les conventions pour chacun des types de ressource :
 
 | Type de ressource | Base de la convention | Exemple |
 | ------------- | --------------- | ------- |
@@ -201,7 +201,7 @@ Nous commencerons par définir les conventions contextuelles de cette applicatio
 | Machine virtuelle | `servicename-role[number]` | `profx-sql0` |
 | Compte de stockage | `<vmnamenodashes>st<num>` | `profxsql0st0` |
 
-Le diagramme ci-dessous en offre une illustration :
+Le diagramme ci-dessous en offre une illustration :
 
 ![diagramme de topologie d’application](media/guidance-naming-conventions/guidance-naming-convention-example.png "Exemple de topologie d’application")
 

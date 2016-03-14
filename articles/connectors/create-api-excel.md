@@ -1,5 +1,5 @@
 <properties
-pageTitle="Ajouter l’API Excel à PowerApps Enterprise | Microsoft Azure"
+pageTitle="Ajouter l’API Excel à PowerApps Enterprise | Microsoft Azure"
 description="Vue d'ensemble de l'API Excel avec les paramètres de l'API REST"
 services=""	
 documentationCenter="" 	
@@ -19,7 +19,7 @@ ms.author="deonhe"/>
 
 # Prendre en main l’API Excel
 
-Connectez-vous à Excel pour insérer une ligne, supprimer une ligne, et bien plus encore. L’API Excel peut être utilisée à partir de :
+Connectez-vous à Excel pour insérer une ligne, supprimer une ligne, et bien plus encore. L’API Excel peut être utilisée à partir de :
 
 - PowerApps
 
@@ -39,7 +39,7 @@ Excel inclut les actions suivantes. Il n'y a aucun déclencheur.
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 ### Insère une nouvelle ligne dans le tableau Excel.
 ```POST: /datasets/{dataset}/tables/{table}/items```

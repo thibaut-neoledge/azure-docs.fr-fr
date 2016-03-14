@@ -24,7 +24,7 @@ Découvrez les problèmes de blocage que vous devez résoudre avant de pouvoir a
 Dans la version préliminaire actuelle de SQL Server 2016, les éléments suivants rendent une table inéligible pour Stretch.
 
 **Propriétés des tables**
--   Plus de 1 023 colonnes
+-   Plus de 1 023 colonnes
 
 -   Plus de 998 index
 

@@ -33,7 +33,7 @@ Vous trouverez ici les conditions requises pour configurer un appareil virtuel s
 
 ### Pour le service StorSimple Manager
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
 -   Vous avez terminé toutes les étapes de la rubrique [Préparation du portail pour StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
@@ -57,7 +57,7 @@ Avant de déployer un appareil virtuel, assurez-vous que :
 
 ### Pour le réseau dans le centre de données 
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
 -   Vous avez passé en revue la configuration réseau requise pour déployer un appareil virtuel StorSimple et configuré le réseau du centre de données conformément à la configuration requise. Pour plus d'informations, consultez le Guide des spécifications système Microsoft Azure StorSimple Virtual Array.
 
@@ -207,7 +207,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image31.png)
 
-1.  Sur la page **Créer un disque**, définissez la **taille du disque** sur 500 Go (ou plus). Sous **Configuration du disque**, sélectionnez **Allocation dynamique**. Cliquez sur **Next**.
+1.  Sur la page **Créer un disque**, définissez la **taille du disque** sur 500 Go (ou plus). Sous **Configuration du disque**, sélectionnez **Allocation dynamique**. Cliquez sur **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image32.png)
 
@@ -247,7 +247,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image39.png)
 
-1.  Entrez un mot de passe contenant au moins 8 caractères. Le mot de passe doit contenir 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux. Entrez de nouveau le mot de passe pour le confirmer. Un message vous avertit que le mot de passe a été modifié.
+1.  Entrez un mot de passe contenant au moins 8 caractères. Le mot de passe doit contenir 3 caractères sur 4 en majuscules, minuscules, chiffres et caractères spéciaux. Entrez de nouveau le mot de passe pour le confirmer. Un message vous avertit que le mot de passe a été modifié.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image40.png)
 
@@ -265,7 +265,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image43.png)
 
-1.  Utilisez l’applet de commande Set-HcsIpAddress pour configurer le réseau. Voici un exemple :
+1.  Utilisez l’applet de commande Set-HcsIpAddress pour configurer le réseau. Voici un exemple :
 
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
@@ -276,7 +276,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
 
-Si votre périphérique ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Vous devez modifier la configuration de l'appareil afin qu'il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise à l’[étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Si votre périphérique ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Vous devez modifier la configuration de l'appareil afin qu'il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise à l’[étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 

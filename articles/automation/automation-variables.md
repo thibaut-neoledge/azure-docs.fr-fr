@@ -75,7 +75,7 @@ Les activités de workflow du tableau suivant sont utilisées pour accéder aux 
 1. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer la nouvelle variable.
 
 
-### Pour créer une variable avec Windows PowerShell
+### Pour créer une variable avec Windows PowerShell
 
 L'applet de commande [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) crée une variable et définit sa valeur initiale. Vous pouvez récupérer la valeur en utilisant [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx). Si la valeur est un type simple, ce même type est retourné. S'il s'agit d'un type complexe, un **PSCustomObject** est retourné.
 

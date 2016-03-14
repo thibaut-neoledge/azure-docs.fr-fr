@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter l’API Microsoft Translator à PowerApps Enterprise ou des applications logiques | Microsoft Azure"
+	pageTitle="Ajouter l’API Microsoft Translator à PowerApps Enterprise ou des applications logiques | Microsoft Azure"
 	description="Vue d'ensemble de l'API Microsoft Translator avec les paramètres de l'API REST"
 	services=""
     suite=""
@@ -19,10 +19,10 @@
    ms.author="mandia"/>
 
 # Prendre en main l'API Microsoft Translator
-Connectez-vous à Microsoft Translator pour traduire un texte, détecter une langue, et bien plus encore. L’API Microsoft Translator peut être utilisée à partir de :
+Connectez-vous à Microsoft Translator pour traduire un texte, détecter une langue, et bien plus encore. L’API Microsoft Translator peut être utilisée à partir de :
 
 - PowerApps 
-- Logic Apps 
+- Logic Apps 
 
 Avec Microsoft Translator, vous pouvez :
 
@@ -50,7 +50,7 @@ Lorsque vous ajoutez Microsoft Translator à PowerApps Enterprise, vous entrez l
 
 1. Accédez à [page de développeur Azure Data Market][5] et connectez-vous avec votre compte Microsoft. 
 
-2. Sélectionnez **Inscrire votre application** :
+2. Sélectionnez **Inscrire votre application** :
 
 	1. Entrez une valeur dans le champ **ID client**.
 	2. Entrez le **nom** de votre application.
@@ -64,7 +64,7 @@ Maintenant copiez/collez les valeurs **ID client** et **clé secrète client** d
 
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 ### Détecter la langue    
 Détecte la langue source du texte. ```GET: /Detect```
@@ -86,7 +86,7 @@ Effectue la synthèse vocale d’un texte sous forme d’un flux audio au format
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |query|string|yes|query|(aucun) |Texte à convertir|
-|language|string|yes|query|(aucun) |Code de la langue pour la synthèse vocale (exemple : « fr-FR »)|
+|language|string|yes|query|(aucun) |Code de la langue pour la synthèse vocale (exemple : « fr-FR »)|
 
 #### Response
 |Nom|Description|

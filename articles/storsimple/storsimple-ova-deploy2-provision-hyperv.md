@@ -22,18 +22,18 @@
 
 ## Vue d’ensemble 
 
-Ce didacticiel sur la configuration s'applique aux Microsoft Azure StorSimple Virtual Arrays (également appelés appareils virtuel StorSimple locaux ou appareils virtuels StorSimple) exécutant la version de mise à la disposition générale (mars 2016). Ce didacticiel explique comment configurer StorSimple Virtual Array sur un système hôte exécutant Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2.
+Ce didacticiel sur la configuration s'applique aux Microsoft Azure StorSimple Virtual Arrays (également appelés appareils virtuel StorSimple locaux ou appareils virtuels StorSimple) exécutant la version de mise à la disposition générale (mars 2016). Ce didacticiel explique comment configurer StorSimple Virtual Array sur un système hôte exécutant Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2.
 
 Vous aurez besoin de privilèges d'administrateur pour configurer un appareil virtuel. La configuration initiale peut prendre environ 10 minutes.
 
 
 ## Configuration des composants requis
 
-Vous trouverez ici les conditions requises pour configurer un appareil virtuel sur un ordinateur hôte Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2.
+Vous trouverez ici les conditions requises pour configurer un appareil virtuel sur un ordinateur hôte Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2.
 
 ### Pour le service StorSimple Manager
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
 -   Vous avez terminé toutes les étapes de la rubrique [Préparation du portail pour StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
@@ -59,7 +59,7 @@ Avant de déployer un appareil virtuel, assurez-vous que :
 
 ### Pour le réseau dans le centre de données 
 
-Avant de commencer, assurez-vous que :
+Avant de commencer, assurez-vous que :
 
 -   Vous avez passé en revue la configuration réseau requise pour déployer un appareil virtuel StorSimple et configuré le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez [Configuration réseau requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md#networking-requirements).
 
@@ -116,7 +116,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  Dans la page **Spécifier la génération**, sélectionnez **Génération 1**. Si vous utilisez un VHDX (pour Windows Server 2012 ou une version ultérieure), choisissez **Génération 2**. Cliquez sur **Next**.
+1.  Dans la page **Spécifier la génération**, sélectionnez **Génération 1**. Si vous utilisez un VHDX (pour Windows Server 2012 ou une version ultérieure), choisissez **Génération 2**. Cliquez sur **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
@@ -158,7 +158,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image11.png)
 
-1.  Pour répondre à la configuration minimale requise, vous devez également ajouter un disque de données virtuel de 500 Go. Sur la page **Paramètres** :
+1.  Pour répondre à la configuration minimale requise, vous devez également ajouter un disque de données virtuel de 500 Go. Sur la page **Paramètres** :
 
     1.  Dans le volet gauche, sélectionnez **Contrôleur SCSI**. 
     2.  Dans le volet droit, sélectionnez **Disque dur** et cliquez sur **Ajouter**.
@@ -244,7 +244,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image29.png)
 
-1.  Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voici un exemple :
+1.  Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voici un exemple :
 
  	`Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 

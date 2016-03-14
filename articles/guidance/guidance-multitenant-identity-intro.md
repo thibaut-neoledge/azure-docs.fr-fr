@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion des identités pour les applications multi-locataires | Microsoft Azure"
+   pageTitle="Gestion des identités pour les applications multi-locataires | Microsoft Azure"
    description="Présentation de la gestion des identités pour les applications multi-locataires"
    services=""
    documentationCenter="na"
@@ -17,26 +17,26 @@
    ms.date="02/16/2016"
    ms.author="mwasson"/>
 
-# Gestion des identités pour les applications multi-locataires : Introduction
+# Gestion des identités pour les applications multi-locataires : Introduction
 
 Cet article fait [partie d’une série]. Un [exemple d’application] accompagne également cette série.
 
-Supposons que vous écriviez une application SaaS d’entreprise pour qu’elle soit hébergée dans le cloud. Bien sûr, cette application aura des utilisateurs :
+Supposons que vous écriviez une application SaaS d’entreprise pour qu’elle soit hébergée dans le cloud. Bien sûr, cette application aura des utilisateurs :
 
 ![Utilisateurs](media/guidance-multitenant-identity/users.png)
 
-Mais ces utilisateurs appartiennent à des organisations :
+Mais ces utilisateurs appartiennent à des organisations :
 
 ![Utilisateurs d’organisation](media/guidance-multitenant-identity/org-users.png)
 
-Exemple : Tailspin vend des abonnements à son application SaaS. Contoso et Fabrikam s’inscrivent à l’application. Quand Alice (`alice@contoso`) s’inscrit, l’application doit savoir qu’Alice fait partie de Contoso.
+Exemple : Tailspin vend des abonnements à son application SaaS. Contoso et Fabrikam s’inscrivent à l’application. Quand Alice (`alice@contoso`) s’inscrit, l’application doit savoir qu’Alice fait partie de Contoso.
 
 - Alice _doit_ avoir accès aux données Contoso.
 - Alice _ne doit pas_ avoir accès aux données Fabrikam.
 
-Ce guide vous explique comment gérer des identités d’utilisateurs dans une application multi-locataire, en utilisant [Azure Active Directory][AzureAD] (Azure AD) pour gérer la connexion et l’authentification.
+Ce guide vous explique comment gérer des identités d’utilisateurs dans une application multi-locataire, en utilisant [Azure Active Directory][AzureAD] (Azure AD) pour gérer la connexion et l’authentification.
 
-## Qu’est-ce que l’architecture mutualisée ?
+## Qu’est-ce que l’architecture mutualisée ?
 
 Un _locataire_ est un groupe d’utilisateurs. Dans une application SaaS, le locataire est un abonné ou un client de l’application. L’_architecture mutualisée_ est une architecture où plusieurs locataires partagent la même instance physique de l’application. Bien que les locataires partagent des ressources physiques (par exemple, les machines virtuelles ou le stockage), chaque locataire obtient sa propre instance logique de l’application.
 
@@ -69,16 +69,16 @@ Dans une application multi-locataire, vous devez considérer les utilisateurs da
 **Autorisation**
 
 - Lors de l’autorisation d’actions d’un utilisateur (par exemple, l’affichage d’une ressource), l’application doit prendre en compte le locataire de l’utilisateur.
-- Des rôles peuvent être affectés aux utilisateurs de dans l’application, comme « Admin » ou « Utilisateur Standard ». Les attributions de rôles doivent être gérées par le client, et non par le fournisseur SaaS.
+- Des rôles peuvent être affectés aux utilisateurs de dans l’application, comme « Admin » ou « Utilisateur Standard ». Les attributions de rôles doivent être gérées par le client, et non par le fournisseur SaaS.
 
-**Exemple**. Alice, une employée de Contoso, accède à l’application dans son navigateur et clique sur le bouton « Se connecter ». Elle est redirigée vers un écran de connexion où elle entre ses informations d’identification d’entreprise (nom d’utilisateur et mot de passe). À ce stade, elle est connectée à l’application en tant que `alice@contoso.com`. L’application sait également qu’Alice est un utilisateur administrateur pour cette application. En tant qu’administrateur, elle peut voir la liste de toutes les ressources qui appartiennent à Contoso. Toutefois, elle ne peut pas afficher les ressources de Fabrikam, car elle est un administrateur uniquement au sein de son locataire.
+**Exemple**. Alice, une employée de Contoso, accède à l’application dans son navigateur et clique sur le bouton « Se connecter ». Elle est redirigée vers un écran de connexion où elle entre ses informations d’identification d’entreprise (nom d’utilisateur et mot de passe). À ce stade, elle est connectée à l’application en tant que `alice@contoso.com`. L’application sait également qu’Alice est un utilisateur administrateur pour cette application. En tant qu’administrateur, elle peut voir la liste de toutes les ressources qui appartiennent à Contoso. Toutefois, elle ne peut pas afficher les ressources de Fabrikam, car elle est un administrateur uniquement au sein de son locataire.
 
-Dans ce guide, nous examinerons plus particulièrement l’utilisation d’Azure AD pour la gestion des identités.
+Dans ce guide, nous examinerons plus particulièrement l’utilisation d’Azure AD pour la gestion des identités.
 
-- Nous supposons que le client stocke ses profils utilisateur dans Azure AD (notamment les locataires Office 365 et Dynamics CRM).
-- Les clients disposant d’Active Directory (AD) local peuvent utiliser [Azure AD Connect][ADConnect] pour synchroniser leur AD local avec Azure AD.
+- Nous supposons que le client stocke ses profils utilisateur dans Azure AD (notamment les locataires Office 365 et Dynamics CRM).
+- Les clients disposant d’Active Directory (AD) local peuvent utiliser [Azure AD Connect][ADConnect] pour synchroniser leur AD local avec Azure AD.
 
-Si un client disposant d’AD local ne peut pas utiliser Azure AD Connect (en raison d’une stratégie informatique d’entreprise ou pour d’autres raisons), le fournisseur SaaS peut fédérer avec l’AD du client via les services ADFS (Active Directory Federation Services). Cette option est décrite dans [Fédération avec les services ADFS d’un client].
+Si un client disposant d’AD local ne peut pas utiliser Azure AD Connect (en raison d’une stratégie informatique d’entreprise ou pour d’autres raisons), le fournisseur SaaS peut fédérer avec l’AD du client via les services ADFS (Active Directory Federation Services). Cette option est décrite dans [Fédération avec les services ADFS d’un client].
 
 Ce guide ne prend pas en considération les autres aspects d’une architecture mutualisée, comme le partitionnement des données, la configuration par locataire, etc.
 

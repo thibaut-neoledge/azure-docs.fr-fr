@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuration d’un appareil Windows 10 avec Azure AD à partir des paramètres| Microsoft Azure"
+	pageTitle="Configuration d’un appareil Windows 10 avec Azure AD à partir des paramètres| Microsoft Azure"
 	description="Explique comment les utilisateurs peuvent rejoindre Azure AD via le menu Paramètres."
 	services="active-directory"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="02/26/2016"
 	ms.author="femila"/>
 
-# Configuration d’un appareil Windows 10 avec Azure AD à partir des paramètres
+# Configuration d’un appareil Windows 10 avec Azure AD à partir des paramètres
 Si vous utilisez déjà Windows 7 ou Windows 8 et que votre ordinateur ou appareil a été mis à niveau vers Windows 10, vous pouvez le joindre à Azure Active Directory (Azure AD) avec le menu Paramètres.
 
 ## Joindre votre ordinateur à Azure AD à partir du menu Paramètres
@@ -31,9 +31,9 @@ Si vous utilisez déjà Windows 7 ou Windows 8 et que votre ordinateur ou appare
 <center> ![Fenêtre de message Rejoindre Azure AD](./media/active-directory-azureadjoin/active-directory-azureadjoin-message.png) </center>
 4. Indiquez vos informations d’identification de connexion. Ce processus de connexion inclut toutes les étapes requises pour l’authentification. Si vous faites partie d’un client fédéré, votre administrateur vous proposera un processus hébergé par votre organisation.
 <center> ![Entrer des informations d’identification de connexion](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
-5. Si votre organisation a configuré Azure Multi-Factor Authentication pour joindre vos appareils à Azure AD, vous devrez fournir le second facteur avant de pouvoir continuer.
+5. Si votre organisation a configuré Azure Multi-Factor Authentication pour joindre vos appareils à Azure AD, vous devrez fournir le second facteur avant de pouvoir continuer.
 6. Cliquez sur **Accepter** sur l’écran **Autoriser la gestion de ce périphérique**.
-7. Le message « Votre appareil est maintenant joint à votre organisation dans Azure AD » doit apparaître.
+7. Le message « Votre appareil est maintenant joint à votre organisation dans Azure AD » doit apparaître.
 
 
 ## Informations supplémentaires

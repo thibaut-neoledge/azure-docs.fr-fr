@@ -17,14 +17,14 @@
 	ms.author="robb"/>
 
 
-# Qu'est-ce que les diagnostics Microsoft Azure ?
+# Qu'est-ce que les diagnostics Microsoft Azure ?
 
 
 Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et les rôles de travail Azure Cloud Service, Azure Virtual Machines sous Microsoft Windows et Service Fabric. Les autres services Azure ont leurs propres diagnostics distincts.
 
 ## Données que vous pouvez collecter
 
-Les diagnostics Azure peuvent collecter les types de données suivants :
+Les diagnostics Azure peuvent collecter les types de données suivants :
 
 Source de données|Description
 ---|---
@@ -47,7 +47,7 @@ Voir [Historique de contrôle de version des diagnostics Azure](azure-diagnostic
 ## Étapes suivantes
 Choisissez le service sur lequel vous voulez collecter des diagnostics et utilisez les articles suivants pour commencer. Utilisez les liens des diagnostics Azure généraux comme référence pour des tâches spécifiques.
 
-## Applications Web
+## Applications Web
 Notez que Web Apps n'utilise pas les diagnostics Azure. Trouver les informations équivalentes sur [Web Apps](./app-service-web/web-sites-enable-diagnostic-log.md)
 
 ## Cloud Services avec les diagnostics Azure

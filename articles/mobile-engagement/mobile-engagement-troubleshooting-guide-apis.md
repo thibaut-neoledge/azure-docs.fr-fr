@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Guide de résolution des problèmes d'Azure Mobile Engagement : les API" 
-   description="Guides de dépannage pour Azure Mobile Engagement : les API" 
+   pageTitle="Guide de résolution des problèmes d'Azure Mobile Engagement : les API" 
+   description="Guides de dépannage pour Azure Mobile Engagement : les API" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -27,11 +27,11 @@ Les problèmes suivants sont des problèmes que vous pouvez rencontrer lorsque d
 
 ### Causes
 
-- Problèmes de syntaxe :
+- Problèmes de syntaxe :
     - Veillez à vérifier la syntaxe de l'API spécifique que vous utilisez pour vérifier que l'option est disponible.
     - Un problème courant avec l'utilisation de l'API est la confusion entre l'API Reach et l'API Push (la plupart des tâches doivent être effectuées avec l'API Reach et non l'API Push). 
     - Un autre problème courant avec l'intégration du SDK et l'utilisation de l'API est la confusion entre la clé du Kit de développement logiciel et la clé d'API.
-    - Les scripts qui se connectent aux API doivent envoyer des données au moins 10 minutes, ou la connexion expire (fréquent surtout dans les scripts d'analyse API écoute pour les données). Pour éviter les délais d'attente, faites en sorte que votre script envoie une commande ping XMPP toutes les 10 minutes afin que la session avec le serveur reste active.
+    - Les scripts qui se connectent aux API doivent envoyer des données au moins 10 minutes, ou la connexion expire (fréquent surtout dans les scripts d'analyse API écoute pour les données). Pour éviter les délais d'attente, faites en sorte que votre script envoie une commande ping XMPP toutes les 10 minutes afin que la session avec le serveur reste active.
 
 ### Voir aussi
  
@@ -58,7 +58,7 @@ Les problèmes suivants sont des problèmes que vous pouvez rencontrer lorsque d
 
 ### Causes
 
-- Voici une liste composite de numéros de codes d'état d'API courants pour référence et dépannage préliminaire :
+- Voici une liste composite de numéros de codes d'état d'API courants pour référence et dépannage préliminaire :
 
         200        Success.
         200        Account updated: device registered, associated, updated, or removed from the current account.
@@ -82,7 +82,7 @@ Les problèmes suivants sont des problèmes que vous pouvez rencontrer lorsque d
 
 ### Voir aussi
 
-- [Documentation sur les API : pour connaître le détail des erreurs de chaque API spécifique][Link 4]
+- [Documentation sur les API : pour connaître le détail des erreurs de chaque API spécifique][Link 4]
  
 ## Échecs silencieux
 

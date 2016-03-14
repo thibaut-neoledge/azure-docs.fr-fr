@@ -22,7 +22,7 @@ Pour configurer une table pour Stretch Database, sélectionnez **Stretch | Activ
 
 -   Si vous stockez des données d’historique dans une table distincte, vous pouvez migrer la table entière.
 
--   Si votre table contient à la fois des données d’historique et des données actuelles, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à migrer. Dans la version CTP 3.1 jusqu’à RC0, l’option permettant de spécifier un prédicat n’est pas disponible dans l’Assistant Activer la base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer une table pour Stretch Database avec cette option. Pour plus d’informations, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+-   Si votre table contient à la fois des données d’historique et des données actuelles, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à migrer. Dans la version CTP 3.1 jusqu’à RC0, l’option permettant de spécifier un prédicat n’est pas disponible dans l’Assistant Activer la base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer une table pour Stretch Database avec cette option. Pour plus d’informations, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 **Conditions préalables**. Si vous sélectionnez **Stretch | Activer** pour une table et que vous n’avez pas encore activé Stretch Database pour la base de données, l’Assistant configure d’abord la base de données pour Stretch Database. Suivez les étapes fournies dans [Assistant Activer la base de données pour Stretch](sql-server-stretch-database-wizard.md) au lieu des étapes décrites dans cette rubrique.
 
@@ -38,7 +38,7 @@ Pour configurer une table pour Stretch Database, sélectionnez **Stretch | Activ
 
 **Sélectionner des tables de base de données** Vérifiez que la table que vous souhaitez activer est affichée et sélectionnée.
 
-Dans CTP 3.1 jusqu’à RC0, vous pouvez migrer uniquement une table entière à l’aide de l’Assistant. Si vous souhaitez spécifier un prédicat pour sélectionner des lignes à migrer à partir d’une table qui contient à la fois des données d’historique et des données actuelles, exécutez l’instruction ALTER TABLE pour spécifier un prédicat après avoir quitté l’Assistant, ou quittez l’Assistant et exécutez l’instruction ALTER TABLE, comme décrit plus loin dans cette rubrique.
+Dans CTP 3.1 jusqu’à RC0, vous pouvez migrer uniquement une table entière à l’aide de l’Assistant. Si vous souhaitez spécifier un prédicat pour sélectionner des lignes à migrer à partir d’une table qui contient à la fois des données d’historique et des données actuelles, exécutez l’instruction ALTER TABLE pour spécifier un prédicat après avoir quitté l’Assistant, ou quittez l’Assistant et exécutez l’instruction ALTER TABLE, comme décrit plus loin dans cette rubrique.
 
 **Résumé** Examinez les valeurs que vous avez entrées et les options que vous avez sélectionnées dans l’Assistant. Ensuite, sélectionnez **Terminer** pour activer Stretch.
 
@@ -51,7 +51,7 @@ Pour configurer une table pour Stretch Database, exécutez la commande ALTER TAB
 
     > [!IMPORTANT] Si vous fournissez un prédicat de filtre qui fonctionne mal, la migration de données est elle aussi médiocre. Stretch Database applique le prédicat de filtre à la table à l’aide de l’opérateur CROSS APPLY.
 
-    Dans la version CTP 3.1 jusqu’à RC0, cette option n’est pas disponible dans l’Assistant Activer la base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer une table pour Stretch Database avec cette option. Pour plus d’informations, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx.
+    Dans la version CTP 3.1 jusqu’à RC0, cette option n’est pas disponible dans l’Assistant Activer la base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer une table pour Stretch Database avec cette option. Pour plus d’informations, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx.
 
 2.  Spécifiez `MIGRATION_STATE = OUTBOUND` pour démarrer la migration des données immédiatement, ou `MIGRATION_STATE = PAUSED` pour reporter le début de la migration des données.
 

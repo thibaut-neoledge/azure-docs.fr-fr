@@ -18,7 +18,7 @@
    ms.author="mandia"/>
 
 # Prise en main de l’API de stockage d’objets blob
-Connectez-vous à un objet blob Azure pour gérer les fichiers d’un conteneur d'objets blob, par exemple pour créer des fichiers, supprimer des fichiers et bien plus encore. L’API de stockage d’objets blob Azure peut être utilisée à partir de :
+Connectez-vous à un objet blob Azure pour gérer les fichiers d’un conteneur d'objets blob, par exemple pour créer des fichiers, supprimer des fichiers et bien plus encore. L’API de stockage d’objets blob Azure peut être utilisée à partir de :
 
 - Logic apps 
 
@@ -41,7 +41,7 @@ L’objet blob Azure inclut les actions suivantes. Il n'y a aucun déclencheur.
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à un objet blob Azure
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs de compte de stockage suivantes :
+Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs de compte de stockage suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -54,7 +54,7 @@ Après avoir créé la connexion, vous entrez les propriétés des objets blob, 
  
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier
 Télécharge un fichier vers le stockage d’objets blob Azure. ```POST: /datasets/default/files```
@@ -78,7 +78,7 @@ Copie un fichier vers le stockage d’objets blob Azure. ```POST: /datasets/defa
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |URL du fichier source|
 |destination|string|yes|query| (aucun)|Chemin de destination du fichier dans le stockage d’objets blob, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -102,13 +102,13 @@ Supprime un fichier du stockage d’objets blob Azure. ```DELETE: /datasets/defa
 
 
 ### Extraire une archive dans un dossier
-Extrait un fichier d’archive vers un dossier dans le stockage d’objets blob Azure (exemple : .zip). ```POST: /datasets/default/ExtractFolderV2```
+Extrait un fichier d’archive vers un dossier dans le stockage d’objets blob Azure (exemple : .zip). ```POST: /datasets/default/ExtractFolderV2```
 
 | Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|yes|query| (aucun)|Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun) |Chemin d'accès au dossier dans le stockage d’objets blob Azure où extraire le contenu de l'archive|
-|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|

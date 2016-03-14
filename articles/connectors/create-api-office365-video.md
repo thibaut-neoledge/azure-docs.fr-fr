@@ -17,23 +17,23 @@ ms.workload="na"
 ms.date="02/25/2016"
 ms.author="deonhe"/>
 
-# Prendre en main l'API Office 365 Video
-Connexion à Office 365 Video pour obtenir des informations sur une vidéo Office 365, la liste des vidéos, et bien plus encore. L’API Office 365 Video peut être utilisée à partir de :
+# Prendre en main l'API Office 365 Video
+Connexion à Office 365 Video pour obtenir des informations sur une vidéo Office 365, la liste des vidéos, et bien plus encore. L’API Office 365 Video peut être utilisée à partir de :
 
-- Logic Apps 
+- Logic Apps 
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Cette API n’est pas pris en charge sur les versions de schéma précédentes.
 
-Avec Office 365 Video, vous pouvez :
+Avec Office 365 Video, vous pouvez :
 
-- Créer votre flux d’activité en fonction des données que vous obtenez d’Office 365 Video. 
+- Créer votre flux d’activité en fonction des données que vous obtenez d’Office 365 Video. 
 - Utiliser des actions pour vérifier l’état du portail vidéo, obtenir une liste de toutes les vidéos dans un canal, et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Vous pouvez, par exemple, utiliser l’API Bing Search pour rechercher des vidéos Office 365, puis utiliser l’API Office 365 Video pour obtenir des informations relatives à cette vidéo. Si la vidéo répond à vos besoins, vous pouvez la publier sur Facebook. 
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
-L’API Office 365 Users met à votre disposition les actions ci-après. Il n'y a aucun déclencheur.
+L’API Office 365 Users met à votre disposition les actions ci-après. Il n'y a aucun déclencheur.
 
 | Déclencheurs | Actions|
 | --- | --- |
@@ -41,18 +41,18 @@ L’API Office 365 Users met à votre disposition les actions ci-après. Il n'y
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
-## Créer une connexion à l’API Office 365 Video
-Quand vous ajoutez cette API à vos applications logiques, vous devez vous connecter à votre compte Office 365 Video et autoriser les applications logiques à se connecter à votre compte.
+## Créer une connexion à l’API Office 365 Video
+Quand vous ajoutez cette API à vos applications logiques, vous devez vous connecter à votre compte Office 365 Video et autoriser les applications logiques à se connecter à votre compte.
 
 1. Connectez-vous à votre compte Office 365 Video.
-2. Autorisez vos applications logiques à se connecter à votre compte Office 365 et à l’utiliser. 
+2. Autorisez vos applications logiques à se connecter à votre compte Office 365 et à l’utiliser. 
 
 Après avoir créé la connexion, vous entrez les propriétés Office 365 Video, comme le nom du client ou l’ID du canal. La section **Informations de référence sur l'API REST** dans cette rubrique décrit ces propriétés.
 
->[AZURE.TIP] Vous pouvez utiliser cette même connexion Office 365 Video dans d’autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette même connexion Office 365 Video dans d’autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 ### Vérifie l’état du portail vidéo 
 Vérifie l’état du portail vidéo pour voir si les services vidéo sont activés. ```GET: /{tenant}/IsEnabled```
@@ -193,7 +193,7 @@ Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo. ```GET: 
 
 ## Définitions d'objet
 
-#### Channel : classe de canal
+#### Channel : classe de canal
 
 | Nom | Type de données | Requis|
 |---|---|---|

@@ -25,7 +25,7 @@ Sélectionnez une icône afin d’apprendre rapidement comment tirer parti de ce
 
 Pour plus d’informations sur la tarification et une liste de ce qui est inclus dans chaque niveau de service, consultez la page [Tarification Azure App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> [AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure Logic Apps avant d’ouvrir un compte Azure, accédez à [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic). Vous pouvez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 |API||||
 |-----------|-----------|-----------|-----------|
@@ -42,8 +42,8 @@ Plusieurs API fournissent des déclencheurs qui préviennent votre application l
 
 Il existe deux types de déclencheurs :
 
-* Déclencheurs d'interrogation : ces déclencheurs interrogent votre service selon une fréquence spécifiée pour vérifier l'existence de nouvelles données. Quand de nouvelles données sont disponibles, une nouvelle instance de votre application s'exécute avec les données comme entrée. Pour empêcher que les mêmes données soient consommées plusieurs fois, le déclencheur peut nettoyer les données qui ont été lues et transmises à votre application.
-* Déclencheurs d'interrogation : ces déclencheurs écoutent les données sur un point de terminaison ou attendent qu'un événement se produise. Ensuite, ils déclenchent une nouvelle instance de votre application. L'API twitter en est un exemple.
+* Déclencheurs d'interrogation : ces déclencheurs interrogent votre service selon une fréquence spécifiée pour vérifier l'existence de nouvelles données. Quand de nouvelles données sont disponibles, une nouvelle instance de votre application s'exécute avec les données comme entrée. Pour empêcher que les mêmes données soient consommées plusieurs fois, le déclencheur peut nettoyer les données qui ont été lues et transmises à votre application.
+* Déclencheurs d'interrogation : ces déclencheurs écoutent les données sur un point de terminaison ou attendent qu'un événement se produise. Ensuite, ils déclenchent une nouvelle instance de votre application. L'API twitter en est un exemple.
 
 
 ### Les API peuvent être des actions
@@ -63,13 +63,13 @@ Vous pouvez aussi utiliser des API comme actions au sein de vos applications. Le
 [ftpdoc]: ./create-api-ftp.md "Se connecte à un serveur FTP/FTPS et permet notamment de télécharger; d’obtenir et de supprimer des fichiers."
 [googledrivedoc]: ./create-api-googledrive.md "Connectez-vous à Google Drive et interagissez avec vos données."
 [microsofttranslatordoc]: ./create-api-microsofttranslator.md
-[office365outlookdoc]: ./create-api-office365-outlook.md "Le connecteur Office 365 permet d'envoyer et recevoir des courriers électroniques, de gérer votre calendrier et de gérer vos contacts à l'aide de votre compte Office 365."
+[office365outlookdoc]: ./create-api-office365-outlook.md "Le connecteur Office 365 permet d'envoyer et recevoir des courriers électroniques, de gérer votre calendrier et de gérer vos contacts à l'aide de votre compte Office 365."
 [officeunifieddoc]: ./create-api-bingsearch.md
 [office365usersdoc]: ./create-api-office365-users.md
 [office365videodoc]: ./create-api-office365-video.md
-[onedrivedoc]: ./create-api-onedrive.md "Se connecte à votre Microsoft OneDrive personnel et permet notamment de télécharger, de supprimer et de répertorier des fichiers."
+[onedrivedoc]: ./create-api-onedrive.md "Se connecte à votre Microsoft OneDrive personnel et permet notamment de télécharger, de supprimer et de répertorier des fichiers."
 [salesforcedoc]: ./create-api-salesforce.md "Se connecte à votre compte Salesforce et permet notamment de gérer des comptes, des prospects et des opportunités."
-[servicebusdoc]: ./create-api-servicebus.md "Permet d’envoyer des messages à partir de files d’attente et de rubriques Service Bus, et de recevoir des messages de files d’attente et d’abonnements Service Bus."
+[servicebusdoc]: ./create-api-servicebus.md "Permet d’envoyer des messages à partir de files d’attente et de rubriques Service Bus, et de recevoir des messages de files d’attente et d’abonnements Service Bus."
 [sharepointdoc]: ./create-api-sharepointonline.md "Connexion à SharePoint Online pour gérer des documents et des éléments de liste."
 [slackdoc]: ./create-api-slack.md "Se connecte à Slack et publie des messages dans les canaux Slack."
 [sftpdoc]: ./create-api-sftp.md "Se connecte à SFTP et permet notamment de télécharger, d’obtenir et de supprimer des fichiers."

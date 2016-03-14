@@ -18,9 +18,9 @@
    ms.author="mandia"/>
 
 # Prendre en main l’API FTP
-Connexion à un serveur FTP pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API FTP peut être utilisée à partir de :
+Connexion à un serveur FTP pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API FTP peut être utilisée à partir de :
 
-- Logic Apps
+- Logic Apps
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur FTP](../app-service-logic/app-service-logic-connector-ftp.md).
 
@@ -43,7 +43,7 @@ Déclencheurs | Actions
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à FTP
-Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
+Quand vous ajoutez cette API à vos applications logiques, entrez les valeurs suivantes :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -56,7 +56,7 @@ Après avoir créé la connexion, vous entrez les propriétés FTP, telles que l
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion FTP dans d'autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier
 Charge un fichier sur le serveur FTP. ```POST: /datasets/default/files```
@@ -80,7 +80,7 @@ Copie un fichier sur le serveur FTP. ```POST: /datasets/default/copyFile```
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |URL du fichier source|
 |destination|string|yes|query|(aucun) |Chemin de destination du fichier sur le serveur FTP, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -102,13 +102,13 @@ Supprime un fichier du serveur FTP. ```DELETE: /datasets/default/files/{id}```
 |default|L’opération a échoué.|
 
 ### Extraire un dossier
-Extrait un fichier d’archive dans un dossier sur le serveur FTP (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
+Extrait un fichier d’archive dans un dossier sur le serveur FTP (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|yes|query| (aucun)|Chemin du fichier d'archive|
 |destination|string|yes|query| (aucun)|Chemin du dossier de destination|
-|overwrite|booléenne|no|query|(aucun)|Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun)|Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|

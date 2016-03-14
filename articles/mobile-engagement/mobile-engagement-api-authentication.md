@@ -99,7 +99,7 @@ Il s'agit d'une autre façon d’effectuer les étapes susmentionnées à l'aide
 		Install-Module AzureRM
 		Install-AzureRM
 
-3. Exécutez la commande suivante :
+3. Exécutez la commande suivante :
 
 		Import-Module AzureRM.profile
 
@@ -143,7 +143,7 @@ Voici un exemple de requête :
 	grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
 	urce=https%3A%2F%2Fmanagement.core.windows.net%2F
 
-Voici un exemple de réponse :
+Voici un exemple de réponse :
 
 	HTTP/1.1 200 OK
 	Content-Type: application/json; charset=utf-8
@@ -167,7 +167,7 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 
 1. Dans chaque requête API, vous devez passer un jeton valide, non expiré, que vous avez obtenu dans la section précédente.
 
-2. Vous devez spécifier certains paramètres dans l'URI de la requête qui identifie votre application. L'URI de la requête ressemble à ceci :
+2. Vous devez spécifier certains paramètres dans l'URI de la requête qui identifie votre application. L'URI de la requête ressemble à ceci :
 
 		https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/MobileEngagement/
 		providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/

@@ -28,7 +28,7 @@ Cet article offre une vue d’ensemble des tâches de gestion des sauvegardes di
     ![Éléments protégés](./media/backup-azure-manage-windows-server/RS_tabs.png)
 
 ## Tableau de bord
-Sélectionnez **Tableau de bord** pour afficher l’aperçu de l’utilisation du serveur. En bas du tableau de bord, vous pouvez réaliser les tâches suivantes :
+Sélectionnez **Tableau de bord** pour afficher l’aperçu de l’utilisation du serveur. En bas du tableau de bord, vous pouvez réaliser les tâches suivantes :
 
 - **Manage certificate**. Si un certificat a été utilisé pour enregistrer le serveur, utilisez cette tâche pour mettre à jour le certificat. Si vous utilisez des informations d'identification de coffre, n'utilisiez pas **Manage certificate**.
 - **Supprimer**. Permet de supprimer le coffre de sauvegarde actuel. Si un coffre de sauvegarde n'est plus utilisé, vous pouvez le supprimer pour libérer de l'espace de stockage. L'option **Supprimer** est disponible uniquement une fois que tous les serveurs inscrits ont été supprimés du coffre.
@@ -44,13 +44,13 @@ Sélectionnez **Éléments inscrits** pour afficher le nom des serveurs inscrits
 
 ![Serveur supprimé](./media/backup-azure-manage-windows-server/RS_deletedserver.png)
 
-Exécutez ensuite les tâches suivantes :
+Exécutez ensuite les tâches suivantes :
 
-- **Autoriser la réinscription** : quand cette option est sélectionnée pour un serveur, vous pouvez utiliser l’**Assistant Inscription** dans l’agent pour inscrire de nouveau le serveur auprès du coffre de sauvegarde. Vous devrez peut-être effectuer cette nouvelle inscription en raison d'une erreur dans le certificat ou de la nécessité de régénérer un serveur.
-- **Supprimer ** : permet de supprimer un serveur du coffre de sauvegarde. Toutes les données stockées associées au serveur sont immédiatement supprimées.
+- **Autoriser la réinscription** : quand cette option est sélectionnée pour un serveur, vous pouvez utiliser l’**Assistant Inscription** dans l’agent pour inscrire de nouveau le serveur auprès du coffre de sauvegarde. Vous devrez peut-être effectuer cette nouvelle inscription en raison d'une erreur dans le certificat ou de la nécessité de régénérer un serveur.
+- **Supprimer ** : permet de supprimer un serveur du coffre de sauvegarde. Toutes les données stockées associées au serveur sont immédiatement supprimées.
 
 ## Étapes suivantes
-- [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
+- [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 - Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 

@@ -29,7 +29,7 @@ Tailspin est une société fictive qui développe une application SaaS nommée S
 
 > [AZURE.NOTE] Pour vous familiariser avec l’application, consultez [Exécution de l’application Surveys].
 
-Cette capture d’écran illustre la page Edit Survey :
+Cette capture d’écran illustre la page Edit Survey :
 
 ![Modifier l’enquête](media/guidance-multitenant-identity/edit-survey.png)
 
@@ -45,7 +45,7 @@ Lorsqu’un utilisateur crée une enquête, il peut inviter d’autres personnes
 
 Un utilisateur peut ajouter des collaborateurs à partir d’autres clients, ce qui permet le partage des ressources entre locataires. Dans cette capture d’écran, Bob (`bob@contoso.com`) ajoute Alice (`alice@fabrikam.com`) en tant que collaboratrice sur un questionnaire qu’il a créé.
 
-Lorsqu’Alice se connecte, elle voit l’enquête répertoriée sous « Surveys I can contribute to » (Enquêtes auxquelles je peux contribuer).
+Lorsqu’Alice se connecte, elle voit l’enquête répertoriée sous « Surveys I can contribute to » (Enquêtes auxquelles je peux contribuer).
 
 ![Collaborateur de l’enquête](media/guidance-multitenant-identity/contributor.png)
 
@@ -55,7 +55,7 @@ Notez qu’Alice se connecte à son propre client et non en tant qu’invitée d
 
 L’application Surveys se compose d’un serveur web frontal et d’un serveur principal d’API web. Les deux sont implémentés à l’aide d’[ASP.NET Core 1.0].
 
-L’application web utilise Azure Active Directory (Azure AD) pour authentifier les utilisateurs. L’application web appelle également Azure AD pour obtenir des jetons d’accès OAuth 2 pour l’API web. Les jetons d’accès sont mis en cache dans le Cache Redis Azure. Le cache permet à plusieurs instances de partager le même cache de jeton (par exemple, dans une batterie de serveurs).
+L’application web utilise Azure Active Directory (Azure AD) pour authentifier les utilisateurs. L’application web appelle également Azure AD pour obtenir des jetons d’accès OAuth 2 pour l’API web. Les jetons d’accès sont mis en cache dans le Cache Redis Azure. Le cache permet à plusieurs instances de partager le même cache de jeton (par exemple, dans une batterie de serveurs).
 
 ![Architecture](media/guidance-multitenant-identity/architecture.png)
 

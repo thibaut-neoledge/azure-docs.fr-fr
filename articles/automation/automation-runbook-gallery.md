@@ -93,7 +93,7 @@ Microsoft vous invite à ajouter à la galerie de runbooks des runbooks dont vou
 
 ## Modules dans PowerShell Gallery
 
-Les modules PowerShell contiennent des applets de commande que vous pouvez utiliser dans vos runbooks ; des modules existants que vous pouvez installer dans Azure Automation sont disponibles dans [PowerShell Gallery](http://www.powershellgallery.com). Vous pouvez lancer cette galerie à partir du portail Azure et les installer directement dans Azure Automation, ou vous pouvez les télécharger et les installer manuellement. Vous ne pouvez pas installer les modules directement depuis le portail Azure Classic, mais vous pouvez les télécharger et les installer comme vous le feriez avec tout autre module.
+Les modules PowerShell contiennent des applets de commande que vous pouvez utiliser dans vos runbooks ; des modules existants que vous pouvez installer dans Azure Automation sont disponibles dans [PowerShell Gallery](http://www.powershellgallery.com). Vous pouvez lancer cette galerie à partir du portail Azure et les installer directement dans Azure Automation, ou vous pouvez les télécharger et les installer manuellement. Vous ne pouvez pas installer les modules directement depuis le portail Azure Classic, mais vous pouvez les télécharger et les installer comme vous le feriez avec tout autre module.
 
 ### Pour importer un module à partir d’Automation Module Gallery avec le portail Azure
 
@@ -103,7 +103,7 @@ Les modules PowerShell contiennent des applets de commande que vous pouvez utili
 4. Cliquez sur le bouton **Parcourir la galerie**. Le panneau Parcourir la galerie s’affiche.
 
     ![Galerie du module](media/automation-runbook-gallery/modules-blade.png) <br>
-5. Une fois que vous avez lancé le panneau Parcourir la galerie, vous pouvez exécuter une recherche à l’aide des champs suivants :
+5. Une fois que vous avez lancé le panneau Parcourir la galerie, vous pouvez exécuter une recherche à l’aide des champs suivants :
 
    - Nom du module
    - Balises
@@ -112,7 +112,7 @@ Les modules PowerShell contiennent des applets de commande que vous pouvez utili
 
 6. Recherchez un module qui vous intéresse et sélectionnez-le pour en afficher les détails. Lorsque vous explorez un module spécifique, vous pouvez afficher plus d’informations le concernant, y compris un lien vers PowerShell Gallery, les dépendances requises et toutes les applets de commande et/ou les ressources DSC que contient le module.
 
-    ![Détails du module PowerShell](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
+    ![Détails du module PowerShell](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 
 7. Pour installer le module directement dans Azure Automation, cliquez sur le bouton **Importer**.
 

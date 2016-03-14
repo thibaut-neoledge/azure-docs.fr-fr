@@ -26,17 +26,17 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
 
 Les applications Windows universelles et les applications du Windows Store doivent être enregistrées via le Centre de développement Windows. Ceci vous permettra de configurer plus facilement les notifications Push pour votre application à l’avenir.
 
->[AZURE.NOTE]Ignorez cette section pour les applications Windows Phone 8, Windows Phone 8.1 Silverlight et toutes les applications non-Windows. Si vous avez déjà configuré des notifications Push pour votre application Windows, vous pouvez également ignorer cette section.
+>[AZURE.NOTE]Ignorez cette section pour les applications Windows Phone 8, Windows Phone 8.1 Silverlight et toutes les applications non-Windows. Si vous avez déjà configuré des notifications Push pour votre application Windows, vous pouvez également ignorer cette section.
 
 1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application avec votre compte Microsoft.
 
 2. Si vous n’avez pas déjà inscrit votre application, accédez à la page [Centre de développement Windows](https://dev.windows.com/dashboard/Application/New), connectez-vous à votre compte Microsoft, tapez un nom d’application, vérifiez sa disponibilité, puis cliquez sur **Réserver un nom d’application**.
 
-3. Ouvrez votre projet d’application Windows dans Visual Studio, puis, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet d’application Windows Store, cliquez sur **Store**, puis sur **Associer l’application au Windows Store...**.
+3. Ouvrez votre projet d’application Windows dans Visual Studio, puis, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet d’application Windows Store, cliquez sur **Store**, puis sur **Associer l’application au Windows Store...**.
 
   	![](./media/app-service-mobile-how-to-configure-microsoft-authentication/mobile-app-windows-store-association.png)
 
-4. Dans l’Assistant, cliquez sur **Se connecter**, connectez-vous avec votre compte Microsoft, sélectionnez le nom d’application que vous avez réservé, puis cliquez sur **Suivant** > **Associer**. Pour une application Windows 8.1 universelle, vous devez répéter les étapes 4 et 5 pour le projet Windows Phone Store.
+4. Dans l’Assistant, cliquez sur **Se connecter**, connectez-vous avec votre compte Microsoft, sélectionnez le nom d’application que vous avez réservé, puis cliquez sur **Suivant** > **Associer**. Pour une application Windows 8.1 universelle, vous devez répéter les étapes 4 et 5 pour le projet Windows Phone Store.
 
 6. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services** > **Notifications Push**.
 
@@ -59,7 +59,7 @@ Si vous avez déjà inscrit votre application Windows dans la section précéden
  
 	![][0]
 
-	>[AZURE.NOTE]Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/microsoftaccount/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Assurez-vous d'utiliser le schéma HTTPS.
+	>[AZURE.NOTE]Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/microsoftaccount/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Assurez-vous d'utiliser le schéma HTTPS.
 
 6. Cliquez sur **Paramètres d'application** et notez les valeurs de l'**ID du client** et de la **Clé secrète client**.
 

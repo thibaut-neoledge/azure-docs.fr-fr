@@ -31,25 +31,25 @@ Dans ce document, vous allez découvrir comment utiliser Power BI pour créer un
 
 * Visual Studio (l'une des versions suivantes)
 
-    * Visual Studio 2012 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+    * Visual Studio 2012 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-    * Visual Studio 2013 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
+    * Visual Studio 2013 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
 
-    * Visual Studio 2015 [CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
+    * Visual Studio 2015 [CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
 
-* Les outils HDInsight pour Visual Studio : consultez [Prise en main des outils HDInsight pour Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) pour plus d'informations sur l'installation.
+* Les outils HDInsight pour Visual Studio : consultez [Prise en main des outils HDInsight pour Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) pour plus d'informations sur l'installation.
 
 ## Fonctionnement
 
 Cet exemple contient une topologie C# Storm qui génère une phrase de manière aléatoire, la fractionne en mots, compte les mots et envoie les mots et le nombre de mots à l'API REST de Power BI. Le package NuGet [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) est utilisé pour communiquer avec Power BI.
 
-Les fichiers suivants dans ce projet implémentent les fonctionnalités spécifiques de Power BI :
+Les fichiers suivants dans ce projet implémentent les fonctionnalités spécifiques de Power BI :
 
-* **PowerBiBolt.cs** : implémente le bolt Storm, qui envoie des données à Power BI
+* **PowerBiBolt.cs** : implémente le bolt Storm, qui envoie des données à Power BI
 
-* **Data.cs** : décrit la ligne/l'objet de données qui sera envoyé à Power BI
+* **Data.cs** : décrit la ligne/l'objet de données qui sera envoyé à Power BI
 
-> [AZURE.WARNING] Power BI semble autoriser la création de plusieurs jeux de données de même nom. Cela peut se produire si le jeu de données n'existe pas et que votre topologie crée plusieurs instances du bolt Power BI. Pour éviter ce problème, définissez l'indicateur de parallélisme du bolt sur 1 (comme indiqué dans cet exemple) ou créez le jeu de données avant de déployer la topologie.
+> [AZURE.WARNING] Power BI semble autoriser la création de plusieurs jeux de données de même nom. Cela peut se produire si le jeu de données n'existe pas et que votre topologie crée plusieurs instances du bolt Power BI. Pour éviter ce problème, définissez l'indicateur de parallélisme du bolt sur 1 (comme indiqué dans cet exemple) ou créez le jeu de données avant de déployer la topologie.
 >
 > L'application de console **CreateDataset** incluse dans cette solution est fournie en exemple pour montrer comment créer le jeu de données en dehors de la topologie.
 
@@ -69,11 +69,11 @@ Téléchargez l’[exemple HDInsight C# Storm Power BI](https://github.com/Azure
 
 1. Ouvrez l'exemple dans Visual Studio. Dans l'**Explorateur de solutions**, ouvrez le fichier **App.config**, puis recherchez l'élément **<OAuth .../>**. Entrez des valeurs pour les propriétés suivantes de cet élément.
 
-    * **Client** : l'ID du client pour l'inscription de l'application créée précédemment.
+    * **Client** : l'ID du client pour l'inscription de l'application créée précédemment.
 
-    * **Utilisateur** : un compte Azure Active Directory ayant accès à Power BI.
+    * **Utilisateur** : un compte Azure Active Directory ayant accès à Power BI.
 
-    * **Mot de passe** : le mot de passe du compte Azure Active Directory.
+    * **Mot de passe** : le mot de passe du compte Azure Active Directory.
 
 2. (Facultatif). Le nom du jeu de données par défaut utilisé par ce projet est **Words**. Pour le modifier, cliquez avec le bouton droit sur le projet **WordCount** dans l'**Explorateur de solutions**, sélectionnez **Propriétés**, puis **Paramètres**. Modifiez l'entrée **DatasetName** en ajoutant la valeur souhaitée.
 
@@ -91,7 +91,7 @@ Téléchargez l’[exemple HDInsight C# Storm Power BI](https://github.com/Azure
 
     ![Les topologies, avec la topologie WordCount sélectionnée](./media/hdinsight-storm-power-bi-topology/topologysummary.png)
 
-    > [AZURE.NOTE] Vous pouvez également afficher les topologies Storm dans l'Explorateur de serveurs : développez Azure, HDInsight, cliquez avec le bouton droit sur un cluster Storm dans HDInsight, puis sélectionnez Afficher les topologies Storm.
+    > [AZURE.NOTE] Vous pouvez également afficher les topologies Storm dans l'Explorateur de serveurs : développez Azure, HDInsight, cliquez avec le bouton droit sur un cluster Storm dans HDInsight, puis sélectionnez Afficher les topologies Storm.
 
 3. Quand vous affichez le **Résumé de la topologie**, faites défiler l'écran jusqu'à la section **Bolts**. Dans cette section, notez la colonne **Exécuté** du bolt **PowerBI**. Utilisez le bouton d'actualisation en haut de la page pour que la valeur zéro soit remplacée par une autre valeur. Quand ce nombre commence à augmenter, cela signifie que les éléments sont en cours d'écriture dans Power BI.
 
@@ -125,7 +125,7 @@ Téléchargez l’[exemple HDInsight C# Storm Power BI](https://github.com/Azure
 
 ## Arrêter la topologie WordCount
 
-La topologie continue de s'exécuter jusqu'à ce qu'elle soit arrêtée ou supprimée du cluster Storm dans HDInsight. Procédez comme suit pour arrêter la topologie :
+La topologie continue de s'exécuter jusqu'à ce qu'elle soit arrêtée ou supprimée du cluster Storm dans HDInsight. Procédez comme suit pour arrêter la topologie :
 
 1. Dans Visual Studio, ouvrez la fenêtre **Résumé de la topologie** pour la topologie WordCount. Si le résumé de la topologie n'est pas déjà ouvert, accédez à l'**Explorateur de serveurs**, développez les entrées **Azure** et **HDInsight**, cliquez avec le bouton droit sur le cluster Storm dans HDInsight et sélectionnez **Afficher les topologies Storm**. Enfin, sélectionnez la topologie **WordCount**.
 
@@ -135,7 +135,7 @@ La topologie continue de s'exécuter jusqu'à ce qu'elle soit arrêtée ou suppr
 
 ## Étapes suivantes
 
-Dans ce document, vous avez appris comment envoyer des données à partir d'une topologie Storm à Power BI à l'aide de REST. Pour plus d'informations sur l'utilisation d'autres technologies Azure, consultez les rubriques suivantes :
+Dans ce document, vous avez appris comment envoyer des données à partir d'une topologie Storm à Power BI à l'aide de REST. Pour plus d'informations sur l'utilisation d'autres technologies Azure, consultez les rubriques suivantes :
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 

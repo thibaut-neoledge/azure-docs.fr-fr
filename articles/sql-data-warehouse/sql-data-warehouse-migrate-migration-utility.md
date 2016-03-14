@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrer : utilitaire de migration de l’entrepôt de données | Microsoft Azure"
+   pageTitle="Migrer : utilitaire de migration de l’entrepôt de données | Microsoft Azure"
    description="Migrer vers SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -29,7 +29,7 @@ Outre la migration du schéma et des données, cet outil permet aux utilisateurs
 ## Prise en main
 L’utilitaire de migration de l’entrepôt de données peut être téléchargé [ici][]. Comme condition préalable à l’installation, vous aurez besoin de l’utilitaire de ligne de commande BCP, pour exécuter des scripts de migration, et d’Office, pour afficher le rapport de compatibilité. Après le lancement de l’exécutable téléchargé, vous êtes invité à accepter un CLUF standard avant l’installation de l’outil.
 
-En outre, pour exécuter l’utilitaire de migration, vous avez besoin des autorisations suivantes pour les bases de données que vous souhaitez migrer : CREATE DATABASE, ALTER ANY DATABASE ou VIEW ANY DEFINITION.
+En outre, pour exécuter l’utilitaire de migration, vous avez besoin des autorisations suivantes pour les bases de données que vous souhaitez migrer : CREATE DATABASE, ALTER ANY DATABASE ou VIEW ANY DEFINITION.
 
 ### Lancement de l’outil et connexion
 L’outil peut être lancé facilement en cliquant sur l’icône du Bureau qui apparaît après l’installation. Lors de l’ouverture de l’outil, une page de connexion initiale vous permet de choisir votre source et votre destination pour l’outil de migration. À ce stade, nous prenons en charge SQL Server et la base de données SQL Azure en tant que sources et SQL Data Warehouse en tant que destination. Après la sélection de ces options, vous devez vous connecter à votre serveur source en renseignant le nom du serveur et en vous authentifiant, puis en cliquant sur Se connecter.
@@ -51,7 +51,7 @@ Comme mentionné ci-dessus, le schéma de migration passe en revue les modificat
 
 En cliquant sur l’option Migrer les données, vous pouvez générer des scripts BCP qui déplaceront vos données vers les fichiers plats de votre serveur dans un premier temps, puis directement dans votre SQL Data Warehouse. Nous recommandons ce processus pour déplacer de petites quantités de données et, étant donné que nous n’avons pas intégré de nouvelles tentatives, sachez que des erreurs peuvent se produire en cas de pannes réseau. Pour exécuter ce processus, l’utilitaire de ligne de commande BCP doit être installé et le schéma pour les données doit avoir déjà été créé.
  
-Après avoir rempli les paramètres ci-dessus, il vous suffit de cliquer sur Exécuter la migration ; un ensemble de deux packages est généré à l’emplacement spécifié. Exécutez le fichier d’exportation pour exporter les données depuis votre source de migration vers des fichiers plats, et exécutez le fichier d’importation pour importer vos données dans SQL Data Warehouse.
+Après avoir rempli les paramètres ci-dessus, il vous suffit de cliquer sur Exécuter la migration ; un ensemble de deux packages est généré à l’emplacement spécifié. Exécutez le fichier d’exportation pour exporter les données depuis votre source de migration vers des fichiers plats, et exécutez le fichier d’importation pour importer vos données dans SQL Data Warehouse.
 
 ## Étapes suivantes
 Maintenant que vous avez migré certaines données, découvrez comment [développer][].

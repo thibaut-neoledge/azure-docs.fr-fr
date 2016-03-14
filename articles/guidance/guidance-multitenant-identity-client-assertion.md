@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation d’une assertion du client pour obtenir des jetons d’accès d’Azure AD | Microsoft Azure"
-   description="Utilisation d’une assertion du client pour obtenir des jetons d’accès d’Azure AD."
+   pageTitle="Utilisation d’une assertion du client pour obtenir des jetons d’accès d’Azure AD | Microsoft Azure"
+   description="Utilisation d’une assertion du client pour obtenir des jetons d’accès d’Azure AD."
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -17,7 +17,7 @@
    ms.date="02/16/2016"
    ms.author="mwasson"/>
 
-# Utilisation d’une assertion du client pour obtenir des jetons d’accès d’Azure AD
+# Utilisation d’une assertion du client pour obtenir des jetons d’accès d’Azure AD
 
 Cet article fait [partie d’une série]. Un [exemple d’application] accompagne également cette série.
 
@@ -46,9 +46,9 @@ La clé secrète est juste une chaîne. Vous devez donc veiller à ne pas divulg
 
 Toutefois, toute personne ayant accès à l’abonnement Azure peut afficher les paramètres d’application. De plus, il est toujours tentant de vérifier les clés secrètes dans le contrôle de code source (par exemple, dans les scripts de déploiement), de les partager par courrier électronique, etc.
 
-Pour renforcer la sécurité, vous pouvez utiliser l’_assertion du client_ au lieu d’une clé secrète client. Avec l’assertion du client, le client utilise un certificat X.509 pour prouver que la demande de jeton provient de lui. Le certificat client est installé sur le serveur web. En général, il est plus facile de restreindre l’accès au certificat que de garantir que personne ne révèle par inadvertance une clé secrète client.
+Pour renforcer la sécurité, vous pouvez utiliser l’_assertion du client_ au lieu d’une clé secrète client. Avec l’assertion du client, le client utilise un certificat X.509 pour prouver que la demande de jeton provient de lui. Le certificat client est installé sur le serveur web. En général, il est plus facile de restreindre l’accès au certificat que de garantir que personne ne révèle par inadvertance une clé secrète client.
 
-Voici une requête de jeton utilisant l’assertion du client :
+Voici une requête de jeton utilisant l’assertion du client :
 
 ```
 POST https://login.microsoftonline.com/b9bd2162xxx/oauth2/token HTTP/1.1
@@ -64,23 +64,23 @@ resource=https://tailspin.onmicrosoft.com/surveys.webapi
 
 Notez que le paramètre `client_secret` n’est plus utilisé. À la place, le paramètre `client_assertion` contient un jeton JWT qui a été signé à l’aide du certificat client. Le paramètre `client_assertion_type` spécifie le type d’assertion (dans ce cas présent, un jeton JWT). Le serveur valide le jeton JWT. Si le jeton JWT n’est pas valide, la requête de jeton renvoie une erreur.
 
-> [AZURE.NOTE] Les certificats X.509 ne sont pas la seule forme d’assertion du client. Nous nous concentrons ici dessus, car elle est prise en charge par Azure AD.
+> [AZURE.NOTE] Les certificats X.509 ne sont pas la seule forme d’assertion du client. Nous nous concentrons ici dessus, car elle est prise en charge par Azure AD.
 
 ## Utilisation de l’assertion du client dans l’application Surveys
 
 Cette section indique comment configurer l’application Surveys de Tailspin pour utiliser l’assertion du client. Au cours de ces étapes, vous allez générer un certificat auto-signé qui peut être utilisé pour le développement, mais pas à des fins de production.
 
-1. Exécutez le script PowerShell [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] comme suit :
+1. Exécutez le script PowerShell [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] comme suit :
 
     ```
     .\Setup-KeyVault.ps -Subject [subject]
     ```
 
-    Pour le paramètre `Subject`, entrez un nom, comme « surveysapp ». Le script génère un certificat auto-signé et le stocke dans le magasin de certificats « Utilisateur actuel/Personnel ».
+    Pour le paramètre `Subject`, entrez un nom, comme « surveysapp ». Le script génère un certificat auto-signé et le stocke dans le magasin de certificats « Utilisateur actuel/Personnel ».
 
-2. La sortie du script est un fragment JSON. Ajoutez-le au manifeste d’application de l’application web, en procédant comme suit :
+2. La sortie du script est un fragment JSON. Ajoutez-le au manifeste d’application de l’application web, en procédant comme suit :
 
-    1. Connectez-vous au [portail de gestion Azure][azure-management-portal] et accédez à votre annuaire Azure AD.
+    1. Connectez-vous au [portail de gestion Azure][azure-management-portal] et accédez à votre annuaire Azure AD.
 
     2. Cliquez sur **Applications**.
 
@@ -88,7 +88,7 @@ Cette section indique comment configurer l’application Surveys de Tailspin pou
 
     4.	Cliquez sur **Gérer le manifeste** et sélectionnez **Télécharger le manifeste**.
 
-    5.	Ouvrez le fichier JSON du manifeste dans un éditeur de texte. Collez la sortie du script dans la propriété `keyCredentials`. Le résultat doit être semblable à ce qui suit :
+    5.	Ouvrez le fichier JSON du manifeste dans un éditeur de texte. Collez la sortie du script dans la propriété `keyCredentials`. Le résultat doit être semblable à ce qui suit :
 
         ```    
         "keyCredentials": [
@@ -104,7 +104,7 @@ Cette section indique comment configurer l’application Surveys de Tailspin pou
 
     6.	Enregistrez les modifications apportées au fichier JSON.
 
-    7.	Revenez au portail. Cliquez sur **Gérer le manifeste** > **Télécharger le manifeste sur le serveur**, puis téléchargez le fichier JSON.
+    7.	Revenez au portail. Cliquez sur **Gérer le manifeste** > **Télécharger le manifeste sur le serveur**, puis téléchargez le fichier JSON.
 
 3. Exécutez la commande suivante pour obtenir l’empreinte numérique du certificat.
 
@@ -112,9 +112,9 @@ Cette section indique comment configurer l’application Surveys de Tailspin pou
     certutil -store -user my [subject]
     ```
 
-    où `[subject]` est la valeur que vous avez spécifiée pour l’objet dans le script PowerShell. L’empreinte numérique est répertoriée sous « Cert Hash(sha1) ». Supprimez les espaces entre les nombres hexadécimaux.
+    où `[subject]` est la valeur que vous avez spécifiée pour l’objet dans le script PowerShell. L’empreinte numérique est répertoriée sous « Cert Hash(sha1) ». Supprimez les espaces entre les nombres hexadécimaux.
 
-4. Mettez à jour vos clés secrètes d’application. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet Tailspin.Surveys.Web, puis sélectionnez **Gérer les données secrètes de l’utilisateur**. Ajoutez une entrée pour « Asymmetric » sous « AzureAd », comme indiqué ci-dessous :
+4. Mettez à jour vos clés secrètes d’application. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet Tailspin.Surveys.Web, puis sélectionnez **Gérer les données secrètes de l’utilisateur**. Ajoutez une entrée pour « Asymmetric » sous « AzureAd », comme indiqué ci-dessous :
 
     ```
     {
@@ -141,7 +141,7 @@ Cette section indique comment configurer l’application Surveys de Tailspin pou
 
     Supprimez également l’entrée spécifiée pour `ClientSecret`, car elle n’est pas nécessaire avec l’assertion du client.
 
-5. Dans Startup.cs, recherchez le code qui inscrit le `ICredentialService`. Supprimez les marques de commentaire de la ligne qui utilise `CertificateCredentialService`, puis commentez la ligne qui utilise `ClientCredentialService` :
+5. Dans Startup.cs, recherchez le code qui inscrit le `ICredentialService`. Supprimez les marques de commentaire de la ligne qui utilise `CertificateCredentialService`, puis commentez la ligne qui utilise `ClientCredentialService` :
 
     ```csharp
     // Uncomment this:
@@ -155,8 +155,8 @@ Au moment de l’exécution, l’application web lit le certificat à partir du 
 ## Ressources supplémentaires
 
 - [Using Certificates in Azure Websites Applications][using-certs-in-websites]
-- [RFC 7521][RFC7521]. Définit le mécanisme général d’envoi d’une assertion du client.
-- [RFC 7523][RFC7523]. Explique comment utiliser des jetons JWT pour l’assertion du client.
+- [RFC 7521][RFC7521]. Définit le mécanisme général d’envoi d’une assertion du client.
+- [RFC 7523][RFC7523]. Explique comment utiliser des jetons JWT pour l’assertion du client.
 
 
 <!-- Links -->

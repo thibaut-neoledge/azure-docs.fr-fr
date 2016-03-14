@@ -19,12 +19,12 @@
    ms.author="mandia"/>
 
 # Prendre en main l’API Google Drive
-Connectez-vous à Google Drive pour créer des fichiers, obtenir des lignes et plus encore. L’API Google Drive peut être utilisée à partir de :
+Connectez-vous à Google Drive pour créer des fichiers, obtenir des lignes et plus encore. L’API Google Drive peut être utilisée à partir de :
 
 - PowerApps 
-- Logic Apps 
+- Logic Apps 
 
-Avec Google Drive, vous pouvez effectuer les opérations suivantes :
+Avec Google Drive, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez pendant votre recherche. 
 - Utiliser des actions pour rechercher des images, des actualités et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, vous pouvez rechercher une vidéo, puis utiliser Twitter pour la publier dans un flux Twitter.
@@ -48,17 +48,17 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 ## Créer la connexion à Google Drive
 
 ### Ajouter une configuration à PowerApps
-Quand vous ajoutez Google Drive à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Google Drive. La valeur **URL de redirection** est également utilisée dans votre application Google. Si vous n’avez pas d’application Google Drive, vous pouvez utiliser les étapes suivantes pour en créer une :
+Quand vous ajoutez Google Drive à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Google Drive. La valeur **URL de redirection** est également utilisée dans votre application Google. Si vous n’avez pas d’application Google Drive, vous pouvez utiliser les étapes suivantes pour en créer une :
 
-1. Connectez-vous à [Google Developers Console][5], puis sélectionnez **Créer un projet vide** : ![Console développeur de Google][6]
+1. Connectez-vous à [Google Developers Console][5], puis sélectionnez **Créer un projet vide** : ![Console développeur de Google][6]
 
 2. Entrez les propriétés de votre application, puis sélectionnez **Créer**.
-3. Sélectionnez **Utiliser les API Google** : ![Utiliser les API Google][8]  
-4. Dans la présentation, sélectionnez **Drive API** : ![Présentation de l'API Google Drive][9]  
+3. Sélectionnez **Utiliser les API Google** : ![Utiliser les API Google][8]  
+4. Dans la présentation, sélectionnez **Drive API** : ![Présentation de l'API Google Drive][9]  
 5. Sélectionnez **ACTIVER L’API** : ![Activer l’API Google Drive][10]  
 6. Une fois Drive API activé, sélectionnez **IDENTIFIANTS**, puis **ID CLIENT OAUTH 2.0** : ![Ajouter des identifiants][12]  
 7. Sélectionnez **CONFIGURER L’ÉCRAN D’AUTHORISATION**.
-8. Dans **Écran d’autorisation OAuth**, entrez un **nom de produit**, puis sélectionnez **Enregistrer** : ![Configurer l’écran d’autorisation][13]  
+8. Dans **Écran d’autorisation OAuth**, entrez un **nom de produit**, puis sélectionnez **Enregistrer** : ![Configurer l’écran d’autorisation][13]  
 9. Dans la page Créer un ID client :  
 
 	1. Sous **Type d’application**, sélectionnez **Application Web**.
@@ -85,7 +85,7 @@ Après avoir créé la connexion, vous entrez les propriétés Google Drive, tel
 
 
 ## Informations de référence sur l'API REST Swagger
-S'applique à la version 1.0.
+S'applique à la version 1.0.
 
 ### Créer un fichier    
 Charge un fichier sur Google Drive. ```POST: /datasets/default/files```
@@ -126,7 +126,7 @@ Copie un fichier sur Google Drive. ```POST: /datasets/default/copyFile```
 | ---|---|---|---|---|---|
 |source|string|yes|query| (aucun)|URL du fichier source|
 |destination|string|yes|query|(aucun) |Chemin de destination du fichier dans Google Drive, y compris le nom de fichier cible|
-|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace le fichier de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|
@@ -166,13 +166,13 @@ Supprime une ligne d’une feuille Google. ```DELETE: /datasets/{dataset}/tables
 
 
 ### Extraire une archive dans un dossier    
-Extrait un fichier d’archive dans un dossier Google Drive (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
+Extrait un fichier d’archive dans un dossier Google Drive (exemple : .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun) |Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun) |Chemin dans Google Drive indiquant où extraire le contenu de l’archive|
-|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
+|overwrite|booléenne|no|query|(aucun) |Remplace les fichiers de destination si la valeur est « true »|
 
 #### Response
 |Nom|Description|

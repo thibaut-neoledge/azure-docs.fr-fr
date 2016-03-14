@@ -1,6 +1,6 @@
 <properties
-pageTitle="Ajouter l’API Office 365 Outlook à vos applications logiques | Microsoft Azure"
-description="Vue d’ensemble de l’API Office 365 Outlook avec les paramètres de l’API REST"
+pageTitle="Ajouter l’API Office 365 Outlook à vos applications logiques | Microsoft Azure"
+description="Vue d’ensemble de l’API Office 365 Outlook avec les paramètres de l’API REST"
 services=""	
 documentationCenter="" 	
 authors="msftman"	
@@ -16,21 +16,21 @@ ms.workload="integration"
 ms.date="02/25/2016"
 ms.author="mandia"/>
 
-# Prendre en main l’API Office 365 Outlook 
+# Prendre en main l’API Office 365 Outlook 
 
-Connectez-vous à Office 365 Outlook pour recevoir des messages électroniques, répondre à un message électronique, mettre à jour vos calendrier et contacts, et bien plus encore. L’API Office 365 Outlook peut être utilisée à partir de :
+Connectez-vous à Office 365 Outlook pour recevoir des messages électroniques, répondre à un message électronique, mettre à jour vos calendrier et contacts, et bien plus encore. L’API Office 365 Outlook peut être utilisée à partir de :
 
 - PowerApps 
-- Logic Apps 
+- Logic Apps 
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [API Office 365](../app-service-logic/app-service-logic-connector-office365.md).
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [API Office 365](../app-service-logic/app-service-logic-connector-office365.md).
 
-Avec Office 365 Outlook, vous pouvez effectuer les opérations suivantes :
+Avec Office 365 Outlook, vous pouvez effectuer les opérations suivantes :
 
-- Créer votre flux d’activité en fonction des données que vous obtenez d’Office 365 Outlook. 
+- Créer votre flux d’activité en fonction des données que vous obtenez d’Office 365 Outlook. 
 - Utiliser un déclencheur, par exemple quand il y a un nouveau message électronique ou que vous créez un contact.
-- Utiliser des actions qui répondent à un message électronique, créent un événement de calendrier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Par exemple, quand il existe un nouvel objet dans Salesforce, vous pouvez prendre cet objet et mettre à jour vos contacts Office 365 Outlook. 
-- Ajouter l’API Office 365 Outlook à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
+- Utiliser des actions qui répondent à un message électronique, créent un événement de calendrier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Par exemple, quand il existe un nouvel objet dans Salesforce, vous pouvez prendre cet objet et mettre à jour vos contacts Office 365 Outlook. 
+- Ajouter l’API Office 365 Outlook à PowerApps Enterprise. Ensuite, vos utilisateurs peuvent utiliser cette API dans leurs applications. 
 
 Pour plus d’informations sur l’ajout d’une API à PowerApps Enterprise, consultez [Inscrire une API dans PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
@@ -38,7 +38,7 @@ Pour ajouter une opération aux applications logiques, consultez [Créer une app
 
 ## Déclencheurs et actions
 
-L’API Office 365 Outlook propose les déclencheurs et les actions suivants.
+L’API Office 365 Outlook propose les déclencheurs et les actions suivants.
 
 | Déclencheurs | Actions|
 | --- | --- |
@@ -47,39 +47,39 @@ L’API Office 365 Outlook propose les déclencheurs et les actions suivants.
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 
-## Créer une connexion à Office 365
+## Créer une connexion à Office 365
 
 ### Ajouter une configuration à PowerApps
-Quand vous ajoutez cette API à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Office 365 Azure Active Directory (AAD). La valeur **URL de redirection** est également utilisée dans votre application Office 365. Si vous n’avez pas d’application Office 365, vous pouvez utiliser les étapes suivantes pour en créer une :
+Quand vous ajoutez cette API à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Office 365 Azure Active Directory (AAD). La valeur **URL de redirection** est également utilisée dans votre application Office 365. Si vous n’avez pas d’application Office 365, vous pouvez utiliser les étapes suivantes pour en créer une :
 
 1. Dans le [portail Azure][5], ouvrez **Active Directory**, puis ouvrez le nom de client de votre organisation.
-2. Sélectionnez l’onglet **Applications**, puis sélectionnez **Ajouter** : ![Applications clientes AAD][7]
+2. Sélectionnez l’onglet **Applications**, puis sélectionnez **Ajouter** : ![Applications clientes AAD][7]
 
-3. Dans **AJOUTER UNE APPLICATION** :
+3. Dans **AJOUTER UNE APPLICATION** :
 
 	1. Entrez un **Nom** pour votre application.  
 	2. Laissez le type d’application sur **Web**.  
 	3. Sélectionnez **Suivant**.  
 
-	![Ajouter une application AAD – Informations sur l’application][8]
+	![Ajouter une application AAD – Informations sur l’application][8]
 
-6. Dans **Propriétés de l’application** :
+6. Dans **Propriétés de l’application** :
 
 	1. Entrez l’**URL de connexion** de votre application. Étant donné que vous allez vous authentifier dans AAD pour PowerApps, définissez l’URL de connexion sur \__https://login.windows.net_.
 2. Entrez un **URI ID d’application** valide pour votre application.  
 	3. Sélectionnez **OK**.  
 
-	![Ajouter une application AAD – Propriétés de l’application][9]
+	![Ajouter une application AAD – Propriétés de l’application][9]
 
-7. Quand vous avez terminé, la nouvelle application AAD s’ouvre. Sélectionnez **Configurer** : ![Application AAD Contoso][10]
+7. Quand vous avez terminé, la nouvelle application AAD s’ouvre. Sélectionnez **Configurer** : ![Application AAD Contoso][10]
 
-8. Sous la section _OAuth 2_, définissez l’**URL de réponse** sur la valeur d’URL de redirection indiquée quand vous avez ajouté la nouvelle API Office 365 Outlook dans le portail Azure. Sélectionnez **Ajouter une application** : ![Configurer l’application AAD Contoso][11]
+8. Sous la section _OAuth 2_, définissez l’**URL de réponse** sur la valeur d’URL de redirection indiquée quand vous avez ajouté la nouvelle API Office 365 Outlook dans le portail Azure. Sélectionnez **Ajouter une application** : ![Configurer l’application AAD Contoso][11]
 
-9. Dans **Autorisations pour d’autres applications**, sélectionnez **Office 365 Exchange Online**, puis sélectionnez **OK** : ![Délégué de l’application Contoso][12]
+9. Dans **Autorisations pour d’autres applications**, sélectionnez **Office 365 Exchange Online**, puis sélectionnez **OK** : ![Délégué de l’application Contoso][12]
 
-	Dans la page Configurer, notez que _OFFICE 365 EXCHANGE ONLINE_ est ajouté à la liste _AUTORISATIONS POUR D’AUTRES APPLICATIONS_.
+	Dans la page Configurer, notez que _OFFICE 365 EXCHANGE ONLINE_ est ajouté à la liste _AUTORISATIONS POUR D’AUTRES APPLICATIONS_.
 
-10. Pour **Office 365 Exchange Online**, sélectionnez **Autorisations déléguées**, puis sélectionnez les autorisations suivantes :
+10. Pour **Office 365 Exchange Online**, sélectionnez **Autorisations déléguées**, puis sélectionnez les autorisations suivantes :
 
 	- Lecture et écriture des contacts de l’utilisateur
 	- Lecture des contacts de l’utilisateur
@@ -91,22 +91,22 @@ Quand vous ajoutez cette API à PowerApps Enterprise, vous entrez les valeurs **
 
 	![Autorisations de délégué d’application Contoso][13]
 
-Une nouvelle application Azure Active Directory est créée. Vous pouvez copier/coller les valeurs **Clé d’application** et **Question secrète de l’application** dans votre configuration de l’API Office 365 Outlook dans le portail Azure.
+Une nouvelle application Azure Active Directory est créée. Vous pouvez copier/coller les valeurs **Clé d’application** et **Question secrète de l’application** dans votre configuration de l’API Office 365 Outlook dans le portail Azure.
 
 Pour obtenir des informations intéressantes sur les applications AAD, consultez [Comment et pourquoi les applications sont ajoutées à Azure AD](../active-directory/active-directory-how-applications-are-added.md).
 
 ### Ajouter une configuration à des applications logiques
-Quand vous ajoutez cette API à vos applications logiques, vous devez vous connecter à votre compte Office 365 Outlook et autoriser les applications logiques à se connecter à votre compte.
+Quand vous ajoutez cette API à vos applications logiques, vous devez vous connecter à votre compte Office 365 Outlook et autoriser les applications logiques à se connecter à votre compte.
 
-1. Connectez-vous à votre compte Office 365 Outlook.
-2. Autorisez vos applications logiques à se connecter à votre compte Office 365 et à l’utiliser. 
+1. Connectez-vous à votre compte Office 365 Outlook.
+2. Autorisez vos applications logiques à se connecter à votre compte Office 365 et à l’utiliser. 
 
-Après avoir créé la connexion, vous entrez les propriétés Office 365 Outlook, telles que le chemin du dossier de la boîte de réception ou le message électronique. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez les propriétés Office 365 Outlook, telles que le chemin du dossier de la boîte de réception ou le message électronique. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
 
->[AZURE.TIP] Vous pouvez utiliser cette même connexion Office 365 Outlook dans d’autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette même connexion Office 365 Outlook dans d’autres applications logiques.
 
 ## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+S’applique à la version 1.0.
 
 
 ### Événement imminent 
@@ -134,12 +134,12 @@ Récupère des messages électroniques à partir d’un dossier. ```GET: /Mail``
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Chemin du dossier duquel récupérer des messages (valeur par défaut : « Inbox »)|
-|top|integer|no|query|10|Nombre de messages électroniques à récupérer (valeur par défaut : 10)|
-|fetchOnlyUnread|booléenne|no|query|true|Récupérer uniquement les messages non lus ?|
+|folderPath|string|no|query|Inbox|Chemin du dossier duquel récupérer des messages (valeur par défaut : « Inbox »)|
+|top|integer|no|query|10|Nombre de messages électroniques à récupérer (valeur par défaut : 10)|
+|fetchOnlyUnread|booléenne|no|query|true|Récupérer uniquement les messages non lus ?|
 |includeAttachments|booléenne|no|query|false|Si défini sur true, les pièces jointes sont également récupérées avec les messages électroniques.|
 |searchQuery|string|no|query|(aucun)|Requête de recherche pour filtrer les messages électroniques|
-|skip|integer|no|query|0|Nombre de messages électroniques à ignorer (valeur par défaut : 0)|
+|skip|integer|no|query|0|Nombre de messages électroniques à ignorer (valeur par défaut : 0)|
 |skipToken|string|no|query|(aucun)|Jeton d’évitement pour récupérer une nouvelle page|
 
 #### Response
@@ -258,10 +258,10 @@ Déclenche un flux à l’arrivée d’un nouveau message électronique. ```GET:
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Dossier de courrier électronique à récupérer (valeur par défaut : Inbox)|
+|folderPath|string|no|query|Inbox|Dossier de courrier électronique à récupérer (valeur par défaut : Inbox)|
 |to|string|no|query|(aucun)|Adresses de messagerie des destinataires|
 |from|string|no|query|(aucun)|Adresse de l’expéditeur|
-|importance|string|no|query|Normal|Importance du message (High, Normal, Low) (valeur par défaut : Normal)|
+|importance|string|no|query|Normal|Importance du message (High, Normal, Low) (valeur par défaut : Normal)|
 |fetchOnlyWithAttachment|booléenne|no|query|false|Récupérer uniquement les messages électroniques avec une pièce jointe|
 |includeAttachments|booléenne|no|query|false|Inclure les pièces jointes|
 |subjectFilter|string|no|query|(aucun)|Chaîne à rechercher dans l’objet.|
@@ -343,8 +343,8 @@ Récupère des éléments d’un calendrier. ```GET: /datasets/calendars/tables/
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Identificateur unique du calendrier à récupérer|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
@@ -427,8 +427,8 @@ Déclenché à la création d’un élément de calendrier. ```GET: /datasets/ca
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
@@ -446,8 +446,8 @@ Déclenché quand un élément de calendrier est modifié. ```GET: /datasets/cal
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
@@ -478,8 +478,8 @@ Récupère les contacts d’un dossier de contacts. ```GET: /datasets/contacts/t
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Identificateur unique du dossier de contacts à récupérer|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 |$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
@@ -565,7 +565,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |value|array|no|
 
 
-#### SendMessage : envoyer un message électronique
+#### SendMessage : envoyer un message électronique
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -579,7 +579,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |IsHtml|booléenne|no|
 |À|string|yes|
 
-#### SendAttachment : pièce jointe
+#### SendAttachment : pièce jointe
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -588,7 +588,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |ContentBytes|string|yes|
 
 
-#### ReceiveMessage : recevoir un message électronique
+#### ReceiveMessage : recevoir un message électronique
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -607,7 +607,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |À|string|yes|
 
 
-#### ReceiveAttachment : recevoir une pièce jointe
+#### ReceiveAttachment : recevoir une pièce jointe
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -618,7 +618,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |ContentBytes|string|yes|
 
 
-#### DigestMessage : envoyer un message électronique
+#### DigestMessage : envoyer un message électronique
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -674,14 +674,14 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |schema|non défini|no|
 
 
-#### OptionsEmailSubscription : modèle d’abonnement au courrier électronique avec options
+#### OptionsEmailSubscription : modèle d’abonnement au courrier électronique avec options
 
 | Nom | Type de données |Requis|
 |---|---|---|
 |NotificationUrl|string|no|
 |Message|non défini|no|
 
-#### MessageWithOptions : message électronique avec options de l’utilisateur Message attendu dans le cadre de l’entrée de l’utilisateur
+#### MessageWithOptions : message électronique avec options de l’utilisateur Message attendu dans le cadre de l’entrée de l’utilisateur
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -692,7 +692,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |Pièces jointes|array|no|
 |À|string|yes|
 
-#### SubscriptionResponse : modèle d’abonnement au courrier électronique d’approbation
+#### SubscriptionResponse : modèle d’abonnement au courrier électronique d’approbation
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -702,7 +702,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |notificationUrl|string|no|
 
 
-#### ApprovalEmailSubscription : modèle d’abonnement au courrier électronique d’approbation
+#### ApprovalEmailSubscription : modèle d’abonnement au courrier électronique d’approbation
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -710,7 +710,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |Message|non défini|no|
 
 
-#### ApprovalMessage : message électronique d’approbation. Message attendu dans le cadre de l’entrée de l’utilisateur
+#### ApprovalMessage : message électronique d’approbation. Message attendu dans le cadre de l’entrée de l’utilisateur
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -721,7 +721,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |Pièces jointes|array|no|
 |À|string|yes|
 
-#### ApprovalEmailResponse : réponse par courrier électronique d’approbation
+#### ApprovalEmailResponse : réponse par courrier électronique d’approbation
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -749,28 +749,28 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 |ItemInternalId|string|no|
 
 
-#### CalendarItemsList : liste des éléments de calendrier
+#### CalendarItemsList : liste des éléments de calendrier
 
 | Nom | Type de données |Requis|
 |---|---|---|
 |value|array|no|
 
 
-#### CalendarItem : représente un élément de table de calendrier
+#### CalendarItem : représente un élément de table de calendrier
 
 | Nom | Type de données |Requis|
 |---|---|---|
 |ItemInternalId|string|no|
 
 
-#### ContactItemsList : liste des éléments de contact
+#### ContactItemsList : liste des éléments de contact
 
 | Nom | Type de données |Requis|
 |---|---|---|
 |value|array|no|
 
 
-#### ContactItem : représente un élément de la table de contacts
+#### ContactItem : représente un élément de la table de contacts
 
 | Nom | Type de données |Requis|
 |---|---|---|
@@ -793,7 +793,7 @@ Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table
 
 
 ## Étapes suivantes
-Après avoir ajouté l’API Office 365 à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
+Après avoir ajouté l’API Office 365 à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
 
 [Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 

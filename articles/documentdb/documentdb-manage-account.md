@@ -62,7 +62,7 @@ Si certains de vos services cloud ou applications utilisent le compte DocumentDB
 
 4.      Dans le panneau **Clés**, cliquez sur la commande **Régénérer la clé primaire**, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé.
 
-5.      Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ 5 minutes après la régénération), mettez à jour la clé d'accès dans le code de votre application afin de référencer la nouvelle clé d'accès primaire.
+5.      Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ 5 minutes après la régénération), mettez à jour la clé d'accès dans le code de votre application afin de référencer la nouvelle clé d'accès primaire.
 
 6.      Régénérez la clé d’accès secondaire.
 
@@ -79,7 +79,7 @@ DocumentDB prend en charge quatre niveaux de cohérence des données bien défin
 
 - Le niveau de cohérence **Éventuel** garantit que les opérations de lecture lisent toujours un sous-ensemble d’écritures valide, qui finiront éventuellement par converger.
 
-*Notez que par défaut, les comptes DocumentDB sont configurés avec une cohérence de niveau Par session. Pour plus d’informations sur les paramètres de cohérence de DocumentDB, consultez la section [Niveau de cohérence](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
+*Notez que par défaut, les comptes DocumentDB sont configurés avec une cohérence de niveau Par session. Pour plus d’informations sur les paramètres de cohérence de DocumentDB, consultez la section [Niveau de cohérence](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
 
 ### Pour spécifier le niveau de cohérence par défaut d’un compte DocumentDB
 

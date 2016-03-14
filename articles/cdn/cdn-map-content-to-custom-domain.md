@@ -18,7 +18,7 @@
 # Comment mapper un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN)
 Vous pouvez mapper un domaine personnalisé à un point de terminaison CDN pour utiliser votre propre nom de domaine dans les URL de contenu mis en cache, plutôt que d’utiliser un sous-domaine d’azureedge.net.
 
-Il existe deux façons de mapper votre domaine personnalisé à un point de terminaison CDN :
+Il existe deux façons de mapper votre domaine personnalisé à un point de terminaison CDN :
 
 1. [Créer un enregistrement CNAME auprès de votre bureau d'enregistrement de domaines et mapper votre domaine personnalisé et votre sous-domaine au point de terminaison CDN](#register-a-custom-domain-for-an-azure-cdn-endpoint)
 
@@ -67,15 +67,15 @@ Après avoir enregistré votre domaine personnalisé à l’aide de l»une des p
 
 	Azure vérifiera que l'enregistrement CNAME existe pour le nom de domaine cdnverify que vous avez entré.
 9. À ce stade, votre domaine personnalisé a été vérifié par Azure, mais le trafic en direction de votre domaine n'est pas encore dirigé vers votre point de terminaison CDN. Après avoir attendu 90 minutes que les paramètres de domaine personnalisé se propagent aux nœuds de périmètre CDN, retournez sur le site web du bureau d'enregistrement de votre DNS et créez un autre enregistrement CNAME qui mappe votre sous-domaine à votre point de terminaison CDN. Par exemple, spécifiez le sous-domaine sous la forme **www** ou **cdn**, et le nom d’hôte sous la forme **&lt;EndpointName>.azureedge.net**. Cette étape marque la fin de l'enregistrement de votre domaine personnalisé.
-10.	Pour finir, vous pouvez supprimer l'enregistrement CNAME que vous avez créé à l'aide du sous-domaine **cdnverify**, car il n'a plus d'utilité.  
+10.	Pour finir, vous pouvez supprimer l'enregistrement CNAME que vous avez créé à l'aide du sous-domaine **cdnverify**, car il n'a plus d'utilité.  
 
 
 ## Vérifier que le sous-domaine personnalisé référence votre point de terminaison CDN
 
 - Après avoir terminé l'enregistrement de votre domaine personnalisé, vous pouvez accéder au contenu mis en cache au point de terminaison CDN à l'aide du domaine personnalisé. Tout d'abord, assurez-vous d'avoir un contenu public qui est mis en cache au point de terminaison. Par exemple, si votre point de terminaison CDN est associé à un compte de stockage, le CDN met en cache le contenu dans des conteneurs d'objets blob publics. Pour tester le domaine personnalisé, assurez-vous que votre conteneur est configuré pour autoriser l'accès public et qu'il contient au moins un objet blob.
-- Dans votre navigateur, accédez à l'adresse de l'objet blob à l'aide du domaine personnalisé. Par exemple, si votre domaine personnalisé est **cdn.mydomain.com**, l’URL à un objet blob mis en cache sera similaire à l’URL suivante : http://cdn.mydomain.com/mypubliccontainer/acachedblob.jpg
+- Dans votre navigateur, accédez à l'adresse de l'objet blob à l'aide du domaine personnalisé. Par exemple, si votre domaine personnalisé est **cdn.mydomain.com**, l’URL à un objet blob mis en cache sera similaire à l’URL suivante : http://cdn.mydomain.com/mypubliccontainer/acachedblob.jpg
 
-- Si votre point de terminaison CDN est associé à un service cloud, l'adresse de votre contenu mis en cache sera similaire à l'URL suivante : http://cdn.mydomain.com/mycloudservice
+- Si votre point de terminaison CDN est associé à un service cloud, l'adresse de votre contenu mis en cache sera similaire à l'URL suivante : http://cdn.mydomain.com/mycloudservice
 
 ## Voir aussi
 

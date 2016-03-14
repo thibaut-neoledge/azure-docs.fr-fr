@@ -23,21 +23,21 @@
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-Cette rubrique montre comment inscrire vos applications afin d'utiliser Facebook pour l'authentification auprès d'Azure Mobile Services. Cette page est consacrée au didacticiel [Prise en main de l'authentification](mobile-services-ios-get-started-users.md), qui montre comment permettre aux utilisateurs de se connecter à votre application. Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel [Prise en main de Mobile Services](mobile-services-ios-get-started.md).
+Cette rubrique montre comment inscrire vos applications afin d'utiliser Facebook pour l'authentification auprès d'Azure Mobile Services. Cette page est consacrée au didacticiel [Prise en main de l'authentification](mobile-services-ios-get-started-users.md), qui montre comment permettre aux utilisateurs de se connecter à votre application. Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel [Prise en main de Mobile Services](mobile-services-ios-get-started.md).
 
 Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Facebook avec une adresse de messagerie vérifiée et un numéro de téléphone mobile. Pour créer un compte Facebook, allez sur [facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285).
 
 1. Accédez au site Web [Développeurs Facebook](http://go.microsoft.com/fwlink/p/?LinkId=268285) et connectez-vous à l'aide des informations d'identification de votre compte Facebook.
 
-2. (Facultatif) Si vous n’êtes pas encore inscrit, cliquez sur **My Apps**, puis sur **Register as a Developer**, acceptez la politique et suivez les étapes de l’inscription.
+2. (Facultatif) Si vous n’êtes pas encore inscrit, cliquez sur **My Apps**, puis sur **Register as a Developer**, acceptez la politique et suivez les étapes de l’inscription.
 
 3. Cliquez sur **Mes applications** > **Ajouter une nouvelle application** > **Site Web** > **Ignorer et créer un ID d’application**.
 
-4. Dans **Nom d’affichage**, saisissez un nom unique pour votre application, choisissez une **Catégorie** pour votre application, puis cliquez sur **Create App ID** et effectuez la vérification de sécurité. Vous serez alors redirigé vers le tableau de bord du développeur pour votre nouvelle application Facebook.
+4. Dans **Nom d’affichage**, saisissez un nom unique pour votre application, choisissez une **Catégorie** pour votre application, puis cliquez sur **Create App ID** et effectuez la vérification de sécurité. Vous serez alors redirigé vers le tableau de bord du développeur pour votre nouvelle application Facebook.
 
 5. Dans le champ **App Secret**, cliquez sur **Show**, fournissez votre mot de passe si nécessaire, puis notez les valeurs **App ID** et **App Secret**. Vous les utiliserez plus tard pour configurer l’application dans Azure.
 
-	> [AZURE.NOTE] **Remarque relative à la sécurité** : la clé secrète d’application est une information d’identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
+	> [AZURE.NOTE] **Remarque relative à la sécurité** : la clé secrète d’application est une information d’identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
 5. Dans la barre de navigation gauche, cliquez sur **Settings**, tapez le domaine de votre service mobile dans **App Domains**, entrez une adresse de messagerie facultative dans **Contact Email**, puis cliquez sur **Add Platform** et sélectionnez **Website**.
 
@@ -51,9 +51,9 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
     >[AZURE.IMPORTANT] La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application. &nbsp;
 
-8. Cliquez sur l’onglet **Avancé** onglet, entrez l’un des formats d’URL suivants dans **URI de redirection OAuth valides**, puis cliquez sur **Enregistrer les modifications** :
+8. Cliquez sur l’onglet **Avancé** onglet, entrez l’un des formats d’URL suivants dans **URI de redirection OAuth valides**, puis cliquez sur **Enregistrer les modifications** :
 
-	+ **Service principal .NET** : `https://<mobile_service>.azure-mobile.net/signin-facebook`
+	+ **Service principal .NET** : `https://<mobile_service>.azure-mobile.net/signin-facebook`
 	+ **Service principal JavaScript** : `https://<mobile_service>.azure-mobile.net/login/facebook`
 
 	 >[AZURE.NOTE]Assurez-vous d’utiliser le format de chemin d’accès d’URL de redirection correct pour votre type de serveur principal Mobile Services, à l’aide du schéma *HTTPS*. Si ce n’est pas le cas, l’authentification échouera.

@@ -23,9 +23,9 @@ Cet article présente un ensemble de pratiques éprouvées pour l’exécution d
 
 > [AZURE.WARNING] Il n’existe aucun contrat SLA concernant la durée de bon fonctionnement des machines virtuelles sur Azure. Utilisez cette configuration pour le développement et de test, mais pas comme un déploiement de production.
 
-Azure propose deux modèles de déploiement : [Resource Manager][resource-manager-overview] et classique. Cet article utilise Resource Manager, solution recommandée par Microsoft pour les nouveaux déploiements. Il existe plusieurs façons d’utiliser Resource Manager, notamment le [portail Azure][azure-portal], [Azure PowerShell][azure-powershell], les commandes [Azure CLI][azure-cli] ou les [modèles de Resource Manager][arm-templates]. Cet article inclut un exemple d’utilisation de l’interface Azure CLI.
+Azure propose deux modèles de déploiement : [Resource Manager][resource-manager-overview] et classique. Cet article utilise Resource Manager, solution recommandée par Microsoft pour les nouveaux déploiements. Il existe plusieurs façons d’utiliser Resource Manager, notamment le [portail Azure][azure-portal], [Azure PowerShell][azure-powershell], les commandes [Azure CLI][azure-cli] ou les [modèles de Resource Manager][arm-templates]. Cet article inclut un exemple d’utilisation de l’interface Azure CLI.
 
-![IaaS : machine virtuelle unique](media/guidance-compute-single-vm.png)
+![IaaS : machine virtuelle unique](media/guidance-compute-single-vm.png)
 
 L’approvisionnement d’une machine virtuelle unique dans Azure implique de déplacer davantage d’éléments que le cœur de la machine virtuelle. Il faut inclure les éléments de calcul, de mise en réseau et de stockage.
 
@@ -41,7 +41,7 @@ L’approvisionnement d’une machine virtuelle unique dans Azure implique de d�
 
 - **Réseau virtuel (VNet) et sous-réseau.** Chaque machine virtuelle dans Azure est déployée dans un réseau virtuel (VNet) divisé en sous-réseaux.
 
-- **Adresse IP publique.** Une adresse IP publique est nécessaire pour communiquer avec la machine virtuelle, par exemple avec le protocole RDP.
+- **Adresse IP publique.** Une adresse IP publique est nécessaire pour communiquer avec la machine virtuelle, par exemple avec le protocole RDP.
 
 - **Groupe de sécurité réseau (NSG)**. Le [NSG][nsg] sert à autoriser ou refuser le trafic réseau destiné à la machine virtuelle. Par défaut, les règles du NSG interdisent tout le trafic Internet entrant.
 
@@ -53,7 +53,7 @@ L’approvisionnement d’une machine virtuelle unique dans Azure implique de d�
 
 - Lorsque vous déplacez une charge de travail vers Azure, choisissez la [taille de machine virtuelle][virtual-machine-sizes] qui correspond le mieux à vos serveurs locaux. Nous recommandons les séries DS et GS, qui peuvent utiliser Premium Storage pour les charges de travail consommatrices d’E/S.
 
-    - Si votre charge de travail ne nécessite pas un accès au disque très performant et à faible latence, privilégiez les tailles Standard de machine virtuelle, telles que la série A ou D.
+    - Si votre charge de travail ne nécessite pas un accès au disque très performant et à faible latence, privilégiez les tailles Standard de machine virtuelle, telles que la série A ou D.
 
 - Lorsque vous approvisionnez la machine virtuelle et d’autres ressources, vous devez spécifier un emplacement. En général, choisissez un emplacement le plus proche possible de vos utilisateurs internes ou de vos clients. Sachez toutefois que certaines références (SKU) de machine virtuelle ne sont pas disponibles dans tous les emplacements. Pour plus d’informations, consultez la page [Services par région][services-by-region].
 
@@ -61,11 +61,11 @@ L’approvisionnement d’une machine virtuelle unique dans Azure implique de d�
 
 ## Recommandations pour le disque et le stockage
 
-Nous vous recommandons [Premium Storage][premium-storage] pour des performances d’E/S de disque optimales. Toutefois, notez que Premium Storage requiert des machines virtuelles DS ou GS.
+Nous vous recommandons [Premium Storage][premium-storage] pour des performances d’E/S de disque optimales. Toutefois, notez que Premium Storage requiert des machines virtuelles DS ou GS.
 
-- Pour Premium Storage, le coût est basé sur la taille du disque approvisionné. Le nombre d’E/S par seconde et le débit (c’est-à-dire le taux de transfert des données) dépendent également de la taille du disque. Lorsque vous approvisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit.
+- Pour Premium Storage, le coût est basé sur la taille du disque approvisionné. Le nombre d’E/S par seconde et le débit (c’est-à-dire le taux de transfert des données) dépendent également de la taille du disque. Lorsque vous approvisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit.
 
-- Pour le stockage Standard, le coût est basé sur la quantité de données écrites sur le disque. Il est donc conseillé de configurer la taille maximale (1 023 Go). Toutefois, veillez à utiliser le formatage rapide pour les disques. Un formatage complet écrit des zéros sur le disque, utilisant la capacité réelle de stockage. Consultez la page [Tarification d’Azure Storage][storage-price].
+- Pour le stockage Standard, le coût est basé sur la quantité de données écrites sur le disque. Il est donc conseillé de configurer la taille maximale (1 023 Go). Toutefois, veillez à utiliser le formatage rapide pour les disques. Un formatage complet écrit des zéros sur le disque, utilisant la capacité réelle de stockage. Consultez la page [Tarification d’Azure Storage][storage-price].
 
 - Si vous sélectionnez l’option Standard, nous vous recommandons le stockage géo-redondant (GRS), car il est rémanent même en cas de panne régionale totale ou d’incident empêchant la récupération depuis la région primaire.
 
@@ -77,21 +77,21 @@ Nous vous recommandons [Premium Storage][premium-storage] pour des performances 
 
 ## Recommandations pour le réseau
 
-- Pour une seule machine virtuelle, créez un réseau virtuel avec un sous-réseau. Créez également un groupe de sécurité réseau et une adresse IP publique.
+- Pour une seule machine virtuelle, créez un réseau virtuel avec un sous-réseau. Créez également un groupe de sécurité réseau et une adresse IP publique.
 
-- Cette adresse IP publique peut être dynamique ou statique. Par défaut, elle est dynamique.
+- Cette adresse IP publique peut être dynamique ou statique. Par défaut, elle est dynamique.
 
-    - Utilisez une [adresse IP statique][static-ip] si vous avez besoin d’une adresse IP non modifiable, par exemple pour créer un enregistrement A dans le DNS ou insérer l’adresse IP dans la liste blanche.
+    - Utilisez une [adresse IP statique][static-ip] si vous avez besoin d’une adresse IP non modifiable, par exemple pour créer un enregistrement A dans le DNS ou insérer l’adresse IP dans la liste blanche.
 
-    - Par défaut, l’adresse IP ne dispose pas d’un nom de domaine complet (FQDN). Pour plus d’informations, consultez la page [Créer un nom de domaine complet dans le portail Azure][fqdn].
+    - Par défaut, l’adresse IP ne dispose pas d’un nom de domaine complet (FQDN). Pour plus d’informations, consultez la page [Créer un nom de domaine complet dans le portail Azure][fqdn].
 
-- Affectez une carte d’interface réseau et associez-la à l’adresse IP, au sous-réseau et au groupe de sécurité réseau.
+- Affectez une carte d’interface réseau et associez-la à l’adresse IP, au sous-réseau et au groupe de sécurité réseau.
 
-- Les règles du groupe de sécurité réseau par défaut n’autorisent pas le protocole RDP. Pour activer le protocole RDP, ajoutez au groupe de sécurité réseau une règle qui autorise le trafic entrant sur le port TCP 3389.
+- Les règles du groupe de sécurité réseau par défaut n’autorisent pas le protocole RDP. Pour activer le protocole RDP, ajoutez au groupe de sécurité réseau une règle qui autorise le trafic entrant sur le port TCP 3389.
 
 ## Extensibilité
 
-Vous pouvez ajuster une machine virtuelle en modifiant sa taille. La commande Azure CLI suivante redimensionne une machine virtuelle :
+Vous pouvez ajuster une machine virtuelle en modifiant sa taille. La commande Azure CLI suivante redimensionne une machine virtuelle :
 
 ```text
 azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
@@ -100,7 +100,7 @@ azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
 
 Le redimensionnement de la machine virtuelle déclenche un redémarrage du système et remappe les disques du système d’exploitation et des données après le redémarrage. Tout le contenu du disque temporaire est perdu. L’option `--boot-diagnostics-storage-uri` active la consignation des erreurs de démarrage dans [Diagnostics de démarrage][boot-diagnostics].
 
-Il se peut que vous ne puissiez pas modifier une famille de références (SKU) en une autre (par exemple, une série A en une série G). Pour obtenir la liste des tailles disponibles pour une machine virtuelle, utilisez la commande CLI suivante :
+Il se peut que vous ne puissiez pas modifier une famille de références (SKU) en une autre (par exemple, une série A en une série G). Pour obtenir la liste des tailles disponibles pour une machine virtuelle, utilisez la commande CLI suivante :
 
 ```text
 azure vm sizes -g <<resource-group>> --vm-name <<vm-name>>
@@ -122,7 +122,7 @@ Pour configurer une taille non répertoriée, vous devez supprimer l’instance 
 
 ## Facilité de gestion
 
-- Exécutez la commande CLI suivante pour activer les diagnostics de la machine virtuelle :
+- Exécutez la commande CLI suivante pour activer les diagnostics de la machine virtuelle :
     
     ```text
     azure vm enable-diag <<resource-group>> <<vm-name>>
@@ -132,9 +132,9 @@ Pour configurer une taille non répertoriée, vous devez supprimer l’instance 
 
 - Utilisez l’extension [Azure Log Collector][log-collector] pour collecter les journaux et les télécharger sur Azure Storage.
 
-- Azure fait une distinction entre les états « Arrêté » et « Désalloué ». Vous êtes facturé quand l’état de la machine virtuelle est arrêté, mais pas lorsque la machine virtuelle est désallouée. (Consultez le [Forum aux questions sur les machines virtuelles Azure créées avec le modèle de déploiement classique][vm-faq].)
+- Azure fait une distinction entre les états « Arrêté » et « Désalloué ». Vous êtes facturé quand l’état de la machine virtuelle est arrêté, mais pas lorsque la machine virtuelle est désallouée. (Consultez le [Forum aux questions sur les machines virtuelles Azure créées avec le modèle de déploiement classique][vm-faq].)
 
-    Utilisez la commande CLI suivante pour désallouer une machine virtuelle :
+    Utilisez la commande CLI suivante pour désallouer une machine virtuelle :
     
     ```text
     azure vm deallocate <<resource-group>> <<vm-name>>
@@ -144,18 +144,18 @@ Pour configurer une taille non répertoriée, vous devez supprimer l’instance 
 
 - La suppression d’une machine virtuelle n’entraîne pas celle des disques durs virtuels. Vous pouvez donc supprimer la machine virtuelle, sans risque de perdre des données. Toutefois, vous serez toujours facturé pour le stockage. Pour supprimer le disque dur virtuel, supprimez le fichier de [Blob Storage][blog-storage].
 
-- Pour redimensionner le disque du système d’exploitation, téléchargez le fichier VHD et utilisez un outil du type [Resize-VHD][Resize-VHD] pour redimensionner le disque dur virtuel. Téléchargez le disque dur virtuel redimensionné sur Blob Storage, puis supprimez l’instance de machine virtuelle et approvisionnez une nouvelle instance utilisant le disque dur virtuel redimensionné.
+- Pour redimensionner le disque du système d’exploitation, téléchargez le fichier VHD et utilisez un outil du type [Resize-VHD][Resize-VHD] pour redimensionner le disque dur virtuel. Téléchargez le disque dur virtuel redimensionné sur Blob Storage, puis supprimez l’instance de machine virtuelle et approvisionnez une nouvelle instance utilisant le disque dur virtuel redimensionné.
 
 
 ## Sécurité
 
-- Le [Centre de sécurité Azure][security-center] vous offre un aperçu global de l’état de sécurité de toutes vos ressources Azure. Il surveille les problèmes potentiels de sécurité tels que les mises à jour système, les logiciels malveillants ainsi que les ACL de point de terminaison, et fournit une image complète de la sécurité de votre déploiement. **Remarque :** au moment de la rédaction de ce document, le Centre de sécurité est toujours en version préliminaire.
+- Le [Centre de sécurité Azure][security-center] vous offre un aperçu global de l’état de sécurité de toutes vos ressources Azure. Il surveille les problèmes potentiels de sécurité tels que les mises à jour système, les logiciels malveillants ainsi que les ACL de point de terminaison, et fournit une image complète de la sécurité de votre déploiement. **Remarque :** au moment de la rédaction de ce document, le Centre de sécurité est toujours en version préliminaire.
 
 - Utilisez le [contrôle d’accès basé sur les rôles][rbac] (RBAC) pour identifier les membres de votre équipe de développement autorisés à gérer les ressources Azure (MV, réseau, etc.) que vous déployez.
 
 - Envisagez l’installation d’[extensions de sécurité][security-extensions].
 
-- Utilisez [Azure Disk Encryption][disk-encryption] pour chiffrer les disques du système d’exploitation et de données. **Remarque :** au moment de la rédaction de ce document, Azure Disk Encryption est toujours en version préliminaire.
+- Utilisez [Azure Disk Encryption][disk-encryption] pour chiffrer les disques du système d’exploitation et de données. **Remarque :** au moment de la rédaction de ce document, Azure Disk Encryption est toujours en version préliminaire.
 
 ## Résolution de problèmes
 

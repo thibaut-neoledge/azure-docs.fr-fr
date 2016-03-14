@@ -27,10 +27,10 @@ Cette rubrique décrit les commandes PowerShell permettant d’exécuter la plup
 
 ## Composants requis
  
-- Vous devez disposer d’Azure PowerShell 1.0 ou versions ultérieures. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
+- Vous devez disposer d’Azure PowerShell 1.0 ou versions ultérieures. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
 - Vous devez être connecté à votre abonnement Azure dans PowerShell, comme décrit ci-dessous.
 
-Tout d’abord, vous devez vous connecter à Azure avec cette commande :
+Tout d’abord, vous devez vous connecter à Azure avec cette commande :
 
 	Login-AzureRmAccount
 
@@ -124,9 +124,9 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 	
 ## Étapes suivantes
 	
-Maintenant que votre service est créé, vous pouvez passer aux étapes suivantes : créer un [index](search-what-is-an-index.md), [interroger un index](search-query-overview.md), puis créer et gérer vos propres applications de recherche utilisant Azure Search.
+Maintenant que votre service est créé, vous pouvez passer aux étapes suivantes : créer un [index](search-what-is-an-index.md), [interroger un index](search-query-overview.md), puis créer et gérer vos propres applications de recherche utilisant Azure Search.
 
-- [Création d’un index Azure Search dans le portail Azure](search-create-index-portal.md)
+- [Création d’un index Azure Search dans le portail Azure](search-create-index-portal.md)
 
 - [Interrogation d’un index Azure Search à l’aide de Search Explorer dans le portail Azure](search-explorer.md)
 

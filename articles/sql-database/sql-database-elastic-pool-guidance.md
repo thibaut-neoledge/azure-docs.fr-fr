@@ -46,21 +46,21 @@ Les sections suivantes vous aideront à comprendre comment savoir si votre colle
 
 ### Évaluation des modèles d'utilisation de base de données
 
-La figure suivante montre l’exemple d'une base de données qui est très souvent inactive, mais qui connaît de temps en temps des pics d’activité. Il s'agit d'un modèle d'utilisation qui est particulièrement adapté à un pool élastique de bases de données :
+La figure suivante montre l’exemple d'une base de données qui est très souvent inactive, mais qui connaît de temps en temps des pics d’activité. Il s'agit d'un modèle d'utilisation qui est particulièrement adapté à un pool élastique de bases de données :
  
    ![une base de données][1]
 
-Pour la période d'une heure illustrée ci-dessus, DB1 culmine à 90 DTU, mais son utilisation moyenne totale est < 5 DTU. Un niveau de performance S3 est requis pour exécuter cette charge de travail dans une base de données unique. Cependant, cela laisse la plupart des ressources inutilisées pendant les périodes de faible activité.
+Pour la période d'une heure illustrée ci-dessus, DB1 culmine à 90 DTU, mais son utilisation moyenne totale est < 5 DTU. Un niveau de performance S3 est requis pour exécuter cette charge de travail dans une base de données unique. Cependant, cela laisse la plupart des ressources inutilisées pendant les périodes de faible activité.
 
 Un pool élastique de bases de données permet de partager ces DTU inutilisées entre plusieurs bases de données et réduit donc la quantité totale de DTU nécessaires et le coût global.
 
-En s'appuyant sur l'exemple précédent, supposons qu'il y ait des bases de données supplémentaires avec des modèles d'utilisation similaires comme DB1. Dans les deux figures ci-dessous, l'utilisation de 4 bases de données et celle de 20 bases de données sont représentées sur le même graphique pour montrer que leur utilisation ne se chevauche pas dans le temps :
+En s'appuyant sur l'exemple précédent, supposons qu'il y ait des bases de données supplémentaires avec des modèles d'utilisation similaires comme DB1. Dans les deux figures ci-dessous, l'utilisation de 4 bases de données et celle de 20 bases de données sont représentées sur le même graphique pour montrer que leur utilisation ne se chevauche pas dans le temps :
 
    ![quatre bases de données][2]
 
    ![vingt bases de données][3]
 
-L'utilisation globale des DTU pour les 20 bases de données est illustrée par la ligne noire dans la figure ci-dessus. Cela montre que l'utilisation globale des DTU ne dépasse jamais 100 DTU et que les 20 bases de données peuvent partager 100 eDTU sur cette période. Le nombre de DTU est diminué par 20 et le prix par 13 par rapport au placement de chacune des bases de données dans des niveaux de performances S3 pour les bases de données uniques.
+L'utilisation globale des DTU pour les 20 bases de données est illustrée par la ligne noire dans la figure ci-dessus. Cela montre que l'utilisation globale des DTU ne dépasse jamais 100 DTU et que les 20 bases de données peuvent partager 100 eDTU sur cette période. Le nombre de DTU est diminué par 20 et le prix par 13 par rapport au placement de chacune des bases de données dans des niveaux de performances S3 pour les bases de données uniques.
 
 
 Cet exemple est idéal pour les raisons suivantes :
@@ -70,7 +70,7 @@ Cet exemple est idéal pour les raisons suivantes :
 - Les eDTU sont partagés entre plusieurs bases de données.
 
 
-Le prix d’un pool de base de données élastique dépend des eDTU du pool. Alors que le prix unitaire d’une eDTU pour un pool est 1,5 fois supérieur au prix unitaire d’une base de données unique, les **eDTU de pool peuvent être partagées par de nombreuses bases de données et donc un nombre moins important d’eDTU est nécessaire au total**. Ces différences en matière de prix et de partage des eDTU constituent la base du potentiel d'économies que les pools peuvent présenter.
+Le prix d’un pool de base de données élastique dépend des eDTU du pool. Alors que le prix unitaire d’une eDTU pour un pool est 1,5 fois supérieur au prix unitaire d’une base de données unique, les **eDTU de pool peuvent être partagées par de nombreuses bases de données et donc un nombre moins important d’eDTU est nécessaire au total**. Ces différences en matière de prix et de partage des eDTU constituent la base du potentiel d'économies que les pools peuvent présenter.
 
 <br>
 
@@ -82,37 +82,37 @@ Les règles élémentaires suivantes, relatives au nombre de bases de données e
 Si la somme des DTU des niveaux de performances pour une base de données unique est égale à plus de 1,5 x les eDTU nécessaires pour le pool, un pool élastique est plus rentable. Pour les tailles disponibles, consultez la rubrique [Limites relatives aux eDTU et au stockage pour les pools de bases de données et bases de données élastiques](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
-***Exemple***<br> Au moins 2 bases de données S3 ou 15 bases de données S0 sont nécessaires pour qu’un pool de base de données élastique de 100 eDTU soit plus rentable que l’utilisation de niveaux de performances pour des bases de données uniques.
+***Exemple***<br> Au moins 2 bases de données S3 ou 15 bases de données S0 sont nécessaires pour qu’un pool de base de données élastique de 100 eDTU soit plus rentable que l’utilisation de niveaux de performances pour des bases de données uniques.
 
 
 
 ### Nombre maximal de bases de données connaissant un pic simultané
 
-En partageant les eDTU, toutes les bases de données d’un pool ne peuvent pas utiliser simultanément les eDTU jusqu'à la limite disponible lors de l'utilisation de niveaux de performances pour les bases de données uniques. Plus le nombre de bases de données connaissant un pic simultané est faible, plus le nombre d’eDTU du pool peut être revu à la baisse et plus le pool devient rentable. En général, pas plus de 2/3 (ou 67 %) des bases de données du pool doivent connaître un pic simultané à leur limite d’eDTU.
+En partageant les eDTU, toutes les bases de données d’un pool ne peuvent pas utiliser simultanément les eDTU jusqu'à la limite disponible lors de l'utilisation de niveaux de performances pour les bases de données uniques. Plus le nombre de bases de données connaissant un pic simultané est faible, plus le nombre d’eDTU du pool peut être revu à la baisse et plus le pool devient rentable. En général, pas plus de 2/3 (ou 67 %) des bases de données du pool doivent connaître un pic simultané à leur limite d’eDTU.
 
-***Exemple***<br> Pour réduire les coûts pour 3 bases de données S3 dans un pool de 200 eDTU, au moins 2 de ces bases de données peuvent connaître un pic simultané au niveau de leur utilisation. Sinon, si plus de 2 de ces 4 bases de données S3 connaissent un pic simultané, le pool devra être redimensionné à plus de 200 eDTU. Et si le pool est redimensionné à plus de 200 eDTU, plusieurs bases de données S3 devront être ajoutées au pool pour maintenir des coûts inférieurs aux niveaux de performances pour les bases de données unique.
+***Exemple***<br> Pour réduire les coûts pour 3 bases de données S3 dans un pool de 200 eDTU, au moins 2 de ces bases de données peuvent connaître un pic simultané au niveau de leur utilisation. Sinon, si plus de 2 de ces 4 bases de données S3 connaissent un pic simultané, le pool devra être redimensionné à plus de 200 eDTU. Et si le pool est redimensionné à plus de 200 eDTU, plusieurs bases de données S3 devront être ajoutées au pool pour maintenir des coûts inférieurs aux niveaux de performances pour les bases de données unique.
 
 
-Notez que cet exemple ne tient pas compte de l'utilisation des autres bases de données dans le pool. Si toutes les bases de données connaissent une utilisation à un moment donné, moins de 2/3 (ou 67 %) des bases de données peuvent connaître un pic simultané.
+Notez que cet exemple ne tient pas compte de l'utilisation des autres bases de données dans le pool. Si toutes les bases de données connaissent une utilisation à un moment donné, moins de 2/3 (ou 67 %) des bases de données peuvent connaître un pic simultané.
 
 
 ### Utilisation de DTU par base de données
 
-Une différence importante entre le pic d’utilisation et l'utilisation moyenne d’une base de données indique de longues périodes de faible utilisation et de courtes périodes d'utilisation intensive. Ce modèle d'utilisation est idéal pour partager des ressources entre les bases de données. Une base de données doit être envisagée pour un pool quand son pic d’utilisation est environ 1,5 fois supérieur à son utilisation moyenne.
+Une différence importante entre le pic d’utilisation et l'utilisation moyenne d’une base de données indique de longues périodes de faible utilisation et de courtes périodes d'utilisation intensive. Ce modèle d'utilisation est idéal pour partager des ressources entre les bases de données. Une base de données doit être envisagée pour un pool quand son pic d’utilisation est environ 1,5 fois supérieur à son utilisation moyenne.
 
     
-***Exemple***<br> Une base de données S3 qui culmine à 100 DTU et qui utilise en moyenne 67 DTU ou moins est un bon candidat pour le partage d’eDTU au sein d’un pool de base de données élastique. Ou une base de données S1 qui culmine à 20 DTU et qui utilise en moyenne 13 DTU ou moins est une bonne candidate à un pool de base de données élastique.
+***Exemple***<br> Une base de données S3 qui culmine à 100 DTU et qui utilise en moyenne 67 DTU ou moins est un bon candidat pour le partage d’eDTU au sein d’un pool de base de données élastique. Ou une base de données S1 qui culmine à 20 DTU et qui utilise en moyenne 13 DTU ou moins est une bonne candidate à un pool de base de données élastique.
     
 
 ## Heuristique pour comparer la différence de prix entre un pool élastique de bases de données et les bases de données uniques 
 
 L'heuristique suivante peut aider à estimer si un pool élastique de bases de données est plus économique que l'utilisation des bases de données uniques.
 
-1. Estimez les eDTU nécessaires pour le pool comme suit :
+1. Estimez les eDTU nécessaires pour le pool comme suit :
     
     MAX (*nombre total de BD* * *utilisation moyenne en DTU par BD*, *nombre de BD connaissant un pic simultané* * *pic d’utilisation en DTU par BD*)
 
-2. Sélectionnez la valeur eDTU la plus petite disponible pour le pool qui est supérieure à l'estimation de l'étape 1. Pour les choix d’eDTU disponibles, consultez les valeurs valides pour les eDTU répertoriées ici : [Limites relatives aux DTU et au stockage pour les pools de bases de données et bases de données élastiques](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+2. Sélectionnez la valeur eDTU la plus petite disponible pour le pool qui est supérieure à l'estimation de l'étape 1. Pour les choix d’eDTU disponibles, consultez les valeurs valides pour les eDTU répertoriées ici : [Limites relatives aux DTU et au stockage pour les pools de bases de données et bases de données élastiques](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
 3. Calculez le prix du pool comme suit :
@@ -128,7 +128,7 @@ L'heuristique suivante peut aider à estimer si un pool élastique de bases de d
 
 ## Détermination de la meilleure taille en eDTU du pool pour les bases de données SQL existantes 
 
-La taille optimale pour un pool élastique de bases de données dépend du nombre global d’eDTU et des ressources de stockage dont ont besoin toutes les bases de données du pool. Cela implique de déterminer la plus grande des deux quantités suivantes :
+La taille optimale pour un pool élastique de bases de données dépend du nombre global d’eDTU et des ressources de stockage dont ont besoin toutes les bases de données du pool. Cela implique de déterminer la plus grande des deux quantités suivantes :
 
 * Nombre maximal de DTU que se partagent toutes les bases de données du pool.
 * Nombre maximal d’octets de stockage que se partagent toutes les bases de données du pool. 
@@ -146,7 +146,7 @@ STA et DMV fournissent diverses options et fonctionnalités pour le redimensionn
 
 ### Choix entre l’outil STA et l’outil DMV 
 
-Sélectionnez l'outil convenant à l’analyse de votre application spécifique. Le tableau suivant résume les différences entre ces 2 outils de dimensionnement :
+Sélectionnez l'outil convenant à l’analyse de votre application spécifique. Le tableau suivant résume les différences entre ces 2 outils de dimensionnement :
 
 | Fonctionnalité | STA | DMV |
 | :--- | :--- | :--- |
@@ -160,7 +160,7 @@ Sélectionnez l'outil convenant à l’analyse de votre application spécifique.
 
 STA évalue l’historique d’utilisation des bases de données et recommande un pool élastique de bases de données lorsque ce dernier est plus rentable que l’utilisation des niveaux de performances pour les bases de données uniques. Si un pool est recommandé, cet outil fournit la liste des bases de données recommandées, ainsi que la quantité recommandée d’eDTU du pool et les paramètres eDTU min/max pour chaque base de données élastique. Pour qu’une base de données soit considérée comme candidate à un pool, elle doit exister depuis au moins 7 jours.
 
-STA est disponible dans le portail Azure lorsque vous ajoutez un pool élastique de bases de données à un serveur existant. Si des recommandations pour un pool élastique de bases de données sont disponibles pour ce serveur, elles sont affichées dans la page de création « Pool de bases de données élastique ». Les clients peuvent toujours modifier les configurations recommandées pour créer leur propre regroupement pool élastique de bases données.
+STA est disponible dans le portail Azure lorsque vous ajoutez un pool élastique de bases de données à un serveur existant. Si des recommandations pour un pool élastique de bases de données sont disponibles pour ce serveur, elles sont affichées dans la page de création « Pool de bases de données élastique ». Les clients peuvent toujours modifier les configurations recommandées pour créer leur propre regroupement pool élastique de bases données.
 
 Pour plus d’informations, voir [Recommandations relatives aux niveaux de tarification du pool élastique de bases de données](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
@@ -168,7 +168,7 @@ Pour plus d’informations, voir [Recommandations relatives aux niveaux de tarif
 
 La DMV [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) mesure l’utilisation en ressources d’une base de données. Cette DMV indique l’UC, les E/S, le journal et l'utilisation du journal d'une base de données sous la forme d’un pourcentage de la limite de niveau de performances de la base de données. Ces données peuvent être utilisées pour calculer l'utilisation en DTU d'une base de données dans un intervalle de 15 secondes donné.
 
-L'utilisation globale en eDTU d’un pool élastique de bases de données dans un intervalle de 15 secondes peut être estimée en additionnant l'utilisation en eDTU de toutes les bases de données candidates pendant cette période. Selon les objectifs de performances spécifiques, il peut être judicieux d'ignorer un faible pourcentage des exemples de données. Par exemple, une valeur de 99e centile du nombre global d’eDTU sur tous les intervalles de temps peut être appliquée pour exclure les observations aberrantes et fournir un nombre d’eDTU de pool élastique de bases de données pour convenir à 99 % des intervalles montrés en exemple.
+L'utilisation globale en eDTU d’un pool élastique de bases de données dans un intervalle de 15 secondes peut être estimée en additionnant l'utilisation en eDTU de toutes les bases de données candidates pendant cette période. Selon les objectifs de performances spécifiques, il peut être judicieux d'ignorer un faible pourcentage des exemples de données. Par exemple, une valeur de 99e centile du nombre global d’eDTU sur tous les intervalles de temps peut être appliquée pour exclure les observations aberrantes et fournir un nombre d’eDTU de pool élastique de bases de données pour convenir à 99 % des intervalles montrés en exemple.
 
 ## Script PowerShell pour estimer l’utilisation globale en eDTU de vos bases de données
 
@@ -180,10 +180,10 @@ Le script collecte uniquement les données en cours d'exécution. Pour une charg
 
 ### Configuration requise pour le script 
 
-Installez les éléments suivants avant d'exécuter le script :
+Installez les éléments suivants avant d'exécuter le script :
 
-- les derniers [outils de ligne de commande Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ;
-- le [pack de fonctionnalités SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
+- les derniers [outils de ligne de commande Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ;
+- le [pack de fonctionnalités SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 
 ### Détails du script
@@ -191,11 +191,11 @@ Installez les éléments suivants avant d'exécuter le script :
 
 Vous pouvez exécuter le script à partir de votre ordinateur local ou d’un ordinateur virtuel sur le cloud. Lorsque vous l’exécutez à partir de votre ordinateur local, vous risquez de subir des frais de sortie de données, car le script a besoin de télécharger des données depuis vos bases de données cibles. Vous trouverez ci-dessous une estimation du volume de données en fonction du nombre de bases de données cibles et de la durée d'exécution du script. Pour les coûts de transfert de données Azure, consultez [Détails de la tarification de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/).
        
- -     1 base de données par heure = 38 Ko
+ -     1 base de données par heure = 38 Ko
  -     1 base de données par jour = 900 Ko
  -     1 base de données par semaine = 6 Mo
- -     100 bases de données par jour = 90 Mo
- -     500 bases de données par semaine = 3 Go
+ -     100 bases de données par jour = 90 Mo
+ -     500 bases de données par semaine = 3 Go
 
 Le script exclut certaines bases de données qui ne sont pas de bons candidats à l'offre de version préliminaire publique actuelle de la couche Pool élastique standard. Si vous avez besoin d'exclure d’autres bases de données du serveur cible, vous pouvez modifier le script pour qu’il réponde à vos critères. Par défaut, le script ne compile pas d'informations pour les éléments suivants :
 
@@ -204,19 +204,19 @@ Le script exclut certaines bases de données qui ne sont pas de bons candidats �
 
 Le script a besoin d’une base de données de sortie pour stocker les données intermédiaires en vue de l'analyse. Vous pouvez utiliser une base de données nouvelle ou existante. Bien qu’elle ne soit pas techniquement nécessaire pour exécuter l'outil, la base de données de sortie doit se trouver sur un autre serveur pour ne pas affecter le résultat de l'analyse. Suggérez que le niveau de performance de la base de données de sortie soit au moins à S0 ou à un niveau supérieur. Lors de la collecte d'une longue période de données pour un grand nombre de bases de données, vous pouvez envisager de mettre à niveau votre base de données de sortie vers un niveau de performance supérieur.
 
-Le script a besoin que vous fournissiez les informations d'identification permettant de se connecter au serveur cible (le candidat au pool de bases de données élastique) avec le nom complet du serveur comme « abcdef.database.windows.net ». Actuellement, le script ne prend pas en charge l’analyse de plusieurs serveurs à la fois.
+Le script a besoin que vous fournissiez les informations d'identification permettant de se connecter au serveur cible (le candidat au pool de bases de données élastique) avec le nom complet du serveur comme « abcdef.database.windows.net ». Actuellement, le script ne prend pas en charge l’analyse de plusieurs serveurs à la fois.
 
 
 Après avoir soumis les valeurs du jeu de paramètres initial, vous êtes invité à vous connecter à votre compte Azure. Il s'agit de vous connecter à votre serveur cible, et non de vous connecter au serveur de la base de données de sortie.
 	
 Si vous rencontrez les avertissements suivants lors de l'exécution du script, vous pouvez les ignorer :
 
-- AVERTISSEMENT : l'applet de commande Switch-AzureMode est déconseillée.
-- AVERTISSEMENT : impossible d'obtenir des informations sur le service SQL Server. Une tentative de connexion à WMI sur « Microsoft.Azure.Commands.Sql.dll » a échoué avec l'erreur suivante : le serveur RPC n'est pas disponible.
+- AVERTISSEMENT : l'applet de commande Switch-AzureMode est déconseillée.
+- AVERTISSEMENT : impossible d'obtenir des informations sur le service SQL Server. Une tentative de connexion à WMI sur « Microsoft.Azure.Commands.Sql.dll » a échoué avec l'erreur suivante : le serveur RPC n'est pas disponible.
 
 Une fois le script terminé, il génère le nombre d’eDTU estimé nécessaire pour qu’un pool élastique puisse contenir toutes les bases de données candidates sur le serveur cible. Cette estimation du nombre d’eDTU peut être utilisée pour créer et configurer un pool élastique de bases de données contenant ces bases de données. Une fois que le pool est créé et que les bases de données ont été déplacées dans le pool, il doit être étroitement surveillé pendant quelques jours et les réglages de la configuration des eDTU du pool doivent être réalisés en fonction des besoins.
 
-> [AZURE.IMPORTANT] Ce script contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+> [AZURE.IMPORTANT] Ce script contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
     

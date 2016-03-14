@@ -16,7 +16,7 @@
    ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
-# Déployer un groupe de ressources avec un modèle Azure Resource Manager
+# Déployer un groupe de ressources avec un modèle Azure Resource Manager
 
 Cette rubrique explique comment utiliser les modèles Azure Resource Manager pour déployer vos ressources dans Azure. Elle montre comment déployer vos ressources à l’aide d’Azure PowerShell, d’Azure CLI, de l’API REST ou du portail Azure.
 
@@ -26,16 +26,16 @@ Lorsque vous déployez une définition d’application avec un modèle, vous pou
 
 ## Déploiements incrémentiels et complets
 
-Par défaut, Resource Manager gère les déploiements sous la forme de mises à jour incrémentielles du groupe de ressources. Dans le cadre d’un déploiement incrémentiel, Resource Manager :
+Par défaut, Resource Manager gère les déploiements sous la forme de mises à jour incrémentielles du groupe de ressources. Dans le cadre d’un déploiement incrémentiel, Resource Manager :
 
-- **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
-- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
+- **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
+- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
 - **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
 
-Vous pouvez utiliser Azure PowerShell ou l’API REST pour spécifier une mise à jour complète du groupe de ressources. Pour l’instant, l’interface de ligne de commande Azure ne prend pas en charge les déploiements complets. Dans le cadre d’un déploiement complet, Resource Manager :
+Vous pouvez utiliser Azure PowerShell ou l’API REST pour spécifier une mise à jour complète du groupe de ressources. Pour l’instant, l’interface de ligne de commande Azure ne prend pas en charge les déploiements complets. Dans le cadre d’un déploiement complet, Resource Manager :
 
-- **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
-- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
+- **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
+- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ; 
 - **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
  
 Vous spécifiez le type de déploiement via la propriété **Mode**, comme indiqué dans les exemples ci-dessous pour PowerShell et pour l’API REST.
@@ -47,7 +47,7 @@ Vous spécifiez le type de déploiement via la propriété **Mode**, comme indiq
 
 1. Connectez-vous à votre compte Azure. Une fois que vous avez entré vos informations d'identification, la commande retourne les informations relatives à votre compte.
 
-    Azure PowerShell 1.0 :
+    Azure PowerShell 1.0 :
 
          PS C:\> Login-AzureRmAccount
 
@@ -76,7 +76,7 @@ Vous spécifiez le type de déploiement via la propriété **Mode**, comme indiq
 
 5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande **New-AzureRmResourceGroupDeployment** et fournissez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario. Le paramètre **Mode** n’est pas spécifié, ce qui signifie que la valeur par défaut **Incremental** est utilisée.
    
-     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
+     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
    
      - Utiliser des paramètres incorporés.
 
@@ -137,7 +137,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Basculez vers le module Azure Resource Manager. Vous recevrez la confirmation du nouveau mode.
+3. Basculez vers le module Azure Resource Manager. Vous recevrez la confirmation du nouveau mode.
 
         azure config mode arm
    
@@ -161,9 +161,9 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
 5. Pour créer un déploiement pour votre groupe de ressources, exécutez la commande suivante et indiquez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d'accès ou l'URL du modèle que vous avez créé et tous les autres paramètres nécessaires à votre scénario.
    
-     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
+     Vous disposez des options suivantes pour fournir les valeurs des paramètres :
 
-     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
+     - Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple ci-dessous montre les paramètres avec des caractères d’échappement.
 
              azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
@@ -232,7 +232,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
 
 Avec Visual Studio, vous pouvez créer un projet de groupe de ressources et le déployer vers Azure via l’interface utilisateur. Vous sélectionnez le type de ressources à inclure dans votre projet et ces ressources sont automatiquement ajoutées au modèle de gestionnaire de ressources. Le projet fournit également un script PowerShell pour déployer le modèle.
 
-Pour une introduction à l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Pour une introduction à l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## Déploiement avec le portail
 
@@ -271,7 +271,7 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
        }
     }
 
-La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
+La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
 Pour savoir comment définir des paramètres dans le modèle, consultez la section [Création de modèles](../resource-group-authoring-templates/#parameters). Pour plus d’informations sur la référence de coffre de clés permettant de passer les valeurs sécurisées lors du déploiement, consultez la section [Passage de valeurs sécurisées lors du déploiement ](resource-manager-keyvault-parameter.md)
 

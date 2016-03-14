@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Administration de StorSimple Manager Virtual Array | Microsoft Azure"
-   description="Découvrez comment gérer votre StorSimple Virtual Array local à l’aide du service StorSimple Manager dans le portail Azure Classic."
+   description="Découvrez comment gérer votre StorSimple Virtual Array local à l’aide du service StorSimple Manager dans le portail Azure Classic."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -23,23 +23,23 @@
 
 Cet article décrit l’interface de service StorSimple Manager, y compris la connexion à ce service et les différentes options disponibles, et fournit les liens vers des flux de travail spécifiques exécutables par le biais de cette interface utilisateur.
 
-À la fin de cet article, vous serez en mesure d’effectuer les opérations suivantes :
+À la fin de cet article, vous serez en mesure d’effectuer les opérations suivantes :
 
 - Se connecter au service StorSimple Manager
 - Navigation dans l’interface utilisateur de StorSimple Manager
 - Gestion de votre StorSimple Virtual Array par le biais du service StorSimple Manager
 
-> [AZURE.NOTE] Pour afficher les options de gestion disponibles pour l’appareil StorSimple série 8000, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+> [AZURE.NOTE] Pour afficher les options de gestion disponibles pour l’appareil StorSimple série 8000, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
 ## Se connecter au service StorSimple Manager
 
-Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs StorSimple Virtual Arrays. Vous devez utiliser un portail Microsoft Azure Classic s'exécutant dans un navigateur pour gérer ces appareils. Pour vous connecter au service StorSimple Manager, procédez comme suit.
+Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs StorSimple Virtual Arrays. Vous devez utiliser un portail Microsoft Azure Classic s'exécutant dans un navigateur pour gérer ces appareils. Pour vous connecter au service StorSimple Manager, procédez comme suit.
 
-#### Connexion au service :
+#### Connexion au service :
 
 1. Accédez à [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
-2. À l’aide de votre compte Microsoft, connectez-vous au portail Microsoft Azure Classic (situé dans l’angle supérieur droit du volet).
+2. À l’aide de votre compte Microsoft, connectez-vous au portail Microsoft Azure Classic (situé dans l’angle supérieur droit du volet).
 
 3. Faites défiler le volet de navigation de gauche jusqu’au service StorSimple Manager.
 
@@ -87,7 +87,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 |Modification du mot de passe d’administrateur de l’appareil|Service StorSimple Manager → Appareils → Configuration|[Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-ova-change-device-admin-password.md)|
 |Installer les mises à jour logicielles|Service StorSimple Manager → Appareils → Maintenance|[Mettre à jour votre Virtual Array](storsimple-ova-update.md)|
 
->[AZURE.NOTE] Vous devez utiliser [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) pour les tâches suivantes :
+>[AZURE.NOTE] Vous devez utiliser [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) pour les tâches suivantes :
 >
 >- [Récupération de la clé de chiffrement des données de service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)
 >- [Création d’un package de prise en charge](storsimple-ova-web-ui-admin.md#generate-a-log-package)

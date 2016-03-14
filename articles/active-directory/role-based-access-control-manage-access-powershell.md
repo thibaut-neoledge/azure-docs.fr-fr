@@ -29,14 +29,14 @@
 >[AZURE.IMPORTANT] Pour pouvoir utiliser les applets de commande de cet article, vous devez [installer les applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) dans PowerShell.
 
 ### Répertorier tous les rôles disponibles
-Pour répertorier les rôles RBAC pouvant être affectés et inspecter les opérations auxquelles ils accordent l'accès, utilisez :
+Pour répertorier les rôles RBAC pouvant être affectés et inspecter les opérations auxquelles ils accordent l'accès, utilisez :
 
 		Get-AzureRmRoleDefinition
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - capture d’écran](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
 ### Répertorier les actions d'un rôle
-Pour répertorier les actions pour un rôle spécifique, utilisez :
+Pour répertorier les actions pour un rôle spécifique, utilisez :
 
     Get-AzureRmRoleDefinition <role name>
 
@@ -44,26 +44,26 @@ Pour répertorier les actions pour un rôle spécifique, utilisez :
 
 ## Répertorier les accès
 ### Répertorier toutes les affectations de rôles dans l'abonnement sélectionné
-Pour répertorier les affectations d'accès RBAC valables au niveau de l'abonnement, d'une ressource ou d'un groupe de ressources, utilisez :
+Pour répertorier les affectations d'accès RBAC valables au niveau de l'abonnement, d'une ressource ou d'un groupe de ressources, utilisez :
 
     Get-AzureRmRoleAssignment
 
 ###	Répertorier les affectations de rôles valables dans un groupe de ressources
-Pour répertorier les affectations d'accès pour un groupe de ressources, utilisez :
+Pour répertorier les affectations d'accès pour un groupe de ressources, utilisez :
 
     Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - Get-AzureRmRoleAssignment pour un groupe de ressource - capture d’écran](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
 ### Répertorier les affectations d'un utilisateur, notamment les rôles affectés à des groupes d'utilisateurs
-Pour répertorier les affectations d'accès d'un utilisateur spécifique ou de groupes dont l'utilisateur est membre, utilisez :
+Pour répertorier les affectations d'accès d'un utilisateur spécifique ou de groupes dont l'utilisateur est membre, utilisez :
 
     Get-AzureRmRoleAssignment -ExpandPrincipalGroups
 
 ![RBAC PowerShell - Get-AzureRmRoleAssignment pour un utilisateur - capture d’écran](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
 ### Répertorier les affectations classiques des rôles Administrateur de service et Coadministrateur
-Pour répertorier les affectations d'accès de liste pour les administrateurs d'abonnement et les coadministrateurs classiques, utilisez :
+Pour répertorier les affectations d'accès de liste pour les administrateurs d'abonnement et les coadministrateurs classiques, utilisez :
 
     Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
@@ -72,45 +72,45 @@ Pour répertorier les affectations d'accès de liste pour les administrateurs d'
 Pour utiliser les séquences de commande suivantes, vous devez d’abord rechercher les ID d’objet. Nous partons du principe que vous connaissez déjà l’ID d’abonnement que vous utilisez. Sinon, consultez [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) sur MSDN.
 
 #### Rechercher l’ID d’objet pour un groupe Azure AD
-Pour obtenir l’ID d’objet pour un groupe Azure AD, utilisez :
+Pour obtenir l’ID d’objet pour un groupe Azure AD, utilisez :
 
     Get-AzureRmADGroup -SearchString <group name in quotes>
 
 #### Rechercher l’ID d’objet pour un principal du service Azure AD
-Pour obtenir l’ID d’objet pour un principal du service Azure AD, utilisez :
+Pour obtenir l’ID d’objet pour un principal du service Azure AD, utilisez :
 
     Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 
 ### Affectation d'un rôle à un groupe pour l'abonnement
-Pour accorder l'accès à un groupe pour l'abonnement, utilisez :
+Pour accorder l'accès à un groupe pour l'abonnement, utilisez :
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - capture d’écran](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment1.png)
 
 ### Affectation d'un rôle à une application pour l'abonnement
-Pour accorder l'accès à une application pour l'abonnement, utilisez :
+Pour accorder l'accès à une application pour l'abonnement, utilisez :
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - capture d’écran](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
 ### Affectation d'un rôle à un utilisateur pour le groupe de ressources
-Pour accorder l'accès à un utilisateur pour le groupe :
+Pour accorder l'accès à un utilisateur pour le groupe :
 
     New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - capture d’écran](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
 ### Affectation d'un rôle à un groupe au niveau des ressources
-Pour accorder l'accès à un groupe au niveau des ressources, utilisez :
+Pour accorder l'accès à un groupe au niveau des ressources, utilisez :
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - capture d’écran](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## Suppression d'accès
-Pour supprimer l'accès pour des utilisateurs, des groupes et des applications, utilisez :
+Pour supprimer l'accès pour des utilisateurs, des groupes et des applications, utilisez :
 
     Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
 

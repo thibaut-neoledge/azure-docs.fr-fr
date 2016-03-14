@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Autorisation dans les applications multi-locataires | Microsoft Azure"
+   pageTitle="Autorisation dans les applications multi-locataires | Microsoft Azure"
    description="Comment déclarer des autorisations dans une application multi-locataire"
    services=""
    documentationCenter="na"
@@ -30,7 +30,7 @@ Une application classique utilise une combinaison des deux. Par exemple, pour su
 
 ## Autorisation basée sur les rôles
 
-L’application [Surveys de Tailspin][Tailspin] définit les rôles suivants :
+L’application [Surveys de Tailspin][Tailspin] définit les rôles suivants :
 
 - Administrateur. Peut effectuer toutes les opérations CRUD sur toute enquête appartenant à ce locataire.
 - Créateur. Peut créer de nouvelles enquêtes.
@@ -40,13 +40,13 @@ Les rôles s’appliquent aux _utilisateurs_ de l’application. Dans l’applic
 
 Pour plus d’informations sur la façon de définir et de gérer les rôles, consultez [Rôles d’application].
 
-Quelle que soit la façon dont vous gérez les rôles, votre code d’autorisation se présente de la même façon. ASP.NET Core 1.0 introduit une abstraction appelée _stratégies d’autorisation_. Avec cette fonctionnalité, vous définissez des stratégies d’autorisation dans le code, puis vous appliquez ces stratégies à des actions de contrôleur. La stratégie est dissociée du contrôleur.
+Quelle que soit la façon dont vous gérez les rôles, votre code d’autorisation se présente de la même façon. ASP.NET Core 1.0 introduit une abstraction appelée _stratégies d’autorisation_. Avec cette fonctionnalité, vous définissez des stratégies d’autorisation dans le code, puis vous appliquez ces stratégies à des actions de contrôleur. La stratégie est dissociée du contrôleur.
 
 ### Création des stratégies
 
 Pour définir une stratégie, commencez par créer une classe qui implémente `IAuthorizationRequirement`. Il est plus facile de dériver de `AuthorizationHandler`. Dans la méthode `Handle`, examinez la ou les revendications pertinentes.
 
-Voici un exemple de l’application Surveys de Tailspin :
+Voici un exemple de l’application Surveys de Tailspin :
 
 ```csharp
 public class SurveyCreatorRequirement : AuthorizationHandler<SurveyCreatorRequirement>, IAuthorizationRequirement
@@ -66,7 +66,7 @@ public class SurveyCreatorRequirement : AuthorizationHandler<SurveyCreatorRequir
 
 Cette classe définit la configuration requise pour qu’un utilisateur crée une enquête. L’utilisateur doit avoir le rôle SurveyAdmin ou SurveyCreator.
 
-Dans votre classe de démarrage, définissez une stratégie nommée qui inclut une ou plusieurs conditions. S’il existe plusieurs conditions, l’utilisateur doit satisfaire _chaque_ condition pour être autorisé. Le code suivant définit deux stratégies :
+Dans votre classe de démarrage, définissez une stratégie nommée qui inclut une ou plusieurs conditions. S’il existe plusieurs conditions, l’utilisateur doit satisfaire _chaque_ condition pour être autorisé. Le code suivant définit deux stratégies :
 
 ```csharp
 services.AddAuthorization(options =>
@@ -89,11 +89,11 @@ services.AddAuthorization(options =>
 
 > [AZURE.NOTE] Consultez [Startup.cs].
 
-Ce code définit également le schéma d’authentification, qui indique à ASP.NET quel middleware d’authentification doit s’exécuter si l’autorisation échoue. Dans le cas présent, nous spécifions le middleware d’authentification des cookies, car il peut rediriger l’utilisateur vers une page « Refusé ». L’emplacement de la page « Refusé » est défini dans l’option AccessDeniedPath du middleware. Consultez la page [Configuration du middleware d’authentification].
+Ce code définit également le schéma d’authentification, qui indique à ASP.NET quel middleware d’authentification doit s’exécuter si l’autorisation échoue. Dans le cas présent, nous spécifions le middleware d’authentification des cookies, car il peut rediriger l’utilisateur vers une page « Refusé ». L’emplacement de la page « Refusé » est défini dans l’option AccessDeniedPath du middleware. Consultez la page [Configuration du middleware d’authentification].
 
 ### Autorisation des actions de contrôleur
 
-Enfin, pour autoriser une action dans un contrôleur MVC, définissez la stratégie dans l’attribut `Authorize` :
+Enfin, pour autoriser une action dans un contrôleur MVC, définissez la stratégie dans l’attribut `Authorize` :
 
 ```csharp
 [Authorize(Policy = "SurveyCreatorRequirement")]
@@ -103,7 +103,7 @@ public IActionResult Create()
 }
 ```
 
-Dans les versions antérieures d’ASP.NET, vous devez définir la propriété **Roles** sur l’attribut :
+Dans les versions antérieures d’ASP.NET, vous devez définir la propriété **Roles** sur l’attribut :
 
 ```csharp
 // old way
@@ -111,11 +111,11 @@ Dans les versions antérieures d’ASP.NET, vous devez définir la propriété *
 
 ```
 
-Elle est toujours prise en charge dans ASP.NET Core 1.0, mais elle présente certains inconvénients par rapport aux stratégies d’autorisation :
+Elle est toujours prise en charge dans ASP.NET Core 1.0, mais elle présente certains inconvénients par rapport aux stratégies d’autorisation :
 
 -	Elle suppose un type de revendication particulier. Les stratégies peuvent identifier n’importe quel type de revendication. Les rôles sont simplement un type de revendication.
 -	Le nom de rôle est codé en dur dans l’attribut. Avec les stratégies, la logique d’autorisation se trouve à un seul et même endroit, ce qui facilite la mise à jour ou même le chargement à partir des paramètres de configuration.
--	Les stratégies permettent des décisions d’autorisation plus complexes (par exemple, un âge >= 21) qui ne peuvent pas être exprimées par la simple appartenance à un rôle.
+-	Les stratégies permettent des décisions d’autorisation plus complexes (par exemple, un âge >= 21) qui ne peuvent pas être exprimées par la simple appartenance à un rôle.
 
 ## Autorisation basée sur les ressources
 
@@ -125,9 +125,9 @@ Une _autorisation basée sur les ressources_ se produit chaque fois que l’auto
 -	Le propriétaire peut affecter des collaborateurs à l’enquête.
 -	Les collaborateurs peuvent lire et mettre à jour l’enquête.
 
-Notez que « propriétaire » et « collaborateur » ne sont pas des rôles d’application : ils sont stockés par enquête, dans la base de données de l’application. Pour vérifier si un utilisateur peut supprimer une enquête, par exemple, l’application vérifie si l’utilisateur est le propriétaire de cette enquête.
+Notez que « propriétaire » et « collaborateur » ne sont pas des rôles d’application : ils sont stockés par enquête, dans la base de données de l’application. Pour vérifier si un utilisateur peut supprimer une enquête, par exemple, l’application vérifie si l’utilisateur est le propriétaire de cette enquête.
 
-Dans ASP.NET Core 1.0, implémentez une autorisation basée sur les ressources en dérivant d’**AuthorizationHandler** et en remplaçant la méthode **Handle**.
+Dans ASP.NET Core 1.0, implémentez une autorisation basée sur les ressources en dérivant d’**AuthorizationHandler** et en remplaçant la méthode **Handle**.
 
 ```csharp
 public class SurveyAuthorizationHandler : AuthorizationHandler<OperationAuthorizationRequirement, Survey>
@@ -138,7 +138,7 @@ public class SurveyAuthorizationHandler : AuthorizationHandler<OperationAuthoriz
 }
 ```
 
-Notez que cette classe est fortement typée pour les objets de Surveys. Inscrivez la classe pour l’injection de dépendances au démarrage :
+Notez que cette classe est fortement typée pour les objets de Surveys. Inscrivez la classe pour l’injection de dépendances au démarrage :
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler>(factory =>
@@ -147,7 +147,7 @@ services.AddSingleton<IAuthorizationHandler>(factory =>
 });
 ```
 
-Pour effectuer des vérifications d’autorisation, utilisez l’interface **IAuthorizationService**, que vous pouvez injecter dans vos contrôleurs. Le code suivant vérifie si un utilisateur peut lire une enquête :
+Pour effectuer des vérifications d’autorisation, utilisez l’interface **IAuthorizationService**, que vous pouvez injecter dans vos contrôleurs. Le code suivant vérifie si un utilisateur peut lire une enquête :
 
 ```csharp
 if (await _authorizationService.AuthorizeAsync(User, survey, Operations.Read) == false)
@@ -158,7 +158,7 @@ if (await _authorizationService.AuthorizeAsync(User, survey, Operations.Read) ==
 
 Étant donné que nous passons un objet `Survey`, cet appel invoque `SurveyAuthorizationHandler`.
 
-Dans votre code d’autorisation, une bonne approche consiste à agréger toutes les autorisations de l’utilisateur basées sur les rôles et basées sur les ressources, puis vérifiez l’agrégat défini par rapport à l’opération souhaitée. Voici un exemple de l’application Surveys. L’application définit plusieurs types d’autorisations :
+Dans votre code d’autorisation, une bonne approche consiste à agréger toutes les autorisations de l’utilisateur basées sur les rôles et basées sur les ressources, puis vérifiez l’agrégat défini par rapport à l’opération souhaitée. Voici un exemple de l’application Surveys. L’application définit plusieurs types d’autorisations :
 
 - Administrateur
 - Collaborateur
@@ -166,7 +166,7 @@ Dans votre code d’autorisation, une bonne approche consiste à agréger toutes
 - Propriétaire
 - Lecteur
 
-L’application définit également un ensemble d’opérations possibles sur les enquêtes :
+L’application définit également un ensemble d’opérations possibles sur les enquêtes :
 
 - Créer
 - Lire
@@ -221,9 +221,9 @@ protected override void Handle(AuthorizationContext context, OperationAuthorizat
 
 > [AZURE.NOTE] Consultez la page [SurveyAuthorizationHandler.cs].
 
-Dans une application multi-locataire, vous devez vérifier que les autorisations ne sont pas « divulguées » dans les données d’un autre locataire. Dans l’application Surveys, l’autorisation Collaborateur est autorisée sur tous les locataires : vous pouvez affecter quelqu’un comme collaborateur à partir d’un autre locataire. Les autres types d’autorisations sont limités aux ressources qui appartiennent au locataire de cet utilisateur. Le code vérifie donc l’ID du locataire avant d’accorder ces types d’autorisations (le champ `TenantId` tel qu’affecté au moment de la création de l’enquête.)
+Dans une application multi-locataire, vous devez vérifier que les autorisations ne sont pas « divulguées » dans les données d’un autre locataire. Dans l’application Surveys, l’autorisation Collaborateur est autorisée sur tous les locataires : vous pouvez affecter quelqu’un comme collaborateur à partir d’un autre locataire. Les autres types d’autorisations sont limités aux ressources qui appartiennent au locataire de cet utilisateur. Le code vérifie donc l’ID du locataire avant d’accorder ces types d’autorisations (le champ `TenantId` tel qu’affecté au moment de la création de l’enquête.)
 
-L’étape suivante consiste à vérifier l’opération (lecture, mise à jour, suppression, etc.) par rapport aux autorisations. L’application Surveys implémente cette étape à l’aide d’une table de choix de fonctions :
+L’étape suivante consiste à vérifier l’opération (lecture, mise à jour, suppression, etc.) par rapport aux autorisations. L’application Surveys implémente cette étape à l’aide d’une table de choix de fonctions :
 
 ```csharp
 static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPermissionType>, bool>> ValidateUserPermissions

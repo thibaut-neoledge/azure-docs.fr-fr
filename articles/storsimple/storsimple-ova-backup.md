@@ -26,7 +26,7 @@ StorSimple Virtual Array est un périphérique virtuel local de stockage cloud h
 
 ## Sauvegarder des partages et des volumes
 
-Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **planifiée** ou **manuelle**. Chacune des méthodes est abordée dans les sections suivantes.
+Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **planifiée** ou **manuelle**. Chacune des méthodes est abordée dans les sections suivantes.
 
 > [AZURE.NOTE] Dans cette version, les sauvegardes planifiées sont créées à l’aide d’une stratégie par défaut qui s'exécute tous les jours à un moment précis et sauvegarde tous les partages ou volumes sur l'appareil. Il n'est pour l’instant pas possible de créer des stratégies personnalisées pour les sauvegardes planifiées.
 
@@ -82,7 +82,7 @@ Procédez comme suit dans le portail Azure Classic pour afficher les sauvegardes
 
 1. Dans la page du service StorSimple Manager, cliquez sur l’onglet **Catalogue de sauvegarde**.
 
-2. Sélectionnez un jeu de sauvegarde comme suit :
+2. Sélectionnez un jeu de sauvegarde comme suit :
 
     1. Sélectionnez le périphérique.
 
