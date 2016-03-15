@@ -124,4 +124,4 @@ Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple 
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->

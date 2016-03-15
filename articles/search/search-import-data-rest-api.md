@@ -168,4 +168,4 @@ Pour plus d’informations sur les actions de document et les réponses de réus
 ## Suivant
 Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents.
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-->

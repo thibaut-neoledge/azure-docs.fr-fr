@@ -124,4 +124,4 @@ Copiez les fichiers de paramètres de script de test suivants sur l’ordinateur
 [Création d’un environnement de test de performance Elasticsearch sur Azure]: guidance-elasticsearch-creating-performance-testing-environment.md
 [Déploiement d’un échantillonneur JUnit JMeter pour tester les performances d’Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->
