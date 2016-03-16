@@ -48,15 +48,16 @@ Nous allons utiliser l’application du didacticiel [Utilisation de la biblioth�
     1. Pour **Projet Java à déboguer**, sélectionnez le projet **MyHelloWorld**.
     1. Pour **Configurer le débogage pour**, cochez **Cloud Azure (intermédiaire)**.
     1. Assurez-vous que l’option **Émulateur de calcul Azure** soit désactivée.
-    1. Pour **Hôte**, entrez le nom DNS de votre déploiement intermédiaire, mais sans le préfixe ****http://**. Par exemple (insérez votre GUID à la place du GUID indiqué ici) : **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
+    1. Pour **Hôte**, entrez le nom DNS de votre déploiement intermédiaire, mais sans le préfixe **http://**. Par exemple (insérez votre GUID à la place du GUID indiqué ici) : **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Configuration de débogage Azure**.
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de débogage pour WorkerRole1**.
 1. Si vous n’avez pas encore défini de point d’arrêt dans index.jsp, faites-le maintenant :
     1. Dans l’Explorateur de projets d’Eclipse, développez **MyHelloWorld**, puis **WebContent**, puis double-cliquez sur **index.jsp**.
-    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous : ![][ic551537]
+    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous :
+        ![][ic551537]
 1. Dans le menu Eclipse, cliquez sur **Exécuter** puis sur **Configurations de débogage**.
 1. Dans la boîte de dialogue **Configurations de débogage**, développez **Application Java distante** dans le volet gauche, sélectionnez **Cloud Azure (WorkerRole1)**, puis cliquez sur **Déboguer**.
-1. Dans votre navigateur, exécutez votre application intermédiaire, ****http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, en remplaçant *&lt;guid&gt;* par le GUID de votre nom DNS. Si une boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
+1. Dans votre navigateur, exécutez votre application intermédiaire, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, en remplaçant *&lt;guid&gt;* par le GUID de votre nom DNS. Si une boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
 
 >[AZURE.NOTE] Si vous tentez de démarrer une connexion de débogage à distance vers un déploiement où plusieurs instances de rôles sont en cours d’exécution, vous ne pouvez pas contrôler à quelle instance le débogueur se connecte initialement, car l’équilibreur de charge Azure choisit une instance au hasard. Une fois connecté à cette instance, cependant, vous continuerez à déboguer la même instance. Notez également qu’en cas d’inactivité supérieure à quatre minutes (par exemple, lorsque vous êtes arrêté à un point d’arrêt pendant trop longtemps), Azure peut fermer la connexion.
 
@@ -70,7 +71,7 @@ C’est le type de scénario où le fait de tirer parti des points de terminaiso
 
 Supposez que vous prévoyez d’exécuter jusqu’à cinq instances de rôle de votre déploiement. À l’aide de la page de propriétés **Points de terminaison** dans la boîte de dialogue de propriétés de rôle, créez un point de terminaison d’entrée d’instance et attribuez-lui une plage de ports publics, plutôt qu’un numéro de port unique. Par exemple, dans la zone d’entrée **Port public**, spécifiez **81-85**.
 
-Une fois que vous avez déployé votre application avec ce point de terminaison d’instance, Azure affecte un numéro de port unique compris dans cette plage à chacune des instances de rôle. Ensuite, pour connaître le numéro de port qui a été attribué à chaque instance, vous pouvez utiliser la variable d’environnement *nom\_point\_de\_terminaison\_instance*** \_PUBLICPORT ** (où *nom\_point\_de\_terminaison\_instance* est le nom que vous avez affecté lorsque vous avez créé le point de terminaison d’instance) configurée automatiquement par la boîte à outils dans votre déploiement (par exemple, en retournant sa valeur dans le pied de page d’une page web, où il sera visible quand vous y accéderez).
+Une fois que vous avez déployé votre application avec ce point de terminaison d’instance, Azure affecte un numéro de port unique compris dans cette plage à chacune des instances de rôle. Ensuite, pour connaître le numéro de port qui a été attribué à chaque instance, vous pouvez utiliser la variable d’environnement *nom\_point\_de\_terminaison\_instance***\_PUBLICPORT** (où *nom\_point\_de\_terminaison\_instance* est le nom que vous avez affecté lorsque vous avez créé le point de terminaison d’instance) configurée automatiquement par la boîte à outils dans votre déploiement (par exemple, en retournant sa valeur dans le pied de page d’une page web, où il sera visible quand vous y accéderez).
 
 Une fois que vous connaissez le numéro de port public qui a été attribué à cette instance, vous pouvez y faire référence dans votre configuration de débogage dans Eclipse, en l’apposant au nom d’hôte de votre service. Cela permet au débogueur Eclipse de se connecter à cette instance spécifique, et non à d’autres instances.
 
@@ -94,11 +95,13 @@ Une fois que vous connaissez le numéro de port public qui a été attribué à 
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de débogage pour WorkerRole1**.
 1. Définissez un point d’arrêt dans index.jsp :
     1. Dans l’Explorateur de projets d’Eclipse, développez **MyHelloWorld**, puis **WebContent**, puis double-cliquez sur **index.jsp**.
-    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous : ![][ic551537] Un point d’arrêt est défini si une icône de point d’arrêt figure dans la barre bleue à gauche de votre code Java.
+    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous :
+        ![][ic551537]
+       Un point d’arrêt est défini si une icône de point d’arrêt figure dans la barre bleue à gauche de votre code Java.
 1. Démarrez l’application dans l’émulateur de calcul en cliquant sur le bouton **Exécuter dans l’émulateur Azure** dans la barre d’outils Azure.
 1. Dans le menu Eclipse, cliquez sur **Exécuter** puis sur **Configurations de débogage**.
 1. Dans la boîte de dialogue **Configurations de débogage**, développez **Application Java distante** dans le volet gauche, sélectionnez **Émulateur Azure (WorkerRole1)**, puis cliquez sur **Déboguer**.
-1. Une fois que l’émulateur de calcul indique que votre application est en cours d’exécution, dans votre navigateur, exécutez ****http://localhost:8080/MyHelloWorld**. Si une boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
+1. Une fois que l’émulateur de calcul indique que votre application est en cours d’exécution, dans votre navigateur, exécutez **http://localhost:8080/MyHelloWorld**. Si une boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
 
 Nous venons de voir comment déboguer dans l’émulateur de calcul. La section suivante montre comment déboguer une application déployée dans Azure.
 
@@ -132,3 +135,5 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
 <!---HONumber=AcomDC_0302_2016-->
+
+

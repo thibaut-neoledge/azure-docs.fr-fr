@@ -91,7 +91,7 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisa
 			HTTP/1.1 301 Moved Permanently
 			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		Vous devez envoyer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Vous devez envoyer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Obtention d’un jeton d’accès
 
