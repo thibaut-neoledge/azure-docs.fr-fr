@@ -21,7 +21,7 @@
 #Mise à l’échelle automatique et environnement App Service
 
 ##Introduction
-**Les environnements App Service ** prennent en charge la mise à l’échelle automatique. Ils rendent cette opération possible grâce à la mise à l’échelle automatique des pools de travail individuels par le biais d’indicateurs de mesure ou de la planification.
+**Les environnements App Service** prennent en charge la mise à l’échelle automatique. Ils rendent cette opération possible grâce à la mise à l’échelle automatique des pools de travail individuels par le biais d’indicateurs de mesure ou de la planification.
  
 ![][intro]
  
@@ -51,10 +51,10 @@ Une fois qu’un profil est défini, les règles de mise à l’échelle automat
  Toutes les règles de mesure du **pool de travail** ou du **serveur frontal** peuvent être utilisées pour définir des règles de mise à l’échelle automatique. Ces mesures sont les mêmes que celles que vous pouvez surveiller dans les graphiques de panneau de ressource ou pour lesquelles vous pouvez définir une alerte.
  
 ##Exemple de mise à l’échelle automatique
-La mise à l’échelle automatique d’un **environnement App Service** est mieux illustrée par un scénario. Dans cet article, nous allons examiner pas à pas toutes les étapes du paramétrage d’une mise à l’échelle automatique et toutes les interactions qui ont lieu lorsque nous réalisons une mise à l’échelle automatique d’**environnements App Service ** hébergés dans une ASE.
+La mise à l’échelle automatique d’un **environnement App Service** est mieux illustrée par un scénario. Dans cet article, nous allons examiner pas à pas toutes les étapes du paramétrage d’une mise à l’échelle automatique et toutes les interactions qui ont lieu lorsque nous réalisons une mise à l’échelle automatique d’**environnements App Service** hébergés dans une ASE.
 
 ###Présentation du scénario
-Frank est administrateur système pour une entreprise. Il a migré une partie des charges de travail qu’il gère vers un **environnement App Service **.
+Frank est administrateur système pour une entreprise. Il a migré une partie des charges de travail qu’il gère vers un **environnement App Service**.
 
 L’**environnement App Service** est configuré sur mise à l'échelle manuelle, comme suit :
 * Serveurs frontaux : 3
@@ -108,7 +108,7 @@ Le taux d’inflation du **plan de service d’application** est calculé comme 
 
 ![][ASP-Inflation]
 
-Si l’on prend la règle *mise à l’échelle automatique - Mise à l’échelle supérieure* du profil *Jour de semaine * le **plan de service d’application** de production devrait se présenter comme suit :
+Si l’on prend la règle *mise à l’échelle automatique - Mise à l’échelle supérieure* du profil *Jour de semaine* le **plan de service d’application** de production devrait se présenter comme suit :
 
 ![][Equation1]
 
@@ -231,4 +231,4 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les s
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->

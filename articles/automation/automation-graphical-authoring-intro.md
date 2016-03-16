@@ -232,7 +232,7 @@ Pour un lien de type séquence, la condition est évaluée une seule fois, car u
 
 Lorsque vous utilisez un lien conditionnel, les données disponibles de l'activité source vers d'autres activités dans cette branche sont filtrées par la condition. Si une activité est la source vers plusieurs liens, les données disponibles pour les activités de chaque branche dépendent de la condition spécifiée dans le lien de connexion à cette branche.
 
-Par exemple, l'activité source du Runbook ci-dessous obtient toutes les machines virtuelles. Elle a deux liens conditionnels et un lien sans condition. Le premier lien conditionnel utilise l'expression *$ActivityOutput['Get-AzureVM'.PowerState -eq 'Started'* pour filtrer uniquement les machines virtuelles en cours d'exécution. Le deuxième lien conditionnel utilise l'expression* $ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* pour filtrer uniquement les machines virtuelles actuellement arrêtées.
+Par exemple, l'activité source du Runbook ci-dessous obtient toutes les machines virtuelles. Elle a deux liens conditionnels et un lien sans condition. Le premier lien conditionnel utilise l'expression *$ActivityOutput['Get-AzureVM'.PowerState -eq 'Started'* pour filtrer uniquement les machines virtuelles en cours d'exécution. Le deuxième lien conditionnel utilise l'expression *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* pour filtrer uniquement les machines virtuelles actuellement arrêtées.
 
 ![Exemple de lien conditionnel](media/automation-graphical-authoring-intro/conditional-links.png)
 
@@ -419,4 +419,4 @@ L'exemple suivant utilise la sortie d'une activité nommée *Obtenir la connexio
 - [Opérateurs](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->
