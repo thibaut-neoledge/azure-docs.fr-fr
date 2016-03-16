@@ -80,7 +80,8 @@ Les événements à risque sont des événements qui ont été signalés comme s
 | Connexions depuis des appareils infectés | Connexions à partir d’appareils potentiellement infectés |
 | Connexions depuis des adresses IP anonymes | Connexions à partir de sources inconnues |
 | Connexions depuis des adresses IP avec des activités suspectes |	Connexions depuis des adresses IP avec des activités suspectes |
-| Connexions depuis des emplacements non connus | - | | Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
+| Connexions depuis des emplacements non connus | - | 
+| Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
 
 Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans Azure AD Identity Protection et ne sont donc pas disponibles via Identity Protection. Ces rapports sont toujours disponibles dans le portail de gestion Azure, mais ils seront rendus obsolètes ultérieurement du fait de leur remplacement par des événements à risque dans Identity Protection.
 
@@ -637,4 +638,4 @@ Pour tester le risque à la connexion, procédez comme suit :
  - [Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview) (Émission sur Azure AD et l’identité : présentation d’Identity Protection)
  - [Glossaire du service Identity Protection](active-directory-identityprotection-glossary.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

@@ -53,4 +53,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 
 <sup>1</sup> Dans Azure Search, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!------HONumber=AcomDC_0302_2016-->

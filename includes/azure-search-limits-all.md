@@ -1,6 +1,19 @@
 Ressource|Gratuit|De base (version préliminaire) <sup>6</sup>|S1|S2
 ---|---|---|---|----
-Nombre maximum de services de recherche|N/A|---|12 par abonnement Azure|12 par abonnement Azure Taille de stockage maximum <sup>1</sup>|50 Mo ou 10 000 documents|2 Go par service|25 Go par partition ou 300 Go de documents par service|100 Go par partition ou 1,2 To par service Nombre maximum de documents hébergés|10 000 au total|1 million par service|15 millions par partition (jusqu’à 180 millions de documents par service)|60 millions par partition (Jusqu’à 720 millions de documents par service) Nombre maximum d’index|3|5|50|200 Nombre maximum d’indexeurs|3|5|50|200 Sources de données d’indexeur maximum|3|5|50|200 Index : nombre maximum de champs par index|1000|100 <sup>5</sup>|1000|1000 Index : nombre maximum de profils de score par index|16|16|16|16 Index : nombre maximum de fonctions par profil|8|8|8|8 Indexeurs : charge d’indexation maximum par appel|10 000 documents|Limité uniquement par le nombre maximum de documents|Limité uniquement par le nombre maximum de documents|Limité uniquement par le nombre maximum de documents Indexeurs : durée d’exécution maximum|3 minutes|24 heures|24 heures|24 heures Requêtes par seconde <sup>2</sup>|N/A|~3 par réplica|~15 par réplica|~60 par réplica Montée en charge : nombre maximum d’unités de recherche <sup>3</sup>|N/A|Jusqu’à 3 unités (3 réplicas et 1 partition)|36 unités|36 unités Tarification <sup>4</sup>|N/A|75 $ par unité de recherche par mois|250 $ par unité de recherche par mois|1 000 $ par unité de recherche par mois
+Nombre maximum de services de recherche|N/A|---|12 par abonnement Azure|12 par abonnement Azure 
+Taille de stockage maximum <sup>1</sup>|50 Mo ou 10 000 documents|2 Go par service|25 Go par partition ou 300 Go de documents par service|100 Go par partition ou 1,2 To par service 
+Nombre maximum de documents hébergés|10 000 au total|1 million par service|15 millions par partition (jusqu’à 180 millions de documents par service)|60 millions par partition (Jusqu’à 720 millions de documents par service) 
+Nombre maximum d’index|3|5|50|200 
+Nombre maximum d’indexeurs|3|5|50|200 
+Sources de données d’indexeur maximum|3|5|50|200 
+Index : nombre maximum de champs par index|1000|100 <sup>5</sup>|1000|1000 
+Index : nombre maximum de profils de score par index|16|16|16|16 
+Index : nombre maximum de fonctions par profil|8|8|8|8 
+Indexeurs : charge d’indexation maximum par appel|10 000 documents|Limité uniquement par le nombre maximum de documents|Limité uniquement par le nombre maximum de documents|Limité uniquement par le nombre maximum de documents 
+Indexeurs : durée d’exécution maximum|3 minutes|24 heures|24 heures|24 heures 
+Requêtes par seconde <sup>2</sup>|N/A|~3 par réplica|~15 par réplica|~60 par réplica 
+Montée en charge : nombre maximum d’unités de recherche <sup>3</sup>|N/A|Jusqu’à 3 unités (3 réplicas et 1 partition)|36 unités|36 unités 
+Tarification <sup>4</sup>|N/A|75 $ par unité de recherche par mois|250 $ par unité de recherche par mois|1 000 $ par unité de recherche par mois
 
 <sup>1</sup> La taille de stockage est un volume fixe ou le nombre de documents par service, en fonction de la première occurrence.
 
@@ -14,4 +27,4 @@ Nombre maximum de services de recherche|N/A|---|12 par abonnement Azure|12 par a
 
 <sup>6</sup> Le [niveau de base](http://aka.ms/azuresearchbasic) est disponible à un prix inférieur de 50 % du prix complet pendant la période de version préliminaire.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->

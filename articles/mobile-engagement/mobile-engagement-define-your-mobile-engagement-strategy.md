@@ -20,7 +20,7 @@
 
 *Vous avez écrit votre application pour une raison : pour que vos utilisateurs l'utilisent !*
 
-Nous sommes convaincus que vous avez tout mis en œuvre pour créer une application sensationnelle qui plaise aux utilisateurs. Vous avez probablement également investi un important budget marketing pour attirer les utilisateurs. Mais après le pic d’utilisateurs grisant du début, vous constatez peut-être une baisse progressive de l’utilisation de votre application. *C'est là tout l'intérêt d'Azure Mobile Engagement* : faire en sorte qu'ils continuent à utiliser votre application et que vous puissiez progressivement l'améliorer grâce aux tests et à l'apprentissage.
+Nous sommes convaincus que vous avez tout mis en œuvre pour créer une application sensationnelle qui plaise aux utilisateurs. Vous avez probablement également investi un important budget marketing pour attirer les utilisateurs. Mais après le pic d’utilisateurs grisant du début, vous constatez peut-être une baisse progressive de l’utilisation de votre application. *C'est là tout l'intérêt d'Azure Mobile Engagement* : faire en sorte qu'ils continuent à utiliser votre application et que vous puissiez progressivement l'améliorer grâce aux tests et à l'apprentissage.
 
 Notre approche visant à améliorer la fidélisation et l’utilisation est basée sur l’engagement des utilisateurs à travers les notifications Push et les messages dans l’application, mais de manière très spécifique, avec une communication et des messages personnalisés en fonction de leur comportement dans l’application. Notre objectif est de vous permettre de communiquer avec la bonne audience, au bon moment et au bon endroit.
 
@@ -34,7 +34,7 @@ Pour créer votre stratégie Mobile Engagement, vous devez d’abord tenir comp
 
 La définition de ces objectifs et des indicateurs de performance clés vous aide à définir vos cas d’utilisation d’engagement de manière pertinente.
 
-Vos cas d'utilisation sont une simple liste des campagnes que vous visez pour communiquer avec vos utilisateurs. Elles peuvent consister aussi bien en un simple message de bienvenue qu'en une notification très avancée déclenchée par votre système informatique. Un cas d’utilisation bien construit doit inclure au moins le trio *quoi-qui-quand* :
+Vos cas d'utilisation sont une simple liste des campagnes que vous visez pour communiquer avec vos utilisateurs. Elles peuvent consister aussi bien en un simple message de bienvenue qu'en une notification très avancée déclenchée par votre système informatique. Un cas d’utilisation bien construit doit inclure au moins le trio *quoi-qui-quand* :
 
 1. Une désignation très courte (par exemple, une « Campagne de bienvenue »)
 2. **Quoi** : un exemple de message (par exemple, « Bienvenue à bord ! N'oubliez pas de vous connecter pour bénéficier de votre premier mois gratuit ! »). Ce message n’est pas définitif, vous pourrez le modifier à tout moment, mais il constitue généralement un bon point de départ pour réfléchir à ce que vous voulez dire
@@ -134,4 +134,4 @@ Tous ces types de données peuvent être agrémentés de paramètres (*extra-inf
 [Concepts de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Didacticiels]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
