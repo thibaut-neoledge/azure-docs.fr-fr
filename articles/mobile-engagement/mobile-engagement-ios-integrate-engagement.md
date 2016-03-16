@@ -44,6 +44,8 @@ Engagement nécessite des infrastructures supplémentaires pour fonctionner : da
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
+
+
 > [AZURE.NOTE] L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA \<ios-sdk-engagement-idfa\> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
 
 ##Initialiser le SDK Engagement

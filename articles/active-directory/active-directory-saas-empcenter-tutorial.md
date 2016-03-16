@@ -80,8 +80,8 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
     ![Configurer les paramètres d’application](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurer les paramètres d’application")
 
-    1.  Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application EmpCenter (par exemple : **https://partner-authenticati.empcenter.com/workforce/SSO.do*).
-2.  Cliquez sur **Suivant**
+    1.  Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application EmpCenter (par exemple : *https://partner-authenticati.empcenter.com/workforce/SSO.do*).
+    2.  Cliquez sur **Suivant**
 
 4.  Dans la page **Configurer l’authentification unique sur EmpCenter**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -96,7 +96,8 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
     ![Configurer l’authentification unique](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour permettre aux utilisateurs Azure AD de se connecter à EmpCenter, vous devez les approvisionner dans EmpCenter. Dans le cas d’EmpCenter, les comptes d'utilisateur doivent être créés par votre équipe de support EmpCenter.
+Pour permettre aux utilisateurs Azure AD de se connecter à EmpCenter, vous devez les approvisionner dans EmpCenter.  
+Dans le cas d’EmpCenter, les comptes d'utilisateur doivent être créés par votre équipe de support EmpCenter.
 
 >[AZURE.NOTE] Vous pouvez utiliser n'importe quel outil ou API de création de compte utilisateur, fourni par EmpCenter, pour approvisionner des comptes utilisateur Azure Active Directory.
 

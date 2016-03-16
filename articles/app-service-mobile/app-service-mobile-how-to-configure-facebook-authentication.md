@@ -48,7 +48,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 9. Cliquez sur l’onglet **Avancé**, ajoutez l’**URI de redirection** de votre application dans les **URI de redirection Valid OAuth**, puis cliquez sur **Enregistrer les modifications**.
 
-> [AZURE.NOTE] Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/facebook/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assurez-vous d'utiliser le schéma HTTPS.
+	> [AZURE.NOTE] Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/facebook/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assurez-vous d'utiliser le schéma HTTPS.
 
 10. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Révision des applications** et **rendre public todolist-complete-nodejs** pour activer l’accès public général à l’aide de l’authentification Facebook.
 
