@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prise en main : connexion à SQL Data Warehouse Azure | Microsoft Azure"
+   pageTitle="Prise en main : connexion à SQL Data Warehouse Azure | Microsoft Azure"
    description="Familiarisez-vous avec la procédure de connexion à SQL Data Warehouse et découvrez comme exécuter certaines requêtes."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Se connecter et lancer des requêtes avec SQLCM
@@ -22,7 +22,7 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Cette procédure pas à pas vous explique comment vous connecter à une base de données Azure SQL Data Warehouse et l’interroger en quelques minutes en utilisant l’utilitaire sqlcmd.exe. Lors de cette procédure pas à pas, vous allez :
+Cette procédure pas à pas vous explique comment vous connecter à une base de données Azure SQL Data Warehouse et l’interroger en quelques minutes en utilisant l’utilitaire sqlcmd.exe. Lors de cette procédure pas à pas, vous allez :
 
 + Installer les logiciels requis
 + Connecter une base de données contenant l’exemple de base de données AdventureWorksDW.
@@ -30,7 +30,7 @@ Cette procédure pas à pas vous explique comment vous connecter à une base de 
 
 ## Composants requis
 
-+ [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx) : pour télécharger sqlcmd.exe, veuillez consulter les [ Utilitaires de ligne de commande Microsoft 11 pour SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
++ [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx) : pour télécharger sqlcmd.exe, veuillez consulter les [ Utilitaires de ligne de commande Microsoft 11 pour SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
 
 ## Obtenir le nom complet de votre serveur SQL Azure
 
@@ -38,22 +38,22 @@ Pour vous connecter à votre base de données, vous devez disposer du nom comple
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à la base de données à laquelle vous souhaitez vous connecter.
-3. Recherchez le nom complet du serveur (nous allons l’utiliser dans les étapes à suivre) :
+3. Recherchez le nom complet du serveur (nous allons l’utiliser dans les étapes à suivre) :
 
 ![][1]
 
 
-## Se connecter à SQL Data Warehouse avec sqlcmd
+## Se connecter à SQL Data Warehouse avec sqlcmd
 
-Pour vous connecter à une instance spécifique de SQL Data Warehouse en utilisant sqlcmd, vous devez ouvrir la fenêtre d’invite de commandes et saisir la chaîne **sqlcmd**, suivie de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion doit contenir les paramètres suivants :
+Pour vous connecter à une instance spécifique de SQL Data Warehouse en utilisant sqlcmd, vous devez ouvrir la fenêtre d’invite de commandes et saisir la chaîne **sqlcmd**, suivie de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion doit contenir les paramètres suivants :
 
-+ **Utilisateur (-U) :** utilisateur du serveur sous la forme `<`utilisateur`>`
-+ **Mot de passe (-P) :** mot de passe associé à l’utilisateur.
-+ **Serveur (-S) :** nom du serveur, sous la forme `<`Nom\_serveur`>`.database.windows.net.
-+ **Base de données (-D) :** nom de la base de données.
-+ **Activer les identificateurs marqués (-I) :** les identificateurs marqués doivent être activés pour que la connexion à une instance SQL Data Warehouse soit possible.
++ **Utilisateur (-U) :** utilisateur du serveur sous la forme `<`utilisateur`>`
++ **Mot de passe (-P) :** mot de passe associé à l’utilisateur.
++ **Serveur (-S) :** nom du serveur, sous la forme `<`Nom\_serveur`>`.database.windows.net.
++ **Base de données (-D) :** nom de la base de données.
++ **Activer les identificateurs marqués (-I) :** les identificateurs marqués doivent être activés pour que la connexion à une instance SQL Data Warehouse soit possible.
 
-Par conséquent, pour vous connecter à une instance SQL Data Warehouse, saisissez ce qui suit :
+Par conséquent, pour vous connecter à une instance SQL Data Warehouse, saisissez ce qui suit :
 
 ```
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
@@ -78,9 +78,9 @@ Pour en savoir plus sur sqlcmd, consultez la [documentation relative à sqlcmd](
 Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez de [vous connecter avec Power BI][].
 
 [vous connecter avec Power BI]: ./sql-data-warehouse-integrate-power-bi.md
- 
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

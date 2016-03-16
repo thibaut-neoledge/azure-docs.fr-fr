@@ -13,18 +13,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
 # Détection de sources de données
 
 ## Introduction
-**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. Une fois qu’une source de données a été inscrite avec **Azure Data Catalog**, ses métadonnées sont indexées par le service. Les utilisateurs peuvent ainsi effectuer des recherches facilement pour détecter les données dont ils ont besoin.
+**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. Une fois qu’une source de données a été inscrite avec **Azure Data Catalog**, ses métadonnées sont indexées par le service. Les utilisateurs peuvent ainsi effectuer des recherches facilement pour détecter les données dont ils ont besoin.
 
 ## Recherche et filtrage
 
-Dans **Azure Data Catalog**, la détection utilise deux mécanismes principaux : la recherche et le filtrage.
+Dans **Azure Data Catalog**, la détection utilise deux mécanismes principaux : la recherche et le filtrage.
 
 La recherche est conçue pour être intuitive et puissante. Par défaut, les termes de recherche sont comparés à toutes les propriétés du catalogue, y compris les annotations fournies par les utilisateurs.
 
@@ -34,7 +34,7 @@ En combinant recherche et filtrage, les utilisateurs peuvent parcourir rapidemen
 
 ## Syntaxe de recherche
 
-La recherche en texte libre par défaut est simple et intuitive. Cependant, les utilisateurs peuvent également utiliser la syntaxe de recherche d’**Azure Data Catalog** pour mieux contrôler les résultats de recherche. La recherche avec **Azure Data Catalog** prend en charge les techniques suivantes :
+La recherche en texte libre par défaut est simple et intuitive. Cependant, les utilisateurs peuvent également utiliser la syntaxe de recherche d’**Azure Data Catalog** pour mieux contrôler les résultats de recherche. La recherche avec **Azure Data Catalog** prend en charge les techniques suivantes :
 
 | Technique | Utilisation | Exemple |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
@@ -58,6 +58,9 @@ Dans l’affichage en mosaïque par défaut, chaque vignette affichée dans les 
  ![Mise en surbrillance des correspondances et résultats de recherche dans le portail Azure Data Catalog](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## Résumé
-L’inscription d’une source de données avec **Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent la détecter grâce au filtrage et à la recherche, à partir du portail **Azure Data Catalog**.
+L’inscription d’une source de données avec **Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent la détecter grâce au filtrage et à la recherche, à partir du portail **Azure Data Catalog**.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Voir aussi
+- Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur la découverte de sources de données.
+
+<!---HONumber=AcomDC_0309_2016-->

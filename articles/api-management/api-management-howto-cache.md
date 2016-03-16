@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Ajout de la mise en cache pour améliorer les performances de Gestion des API Azure | Microsoft Azure"
+	pageTitle="Ajout de la mise en cache pour améliorer les performances de Gestion des API Azure | Microsoft Azure"
 	description="Apprenez à améliorer la latence, la consommation de bande passante et la charge du service web pour les appels du service Gestion des API."
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/16/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
@@ -22,7 +22,7 @@ Les opérations dans Gestion des API Azure peuvent être configurées pour mettr
 
 Ce guide vous montre comment ajouter une mise en cache de la réponse pour votre API et configurer des stratégies pour les exemples d’opérations de l’API Echo. Vous pouvez ensuite appeler l’opération depuis le portail des développeurs pour vérifier l’action de mise en cache.
 
->[AZURE.NOTE]Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
+>[AZURE.NOTE] Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
 
 ## Composants requis
 
@@ -32,7 +32,7 @@ Avant de suivre la procédure décrite dans ce guide, vous devez disposer d’un
 
 Dans cette étape, vous allez consulter les paramètres de mise en cache de l’opération **GET Resource (cached)** de l’exemple d’API Echo.
 
->[AZURE.NOTE]Chaque instance du service Gestion des API est préconfigurée avec une API Echo qui peut être utilisée pour faire des expériences et en savoir plus sur la gestion des API. Pour plus d'informations, consultez la page [Prise en main de Gestion des API Azure][].
+>[AZURE.NOTE] Chaque instance du service Gestion des API est préconfigurée avec une API Echo qui peut être utilisée pour faire des expériences et en savoir plus sur la gestion des API. Pour plus d'informations, consultez la page [Prise en main de Gestion des API Azure][].
 
 Pour commencer, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
@@ -64,7 +64,7 @@ Dans cette étape, vous allez consulter les paramètres de mise en cache de l’
 
 Lorsque les paramètres de mise en cache sont configurés pour une opération dans l'onglet **Mise en cache**, les stratégies de mise en cache sont ajoutées pour cette opération. Ces stratégies peuvent être consultées et modifiées dans l'éditeur de stratégies.
 
-Cliquez sur **Stratégies** dans le menu **Gestion des API** à gauche, puis sélectionnez **Echo API/GET Resource (cached)** dans la liste déroulante **Opération**.
+Cliquez sur **Stratégies** dans le menu **Gestion des API** à gauche, puis sélectionnez **Echo API / GET Resource (cached)** dans la liste déroulante **Opération**.
 
 ![Policy scope operation][api-management-operation-dropdown]
 
@@ -89,7 +89,7 @@ La définition de stratégie de cette opération comprend les stratégies qui d�
 		</outbound>
 	</policies>
 
->[AZURE.NOTE]Les modifications apportées aux stratégies de mise en cache dans l’éditeur de stratégies sont affichées sous l’onglet **Mise en cache** d’une opération, et vice-versa.
+>[AZURE.NOTE] Les modifications apportées aux stratégies de mise en cache dans l’éditeur de stratégies sont affichées sous l’onglet **Mise en cache** d’une opération, et vice-versa.
 
 ## <a name="test-operation"> </a>Appel d’une opération et test de la mise en cache
 
@@ -163,4 +163,4 @@ Notez que la valeur de **sampleheader** dans la réponse est désormais **value2
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

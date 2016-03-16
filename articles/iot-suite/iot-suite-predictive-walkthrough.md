@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="12/02/2015"
+ ms.date="03/02/2016"
  ms.author="araguila"/>
 
 # Procédure pas à pas de la solution préconfigurée de maintenance prédictive
@@ -25,7 +25,7 @@ La solution préconfigurée de maintenance prédictive IoT Suite est une solutio
 
 ## Architecture logique
 
-Le schéma suivant décrit les composants logiques de la solution préconfigurée :
+Le schéma suivant décrit les composants logiques de la solution préconfigurée :
 
 ![][img-architecture]
 
@@ -39,13 +39,13 @@ Les éléments en gris représentent des composants qui implémentent les foncti
 
 ## Simulations d’appareils
 
-Dans la solution préconfigurée, un appareil simulé représente un moteur d’avion. La solution est provisionnée avec 2 moteurs qui mappent vers un seul avion. Chaque moteur émet 4 types de télémétrie (Capteur 9, Capteur 11, Capteur 14 et Capteur 15) qui fournissent les données requises par le modèle Machine Learning pour calculer la durée de vie utile restante de ce moteur. Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
+Dans la solution préconfigurée, un appareil simulé représente un moteur d’avion. La solution est provisionnée avec 2 moteurs qui mappent vers un seul avion. Chaque moteur émet 4 types de télémétrie (Capteur 9, Capteur 11, Capteur 14 et Capteur 15) qui fournissent les données requises par le modèle Machine Learning pour calculer la durée de vie utile restante de ce moteur. Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
 
-*Nombre de cycles*. Un cycle représente un vol effectué d’une durée variable de 2 à 10 heures, dans lequel les données de télémétrie sont capturées toutes les demi-heures pendant la durée du vol.
+*Nombre de cycles*. Un cycle représente un vol effectué d’une durée variable de 2 à 10 heures, dans lequel les données de télémétrie sont capturées toutes les demi-heures pendant la durée du vol.
 
-*Télémétrie*. Il existe 4 capteurs qui représentent les attributs du moteur. Les capteurs sont nommés de manière générique Capteur 9, Capteur 11, Capteur 14 et Capteur 15. Ces 4 capteurs constituent une télémétrie suffisante pour obtenir des résultats utiles à partir du modèle Machine Learning pour la durée de vie utile restante. Ce modèle est créé à partir d’un jeu de données publiques qui inclut des données réelles de capteurs de moteurs. Pour plus d’informations sur la création du modèle à partir du jeu de données d’origine, consultez [Modèle de maintenance prédictive de la galerie Cortana Analytics][lnk-cortana-analytics].
+*Télémétrie*. Il existe 4 capteurs qui représentent les attributs du moteur. Les capteurs sont nommés de manière générique Capteur 9, Capteur 11, Capteur 14 et Capteur 15. Ces 4 capteurs constituent une télémétrie suffisante pour obtenir des résultats utiles à partir du modèle Machine Learning pour la durée de vie utile restante. Ce modèle est créé à partir d’un jeu de données publiques qui inclut des données réelles de capteurs de moteurs. Pour plus d’informations sur la création du modèle à partir du jeu de données d’origine, consultez [Modèle de maintenance prédictive de la galerie Cortana Analytics][lnk-cortana-analytics].
 
-Les appareils simulés peuvent gérer les commandes suivantes envoyées à partir d’un IoT Hub :
+Les appareils simulés peuvent gérer les commandes suivantes envoyées à partir d’un IoT Hub :
 
 | Commande | Description |
 |---------|-------------|
@@ -56,7 +56,7 @@ IoT Hub fournit un accusé de réception de la commande de l’appareil.
 
 ## Tâche Azure Stream Analytics
 
-La **Tâche : Télémétrie** agit sur le flux de télémétrie de l’appareil entrant à l’aide de deux instructions. La première sélectionne toutes les données de télémétrie à partir des appareils et envoie ces données au Blob Storage à partir duquel elles sont visualisées dans l’application web. La deuxième instruction calcule les valeurs de capteurs moyennes sur une fenêtre glissante de deux minutes et les envoie via l’Event Hub à un **processeur d’événements**.
+La **Tâche : Télémétrie** agit sur le flux de télémétrie de l’appareil entrant à l’aide de deux instructions. La première sélectionne toutes les données de télémétrie à partir des appareils et envoie ces données au Blob Storage à partir duquel elles sont visualisées dans l’application web. La deuxième instruction calcule les valeurs de capteurs moyennes sur une fenêtre glissante de deux minutes et les envoie via l’Event Hub à un **processeur d’événements**.
 
 ## Processeur d’événements
 
@@ -72,7 +72,7 @@ Cette section vous guide à travers les composants de la solution et décrit l�
 
 ### Tableau de bord de maintenance prédictive
 
-Cette page de l’application web utilise des contrôles Power BI JavaScript (consultez [Référentiel d’éléments visuels Power BI][lnk-powerbi]) pour visualiser :
+Cette page de l’application web utilise des contrôles Power BI JavaScript (consultez [Référentiel d’éléments visuels Power BI][lnk-powerbi]) pour visualiser :
 
 - Les données de sortie des tâches Stream Analytics dans le Blob Storage.
 - La durée de vie utile restante et le nombre de cycles d’un moteur d’avion.
@@ -87,7 +87,7 @@ Lorsque vous approvisionnez la solution préconfigurée, vous recevez un e-mail 
 
 ![][img-machine-learning]
 
-Dans le portail de la solution, vous pouvez voir que l’exemple est approvisionné avec quatre appareils simulés pour représenter 2 avions comptant 2 moteurs chacun, et 4 capteurs par moteur. Lorsque vous accédez au portail de la solution pour la première fois, la simulation est arrêtée.
+Dans le portail de la solution, vous pouvez voir que l’exemple est approvisionné avec quatre appareils simulés pour représenter 2 avions comptant 2 moteurs chacun, et 4 capteurs par moteur. Lorsque vous accédez au portail de la solution pour la première fois, la simulation est arrêtée.
 
 ![][img-simulation-stopped]
 
@@ -99,9 +99,9 @@ Lorsque la durée de vie utile restante est inférieure à 160 (seuil arbitraire
 
 ![][img-simulation-warning]
 
-La simulation complète prend environ 35 minutes pour effectuer 148 cycles. Le seuil de durée de vie utile restante de 160 est atteint pour la première fois à environ 5 minutes, et les deux moteurs atteignent le seuil à environ 8 minutes.
+La simulation complète prend environ 35 minutes pour effectuer 148 cycles. Le seuil de durée de vie utile restante de 160 est atteint pour la première fois à environ 5 minutes, et les deux moteurs atteignent le seuil à environ 8 minutes.
 
-La simulation s’exécute sur le jeu de données complet pour les 148 cycles et se règle sur les valeurs finales de durée de vie utile restante et de cycles.
+La simulation s’exécute sur le jeu de données complet pour les 148 cycles et se règle sur les valeurs finales de durée de vie utile restante et de cycles.
 
 Vous pouvez arrêter la simulation à tout moment. L’option **Démarrer la simulation** réexécute la simulation à partir du début du jeu de données.
 
@@ -124,4 +124,4 @@ Maintenant que vous avez exécuté la solution préconfigurée de maintenance pr
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,20 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
 # Connexion aux sources de données
 
 ## Introduction
-**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. L’utilisation des données représente un aspect clé de ce scénario. Lorsqu’un utilisateur détecte une source de données et en comprend l’objet, l’étape suivante consiste à se connecter à la source de données pour pouvoir exploiter les données correspondantes.
+**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. L’utilisation des données représente un aspect clé de ce scénario. Lorsqu’un utilisateur détecte une source de données et en comprend l’objet, l’étape suivante consiste à se connecter à la source de données pour pouvoir exploiter les données correspondantes.
 
 ##Emplacements des sources de données
 Pendant l’inscription des sources de données, **Azure Data Catalog** reçoit les métadonnées de la source de données. Ces métadonnées incluent des détails concernant l’emplacement de la source de données. Ceux-ci varient selon les sources de données, mais contiennent toujours les informations requises pour la connexion. Par exemple, l’emplacement d’une table SQL Server inclut le nom du serveur, le nom de la base de données, le nom du schéma et le nom de la table, tandis que l’emplacement d’un rapport SQL Server Reporting Services inclut le nom du serveur et le chemin d’accès au rapport. Pour d’autres types de sources de données, les emplacements reflètent la structure et les fonctionnalités du système source.
 
 ##Outils clients intégrés
-Le moyen le plus simple de vous connecter à une source de données consiste à utiliser le menu « Ouvrir dans... » du portail **Azure Data Catalog**. Ce menu affiche une liste d’options pour la connexion à la ressource de données sélectionnée. Lorsque vous utilisez l’affichage en mosaïque par défaut, ce menu est disponible sur chaque vignette.
+Le moyen le plus simple de vous connecter à une source de données consiste à utiliser le menu « Ouvrir dans... » du portail **Azure Data Catalog**. Ce menu affiche une liste d’options pour la connexion à la ressource de données sélectionnée. Lorsque vous utilisez l’affichage en mosaïque par défaut, ce menu est disponible sur chaque vignette.
 
  ![Ouverture d’une table SQL Server dans Excel à partir de la vignette de ressource de données](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
 
@@ -35,7 +35,7 @@ Lorsque vous utilisez l’affichage par liste, le menu est disponible dans la ba
  ![Ouverture d’un rapport SQL Server Reporting Services dans le Gestionnaire de rapports à partir de la barre de recherche](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ##Vos données, vos outils
-Les options disponibles dans le menu dépendent du type de ressource de données actuellement sélectionné. Bien entendu, le menu « Ouvrir dans... » ne présente pas tous les outils applicables. Cependant, il est relativement simple de se connecter à la source de données à l’aide de n’importe quel outil client. Lorsqu’une ressource de données est sélectionnée dans le portail **Azure Data Catalog**, l’emplacement complet s’affiche dans le volet des propriétés.
+Les options disponibles dans le menu dépendent du type de ressource de données actuellement sélectionné. Bien entendu, le menu « Ouvrir dans... » ne présente pas tous les outils applicables. Cependant, il est relativement simple de se connecter à la source de données à l’aide de n’importe quel outil client. Lorsqu’une ressource de données est sélectionnée dans le portail **Azure Data Catalog**, l’emplacement complet s’affiche dans le volet des propriétés.
 
  ![Informations de connexion pour une table SQL Server](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
 
@@ -49,6 +49,9 @@ Même si **Azure Data Catalog** rend les sources de données détectables, l’a
  ![Informations de connexion avec fourniture des instructions d’accès de requête](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
 ##Résumé
-L’inscription d’une source de données avec **Azure Data Catalog** favorise la détection des données. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite et détectée, les utilisateurs peuvent se connecter à la source de données à partir du menu « Ouvrir dans... » du portail **Azure Data Catalog** ou à l’aide des outils de données de leur choix.
+L’inscription d’une source de données avec **Azure Data Catalog** favorise la détection des données. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite et détectée, les utilisateurs peuvent se connecter à la source de données à partir du menu « Ouvrir dans... » du portail **Azure Data Catalog** ou à l’aide des outils de données de leur choix.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Voir aussi
+- Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur la connexion à des sources de données.
+
+<!---HONumber=AcomDC_0309_2016-->

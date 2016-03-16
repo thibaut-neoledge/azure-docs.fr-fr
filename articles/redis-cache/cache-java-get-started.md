@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/03/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure avec Java
 
 > [AZURE.SELECTOR]
 - [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
-- [Node.js](cache-nodejs-get-started.md)
+- [Node.JS](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
@@ -31,9 +31,9 @@ Cette rubrique montre comment utiliser le Cache Redis Azure avec Java.
 
 ## Composants requis
 
-[Jedis](https://github.com/xetorthio/jedis) : client Java pour Redis
+[Jedis](https://github.com/xetorthio/jedis) : client Java pour Redis
 
-Ce didacticiel utilise Jedis, mais vous pouvez utiliser n'importe quel client Java parmi ceux répertoriés ici : [http://redis.io/clients](http://redis.io/clients).
+Ce didacticiel utilise Jedis, mais vous pouvez utiliser n'importe quel client Java parmi ceux répertoriés ici : [http://redis.io/clients](http://redis.io/clients).
 
 
 ## Créer un Cache Redis sur Azure
@@ -42,7 +42,7 @@ Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez 
 
   ![][1]
 
-Entrez un nom d'hôte DNS. Il se présente comme suit : `<name>.redis.cache.windows.net`. Cliquez sur **Create**.
+Entrez un nom d'hôte DNS. Il se présente comme suit : `<name>.redis.cache.windows.net`. Cliquez sur **Create**.
 
   ![][2]
 
@@ -52,10 +52,10 @@ Une fois le cache créé, cliquez dessus dans le portail Azure pour afficher ses
   ![][4]
 
 
-## Activer le point de terminaison non SSL
+## Activer le point de terminaison non SSL
 
 
-Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'option « Autoriser l'accès uniquement via SSL ». Cela active le port non SSL pour le cache. Le client Jedis ne prend pas en charge le SSL.
+Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'option « Autoriser l'accès uniquement via SSL ». Cela active le port non SSL pour le cache. Le client Jedis ne prend pas en charge le SSL.
 
   ![][3]
 
@@ -93,4 +93,4 @@ Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'opt
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

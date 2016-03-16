@@ -22,8 +22,8 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 
 ## Conditions requises pour le compte
 
-- Un compte Microsoft Azure actif et valide. Cela est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et CRM Online.
-- Un abonnement Office 365 actif (si vous utilisez les services Office 365). Consultez la section [Conditions requises spécifiques pour Office 365](#office-365-specific-requirements) de cet article pour plus d’informations.
+- Un compte Microsoft Azure actif et valide. Cela est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et CRM Online.
+- Un abonnement Office 365 actif (si vous utilisez les services Office 365). Consultez la section [Conditions requises spécifiques pour Office 365](#office-365-specific-requirements) de cet article pour plus d’informations.
 
 ## Partenariat avec un fournisseur de connectivité
 
@@ -39,9 +39,9 @@ Reportez-vous à la section Modèles de connectivité pour plus d’informations
 
 ## Conditions requises de redondance pour la connectivité
 
-Il n’existe aucune condition requise de redondance sur la connectivité physique entre l’infrastructure du client et l’infrastructure du prestataire de services. Microsoft a besoin de redondance dans la Couche 3. Microsoft a besoin qu’un routage redondant soit configuré entre la périphérie de Microsoft et le réseau du client via le prestataire de services, afin que chacune des homologations soit activée. Si les sessions de routage ne sont pas configurées de manière redondante, l’accord de niveau de service relatif à la disponibilité des services est nul et non avenu.
+Il n’existe aucune condition requise de redondance sur la connectivité physique entre l’infrastructure du client et l’infrastructure du prestataire de services. Microsoft a besoin de redondance dans la Couche 3. Microsoft a besoin qu’un routage redondant soit configuré entre la périphérie de Microsoft et le réseau du client via le prestataire de services, afin que chacune des homologations soit activée. Si les sessions de routage ne sont pas configurées de manière redondante, l’accord de niveau de service relatif à la disponibilité des services est nul et non avenu.
 
-## Considérations relatives aux adresses IP et au routage
+## Considérations relatives aux adresses IP et au routage
 
 Les clients et les fournisseurs de connectivité sont responsables de la configuration de sessions BGP redondantes avec l’infrastructure de périphérie de Microsoft. Les clients qui choisissent de se connecter via des fournisseurs de réseaux VPN IP s’appuient généralement sur les fournisseurs de connectivité pour gérer les configurations de routage. Les clients colocalisés avec un emplacement Exchange ou se connectant à Microsoft via un fournisseur Ethernet de point à point doivent configurer des sessions BGP redondantes par homologation afin de répondre aux conditions requises de l’accord de niveau de service relatif à la disponibilité. Les fournisseurs de connectivité peuvent proposer cette option en tant que service à valeur ajoutée. Reportez-vous à la table des domaines de routage dans l’article [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md) pour plus d’informations sur les limites.
 
@@ -51,14 +51,14 @@ Reportez-vous au document, [Services cloud et sécurité réseau de Microsoft](.
 
 ## Configuration NAT pour homologations Azure public et Microsoft
 
-Reportez-vous à [Conditions requises de traductions d’adresses réseau ExpressRoute](expressroute-nat.md) pour obtenir des instructions détaillées sur les conditions requises et les configurations. Vérifiez auprès de votre fournisseur de connectivité s’il gère la configuration et la gestion de la traduction d’adresses réseau pour vous. En règle générale, les fournisseurs de connectivité de Couche 3 gèrent la traduction d’adresses réseau pour vous.
+Reportez-vous à [Conditions requises de traductions d’adresses réseau ExpressRoute](expressroute-nat.md) pour obtenir des instructions détaillées sur les conditions requises et les configurations. Vérifiez auprès de votre fournisseur de connectivité s’il gère la configuration et la gestion de la traduction d’adresses réseau pour vous. En règle générale, les fournisseurs de connectivité de Couche 3 gèrent la traduction d’adresses réseau pour vous.
 
-## Conditions requises spécifiques pour Office 365
+## Conditions requises spécifiques pour Office 365
 
-Passez en revue les ressources suivantes pour plus d’informations sur les conditions requises pour Office 365.
+Passez en revue les ressources suivantes pour plus d’informations sur les conditions requises pour Office 365.
 
-- [Planification réseau et optimisation des performances pour Office 365](http://aka.ms/tune)
-- [Gestion du trafic réseau Office 365](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
+- [Planification réseau et optimisation des performances pour Office 365](http://aka.ms/tune)
+- [Gestion du trafic réseau Office 365](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - Reportez-vous à l’article [Conditions requises de qualité de service ExpressRoute](expressroute-qos.md) pour des instructions détaillées sur les conditions requises et les configurations relatives à la qualité de service. Vérifiez auprès de votre fournisseur de connectivité s’il offre plusieurs classes de services pour votre réseau VPN. 
 
 ## Étapes suivantes
@@ -71,4 +71,4 @@ Passez en revue les ressources suivantes pour plus d’informations sur les cond
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

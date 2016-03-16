@@ -18,15 +18,12 @@
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
-
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
-
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez l’article [Créer une application iOS dans Azure Mobile Apps](../app-service-mobile/app-service-mobile-android-get-started.md).
 
 Ce didacticiel présente l’ajout d’un service principal cloud à une application iOS à l’aide d’Azure Mobile Services.
 
@@ -40,7 +37,7 @@ Dans ce didacticiel, vous allez créer un service mobile et une simple applicati
 
 ## Création d'une application iOS
 
-Vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application connectée à votre service mobile :
+Vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application connectée à votre service mobile :
 
 1. Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
@@ -57,7 +54,7 @@ Vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pou
 <ol start="4"> <li><p>De retour dans le [portail Azure Classic], cliquez sur l’onglet **DONNÉES**, puis cliquez sur la table **TodoItem**. Cela vous permet de parcourir les données insérées par l’application dans la table.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Étapes suivantes
-Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
+Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Prise en main de la synchronisation des données hors connexion] <br/>Découvrez comment utiliser la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
 
@@ -95,4 +92,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version de serveur principal .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->
