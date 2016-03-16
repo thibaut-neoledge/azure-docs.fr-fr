@@ -14,10 +14,10 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/03/2015"
+     ms.date="03/02/2016"
      ms.author="dobett"/>
 
-# Didacticiel : prise en main des solutions préconfigurées IoT
+# Didacticiel : prise en main des solutions préconfigurées IoT
 
 ## Introduction
 
@@ -33,6 +33,8 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
 1.  Connectez-vous à [azureiotsuite.com][lnk-azureiotsuite] à l’aide des identifiants de votre compte Azure, puis cliquez sur **+** pour créer une nouvelle solution.
 
+    > [AZURE.NOTE] Si vous rencontrez des problèmes avec les autorisations nécessaires pour approvisionner une solution, consultez [Autorisations sur le site azureiotsuite.com](iot-suite-permissions.md) pour obtenir de l’aide.
+
 2.  Cliquez sur **Sélectionner** sur la vignette **Surveillance à distance**.
 
 3.  Entrez un **Nom de solution** pour votre solution préconfigurée de surveillance à distance.
@@ -41,7 +43,21 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
 5.  Cliquez sur **Créer une solution** pour commencer le processus de déploiement. Cette opération prend généralement plusieurs minutes.
 
+## Attendre la fin du processus d’approvisionnement
+
+1. Cliquez sur la vignette de votre solution avec l’état **Approvisionnement**.
+ 
+2. Notez les **états d’approvisionnement** à mesure que les services Azure sont déployés dans votre abonnement Azure.
+
+3. Une fois l’approvisionnement terminé, l’état devient **Prêt**.
+
+4. Cliquez sur la vignette ; les détails de votre solution apparaissent alors dans le volet de droite.
+
+Certains détails de votre solution semblent-ils faire défaut ? Faites-nous part de vos suggestions de fonctionnalité sur [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+
 ## Afficher le tableau de bord de la solution de surveillance à distance
+
+Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée. Par exemple, vous pouvez afficher les données de télémétrie, ajouter des appareils et configurer des règles.
 
 1.  Une fois que l’approvisionnement est terminé et que la vignette de votre solution préconfigurée indique **Prêt**, cliquez sur **Lancer** pour ouvrir le portail de votre solution de surveillance à distance dans un nouvel onglet.
 
@@ -52,6 +68,8 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
     ![][img-dashboard]
 
 ## Afficher la liste des appareils de la solution
+
+La liste des appareils montre tous les appareils inscrits dans la solution. Vous affichez et modifiez les métadonnées des appareils, ajoutez ou supprimez des appareils et envoyez des commandes aux appareils.
 
 1.  Cliquez sur **Appareils** dans le menu de gauche pour accéder à la *liste des appareils* de cette solution.
 
@@ -64,6 +82,8 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
     ![][img-devicedetails]
 
 ## Envoyer une commande à un appareil
+
+Le volet des détails de l’appareil affiche toutes les commandes que l’appareil prend en charge et vous permet d’envoyer des commandes à des appareils spécifiques.
 
 1.  Cliquez sur **Commandes** dans le volet d’informations de l’appareil sélectionné.
 
@@ -101,7 +121,13 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
     ![][img-runningnew]
 
+## Ajouter un nouvel appareil physique
+
+Pour ajouter un nouvel appareil physique à la solution, consultez [Connexion de votre appareil à la solution préconfigurée de surveillance à distance IoT Suite][lnk-connecting-devices].
+
 ## Afficher et modifier des règles de solution
+
+La solution préconfigurée déploie deux règles pour SampleDevice001. Par le biais de la vignette **Historique des alertes** du tableau de bord, les règles vous avertissent quand les valeurs de température ou d’humidité dépassent un seuil.
 
 1.  Retournez au tableau de bord de la solution et consultez la vignette **Historique des alertes**.
 
@@ -113,11 +139,9 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
     ![][img-rules]
 
-4.  La solution préconfigurée déploie deux règles.
-
 5.  Cliquez sur la règle **Température** dans la liste des règles pour afficher ses propriétés.
 
-6.  Cliquez sur **Modifier** dans le volet de propriétés de la règle.
+6.  Pour modifier une règle, cliquez sur **Modifier** dans le volet de propriétés de la règle.
 
     ![][img-displayrule]
 
@@ -131,11 +155,11 @@ Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
 
     ![][img-newhistory]
     
-Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Cela vous permet de facilement supprimer toutes les ressources ayant été configurées lorsque vous avez créé la solution préconfigurée.
+Quand vous avez terminé, vous pouvez supprimer la solution préconfigurée de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Cela vous permet de facilement supprimer toutes les ressources ayant été configurées quand vous avez créé la solution préconfigurée.
 
 ## Étapes suivantes
 
-Maintenant que vous avez créé une solution préconfigurée opérationnelle, vous pouvez passer aux scénarios suivants :
+Une solution préconfigurée opérationnelle étant créée, vous pouvez passer aux procédures suivantes :
 
 -   [Conseils sur la personnalisation des solutions préconfigurées][lnk-customize]
 -   [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive]
@@ -161,5 +185,6 @@ Maintenant que vous avez créé une solution préconfigurée opérationnelle, vo
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
+[lnk-connecting-devices]: iot-suite-connecting-devices.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

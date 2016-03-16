@@ -12,7 +12,7 @@
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/14/2016" 
 	ms.author="tamram"/>
 
@@ -26,7 +26,7 @@ Pour en savoir plus sur Azure Storage avant de vous plonger dans le code, consul
 
 ## Composants requis
 
-Vérifiez que les conditions préalables suivantes sont remplies avant de commencer :
+Vérifiez que les conditions préalables suivantes sont remplies avant de commencer :
 
 1. Pour compiler et générer l’application, [Visual Studio](https://www.visualstudio.com/) doit être installé sur votre ordinateur. 
 
@@ -34,7 +34,7 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 
 3. Assurez-vous que [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) est installé sur votre ordinateur, car cette application est nécessaire aux exemples de projets de démarrage rapide Azure que nous allons utiliser dans ce didacticiel.
 
-	Si vous ne savez pas quelle version de .NET Framework est installée sur votre ordinateur, consultez la rubrique [Comment déterminer les versions .NET Framework installées](https://msdn.microsoft.com/vstudio/hh925568.aspx). Sinon, cliquez sur le bouton **Démarrer** ou appuyez sur la touche Windows, et tapez **Panneau de configuration**. Ensuite, cliquez sur **Programmes** > **Programmes et fonctionnalités**, et vérifiez si .NET Framework 4.5 est répertorié parmi les programmes installés.
+	Si vous ne savez pas quelle version de .NET Framework est installée sur votre ordinateur, consultez la rubrique [Comment déterminer les versions .NET Framework installées](https://msdn.microsoft.com/vstudio/hh925568.aspx). Sinon, cliquez sur le bouton **Démarrer** ou appuyez sur la touche Windows, et tapez **Panneau de configuration**. Ensuite, cliquez sur **Programmes** > **Programmes et fonctionnalités**, et vérifiez si .NET Framework 4.5 est répertorié parmi les programmes installés.
 
 4. Vous aurez besoin d’un abonnement Azure et d’un compte de stockage Azure.
 
@@ -43,24 +43,24 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 
 ## Exécution de votre première application Azure Storage sur Azure Storage dans le cloud
 
-Une fois votre compte créé, vous pouvez créer une application Azure Storage simple à l’aide d’un des exemples de projet de démarrage rapide Azure dans Visual Studio. Ce didacticiel se concentre sur les exemples de projets pour Azure Storage : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** et **Azure Storage : Tables** :
+Une fois votre compte créé, vous pouvez créer une application Azure Storage simple à l’aide d’un des exemples de projet de démarrage rapide Azure dans Visual Studio. Ce didacticiel se concentre sur les exemples de projets pour Azure Storage : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** et **Azure Storage : Tables** :
 
 1. Démarrez Visual Studio.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau projet**.
-3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installé** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**. a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**. b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
+3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installé** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**. a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**. b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
 	- 3\.c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
 	
 	![Exemples de Démarrage rapide pour Azure][Image1]
 
 Il peut être utile d’examiner le code source avant d'exécuter l'application. Pour ce faire, dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ensuite, double-cliquez sur le fichier Program.cs.
 
-Exécutez ensuite l'exemple d'application :
+Exécutez ensuite l'exemple d'application :
 
-1.	Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez les marques de commentaire de la chaîne de connexion pour l'émulateur de stockage Azure :
+1.	Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez les marques de commentaire de la chaîne de connexion pour l'émulateur de stockage Azure :
 
 	`<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2.	Annulez les marques de commentaire de la chaîne de connexion du service Azure Storage et indiquez le nom du compte de stockage et la clé d'accès dans le fichier App.config :`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+2.	Annulez les marques de commentaire de la chaîne de connexion du service Azure Storage et indiquez le nom du compte de stockage et la clé d'accès dans le fichier App.config :`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
 	Pour récupérer votre clé d’accès du compte de stockage, reportez-vous à [Gérer vos clés d’accès de stockage](storage-create-storage-account.md#manage-your-storage-access-keys).
 
@@ -77,11 +77,11 @@ Pour l’essayer, nous allons créer une application Azure Storage simple à l�
 
 1. Démarrez Visual Studio.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau projet**.
-3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installé** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**. a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**. b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**. c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
+3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installé** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**. a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**. b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**. c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
 	
 	![Exemples de Démarrage rapide pour Azure][Image1]
 
-4.	Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez la marque de commentaire de la chaîne de connexion pour votre compte de stockage Azure si vous en avez ajouté une. Puis supprimez la marque de commentaire de la chaîne de connexion pour l’émulateur de stockage Azure :
+4.	Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez la marque de commentaire de la chaîne de connexion pour votre compte de stockage Azure si vous en avez ajouté une. Puis supprimez la marque de commentaire de la chaîne de connexion pour l’émulateur de stockage Azure :
 
 	`<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 
@@ -95,12 +95,12 @@ Ensuite, exécutez l'exemple d'application dans l'émulateur d’Azure Storage :
 
 ## Étapes suivantes
 
-Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
+Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 
 * [Introduction à Microsoft Azure Storage](storage-introduction.md)
-* [Prise en main d’Azure Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md)
-* [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md)
-* [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md)
+* [Prise en main d’Azure Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md)
+* [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md)
+* [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md)
 * [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
 * [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 * [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
@@ -110,4 +110,4 @@ Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

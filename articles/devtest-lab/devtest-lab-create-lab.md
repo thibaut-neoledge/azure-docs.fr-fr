@@ -20,7 +20,7 @@
 
 ## Conditions préalables
 
-Pour créer un DevTest Lab, vous devez avoir :
+Pour créer un DevTest Lab, vous devez avoir :
 
 - Un abonnement Azure. Pour en savoir plus sur les options d’achat d’Azure, consultez [Comment acheter Azure](https://azure.microsoft.com/pricing/purchase-options/) ou [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/). Vous devez être le propriétaire de l’abonnement pour créer le laboratoire.
 - Groupe de ressources Azure pour le laboratoire. Consultez [Vue d’ensemble d’Azure Resource Manager](/resource-group-overview.md) et [Contrôle d’accès en fonction du rôle Azure](/active-directory/role-based-access-control-configure.md).
@@ -28,7 +28,7 @@ Pour créer un DevTest Lab, vous devez avoir :
 
 ## Création d’un laboratoire
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Cliquez sur **Parcourir**.
 
@@ -38,7 +38,7 @@ Pour créer un DevTest Lab, vous devez avoir :
 
     ![Ajout d’un laboratoire de test et développement](./media/devtest-lab-create-lab/add-lab-button.png)
 
-1. Dans le panneau **Créer un laboratoire de test et développement** :
+1. Dans le panneau **Créer un laboratoire de test et développement** :
 
     1. Entrez un **Nom de laboratoire** pour le nouveau laboratoire.
     1. Sélectionnez l’**Abonnement** à associer au laboratoire.
@@ -49,7 +49,7 @@ Pour créer un DevTest Lab, vous devez avoir :
 
 ## Étapes suivantes
 
-Une fois que vous avez créé votre laboratoire, voici quelques étapes à prendre en compte :
+Une fois que vous avez créé votre laboratoire, voici quelques étapes à prendre en compte :
 
 - [Sécuriser l’accès à un laboratoire de test et développement](devtest-lab-add-devtest-user.md).
 
@@ -61,4 +61,4 @@ Une fois que vous avez créé votre laboratoire, voici quelques étapes à prend
 
 - [Ajouter une machine virtuelle avec des artefacts à un laboratoire de test et développement Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

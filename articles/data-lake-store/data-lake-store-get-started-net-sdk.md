@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Utiliser le Kit de développement logiciel (SDK) .NET Data Lake Store pour développer des applications | Azure" 
-   description="Utiliser le Kit de développement logiciel (SDK) .NET Azure Data Lake Store pour développer des applications" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Utiliser le Kit de développement logiciel (SDK) .NET Data Lake Store pour développer des applications | Azure"
+   description="Utiliser le Kit de développement logiciel (SDK) .NET Azure Data Lake Store pour développer des applications"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.workload="big-data"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 # Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
@@ -69,23 +69,23 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 	1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis cliquez sur **Gérer les packages NuGet**.
 	2. Dans l’onglet **Gestionnaire de package Nuget**, assurez-vous que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
 	3. Recherchez et installez les packages Data Lake Store suivants :
-	
+
 		* `Microsoft.Azure.Management.DataLake.Store`
 		* `Microsoft.Azure.Management.DataLake.StoreUploader`
 
 		![Ajouter une source Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Créer un compte Azure Data Lake")
 
-	4. Installez également le package `Microsoft.IdentityModel.Clients.ActiveDirectory` pour l’authentification Azure Active Directory.
+	4. Installez également le package `Microsoft.IdentityModel.Clients.ActiveDirectory` pour l’authentification Azure Active Directory. Veillez à *décocher* la case **inclure la version préliminaire** afin de pouvoir installer une version stable de ce package.
 
 		![Ajouter une source Nuget](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Créer un compte Azure Data Lake")
 
 
 	5. Fermez le **Gestionnaire de package NuGet**.
 
-7. Ouvrez **Program.cs** et remplacez le bloc de code existant par le code suivant : Fournissez également les valeurs des paramètres inclus dans l’extrait de code, tels que **\_adlsAccountName**, **\_resourceGroupName** et remplacez les espaces réservés pour **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI** et **SUBSCRIPTION-ID**.
+7. Ouvrez **Program.cs** et remplacez le bloc de code existant par le code suivant : Renseignez également les valeurs des paramètres inclus dans l’extrait de code, tels que **\_adlsAccountName**, **\_resourceGroupName** et remplacez les espaces réservés pour **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI** et **SUBSCRIPTION-ID**.
 
 	Ce code déroule le processus de création d’un compte Data Lake Store, de création de dossiers dans le magasin, de téléchargement de fichiers et enfin de suppression du compte. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
-	
+
         using System;
         using System.IO;
         using System.Security;
@@ -115,16 +115,16 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name for a NEW Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value. This resource group should already exist.
                     _location = "East US 2";
-                    
+
                     string localFolderPath = @"C:\local_path"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
-                    
+
                     // Authenticate the user
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
-                    
+
                     SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
 
                     // Run sample scenarios
@@ -185,7 +185,7 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
@@ -199,7 +199,7 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
@@ -240,7 +240,7 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
                 {
                     var response = _adlsClient.Account.List(_adlsAccountName);
                     var accounts = new List<DataLakeStoreAccount>(response);
-                    
+
                     while (response.NextPageLink != null)
                     {
                         response = _adlsClient.Account.ListNext(response.NextPageLink);
@@ -320,4 +320,4 @@ Bien que l’extrait de code ci-dessous fournit des méthodes pour les deux appr
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

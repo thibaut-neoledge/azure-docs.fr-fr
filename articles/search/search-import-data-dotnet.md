@@ -1,23 +1,23 @@
 <properties
-	pageTitle="Importer des données dans Azure Search à l’aide de .NET | Microsoft Azure | Service de recherche cloud hébergé"
-	description="Comment charger des données sur un index dans Azure Search à l’aide du kit de développement logiciel .NET ou de la bibliothèque .NET"
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Importation de données dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET | Microsoft Azure | Service de recherche cloud hébergé"
+    description="Comment charger des données dans un index dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET"
+    services="search"
+    documentationCenter=""
+    authors="brjohnstmsft"
+    manager=""
+    editor=""
     tags=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="dotnet"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="dotnet"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="03/09/2016"
+    ms.author="brjohnst"/>
 
-# Importer des données dans Azure Search à l’aide de .NET
+# Importer des données dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
 > [AZURE.SELECTOR]
 - [Vue d'ensemble](search-what-is-data-import.md)
 - [Portail](search-import-data-portal.md)
@@ -25,104 +25,183 @@
 - [REST](search-import-data-rest-api.md)
 - [Indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-Cet article explique comment remplir un index à l’aide du [kit de développement logiciel .NET d’Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx). Le contenu ci-dessous est un sous-ensemble de la documentation [Comment utiliser Azure Search à partir d’une application .NET](search-howto-dotnet-sdk.md). Consultez l’article parent pour obtenir la procédure détaillée.
+Cet article vous explique comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour importer des données dans un index Azure Search. Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-create-index-dotnet.md). Cet article suppose également que vous avez déjà créé un objet `SearchServiceClient`, comme indiqué dans [Créer un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-create-index-dotnet.md#CreateSearchServiceClient).
 
-Avant d’importer des données dans un index, vous devez déjà avoir créé un index.
+Notez que tous les exemples de code figurant dans cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto).
 
-En prenant l’exemple d’un index nommé « hôtels », vous pouvez construire une méthode d’importation de données de la manière suivante.
+Afin de transmettre des documents à l’index à l’aide du Kit de développement logiciel (SDK) .NET, vous devez :
 
-La prochaine étape dans `Main` consiste à remplir l'index créé. Cette opération est effectuée par la méthode suivante :
+  1. Créer un objet `SearchIndexClient` à connecter à votre index de recherche.
+  2. Créer un `IndexBatch` contenant les documents à ajouter, à modifier ou à supprimer.
+  3. Appeler la méthode `Documents.Index` de votre `SearchIndexClient` pour envoyer `IndexBatch` à votre index de recherche.
 
-    private static void UploadDocuments(SearchIndexClient indexClient)
+## I. Créer une instance de la classe SearchIndexClient
+Pour importer des données dans l’index à l’aide du Kit de développement logiciel (SDK) .NET Azure Search, vous devez créer une instance de la classe `SearchIndexClient`. Vous pouvez construire cette instance vous-même, mais la procédure est plus facile si vous avez déjà une instance `SearchServiceClient` pour appeler sa méthode `Indexes.GetClient`. Par exemple, voici comment vous obtenez un `SearchIndexClient` pour l’index nommé « hotels » d’un `SearchServiceClient` nommé `serviceClient` :
+
+```csharp
+SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+```
+
+> [AZURE.NOTE] Dans une application de recherche classique, le remplissage et la gestion des index sont gérés par un composant séparé des requêtes de recherche. `Indexes.GetClient` est très pratique pour remplir un index, car cela évite de fournir un autre `SearchCredentials`. Pour ce faire, il transmet la clé d’administration que vous avez utilisée afin de créer le `SearchServiceClient` dans le nouveau `SearchIndexClient`. Toutefois, dans la partie de votre application qui exécute des requêtes, il vaut mieux créer le `SearchIndexClient` directement afin de transmettre une clé de requête au lieu d'une clé d'administration. Cela est conforme au [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege) et vous permet de mieux sécuriser votre application. Pour en savoir plus sur les clés d’administration et les clés de requête, consultez la [page de référence sur l’API REST Azure Search sur MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+
+`SearchIndexClient` a une propriété `Documents`. Cette propriété fournit toutes les méthodes dont vous avez besoin pour ajouter, modifier, supprimer ou interroger des documents dans l’index.
+
+## II. Déterminer l’action d’indexation à utiliser
+Pour importer des données à l’aide du Kit de développement logiciel (SDK) .NET, vous devez empaqueter vos données dans un objet `IndexBatch`. Un `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Azure Search les actions à effectuer sur ce document (téléchargement, fusion, suppression, etc.). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
+
+Action | Description | Champs requis pour chaque document | Remarques
+--- | --- | --- | ---
+`Upload` | Une action `Upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau, et mis à jour/remplacé s’il existe déjà. | une clé, ainsi que tout autre champ que vous souhaitez définir | Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête est défini sur la valeur `null`. y compris lorsque le champ a été précédemment défini sur une valeur non null.
+`Merge` | Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. | une clé, ainsi que tout autre champ que vous souhaitez définir | N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `DataType.Collection(DataType.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` est `["economy", "pool"]`, et non `["budget", "economy", "pool"]`.
+`MergeOrUpload` | Cette action est similaire à `Merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécute une action `Upload` avec un nouveau document. | une clé, ainsi que tout autre champ que vous souhaitez définir |- `Delete` | Supprime le document spécifié de l’index. | une clé uniquement | Tous les champs que vous spécifiez sont ignorés, à l’exception du champ clé. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `Merge` et définissez simplement le champ de manière explicite sur la valeur null.
+
+Vous pouvez spécifier quelle action vous souhaitez utiliser avec les différentes méthodes statiques des classes `IndexBatch` et `IndexAction`, comme indiqué dans la section suivante.
+
+## III. Construire votre IndexBatch
+Maintenant que vous connaissez les actions à effectuer sur vos documents, vous êtes prêt à construire `IndexBatch`. L’exemple ci-dessous montre comment créer un lot avec différentes actions. Notez que notre exemple utilise une classe personnalisée appelée `Hotel` qui est mappée à un document dans l’index « hotels ».
+
+```csharp
+var actions =
+    new IndexAction<Hotel>[]
     {
-        var documents =
-            new Hotel[]
-            {
-                new Hotel()
-                { 
-                    HotelId = "1058-441", 
-                    HotelName = "Fancy Stay", 
-                    BaseRate = 199.0, 
-                    Category = "Luxury", 
-                    Tags = new[] { "pool", "view", "concierge" }, 
-                    ParkingIncluded = false, 
-                    LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                    Rating = 5, 
-                    Location = GeographyPoint.Create(47.678581, -122.131577)
-                },
-                new Hotel()
-                { 
-                    HotelId = "666-437", 
-                    HotelName = "Roach Motel",
-                    BaseRate = 79.99,
-                    Category = "Budget",
-                    Tags = new[] { "motel", "budget" },
-                    ParkingIncluded = true,
-                    LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
-                    Rating = 1,
-                    Location = GeographyPoint.Create(49.678581, -122.131577)
-                },
-                new Hotel() 
-                { 
-                    HotelId = "970-501", 
-                    HotelName = "Econo-Stay",
-                    BaseRate = 129.99,
-                    Category = "Budget",
-                    Tags = new[] { "pool", "budget" },
-                    ParkingIncluded = true,
-                    LastRenovationDate = new DateTimeOffset(1995, 7, 1, 0, 0, 0, TimeSpan.Zero),
-                    Rating = 4,
-                    Location = GeographyPoint.Create(46.678581, -122.131577)
-                },
-                new Hotel()
-                { 
-                    HotelId = "956-532", 
-                    HotelName = "Express Rooms",
-                    BaseRate = 129.99,
-                    Category = "Budget",
-                    Tags = new[] { "wifi", "budget" },
-                    ParkingIncluded = true,
-                    LastRenovationDate = new DateTimeOffset(1995, 7, 1, 0, 0, 0, TimeSpan.Zero),
-                    Rating = 4,
-                    Location = GeographyPoint.Create(48.678581, -122.131577)
-                },
-                new Hotel() 
-                { 
-                    HotelId = "566-518", 
-                    HotelName = "Surprisingly Expensive Suites",
-                    BaseRate = 279.99,
-                    Category = "Luxury",
-                    ParkingIncluded = false
-                }
-            };
+        IndexAction.Upload(
+            new Hotel()
+            { 
+                HotelId = "1", 
+                BaseRate = 199.0, 
+                Description = "Best hotel in town",
+                DescriptionFr = "Meilleur hôtel en ville",
+                HotelName = "Fancy Stay",
+                Category = "Luxury", 
+                Tags = new[] { "pool", "view", "wifi", "concierge" },
+                ParkingIncluded = false, 
+                SmokingAllowed = false,
+                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
+                Rating = 5, 
+                Location = GeographyPoint.Create(47.678581, -122.131577)
+            }),
+        IndexAction.Upload(
+            new Hotel()
+            { 
+                HotelId = "2", 
+                BaseRate = 79.99,
+                Description = "Cheapest hotel in town",
+                DescriptionFr = "Hôtel le moins cher en ville",
+                HotelName = "Roach Motel",
+                Category = "Budget",
+                Tags = new[] { "motel", "budget" },
+                ParkingIncluded = true,
+                SmokingAllowed = true,
+                LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
+                Rating = 1,
+                Location = GeographyPoint.Create(49.678581, -122.131577)
+            }),
+        IndexAction.MergeOrUpload(
+            new Hotel() 
+            { 
+                HotelId = "3", 
+                BaseRate = 129.99,
+                Description = "Close to town hall and the river"
+            }),
+        IndexAction.Delete(new Hotel() { HotelId = "6" })
+    };
 
-        try
-        {
-            var batch = IndexBatch.Upload(documents);
-            indexClient.Documents.Index(batch);
-        }
-        catch (IndexBatchException e)
-        {
-            // Sometimes when your Search service is under load, indexing will fail for some of the documents in
-            // the batch. Depending on your application, you can take compensating actions like delaying and
-            // retrying. For this simple demo, we just log the failed document keys and continue.
-            Console.WriteLine(
-                "Failed to index some of the documents: {0}",
-                String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
-        }
+var batch = IndexBatch.New(actions);
+```
 
-        // Wait a while for indexing to complete.
-        Thread.Sleep(2000);
-    }
+Dans ce cas, nous utilisons `Upload`, `MergeOrUpload` et `Delete` comme actions de recherche, tel que spécifié par les méthodes appelées sur la classe `IndexAction`.
 
-Cette méthode présente quatre parties. La première crée un tableau d’objets `Hotel` qui servent de données d'entrée à charger dans l'index. Ces données sont codées en dur pour plus de simplicité. Dans votre application, vos données seront probablement issues d'une source de données externe, comme une base de données SQL.
+Supposons que cet exemple d’index « hotels » contient déjà un certain nombre de documents. Notez que nous n’avons pas eu à spécifier tous les champs de document possibles en utilisant `MergeOrUpload` et que nous n’avons fait que spécifier la clé de document (`HotelId`) avec la commande `Delete`.
 
-La deuxième partie crée un `IndexAction` pour chaque `Hotel`, puis les regroupe dans un nouveau `IndexBatch`. Le lot est ensuite chargé dans l'index Azure Search par la méthode `Documents.Index`.
+Notez également que chaque requête d’indexation ne peut contenir que 1 000 documents maximum.
 
-> [AZURE.NOTE] Dans cet exemple, nous allons simplement charger les documents. Si vous souhaitez fusionner les modifications dans un document existant ou supprimer un document, vous pouvez utiliser les méthodes `Merge`, `MergeOrUpload` ou `Delete` correspondantes.
+> [AZURE.NOTE] Dans cet exemple, nous appliquons différentes actions à différents documents. Si vous souhaitez effectuer ces mêmes actions sur tous les documents du lot, au lieu d’appeler `IndexBatch.New`, vous pouvez utiliser les autres méthodes statiques de `IndexBatch`. Par exemple, vous pouvez créer des lots en appelant `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` ou `IndexBatch.Delete`. Ces méthodes prennent une collection de documents (objets de type `Hotel` dans cet exemple) à la place d’objets `IndexAction`.
 
-La troisième partie de cette méthode est un bloc catch qui gère un cas d'erreur important pour l'indexation. Si votre service Azure Search ne parvient pas à indexer certains documents du lot, `Documents.Index` génère un `IndexBatchException`. Cela peut se produire si vous indexez des documents lorsque votre service est surchargé. **Nous vous recommandons vivement de prendre en charge explicitement ce cas de figure dans votre code.** Vous pouvez retarder puis relancer l'indexation des documents qui ont échoué, ouvrir une session et continuer comme dans l’exemple, ou faire autre chose selon la cohérence des données requise par votre application.
+## IV. Importer les données dans l’index
+Maintenant qu’un objet `IndexBatch` a été initialisé, vous pouvez l’envoyer à l’index en appelant `Documents.Index` sur votre objet `SearchIndexClient`. L’exemple suivant illustre l’appel à `Index`, ainsi que des étapes supplémentaires que vous devez effectuer :
 
-Enfin, la méthode retarde son exécution de deux secondes. L'indexation s’exécutant en mode asynchrone dans votre service Azure Search, l'exemple d'application doit attendre quelque temps afin de s'assurer que les documents sont disponibles pour la recherche. Ce genre de retard n’est nécessaire que dans les démonstrations, les tests et les exemples d'applications.
+```csharp
+try
+{
+    indexClient.Documents.Index(batch);
+}
+catch (IndexBatchException e)
+{
+    // Sometimes when your Search service is under load, indexing will fail for some of the documents in
+    // the batch. Depending on your application, you can take compensating actions like delaying and
+    // retrying. For this simple demo, we just log the failed document keys and continue.
+    Console.WriteLine(
+        "Failed to index some of the documents: {0}",
+        String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
+}
 
-<!---HONumber=AcomDC_0302_2016-->
+Console.WriteLine("Waiting for documents to be indexed...\n");
+Thread.Sleep(2000);
+```
+
+Notez le signe `try`/`catch` entourant l’appel à la méthode `Index`. Le bloc catch gère un cas d’erreur important pour l’indexation. Si votre service Azure Search ne parvient pas à indexer certains documents du lot, `Documents.Index` génère un `IndexBatchException`. Cela peut se produire si vous indexez des documents lorsque votre service est surchargé. **Nous vous recommandons vivement de prendre en charge explicitement ce cas de figure dans votre code.** Vous pouvez retarder puis relancer l'indexation des documents qui ont échoué, ouvrir une session et continuer comme dans l’exemple, ou faire autre chose selon la cohérence des données requise par votre application.
+
+Enfin, le code de l’exemple ci-dessus attend deux secondes. L'indexation s’exécutant en mode asynchrone dans votre service Azure Search, l'exemple d'application doit attendre quelque temps afin de s'assurer que les documents sont disponibles pour la recherche. Ce genre de retard n’est nécessaire que dans les démonstrations, les tests et les exemples d'applications.
+
+<a name="HotelClass"></a>
+### Gestion des documents par le Kit de développement logiciel (SDK) .NET
+
+Vous demandez peut-être comment le SDK .NET Azure Search peut charger des instances d’une classe définie par l'utilisateur, comme `Hotel`, dans l'index. Pour répondre à cette question, examinons la classe `Hotel` qui mappe le schéma d’index défini dans [Créer un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-create-index-dotnet.md#DefineIndex) :
+
+```csharp
+[SerializePropertyNamesAsCamelCase]
+public partial class Hotel
+{
+    public string HotelId { get; set; }
+
+    public double? BaseRate { get; set; }
+
+    public string Description { get; set; }
+
+    [JsonProperty("description_fr")]
+    public string DescriptionFr { get; set; }
+
+    public string HotelName { get; set; }
+
+    public string Category { get; set; }
+
+    public string[] Tags { get; set; }
+
+    public bool? ParkingIncluded { get; set; }
+
+    public bool? SmokingAllowed { get; set; }
+
+    public DateTimeOffset? LastRenovationDate { get; set; }
+
+    public int? Rating { get; set; }
+
+    public GeographyPoint Location { get; set; }
+
+    // ToString() method omitted for brevity...
+}
+```
+
+La première chose à remarquer est que chaque propriété publique de `Hotel` correspond à un champ dans la définition de l'index, mais à une différence près : le nom de chaque champ commence par une minuscule, tandis que le nom de chaque propriété publique de `Hotel` commence par une majuscule. Il s'agit d'un scénario courant dans les applications .NET qui effectuent une liaison de données là où le schéma cible est en dehors du contrôle du développeur de l'application. Plutôt que de violer les consignes d’affectation de noms de .NET en faisant commencer les noms de propriété par une minuscule, vous pouvez demander au SDK d’attribuer automatiquement une casse minuscule aux noms de propriété avec l’attribut `[SerializePropertyNamesAsCamelCase]`.
+
+> [AZURE.NOTE] Le Kit de développement logiciel (SDK) .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Pour plus d’informations, consultez [Mise à niveau vers le Kit de développement logiciel (SDK) Azure Search .NET version 1.1](search-dotnet-sdk-migration.md#WhatsNew). En voici un exemple : l’utilisation de l’attribut `[JsonProperty]` sur la propriété `DescriptionFr` dans l’exemple de code ci-dessus.
+
+La deuxième chose importante sur la classe `Hotel` concerne les types de données des propriétés publiques. Les types .NET de ces propriétés correspondent à leurs types de champ équivalents dans la définition de l'index. Par exemple, la propriété de chaîne `Category` correspond au champ `category`, qui est de type `DataType.String`. Il existe des mappages de type similaires entre `bool?` et `DataType.Boolean`, `DateTimeOffset?` et `DataType.DateTimeOffset`, etc. Les règles spécifiques pour le mappage de type sont documentées avec la `Documents.Get` méthode [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+
+Cette capacité à utiliser vos propres classes comme des documents fonctionne dans les deux sens. Vous pouvez également récupérer les résultats de la recherche et laisser le Kit de développement logiciel (SDK) les désérialiser automatiquement à un type de votre choix, comme indiqué dans l’[article suivant](search-query-dotnet.md).
+
+> [AZURE.NOTE] Le SDK .NET Azure Search prend également en charge les documents dynamiquement typés à l’aide de la classe `Document`, qui est un mappage de type clé/valeur entre des noms de champ et des valeurs de champ. Cela est utile dans les cas où vous ne connaissez pas le schéma de l’index lors de sa conception et où il serait peu pratique d’établir une liaison à des classes de modèles spécifiques. Toutes les méthodes du SDK qui gèrent les documents ont des surcharges qui fonctionnent avec la classe `Document`, ainsi que des surcharges fortement typées qui acceptent un paramètre de type générique. Seules ces dernières sont utilisées dans l’exemple de code de cet article. Pour plus d’informations sur la classe `Document`, consultez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+
+**Remarque importante sur les types de données**
+
+Lorsque vous créez vos propres classes de modèles à mapper à un index Azure Search, nous vous recommandons de déclarer les propriétés des types de valeurs, par exemple `bool` et `int`, comme acceptant la valeur null (par exemple, `bool?` au lieu de `bool`). Si vous utilisez une propriété ne pouvant être définie sur null, vous devez **garantir** qu’aucun document de cet index ne contient de valeur null pour le champ correspondant. Ni le Kit de développement logiciel ni le service Azure Search ne vous aideront à appliquer cette recommandation.
+
+Il ne s’agit pas d’une préoccupation hypothétique : imaginez un scénario dans lequel vous ajoutez un nouveau champ à un index existant qui est de type `DataType.Int32`. Après la mise à jour de la définition d’index, ce nouveau champ prendra la valeur null pour tous les documents (car tous les types peuvent avoir la valeur null dans Azure Search). Si vous utilisez ensuite une classe de modèle avec une propriété `int` n’acceptant pas la valeur null pour ce champ, vous obtenez une `JsonSerializationException` comme ceci lorsque vous tentez de récupérer des documents :
+
+    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+
+Pour cette raison, nous vous recommandons d'utiliser des types pour lesquels la valeur null est autorisée en tant que meilleure pratique.
+
+## Suivant
+Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-query-dotnet.md).
+
+<!---HONumber=AcomDC_0309_2016-->
