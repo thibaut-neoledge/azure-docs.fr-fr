@@ -287,4 +287,4 @@ Lorsque que déplacez des données à partir de magasins de données OData, les 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!------HONumber=AcomDC_0224_2016-->

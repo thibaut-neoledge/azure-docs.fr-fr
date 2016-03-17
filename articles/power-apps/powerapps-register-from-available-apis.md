@@ -111,7 +111,7 @@ Le tableau suivant compare les fonctionnalités des API gérées par Microsoft e
 2. Sélectionnez **Parcourir**, **PowerApps**, puis **Gérer les API**:  
 ![][17]
 3. Dans Gérer les API, sélectionnez **Ajouter**:  
-![][18]
+![][18]  
 4. Dans **Ajouter une API**, entrez les propriétés de l’API :  
 
 	- Dans **Nom**, entrez un nom pour votre API. Notez que le nom que vous entrez est inclus dans l’URL d’exécution de l’API. Utilisez un nom descriptif qui soit unique au sein de votre organisation.
@@ -156,4 +156,4 @@ Dans cette rubrique, vous avez vu comment inscrire vos propres instances des API
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

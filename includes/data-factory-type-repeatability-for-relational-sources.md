@@ -5,7 +5,7 @@ Lors de la copie des données depuis et vers des magasins relationnels, vous dev
 **Remarque**: une tranche peut être réexécutée automatiquement dans Azure Data Factory, selon la stratégie relative aux nouvelles tentatives qui a été spécifiée. Il est recommandé de définir une stratégie relative aux nouvelles tentatives pour éviter les échecs passagers. Par conséquent, la répétabilité est un aspect important à prendre en compte pendant le déplacement des données.
 
 **En tant que source :**
-> [AZURE.NOTE] Les exemples ci-dessous concernent SQL Azure, mais sont applicables à tout autre magasin de données prenant en charge les jeux de données rectangulaires. Vous pouvez ajuster le **type** de source et la propriété de **requête** (par exemple : query au lieu de sqlReaderQuery) pour le magasin de données.
+> [AZURE.NOTE] Les exemples ci-dessous concernent SQL Azure, mais sont applicables à tout autre magasin de données prenant en charge les jeux de données rectangulaires. Vous pouvez ajuster le **type** de source et la propriété de **requête** (par exemple : query au lieu de sqlReaderQuery) pour le magasin de données.   
 
 Dans la plupart des cas, vous pouvez lire uniquement les données des magasins relationnels qui correspondent à cette tranche. Pour cela, vous pouvez utiliser les variables WindowStart et WindowEnd disponibles dans Azure Data Factory. Pour plus d’informations sur les variables et les fonctions dans Azure Data Factory, lisez l’article intitulé [Planification et exécution](../articles/data-factory/data-factory-scheduling-and-execution.md). Exemple :
 	
@@ -25,4 +25,4 @@ Dans d’autres cas, vous pourriez souhaiter lire l’intégralité de la table 
 	          },
 	
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
