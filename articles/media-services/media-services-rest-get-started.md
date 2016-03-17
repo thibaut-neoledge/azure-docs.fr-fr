@@ -86,7 +86,7 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisa
 	Gardez en mémoire qu’après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI. Vous pouvez également recevoir une réponse HTTP/1.1 200 qui contient la description des métadonnées de l’API ODATA.
 3. Envoi de vos appels d’API suivants vers la nouvelle URL. 
 	
-		Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
+	Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
 		
 			HTTP/1.1 301 Moved Permanently
 			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
