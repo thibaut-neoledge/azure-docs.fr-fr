@@ -104,7 +104,7 @@ public void ConfigureAuth(IAppBuilder app)
 			 }
 ```
 
-## Send authentication requests
+## Envoi de demandes d’authentification
 Votre application est maintenant correctement configurée pour communiquer avec le point de terminaison v2.0 en utilisant le protocole d’authentification OpenID Connect.  OWIN a pris en charge tous les détails déplaisants de la création de messages d’authentification, de la validation des jetons d’Azure AD et de la gestion des sessions utilisateur.  Il ne reste qu’à offrir aux utilisateurs un moyen de se connecter et de se déconnecter.
 
 - Vous pouvez utiliser des balises autorisées dans vos contrôleurs pour exiger que l’utilisateur se connecte avant d’accéder à une page donnée.  Ouvrez `Controllers\HomeController.cs`, et ajoutez la balise `[Authorize]` au contrôleur About.
@@ -205,4 +205,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Guide de développement v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
