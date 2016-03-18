@@ -94,4 +94,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Prise en main des notifications Push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->
