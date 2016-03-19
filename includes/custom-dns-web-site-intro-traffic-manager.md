@@ -1,0 +1,3 @@
+Lorsque vous utilisez Microsoft Azure Traffic Manager pour équilibrer la charge de trafic sur votre site web Azure, le site est accessible via le nom de domaine ***.trafficmanager.net** attribué par Azure. Vous pouvez également associer un nom de domaine personnalisé, tel que www.contoso.com, à votre site web afin de proposer un nom de domaine encore plus reconnaissable à vos utilisateurs.
+
+<!---HONumber=Oct15_HO3-->

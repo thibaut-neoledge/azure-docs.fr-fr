@@ -1,0 +1,110 @@
+<properties
+	pageTitle="Préparation du déploiement d’Azure Site Recovery | Microsoft Azure"
+	description="Cet article décrit comment préparer le déploiement de la réplication avec Azure Site Recovery."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor="tysonn"/>
+
+<tags
+	ms.service="site-recovery"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage-backup-recovery"
+	ms.date="02/15/2016"
+	ms.author="raynew"/>
+
+# Préparer le déploiement d’Azure Site Recovery
+
+Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour obtenir un rapide aperçu, consultez [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
+
+## Vue d'ensemble
+
+Azure Site Recovery prend en charge la réplication de machines virtuelles VMware et Hyper-V, et de serveurs physiques vers Azure ou vers un centre de données secondaire. Cet article explique comment préparer le déploiement d’Azure Site Recovery pour chacun de ces scénarios de réplication.
+
+Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
+## Conditions requises du déploiement pour la réplication Hyper-V
+
+Le tableau récapitule les conditions requises du déploiement général pour la réplication Hyper-V vers Azure (avec et sans VMM) et vers un site secondaire. Le tableau vous aide à comprendre et à comparer les conditions générales pour chaque scénario de réplication. Vous y trouverez également un lien vers le détail des conditions requises du déploiement.
+
+**Réplication dans Azure (avec VMM)** | **Réplication dans Azure (sans VMM)** | **Réplication vers un site secondaire (avec VMM)**
+---|---|---
+**VMM** : au moins un serveur VMM s'exécutant sous System Center 2012 R2. Le serveur VMM doit avoir au moins un cloud contenant un ou plusieurs groupes hôtes VMM.<br/><br/> **Hyper-V** : un ou plusieurs serveurs hôtes Hyper-V dans le centre de données local, exécutant au moins Windows Server 2012 R2. Le serveur Hyper-V doit se trouver dans un groupe hôte d’un cloud VM.<br/><br/> **Machines virtuelles** : vous aurez besoin d'au moins une machine virtuelle sur le serveur Hyper-V source. Les machines virtuelles répliquées sur Azure doivent être conformes à la [configuration requise des machines virtuelles Azure](#azure-virtual-machine-requirements).<br/><br/> **Compte Azure** : vous avez besoin d'un compte [Azure](https://azure.microsoft.com/) et d'un abonnement.<br/><br/> **Stockage Azure** : vous aurez besoin d’un [compte ](../storage/storage-redundancy.md#geo-redundant-storage)de stockage Azure pour stocker les données répliquées. Les données répliquées sont stockées dans le stockage Azure et les machines virtuelles Azure sont lancées au moment du basculement.<br/><br/> **Mappage réseau** : configurez le mappage réseau pour que toutes les machines virtuelles dont le basculement s’effectue sur le même réseau Azure puissent se connecter les unes aux autres, indépendamment du plan de récupération auquel elles sont intégrées. Si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles peuvent également se connecter aux machines virtuelles locales. Si vous ne définissez pas le mappage réseau, seules les machines basculant dans le même plan de récupération peuvent se connecter.<br/><br/> **Fournisseurs/agents** : pendant le déploiement, vous devrez installer le fournisseur Azure Site Recovery sur les serveurs VMM et l’agent Azure Recovery Services sur les serveurs hôtes Hyper-V. Le fournisseur communique avec Azure Site Recovery. L'agent gère la réplication des données entre les serveurs Hyper-V source et cible. Rien ne s'installe sur les machines virtuelles.<br/><br/> **Connectivité Internet** : à partir du serveur VMM et des hôtes Hyper-V.<br/><br/> **Connectivité du fournisseur** : si le fournisseur se connectera à Site Recovery via un proxy, vous devrez vous assurer que le proxy peut accéder aux URL Site Recovery.<br/><br/> [Détail des conditions préalables au déploiement](site-recovery-vmm-to-azure.md#before-you-start) | **Hyper-V** : au moins un serveur Hyper-V sur les sites source et cible, exécutant au moins Windows Server 2012 R2.<br/><br/> **Machines virtuelles** : au moins une machine virtuelle sur le serveur Hyper-V source. Les machines virtuelles qui répliquent vers Azure doivent être conformes à [conditions préalables des machines virtuelles Azure](#azure-virtual-machine-requirements)<br/><br/> **Compte Azure**: vous aurez besoin d'un compte [Azure](https://azure.microsoft.com/) et d'un abonnement.<br/><br/> **Stockage Azure** : vous aurez besoin d’un [compte de stockage Azure](../storage/storage-redundancy.md#geo-redundant-storage) pour stocker les données répliquées.<br/><br/> **Fournisseurs/agents** : pendant le déploiement, vous devrez installer à la fois le fournisseur Azure Site Recovery et l’agent Azure Recovery Services sur des serveurs hôtes ou des clusters Hyper-V. Rien ne s'installe sur les machines virtuelles.<br/><br/> **Connectivité Internet**: à partir des hôtes Hyper-V.<br/><br/> **Connectivité du fournisseur** : si le fournisseur se connectera via un proxy, vous devrez vous assurer que le proxy peut accéder aux URL Site Recovery.<br/><br/> [Détail des conditions préalables au déploiement](site-recovery-hyper-v-site-to-azure.md#before-you-start#before-you-start) | **VMM** : le serveur VMM source doit avoir au moins un cloud contenant un ou plusieurs groupes hôtes VMM. Le profil de capacité Hyper-V doit être défini sur les clouds.<br/><br/>**Hyper-V ** : un ou plusieurs serveurs Hyper-V dans les sites source et cible exécutant au moins Windows Server 2012 avec les dernières mises à jour. Le serveur Hyper-V doit se trouver dans un groupe hôte d’un cloud VMM.<br/><br/> **Machines virtuelles** : au moins une machine virtuelle dans le cloud VMM source. <br/><br/> **Mappage réseau** : configurez le mappage réseau pour vous assurer que les machines virtuelles sont connectées aux bons réseaux après le basculement et que les machines virtuelles de réplica sont placées de manière optimale sur les serveurs hôtes Hyper-V cible. Si vous ne configurez pas le mappage réseau, les machines répliquées ne seront connectées à aucun réseau de machines virtuelles après le basculement.<br/><br/> **Mappage de stockage** : vous pouvez éventuellement configurer le mappage de stockage pour vous assurer que les machines virtuelles sont connectées de manière optimale au stockage après le basculement (par défaut, le réplica de la machine virtuelle sera stocké à l’emplacement indiqué sur le serveur Hyper-V cible).<br/><br/> **Réplication SAN** Si vous souhaitez effectuer une réplication entre deux sites VMM locaux à l’aide de la réplication SAN, vous pouvez utiliser votre environnement SAN existant. Voir [Baies SAN prises en charge](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> **Fournisseurs/agents** : pendant le déploiement, vous devrez installer le fournisseur Azure Site Recovery sur les serveurs VMM pour communiquer avec Azure Site Recovery. La réplication se produit entre les serveurs Hyper-V source et cible via le réseau LAN/VPN.<br/><br/> **Connectivité Internet** : sur le serveur VMM uniquement.<br/><br/> **Connectivité du fournisseur** : si le fournisseur se connectera via un proxy, vous devrez vous assurer que les URL Site Recovery sont accessibles.<br/><br/> [Détail des conditions préalables au déploiement](site-recovery-vmm-to-vmm.md#before-you-start)
+
+
+## Conditions requises du déploiement pour la réplication des machines virtuelles VMware et des serveurs physiques
+
+Le tableau récapitule les conditions requises pour la réplication des machines virtuelles VMware et des serveurs physiques Windows/Linux sur Azure et sur un site secondaire.
+
+>[AZURE.NOTE] Vous pouvez répliquer des machines virtuelles VMware et des serveurs physiques vers Azure à l'aide d’un modèle de déploiement [amélioré](site-recovery-vmware-to-azure-classic.md) ou d’un modèle [hérité](site-recovery-vmware-to-azure-classic-legacy.md) utilisé pour des déploiements plus anciens. Le tableau ci-dessous présente les conditions requises du déploiement pour chaque modèle.
+
+**Réplication vers Azure (améliorée)** | **Réplication vers (héritée)** | **Réplication vers un site secondaire**
+---|---|---
+**Serveur d'administration local** : sur votre site local, vous aurez besoin d'un serveur dédié qui servira de serveur d'administration. Tous les composants Site Recovery sont installés sur ce serveur.<br/><br/> **Serveurs de traitement supplémentaires** : un serveur de traitement est installé par défaut sur le serveur d'administration, mais vous pouvez éventuellement installer des serveurs de traitement locaux supplémentaires pour étendre votre déploiement.<br/><br/> **VMware vCenter ESXi** : si vous répliquez des machines virtuelles VMware (ou souhaitez restaurer automatiquement des serveurs physiques), vous aurez besoin d’un système vSphere ESX/ESXi hébergeant les machines virtuelles. Nous vous recommandons d'utiliser un serveur vCenter pour gérer vos ordinateurs hôtes ESXi.</br><br/> **Restauration automatique** : vous avez besoin d'un environnement VMware pour effectuer une restauration automatique à partir d'Azure, même si vous répliquez des serveurs physiques. En outre, vous devez configurer un serveur de traitement comme une machine virtuelle Azure, et si vous restaurez automatiquement d’importants volumes de trafic, vous devez configurer un serveur cible maître local supplémentaire. [En savoir plus](site-recovery-failback-azure-to-vmware-classic.md)<br/><br/> **Compte Azure** : vous aurez besoin d'un compte [Azure](https://azure.microsoft.com/) et d'un abonnement.<br/><br/> **Stockage Azure** : vous aurez besoin d’un [compte de stockage](../storage/storage-redundancy.md#geo-redundant-storage) Azure pour stocker les données répliquées. Les données répliquées sont stockées dans le stockage Azure et les machines virtuelles Azure sont lancées au moment du basculement.<br/><br/> **Réseau virtuel Azure** : vous aurez besoin d’un réseau virtuel Azure auquel les machines virtuelles Azure se connecteront au moment du basculement. Pour une restauration automatique après basculement, vous devrez disposer d’une connexion VPN (ou Azure ExpressRoute) configurée à partir du réseau Azure sur le site local.<br/><br/> **Machines protégées** : au moins une machine virtuelle VMware ou serveur Windows/Linux physique. Lors du déploiement, le service de mobilité est installé sur chaque ordinateur que vous souhaitez répliquer.<br/><br/> **Connectivité** : si le serveur d'administration se connectera à Site Recovery via un proxy, vous devrez vous assurer que le serveur proxy peut se connecter à des URL spécifiques.<br/><br/> [Détail des conditions préalables au déploiement](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment). | **Site principal** : vous devrez configurer un serveur de traitement.<br/><br/> **Restauration automatique** : vous avez besoin d'un environnement VMware pour effectuer une restauration automatique à partir d'Azure, même si vous répliquez des serveurs physiques. Sur votre site local, vous devez configurer un serveur vContinuum et un serveur cible maître. Dans Azure, vous devez configurer un serveur de traitement. [En savoir plus](site-recovery-failback-azure-to-vmware-classic-legacy.md)<br/><br/> **Compte Azure** : vous avez besoin d’un compte [Azure](https://azure.microsoft.com/) et d’un abonnement.<br/><br/> **Stockage Azure** : vous aurez besoin d’un [compte de stockage](../storage/storage-redundancy.md#geo-redundant-storage) Azure pour stocker les données répliquées. Les données répliquées sont stockées dans le stockage Azure et les machines virtuelles Azure sont lancées au moment du basculement.<br/><br/> **Machines virtuelles d’infrastructure Azure** : vous devez configurer un serveur de configuration et un serveur maître cible en tant que machines virtuelles Azure.<br/><br/> **Réseau virtuel Azure** : vous avez besoin d’un réseau virtuel Azure sur lequel le serveur de configuration et le serveur cible maître seront déployés. Les machines virtuelles Azure seront connectées à ce réseau après le basculement.<br/><br/> **Machines protégées** : au moins une machine virtuelle VMware ou serveur Windows/Linux physique. Lors du déploiement, le service de mobilité est installé sur chaque ordinateur que vous souhaitez répliquer.<br/><br/> **Connectivité** : si le serveur d'administration se connectera à Site Recovery via un proxy, vous devrez vous assurer que le serveur proxy peut se connecter à des URL spécifiques.<br/><br/> [Détail des conditions préalables au déploiement](site-recovery-vmware-to-azure-classic-legacy.md#before-you-start). | **Site principal** : serveur Windows dédié (ordinateur physique ou machine virtuelle VMware).<br/><br/> **Site secondaire** : configuration et serveurs cible maîtres dédiés.<br/><br/> **Machines protégées** : au moins une machine virtuelle VMware ou serveur Windows/Linux physique. Pendant le déploiement, l’Agent unifié est installé sur chaque machine.
+
+
+
+
+
+## Configuration requise des machines virtuelles Azure
+
+Vous pouvez déployer Site Recovery pour répliquer des machines virtuelles et des serveurs physiques exécutant n’importe quel système d’exploitation pris en charge par Azure. La plupart des versions de Windows et Linux sont concernées. Vous devrez vérifier que les machines virtuelles locales à protéger répondent à la configuration requise d’Azure.
+
+
+**Fonctionnalité** | **Support** | **Détails**
+---|---|---
+Système d’exploitation hôte Hyper-V | Windows Server 2012 R2 | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Système d’exploitation hyperviseur VMware | Exécution d’un système d’exploitation pris en charge | [Détails](site-recovery-vmware-to-azure.md#before-you-start)
+Système d’exploitation invité | Pour une réplication de Hyper-V vers Azure, Site Recovery prend en charge tous les systèmes d’exploitation [pris en charge par Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Pour une réplication de serveur physique et VMware, vérifiez la [configuration requise](site-recovery-vmware-to-azure.md#before-you-start) par Windows et Linux. | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Architecture du système d’exploitation invité | 64 bits | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Taille du disque du système d’exploitation | Jusqu’à 1 023 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Nombre de disques du système d’exploitation | 1 | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Nombre de disques de données | 16 ou moins (la valeur maximale est fonction de la taille de la machine virtuelle créée. 16 = XL). | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Taille du disque dur virtuel de données | Jusqu’à 1 023 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. |
+Adresse IP statique | Pris en charge | Si la machine virtuelle principale utilise une adresse IP statique, vous pouvez spécifier l’adresse associée à la machine qui sera créée dans Azure.
+Disque iSCSI | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Disque dur virtuel partagé | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Disque FC | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+Format de disque dur| Disque dur virtuel (VHD) <br/><br/> VHDX | Bien que VDHX ne soit pas actuellement pris en charge dans Azure, Site Recovery convertit automatiquement VHDX en VHD quand vous effectuez un basculement vers Azure. Lorsque vous procédez à la restauration automatique en local, les machines continue à utiliser le format VHDX.
+Nom de la machine virtuelle| Entre 1 et 63 caractères. Uniquement des lettres, des chiffres et des traits d’union. Il doit commencer et se terminer par une lettre ou un chiffre. | Mettez à jour la valeur dans les propriétés de machine virtuelle de Site Recovery
+Type de machine virtuelle | <p>Génération 1</p> <p>Génération 2 - Windows</p> | Une machine virtuelle de génération 2 dont le type de disque de système d’exploitation est disque de base et qui inclut 1 ou 2 volumes de données avec un format de disque VHDX inférieur à 300 Go est prise en charge. Les machines virtuelles Linux de génération 2 ne sont pas prises en charge. [En savoir plus](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
+
+
+
+## Optimisation de votre déploiement
+
+Pour optimiser et mettre à l’échelle votre déploiement, tenez compte des conseils suivants.
+
+- **Taille du volume du système d’exploitation** : quand vous répliquez une machine virtuelle dans Azure, la taille du volume du système d’exploitation doit être inférieure à 1 To. Si vous disposez de volumes supérieurs, vous pouvez les déplacer manuellement vers un disque différent avant de démarrer le déploiement.
+- **Taille du disque de données** : si vous répliquez vers Microsoft Azure, vous pouvez posséder jusqu’à 32 disques de données sur une machine virtuelle, chacun présentant une taille maximale d’1 To. Vous pouvez répliquer et basculer efficacement une machine virtuelle présentant une taille d’environ 32 To.
+- **Limites de plan de récupération** : Scan Recovery peut prendre en charge des milliers de machines virtuelles. Les plans de récupération sont conçus comme un modèle dédié aux applications devant basculer simultanément, de manière à ce que le nombre de machines du plan soit limité à 50.
+- **Limites des services Microsoft Azure** : chaque abonnement Microsoft Azure comporte un ensemble de défauts liés aux services principaux, cloud, etc. Pour valider la disponibilité des ressources de votre abonnement, nous vous recommandons d’exécuter un basculement test. Vous pouvez modifier ces limites via le support Microsoft Azure.
+- **Planification de la capacité** : en savoir plus sur la [planification de la capacité](site-recovery-capacity-planner.md) pour Site Recovery.
+- **Bande passante de réplication** : si vous disposez d’une bande passante de réplication insuffisante, notez les points suivants :
+	- **ExpressRoute** : Site Recovery s’associe à des optimiseurs Microsoft Azure ExpressRoute et WAN, tels que Riverbed. [En savoir plus](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) sur ExpressRoute.
+	- **Trafic de réplication** : Site Recovery exécute une réplication initiale intelligente uniquement à l’aide de blocs de données, pas de l’intégralité du disque dur virtuel. Seules les modifications sont répliquées au cours de la réplication en continu.
+	- **Trafic réseau** : pour contrôler le trafic réseau utilisé pour la réplication, configurez le réseau de [Qualité de service (QoS) Windows](https://technet.microsoft.com/library/hh967468.aspx) à l’aide d’une stratégie basée sur l’adresse IP et le port de destination. En plus si vous répliquez vers Microsoft Azure Site Recovery à l’aide de l’agent de sauvegarde Microsoft Azure. Vous pouvez configurer la limitation de cet agent. [En savoir plus](https://support.microsoft.com/kb/3056159).
+- **RTO** :si vous souhaitez mesurer l’objectif de délai de récupération procuré par Site Recovery, nous vous recommandons d’exécuter un basculement test et d’examiner les tâches de récupération afin d’analyser le délai d’exécution des opérations. Si vous effectuez un basculement vers Microsoft Azure, vous avez tout intérêt à automatiser l’ensemble des actions manuelles en intégrant avec Microsoft Azure Automation et les plans de récupération.
+- **RPO** : Site Recovery prend en charge un objectif de point de récupération quasi synchrone lorsque vous répliquez vers Microsoft Azure. Ceci est valable uniquement si vous disposez d’une bande passante suffisante entre votre centre de données et Microsoft Azure.
+
+
+
+
+
+## Étapes suivantes
+
+Après avoir appris et comparé les conditions requises générales du déploiement, vous pouvez lire le détail des conditions requises et démarrer le déploiement de chaque scénario.
+
+- [Répliquez des machines virtuelles VMware sur Microsoft Azure.](site-recovery-vmware-to-azure-classic.md)
+- [Répliquer des serveurs physiques dans Azure](site-recovery-vmware-to-azure-classic.md)
+- [Répliquer un serveur Hyper-V dans des clouds VMM vers Azure](site-recovery-vmm-to-azure.md)
+- [Réplication de machines virtuelles Hyper-V (sans VMM) vers Azure](site-recovery-hyper-v-site-to-azure.md)
+- [Réplication de machines virtuelles Hyper-V vers un site secondaire](site-recovery-vmm-to-vmm.md)
+- [Réplication de machines virtuelles Hyper-V vers un site secondaire avec SAN](site-recovery-vmm-san.md)
+- [Réplication de machines virtuelles Hyper-V avec un seul serveur VMM](site-recovery-single-vmm.md)
+
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,0 +1,359 @@
+<properties
+	pageTitle="Créer votre première fabrique de données Azure (PowerShell) | Microsoft Azure"
+	description="Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l'aide d'Azure PowerShell."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
+	editor="monicar"
+/>
+
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="03/03/2016"
+	ms.author="spelluru"/>
+
+# Créer votre première fabrique de données Azure à l’aide d’Azure PowerShell
+> [AZURE.SELECTOR]
+- [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md)
+- [Utilisation de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
+- [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+
+
+Dans cet article, vous allez découvrir comment utiliser Azure PowerShell pour créer votre première fabrique de données Azure.
+
+
+## Conditions préalables
+Outre les conditions préalables répertoriées dans la rubrique Vue d’ensemble du didacticiel, vous devez installer le composant suivant :
+
+- Vous **devez** lire l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuer les étapes préalables avant de continuer.
+- **Azure PowerShell** Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour installer la dernière version d’Azure PowerShell sur votre ordinateur.
+- (facultatif) Cet article ne couvre pas toutes les applets de commande de Data Factory. Consultez la [référence des applets de commande Data Factory](https://msdn.microsoft.com/library/dn820234.aspx) pour obtenir une documentation complète sur les applets de commande Data Factory. 
+
+Si vous utilisez une version d’Azure PowerShell **antérieure à la version 1.0**, vous devez utiliser les applets de commande documentées [ici][cmdlet-reference]. Vous devez également exécuter les commandes suivantes avant d’utiliser les applets de commande Data Factory :
+ 
+1. Démarrez Azure PowerShell et exécutez les commandes suivantes. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez exécuter ces commandes à nouveau.
+	1. Exécutez **Add-AzureAccount**, puis entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour vous connecter au portail Azure.
+	2. Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
+	3. Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
+4. Passez en mode AzureResourceManager, car les applets de commande d’Azure Data Factory sont disponibles seulement dans ce mode : **Switch-AzureMode AzureResourceManager**.
+
+Pour plus d’informations, consultez [Deprecation of Switch AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) (Désapprobation de Switch AzureMode dans Azure PowerShell).
+
+
+## Étape 1 : Créer la fabrique de données
+
+Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de données Azure nommée **FirstDataFactoryPSH**. Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie pour copier des données d’une source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée et produire des données de sortie. Commençons par la création de la fabrique de données dans cette étape.
+
+1. Démarrez Azure PowerShell et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez réexécuter ces commandes.
+	- Exécutez **Login-AzureRmAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.  
+	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
+	- Exécutez **Select-AzureSubscription<Name of the subscription>** pour sélectionner l’abonnement que vous voulez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
+3. Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante.
+
+		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
+	Certaines étapes de ce didacticiel supposent que vous utilisez le groupe de ressources nommé ADFTutorialResourceGroup. Si vous utilisez un autre groupe de ressources, vous devrez l’utiliser à la place d’ADFTutorialResourceGroup dans ce didacticiel.
+4. Exécutez l’applet de commande **New-AzureRmDataFactory** pour créer une fabrique de données nommée : **FirstDataFactoryPSH**.  
+
+		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
+
+	> [AZURE.IMPORTANT] Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « FirstDataFactoryPSH » n’est pas disponible**, changez le nom (par exemple en votrenomFirstDataFactoryPSH). Utilisez ce nom à la place d’ADFTutorialFactoryPSH quand vous effectuez les étapes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+	> 
+	> Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
+
+Avant de créer un pipeline, vous devez d’abord créer quelques entités de la fabrique de données. Créez d’abord des services liés pour lier des magasins de données/calculs à votre magasin de données, définissez des jeux de données d’entrée et de sortie pour représenter les données dans les magasins de données liés, puis créez le pipeline avec une activité qui utilise ces jeux de données.
+
+## Étape 2 : Créer des services liés 
+Dans cette étape, vous allez lier votre compte de stockage Azure et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte de stockage Azure contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple. Vous devez identifier les services de magasin de données/de calcul qui sont utilisés dans votre scénario et les lier à la fabrique de données en créant des services liés.
+
+### Créer le service lié Azure Storage
+Dans cette étape, vous allez lier votre compte de stockage Azure à votre fabrique de données. Pour les besoins de ce didacticiel, vous utilisez le même compte de stockage Azure pour stocker les données d’entrée/sortie et le fichier de script HQL.
+
+1. Créez un fichier JSON nommé StorageLinkedService.json dans le dossier C:\\ADFGetStarted, avec le contenu suivant. Créez le dossier ADFGetStarted s’il n’existe pas encore.
+
+		{
+	    	"name": "StorageLinkedService",
+	    	"properties": {
+	        	"type": "AzureStorage",
+	        	"description": "",
+	        	"typeProperties": {
+	            	"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        	}
+	    	}
+		}
+
+	Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez [Affichage, copie et régénération de clés d’accès de stockage](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+
+2. Dans Azure PowerShell, accédez au dossier ADFGetStarted.
+3. Vous pouvez utiliser l’applet de commande **New-AzureRmDataFactoryLinkedService** pour créer un service lié. Cette applet de commande et d’autres applets de commande Data Factory que vous utilisez dans ce didacticiel vous obligent à transmettre des valeurs aux paramètres *ResourceGroupName* et *DataFactoryName*. Vous pouvez également utiliser **Get-AzureRmDataFactory** pour obtenir un objet **DataFactory** et passer l’objet sans devoir taper *ResourceGroupName* et *DataFactoryName* chaque fois que vous exécutez une applet de commande. Exécutez la commande suivante pour affecter le résultat de l’applet de commande **Get-AzureRmDataFactory** à une variable **$df**.
+
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
+
+4. Exécutez maintenant l’applet de commande **New-AzureRmDataFactoryLinkedService** pour créer le service **StorageLinkedService** lié.
+
+		New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+
+	Si vous n’avez pas exécuté l’applet de commande **Get-AzureRmDataFactory** et affecté la sortie à la variable **$df**, vous devez spécifier des valeurs pour les paramètres *ResourceGroupName* et *DataFactoryName* comme suit.
+
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
+
+	Si vous fermez Azure PowerShell au milieu du didacticiel, vous devrez exécuter l’applet de commande **Get-AzureRmDataFactory** au prochain démarrage d’Azure PowerShell pour terminer le didacticiel.
+
+### Créer le service lié Azure HDInsight
+Dans cette étape, vous allez lier un cluster HDInsight à la demande à votre fabrique de données. Le cluster HDInsight est automatiquement créé lors de l’exécution, puis supprimé une fois le traitement effectué et au terme du délai d’inactivité spécifié. Vous pouvez utiliser votre propre cluster HDInsight au lieu d’utiliser un cluster HDInsight à la demande. Pour plus d’informations, consultez [Services de calcul liés](data-factory-compute-linked-services.md).
+
+1. Créez un fichier JSON nommé **HDInsightOnDemandLinkedService**.json dans le dossier **C:\\ADFGetStarted** avec le contenu suivant.
+
+		{
+		  "name": "HDInsightOnDemandLinkedService",
+		  "properties": {
+		    "type": "HDInsightOnDemand",
+		    "typeProperties": {
+		      "version": "3.2",
+		      "clusterSize": 1,
+		      "timeToLive": "00:30:00",
+		      "linkedServiceName": "StorageLinkedService"
+		    }
+		  }
+		}
+
+	Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
+
+	| Propriété | Description |
+	| :------- | :---------- |
+	| Version | Cette propriété indique que la version de service HDInsight doit être la version 3.2. | 
+	| ClusterSize | Cette propriété crée un cluster HDInsight avec un seul nœud. | 
+	| TimeToLive | Cette propriété spécifie la durée d'inactivité du cluster HDInsight, avant sa suppression. |
+	| linkedServiceName | Cette propriété spécifie le compte de stockage qui sera utilisé pour stocker les journaux générés par HDInsight. |
+
+	Notez les points suivants :
+	
+	- La fabrique de données crée pour vous un cluster HDInsight **Windows** avec le JSON ci-dessus. Vous pouvez également lui faire créer un cluster HDInsight **Linux**. Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations. 
+	- Vous pouvez utiliser **votre propre cluster HDInsight** au lieu d’utiliser un cluster HDInsight à la demande. Consultez [Service lié HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) pour plus d’informations.
+	- Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. C’est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (**timeToLive**) et est supprimé une fois le traitement activé.
+	
+		Comme un nombre croissant de tranches sont traitées, vous verrez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**- datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+
+	Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations. 
+2. Exécutez l’applet de commande **New-AzureRmDataFactoryLinkedService** pour créer le service lié nommé HDInsightOnDemandLinkedService.
+
+		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
+
+
+## Étape 3 : Créer les jeux de données
+Dans cette étape, vous allez créer des jeux de données pour représenter les données d’entrée et de sortie pour le traitement Hive. Ces jeux de données font référence au service **StorageLinkedService** que vous avez créé précédemment dans ce didacticiel. Le service lié pointe vers un compte de stockage Azure, et les jeux de données spécifient le conteneur, le dossier et le nom de fichier dans le stockage qui contient les données d’entrée et de sortie.
+
+### Créer la table d’entrée
+1. Créez un fichier JSON nommé **InputTable.json** dans le dossier **C:\\ADFGetStarted** avec le contenu suivant :
+
+		{
+			"name": "AzureBlobInput",
+		    "properties": {
+		        "type": "AzureBlob",
+		        "linkedServiceName": "StorageLinkedService",
+		        "typeProperties": {
+		            "fileName": "input.log",
+		            "folderPath": "adfgetstarted/inputdata",
+		            "format": {
+		                "type": "TextFormat",
+		                "columnDelimiter": ","
+		            }
+		        },
+		        "availability": {
+		            "frequency": "Month",
+		            "interval": 1
+		        },
+		        "external": true,
+		        "policy": {}
+		    }
+		} 
+
+	Le code JSON ci-dessus définit un jeu de données nommé **AzureBlobInput**, qui représente les données d’entrée correspondant à une activité du pipeline. En outre, ce code spécifie que les données d’entrée figurent dans le conteneur d’objets blob **adfgetstarted** et dans le dossier **inputdata**.
+
+	Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
+
+	| Propriété | Description |
+	| :------- | :---------- |
+	| type | La propriété type est définie sur AzureBlob, car les données se trouvent dans le stockage d’objets blob Azure. |  
+	| linkedServiceName | fait référence au service StorageLinkedService que vous avez créé précédemment. |
+	| fileName | Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans le cas présent, seul le fichier input.log est traité. |
+	| type | Les fichiers journaux sont au format texte : nous allons donc utiliser TextFormat. | 
+	| columnDelimiter | Les colonnes des fichiers journaux sont délimitées par « , » (virgule) |
+	| frequency/interval | La fréquence est définie sur Mois et l’intervalle est 1, ce qui signifie que les segments d’entrée sont disponibles mensuellement. | 
+	| external | Cette propriété a la valeur true si les données d’entrée ne sont pas générées par le service Data Factory. | 
+
+2. Exécutez la commande suivante dans Azure PowerShell pour créer le jeu de données Data Factory :
+
+		New-AzureRmDataFactoryDataset $df -File .\InputTable.json
+
+### Créer le jeu de données de sortie
+Vous allez maintenant créer le jeu de données de sortie pour représenter les données de sortie stockées dans le stockage d’objets blob Azure.
+
+1. Créez un fichier JSON nommé **OutputTable.json** dans le dossier **C:\\ADFGetStarted** avec le contenu suivant :
+
+		{
+		  "name": "AzureBlobOutput",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adfgetstarted/partitioneddata",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Month",
+		      "interval": 1
+		    }
+		  }
+		}
+
+	Le code JSON ci-dessus définit un jeu de données nommé **AzureBlobOutput**, qui représente les données de sortie correspondant à une activité du pipeline. En outre, ce code spécifie que les résultats sont stockés dans le conteneur d’objets blob **adfgetstarted** et dans le dossier **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est produit tous les mois.
+
+2. Exécutez la commande suivante dans Azure PowerShell pour créer le jeu de données Data Factory :
+
+		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
+
+## Étape 3 : Créer votre premier pipeline
+Dans cette étape, vous allez créer votre premier pipeline avec une activité **HDInsightHive**. Notez que le segment d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1), que le segment de sortie est produit mensuellement et que la propriété du planificateur pour l’activité est également définie sur Mensuellement (voir ci-dessous). Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, le jeu de données de sortie est ce qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. Les propriétés utilisées dans le code JSON suivant sont expliquées à la fin de cette section.
+
+
+1. Créez un fichier JSON nommé MyFirstPipelinePSH.json dans le dossier C:\\ADFGetStarted avec le contenu suivant :
+
+	> [AZURE.IMPORTANT] Dans le code JSON, remplacez **storageaccountname** par le nom de votre compte de stockage.
+		
+		{
+		    "name": "MyFirstPipeline",
+		    "properties": {
+		        "description": "My first Azure Data Factory pipeline",
+		        "activities": [
+		            {
+		                "type": "HDInsightHive",
+		                "typeProperties": {
+		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+		                    "scriptLinkedService": "StorageLinkedService",
+		                    "defines": {
+		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+		                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+		                    }
+		                },
+		                "inputs": [
+		                    {
+		                        "name": "AzureBlobInput"
+		                    }
+		                ],
+		                "outputs": [
+		                    {
+		                        "name": "AzureBlobOutput"
+		                    }
+		                ],
+		                "policy": {
+		                    "concurrency": 1,
+		                    "retry": 3
+		                },
+		                "scheduler": {
+		                    "frequency": "Month",
+		                    "interval": 1
+		                },
+		                "name": "RunSampleHiveActivity",
+		                "linkedServiceName": "HDInsightOnDemandLinkedService"
+		            }
+		        ],
+		        "start": "2014-02-01T00:00:00Z",
+		        "end": "2014-02-02T00:00:00Z",
+		        "isPaused": false
+		    }
+		}
+
+	Dans l'extrait de code JSON, vous créez un pipeline qui se compose d'une seule activité utilisant Hive pour traiter des données sur un cluster HDInsight.
+	
+	Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **StorageLinkedService**) et dans un dossier **script** du conteneur **adfgetstarted**.
+
+	La section **defines** est utilisée pour spécifier les paramètres d’exécution qui seront passés au script Hive comme valeurs de configuration Hive (par exemple ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+
+	Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
+
+	Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+
+	> [ACOM.NOTE] Voir [Anatomie d’un Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) pour plus d’informations sur les propriétés JSON utilisées dans l’exemple ci-dessus. 
+2.  Vérifiez que le fichier **input.log** apparaît dans le dossier **adfgetstarted/inputdata** du stockage d’objets blob Azure, puis exécutez la commande suivante pour déployer le pipeline. Étant donné que les valeurs pour **start** et **end** sont définies sur des valeurs antérieures au moment actuel, et que **isPaused** est défini sur false, le pipeline (activité dans le pipeline) s’exécute immédiatement après le déploiement. 
+
+		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
+5. Félicitations, vous avez réussi à créer votre premier pipeline avec Azure PowerShell.
+
+### <a name="MonitorDataSetsAndPipeline"></a> Surveillance des jeux de données et du pipeline
+Au cours de cette étape, vous allez utiliser Azure PowerShell pour surveiller ce qui se passe dans une fabrique de données Azure.
+
+1. Exécutez **Get-AzureRmDataFactory** et affectez le résultat à une variable **$df**.
+
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
+
+2. Exécutez **Get-AzureRmDataFactorySlice** pour obtenir des détails sur tous les segments de **EmpSQLTable**, qui est la table de sortie du pipeline.
+
+		Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
+
+	Notez que la valeur StartDateTime que vous spécifiez ici est identique à l’heure de début que vous avez spécifiée dans le pipeline de JSON. Le résultat ressemble à ce qui suit.
+
+		ResourceGroupName : ADFTutorialResourceGroup
+		DataFactoryName   : FirstDataFactoryPSH
+		DatasetName       : AzureBlobOutput
+		Start             : 2/1/2014 12:00:00 AM
+		End               : 3/1/2014 12:00:00 AM
+		RetryCount        : 0
+		State             : InProgress
+		SubState          :
+		LatencyStatus     :
+		LongRetryCount    : 0
+
+
+3. Exécutez **Get-AzureRmDataFactoryRun** pour obtenir les détails des exécutions d’activité pour un segment spécifique.
+
+		Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
+
+	Le résultat ressemble à ce qui suit.
+		
+		Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
+		ResourceGroupName   : ADFTutorialResourceGroup
+		DataFactoryName     : FirstDataFactoryPSH
+		DatasetName         : AzureBlobOutput
+		ProcessingStartTime : 12/18/2015 4:50:33 AM
+		ProcessingEndTime   : 12/31/9999 11:59:59 PM
+		PercentComplete     : 0
+		DataSliceStart      : 2/1/2014 12:00:00 AM
+		DataSliceEnd        : 3/1/2014 12:00:00 AM
+		Status              : AllocatingResources
+		Timestamp           : 12/18/2015 4:50:33 AM
+		RetryAttempt        : 0
+		Properties          : {}
+		ErrorMessage        :
+		ActivityName        : RunSampleHiveActivity
+		PipelineName        : MyFirstPipeline
+		Type                : Script
+
+	Vous pouvez continuer d’exécuter cette applet de commande jusqu’à ce que le segment apparaisse dans l’état **Prêt** ou **En échec**. Quand le segment est dans l’état Prêt, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob. Notez que la création d’un cluster HDInsight à la demande prend généralement un certain temps.
+
+	![données de sortie](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
+## Étapes suivantes
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster Azure HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données depuis un objet blob Azure vers Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
+
+### Références
+| Rubrique | Description |
+| :---- | :---- |
+| [Informations de référence sur les applets de commande de Data Factory](https://msdn.microsoft.com/library/azure/dn820234.aspx) | Consultez la documentation complète sur les applets de commande de Data Factory |
+| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory et comment les utiliser pour créer des flux de travail pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
+| [Groupes de données](data-factory-create-datasets.md) | Cet article va vous aider à comprendre les jeux de données dans Azure Data Factory.
+| [Planification et exécution](data-factory-scheduling-and-execution.md) | Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
+| [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md) | Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelines. Vous obtiendrez également des informations sur la façon de créer des alertes et être averti en cas d’échec. |
+
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,0 +1,5 @@
+>[AZURE.NOTE]Il s’agit d’une rubrique **Azure Mobile Apps**. Pour les rubriques relatives à Mobile Services, consultez le [Centre de documentation Mobile Services](/documentation/services/mobile-services/).
+>
+>App Service Mobile Apps est notre plateforme de serveur principal mobile la plus récente et [vous offre des avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services.md) par rapport à Mobile Services. La [migration vers App Service](app-service-mobile-migrating-from-mobile-services.md) est recommandée pour les clients utilisant le Kit de développement logiciel (SDK) de serveur principal .NET. Cependant, le [Kit de développement logiciel (SDK) Mobile Apps Node](https://github.com/azure/azure-mobile-apps-node) est actuellement en version préliminaire et n’est pas encore recommandé pour être utilisé en production. Les contrats des Kits de développement logiciel (SDK) et des API sont susceptibles de changer dans les versions mineures.
+
+<!---HONumber=AcomDC_1223_2015-->
