@@ -1,0 +1,11 @@
+## Présentation des groupes et des modèles de ressources Azure
+
+La plupart des applications déployées et s’exécutant dans Microsoft Azure sont basées sur une combinaison de différents types de ressources cloud (par exemple, au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un CDN, etc.). [Les modèles Microsoft Azure Resource Manager](../resource-group-authoring-templates.md) permettent de déployer et de gérer ces différentes ressources en même temps à l’aide d’une description JSON des ressources et des paramètres de configuration et de déploiement associés.
+
+Une fois que vous avez défini un modèle de ressource basé sur JSON, vous pouvez l’exécuter de sorte que les ressources qui y sont définies soient déployées dans Azure à l’aide d’une commande PowerShell. Vous pouvez exécuter ces commandes PowerShell de manière autonome dans l’interface de commande PowerShell, ou vous pouvez les intégrer dans un script PowerShell qui contient la logique d’automatisation supplémentaire.
+
+Les ressources que vous créez à l’aide de modèles Azure Resource Manager seront déployées sur un groupe de ressources Azure nouveau ou existant. Un groupe de ressources Azure vous permet de gérer plusieurs ressources déployées ensemble dans un groupe logique. En général, un groupe contient des ressources associées à une application spécifique. Les groupes de ressources Azure permettent de gérer la globalité du cycle de vie du groupe et/ou de l’application, tout en fournissant des API de gestion pour arrêter/démarrer/supprimer toutes les ressources d’un groupe en une fois, appliquer des règles de contrôle d’accès en fonction du rôle pour verrouiller les autorisations de sécurité sur ces groupes, effectuer des opérations d’audit et placer des indicateurs dotés de métadonnées sur les ressources pour améliorer leur suivi. Pour en savoir plus sur les groupes de ressources Azure, consultez la page [Présentation d’Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+
+Les exemples d’automatisation suivants montrent comment utiliser les modèles Azure Resource Manager et déployer des groupes de ressources en utilisant PowerShell ou une interface en ligne de commande.
+
+<!---HONumber=Oct15_HO3-->
