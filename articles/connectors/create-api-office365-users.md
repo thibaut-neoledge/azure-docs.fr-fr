@@ -70,7 +70,8 @@ Après avoir créé la connexion, vous entrez les propriétés Office 365 Users,
 S’applique à la version 1.0.
 
 ### Obtenir mon profil 
-Extrait le profil de l’utilisateur actuel. ```GET: /users/me```
+Extrait le profil de l’utilisateur actuel. 
+```GET: /users/me```
 
 Il n'existe aucun paramètre pour cet appel.
 
@@ -88,7 +89,8 @@ Il n'existe aucun paramètre pour cet appel.
 
 
 ### Obtenir le profil utilisateur 
-Extrait un profil d’utilisateur spécifique. ```GET: /users/{userId}```
+Extrait un profil d’utilisateur spécifique. 
+```GET: /users/{userId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -108,7 +110,8 @@ Extrait un profil d’utilisateur spécifique. ```GET: /users/{userId}```
 
 
 ### Get manager 
-Extrait le profil utilisateur pour le responsable de l’utilisateur spécifié. ```GET: /users/{userId}/manager```
+Extrait le profil utilisateur pour le responsable de l’utilisateur spécifié. 
+```GET: /users/{userId}/manager```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -129,7 +132,8 @@ Extrait le profil utilisateur pour le responsable de l’utilisateur spécifié.
 
 
 ### Obtenir les collaborateurs 
-Obtenir les collaborateurs. ```GET: /users/{userId}/directReports```
+Obtenir les collaborateurs. 
+```GET: /users/{userId}/directReports```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -150,7 +154,8 @@ Obtenir les collaborateurs. ```GET: /users/{userId}/directReports```
 
 
 ### Rechercher des utilisateurs 
-Extrait les résultats de la recherche des profils utilisateur. ```GET: /users```
+Extrait les résultats de la recherche des profils utilisateur. 
+```GET: /users```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -204,4 +209,4 @@ Revenez à la [liste des API](apis-list.md).
 [10]: ./media/create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

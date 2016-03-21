@@ -312,4 +312,4 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -54,4 +54,4 @@ Créez un cache et explorez les nouvelles fonctionnalités de niveau Premium.
 -	[Comment configurer le clustering pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

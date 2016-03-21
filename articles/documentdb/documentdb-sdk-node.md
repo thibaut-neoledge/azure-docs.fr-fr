@@ -134,4 +134,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

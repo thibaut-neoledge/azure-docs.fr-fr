@@ -137,4 +137,4 @@ Crée le cache Redis Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

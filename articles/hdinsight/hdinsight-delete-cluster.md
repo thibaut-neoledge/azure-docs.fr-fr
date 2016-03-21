@@ -52,4 +52,4 @@ Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.
     
 Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

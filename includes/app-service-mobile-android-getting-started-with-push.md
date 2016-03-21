@@ -117,4 +117,4 @@
 
     L’application est mise à jour et prend en charge les notifications Push.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

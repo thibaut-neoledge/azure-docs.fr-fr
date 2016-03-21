@@ -282,4 +282,4 @@ In-Role Cache ne sera plus opérationnel à partir du 30 novembre 2016.
 
 [paramètre de configuration « minIoThreads »]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

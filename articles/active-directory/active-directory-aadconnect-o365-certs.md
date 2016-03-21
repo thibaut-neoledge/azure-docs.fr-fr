@@ -101,4 +101,4 @@ Si votre paramètre AutocertificateRollover est défini sur True, mais que vos m
 
 >[AZURE.NOTE] Si vous avez besoin de prendre en charge plusieurs domaines de premier niveau, par exemple contoso.com et fabrikam.com, vous devez utiliser le commutateur SupportMultipleDomain avec les applets de commande. Pour plus d’informations, voir l’article concernant la prise en charge de plusieurs domaines de premier niveau. Pour finir, vérifiez que tous les serveurs Proxy d’application Web sont mis à jour avec le correctif cumulatif de [mai 2014 pour Windows Server](http://support.microsoft.com/kb/2955164) ; dans le cas contraire, les proxys risquent de ne pas se mettre à jour avec le nouveau certificat, ce qui entraînera une panne.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

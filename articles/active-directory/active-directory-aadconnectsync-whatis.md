@@ -54,4 +54,4 @@ Cette rubrique présente le composant **Azure AD Connect Sync** (également appe
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -66,4 +66,4 @@ Vous venez de voir comment ajouter l’API Recherche Bing à PowersApps Enterpri
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

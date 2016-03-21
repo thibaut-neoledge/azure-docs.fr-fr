@@ -167,4 +167,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

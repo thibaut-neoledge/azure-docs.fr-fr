@@ -531,4 +531,4 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -92,4 +92,4 @@ ALTER DATABASE <database name>
 ## Voir aussi
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx) [Suspendre et reprendre Stretch Database](sql-server-stretch-database-pause.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

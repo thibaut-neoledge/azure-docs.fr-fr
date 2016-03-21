@@ -30,4 +30,4 @@
  - [Rapport sur toute l’activité de connexion des utilisateurs Azure Active Directory](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

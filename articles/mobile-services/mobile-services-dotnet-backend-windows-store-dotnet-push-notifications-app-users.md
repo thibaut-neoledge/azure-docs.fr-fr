@@ -66,4 +66,4 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 [Prise en main des notifications Push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

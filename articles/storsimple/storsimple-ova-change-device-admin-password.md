@@ -69,4 +69,4 @@ Procédez comme suit pour modifier le mot de passe d’administrateur de l’app
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

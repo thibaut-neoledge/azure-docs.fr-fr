@@ -196,4 +196,4 @@ Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez 
 
 * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

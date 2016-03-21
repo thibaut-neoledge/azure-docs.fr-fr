@@ -417,4 +417,4 @@ Pour plus d’informations sur Azure Active Directory, consultez les ressources 
 
 Pour plus d’informations sur les autres méthodes de déploiement de projets Visual Studio dans des applications API, à l’aide de Visual Studio ou en [automatisant le déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) à partir d’un [système de contrôle de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consultez [Déploiement de votre application dans Azure App Service](../app-service-web/web-sites-deploy.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

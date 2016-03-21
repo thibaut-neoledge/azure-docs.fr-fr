@@ -172,4 +172,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Applets de commande de testabilité Azure Service Fabric](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

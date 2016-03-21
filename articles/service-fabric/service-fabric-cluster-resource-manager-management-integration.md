@@ -105,4 +105,4 @@ Bien souvent, vous souhaitez terminer une mise à niveau même si le cluster est
 ## Étapes suivantes
 - [Découvrir Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

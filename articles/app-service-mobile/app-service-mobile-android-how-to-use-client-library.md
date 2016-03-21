@@ -841,4 +841,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Prise en main de l'authentification]: app-service-mobile-android-get-started-users.md
 [Prise en main de l’authentification]: app-service-mobile-android-get-started-users.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

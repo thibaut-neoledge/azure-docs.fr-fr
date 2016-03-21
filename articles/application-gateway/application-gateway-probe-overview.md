@@ -67,4 +67,4 @@ Les sondes personnalisées vous permettent d’avoir un contrôle plus précis d
 
 Après vous être familiarisé avec l’analyse d’intégrité Application Gateway, vous pouvez configurer une [sonde d’intégrité personnalisée](application-gateway-create-probe-ps.md) pour Azure Resource Manager ou une [sonde d’intégrité personnalisée](application-gateway-create-probe-classic-ps.md) pour le modèle de déploiement Azure classique.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

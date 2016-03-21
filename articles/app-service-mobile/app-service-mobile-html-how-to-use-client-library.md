@@ -113,4 +113,4 @@ Utilisez le Kit de développement logiciel (SDK) Notification Hubs pour envoyer 
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query object documentation]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

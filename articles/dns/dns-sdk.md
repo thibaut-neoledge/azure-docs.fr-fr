@@ -104,4 +104,4 @@ L'exemple suivant montre comment obtenir une liste de zones DNS et des jeux d’
 
 [Exemple de projet du Kit de développement logiciel (SDLK) Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

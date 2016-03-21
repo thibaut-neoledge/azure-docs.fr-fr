@@ -485,4 +485,4 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie d'
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

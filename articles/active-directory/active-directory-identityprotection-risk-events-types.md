@@ -78,4 +78,4 @@ Ce type d’événement à risque est un mécanisme d’évaluation de connexion
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

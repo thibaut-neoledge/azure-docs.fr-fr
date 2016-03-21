@@ -74,4 +74,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Other Web references-->
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

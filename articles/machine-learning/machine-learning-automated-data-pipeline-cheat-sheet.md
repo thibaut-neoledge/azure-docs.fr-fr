@@ -41,4 +41,4 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

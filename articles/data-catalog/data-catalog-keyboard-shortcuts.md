@@ -91,4 +91,4 @@ Les raccourcis clavier pour Azure Data Catalog sont les suivants.
 |Activer/désactiver le menu **Ouvrir dans** | ALT + O
 |Explorer le conteneur, si la ressource est un conteneur | ALT + L
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -79,4 +79,4 @@ Une fois que vous avez consulté les articles sur le développement, accédez à
 
 <!--Other Web references-->
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

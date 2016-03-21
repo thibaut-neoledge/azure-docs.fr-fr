@@ -79,4 +79,4 @@ Voici une liste de liens de documentation de référence d’API en ligne pour l
 [Kit de développement logiciel (SDK) de service Azure IoT pour Java]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
 [Kit de développement logiciel (SDK) de service Azure IoT pour Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.1/index.html
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

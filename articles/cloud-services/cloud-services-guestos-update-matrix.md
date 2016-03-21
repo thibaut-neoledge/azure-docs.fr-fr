@@ -420,4 +420,4 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

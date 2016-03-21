@@ -108,4 +108,4 @@ Parmi les causes de perte de données, les erreurs de code dans les services, le
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -5,4 +5,4 @@
 - [iOS](../articles/app-service-mobile-ios-how-to-use-client-library.md)
 - [Géré (Windows/Xamarin)](../articles/app-service-mobile-dotnet-how-to-use-client-library.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

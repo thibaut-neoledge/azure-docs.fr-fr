@@ -62,4 +62,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

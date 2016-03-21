@@ -26,4 +26,4 @@ Pour plus d'informations sur le traitement des infections de logiciels malveilla
 
 ![Connexions à partir de périphériques potentiellement infectés](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

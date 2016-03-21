@@ -273,4 +273,4 @@ Regardez la vidéo pour voir comment configurer StorSimple Virtual Array dans Hy
 
 -   [Configurer StorSimple Virtual Array comme un serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

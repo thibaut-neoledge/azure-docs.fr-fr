@@ -130,4 +130,4 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 
 <!--Other Web references-->
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

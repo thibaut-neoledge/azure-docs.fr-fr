@@ -56,4 +56,4 @@ Vous pouvez utiliser la connectivité IPv6 entre votre réseau local et Office 3
 - En savoir plus sur [Azure DNS](../dns/dns-overview.md).
 - En savoir plus sur [ExpressRoute](../expressroute/expressroute-introduction.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

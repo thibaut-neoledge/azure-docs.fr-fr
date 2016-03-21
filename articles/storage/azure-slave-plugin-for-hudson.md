@@ -204,4 +204,4 @@ Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un 
 
 Hudson crée ensuite un nœud subordonné à l'aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l'étape de build pour ce travail.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

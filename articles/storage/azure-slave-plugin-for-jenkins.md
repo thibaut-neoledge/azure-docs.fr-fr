@@ -204,4 +204,4 @@ Dans cette section, vous allez créer un travail Jenkins qui s'exécutera sur un
 
 Jenkins crée ensuite un nœud subordonné à l’aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l’étape de build pour cette tâche.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

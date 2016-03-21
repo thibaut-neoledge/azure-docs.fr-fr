@@ -53,4 +53,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Article references-->
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

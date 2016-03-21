@@ -66,4 +66,4 @@ En raison de la latence élevée des réseaux étendus, la copie continue utilis
 ## Étapes suivantes
 Pour plus d’informations sur les fonctionnalités de continuité des activités de Base de données SQL, voir [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

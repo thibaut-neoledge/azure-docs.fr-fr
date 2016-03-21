@@ -583,4 +583,4 @@ Vous pouvez également déplacer toutes les ressources associées (notamment les
 
 ![Boîte de dialogue Déplacer des ressources](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

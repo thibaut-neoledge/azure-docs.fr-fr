@@ -78,4 +78,4 @@ Notez l’attribut `ActorService` sur le type d'intervenant. Cet attribut indiqu
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

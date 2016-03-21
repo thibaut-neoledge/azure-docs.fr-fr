@@ -70,4 +70,4 @@ N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
 
 ![Support - aucun abonnement](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

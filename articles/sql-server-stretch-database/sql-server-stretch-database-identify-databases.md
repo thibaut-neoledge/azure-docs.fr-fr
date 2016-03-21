@@ -63,4 +63,4 @@ Activer Stretch Database
 ## Voir aussi
 [Limitations de la surface d’exposition et problèmes de blocage pour Stretch Database](sql-server-stretch-database-limitations.md) [Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md) [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

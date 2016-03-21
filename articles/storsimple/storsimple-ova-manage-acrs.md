@@ -114,4 +114,4 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
 - Découvrez comment [ajouter des volumes et configurer les enregistrements de contrôle d’accès](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

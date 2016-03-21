@@ -110,4 +110,4 @@ Pour l'activité de copie, la section **typeProperties** varie selon le type de 
 ### Performances et optimisation de l’activité de copie 
 Consultez l’article [Guide des performances et de l’optimisation de l’activité de copie](data-factory-copy-activity-performance.md), qui décrit les facteurs clés affectant les performances du déplacement de données dans Azure Data Factory (activité de copie). Il répertorie également les performances observées lors des tests internes, et présente les différentes façons d’optimiser les performances de l’activité de copie.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

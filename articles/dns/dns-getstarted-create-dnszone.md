@@ -147,4 +147,4 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 [Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset.md)<BR> [Gestion des zones DNS](dns-operations-dnszones.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR> [Automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

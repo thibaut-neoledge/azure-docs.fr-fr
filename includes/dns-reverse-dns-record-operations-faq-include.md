@@ -17,4 +17,4 @@ Non. Azure ne prend pas en charge la délégation des zones ARPA. Azure héberge
 ### Puis-je héberger les zones ARPA pour mes blocs d’adresses IP attribués par mon fournisseur de services Internet sur Azure DNS ?
 Non. Actuellement, Azure DNS ne prend pas en charge les enregistrements DNS inversés dans les zones DNS des clients.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

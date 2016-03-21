@@ -27,8 +27,10 @@ Une fois connecté au [portail de comptes Azure](https://account.windowsazure.co
 Pour afficher ou télécharger votre facture :
 
 1. Connectez-vous au portail de comptes Azure en utilisant votre ID d’organisation.
-2. Cliquez sur **Marketplace**. La liste affichée est la liste complète de toutes les commandes Marketplace qui ont été passées par votre compte Azure. Vous remarquerez que les commandes sont regroupées par nom et ID d’abonnement Azure parent. ![Commandes Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
-3. Cliquez sur l’une des commandes affichées pour accéder à la présentation résumée du cycle de facturation actuel de cette commande. Vous trouverez une explication des différents modèles de tarification sur le [FAQ sur Marketplace](https://azure.microsoft.com/marketplace/faq/). ![Résumé de la commande](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+2. Cliquez sur **Marketplace**. La liste affichée est la liste complète de toutes les commandes Marketplace qui ont été passées par votre compte Azure. Vous remarquerez que les commandes sont regroupées par nom et ID d’abonnement Azure parent.
+![Commandes Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+3. Cliquez sur l’une des commandes affichées pour accéder à la présentation résumée du cycle de facturation actuel de cette commande. Vous trouverez une explication des différents modèles de tarification sur le [FAQ sur Marketplace](https://azure.microsoft.com/marketplace/faq/).
+![Résumé de la commande](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 La vue récapitulative contient les informations suivantes pour chaque commande :
 - Prix
@@ -44,7 +46,8 @@ La page de résumé comprend des actions de l’utilisateur, ce qui vous permet 
 
 > [AZURE.NOTE] Si vous utilisez votre ID d’organisation pour modifier vos informations personnelles, vous devrez enregistrer un ticket auprès du support.
 
-Pour mettre à jour votre mode de paiement, cliquez sur le lien **Modifier le mode de paiement** sur le côté droit de la page. ![Résumé de la commande](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+Pour mettre à jour votre mode de paiement, cliquez sur le lien **Modifier le mode de paiement** sur le côté droit de la page.
+![Résumé de la commande](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 Ce lien vous dirige vers un autre portail où vous pouvez apporter des modifications à votre mode de paiement favori.
 
@@ -73,4 +76,4 @@ Pour afficher les frais réels, procédez comme suit :
 1. Cliquez sur **Afficher les frais** dans la page **HISTORIQUE DE FACTURATION**. Un nouvel onglet s’ouvre et affiche l’[historique des commandes](https://account.microsoft.com/billing/orders#/). Notez que si vous essayez d’accéder à votre utilisation brute dans le portail de facturation et de gestion de comptes, vous devrez contacter le support en cliquant sur le lien correspondant au bas de la page.) ![Historique des commandes](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 2. Identifiez la commande que vous souhaitez passer en revue, puis cliquez sur **Détails** pour afficher la répartition de vos frais : sous-total, taxe et total. ![Détails de la commande](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!----------HONumber=AcomDC_0309_2016--->

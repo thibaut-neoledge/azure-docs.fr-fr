@@ -290,4 +290,4 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 
 -   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

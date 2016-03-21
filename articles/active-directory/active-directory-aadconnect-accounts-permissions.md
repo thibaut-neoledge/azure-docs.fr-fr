@@ -134,4 +134,4 @@ Le compte de service est créé avec un mot de passe long et complexe qui n’ex
 
 En savoir plus sur l'[Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

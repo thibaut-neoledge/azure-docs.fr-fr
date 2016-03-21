@@ -108,7 +108,12 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métri
 		
 	| Interface réseau | Activée pour le cloud | Désactivée pour le cloud avec passerelle |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | | Data 1 | 2 | 20 || Data 2 | 3 | 30 || Data 3 | 4 | 40 || Data 4 | 5 | 50 || Data 5 | 6 | 60 |
+	| Data 0 | 1 | - |
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
+	| Data 5 | 6 | 60 |
 
 
 - L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
@@ -135,7 +140,8 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métri
 	
 - En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
 
-	Prenez l'exemple suivant : un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
+	Prenez l'exemple suivant :
+	un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
 		
 	Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
 
@@ -256,4 +262,4 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -74,4 +74,4 @@ Lorsque vous travaillez avec ARM, l’Explorateur de ressources peut être un ou
 
 Pour plus d’informations, consultez la [vidéo Channel 9 avec Scott Hanselman et David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

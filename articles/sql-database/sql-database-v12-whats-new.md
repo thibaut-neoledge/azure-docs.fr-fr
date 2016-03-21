@@ -166,4 +166,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nivea
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

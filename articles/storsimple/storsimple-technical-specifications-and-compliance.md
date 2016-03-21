@@ -191,4 +191,4 @@ Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des mo
 
 Vous êtes désormais prêt à déployer un appareil StorSimple dans votre centre de données. Pour plus d’informations, consultez [Déploiement de votre appareil local](storsimple-deployment-walkthrough-u2.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

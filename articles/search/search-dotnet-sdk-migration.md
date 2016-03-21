@@ -391,4 +391,4 @@ N’hésitez pas à nous faire part de vos commentaires sur le kit de développe
 
 Merci d’utiliser Azure Search !
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

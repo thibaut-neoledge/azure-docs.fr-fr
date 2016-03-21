@@ -67,4 +67,4 @@ Une fois que vous avez rétabli la connexion, Stretch Database tente de rapproch
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

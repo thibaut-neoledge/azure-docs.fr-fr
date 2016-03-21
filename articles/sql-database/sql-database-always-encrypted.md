@@ -550,4 +550,4 @@ Après avoir créé une base de données qui utilise le chiffrement intégral, v
 - [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -215,4 +215,4 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 - [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

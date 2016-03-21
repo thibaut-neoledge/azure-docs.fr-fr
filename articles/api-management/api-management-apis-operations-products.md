@@ -62,4 +62,4 @@ Dans Gestion des API, un produit contient une ou plusieurs API, ainsi qu'un quot
 [Importation de la définition d’une API avec des opérations]: api-management-howto-import-api.md
 [Création et configuration de paramètres de produit avancés]: api-management-howto-product-with-rules.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

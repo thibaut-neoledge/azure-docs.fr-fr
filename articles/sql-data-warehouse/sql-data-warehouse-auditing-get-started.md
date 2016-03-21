@@ -141,4 +141,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azure
 
 <!--Link references-->
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

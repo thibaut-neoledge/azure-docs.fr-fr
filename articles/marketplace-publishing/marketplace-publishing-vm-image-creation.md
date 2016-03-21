@@ -651,4 +651,4 @@ Une fois que vous avez terminé avec les détails de la référence SKU, vous po
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

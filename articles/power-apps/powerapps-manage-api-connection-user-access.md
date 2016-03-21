@@ -86,4 +86,4 @@ Vous pouvez ensuite [gérer et surveiller votre PowerApps](powerapps-manage-moni
 [3]: ./media/powerapps-manage-api-connection-user-access/selectpermission.png
 [4]: ./media/powerapps-manage-api-connection-user-access/deleteapi.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

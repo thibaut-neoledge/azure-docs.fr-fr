@@ -24,4 +24,4 @@ Le tableau suivant décrit les limites et l’application des quotas de Document
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

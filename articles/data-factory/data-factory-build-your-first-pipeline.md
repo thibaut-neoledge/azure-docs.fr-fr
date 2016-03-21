@@ -222,4 +222,4 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur un des ongl
 - Visual Studio
 - Modèles Azure Resource Manager 
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

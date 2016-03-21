@@ -30,4 +30,4 @@ Il s’agit d’un rapport d’agrégation qui regroupe les connexions suspectes
 
 ![Utilisateurs ayant une activité de connexion anormale](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

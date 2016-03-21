@@ -68,4 +68,4 @@ Une fois que votre service Gestion des API est connecté au VPN, l’accès aux 
 [Didacticiel : création d’un réseau virtuel entre différents locaux pour une connectivité de site à site]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure]: api-management-howto-api-inspector.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

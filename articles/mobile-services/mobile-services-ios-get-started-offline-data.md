@@ -275,4 +275,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

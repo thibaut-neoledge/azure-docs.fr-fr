@@ -71,4 +71,4 @@ Pour plus d’informations, consultez [Intégrer à Azure Stream Analytics](./sq
 
 <!--Other Web references-->
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

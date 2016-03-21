@@ -75,7 +75,7 @@ Sur le serveur Azure AD Connect, exécutez les commandes PowerShell suivantes :
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 
-Quand vous exécutez l’applet de commande $aadAdminCred = Get-Credential, utilisez le format **user@example.com* pour le nom d’utilisateur des informations d’identification entrées lorsque la fenêtre contextuelle Get-Credential s’affiche.
+Quand vous exécutez l’applet de commande $aadAdminCred = Get-Credential, utilisez le format *user@example.com* pour le nom d’utilisateur des informations d’identification entrées lorsque la fenêtre contextuelle Get-Credential s’affiche.
 
 Quand vous exécutez l’applet de commande Initialize-ADSyncDomainJoinedComputerSync..., remplacez [*nom de compte de connecteur*] par le compte de domaine utilisé comme compte de connecteur Active Directory.
 
@@ -147,4 +147,4 @@ Ce modèle de stratégie de groupe a été renommé dans Windows 10. Si vous ex�
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

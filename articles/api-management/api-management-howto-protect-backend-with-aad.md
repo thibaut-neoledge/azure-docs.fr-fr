@@ -413,4 +413,4 @@ Pour une autre démonstration de la configuration et l’utilisation de cette st
 [Création d’une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Gérer votre première API]: api-management-get-started.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

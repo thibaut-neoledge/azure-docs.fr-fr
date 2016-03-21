@@ -772,4 +772,4 @@ Vous pouvez également utiliser les [fonctions de Data Factory](https://msdn.mic
 
  
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

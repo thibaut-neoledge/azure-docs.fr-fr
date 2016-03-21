@@ -78,4 +78,4 @@ Si l’activation d’une version d’évaluation gratuite échoue parce que vou
 ## Contacter le support Azure
 Si votre problème d’inscription persiste après avoir suivi ces étapes de résolution, contactez le [support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

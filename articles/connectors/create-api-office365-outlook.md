@@ -70,7 +70,8 @@ S’applique à la version 1.0.
 
 
 ### Événement imminent 
-Déclenche un flux au démarrage d’un événement de calendrier à venir. ```GET: /Events/OnUpcomingEvents```
+Déclenche un flux au démarrage d’un événement de calendrier à venir.  
+```GET: /Events/OnUpcomingEvents```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -90,7 +91,8 @@ Déclenche un flux au démarrage d’un événement de calendrier à venir. ```G
 
 
 ### Obtenir des messages électroniques 
-Récupère des messages électroniques à partir d’un dossier. ```GET: /Mail```
+Récupère des messages électroniques à partir d’un dossier. 
+```GET: /Mail```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -115,7 +117,8 @@ Récupère des messages électroniques à partir d’un dossier. ```GET: /Mail``
 
 
 ### Envoyer un message électronique 
-Envoie un message électronique. ```POST: /Mail```
+Envoie un message électronique. 
+```POST: /Mail```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -135,7 +138,8 @@ Envoie un message électronique. ```POST: /Mail```
 
 
 ### Supprimer un message électronique 
-Supprime un message électronique en fonction de son identifiant. ```DELETE: /Mail/{messageId}```
+Supprime un message électronique en fonction de son identifiant. 
+```DELETE: /Mail/{messageId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -154,7 +158,8 @@ Supprime un message électronique en fonction de son identifiant. ```DELETE: /Ma
 
 
 ### Marquer comme lu 
-Marque un message électronique comme lu. ```POST: /Mail/MarkAsRead/{messageId}```
+Marque un message électronique comme lu. 
+```POST: /Mail/MarkAsRead/{messageId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -173,7 +178,8 @@ Marque un message électronique comme lu. ```POST: /Mail/MarkAsRead/{messageId}`
 
 
 ### Répondre à un message 
-Répond à un message électronique. ```POST: /Mail/ReplyTo/{messageId}```
+Répond à un message électronique. 
+```POST: /Mail/ReplyTo/{messageId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -194,7 +200,8 @@ Répond à un message électronique. ```POST: /Mail/ReplyTo/{messageId}```
 
 
 ### Obtenir une pièce jointe 
-Récupère la pièce jointe à un message en fonction de l’identifiant. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+Récupère la pièce jointe à un message en fonction de l’identifiant. 
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -214,7 +221,8 @@ Récupère la pièce jointe à un message en fonction de l’identifiant. ```GET
 
 
 ### Arrivée d’un nouveau message électronique 
-Déclenche un flux à l’arrivée d’un nouveau message électronique. ```GET: /Mail/OnNewEmail```
+Déclenche un flux à l’arrivée d’un nouveau message électronique. 
+```GET: /Mail/OnNewEmail```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -240,7 +248,8 @@ Déclenche un flux à l’arrivée d’un nouveau message électronique. ```GET:
 
 
 ### Envoyer un message électronique avec des options 
-Envoie un message électronique avec plusieurs options et attend que le destinataire réponde avec une des options. ```POST: /mailwithoptions/$subscriptions```
+Envoie un message électronique avec plusieurs options et attend que le destinataire réponde avec une des options. 
+```POST: /mailwithoptions/$subscriptions```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -260,7 +269,8 @@ Envoie un message électronique avec plusieurs options et attend que le destinat
 
 
 ### Envoyer un message électronique d’approbation 
-Envoie un message électronique d’approbation et attend une réponse du destinataire. ```POST: /approvalmail/$subscriptions```
+Envoie un message électronique d’approbation et attend une réponse du destinataire. 
+```POST: /approvalmail/$subscriptions```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -283,7 +293,8 @@ Envoie un message électronique d’approbation et attend une réponse du destin
 
 
 ### Obtenir des calendriers 
-Récupère des calendriers. ```GET: /datasets/calendars/tables```
+Récupère des calendriers. 
+```GET: /datasets/calendars/tables```
 
 Il n'existe aucun paramètre pour cet appel.
 
@@ -298,7 +309,8 @@ Il n'existe aucun paramètre pour cet appel.
 
 
 ### Obtenir les événements 
-Récupère des éléments d’un calendrier. ```GET: /datasets/calendars/tables/{table}/items```
+Récupère des éléments d’un calendrier. 
+```GET: /datasets/calendars/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -317,7 +329,8 @@ Récupère des éléments d’un calendrier. ```GET: /datasets/calendars/tables/
 
 
 ### Créer un événement 
-Crée un événement. ```POST: /datasets/calendars/tables/{table}/items```
+Crée un événement. 
+```POST: /datasets/calendars/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -333,7 +346,8 @@ Crée un événement. ```POST: /datasets/calendars/tables/{table}/items```
 
 
 ### Obtenir un événement 
-Extrait un élément spécifique d’un calendrier. ```GET: /datasets/calendars/tables/{table}/items/{id}```
+Extrait un élément spécifique d’un calendrier. 
+```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -349,7 +363,8 @@ Extrait un élément spécifique d’un calendrier. ```GET: /datasets/calendars/
 
 
 ### Supprimer un événement 
-Supprime un élément de calendrier. ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+Supprime un élément de calendrier. 
+```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -365,7 +380,8 @@ Supprime un élément de calendrier. ```DELETE: /datasets/calendars/tables/{tabl
 
 
 ### Mettre à jour un événement 
-Met à jour partiellement un élément de calendrier. ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+Met à jour partiellement un élément de calendrier. 
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -382,7 +398,8 @@ Met à jour partiellement un élément de calendrier. ```PATCH: /datasets/calend
 
 
 ### Quand des éléments sont créés 
-Déclenché à la création d’un élément de calendrier. ```GET: /datasets/calendars/tables/{table}/onnewitems```
+Déclenché à la création d’un élément de calendrier. 
+```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -401,7 +418,8 @@ Déclenché à la création d’un élément de calendrier. ```GET: /datasets/ca
 
 
 ### Quand des éléments sont mis à jour 
-Déclenché quand un élément de calendrier est modifié. ```GET: /datasets/calendars/tables/{table}/onupdateditems```
+Déclenché quand un élément de calendrier est modifié. 
+```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -420,7 +438,8 @@ Déclenché quand un élément de calendrier est modifié. ```GET: /datasets/cal
 
 
 ### Obtenir des dossiers de contacts 
-Récupère des dossiers de contacts. ```GET: /datasets/contacts/tables```
+Récupère des dossiers de contacts. 
+```GET: /datasets/contacts/tables```
 
 Il n'existe aucun paramètre pour cet appel.
 
@@ -433,7 +452,8 @@ Il n'existe aucun paramètre pour cet appel.
 
 
 ### Obtenir des contacts 
-Récupère les contacts d’un dossier de contacts. ```GET: /datasets/contacts/tables/{table}/items```
+Récupère les contacts d’un dossier de contacts. 
+```GET: /datasets/contacts/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -452,7 +472,8 @@ Récupère les contacts d’un dossier de contacts. ```GET: /datasets/contacts/t
 
 
 ### Créer un contact 
-Crée un contact. ```POST: /datasets/contacts/tables/{table}/items```
+Crée un contact. 
+```POST: /datasets/contacts/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -468,7 +489,8 @@ Crée un contact. ```POST: /datasets/contacts/tables/{table}/items```
 
 
 ### Obtenir un contact 
-Récupère un contact spécifique d’un dossier de contacts. ```GET: /datasets/contacts/tables/{table}/items/{id}```
+Récupère un contact spécifique d’un dossier de contacts. 
+```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -484,7 +506,8 @@ Récupère un contact spécifique d’un dossier de contacts. ```GET: /datasets/
 
 
 ### Supprimer un contact 
-Supprime un contact. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+Supprime un contact. 
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -500,7 +523,8 @@ Supprime un contact. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 
 ### Mettre à jour un contact 
-Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
+Met à jour partiellement un contact.  
+```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -768,4 +792,4 @@ Revenir à la [liste des API](apis-list.md).
 [12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

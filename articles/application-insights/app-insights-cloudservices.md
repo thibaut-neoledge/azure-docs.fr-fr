@@ -286,4 +286,4 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatique
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -42,4 +42,4 @@ Il existe d’autres types de règles de placement qui sont principalement utile
 - [En savoir plus sur les stratégies de positionnement du service](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
 - [Obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

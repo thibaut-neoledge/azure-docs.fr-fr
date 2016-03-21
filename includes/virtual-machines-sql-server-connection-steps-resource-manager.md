@@ -30,4 +30,4 @@ Pour créer un nom DNS, sélectionnez tout d’abord **Machines virtuelles** dan
 
 	![connecter ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

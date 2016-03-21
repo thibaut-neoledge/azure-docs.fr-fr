@@ -283,4 +283,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -290,4 +290,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Wind
         }
     }
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

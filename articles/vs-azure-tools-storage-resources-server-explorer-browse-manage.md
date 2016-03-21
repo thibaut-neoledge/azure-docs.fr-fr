@@ -314,4 +314,4 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
 Pour en savoir plus sur l’utilisation des services de stockage Azure, consultez la page [Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

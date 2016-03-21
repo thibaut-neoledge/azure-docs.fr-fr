@@ -58,4 +58,4 @@ Bien que certaines de ces stratégies présentent un intérêt, Service Fabric C
 - [En savoir plus sur les métriques](service-fabric-cluster-resource-manager-metrics.md)
 - [En savoir plus sur la façon dont Cluster Resource Manager s’intègre au reste des fonctionnalités de Service Fabric Management](service-fabric-cluster-resource-manager-management-integration.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

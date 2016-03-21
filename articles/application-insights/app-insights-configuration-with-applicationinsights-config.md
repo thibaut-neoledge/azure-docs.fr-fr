@@ -285,4 +285,4 @@ Pour obtenir une nouvelle clé, [créez une nouvelle ressource dans le portail A
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

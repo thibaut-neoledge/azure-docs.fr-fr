@@ -310,4 +310,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

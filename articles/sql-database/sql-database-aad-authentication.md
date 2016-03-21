@@ -66,7 +66,7 @@ Pour créer un utilisateur de base de données à relation contenant-contenu dan
 ## Limitations et fonctionnalités azure AD
 
 Les membres suivants de Microsoft Azure Active Directory peuvent être configurés dans le serveur Azure SQL Server :
-- Membre natif : un membre créé dans le domaine géré ou le domaine client de Microsoft Azure AD. Pour plus d’informations, consultez [Ajout de votre propre nom de domaine à Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
+- Membre natif : un membre créé dans le domaine géré ou le domaine client de Microsoft Azure AD. Pour plus d’informations, consultez [Ajout de votre propre nom de domaine à Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
 - Membre de domaine fédéré : un membre créé dans Azure AD avec un domaine fédéré. Pour plus d’informations, consultez [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 - Membres importés à partir d’autres répertoires Azure Active Directory qui sont des membres natifs ou de domaine fédéré.
 - Groupes Active Directory créés en tant que groupes de sécurité.
@@ -92,7 +92,7 @@ Créer un annuaire Azure Active Directory et le renseigner avec les utilisateurs
 - Fédérer les Services de domaine Active Directory local avec Azure Active Directory.
 - À l’aide de l’outil **AD FS**, dans la section **Service**, **Points de terminaison**, activez **WS-Trust 1.3** pour le chemin d’URL **/adfs/services/trust/13/windowstransport**.
 
-Pour plus d’informations, consultez [Ajouter votre propre nom de domaine à Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), et [Gérer Azure Active Directory à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Pour plus d’informations, consultez [Ajouter votre propre nom de domaine à Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), et [Gérer Azure Active Directory à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Vérifier que votre base de données se trouve bien dans Azure SQL Database V12
 
@@ -251,7 +251,7 @@ Utilisez cette méthode lors de la connexion avec un nom principal Azure AD à l
 Utilisez cette méthode si vous êtes connecté à Windows à l’aide des informations d’identification d’un domaine qui n’est pas fédéré avec Azure, ou lorsque vous utilisez l’authentification Azure AD à l’aide d’Azure AD sur le domaine initial ou le domaine client.
 
 1. Démarrez Management Studio et dans la boîte de dialogue **Se connecter au moteur de base de données** (ou **Se connecter à la base de données**), dans la zone **Authentification**, sélectionnez **Authentification par mot de passe Active Directory**.
-2. Dans la zone **Nom d’utilisateur** saisissez votre nom d’utilisateur Azure Active Directory au format ****username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
+2. Dans la zone **Nom d’utilisateur** saisissez votre nom d’utilisateur Azure Active Directory au format **username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
 3. Dans la zone **Mot de passe**, saisissez votre mot de passe utilisateur pour le compte Azure Active Directory ou le compte de domaine fédéré.
 4. Cliquez sur le bouton **Options** puis, sur la page **Propriétés de connexion**, dans la zone **Se connecter à la base de données**, saisissez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter.
 
@@ -335,4 +335,4 @@ Pour obtenir des exemples de code spécifiques associés à l’authentification
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!------HONumber=AcomDC_0309_2016-->
+<!----------HONumber=AcomDC_0309_2016-->

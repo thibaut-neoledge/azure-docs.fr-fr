@@ -72,4 +72,4 @@ Ces échecs s’appliquent aux tâches de sauvegarde, de restauration, de mise �
 
 [Découvrez comment utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

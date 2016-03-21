@@ -42,4 +42,4 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | **12.** | CHAP | Il est impossible de supprimer les informations d’identification CHAP une fois qu’elles ont été créées. En outre, si vous modifiez les informations d’identification CHAP, vous devrez mettre les volumes hors connexion, puis les remettre en ligne pour que la modification prenne effet. | Ceci sera résolu dans une version ultérieure. |
 | **13.** | Volumes épinglés localement | Le « stockage utilisé » affiché pour un volume épinglé localement peut différer entre le service et l’hôte iSCSI. | L’hôte dispose de la vue du système de fichiers.<br></br>L’appareil voit les blocs alloués lorsque le volume était à sa taille maximale.|
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

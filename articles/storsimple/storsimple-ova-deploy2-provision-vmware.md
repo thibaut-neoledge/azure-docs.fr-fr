@@ -292,4 +292,4 @@ Si vous rencontrez une autre erreur lors de la configuration initiale à l'aide 
 
 -   [Configurer StorSimple Virtual Array comme un serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

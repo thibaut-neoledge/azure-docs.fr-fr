@@ -39,4 +39,4 @@ Ce service contient les API permettant de créer des modèles Frequently Bought 
 
  
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

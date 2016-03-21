@@ -106,4 +106,4 @@ Pour plus d'informations sur l’état de session et obtenir d’autres meilleur
 
 Consultez l’article [Fournisseur de caches de sortie ASP.NET pour le Cache Redis Azure](cache-asp.net-output-cache-provider.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

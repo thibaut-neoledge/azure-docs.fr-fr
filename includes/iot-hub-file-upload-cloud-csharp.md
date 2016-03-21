@@ -70,4 +70,4 @@ Dans cette section, vous allez modifier l’application console **SendCloudtoDev
 
 <!-- Images -->
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -11,4 +11,4 @@
 - [Données scalaires](../articles/application-insights/app-analytics-scalars.md)
  - Nombres, chaînes et autres expressions utilisés pour former les paramètres de requête.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

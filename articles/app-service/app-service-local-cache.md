@@ -118,4 +118,4 @@ Avec le cache local, l’aspect de vos dossiers de données et de journaux diff�
 
 Le cache local peut en effet aider à empêcher les redémarrages d’application web liés au stockage. Toutefois, votre application web peut toujours subir un redémarrage pendant les mises à niveau planifiées de l’infrastructure de la machine virtuelle. Les redémarrages globaux de l’application alors que le cache local est activé sont normalement moins fréquents.
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

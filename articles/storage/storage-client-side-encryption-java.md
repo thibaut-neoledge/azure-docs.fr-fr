@@ -106,7 +106,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 La bibliothèque cliente de stockage utilise la bibliothèque principale du coffre de clés Key Vault afin de fournir une infrastructure commune de gestion des clés sur Azure. Les utilisateurs ont un avantage supplémentaire : la possibilité d’utiliser la bibliothèque d’extensions du coffre de clés. La bibliothèque d’extensions fournit une fonctionnalité utile basée sur des fournisseurs de clés Symmetric/RSA simples et transparents, en local et dans le cloud, avec capacité d’agrégation et de mise en cache.
 
 ### Interfaces et dépendances  
-Il existe trois packages de coffre de clés :
+Il existe trois packages de coffre de clés :  
 
 - azure-keyvault-core contient IKey et IKeyResolver. Il s’agit d’un petit package sans dépendances. La bibliothèque cliente de stockage pour Java le définit en tant que dépendance.
 - azure-keyvault contient le client REST du coffre de clés.  
@@ -129,7 +129,7 @@ La prise en charge du chiffrement est disponible uniquement dans la bibliothèqu
 >
 >- Pour les tables, une contrainte similaire existe. Veillez à ne pas mettre à jour les propriétés chiffrées sans aussi mettre à jour les métadonnées de chiffrement.
 >
->- Si vous définissez des métadonnées sur l’objet blob chiffré, vous risquez de remplacer les métadonnées relatives au chiffrement et nécessaires au déchiffrement, car la définition des métadonnées n’est pas additive. Cela est également vrai pour les instantanés : évitez de spécifier des métadonnées lors de la création d’un instantané d’objet blob chiffré. Si des métadonnées doivent être définies, veillez à appeler la méthode **downloadAttributes** pour obtenir les métadonnées de chiffrement actuelles et éviter des écritures simultanées pendant la définition des métadonnées.
+>- Si vous définissez des métadonnées sur l’objet blob chiffré, vous risquez de remplacer les métadonnées relatives au chiffrement et nécessaires au déchiffrement, car la définition des métadonnées n’est pas additive. Cela est également vrai pour les instantanés : évitez de spécifier des métadonnées lors de la création d’un instantané d’objet blob chiffré. Si des métadonnées doivent être définies, veillez à appeler la méthode **downloadAttributes** pour obtenir les métadonnées de chiffrement actuelles et éviter des écritures simultanées pendant la définition des métadonnées.
 >
 >- Activez l’indicateur **requireEncryption** dans les options de demande par défaut pour les utilisateurs qui doivent recourir uniquement à des données chiffrées. Pour plus d’informations, consultez la section ci-dessous.
 
@@ -247,4 +247,4 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 	- Package [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 - Consulter la [documentation d’Azure Key Vault](../key-vault/key-vault-whatis.md)  
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->
