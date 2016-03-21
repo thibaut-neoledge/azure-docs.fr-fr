@@ -24,7 +24,7 @@ Nombre maximal de clauses JOIN par requête* |5
 Nombre maximal de clauses AND par requête* |20
 Nombre maximal de clauses OR par requête* |20
 Nombre maximal de valeurs par expression IN* |200
-Nombre maximal de points dans un argument de polygone dans une requête ST\_WITHIN* |256
+Nombre maximal de points dans un argument de polygone dans une requête ST_WITHIN* |256
 Nombre maximal de créations de collection par minute* |5
 Nombre maximal d'opérations de mise à l'échelle par minute* |5
 

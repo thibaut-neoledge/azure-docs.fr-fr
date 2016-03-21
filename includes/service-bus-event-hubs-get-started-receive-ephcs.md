@@ -2,7 +2,7 @@
 
 [EventProcessorHost][] est une classe .NET qui simplifie la réception d'événements provenant d'Event Hubs grâce à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs. [EventProcessorHost][] permet de répartir des événements sur plusieurs récepteurs, même quand ils sont hébergés dans des nœuds différents. Cet exemple illustre l'utilisation de la classe [EventProcessorHost][] pour un récepteur unique. L’exemple de [traitement d’événement mis à l’échelle][] illustre l’utilisation d’[EventProcessorHost][] pour plusieurs récepteurs.
 
-Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Storage][] :
+Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Storage][]:
 
 1. Connectez-vous au [portail Azure Classic][] et cliquez sur **NOUVEAU** en bas de l’écran.
 
@@ -10,7 +10,7 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Sto
 
     ![][11]
 
-3. Cliquez sur le compte de stockage que vous venez de créer, puis cliquez sur **Gérer les clés d'accès** :
+3. Cliquez sur le compte de stockage que vous venez de créer, puis cliquez sur **Gérer les clés d'accès**:
 
     ![][12]
 

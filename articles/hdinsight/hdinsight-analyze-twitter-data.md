@@ -43,7 +43,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l’approvisionnement des clusters, consultez la rubrique [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous en aurez besoin plus loin dans le didacticiel.
 
-Le tableau suivant répertorie les fichiers utilisés dans ce didacticiel :
+Le tableau suivant répertorie les fichiers utilisés dans ce didacticiel:
 
 Fichiers|Description
 ---|---
@@ -69,7 +69,7 @@ Pour utiliser OAuth, la première étape consiste à créer une nouvelle applica
 
 1. Connectez-vous à [https://apps.twitter.com/](https://apps.twitter.com/). Cliquez sur le lien **Sign up now** si vous ne possédez pas de compte Twitter.
 2. Cliquez sur **Create New App**.
-3. Renseignez les champs **Name**, **Description** et **Website**. Vous pouvez créer une URL pour le champ **Website**. Le tableau suivant affiche quelques exemples de valeurs à utiliser :
+3. Renseignez les champs **Name**, **Description** et **Website**. Vous pouvez créer une URL pour le champ **Website**. Le tableau suivant affiche quelques exemples de valeurs à utiliser:
 
 Champ|Valeur
 ---|---
@@ -92,7 +92,7 @@ Dans ce didacticiel, vous allez utiliser Windows PowerShell pour effectuer un ap
 
 1. Ouvrez l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE). (Sur l’écran d’accueil Windows 8, tapez **PowerShell\_ISE**, puis cliquez sur **Windows PowerShell ISE**. Consultez la page [Démarrage de Windows PowerShell sur Windows 8 et Windows][powershell-start].)
 
-2. Copiez le script suivant dans le volet du script :
+2. Copiez le script suivant dans le volet du script:
 
 		#region - variables and constants
 		$clusterName = "<HDInsightClusterName>" # Enter the HDInsight cluster name
@@ -258,7 +258,7 @@ Le script HiveQL exécutera les opérations suivantes :
 **Pour créer un script Hive et le télécharger sur Azure**
 
 1. Ouvrez Windows PowerShell ISE.
-2. Copiez le script suivant dans le volet du script :
+2. Copiez le script suivant dans le volet du script:
 
 		#region - variables and constants
 		$clusterName = "<Existing HDInsight Cluster Name>" # Enter your HDInsight cluster name
@@ -430,7 +430,7 @@ Le script HiveQL exécutera les opérations suivantes :
 
 		
 
-4. Définissez les deux premières variables du script :
+4. Définissez les deux premières variables du script:
 
 Variable|Description
 ---|---
