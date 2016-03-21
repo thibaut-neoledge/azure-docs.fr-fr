@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/01/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # Polymorphisme dans l’infrastructure Reliable Actors
@@ -22,7 +22,7 @@ L’infrastructure Reliable Actors simplifie la programmation de systèmes distr
 
 ## Interfaces
 
-L’infrastructure Reliable Actors exige que vous définissiez au moins une interface que votre type d’acteur doit implémenter. Cette interface est utilisée pour générer une classe proxy, utilisable par des clients pour communiquer avec vos acteurs. Les interfaces peuvent hériter d’autres interfaces tant que toutes les interfaces implémentées par un type d’acteur et tous ses parents dérivent finalement d’IActor. IActor est l’interface de base définie par la plateforme pour les acteurs. Par conséquent, voici à quoi peut ressembler un exemple de polymorphisme classique qui utilise des formes :
+L’infrastructure Reliable Actors exige que vous définissiez au moins une interface que votre type d’acteur doit implémenter. Cette interface est utilisée pour générer une classe proxy, utilisable par des clients pour communiquer avec vos acteurs. Les interfaces peuvent hériter d’autres interfaces tant que toutes les interfaces implémentées par un type d’acteur et tous ses parents dérivent finalement d’IActor. IActor est l’interface de base définie par la plateforme pour les acteurs. Par conséquent, voici à quoi peut ressembler un exemple de polymorphisme classique qui utilise des formes :
 
 ![Hiérarchie d'interfaces pour les acteurs de forme][shapes-interface-hierarchy]
 
@@ -78,4 +78,4 @@ Notez l’attribut `ActorService` sur le type d'intervenant. Cet attribut indiqu
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

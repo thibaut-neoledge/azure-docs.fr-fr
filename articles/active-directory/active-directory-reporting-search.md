@@ -3,8 +3,8 @@
 	description="Recherche d’événements de sécurité, d’activité et d’audit dans vos rapports Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
+	authors="dhanyahk"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Recherche de rapports Azure Active Directory
 
 *Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-Azure Active Directory permet aux administrateurs d’annuaires de rechercher des événements d’audit, d’activité et de sécurité de l’utilisateur sur de nombreux rapports.
+Azure Active Directory (Azure AD) permet aux administrateurs d’annuaires de rechercher des événements d’audit, d’activité et de sécurité de l’utilisateur sur de nombreux rapports.
 
-Pour trouver le volet de recherche, accédez au **portail de gestion Azure -> Azure Active Directory -> Rapports.** Le volet se trouve en haut de la liste des rapports.
+Pour trouver le volet de recherche, accédez au **portail Azure Classic > Azure AD Directory > Rapports.** Le volet se trouve en haut de la liste des rapports.
 
-Pour rechercher des événements d’activité ou d’audit d’un utilisateur donné, sélectionnez une plage de dates dans les champs De et À, entrez l’UPN de l’utilisateur ou son nom d’affichage, puis cliquez sur la coche.
+Pour rechercher des événements d’activité ou d’audit d’un utilisateur donné, sélectionnez une plage de dates dans les champs De et À, entrez l’UPN de l’utilisateur ou son nom d’affichage, puis sélectionnez le bouton en forme de coche (OK).
 
 ## Rapports inclus dans la recherche
 
@@ -35,8 +35,8 @@ Rapport | Inclus
 Connexions à partir de sources inconnues | Non
 Connexions après plusieurs échecs | Non
 Connexions depuis plusieurs zones géographiques | Non
-Connexions à partir d’adresses IP affichant une activité suspecte | Non
-Connexions à partir de périphériques potentiellement infectés | Non
+Connexions depuis des adresses IP avec des activités suspectes | Non
+Connexions à partir d’appareils potentiellement infectés | Non
 Activité de connexion anormale | Non
 Utilisateurs ayant une activité de connexion anormale | Non
 Utilisateurs avec des informations d’identification volées | Non
@@ -56,6 +56,6 @@ Utilisation d’un périphérique RMS | Non
 ## En savoir plus
 
  - [Rapports Azure Active Directory](active-directory-view-access-usage-reports.md)
- - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
+ - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

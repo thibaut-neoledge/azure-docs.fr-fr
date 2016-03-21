@@ -24,7 +24,7 @@ Cet article explique comment utiliser l’activité de copie Data factory pour d
 Pour permettre au service Azure Data Factory de se connecter à votre base de données Oracle locale, vous devez installer ce qui suit :
 
 - Une passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md). 
-- [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Ce programme doit être installé sur l’ordinateur hôte sur lequel la passerelle est installée.
+- Fournisseur de données Oracle pour .NET. Il est inclus dans [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Installez la version appropriée (32/64 bits) sur l’ordinateur hôte sur lequel la passerelle est installée. 
 
 > [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
@@ -246,12 +246,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties**:
+Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description |Valeurs autorisées | Requis
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. 
-Par exemple : select * from MyTable <p>Si non spécifié, l’instruction SQL exécutée : select from MyTable</p> | Non (si **tableName** de **dataset** est spécifiée)
+Par exemple : select * from MyTable <br/><br/>Si non spécifié, l’instruction SQL exécutée : select from MyTable | Non (si **tableName** de **dataset** est spécifiée)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -301,10 +301,10 @@ XML | String
 
 **Résolution/solution de contournement**
 
-1. Si vous n’avez pas installé le fournisseur .NET pour Oracle, veuillez l’[installer](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html), puis recommencez le scénario. 
+1. Si vous n’avez pas installé le fournisseur .NET pour Oracle, veuillez l’[installer](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html), puis recommencez le scénario. 
 2. Si vous obtenez le message d’erreur même après l’installation du fournisseur, procédez comme suit : 
 	1. Ouvrez le fichier machine.config de .NET 2.0 à partir du dossier : <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Recherchez le **Fournisseur de données Oracle pour .Net**. Vous devez être en mesure de trouver une entrée comme ci-dessous sous **system.data** -> **DbProviderFactories**: « <add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" /> »
+	2. Recherchez le **Fournisseur de données Oracle pour .Net**. Vous devez être en mesure de trouver une entrée comme ci-dessous sous **system.data** -> **DbProviderFactories** : « <add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" /> »
 2.	Copiez cette entrée dans le fichier machine.config dans le dossier v4.0 suivant : <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, et remplacez la version par 4.xxx.x.x.
 3.	Installez « <ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll » dans le Global Assembly Cache (GAC) en exécutant « gacutil /i [chemin d’accès du fournisseur] ».
 
@@ -312,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

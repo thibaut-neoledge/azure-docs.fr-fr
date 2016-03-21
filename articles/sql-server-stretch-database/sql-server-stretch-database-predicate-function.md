@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer (Stretch Database) | Microsoft Azure"
-	description="Apprenez à créer un prédicat de filtre pour sélectionner les lignes à migrer."
+	pageTitle="Utiliser un prédicat de filtre pour sélectionner les lignes à migrer (Stretch Database) | Microsoft Azure"
+	description="Apprenez à utiliser un prédicat de filtre pour sélectionner les lignes à migrer."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Écrire une fonction tabulaire inline pour sélectionner les lignes à migrer (Stretch Database)
+# Utiliser un prédicat de filtre pour sélectionner les lignes à migrer (Stretch Database)
 
 Si vous stockez des données historiques dans une table distincte, vous pouvez configurer Stretch Database pour migrer la totalité de la table. Si votre table contient à la fois des données historiques et des données actuelles, d’autre part, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer. Le prédicat de filtre doit appeler une fonction tabulaire inline. Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer.
 
@@ -409,4 +409,4 @@ Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de c
 ## Voir aussi
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

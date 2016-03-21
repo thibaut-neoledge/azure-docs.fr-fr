@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="cephalin"/>
 
 # Configurer des environnements intermédiaires pour les applications web dans Azure App Service
 <a name="Overview"></a>
 
-Lorsque vous déployez votre application web dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un emplacement de déploiement autre que l’emplacement de production par défaut en mode **Standard** ou **Premium**. Les emplacements de déploiement sont en fait des applications web dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications web peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
+Lorsque vous déployez votre application web dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un emplacement de déploiement autre que l’emplacement de production par défaut en mode **Standard** ou **Premium**. Les emplacements de déploiement sont en fait des applications web dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications web peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
 
 - Vous pouvez valider les modifications d’une application web dans un emplacement de déploiement intermédiaire avant de l’échanger avec l’emplacement de production.
 
@@ -34,7 +34,7 @@ Chaque mode de plan App Service prend en charge un nombre différent d’emplace
 
 - La mise à l'échelle est uniquement disponible pour les emplacements de site de production.
 
-- La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement autre que de production vers un autre mode de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même mode que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
+- La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement autre que de production vers un autre mode de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même mode que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -56,9 +56,9 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
 
 	![Source de configuration][ConfigurationSource1]
 
-	La première fois que vous ajoutez un emplacement, vous avez uniquement deux choix : cloner la configuration à partir de l’emplacement par défaut en production ou ne rien cloner du tout.
+	La première fois que vous ajoutez un emplacement, vous avez uniquement deux choix : cloner la configuration à partir de l’emplacement par défaut en production ou ne rien cloner du tout.
 
-	Après avoir créé plusieurs emplacements, vous pourrez cloner la configuration depuis un emplacement autre que l'emplacement de production :
+	Après avoir créé plusieurs emplacements, vous pourrez cloner la configuration depuis un emplacement autre que l'emplacement de production :
 
 	![Sources de configuration][MultipleConfigurationSources]
 
@@ -66,7 +66,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
 
 	![Titre de l'emplacement de déploiement][StagingTitle]
 
-5. Cliquez sur l’URL de l’application dans le panneau de l’emplacement. Notez que l’emplacement de déploiement possède son propre nom d’hôte et qu’il s’agit d’une application dynamique. Pour limiter l’accès public à l’emplacement de déploiement, consultez la page [Application web App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Cliquez sur l’URL de l’application dans le panneau de l’emplacement. Notez que l’emplacement de déploiement possède son propre nom d’hôte et qu’il s’agit d’une application dynamique. Pour limiter l’accès public à l’emplacement de déploiement, consultez la page [Application web App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 Il n’existe pas de contenu après la création de l’emplacement de déploiement. Vous pouvez effectuer un déploiement sur l'emplacement d'une autre branche référentielle, ou d'un référentiel complètement différent. Vous pouvez également modifier la configuration de l'emplacement. Utilisez le profil de publication ou les informations d'identification associées à l'emplacement de déploiement pour les mises à jour de contenu. Par exemple, vous pouvez [publier sur cet emplacement avec Git](web-sites-publish-source-control.md).
 
@@ -74,16 +74,16 @@ Il n’existe pas de contenu après la création de l’emplacement de déploiem
 ## Configuration d’emplacements de déploiement ##
 Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Par ailleurs, après un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement (éléments propres à un emplacement). Les listes suivantes présentent la configuration changée lorsque vous effectuez des basculements d'emplacements.
 
-**Paramètres échangés** :
+**Paramètres échangés** :
 
-- Paramètres généraux, par exemple versions d’infrastructure, 32/64 bits, sockets web
+- Paramètres généraux, par exemple versions d’infrastructure, 32/64 bits, sockets web
 - Paramètres d’application (peuvent être configurés pour respecter un emplacement)
 - Chaînes de connexion (peuvent être configurées pour respecter un emplacement)
 - Mappages de gestionnaires
 - Paramètres de surveillance et de diagnostics
 - Contenu WebJobs
 
-**Paramètres non échangés** :
+**Paramètres non échangés** :
 
 - Points de terminaison de publication
 - Noms de domaine personnalisés
@@ -104,7 +104,7 @@ Pour lier un paramètre d’application ou une chaîne de connexion à un emplac
 
 	![Bouton Swap][SwapButtonBar]
 
-3. Cliquez sur **OK** pour terminer l’opération. À l’issue de l’opération, les emplacements de déploiement ont été échangés.
+3. Cliquez sur **OK** pour terminer l’opération. À l’issue de l’opération, les emplacements de déploiement ont été échangés.
 
 ## Configurer l’échange automatique pour une application web ##
 
@@ -112,7 +112,7 @@ L’échange automatique simplifie les scénarios des opérations de développem
 
 >[AZURE.IMPORTANT] Lorsque vous activez l’échange automatique pour un emplacement, vérifiez que la configuration de l’emplacement est exactement celle que vous souhaitez pour l’emplacement cible (en général, l’emplacement de production).
 
-La configuration de l’échange automatique pour un emplacement est facile. Pour ce faire, procédez comme suit :
+La configuration de l’échange automatique pour un emplacement est facile. Pour ce faire, procédez comme suit :
 
 1. Dans le panneau **Emplacements de déploiement**, sélectionnez un emplacement autre que de production, puis cliquez sur **Tous les paramètres** pour le panneau de cet emplacement.  
 
@@ -164,43 +164,55 @@ Azure PowerShell est un module qui fournit des cmdlets pour gérer Azure via Win
 
 - Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).  
 
-- Afin d’utiliser le nouveau mode Azure Resource Manager pour les applets de commande PowerShell, commencez par ce qui suit : `Switch-AzureMode -Name AzureResourceManager`.
-
 ----------
 
 ### Créer une application web
 
-`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
+```
+New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]
+```
 
 ----------
 
 ### Créer un emplacement de déploiement pour une application web
 
-`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
+```
+New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [web app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+```
 
 ----------
 
 ### Initier un échange multiphase et appliquer la configuration d’emplacement cible à l’emplacement source
 
-`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
+```
+$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Rétablir la première phase d’échange d’un échange multiphase et restaurer la configuration d’emplacement source
 
-`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+```
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Échanger des emplacements de déploiement
 
-`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+```
+$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Supprimer un emplacement de déploiement
 
-`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
+```
+Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01
+```
 
 ----------
 
@@ -213,7 +225,7 @@ L’interface de ligne de commande Azure fournit des commandes interplateformes 
 
 - Pour obtenir des instructions sur l’installation et la configuration de l’interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
--  Pour répertorier les commandes disponibles pour Azure App Service dans l’interface de ligne de commande Azure, appelez `azure site -h`.
+-  Pour répertorier les commandes disponibles pour Azure App Service dans l’interface de ligne de commande Azure, appelez `azure site -h`.
 
 ----------
 ### azure site list
@@ -245,15 +257,15 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 
 ----------
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Étapes suivantes ##
-[Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
 [Version d’évaluation gratuite de Microsoft Azure](/pricing/free-trial/)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -271,4 +283,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

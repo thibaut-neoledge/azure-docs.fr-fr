@@ -3,7 +3,7 @@
    description="Rapports Azure Active Directory dans les versions préliminaires publiques et privées"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Versions préliminaires des rapports Azure Active Directory
 
@@ -27,7 +27,7 @@ Activité de connexion anormale | Disponibilité générale
 Connexions à partir de sources inconnues | Disponibilité générale
 Connexions après plusieurs échecs | Disponibilité générale
 Connexions depuis plusieurs zones géographiques | Disponibilité générale
-Connexions à partir d’adresses IP affichant une activité suspecte | Disponibilité générale
+Connexions depuis des adresses IP avec des activités suspectes | Disponibilité générale
 Connexions à partir d’appareils potentiellement infectés | Disponibilité générale
 Utilisateurs ayant une activité de connexion anormale | Version préliminaire publique
 Utilisateurs avec des informations d’identification volées | Version préliminaire publique
@@ -46,7 +46,7 @@ Activité de groupes en libre-service (Azure AD) | Version préliminaire publiqu
 Activité de groupes en libre-service (Identity Manager) | Version préliminaire publique
 **Rapports B2B** |
 Résumé de l’invitation | Version préliminaire publique
-**Rapports RMS** |
+**Rapports RMS** |
 Utilisateurs RMS les plus actifs | Version préliminaire publique
 Utilisation de RMS | Version préliminaire publique
 Utilisation d’un appareil RMS | Version préliminaire publique
@@ -54,4 +54,4 @@ Utilisation d’applications fonctionnant avec RMS | Version préliminaire publi
 **Rapports sur la version préliminaire privée** |
 Toute l’activité de connexion des utilisateurs | Version préliminaire privée
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

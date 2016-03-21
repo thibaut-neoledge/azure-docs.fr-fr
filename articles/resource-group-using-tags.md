@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/07/2016"
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@ Chaque ressource ou groupe de ressources peut inclure un maximum de 15 balises. 
 
 ## Balises dans les modèles
 
-Il est très facile d'ajouter une balise dans une ressource pendant le déploiement. Ajoutez simplement l’élément **tags** dans la ressource que vous déployez et fournissez le nom et la valeur. Le nom et la valeur de la balise n’ont pas besoin d’exister préalablement dans votre abonnement. Vous pouvez fournir 15 balises au maximum pour chaque ressource.
+Pour marquer une ressource au cours du déploiement, ajoutez simplement l’élément **tags** à la ressource que vous déployez et indiquez le nom et la valeur. Le nom et la valeur de la balise n’ont pas besoin d’exister préalablement dans votre abonnement. Vous pouvez fournir 15 balises au maximum pour chaque ressource.
 
 L’exemple suivant illustre un compte de stockage avec une balise.
 
@@ -84,7 +84,7 @@ Actuellement, Resource Manager ne prend pas en charge le traitement d’un objet
 
 ## Balises dans le portail Azure
 
-Il est facile de baliser des ressources et des groupes de ressources dans le portail. Utilisez le concentrateur Parcourir pour accéder à la ressource ou au groupe de ressources que vous souhaitez baliser, puis cliquez sur la partie Balises de la section Vue d'ensemble, située en haut du volet.
+Vous pouvez ajouter des balises à des ressources et à des groupes de ressources via le portail. Utilisez le concentrateur Parcourir pour accéder à la ressource ou au groupe de ressources que vous souhaitez baliser, puis cliquez sur la partie Balises de la section Vue d'ensemble, située en haut du volet.
 
 ![Balises des panneaux de ressources et de groupe de ressources](./media/resource-group-using-tags/tag-icon.png)
 
@@ -100,85 +100,82 @@ Pour afficher votre classification de balises dans le portail, utilisez le hub P
 
 ![Épingler des balises au tableau d'accueil](./media/resource-group-using-tags/pin-tags.png)
 
-## Balisage avec PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+## Balises et PowerShell
 
 Les balises se trouvent directement sur les ressources et les groupes de ressources. Pour savoir quelles balises sont déjà appliquées, il suffit de récupérer une ressource ou un groupe de ressources avec **Get-AzureRmResource** ou **Get-AzureRmResourceGroup**. Commençons par un groupe de ressources.
 
-    PS C:\> Get-AzureRmResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup -Name tag-demo-group
 
-    ResourceGroupName : tag-demo
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+                    Name         Value
+                    ===========  ==========
+                    Dept         Finance
+                    Environment  Production
+
+
+Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressources, notamment les balises déjà appliquées, le cas échéant.
+
+Lors de l’obtention des métadonnées d’une ressource, les balises ne sont pas directement affichées. Ci-dessous, vous pouvez voir que les balises s’affichent uniquement en tant qu’objet de table de hachage.
+
+    PS C:\> Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
+
+    Name              : tfsqlserver
+    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    ResourceName      : tfsqlserver
+    ResourceType      : Microsoft.Sql/servers
+    Kind              : v12.0
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    SubscriptionId    : {guid}
+    Tags              : {System.Collections.Hashtable}
+
+Vous pouvez afficher les balises réelles en récupérant la propriété **Tags**.
+
+    PS C:\> (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
+    Dept: Finance
+    Environment: Production
+
+Plutôt que d’afficher les balises d’une ressource ou d’un groupe de ressources en particulier, vous souhaitez sans doute récupérer toutes les ressources ou tous les groupes de ressources qui ont une valeur et une balise spécifiques. Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l’applet de commande **Find-AzureRmResourceGroup** avec le paramètre **-Tag**.
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
+    tag-demo-group
+    web-demo-group
+
+Pour obtenir toutes les ressources contenant une balise et une valeur spécifiques, utilisez l’applet de commande **Find-AzureRmResource**.
+
+    PS C:\> Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
+    tfsqlserver
+    tfsqldatabase
+
+Pour ajouter une balise à un groupe de ressources qui n’en comporte pas, utilisez simplement la commande **Set-AzureRmResourceGroup**, puis spécifiez l’objet de la balise.
+
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
+
+    ResourceGroupName : test-group
     Location          : southcentralus
     ProvisioningState : Succeeded
     Tags              :
-    Permissions       :
-                    Actions  NotActions
-                    =======  ==========
-                    *
+                    Name          Value
+                    =======       =====
+                    Dept          IT
+                    Environment   Test
+                    
+Vous pouvez ajouter des balises à une ressource qui n’en comporte pas à l’aide de la commande **SetAzureRmResource**
 
-    Resources         :
-                    Name                             Type                                  Location
-                    ===============================  ====================================  ==============
-                    CPUHigh ExamplePlan              microsoft.insights/alertrules         eastus
-                    ForbiddenRequests tag-demo-site  microsoft.insights/alertrules         eastus
-                    LongHttpQueue ExamplePlan        microsoft.insights/alertrules         eastus
-                    ServerErrors tag-demo-site       microsoft.insights/alertrules         eastus
-                    ExamplePlan-tag-demo             microsoft.insights/autoscalesettings  eastus
-                    tag-demo-site                    microsoft.insights/components         centralus
-                    ExamplePlan                      Microsoft.Web/serverFarms             southcentralus
-                    tag-demo-site                    Microsoft.Web/sites                   southcentralus
+    PS C:\> Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
-
-Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressources, notamment les balises déjà appliquées, le cas échéant. Pour baliser un groupe de ressources, utilisez simplement la commande **Set-AzureRmResourceGroup**, puis indiquez un nom et une valeur de balise.
-
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  =====
-                    project  tags
-                    env      demo
-
-Les balises sont mises à jour en tant qu'ensemble, donc si vous ajoutez une balise à une ressource déjà balisée, vous devrez utiliser un tableau avec toutes les balises que vous souhaitez conserver. Pour ce faire, vous pouvez tout d'abord sélectionner les balises existantes et ajouter une nouvelle.
+Les balises sont mises à jour en tant qu'ensemble, donc si vous ajoutez une balise à une ressource déjà balisée, vous devrez utiliser un tableau avec toutes les balises que vous souhaitez conserver. Pour cela, vous pouvez tout d’abord sélectionner les balises existantes, en ajouter une, puis réappliquer toutes les balises.
 
     PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  ========
-                    project  tags
-                    env      demo
-                    status   approved
-
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
 Pour supprimer une ou plusieurs balises, enregistrez simplement le tableau sans les balises que vous souhaitez supprimer.
 
 Le processus est le même pour les ressources, sauf que vous utilisez les applets de commande **Get-AzureRmResource** et **Set-AzureRmResource**.
-
-Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l’applet de commande **Find-AzureRmResourceGroup** avec le paramètre **-Tag**.
-
-    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
-    rbacdemo-group
-    tag-demo
-
-Pour les versions d’Azure PowerShell antérieures à la version 1.0, utilisez les commandes suivantes pour obtenir les ressources avec une balise particulière.
-
-    PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
-    rbacdemo-group
-    tag-demo
-    PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
-    rbacdemo-web
-    rbacdemo-docdb
-    ...    
 
 Pour obtenir une liste de toutes les balises d’un abonnement à l’aide de PowerShell, utilisez l’applet de commande **Get-AzureRmTag**.
 
@@ -192,12 +189,69 @@ Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». 
 
 Pour ajouter des balises à la taxonomie, utilisez l’applet de commande **New-AzureRmTag**. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l’applet de commande **Remove-AzureRmTag** pour la supprimer de la taxonomie.
 
-## Balisage avec une API REST
+## Balises et interface de ligne de commande Azure
+
+Les balises se trouvent directement dans les ressources et les groupes de ressources. Pour savoir quelles balises sont déjà appliquées, il suffit de récupérer un groupe de ressources et ses ressources avec **azure group show**.
+
+    azure group show -n tag-demo-group
+    info:    Executing command group show
+    + Listing resource groups
+    + Listing resources for the group
+    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production
+    data:    Resources:
+    data:
+    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    data:      Name    : tfsqlserver
+    data:      Type    : servers
+    data:      Location: eastus2
+    data:      Tags    : Dept=Finance;Environment=Production
+    ...
+
+Pour obtenir les balises uniquement pour le groupe de ressources, utilisez un utilitaire JSON comme [jq](http://stedolan.github.io/jq/download/).
+
+    azure group show -n tag-demo-group --json | jq ".tags"
+    {
+      "Dept": "Finance",
+      "Environment": "Production" 
+    }
+
+Vous pouvez voir les balises d’une ressource en particulier avec **azure resource show**.
+
+    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
+    {
+      "Dept": "Finance",
+      "Environment": "Production"
+    }
+    
+Vous pouvez récupérer toutes les ressources contenant une balise et une valeur particulières comme indiqué ci-dessous.
+
+    azure resource list --json | jq ".[] | select(.tags.Dept == "Finance") | .name"
+    "tfsqlserver"
+    "tfsqlserver/tfsqldata"
+
+Les balises sont mises à jour ensemble. Donc, si vous ajoutez une balise à une ressource déjà balisée, vous devrez récupérer toutes les balises existantes que vous souhaitez conserver. Pour définir la valeur des balises pour un groupe de ressources, utilisez **azure group set** et indiquez toutes les balises du groupe de ressources.
+
+    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
+    info:    Executing command group set
+    ...
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
+    ...
+    
+Vous pouvez répertorier les balises existantes dans votre abonnement avec **azure tag list** et ajouter une nouvelle balise avec **azure tag create**. Pour supprimer une balise de la taxonomie de votre abonnement, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis supprimez-la avec **azure tag delete**.
+
+## Balises et API REST
 
 Le portail et PowerShell utilisent tous deux l'[API REST du Gestionnaire de ressources](https://msdn.microsoft.com/library/azure/dn848368.aspx) en arrière-plan. Si vous avez besoin intégrer le balisage dans un autre environnement, vous pouvez récupérer des balises avec une commande GET sur l'ID de ressource et mettre à jour l'ensemble des balises avec un appel PATCH.
 
 
-## Balisage et facturation
+## Balises et facturation
 
 Dans le cas des services pris en charge, vous pouvez utiliser des balises pour regrouper vos données de facturation. Par exemple, les [machines virtuelles intégrées à Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md) vous permettent de définir et d’appliquer des balises pour organiser l’utilisation de la facturation pour les machines virtuelles. Si vous exécutez plusieurs machines virtuelles pour différentes organisations, vous pouvez recourir aux balises pour regrouper l’utilisation par centre de coûts. Vous pouvez également utiliser des balises pour catégoriser les coûts par environnement d’exécution ; par exemple, l’utilisation de la facturation pour les machines virtuelles en cours d’exécution dans l’environnement de production.
 
@@ -214,4 +268,4 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 - Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](./xplat-cli-azure-resource-manager.md).
 - Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](./azure-portal/resource-group-portal.md).  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

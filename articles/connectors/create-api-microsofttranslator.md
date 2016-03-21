@@ -15,14 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Prendre en main l'API Microsoft Translator
 Connectez-vous à Microsoft Translator pour traduire un texte, détecter une langue, et bien plus encore. L’API Microsoft Translator peut être utilisée à partir de :
 
-- PowerApps 
 - Logic Apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic Apps](../articles/connectors/create-api-microsofttranslator.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
 
 Avec Microsoft Translator, vous pouvez :
 
@@ -42,25 +46,6 @@ Déclencheurs | Actions
 Aucun | <ul><li>Détecter la langue</li><li>Synthèse vocale</li><li>Traduire le texte</li><li>Obtenir les langues</li><li>Obtenir les langues de synthèse vocale</li></ul>
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
-
-## Création de la connexion à Microsoft Translator
-
-### Ajouter une configuration à PowerApps
-Lorsque vous ajoutez Microsoft Translator à PowerApps Enterprise, vous entrez les valeurs ** ID client ** et **clé secrète client** de votre application Microsoft Translator. Si vous n'avez pas d’application Translator, vous pouvez en créer une :
-
-1. Accédez à [page de développeur Azure Data Market][5] et connectez-vous avec votre compte Microsoft. 
-
-2. Sélectionnez **Inscrire votre application** :
-
-	1. Entrez une valeur dans le champ **ID client**.
-	2. Entrez le **nom** de votre application.
-	3. Entrez une valeur factice comme **URL de redirection**. Par exemple, entrez *https://contosoredirecturl*.
-	4. Entrez une **description**.
-	5. Sélectionnez **Créer**.  
-
-	![Inscrivez votre application][6]
-
-Maintenant copiez/collez les valeurs **ID client** et **clé secrète client** dans votre configuration Translator dans le portail Azure.
 
 
 ## Informations de référence sur l'API REST Swagger
@@ -139,21 +124,21 @@ Il n'existe aucun paramètre pour cet appel.
 
 #### Langue : modèle de langage pour les langues traduisibles par Microsoft Translator
 
-| Nom | Type de données | Requis|
+|Nom de la propriété | Type de données | Requis|
 |---|---|---|
 |Code|string|no|
 |Nom|string|no|
 
 
 ## Étapes suivantes
-Après avoir ajouté l’API Microsoft Translator à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l'API dans leurs applications.
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Revenez à la [liste des API](apis-list.md).
 
 
 <!--References-->
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0302_2016-->
-
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Ajout de notifications Push à votre application Windows 8.1 universelle | Microsoft Azure" 
-	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à votre application Windows 8.1 universelle à partir de votre service mobile principal JavaScript." 
+	pageTitle="Ajout de notifications Push à votre application Windows 8.1 universelle | Microsoft Azure" 
+	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à votre application Windows 8.1 universelle à partir de votre service mobile principal JavaScript." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 
@@ -21,26 +21,31 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Cette rubrique explique comment utiliser Azure Mobile Services avec un backend JavaScript pour envoyer des notifications Push à une application Windows universelle. Dans ce didacticiel, vous allez activer des notifications Push à l'aide d'Azure Notification Hubs dans un projet d'application Windows universelle. Lorsque vous aurez terminé, votre service mobile enverra une notification Push depuis le backend JavaScript vers toutes les applications Windows Store et Windows Phone Store enregistrées, chaque fois qu'un enregistrement est inséré dans la table TodoList. Le concentrateur de notification que vous créez est fourni gratuitement avec votre service mobile, peut être géré indépendamment du service mobile et peut être utilisé par d'autres applications et services.
+&nbsp;
 
->[AZURE.NOTE]Cette rubrique vous présente l'utilisation des outils dans Visual Studio 2013 Update 3 pour ajouter la prise en charge des notifications Push depuis Mobile Services vers une application Windows universelle. La même procédure peut être utilisée pour ajouter la prise en charge des notifications Push depuis Mobile Services vers une application Windows Store ou Windows Phone Store 8.1. Pour ajouter des notifications Push à une application Windows Phone 8 ou Windows Phone Silverlight 8.1, consultez cette version de [Prise en main des notifications Push dans Mobile Services](mobile-services-javascript-backend-windows-phone-get-started-push.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajout de notifications Push à votre application Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+ 
+Cette rubrique explique comment utiliser Azure Mobile Services avec un backend JavaScript pour envoyer des notifications Push à une application Windows universelle. Dans ce didacticiel, vous allez activer des notifications Push à l'aide d'Azure Notification Hubs dans un projet d'application Windows universelle. Lorsque vous aurez terminé, votre service mobile enverra une notification Push depuis le backend JavaScript vers toutes les applications Windows Store et Windows Phone Store enregistrées, chaque fois qu'un enregistrement est inséré dans la table TodoList. Le hub de notification que vous créez est fourni gratuitement avec votre service mobile, peut être géré indépendamment du service mobile et peut être utilisé par d'autres applications et services.
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
+>[AZURE.NOTE]Cette rubrique vous présente l'utilisation des outils dans Visual Studio 2013 Update 3 pour ajouter la prise en charge des notifications Push depuis Mobile Services vers une application Windows universelle. La même procédure peut être utilisée pour ajouter la prise en charge des notifications Push depuis Mobile Services vers une application Windows Store ou Windows Phone Store 8.1. Pour ajouter des notifications Push à une application Windows Phone 8 ou Windows Phone Silverlight 8.1, consultez cette version de [Prise en main des notifications Push dans Mobile Services](mobile-services-javascript-backend-windows-phone-get-started-push.md).
+
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
 1. [Inscription de votre application pour les notifications Push](#register)
 2. [Mise à jour du service pour l'envoi de notifications Push](#update-service)
 3. [Test des notifications Push dans votre application](#test)
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un [compte Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045) actif.
-* [Visual Studio 2013 Express pour Windows](http://go.microsoft.com/fwlink/?LinkId=257546) Update 3 ou une version ultérieure
+* [Visual Studio 2013 Express pour Windows](http://go.microsoft.com/fwlink/?LinkId=257546) Update 3 ou une version ultérieure
 
 ##<a id="register"></a>Inscription de votre application pour les notifications Push
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-&nbsp;&nbsp;6. Accédez au dossier de projet `\Services\MobileServices\your_service_name`, ouvrez le fichier de code push.register.cs généré et examinez la méthode **UploadChannel** qui enregistre l'URL de canal d'appareil avec le concentrateur de notification.
+&nbsp;&nbsp;6. Accédez au dossier de projet `\Services\MobileServices\your_service_name`, ouvrez le fichier de code push.register.cs généré et examinez la méthode **UploadChannel** qui enregistre l'URL de canal d'appareil avec le hub de notification.
 
 &nbsp;&nbsp;7. Ouvrez le fichier de code App.xaml.cs partagé et notez qu'un appel vers la méthode **UploadChannel** a été ajouté au gestionnaire d'événements **OnLaunched**. Cela garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.
 
@@ -63,21 +68,17 @@ La procédure suivante permet de mettre à jour le script d'insertion enregistr�
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Ce didacticiel explique les règles de base de l'activation d'une application Windows Store pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Nous vous invitons maintenant à suivre l'un des didacticiels suivants :
+Ce didacticiel explique les règles de base de l'activation d'une application Windows Store pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Nous vous invitons maintenant à suivre l'un des didacticiels suivants :
 
-+ [Envoi de notifications Push à des utilisateurs authentifiés](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)
-	<br/>En savoir plus sur l'utilisation de balises pour envoyer des notifications Push depuis un service mobile uniquement à un utilisateur authentifié.
++ [Envoi de notifications Push à des utilisateurs authentifiés](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>En savoir plus sur l'utilisation de balises pour envoyer des notifications Push depuis un service mobile uniquement à un utilisateur authentifié.
 
-+ [Envoi de notifications diffusées aux abonnés](../notification-hubs-windows-store-dotnet-send-breaking-news.md)
-	<br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
++ [Envoi de notifications diffusées aux abonnés](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
 
-+ [Envoi de notifications indépendantes de toute plateforme aux abonnés](../notification-hubs-aspnet-cross-platform-notify-users.md)
-	<br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
++ [Envoi de notifications indépendantes de toute plateforme aux abonnés](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
 
-Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
+Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
-* [Azure Notification Hubs : instructions relatives au diagnostic](../notification-hubs-diagnosing.md)
-	<br/>En savoir plus sur la résolution des problèmes liés aux notifications Push.
+* [Azure Notification Hubs : instructions relatives au diagnostic](../notification-hubs/notification-hubs-diagnosing.md) <br/>En savoir plus sur la résolution des problèmes liés aux notifications Push.
 
 * [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
@@ -104,4 +105,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
    description="Guide contenant tous les articles sur la création de rapports Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Guide Azure Active Directory Reporting Guide
 
- - [Prise en main de l'API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md)
- - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
+ - [Prise en main de l'API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md)
+ - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
  - [Rétention des rapports Azure Active Directory](active-directory-reporting-retention.md)
  - [Versions préliminaires de création de rapports Azure Active Directory](active-directory-reporting-previews.md)
  - [Recherche de rapports Azure Active Directory](active-directory-reporting-search.md)
  - [Renvoi des rapports Azure Active Directory](active-directory-reporting-backfill.md)
  - [Latences de la création de rapports Azure Active Directory](active-directory-reporting-latencies.md)
- - [Événement « Acteur inconnu » lors de la création de rapports Azure Active Directory](active-directory-reporting-unknown-actor.md)
+ - [Événement « Acteur inconnu » lors de la création de rapports Azure Active Directory](active-directory-reporting-unknown-actor.md)
  - [Rapport sur toute l’activité de connexion des utilisateurs Azure Active Directory](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

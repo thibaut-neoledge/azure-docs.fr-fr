@@ -48,11 +48,8 @@ Aucun | <ul><li>Rechercher sur le web</li><li>Rechercher des vidéos</li><li>Rec
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
-## Ajouter une configuration
-Quand vous ajoutez Bing Search à PowerApps Enterprise, vous êtes invité à indiquer une clé de compte. Si vous n’avez pas une clé Bing Search, utilisez gratuitement l’[offre Bing Search](https://datamarket.azure.com/dataset/bing/search) pour en obtenir une.
 
-
-## Informations de référence sur l’API REST Swagger
+## Informations de référence sur l'API REST Swagger
 S’applique à la version 1.0.
 
 ### Rechercher sur le web 
@@ -297,8 +294,8 @@ Récupère la totalité des sites web, vidéos, images, etc. à partir d’une r
 
 ## Étapes suivantes
 
-Après avoir ajouté l’API Bing Search à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
-
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+Revenir à la [liste des API](apis-list.md).
+
+<!---HONumber=AcomDC_0309_2016-->

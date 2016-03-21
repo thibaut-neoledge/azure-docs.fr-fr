@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Limites de ressources de base de données SQL Azure"
-	description="Cette page décrit certaines limites de ressources courantes pour une base de données SQL Azure."
+	pageTitle="Limites de ressources de base de données SQL Azure"
+	description="Cette page décrit certaines limites de ressources courantes pour une base de données SQL Azure."
 	services="sql-database"
 	documentationCenter="na"
 	authors="rothja"
@@ -14,23 +14,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/17/2016"
+	ms.date="03/02/2016"
 	ms.author="jroth" />
 
 
-# Limites de ressources de base de données SQL Azure
+# Limites de ressources de base de données SQL Azure
 
 ## Vue d’ensemble
 
-La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : **Gouvernance des ressources** et **Application de limites**. Cette rubrique décrit ces deux domaines principaux de la gestion des ressources.
+La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : **Gouvernance des ressources** et **Application de limites**. Cette rubrique décrit ces deux domaines principaux de la gestion des ressources.
 
 ## Gouvernance des ressources
 L’un des objectifs de conception des niveaux de service Basique, Standard et Premium est que la base de données SQL Azure se comporte comme si elle s’exécutait sur sa propre machine, complètement isolée des autres bases de données. La gouvernance des ressources émule ce comportement. Si l’utilisation des ressources agrégées atteint les ressources maximum disponibles de processeur, de mémoire, d’E/S du journal et d’E/S des données affectées à la base de données, la gouvernance des données mettra en file d’attente les requêtes en exécution et affectera des ressources aux requêtes en file d’attente à mesure qu’elles se libèrent.
 
 Comme sur une machine dédiée, l’utilisation de toutes les ressources disponibles entraîne une exécution plus longue des requêtes en cours d’exécution, ce qui peut provoquer des délais d’expiration de commande sur le client. Les applications avec la logique de nouvelle tentative agressive et les applications qui exécutent des requêtes sur la base de données avec une fréquence élevée peuvent rencontrer des messages d’erreur lorsque vous tentez d’exécuter de nouvelles requêtes et que la limite de demandes simultanées a été atteinte.
 
-### Recommandations :
-Surveillez l’utilisation des ressources, ainsi que les temps de réponse moyens des requêtes lorsque vous approchez de l’utilisation maximale d’une base de données. Si vous rencontrez des latences de requête supérieures, généralement, trois options s’offrent à vous :
+### Recommandations :
+Surveillez l’utilisation des ressources, ainsi que les temps de réponse moyens des requêtes lorsque vous approchez de l’utilisation maximale d’une base de données. Si vous rencontrez des latences de requête supérieures, généralement, trois options s’offrent à vous :
 
 1.	Réduire la quantité de requêtes entrantes dans la base de données afin d’éviter l’expiration et l’accumulation de demandes.
 
@@ -55,24 +55,18 @@ Les [pools de base de données élastique](sql-database-elastic-pool.md) partage
 
 Pour consulter une définition étendue de chaque ressource répertoriée dans les tableaux précédents, reportez-vous aux descriptions de la rubrique [Capacités et limites des niveaux de service](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). Pour obtenir une présentation des niveaux de service, consultez [Niveaux de service et de performance de Base de données SQL Azure](sql-database-service-tiers.md).
 
-## Quota de DTU par serveur
-
-La base de données SQL Azure a un quota de DTU par serveur logique de 15 000 DTU actuellement. Ce quota représente les DTU qu’un serveur logique peut héberger, en fonction de la somme des DTU et du niveau de performance de chaque base de données sur le serveur. Par exemple, un serveur avec 5 bases de données Basique (5 x 5 DTU maximum), 2 bases de données Standard S1 (2 x 20 DTU maximum) et 3 bases de données Premium P1 (3 x 100 DTU maximum) a consommé 365 DTU sur son quota de 15 000 DTU.
-
->[AZURE.NOTE] Vous pouvez demander une augmentation de ce quota en [contactant le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
-
 ## Autres limites de SQL Database
 
 | Domaine | Limite | Description |
 |---|---|---|
-| Bases de données utilisant l’exportation automatique par abonnement | 10 | L’exportation automatique vous permet de créer une planification personnalisée pour sauvegarder vos bases de données SQL. Pour plus d’informations, consultez [Bases de données SQL : prise en charge des exportations de base de données SQL automatisées](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
+| Bases de données utilisant l’exportation automatique par abonnement | 10 | L’exportation automatique vous permet de créer une planification personnalisée pour sauvegarder vos bases de données SQL. Pour plus d’informations, consultez [Bases de données SQL : prise en charge des exportations de base de données SQL automatisées](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 
 ## Ressources
 
 [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
 
-[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
+[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

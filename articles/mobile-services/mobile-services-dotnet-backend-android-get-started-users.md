@@ -18,18 +18,18 @@
 
 # Ajouter une authentification à votre application Mobile Services Android
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajout de l’authentification à votre application Android](../app-service-mobile/app-service-mobile-android-get-started-users.md).
 
 ## Résumé
 
 Cette rubrique montre comment authentifier des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d’activer l’authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d’activer l’authentification dans votre application :
 
 
 ## Configuration requise
@@ -48,7 +48,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d’activer 
 
 3. Ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services].
 
-4. Dans le menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer l'application ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
+4. Dans le menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer l'application ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
 
 	 Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
@@ -88,4 +88,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

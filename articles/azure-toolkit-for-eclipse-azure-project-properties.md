@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
@@ -28,15 +28,15 @@ La configuration des propriétés de votre projet Azure s’effectue via les bo�
 
 ![][ic719480]
 
-Dans cette page de propriétés, vous pouvez modifier les éléments suivants :
+Dans cette page de propriétés, vous pouvez modifier les éléments suivants :
 
-* **Nom du service :** nom de votre projet Azure.
-* **Générer pour :** indique si le projet doit être généré pour l’émulateur de calcul ou être déployé dans Azure.
-* **Système d’exploitation cible :** système d’exploitation à utiliser lors du déploiement de votre projet dans Azure.
+* **Nom du service :** nom de votre projet Azure.
+* **Générer pour :** indique si le projet doit être généré pour l’émulateur de calcul ou être déployé dans Azure.
+* **Système d’exploitation cible :** système d’exploitation à utiliser lors du déploiement de votre projet dans Azure.
 
 ## Voir aussi ##
 
-[Kit de ressources Azure pour Eclipse][]
+[Kit de ressources Azure pour Eclipse][]
 
 [Installation du kit de ressources Azure pour Eclipse][]
 
@@ -51,7 +51,7 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 <!-- URL List -->
 
 [Centre de développement Azure avec Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Propriétés du rôle Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Liste de compte de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
@@ -61,4 +61,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

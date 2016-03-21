@@ -29,7 +29,7 @@ Depuis son lancement, l’extension de Script personnalisé a été largement ut
 
 ## À propos des modèles Azure Resource Manager
 
-Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage Json en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, voir les articles suivants :
+Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage Json en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, voir les articles suivants :
 
 - [Présentation du groupe de ressources](../resource-group-overview)
 - [Déploiement de modèles avec l'interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli)
@@ -45,7 +45,7 @@ Le modèle Azure Resource Manager vous permet de spécifier de manière déclara
 
 ## Utilisation de l’extension de script personnalisé
 
-Pour le déploiement de modèles, nous utilisons la même version d’extension de script personnalisé que celle de l’API de gestion de Service Azure. L’extension prend en charge les mêmes paramètres et scénarios, par exemple, le téléchargement de fichiers vers le compte de stockage Azure ou un emplacement Github. La différence clé qui intervient pendant l’utilisation des modèles est que la version exacte de l’extension doit être spécifiée, contrairement à la spécification de la version au format majorversion.*.
+Pour le déploiement de modèles, utilisez la même version d’extension de script personnalisé que celle de l’API de gestion de Service Azure. L’extension prend en charge les mêmes paramètres et scénarios, par exemple, le téléchargement de fichiers vers le compte de stockage Azure ou un emplacement Github. La différence clé qui intervient pendant l’utilisation des modèles est que la version exacte de l’extension doit être spécifiée, contrairement à la spécification de la version au format majorversion.*.
 
  ## Exemple de modèle pour une machine virtuelle sous Linux
 
@@ -96,10 +96,10 @@ Définir la ressource suivante dans la section Ressource du modèle
 
 Dans les exemples ci-dessus, remplacez l’URL du fichier et le nom de fichier par vos propres paramètres.
 
-Une fois le modèle créé, vous pouvez déployer vos paramètres à l’aide de l’interface de ligne de commande CLI Azure ou d’Azure Powershell.
+Une fois le modèle créé, vous pouvez le déployer en utilisant l’interface de ligne de commande Azure ou Azure PowerShell.
 
 Reportez-vous aux exemples ci-dessous pour obtenir des exemples complets de configuration d’applications sur une machine virtuelle avec des extensions de script personnalisé.
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Windows</a>.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

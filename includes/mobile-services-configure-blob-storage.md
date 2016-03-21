@@ -1,6 +1,6 @@
 Un nouveau script pour la fonction insert est enregistré. Il génère une signature d’accès partagé (SAP) lorsqu’un nouvel élément Todo est inséré.
 
-0. Si vous n’avez pas encore créé de compte de stockage, consultez la rubrique [Création d’un compte de stockage](../storage/storage-create-storage-account.md).
+0. Si vous n’avez pas encore créé de compte de stockage, consultez la rubrique [Création d’un compte de stockage](../articles/storage/storage-create-storage-account.md).
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
 
@@ -21,7 +21,7 @@ Un nouveau script pour la fonction insert est enregistré. Il génère une signa
 
 4. Cliquez sur l’onglet **Données**, puis sur la table **TodoItem**.
 
-5.  Dans **todoitem**, cliquez sur l’onglet **Script**, sélectionnez **Insérer**, remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+5.  Dans **todoitem**, cliquez sur l’onglet **Script**, sélectionnez **Insérer**, remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
 		var azure = require('azure');
 		var qs = require('querystring');
@@ -76,9 +76,9 @@ Un nouveau script pour la fonction insert est enregistré. Il génère une signa
 		    }
 		}
 
-   	Cela remplace la fonction appelée lors d'une insertion dans la table TodoItem avec le nouveau script. Ce nouveau script génère une nouvelle SAP pour l’insertion, qui est valide 5 minutes, et affecte la valeur de la SAP générée à la propriété `sasQueryString` de l’élément renvoyé. La propriété `imageUri` est également définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
+   	Cela remplace la fonction appelée lors d'une insertion dans la table TodoItem avec le nouveau script. Ce nouveau script génère une nouvelle SAP pour l’insertion, qui est valide 5 minutes, et affecte la valeur de la SAP générée à la propriété `sasQueryString` de l’élément renvoyé. La propriété `imageUri` est également définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
 
-	>[AZURE.NOTE]Ce code crée une SAP pour un objet blob individuel. Si vous devez télécharger plusieurs objets blob vers un conteneur à l’aide de la même SAP, vous pouvez plutôt appeler la [méthode generateSharedAccessSignature](http://go.microsoft.com/fwlink/?LinkId=390455) </a>avec un nom de ressource d’objet blob vide, comme ceci :
+	>[AZURE.NOTE] Ce code crée une SAP pour un objet blob individuel. Si vous devez télécharger plusieurs objets blob vers un conteneur à l’aide de la même SAP, vous pouvez plutôt appeler la [méthode generateSharedAccessSignature](http://go.microsoft.com/fwlink/?LinkId=390455) </a>avec un nom de ressource d’objet blob vide, comme ceci :
 	>                 
 	>     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
 
@@ -91,4 +91,4 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 <!-- URLs. -->
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

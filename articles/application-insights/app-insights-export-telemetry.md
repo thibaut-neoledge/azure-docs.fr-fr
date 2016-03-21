@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -31,7 +31,7 @@ L’exportation continue est disponible pendant la période d’essai gratuite e
 Si vous ne disposez pas d'un compte de stockage classique, créez-en un maintenant.
 
 
-1. Créez un compte de stockage « classique » dans votre abonnement sur le [portail Azure](https://portal.azure.com).
+1. Créez un compte de stockage dans votre abonnement sur le [portail Azure](https://portal.azure.com).
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-export-telemetry/030.png)
 
@@ -212,4 +212,4 @@ L’exportation continue redémarre.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

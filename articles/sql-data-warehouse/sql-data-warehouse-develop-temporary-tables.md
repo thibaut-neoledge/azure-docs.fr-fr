@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tables temporaires dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à l’utilisation de tables temporaires dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   pageTitle="Tables temporaires dans SQL Data Warehouse | Microsoft Azure"
+   description="Conseils relatifs à l’utilisation de tables temporaires dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
-# Tables temporaires dans SQL Data Warehouse
-Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse. Elles sont définies en tant que tables temporaires locales. Contrairement aux tables SQL Server, elles sont accessibles depuis n’importe quel point de la session.
+# Tables temporaires dans SQL Data Warehouse
+Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse. Elles sont définies en tant que tables temporaires locales. Contrairement aux tables SQL Server, elles sont accessibles depuis n’importe quel point de la session.
 
 Les tables temporaires sont très utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires.
 
@@ -29,7 +29,7 @@ La possibilité d’afficher des tables temporaires depuis n’importe quel poin
 
 Prenons un exemple pratique.
 
-La procédure stockée ci-dessous génère le code DDL nécessaire pour mettre à jour les statistiques dans chaque colonne de la base de données :
+La procédure stockée ci-dessous génère le code DDL nécessaire pour mettre à jour les statistiques dans chaque colonne de la base de données :
 
 ```
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -97,9 +97,9 @@ FROM    t1
 ;
 ```
 
-Vous pouvez voir qu’aucune action n’a été appliquée aux données, en réalité. Cette procédure a simplement généré le code DDL, qu’elle a stocké dans une table temporaire.
+Vous pouvez voir qu’aucune action n’a été appliquée aux données, en réalité. Cette procédure a simplement généré le code DDL, qu’elle a stocké dans une table temporaire.
 
-Toutefois, SQL Data Warehouse peut utiliser cette table temporaire en dehors de la procédure qui l’a créée. Ce n’est pas le cas de SQL Server. En fait, la table temporaire peut être utilisée à **n’importe quel point** de la session.
+Toutefois, SQL Data Warehouse peut utiliser cette table temporaire en dehors de la procédure qui l’a créée. Ce n’est pas le cas de SQL Server. En fait, la table temporaire peut être utilisée à **n’importe quel point** de la session.
 
 Cela peut optimiser la facilité de gestion et la modularité du code.
 
@@ -124,12 +124,12 @@ DROP TABLE #stats_ddl;
 
 Dans certains cas, les fonctions à instructions multiples et inline peuvent également être remplacées via cette technique.
 
-> [AZURE.NOTE]Vous pouvez également étendre cette solution. Si vous souhaitez simplement mettre à jour une table unique, par exemple, il vous suffit de filtrer la table #stats\_ddl.
+> [AZURE.NOTE] Vous pouvez également étendre cette solution. Si vous souhaitez simplement mettre à jour une table unique, par exemple, il vous suffit de filtrer la table #stats\_ddl.
 
 ## Limitations relatives aux tables temporaires
-SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.
+SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.
 
-Voici les principales limitations :
+Voici les principales limitations :
 
 - Les tables temporaires globales ne sont pas prises en charge.
 - Vous ne pouvez pas créer des vues sur des tables temporaires.
@@ -147,4 +147,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

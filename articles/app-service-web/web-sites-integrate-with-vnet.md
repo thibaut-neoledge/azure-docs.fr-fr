@@ -20,14 +20,19 @@
 
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Si vous n’êtes pas familiarisé avec les réseaux Azure Virtual Network, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide d’une variété de technologies VPN. Pour en savoir plus sur les réseaux Azure Virtual Network, commencez par consulter la page [Vue d’ensemble d’Azure Virtual Network][VNETOverview].
 
-Azure App Service se présente sous deux formes. Les systèmes mutualisés représentent la forme la plus courante. Ils prennent en charge l’ensemble des plans de tarification. Quant à l’environnement App Service (ASE, App Service Environment), il s’agit d’une fonctionnalité Premium qui se déploie dans le réseau virtuel des clients. D’une manière générale, avec un environnement App Service, vous n’avez pas besoin d’utiliser l’intégration au réseau virtuel. En effet, le système est déjà dans votre réseau virtuel et a accès à toutes les ressources correspondantes. Vous pourriez utiliser la fonctionnalité d’intégration au réseau virtuel avec un ASE pour une seule raison : si vous souhaitez accéder aux ressources d’un autre réseau virtuel qui n’est pas connecté au réseau virtuel qui héberge votre ASE.
+Azure App Service se présente sous deux formes.
+
+1. Les systèmes mutualisés qui prennent en charge l’ensemble des plans de tarification.
+1. L’environnement App Service (ASE, App Service Environment), une fonctionnalité Premium qui se déploie sur votre réseau virtuel.  
+
+Cet article ne décrit pas comment placer un ASE dans un réseau virtuel V2. Cette opération n’est pas encore prise en charge et n’est pas liée à cet article. Cet article concerne l’activation de vos applications pour qu’elles consomment des ressources dans un réseau virtuel V1 ou V2.
 
 Grâce à cette intégration, votre application web a accès aux ressources se trouvant dans votre réseau virtuel sans que celui-ci puisse accéder à votre application web de façon privée. Cette fonctionnalité est couramment utilisée dans le scénario suivant : vous autorisez votre application web à accéder à une base de données ou à des services web exécutés dans une machine virtuelle de votre réseau virtuel Azure. Avec l’intégration au réseau virtuel, vous n’avez pas besoin d’exposer un point de terminaison public pour les applications sur votre machine virtuelle, mais vous pouvez utiliser à la place des adresses privées routables non-Internet.
 
 La fonctionnalité d’intégration au réseau virtuel :
 
 - nécessite un plan de tarification Standard ou Premium ; 
-- fonctionne actuellement avec les réseaux virtuels V1 ou classiques uniquement ; 
+- fonctionne avec un réseau virtuel V1(Classic) ou V2(Resource Manager) 
 - prend en charge les protocoles TCP et UDP ;
 - fonctionne avec les applications web, mobiles et API ;
 - permet à une application de se connecter à un seul réseau virtuel à la fois ;
@@ -66,28 +71,41 @@ Si le plan de tarification n’est pas adapté à votre application, l’interfa
 ![][1]
  
 ###Activation de l’intégration au réseau virtuel avec un réseau virtuel existant###
-L’interface utilisateur d’intégration au réseau virtuel vous permet d’effectuer vos choix dans une liste de vos réseaux virtuels V1. Dans l’image ci-dessous, vous pouvez voir qu’un seul réseau virtuel peut être sélectionné. Un réseau virtuel peut être grisé pour plusieurs raisons, notamment :
+L’interface utilisateur d’intégration au réseau virtuel vous permet d’effectuer vos choix dans la liste de vos réseaux virtuels. Les réseaux virtuels V1 indiquent leur type avec le terme « Classique » entre parenthèses à côté de leur nom. La liste est triée de telle façon que les réseaux virtuels V2 sont répertoriés en premier. Dans l’image ci-dessous, vous pouvez voir qu’un seul réseau virtuel peut être sélectionné. Un réseau virtuel peut être grisé pour plusieurs raisons, notamment :
 
 - Le réseau virtuel est dans un abonnement différent de celui auquel votre compte a accès.
 - La connexion de point à site n’est pas activée pour le réseau virtuel.
 - Le réseau virtuel ne dispose pas d’une passerelle de routage dynamique.
 
-Notez également que, dans la mesure où nous ne prenons pas encore en charge l’intégration aux réseaux virtuels V2, ceux-ci ne sont pas répertoriés.
 
 ![][2]
 
 Pour activer l’intégration, cliquez simplement sur le réseau virtuel souhaité. Votre application est automatiquement redémarrée, de sorte que les modifications soient appliquées.
 
-Si votre réseau virtuel ne dispose pas d’une passerelle ni de connexion de point à site, vous devez commencer par en configurer une. Pour ce faire, accédez au portail Azure et affichez la liste des réseaux virtuels (classiques). Cliquez sur le réseau avec lequel vous souhaitez effectuer l’intégration, puis cliquez sur la grande zone Connexions VPN, sous Essentials. À ce stade, vous pouvez créer votre réseau VPN de point à site et, à partir de ce réseau, créer une passerelle. Une fois créée la connexion de point à site avec passerelle, le processus peut prendre environ 30 minutes.
+##### Activation de la connexion point à site dans un réseau virtuel V1 #####
+Si votre réseau virtuel ne dispose pas d’une passerelle ni de connexion de point à site, vous devez commencer par en configurer une. Pour effectuer cette opération pour un réseau virtuel V1, accédez au [portail Azure][AzurePortal] et affichez la liste des réseaux virtuels (classiques). Cliquez sur le réseau avec lequel vous souhaitez effectuer l’intégration, puis cliquez sur la grande zone Connexions VPN, sous Essentials. À ce stade, vous pouvez créer votre réseau VPN de point à site et, à partir de ce réseau, créer une passerelle. Une fois créée la connexion de point à site avec passerelle, le processus peut prendre environ 30 minutes.
 
 ![][8]
 
-### Création d’un réseau virtuel et intégration au réseau ###
-Si vous souhaitez créer un réseau virtuel, n’oubliez pas que vous pouvez actuellement créer un réseau V1 ou classique uniquement. Pour créer un réseau virtuel V1 par le biais de l’interface utilisateur d’intégration au réseau virtuel, il vous suffit de sélectionner Créer un réseau virtuel et d’indiquer le nom et l’espace d’adressage du réseau.
+##### Activation de la connexion point à site dans un réseau virtuel V2 #####
 
-Sachez que si vous souhaitez que ce réseau virtuel puisse se connecter à vos autres réseaux, vous devez éviter de choisir un espace d’adressage IP qui chevauche ces réseaux.
+Pour configurer un réseau virtuel V2 avec une passerelle et une connexion point à site, vous devez utiliser PowerShell comme expliqué ici, [Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell][V2VNETP2S]. L’interface utilisateur permettant d’effectuer cette opération n’est pas encore disponible.
 
->[AZURE.NOTE] La fourniture complète de passerelles fonctionnelles à un nouveau réseau virtuel peut prendre jusqu’à 30 minutes. L’interface utilisateur est mise à jour à la fin du processus.
+### Création d’un réseau virtuel préconfiguré ###
+Si vous souhaitez créer un réseau virtuel configuré avec une passerelle et connexion point à site, l’interface réseau Service de l’application a la possibilité de faire, mais uniquement pour un réseau virtuel V2. Si vous souhaitez créer un réseau virtuel V1 avec une passerelle et une connexion point à site, vous devez le faire manuellement via l’interface utilisateur de réseau.
+
+Pour créer un réseau virtuel V2 via l’interface utilisateur d’intégration au réseau virtuel, sélectionnez simplement **Créer un réseau virtuel** et indiquez le :
+
+- Nom du réseau virtuel
+- Bloc d’adresses du réseau virtuel
+- Nom du sous-réseau
+- Bloc d’adresses du sous-réseau
+- Bloc d’adresses de la passerelle
+- Bloc d’adresses de point à site
+
+Si vous souhaitez que ce réseau virtuel puisse se connecter à vos autres réseaux, vous devez éviter de choisir un espace d’adressage IP qui chevauche celui de ces réseaux.
+
+>[AZURE.NOTE] La création du réseau virtuel V2 avec passerelle prend environ 30 minutes. Actuellement, le réseau virtuel ne sera pas intégré à votre application. Une fois votre réseau virtuel créé avec la passerelle, vous devez revenir à l’interface d’intégration de réseau virtuel de votre application et sélectionner votre nouveau réseau virtuel.
 
 ![][3]
 
@@ -109,7 +127,6 @@ Pour connecter votre application à votre réseau virtuel, cette fonctionnalité
 ![][4]
  
 Si vous n'avez pas configuré un serveur DNS avec votre réseau virtuel, vous devrez utiliser des adresses IP. Lorsque vous utilisez des adresses IP, n’oubliez pas que le principal avantage de cette fonctionnalité est qu’elle vous permet d’utiliser les adresses privées au sein de votre réseau privé. Si vous définissez votre application de sorte qu’elle utilise des adresses IP publiques pour l’une de vos machines virtuelles, vous n’utilisez pas la fonctionnalité d’intégration au réseau virtuel et communiquez sur Internet.
-
 
 
 ##Gestion des intégrations au réseau virtuel##
@@ -156,7 +173,7 @@ Deux actions clés sont possibles. D’une part, vous avez la possibilité d’a
 
 La fonctionnalité d’intégration au réseau virtuel offre notamment l’avantage suivant : si votre réseau virtuel est connecté à votre réseau local avec une connexion VPN de site à site, vos applications peuvent accéder à vos ressources locales à partir de votre application. Pour que cela fonctionne, vous devrez peut-être mettre à jour votre passerelle VPN locale avec les itinéraires relatifs à votre plage IP de point à site. Lorsque vous configurez le réseau VPN de site à site pour la première fois, les scripts utilisés pour le configurer doivent définir les itinéraires, y compris votre réseau VPN de point à site. Si vous ajoutez le réseau VPN de point à site après avoir créé votre réseau VPN de site à site, vous devrez mettre à jour les itinéraires manuellement. La procédure détaillée dépend de la passerelle et n’est pas décrite ici.
 
->[AZURE.NOTE] La fonctionnalité d’intégration au réseau virtuel fonctionne avec un réseau VPN de site à site pour l’accès aux ressources locales. Cependant, actuellement, elle ne fonctionne pas avec un réseau VPN ExpressRoute à cette fin.
+>[AZURE.NOTE] La fonctionnalité d’intégration au réseau virtuel fonctionne avec un réseau VPN de site à site pour l’accès aux ressources locales. Cependant, actuellement, elle ne fonctionne pas avec un réseau VPN ExpressRoute à cette fin. C’est vrai lors de l’intégration d’un réseau V1 ou V2. Si vous avez besoin d’accéder aux ressources via un VPN ExpressRoute, vous pouvez utiliser un ASE pouvant s’exécuter dans votre réseau virtuel.
 
 ##Détails de la tarification##
 Lorsque vous utilisez la fonctionnalité d’intégration au réseau virtuel, vous devez connaître quelques nuances concernant la tarification. L’utilisation de cette fonctionnalité implique 3 coûts :
@@ -167,7 +184,7 @@ Lorsque vous utilisez la fonctionnalité d’intégration au réseau virtuel, vo
 
 Pour que vos applications puissent utiliser cette fonctionnalité, elles doivent faire partie d’un plan App Service Standard ou Premium. Pour plus d’informations sur les coûts, voir : [Tarification App Service][ASPricing].
 
-En raison du mode de gestion des réseaux VPN de point à site, vous encourez systématiquement des coûts liés aux données sortantes lors de la connexion pour l’intégration au réseau virtuel, et ce, même si le réseau virtuel est situé dans le même centre de données. Pour connaître ces coûts, voir : [Détails de la tarification de transfert de données][DataPricing].
+En raison du mode de gestion des réseaux VPN de point à site, vous encourez systématiquement des coûts liés aux données sortantes lors de la connexion pour l’intégration au réseau virtuel, et ce, même si le réseau virtuel est situé dans le même centre de données. Pour connaître ces coûts, consultez : [Détails de la tarification de transfert de données][DataPricing].
 
 Les passerelles de réseau virtuel représentent le dernier élément de coût. Si vous n’utilisez pas les passerelles à d’autres fins, par exemple pour des réseaux VPN de site à site, vous payez la prise en charge de la fonctionnalité d’intégration au réseau virtuel par les passerelles. Pour plus d’informations sur ces coûts, voir : [tarification de passerelle VPN][VNETPricing].
 
@@ -265,8 +282,10 @@ Outre les différences fonctionnelles, il existe également des différences de 
 
 <!--Links-->
 [VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/
+[AzurePortal]: http://portal.azure.com/
 [ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
+[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

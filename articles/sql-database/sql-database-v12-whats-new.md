@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/08/2016" 
 	ms.author="genemi"/>
 
 
@@ -37,15 +37,20 @@ Les dernières informations sur les limites de ressources pour une base de donn�
 ## Compatibilité améliorée des applications avec SQL Server
 
 
-Un objectif important de la version 12 (V12) de SQL Database était d’améliorer la compatibilité avec Microsoft SQL Server 2014. Entre autres, la version 12 (V12) est désormais équivalente à SQL Server dans le domaine de la programmabilité. Exemple :
+Un objectif clé de SQL Database V12 était d’améliorer la compatibilité avec Microsoft SQL Server 2014 et de maintenir la compatibilité au fur et à mesure de la publication de nouvelles versions de SQL Server. Entre autres, la version 12 (V12) est désormais équivalente à SQL Server dans le domaine de la programmabilité. Exemple :
 
 
 - [Fonctions Windows](http://msdn.microsoft.com/library/bb934097.aspx), avec [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+
 - [Index XML](http://msdn.microsoft.com/library/bb934097.aspx) et [index XML sélectifs](http://msdn.microsoft.com/library/jj670104.aspx)
+
 - [Suivi des modifications](http://msdn.microsoft.com/library/bb933875.aspx)
+
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
+
 - [Recherche en texte intégral](http://msdn.microsoft.com/library/ms142571.aspx)
 
+- [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir les quelques fonctionnalités non prises en charge par Base de données SQL.
 
@@ -161,4 +166,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nivea
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

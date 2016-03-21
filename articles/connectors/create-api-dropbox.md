@@ -28,6 +28,11 @@ Connectez-vous à Dropbox pour effectuer des tâches de gestion de fichiers, tel
 - [Logic Apps](../articles/connectors/create-api-dropbox.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
+&nbsp;
+
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Dropbox](../app-service-logic/app-service-logic-connector-dropbox.md).
+
+
 Avec Dropbox, vous pouvez effectuer les opérations suivantes :
 
 - Créer votre flux d’activité en fonction des données que vous obtenez de Dropbox. 
@@ -50,30 +55,6 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer la connexion à Dropbox
 
-### Ajouter une configuration à PowerApps
-Quand vous ajoutez Dropbox à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Dropbox. La valeur **URL de redirection** est également utilisée dans votre application Dropbox. Si vous n’avez pas d’application Dropbox, vous pouvez utiliser les étapes suivantes pour en créer une :
-
-1. Connectez-vous à [Dropbox][1].
-2. Accédez au site de développement Dropbox et sélectionnez **My Apps** (Mes applications) : ![Site de développement Dropbox][8]  
-3. Sélectionnez **Create app** (Créer une application) : ![Création d’application Dropbox][9]  
-4. Dans **Create a new app on the Dropbox platform** (Créer une application sur la plateforme Dropbox) :  
-
-	1. Dans **Choose API**, sélectionnez **Dropbox API**.
-	2. Dans **Choose the type of access you need**, sélectionnez **Full Dropbox...**.  
-	3. Entrez le nom de votre application.  
-
-	![Création d’application Dropbox page 1][10]
-
-5. Dans la page des paramètres de l’application :
-
-	1. Dans **OAuth 2**, entrez la valeur **URL de redirection** affichée quand vous ajoutez l’API Dropbox dans le portail Azure. Sélectionnez **Ajouter**.  
-	2. Sélectionnez le lien **Show** pour révéler la **question secrète de l’application** :  
-
-	![Création d’application Dropbox page 2][11]
-
-Maintenant, copiez/collez ces valeurs **Clé d’application** et **Question secrète de l’application** dans votre configuration Dropbox dans le portail Azure.
-
-### Ajouter une configuration à des applications logiques
 Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Dropbox.
 
 1. Connectez-vous à votre compte Dropbox.
@@ -290,9 +271,10 @@ Déclenche un flux quand un fichier est modifié dans un dossier Dropbox. ```GET
 |FileLocator|string|no|
 
 ## Étapes suivantes
-Après avoir ajouté l’API Dropbox à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Revenir à la [liste des API](apis-list.md).
 
 
 <!--References-->
@@ -304,4 +286,4 @@ Après avoir ajouté l’API Dropbox à PowerApps Enterprise, [donnez aux utilis
 [10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

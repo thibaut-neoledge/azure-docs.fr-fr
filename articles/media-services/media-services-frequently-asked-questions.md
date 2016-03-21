@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 
 #Forum Aux Questions  
 
-##Vue d'ensemble
+##Forum Aux Questions - Généralités AMS 
 
 Q : comment mettre à l’échelle l’indexation ?
 
@@ -39,11 +39,21 @@ R : Media Services prend en charge l’intégration au CDN Azure (pour plus d’
 
 Q : le stockage des images est-il pris en charge par Azure Media Services ?
 
-R : si vous cherchez uniquement à stocker des images JPEG ou PNG, nous vous recommandons de les conserver dans le stockage d’objets blob Azure. Il n’y a aucun avantage à les placer dans votre compte Media Services, à moins que vous souhaitiez qu’elles restent associées à vos ressources vidéo ou audio ou les utiliser sous forme de superpositions dans l’encodeur vidéo. L’encodeur Media Services prend en charge la superposition d’images sur les vidéos, ce qui explique pourquoi JPEG et PNG figurent parmi les formats d’entrée pris en charge. Pour plus d’informations, consultez la page [Création de superpositions](https://msdn.microsoft.com/library/azure/dn640496.aspx).
+R : si vous cherchez uniquement à stocker des images JPEG ou PNG, nous vous recommandons de les conserver dans le stockage d’objets blob Azure. Il n’y a aucun avantage à les placer dans votre compte Media Services, à moins que vous souhaitiez qu’elles restent associées à vos ressources vidéo ou audio Ou, si vous avez besoin d'utiliser les images sous forme de superpositions dans l'encodeur vidéo, Media Encoder Standard prend en charge la superposition d’images sur les vidéos, ce qui explique pourquoi JPEG et PNG figurent parmi les formats d’entrée pris en charge. Pour plus d’informations, consultez la page [Création de superpositions](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 Q : comment puis-je copier des éléments multimédias d’un compte Media Services vers un autre ?
 
-R : pour copier des éléments multimédias d’un compte Media Services vers un autre, utilisez la méthode d’extension [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponible dans le référentiel [Extensions du Kit de développement logiciel (SDK) Azure Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Pour plus d’informations, consultez [cette publication de forum](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices).
+R : pour copier des éléments multimédias d’un compte Media Services vers un autre à l’aide de .NET, utilisez la méthode d’extension [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponible dans le référentiel [Extensions du Kit de développement logiciel (SDK) Azure Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Pour plus d’informations, consultez [cette publication de forum](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices).
+
+Q: quels sont les caractères pris en charge pour les noms des fichiers en utilisant AMS ?
+
+R : Media Services utilise la valeur de la propriété IAssetFile.Name au moment de la génération des URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l’encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier.
+
+
+Q: comment se connecter avec REST ?
+
+R : Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md).
+
 
 Q : comment faire pivoter une vidéo au cours du processus d’encodage ?
 
@@ -62,6 +72,9 @@ R : [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-sta
 	
 	...
 
+
+
+
 ##Parcours d’apprentissage de Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -70,4 +83,4 @@ R : [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-sta
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

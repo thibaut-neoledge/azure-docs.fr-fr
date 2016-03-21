@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -25,46 +25,46 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 ## Index de référence de stratégie
 
 -	[Accès aux stratégies de restriction][]
-	-	[Check HTTP header][] : applique l’existence et/ou la valeur d’un en-tête HTTP.
-	-	[Limit call rate by subscription][] : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.
-	-	[Limit call rate by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par clé.
-	-	[Restrict caller IPs][] : filtre (autorise/rejette) les appels de certaines adresses IP spécifiques et/ou de certaines plages d’adresses.
-	-	[Set usage quota by subscription][] : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
-	-	[Set usage quota by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.
-	-	[Validate JWT][] : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
+	-	[Check HTTP header][] : applique l’existence et/ou la valeur d’un en-tête HTTP.
+	-	[Limit call rate by subscription][] : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.
+	-	[Limit call rate by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par clé.
+	-	[Restrict caller IPs][] : filtre (autorise/rejette) les appels de certaines adresses IP spécifiques et/ou de certaines plages d’adresses.
+	-	[Set usage quota by subscription][] : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
+	-	[Set usage quota by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.
+	-	[Validate JWT][] : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
 -	[Stratégies avancées][]
-	-	[Control flow][] : applique de manière conditionnelle les instructions de stratégie en fonction des résultats de l’évaluation des [expressions][] booléennes.
-	-	[Forward request][] : transfère la demande vers le service principal.
-	-	[Log to Event Hub][] : envoie des messages au format spécifié à une cible de message définie par une entité [Enregistreur](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
-	-	[Return response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant.
-	-	[Send one way request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) : envoie une demande à l’URL indiquée sans attendre de réponse.
-	-	[Send request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) : envoie une demande à l’URL indiquée.
+	-	[Control flow][] : applique de manière conditionnelle les instructions de stratégie en fonction des résultats de l’évaluation des [expressions][] booléennes.
+	-	[Forward request][] : transfère la demande vers le service principal.
+	-	[Log to Event Hub][] : envoie des messages au format spécifié à une cible de message définie par une entité [Enregistreur](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
+	-	[Return response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant.
+	-	[Send one way request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) : envoie une demande à l’URL indiquée sans attendre de réponse.
+	-	[Send request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) : envoie une demande à l’URL indiquée.
 	-	[Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.
-	-	[Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) : permet de définir le code d’état HTTP sur la valeur indiquée.
-	-	[Set variable][] : conserve une valeur dans une variable de [contexte][] nommée pour y accéder ultérieurement.
-	-	[Wait](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) : attend l’exécution de la demande d’envoi intégré, la récupération de la valeur du cache ou le contrôle des stratégies du flux pour continuer.
+	-	[Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) : permet de définir le code d’état HTTP sur la valeur indiquée.
+	-	[Set variable][] : conserve une valeur dans une variable de [contexte][] nommée pour y accéder ultérieurement.
+	-	[Wait](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) : attend l’exécution de la demande d’envoi intégré, la récupération de la valeur du cache ou le contrôle des stratégies du flux pour continuer.
 -	[Stratégies d’authentification][]
-	-	[Authenticate with Basic][] : authentification avec un service principal à l’aide de l’authentification de base.
-	-	[Authenticate with client certificate][] : authentification avec un service principal à l’aide de certificats clients.
+	-	[Authenticate with Basic][] : authentification avec un service principal à l’aide de l’authentification de base.
+	-	[Authenticate with client certificate][] : authentification avec un service principal à l’aide de certificats clients.
 -	[Stratégies de mise en cache][] 
-	-	[Get from cache][] : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.
-	-	[Store to cache][] : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.
-	-	[Get value from cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) : récupère un élément mis en cache par clé.
-	-	[Store value in cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) : stocke un élément mis en cache par clé.
+	-	[Get from cache][] : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.
+	-	[Store to cache][] : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.
+	-	[Get value from cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) : récupère un élément mis en cache par clé.
+	-	[Store value in cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) : stocke un élément mis en cache par clé.
 -	[Stratégies interdomaines][] 
-	-	[Allow cross-domain calls][] : rend l'API accessible depuis les navigateurs clients utilisant Adobe Flash et Microsoft Silverlight.
-	-	[CORS][] : ajoute une prise en charge partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients.
-	-	[JSONP][] : ajoute une prise en charge de JSON avec remplissage (JSONP) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients utilisant JavaScript.
+	-	[Allow cross-domain calls][] : rend l'API accessible depuis les navigateurs clients utilisant Adobe Flash et Microsoft Silverlight.
+	-	[CORS][] : ajoute une prise en charge partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients.
+	-	[JSONP][] : ajoute une prise en charge de JSON avec remplissage (JSONP) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients utilisant JavaScript.
 -	[Stratégies de transformation][] 
-	-	[Convert JSON to XML][] : convertit le corps de la demande ou de la réponse de JSON en XML.
-	-	[Convert XML to JSON][] :convertit le corps de la demande ou de la réponse de XML en JSON.
-	-	[Find and replace string in body][] : recherche une sous-chaîne de demande ou de réponse et la remplace par une autre sous-chaîne.
-	-	[Mask URLs in content][] : réécrit (masque) les liens dans le corps de la réponse et dans l’en-tête de l’emplacement afin qu’ils pointent vers un lien équivalent via la passerelle.
-	-	[Set backend service][] : modifie le service principal pour une demande entrante.
-	-	[Set body][] : définit le corps du message pour les demandes entrantes et sortantes.
-	-	[Set HTTP header][] : affecte une valeur à un en-tête de réponse et/ou de demande existant ou bien ajoute un nouvel en-tête de réponse et/ou de demande.
-	-	[Set query string parameter][] : ajoute, supprime un paramètre de chaîne de requête de la demande ou le remplace par une autre valeur.
-	-	[URL de réécriture][] : convertit une URL de demande de sa forme publique en une forme attendue par le service web.
+	-	[Convert JSON to XML][] : convertit le corps de la demande ou de la réponse de JSON en XML.
+	-	[Convert XML to JSON][] :convertit le corps de la demande ou de la réponse de XML en JSON.
+	-	[Find and replace string in body][] : recherche une sous-chaîne de demande ou de réponse et la remplace par une autre sous-chaîne.
+	-	[Mask URLs in content][] : réécrit (masque) les liens dans le corps de la réponse et dans l’en-tête de l’emplacement afin qu’ils pointent vers un lien équivalent via la passerelle.
+	-	[Set backend service][] : modifie le service principal pour une demande entrante.
+	-	[Set body][] : définit le corps du message pour les demandes entrantes et sortantes.
+	-	[Set HTTP header][] : affecte une valeur à un en-tête de réponse et/ou de demande existant ou bien ajoute un nouvel en-tête de réponse et/ou de demande.
+	-	[Set query string parameter][] : ajoute, supprime un paramètre de chaîne de requête de la demande ou le remplace par une autre valeur.
+	-	[URL de réécriture][] : convertit une URL de demande de sa forme publique en une forme attendue par le service web.
 
 ## Étapes suivantes
 
@@ -121,4 +121,4 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

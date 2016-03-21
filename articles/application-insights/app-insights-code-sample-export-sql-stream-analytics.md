@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Procédure : exporter des données de télémétrie depuis Application Insights vers la base de données SQL" 
+	pageTitle="Procédure : exporter des données de télémétrie depuis Application Insights vers la base de données SQL" 
 	description="Exportez de façon continue les données Application Insights vers SQL à l’aide de Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="03/06/2015" 
 	ms.author="awills"/>
  
-# Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
+# Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
 
 Cet article explique comment déplacer vos données de télémétrie à partir de [Visual Studio Application Insights][start] vers une base de données SQL Azure à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).
 
@@ -29,28 +29,15 @@ Nous allons partir du principe que vous disposez déjà de l’application que v
 Dans cet exemple, nous allons utiliser les données d’affichage de page. Toutefois, le même modèle peut facilement être étendu à d’autres types de données, tels que des événements et des exceptions personnalisés.
 
 
-## Ajouter le kit de développement logiciel (SDK) Application Insights
-
-Pour analyser votre application, vous [ajoutez un kit de développement logiciel (SDK) Application Insights][start] à votre application. Il existe divers kits de développement de logiciel (SDK) et outils d’assistance selon les plateformes, IDE et langages. Vous pouvez surveiller des pages web, des serveurs web Java ou ASP.NET et des appareils mobiles de plusieurs types. Tous les Kits de développement logiciels (SDK) envoient les données de télémétrie au [portail Application Insights][portal], où vous pouvez utiliser nos puissants outils de diagnostic et d’analyse et exporter les données vers un emplacement de stockage.
-
-Pour commencer :
-
-1. Obtenez un [compte dans Microsoft Azure](https://azure.microsoft.com/pricing/).
-2. Sur le [portail Azure][portal], ajoutez une nouvelle ressource Application Insights pour votre application :
-
-    ![Cliquez sur Nouveau, Services de développement, Application Insights, puis choisissez le type d’application.](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
+## Ajouter Application Insights à votre application
 
 
-    (Le type d’application et votre abonnement peuvent être différents.)
-3. Ouvrez Démarrage rapide pour découvrir comment configurer le kit de développement logiciel (SDK) pour votre type d’application.
+Pour commencer :
 
-    ![Choisissez Démarrage rapide et suivez les instructions.](./media/app-insights-code-sample-export-sql-stream-analytics/020-quick.png)
+1. [Configurer Application Insights pour vos pages web](app-insights-javascript.md). 
 
-    Si votre type d’application n’est pas répertorié, consultez la page [Prise en main][start].
+    (Dans cet exemple, nous allons nous concentrer sur le traitement des données d’affichage de page dans les navigateurs clients, mais vous pouvez également configurer Application Insights pour le côté serveur de votre application [Java](app-insights-java-get-started.md) ou [ASP.NET](app-insights-asp-net.md) et traiter la demande, les dépendances et autres données de télémétrie du serveur.)
 
-4. Dans cet exemple, nous surveillons une application web. Par conséquent, nous pouvons utiliser les outils Azure dans Visual Studio pour installer le Kit de développement (SDK). Indiquez-lui le nom de votre ressource Application Insights :
-
-    ![Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet, puis sélectionnez Ajouter Application Insights. Lorsque Envoyer la télémétrie vers s’affiche, choisissez de créer une ressource ou d’utiliser une ressource existante.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
 
 5. Publiez votre application et surveillez les données de télémétrie apparaissant dans votre ressource Application Insights.
 
@@ -59,7 +46,7 @@ Pour commencer :
 
 Comme l’exportation continue génère toujours des données vers un compte de stockage Azure, vous devez commencer par créer ce stockage.
 
-1. Créez un compte de stockage « classique » dans votre abonnement dans le [portail Azure][portal].
+1. Créez un compte de stockage dans votre abonnement sur le [portail Azure][portal].
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage. Sélectionnez Classique, cliquez sur Créer. Fournissez un nom de stockage.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
@@ -77,7 +64,7 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 
 1. Sur le portail Azure, accédez à la ressource Application Insights que vous avez créée pour votre application.
 
-    ![Sélectionnez Parcourir, Application Insights, puis votre application.](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
+    ![Sélectionnez Parcourir, Application Insights, puis votre application.](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
 
 2. Créez une exportation continue.
 
@@ -88,7 +75,7 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 
     ![Définissez la destination de l’exportation.](./media/app-insights-code-sample-export-sql-stream-analytics/080-add.png)
     
-    Définissez les types d’événements que vous souhaitez afficher :
+    Définissez les types d’événements que vous souhaitez afficher :
 
     ![Choisissez les types d’événements.](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
@@ -97,7 +84,7 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 
     Les données seront également exportées vers votre stockage.
 
-4. Inspectez les données exportées, soit dans le portail (choisissez **Parcourir**, sélectionnez votre compte de stockage, puis **Conteneurs**), soit dans Visual Studio. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer** et ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
+4. Inspectez les données exportées, soit dans le portail (choisissez **Parcourir**, sélectionnez votre compte de stockage, puis **Conteneurs**), soit dans Visual Studio. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer** et ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
 
     ![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
@@ -112,7 +99,7 @@ De nouveau, à partir de votre abonnement sur le [portail Azure][portal], créez
 ![Nouveau, Données, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
 
-Assurez-vous que le serveur de base de données permet d’accéder aux services Azure :
+Assurez-vous que le serveur de base de données permet d’accéder aux services Azure :
 
 
 ![Parcourir, Serveurs, votre serveur, Paramètres, Pare-feu, Autoriser l’accès à Azure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
@@ -123,7 +110,7 @@ Connectez-vous à la base de données créée dans la section précédente à l�
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
 
-Créez une nouvelle requête et exécutez le T-SQL suivant :
+Créez une nouvelle requête et exécutez le T-SQL suivant :
 
 ```SQL
 
@@ -169,7 +156,7 @@ Dans cet exemple, nous utilisons les données issues des affichages de pages. Po
 
 ## Création d’une instance Azure Stream Analytics
 
-À partir du [portail classique Azure](https://manage.windowsazure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
+À partir du [portail classique Azure](https://manage.windowsazure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
 
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
@@ -178,13 +165,13 @@ Dans cet exemple, nous utilisons les données issues des affichages de pages. Po
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
 
-Une fois la tâche créée, développez les informations qui s’y rapportent :
+Une fois la tâche créée, développez les informations qui s’y rapportent :
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
 
 #### Définition de l’emplacement des objets blob
 
-Définissez-le pour qu’il tienne compte des données de votre objet blob d’exportation continue :
+Définissez-le pour qu’il tienne compte des données de votre objet blob d’exportation continue :
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
 
@@ -198,11 +185,11 @@ Vous devez maintenant disposer de la clé d’accès principale issue de votre c
 
 Veillez à définir le format de date sur **AAAA-MM-JJ** (avec des **tirets**).
 
-La séquence d’octets préfixe du chemin d’accès spécifie la manière dont Stream Analytics recherche les fichiers d’entrée dans le stockage. Vous devez la configurer pour correspondre au mode de stockage des données de l'exportation continue. Définissez-la comme suit :
+La séquence d’octets préfixe du chemin d’accès spécifie la manière dont Stream Analytics recherche les fichiers d’entrée dans le stockage. Vous devez la configurer pour correspondre au mode de stockage des données de l'exportation continue. Définissez-la comme suit :
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-Dans cet exemple :
+Dans cet exemple :
 
 * `webapplication27` est le nom de la ressource Application Insights, **tout en minuscules**. 
 * `1234...` est la clé d’instrumentation de la ressource Application Insights **avec les tirets supprimés**. 
@@ -213,7 +200,7 @@ Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez 
 
 #### Fin de l’installation initiale
 
-Confirmez le format de sérialisation :
+Confirmez le format de sérialisation :
 
 ![Confirmez et fermez l’assistant.](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
@@ -223,11 +210,11 @@ Fermez l’assistant et attendez la fin de l’installation.
 
 ## Définition d’une requête
 
-Ouvrez la section de la requête :
+Ouvrez la section de la requête :
 
 ![Dans Stream analytics, sélectionnez Requête.](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
-Remplacez la requête par défaut par :
+Remplacez la requête par défaut par :
 
 ```SQL
 
@@ -282,7 +269,7 @@ Fermez l’assistant et attendez une notification indiquant que la sortie a ét�
 
 ## Démarrage du traitement
 
-Démarrez la tâche à partir de la barre d’action :
+Démarrez la tâche à partir de la barre d’action :
 
 ![Dans Stream analytics, cliquez sur Démarrer.](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
 
@@ -291,7 +278,7 @@ Vous pouvez choisir de démarrer le traitement à partir de données actuelles o
 
 ![Dans Stream analytics, cliquez sur Démarrer.](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
-Après quelques minutes, revenez aux Outils d’administration SQL Server et observez les données qui y circulent. Utilisez, par exemple, le type de requête suivant :
+Après quelques minutes, revenez aux Outils d’administration SQL Server et observez les données qui y circulent. Utilisez, par exemple, le type de requête suivant :
 
     SELECT TOP 100 *
     FROM [dbo].[PageViewsTable]
@@ -315,4 +302,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

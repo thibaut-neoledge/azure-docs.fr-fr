@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Ajout d'opérations à une API dans Gestion des API Azure
@@ -22,7 +22,7 @@ Pour qu'une API puisse être utilisée dans Gestion des API, vous devez ajouter 
 
 ## <a name="add-operation"> </a>Ajout d’une opération
 
-Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
+Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
 
@@ -65,9 +65,9 @@ Pour activer facilement et rapidement la mise en cache pour une opération, sél
 
 ![Mise en cache][api-management-caching-tab]
 
-**Durée** spécifie la durée pendant laquelle la réponse de l'opération reste dans le cache. La valeur par défaut est de 3600 secondes (1 heure).
+**Durée** spécifie la durée pendant laquelle la réponse de l'opération reste dans le cache. La valeur par défaut est de 3600 secondes (1 heure).
 
-Les clés de cache permettent de faire la distinction entre les réponses, afin que la réponse correspondant à chaque clé de cache obtienne sa propre valeur mise en cache. Vous pouvez également entrer des paramètres de chaîne de requête spécifiques et/ou des en-têtes HTTP à utiliser pour calculer les valeurs de clés de cache dans les zones de texte **Variation par paramètres de chaîne de requête** et **Variation par en-têtes**. Si aucune valeur n’est spécifiée, l’URL complète de la demande et les valeurs d’en-tête HTTP suivantes sont utilisées pour générer la clé de cache : **Accept** et **Accept-Charset**.
+Les clés de cache permettent de faire la distinction entre les réponses, afin que la réponse correspondant à chaque clé de cache obtienne sa propre valeur mise en cache. Vous pouvez également entrer des paramètres de chaîne de requête spécifiques et/ou des en-têtes HTTP à utiliser pour calculer les valeurs de clés de cache dans les zones de texte **Variation par paramètres de chaîne de requête** et **Variation par en-têtes**. Si aucune valeur n’est spécifiée, l’URL complète de la demande et les valeurs d’en-tête HTTP suivantes sont utilisées pour générer la clé de cache : **Accept** et **Accept-Charset**.
 
 >Pour plus d'informations sur la mise en cache et les stratégies associée, consultez la page [Mise en cache des résultats d'opérations dans Gestion des API Azure][].
 
@@ -76,13 +76,13 @@ Les clés de cache permettent de faire la distinction entre les réponses, afin 
 
 Les paramètres de l'opération sont gérés dans l'onglet Paramètres. Les paramètres spécifiés dans **Modèle d'URL**, dans l'onglet **Signature**, sont automatiquement ajoutés et ne peuvent être changés qu'en modifiant le modèle d'URL. D'autres paramètres peuvent être ajoutés manuellement.
 
-Pour ajouter un nouveau paramètre de requête, cliquez sur **Ajouter des paramètres de requête** et entrez les informations suivantes :
+Pour ajouter un nouveau paramètre de requête, cliquez sur **Ajouter des paramètres de requête** et entrez les informations suivantes :
 
--	**Nom** : nom du paramètre.
--	**Description** : courte description du paramètre (facultatif).
--	**Type** : type de paramètre, sélectionné dans la liste déroulante.
--	**Valeurs** : valeurs qui peuvent être affectées à ce paramètre. Une des valeurs peut être marquée comme valeur par défaut (facultatif).
--	**Obligatoire** : activez la case à cocher pour rendre le paramètre obligatoire. 
+-	**Nom** : nom du paramètre.
+-	**Description** : courte description du paramètre (facultatif).
+-	**Type** : type de paramètre, sélectionné dans la liste déroulante.
+-	**Valeurs** : valeurs qui peuvent être affectées à ce paramètre. Une des valeurs peut être marquée comme valeur par défaut (facultatif).
+-	**Obligatoire** : activez la case à cocher pour rendre le paramètre obligatoire. 
 
 ![Paramètres de demande][api-management-request-parameters]
 
@@ -104,7 +104,7 @@ En plus des représentations, vous pouvez également spécifier une description 
 
 Il est conseillé de fournir des exemples de réponses pour tous les codes d'état que l'opération peut produire. Chaque code d'état peut avoir plusieurs exemples de corps de réponse, un pour chacun des types de contenu pris en charge.
 
-Pour ajouter une réponse, cliquez sur **Ajouter**, puis tapez le code d'état souhaité. Dans cet exemple, le code d'état est **200 OK**. Une fois le code affiché dans la liste déroulante, sélectionnez-le. Le code de réponse est alors créé et ajouté à votre opération.
+Pour ajouter une réponse, cliquez sur **Ajouter**, puis tapez le code d'état souhaité. Dans cet exemple, le code d'état est **200 OK**. Une fois le code affiché dans la liste déroulante, sélectionnez-le. Le code de réponse est alors créé et ajouté à votre opération.
 
 ![Response code][api-management-response-code]
 
@@ -164,4 +164,4 @@ Une fois les opérations ajoutées à une API, l'étape suivante est l'associati
 [Création et publication d’un produit]: api-management-howto-add-products.md
 [Mise en cache des résultats d'opérations dans Gestion des API Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

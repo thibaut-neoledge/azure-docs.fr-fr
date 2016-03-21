@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 
-Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
+Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
 
 Cet article, qui complète la vidéo [Intégrer la gestion des API Azure avec Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/), explique comment consigner les événements Gestion des API à l’aide d’Azure Event Hubs.
 
 ## Création d'un hub d'événements Azure
 
-Pour créer un hub d’événements, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) et cliquez sur **Nouveau** -> **App Services** -> **Service Bus** -> **Hub d’événements** -> **Création rapide**. Entrez un nom d’Event Hub, une région, sélectionnez un abonnement et sélectionnez un espace de noms. Si vous n’avez pas créé d’espace de noms précédemment, vous pouvez en créer un en entrant un nom dans la zone de texte **Espace de noms**. Une fois que toutes les propriétés sont configurées, cliquez sur **Créer un hub d’événements** pour créer le hub d’événements.
+Pour créer un hub d’événements, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) et cliquez sur **Nouveau** -> **App Services** -> **Service Bus** -> **Hub d’événements** -> **Création rapide**. Entrez un nom d’Event Hub, une région, sélectionnez un abonnement et sélectionnez un espace de noms. Si vous n’avez pas créé d’espace de noms précédemment, vous pouvez en créer un en entrant un nom dans la zone de texte **Espace de noms**. Une fois que toutes les propriétés sont configurées, cliquez sur **Créer un hub d’événements** pour créer le hub d’événements.
 
 ![Créer un event hub][create-event-hub]
 
@@ -59,8 +59,8 @@ Pour créer un enregistreur d’événements, créez une demande HTTP PUT à l�
 
 Ajoutez les en-têtes suivants à la demande.
 
--	Type de contenu : application/json
--	Autorisation : SharedAccessSignature uid=...
+-	Type de contenu : application/json
+-	Autorisation : SharedAccessSignature uid=...
 	-	Pour obtenir des instructions sur la génération de `SharedAccessSignature`, consultez [Authentification de l’API REST Gestion des API Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
 
 Spécifiez le corps de la demande en utilisant le modèle suivant.
@@ -80,7 +80,7 @@ Spécifiez le corps de la demande en utilisant le modèle suivant.
 
 Lorsque vous créez la demande, si l’enregistreur d’événements est créé, un code d’état `201 Created` est renvoyé.
 
->[AZURE.NOTE]Pour connaître les autres codes de retour possibles et leurs raisons, consultez [Créer un enregistreur d’événements](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Pour voir comment effectuer d’autres opérations, notamment la création de listes, la mise à jour et la suppression, consultez la documentation de l’entité [Enregistreur d’événements](https://msdn.microsoft.com/library/azure/mt592020.aspx).
+>[AZURE.NOTE] Pour connaître les autres codes de retour possibles et leurs raisons, consultez [Créer un enregistreur d’événements](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Pour voir comment effectuer d’autres opérations, notamment la création de listes, la mise à jour et la suppression, consultez la documentation de l’entité [Enregistreur d’événements](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
 ## Configurer des stratégies Enregistrer sur event hub
 
@@ -104,7 +104,7 @@ Placez votre curseur dans la section de la stratégie `inbound` et cliquez sur l
 
 Remplacez `logger-id` par le nom de l’enregistreur d’événements Gestion des API que vous avez configuré à l’étape précédente.
 
-Vous pouvez utiliser toute expression qui renvoie une chaîne en tant que valeur pour l’élément `log-to-eventhub`. Dans cet exemple, une chaîne contenant la date et l’heure, le nom du service, l’ID de la demande, l’adresse IP de la demande et le nom de l’opération est enregistrée.
+Vous pouvez utiliser toute expression qui renvoie une chaîne en tant que valeur pour l’élément `log-to-eventhub`. Dans cet exemple, une chaîne contenant la date et l’heure, le nom du service, l’ID de la demande, l’adresse IP de la demande et le nom de l’opération est enregistrée.
 
 Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie mise à jour. Dès qu’elle est enregistrée, la stratégie est active et les événements sont enregistrés dans l’Event Hub désigné.
 
@@ -133,4 +133,4 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

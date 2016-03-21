@@ -18,14 +18,12 @@
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
-
->[AZURE.TIP] Si vous êtes novice en matière de développement mobile avec Microsoft Azure, [commencez avec Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-preview.md) plutôt qu’avec Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](../app-service-mobile/app-service-mobile-value-prop-migration-from-mobile-services.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez l’article [Créer une application iOS dans Azure Mobile Apps](../app-service-mobile/app-service-mobile-android-get-started.md).
 
 Ce didacticiel présente l’ajout d’un service principal cloud à une application iOS à l’aide d’Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application _To do list_ qui stocke les données d'application dans le nouveau service mobile. Le service mobile utilise .NET et Visual Studio pour la logique métier côté serveur. Pour créer un service mobile avec une logique métier côté serveur en JavaScript, consultez la [version relative au service principal JavaScript] de cette rubrique.
 
@@ -39,7 +37,7 @@ Ce didacticiel présente l’ajout d’un service principal cloud à une applica
 
 Vous avez créé le service mobile. À présent, vous allez télécharger des projets que vous pouvez exécuter localement.
 
-1. Cliquez sur le service mobile que vous venez de créer, puis dans l’onglet de démarrage rapide, cliquez sur **iOS** sous **Choisir une plateforme** et développez **Créer une application iOS**.
+1. Cliquez sur le service mobile que vous venez de créer, puis dans l’onglet de démarrage rapide, cliquez sur **iOS** sous **Choisir une plateforme** et développez **Créer une application iOS**.
 
 2. Sur votre PC Windows, cliquez sur **Télécharger** sous **Télécharger et publier votre service dans le cloud**. Cela permet de télécharger le projet Visual Studio qui implémente votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
@@ -61,9 +59,9 @@ Vous avez créé le service mobile. À présent, vous allez télécharger des pr
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Cette section montre comment exécuter votre nouvelle application cliente sur le service mobile exécuté sous Azure. Avant de pouvoir tester l'application iOS avec le service mobile exécuté sur un ordinateur local, vous devez configurer le serveur Web et le pare-feu de manière à autoriser l'accès depuis votre ordinateur de développement iOS. Pour plus d'informations, consultez la rubrique [Configuration du serveur Web local pour autoriser les connexions à un service mobile local](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
+Cette section montre comment exécuter votre nouvelle application cliente sur le service mobile exécuté sous Azure. Avant de pouvoir tester l'application iOS avec le service mobile exécuté sur un ordinateur local, vous devez configurer le serveur Web et le pare-feu de manière à autoriser l'accès depuis votre ordinateur de développement iOS. Pour plus d'informations, consultez la rubrique [Configuration du serveur Web local pour autoriser les connexions à un service mobile local](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
 
-Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
+Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Prise en main de la synchronisation des données hors connexion] <br/>Découvrez comment utiliser la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
 
@@ -103,4 +101,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -38,10 +38,10 @@ Utilisez la requête suivante pour récupérer les informations sur la connexion
 
 ```
 
-SELECT * 
-FROM sys.dm_pdw_nodes_exec_connections AS c 
-   JOIN sys.dm_pdw_nodes_exec_sessions AS s 
-   ON c.session_id = s.session_id 
+SELECT *
+FROM sys.dm_pdw_nodes_exec_connections AS c
+   JOIN sys.dm_pdw_nodes_exec_sessions AS s
+   ON c.session_id = s.session_id
 WHERE c.session_id = @@SPID;
 
 ```
@@ -70,7 +70,7 @@ SELECT * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 Enregistrez l'ID de demande de la requête.
 
 
-  
+
 ### ÉTAPE 2: vérifier si la requête est en attente de ressources
 
 ```
@@ -81,15 +81,15 @@ Enregistrez l'ID de demande de la requête.
 SELECT waits.session_id,
       waits.request_id,  
       requests.command,
-      requests.status, 
+      requests.status,
       requests.start_time,  
       waits.type,  
-      waits.object_type, 
+      waits.object_type,
       waits.object_name,  
       waits.state  
-FROM   sys.dm_pdw_waits waits 
+FROM   sys.dm_pdw_waits waits
    JOIN  sys.dm_pdw_exec_requests requests
-   ON waits.request_id=requests.request_id 
+   ON waits.request_id=requests.request_id
 WHERE waits.request_id = 'QID33188'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 
@@ -104,7 +104,7 @@ Les résultats de la requête ci-dessus affiche l'état d'attente de votre deman
 
 
 
-### ÉTAPE 3 : rechercher l'étape la plus longue de la requête
+### ÉTAPE 3 : rechercher l'étape la plus longue de la requête
 
 Utilisez l'ID de demande pour récupérer une liste de toutes les étapes de la requête distribuée. Recherchez l'étape la plus longue en examinant le temps total écoulé.
 
@@ -112,7 +112,7 @@ Utilisez l'ID de demande pour récupérer une liste de toutes les étapes de la 
 
 -- Find the distributed query plan steps for a specific query.
 -- Replace request_id with value from Step 1.
- 
+
 SELECT * FROM sys.dm_pdw_request_steps
 WHERE request_id = 'QID33209'
 ORDER BY step_index;
@@ -121,15 +121,15 @@ ORDER BY step_index;
 
 Enregistrez l'Index d'étape de l’étape la plus longue.
 
-Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
+Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
 
-- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
-- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
-
-
+- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 
-### ÉTAPE 4a : rechercher la progression de l'exécution d'une étape SQL
+
+
+### ÉTAPE 4a : rechercher la progression de l'exécution d'une étape SQL
 
 Utilisez l'ID de demande et de l'Index de l'étape pour récupérer des informations sur la distribution de requête SQL Server dans le cadre de l'étape de la requête SQL. Enregistrer l’ID de Distribution et le SPID.
 
@@ -148,7 +148,7 @@ Utilisez la requête suivante pour récupérer le plan d'exécution SQL Server p
 
 ```
 
--- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
@@ -165,13 +165,13 @@ Utilisez l'ID de demande et l'Index de l'étape pour récupérer des information
 
 -- Find the information about all the workers completing a Data Movement Step.
 -- Replace request_id and step_index with values from Step 1 and 3.
- 
+
 SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID33209' AND step_index = 2;
 
 ```
 
-- Vérifiez la colonne *total\_elapsed\_time* pour voir si une distribution particulière prend beaucoup plus de temps que les autres pour le déplacement des données. 
+- Vérifiez la colonne *total\_elapsed\_time* pour voir si une distribution particulière prend beaucoup plus de temps que les autres pour le déplacement des données.
 - Consultez la colonne *rows\_processed* de la distribution la plus longue pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que d’autres. Cela indique que votre requête présente une inclinaison de données.
 
 
@@ -203,4 +203,4 @@ Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la pa
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

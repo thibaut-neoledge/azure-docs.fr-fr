@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/03/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,13 +55,15 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 
 1. Si vous vous trouvez de nouveau dans l’écran d’accueil d’IntelliJ IDEA, cliquez sur **Configure**, puis cliquez de nouveau sur **Plugins**.
 
-2. Dans l’écran suivant, cliquez sur **Browse Repositories** dans le coin inférieur gauche. Dans la boîte de dialogue **Browse Repositories** qui s’ouvre, recherchez **HDInsight**, sélectionnez **Microsoft Azure HDInsight Tools for IntelliJ**, puis cliquez sur **Install**.
+2. Dans l’écran suivant, cliquez sur **Browse Repositories** dans le coin inférieur gauche. Dans la boîte de dialogue **Browse Repositories** qui s’ouvre, recherchez **HDInsight**, sélectionnez **Microsoft Azure HDInsight Tools for IntelliJ (Preview)**, puis cliquez sur **Install**.
+
+	![Installer le plug-in HDInsight](./media/hdinsight-apache-spark-intellij-tool-plugin/install-hdinsight-plugin.png)
 
 3. Quand vous y êtes invité, cliquez sur le bouton **Restart IntelliJ IDEA** pour redémarrer l’IDE.
 
 ## Exécuter une application Scala Spark sur un cluster HDInsight Spark
 
-1. Lancez IntelliJ IDEA et créez un nouveau projet. Dans la boîte de dialogue de nouveau projet, choisissez les options suivantes, puis cliquez sur **Next**.
+1. Lancez IntelliJ IDEA et créez un nouveau projet. Dans la boîte de dialogue Nouveau projet, choisissez les options suivantes, puis cliquez sur **Suivant**.
 
 	![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
@@ -81,16 +83,16 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 
 		![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
 
-	* Cliquez sur **Finish**.
+	* Cliquez sur **Terminer**.
 
 3. Définissez la structure de projet pour créer un artefact (package jar) destiné à contenir le code à exécuter sur le cluster.
 
-	1. Dans le menu **File**, cliquez sur **Project Structure**.
-	2. Dans la boîte de dialogue **Project Structure**, cliquez sur **Artifacts**, puis sur le signe plus. Dans la boîte de dialogue contextuelle, cliquez sur **JAR**, puis sur **Empty**.
+	1. Dans le menu **Fichier**, cliquez sur **Structure de projet**.
+	2. Dans la boîte de dialogue **Project Structure** (Structure de projet), cliquez sur **Artifacts** (Artefacts), puis sur le signe plus. Dans la boîte de dialogue contextuelle, cliquez sur **JAR**, puis sur **Empty**.
 
 		![Créer un fichier JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/create-jar-1.png)
 
-	3. Entrez un nom pour le fichier JAR (par exemple, **MyClusterApp**). Dans le volet Available Elements, cliquez avec le bouton droit sur **'MyClusterApp' compile output**, puis cliquez sur **Put into Output Root**.
+	3. Entrez un nom pour le fichier JAR (par exemple, **MyClusterApp**). Dans le volet Available Elements, cliquez avec le bouton droit sur **’MyClusterApp’ compile output**, puis cliquez sur **Put into Output Root**.
 
 		![Créer un fichier JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/create-jar-2.png)
 	
@@ -223,7 +225,7 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
 
 		![Créer un fichier JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/create-jar-1.png)
 
-	3. Entrez un nom pour le fichier JAR (par exemple, **MyLocalApp**). Dans le volet Available Elements, cliquez avec le bouton droit sur **'MyLocalApp' compile output**, puis cliquez sur **Put into Output Root**.
+	3. Entrez un nom pour le fichier JAR (par exemple, **MyLocalApp**). Dans le volet Available Elements, cliquez avec le bouton droit sur **’MyLocalApp’ compile output**, puis cliquez sur **Put into Output Root**.
 
 		![Créer un fichier JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/create-local-jar-2.png)
 	
@@ -258,7 +260,7 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
 			  }
 			}
 
-5. Exécutez l’application localement sur votre poste de travail. Dans le menu **Run**, cliquez sur **Run 'MyLocalApp'**. Une sortie similaire à celle-ci doit apparaître en bas de l’onglet **Exécuter**.
+5. Exécutez l’application localement sur votre poste de travail. Dans le menu **Run**, cliquez sur **Run ’MyLocalApp’**. Une sortie similaire à celle-ci doit apparaître en bas de l’onglet **Exécuter**.
 
 		...
 		...
@@ -318,4 +320,4 @@ Vous pouvez également convertir vos applications Spark Scala existantes créée
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

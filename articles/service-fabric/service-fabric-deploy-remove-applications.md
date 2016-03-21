@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # Déployer une application
 
-Une fois qu’un [type d’application a été packagé][10], il est prêt à être déployé dans un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
+Une fois qu’un [type d’application a été packagé][10], il est prêt à être déployé dans un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
 
 1. Téléchargement du package d'application
 2. Enregistrement du type d'application
 3. Création de l'instance d'application
 
->[AZURE.NOTE]Si vous utilisez Visual Studio pour déployer et déboguer des applications dans votre cluster de développement local, toutes les étapes décrites ci-dessous sont gérées automatiquement à l’aide d’un script PowerShell contenus dans le dossier Scripts du projet d’application. Cet article fournit le contexte des actions des scripts afin que vous puissiez effectuer les mêmes opérations en dehors de Visual Studio.
+>[AZURE.NOTE] Si vous utilisez Visual Studio pour déployer et déboguer des applications dans votre cluster de développement local, toutes les étapes décrites ci-dessous sont gérées automatiquement à l’aide d’un script PowerShell contenus dans le dossier Scripts du projet d’application. Cet article fournit le contexte des actions des scripts afin que vous puissiez effectuer les mêmes opérations en dehors de Visual Studio.
 
 ## Télécharger le package d'application
 
 Quand vous chargez le package d’application, celui-ci est placé dans un dossier accessible aux composants internes de Service Fabric. Vous pouvez utiliser PowerShell pour effectuer le chargement. Avant d’exécuter des commandes PowerShell dans le cadre de cet article, commencez toujours par vous connecter au cluster Service Fabric à l’aide de la commande **Connect-ServiceFabricCluster**.
 
-Supposons que vous ayez un dossier nommé *MonTypeApplication* qui contienne le manifeste de l’application, les manifestes de service et les packages de code/configuration/données. La commande **Copy-ServiceFabricApplicationPackage** charge le package. Par exemple :
+Supposons que vous ayez un dossier nommé *MonTypeApplication* qui contienne le manifeste de l’application, les manifestes de service et les packages de code/configuration/données. La commande **Copy-ServiceFabricApplicationPackage** charge le package. Par exemple :
 
 ~~~
 PS D:\temp> dir
@@ -59,7 +59,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     └───MyData
             init.dat
 
-PS D:\temp> Copy-ServiceFabricApplicationPackage MyApplicationType
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath MyApplicationType -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
 Copy application package succeeded
 
 PS D:\temp>
@@ -82,7 +82,7 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-La commande **Register-ServiceFabricApplicationType** ne retourne un résultat que lorsque le package d’application a été correctement copié par le système. La durée de l'opération dépend du contenu du package d'application. Le paramètre **-TimeoutSec** peut être utilisé pour fournir un délai d’attente plus long si nécessaire (le délai d’attente par défaut est de 60 secondes).
+La commande **Register-ServiceFabricApplicationType** ne retourne un résultat que lorsque le package d’application a été correctement copié par le système. La durée de l'opération dépend du contenu du package d'application. Le paramètre **-TimeoutSec** peut être utilisé pour fournir un délai d’attente plus long si nécessaire (le délai d’attente par défaut est de 60 secondes).
 
 La commande **Get-ServiceFabricApplicationType** répertorie toutes les versions de types d’applications correctement inscrites.
 
@@ -185,7 +185,7 @@ TODO [Upgrade applications][11]
 
 ### Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
 
-L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. Il se trouve dans le manifeste de cluster récupéré à l’aide de la commande **Get-ServiceFabricClusterManifest** :
+L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. Il se trouve dans le manifeste de cluster récupéré à l’aide de la commande **Get-ServiceFabricClusterManifest** :
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

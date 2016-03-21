@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="02/29/2016"
+   	ms.date="03/08/2016"
    	ms.author="larryfr"/>
 
 #Création de clusters basés sur Linux dans HDInsight à l’aide de l’interface CLI Azure
@@ -31,10 +31,11 @@ Les étapes de ce document décrivent le processus de création d’un cluster H
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-##Configuration requise
+##Composants requis
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
 - __Interface de ligne de commande Azure__. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Installer l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 ##Vous connecter à votre abonnement Azure
@@ -121,4 +122,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

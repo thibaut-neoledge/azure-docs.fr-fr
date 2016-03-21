@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 #Guide de dépannage de la vidéo en flux continu 
@@ -24,6 +24,14 @@ Cette rubrique fournit des suggestions sur la façon de résoudre certains probl
 
 Cette section fournit des suggestions sur la façon de résoudre les problèmes liés aux encodeurs locaux qui sont configurés pour envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage live.
 
+###Problème : vous aimeriez voir les journaux 
+
+- **Problème potentiel** : impossible de trouver des journaux de l’encodeur qui pourraient aider à déboguer des problèmes.
+	
+	- **Telestream Wirecast** : en général, les journaux se trouvent sous C:\\Users{username}\\AppData\\Roaming\\Wirecast\\ 
+	- **Elemental Live**: vous trouverez des liens vers les journaux sur le portail de gestion. Cliquez sur **Statistiques**, puis **Journaux**. Sur la page **Fichiers journaux**, vous trouverez une liste des journaux pour tous les éléments LiveEvent. Sélectionnez celui correspondant à votre session active. 
+	- **Flash Media Live Encoder**: vous trouverez le **Répertoire de journaux...** en accédant à l’onglet **Journal d’encodage**.
+	
 ###Problème : il n’existe aucune option pour générer un flux progressif
 
 - **Problème potentiel** : l’encodeur utilisé n’effectue pas de désentrelacement automatique. 
@@ -65,11 +73,7 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 
 	**Étapes de dépannage** : accédez à l’onglet « Point de terminaison de diffusion en continu » dans l’outil AMSE et vérifiez qu’un point de terminaison de diffusion en continu est en cours d’exécution avec une unité de diffusion en continu.
 	
-###Problème : vous aimeriez voir les journaux de l’encodeur 
 
-- **Problème potentiel** : impossible de trouver des journaux qui pourraient aider à déboguer des problèmes.
-
-	**Étapes de dépannage** : en général, les journaux Wirecast se trouvent sous C:\\Users{username}\\AppData\\Roaming\\Wirecast\\
 
 >[AZURE.NOTE] Si, après avoir suivi la procédure de dépannage, vous ne pouvez toujours pas diffuser en flux continu, envoyez un ticket de support à l’aide du portail Azure Classic.
 
@@ -81,4 +85,4 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

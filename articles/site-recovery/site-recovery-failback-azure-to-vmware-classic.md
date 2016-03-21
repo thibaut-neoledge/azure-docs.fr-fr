@@ -19,8 +19,8 @@
 # Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques sur le site local
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Amélioré](site-recovery-failback-azure-to-vmware-classic.md)
+- [Hérité](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Azure d’Azure vers le site local. Suivez les instructions qu’il contient lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure en suivant ce [didacticiel](site-recovery-vmware-to-azure-classic.md).
@@ -31,14 +31,20 @@ Cet article explique comment restaurer automatiquement des machines virtuelles A
 
 Ce diagramme illustre l’architecture de restauration automatique correspondant à ce scénario.
 
+Utilisez cette architecture lorsque le serveur de processus est local et que vous utilisez ExpressRoute.
+
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+
+Utilisez cette architecture lorsque le serveur de processus est sur Azure et que vous disposez d’une connexion VPN ou ExpressRoute.
+
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Voici comment fonctionne la restauration automatique :
 
 - Une fois que vous avez procédé au basculement vers Azure, vous pouvez effectuer une restauration automatique sur votre site local en quelques étapes :
-	- **Étape 1**: vous protégez de nouveau les machines virtuelles Azure afin qu’elles soient répliquées sur les machines virtuelles VMware qui s’exécutent sur votre site local. L’activation de la reprotection déplace les machines virtuelles dans un groupe de protection de la restauration automatique qui a été créé automatiquement lorsque vous avez créé initialement le groupe de protection du basculement. Si vous avez ajouté votre groupe de protection du basculement à un plan de récupération, le groupe de protection de la restauration automatique est ajouté automatiquement au plan. Pendant la reprotection, vous devez spécifier la planification de la restauration automatique.
-	- **Étape 2**: une fois que vos machines virtuelles Azure sont répliquées vers votre site local, vous exécutez un basculement pour procéder à la restauration automatique d’Azure.
-	- **Étape 3**: une fois vos données restaurées automatiquement, vous reprotégez les machines virtuelles locales vers lesquelles vous avez procédé à la restauration automatique pour qu’elles soient répliquées vers Azure.
+	- **Étape 1** : reprotégez les machines virtuelles Azure afin qu’elles soient répliquées sur les machines virtuelles VMware qui s’exécutent sur votre site local. L’activation de la reprotection déplace les machines virtuelles dans un groupe de protection de la restauration automatique qui a été créé automatiquement lorsque vous avez créé initialement le groupe de protection du basculement. Si vous avez ajouté votre groupe de protection du basculement à un plan de récupération, le groupe de protection de la restauration automatique est ajouté automatiquement au plan. Pendant la reprotection, vous devez spécifier la planification de la restauration automatique.
+	- **Étape 2** : une fois que vos machines virtuelles Azure sont répliquées vers votre site local, exécutez un basculement pour procéder à la restauration automatique à partir d’Azure.
+	- **Étape 3** : une fois vos données restaurées automatiquement, reprotégez les machines virtuelles locales vers lesquelles vous avez procédé à la restauration automatique pour qu’elles soient répliquées vers Azure.
 
 > [AZURE.VIDEO enhanced-vmware-to-azure-failback]
 
@@ -104,8 +110,8 @@ Pour configurer le serveur d’administration exécutant le serveur cible maîtr
 
 #### Installer CentOS 6.6
 
-1.	Installez le système d’exploitation minimal CentOS 6.6 sur la machine virtuelle du serveur d’administration. Conservez l’image ISO dans un lecteur de DVD et démarrez le système. Ignorez les tests de média, sélectionnez la langue US English et **Basic Storage Devices**, vérifiez que le disque dur ne comporte pas de données importantes et cliquez sur **Yes, discard any data**. Entrez le nom d’hôte du serveur d’administration et sélectionnez la carte réseau du serveur. Dans la boîte de dialogue **Editing System**, sélectionnez Connect automatically, puis ajoutez une adresse IP statique et des paramètres réseau et DNS. Spécifiez un fuseau horaire et un mot de passe racine pour accéder au serveur d’administration. 
-2.	Lorsque le système vous demande le type d’installation souhaitée, sélectionnez **Create Custom Layout** en tant que partition. Après avoir cliqué sur **Next**, sélectionnez **Free** et cliquez sur Create. Créez **/**, **/var/crash** et **/home partitions** avec **FS Type:** **ext4**. Créez la partition d’échange **FS Type: swap**.
+1.	Installez le système d’exploitation minimal CentOS 6.6 sur la machine virtuelle du serveur d’administration. Conservez l’image ISO dans un lecteur de DVD et démarrez le système. Ignorez les tests de média, sélectionnez la langue US English et **Basic Storage Devices**, vérifiez que le disque dur ne comporte pas de données importantes et cliquez sur **Yes, discard any data**. Entrez le nom d’hôte du serveur d’administration et sélectionnez la carte réseau du serveur. Dans la boîte de dialogue **Editing System**, sélectionnez **Connect automatically**, puis ajoutez une adresse IP statique, un réseau et des paramètres DNS. Spécifiez un fuseau horaire et un mot de passe racine pour accéder au serveur d’administration. 
+2.	Lorsque le système vous demande le type d’installation souhaitée, sélectionnez **Create Custom Layout** en tant que partition. Après avoir cliqué sur **Next**, sélectionnez **Free** et cliquez sur Create. Créez les partitions **/**, **/var/crash** et **/home** avec **FS Type:** **ext4**. Créez la partition d’échange **FS Type: swap**.
 3.	Si des appareils préexistants sont trouvés, un message d’avertissement s’affiche. Cliquez sur **Format** pour formater le lecteur avec les paramètres de partition. Cliquez sur **Write change to disk** pour appliquer les modifications de partition.
 4.	Sélectionnez **Install boot loader** > **Next** pour installer le chargeur de démarrage dans la partition racine.
 5.	Une fois l’installation terminée, cliquez sur **Reboot**.
@@ -154,7 +160,7 @@ Pour appliquer des modifications personnalisées après avoir effectué les éta
 
 	![](./media/site-recovery-failback-azure-to-vmware-classic/failback1.png)
 
-6.	Une fois que vous avez cliqué sur **OK** pour démarrer la reprotection, une tâche commence pour répliquer la machine virtuelle d’Azure vers le site local. Vous pouvez en suivre la progression dans l’onglet **Tâches**.
+6.	Une fois que vous avez cliqué sur **OK** pour démarrer la reprotection, une tâche est lancée pour répliquer la machine virtuelle à partir d’Azure vers le site local. Vous pouvez en suivre la progression dans l’onglet **Tâches**.
 
 	![](./media/site-recovery-failback-azure-to-vmware-classic/failback2.png)
 
@@ -162,7 +168,7 @@ Pour appliquer des modifications personnalisées après avoir effectué les éta
 
 Après la reprotection, la machine virtuelle est déplacée vers la version de restauration automatique de son groupe de protection. Elle est également automatiquement ajoutée au plan de récupération que vous avez utilisé pour le basculement vers Azure (le cas échéant).
 
-1.	Dans la page **Plans de récupération**, sélectionnez le plan de récupération qui contient le groupe de restauration automatique, puis cliquez sur **Basculement** > **Basculement non planifié**.
+1.	Sur la page **Plans de récupération**, sélectionnez le plan de récupération qui contient le groupe de restauration automatique, puis cliquez sur **Basculement** > **Basculement non planifié**.
 2.	Dans **Confirmer le basculement**, vérifiez le sens du basculement (vers Azure) et sélectionnez le point de récupération à utiliser pour le basculement (dernier). Si vous avez activé **Multimachine virtuelle** lorsque vous avez configuré les propriétés de réplication, vous pouvez récupérer jusqu’à la dernière application ou jusqu’au dernier point de récupération cohérent en cas d’incident. Cochez la case pour démarrer le basculement.
 3.	Site Recovery arrête les machines virtuelles Azure pendant le basculement. Après que vous avez vérifié que la restauration automatique s’est terminée comme prévu, vous pouvez vous assurer que les machines virtuelles Azure ont été arrêtées correctement.
 
@@ -181,4 +187,4 @@ Vous pouvez effectuer une restauration automatique via une connexion VPN ou via 
 - La solution ExpressRoute doit être configurée sur le réseau virtuel Azure vers lequel les machines sources basculent, et sur lequel les machines virtuelles Azure sont situées après le basculement.
 - Les données sont répliquées vers un compte de stockage Azure sur un point de terminaison public. Vous devez configurer une homologation publique dans ExpressRoute avec le centre de données cible pour que la réplication Site Recovery utilise ExpressRoute.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

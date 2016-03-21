@@ -14,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Prendre en main l’API OneDrive
 
 Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. L’API OneDrive peut être utilisée à partir de :
 
-- PowerApps 
 - Logic Apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic Apps](../articles/connectors/create-api-onedrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+&nbsp;
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [API OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
 
@@ -42,32 +48,12 @@ L’API OneDrive inclut les déclencheurs et les actions suivants.
 
 | Déclencheurs | Actions|
 | --- | --- |
-|<ul><li>Quand un fichier est créé</li><li>Quand un fichier est modifié</li></ul> | <ul><li>Créer un fichier</li><li>Lister des fichiers dans un dossier</li><li>Quand un fichier est créé</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier à l’aide de l’identifiant</li><li>Obtenir le contenu d’un fichier à l'aide du chemin</li><li>Obtenir les métadonnées d’un fichier à l’aide de l’identifiant</li><li>Obtenir les métadonnées d’un fichier à l'aide du chemin</li><li>Lister le dossier racine</li><li>Mettre à jour un fichier</li><li>Quand un fichier est modifié</li></ul>
+|<ul><li>Quand un fichier est créé</li><li>Quand un fichier est modifié</li></ul> | <ul><li>Créer un fichier</li><li>Lister des fichiers dans un dossier</li><li>Quand un fichier est créé</li><li>Copier un fichier</li><li>Supprimer un fichier</li><li>Extraire un dossier</li><li>Obtenir le contenu d’un fichier à l’aide de l’identifiant</li><li>Obtenir le contenu d’un fichier à l’aide du chemin</li><li>Obtenir les métadonnées d’un fichier à l’aide de l’identifiant</li><li>Obtenir les métadonnées d’un fichier à l’aide du chemin</li><li>Lister des dossiers racines</li><li>Mettre à jour un fichier</li><li>Quand un fichier est modifié</li></ul>
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à OneDrive
 
-### Ajouter une configuration à PowerApps
-Quand vous ajoutez OneDrive à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application OneDrive. La valeur **URL de redirection** est également utilisée dans votre application OneDrive. Si vous n’avez pas d’application OneDrive, vous pouvez utiliser les étapes suivantes pour en créer une :
-
-1. Accédez à la [page de création d’application][5] dans _Centre de développement de compte Microsoft_ et connectez-vous avec votre _compte Microsoft_.
-
-2. Entrez le **nom de votre application**, puis acceptez le contrat :
-
-	![Nouvelle application OneDrive][6]
-
-3. Dans Paramètres :
-
-	1. Sélectionnez **Paramètres de l’API**.  
-	2. Définissez l’**URL de redirection** sur la valeur affichée quand vous ajoutez la nouvelle API OneDrive dans le portail Azure.  
-	3. **Enregistrez** vos modifications.  
-
-	![Paramètres de l’application API OneDrive][7]
-
-Maintenant, copiez/collez les valeurs **Clé d’application** et **Question secrète de l’application** dans votre configuration OneDrive dans le portail Azure.
-
-### Ajouter une configuration à des applications logiques
 Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte OneDrive.
 
 1. Connectez-vous à votre compte OneDrive.
@@ -317,13 +303,13 @@ Extrait un dossier dans OneDrive. ```POST: /datasets/default/extractFolderV2```
 
 
 ## Étapes suivantes
-Après avoir ajouté l’API OneDrive à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
+Revenir à la [liste des API](apis-list.md).
 
 [5]: https://account.live.com/developers/applications/create
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

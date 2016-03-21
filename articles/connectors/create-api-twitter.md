@@ -14,15 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="mandia"/>
 
 
 # Prendre en main l’API Twitter
 Connectez-vous à Twitter pour publier un tweet, obtenir le fil d’un utilisateur et bien plus encore. L’API Twitter peut être utilisée à partir de :
 
-- PowerApps 
 - Logic Apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic Apps](../articles/connectors/create-api-twitter.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
+
+&nbsp;
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
 
@@ -50,25 +56,6 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer la connexion à Twitter
 
-### Ajouter une configuration à PowerApps
-Quand vous ajoutez Twitter à PowerApps Enterprise, vous entrez les valeurs **Clé de consommateur** et **Question secrète de consommateur** de votre application Twitter. La valeur **URL de redirection** est également utilisée dans votre application Twitter. Si vous n’avez pas d’application Twitter, vous pouvez utiliser les étapes suivantes pour en créer une :
-
-1. Connectez-vous à [Twitter](https://apps.twitter.com).
-
-2. Sélectionnez **Créer une application** : ![Page des applications Twitter][6]
-
-3. Dans **Créer une application** :
-   
-	1. Entrez les valeurs de votre choix dans **Name**, **Description** et **Website**.
-	2. Dans **Callback url**, entrez la valeur **URL de redirection** affichée quand vous ajoutez l’API Twitter dans le portail Azure.
-	5. Acceptez le contrat, et cliquez sur **Create your Twitter application**.  
-
-	![Créer une application Twitter][7]
-
-Maintenant, copiez/collez les valeurs **Clé de consommateur** et **Question secrète de consommateur** dans votre configuration Twitter dans le portail Azure.
-
-
-### Ajouter une configuration à des applications logiques
 Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Twitter.
 
 1. Connectez-vous à votre compte Twitter.
@@ -318,13 +305,14 @@ Récupère les utilisateurs que je suis. ```GET: /myfriends```
 
 
 ## Étapes suivantes
-Après avoir ajouté l’API Dropbox à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
 
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Revenir à la [liste des API](apis-list.md).
 
 <!--References-->
 
 [6]: ./media/create-api-twitter/twitter-apps-page.png
 [7]: ./media/create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

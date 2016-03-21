@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="02/22/2016"
     ms.author="robmcm"/>
 
 # Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Jenkins
@@ -41,7 +41,7 @@ Un profil d'abonnement, également appelé paramètres de publication, est un fi
 * votre ID d'abonnement
 * un certificat de gestion pour votre abonnement
 
-Vous les trouverez dans votre profil d'abonnement. Si vous n’avez pas de copie de votre profil d’abonnement, vous pouvez le télécharger à partir du [site d’abonnement](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Vous trouverez ci-dessous un exemple de profil d'abonnement.
+Vous les trouverez dans votre [profil d’abonnement](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Vous trouverez ci-dessous un exemple de profil d'abonnement.
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -204,4 +204,4 @@ Dans cette section, vous allez créer un travail Jenkins qui s'exécutera sur un
 
 Jenkins crée ensuite un nœud subordonné à l’aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l’étape de build pour cette tâche.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -18,7 +18,7 @@
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)
 
-Azure Event Hubs permet de traiter d’énormes quantités de données provenant de sites web, d’applications et d’appareils. Le spout Event Hubs simplifie l’utilisation d’Apache Storm sur HDInsight pour analyser ces données en temps réel. Vous pouvez également écrire des données dans les concentrateurs d’événements à partir de Storm à l’aide du bolt des concentrateurs d’événements.
+Azure Event Hubs permet de traiter d’énormes quantités de données provenant de sites web, d’applications et d’appareils. Le spout Event Hubs simplifie l’utilisation d’Apache Storm sur HDInsight pour analyser ces données en temps réel. Vous pouvez également écrire des données dans les hubs d’événements à partir de Storm à l’aide du bolt des hubs d’événements.
 
 Dans ce didacticiel, vous allez apprendre à utiliser le spout et le bolt Event Hubs pour lire et écrire des données dans une topologie Storm basée sur Java.
 
@@ -259,23 +259,23 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	* Le répertoire d’installation de Maven
 
-## Configuration du concentrateur d'événements
+## Configuration du hub d'événements
 
-Event Hubs est la source de données pour cet exemple. Procédez comme suit pour créer un nouveau concentrateur d'événements.
+Event Hubs est la source de données pour cet exemple. Procédez comme suit pour créer un nouveau hub d'événements.
 
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > **Service Bus** > **Event Hub** > **Création personnalisée**.
 
-2. Sur l’écran **Ajouter un nouveau concentrateur d’événements**, entrez un **nom de concentrateur d’événements**, sélectionnez la **région** dans laquelle créer le concentrateur, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
+2. Sur l’écran **Ajouter un nouveau hub d’événements**, entrez un **nom de hub d’événements**, sélectionnez la **région** dans laquelle créer le hub, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
 
 	![page 1 de l’assistant](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
 	> [AZURE.NOTE] Vous devez sélectionner le même **emplacement** que celui de votre serveur Storm sur HDInsight pour réduire la latence et les coûts.
 
-2. Sur l’écran **Configurer le concentrateur d’événements**, entrez les valeurs pour **Nombre de partitions** et **Conservation des messages**. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
+2. Sur l’écran **Configurer un hub d’événements**, entrez les valeurs pour **Nombre de partitions** et **Conservation des messages**. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
 
 	![page 2 de l’assistant](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
 
-3. Une fois le concentrateur d’événements créé, sélectionnez l’espace de noms, puis le **Concentrateurs d’événements**. Enfin, sélectionnez le concentrateur d’événements créé auparavant.
+3. Une fois le hub d’événements créé, sélectionnez l’espace de noms, puis le **hub d’événements**. Enfin, sélectionnez le hub d’événements que vous avez créé.
 
 4. Sélectionnez **Configurer**, puis créez deux nouvelles stratégies d’accès en utilisant les informations suivantes.
 
@@ -285,7 +285,7 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 	<tr><td>Lecteur</td><td>Écouter</td></tr>
 	</table>
 
-	Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Cela crée les stratégies d’accès partagé qui seront utilisées pour envoyer (writer) et écouter (reader) ce concentrateur d’événements.
+	Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Cela crée les stratégies d’accès partagé qui seront utilisées pour envoyer (writer) et écouter (reader) ce hub d’événements.
 
 	![stratégies](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -295,7 +295,7 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 
 1. Téléchargez le projet à partir de GitHub : [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub). Vous pouvez télécharger le package dans une archive .zip ou utiliser [git](https://git-scm.com/) pour cloner le projet localement.
 
-2. Utilisez les commandes suivantes pour installer les packages inclus dans le projet dans votre référentiel Maven local. Ces commandes activent le spout et le bolt de l’Event Hub, ainsi que la possibilité d’utiliser HdfsBolt pour écrire dans le stockage Azure (WASB).
+2. Utilisez les commandes suivantes pour installer les packages inclus dans le projet dans votre référentiel Maven local. Ces commandes activent le spout et le bolt du hub d’événements, ainsi que la possibilité d’utiliser HdfsBolt pour écrire dans le stockage Azure (WASB).
 
 		mvn -q install:install-file -Dfile=lib/eventhubs/eventhubs-storm-spout-0.9.3-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9.3 -Dpackaging=jar
 
@@ -460,11 +460,15 @@ Les scripts présents dans ce répertoire sont :
 
 * **stormmeta\_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
 
-L’exportation d’une importation vous permet de conserver les données du point de contrôle lorsque vous devez supprimer le cluster, mais que vous souhaitez reprendre le traitement à partir de l’offset actuel dans le concentrateur lorsque vous remettez un nouveau cluster en ligne.
+L’exportation d’une importation vous permet de conserver les données du point de contrôle lorsque vous devez supprimer le cluster, mais que vous souhaitez reprendre le traitement à partir de l’offset actuel dans le hub lorsque vous remettez un nouveau cluster en ligne.
 
 > [AZURE.NOTE] Dans la mesure où les données sont conservées dans le conteneur de stockage par défaut, le nouveau cluster **doit** utiliser le même compte de stockage et le même conteneur que le cluster précédent.
 
-##Résolution de problèmes
+## Supprimer votre cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+##Résolution des problèmes
 
 Si vous ne voyez pas les fichiers stockés à l’emplacement /devicedata (à l’aide de la commande `hadoop fs -ls /devicedata` ou de la commande Hive dans la Console de requête), utilisez l’interface utilisateur de Storm pour rechercher les erreurs renvoyées par les topologies.
 
@@ -478,4 +482,4 @@ Pour plus d’informations sur l’utilisation de l’interface utilisateur de S
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

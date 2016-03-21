@@ -19,12 +19,12 @@
 
 # Ajout de notifications Push à l’application iOS et au système principal .NET
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez l’article [Ajout de notifications Push à votre application iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 Cette rubrique vous montre comment ajouter des notifications push au [projet quickstart](mobile-services-dotnet-backend-ios-get-started.md), de sorte que votre service mobile envoie une notification push chaque fois qu'un enregistrement est inséré. Vous devez d’abord suivre le didacticiel [Prise en main de Mobile Services].
 
@@ -36,7 +36,7 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 
 ##<a id="update-server"></a>Mise à jour du code de backend pour l'envoi de notifications push
 
-* Ouvrez un projet Visual Studio > dossier **Contrôleurs** > **TodoItemController.cs** > méthode `PostTodoItem`. Remplacez la méthode par le code suivant : Lorsqu'un élément ToDo est inséré, ce code envoie une notification push avec le texte de l'élément. En cas d'erreur, le code ajoute une entrée de journal qui peut être affichée via la section Journaux du portail.
+* Ouvrez un projet Visual Studio > dossier **Contrôleurs** > **TodoItemController.cs** > méthode `PostTodoItem`. Remplacez la méthode par le code suivant : Lorsqu'un élément ToDo est inséré, ce code envoie une notification push avec le texte de l'élément. En cas d'erreur, le code ajoute une entrée de journal qui peut être affichée via la section Journaux du portail.
 
 
 ```
@@ -132,4 +132,4 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->
