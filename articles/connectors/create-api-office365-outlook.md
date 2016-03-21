@@ -1,11 +1,12 @@
 <properties
-pageTitle="Ajouter l’API Office 365 Outlook à vos applications logiques | Microsoft Azure"
-description="Vue d’ensemble de l’API Office 365 Outlook avec les paramètres de l’API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="dwrede"	
-editor="" tags="connectors" />
+	pageTitle="Ajouter l’API Office 365 Outlook à PowerApps Enterprise ou à des applications logiques | Microsoft Azure"
+	description="Vue d’ensemble de l’API Office 365 Outlook avec les paramètres de l’API REST"
+	services=""	
+	documentationCenter="" 	
+	authors="msftman"	
+	manager="erikre"	
+	editor="" 
+	tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -13,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Prendre en main l’API Office 365 Outlook 
 
 Connectez-vous à Office 365 Outlook pour recevoir des messages électroniques, répondre à un message électronique, mettre à jour vos calendrier et contacts, et bien plus encore. L’API Office 365 Outlook peut être utilisée à partir de :
 
-- PowerApps 
 - Logic Apps 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Logic Apps](../articles/connectors/create-api-office365-outlook.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+&nbsp;
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [API Office 365](../app-service-logic/app-service-logic-connector-office365.md).
 
@@ -42,64 +49,13 @@ L’API Office 365 Outlook propose les déclencheurs et les actions suivants.
 
 | Déclencheurs | Actions|
 | --- | --- |
-|<ul><li>Événement imminent</li><li>Arrivée d’un nouveau message électronique</li><li>Quand des éléments sont créés</li><li>Quand des éléments sont mis à jour</li></ul>| <ul><li>Créer un contact</li><li>Créer un événement</li><li>Envoyer un message électronique d’approbation</li><li>Envoyer un message électronique</li><li>Supprimer contact</li><li>Supprimer un message électronique</li><li>Supprimer un événement</li><li>Obtenir une pièce jointe</li><li>Obtenir des calendriers</li><li>Obtenir un contact</li><li>Obtenir des dossiers de contacts</li><li>Obtenir des contacts</li><li>Obtenir des messages électroniques</li><li>Obtenir un événement</li><li>Obtenir des événements</li><li>Marquer comme lu</li><li>Événement imminent</li><li>Arrivée d’un nouveau message électronique</li><li>Quand des éléments sont créés</li><li>Quand des éléments sont mis à jour</li><li>Répondre à un message</li><li>Envoyer un message électronique avec des options</li><li>Mettre à jour un contact</li><li>Mettre à jour un événement</li></ul> |
+|<ul><li>Événement imminent</li><li>Arrivée d’un nouveau message électronique</li><li>Quand des éléments sont créés</li><li>Quand des éléments sont mis à jour</li></ul>| <ul><li>Créer un contact</li><li>Créer un événement</li><li>Envoyer un message électronique d'approbation</li><li>Envoyer un courrier électronique</li><li>Supprimer un contact</li><li>Supprimer un courrier électronique</li><li>Supprimer un événement</li><li>Obtenir une pièce jointe</li><li>Obtenir des calendriers</li><li>Obtenir un contact</li><li>Obtenir des dossiers de contacts</li><li>Obtenir des contacts</li><li>Obtenir des messages électroniques</li><li>Obtenir un événement</li><li>Obtenir les événements</li><li>Marquer comme lu</li><li>Événement imminent</li><li>Arrivée d’un nouveau message électronique</li><li>Quand des éléments sont créés</li><li>Quand des éléments sont mis à jour</li><li>Répondre à un message</li><li>Envoyer un message électronique avec des options</li><li>Mettre à jour un contact</li><li>Mettre à jour un événement</li></ul> |
 
 Toutes les API prennent en charge les données aux formats JSON et XML.
 
 
 ## Créer une connexion à Office 365
 
-### Ajouter une configuration à PowerApps
-Quand vous ajoutez cette API à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Office 365 Azure Active Directory (AAD). La valeur **URL de redirection** est également utilisée dans votre application Office 365. Si vous n’avez pas d’application Office 365, vous pouvez utiliser les étapes suivantes pour en créer une :
-
-1. Dans le [portail Azure][5], ouvrez **Active Directory**, puis ouvrez le nom de client de votre organisation.
-2. Sélectionnez l’onglet **Applications**, puis sélectionnez **Ajouter** :  
-![Applications clientes AAD][7]
-
-3. Dans **AJOUTER UNE APPLICATION** :
-
-	1. Entrez un **Nom** pour votre application.  
-	2. Laissez le type d’application sur **Web**.  
-	3. Sélectionnez **Suivant**.  
-
-	![Ajouter une application AAD – Informations sur l’application][8]
-
-6. Dans **Propriétés de l’application** :
-
-	1. Entrez l’**URL de connexion** de votre application. Étant donné que vous allez vous authentifier dans AAD pour PowerApps, définissez l’URL de connexion sur _https://login.windows.net_.
-	2. Entrez un **URI ID d’application** valide pour votre application.  
-	3. Sélectionnez **OK**.  
-
-	![Ajouter une application AAD – Propriétés de l’application][9]
-
-7. Quand vous avez terminé, la nouvelle application AAD s’ouvre. Sélectionnez **Configurer** :  
-![Application AAD Contoso][10]
-
-8. Sous la section _OAuth 2_, définissez l’**URL de réponse** sur la valeur d’URL de redirection indiquée quand vous avez ajouté la nouvelle API Office 365 Outlook dans le portail Azure. Sélectionnez **Ajouter une application** :  
-![Configurer l’application AAD Contoso][11]
-
-9. Dans **Autorisations pour d’autres applications**, sélectionnez **Office 365 Exchange Online**, puis sélectionnez **OK** :  
-![Délégué de l’application Contoso][12]
-
-	Dans la page Configurer, notez que _OFFICE 365 EXCHANGE ONLINE_ est ajouté à la liste _AUTORISATIONS POUR D’AUTRES APPLICATIONS_.
-
-10. Pour **Office 365 Exchange Online**, sélectionnez **Autorisations déléguées**, puis sélectionnez les autorisations suivantes :
-
-	- Lecture et écriture des contacts de l’utilisateur
-	- Lecture des contacts de l’utilisateur
-	- Lecture et écriture des calendriers de l’utilisateur
-	- Lecture des calendriers des utilisateurs
-	- Envoi de messages en tant qu’utilisateur
-	- Lecture et écriture du courrier de l’utilisateur
-	- Lecture du courrier de l’utilisateur
-
-	![Autorisations de délégué d’application Contoso][13]
-
-Une nouvelle application Azure Active Directory est créée. Vous pouvez copier/coller les valeurs **Clé d’application** et **Question secrète de l’application** dans votre configuration de l’API Office 365 Outlook dans le portail Azure.
-
-Pour obtenir des informations intéressantes sur les applications AAD, consultez [Comment et pourquoi les applications sont ajoutées à Azure AD](../active-directory/active-directory-how-applications-are-added.md).
-
-### Ajouter une configuration à des applications logiques
 Quand vous ajoutez cette API à vos applications logiques, vous devez vous connecter à votre compte Office 365 Outlook et autoriser les applications logiques à se connecter à votre compte.
 
 1. Connectez-vous à votre compte Office 365 Outlook.
@@ -114,8 +70,7 @@ S’applique à la version 1.0.
 
 
 ### Événement imminent 
-Déclenche un flux au démarrage d’un événement de calendrier à venir.  
-```GET: /Events/OnUpcomingEvents```
+Déclenche un flux au démarrage d’un événement de calendrier à venir. ```GET: /Events/OnUpcomingEvents```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -135,8 +90,7 @@ Déclenche un flux au démarrage d’un événement de calendrier à venir.
 
 
 ### Obtenir des messages électroniques 
-Récupère des messages électroniques à partir d’un dossier.  
-```GET: /Mail```
+Récupère des messages électroniques à partir d’un dossier. ```GET: /Mail```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -161,8 +115,7 @@ Récupère des messages électroniques à partir d’un dossier.
 
 
 ### Envoyer un message électronique 
-Envoie un message électronique.  
-```POST: /Mail```
+Envoie un message électronique. ```POST: /Mail```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -182,8 +135,7 @@ Envoie un message électronique.
 
 
 ### Supprimer un message électronique 
-Supprime un message électronique en fonction de son identifiant.  
-```DELETE: /Mail/{messageId}```
+Supprime un message électronique en fonction de son identifiant. ```DELETE: /Mail/{messageId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -202,8 +154,7 @@ Supprime un message électronique en fonction de son identifiant.
 
 
 ### Marquer comme lu 
-Marque un message électronique comme lu.  
-```POST: /Mail/MarkAsRead/{messageId}```
+Marque un message électronique comme lu. ```POST: /Mail/MarkAsRead/{messageId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -222,8 +173,7 @@ Marque un message électronique comme lu.
 
 
 ### Répondre à un message 
-Répond à un message électronique.  
-```POST: /Mail/ReplyTo/{messageId}```
+Répond à un message électronique. ```POST: /Mail/ReplyTo/{messageId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -244,8 +194,7 @@ Répond à un message électronique.
 
 
 ### Obtenir une pièce jointe 
-Récupère la pièce jointe à un message en fonction de l’identifiant.  
-```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+Récupère la pièce jointe à un message en fonction de l’identifiant. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -265,8 +214,7 @@ Récupère la pièce jointe à un message en fonction de l’identifiant.
 
 
 ### Arrivée d’un nouveau message électronique 
-Déclenche un flux à l’arrivée d’un nouveau message électronique.  
-```GET: /Mail/OnNewEmail```
+Déclenche un flux à l’arrivée d’un nouveau message électronique. ```GET: /Mail/OnNewEmail```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -292,8 +240,7 @@ Déclenche un flux à l’arrivée d’un nouveau message électronique.
 
 
 ### Envoyer un message électronique avec des options 
-Envoie un message électronique avec plusieurs options et attend que le destinataire réponde avec une des options.  
-```POST: /mailwithoptions/$subscriptions```
+Envoie un message électronique avec plusieurs options et attend que le destinataire réponde avec une des options. ```POST: /mailwithoptions/$subscriptions```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -313,8 +260,7 @@ Envoie un message électronique avec plusieurs options et attend que le destinat
 
 
 ### Envoyer un message électronique d’approbation 
-Envoie un message électronique d’approbation et attend une réponse du destinataire.  
-```POST: /approvalmail/$subscriptions```
+Envoie un message électronique d’approbation et attend une réponse du destinataire. ```POST: /approvalmail/$subscriptions```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -337,8 +283,7 @@ Envoie un message électronique d’approbation et attend une réponse du destin
 
 
 ### Obtenir des calendriers 
-Récupère des calendriers.  
-```GET: /datasets/calendars/tables```
+Récupère des calendriers. ```GET: /datasets/calendars/tables```
 
 Il n'existe aucun paramètre pour cet appel.
 
@@ -353,8 +298,7 @@ Il n'existe aucun paramètre pour cet appel.
 
 
 ### Obtenir les événements 
-Récupère des éléments d’un calendrier.  
-```GET: /datasets/calendars/tables/{table}/items```
+Récupère des éléments d’un calendrier. ```GET: /datasets/calendars/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -373,8 +317,7 @@ Récupère des éléments d’un calendrier.
 
 
 ### Créer un événement 
-Crée un événement.  
-```POST: /datasets/calendars/tables/{table}/items```
+Crée un événement. ```POST: /datasets/calendars/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -390,8 +333,7 @@ Crée un événement.
 
 
 ### Obtenir un événement 
-Extrait un élément spécifique d’un calendrier.  
-```GET: /datasets/calendars/tables/{table}/items/{id}```
+Extrait un élément spécifique d’un calendrier. ```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -407,8 +349,7 @@ Extrait un élément spécifique d’un calendrier.
 
 
 ### Supprimer un événement 
-Supprime un élément de calendrier.  
-```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+Supprime un élément de calendrier. ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -424,8 +365,7 @@ Supprime un élément de calendrier.
 
 
 ### Mettre à jour un événement 
-Met à jour partiellement un élément de calendrier.  
-```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+Met à jour partiellement un élément de calendrier. ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -442,8 +382,7 @@ Met à jour partiellement un élément de calendrier.
 
 
 ### Quand des éléments sont créés 
-Déclenché à la création d’un élément de calendrier.  
-```GET: /datasets/calendars/tables/{table}/onnewitems```
+Déclenché à la création d’un élément de calendrier. ```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -462,8 +401,7 @@ Déclenché à la création d’un élément de calendrier.
 
 
 ### Quand des éléments sont mis à jour 
-Déclenché quand un élément de calendrier est modifié.  
-```GET: /datasets/calendars/tables/{table}/onupdateditems```
+Déclenché quand un élément de calendrier est modifié. ```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -482,8 +420,7 @@ Déclenché quand un élément de calendrier est modifié.
 
 
 ### Obtenir des dossiers de contacts 
-Récupère des dossiers de contacts.  
-```GET: /datasets/contacts/tables```
+Récupère des dossiers de contacts. ```GET: /datasets/contacts/tables```
 
 Il n'existe aucun paramètre pour cet appel.
 
@@ -496,8 +433,7 @@ Il n'existe aucun paramètre pour cet appel.
 
 
 ### Obtenir des contacts 
-Récupère les contacts d’un dossier de contacts.  
-```GET: /datasets/contacts/tables/{table}/items```
+Récupère les contacts d’un dossier de contacts. ```GET: /datasets/contacts/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -516,8 +452,7 @@ Récupère les contacts d’un dossier de contacts.
 
 
 ### Créer un contact 
-Crée un contact.  
-```POST: /datasets/contacts/tables/{table}/items```
+Crée un contact. ```POST: /datasets/contacts/tables/{table}/items```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -533,8 +468,7 @@ Crée un contact.
 
 
 ### Obtenir un contact 
-Récupère un contact spécifique d’un dossier de contacts.  
-```GET: /datasets/contacts/tables/{table}/items/{id}```
+Récupère un contact spécifique d’un dossier de contacts. ```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -550,8 +484,7 @@ Récupère un contact spécifique d’un dossier de contacts.
 
 
 ### Supprimer un contact 
-Supprime un contact.  
-```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+Supprime un contact. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -567,8 +500,7 @@ Supprime un contact.
 
 
 ### Mettre à jour un contact 
-Met à jour partiellement un contact.  
-```PATCH: /datasets/contacts/tables/{table}/items/{id}```
+Met à jour partiellement un contact. ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
@@ -821,9 +753,10 @@ Met à jour partiellement un contact.
 
 
 ## Étapes suivantes
-Après avoir ajouté l’API Office 365 à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
 
-[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Revenir à la [liste des API](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -835,5 +768,4 @@ Après avoir ajouté l’API Office 365 à PowerApps Enterprise, [donnez aux uti
 [12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0302_2016-->
-
+<!---HONumber=AcomDC_0309_2016-->

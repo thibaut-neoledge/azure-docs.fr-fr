@@ -1,6 +1,6 @@
 ## Création d’une identité d’appareil
 
-Dans cette section, vous allez créer une application console Java qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre d’identité des appareils. Reportez-vous à la section **Registre d’identité de l’appareil** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application console, elle génère un ID d’appareil et une clé uniques auxquels votre appareil peut s’identifier lorsqu’il envoie des messages Appareil vers cloud à IoT Hub.
+Dans cette section, vous allez créer une application console Java qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre d’identité des appareils. Reportez-vous à la section **Registre d’identité de l’appareil** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application console, elle génère un ID d’appareil et une clé uniques auxquels votre appareil peut s’identifier lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
 
 1. Créez un dossier vide appelé iot-java-get-started. Dans le dossier iot-java-get-started, créez un projet Maven nommé **create-device-identity** en entrant la commande ci-après au niveau de votre invite de commandes. Notez qu’il s’agit d’une seule commande longue :
 
@@ -88,7 +88,7 @@ Dans cette section, vous allez créer une application console Java qui crée une
 
 ## Recevoir des messages des appareils vers le cloud
 
-Dans cette section, vous allez créer une application console Java qui lit les messages Appareil vers cloud à partir de l’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages Appareil vers cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traitement de messages de type « Appareil vers cloud »][lnk-processd2c-tutorial] vous indique comment traiter les messages Appareil vers cloud à grande échelle. Le didacticiel [Prise en main des concentrateurs d’événements][lnk-eventhubs-tutorial] fournit des informations complémentaires sur la façon de traiter les messages à partir d’Event Hubs et s’applique aux points de terminaison compatibles Event Hubs exposés par l’IoT Hub.
+Dans cette section, vous allez créer une application console Java qui lit les messages appareil-à-cloud à partir de l’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages appareil-à-cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traitement de messages appareil-à-cloud][lnk-processd2c-tutorial] vous indique comment traiter les messages appareil-à-cloud à grande échelle. Le didacticiel [Prise en main des hubs d’événements][lnk-eventhubs-tutorial] fournit des informations complémentaires sur la façon de traiter les messages à partir d’Event Hubs et s’applique aux points de terminaison compatibles Event Hubs exposés par l’IoT Hub.
 
 1. Dans le dossier iot-java-get-started que vous avez créé à la section *Création d’une identité d’appareil*, créez un projet Maven appelé **read-d2c-messages** en entrant la commande ci-après au niveau de votre invite de commandes. Notez qu’il s’agit d’une seule commande longue :
 
@@ -125,14 +125,14 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     import com.microsoft.eventhubs.client.ConnectionStringBuilder;
     ```
 
-7. Ajoutez les variables de niveau classe ci-après à la classe **App**:
+7. Ajoutez les variables de niveau classe ci-après à la classe **App** :
 
     ```
     private static EventHubClient client;
     private static long now = System.currentTimeMillis();
     ```
 
-8. Imbriquez la classe ci-après dans la classe **App**. L’application crée deux threads pour exécuter l’objet **MessageReceiver** de façon à lire les messages à partir des deux partitions du concentrateur d’événements :
+8. Imbriquez la classe ci-après dans la classe **App**. L’application crée deux threads pour exécuter l’objet **MessageReceiver** de façon à lire les messages à partir des deux partitions du hub d’événements :
 
     ```
     private static class MessageReceiver implements Runnable
@@ -142,7 +142,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     }
     ```
 
-9. Ajoutez le constructeur ci-après à la classe **MessageReceiver**:
+9. Ajoutez le constructeur ci-après à la classe **MessageReceiver** :
 
     ```
     public MessageReceiver(String partitionId) {
@@ -150,7 +150,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     }
     ```
 
-10. Ajoutez la méthode **run** ci-après à la classe **MessageReceiver**. Cette méthode crée une instance **EventHubReceiver** pour effectuer la lecture à partir d’une partition du concentrateur d’événements. Elle effectue une boucle continue et affiche les détails des messages sur la console jusqu’à ce que l’élément **stopThread** présente la valeur true.
+10. Ajoutez la méthode **run** ci-après à la classe **MessageReceiver**. Cette méthode crée une instance **EventHubReceiver** pour effectuer la lecture à partir d’une partition du hub d’événements. Elle effectue une boucle continue et affiche les détails des messages sur la console jusqu’à ce que l’élément **stopThread** présente la valeur true.
 
     ```
     public void run() {
@@ -173,7 +173,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     }
     ```
 
-    > [AZURE.NOTE] Cette méthode utilise un filtre lorsqu’elle crée le récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Cette opération est utile dans un environnement de test, car elle vous permet de voir l’ensemble actuel de messages, mais dans un environnement de production, votre code doit vérifier qu’il traite la totalité des messages. Pour plus d’informations, voir le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-processd2c-tutorial].
+    > [AZURE.NOTE] Cette méthode utilise un filtre lorsqu’elle crée le récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Cette opération est utile dans un environnement de test, car elle vous permet de voir l’ensemble actuel de messages, mais dans un environnement de production, votre code doit vérifier qu’il traite la totalité des messages. Pour plus d’informations, voir le didacticiel [Traiter les messages appareil-à-cloud IoT Hub][lnk-processd2c-tutorial].
 
 11. Modifiez la signature de la méthode **main** pour y inclure les exceptions ci-après :
 
@@ -223,9 +223,9 @@ Dans cette section, vous allez créer une application console Java qui lit les m
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

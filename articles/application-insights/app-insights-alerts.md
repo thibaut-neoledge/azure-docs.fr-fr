@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
  
 # Configuration d’alertes dans Application Insights
@@ -48,6 +48,8 @@ Pour obtenir un message électronique lorsqu’une métrique dépasse un seuil, 
 
 *Je ne vois pas le bouton Ajouter une alerte.* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez Paramètres -> Utilisateurs. [En savoir plus sur le contrôle d’accès][roles].
 
+> [AZURE.NOTE] Dans le panneau Alertes, vous pouvez constater qu'une alerte est déjà configurée : [diagnostics proactifs NRT](app-insights-nrt-proactive-diagnostics.md). Il s'agit d'une alerte automatique qui surveille une métrique spécifique, le taux d'échec des demandes. Sauf si vous décidez de désactiver cette option, vous n'avez pas besoin de définir votre propre alerte pour les taux d'échec des demandes.
+
 ## Consultez vos alertes
 
 Vous recevez un e-mail lorsqu’une alerte bascule entre les états inactive et active.
@@ -58,13 +60,10 @@ Il existe un résumé de l’activité récente dans la liste déroulante des al
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-L’historique des modifications d’état figure dans le journal des événements d’opérations :
+L’historique des modifications d’état figure dans le journal d’audit :
 
-![Sur le panneau Vue d’ensemble, près du bas de la page, cliquez sur « Événements de la semaine dernière »](./media/app-insights-alerts/09-alerts.png)
+![Dans le panneau Vue d’ensemble, cliquez sur Paramètres, puis sur Journaux d'audit.](./media/app-insights-alerts/09-alerts.png)
 
-*Ces « événements » sont-ils liés à des événements de télémétrie ou à des événements personnalisés ?*
-
-* Non. Ces événements opérationnels sont simplement un journal des opérations qui ont eu lieu dans cette ressource d’application. 
 
 
 ## Fonctionnement des alertes
@@ -127,4 +126,4 @@ Les alertes les plus appréciées sont les suivantes :
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

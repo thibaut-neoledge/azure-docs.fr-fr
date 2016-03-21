@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="01/21/2016"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Inscrire une API gérée par Microsoft ou gérée par le service informatique
@@ -22,13 +22,12 @@ Il existe des API **gérées par Microsoft** et **gérées par le service inform
 
 Grâce aux API gérées par le service informatique, vous pouvez contrôler et surveiller l’ensemble des paramètres, tels que la mémoire, la connectivité, les approbations, et bien plus encore. Les API gérées par le service informatique comprennent également les API qui peuvent se connecter à un système local, tel que SQL Server et SharePoint Server.
 
-Pour utiliser les API **gérées par Microsoft** ou **gérées par le service informatique**, vous devez les inscrire dans le portail Azure. Une fois inscrites, vous pourrez les utiliser dans vos applications. Les options suivantes sont disponibles :
+> [AZURE.SELECTOR]
+- [API gérées](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [API dans votre environnement de service d’application](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [API Swagger](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-- Inscrire une API gérée par Microsoft préconstruite ou une API gérée par le service informatique (dans cette rubrique)
-- Inscrire une application web, une application API et une application mobile hébergées dans [votre environnement App Service Environment](powerapps-register-api-hosted-in-app-service.md)
-- Inscrire l’une de vos propres API Swagger à l’aide d’une [définition d’API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md)
-
-Cet article concerne l’**inscription des API gérées par Microsoft préconstruites et des API gérées par le service informatique**.
+Dans cette rubrique, nous nous concentrons sur la première option, qui consiste à **inscrire les API gérées par Microsoft et les API gérées par le service informatique**.
 
 #### Conditions préalables
 
@@ -108,17 +107,13 @@ Le tableau suivant compare les fonctionnalités des API gérées par Microsoft e
 ## Inscrire une API gérée par Microsoft ou gérée par le service informatique
 
 1. Dans le [portail Azure](https://portal.azure.com/), connectez-vous avec votre compte professionnel (*yourUserName*@*YourCompany*.com). Vous êtes automatiquement connecté à l’abonnement de votre société.
-2. Sélectionnez **Parcourir**, **PowerApps**, puis **Gérer les API**:  
-![][17]
-3. Dans Gérer les API, sélectionnez **Ajouter**:  
-![][18]  
+2. Sélectionnez **Parcourir**, **PowerApps**, puis **Gérer les API** : ![][17]
+3. Dans Gérer les API, sélectionnez **Ajouter** : ![][18]  
 4. Dans **Ajouter une API**, entrez les propriétés de l’API :  
 
 	- Dans **Nom**, entrez un nom pour votre API. Notez que le nom que vous entrez est inclus dans l’URL d’exécution de l’API. Utilisez un nom descriptif qui soit unique au sein de votre organisation.
-	- Dans **Source**, sélectionnez **À partir des API disponibles**:  
-	![][19]
-5. Sélectionnez **API**, puis choisissez l’API que vous voulez inscrire :  
-![][20]
+	- Dans **Source**, sélectionnez **À partir des API disponibles** : ![][19]
+5. Sélectionnez **API**, puis choisissez l’API que vous voulez inscrire : ![][20]
 6. Sélectionnez une API, puis ajoutez des propriétés configurables.
 7. Sélectionnez **Ajouter** pour terminer ces étapes.
 
@@ -156,4 +151,4 @@ Dans cette rubrique, vous avez vu comment inscrire vos propres instances des API
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

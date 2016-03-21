@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # Configurer la géo-réplication HBase dans HDInsigtht
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [Configurer la connectivité VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configurer DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configurer la réplication HBase](hdinsight-hbase-geo-replication.md) 
  
-Découvrez comment configurer la réplication HBase entre deux centres de données. Voici quelques cas d'utilisation pour la réplication en cluster :
+Découvrez comment configurer la réplication HBase entre deux centres de données. Voici quelques cas d'utilisation pour la réplication en cluster :
 
 - Sauvegarde et récupération d'urgence
 - Agrégation de données
@@ -32,19 +32,19 @@ Découvrez comment configurer la réplication HBase entre deux centres de donné
 
 La réplication en cluster utilise une méthodologie par émission de données source. Un cluster HBase peut être une source, une destination ou jouer les deux rôles à la fois. La réplication est asynchrone et l'objectif de la réplication est une cohérence éventuelle. Quand la source reçoit une modification apportée à une famille de colonnes dont la réplication est activée, cette modification est propagée à tous les clusters de destination. Quand les données sont répliquées d'un cluster à un autre, le cluster source et tous les clusters qui ont déjà utilisé les données font l'objet d'un suivi afin d'empêcher les boucles de réplication. Pour plus d'informations, vous allez configurer dans ce didacticiel une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](http://hbase.apache.org/book.html#_cluster_replication).
 
-Il s'agit de la troisième partie de la série :
+Il s'agit de la troisième partie de la série :
 
 - [Configurer une connexion VPN entre deux réseaux virtuels][hdinsight-hbase-replication-vnet]
 - [Configurer des serveurs DNS pour les réseaux virtuels][hdinsight-hbase-replication-dns]
 - Configurer la géo-réplication HBase (ce didacticiel)
 
-Le diagramme suivant illustre les deux réseaux virtuels et la connexion réseau que vous avez créés dans les pages [Configurer une connexion VPN entre deux réseaux virtuels][hdinsight-hbase-geo-replication-vnet] et [Configurer des serveurs DNS pour les réseaux virtuels][hdinsight-hbase-replication-dns] :
+Le diagramme suivant illustre les deux réseaux virtuels et la connexion réseau que vous avez créés dans les pages [Configurer une connexion VPN entre deux réseaux virtuels][hdinsight-hbase-geo-replication-vnet] et [Configurer des serveurs DNS pour les réseaux virtuels][hdinsight-hbase-replication-dns] :
 
 ![Diagramme du réseau virtuel de la réplication HDInsight HBase][img-vnet-diagram]
 
 ## <a id="prerequisites"></a>Configuration requise
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -53,11 +53,11 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Deux réseaux virtuels Azure avec une connexion VPN et des serveurs DNS configurés**. Pour des instructions, consultez [Configurer une connexion VPN entre deux réseaux virtuels Azure][hdinsight-hbase-replication-vnet] et [Configurer des serveurs DNS entre deux réseaux virtuels Azure][hdinsight-hbase-replication-dns].
 
 
-	Avant d'exécuter vos scripts PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l'aide de la cmdlet suivante :
+	Avant d'exécuter vos scripts PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l'aide de la cmdlet suivante :
 
 		Add-AzureAccount
 
-	Si vous possédez plusieurs abonnements Azure, utilisez la cmdlet suivante pour définir l'abonnement en cours :
+	Si vous possédez plusieurs abonnements Azure, utilisez la cmdlet suivante pour définir l'abonnement en cours :
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
@@ -134,13 +134,13 @@ Le portail Azure Classic ne prend pas en charge l’approvisionnement de cluster
 
 **Pour approvisionner un cluster HBase dans Contoso-VNet-US**
 
-- Utiliser le même script avec les valeurs suivantes :
+- Utiliser le même script avec les valeurs suivantes :
 
 		$hbaseClusterName = "Contoso-HBase-US" # This is the HBase cluster name to be used.
 		$vNetName = "Contoso-VNet-US"  # This name must match your Europe virtual network name.
 		$storageAccountName = 'ContosoStoreUS'	
 
-	Étant donné que vous êtes déjà connecté à votre compte Azure, vous n'avez plus besoin d'exécuter les applets de commande suivantes :
+	Étant donné que vous êtes déjà connecté à votre compte Azure, vous n'avez plus besoin d'exécuter les applets de commande suivantes :
 
 		Add-AzureAccount 
 		Select-AzureSubscription $azureSubscriptionName
@@ -171,19 +171,19 @@ Pour configurer un redirecteur conditionnel, vous devez connaître les suffixes 
 3.	Cliquez sur **DNS**.
 4.	Dans le volet gauche, développez **DSN**, **Contoso-DNS-EU**.
 5.	Cliquez avec le bouton droit sur **Redirecteurs conditionnels**, puis cliquez sur **Nouveau redirecteur conditionnel**. 
-5.	Entrez les informations suivantes :
-	- **Domaine DNS** : entrez le suffixe DNS de Contoso-HBase-US. Par exemple : Contoso-HBase-US.f5.internal.cloudapp.net.
-	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-US. Vérifiez l'adresse IP. Votre serveur DNS peut avoir une adresse IP différente.
+5.	Entrez les informations suivantes :
+	- **Domaine DNS** : entrez le suffixe DNS de Contoso-HBase-US. Par exemple : Contoso-HBase-US.f5.internal.cloudapp.net.
+	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-US. Vérifiez l'adresse IP. Votre serveur DNS peut avoir une adresse IP différente.
 6.	Appuyez sur **Entrée**, puis cliquez sur **OK**. Maintenant, vous pouvez résoudre l'adresse IP de Contoso-DNS-US à partir de Contoso-DNS-EU.
-7.	Répétez les étapes pour ajouter un redirecteur DNS conditionnel au service DNS sur la machine virtuelle de Contoso-DNS-US avec les valeurs suivantes :
-	- **Domaine DNS** : entrez le suffixe DNS de Contoso-HBase-EU. 
-	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-EU.
+7.	Répétez les étapes pour ajouter un redirecteur DNS conditionnel au service DNS sur la machine virtuelle de Contoso-DNS-US avec les valeurs suivantes :
+	- **Domaine DNS** : entrez le suffixe DNS de Contoso-HBase-EU. 
+	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-EU.
 
 **Pour tester la résolution de noms de domaine**
 
 1. Basculez sur la fenêtre de session RDP de Contoso-HBase-EU.
 2. Ouvrez une invite de commandes.
-3. Exécutez la commande ping :
+3. Exécutez la commande ping :
 
 		ping headnode0.[DNS suffix of Contoso-HBase-US]
 
@@ -196,7 +196,7 @@ Pour configurer un redirecteur conditionnel, vous devez connaître les suffixes 
 
 ## Activer la réplication entre les tables HBase
 
-À présent, vous pouvez créer un exemple de table HBase, activer la réplication, puis la tester avec des données. L'exemple de table que vous allez utiliser contient deux familles de colonnes : Personal et Office.
+À présent, vous pouvez créer un exemple de table HBase, activer la réplication, puis la tester avec des données. L'exemple de table que vous allez utiliser contient deux familles de colonnes : Personal et Office.
 
 Dans ce didacticiel, le cluster HBase d'Europe est le cluster source, et le cluster HBase des États-Unis est le cluster de destination.
 
@@ -206,13 +206,13 @@ Créez des tables HBase avec les mêmes noms et familles de colonnes sur les clu
 
 1. Basculez sur la fenêtre de session RDP de **Contoso-HBase-EU**.
 2. Depuis le Bureau, cliquez sur **Ligne de commande Hadoop**.
-2. Définissez le dossier sur le répertoire d'accueil HBase :
+2. Définissez le dossier sur le répertoire d'accueil HBase :
 
 		cd %HBASE_HOME%\bin
-3. Ouvrez le shell HBase :
+3. Ouvrez le shell HBase :
 
 		hbase shell
-4. Créez une table HBase :
+4. Créez une table HBase :
 
 		create 'Contacts', 'Personal', 'Office'
 5. Ne fermez pas la session RDP ni la fenêtre de ligne de commande Hadoop. Vous en aurez besoin plus loin dans le didacticiel.
@@ -225,7 +225,7 @@ Créez des tables HBase avec les mêmes noms et familles de colonnes sur les clu
 **Pour ajouter Contoso-HBase-US comme homologue de réplication**
 
 1. Basculez sur la fenêtre de session RDP de **Contoso-HBase-EU**.
-2. Dans la fenêtre du shell HBase, ajoutez le cluster de destination (Contoso-HBase-US) en tant qu'homologue, par exemple :
+2. Dans la fenêtre du shell HBase, ajoutez le cluster de destination (Contoso-HBase-US) en tant qu'homologue, par exemple :
 
 		add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
 
@@ -233,7 +233,7 @@ Créez des tables HBase avec les mêmes noms et familles de colonnes sur les clu
 
 **Pour configurer chaque famille de colonnes afin d'être répliquée sur le cluster source**
 
-1. Dans la fenêtre du shell HBase de la session RDP sur **Contso-HBase-EU**, configurez chaque famille de colonnes à répliquer :
+1. Dans la fenêtre du shell HBase de la session RDP sur **Contso-HBase-EU**, configurez chaque famille de colonnes à répliquer :
 
 		disable 'Contacts'
 		alter 'Contacts', {NAME => 'Personal', REPLICATION_SCOPE => '1'}
@@ -242,11 +242,11 @@ Créez des tables HBase avec les mêmes noms et familles de colonnes sur les clu
 
 **Pour télécharger en bloc des données vers la table HBase**
 
-Un exemple de fichier de données a été téléchargé dans un conteneur d'objets blob Azure public avec l'URL suivante :
+Un exemple de fichier de données a été téléchargé dans un conteneur d'objets blob Azure public avec l'URL suivante :
 
 		wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
-Contenu du fichier :
+Contenu du fichier :
 
 		8396	Calvin Raji	230-555-0191	5415 San Gabriel Dr.
 		16600	Karen Wu	646-555-0113	9265 La Paz
@@ -263,11 +263,11 @@ Vous pouvez télécharger le même fichier de données dans votre cluster HBase 
 
 1. Basculez sur la fenêtre de session RDP de **Contoso-HBase-EU**.
 2. Depuis le Bureau, cliquez sur **Ligne de commande Hadoop**.
-3. Définissez le dossier sur le répertoire d'accueil HBase :
+3. Définissez le dossier sur le répertoire d'accueil HBase :
 
 		cd %HBASE_HOME%\bin
 
-4. Téléchargez les données :
+4. Téléchargez les données :
 
 		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
@@ -276,14 +276,14 @@ Vous pouvez télécharger le même fichier de données dans votre cluster HBase 
 
 ## Vérifier que la réplication de données est en cours
 
-Vous pouvez vérifier que la réplication est en cours en analysant les tables des deux clusters avec les commandes du shell HBase suivantes :
+Vous pouvez vérifier que la réplication est en cours en analysant les tables des deux clusters avec les commandes du shell HBase suivantes :
 
 		Scan 'Contacts'
 
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez vu comment configurer la réplication de HBase entre deux centres de données. Pour en savoir plus sur HDInsight et HBase, voir :
+Dans ce didacticiel, vous avez vu comment configurer la réplication de HBase entre deux centres de données. Pour en savoir plus sur HDInsight et HBase, voir :
 
 - [Page du service HDInsight](https://azure.microsoft.com/services/hdinsight/)
 - [Documentation HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
@@ -310,4 +310,4 @@ Dans ce didacticiel, vous avez vu comment configurer la réplication de HBase en
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

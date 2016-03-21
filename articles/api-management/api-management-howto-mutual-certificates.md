@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
@@ -24,7 +24,7 @@ Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST d
 
 ## <a name="prerequisites"> </a>Configuration requise
 
-Ce guide explique comment configurer votre instance de service de gestion des API afin d'utiliser l'authentification par certificat lient pour accéder au service principal d'une API. Avant de suivre la procédure présentée dans cette rubrique, vous devez configurer votre service principal pour l'authentification avec certificat client et avoir accès au certificat et au mot de passe associés afin de les charger dans le portail de publication de la gestion des API.
+Ce guide explique comment configurer votre instance de service de gestion des API afin d'utiliser l'authentification par certificat lient pour accéder au service principal d'une API. Avant de suivre la procédure présentée dans cette rubrique, vous devez configurer votre service principal pour l'authentification avec certificat client ([pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article][]) et avoir accès au certificat et au mot de passe associés afin de les charger dans le portail de publication de la gestion des API.
 
 ## <a name="step1"> </a>Chargement d’un certificat client
 
@@ -129,6 +129,7 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 
 [Entité de certificat API REST de gestion des API Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+[pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article]: https://azure.microsoft.com/fr-FR/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -138,7 +139,6 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 [Next steps]: #next-steps
 
 
-
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

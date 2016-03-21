@@ -23,9 +23,14 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajouter des notifications Push à votre application Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+
 ## Résumé
 
-Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android à l'aide de Google Cloud Messaging (« GCM »). Vous allez ajouter des notifications Push au projet de démarrage rapide nécessaire pour ce didacticiel. Les notifications Push sont activées à l'aide du hub de notification Azure qui est inclus dans votre service mobile. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
+Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android à l'aide de Google Cloud Messaging (« GCM »). Vous allez ajouter des notifications Push au projet de démarrage rapide nécessaire pour ce didacticiel. Les notifications Push sont activées à l'aide du hub de notification Azure qui est inclus dans votre service mobile. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
 ## Composants requis
 
@@ -112,13 +117,13 @@ Vous avez terminé ce didacticiel.
 	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 
-Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
+Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
 * [Présentation de Notification Hubs] <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
 
-* [Débogage des applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
+* [Débogage des applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Instructions de dépannage et de débogage des solutions Notification Hubs.
 
 * [Utilisation de la bibliothèque cliente Android pour Mobile Services] <br/>En savoir plus sur l'utilisation de Mobile Services avec Android.
 
@@ -156,4 +161,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

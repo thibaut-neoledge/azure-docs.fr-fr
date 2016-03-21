@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Configurer une API pour se connecter à une ressource de serveur principal sur un domaine Azure Active Directory
@@ -29,7 +29,7 @@ Comme plusieurs utilisateurs créent des domaines sur Azure Active Directory (AA
 
 ## Étape 1 : créez une application Active Directory et attribuez-lui les autorisations
 
-Pour accéder au système principal sur un domaine AAD, créez une application AAD et attribuez-lui les autorisations appropriées pour votre serveur principal existant (qui est également une application AAD). Étapes :
+Pour accéder au système principal sur un domaine AAD, créez une application AAD et attribuez-lui les autorisations appropriées pour votre serveur principal existant (qui est également une application AAD). Étapes :
 
 1. Dans le [portail Azure Classic][13], accédez à votre Azure Active Directory, ouvrez votre locataire et cliquez sur l’onglet **APPLICATIONS** : ![][14]
 2. Sélectionnez le bouton **AJOUTER** du bas. Puis :  
@@ -41,20 +41,20 @@ Pour accéder au système principal sur un domaine AAD, créez une application A
 5. Dans **AUTHENTIFICATION UNIQUE**, ajoutez ``https://<your App Service Environment name>.azure-apim.net:456/redirect`` comme **URL DE RÉPONSE**.
 6. Dans **AUTORISATIONS POUR D'AUTRES APPLICATIONS** :  
 
-	a) Sélectionnez **AJOUTER UNE APPLICATION**. Dans la fenêtre contextuelle, sélectionnez l'application AAD qui sécurise votre serveur principal : ![][17]
+	1. Sélectionnez **Ajouter une application**. Dans la fenêtre contextuelle, sélectionnez l'application AAD qui sécurise votre serveur principal : ![][17]  
 
-	(b) Utilisez la liste déroulante pour ajouter les autorisations : ![][18]
+	2. Utilisez la liste déroulante pour ajouter les autorisations : ![][18]
 
 7. Sélectionnez **ENREGISTRER** en bas.
 8. Copiez l’**ID CLIENT** et la **CLÉ**, puis conservez ces informations. La clé ne réapparaît pas lorsque vous fermez le portail Azure. 
 
-Pour plus d’informations sur les applications AAD, consultez [Intégration d’applications dans Azure Active Directory](../active-directory-integrating-applications.md).
+Pour plus d’informations sur les applications AAD, consultez [Intégration d’applications dans Azure Active Directory](../active-directory/active-directory-integrating-applications.md).
 
 ## Étape 2 : Configurer votre API à l'aide d'Azure PowerShell
 
 À ce stade, il n'existe aucune prise en charge du portail Azure permettant d’initialiser la configuration nécessaire pour votre API. Pour configurer l'API dans le portail Azure, utilisez le script Auzre PowerShell suivant :
 
-> [AZURE.TIP]Pour savoir comment installer, configurer et exécuter Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell][11]. Le script suivant fonctionne avec Azure PowerShell 1.0 version préliminaire ou ultérieure.
+> [AZURE.TIP] Pour savoir comment installer, configurer et exécuter Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell][11]. Le script suivant fonctionne avec Azure PowerShell 1.0 version préliminaire ou ultérieure.
 
 ```powershell
 # get the API resource
@@ -134,13 +134,13 @@ Si vous le souhaitez, vous pouvez également utiliser la stratégie de l’API p
 </policies>
 ```
 
-Cette stratégie vous permet essentiellement de référencer les valeurs dans l’en-tête **x-ms-apim-tokens** comme un élément JObject décodé à l'aide d’une variable **tokens**. Vous pouvez utiliser la stratégie **set-header** pour obtenir le jeton AAD réel et lui affecter la valeur de l’en-tête **Authorization**. Il s’agit de la même stratégie utilisée par [Gestion des API Azure](https://azure.microsoft.com/services/api-management/). Pour en savoir plus, consultez [Stratégies dans Gestion des API Azure](../api-management-howto-policies.md).
+Cette stratégie vous permet essentiellement de référencer les valeurs dans l’en-tête **x-ms-apim-tokens** comme un élément JObject décodé à l'aide d’une variable **tokens**. Vous pouvez utiliser la stratégie **set-header** pour obtenir le jeton AAD réel et lui affecter la valeur de l’en-tête **Authorization**. Il s’agit de la même stratégie utilisée par [Gestion des API Azure](https://azure.microsoft.com/services/api-management/). Pour en savoir plus, consultez [Stratégies dans Gestion des API Azure](../api-management/api-management-howto-policies.md).
 
 **Notez** que le nom de la propriété **TOKEN** correspond au nom du paramètre de connexion vous avez utilisé lors de la configuration du paramètre.
 
 ## Résumé et étapes suivantes
 
-Dans cette rubrique, vous avez appris à configurer une API pour la connexion (et l'authentification) à une ressource de serveur principal sur un domaine Azure Active Directory. Pour en savoir plus sur PowerApps, consultez les rubriques et ressources suivantes :
+Dans cette rubrique, vous avez appris à configurer une API pour la connexion (et l'authentification) à une ressource de serveur principal sur un domaine Azure Active Directory. Pour en savoir plus sur PowerApps, consultez les rubriques et ressources suivantes :
 
 - [Développer une API pour PowerApps](powerapps-develop-api.md)
 
@@ -157,4 +157,4 @@ Dans cette rubrique, vous avez appris à configurer une API pour la connexion (e
 [20]: https://tools.ietf.org/html/rfc4648
 [21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

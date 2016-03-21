@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Protéger les données sensibles dans la base de données SQ avec le chiffrement de base de données | Microsoft Azure"
 	description="Protéger les données sensibles de votre base de données SQL en quelques minutes."
-	keywords="base de données sql, chiffrement sql, chiffrement de base de données, clé de chiffrement, données sensibles, chiffrement intégral"	
+	keywords="chiffrer les données, chiffrement sql, chiffrement de base de données, données sensibles, chiffrement intégral"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
 # Protéger les données sensibles dans la base de données SQL avec le chiffrement de base de données et stocker vos clés de chiffrement dans le magasin de certificats Windows
@@ -24,9 +24,10 @@
 - [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 - [Magasin de certificats Windows](sql-database-always-encrypted.md)
 
+
 Cet article montre comment sécuriser les données sensibles dans une base de données SQL avec le chiffrement de base de données à l’aide de l’[Assistant Chiffrement intégral](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) et comment stocker vos clés de chiffrement dans le magasin de certificats Windows.
 
-Le chiffrement intégral est une nouvelle technologie de chiffrement de base de données SQL Azure et SQL Server qui protège les données sensibles au repos sur le serveur pendant le déplacement entre le client et le serveur, ainsi que pendant l’utilisation des données, pour s’assurer que les données sensibles ne s'affichent pas en clair dans le système de base de données. Seuls les applications clientes ou les serveurs d'applications ayant accès aux clés peuvent accéder aux données en clair. Pour plus d’informations, consultez [Chiffrement intégral (moteur de base de données)](https://msdn.microsoft.com/library/mt163865.aspx).
+Le chiffrement intégral est une nouvelle technologie de chiffrement de données d’Azure SQL Database et de SQL Server qui protège les données sensibles au repos sur le serveur pendant le déplacement entre le client et le serveur, ainsi que pendant l’utilisation des données, pour s’assurer que les données sensibles ne s’affichent pas en clair dans le système de base de données. Une fois que vous avez chiffré les données, seuls les applications clientes ou les serveurs d’applications ayant accès aux clés peuvent accéder aux données en clair. Pour plus d’informations, consultez [Chiffrement intégral (moteur de base de données)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
 Après avoir configuré la base de données pour le chiffrement intégral, nous allons créer une application cliente en C# avec Visual Studio afin de l’utiliser avec les données chiffrées.
@@ -547,6 +548,6 @@ Après avoir créé une base de données qui utilise le chiffrement intégral, v
 - [Chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
+- [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Compatibilité des plateformes de système d’exploitation et du matériel | Microsoft Azure"
-	description="Résume la compatibilité du Kit de développement logiciel (SDK) d’appareil IoT avec les plateformes de système d’exploitation et le matériel de l’appareil."
+	description="Résume la compatibilité IoT device SDK avec les plateformes de système d’exploitation et le matériel de l’appareil."
 	services="iot-hub"
 	documentationCenter=""
 	authors="hegate"
@@ -16,9 +16,9 @@
      ms.date="02/28/2016"
      ms.author="hegate"/>
 
-# Compatibilité des plateformes de système d’exploitation et du matériel avec les Kits de développement logiciel (SDK)
+# Compatibilité des plateformes de système d’exploitation et du matériel avec les Kits SDK d’appareil
 
-Ce document décrit la compatibilité du Kit de développement logiciel avec différentes plateformes de système d’exploitation, ainsi que les configurations d’appareils spécifiques incluses dans le [programme Microsoft Azure Certified for IoT](#microsoft-azure-certified-for-iot). Si vous possédez déjà un appareil, consultez la liste des appareils inclus dans le programme pour trouver des informations sur la compatibilité spécifiques à l’appareil. Si vous ne savez pas quel appareil utiliser, consultez la section sur la compatibilité des [plateformes de système d’exploitation et des bibliothèques](#os-platforms).
+Ce document décrit la compatibilité SDK avec différentes plateformes de système d’exploitation, ainsi que les configurations d’appareils spécifiques incluses dans le [programme Microsoft Azure Certified for IoT](#microsoft-azure-certified-for-iot). Si vous avez déjà un appareil, consultez la liste des appareils inclus dans le programme pour trouver des informations sur la compatibilité spécifiques à l’appareil. Si vous ne savez pas quel appareil utiliser, consultez la section sur la compatibilité des [plateformes de système d’exploitation et des bibliothèques](#os-platforms).
 
 
 ## Plateformes de système d’exploitation
@@ -36,7 +36,7 @@ Les bibliothèques Azure IoT ont été testées sur les plateformes de système 
 
 |Plateformes de système d’exploitation Windows | Version|
 |:---------------|:------------:|
-|Ordinateurs Windows| 7,8,10 |
+|Ordinateurs Windows| 10 |
 |Windows IoT Standard| 10 |
 |Windows Server| 2012 R2|
 
@@ -49,55 +49,55 @@ Les bibliothèques Azure IoT ont été testées sur les plateformes de système 
 
 ## Bibliothèques C
 
-Le [Kit SDK d’appareils Microsoft Azure IoT pour C](https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md) a été testé sur les configurations suivantes :
+Le [Microsoft Azure IoT device SDK pour C](https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md) a été testé sur les configurations suivantes :
 
 |Plateforme de système d’exploitation| Version|Protocoles|
 |:---------|:----------:|:----------:|
-|Debian Linux| 7\.5 | HTTPS, AMQP, MQTT |
-|Fedora Linux| 20 | HTTPS, AMQP, MQTT |
+|Debian Linux| 7\.5 | HTTPS, AMQP, MQTT, AMQP sur WebSockets |
+|Fedora Linux| 20 | HTTPS, AMQP, MQTT, AMQP sur WebSockets |
 |mbed OS| 2\.0 | HTTPS, AMQP |
 |TI-RTOS| 2\.x | HTTPS |
-|Ubuntu Linux| 14\.04 | HTTPS, AMQP, MQTT |
-|Ordinateurs Windows| 7,8,10 | HTTPS, AMQP, MQTT |
+|Ubuntu Linux| 14\.04 | HTTPS, AMQP, MQTT, AMQP sur WebSockets |
+|Ordinateurs Windows| 10 | HTTPS, AMQP, MQTT, AMQP sur WebSockets |
 |Yocto Linux|2\.1 | HTTPS, AMQP|
 
 
 
 ## Bibliothèques Node.js
 
-Le [Kit de développement logiciel (SDK) d’appareils Microsoft Azure IoT pour Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md) a été testé sur les configurations suivantes :
+Le [Microsoft Azure IoT device SDK pour Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md) a été testé sur les configurations suivantes :
 
 
 |Runtime| Version|Protocoles|
 |:---------|:----------:|:----:|
-|Node.js| 4\.1.0 | HTTPS|
+|Node.js| 4\.1.0 | HTTPS, AMQP, MQTT, AMQP sur WebSockets |
 
 
 
 ## Bibliothèques Java
 
-Le [Kit de développement logiciel (SDK) d’appareils Microsoft Azure IoT pour Java](https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md) a été testé sur les configurations suivantes :
+Le [Microsoft Azure IoT device SDK pour Java](https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md) a été testé sur les configurations suivantes :
 
 |Runtime| Version|Protocoles|
 |:---------|:----------:|----|
-|Java SE (Windows)| 1\.7 | HTTPS, AMQP |
-|Java SE (Linux)| 1\.8 | HTTPS, AMQP|
+|Java SE (Windows)| 1\.8 | HTTPS, AMQP, MQTT |
+|Java SE (Linux)| 1\.8 | HTTPS, AMQP, MQTT|
 
-Le Kit de développement logiciel (SDK) de service Microsoft Azure IoT pour Java a été testé sur les configurations suivantes :
+Microsoft Azure IoT service SDK pour Java a été testé sur les configurations suivantes :
 
 |Runtime| Version|Protocoles|
 |:---------|:----------:|:-----|
-|Java SE| 1\.8 | HTTPS, AMQP |
+|Java SE| 1\.8 | HTTPS, AMQP, MQTT |
 
 
 ## CSharp
 
-Le [Kit de développement logiciel (SDK) d'appareils Microsoft Azure IoT pour .NET](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md) a été testé sur les configurations suivantes :
+Le [Microsoft Azure IoT device SDK pour .NET](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md) a été testé sur les configurations suivantes :
 
 |Plateforme de système d’exploitation| Version|Protocoles|
 |:---------|:----------:|:----------:|
-|Ordinateurs Windows| 7,8,10 | HTTPS, AMQP|
-|Windows IoT Standard|10 | HTTPS|
+|Ordinateurs Windows| 10 | HTTPS, AMQP, MQTT, AMQP sur WebSockets |
+|Windows IoT Standard|10 | HTTPS |
 
 Le code d’agent géré nécessite Microsoft .NET Framework 4.5
 
@@ -127,6 +127,7 @@ Chaque appareil a été certifié comme fonctionnant avec notre Kit SDK dans le 
 |[ADLINK MXE-200](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Windows 10 | C#|
 |[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | JavaScript|
 |[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|
+|[ADLINK NuPRO-E43](http://www.adlinktech.com/index.php) |Windows 10 | C#|
 |[Advantech Co., ARK-2121L](http://www.advantech.com/products/ark-2000_series_embedded_box_pcs/ark-2121l/mod_dd092808-0832-44bc-b38a-945eb7e016bd) |Windows 10 | C#|
 |[Advantech Co., ARK-1123C](http://www.advantech.com/products/92d96fda-cdd3-409d-aae5-2e516c0f1b01/ark-1123c/mod_0b91165c-aa8c-485d-8d25-fde6f88f4873) |Windows 10 | C#|
 |[Advantech Co., LTD UNO-1372G](http://www.advantech.com/products/gf-bvl2/uno-1372g/mod_8e63b3c9-b606-4725-a1af-94fccb98bb1a) |Windows 10 | C#|
@@ -186,4 +187,4 @@ Découvrez plus d’informations sur le développement de solutions à l’aide 
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

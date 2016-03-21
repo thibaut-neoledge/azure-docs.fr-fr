@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/03/2016"
    ms.author="alkohli"/>
 
 
@@ -257,13 +257,13 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 1.  Les étapes 6 à 8 s'appliquent uniquement lors de l'amorçage dans un environnement non DHCP. Si vous êtes dans un environnement DHCP, ignorez ces étapes et passez à l'étape 9. Si vous avez démarré votre appareil dans un environnement non DHCP, vous verrez l'écran suivant.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image42.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image42m.png)
 
 	Vous devez maintenant configurer le réseau.
 
 1.  Utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `Ethernet`.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image43.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
 1.  Utilisez l’applet de commande Set-HcsIpAddress pour configurer le réseau. Voici un exemple :
 
@@ -274,7 +274,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 1.  Une fois l'installation initiale terminée et l’appareil démarré, vous verrez le texte de la bannière de l’appareil. Notez l'adresse IP et l'URL affichées dans le texte de la bannière pour gérer l'appareil. Vous utiliserez cette adresse IP pour vous connecter à l'interface utilisateur web de votre appareil virtuel et pour finaliser la configuration et l’inscription locales.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image45m.png)
 
 Si votre périphérique ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Vous devez modifier la configuration de l'appareil afin qu'il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise à l’[étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
@@ -292,4 +292,4 @@ Si vous rencontrez une autre erreur lors de la configuration initiale à l'aide 
 
 -   [Configurer StorSimple Virtual Array comme un serveur iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

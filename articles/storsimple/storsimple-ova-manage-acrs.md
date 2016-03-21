@@ -3,7 +3,7 @@
    description="Décrit comment gérer les enregistrements de contrôle d’accès pour déterminer les hôtes qui peuvent se connecter à un volume sur le StorSimple Virtual Array."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès pour le StorSimple Virtual Array (version préliminaire)
+# Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès pour le StorSimple Virtual Array 
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Les enregistrements de contrôle d’accès vous permettent de spécifier les hôtes qui peuvent se connecter à un volume sur le StorSimple Virtual Array (également appelé appareil virtuel local StorSimple). Les enregistrements de contrôle d’accès sont définis pour un volume spécifique et contiennent les noms complets iSCSI (IQN) des ordinateurs hôtes. Quand un hôte essaie de se connecter à un volume, l’appareil vérifie l’enregistrement de contrôle d’accès associé à ce volume pour le nom IQN et, s’il existe une correspondance, la connexion est établie. La section **Enregistrements de contrôle d’accès** de la page **Configurer** affiche tous les enregistrements de contrôle d’accès avec les noms IQN des hôtes correspondants.
 
@@ -114,4 +114,4 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
 - Découvrez comment [ajouter des volumes et configurer les enregistrements de contrôle d’accès](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

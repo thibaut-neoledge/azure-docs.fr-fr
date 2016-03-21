@@ -3,7 +3,7 @@
    description="Explique comment ajouter, modifier, analyser et supprimer des volumes StorSimple et comment les mettre hors connexion si nécessaire."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/25/2016"
-   ms.author="v-sharos" />
+   ms.date="02/29/2016"
+   ms.author="alkohli" />
 
 # Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
 
@@ -40,7 +40,7 @@ Si nécessaire, vous pouvez modifier le type de volume local en volume hiérarch
 
 Les volumes épinglés localement sont des volumes entièrement configurés qui ne hiérarchisent pas les données dans le cloud, garantissant ainsi que les données principales restent en local, indépendantes de la connexion au cloud. Les données des volumes épinglés localement ne sont pas dédupliquées ni compressées, mais les instantanés des volumes épinglés localement sont dédupliqués.
 
-Les volumes épinglés localement sont totalement configurés. Vous devez donc disposer de suffisamment d’espace sur votre appareil lorsque vous les créez. Vous pouvez configurer des volumes épinglés localement jusqu’à une taille maximale de 9 To sur un appareil StorSimple 8100 et de 24 To sur un appareil 8600. StorSimple réserve l’espace restant local de l’appareil pour les instantanés, les métadonnées et le traitement des données. Vous pouvez augmenter la taille d’un volume épinglé localement pour qu’il occupe l’espace maximal disponible, mais vous ne pouvez pas réduire la taille d’un volume après sa création.
+Les volumes épinglés localement sont totalement configurés. Vous devez donc disposer de suffisamment d’espace sur votre appareil lorsque vous les créez. Vous pouvez configurer des volumes épinglés localement jusqu’à une taille maximale de 8 To sur un appareil StorSimple 8100 et de 20 To sur un appareil 8600. StorSimple réserve l’espace restant local de l’appareil pour les instantanés, les métadonnées et le traitement des données. Vous pouvez augmenter la taille d’un volume épinglé localement pour qu’il occupe l’espace maximal disponible, mais vous ne pouvez pas réduire la taille d’un volume après sa création.
 
 Si vous créez un volume épinglé localement, l’espace disponible pour la création de volumes hiérarchisés est réduit. L’inverse est également vrai : si vous disposez de volumes hiérarchisés, l’espace disponible pour la création des volumes épinglés localement sera inférieur, dans les limites maximales susmentionnées.
 
@@ -59,11 +59,11 @@ Reportez-vous au tableau suivant pour connaître la capacité maximale allouée 
 | | Taille maximale de volume hiérarchisé | Taille maximale de volume épinglé localement |
 |-------------|----------------------------|------------------------------------|
 | **Appareils physiques** | | |
-| 8100 | 64 To | 9 To |
-| 8600 | 64 To | 24 To |
+| 8100 | 64 To | 8 To |
+| 8600 | 64 To | 20 To |
 | **Appareils virtuels** | | |
 | 8010 | 30 To | N/A |
-| 8020 | 64 To | N/A | 
+| 8020 | 64 To | N/A |
 
 ## Page Volumes
 
@@ -198,14 +198,14 @@ Vous souhaiterez peut-être modifier un volume épinglé localement en volume hi
 Conversion d’un volume hiérarchisé en un volume épinglé localement peut affecter les performances du périphérique. En outre, les facteurs suivants peuvent augmenter le temps que nécessaire pour terminer la conversion :
 
 - La bande passante est insuffisante.
-- L’appareil est plein et déborde déjà sur le cloud.
+
 - Il n’existe aucune sauvegarde actuelle.
 
 Pour réduire les effets de ces facteurs :
 
 - Passez en revue vos stratégies de limitation de bande passante et assurez-vous qu’une bande passante dédiée de 40 Mbits/s est disponible.
 - Planifiez la conversion pendant les heures creuses.
-- Effectuez une sauvegarde avant de commencer la conversion.
+- Effectuez un instantané cloud avant de commencer la conversion.
 
 Si vous convertissez plusieurs volumes (prenant en charge différentes charges de travail), vous devez donner la priorité à la conversion de volume afin que les volumes de priorité élevée soient convertis en premier. Par exemple, vous devez convertir des volumes hébergeant des machines virtuelles ou des volumes avec des charges de travail SQL avant de convertir des volumes avec des charges de travail à partage de fichiers.
 
@@ -217,7 +217,7 @@ Si vous convertissez plusieurs volumes (prenant en charge différentes charges d
 
 3. Sélectionnez un volume, puis cliquez sur **Modifier** en bas de la page. L’Assistant Modification de volume démarre.
 
-4. Dans la page **Paramètres de base**, modifiez le type d'utilisation en sélectionnant le nouveau type dans la liste déroulante **Type d'utilisation**.
+4. Dans la page **Paramètres de base**, modifiez le type d’utilisation en sélectionnant le nouveau type dans la liste déroulante **Type d’utilisation**.
 
     - Si vous définissez le type sur **Épinglé localement**, StorSimple vérifie si sa capacité est suffisante.
     - Si vous définissez le type sur **Hiérarchisé** et que ce volume sera utilisé pour les données d’archivage, cochez la case **Utiliser ce volume pour des données d’archivage moins fréquemment sollicitées**.
@@ -299,4 +299,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

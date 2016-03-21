@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="11/15/2015"
+   ms.date="03/02/2016"
    ms.author="sdash"/>
 
 # Application Insights pour Azure Cloud Services
@@ -171,13 +171,17 @@ Toutefois, si vous utilisez déjà les infrastructures Log4N ou NLog, vous pouve
 
 Le Kit de développement logiciel (SDK) Application Insights peut signaler des appels que votre application a effectués vers des dépendances externes telles que les API REST et les serveurs SQL. Ceci vous permet de voir si une dépendance spécifique est à l'origine des réponses lentes ou des défaillances.
 
-Pour suivre les dépendances, vous devez configurer le rôle Web/de travail avec [Application Insights Agent](app-insights-monitor-performance-live-website-now.md), également appelé « Status Monitor ».
+Si votre application utilise .NET Framework version 4.6 ou ultérieure, vous n’avez rien d’autre à faire.
+
+Sinon, configurez le rôle web/de travail avec [Application Insights Agent](app-insights-monitor-performance-live-website-now.md), également appelé « Status Monitor ».
 
 Pour utiliser Application Insights Agent avec vos rôles Web/de travail :
 
 * Ajoutez le dossier [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent), accompagné des deux fichiers, à vos projets de rôle Web/de travail. Assurez-vous de définir leurs propriétés de conception de manière à ce qu'elles soient toujours copiées dans le répertoire de sortie. Ces fichiers installent l'agent.
 * Ajoutez la tâche de démarrage au fichier CSDEF, comme indiqué [ici](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18).
 * Remarque : les *rôles de travail* requièrent trois variables d'environnement, comme indiqué [ici](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44). Ceci n’est pas obligatoire pour pouvoir utiliser SSMSE.
+
+### Rapports sur les dépendances
 
 Voici un exemple de ce que vous voyez sur le portail Application Insights :
 
@@ -277,10 +281,9 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatique
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

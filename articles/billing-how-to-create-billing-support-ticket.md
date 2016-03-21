@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="mbaldwin"
 	editor="na"
 	tags="billing"
 	/>
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/26/2015"
+	ms.date="03/07/2016"
 	ms.author="genli"/>
 
 # Comment créer un ticket de support pour les problèmes de facturation et d’abonnement Azure
@@ -24,29 +24,24 @@ Cet article fournit les informations dont vous avez besoin pour ouvrir un dossie
 
 >[AZURE.NOTE]Seul l’administrateur du compte Azure est autorisé à accéder au Centre des comptes.
 
-1. Accédez au site Web de [support Azure](https://azure.microsoft.com/support/), puis cliquez sur **Obtenir un support**. Vous pouvez également soumettre un incident à partir du portail Microsoft Azure ou du Centre des comptes Azure.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/). Sélectionnez **Aide + support**>**Nouvelle demande de support**.
 
- * Pour soumettre un ticket de support à partir du [portail Azure](https://manage.windowsazure.com/), cliquez sur votre nom de compte, puis sur Contacter le support Microsoft.
- * Pour soumettre un ticket de support à partir du [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions), sélectionnez un abonnement, puis cliquez sur Contacter le support Microsoft.
+	![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+2. Dans le panneau **Informations de base**, indiquez le type de problème, d’abonnement et de plan de support.
+3. Dans le panneau **Problème**, fournissez les informations suivantes :
 
-2. Dans la fenêtre **Créer un ticket de support**, sélectionnez l’abonnement pour lequel vous souhaitez migrer des données et services.
-
-3. Dans **Type de support**, choisissez **Facturation**.
-
-4. Sélectionnez votre région et votre langue, puis cliquez sur **Créer un ticket**.
-
-5. Sur la page suivante, dans le champ **Type de problème**, sélectionnez **Mon abonnement est affiché comme étant désactivé**. Si vous avez besoin d’aide pour soumettre votre ticket de support, cliquez sur **Discuter avec le service client** pour initier une conversation en direct avec un représentant du service client.
-
-6. Confirmez vos coordonnées, indiquez un numéro de téléphone auquel vous êtes joignable, puis cliquez sur **Continuer**.
-
-7. Sur la page suivante, renseignez les informations suivantes :
-
- * Dans le champ **Détails du problème**, attribuez un titre d’incident à votre demande, puis utilisez les zones de texte pour renseigner les informations requises en veillant à inclure toute information complémentaire concernant votre demande.
- * Dans **Déterminer la sévérité**, choisissez une option représentant le degré de gravité de votre demande. Pour plus d’informations sur les types de sévérité, reportez-vous au [tableau de sévérité des incidents Microsoft Azure](http://support.microsoft.com/gp/AzureSevDetails).
+ * **Gravité** Choisissez une option représentant le degré de gravité de votre demande. Pour plus d’informations sur les degrés de gravité, reportez-vous au [tableau de gravité des incidents Microsoft Azure](http://support.microsoft.com/gp/AzureSevDetails).
+ * **Type de problème**. Choisissez un type de problème.
+ * **Détails** Attribuez un titre d’incident à votre demande, puis utilisez les zones de texte pour renseigner les informations requises en veillant à inclure toute information complémentaire concernant votre demande.
+ * **Délai d’exécution** (facultatif). Si possible, fournissez des informations sur la date, l’heure et le fuseau horaire pour la dernière occurrence de votre problème.
  * Utilisez l’outil de **téléchargement de fichiers** pour joindre toute documentation utile à votre demande.
-
-8. Si vous acceptez le contrat des Services Microsoft, cliquez sur **Envoyer**.
+4. Dans le panneau **Coordonnées**, vérifiez vos coordonnées et la méthode de contact préférée, puis cliquez sur **Créer**.
 
 Un représentant du support technique Azure vous contactera conformément aux conditions du contrat.
 
-<!---HONumber=AcomDC_0128_2016-->
+Vous pouvez également envoyer une demande de prise en charge à partir du site web Support Azure ou à partir du Centre des comptes Azure :
+
+ * Pour soumettre un ticket de support à partir du [site web Support Azure](https://azure.microsoft.com/support/options/), cliquez sur **Obtenir un support**.
+ * Pour soumettre un ticket de support à partir du [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions), sélectionnez un abonnement, puis cliquez sur **Contacter le support Microsoft**.
+
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.date="03/03/2016"
 	ms.author="billmath"/>
 
 # Présentation d'Azure Multi-Factor Authentication
@@ -108,7 +108,7 @@ Application mobile comme second facteur|* | * | *
 Appel téléphonique comme second facteur|* | * | *
 SMS comme second facteur|* | * | *
 Mots de passe d'application pour les clients qui ne prennent pas en charge MFA|* | * | *
-Contrôle d'administration sur les méthodes d'authentification| | | *
+Contrôle d'administration sur les méthodes d'authentification| (Version préliminaire publique)|(Version préliminaire publique) | *
 Mode du code PIN| | | *
 Alerte de fraude| | | *
 Rapports MFA| | | *
@@ -120,7 +120,7 @@ Adresses IP approuvées| | | *
 Mémoriser MFA pour les appareils fiables |* | * | *
 SDK MFA| | | *
 MFA pour des applications locales utilisant le serveur MFA| | | *
-Options de vérification sélectionnables (version préliminaire publique)|* | * | *
+
 
 
 ## Comment obtenir Azure Multi-Factor Authentication ?
@@ -193,20 +193,20 @@ SMS unidirectionnel comme second facteur | ● | ●
 SMS bidirectionnel comme second facteur | | ●
 Jetons matériels comme second facteur | | ●
 Mots de passe d'application pour les clients qui ne prennent pas en charge MFA | ● |  
-Contrôle d'administration sur les méthodes d'authentification | | ●
+Contrôle d'administration sur les méthodes d'authentification | (Version préliminaire publique) | ●
 Mode du code PIN | | ●
 Alerte de fraude | ● | ●
 Rapports MFA | ● | ●
-Contournement à usage unique | ● | ●
+Contournement à usage unique | | ●
 Messages de bienvenue personnalisés pour les appels téléphoniques | ● | ●
 ID d'appelant personnalisable pour les appels téléphoniques | ● | ●
 Adresses IP approuvées | ● | ●
-Mémoriser MFA pour les appareils fiables (version préliminaire publique) | ● |  
+Mémoriser MFA pour les appareils fiables| ● |  
 Accès conditionnel | ● | ●
-Cache | ● | ●
+Cache | | ●
 
 Maintenant que nous avons déterminé s'il faut utiliser l'authentification multifacteur de cloud ou le serveur MFA local, nous pouvons commencer à configurer et à utiliser Azure Multi-Factor Authentication. **Sélectionnez l'icône qui représente votre scénario !**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

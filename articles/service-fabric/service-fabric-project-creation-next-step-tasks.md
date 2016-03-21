@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/06/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # Votre application Service Fabric et étapes suivantes
@@ -23,7 +23,7 @@ Votre application Azure Service Fabric a été créée. Cet article décrit la c
 Chaque nouvelle application inclut un projet d'application. Il peut y avoir un ou deux projets supplémentaires en fonction du type de service choisi.
 
 ### Le projet d'application
-Le projet d'application se compose des éléments suivants :
+Le projet d'application se compose des éléments suivants :
 
 - Un ensemble de références aux services qui composent votre application.
 
@@ -31,22 +31,22 @@ Le projet d'application se compose des éléments suivants :
 
 - Deux fichiers (local et cloud) de paramètres de l'application que vous pouvez utiliser pour gérer les configurations de l'application spécifiques à l'environnement, comme le nombre de partitions à créer pour un service.
 
-- Un script de déploiement que vous pouvez utiliser pour déployer votre application à partir de la ligne de commande ou dans le cadre d'un pipeline d'intégration continue automatisée.
+- Un script de déploiement que vous pouvez utiliser pour déployer votre application à partir de la ligne de commande ou dans le cadre d’un pipeline de déploiement et d’intégration continue automatisée.
 
-- Le manifeste d'application qui décrit l'application.
+- Le manifeste d'application qui décrit l'application. Le manifeste se trouve dans le dossier ApplicationPackageRoot.
 
 ### Reliable Services
 Quand vous ajoutez un nouveau service fiable (Reliable Service), Visual Studio ajoute un projet de service à votre solution. Le projet de service contient une classe étend `StatelessService` ou `StatefulService`, selon le type choisi.
 
 ### Reliable Actors
-Quand vous ajoutez un nouvel acteur fiable (Reliable Actor), Visual Studio ajoute deux projets à votre solution : un projet d’acteur et un projet d’interface.
+Quand vous ajoutez un nouvel acteur fiable (Reliable Actor), Visual Studio ajoute deux projets à votre solution : un projet d’acteur et un projet d’interface.
 
 Le projet d'acteur définit le type d'acteur et (pour les acteurs avec état) son état. Le projet d'interface fournit une interface que les autres services peuvent utiliser pour appeler l'acteur.
 
 Notez que les projets d’acteur ne contiennent pas de comportement de démarrage par défaut, car les acteurs doivent être activés par d’autres services. Envisagez d’ajouter un service fiable ou un projet ASP.NET pour créer vos acteurs et interagir avec eux.
 
 ### ASP.NET 5
-Les modèles ASP.NET 5 destinés à être utilisés dans les applications Service Fabric sont presque identiques à ceux disponibles pour les projets ASP.NET 5 créés indépendamment. Les seules différences sont les suivantes :
+Les modèles ASP.NET 5 destinés à être utilisés dans les applications Service Fabric sont presque identiques à ceux disponibles pour les projets ASP.NET 5 créés indépendamment. Les seules différences sont les suivantes :
 
 - Le projet contient un dossier **PackageRoot** pour stocker le fichier ServiceManifest, ainsi que des packages de données et de configuration.
 
@@ -86,4 +86,4 @@ Pour savoir comment configurer un processus d’intégration continue pour votre
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

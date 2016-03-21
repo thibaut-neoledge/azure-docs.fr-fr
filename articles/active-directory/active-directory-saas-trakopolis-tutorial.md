@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -63,8 +63,8 @@ Pour configurer l’intégration de Trakopolis à Azure AD, vous devez ajouter T
 3. Pour ouvrir la vue des applications, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.<br><br> ![Applications][2]<br>
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
-6. Dans la zone de recherche, tapez **Trakopolis**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
-7. Dans le volet de résultats, sélectionnez **Trakopolis**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>
+6. Dans la zone de recherche, tapez **Trakopolis**.<br><br> ![Applications](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
+7. Dans le volet de résultats, sélectionnez **Trakopolis**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>![Applications](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_02.png)<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Trakopolis avec un utilisateur de test appelé « Britta Simon ».
@@ -212,4 +212,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

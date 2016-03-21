@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
@@ -22,7 +22,7 @@ Gestion des API prend en charge le déploiement sur plusieurs régions, ce qui p
 
 Lors de la création initiale du service Gestion des API, il ne contient qu’une seule [unité][] et se trouve dans une seule région Azure, désignée comme région principale. D’autres régions peuvent être facilement ajoutées via le portail Azure Classic. Le serveur de passerelle Gestion des API est déployé dans chaque région et le trafic d’appel est acheminé vers la passerelle la plus proche. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche.
 
-> [AZURE.IMPORTANT]Le déploiement multi-régions est disponible uniquement dans le niveau **[Premium][]**.
+> [AZURE.IMPORTANT] Le déploiement multi-régions est disponible uniquement dans le niveau **[Premium][]**.
 
 ## <a name="add-region"> </a>Déploiement d’une instance de service Gestion des API sur une nouvelle région
 
@@ -75,4 +75,4 @@ Une fois que les régions de votre choix supprimées, cliquez sur **Enregistrer*
 [unité]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

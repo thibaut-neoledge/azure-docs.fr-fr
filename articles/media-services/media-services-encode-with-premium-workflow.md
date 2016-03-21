@@ -18,9 +18,9 @@
 
 #Encodage avancé avec Media Encoder Premium Workflow
 
->[AZURE.NOTE]Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
+>[AZURE.NOTE]- Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 >
->Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n'est pas disponible en Chine.
+>- Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n'est pas disponible en Chine.
 
 ##Vue d'ensemble
 
@@ -35,8 +35,6 @@ Vous trouverez dans les rubriques suivantes des détails concernant **Media Enco
 Cette rubrique montre comment encoder avec **Media Encoder Premium Workflow** en utilisant .NET.
 
 Les tâches d’encodage pour **Media Encoder Premium Workflow** nécessitent un fichier de configuration distinct appelé fichier de flux de travail. Ces fichiers ont une extension .workflow et sont créés à l’aide de l’outil [Concepteur de workflow](media-services-workflow-designer.md)
-
->[AZURE.NOTE]Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 
 ##Encoder
 
@@ -279,4 +277,4 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

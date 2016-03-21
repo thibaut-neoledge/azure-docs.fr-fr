@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Charger des exemples de données dans SQL Data Warehouse
@@ -45,18 +45,18 @@ Suivez ces étapes simples pour charger l'exemple de base de données Adventure 
 
 Lorsque vous avez chargé des exemples de données dans SQL Data Warehouse, vous pouvez exécuter rapidement quelques requêtes. Pour exécuter une requête, connectez-vous à votre base de données Adventure Works nouvellement créée Azure SQL DW avec Visual Studio et SSDT, comme décrit dans le document [de connexion][].
 
-Exemple d'instruction simple select pour obtenir toutes les informations des employés :
+Exemple d'instruction simple select pour obtenir toutes les informations des employés :
 
 	SELECT * FROM DimEmployee;
 
-Exemple de requête plus complexe à l'aide de constructions telles que GROUP BY pour examiner le montant total de toutes les ventes chaque jour :
+Exemple de requête plus complexe à l'aide de constructions telles que GROUP BY pour examiner le montant total de toutes les ventes chaque jour :
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-Exemple d'instruction SELECT avec une clause WHERE pour filtrer les commandes antérieures à une date donnée :
+Exemple d'instruction SELECT avec une clause WHERE pour filtrer les commandes antérieures à une date donnée :
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
@@ -84,4 +84,4 @@ Maintenant que vous avez eu l'occasion d'essayer certaines requêtes avec des ex
 <!--Other Web references-->
 [Exemples de scripts Adventure Works pour SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

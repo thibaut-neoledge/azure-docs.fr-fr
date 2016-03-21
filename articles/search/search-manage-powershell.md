@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestion d’Azure Search avec les scripts PowerShell | Microsoft Azure | Service de recherche cloud hébergé" 
-	description="Gestion de votre service Azure Search sur Microsoft Azure avec des scripts PowerShell. Créez ou mettez à jour un service Azure Search et gérez les clés d’administration Azure Search"  
+	description="Gérez votre service Azure Search avec des scripts PowerShell. Créez ou mettez à jour un service Azure Search et gérez les clés d’administration Azure Search" 
 	services="search" 
 	documentationCenter="" 
 	authors="seansaleh" 
@@ -14,10 +14,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="02/25/2016" 
+	ms.date="03/08/2016" 
 	ms.author="seasa"/>
 
-# Gestion de votre service de recherche sur Microsoft Azure avec PowerShell
+# Gérer votre service Azure Search avec PowerShell
 > [AZURE.SELECTOR]
 - [Portail](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
@@ -49,7 +49,7 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 ## Commandes pour vous aider à démarrer
 
 	$serviceName = "your-service-name-lowercase-with-dashes"
-	$sku = "free" # or "standard" for a paid service
+	$sku = "free" # or "basic" or "standard" for paid services
 	$location = "West US"
 	# You can get a list of potential locations with
 	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
@@ -136,4 +136,4 @@ Maintenant que votre service est créé, vous pouvez passer aux étapes suivante
 
 - [Analyse du trafic Azure Search](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

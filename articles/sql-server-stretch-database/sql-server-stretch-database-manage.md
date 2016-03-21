@@ -3,9 +3,9 @@
 	description="Découvrez comment gérer et dépanner Stretch Database"
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -53,4 +53,4 @@ Pour obtenir des suggestions de dépannage, consultez [Surveillance et dépannag
 ## Voir aussi
 [Surveillance de Stretch Database](sql-server-stretch-database-monitor.md) [Sauvegarde et restauration de bases de données compatibles Stretch](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

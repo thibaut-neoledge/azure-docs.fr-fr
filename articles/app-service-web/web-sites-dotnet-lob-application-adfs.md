@@ -40,7 +40,7 @@ Vous allez générer une application ASP.NET de base dans Azure App Service Web 
 
 Vous devez disposer des éléments suivants pour suivre ce didacticiel :
 
-- Déploiement AD FS local (pour une procédure de bout en bout du laboratoire de test que j’utilise, consultez la rubrique [Laboratoire de test : service STS autonome avec AD FS dans les machines virtuelles Azure (à des fins de test uniquement)](TODO))
+- Déploiement AD FS local (pour une procédure de bout en bout du laboratoire de test que j’utilise, consultez la rubrique [Laboratoire de test : service STS autonome avec AD FS dans les machines virtuelles Azure (à des fins de test uniquement)](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
 - Autorisations pour créer des approbations de partie de confiance dans Gestion AD FS
 - Visual Studio 2013
 - Le [Kit de développement logiciel (SDK) Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou une version ultérieure
@@ -61,11 +61,11 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 
 	> [AZURE.NOTE] Bien que les instructions de la section [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) vous montrent comment configurer l’application avec Azure Active Directory, dans ce didacticiel, vous la configurerez avec AD FS. Par conséquent, suivez les étapes ci-dessous à la place.
 
-3.	Ouvrez la solution, puis ouvrez Controllers\AccountController.cs dans l’**Explorateur de solutions**.
+3.	Ouvrez la solution, puis ouvrez Controllers\\AccountController.cs dans l’**Explorateur de solutions**.
 
 	Vous verrez que le code envoie simplement une demande d’authentification pour authentifier l’utilisateur à l’aide de WS-Federation. Toute l’authentification est configurée dans App\_Start\\Startup.Auth.cs.
 
-4.  Ouvrez App_Start\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
+4.  Ouvrez App\_Start\\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -356,4 +356,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données loca
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

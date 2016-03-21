@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Exemples
 
-## Exemples dans le portail Azure Classic
-Vous pouvez déployer, passer en revue et tester rapidement un exemple Azure Data Factory à l’aide du panneau **Exemples de pipelines** dans le portail Azure Classic.
+## Exemples sur GitHub
+Le [référentiel GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contient plusieurs exemples qui vous aideront à prendre en main rapidement le service Azure Data Factory (ou) à modifier les scripts et à utiliser ce service dans votre propre application. Le dossier Samples\\JSON contient des extraits de code JSON pour les scénarios courants.
 
-1. Créez une nouvelle fabrique de données ou ouvrez une fabrique de données existante. Consultez la page [Prise en main d’Azure Data Factory][data-factory-get-started] pour connaître les étapes de la création d’une fabrique de données.
+## Exemples dans le portail Azure
+Vous pouvez utiliser la vignette **exemples de pipelines** figurant dans la page d’accueil de votre fabrique de données pour déployer des exemples de pipelines et les entités associées (ensembles de données et services liés) dans votre fabrique de données.
+
+1. Créez une nouvelle fabrique de données ou ouvrez une fabrique de données existante. Consultez la page [Prise en main d’Azure Data Factory](data-factory-get-started.md#CreateDataFactory) pour connaître les étapes de la création d’une fabrique de données.
 2. Dans le panneau **DATA FACTORY** pour la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
 
 	![Vignette Exemples de pipelines](./media/data-factory-samples/SamplePipelinesTile.png)
@@ -44,17 +47,56 @@ Vous pouvez déployer, passer en revue et tester rapidement un exemple Azure Dat
 
 	![Panneau Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
    
+## Exemples dans Visual Studio
 
-La table suivante fournit une brève description des exemples disponibles dans la vignette **Exemples de pipelines**.
+### Composants requis
 
-Exemple de nom | description
------------ | -----------
-Profilage des utilisateurs de jeux | Contoso est une société de jeu qui crée des jeux pour plusieurs plateformes : des consoles de jeux, des périphériques de poche et des ordinateurs personnels (PC). Chacun de ces jeux produit une très grande quantité de journaux. L’objectif de Contoso est de collecter et d’analyser les journaux générés par ces jeux pour obtenir des informations sur l’utilisation, identifier les opportunités de vente incitative et de vente croisée, développer de nouvelles fonctionnalités intéressantes, etc. tout cela afin d’optimiser vos affaires et fournir une meilleure expérience aux clients. Cet exemple collecte des exemples de journaux, les traite et les enrichit avec des données de référence, puis transforme les données pour évaluer l’efficacité d’une campagne marketing lancée dernièrement par Contoso.
- 
-## Exemples sur GitHub
-Le [référentiel GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contient plusieurs exemples qui vous aideront à prendre en main rapidement le service Azure Data Factory (ou) à modifier les scripts et à utiliser ce service dans votre propre application. Le dossier Samples\\JSON contient des extraits de code JSON pour les scénarios courants.
+Les composants suivants doivent être installés sur votre ordinateur :
 
+- Visual Studio 2013 ou Visual Studio 2015
+- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
+- Téléchargez le dernier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si vous utilisez Visual Studio 2013, vous pouvez également mettre à jour le plug-in de la manière suivante : dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mettre à jour**.
 
-[data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
+### Utilisation de modèles de fabrique de données
 
-<!---HONumber=AcomDC_0128_2016-->
+1. Cliquez sur **Fichier** dans le menu, pointez sur **Nouveau**, puis cliquez sur **Projet**. 
+2. Dans la boîte de dialogue **Nouveau projet**, procédez comme suit : 
+	1. Sous **Modèles**, sélectionnez **DataFactory**. 
+	2. Dans le volet droit, sélectionnez **Modèles de fabrique de données**. 
+	3. Entrez un **nom** pour le projet. 
+	4. Sélectionnez un **emplacement** pour le projet. 
+	5. Cliquez sur **OK**. 
+
+	![Boîte de dialogue Nouveau projet](./media/data-factory-samples/vs-new-project-adf-templates.png)
+6. Dans la boîte de dialogue **Modèles de fabrique de données**, sélectionnez l’exemple de modèle dans la section **Modèles de cas d’utilisation**, puis cliquez sur **Suivant**. La procédure suivante décrit l’utilisation du modèle **Analyse des profils des clients**. Les étapes sont similaires pour les autres exemples. 
+
+	![Boîte de dialogue Modèles de fabrique de données](./media/data-factory-samples/vs-data-factory-templates-dialog.png) 
+7. Dans la boîte de dialogue **Configuration de Data Factory**, cliquez sur **Suivant** dans la page **Principes de base de Data Factory**.
+8. Dans la page **Configurer une fabrique de données**, procédez comme suit : 
+	1. Pour les besoins de cette procédure pas à pas, sélectionnez **Créer une fabrique de données**. Vous pouvez également sélectionner **Utiliser un fabrique de données existante**.
+	2. Entrez un **nom** pour la fabrique de données.
+	3. Sélectionnez l’**abonnement Azure** dans lequel vous voulez créer la fabrique de données. 
+	4. Sélectionnez le **groupe de ressources** pour la fabrique de données.
+	5. Sélectionnez **États-Unis de l’Ouest** ou **Europe du Nord** pour la **région**.
+	6. Cliquez sur **Next**. 
+9. Dans la page **Configurer des banques de données**, spécifiez une **base de données SQL Azure** et un **compte de stockage Azure** existants, ou créez-en de nouveaux, puis cliquez sur Suivant. 
+10. Dans la page **Configurer le calcul**, sélectionnez les valeurs par défaut, puis cliquez sur **Suivant**. 
+11. Dans la page **Résumé**, passez en revue tous les paramètres, puis cliquez sur **Suivant**. 
+12. Dans la page **État du déploiement** , patientez jusqu’à ce que le déploiement soit terminé, puis cliquez sur **Terminer**.
+13. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**. 
+19. Si la boîte de dialogue **Connectez-vous à votre compte Microsoft** s'affiche, entrez vos informations d'identification pour le compte qui dispose de l'abonnement Azure, puis cliquez sur **Se connecter**.
+20. La boîte de dialogue suivante doit s’afficher :
+
+	![Boîte de dialogue Publier](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+
+21. Dans la page **Configurer une fabrique de données**, procédez comme suit :
+	1. Confirmez l’option **Utiliser une fabrique de données existante**.
+	2. Sélectionnez la **fabrique de données** que vous aviez sélectionnée lors de l’utilisation du modèle ci-dessus. 
+	6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. (utilisez la touche **TABULATION** pour passer au champ Nom si le bouton **Suivant** est désactivé.) 
+23. Dans la page **Publier des éléments**, vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.     
+24. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l’**état du déploiement**.
+25. Dans la page **État du déploiement**, vous devez voir l’état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer. 
+
+Pour plus d’informations sur l’utilisation de Visual Studio pour créer des entités Data Factory et les publier sur Azure, voir [Créer votre première fabrique de données Azure (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md).
+
+<!---HONumber=AcomDC_0309_2016-->

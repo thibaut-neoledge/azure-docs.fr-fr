@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application web avec stockage de tables (Node.js) | Microsoft Azure" 
-	description="Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express." 
+	pageTitle="Application web avec stockage de tables (Node.js) | Microsoft Azure" 
+	description="Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express." 
 	services="cloud-services, storage" 
 	documentationCenter="nodejs" 
 	authors="rmcmurray" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
-# Application Web Node.js utilisant le stockage
+# Application Web Node.js utilisant le stockage
 
 ## Vue d’ensemble
 
@@ -26,12 +26,12 @@ Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockag
 
 Ce didacticiel part du principe que vous avez suivi les didacticiels [Application Web Node.js] et [Node.js avec Express][Node.js Web Application using Express].
 
-Vous apprendrez à effectuer les opérations suivantes :
+Vous apprendrez à effectuer les opérations suivantes :
 
--   utiliser le moteur de modèles Jade ;
+-   utiliser le moteur de modèles Jade ;
 -   utiliser les services de gestion de données Azure.
 
-Voici une capture d’écran de l’application terminée :
+Voici une capture d’écran de l’application terminée :
 
 ![Page Web terminée dans Internet Explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
@@ -39,27 +39,27 @@ Voici une capture d’écran de l’application terminée :
 
 Pour accéder à Azure Storage, vous devez transmettre les informations d'identification de stockage. Pour ce faire, vous utilisez les paramètres d'application web.config. Ceux-ci sont transmis en tant que variables d'environnement à Node, qui sont alors lues par le Kit de développement logiciel (SDK) Azure.
 
-> [AZURE.NOTE]Les informations d'identification de stockage sont uniquement utilisées lors du déploiement de l'application sur Azure. Lorsqu'elle est exécutée dans l'émulateur, l'application utilise l'émulateur de stockage.
+> [AZURE.NOTE] Les informations d'identification de stockage sont uniquement utilisées lors du déploiement de l'application sur Azure. Lorsqu'elle est exécutée dans l'émulateur, l'application utilise l'émulateur de stockage.
 
-Procédez comme suit pour extraire les informations d'identification de stockage et les ajouter aux paramètres web.config :
+Procédez comme suit pour extraire les informations d'identification de stockage et les ajouter aux paramètres web.config :
 
 1.  Si ce n'est pas déjà le cas, ouvrez Azure PowerShell à partir du menu **Démarrer** en développant **Tous les programmes, Azure**, cliquez avec le bouton droit sur **Azure PowerShell**, puis sélectionnez **Exécuter en tant qu'administrateur**.
 
 2.  Remplacez les répertoires par le dossier contenant votre application. Par exemple, C:\\node\\tasklist\\WebRole1.
 
-3.  Dans la fenêtre Azure Powershell, entrez la cmdlet suivante pour extraire les informations du compte de stockage :
+3.  Dans la fenêtre Azure Powershell, entrez la cmdlet suivante pour extraire les informations du compte de stockage :
 
         PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
 
 	Cette action permet d'extraire la liste des comptes de stockage et les clés de compte associées à votre service hébergé.
 
-	> [AZURE.NOTE]Dans la mesure où le Kit de développement logiciel (SDK) Azure crée un compte de stockage lorsque vous déployez un service, un compte de stockage doit déjà exister puisque vous avez déployé votre application dans les guides précédents.
+	> [AZURE.NOTE] Dans la mesure où le Kit de développement logiciel (SDK) Azure crée un compte de stockage lorsque vous déployez un service, un compte de stockage doit déjà exister puisque vous avez déployé votre application dans les guides précédents.
 
-4.  Ouvrez le fichier **ServiceDefinition.csdef** contenant les paramètres d'environnement utilisés lorsque l'application est déployée vers Azure :
+4.  Ouvrez le fichier **ServiceDefinition.csdef** contenant les paramètres d'environnement utilisés lorsque l'application est déployée vers Azure :
 
         PS C:\node\tasklist> notepad ServiceDefinition.csdef
 
-5.  Insérez le bloc suivant sous l'élément **Environment**, en remplaçant {STORAGE ACCOUNT} et {STORAGE ACCESS KEY} par le nom de compte et la clé primaire du compte de stockage que vous souhaitez utiliser pour le déploiement :
+5.  Insérez le bloc suivant sous l'élément **Environment**, en remplaçant {STORAGE ACCOUNT} et {STORAGE ACCESS KEY} par le nom de compte et la clé primaire du compte de stockage que vous souhaitez utiliser pour le déploiement :
 
         <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
         <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
@@ -70,11 +70,11 @@ Procédez comme suit pour extraire les informations d'identification de stockage
 
 ### Installation de modules supplémentaires
 
-2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
+2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-	Le résultat de cette commande doit ressembler à ceci :
+	Le résultat de cette commande doit ressembler à ceci :
 
 		node-uuid@1.4.1 node_modules\node-uuid
 
@@ -103,7 +103,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 2. Dans le répertoire **models**, créez un fichier appelé **task.js**. Ce fichier contiendra le modèle des tâches créées par votre application.
 
-3. Au début du fichier **task.js**, ajoutez le code suivant pour référencer les bibliothèques nécessaires :
+3. Au début du fichier **task.js**, ajoutez le code suivant pour référencer les bibliothèques nécessaires :
 
         var azure = require('azure-storage');
   		var uuid = require('node-uuid');
@@ -124,7 +124,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 		  });
 		};
 
-5. Ensuite, ajoutez le code suivant pour définir des méthodes supplémentaires sur l'objet Task permettant d'interagir avec les données stockées dans la table :
+5. Ensuite, ajoutez le code suivant pour définir des méthodes supplémentaires sur l'objet Task permettant d'interagir avec les données stockées dans la table :
 
 		Task.prototype = {
 		  find: function(query, callback) {
@@ -182,7 +182,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 1. Dans le répertoire **WebRole1/routes**, créez un fichier **tasklist.js** et ouvrez-le dans un éditeur de texte.
 
-2. Ajoutez le code suivant dans **tasklist.js**. Cela charge les modules azure et async, qui sont utilisés par **tasklist.js**. Cela définit également la fonction **TaskList** à qui est transmise une instance de l'objet **Task** défini précédemment :
+2. Ajoutez le code suivant dans **tasklist.js**. Cela charge les modules azure et async, qui sont utilisés par **tasklist.js**. Cela définit également la fonction **TaskList** à qui est transmise une instance de l'objet **Task** défini précédemment :
 
 		var azure = require('azure-storage');
 		var async = require('async');
@@ -193,7 +193,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 		  this.task = task;
 		}
 
-2. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour afficher les tâches (**showTasks**), ajouter les tâches (**addTask**) et marquer les tâches comme terminées (**completeTasks**) :
+2. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour afficher les tâches (**showTasks**), ajouter les tâches (**addTask**) et marquer les tâches comme terminées (**completeTasks**) :
 
 		TaskList.prototype = {
 		  showTasks: function(req, res) {
@@ -243,18 +243,18 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 1. Dans le répertoire **WebRole1**, ouvrez le fichier **app.js** dans un éditeur de texte. 
 
-2. Au début du fichier, ajoutez ce qui suit pour charger le module azure, et définissez le nom de la table et la clé de partition :
+2. Au début du fichier, ajoutez ce qui suit pour charger le module azure, et définissez le nom de la table et la clé de partition :
 
 		var azure = require('azure-storage');
 		var tableName = 'tasks';
 		var partitionKey = 'hometasks';
 
-3. Dans le fichier app.js, faites défiler le contenu jusqu'à la ligne suivante :
+3. Dans le fichier app.js, faites défiler le contenu jusqu'à la ligne suivante :
 
 		app.use('/', routes);
 		app.use('/users', users);
 
-	Remplacez les lignes ci-dessus par le code affiché ci-dessous. Cela initialise une instance de <strong>Task</strong> avec une connexion à votre compte de stockage. Elle est transmise à <strong>TaskList</strong> qui l'utilise pour communiquer avec le service de Table :
+	Remplacez les lignes ci-dessus par le code affiché ci-dessous. Cela initialise une instance de <strong>Task</strong> avec une connexion à votre compte de stockage. Elle est transmise à <strong>TaskList</strong> qui l'utilise pour communiquer avec le service de Table :
 
 		var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
@@ -318,7 +318,7 @@ Le fichier **layout.jade** du répertoire **views** sert de modèle global aux a
 
 1. Téléchargez les fichiers du [Twitter Bootstrap](http://getbootstrap.com/), puis procédez à l'extraction. Copiez le fichier **bootstrap.min.css** du dossier **bootstrap\\dist\\css** vers le répertoire **public\\stylesheets** de votre application de liste de tâches.
 
-2. Dans le dossier **views**, ouvrez **layout.jade** dans votre éditeur de texte et remplacez son contenu par le code suivant :
+2. Dans le dossier **views**, ouvrez **layout.jade** dans votre éditeur de texte et remplacez son contenu par le code suivant :
 
 		doctype html
 		html
@@ -340,7 +340,7 @@ Utilisez la commande suivante pour lancer l'application dans l'émulateur.
 
 	PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 
-Le navigateur s'ouvre et affiche la page suivante :
+Le navigateur s'ouvre et affiche la page suivante :
 
 ![Page Web intitulée My Task List avec une table contenant les tâches et les domaines pour ajouter une nouvelle tâche](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
 
@@ -355,7 +355,7 @@ Dans la fenêtre Windows PowerShell, appelez la cmdlet suivante pour redéployer
 
 Remplacez **myuniquename** par un nom unique pour cette application. Remplacez **datacentername** par le nom d'un centre de données Azure, tel que **Ouest des États-Unis**.
 
-Une fois le déploiement terminé, une réponse similaire à celle présentée ci-dessous doit s'afficher :
+Une fois le déploiement terminé, une réponse similaire à celle présentée ci-dessous doit s'afficher :
 
 	PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
 	WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
@@ -382,13 +382,13 @@ Azure facture les instances de rôle Web par heure de serveur consommée. Une fo
 
 La procédure suivante présente l'arrêt et la suppression de l'application.
 
-1.  Dans la fenêtre Windows PowerShell, arrêtez le déploiement du service créé dans la section précédente à l'aide de la cmdlet suivante :
+1.  Dans la fenêtre Windows PowerShell, arrêtez le déploiement du service créé dans la section précédente à l'aide de la cmdlet suivante :
 
         PS C:\node\tasklist\WebRole1> Stop-AzureService
 
 	L'arrêt du service peut prendre plusieurs minutes. Une fois le service arrêté, vous recevez un message confirmant l'arrêt du service.
 
-3.  Pour supprimer le service, utilisez la cmdlet suivante :
+3.  Pour supprimer le service, utilisez la cmdlet suivante :
 
         PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
 
@@ -403,4 +403,4 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -24,10 +24,10 @@ Nombre maximal de clauses JOIN par requête* |5
 Nombre maximal de clauses AND par requête* |20
 Nombre maximal de clauses OR par requête* |20
 Nombre maximal de valeurs par expression IN* |200
-Nombre maximal de points dans un argument de polygone dans une requête ST\_WITHIN* |16
+Nombre maximal de points dans un argument de polygone dans une requête ST\_WITHIN* |256
 Nombre maximal de créations de collection par minute* |5
 Nombre maximal d'opérations de mise à l'échelle par minute* |5
 
 Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

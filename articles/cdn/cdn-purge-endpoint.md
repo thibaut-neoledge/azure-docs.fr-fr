@@ -44,19 +44,20 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
 
 	> [AZURE.NOTE] Vous pouvez également accéder au panneau de vidage en cliquant sur le bouton **Vider** dans le panneau des points de terminaison CDN. Dans ce cas, le champ **URL** sera déjà renseigné avec l’adresse de service de ce point de terminaison spécifique.
 
-4. Sélectionnez les éléments multimédias que vous souhaitez vider sur les nœuds de périmètre. Si vous souhaitez effacer tous les éléments multimédias, cochez la case **Vider tout**. Sinon, entrez le chemin d’accès complet de chaque élément multimédia que vous souhaitez vider (par exemple, */pictures/kitten.png*) dans la zone de texte **Chemin d’accès**.
+4. Sélectionnez les éléments multimédias que vous souhaitez vider sur les nœuds de périmètre. Si vous souhaitez effacer tous les éléments multimédias, cochez la case **Vider tout**. Sinon, entrez le chemin d’accès complet de chaque élément multimédia que vous souhaitez vider (par exemple, `/pictures/kitten.png`) dans la zone de texte **Chemin d’accès**.
 
 	> [AZURE.TIP] Après avoir saisi du texte, d’autres zones de texte **Chemin d’accès** s’afficheront pour vous permettre de créer une liste de plusieurs éléments multimédias. Vous pouvez supprimer des éléments multimédias de la liste en cliquant sur le bouton points de suspension (...).
 	>
-	> Les chemins d’accès doivent se présenter sous la forme d’une URL relative. L’astérisque (*) peut être utilisé comme caractère générique.
+	> Les chemins d’accès doivent être une URL relative qui répond à l’[expression régulière](https://msdn.microsoft.com/library/az24scfc.aspx) suivante : `^\/(?:[a-zA-Z0-9-_.\u0020]+\/)**$";`. L’astérisque (*) peut être utilisé comme caractère générique (par exemple, `/music/*`).
 
 5. Cliquez sur le bouton **Vider**.
 
 	![Bouton Vider](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
+> [AZURE.NOTE] Le traitement des demandes de vidage prend environ 2 à 3 minutes. Il existe une limite de 10 demandes de vidage par minute et par profil CDN.
 
 ## Voir aussi
 - [Préchargement d’éléments multimédias sur un point de terminaison CDN Azure](cdn-preload-endpoint.md)
 - [Référence API REST du CDN Azure - Vider ou pré-charger un point de terminaison](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

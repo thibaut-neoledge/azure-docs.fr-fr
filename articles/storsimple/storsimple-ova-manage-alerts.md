@@ -3,7 +3,7 @@
    description="Décrit les conditions et la gravité des alertes StorSimple Virtual Array et comment utiliser le service StorSimple Manager pour gérer les alertes."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Utiliser le service StorSimple Manager pour afficher et gérer les alertes liées au StorSimple Virtual Array (version préliminaire)
+# Utiliser le service StorSimple Manager pour afficher et gérer les alertes liées au StorSimple Virtual Array
 
 ## Vue d'ensemble
 
@@ -31,7 +31,7 @@ Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour
 
 >[AZURE.NOTE] Vous pouvez entrer un maximum de 20 adresses e-mail par appareil virtuel.
 
-Après avoir activé la notification par e-mail pour un appareil virtuel, les membres de la liste de notification reçoivent un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis *storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
+Après avoir activé la notification par e-mail pour un appareil virtuel, les membres de la liste de notification reçoivent un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis **storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
 
 #### Activation de la notification par e-mail des alertes pour un appareil virtuel
 
@@ -45,7 +45,7 @@ Après avoir activé la notification par e-mail pour un appareil virtuel, les me
 
     2. Dans le champ **Envoyer un e-mail aux administrateurs du service**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs de service reçoivent les notifications d’alerte.
 
-    3. Dans le champ **Autres destinataires du message**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil virtuel.
+    3. Dans le champ **Autres destinataires du message**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format **someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil virtuel.
 
         ![configuration des notifications des alertes](./media/storsimple-ova-manage-alerts/alerts3.png)
 
@@ -67,9 +67,9 @@ Après avoir activé la notification par e-mail pour un appareil virtuel, les me
 
 Votre StorSimple Virtual Array génère des alertes en réponse à différentes conditions. Les éléments suivants constituent les types de conditions d’alerte les plus courants :
 
-- **Problèmes de connectivité**: ces alertes se produisent lorsque des difficultés surviennent dans le transfert de données. Des problèmes de communication peuvent survenir pendant le transfert des données vers et depuis le compte de stockage Azure ou en raison d’une absence de connectivité entre les appareils virtuels et le service StorSimple Manager. Les problèmes de communication sont les plus difficiles à résoudre, car il existe de nombreux points de défaillance. Avant toute chose, vous devez toujours vérifier que la connectivité au réseau et l'accès à Internet sont disponibles avant d’aller plus loin dans la résolution des problèmes. Pour plus d’informations sur les ports et les paramètres du pare-feu, consultez la page [Configuration système requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md). Pour obtenir de l’aide sur la résolution des problèmes, consultez la section [Dépannage avec l’applet de commande Test-Connection](storsimple-troubleshoot-deployment.md).
+- **Problèmes de connectivité** : ces alertes se produisent lorsque des difficultés surviennent dans le transfert de données. Des problèmes de communication peuvent survenir pendant le transfert des données vers et depuis le compte de stockage Azure ou en raison d’une absence de connectivité entre les appareils virtuels et le service StorSimple Manager. Les problèmes de communication sont les plus difficiles à résoudre, car il existe de nombreux points de défaillance. Avant toute chose, vous devez toujours vérifier que la connectivité au réseau et l'accès à Internet sont disponibles avant d’aller plus loin dans la résolution des problèmes. Pour plus d’informations sur les ports et les paramètres du pare-feu, consultez la page [Configuration système requise pour StorSimple Virtual Array](storsimple-ova-system-requirements.md). Pour obtenir de l’aide sur la résolution des problèmes, consultez la section [Dépannage avec l’applet de commande Test-Connection](storsimple-troubleshoot-deployment.md).
 
-- **Problèmes de performances**: ces alertes sont dues aux performances de votre système qui ne sont pas optimales, notamment lorsqu’il est soumis à des conditions de surcharge.
+- **Problèmes de performances** : ces alertes sont dues aux performances de votre système qui ne sont pas optimales, notamment lorsqu’il est soumis à des conditions de surcharge.
 
 De plus, vous pouvez afficher les alertes liées à la sécurité, aux mises à jour ou aux tâches qui ont échoué.
 
@@ -77,11 +77,11 @@ De plus, vous pouvez afficher les alertes liées à la sécurité, aux mises à 
 
 Les alertes présentent différents niveaux de gravité, en fonction de l'impact de la situation d'alerte et de la nécessité d'une réponse à cette alerte. Les niveaux de gravité des alertes sont :
 
-- **Critique**: cette alerte répond à une condition qui affecte les performances optimales de votre système. Il est nécessaire d’agir pour vous assurer que le service StorSimple n'est pas interrompu.
+- **Critique** : cette alerte répond à une condition qui affecte les performances optimales de votre système. Il est nécessaire d’agir pour vous assurer que le service StorSimple n'est pas interrompu.
 
-- **Avertissement**: cette condition peut devenir critique si elle n’est pas résolue. Vous devez examiner la situation et prendre toutes les dispositions nécessaires pour résoudre le problème.
+- **Avertissement** : cette condition peut devenir critique si elle n’est pas résolue. Vous devez examiner la situation et prendre toutes les dispositions nécessaires pour résoudre le problème.
 
-- **Information**: cette alerte contient des informations qui peuvent être utiles pour le suivi et la gestion de votre système.
+- **Information** : cette alerte contient des informations qui peuvent être utiles pour le suivi et la gestion de votre système.
 
 ## Afficher et effectuer le suivi des alertes
 
@@ -111,13 +111,13 @@ Certains événements seront effacés par le système si un autre événement es
 
 Cela peut s'avérer plus efficace d’exécuter des rapports sur les alertes afin que vous puissiez les examiner et les effacer en groupes. Par ailleurs, l’onglet **Alertes** peut afficher jusqu'à 250 alertes. Si vous avez dépassé ce nombre d'alertes, toutes les alertes ne seront pas affichées dans l’affichage par défaut. Vous pouvez combiner les champs suivants pour personnaliser les alertes qui s’affichent :
 
-- **État**: vous pouvez afficher des alertes **Actives** ou **Effacées**. Les alertes actives sont toujours déclenchées dans votre système, tandis que les alertes effacées ont été effacées manuellement par un administrateur, ou elles ont été effacées par un programme, car le système a mis à jour la condition d'alerte avec de nouvelles informations.
+- **État** : vous pouvez afficher des alertes **Actives** ou **Effacées**. Les alertes actives sont toujours déclenchées dans votre système, tandis que les alertes effacées ont été effacées manuellement par un administrateur, ou elles ont été effacées par un programme, car le système a mis à jour la condition d'alerte avec de nouvelles informations.
 
-- **Gravité**: vous pouvez afficher des alertes de tous les niveaux de gravité (critique, avertissement, information), ou seulement celles d’une certaine gravité, par exemple les alertes critiques uniquement.
+- **Gravité** : vous pouvez afficher des alertes de tous les niveaux de gravité (critique, avertissement, information), ou seulement celles d’une certaine gravité, par exemple les alertes critiques uniquement.
 
-- **Source**: vous pouvez afficher les alertes de toutes les sources, ou vous limiter aux alertes qui proviennent d’un service ou d’un ou de tous les appareils virtuels.
+- **Source** : vous pouvez afficher les alertes de toutes les sources, ou vous limiter aux alertes qui proviennent d’un service ou d’un ou de tous les appareils virtuels.
 
-- **Intervalle de temps**: en spécifiant l’horodatage **De** et **À**, vous pouvez regarder les alertes pour la période qui vous intéresse.
+- **Intervalle de temps** : en spécifiant l’horodatage **De** et **À**, vous pouvez regarder les alertes pour la période qui vous intéresse.
 
 ## Référence rapide des alertes
 
@@ -141,19 +141,6 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 |:---|:---|:---|
 |L’appareil *<device name>* n’est pas connecté au cloud.|L’appareil nommé ne peut pas se connecter au cloud. |Impossible de se connecter au cloud. La raison peut être l’une des suivantes :<ul><li>Les paramètres réseau de votre appareil présentent peut-être un problème.</li><li>Les informations d’identification du compte de stockage présentent peut-être un problème.</li></ul>Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de l’appareil.|
 
-#### Comportement de StorSimple en cas d’échec de connexion au cloud
-
-Que se passe-t-il en cas d'échec de connexion au cloud pour mon appareil StorSimple en cours d'exécution en production ?
-
-En cas d'échec de la connexion au cloud sur votre appareil de production StorSimple, en fonction de l'état de votre périphérique, les événements suivants peuvent se produire :
-
-- **Pour les données locales sur votre appareil**: pendant un certain temps, il n’y a pas d’interruption de service et les lectures sont traitées. Toutefois, lorsque les E/S en attente augmentent et dépassent la limite, les lectures peuvent commencer à échouer. 
-
-	Selon la quantité de données sur votre appareil, les écritures continuent également à se produire pendant les premières heures suivant l’interruption de la connexion au cloud. Puis, les écritures ralentissent et finissent par échouer si l'interruption de la connexion au cloud dure plusieurs heures. L’appareil contient une zone de stockage temporaire destinée aux données à envoyer par transmission Push vers le cloud. Cette zone est vidée lorsque les données sont envoyées. En cas d’échec de la connexion, les données de cette zone de stockage ne sont pas envoyées par transmission Push vers le cloud, et les E/S sont en échec.
- 
-- **Pour les données du cloud**: pour la plupart des erreurs de connexion au cloud, une erreur est renvoyée. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l’intervention de l’utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure Classic.
- 
-- **Pour les instantanés cloud en cours**: l’opération est retentée plusieurs fois pendant 4 à 5 heures, et si la connexion n’est pas restaurée, les instantanés cloud échouent.
 
 ### Alertes de configuration
 
@@ -195,4 +182,4 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorSi
 
 - [Découvrez le StorSimple Virtual Array](storsimple-ova-overview.md).
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

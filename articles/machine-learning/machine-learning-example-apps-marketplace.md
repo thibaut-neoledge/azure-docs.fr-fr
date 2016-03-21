@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/>
 
-# Applications d’apprentissage automatique dans Azure Marketplace
+# Applications d’apprentissage automatique dans Azure Marketplace
 
 Azure Machine Learning fournit aux scientifiques des données un canal permettant de monétiser leur savoir et leur créativité, tout comme les développeurs d’applications pour smartphones. En publiant vos services Machine Learning dans Azure Marketplace, vous permettez aux utilisateurs du monde entier de s'abonner à vos API cloud publiées et de les utiliser dans leurs applications.
 
@@ -24,7 +24,7 @@ Azure Machine Learning fournit aux scientifiques des données un canal permettan
 
 Mais Azure Marketplace peut offrir beaucoup plus que des API d’analyse de base. Par exemple, nous avons créé un ensemble d’applications d’apprentissage automatique de bout en bout afin de répondre à des besoins métiers spécifiques. L’utilisation de ces applications d’apprentissage automatique ne requiert aucun scientifique de données ni expertise concernant Machine Learning. La science des données est déjà intégrée à nos solutions. Les utilisateurs n’ont plus qu’à alimenter ces dernières avec leurs propres données avant de commencer à utiliser les applications.
 
-Ces applications comprennent notamment :
+Ces applications comprennent notamment :
 
 ##Recommandations##
  Moteur de recommandations libre-service mais très puissant qui vous permet d’ajouter facilement des recommandations de produits personnalisées à votre site web ou à vos campagnes par courrier électronique.
@@ -51,10 +51,5 @@ Cette API permet d’analyser un texte non structuré pour des tâches comme l�
 [Documentation](machine-learning-apps-text-analytics.md)
 
  
- ##Prédiction de l’attrition des clients## La prédiction de l’attrition des clients est un service d'analyse de l’attrition conçu avec Azure Machine Learning. Il est conçu pour prévoir quand un client (lecteur, abonné, utilisateur, etc.) est susceptible de mettre fin à sa relation avec une entreprise ou un service. La capacité à prévoir quels clients présentent un risque élevé de mettre fin à leur relation avec la société donne à l’entreprise la possibilité de les contacter et réduit la probabilité de leur départ.
 
-[Lien vers DataMarket](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
-
-[Documentation](https://churn.cloudapp.net/documentation)
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

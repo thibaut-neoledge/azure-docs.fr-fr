@@ -1,6 +1,6 @@
 <properties
    pageTitle="Référence Transact-SQL SQL Data Warehouse | Microsoft Azure"
-   description="Liens vers du contenu de référence pour les rubriques Transact-SQL utilisées par SQL Data Warehouse."
+   description="Liens vers du contenu de référence pour les rubriques Transact-SQL utilisées par SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/01/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 #Rubriques Transact-SQL
 
-## Instructions du langage de définition de données (DDL)
+## Instructions du langage de définition de données (DDL)
 
 - [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 - [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
@@ -89,7 +89,7 @@
 
 ## Instructions de sécurité
 
-- Autorisations : [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
+- Autorisations : [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 - [ALTER AUTHORIZATION](https://msdn.microsoft.com/library/ms187359.aspx)
 - [ALTER CERTIFICATE](https://msdn.microsoft.com/library/ms189511.aspx)
 - [ALTER DATABASE ENCRYPTION KEY](https://msdn.microsoft.com/library/bb630389.aspx)
@@ -127,4 +127,4 @@ Pour accéder à d’autres exemples TSQL, consultez la [Vue d’ensemble sur le
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

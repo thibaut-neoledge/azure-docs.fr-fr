@@ -21,16 +21,21 @@
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [How to: Send push notifications to an authenticated user using tags](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#push-user).
+
 Dans cette rubrique, vous découvrez comment envoyer des notifications Push à un utilisateur authentifié sur iOS. Avant de commencer ce didacticiel, vous devez effectuer les didacticiels [Prise en main de l'authentification] et [Prise en main des notifications Push].
 
-Dans ce didacticiel, les utilisateurs s'authentifient, puis s'inscrivent auprès du concentrateur de notification pour les notifications Push, et les scripts serveur sont finalement mis à jour pour envoyer ces notifications à des utilisateurs authentifiés uniquement.
+Dans ce didacticiel, les utilisateurs s'authentifient, puis s'inscrivent auprès du hub de notification pour les notifications Push, et les scripts serveur sont finalement mis à jour pour envoyer ces notifications à des utilisateurs authentifiés uniquement.
 
 
 ##<a name="register"></a>Mise à jour du service pour demander l'authentification pour l'inscription
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
-Remplacez la fonction `insert` par le code suivant, puis cliquez sur **Enregistrer**. Ce script d'insertion utilise la balise d'ID utilisateur pour envoyer une notification Push à toutes les inscriptions d'application iOS à partir de l'utilisateur connecté :
+Remplacez la fonction `insert` par le code suivant, puis cliquez sur **Enregistrer**. Ce script d'insertion utilise la balise d'ID utilisateur pour envoyer une notification Push à toutes les inscriptions d'application iOS à partir de l'utilisateur connecté :
 
 ```
 // Get the ID of the logged-in user.
@@ -69,8 +74,6 @@ function insert(item, user, request) {
 <!-- URLs. -->
 [Prise en main de l'authentification]: mobile-services-ios-get-started-users.md
 [Prise en main des notifications Push]: mobile-services-javascript-backend-ios-get-started-push.md
-
-[portail de gestion Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

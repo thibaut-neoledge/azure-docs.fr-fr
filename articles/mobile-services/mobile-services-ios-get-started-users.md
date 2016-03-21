@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/05/2016"
 	ms.author="krisragh"/>
 
 # Ajout de l’authentification à une application existante
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajout de l’authentification à votre application iOS](../app-service-mobile/app-service-mobile-ios-get-started-users.md).
 
 Dans ce didacticiel, vous allez ajouter l’authentification au [didacticiel Démarrage rapide de Mobile Services] en faisant appel à un fournisseur d’identité pris en charge.
 
-Nous vous recommandons de terminer d'abord le [didacticiel Démarrage rapide de Mobile Services]. Vous pouvez également télécharger le projet Démarrage rapide iOS : dans le [portail Azure Classic] > **Mobile Services** > votre service mobile > l'authentification cloud en haut à gauche > **iOS** > **Créer une nouvelle application iOS** > **Télécharger et exécuter votre application** > **Objective-C** > **Télécharger**. N'oubliez pas de cliquer sur **Créer une table TodoItem** avant de cliquer sur **Télécharger** si vous n'avez pas encore créé la table.
+Nous vous recommandons de terminer d'abord le [didacticiel Démarrage rapide de Mobile Services]. Vous pouvez également télécharger le projet Démarrage rapide iOS : dans le [portail Azure Classic] > **Mobile Services** > votre service mobile > l'authentification cloud en haut à gauche > **iOS** > **Créer une nouvelle application iOS** > **Télécharger et exécuter votre application** > **Objective-C** > **Télécharger**. N'oubliez pas de cliquer sur **Créer une table TodoItem** avant de cliquer sur **Télécharger** si vous n'avez pas encore créé la table.
 
 ##<a name="register"></a>Inscription de l’application pour l’authentification
 
@@ -89,4 +89,4 @@ Ensuite, découvrez [comment utiliser la valeur d’ID d’utilisateur pour filt
 
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

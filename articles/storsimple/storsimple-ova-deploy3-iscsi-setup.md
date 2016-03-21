@@ -95,9 +95,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
         
-           > [AZURE.NOTE]
-	   > 
-	   > Si vous joignez votre serveur iSCSI à un domaine, assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Microsoft Azure Active Directory et qu’aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
+	   	> [AZURE.NOTE] Si vous joignez votre serveur iSCSI à un domaine, assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Microsoft Azure Active Directory et qu’aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
 	   
 
     6. Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres de l’appareil.
@@ -108,9 +106,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     Dans la page **Proxy web** :
 
-    1. Indiquez l’**URL du proxy web** dans ce format : *adresse http://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
+    1. Indiquez l’**URL du proxy web** au format suivant : *adressehttp://host-IP* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
 
-    2. Définissez l’**authentification** sur **De base**, **NTLM** ou **Aucune**.
+    2. Définissez **Authentification** sur **De base**, **NTLM** ou **Aucune**.
 
     3. Si vous utilisez une authentification, vous devez également fournir un **nom d’utilisateur** et un **mot de passe**.
 
@@ -120,7 +118,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
     ![paramètres d’heure](./media/storsimple-ova-deploy3-iscsi-setup/image10.png)
 
-    Dans la page **Paramètres horaires** :
+    Dans la page **Paramètres d’heure** :
 
     1. Dans la liste déroulante, définissez le **fuseau horaire** en fonction de l’emplacement géographique de l’appareil déployé. Le fuseau horaire par défaut de votre appareil est PST. Votre appareil utilise ce fuseau horaire pour toutes les opérations planifiées.
 
@@ -132,9 +130,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 
 9. Configurez les paramètres de cloud de votre appareil. Dans cette étape, vous allez finaliser la configuration de l’appareil local puis inscrire l'appareil auprès du service StorSimple Manager.
 
-    1. Entrez la **clé d’inscription du service** que vous avez obtenue à l’**étape 2 : obtention de la clé d’inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1. Entrez la **clé d’inscription de service** que vous avez obtenue à l’**étape 2 : obtention de la clé d’inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devez fournir la **clé de chiffrement des données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d’informations, reportez-vous à la section permettant d’[obtenir la clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
+    2. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Manager. Pour plus d’informations, reportez-vous à la section permettant d’[obtenir la clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
 
     3. Cliquez sur **S'inscrire**. Cette opération redémarra l’appareil. Vous devrez peut-être attendre 2 à 3 minutes avant que l'appareil soit inscrit. Une fois que l’appareil a redémarré, vous êtes redirigé vers la page de connexion.
 
@@ -156,15 +154,15 @@ Pour finaliser la configuration minimale requise, procédez comme suit dans le p
 
 #### Pour finaliser l'installation minimale de l’appareil
 
-1. Sur la page **Appareils**, sélectionnez l’appareil que vous venez de créer. Cet appareil est affiché comme **Actif**. Cliquez sur la flèche en regard du nom de l’appareil, puis sur **Démarrage rapide**.
+1. Dans la page **Appareils**, sélectionnez l’appareil que vous venez de créer. Cet appareil apparaît en tant que **Actif**. Cliquez sur la flèche en regard du nom de l’appareil, puis sur **Démarrage rapide**.
 
     ![Page Appareils](./media/storsimple-ova-deploy3-iscsi-setup/image13.png)
 
-2. Cliquez sur **Terminer l’installation de l’appareil** pour démarrer l’Assistant Configurer l’appareil.
+2. Cliquez sur **terminer l’installation de l’appareil** pour démarrer l’Assistant Configurer l’appareil.
 
     ![Assistant Configurer l’appareil](./media/storsimple-ova-deploy3-iscsi-setup/image14.png)
 
-3. Dans l’Assistant Configurer l’appareil, procédez comme suit dans la page **Paramètres de base** :
+3. Dans l’Assistant Configurer l’appareil, dans la page **Paramètres de base**, procédez comme suit :
 
    1. Spécifiez un compte de stockage à utiliser avec votre appareil. Dans cet abonnement, vous pouvez sélectionner un compte de stockage existant dans la liste déroulante, ou spécifier **Ajouter** pour choisir un compte d’un autre abonnement.
 
@@ -174,7 +172,7 @@ Pour finaliser la configuration minimale requise, procédez comme suit dans le p
 
     ![paramètres de base](./media/storsimple-ova-deploy3-iscsi-setup/image16.png)
 
-    Les paramètres seront maintenant être mis à jour. Une fois les paramètres mis à jour, le bouton de finalisation de l'installation de l’appareil n’est pas disponible. Vous revenez à la page **Démarrage rapide** de l'appareil.
+    Les paramètres seront maintenant mis à jour. Une fois les paramètres mis à jour, le bouton de finalisation de l'installation de l’appareil n’est pas disponible. Vous revenez à la page **Démarrage rapide** de l'appareil.
 
 >[AZURE.NOTE]Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer**.
 
@@ -192,7 +190,7 @@ Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
     2. Fournissez une description du volume. La description permet d'identifier les propriétaires du volume.
 
-    3. Sélectionnez un type d'utilisation du volume. Le type d’utilisation peut être **Volume hiérarchisé** ou **Volume épinglé localement**. (**Volume hiérarchisé** est la valeur par défaut.) Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez **Volume** **épinglé localement**. Pour toutes les autres données, sélectionnez **Volume** **hiérarchisé**.
+    3. Sélectionnez un type d'utilisation du volume. Le type d’utilisation peut être **Volume hiérarchisé** ou **Volume attaché localement**. (**Volume hiérarchisé** est la valeur par défaut.) Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez **Volume** **attaché localement**. Pour toutes les autres données, sélectionnez **Volume** **hiérarchisé**.
 
         La configuration d’un volume épinglé localement est complète, et garantit que les données principales sur le volume sont conservées sur l’appareil et ne débordent pas sur le cloud. Si vous créez un volume épinglé localement, l’appareil recherche de l’espace disponible sur les couches locales pour configurer un volume de la taille demandée. La création d’un volume épinglé localement peut impliquer le débordement des données existantes de l’appareil vers le cloud, et le temps nécessaire pour créer le volume peut être long. La durée totale dépend de la taille du volume configuré, de la bande passante réseau disponible et des données sur votre appareil.
 
@@ -208,7 +206,7 @@ Pour créer un volume, procédez comme suit dans le portail Azure Classic.
 
     1. Saisissez un **Nom** pour votre ACR.
 
-    2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI de votre hôte Windows. Si vous ne disposez pas du nom IQN, accédez à l’[Annexe A : Obtention du nom qualifié d’un hôte Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
+    2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI de votre hôte Windows. Si vous ne possédez pas le nom IQN, accédez à l’[Annexe A : Obtention du nom qualifié d’un hôte Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
 
     3. Nous vous recommandons d’activer la sauvegarde par défaut en cochant la case **Activer une sauvegarde par défaut pour ce volume**. La sauvegarde par défaut crée une stratégie qui s’exécute à 22h30 chaque jour (heure de l’appareil) et crée un instantané de cloud de ce volume.
 
@@ -280,7 +278,7 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 
     ![assistant nouveau volume 4](./media/storsimple-ova-deploy3-iscsi-setup/image32.png)
 
-    Les volumes s’affichent comme **En ligne** dans la page **Gestion des disques**.
+    Les volumes s’affichent en tant que **En ligne** dans la page **Gestion des disques**.
 
     ![volumes en ligne](./media/storsimple-ova-deploy3-iscsi-setup/image33.png)
 
@@ -305,4 +303,4 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

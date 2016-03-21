@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/08/2015"
+   	ms.date="03/08/2016"
    	ms.author="nitinme"/>
 
 
@@ -25,6 +25,9 @@
 Le portail Azure en version préliminaire est un outil web qui permet de gérer les services et les ressources hébergés dans le cloud Microsoft Azure. Aidez-vous des informations fournies dans ce document pour créer un cluster Linux dans HDInsight en utilisant le portail Azure en version préliminaire et votre navigateur web.
 
 ##Configuration requise
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -66,13 +69,13 @@ Le portail Azure en version préliminaire est un outil web qui permet de gérer 
 
 	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre à quoi correspondent les entrées du panneau **Source de données**.
 
-	- **Méthode de sélection**: définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d’accès** si vous souhaitez saisir le **Nom de stockage** et la **Clé d’accès** d’un compte de stockage existant.
+	- **Méthode de sélection** : définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d’accès** si vous souhaitez saisir le **Nom de stockage** et la **Clé d’accès** d’un compte de stockage existant.
 
-	- **Sélectionner le compte de stockage / Créer un nouveau**: cliquez sur **Sélectionner le compte de stockage** pour parcourir et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer un nouveau** pour créer un nouveau compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
+	- **Sélectionner le compte de stockage / Créer un nouveau** : cliquez sur **Sélectionner le compte de stockage** pour parcourir et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer un nouveau** pour créer un nouveau compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
 
-	- **Choisir le conteneur par défaut**: utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
+	- **Choisir le conteneur par défaut** : utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
 
-	- **Emplacement**: zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
+	- **Emplacement** : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 
 		> [AZURE.IMPORTANT] La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même région.
 
@@ -92,11 +95,11 @@ Le portail Azure en version préliminaire est un outil web qui permet de gérer 
 
 	* Cliquez sur le menu déroulant **Version HDInsight** et sélectionnez la version à utiliser pour le cluster. Pour plus d’informations, consultez [Versions de clusters HDInsight](hdinsight-component-versioning.md).
 
-	* **Réseau virtuel**: sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel.
+	* **Réseau virtuel** : sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel.
 
 		![Panneau Réseau virtuel](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "Spécifier les détails du réseau virtuel")
 
-    	Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
+    	Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Extension des capacités de HDInsight à l’aide d’Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 	* Cliquez sur **Metastores externes** pour spécifier la base de données SQL à utiliser pour enregistrer les métadonnées Hive et Oozie associées au cluster.
     
@@ -130,15 +133,15 @@ Le portail Azure en version préliminaire est un outil web qui permet de gérer 
 
 	![Panneau Cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.Cluster.Blade.png "Propriétés du cluster")
 
-	Utilisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans la section dans la section **Bases**:
+	Utilisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans la section dans la section **Bases** :
 
-	* **Paramètres** et **Tous les paramètres**: affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
+	* **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
 
-	* **Tableau de bord**, **Tableau de bord du cluster** et **URL**: il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est un portail Web permettant d’exécuter des tâches sur le cluster.
+	* **Tableau de bord**, **Tableau de bord du cluster** et **URL** : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est un portail Web permettant d’exécuter des tâches sur le cluster.
 
-	* **Secure Shell**: informations nécessaires à l’accès au cluster à l’aide de SSH.
+	* **Secure Shell** : informations nécessaires à l’accès au cluster à l’aide de SSH.
 
-	* **Supprimer**: permet de supprimer le cluster HDInsight.
+	* **Supprimer** : permet de supprimer le cluster HDInsight.
 
 	* **Démarrage rapide** (![icône nuage et foudre = démarrage rapide](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)) : affiche des informations qui vous aideront à utiliser HDInsight.
 
@@ -150,8 +153,8 @@ Le portail Azure en version préliminaire est un outil web qui permet de gérer 
 
 ##Personnalisation des clusters
 
-- Voir [Personnalisation de clusters HDInsight à l'aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-- Voir [Personnalisation de clusters HDInsight basés sur Windows à l'aide d'une action de script](hdinsight-hadoop-customize-cluster.md).
+- Consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+- Consultez [Personnalisation de clusters HDInsight basés sur Windows à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md).
 
 ##Étapes suivantes
 
@@ -182,4 +185,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

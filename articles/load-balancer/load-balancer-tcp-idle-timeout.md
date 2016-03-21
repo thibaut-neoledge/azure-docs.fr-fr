@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Configuration du délai d’inactivité TCP de l’équilibrage de charge | Microsoft Azure"
+   pageTitle="Configuration du délai d’inactivité TCP de l’équilibrage de charge | Microsoft Azure"
    description="Configuration du délai d’inactivité TCP de l’équilibrage de charge"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Modification des paramètres de délai d’inactivité TCP pour l’équilibrage de charge
 
-Dans sa configuration par défaut, l’équilibrage de charge Azure a un paramètre de « délai d’inactivité » de 4 minutes.
+Dans sa configuration par défaut, l’équilibrage de charge Azure a un paramètre de « délai d’inactivité » de 4 minutes.
 
 Cela signifie que si la période d’inactivité sur vos sessions TCP ou HTTP est supérieure à la valeur du délai d’attente, il n’existe aucune garantie que la connexion entre le client et votre service soit maintenue.
 
-Lorsque la connexion est fermée, votre application cliente obtient un message d’erreur de ce type : « La connexion sous-jacente a été fermée : le serveur a fermé une connexion qui devait être maintenue active ».
+Lorsque la connexion est fermée, votre application cliente obtient un message d’erreur de ce type : « La connexion sous-jacente a été fermée : le serveur a fermé une connexion qui devait être maintenue active ».
 
 Une pratique courante pour maintenir la connexion active pendant une période plus longue consiste à utiliser TCP Keep-alive (vous trouverez des exemples .NET [ici](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)).
 
@@ -31,7 +31,7 @@ L’idée consiste à configurer TCP Keep-alive avec un intervalle plus court qu
 
 Bien que TCP Keep-alive fonctionne bien pour les scénarios où la batterie n’est pas une contrainte, ce n’est généralement pas une option valide pour les applications mobiles. L’utilisation de TCP Keep-alive depuis une application mobile décharge la batterie de l’appareil plus rapidement.
 
-Pour prendre en charge ces scénarios, nous avons ajouté la prise en charge d’un délai d’inactivité configurable. Vous pouvez maintenant le définir sur une durée comprise entre 4 et 30 minutes. Ce paramètre fonctionne uniquement pour les connexions entrantes.
+Pour prendre en charge ces scénarios, nous avons ajouté la prise en charge d’un délai d’inactivité configurable. Vous pouvez maintenant le définir sur une durée comprise entre 4 et 30 minutes. Ce paramètre fonctionne uniquement pour les connexions entrantes.
 
 ![tcptimeout](./media/load-balancer-tcp-idle-timeout/image1.png)
 
@@ -44,16 +44,16 @@ Pour prendre en charge ces scénarios, nous avons ajouté la prise en charge d�
 - Configurez le délai d’expiration TCP pour vos rôles Web/de travail via le modèle de service.
  
 
->[AZURE.NOTE]N’oubliez pas que certaines commandes existent uniquement dans le dernier package Azure PowerShell. Si la commande Powershell n’existe pas, téléchargez le dernier package de PowerShell.
+>[AZURE.NOTE] N’oubliez pas que certaines commandes existent uniquement dans le dernier package Azure PowerShell. Si la commande Powershell n’existe pas, téléchargez le dernier package de PowerShell.
 
  
-### Configurez le délai d’expiration TCP pour votre adresse IP publique de niveau d’instance sur 15 minutes.
+### Configurez le délai d’expiration TCP pour votre adresse IP publique de niveau d’instance sur 15 minutes.
 
 	Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
 
-Le paramètre IdleTimeoutInMinutes est facultatif. S'il n'est pas défini, le délai d'expiration par défaut est de 4 minutes.
+Le paramètre IdleTimeoutInMinutes est facultatif. S'il n'est pas défini, le délai d'expiration par défaut est de 4 minutes.
 
->[AZURE.NOTE]La plage de délai d’expiration acceptable est comprise entre 4 et 30 minutes.
+>[AZURE.NOTE] La plage de délai d’expiration acceptable est comprise entre 4 et 30 minutes.
  
 ### Définir le délai d'inactivité pendant la création d'un point de terminaison Azure sur un ordinateur virtuel
 
@@ -83,17 +83,17 @@ Récupérer votre configuration du délai d'inactivité
  
 ### Définir le délai d'expiration TCP sur un jeu de points de terminaison d'équilibrage de charge
 
-Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le délai d'expiration TCP doit être défini sur le jeu de points de terminaison d'équilibrage de charge :
+Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le délai d'expiration TCP doit être défini sur le jeu de points de terminaison d'équilibrage de charge :
 
 	Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
  
 ### Modification des paramètres de délai d’expiration pour les services cloud
 
-Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.4 pour mettre à jour votre service cloud.
+Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.4 pour mettre à jour votre service cloud.
 
 Les paramètres de point de terminaison des services cloud sont définis dans .csdef. Pour mettre à jour le délai d’expiration TCP pour un déploiement de services cloud, une mise à niveau du déploiement s’impose, sauf si le délai d'expiration TCP n'est spécifié que pour une adresse IP publique. Les paramètres d'adresse IP publique sont définis dans le fichier .cscfg et peuvent être mis à jour via une mise à jour et une mise à niveau du déploiement.
 
-Les modifications apportées aux paramètres de point de terminaison dans .csdef sont les suivantes :
+Les modifications apportées aux paramètres de point de terminaison dans .csdef sont les suivantes :
 
 	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
 	  <Endpoints>
@@ -101,7 +101,7 @@ Les modifications apportées aux paramètres de point de terminaison dans .csdef
 	  </Endpoints>
 	</WorkerRole>
 
-Les modifications de .cscfg pour le paramètre de délai d’attente sur des adresses IP publiques sont :
+Les modifications de .cscfg pour le paramètre de délai d’attente sur des adresses IP publiques sont :
 
 	<NetworkConfiguration>
  	 <VirtualNetworkSite name="VNet"/>
@@ -160,10 +160,10 @@ Mettre à jour la configuration des points de terminaison d'entrée d'équilibra
 
 [Présentation de l’équilibrage de charge interne](load-balancer-internal-overview.md)
 
-[Prise en main de la configuration d’un équilibrage de charge accessible sur Internet](load-balancer-internet-getstarted.md)
+[Prise en main de la configuration d’un équilibrage de charge accessible sur Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configuration d’un mode de distribution d’équilibrage de charge](load-balancer-distribution-mode.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0309_2016-->

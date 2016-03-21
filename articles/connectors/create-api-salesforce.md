@@ -14,16 +14,22 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Prendre en main l’API Salesforce
 Connectez-vous à Salesforce et créez des objets, obtenez des objets et bien plus encore. L’API Salesforce peut être utilisée à partir de :
 
-- PowerApps 
 - Logic Apps 
+- PowerApps
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [API Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+> [AZURE.SELECTOR]
+- [Logic Apps](../articles/connectors/create-api-salesforce.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+&nbsp;
+
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques. Pour la version de schéma 2014-12-01-preview, cliquez sur [Connecteur Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
 
 Avec Salesforce, vous pouvez effectuer les opérations suivantes :
 
@@ -47,32 +53,6 @@ Toutes les API prennent en charge les données aux formats JSON et XML.
 
 ## Créer une connexion à Salesforce 
 
-### Ajouter une configuration à PowerApps
-Quand vous ajoutez Salesforce à PowerApps Enterprise, vous entrez les valeurs **Clé d’application** et **Question secrète de l’application** de votre application Salesforce. La valeur **URL de redirection** est également utilisée dans votre application Salesforce. Si vous n’avez pas d’application Salesforce, vous pouvez utiliser les étapes suivantes pour en créer une :
-
-1. [Connectez-vous à la page d’accueil du développeur Salesforce][5], sélectionnez votre profil et sélectionnez **Setup** : ![Page d’accueil Salesforce][6]
-
-3. Sélectionnez **Create**, puis sélectionnez **Apps**. Dans la page **Apps**, sous **Connected Apps**, sélectionnez **New** : ![Création d’applications Salesforce][7]
-
-4. Dans **New Connected App** :
-
-	1. Renseignez le champ **Connected App Name**.  
-	2. Renseignez le champ **API Name**.  
-	3. Renseignez le champ **Contact Email**.  
-	4. Sous _API (Enable OAuth Settings)_, sélectionnez **Enable OAuth Settings**, puis définissez **Callback URL** sur la valeur affichée quand vous ajoutez la nouvelle API Salesforce dans le portail Azure.  
-
-5. Dans la section _Selected OAuth scopes_, ajoutez les étendues suivantes à **Selected OAuth Scopes** :
-
-	- Access and manage your Chatter data (chatter\_api)
-	- Access and manage your data (api)
-	- Allow access to your unique identifier (openid)
-	- Perform requests on your behalf at any time (refresh\_token, offline\_access)
-
-6. Cliquez sur **Save** pour enregistrer vos modifications : ![Nouvelle application Salesforce][8]
-
-Maintenant, copiez/collez les valeurs **Clé d’application** et **Question secrète de l’application** dans votre configuration Salesforce dans le portail Azure.
-
-### Ajouter une configuration à des applications logiques
 Quand vous ajoutez cette API à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Salesforce.
 
 1. Connectez-vous à votre compte Salesforce.
@@ -275,9 +255,10 @@ Déclenche un flux quand un objet est modifié dans Salesforce. ```GET: /dataset
 
 
 ## Étapes suivantes
-Après avoir ajouté l’API Salesforce à PowerApps Enterprise, [donnez aux utilisateurs des autorisations](../power-apps/powerapps-manage-api-connection-user-access.md) pour qu’ils puissent utiliser l’API dans leurs applications.
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Revenez à la [liste des API](apis-list.md).
 
 
 [5]: https://developer.salesforce.com
@@ -285,4 +266,4 @@ Après avoir ajouté l’API Salesforce à PowerApps Enterprise, [donnez aux uti
 [7]: ./media/create-api-salesforce/salesforce-create-app.png
 [8]: ./media/create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

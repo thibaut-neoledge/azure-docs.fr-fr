@@ -3,7 +3,7 @@
 	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services pendant la synchronisation des données hors connexion dans votre application iOS"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,35 +13,37 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/06/2016"
 	ms.author="krisragh;donnam"/>
 
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion d'Azure Mobile Services. Ce didacticiel s’appuie sur le didacticiel [Prise en main des données hors connexion].
 
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 
 ## Téléchargement de projet iOS
 
 Pour ce didacticiel, vous devez télécharger [un projet Xcode mis à jour à partir de Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). Nous avons utilisé le projet Xcode de la fin du didacticiel [Prise en main des données hors connexion] comme point de départ, puis l’avons mis à jour pour permettre la modification d’éléments. Nous avons également ajouté la prise en charge des classes et des méthodes afin de pouvoir ajouter un gestionnaire de conflit dans la section suivante.
 
-À la fin de ce didacticiel, si vous exécutez cette application sur deux téléphones, modifiez le même élément sur ceux-ci localement, puis renvoyez les modifications au serveur, vous autorisez l’utilisateur de chaque téléphone à choisir la version à conserver : * conserver la version client (qui remplace la version sur le serveur), * conserver la version serveur (qui met à jour la table locale du client), ou * ne conserver aucune version (annule l’opération push et laisse l’opération en attente).
+À la fin de ce didacticiel, si vous exécutez cette application sur deux téléphones, puis que vous modifiez le même élément sur les deux téléphones localement et transmettez ces modifications au serveur, vous permettez à l’utilisateur de chaque téléphone de choisir la version à conserver :
+  * conserver la version client (qui écrase la version sur le serveur),
+  * conserver la version serveur (qui met à jour la table locale client), ou
+  * ne conserver aucune version (annule l'opération Push et laisse l'opération en suspens).
 
 Maintenant, ajoutons le gestionnaire de conflits pour activer cette fonctionnalité.
 
 ## <a name="add-conflict-handling"></a>Ajout d'un gestionnaire de conflits au contrôleur d'affichage de la liste des tâches
 
-1. Dans **QSTodoListViewController.m**, modifiez **viewDidLoad**. Remplacez l'appel à **defaultService** par un appel à **defaultServiceWithDelegate** :
+1. Dans **QSTodoListViewController.m**, modifiez **viewDidLoad**. Remplacez l'appel à **defaultService** par un appel à **defaultServiceWithDelegate** :
 
         self.todoService = [QSTodoService defaultServiceWithDelegate:self];
 
@@ -49,7 +51,7 @@ Maintenant, ajoutons le gestionnaire de conflits pour activer cette fonctionnali
 
         @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate, NSFetchedResultsControllerDelegate>
 
-3. Ajoutez l'instruction d'importation suivante au début de **QSTodoListViewController.m** :
+3. Ajoutez l'instruction d'importation suivante au début de **QSTodoListViewController.m** :
 
         #import "QSUIAlertViewWithBlock.h"
 
@@ -102,7 +104,7 @@ Maintenant, ajoutons le gestionnaire de conflits pour activer cette fonctionnali
 
 Testons l'application qui présente des conflits. Modifiez le même élément dans deux instances différentes de l'application exécutées simultanément ou utilisez l'application et un client REST.
 
-Effectuez le geste d'actualisation dans les instances de l'application en faisant un glisser depuis le haut de l'écran. Vous êtes alors invité à résoudre le conflit :
+Effectuez le geste d'actualisation dans les instances de l'application en faisant un glisser depuis le haut de l'écran. Vous êtes alors invité à résoudre le conflit :
 
 ![][conflict-ui]
 
@@ -144,4 +146,4 @@ Effectuez le geste d'actualisation dans les instances de l'application en faisan
 [Prise en main des données hors connexion]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

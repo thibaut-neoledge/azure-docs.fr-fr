@@ -31,7 +31,9 @@ Operational Insights identifie les sources des différents types de journaux cha
 * [Azure Resource Manager](https://azure.microsoft.com/resource-group-overview/)
 
 ## Composants requis
-Les outils suivant sont utilisés pour exécuter certaines opérations décrites dans ce document : * [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [Client Azure Resource Manager](https://github.com/projectkudu/ARMClient)
+Les outils suivants sont utilisés pour exécuter certaines opérations décrites dans ce document :
+* [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/)
+* [Applets de commande Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 
 ## Les différentes sources de journaux que vous pourriez souhaiter collecter
 1. **Journaux Service Fabric :** émis par la plateforme vers les canaux ETW et EventSource standard. Il existe plusieurs types de journaux :
@@ -123,7 +125,7 @@ Si Diagnostics n’est pas déployé sur l’un de vos cluster existants, vous p
                 }
             }
     },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
+                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
                 },
                 "protectedSettings": {
                     "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
@@ -325,4 +327,4 @@ Vous devrez mettre à jour la section EtwEventSourceProviderConfiguration dans l
 ## Étapes suivantes
 Vérifiez les événements de diagnostic émis pour [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) et [Reliable Services](service-fabric-reliable-services-diagnostics.md) pour comprendre plus en détail les événements auxquels vous devriez être attentif lors de la résolution des problèmes.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

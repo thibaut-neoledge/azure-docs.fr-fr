@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Exemples de Cache Redis Azure 
@@ -26,7 +26,7 @@ Les exemples de cette section montrent les principes fondamentaux de la connexio
 
 L’exemple [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) montre comment effectuer différentes opérations de cache à l’aide du client .NET [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).
 
-Cet exemple montre comment :
+Cet exemple montre comment :
 
 -	Utiliser les différentes options de connexion
 -	Lire et écrire des objets dans le cache à l’aide des opérations synchrones et asynchrones
@@ -43,7 +43,7 @@ L’exemple [How to use Azure Redis Cache with Python](cache-python-get-started.
 
 L’[exemple PHP](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample) montre comment utiliser le cache Redis Azure avec PHP et le client [predis](https://github.com/nrk/predis).
 
-L’exemple [Work with .NET objects in the cache](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Redis Azure.
+L’exemple [Work with .NET objects in the cache](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Redis Azure.
 
 ## Utiliser le Cache Redis comme un fond de panier de montée en puissance pour ASP.NET SignalR
 
@@ -76,4 +76,4 @@ L’exemple [Retwis](https://github.com/SyntaxC4-MSFT/retwis) est Redis Hello Wo
 
 L’exemple [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) vous permet de surveiller la bande passante utilisée sur le client. Pour mesurer la bande passante, exécutez l’exemple sur l’ordinateur client du cache, effectuez des appels au cache et observez la bande passante signalée par l’exemple de surveillance de la bande passante.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

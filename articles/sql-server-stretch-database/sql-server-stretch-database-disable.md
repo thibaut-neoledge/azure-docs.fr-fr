@@ -3,9 +3,9 @@
 	description="Découvrez comment désactiver Stretch Database pour une table et éventuellement récupérer des données distantes."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -30,6 +30,8 @@ Vous pouvez également utiliser Transact-SQL pour désactiver Stretch Database p
 
 Si vous souhaitez simplement suspendre la migration des données, consultez [Suspendre et reprendre Stretch Database](sql-server-stretch-database-pause.md).
 
+**Remarque** Désactiver Stretch ne supprime pas les objets distants. Si vous souhaitez supprimer la table distante ou la base de données distante, vous devez le faire à l’aide du portail de gestion Azure.
+
 ## Désactiver Stretch Database pour une table
 
 ### Utiliser SQL Server Management Studio pour désactiver Stretch Database pour une table
@@ -46,7 +48,7 @@ Si vous souhaitez simplement suspendre la migration des données, consultez [Sus
 
     -   **Désactiver | Laisser les données dans Azure**. Désactiver Stretch Database pour la table. Abandonner les données distantes pour la table dans Azure.
 
-        L’abandon des données distantes et la désactivation de Stretch ne suppriment pas les données distantes. Si vous souhaitez les supprimer, vous devez supprimer la table distante à l’aide du portail de gestion Azure.
+    Désactiver Stretch ne supprime pas la table distante. Si vous souhaitez supprimer la table distante, vous devez le faire à l’aide du portail de gestion Azure.
 
 ### Utiliser Transact-SQL pour désactiver Stretch Database pour une table
 
@@ -66,10 +68,12 @@ Si vous souhaitez simplement suspendre la migration des données, consultez [Sus
     ALTER TABLE <table_name>
        SET ( REMOTE_DATA_ARCHIVE = OFF_WITHOUT_DATA_RECOVERY ( MIGRATION_STATE = PAUSED ) ) ;
     ```
-    L’abandon des données distantes et la désactivation de Stretch ne suppriment pas les données distantes. Si vous souhaitez les supprimer, vous devez supprimer la table distante à l’aide du portail de gestion Azure.
+Désactiver Stretch ne supprime pas la table distante. Si vous souhaitez supprimer la table distante, vous devez le faire à l’aide du portail de gestion Azure.
 
 ## Désactiver Stretch Database pour une base de données
 Avant de pouvoir désactiver Stretch Database pour une base de données, vous devez désactiver Stretch Database sur chacune des tables Stretch de la base de données.
+
+Désactiver Stretch ne supprime pas la base de données distante. Si vous souhaitez supprimer la base de données distante, vous devez le faire à l’aide du portail de gestion Azure.
 
 ### Utiliser SQL Server Management Studio pour désactiver Stretch Database pour une base de données
 
@@ -85,10 +89,7 @@ ALTER DATABASE <database name>
     SET REMOTE_DATA_ARCHIVE = OFF ;
 ```
 
-## Supprimer une base de données Stretch
-La suppression d’une base de données qui était activée pour Stretch Database supprime la base de données locale, mais pas les données distantes. Si vous souhaitez supprimer les données distantes, vous devez supprimer la base de données distante à l’aide du portail de gestion Azure.
-
 ## Voir aussi
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx) [Suspendre et reprendre Stretch Database](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 
-# Procédure : définition d’un point de terminaison d’API personnalisée dans un service mobile de backend .NET
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+# Procédure : définition d’un point de terminaison d’API personnalisée dans un service mobile de backend .NET
+> [AZURE.SELECTOR]
+- [Backend JavaScript](./mobile-services-javascript-backend-define-custom-api.md)
+- [Backend .NET](./mobile-services-dotnet-backend-define-custom-api.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR]
-- [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
-- [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Définir un contrôleur d’API personnalisé](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-custom-api-controller).
 
 Cette rubrique montre comment définir un point de terminaison d’API personnalisée dans un service mobile de backend .NET. Une API personnalisée vous permet de définir des points de terminaison avec une fonctionnalité de serveur, mais elle ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture de base de données. En utilisant une API personnalisée, vous avez plus de contrôle sur la messagerie, notamment sur les en-têtes HTTP et le format du corps.
 
@@ -41,4 +40,4 @@ Pour plus d’informations sur la façon d’appeler une API personnalisée dans
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->
