@@ -194,7 +194,7 @@ True ou false selon si la valeur est null ou not null.
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **Exemple**
@@ -550,7 +550,7 @@ Les règles sont les mêmes que dans JavaScript.
 
 Les chaînes peuvent être placées entre guillemets simples ou doubles.
 
-La barre oblique inverse (``) est utilisée pour échapper les caractères tels que `\t` (tabulation), `\n` (renvoi à la ligne) et les instances de guillemets englobants.
+La barre oblique inverse (`\`) est utilisée pour échapper les caractères tels que `\t` (tabulation), `\n` (renvoi à la ligne) et les instances de guillemets englobants.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -698,7 +698,7 @@ Indique si l’argument est une chaîne vide ou s’il a la valeur isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 
