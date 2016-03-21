@@ -55,4 +55,4 @@ Vous venez de voir comment ajouter l’API Excel à PowerApps Enterprise. Ensuit
 [4]: ./media/powerapps-create-api-excel/browseall.png
 [5]: ./media/powerapps-create-api-excel/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

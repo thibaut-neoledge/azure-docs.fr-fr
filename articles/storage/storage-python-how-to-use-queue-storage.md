@@ -108,4 +108,4 @@ Maintenant que vous connaissez les bases du stockage de files d’attente, consu
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

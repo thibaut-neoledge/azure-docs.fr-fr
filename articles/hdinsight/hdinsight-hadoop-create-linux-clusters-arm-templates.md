@@ -311,4 +311,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
     }
     }
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

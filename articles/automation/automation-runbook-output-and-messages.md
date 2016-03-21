@@ -190,4 +190,4 @@ La capture d’écran ci-dessus illustre le fait que lorsque vous activez la jou
 - [Suivre une tâche de Runbook](automation-runbook-execution.md)
 - [Runbooks enfants](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

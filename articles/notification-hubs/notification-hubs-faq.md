@@ -200,4 +200,4 @@ Nous offrons également la possibilité d’exporter les données de télémétr
 [Azure Mobile Apps]: https://azure.microsoft.com/fr-FR/services/app-service/mobile/
 [Tarification de App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

@@ -20,4 +20,4 @@ En général, les erreurs d’authentification résultent de paramètres de conf
 * Pour une application API .NET, démarrez une [session de débogage à distance](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) et examinez les valeurs des variables qui sont transmises au code qui utilise ADAL pour acquérir un jeton de support ou le code qui vérifie les revendications selon l’ID du principal du service attendu. Notez que, dans la mesure où votre code peut prendre des valeurs de configuration de nombreuses sources différentes, cette approche peut produire des résultats surprenants. Par exemple, si `ida:ClientId` est nommé par erreur `ida:ClientID` lors de la configuration des paramètres de l’environnement Azure App Service, le code peut obtenir la valeur `ida:ClientId` qu’il recherche dans le fichier Web.config, en ignorant le paramètre d’Azure App Service. 
 * Si les choses ne fonctionnent pas dans une fenêtre Internet Explorer normale, il est possible qu’une connexion existante soit la cause du problème. Essayez InPrivate et Chrome ou Firefox.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

@@ -127,4 +127,4 @@ Pour accéder à d’autres exemples TSQL, consultez la [Vue d’ensemble sur le
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

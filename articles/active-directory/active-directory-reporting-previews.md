@@ -54,4 +54,4 @@ Utilisation d’applications fonctionnant avec RMS | Version préliminaire publi
 **Rapports sur la version préliminaire privée** |
 Toute l’activité de connexion des utilisateurs | Version préliminaire privée
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

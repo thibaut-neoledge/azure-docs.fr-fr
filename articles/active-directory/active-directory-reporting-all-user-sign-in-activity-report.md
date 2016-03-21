@@ -32,4 +32,4 @@ Le rapport sur toute l’activité de connexion des utilisateurs contient toutes
  >
  - Le rapport sur toute l’activité de connexion des utilisateurs n’est actuellement disponible que via l’API de création de rapports. Visitez la page [Prise en main de l’API de création de rapports](active-directory-reporting-api-getting-started.md) pour en savoir plus.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

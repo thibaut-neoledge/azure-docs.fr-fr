@@ -97,4 +97,4 @@ Dans cet exemple, nous avons défini `QuorumLossMode` sur `QuorumReplicas` pour 
 
 [En savoir plus sur les scénarios de testabilité](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

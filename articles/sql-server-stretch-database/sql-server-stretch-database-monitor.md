@@ -49,4 +49,4 @@ Plusieurs problèmes peuvent affecter la migration. Vérifiez les éléments sui
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

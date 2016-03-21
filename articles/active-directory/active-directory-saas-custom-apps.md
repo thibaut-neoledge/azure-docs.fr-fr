@@ -144,4 +144,4 @@ Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application 
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

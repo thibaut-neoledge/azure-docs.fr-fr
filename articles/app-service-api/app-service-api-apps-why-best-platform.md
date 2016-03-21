@@ -66,4 +66,4 @@ Pour afficher la liste des problèmes connus liés à API Apps, consultez le [bi
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

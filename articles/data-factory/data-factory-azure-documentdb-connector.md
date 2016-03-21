@@ -427,4 +427,4 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 	**Réponse :** non. Il n’est possible d’indiquer qu’une collection pour le moment.
      
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

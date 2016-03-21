@@ -82,4 +82,4 @@ Suggestions
 ## Vous ne parvenez toujours pas à vous inscrire ?
 Veuillez [contacter le support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une assistance si vous rencontrez toujours des problèmes d’inscription ou si votre problème n’est pas abordé dans cet article.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

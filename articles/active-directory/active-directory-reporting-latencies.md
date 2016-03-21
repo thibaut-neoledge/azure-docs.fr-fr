@@ -52,4 +52,4 @@ Utilisation d’applications fonctionnant avec RMS | 2 heures | 4 heures | 8 heu
 **Rapports sur la version préliminaire privée** | | |
 Toute l’activité de connexion des utilisateurs | 2 heures | 4 heures | 8 heures
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

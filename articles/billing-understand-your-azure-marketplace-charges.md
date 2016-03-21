@@ -73,4 +73,4 @@ Pour afficher les frais réels, procédez comme suit :
 1. Cliquez sur **Afficher les frais** dans la page **HISTORIQUE DE FACTURATION**. Un nouvel onglet s’ouvre et affiche l’[historique des commandes](https://account.microsoft.com/billing/orders#/). Notez que si vous essayez d’accéder à votre utilisation brute dans le portail de facturation et de gestion de comptes, vous devrez contacter le support en cliquant sur le lien correspondant au bas de la page.) ![Historique des commandes](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 2. Identifiez la commande que vous souhaitez passer en revue, puis cliquez sur **Détails** pour afficher la répartition de vos frais : sous-total, taxe et total. ![Détails de la commande](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

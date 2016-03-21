@@ -23,8 +23,7 @@
 
 Ce document explique comment créer des fonctionnalités pour les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/). Après avoir décrit le chargement dans une trame de données Pandas, il montre comment générer des fonctionnalités catégorielles avec des valeurs d’indicateur et des caractéristiques de compartimentage, à l’aide de scripts Python dans les deux cas.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus d'analyse Cortana (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus d'analyse Cortana (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## Configuration requise
 Cet article suppose que vous avez :
@@ -141,4 +140,4 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

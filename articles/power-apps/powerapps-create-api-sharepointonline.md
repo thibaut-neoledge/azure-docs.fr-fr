@@ -112,4 +112,4 @@ Vous venez de voir comment ajouter l’API SharePoint Online à PowersApps Enter
 [14]: ./media/powerapps-create-api-sharepointonline/browseall.png
 [15]: ./media/powerapps-create-api-sharepointonline/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

@@ -42,4 +42,4 @@ Une fois le point de terminaison créé, vous pouvez l’exploiter via des API s
  
  Notez que vous NE POUVEZ PAS supprimer le point de terminaison par défaut, à partir de Studio ou d’ici, si vous y avez ajouté des points de terminaison. Cette opération génère une erreur.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

@@ -54,4 +54,4 @@ Cet assistant, disponible dans SQL Server Management Studio, permet de migrer un
 
 [Résoudre les problèmes de compatibilité de base de données](sql-database-cloud-migrate-fix-compatibility-issues.md), le cas échéant.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

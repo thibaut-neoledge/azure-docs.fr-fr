@@ -48,4 +48,4 @@ Pour commencer à utiliser ces outils, accédez à la rubrique [connexion][].
 <!--Other web references-->
 [portail Azure Classic]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

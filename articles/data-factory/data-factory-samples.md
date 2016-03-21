@@ -99,4 +99,4 @@ Les composants suivants doivent être installés sur votre ordinateur :
 
 Pour plus d’informations sur l’utilisation de Visual Studio pour créer des entités Data Factory et les publier sur Azure, voir [Créer votre première fabrique de données Azure (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

@@ -5,4 +5,4 @@
 - [Agrégation](../articles/application-insights/app-analytics-aggregations.md)
 - [Données scalaires](../articles/application-insights/app-analytics-scalars.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

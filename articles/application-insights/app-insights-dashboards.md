@@ -231,4 +231,4 @@ Pour réafficher la recherche, **allez dans le panneau Vue d’ensemble** et ouv
 
 Si vous avez enregistré une période relative, le panneau rouvert comporte les données les plus récentes. Si vous avez enregistré une période absolue, vous voyez les mêmes données à chaque fois.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

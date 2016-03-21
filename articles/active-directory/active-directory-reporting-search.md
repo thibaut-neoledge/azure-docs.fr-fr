@@ -58,4 +58,4 @@ Utilisation d’un périphérique RMS | Non
  - [Rapports Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

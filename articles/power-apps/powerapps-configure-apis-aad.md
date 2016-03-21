@@ -157,4 +157,4 @@ Dans cette rubrique, vous avez appris à configurer une API pour la connexion (e
 [20]: https://tools.ietf.org/html/rfc4648
 [21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

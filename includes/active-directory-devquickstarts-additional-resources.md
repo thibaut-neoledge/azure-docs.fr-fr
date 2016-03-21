@@ -4,4 +4,4 @@
 - [Exemples Azure AD sur GitHub](https://github.com/AzureAdSamples)
 - [CloudIdentity.com](http://cloudidentity.com)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

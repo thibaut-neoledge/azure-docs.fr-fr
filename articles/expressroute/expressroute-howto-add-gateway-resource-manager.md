@@ -38,4 +38,4 @@ Utilisez la commande suivante pour vérifier que la passerelle a été créée.
 
 Une fois que vous avez créé la passerelle VPN, vous pouvez lier votre réseau virtuel à un circuit ExpressRoute. Consultez [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

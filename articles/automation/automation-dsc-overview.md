@@ -127,4 +127,4 @@ L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle
 - [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 - [Déploiement continu sur les machines virtuelles IaaS à l’aide d'Azure Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

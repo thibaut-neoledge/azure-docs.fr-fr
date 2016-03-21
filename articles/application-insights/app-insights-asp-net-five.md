@@ -78,4 +78,4 @@ Les affichages dans le portail se répartissent en deux catégories principales 
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

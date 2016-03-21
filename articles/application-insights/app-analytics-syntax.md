@@ -269,4 +269,4 @@ Les paramètres pour des fonctions nommées doivent être scalaires.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

@@ -40,4 +40,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

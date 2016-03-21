@@ -18,4 +18,4 @@ Règles d’alerte par abonnement|250|250
 
 <sup>2</sup>Si vous avez besoin de plus de 100 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/) pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise. Si elle l’approuve, elle vous permettra d’avoir jusqu’à 250 comptes de stockage.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

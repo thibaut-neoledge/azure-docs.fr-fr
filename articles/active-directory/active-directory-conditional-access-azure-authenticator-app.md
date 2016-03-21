@@ -116,4 +116,4 @@ Sur un appareil Android Samsung, des privilèges d’administrateur d’applicat
 
 Si vous voyez l’**erreur Keystore**, la raison peut en être que votre écran de verrouillage n’est pas configuré avec un code confidentiel. Pour contourner ce problème, désinstallez l’application Azure Authentificator, configurez un code confidentiel pour votre écran de verrouillage et réinstallez l’application.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

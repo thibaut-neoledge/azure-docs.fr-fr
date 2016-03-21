@@ -49,4 +49,4 @@ Pour vous assurer qu’un tiers ne soit pas en mesure de créer des mappages d�
 
 [AZURE.INCLUDE [FORUM AUX QUESTIONS](../../includes/dns-reverse-dns-record-operations-faq-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

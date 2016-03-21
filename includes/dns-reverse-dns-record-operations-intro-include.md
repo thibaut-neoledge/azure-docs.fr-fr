@@ -6,4 +6,4 @@ Les enregistrements DNS inversés sont utilisés dans de nombreuses situations. 
 
 Microsoft utilise un certain nombre de registres pour sécuriser l’approvisionnement adéquat de blocs d’adresses IP routables publiquement. Chacun de ces blocs est alors délégué vers des serveurs DNS faisant autorité et appartenant à Microsoft. Microsoft héberge les zones DNS inversées pour tous les blocs d’adresses IP routables publiquement qui lui sont attribués. <BR> Azure permet de spécifier un nom de domaine complet (FQDN) personnalisé pour les adresses IP publiques routables attribuées aux déploiements. Ces noms de domaine complets personnalisés seront ensuite renvoyés et inversés à partir de la recherche DNS pour cette adresse IP.<BR> Azure fournit la prise en charge de DNS inversé pour toutes les adresses IP routables publiquement sans coût supplémentaire et pour les services déployés à l’aide du modèle de déploiement classique et du modèle de déploiement ARM.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

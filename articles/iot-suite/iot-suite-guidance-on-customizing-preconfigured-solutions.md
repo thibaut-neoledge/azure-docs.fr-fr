@@ -92,4 +92,4 @@ Pour plus d’informations sur les appareils IoT, consultez le [site de dévelop
 
 [Kit SDK d’appareils IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

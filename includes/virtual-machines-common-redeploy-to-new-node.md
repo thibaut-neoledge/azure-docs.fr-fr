@@ -33,4 +33,4 @@ Pendant l’exécution de cette commande, vérifiez votre machine virtuelle dans
 
 Lorsque l’**état** redevient *En cours d’exécution*, la machine virtuelle a été redéployée.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

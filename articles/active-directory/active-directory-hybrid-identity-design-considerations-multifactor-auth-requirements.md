@@ -58,4 +58,4 @@ Après avoir répondu à ces questions, vous serez en mesure de déterminer s'il
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

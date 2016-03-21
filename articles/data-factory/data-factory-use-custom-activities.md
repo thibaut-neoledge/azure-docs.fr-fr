@@ -803,4 +803,4 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure Ba
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

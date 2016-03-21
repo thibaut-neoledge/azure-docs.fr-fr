@@ -117,4 +117,4 @@ Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

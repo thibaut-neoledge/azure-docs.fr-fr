@@ -229,4 +229,4 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
 [azure_twilio_howto_python]: /partner-twilio-python-how-to-use-voice-sms.md
 [azure_twilio_howto_php]: /partner-twilio-php-how-to-use-voice-sms.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

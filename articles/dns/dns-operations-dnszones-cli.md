@@ -78,4 +78,4 @@ Cette opération comporte un commutateur « -q » qui supprime l’invite pour c
 
 Découvrez comment [gérer des enregistrements DNS](dns-operations-recordsets-cli.md) et [automatiser les opérations avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

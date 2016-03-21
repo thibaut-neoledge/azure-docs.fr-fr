@@ -105,4 +105,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

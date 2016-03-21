@@ -84,4 +84,4 @@ Les rubriques suivantes fournissent des exemples montrant comment effectuer des 
 - [Gestion des erreurs](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [Touches de raccourci](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

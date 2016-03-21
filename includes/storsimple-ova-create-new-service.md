@@ -31,4 +31,4 @@
 
 	Le statut du service sera alors **Actif**.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

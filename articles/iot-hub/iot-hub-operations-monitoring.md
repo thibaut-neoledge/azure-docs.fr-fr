@@ -139,4 +139,4 @@ La surveillance des opérations n’étant plus un secret pour vous, vous pouvez
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

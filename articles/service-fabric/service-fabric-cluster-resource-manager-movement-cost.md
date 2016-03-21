@@ -46,4 +46,4 @@ MoveCost nous permet de rechercher les solutions qui provoquent globalement le m
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

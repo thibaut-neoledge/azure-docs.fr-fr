@@ -160,4 +160,4 @@ Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des A
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

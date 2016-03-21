@@ -383,4 +383,4 @@ Les propriétés de chaque partie de la réponse sont les suivantes :
 | TopicId | ID de rubrique auquel l'enregistrement a été affecté. |
 | Distance | Niveau de confiance que l'enregistrement appartient à la rubrique. Plus la distance est proche de zéro, plus le niveau de confiance est élevé. |
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

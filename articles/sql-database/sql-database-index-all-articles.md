@@ -346,4 +346,4 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 - Graphique de parcours d’apprentissage : [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

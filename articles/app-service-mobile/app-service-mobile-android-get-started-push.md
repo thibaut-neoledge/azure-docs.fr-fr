@@ -80,4 +80,4 @@ Vous pouvez tester l'application en connectant directement un téléphone Androi
 
 [Configuration du Kit de développement logiciel (SDK) des services Google Play]: https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

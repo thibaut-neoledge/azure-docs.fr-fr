@@ -526,4 +526,4 @@ Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

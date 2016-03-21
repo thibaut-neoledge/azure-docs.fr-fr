@@ -238,9 +238,8 @@ Le commutateur facultatif « -q » peut être utilisé pour supprimer l’invite
 
 ## Étapes suivantes
 
-Après avoir créé la zone DNS et les enregistrements, vous pouvez [déléguer votre domaine à Azure DNS](dns-domain-delegation.md).<BR> Découvrez comment 
-[gérer des zones DNS](dns-operations-dnszones-cli.md) à l’aide de l’interface de ligne de commande.<BR> Vous pouvez également [automatiser les opérations à l’aide du Kit de développement logiciel (SDK) .NET](dns-sdk.md) pour coder les opérations Azure DNS dans votre application.
+Après avoir créé la zone DNS et les enregistrements, vous pouvez [déléguer votre domaine à Azure DNS](dns-domain-delegation.md).<BR> Découvrez comment [gérer des zones DNS](dns-operations-dnszones-cli.md) à l’aide de l’interface de ligne de commande.<BR> Vous pouvez également [automatiser les opérations à l’aide du Kit de développement logiciel (SDK) .NET](dns-sdk.md) pour coder les opérations Azure DNS dans votre application.
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

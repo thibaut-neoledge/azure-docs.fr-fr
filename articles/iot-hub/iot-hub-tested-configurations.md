@@ -187,4 +187,4 @@ Découvrez plus d’informations sur le développement de solutions à l’aide 
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

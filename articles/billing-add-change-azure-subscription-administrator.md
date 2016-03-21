@@ -89,4 +89,4 @@ Pour transférer la propriété du compte Azure vers un autre, consultez [Transf
 
 * Pour plus d’informations sur le lien entre Azure Active Directory et votre abonnement Azure, voir [Attribution de rôles d’administrateur dans Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

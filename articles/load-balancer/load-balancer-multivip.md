@@ -155,4 +155,4 @@ Vous pouvez également mettre à jour votre équilibrage de charge pour utiliser
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

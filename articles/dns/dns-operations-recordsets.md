@@ -294,4 +294,4 @@ L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](dns-getstarted-create-recordset.md)<BR> [Réalisation d'opérations sur des zones DNS](dns-operations-dnszones.md)<BR> [Automatisation d'opérations à l'aide du Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

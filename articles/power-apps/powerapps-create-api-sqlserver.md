@@ -80,4 +80,4 @@ Dans cette rubrique, vous avez ajouté l'API SQL Server pour vous connecter à S
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

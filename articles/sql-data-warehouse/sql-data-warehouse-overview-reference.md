@@ -45,4 +45,4 @@ Pour obtenir des informations sur le développement, consultez la [vue d’ensem
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

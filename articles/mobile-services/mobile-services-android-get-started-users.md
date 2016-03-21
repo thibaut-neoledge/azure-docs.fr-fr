@@ -107,4 +107,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

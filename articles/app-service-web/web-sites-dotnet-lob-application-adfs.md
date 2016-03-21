@@ -61,11 +61,11 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 
 	> [AZURE.NOTE] Bien que les instructions de la section [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) vous montrent comment configurer l’application avec Azure Active Directory, dans ce didacticiel, vous la configurerez avec AD FS. Par conséquent, suivez les étapes ci-dessous à la place.
 
-3.	Ouvrez la solution, puis ouvrez Controllers\AccountController.cs dans l’**Explorateur de solutions**.
+3.	Ouvrez la solution, puis ouvrez Controllers\\AccountController.cs dans l’**Explorateur de solutions**.
 
 	Vous verrez que le code envoie simplement une demande d’authentification pour authentifier l’utilisateur à l’aide de WS-Federation. Toute l’authentification est configurée dans App\_Start\\Startup.Auth.cs.
 
-4.  Ouvrez App_Start\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
+4.  Ouvrez App\_Start\\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -356,4 +356,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données loca
  
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

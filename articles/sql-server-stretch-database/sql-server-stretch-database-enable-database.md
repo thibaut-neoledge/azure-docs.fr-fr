@@ -132,4 +132,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 
 [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

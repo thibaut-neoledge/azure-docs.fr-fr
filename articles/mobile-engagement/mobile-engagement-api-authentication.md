@@ -183,4 +183,4 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 >[AZURE.NOTE] <br/>
 >1. Ignorez l’adresse racine de l’API car elle s’appliquait aux API précédentes.<br/> 2. Vous devez utiliser le nom de ressource de l'application qui est différent du nom de l'application elle-même. 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

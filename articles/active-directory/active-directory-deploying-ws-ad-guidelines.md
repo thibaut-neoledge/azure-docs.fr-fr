@@ -558,4 +558,4 @@ Voir [AD FS 2.0 deployment topology considerations](https://technet.microsoft.co
 
 > [AZURE.NOTE] Pour parvenir à l’équilibrage de charge des points de terminaison Windows Server AD FS sur Azure, configurez tous les membres de la batterie de serveurs Windows Server AD FS dans le même service cloud, et utilisez la fonction d’équilibrage de charge d’Azure pour les ports HTTP (80 par défaut) et HTTPS (443 par défaut). Pour plus d’informations, voir [Sonde d’équilibrage de charge Azure](https://msdn.microsoft.com/library/azure/jj151530). L’équilibrage de la charge réseau (NLB) de Windows Server n’est pas pris en charge sur Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

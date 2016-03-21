@@ -277,4 +277,4 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->

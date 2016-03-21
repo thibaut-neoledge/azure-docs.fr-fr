@@ -107,4 +107,4 @@ Le paramètre MaxRecordSizeInKB définit la taille maximale d’un enregistremen
 
 Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble pour permettre à un service d'utiliser un journal partagé distinct du journal partagé par défaut pour le nœud. Pour plus d'efficacité, vous devriez spécifier autant de services que possible dans le même journal partagé. Les fichiers journaux partagés doivent être placés sur des disques uniquement utilisés pour le fichier journal partagé afin de réduire la contention des mouvements de la tête. Cette valeur ne doit être modifiée qu'en de rares occasions.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->
