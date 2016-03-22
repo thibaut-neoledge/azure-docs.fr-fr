@@ -12,14 +12,14 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016" 
  ms.author="krisragh"/>
 
 # Concepts, terminologie et hiérarchie d’entités de Scheduler
 
 ## Hiérarchie d’entités de Scheduler
 
-Le tableau suivant décrit les ressources principales exposées ou utilisées par l'API de Scheduler :
+Le tableau suivant décrit les ressources principales exposées ou utilisées par l'API de Scheduler :
 
 |Ressource | Description |
 |---|---|
@@ -30,7 +30,7 @@ Le tableau suivant décrit les ressources principales exposées ou utilisées pa
 
 ## Gestion des entités de Scheduler
 
-Globalement, le planificateur et l'API de gestion de service exposent les opérations suivantes sur les ressources :
+Globalement, le planificateur et l'API de gestion de service exposent les opérations suivantes sur les ressources :
 
 |Fonctionnalité|Description et adresse URI|
 |---|---|
@@ -41,11 +41,11 @@ Globalement, le planificateur et l'API de gestion de service exposent les opéra
 
 ## Types de travaux
 
-Il existe deux types de travaux : les travaux HTTP (y compris les travaux HTTPS qui prennent en charge SSL) et les travaux de file d'attente de stockage. Les travaux HTTP sont idéaux si vous disposez d'un point de terminaison d'une charge de travail ou d'un service existant. Vous pouvez utiliser les travaux de file d’attente de stockage pour publier des messages aux files d’attente de stockage et donc, ces travaux sont idéaux pour les charges de travail qui utilisent des files d’attente de stockage.
+Il existe deux types de travaux : les travaux HTTP (y compris les travaux HTTPS qui prennent en charge SSL) et les travaux de file d'attente de stockage. Les travaux HTTP sont idéaux si vous disposez d'un point de terminaison d'une charge de travail ou d'un service existant. Vous pouvez utiliser les travaux de file d’attente de stockage pour publier des messages aux files d’attente de stockage et donc, ces travaux sont idéaux pour les charges de travail qui utilisent des files d’attente de stockage.
 
-## L’entité « travail » en détail
+## L’entité « travail » en détail
 
-À un niveau de base, un travail planifié comporte plusieurs éléments :
+À un niveau de base, un travail planifié comporte plusieurs éléments :
 
 - L'action à effectuer lorsque le travail se déclenche  
 
@@ -109,31 +109,31 @@ Le code suivant fournit un exemple complet d’un exemple de tâche planifiée. 
 		},
 	}
 
-Comme indiqué dans l’exemple de travail de Scheduler ci-dessus, une définition de travail comporte plusieurs éléments :
+Comme indiqué dans l’exemple de travail de Scheduler ci-dessus, une définition de travail comporte plusieurs éléments :
 
-- Heure de début (« startTime »)  
+- Heure de début (« startTime »)  
 
-- Action (« action »), qui inclut l'action d'erreur (« errorAction »)
+- Action (« action »), qui inclut l'action d'erreur (« errorAction »)
 
-- Récurrence (« recurrence »)
+- Récurrence (« recurrence »)
 
-- État (« state »)
+- État (« state »)
 
-- Statut (« status »)
+- Statut (« status »)
 
-- Stratégie de nouvelle tentative (« retryPolicy »)
+- Stratégie de nouvelle tentative (« retryPolicy »)
 
-Examinons chacun en détail :
+Examinons chacun en détail :
 
 ## startTime
 
-« startTime » correspond à l’heure de début et permet à l’appelant de spécifier un décalage de fuseau horaire sur le câble au [format ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
+« startTime » correspond à l’heure de début et permet à l’appelant de spécifier un décalage de fuseau horaire sur le câble au [format ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
 
 ## action et errorAction
 
-« action » est l’action appelée sur chaque occurrence et décrit un type d’appel de service. L’action correspond à l’opération qui sera exécutée, en fonction de la planification spécifiée. Scheduler prend en charge les actions HTTP et file d’attente de stockage.
+« action » est l’action appelée sur chaque occurrence et décrit un type d’appel de service. L’action correspond à l’opération qui sera exécutée, en fonction de la planification spécifiée. Scheduler prend en charge les actions HTTP et file d’attente de stockage.
 
-L’action dans l’exemple ci-dessus est une action http. Voici un exemple d'action de file d'attente de stockage :
+L’action dans l’exemple ci-dessus est une action http. Voici un exemple d'action de file d'attente de stockage :
 
 	{
 			"type": "storageQueue",
@@ -147,35 +147,35 @@ L’action dans l’exemple ci-dessus est une action http. Voici un exemple d'ac
 			},
 	}
 
-« errorAction » est le gestionnaire d'erreurs, l'action appelée lorsque l'action principale échoue. Vous pouvez utiliser cette variable pour appeler un point de terminaison de gestion d’erreur ou envoyer une notification utilisateur. L’opération peut servir à atteindre un point de terminaison secondaire au cas où le premier ne serait pas disponible (par exemple, en cas de sinistre sur le site du point de terminaison) ou pour notifier un point de terminaison de traitement d’erreur. Comme l'action principale, l'action d'erreur peut être une logique simple ou composite basée sur d'autres actions. Pour savoir comment créer un jeton SAS, consultez [Créer et utiliser une signature d'accès partagé](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+« errorAction » est le gestionnaire d'erreurs, l'action appelée lorsque l'action principale échoue. Vous pouvez utiliser cette variable pour appeler un point de terminaison de gestion d’erreur ou envoyer une notification utilisateur. L’opération peut servir à atteindre un point de terminaison secondaire au cas où le premier ne serait pas disponible (par exemple, en cas de sinistre sur le site du point de terminaison) ou pour notifier un point de terminaison de traitement d’erreur. Comme l'action principale, l'action d'erreur peut être une logique simple ou composite basée sur d'autres actions. Pour savoir comment créer un jeton SAS, consultez [Créer et utiliser une signature d'accès partagé](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
 ## recurrence
 
-La récurrence comporte plusieurs parties :
+La récurrence comporte plusieurs parties :
 
-- La fréquence (frequency) : minute, heure, jour, semaine, mois, année  
+- La fréquence (frequency) : minute, heure, jour, semaine, mois, année  
 
-- L'intervalle (interval) : intervalle à la fréquence donnée pour la récurrence
+- L'intervalle (interval) : intervalle à la fréquence donnée pour la récurrence
 
-- La planification prescrite (prescribed schedule) : spécifiez les minutes, heures, jours de la semaine, mois et jours du mois de la récurrence
+- La planification prescrite (prescribed schedule) : spécifiez les minutes, heures, jours de la semaine, mois et jours du mois de la récurrence
 
-- Le nombre (count) : nombre d'occurrences
+- Le nombre (count) : nombre d'occurrences
 
-- L'heure de fin (end time) : aucun travail ne s'exécutera après l'heure de fin spécifiée
+- L'heure de fin (end time) : aucun travail ne s'exécutera après l'heure de fin spécifiée
 
 Un travail est récurrent s'il comporte un objet récurrent spécifié dans sa définition JSON. Si les valeurs count et endTime sont toutes deux spécifiées, la règle d'achèvement qui se produit en premier est honorée.
 
 ## state
 
-L'état du travail a l'une de quatre valeurs : activé, désactivé, terminé ou a généré une erreur. Vous pouvez exécuter PUT ou PATCH sur les travaux afin de les mettre à jour sur l'état activé ou désactivé. Si un travail a été terminé ou a généré une erreur, cet état final ne peut pas être mis à jour (bien que le travail puisse encore être supprimé). Vous trouverez ci-dessous un exemple de la propriété state :
+L'état du travail a l'une de quatre valeurs : activé, désactivé, terminé ou a généré une erreur. Vous pouvez exécuter PUT ou PATCH sur les travaux afin de les mettre à jour sur l'état activé ou désactivé. Si un travail a été terminé ou a généré une erreur, cet état final ne peut pas être mis à jour (bien que le travail puisse encore être supprimé). Vous trouverez ci-dessous un exemple de la propriété state :
 
 
     	"state": "disabled", // enabled, disabled, completed, or faulted
-Les travaux terminés et ayant généré une erreur sont supprimés après 60 jours.
+Les travaux terminés et ayant généré une erreur sont supprimés après 60 jours.
 
 ## status
 
-Lorsqu'un travail de Scheduler a démarré, des informations sur l'état actuel du travail sont renvoyées. Cet objet n’est pas définissable par l’utilisateur ; il est défini par le système. Toutefois, il est inclus dans l'objet du travail (plutôt qu'en tant que ressource liée distincte) afin que l'utilisateur puisse obtenir l'état d'un travail facilement.
+Lorsqu'un travail de Scheduler a démarré, des informations sur l'état actuel du travail sont renvoyées. Cet objet n’est pas définissable par l’utilisateur ; il est défini par le système. Toutefois, il est inclus dans l'objet du travail (plutôt qu'en tant que ressource liée distincte) afin que l'utilisateur puisse obtenir l'état d'un travail facilement.
 
 L'état du travail inclut l'heure de l'exécution précédente (le cas échéant), l'heure de la prochaine exécution planifiée (pour les travaux en cours) et le nombre d'exécutions du travail.
 
@@ -183,14 +183,14 @@ L'état du travail inclut l'heure de l'exécution précédente (le cas échéant
 
 En cas d'échec d'un travail de Scheduler, il est possible de spécifier une stratégie de nouvelle tentative pour déterminer si et comment l'action est retentée. Ceci est déterminé par l’objet **retryType**. Il est défini sur **none** s’il n’existe aucune stratégie de nouvelle tentative, comme indiqué ci-dessus. Définissez-le sur **fixed** s'il existe une stratégie de nouvelle tentative.
 
-Pour définir une stratégie de nouvelle tentative, deux paramètres supplémentaires peuvent être spécifiés : un intervalle de nouvelle tentative (**retryInterval**) et le nombre de nouvelles tentatives (**retryCount**).
+Pour définir une stratégie de nouvelle tentative, deux paramètres supplémentaires peuvent être spécifiés : un intervalle de nouvelle tentative (**retryInterval**) et le nombre de nouvelles tentatives (**retryCount**).
 
-L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval**, est l’intervalle entre les nouvelles tentatives. Sa valeur par défaut est de 1 minute, sa valeur minimale est de 1 minute et sa valeur maximale est de 18 mois. Il est défini dans le format ISO-8601. De même, la valeur du nombre de nouvelles tentatives est spécifiée avec l'objet **retryCount**. Il s'agit du nombre de nouvelles tentatives. Sa valeur par défaut est de 5 et sa valeur maximale est de 20. Les deux **retryInterval** et **retryCount** sont facultatifs. Ils reçoivent leur valeur par défaut si **retryType** est défini sur **fixed** et si aucune valeur n’est spécifiée explicitement.
+L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval**, est l’intervalle entre les nouvelles tentatives. Sa valeur par défaut est de 1 minute, sa valeur minimale est de 1 minute et sa valeur maximale est de 18 mois. Il est défini dans le format ISO-8601. De même, la valeur du nombre de nouvelles tentatives est spécifiée avec l'objet **retryCount**. Il s'agit du nombre de nouvelles tentatives. Sa valeur par défaut est de 5 et sa valeur maximale est de 20. Les deux **retryInterval** et **retryCount** sont facultatifs. Ils reçoivent leur valeur par défaut si **retryType** est défini sur **fixed** et si aucune valeur n’est spécifiée explicitement.
 
 ## Voir aussi
 
  [Présentation d'Azure Scheduler](scheduler-intro.md)
- 
+
  [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
@@ -207,4 +207,4 @@ L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval*
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

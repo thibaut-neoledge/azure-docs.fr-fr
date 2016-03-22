@@ -255,7 +255,9 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	Le type d’application ne détermine pas les fonctionnalités qui seront disponibles dans la nouvelle application API, web ou mobile. Toutes les fonctionnalités d’application API présentées dans ces didacticiels sont disponibles pour les trois types d’application. La seule différence réside dans l’icône et dans le texte affichés par le portail Azure pour identifier le type d’application et dans l’ordre dans lequel les fonctionnalités sont répertoriées sur certaines pages du portail. Vous verrez le portail Azure plus loin dans le didacticiel. Il s’agit d’une interface web permettant de gérer les ressources Azure.
+	<a id="apptype"></a> Le type d’application ne détermine pas les fonctionnalités qui seront disponibles dans la nouvelle application API, web ou mobile. Toutes les fonctionnalités d’application API présentées dans ces didacticiels sont disponibles pour les trois types d’application. La seule différence réside dans l’icône et dans le texte affichés par le portail Azure pour identifier le type d’application et dans l’ordre dans lequel les fonctionnalités sont répertoriées sur certaines pages du portail. Vous verrez le portail Azure plus loin dans le didacticiel. Il s’agit d’une interface web permettant de gérer les ressources Azure.
+
+	Le SPA frontal s’exécute dans une application web pour ces didacticiels et chaque API web frontale s’exécute dans une application API. Le fonctionnement serait identique si les trois types d’application étaient des applications web ou des applications API. En outre, une seule application API ou application web peut héberger simultanément le SPA frontal et l’application intermédiaire.
 
 4. Entrez un **Nom d’application API** unique dans le domaine *azurewebsites.net*. Par exemple, ajoutez un nombre à ToDoListDataAPI pour le rendre unique.
 
@@ -309,13 +311,13 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	![](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	L’onglet suivant est l’onglet **Paramètres**. C’est ici que vous pouvez modifier l’onglet Configuration de build pour déployer une build de débogage pour le [débogage distant](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). L’onglet offre également plusieurs **Options de publication des fichiers** :
+	Dans l’onglet suivant **Paramètres**, Vous pouvez modifier l’onglet configuration de build pour déployer une build de débogage pour le [débogage distant](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). L’onglet offre également plusieurs **Options de publication des fichiers** :
 
 	* Supprimer les fichiers supplémentaires de la destination
 	* Précompiler durant la publication
 	* Exclure les fichiers du dossier App\_Data
 
-	Pour ce didacticiel, vous n’avez besoin d’aucune de ces options. Pour obtenir des explications détaillées de leur action, consultez [Déploiement d’un projet web à l’aide de la publication en un clic dans Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	Pour ce didacticiel, vous n’avez besoin d’aucune de ces options. Pour obtenir des explications détaillées sur leur action, consultez [Déploiement d’un projet web à l’aide de la publication en un clic dans Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 14. Cliquez sur **Next**.
 
@@ -478,13 +480,15 @@ Si vous appelez maintenant l’application API de la couche intermédiaire, elle
 
 13. Ajoutez « swagger » à l’URL dans la barre d’adresses du navigateur, puis appuyez sur Entrée. (L’URL est `http://{apiappname}.azurewebsites.net/swagger`.)
 
-	Le navigateur affiche la même interface utilisateur de Swagger que vous avez obtenue précédemment pour ToDoListDataAPI, mais `owner` n’est pas un champ obligatoire pour l’opération Get, car l’application API de la couche intermédiaire envoie automatiquement cette valeur à l’application API de la couche Données. (Lorsque vous effectuez les didacticiels d’authentification, la couche intermédiaire envoie les ID utilisateur réels pour le paramètre `owner`. Pour le moment, elle code un astérisque de manière irréversible.)
+	Le navigateur affiche la même interface utilisateur de Swagger que vous avez vue précédemment pour ToDoListDataAPI, mais `owner` n’est pas un champ obligatoire pour l’opération Get, car l’application API de la couche intermédiaire envoie automatiquement cette valeur à l’application API de la couche Données. (Lorsque vous effectuez les didacticiels d’authentification, la couche intermédiaire envoie les ID utilisateur réels pour le paramètre `owner`. Pour le moment, elle code un astérisque de manière irréversible.)
 
 12. Essayez la méthode Get ainsi que d’autres méthodes pour confirmer que l’application API de couche intermédiaire appelle correctement l’application API de la couche de données.
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
-## <a id="creating"></a> Facultatif : création intégrale d’un projet d’application API
+Pour plus d’informations sur le client généré, consultez le [référentiel AutoRest sur GitHub](https://github.com/azure/autorest). Pour obtenir de l’aide à la résolution de problèmes en utilisant le client généré, signalez le [problème dans le référentiel AutoRest](https://github.com/azure/autorest/issues).
+
+## <a id="creating"></a> Facultatif : Création d’un projet d’application API depuis le début
 
 Dans ce didacticiel, vous téléchargez des projets d’API web ASP.NET à déployer vers App Service au lieu de créer des projets depuis le début. Pour créer un projet que vous envisagez de déployer vers une application API, vous pouvez créer un projet d’API web standard et installer le package Swashbuckle. Vous pouvez également utiliser le modèle de nouveau projet d’**Application API Azure**. Pour utiliser ce modèle, cliquez sur **Fichier > Nouveau > Projet > Application web ASP.NET > Application API Azure**.
 
@@ -494,7 +498,7 @@ Choisir le modèle de projet d’**Application API Azure** revient à sélection
 
 ## Facultatif : Modification d’un type d’application
 
-Comme expliqué précédemment, la seule différence entre les applications API, les applications web et les applications mobiles est leur représentation dans le portail. Comme elles disposent toutes des mêmes fonctionnalités, il n’est jamais nécessaire de modifier un type d’application.
+Comme expliqué [précédemment](#apptype), la seule différence entre les applications API, les applications web et les applications mobiles est leur représentation dans le portail. Comme elles disposent toutes des mêmes fonctionnalités, il n’est jamais nécessaire de modifier un type d’application.
 
 Toutefois, il est facile de modifier la représentation dans le portail si vous le souhaitez. Par exemple, pour transformer l’une des applications API que vous venez de créer en application web, procédez comme suit.
 
@@ -518,7 +522,7 @@ Toutefois, il est facile de modifier la représentation dans le portail si vous 
 
 ## Facultatif : URL de définition d’API dans les modèles Azure Resource Manager
 
-Dans ce didacticiel, vous avez vu l’URL de définition d’API dans Visual Studio et dans le portail Azure. Vous pouvez également configurer l’URL de définition d’API pour une application API à l’aide des [modèles Azure Resource Manager](../resource-group-authoring-templates.md) dans les outils de ligne de commande, par exemple [Azure PowerShell](../powershell-install-configure.md) et l’[interface de ligne de commande Azure](../xplat-cli-install.md).
+Dans ce didacticiel, vous avez vu l’URL de définition d’API dans Visual Studio et dans le portail Azure. Vous pouvez également configurer l’URL de définition d’API pour une application API à l’aide des [modèles Azure Resource Manager](../resource-group-authoring-templates.md) dans les outils en ligne de commande, par exemple [Azure PowerShell](../powershell-install-configure.md) et l’[interface de ligne de commande Azure](../xplat-cli-install.md).
 
 Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propriété de définition d’API, ouvrez le [fichier azuredeploy.json dans le référentiel correspondant à l’exemple d’application de ce didacticiel](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Recherchez la section du modèle qui ressemble à l’exemple suivant :
 
@@ -528,6 +532,6 @@ Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propri
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez vu comment créer des applications API, y déployer du code, y générer du code client et les consommer à partir de clients .NET. Le didacticiel suivant de la série de prise en main d’API Apps montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md).
+Dans ce didacticiel, vous avez vu comment créer des applications API, y déployer du code, y générer du code client et les consommer à partir de clients .NET. Le didacticiel suivant de la série de prise en main d’API Apps montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md). Les didacticiels ultérieurs montrent comment implémenter l’authentification et l’autorisation.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

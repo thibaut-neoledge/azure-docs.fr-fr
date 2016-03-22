@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="02/03/2016"  
+ 	ms.date="03/10/2016"  
 	ms.author="robmcm"/>
 
 #Utilisation de Media Services avec Java
@@ -78,7 +78,8 @@ Remplacez les valeurs des variables `clientId` et `clientSecret`. Le code repose
 		private static String clientId = "account name";
 		private static String clientSecret = "account key";
 		private static String scope = "urn:WindowsAzureMediaServices";
-		
+		private static MediaContract mediaService;
+		    
 		// Encoder configuration
 		private static String preferedEncoder = "Media Encoder Standard";
 		private static String encodingPreset = "H264 Multiple Bitrate 720p";
@@ -275,4 +276,4 @@ Pour obtenir une documentation Javadoc sur Media Services, voir [Bibliothèques 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

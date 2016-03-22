@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
-# Guide pas à pas : développer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning
+# Guide pas à pas : développer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning
 
 Supposons que vous deviez prédire le risque lié à l'octroi d'un crédit à un individu sur la base des informations fournies lors d'une demande de crédit.
 
@@ -30,7 +30,7 @@ Dans ce guide pas à pas détaillé, nous allons suivre le processus de dévelop
 
 >[AZURE.TIP] Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
-Pour créer une solution d'évaluation des risques de crédit, nous allons suivre ces étapes :
+Pour créer une solution d'évaluation des risques de crédit, nous allons suivre ces étapes :
 
 1.	[Créer un espace de travail Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
 2.	[Télécharger des données existantes](machine-learning-walkthrough-2-upload-data.md)
@@ -39,6 +39,6 @@ Pour créer une solution d'évaluation des risques de crédit, nous allons suivr
 5.	[Déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)
 
-Cette procédure pas à pas est basée sur une version simplifiée de l’exemple d’expérience [Classification binaire : prédiction du risque de crédit](../machine-learning-sample-credit-risk-prediction.md) inclus dans la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com/).
+Cette procédure pas à pas est basée sur une version simplifiée de l’exemple d’expérience [Classification binaire : prédiction du risque de crédit](http://go.microsoft.com/fwlink/?LinkID=525270) inclus dans la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

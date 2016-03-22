@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="02/17/2016"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Prise en main d’Azure Scheduler dans le portail Azure
@@ -27,33 +27,33 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 
    ![][marketplace-create]
 
-3.  Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Tâche du planificateur**, entrez les informations suivantes :
+3.  Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Tâche du planificateur**, entrez les informations suivantes :
 
-    1.  **Nom :** `getmicrosoft`  
+    1.  **Nom :** `getmicrosoft`  
 
-    2.  **Abonnement **: votre abonnement Azure
+    2.  **Abonnement **: votre abonnement Azure
 
-    3.  **Collection de tâches :** sélectionnez une collection de tâches existante, ou cliquez sur **Créer** et entrez un nom.
+    3.  **Collection de tâches :** sélectionnez une collection de tâches existante, ou cliquez sur **Créer** et entrez un nom.
 
-4.  Ensuite, dans **Paramètres d’action**, définissez les valeurs suivantes :
+4.  Ensuite, dans **Paramètres d’action**, définissez les valeurs suivantes :
 
-    1.  **Type d’action :** ` HTTP`  
+    1.  **Type d’action :** ` HTTP`  
 
-    2.  **Méthode :** `GET`
+    2.  **Méthode :** `GET`
 
-    3.  **URL :** ` http://www.microsoft.com`
+    3.  **URL :** ` http://www.microsoft.com`
 
    ![][action-settings]
 
-5.  Pour finir, nous allons définir une planification. Il est possible de définir un travail ponctuel, mais nous allons ici sélectionner une planification périodique :
+5.  Pour finir, nous allons définir une planification. Il est possible de définir un travail ponctuel, mais nous allons ici sélectionner une planification périodique :
 
-    1. **Périodicité** : `Recurring`
+    1. **Périodicité** : `Recurring`
 
-    2. **Début** : date du jour
+    2. **Début** : date du jour
 
-    3. **Répéter toutes les :** `12 Hours`
+    3. **Répéter toutes les :** `12 Hours`
 
-    4. **Fin** : deux jours à compter de la date du jour
+    4. **Fin** : deux jours à compter de la date du jour
 
    ![][recurrence-schedule]
 
@@ -61,7 +61,7 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 
 ## Gestion et surveillance des travaux
 
-Une fois créé, le travail apparaît dans le tableau de bord principal d’Azure. Cliquez sur le travail pour ouvrir une nouvelle fenêtre avec les onglets suivants :
+Une fois créé, le travail apparaît dans le tableau de bord principal d’Azure. Cliquez sur le travail pour ouvrir une nouvelle fenêtre avec les onglets suivants :
 
 1.  Propriétés  
 
@@ -109,7 +109,7 @@ Vous pouvez modifier la date et l'heure de début, la planification de périodic
 
 ### Historique
 
-L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécution du travail dans le système pour le travail sélectionné. Ces mesures fournissent des valeurs en temps réel concernant l’intégrité de votre Scheduler :
+L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécution du travail dans le système pour le travail sélectionné. Ces mesures fournissent des valeurs en temps réel concernant l’intégrité de votre Scheduler :
 
 1.  Statut  
 
@@ -117,7 +117,7 @@ L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécu
 
 3.  Nouvelles tentatives
 
-4.  Occurrence : 1er, 2e, 3e, etc..
+4.  Occurrence : 1er, 2e, 3e, etc..
 
 5.  Heure de début de l’exécution
 
@@ -182,4 +182,4 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion pr�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->
