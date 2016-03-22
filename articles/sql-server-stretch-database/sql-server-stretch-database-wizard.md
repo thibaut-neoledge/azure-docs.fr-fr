@@ -12,7 +12,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
@@ -96,6 +96,8 @@ Pour plus d’informations sur la clé principale de base de données, consultez
 ## <a name="Network"></a>Sélectionner l’adresse IP
 Utilisez l’adresse IP publique de votre ordinateur SQL Server, ou entrez une plage d’adresses IP, pour créer une règle de pare-feu sur Azure qui autorise SQL Server à communiquer avec le serveur Azure distant.
 
+L’adresse IP, ou les adresses que vous entrez sur cette page, indiquent au serveur Azure d’autoriser les données entrantes, les requêtes et les opérations de gestion initiées par SQL Server à traverser le pare-feu Azure. L’Assistant ne modifie pas les paramètres du pare-feu sur le serveur SQL Server.
+
 ![Page de sélection de l’adresse IP de l’Assistant Stretch Database][StretchWizardImage7]
 
 ## <a name="Summary"></a>Résumé
@@ -125,7 +127,10 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 -   [Sauvegarder et restaurer des bases de données Stretch](sql-server-stretch-database-backup.md)
 
 ## Voir aussi
-[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md) [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
+
+[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md)
+
+[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
@@ -136,4 +141,4 @@ Activer des tables supplémentaires pour Stretch Database. Surveiller la migrati
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

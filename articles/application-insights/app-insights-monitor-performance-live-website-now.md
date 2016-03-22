@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="03/09/2016"
 	ms.author="awills"/>
 
 
@@ -27,17 +27,17 @@ Le Status Monitor de Visual Studio Application Insights vous permet de diagnosti
 > [AZURE.TIP] Des articles distincts sont consacrés à l’instrumentation des [applications web J2EE en direct](app-insights-java-live.md) et les [services cloud Azure](app-insights-cloudservices.md).
 
 
-Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web IIS :
+Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web IIS :
 
-* **En cours de création :** [ajoutez le kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web. Cela permet :
+* **En cours de création :** [ajoutez le kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web. Cela permet :
  * Ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
  * L’[API Application Insights][api] si vous permet d’écrire votre propre télémétrie pour effectuer un suivi détaillé de l’utilisation ou pour diagnostiquer les problèmes.
-* **En cours d’exécution :** utilisez Status Monitor pour l’associer à votre application web sur le serveur.
+* **En cours d’exécution :** utilisez Status Monitor pour l’associer à votre application web sur le serveur.
  * Surveillance des applications web déjà exécutées sans avoir à les générer ou les publier de nouveau.
  * Ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
- * Diagnostics de dépendance : recherche des erreurs ou des faibles performances là où votre application utilise d’autres composants tels que des bases de données, des API REST ou d’autres services.
+ * Diagnostics de dépendance : recherche des erreurs ou des faibles performances là où votre application utilise d’autres composants tels que des bases de données, des API REST ou d’autres services.
  * Résolution des problèmes à l’aide des données de télémétrie.
-* **En cours d’exécution et de création :** compilez le Kit de développement logiciel (SDK) dans le code de votre application web et exécutez Status Monitor sur votre serveur web. Cette méthode associe les avantages des deux autres méthodes :
+* **En cours d’exécution et de création :** compilez le Kit de développement logiciel (SDK) dans le code de votre application web et exécutez Status Monitor sur votre serveur web. Cette méthode associe les avantages des deux autres méthodes :
  * Ensemble de diagnostics standard et données de télémétrie liées à l’utilisation.
  * Diagnostics de dépendance.
  * L’API vous permet d’écrire une télémétrie personnalisée.
@@ -50,9 +50,9 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
 ### Si votre application s’exécute sur votre serveur IIS
 
-1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
+1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
 2. Téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-4. Dans l'Assistant Installation, connectez-vous à Microsoft Azure.
+4. Dans l'Assistant Installation, connectez-vous à Microsoft Azure.
 
     ![Connectez-vous à Azure avec les informations d’identification de votre compte Microsoft.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
@@ -78,7 +78,7 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
    web.config a également été légèrement modifié.
 
-#### Vous voulez (re)configurer plus tard ?
+#### Vous voulez (re)configurer plus tard ?
 
 Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout moment. Vous pouvez également reconfigurer si vous avez installé l'agent et avez rencontré des problèmes lors de la configuration initiale.
 
@@ -87,7 +87,7 @@ Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout momen
 
 ### Si votre application s’exécute en tant qu’application web Azure
 
-Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
+Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
 
 ![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
 
@@ -136,44 +136,44 @@ Vous pouvez accéder aux exceptions spécifiques (des sept derniers jours) et ob
 
 ## Échantillonnage
 
-Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
+Si votre application envoie des données en grand nombre et si vous utilisez le kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
 
 ## Résolution de problèmes
 
 ### Erreurs de connexion
 
-Vous devez ouvrir certains ports sortants dans le pare-feu de votre serveur pour permettre à Status Monitor de fonctionner :
+Vous devez ouvrir certains ports sortants dans le pare-feu de votre serveur pour permettre à Status Monitor de fonctionner :
 
-+ Télémétrie (ceux-ci sont nécessaires en permanence) :
++ Télémétrie (ceux-ci sont nécessaires en permanence) :
  +	`dc.services.visualstudio.com:80`
  +	`dc.services.visualstudio.com:443`
  +	`dc.applicationinsights.microsoft.com`
-+ Configuration (nécessaires uniquement pour apporter des modifications) :
++ Configuration (nécessaires uniquement pour apporter des modifications) :
  -	`management.core.windows.net:443`
  -	`management.azure.com:443`
  -	`login.windows.net:443`
  -	`login.microsoftonline.com:443`
- -	`secure.addcdn.microsoftonline-p.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
  -	`auth.gfx.ms:443`
  -	`login.live.com:443`
-+ Installation :
++ Installation :
  +	`packages.nuget.org:443`
  +	`appinsightsstatusmonitor.blob.core.windows.net:80`
 
 Cette liste peut évoluer de temps à autre.
 
-### Vous n’obtenez aucune donnée de télémétrie ?
+### Vous n’obtenez aucune donnée de télémétrie ?
 
   * Utilisez votre site pour créer des données.
   * Attendez quelques minutes le temps que les données arrivent, puis cliquez sur **Actualiser**.
   * Ouvrez Recherche de diagnostic (vignette de recherche) pour afficher chaque événement. Les événements sont souvent visibles dans Recherche de diagnostic avant que les données agrégées n’apparaissent dans les graphiques.
-  * Ouvrez Status Monitor et sélectionnez votre application dans le volet gauche. Vérifiez la présence de messages de diagnostic pour cette application dans la section « Notifications de configuration » :
+  * Ouvrez Status Monitor et sélectionnez votre application dans le volet gauche. Vérifiez la présence de messages de diagnostic pour cette application dans la section « Notifications de configuration » :
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * Vérifiez que le pare-feu de votre serveur autorise le trafic sortant sur les ports répertoriés ci-dessus.
-  * Si un message relatif à des « autorisations insuffisantes » s’affiche sur le serveur, procédez comme suit :
+  * Si un message relatif à des « autorisations insuffisantes » s’affiche sur le serveur, procédez comme suit :
     * Dans le Gestionnaire des services Internet, sélectionnez votre pool d’applications, ouvrez **Paramètres avancés** puis, sous **Modèle de processus**, notez l’identité.
     * Dans le panneau de configuration relatif à la gestion de l’ordinateur, ajoutez cette identité au groupe Utilisateurs de l’Analyseur de performances.
   * Si les services MMA/SCOM sont installés sur votre serveur, certaines versions peuvent entrer en conflit. Désinstallez à la fois SCOM et Moniteur d’état, puis réinstallez des versions les plus récentes.
@@ -181,18 +181,18 @@ Cette liste peut évoluer de temps à autre.
 
 ## Configuration requise
 
-Prise en charge du système d’exploitation pour Application Insights Status Monitor sur le serveur :
+Prise en charge du système d’exploitation pour Application Insights Status Monitor sur le serveur :
 
-- Windows Server 2008
-- Windows Server 2008 R2
-- Windows Server 2012
-- Windows Server 2012 R2
+- Windows Server 2008
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
-avec dernier Service Pack et .NET Framework 4.0 et 4.5
+avec dernier Service Pack et .NET Framework 4.0 et 4.5
 
-Windows 7, 8 et 8.1 côté client, avec également .NET Framework 4.0 et 4.5
+Windows 7, 8 et 8.1 côté client, avec également .NET Framework 4.0 et 4.5
 
-Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
+Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 
 
 ## <a name="next"></a>Étapes suivantes
@@ -219,4 +219,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->
