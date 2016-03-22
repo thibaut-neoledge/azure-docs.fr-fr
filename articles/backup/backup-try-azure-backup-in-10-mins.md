@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sauvegarder des fichiers et dossiers à partir de Windows Azure | Microsoft Azure"
+   pageTitle="Sauvegarder des fichiers et dossiers à partir de Azure | Microsoft Azure"
    description="Protégez vos données Windows Server en créant un coffre, en installant l’agent de sauvegarde et puis en sauvegardant vos fichiers et dossiers dans Azure."
    services="backup"
    documentationCenter=""

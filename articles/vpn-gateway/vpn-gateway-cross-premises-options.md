@@ -50,7 +50,7 @@ Le tableau ci-après peut vous aider à déterminer la meilleure option de conne
 
 Un réseau privé virtuel (VPN) site à site vous permet de créer une connexion sécurisée entre votre site local et votre réseau virtuel. Pour la création d’une connexion site à site, un périphérique VPN situé sur votre réseau local est configuré de façon à créer une connexion sécurisée avec la passerelle VPN Azure. Une fois la connexion créée, les ressources de votre réseau local et celles qui sont situées dans votre réseau virtuel peuvent communiquer directement et de façon sécurisée. Dans le cas des connexions site à site, vous n’avez pas besoin d’établir une connexion distincte pour chacun des ordinateurs clients de votre réseau local pour leur permettre d’accéder aux ressources du réseau virtuel.
 
-**Utilisez une connexion site à site dans les cas suivants :**
+**Utilisez une connexion site à site dans les cas suivants:**
 
 - Vous souhaitez créer une solution hybride.
 - Vous voulez disposer d’une connexion entre votre emplacement local et votre réseau virtuel qui ne nécessite aucune configuration côté client.
@@ -72,7 +72,7 @@ Un réseau privé virtuel point à site vous permet également de créer une con
 
 Les configurations point à site et site à site peuvent coexister, mais contrairement aux connexions site à site, les connexions point à site ne sont pas configurables en même temps qu’une connexion ExpressRoute au même réseau virtuel.
 
-**Utilisez une connexion point à site dans les cas suivants :**
+**Utilisez une connexion point à site dans les cas suivants:**
 
 - Vous ne souhaitez configurer qu’un petit nombre de clients pour la connexion à un réseau virtuel.
 

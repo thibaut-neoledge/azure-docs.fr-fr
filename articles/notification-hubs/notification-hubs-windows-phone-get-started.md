@@ -79,7 +79,7 @@ Le concentrateur est maintenant créé et configuré pour envoyer une notificati
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-5. Au niveau du code suivant en haut de la méthode **Application\_Launching** dans App.xaml.cs :
+5. Au niveau du code suivant en haut de la méthode **Application\_Launching** dans App.xaml.cs:
 
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
