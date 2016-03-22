@@ -70,7 +70,7 @@ Frank connaît très bien l’application et sait que les heures de pointe de ch
 
 ![][asp-scale]
 
-|	**Profil de la mise à l’échelle automatique – Jours de semaine – Plan de service de l’application** |	** Profil de la mise à l’échelle automatique – Week-ends – Plan de Service de l’application** |
+|	**Profil de la mise à l’échelle automatique – Jours de semaine – Plan de service de l’application** |	**Profil de la mise à l’échelle automatique – Week-ends – Plan de Service de l’application** |
 |	----------------------------------------------------	|	----------------------------------------------------	|
 |	**Nom :** profil jour de semaine |	**Nom :** profil week-end |
 |	**Mise à l’échelle selon :** Planification et règles de performances |	**Mise à l’échelle selon :** Planification et règles de performances |
@@ -102,7 +102,7 @@ Frank connaît très bien l’application et sait que les heures de pointe de ch
 ###Taux d’inflation du plan de service de l’application
 Les **plans de service de l’application** sont configurés pour une mise à l’échelle automatique, et fonctionneront ainsi au taux maximal par heure. Cette vitesse peut être calculée en fonction des valeurs fournies sur la règle de mise à l’échelle automatique.
 
-La compréhension et le calcul du **taux d’inflation du plan de service d’application ** est importante pour la mise à l’échelle du **pool de travail** de l’**environnement de Service d’application** car les modifications d’un **pool de travail** ne sont pas instantanées et prennent un certain temps à s’appliquer.
+La compréhension et le calcul du **taux d’inflation du plan de service d’application** est importante pour la mise à l’échelle du **pool de travail** de l’**environnement de Service d’application** car les modifications d’un **pool de travail** ne sont pas instantanées et prennent un certain temps à s’appliquer.
 
 Le taux d’inflation du **plan de service d’application** est calculé comme suit :
 
@@ -231,4 +231,4 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente une fois que les s
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!------HONumber=AcomDC_0302_2016-->
