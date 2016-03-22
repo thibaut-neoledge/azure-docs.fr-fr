@@ -58,4 +58,4 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
 - [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
 - [Référence API REST du CDN Azure - Vider ou pré-charger un point de terminaison](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

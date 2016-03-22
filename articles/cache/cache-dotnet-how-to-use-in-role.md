@@ -412,4 +412,4 @@ Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pou
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -133,4 +133,4 @@ Spécifiez l’emplacement de destination de la ressource. Si d’autres ressour
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

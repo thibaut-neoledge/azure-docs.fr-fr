@@ -120,4 +120,4 @@ Vous venez de voir comment ajouter l’API Dynamics CRM Online à PowersApps Ent
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

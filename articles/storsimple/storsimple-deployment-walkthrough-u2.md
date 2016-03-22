@@ -245,4 +245,4 @@ Procédez comme suit dans le portail de gestion pour créer une sauvegarde manue
 - Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

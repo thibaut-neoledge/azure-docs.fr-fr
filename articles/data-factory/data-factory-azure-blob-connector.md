@@ -511,4 +511,4 @@ false | mergeFiles | Pour un dossier source nommé Dossier1 avec la structure su
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

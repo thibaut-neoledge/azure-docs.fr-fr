@@ -61,4 +61,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -81,4 +81,4 @@ Une fois ces étapes effectuées, votre application est configurée pour utilise
 
 Consultez la page [ASP.NET Session State Provider for Azure Redis Cache](cache-asp.net-session-state-provider.md) (en anglais).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

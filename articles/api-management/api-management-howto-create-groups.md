@@ -111,4 +111,4 @@ Une fois l’association entre le développeur et le groupe ajoutée, vous pouve
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

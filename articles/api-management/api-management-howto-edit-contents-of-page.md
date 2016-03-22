@@ -35,4 +35,4 @@ Cliquez sur la page « Bienvenue » pour modifier le texte s'affichant sur la pa
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

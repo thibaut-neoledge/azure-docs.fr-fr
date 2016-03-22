@@ -410,4 +410,4 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez 
  - [Manuel d’Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossaire d’Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

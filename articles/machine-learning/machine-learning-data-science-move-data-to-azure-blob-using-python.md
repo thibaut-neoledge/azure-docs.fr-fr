@@ -129,4 +129,4 @@ L’exemple de code suivant télécharge tous les blobs d’un conteneur. Il uti
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

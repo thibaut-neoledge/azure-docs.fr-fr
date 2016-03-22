@@ -55,4 +55,4 @@ Pour accéder à des rubriques plus avancées concernant Service Fabric, consult
 
 - [Configuration de services avec Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

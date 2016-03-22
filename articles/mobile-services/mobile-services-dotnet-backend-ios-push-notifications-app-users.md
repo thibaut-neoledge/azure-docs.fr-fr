@@ -52,4 +52,4 @@ Dans ce didacticiel, les utilisateurs s'authentifient, puis s'inscrivent auprès
 [Prise en main des notifications Push]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

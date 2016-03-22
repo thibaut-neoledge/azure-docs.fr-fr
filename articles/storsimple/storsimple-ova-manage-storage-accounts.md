@@ -101,4 +101,4 @@ Vous pouvez modifier un compte de stockage utilisé par votre appareil. Si vous 
 
 - Découvrez comment [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

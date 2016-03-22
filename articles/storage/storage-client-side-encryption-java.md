@@ -247,4 +247,4 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 	- Package [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 - Consulter la [documentation d’Azure Key Vault](../key-vault/key-vault-whatis.md)  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

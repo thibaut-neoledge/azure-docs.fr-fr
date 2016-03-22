@@ -43,4 +43,4 @@ Sachez que la plupart du temps, les clients utilisent ces limitations pour les r
 ## Étapes suivantes
 - [Découvrir comment Cluster Resource Manager équilibre la charge dans le cluster](service-fabric-cluster-resource-manager-balancing.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

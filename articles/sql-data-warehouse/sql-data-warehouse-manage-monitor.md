@@ -203,4 +203,4 @@ Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la pa
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

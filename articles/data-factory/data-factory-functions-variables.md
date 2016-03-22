@@ -88,4 +88,4 @@ Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](
 > [AZURE.NOTE] Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format(’PartitionKey eq \\’my\_pkey\_filter\_value\\’ et RowKey ge \\’{0:yyyy-MM-dd HH:mm:ss}\\’’, Time.AddHours(SliceStart, -6)).. Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**.
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

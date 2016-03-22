@@ -24,4 +24,4 @@ Les résultats de ce rapport indiquent le nombre de fois où un utilisateur est 
 
 ![Connexions à partir de sources inconnues](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

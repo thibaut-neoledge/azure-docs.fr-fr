@@ -96,4 +96,4 @@ Pour consulter une présentation sur les performances, accédez à la [vue d’e
 [Portail Azure Classic]: http://portal.azure.com/
 [portail Azure Classic]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

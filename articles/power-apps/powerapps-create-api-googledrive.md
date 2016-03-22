@@ -115,4 +115,4 @@ Vous venez de voir comment ajouter l’API Google Drive à PowersApps Enterprise
 [15]: ./media/powerapps-create-api-googledrive/browseall.png
 [16]: ./media/powerapps-create-api-googledrive/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

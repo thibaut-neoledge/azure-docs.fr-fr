@@ -409,4 +409,4 @@ Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de c
 ## Voir aussi
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

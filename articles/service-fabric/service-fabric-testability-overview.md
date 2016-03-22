@@ -115,4 +115,4 @@ Pour créer des services vraiment à l’échelle du cloud, il est primordial de
   - [Simuler des défaillances au cours des charges de travail de services](service-fabric-testability-workload-tests.md)
   - [Échecs de communication de service à service](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

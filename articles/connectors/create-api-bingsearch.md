@@ -298,4 +298,4 @@ Récupère la totalité des sites web, vidéos, images, etc. à partir d’une r
 
 Revenir à la [liste des API](apis-list.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

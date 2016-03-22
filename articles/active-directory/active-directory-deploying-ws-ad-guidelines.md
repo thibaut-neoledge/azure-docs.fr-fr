@@ -16,7 +16,7 @@
    ms.date="03/04/2016"
    ms.author="femila"/>
 
-# Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure
+# Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Microsoft Azure
 
 Cet article présente les principales différences d’un déploiement en local des services de domaine Windows Server Active Directory (AD DS) et des services de fédération Active Directory (AD FS) par rapport à un déploiement des mêmes outils sur des machines virtuelles Microsoft Azure.
 
@@ -558,4 +558,4 @@ Voir [AD FS 2.0 deployment topology considerations](https://technet.microsoft.co
 
 > [AZURE.NOTE] Pour parvenir à l’équilibrage de charge des points de terminaison Windows Server AD FS sur Azure, configurez tous les membres de la batterie de serveurs Windows Server AD FS dans le même service cloud, et utilisez la fonction d’équilibrage de charge d’Azure pour les ports HTTP (80 par défaut) et HTTPS (443 par défaut). Pour plus d’informations, voir [Sonde d’équilibrage de charge Azure](https://msdn.microsoft.com/library/azure/jj151530). L’équilibrage de la charge réseau (NLB) de Windows Server n’est pas pris en charge sur Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016--->

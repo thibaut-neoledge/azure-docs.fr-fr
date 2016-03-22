@@ -100,4 +100,4 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [Ajout de l’authentification à votre application]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Ajout de notifications Push à votre application]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -44,4 +44,4 @@ Vous pouvez également envoyer une demande de prise en charge à partir du site 
  * Pour soumettre un ticket de support à partir du [site web Support Azure](https://azure.microsoft.com/support/options/), cliquez sur **Obtenir un support**.
  * Pour soumettre un ticket de support à partir du [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions), sélectionnez un abonnement, puis cliquez sur **Contacter le support Microsoft**.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

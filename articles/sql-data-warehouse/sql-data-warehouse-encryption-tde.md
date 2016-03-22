@@ -61,4 +61,4 @@ Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

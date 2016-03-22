@@ -384,4 +384,4 @@ Le diagramme suivant représente une architecture Cortana Analytics classique qu
 
 Pour plus d’informations sur chacun des composants et de l’architecture d’ensemble, reportez-vous au modèle Energy Solution.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

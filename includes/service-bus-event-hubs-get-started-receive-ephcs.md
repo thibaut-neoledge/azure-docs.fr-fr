@@ -136,4 +136,4 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Sto
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

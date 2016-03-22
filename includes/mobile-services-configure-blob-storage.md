@@ -91,4 +91,4 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 <!-- URLs. -->
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

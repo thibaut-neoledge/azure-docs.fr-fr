@@ -20,4 +20,4 @@ Ce plug-in utilise la dernière version du Kit de développement logiciel (SDK) 
 
 [WebPI (Web Platform Installer)]: http://go.microsoft.com/fwlink/?LinkID=252838
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -161,4 +161,4 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 - [Graphique du parcours d’apprentissage des services Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

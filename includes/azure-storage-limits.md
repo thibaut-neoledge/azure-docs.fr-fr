@@ -39,4 +39,4 @@ Sortie max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|10 
 - **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs. 
 - **LRS** : stockage localement redondant. 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -24,4 +24,4 @@ Voici les fonctionnalités et les concepts importants de Mobile Services :
 
 Pour plus d'informations, consultez la rubrique [Concepts de Mobile Services](../articles/mobile-services/mobile-services-concepts-links.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

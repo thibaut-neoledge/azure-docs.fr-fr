@@ -164,4 +164,4 @@ Une fois les opérations ajoutées à une API, l'étape suivante est l'associati
 [Création et publication d’un produit]: api-management-howto-add-products.md
 [Mise en cache des résultats d'opérations dans Gestion des API Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

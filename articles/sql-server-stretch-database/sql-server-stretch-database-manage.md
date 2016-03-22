@@ -53,4 +53,4 @@ Pour obtenir des suggestions de dépannage, consultez [Surveillance et dépannag
 ## Voir aussi
 [Surveillance de Stretch Database](sql-server-stretch-database-monitor.md) [Sauvegarde et restauration de bases de données compatibles Stretch](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -179,4 +179,4 @@ Le billet de blog [Networking Infrastructure Setup for Microsoft Azure as a Disa
 
 [Découvrir ](site-recovery-network-mapping.md) comment Site Recovery mappe les réseaux source et cible quand un serveur VMM est utilisé pour gérer le site principal.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

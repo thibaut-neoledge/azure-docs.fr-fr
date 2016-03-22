@@ -67,4 +67,4 @@ Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadve
 ## Étape de vérification
 1. Interrogez et testez la table nouvellement copiée pour vérifier que les données sont intactes. Après confirmation, vous pouvez supprimer la table renommée de la section **Étapes de préparation** (par exemple, &lt;nom de la table&gt;\_old).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -52,4 +52,4 @@ Cette API permet d’analyser un texte non structuré pour des tâches comme l�
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

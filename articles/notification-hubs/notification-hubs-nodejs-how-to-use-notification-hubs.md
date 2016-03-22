@@ -230,4 +230,4 @@ Les exemples d’extrait de code ci-dessus permettent de créer facilement une i
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -101,4 +101,4 @@ Pour plus d’informations sur l’intégration de solutions à SQL Data Warehou
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

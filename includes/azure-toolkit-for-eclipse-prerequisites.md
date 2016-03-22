@@ -20,4 +20,4 @@ Vous trouverez plus d'informations sur la page du [Kit de ressources Azure pour 
 > 
 > Notez que le Kit de développement logiciel (SDK) Azure est requis uniquement sous Windows.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

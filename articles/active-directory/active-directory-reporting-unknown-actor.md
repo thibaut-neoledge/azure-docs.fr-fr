@@ -40,4 +40,4 @@ Il s’agit d’un bogue connu et nous travaillons à sa résolution.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

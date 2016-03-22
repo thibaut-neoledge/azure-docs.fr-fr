@@ -209,4 +209,4 @@ Revenez à la [liste des API](apis-list.md).
 [10]: ./media/create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

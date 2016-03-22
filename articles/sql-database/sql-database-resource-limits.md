@@ -69,4 +69,4 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

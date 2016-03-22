@@ -213,4 +213,4 @@ Plus d’informations sur [le basculement et la récupération d’urgence de vo
 
 **A.** Oui, vous pouvez. Les volumes épinglés localement sont basculés sous forme de volumes à plusieurs niveaux. Plus d’informations sur [le basculement et la récupération d’urgence de volumes épinglés localement en fonction des versions](storsimple-device-failover-disaster-recover.md#device-failover-across-software-versions)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

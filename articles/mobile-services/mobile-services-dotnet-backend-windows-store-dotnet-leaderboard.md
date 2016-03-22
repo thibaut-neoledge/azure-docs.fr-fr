@@ -765,4 +765,4 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 [Ajout de notifications Push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

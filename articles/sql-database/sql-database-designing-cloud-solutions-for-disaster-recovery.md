@@ -148,4 +148,4 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 | Déploiement actif / actif pour l’équilibrage de charge d’applications | Accès en lecture-écriture < 5 s | Temps de détection de défaillance + appel des API de basculement + modification des chaînes de connexion SQL + test de vérification des applications
 | Déploiement actif / passif pour la conservation des données | Accès en lecture seule < 5 s Accès en lecture-écriture = zéro | Accès en lecture seule = temps de détection de défaillance de connectivité + test de vérification des applications <br>Accès en lecture-écriture = temps pour atténuer la panne
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

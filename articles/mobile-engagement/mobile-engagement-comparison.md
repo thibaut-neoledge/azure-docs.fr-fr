@@ -66,4 +66,4 @@ Pour résumer, l’objectif de Mobile Engagement n’est pas juste de collecter 
 
 Pour plus d’informations, consultez cette [courte vidéo](mobile-engagement-overview.md) sur Mobile Engagement.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

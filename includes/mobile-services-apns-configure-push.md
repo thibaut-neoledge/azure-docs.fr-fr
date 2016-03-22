@@ -3,4 +3,4 @@
 
 * Dans le portail Azure Classic, cliquez sur **Mobile Services** > votre application > l’onglet **Push** > **Paramètres de notification push Apple** > **Télécharger**. Téléchargez le fichier .p12, en vous assurant que le bon **Mode** est sélectionné (Bac à sable ou Production, selon que le certificat client SSL que vous avez généré était de type Développement ou Distribution.) Votre service mobile est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS !
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

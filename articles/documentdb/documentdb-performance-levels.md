@@ -122,4 +122,4 @@ Pour en savoir plus sur DocumentDB, consultez la [documentation](https://azure.m
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

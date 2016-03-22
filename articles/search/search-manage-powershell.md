@@ -136,4 +136,4 @@ Maintenant que votre service est créé, vous pouvez passer aux étapes suivante
 
 - [Analyse du trafic Azure Search](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

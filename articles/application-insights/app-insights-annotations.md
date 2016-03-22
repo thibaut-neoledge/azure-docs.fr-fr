@@ -96,4 +96,4 @@ Cliquez sur un marqueur d’annotation pour ouvrir les détails sur la version, 
 
 ![Cliquez sur un marqueur d’annotation de version.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

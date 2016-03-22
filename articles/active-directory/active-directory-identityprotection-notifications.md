@@ -59,4 +59,4 @@ Vous pouvez désactiver l’envoi de l’e-mail de synthèse hebdomadaire. <br><
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

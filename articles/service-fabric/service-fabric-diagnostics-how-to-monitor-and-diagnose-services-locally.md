@@ -62,4 +62,4 @@ Le code de traçage que vous avez ajouté à votre application ci-dessus pour le
 * [Collecte de journaux d’un cluster Service Fabric dans Azure Diagnostics et Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
 * [Utilisation d’ElasticSearch en tant que magasin de trace d’applications Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

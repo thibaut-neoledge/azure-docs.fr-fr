@@ -249,4 +249,4 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 - Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault  
 - Consulter la [documentation d’Azure Key Vault](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

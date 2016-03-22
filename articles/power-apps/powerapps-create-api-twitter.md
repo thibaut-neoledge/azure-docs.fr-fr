@@ -96,4 +96,4 @@ Vous venez de voir comment ajouter l’API Twitter à PowersApps Enterprise. Ens
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

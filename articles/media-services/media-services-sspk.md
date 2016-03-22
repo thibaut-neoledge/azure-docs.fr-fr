@@ -165,4 +165,4 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

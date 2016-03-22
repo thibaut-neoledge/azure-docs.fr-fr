@@ -239,4 +239,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecommen
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

@@ -32,4 +32,4 @@ Si vous rencontrez des problèmes lors de la [création d'un client Azure Active
 - Si le client Azure AD B2C apparaît dans votre liste de clients, mais que vous recevez un message d'erreur, supprimez le client que vous venez de créer et réessayez. Par exemple, vous pouvez recevoir le message d'erreur suivant : « Impossible de terminer la création du client B2C "contosob2c". Consultez ce [lien](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) pour plus d'informations. »
 - Si aucune de ces solutions ne fonctionne pour vous, contactez le support technique. En savoir plus sur le [dépôt de demandes de support pour Azure AD B2C](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

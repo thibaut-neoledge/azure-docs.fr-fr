@@ -181,4 +181,4 @@ Modèle de déploiement classique :
 - [Schéma de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/jj157100)
 - [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

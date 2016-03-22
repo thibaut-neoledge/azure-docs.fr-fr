@@ -115,4 +115,4 @@ Vous venez de voir comment ajouter l’API Dropbox à PowersApps Enterprise. Ens
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

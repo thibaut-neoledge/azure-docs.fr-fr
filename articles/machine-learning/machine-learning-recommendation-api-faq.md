@@ -135,4 +135,4 @@ Une assistance technique est disponible sur le site de [Support Microsoft Azure]
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

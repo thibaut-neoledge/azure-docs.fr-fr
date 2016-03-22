@@ -130,4 +130,4 @@ Exemple :
 
 c’est utile dans les scénarios où les entrées d'une opération sont dynamiques. Considérez par exemple le cas SQL. Le schéma de chaque table est différent. Par conséquent, lorsqu'un utilisateur sélectionne une table particulière, le concepteur de flux logique doit comprendre la structure de la table pour pouvoir afficher les noms de colonnes. Dans ce contexte, si la définition swagger a _x-ms-dynamique-schema_, elle appelle l'opération correspondante pour extraire le schéma.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

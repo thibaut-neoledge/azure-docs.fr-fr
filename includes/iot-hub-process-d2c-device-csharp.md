@@ -38,4 +38,4 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 [Gestion des erreurs temporaires]: https://msdn.microsoft.com/library/hh675232.aspx
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

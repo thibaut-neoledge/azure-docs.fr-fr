@@ -101,4 +101,4 @@ Vous venez de voir comment ajouter l’API Salesforce à PowerApps Enterprise. M
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->

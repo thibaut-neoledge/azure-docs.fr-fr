@@ -136,4 +136,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
 [Nouveautés du Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---------HONumber=AcomDC_0309_2016-->
