@@ -68,7 +68,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
 > [AZURE.NOTE] Notez que cette implémentation de l’appareil simulé complète le message de l’appareil vers le cloud uniquement après que l’objet blob a été téléchargé. Cette approche simplifie le traitement des fichiers téléchargés dans le serveur principal, car l’accusé de livraison représente la disponibilité du fichier téléchargé à traiter. Toutefois, comme expliqué dans le [Guide du développeur IoT Hub][IoT Hub Developer Guide - C2D], un message qui n’est pas terminé avant le *délai de visibilité* (généralement 1 minute) est replacé dans la file d’attente et la méthode **ReceiveAsync()** le reçoit de nouveau. Pour les scénarios où le téléchargement du fichier peut prendre plus de temps, il peut être préférable que l’appareil simulé conserve un magasin durable des travaux en cours de téléchargement. Cela permet à l’appareil simulé de terminer le message du cloud vers l’appareil avant la fin du téléchargement du fichier, puis d’envoyer un message de l’appareil vers le cloud notifiant le serveur principal de la fin de l’opération.
 
-<!-- Links -->
+<!--- Links -->
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Azure Storage - Utilisation des objets blob]: ../storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
 
