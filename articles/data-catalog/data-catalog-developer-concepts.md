@@ -95,7 +95,8 @@ Ces propriétés s'appliquent à tous les types de ressources racines et tous le
 |**Nom de la propriété**|**Type de données**|**Commentaires**
 |---|---|---
 |modifiedTime|DateTime|L’heure de dernière modification de la racine. Cela est défini par le client. (Le serveur ne gère pas cette valeur).
-|__id|String|id de l’élément (lecture seule). Cet ID garantit l’unicité de la ressource dans un catalogue. |__type|String|Le type de ressource (lecture seule)
+|__id|String|id de l’élément (lecture seule). Cet ID garantit l’unicité de la ressource dans un catalogue.
+|__type|String|Le type de ressource (lecture seule)
 |__\_\_creatorId|String|Chaîne utilisée par le créateur de la ressource pour son identification unique.
 
 ### Propriétés de racine communes
