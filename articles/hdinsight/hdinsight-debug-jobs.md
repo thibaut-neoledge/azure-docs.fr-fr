@@ -313,11 +313,11 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Description** : impossible de résoudre le DNS *URL\_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.  
-- **Atténuation** : fournissez une URL d’objet blob correcte. L'URL DOIT être entièrement correcte et doit notamment commencer par **http://* et se terminer par *.com*.
+- **Atténuation** : fournissez une URL d’objet blob correcte. L'URL DOIT être entièrement correcte et doit notamment commencer par *http://* et se terminer par *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Description** : impossible de vérifier l’emplacement de la ressource *URL\_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.  
-- **Atténuation** : fournissez une URL d’objet blob correcte. L’URL DOIT être entièrement correcte et doit notamment commencer par **http://* et se terminer par *.com*.
+- **Atténuation** : fournissez une URL d’objet blob correcte. L’URL DOIT être entièrement correcte et doit notamment commencer par *http://* et se terminer par *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Description** : capacité de version non disponible pour la version *version\_spécifiée* et l’ID d’abonnement *ID\_abonnement*.  
@@ -341,4 +341,4 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 - [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 - [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

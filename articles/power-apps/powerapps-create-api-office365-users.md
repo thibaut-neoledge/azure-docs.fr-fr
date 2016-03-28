@@ -35,13 +35,13 @@ Ajoutez l’API Office 365 Users à l’environnement de service d’application
 3. Faites défiler la liste pour sélectionner PowerApps ou tapez *powerapps* :  
 ![][15]  
 
-4. Dans **PowerApps**, sélectionnez **Gérer les API** :  
+4. Dans **PowerApps**, sélectionnez **Gérer les API** :    
 ![Rechercher des API inscrites][1]
 
 5. Dans **Gérer les API**, sélectionnez **Ajouter** pour ajouter la nouvelle API :  
 ![Add API][2]
 
-6. Entrez un **nom** descriptif pour votre API.
+6. Entrez un **nom** descriptif pour votre API.  
 	
 7. Dans **Source**, sélectionnez **API disponibles** pour sélectionner les API prédéfinies, puis sélectionnez **Office 365 Utilisateurs** :  
 ![Sélectionner l’API Office 365 Utilisateurs][3]
@@ -49,9 +49,9 @@ Ajoutez l’API Office 365 Users à l’environnement de service d’application
 8. Sélectionnez **Paramètres – Configurer les paramètres requis** :  
 ![Configurer les paramètres de l’API Office 365 Utilisateurs][4]
 
-9. Entrez l’*ID client* et la *clé secrète client* de votre application Office 365 Azure Active Directory (AAD). Si vous n’avez pas d’ID ni de clé secrète client, consultez la section « Enregistrer une application AAD pour une utilisation avec PowerApps » dans cette rubrique pour savoir comment les créer.
+9. Entrez l’*ID client* et la *clé secrète client* de votre application Office 365 Azure Active Directory (AAD). Si vous n’avez pas d’ID ni de clé secrète client, consultez la section « Enregistrer une application AAD pour une utilisation avec PowerApps » dans cette rubrique pour savoir comment les créer.  
 
-	> [AZURE.IMPORTANT] Enregistrez l’**URL de redirection**. Vous pourrez avoir besoin de cette valeur plus loin dans cette rubrique.
+	> [AZURE.IMPORTANT] Enregistrez l’**URL de redirection**. Vous pourrez avoir besoin de cette valeur plus loin dans cette rubrique.  
 
 10. Sélectionnez **OK** pour terminer les étapes.
 
@@ -63,9 +63,9 @@ Si vous ne disposez pas d’une application AAD avec sa clé et sa clé secrète
 
 1. Ouvrez le [portail Azure][5].
 
-2. Sélectionnez **Parcourir**, puis **Active Directory** :
+2. Sélectionnez **Parcourir**, puis **Active Directory** :  
 
-	> [AZURE.NOTE] Active Directory s’ouvre dans le portail Azure Classic.
+	> [AZURE.NOTE] Active Directory s’ouvre dans le portail Azure Classic.  
 
 3. Sélectionnez le nom de client de votre organisation :  
 ![Démarrer Azure Active Directory][6]
@@ -73,7 +73,7 @@ Si vous ne disposez pas d’une application AAD avec sa clé et sa clé secrète
 4. Sélectionnez l’onglet **Applications**, puis sélectionnez **Ajouter** :  
 ![Applications clientes AAD][7]
 
-5. Dans **AJOUTER UNE APPLICATION** :
+5. Dans **AJOUTER UNE APPLICATION** :  
 
 	1. Entrez un **Nom** pour votre application.  
 	2. Laissez le type d’application sur **Web**.  
@@ -81,10 +81,10 @@ Si vous ne disposez pas d’une application AAD avec sa clé et sa clé secrète
 
 	![Ajouter une application AAD – Informations sur l’application][8]
 
-6. Dans **Propriétés de l’application** :
+6. Dans **Propriétés de l’application** :  
 
 	1. Entrez l’**URL de connexion** de votre application. Étant donné que vous allez vous authentifier dans AAD pour PowerApps, définissez l’URL de connexion sur \__https://login.windows.net_.
-2. Entrez un **URI ID d’application** valide pour votre application.  
+	2. Entrez un **URI ID d’application** valide pour votre application.  
 	3. Sélectionnez **OK**.  
 
 	![Ajouter une application AAD – Propriétés de l’application][9]
@@ -128,4 +128,4 @@ Dans cette rubrique, vous avez vu comment ajouter l’API Office 365 Users à Po
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!----------HONumber=AcomDC_0309_2016-->

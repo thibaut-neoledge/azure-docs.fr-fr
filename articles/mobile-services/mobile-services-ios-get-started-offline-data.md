@@ -165,7 +165,9 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | ID (obligatoire) | Chaîne | clé primaire dans le magasin distant (obligatoire) |
     | terminé | Boolean | champ d'élément todo |
     | texte | String | champ d'élément todo |
-    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | | ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | | ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
+    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | 
+	| ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | 
+	| ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
 
 
 
@@ -275,4 +277,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
