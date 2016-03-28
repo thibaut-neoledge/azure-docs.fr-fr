@@ -37,12 +37,14 @@ Ce didacticiel explique comment créer une application Hello World de base et la
 Tout d’abord, nous allons commencer par créer un projet Java.
 
 1. Démarrez Eclipse, puis, dans le menu, cliquez successivement sur **Fichier**, **Nouveau** et **Projet web dynamique**. (Si vous ne voyez pas **Dynamic Web Project** répertorié en tant que projet disponible après avoir cliqué sur **File** et **New**, procédez comme suit : cliquez sur **File**, cliquez sur **New**, sur **Project...**, développez **Web**, puis cliquez sur **Dynamic Web Project**, puis sur **Next**.)
-1. Pour l’exemple de ce didacticiel, nommez le projet **MyHelloWorld**. Votre écran se présente comme suit : ![][02]
+1. Pour l’exemple de ce didacticiel, nommez le projet **MyHelloWorld**. Votre écran se présente comme suit :
+   ![][02]
 1. Cliquez sur **Terminer**.
 1. Dans la vue Explorateur de projets d’Eclipse, développez **MyHelloWorld**. Cliquez avec le bouton droit sur **WebContent**, cliquez sur **New**, puis sur **JSP File**.
 1. Dans la boîte de dialogue **New JSP File** (Nouveau fichier JSP), nommez le fichier **index.jsp**. Conservez **MyHelloWorld/WebContent** comme dossier parent.
 1. Pour les besoins de ce didacticiel, dans la boîte de dialogue **Select JSP Template** (Sélectionner le modèle JSP), sélectionnez **New JSP File (html)** (Nouveau fichier JSP (html)) et cliquez sur **Finish** (Terminer).
-1. Quand votre fichier index.jsp s’ouvre dans Eclipse, ajoutez un texte pour afficher dynamiquement **Hello World!** dans l’élément `<body>` existant. Le contenu `<body>` mis à jour doit ressembler à l’exemple suivant : `<body><b><% out.println("Hello World!"); %></b></body>` 
+1. Quand votre fichier index.jsp s’ouvre dans Eclipse, ajoutez un texte pour afficher dynamiquement **Hello World!** dans l’élément `<body>` existant. Le contenu `<body>` mis à jour doit ressembler à l’exemple suivant :
+   `<body><b><% out.println("Hello World!"); %></b></body>` 
 1. Enregistrez index.jsp.
 
 ## Pour déployer votre application sur un conteneur d’application web Azure
@@ -51,10 +53,15 @@ Vous pouvez déployer une application web Java sur Azure de plusieurs façons. C
 
 1. Dans l’Explorateur de projets d’Eclipse, cliquez avec le bouton droit sur **MyHelloWorld**.
 
-1. Dans le menu contextuel, sélectionnez **Azure**, puis cliquez sur **Publish as Azure Web App...** ![][03]
-1. Si vous n’êtes pas déjà connecté à Azure à partir d’Eclipse, vous êtes invité à vous connecter à votre compte Azure : ![][04] Remarque : Si vous avez plusieurs comptes Azure, certaines des invites pendant le processus de connexion peuvent s’afficher plusieurs fois, même si elles semblent identiques. Dans ce cas, continuez à suivre les instructions de connexion.
-1. Une fois que vous êtes connecté à votre compte Azure, la boîte de dialogue **Gérer les abonnements** affiche la liste des abonnements associés à vos informations d’identification. Si plusieurs abonnements sont répertoriés et que vous ne souhaitez utiliser qu’une partie d’entre eux, vous pouvez éventuellement désélectionner ceux qui ne vous intéressent pas. Quand vous avez sélectionné vos abonnements, cliquez sur **Fermer**. ![][05]
-1. Quand la boîte de dialogue **Deploy to Azure Web App Container** s’affiche, elle présente tous les conteneurs d’application web déjà créés ; si vous n’avez pas créé de conteneur, la liste est vide. ![][06]
+1. Dans le menu contextuel, sélectionnez **Azure**, puis cliquez sur **Publish as Azure Web App...**
+   ![][03]
+1. Si vous n’êtes pas déjà connecté à Azure à partir d’Eclipse, vous êtes invité à vous connecter à votre compte Azure :
+   ![][04]
+   Remarque : Si vous avez plusieurs comptes Azure, certaines des invites pendant le processus de connexion peuvent s’afficher plusieurs fois, même si elles semblent identiques. Dans ce cas, continuez à suivre les instructions de connexion.
+1. Une fois que vous êtes connecté à votre compte Azure, la boîte de dialogue **Gérer les abonnements** affiche la liste des abonnements associés à vos informations d’identification. Si plusieurs abonnements sont répertoriés et que vous ne souhaitez utiliser qu’une partie d’entre eux, vous pouvez éventuellement désélectionner ceux qui ne vous intéressent pas. Quand vous avez sélectionné vos abonnements, cliquez sur **Fermer**.
+   ![][05]
+1. Quand la boîte de dialogue **Deploy to Azure Web App Container** s’affiche, elle présente tous les conteneurs d’application web déjà créés ; si vous n’avez pas créé de conteneur, la liste est vide.   
+   ![][06]
 1. Si vous n’avez pas déjà créé de conteneur d’application web Azure ou que vous souhaitez publier votre application dans un nouveau conteneur, procédez comme suit. Sinon, sélectionnez un conteneur d’application web existant et passez à l’étape 7 ci-dessous.
 
   1. Cliquez sur **New...**.
@@ -73,7 +80,7 @@ Vous pouvez déployer une application web Java sur Azure de plusieurs façons. C
 
   1. Dans le menu déroulant **Resource Group**, sélectionnez le groupe de ressources auquel vous souhaitez associer votre application web.
 
-        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
+        Remarque: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
         You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
@@ -91,7 +98,7 @@ Vous pouvez déployer une application web Java sur Azure de plusieurs façons. C
 
   1. Le menu déroulant **App Service Plan** répertorie les plans de service d’application qui sont associés au groupe de ressources que vous avez sélectionné.
 
-        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
+        Remarque: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
         You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
@@ -159,7 +166,8 @@ Quand **Azure Explorer** s’affiche, procédez comme suit pour arrêter votre a
 1. Développez le nœud **Azure**.
 2. Développez le nœud **Web Apps**. 
 3. Cliquez avec le bouton droit sur l’application web souhaitée.
-5. Quand le menu contextuel s’affiche, cliquez sur **Stop**. ![][13]
+5. Quand le menu contextuel s’affiche, cliquez sur **Stop**.
+    ![][13]
 
 ## Étapes suivantes
 
@@ -195,3 +203,4 @@ Pour plus d’informations, consultez les liens suivants :
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 
 <!---------HONumber=AcomDC_0309_2016-->
+
