@@ -22,14 +22,14 @@
 Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent de l’ajout d’Azure Search avec le niveau de tarification **Gratuit**, **De base** ou **Standard**.
 
 - Le niveau **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Il s’agit d’une option sans coût supplémentaire pour les abonnés existants et qui vous permet de tester le service avant de vous inscrire pour obtenir des ressources dédiées. 
-- Le niveau **De base (version préliminaire)** fournit des ressources informatiques dédiées aux charges de production à petite échelle. Ce niveau est actuellement en version préliminaire et bénéficie d’un [tarif réduit](https://azure.microsoft.com/pricing/details/search/).
+- Le niveau **De base (version préliminaire)** fournit des ressources informatiques dédiées aux charges de production à petite échelle. Ce niveau est actuellement en version préliminaire et bénéficie d’un [tarif réduit de 50 %](https://azure.microsoft.com/pricing/details/search/).
 - Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau (même en configuration minimale). L’offre Standard est proposée sur deux niveaux (S1 et S2). 
+
+Tous les niveaux peuvent être [configurés dans le portail](search-create-service-portal.md), à l’exception de S2, qui nécessite un ticket de support. Envoyez un courrier électronique à azuresearch_contact@microsoft.com pour prendre en main le niveau S2.
 
 ## Limites de niveau
 
 [AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-all.md)]
-
-> [AZURE.NOTE] Les Requêtes par seconde (RPS) sont variables, en particulier dans le service partagé, car le débit est basé sur la bande passante disponible et la concurrence pour les ressources système. Les ressources de calcul et de stockage Azure, qui réalisent une sauvegarde du service partagé, sont partagées par plusieurs abonnés. Les requêtes par seconde de votre solution varie donc toujours selon le nombre de charges de travail supplémentaires exécutées simultanément. Au niveau Standard, vous pouvez mieux estimer les RPS, car vous contrôlez davantage de paramètres. Consultez la section sur les meilleures pratiques sous [Gérer votre solution de recherche](search-manage.md) pour obtenir des conseils sur la façon de calculer les RPS pour vos charges de travail.
 
 ## Limites de clé API
 
@@ -53,4 +53,10 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 
 <sup>1</sup> Dans Azure Search, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
 
-<!------HONumber=AcomDC_0302_2016-->
+## Requêtes par seconde
+
+Bien que des estimations approximatives figurent dans la page Tarification et dans le graphique [Limites de niveau](#TierLimits) fourni ci-dessus, la quantité réelle de requêtes par seconde (RPS) est difficile à déterminer, en particulier dans le service partagé Gratuit où le débit est basé sur la bande passante disponible et la concurrence pour les ressources système. Les ressources de calcul et de stockage sur lesquelles s’appuie le service partagé sont partagées par plusieurs abonnés. Les requêtes par seconde de votre solution varient donc toujours selon le nombre de charges de travail supplémentaires exécutées simultanément.
+
+Au niveau Standard, vous pouvez mieux estimer les RPS, car vous contrôlez davantage de paramètres. Pour obtenir des conseils sur la façon de calculer les requêtes par seconde (RPS) pour vos charges de travail, consultez la section sur les meilleures pratiques sous [Gérer votre solution de recherche](search-manage.md).
+
+<!---HONumber=AcomDC_0316_2016-->

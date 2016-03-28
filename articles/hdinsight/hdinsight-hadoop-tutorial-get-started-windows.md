@@ -27,11 +27,13 @@
 
 Pour vous familiariser plus facilement à Hadoop sur Windows et commencer à utiliser HDInsight, ce didacticiel vous montre comment exécuter une requête Hive sur des données non structurées dans un cluster Hadoop, puis comment analyser les résultats dans Microsoft Excel.
 
-Partons du principe que vous avez un vaste jeu de données non structurées et que vous voulez exécuter une requête Hive sur ces données pour en extraire des informations pertinentes. C’est exactement ce que vous allez faire dans ce didacticiel. Voici comment obtenir ce résultat:
+>[AZURE.NOTE] Les informations de ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d’informations sur les clusters Linux, consultez [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+
+Partons du principe que vous avez un vaste jeu de données non structurées et que vous voulez exécuter une requête Hive sur ces données pour en extraire des informations pertinentes. C’est exactement ce que vous allez faire dans ce didacticiel. Voici comment obtenir ce résultat :
 
    ![Didacticiel Hadoop : création d’un compte ; création d’un cluster Hadoop ; envoi d’une requête Hive ; analyse de données dans Excel.][image-hdi-getstarted-flow]
 
-Visionnez une vidéo de démonstration de ce didacticiel pour vous familiariser avec Hadoop sur HDInsight:
+Visionnez une vidéo de démonstration de ce didacticiel pour vous familiariser avec Hadoop sur HDInsight :
 
 ![Vidéo d'un premier didacticiel Hadoop : envoi d'une requête Hive sur un cluster Hadoop et analyse des résultats dans Excel.][img-hdi-getstarted-video]
 
@@ -184,7 +186,7 @@ Exemple | Fonction
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Étapes suivantes
-Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Windows dans HDInsight, à exécuter une requête Hive sur des données et à importer les résultats dans Excel, où ils peuvent faire l’objet d’un traitement plus poussé et être affichés sous forme de graphique avec des outils décisionnels. Pour plus d'informations, consultez les didacticiels suivants:
+Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Windows dans HDInsight, à exécuter une requête Hive sur des données et à importer les résultats dans Excel, où ils peuvent faire l’objet d’un traitement plus poussé et être affichés sous forme de graphique avec des outils décisionnels. Pour plus d'informations, consultez les didacticiels suivants :
 
 - [Prise en main de HDInsight Hadoop Tools pour Visual Studio][1]
 - [Prise en main de l'émulateur HDInsight][hdinsight-emulator]
@@ -255,4 +257,4 @@ Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Win
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

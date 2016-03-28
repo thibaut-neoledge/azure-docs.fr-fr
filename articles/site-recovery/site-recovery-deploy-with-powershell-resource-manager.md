@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
 # Utilisation d’Azure Site Recovery avec PowerShell et Azure Resource Manager.
@@ -262,4 +262,4 @@ Cet article explique, à l’aide d’un exemple, comment utiliser Azure PowerSh
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

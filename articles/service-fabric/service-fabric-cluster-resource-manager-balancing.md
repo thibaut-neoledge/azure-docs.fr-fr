@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Équilibrage de votre cluster avec Azure Service Fabric Cluster Resource Manager"
+   pageTitle="Équilibrage de votre cluster avec Azure Service Fabric Cluster Resource Manager | Microsoft Azure"
    description="Présentation de l’équilibrage de votre cluster avec Service Fabric Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # Équilibrage de votre cluster Service Fabric
@@ -25,6 +25,7 @@ Le premier jeu de contrôles régissant l’équilibrage est un jeu de minuteurs
 2.	Vérifications de contrainte : cette étape recherche les violations des différentes contraintes (règles) de placement au sein du système et apporte les corrections nécessaires. Le non-dépassement de la capacité des nœuds et le respect des contraintes de placement d’un service (plus d’informations à ce sujet plus loin) sont des exemples de règles.
 3.	Équilibrage : cette étape vérifie si le rééquilibrage proactif est nécessaire en fonction du niveau d’équilibrage désiré qui a été configuré pour différentes métriques. Dans l’affirmative, elle tente de trouver une disposition dans le cluster qui est plus équilibré.
 
+## Configuration des minuteurs et étapes de Cluster Resource Manager
 Chaque étape est contrôlée par un minuteur différent qui régit sa fréquence. Par exemple, vous pouvez très bien placer de nouvelles charges de travail de service dans le cluster toutes les heures (en vue d’un traitement par lot), tout en effectuant des contrôles réguliers de l’équilibrage à un intervalle de quelques secondes. Chaque fois qu’un minuteur est déclenché, un indicateur est défini pour vous informer de la nécessité de traiter cette partie des tâches de Resource Manager. L’indicateur est récupéré au prochain balayage global de la machine à états (c’est pourquoi ces configurations sont définies sous forme d’intervalles minimaux). Par défaut, Resource Manager analyse son état et applique des mises à jour tous les dixièmes de seconde, définit les indicateurs de vérification de contrainte et de placement toutes les secondes, et définit l’indicateur d’équilibrage toutes les cinq secondes.
 
 ClusterManifest.xml :
@@ -60,7 +61,10 @@ Dans cet exemple simple, chaque service utilise uniquement une unité d’une m�
 
 ![Actions de l’exemple de seuil d’équilibrage][Image2]
 
-Notez que l’obtention d’une valeur inférieure au seuil d’équilibrage ne constitue pas un objectif explicite : les seuils d’équilibrage jouent simplement le rôle de déclencheur. Seuils d’activité Parfois, même si des nœuds sont relativement déséquilibrés, la quantité totale de charge dans le cluster est faible. Cela peut être simplement dû à l’heure de la journée ou au fait qu’il s’agit d’un nouveau cluster qui vient juste d’être amorcé. Dans les deux cas, ne consacrez pas trop de temps à l’équilibrage, car les gains liés au déplacement sont minimes. Ce qui est sûr, c’est que vous allez consommer des ressources réseau et de calcul. Resource Manager comprend un autre contrôle, appelé « seuil d’activité ». Celui-ci permet de spécifier une limite inférieure absolue pour une activité. Si aucun nœud ne dispose au moins de cette quantité de charge, l’équilibrage n’est pas déclenché, et ce même si le seuil d’équilibrage est atteint. Prenons un exemple : nos rapports indiquent les totaux de consommation suivants sur ces nœuds. Notre seuil d’équilibrage est toujours de 3, mais notre seuil d’activité est désormais de 1 536. Dans le premier cas, bien que le cluster soit déséquilibré selon le seuil d’équilibrage, aucun nœud ne répond au seuil minimum d’activité. Donc, nous ne changeons rien. Dans l’exemple du bas, Node1 dépasse largement le seuil d’activité : l’équilibrage a donc bien lieu.
+Notez que l’obtention d’une valeur inférieure au seuil d’équilibrage ne constitue pas un objectif explicite : les seuils d’équilibrage jouent simplement le rôle de déclencheur.
+
+## Seuils d’activité
+Parfois, même si des nœuds sont relativement déséquilibrés, la quantité totale de charge dans le cluster est faible. Cela peut être simplement dû à l’heure de la journée ou au fait qu’il s’agit d’un nouveau cluster qui vient juste d’être amorcé. Dans les deux cas, ne consacrez pas trop de temps à l’équilibrage, car les gains liés au déplacement sont minimes. Ce qui est sûr, c’est que vous allez consommer des ressources réseau et de calcul. Resource Manager comprend un autre contrôle, appelé « seuil d’activité ». Celui-ci permet de spécifier une limite inférieure absolue pour une activité. Si aucun nœud ne dispose au moins de cette quantité de charge, l’équilibrage n’est pas déclenché, et ce même si le seuil d’équilibrage est atteint. Prenons un exemple : nos rapports indiquent les totaux de consommation suivants sur ces nœuds. Notre seuil d’équilibrage est toujours de 3, mais notre seuil d’activité est désormais de 1 536. Dans le premier cas, bien que le cluster soit déséquilibré selon le seuil d’équilibrage, aucun nœud ne répond au seuil minimum d’activité. Donc, nous ne changeons rien. Dans l’exemple du bas, Node1 dépasse largement le seuil d’activité : l’équilibrage a donc bien lieu.
 
 ![Exemple de seuil d’activité][Image3]
 
@@ -87,11 +91,10 @@ Chaque fois qu’il s’exécute, Resource Manager détermine automatiquement le
 
 ![Équilibrage de plusieurs services en même temps][Image5]
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-- [En savoir plus sur les métriques](service-fabric-cluster-resource-manager-metrics.md)
-- [En savoir plus sur les limitations de Resource Manager](service-fabric-cluster-resource-manager-advanced-throttling.md)
-- [En savoir plus sur le coût du mouvement de service](service-fabric-cluster-resource-manager-movement-cost.md)
+- Les métriques représentent la façon dont Service Fabric Cluster Resource Manager gère la consommation et la capacité du cluster. Pour en savoir plus sur ces métriques et la façon de les configurer, consultez [cet article](service-fabric-cluster-resource-manager-metrics.md)
+- Le coût du mouvement est une façon de signaler à Cluster Resource Manager que certains services sont plus coûteux à déplacer que d’autres. Pour en savoir plus sur le coût du mouvement, reportez-vous à [cet article](service-fabric-cluster-resource-manager-movement-cost.md)
+- Cluster Resource Manager a plusieurs limitations que vous pouvez configurer pour ralentir l’évolution dans le cluster. Elles ne sont normalement pas nécessaires mais, si vous en avez besoin, vous pouvez en savoir plus sur ces limitations [ici](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
@@ -100,4 +103,4 @@ Chaque fois qu’il s’exécute, Resource Manager détermine automatiquement le
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

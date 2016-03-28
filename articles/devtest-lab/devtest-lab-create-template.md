@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create VM templates | Microsoft Azure"
-	description="Learn how to create VM templates from VHD images"
+<properties
+	pageTitle="Création d’une image personnalisée DevTest Lab à partir d’un fichier VHD | Microsoft Azure"
+	description="Apprenez à créer une image personnalisée à partir d’un fichier VHD, qui peut ensuite servir à créer des machines virtuelles dans une instance de service DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,48 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="03/13/2016"
 	ms.author="tarcher"/>
 
-# Créer des modèles de machines virtuelles
+# Création d’une image personnalisée DevTest Lab à partir d’un fichier VHD
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Après avoir [créé un laboratoire](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md) à partir d’une liste de modèles de machines virtuelles. Cet article explique comment télécharger et configurer un fichier d’image de disque dur virtuel (VHD) qui servira de modèle pour créer vos machines virtuelles. Si vous n’êtes pas familiarisé avec les images VHD, consultez l’article [Création et téléchargement d’un VHD Windows Server dans Azure](/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) pour apprendre à créer une image VHD. Lorsque vous aurez créé ou que vous pourrez accéder à une image de disque dur virtuel, cet article vous aidera à télécharger et à créer un modèle à partir de cette image.
+Une fois que vous avez [créé une instance de service DevTest Lab](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md). Quand vous créez une machine virtuelle, vous spécifiez une *base*, qui peut être une *image personnalisée* ou *image du Marketplace*. Dans cet article, vous allez apprendre à créer une image personnalisée à partir d’un fichier VHD. Notez que vous devez avoir accès à un fichier VHD valide pour effectuer toutes les étapes de cet article.
 
-## Créer un modèle de machine virtuelle
+## Création d’une image personnalisée
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Appuyez sur **Parcourir**, puis sur **DevTest Labs** dans la liste.
 
-1. Dans la liste des laboratoires, appuyez sur le laboratoire souhaité.
+1. Dans la liste des labos, sélectionnez le labo souhaité.
 
-1. Dans le panneau du laboratoire, appuyez sur **Paramètres**.
+1. Le panneau **Paramètres** du laboratoire sélectionné s’affiche.
 
-    ![Paramètres du laboratoire](./media/devtest-lab-create-template/lab-blade-settings.png)
+1. Dans le panneau **Paramètres** du laboratoire, appuyez sur **Images personnalisées**.
 
-1. Dans le panneau **Paramètres** du laboratoire, appuyez sur **Modèles**.
+    ![Option Images personnalisées](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-    ![Option des modèles](./media/devtest-lab-create-template/lab-blade-settings-templates.png)
+1. Dans le panneau **Paramètres** du laboratoire, appuyez sur **+ Image personnalisée**.
 
-1. Dans le panneau **Modèles**, appuyez sur **+ Modèle**.
+    ![Ajouter une image personnalisée](./media/devtest-lab-create-template/add-custom-image.png)
 
-    ![Ajouter un modèle](./media/devtest-lab-create-template/add-template.png)
+1. Entrez le nom de l’image personnalisée. Ce nom s’affiche dans la liste des images de base quand vous créez une machine virtuelle.
 
-1. Dans le panneau **Ajouter un modèle** :
+1. Entrez la description de l’image personnalisée. Cette description s’affiche dans la liste des images de base quand vous créez une machine virtuelle.
 
-	1. Entrez le nom du modèle. Ce nom s’affiche dans la liste des modèles lors de la création d’une nouvelle machine virtuelle.
+1. Appuyez sur **Fichier VHD**.
 
-	1. Entrez la description du modèle. Cette description s’affiche dans la liste des modèles lors de la création d’une nouvelle machine virtuelle.
+1. Si vous avez accès à un fichier VHD qui n’est pas répertorié, ajoutez-le en suivant les instructions de la section [Télécharger un fichier VHD](#upload-a-vhd-file) et revenez ici après avoir terminé.
 
-	1. Appuyez sur **Image**.
+1. Sélectionnez le fichier VHD souhaité.
 
-	1. Si l’image de votre choix n’est pas répertoriée et que vous souhaitez l’ajouter, passez à la section [Ajouter une nouvelle image de modèle](#add-a-new-template-image), puis revenez ici lorsque vous avez terminé.
-
-	1. Sélectionnez l’image de votre choix.
-
-	1. Appuyez sur **OK** pour fermer le panneau **Ajouter un modèle**.
+1. Appuyez sur **OK** pour fermer le panneau **Fichier VHD**.
 
 1. Appuyez sur **Configuration du système d’exploitation**.
 
@@ -62,28 +58,24 @@ Après avoir [créé un laboratoire](devtest-lab-create-lab.md), vous pouvez [aj
 
 1. Si vous sélectionnez **Windows**, cochez la case pour indiquer si *Sysprep* a été exécuté sur la machine.
 
-1. Entrez un **Nom d’utilisateur** pour la machine.
-
-1. Entrez un **Mot de passe** pour la machine. **Remarque :** le mot de passe s’affiche en texte clair.
-
 1. Sélectionnez **OK** pour fermer le panneau **Configuration du système d’exploitation**.
 
-1. Indiquez un **Emplacement**.
+1. Appuyez sur **OK** pour créer l’image personnalisée.
 
-1. Appuyez sur **OK** pour créer le modèle.
+1. Accédez à la section [Étapes suivantes](#next-steps).
 
-##Ajouter une nouvelle image de modèle
+##Téléchargement d’un fichier VHD
 
-Pour ajouter une nouvelle image de modèle, vous devez avoir accès à un fichier d’image de disque dur virtuel.
+Pour ajouter une nouvelle image personnalisée, vous devez avoir accès à un fichier VHD.
 
-1. Dans le panneau **Ajouter une image de modèle**, appuyez sur **Télécharger une image à l’aide de PowerShell**.
+1. Dans le panneau **Fichier VHD**, appuyez sur **Télécharger un fichier VHD à l’aide de PowerShell**.
 
     ![Télécharger une image](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. Le panneau suivant affiche des instructions pour modifier et exécuter un script PowerShell qui télécharge un fichier d’image de disque dur virtuel sur votre abonnement Azure. **Remarque :** la taille du fichier image et votre vitesse de connexion influent sur la durée de ce processus.
+1. Le panneau suivant affiche des instructions pour modifier et exécuter un script PowerShell qui télécharge un fichier VHD sur votre abonnement Azure. **Remarque :** la taille du fichier VHD et votre vitesse de connexion influent sur la durée de ce processus.
 
 ##Étapes suivantes
 
-Lorsque vous avez ajouté un modèle de machine virtuelle à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [Ajouter une machine virtuelle à votre instance du service DevTest Lab](devtest-lab-add-vm-with-artifacts).
+Une fois que vous avez ajouté une image personnalisée à utiliser pendant la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre instance du service DevTest Lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

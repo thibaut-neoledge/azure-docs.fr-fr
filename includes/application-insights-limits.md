@@ -7,8 +7,8 @@ Autres points de données par mois | 5 millions | 50 millions<sup>2</sup>
 Débit de données de trace ou de journal | 200 dp/s | 500 dp/s
 Débit de données d’exceptions | 50 dp/s | 50 dp/s
 Autre débit de données de télémétrie | 200 dp/s | 500 dp/s
-Conservation des données brutes |7 jours| 30 jours
-Conservation des données agrégées | 13 mois | illimitée
+Conservation des données brutes | 7 jours
+Conservation des données agrégées | 90 jours
 Nombre de noms de propriété dans l’application | 100 | 100
 Longueur du nom de propriété | 100 | 100
 Longueur de la valeur de propriété | 1 000 | 1 000
@@ -22,4 +22,4 @@ Tests de disponibilité | 10 | 10
  
 [Tarification et quotas dans Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

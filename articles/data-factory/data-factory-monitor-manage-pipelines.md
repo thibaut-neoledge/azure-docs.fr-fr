@@ -378,8 +378,10 @@ Une fois le déploiement du groupe de ressources réussi, les messages suivants 
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] Vous pouvez utiliser l’API REST [Créer une règle d’alerte](https://msdn.microsoft.com/library/azure/dn510366.aspx) pour créer une règle d’alerte. La charge utile JSON est similaire à l’exemple JSON ci-dessus.
+
 #### Récupération de la liste des déploiements de groupes de ressources Azure
-Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l’applet de commande : **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
+Pour récupérer la liste des déploiements de groupes de ressources Azure, utilisez l’applet de commande **Get-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -545,13 +547,13 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs :
+*metricName* prend actuellement en charge ces deux valeurs :
 - FailedRuns
 - SuccessfulRuns
 
 **Déploiement de l’alerte :**
 
-Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell : **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
+Pour déployer l’alerte, utilisez l’applet de commande Azure PowerShell **New-AzureRmResourceGroupDeployment**, comme indiqué dans l’exemple suivant :
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
@@ -572,10 +574,10 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Outputs           
 
 
-Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d’alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour plus d’informations et des exemples.
+Vous pouvez également utiliser l’applet de commande **Add-AlertRule** pour déployer une règle d’alerte. Consultez la rubrique [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) pour obtenir plus d’informations et des exemples.
 
 ## Déplacer la fabrique de données vers un autre groupe de ressources ou abonnement
-Vous pouvez déplacer une fabrique de données vers un autre groupe de ressources ou abonnement à l'aide du bouton de la barre de commandes **Déplacer** situé sur la page d'accueil de votre fabrique de données.
+Vous pouvez déplacer une fabrique de données vers un autre groupe de ressources ou abonnement à l’aide du bouton de la barre de commandes **Déplacer** situé sur la page d’accueil de votre fabrique de données.
 
 ![Déplacer la fabrique de données](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
@@ -583,4 +585,4 @@ Vous pouvez également déplacer toutes les ressources associées (notamment les
 
 ![Boîte de dialogue Déplacer des ressources](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

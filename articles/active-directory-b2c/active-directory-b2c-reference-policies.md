@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d’Azure Active Directory B2C : infrastructure de stratégie extensible
@@ -119,5 +119,27 @@ Pour activer la modification de profil dans votre application, vous devez créer
 
     > [AZURE.NOTE]
     La création de la stratégie et les mises à jour peuvent prendre jusqu’à une minute.
+    
+## Création d’une stratégie de réinitialisation du mot de passe
 
-<!---HONumber=AcomDC_0224_2016-->
+Pour activer la réinitialisation affinée du mot de passe sur votre application, vous devez créer une stratégie de réinitialisation du mot de passe. Notez que l’option de réinitialisation du mot de passe au niveau du client spécifiée [ici](active-directory-b2c-reference-sspr.md) est toujours applicable pour les stratégies d’authentification. Cette stratégie décrit les expériences des clients lors de la réinitialisation du mot de passe et le contenu des jetons que l’application reçoit en cas d’opération réussie.
+
+1. [Procédez comme suit pour accéder au panneau des fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Cliquez sur **Stratégies de réinitialisation du mot de passe**.
+3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
+4. Le **Nom** détermine le nom de la stratégie de réinitialisation du mot de passe utilisé par votre application. Par exemple, entrez « SSPR ».
+5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Réinitialiser le mot de passe à l’aide de l’adresse de messagerie ». Cliquez sur **OK**.
+6. Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience de réinitialisation du mot de passe réussie. Par exemple, sélectionnez « ID objet utilisateur ».
+7. Cliquez sur **Create**. Notez que la stratégie créée s’affiche sous la forme « **B2C\_1\_SSPR** » (le fragment **B2C\_1\_** est automatiquement ajouté) dans le panneau **Stratégies de réinitialisation du mot de passe**.
+8. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SSPR** ».
+9. Sélectionnez « Contoso B2C app » dans le menu déroulant **Applications** et `https://localhost:44321/` dans la liste déroulante **URL de réponse/URI de redirection**.
+10. Cliquez sur **Exécuter maintenant**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à réinitialiser un mot de passe dans votre application.
+
+    > [AZURE.NOTE]
+    La création de la stratégie et les mises à jour peuvent prendre jusqu’à une minute.
+
+## Ressources supplémentaires
+
+- [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
+
+<!---HONumber=AcomDC_0316_2016-->

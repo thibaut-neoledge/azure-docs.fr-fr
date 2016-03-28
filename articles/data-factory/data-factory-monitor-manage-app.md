@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="03/14/2016" 
 	ms.author="spelluru"/>
 
 # Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.
@@ -24,13 +24,15 @@
 Cet article décrit comment surveiller, gérer et déboguer vos pipelines à l’aide de l’**application de surveillance et gestion**. Il explique également comment créer des alertes et recevoir des notifications d’échec en utilisant l’application.
       
 ## Lancer l’application de surveillance et gestion 
-Pour lancer l’application de surveillance et gestion, cliquez sur la mosaïque **Application de surveillance** sur le panneau **DATA FACTORY** de votre fabrique de données.
+Pour lancer l’application de surveillance et gestion, cliquez sur la mosaïque **Surveiller et gérer** dans le panneau **DATA FACTORY** de votre fabrique de données.
 
 ![Mosaïque Surveillance sur la page d’accueil de Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
 L’application de surveillance et gestion devrait s’ouvrir dans un nouvel onglet ou une nouvelle fenêtre.
 
 ![Application de surveillance et gestion](./media/data-factory-monitor-manage-app/AppLaunched.png)
+
+> [AZURE.NOTE] Si vous ne voyez pas les fenêtres d’activité dans la liste en bas, cliquez sur le bouton **Actualiser** dans la barre d’outils pour actualiser la liste. En outre, définissez les valeurs appropriées pour les filtres **Heure de début** et **Heure de fin**.
 
 ## Présentation de l’application de surveillance et gestion
 Trois onglets (**Explorateur de ressources**, **Vues de surveillance** et **Alertes**) apparaissent à gauche. Le premier onglet (Explorateur de ressources) est sélectionné par défaut.
@@ -43,6 +45,7 @@ Vous pouvez voir toutes les ressources (pipelines, groupes de données, services
 - L’entité Data Factory associée est mise en surbrillance dans la vue schématique.
 - Les fenêtres d’activité associées (cliquez [ici](data-factory-scheduling-and-execution.md) pour en savoir plus sur les fenêtres d’activité) sont mises en surbrillance dans la liste des fenêtres d’activité en bas de la page.  
 - Les propriétés de l’objet sélectionné s’affichent dans la fenêtre Propriétés dans le volet droit. 
+- La définition JSON de l’objet sélectionné, le cas échéant. Par exemple, un service lié, un jeu de données ou un pipeline. 
 
 ![Explorateur de ressources](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
@@ -83,9 +86,17 @@ Vous pouvez cliquer sur une fenêtre d’activité pour afficher ses détails da
 
 ![Propriétés des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-Dans le volet droit, basculez sur l’onglet **Explorateur de fenêtres d’activité** pour afficher plus de détails.
+Dans le volet droit, affichez l’onglet **Explorateur de fenêtres d’activité** pour afficher plus de détails.
 
 ![Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+
+Vous voyez également les **variables résolues** pour chaque tentative d’exécution d’une activité dans la section **Tentatives**.
+
+![Variables résolues](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
+
+Affichez l’onglet **Script** pour afficher la définition du script JSON pour l’objet sélectionné.
+
+![Script de table](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 Les fenêtres d’activité s’affichent à trois emplacements différents :
 
@@ -170,7 +181,7 @@ Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 </table>
 
 
-Lorsque vous cliquez sur une fenêtre d’activité dans la liste, les détails la concernant s’affichent dans l’Explorateur de fenêtres d’activité ou la fenêtre Propriétés sur la droite.
+Quand vous cliquez sur une fenêtre d’activité dans la liste, les détails la concernant s’affichent dans l’**Explorateur de fenêtres d’activité** ou dans la fenêtre **Propriétés** sur la droite.
 
 ![Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
@@ -187,7 +198,7 @@ Elle affiche les propriétés de l’élément que vous avez sélectionné dans 
 
 ### Explorateur de fenêtres d’activité
 
-L’Explorateur de fenêtres d’activité se trouve dans le volet situé tout à droite de l’application de surveillance et gestion. Il affiche des détails sur la fenêtre d’activité que vous avez sélectionnée dans la fenêtre contextuelle ou la liste des fenêtres d’activité.
+L’**Explorateur de fenêtres d’activité** se trouve dans le volet situé tout à droite de l’application de surveillance et gestion. Il affiche des détails sur la fenêtre d’activité que vous avez sélectionnée dans la fenêtre contextuelle ou la liste des fenêtres d’activité.
 
 ![Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
@@ -195,17 +206,21 @@ Vous pouvez passer à une fenêtre d’activité différente en cliquant dessus 
 
 Vous pouvez utiliser les boutons de la barre d’outils dans le volet inférieur pour **réexécuter** la fenêtre d’activité ou **actualiser** les détails affichés dans le volet.
 
+### Script 
+Vous pouvez utiliser l’onglet **Script** pour afficher la définition JSON de l’entité Data Factory sélectionnée (service lié, jeu de données et pipeline).
+
+![Script de table](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## Utiliser les vues système
-L’application de surveillance et gestion inclut des vues système intégrées (**Fenêtres d’activité récentes**, **Fenêtres d’activité ayant échoué**, **Fenêtres d’activité en cours**), qui vous permettent d’afficher les fenêtres d’activité (récentes, ayant échoué et en cours) de votre fabrique de données.
+L’application de surveillance et gestion inclut des vues système intégrées (**Fenêtres d’activités récente**, **Fenêtres d’activité ayant échoué**, **Fenêtres d’activité en cours**), qui vous permettent d’afficher les fenêtres d’activité (récentes, ayant échoué et en cours) de votre fabrique de données.
 
-Basculez vers l’onglet **Vues de surveillance** sur la gauche en cliquant dessus.
+Affichez l’onglet **Vues de surveillance** sur la gauche en cliquant dessus.
 
 ![Onglet Vues de surveillance](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
 Pour l’instant, l’application prend en charge trois vues système. Sélectionnez une option pour afficher les fenêtres d’activité récentes, ayant échoué, ou en cours dans la liste des fenêtres d’activité (en bas du volet central).
 
-Lorsque vous sélectionnez l’option **Fenêtres d’activité récentes**, toutes les fenêtres d’activité récentes s’affichent dans l’ordre décroissant en fonction de l’**heure de la dernière tentative**.
+Quand vous sélectionnez l’option **Fenêtres d’activité récentes**, toutes les fenêtres d’activité récentes s’affichent dans l’ordre décroissant en fonction de l’**heure de la dernière tentative**.
 
 Vous pouvez utiliser la vue **Fenêtres d’activité ayant échoué** pour afficher toutes les fenêtres d’activité de la liste qui ont échoué. Dans la liste, sélectionnez une fenêtre d’activité ayant échoué pour afficher les détails la concernant dans la fenêtre **Propriétés** ou dans l’**Explorateur de fenêtres d’activité**. Vous pouvez également télécharger tous les journaux d’une fenêtre d’activité ayant échoué.
 
@@ -217,7 +232,7 @@ Pour filtrer les fenêtres d’activité, modifiez les paramètres d’**heure d
 
 > [AZURE.NOTE] Pour l’instant, toutes les heures de l’application de surveillance et gestion sont au format UTC.
 
-Dans la **liste des fenêtres d’activité**, cliquez sur le nom d’une colonne (par exemple : Statut).
+Dans la **liste des fenêtres d’activité**, cliquez sur le nom d’une colonne (par exemple, Statut).
 
 ![Menu déroulant de la liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -241,7 +256,7 @@ Vous pouvez utiliser la même fenêtre contextuelle pour effacer les filtres. Po
 ### Réexécuter les fenêtres d’activité sélectionnées
 Sélectionnez une fenêtre d’activité, cliquez sur la flèche vers le bas du premier bouton de la barre de commandes et sélectionnez **Réexécuter** ou **Réexécuter avec les fenêtres en amont dans le pipeline**. L’option **Réexécuter avec les fenêtres en amont dans le pipeline** permet de réexécuter également toutes les fenêtres d’activité en amont. ![Réexécuter une fenêtre d’activité](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Vous pouvez également sélectionner plusieurs fenêtres d’activité dans la liste et les réexécuter simultanément. Vous pouvez filtrer les fenêtres d’activité en fonction de leur statut (par exemple : **Ayant échoué**), puis réexécuter celles qui ont échoué après avoir corrigé le problème à l’origine de cet échec. Pour en savoir plus sur le filtrage des fenêtres d’activité dans la liste, consultez la section suivante.
+Vous pouvez également sélectionner plusieurs fenêtres d’activité dans la liste et les réexécuter simultanément. Vous pouvez filtrer les fenêtres d’activité en fonction de leur statut (par exemple, **Ayant échoué**), puis réexécuter celles qui ont échoué après avoir corrigé le problème à l’origine de cet échec. Pour en savoir plus sur le filtrage des fenêtres d’activité dans la liste, consultez la section suivante.
 
 ### Mettre en pause/relancer plusieurs pipelines
 Vous pouvez sélectionner deux ou plusieurs pipelines (en appuyant sur la touche CTRL) et utiliser les boutons de la barre de commandes (entourés d’un rectangle rouge sur l’image suivante) pour les mettre en pause/relancer simultanément.
@@ -265,7 +280,7 @@ La page Alertes vous permet de créer une nouvelle alerte et d’afficher, de mo
 	Vous pouvez également **regrouper** les événements d’alertes comme indiqué ci-dessous :
 
 	![Regrouper des alertes](./media/data-factory-monitor-manage-app/AggregateAlerts.png)
-2. Sélectionnez l’**événement**, le **statut** et l’**état secondaire** (facultatif) dont vous souhaitez que le service Data Factory vous informe et cliquez sur **Suivant**. La page **Destinataires** doit s’afficher.
+2. Sélectionnez l’**événement**, le **statut** et l’**état secondaire** (facultatif) dont vous souhaitez que le service Data Factory vous informe, puis cliquez sur **Suivant**. La page **Destinataires** doit s’afficher.
 
 	![Créer des alertes - page Destinataires](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
 3. Sélectionnez l’option **Administrateurs d’abonnement par courrier électronique** et/ou entrez une **adresse de messagerie électronique d’administrateur supplémentaire**, puis cliquez sur **Terminer**. L’alerte doit apparaître dans la liste. 
@@ -295,4 +310,4 @@ Cluster HDI à la demande supprimé | Succeeded | &nbsp; |
     
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

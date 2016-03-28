@@ -3,8 +3,8 @@
 	description="L’exemple C# inclut une logique de nouvelle tentative permettant d’interagir de manière fiable avec Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Exemple de code : Logique de nouvelle tentative C# pour la connexion à une base de données SQL
@@ -53,7 +53,7 @@ La liste des erreurs classées comme erreurs temporaires est disponible à l'adr
  - Consultez la section principale intitulée *Erreurs temporaires, erreurs de perte de connexion*.
 
 
-## Exemple de code C#
+## Exemple de code C#
 
 
 L'exemple de code C# de la présente rubrique contient la logique de détection et de nouvelle tentative personnalisée permettant de gérer les erreurs temporaires. L’exemple part du principe que .NET Framework 4.5.1 (ou une version ultérieure) est installé.
@@ -62,7 +62,7 @@ L'exemple de code C# de la présente rubrique contient la logique de détection 
 L'exemple de code suit certaines règles élémentaires ou recommandations qui s'appliquent quelle que soit la technologie utilisée pour interagir avec Azure SQL Database. Vous pouvez consulter les recommandations générales ici :
 
 
-- [Connexion à SQL Database : liens, bonnes pratiques et règles de conception](sql-database-connect-central-recommendations.md)
+- [Connexion à SQL Database : liens, bonnes pratiques et règles de conception](sql-database-connect-central-recommendations.md)
 
 
 L’exemple de code C# se compose d’un fichier nommé Program.cs. Son code est collé dans la section suivante.
@@ -231,7 +231,7 @@ L’exécutable **RetryAdo2.exe** n’entre aucun paramètre. Pour exécuter le 
 
 3. Lorsque le débogueur s’arrête à la fin de **Main**, basculez vers la fenêtre de console.
 
-4. Observez les trois lignes semblables aux suivantes :
+4. Observez les trois lignes semblables aux suivantes :
 
 
 ```
@@ -244,7 +244,7 @@ filetable_updates_2105058535    2105058535
 ## Tester votre logique de nouvelle tentative
 
 
-Voici un moyen pratique de tester la logique de nouvelle tentative :
+Voici un moyen pratique de tester la logique de nouvelle tentative :
 
 
 1. Ajoutez temporairement **11001** à votre collection de valeurs **SqlConnection.Number** qui seront considérées comme des erreurs temporaires.
@@ -264,19 +264,19 @@ Voici un moyen pratique de tester la logique de nouvelle tentative :
 ### Autre option de test
 
 
-Une alternative consiste à ajouter une logique à votre programme pour reconnaître une valeur de paramètre de ligne de commande « test ». En réponse au paramètre, le programme effectuerait les opérations suivantes :
+Une alternative consiste à ajouter une logique à votre programme pour reconnaître une valeur de paramètre de ligne de commande « test ». En réponse au paramètre, le programme effectuerait les opérations suivantes :
 
 
 1. Il ajouterait temporairement des lettres indésirables pour mal orthographier le nom du serveur de bases de données SQL.
 
 2. Ajoutez temporairement **40615** à la liste des erreurs temporaires.
 
-3. Au début de sa deuxième boucle, ce qui signifie sa première boucle de nouvelle tentative, le programme effectuerait les opérations suivantes :
+3. Au début de sa deuxième boucle, ce qui signifie sa première boucle de nouvelle tentative, le programme effectuerait les opérations suivantes :
  - Il annulerait la faute d’orthographe dans le nom de serveur.
  - Il supprimerait 40615 de la liste temporaire.
 
 
-Il exécuterait le programme avec le paramètre « test » et vérifierait que le programme échoue d’abord, mais réussit lors de la deuxième boucle.
+Il exécuterait le programme avec le paramètre « test » et vérifierait que le programme échoue d’abord, mais réussit lors de la deuxième boucle.
 
 
 ## Liens connexes
@@ -284,6 +284,6 @@ Il exécuterait le programme avec le paramètre « test » et vérifierait que
 
 - [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Essayer la Base de données SQL : Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET](sql-database-get-started-csharp.md)
+- [Essayer la Base de données SQL : Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

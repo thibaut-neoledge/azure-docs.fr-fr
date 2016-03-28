@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Meilleures pratiques relatives à la conception des modèles Azure Resource Manager"
-	description="Afficher les modèles de conception pour les modèles Azure Resource Manager"
+	pageTitle="Meilleures pratiques pour les modèles Azure Resource Manager | Microsoft Azure"
+	description="Afficher les modèles de conception pour les modèles Azure Resource Manager"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,30 +14,30 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
-# Meilleures pratiques relatives à la conception des modèles Azure Resource Manager
+# Meilleures pratiques relatives à la conception des modèles Azure Resource Manager
 
-Dans notre collaboration avec les entreprises, les intégrateurs de système, les fournisseurs de services cloud et les équipes de projet de logiciel open source, il est souvent nécessaire de déployer rapidement des environnements, des charges de travail ou des unités d’échelle. Ces déploiements doivent être pris en charge, suivre des pratiques éprouvées et respecter des stratégies identifiées. À l’aide d’une approche souple basée sur des modèles Azure Resource Manager, vous pouvez déployer des topologies complexes rapidement et de manière homogène, puis adapter facilement ces déploiements au rythme des offres principales ou aux variables des scénarios ou clients hors norme.
+Dans notre collaboration avec les entreprises, les intégrateurs de système, les fournisseurs de services cloud et les équipes de projet de logiciel open source, il est souvent nécessaire de déployer rapidement des environnements, des charges de travail ou des unités d’échelle. Ces déploiements doivent être pris en charge, suivre des pratiques éprouvées et respecter des stratégies identifiées. À l’aide d’une approche souple basée sur des modèles Azure Resource Manager, vous pouvez déployer des topologies complexes rapidement et de manière homogène, puis adapter facilement ces déploiements au rythme des offres principales ou aux variables des scénarios ou clients hors norme.
 
 Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
-Les modèles associent les avantages du gestionnaire Azure Resource Manager sous-jacent à l’adaptabilité et à la lisibilité de JSON (JavaScript Objet Notation). En utilisant des modèles, vous pouvez :
+Les modèles associent les avantages du gestionnaire Azure Resource Manager sous-jacent à l’adaptabilité et à la lisibilité de JSON (JavaScript Objet Notation). En utilisant des modèles, vous pouvez :
 
-- déployer des topologies et leurs charges de travail de manière cohérente ;
-- gérer l’ensemble de vos ressources dans une application à l’aide de groupes de ressources ;
-- appliquer le contrôle d’accès en fonction du rôle (RBAC) pour accorder un accès approprié aux utilisateurs, groupes et services ;
+- déployer des topologies et leurs charges de travail de manière cohérente ;
+- gérer l’ensemble de vos ressources dans une application à l’aide de groupes de ressources ;
+- appliquer le contrôle d’accès en fonction du rôle (RBAC) pour accorder un accès approprié aux utilisateurs, groupes et services ;
 - utiliser le marquage des associations pour rationaliser des tâches telles que la facturation des cumuls.
 
-Cet article fournit des détails sur les scénarios de consommation, l’architecture et les modèles d’implémentation identifiés au cours de nos sessions de conception et pendant les implémentations de modèle dans le monde réel auprès des clients AzureCAT (Azure Customer Advisory Team). Il s’agit de pratiques éprouvées, qui loin d’être théoriques, sont documentées par le développement de modèles pour 12 des principales technologies OSS basées sur Linux, notamment : Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise optimisé par Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis et Nagios. La plupart de ces modèles ont été développés avec un fournisseur reconnu d’une distribution donnée et influencés par les exigences des clients, entreprises et intégrateurs de systèmes, de Microsoft au cours de projets récents.
+Cet article fournit des détails sur les scénarios de consommation, l’architecture et les modèles d’implémentation identifiés au cours de nos sessions de conception et pendant les implémentations de modèle dans le monde réel auprès des clients AzureCAT (Azure Customer Advisory Team). Il s’agit de pratiques éprouvées, qui loin d’être théoriques, sont documentées par le développement de modèles pour 12 des principales technologies OSS basées sur Linux, notamment : Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise optimisé par Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis et Nagios. La plupart de ces modèles ont été développés avec un fournisseur reconnu d’une distribution donnée et influencés par les exigences des clients, entreprises et intégrateurs de systèmes, de Microsoft au cours de projets récents.
 
-Cet article partage ces pratiques éprouvées pour vous aider à concevoir des modèles Azure Resource Manager de premier ordre.
+Cet article partage ces pratiques éprouvées pour vous aider à concevoir des modèles Azure Resource Manager de premier ordre.
 
-Au cours de notre collaboration avec les clients, nous avons identifié plusieurs expériences de consommation de modèle Resource Manager dans les entreprises, chez les intégrateurs de systèmes et les fournisseurs de services cloud. Les sections suivantes fournissent une vue d’ensemble des scénarios courants et des modèles pour différents types de client.
+Au cours de notre collaboration avec les clients, nous avons identifié plusieurs expériences de consommation de modèle Resource Manager dans les entreprises, chez les intégrateurs de systèmes et les fournisseurs de services cloud. Les sections suivantes fournissent une vue d’ensemble des scénarios courants et des modèles pour différents types de client.
 
 ## Entreprises et intégrateurs de systèmes
 
-Dans les grandes entreprises, il existe généralement deux utilisateurs de modèles ARM : les équipes de développement logiciel internes et les services informatiques. Comme les scénarios des intégrateurs de systèmes avec lesquels nous travaillons correspondent à ceux des entreprises, les mêmes considérations s’appliquent.
+Dans les grandes entreprises, il existe généralement deux utilisateurs de modèles ARM : les équipes de développement logiciel internes et les services informatiques. Comme les scénarios des intégrateurs de systèmes avec lesquels nous travaillons correspondent à ceux des entreprises, les mêmes considérations s’appliquent.
 
 ### Équipes de développement logiciel internes
 
@@ -45,7 +45,7 @@ Si votre équipe développe des logiciels pour soutenir votre activité, les mod
 
 Vous pouvez utiliser les modèles en l’état, les étendre ou les modifier en fonction de vos besoins. En utilisant un marquage dans les modèles, vous pouvez fournir un récapitulatif de facturation avec différentes vues, par exemple équipe, projet, individu et formation.
 
-Les entreprises veulent souvent que les équipes de développement logiciel créent un modèle pour assurer le déploiement cohérent d’une solution tout en offrant des contraintes afin que certains éléments au sein de cet environnement restent fixes et ne puissent pas être remplacés. Par exemple, une banque peut exiger qu’un modèle inclue le contrôle RBAC afin qu’aucun programmeur ne puisse modifier de solution bancaire pour envoyer des données à un compte de stockage personnel.
+Les entreprises veulent souvent que les équipes de développement logiciel créent un modèle pour assurer le déploiement cohérent d’une solution tout en offrant des contraintes afin que certains éléments au sein de cet environnement restent fixes et ne puissent pas être remplacés. Par exemple, une banque peut exiger qu’un modèle inclue le contrôle RBAC afin qu’aucun programmeur ne puisse modifier de solution bancaire pour envoyer des données à un compte de stockage personnel.
 
 ### Services informatiques
 
@@ -53,13 +53,13 @@ Les entreprises disposant de services informatiques utilisent généralement des
 
 #### Capacité de cloud
 
-Les groupes de services informatiques fournissent généralement une capacité de cloud aux équipes de leur entreprise dans des tailles standard : petite, moyenne et grande. Les offres de taille standard peuvent combiner différents types et quantités de ressources tout en fournissant un niveau de normalisation qui permet d’utiliser les modèles. Les modèles proposent des capacités d’une manière cohérente qui appliquent des stratégies d’entreprise et utilisent le marquage pour fournir la rétrofacturation aux entreprises utilisatrices.
+Les groupes de services informatiques fournissent généralement une capacité de cloud aux équipes de leur entreprise dans des tailles standard : petite, moyenne et grande. Les offres de taille standard peuvent combiner différents types et quantités de ressources tout en fournissant un niveau de normalisation qui permet d’utiliser les modèles. Les modèles proposent des capacités d’une manière cohérente qui appliquent des stratégies d’entreprise et utilisent le marquage pour fournir la rétrofacturation aux entreprises utilisatrices.
 
 Par exemple, vous devez peut-être fournir des environnements de développement, de test ou de production dans lesquels les équipes de développement logiciel peuvent déployer leurs solutions. L’environnement dispose d’une topologie de réseau prédéfinie et d’éléments que les équipes de développement logiciel ne peuvent pas modifier, par exemple des règles régissant l’accès à l’Internet public et l’inspection des paquets. Vous pouvez également disposer de rôles propres à l’entreprise pour ces environnements avec des droits d’accès distincts pour l’environnement.
 
 #### Fonctionnalités hébergées dans le cloud
 
-Vous pouvez utiliser des modèles pour prendre en charge des fonctionnalités hébergées dans le cloud, notamment des packages logiciels individuels ou des offres composites qui sont proposés aux services internes. Exemple d’une offre composite : analyse proposée en tant que service (analyse, visualisation et autres technologies), transmise dans une configuration optimisée et connectée dans une topologie de réseau prédéfinie.
+Vous pouvez utiliser des modèles pour prendre en charge des fonctionnalités hébergées dans le cloud, notamment des packages logiciels individuels ou des offres composites qui sont proposés aux services internes. Exemple d’une offre composite : analyse proposée en tant que service (analyse, visualisation et autres technologies), transmise dans une configuration optimisée et connectée dans une topologie de réseau prédéfinie.
 
 Les fonctionnalités hébergées dans le cloud sont influencées par les considérations relatives à la sécurité et aux rôles établies par l’offre de capacité de cloud sur laquelle elles sont basées, comme décrit ci-dessus. Ces fonctionnalités sont proposées telles quelles ou en tant que service administré. Pour ce dernier, des rôles avec contrainte d’accès sont requis pour permettre l’accès à l’environnement à des fins de gestion.
 
@@ -69,35 +69,35 @@ Après nous être entretenus avec de nombreux fournisseurs de services cloud, no
 
 ### Offre hébergée par un fournisseur de services cloud
 
-Si vous hébergez votre offre dans votre abonnement Azure, deux approches d’hébergement sont courantes : un déploiement distinct pour chaque client ou le déploiement d’unités d’échelle qui étayent l’infrastructure partagée utilisée pour tous les clients.
+Si vous hébergez votre offre dans votre abonnement Azure, deux approches d’hébergement sont courantes : un déploiement distinct pour chaque client ou le déploiement d’unités d’échelle qui étayent l’infrastructure partagée utilisée pour tous les clients.
 
-- **Déploiements distincts pour chaque client.** Les déploiements distincts par client nécessitent des topologies fixes de différentes configurations connues. Ils peuvent avoir différentes tailles de machine virtuelle, différents nombres de nœuds et différentes quantités de stockage associé. Le marquage des déploiements est utilisé pour la facturation des cumuls de chaque client. Un contrôle RBAC peut être activé pour permettre aux clients d’accéder aux aspects de leur environnement cloud.
+- **Déploiements distincts pour chaque client.** Les déploiements distincts par client nécessitent des topologies fixes de différentes configurations connues. Ils peuvent avoir différentes tailles de machine virtuelle, différents nombres de nœuds et différentes quantités de stockage associé. Le marquage des déploiements est utilisé pour la facturation des cumuls de chaque client. Un contrôle RBAC peut être activé pour permettre aux clients d’accéder aux aspects de leur environnement cloud.
 - **Unités d’échelle dans des environnements partagés mutualisés.** Un modèle peut représenter une unité d’échelle pour des environnements mutualisés. Dans ce cas, une même infrastructure est utilisée pour prendre en charge tous les clients. Les déploiements représentent un groupe de ressources qui offrent un niveau de capacité pour l’offre hébergée, comme le nombre d’utilisateurs et le nombre de transactions. Ces unités d’échelle sont augmentées ou réduites en fonction des besoins de la demande.
 
 ### Offre des fournisseurs de services cloud injectée dans l’abonnement client
 
 Il se peut que vous souhaitiez déployer vos logiciels dans les abonnements possédés par les clients finaux. Vous pouvez utiliser des modèles pour effectuer des déploiements distincts dans le compte Azure d’un client.
 
-Ces déploiements utilisent le contrôle RBAC afin que vous puissiez mettre à jour et gérer le déploiement dans le compte du client.
+Ces déploiements utilisent le contrôle RBAC afin que vous puissiez mettre à jour et gérer le déploiement dans le compte du client.
 
 ### Azure Marketplace
 
-Si vous souhaitez publier et vendre vos offres via un Marketplace, tel qu’Azure Marketplace, vous pouvez développer des modèles pour fournir des types distincts de déploiement qui seront exécutés dans le compte Azure d’un client. Les déploiements distincts sont décrits en général d’après leur taille (petite, moyenne, grande), le type de produit/public (communauté, développeur, entreprise) ou le type de fonctionnalité (de base, haute disponibilité). Dans certains cas, ces types vous permettent de spécifier certains attributs du déploiement, tels que le type de machine virtuelle ou le nombre de disques.
+Si vous souhaitez publier et vendre vos offres via un Marketplace, tel qu’Azure Marketplace, vous pouvez développer des modèles pour fournir des types distincts de déploiement qui seront exécutés dans le compte Azure d’un client. Les déploiements distincts sont décrits en général d’après leur taille (petite, moyenne, grande), le type de produit/public (communauté, développeur, entreprise) ou le type de fonctionnalité (de base, haute disponibilité). Dans certains cas, ces types vous permettent de spécifier certains attributs du déploiement, tels que le type de machine virtuelle ou le nombre de disques.
 
-## Projets OSS
+## Projets OSS
 
-Dans les projets open source, les modèles Resource Manager permettent à une communauté de déployer rapidement une solution à l’aide des pratiques éprouvées. Vous pouvez stocker des modèles dans un référentiel GitHub afin que la communauté puisse les réviser au fil du temps. Les utilisateurs finaux peuvent ensuite déployer ces modèles dans leur propre abonnement Azure.
+Dans les projets open source, les modèles Resource Manager permettent à une communauté de déployer rapidement une solution à l’aide des pratiques éprouvées. Vous pouvez stocker des modèles dans un référentiel GitHub afin que la communauté puisse les réviser au fil du temps. Les utilisateurs finaux peuvent ensuite déployer ces modèles dans leur propre abonnement Azure.
 
 Les sections suivantes identifient les éléments à prendre en compte avant de concevoir votre solution.
 
 ## Identification des éléments externes et internes d’une machine virtuelle
 
-Lorsque vous concevez votre modèle, il est utile d’examiner les exigences en termes d’éléments externes et internes des machines virtuelles :
+Lorsque vous concevez votre modèle, il est utile d’examiner les exigences en termes d’éléments externes et internes des machines virtuelles :
 
 - Les éléments extérieurs correspondent aux machines virtuelles et aux autres ressources de votre déploiement, par exemple la topologie de réseau, le marquage, les références aux certificats/secrets et le contrôle d’accès basé sur les rôles. Toutes ces ressources font partie de votre modèle.
 - Les éléments intérieurs correspondent aux logiciels installés et à la configuration d’état souhaité globale. Les autres mécanismes, tels que les extensions de machine virtuelle ou les scripts sont utilisés en tout ou partie. Ces mécanismes peuvent être identifiés et exécutés par le modèle, mais ils n’en font pas partie.
 
-Exemples courants des activités à faire « en interne » :
+Exemples courants des activités à faire « en interne » :
 
 - Installer ou supprimer des fonctionnalités et des rôles de serveur
 - Installer et configurer des logiciels au niveau du nœud ou du cluster
@@ -113,15 +113,15 @@ Exemples courants des activités à faire « en interne » :
 
 ### Configuration d’état souhaité (DSC)
 
-Réfléchissez à l’état interne de vos machines virtuelles au-delà du déploiement ; vous voulez vous assurer que ce déploiement ne « dérive » pas de la configuration que vous avez définie et archivée dans le contrôle de code source. Ce faisant, vous êtes assuré que vos développeurs ou que votre personnel des opérations n’apportent pas manuellement de modifications ad hoc à un environnement, qui ne sont pas approuvées, testées ou enregistrées dans le contrôle de code source. Cela est important, car les modifications manuelles ne figurent pas dans le contrôle de code source ; elles ne font pas non plus partie du déploiement standard et ont un impact sur les futurs déploiements automatisés du logiciel.
+Réfléchissez à l’état interne de vos machines virtuelles au-delà du déploiement ; vous voulez vous assurer que ce déploiement ne « dérive » pas de la configuration que vous avez définie et archivée dans le contrôle de code source. Ce faisant, vous êtes assuré que vos développeurs ou que votre personnel des opérations n’apportent pas manuellement de modifications ad hoc à un environnement, qui ne sont pas approuvées, testées ou enregistrées dans le contrôle de code source. Cela est important, car les modifications manuelles ne figurent pas dans le contrôle de code source ; elles ne font pas non plus partie du déploiement standard et ont un impact sur les futurs déploiements automatisés du logiciel.
 
 Outre pour vos employés internes, la configuration d’état souhaité est également importante en matière de sécurité. Les pirates informatiques essaient régulièrement de compromettre et d’exploiter les systèmes logiciels. En cas de succès, il est courant d’installer des fichiers et de modifier l’état d’un système compromis. À l’aide de la configuration d’état souhaité, vous pouvez identifier des deltas entre l’état souhaité et l’état réel, et restaurer une configuration connue.
 
-Il existe des extensions de ressource pour les mécanismes les plus populaires de DSC : DSC PowerShell, Chef et Puppet. Chacun d’entre eux peut déployer l’état initial de votre machine virtuelle et peut également être utilisé pour vérifier que l’état souhaité est conservé.
+Il existe des extensions de ressource pour les mécanismes les plus populaires de DSC : DSC PowerShell, Chef et Puppet. Chacun d’entre eux peut déployer l’état initial de votre machine virtuelle et peut également être utilisé pour vérifier que l’état souhaité est conservé.
 
 ## Étendues courantes de modèle
 
-Nous avons vu que trois étendues clés de modèle de solution émergent. Ces trois étendues (de capacité, de fonctionnalité et de solution de bout en bout) sont décrites plus en détail ci-dessous.
+Nous avons vu que trois étendues clés de modèle de solution émergent. Ces trois étendues (de capacité, de fonctionnalité et de solution de bout en bout) sont décrites plus en détail ci-dessous.
 
 ### Étendue de capacité
 
@@ -129,7 +129,7 @@ Une étendue de capacité fournit un ensemble de ressources dans une topologie s
 
 ### Étendue de fonctionnalité
 
-Une étendue de fonctionnalité est axée sur le déploiement et la configuration d’une topologie pour une technologie donnée. Les scénarios courants incluent les technologies SQL Server, Cassandra, Hadoop, etc.
+Une étendue de fonctionnalité est axée sur le déploiement et la configuration d’une topologie pour une technologie donnée. Les scénarios courants incluent les technologies SQL Server, Cassandra, Hadoop, etc.
 
 ### Étendue de solution de bout en bout
 
@@ -145,15 +145,15 @@ Initialement, vous pouvez penser qu’un modèle doit donner aux clients la flex
 
 De prime abord, les configurations ouvertes semblent idéales. Elles vous permettent de sélectionner un type de machine virtuelle et de fournir un nombre arbitraire de nœuds et de disques attachés pour ces nœuds, et ce, en tant que paramètres pour un modèle. Néanmoins, lorsque vous examinez attentivement et considérez les modèles qui vont déployer plusieurs machines virtuelles de tailles différentes, d’autres considérations apparaissent et rendent ce choix moins approprié dans de nombreux scénarios.
 
-Dans l’article intitulé [Tailles de machines virtuelles et services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) figurant sur le site web Azure, les différents types de machines virtuelles et les tailles disponibles sont identifiés, ainsi que le nombre de disques (2, 4, 8, 16 ou 32) pouvant être attachés. Chaque disque attaché fournit 500 E/S par seconde, et plusieurs disques peuvent être regroupés pour obtenir un multiplicateur de ce nombre d’E/S par seconde. Par exemple, 16 disques peuvent être regroupés pour fournir 8 000 E/S par seconde. Le regroupement est effectué avec la configuration dans le système d’exploitation, à l’aide des espaces de stockage Microsoft Windows ou des disques RAID (Redundant Array of Inexpensive Disk) dans Linux.
+Dans l’article intitulé [Tailles de machines virtuelles et services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) figurant sur le site web Azure, les différents types de machines virtuelles et les tailles disponibles sont identifiés, ainsi que le nombre de disques (2, 4, 8, 16 ou 32) pouvant être attachés. Chaque disque attaché fournit 500 E/S par seconde, et plusieurs disques peuvent être regroupés pour obtenir un multiplicateur de ce nombre d’E/S par seconde. Par exemple, 16 disques peuvent être regroupés pour fournir 8 000 E/S par seconde. Le regroupement est effectué avec la configuration dans le système d’exploitation, à l’aide des espaces de stockage Microsoft Windows ou des disques RAID (Redundant Array of Inexpensive Disk) dans Linux.
 
 Une configuration ouverte permet de sélectionner un nombre d’instances de machine virtuelle, un nombre de différents types de machine virtuelle et les tailles de ces instances, un nombre de disques qui peut varier en fonction du type de machine virtuelle et un ou plusieurs scripts pour configurer le contenu de la machine virtuelle.
 
 Il est courant qu’un déploiement comprenne plusieurs types de nœud, tels que les nœuds principaux et de données. Cette flexibilité est donc souvent proposée pour tous les types de nœud.
 
-Lorsque vous commencez à déployer des clusters de toutes tailles, vous en utilisez des multiples. Si vous déployez un cluster Hadoop, par exemple, comprenant 8 nœuds principaux et 200 nœuds de données, puis regroupez 4 disques attachés sur chaque nœud principal et 16 disques attachés par nœud de données, vous disposez de 208 machines virtuelles et de 3 232 disques à gérer.
+Lorsque vous commencez à déployer des clusters de toutes tailles, vous en utilisez des multiples. Si vous déployez un cluster Hadoop, par exemple, comprenant 8 nœuds principaux et 200 nœuds de données, puis regroupez 4 disques attachés sur chaque nœud principal et 16 disques attachés par nœud de données, vous disposez de 208 machines virtuelles et de 3 232 disques à gérer.
 
-Un compte de stockage limite les demandes supérieures à sa limite identifiée de 20 000 transactions par seconde. Vous devez donc examiner le partitionnement de comptes de stockage et effectuer des calculs pour déterminer le nombre approprié de comptes de stockage pour s’adapter à cette topologie. Étant donné la multitude des combinaisons prises en charge par l’approche ouverte, des calculs dynamiques sont requis pour déterminer le partitionnement approprié. Actuellement, le langage du modèle Azure Resource Manager ne fournit pas de fonctions mathématiques. Vous devez donc effectuer ces calculs dans le code, en générant un modèle unique, codé en dur avec les détails appropriés.
+Un compte de stockage limite les demandes supérieures à sa limite identifiée de 20 000 transactions par seconde. Vous devez donc examiner le partitionnement de comptes de stockage et effectuer des calculs pour déterminer le nombre approprié de comptes de stockage pour s’adapter à cette topologie. Étant donné la multitude des combinaisons prises en charge par l’approche ouverte, des calculs dynamiques sont requis pour déterminer le partitionnement approprié. Actuellement, le langage du modèle Azure Resource Manager ne fournit pas de fonctions mathématiques. Vous devez donc effectuer ces calculs dans le code, en générant un modèle unique, codé en dur avec les détails appropriés.
 
 Dans les scénarios d’informatique d’entreprise ou d’intégrateur de système, une personne doit mettre à jour les modèles et assurer le support des topologies déployées pour une ou plusieurs entreprises. Cette surcharge supplémentaire, à savoir différentes configurations et différents modèles pour chaque client, est loin d’être souhaitable.
 
@@ -163,21 +163,21 @@ En outre, vous ne pouvez pas créer d’abonnements via un appel d’API, mais d
 
 Compte tenu de tous ces facteurs, une configuration réellement ouverte est moins intéressante que de prime abord.
 
-### Configurations connues : l’approche des tailles standard
+### Configurations connues : l’approche des tailles standard
 
 Au lieu de proposer un modèle qui fournit une flexibilité totale et des variations innombrables, dans notre expérience, un modèle courant consiste à permettre de sélectionner des configurations connues, c’est-à-dire des tailles standard (bac à sable, petite, moyenne et grande). Les autres exemples de taille standard sont des offres de produits, telles que l’édition Community ou Enterprise. Dans d’autres cas, il peut s’agir de configurations d’une technologie propres à une charge de travail, par exemple MapReduce ou sans SQL.
 
-Nombre d’entreprises informatiques, de fournisseurs OSS et d’intégrateurs de systèmes proposent leurs offres aujourd’hui de cette façon dans des environnements locaux, virtualisés (entreprises) ou en tant qu’offres SaaS (fournisseurs de services cloud et de systèmes d’exploitation).
+Nombre d’entreprises informatiques, de fournisseurs OSS et d’intégrateurs de systèmes proposent leurs offres aujourd’hui de cette façon dans des environnements locaux, virtualisés (entreprises) ou en tant qu’offres SaaS (fournisseurs de services cloud et de systèmes d’exploitation).
 
 Cette approche fournit des configurations correctes, connues de différentes tailles qui sont préconfigurées pour les clients. Sans configurations connues, les clients finaux doivent eux-mêmes déterminer la taille de cluster, tenir compte des contraintes des ressources de plateforme et effectuer des opérations mathématiques pour identifier le partitionnement résultant des comptes de stockage et des autres ressources (en raison des contraintes de taille de cluster et de ressource). Les configurations connues permettent aux clients de sélectionner facilement la bonne taille, c’est-à-dire un déploiement donné. Outre l’amélioration de l’expérience du client qu’il procure, un petit nombre de configurations connues est plus facile à prendre en charge et peut vous aider à fournir un haut niveau de densité.
 
-Une approche de configuration connue axée sur des tailles standard peut également proposer un nombre de nœuds variable par taille. Par exemple, une petite taille peut comprendre 3 à 10 nœuds. La taille standard est conçue pour prendre en charge jusqu’à 10 nœuds et permettre au client d’effectuer des sélections libres allant jusqu’à la taille maximale identifiée.
+Une approche de configuration connue axée sur des tailles standard peut également proposer un nombre de nœuds variable par taille. Par exemple, une petite taille peut comprendre 3 à 10 nœuds. La taille standard est conçue pour prendre en charge jusqu’à 10 nœuds et permettre au client d’effectuer des sélections libres allant jusqu’à la taille maximale identifiée.
 
 Une taille standard basée sur le type de charge de travail peut être plus libre en termes de nombre de nœuds pouvant être déployés, mais aura une taille de nœud distincte de la charge de travail et une configuration des logiciels sur le nœud.
 
 Les tailles standard basées sur les offres de produits, telles que Community ou Enterprise, peuvent avoir des types de ressource et un nombre maximal de nœuds distincts pouvant être déployés. Cela tient généralement aux licences ou à la disponibilité des fonctionnalités entre les différentes offres.
 
-Vous pouvez également satisfaire des clients avec des variantes uniques utilisant des modèles basés sur JSON. Lorsque vous faites face à des valeurs hors-norme, vous pouvez incorporer la planification et les considérations appropriées pour le développement, le support et l’évaluation des coûts.
+Vous pouvez également satisfaire des clients avec des variantes uniques utilisant des modèles basés sur JSON. Lorsque vous faites face à des valeurs hors-norme, vous pouvez incorporer la planification et les considérations appropriées pour le développement, le support et l’évaluation des coûts.
 
 En fonction des scénarios de consommation de modèle par les clients, des besoins identifiés au début de ce document et de notre expérience pratique de création de nombreux modèles, nous avons identifié un modèle de décomposition de modèle.
 
@@ -191,17 +191,17 @@ Dans cette approche, un modèle principal reçoit des valeurs de paramètre d’
 
 **Les paramètres sont transmis à un modèle principal, puis aux modèles liés**
 
-Les sections suivantes sont consacrées aux types de modèle et de script en lesquels un modèle est décomposé. Elles examinent également les approches permettant de transférer les informations d’état entre les modèles. Chaque modèle ainsi que les types de script dans l’image sont décrits avec des exemples. Pour obtenir un exemple contextuel, consultez la rubrique « Synthèse générale : Exemple d’implémentation » plus loin dans ce document.
+Les sections suivantes sont consacrées aux types de modèle et de script en lesquels un modèle est décomposé. Elles examinent également les approches permettant de transférer les informations d’état entre les modèles. Chaque modèle ainsi que les types de script dans l’image sont décrits avec des exemples. Pour obtenir un exemple contextuel, consultez la rubrique « Synthèse générale : Exemple d’implémentation » plus loin dans ce document.
 
 ### Métadonnées de modèle
 
-Les métadonnées de modèle (fichier metadata.json) contiennent des paires clé/valeur, qui décrivent un modèle dans JSON, lequel peut être lu par les utilisateurs et les systèmes logiciels.
+Les métadonnées de modèle (fichier metadata.json) contiennent des paires clé/valeur, qui décrivent un modèle dans JSON, lequel peut être lu par les utilisateurs et les systèmes logiciels.
 
 ![Métadonnées de modèle](./media/best-practices-resource-manager-design-templates/template-metadata.png)
 
 **Les métadonnées de modèle sont décrites dans le fichier metadata.json**
 
-Les agents de logiciel peuvent récupérer le fichier metadata.json et publier les informations et un lien vers le modèle dans une page ou un répertoire web. Les éléments incluent *itemDisplayName*, *description*, *summary*, *githubUsername* et *dateUpdated*.
+Les agents de logiciel peuvent récupérer le fichier metadata.json et publier les informations et un lien vers le modèle dans une page ou un répertoire web. Les éléments incluent *itemDisplayName*, *description*, *summary*, *githubUsername* et *dateUpdated*.
 
 Un exemple de fichier est présenté ci-dessous dans son intégralité.
 
@@ -223,7 +223,7 @@ Le modèle principal (fichier azuredeploy.json) est appelé par un utilisateur f
 
 Le rôle de ce modèle est de recevoir les paramètres d’un utilisateur, d’utiliser ces informations pour renseigner un ensemble de variables objets complexes, puis d’exécuter l’ensemble de modèles associés approprié à l’aide de la liaison de modèles.
 
-Un paramètre fourni est un type de configuration connue également désigné sous le nom de paramètre de taille standard en raison de ses valeurs normalisées : petit, moyen ou grand. Dans la pratique, vous pouvez utiliser ce paramètre de plusieurs façons. Pour plus d’informations, consultez la rubrique « Modèles de ressource de configuration connue », plus loin dans ce document.
+Un paramètre fourni est un type de configuration connue également désigné sous le nom de paramètre de taille standard en raison de ses valeurs normalisées : petit, moyen ou grand. Dans la pratique, vous pouvez utiliser ce paramètre de plusieurs façons. Pour plus d’informations, consultez la rubrique « Modèles de ressource de configuration connue », plus loin dans ce document.
 
 Certaines ressources sont déployées indépendamment de la configuration connue spécifiée par un paramètre utilisateur. Ces ressources sont approvisionnées à l’aide d’un modèle de ressource partagé unique et sont partagées par les autres modèles, le modèle de ressource partagé étant exécuté en premier.
 
@@ -249,7 +249,7 @@ Le modèle de ressource facultatif contient des ressources qui sont déployées 
 
 Par exemple, vous pouvez utiliser un modèle de ressource facultatif pour configurer une jumpbox, qui permet d’accéder indirectement à un environnement déployé à partir de l’Internet public. Vous devez utiliser un paramètre ou une variable pour déterminer si la jumpbox doit être activée, et pour identifier la fonction *concat* permettant de générer le nom cible du modèle, par exemple *jumpbox\_enabled.json*. La liaison de modèles doit utiliser la variable obtenue pour installer la jumpbox.
 
-Vous pouvez lier le modèle de ressource facultatif à partir de plusieurs emplacements :
+Vous pouvez lier le modèle de ressource facultatif à partir de plusieurs emplacements :
 
 -	S’il est applicable à tous les déploiements, créez un lien contrôlé par les paramètres à partir du modèle de ressource partagé.
 -	S’il est applicable à certaines configurations connues, par exemple, uniquement sur les déploiements à grande échelle, créez un lien contrôlé par les paramètres ou contrôlé par les variables à partir du modèle de configuration connue.
@@ -266,10 +266,10 @@ Dans le modèle principal, un paramètre peut être exposé pour permettre à l�
 
 L’approche des tailles standard est couramment utilisée, mais les paramètres peuvent représenter n’importe quel ensemble de configurations connues. Par exemple, vous pouvez spécifier un ensemble d’environnements pour une application d’entreprise comme Développement, Test et Production. Vous pouvez également l’utiliser pour un service cloud afin de représenter différentes unités d’échelle, versions de produit ou configurations de produit comme Community, Developer ou Enterprise.
 
-Comme pour le modèle de ressource partagé, les variables sont transmises au modèle de configuration connue par :
+Comme pour le modèle de ressource partagé, les variables sont transmises au modèle de configuration connue par :
 
--	Un utilisateur final : autrement dit, les paramètres envoyés au modèle principal.
--	Une entreprise : autrement dit, les variables du modèle principal qui représentent les exigences ou les stratégies internes.
+-	Un utilisateur final : autrement dit, les paramètres envoyés au modèle principal.
+-	Une entreprise : autrement dit, les variables du modèle principal qui représentent les exigences ou les stratégies internes.
 
 ### Modèle de ressource de membre
 
@@ -281,11 +281,11 @@ Dans une configuration connue, un ou plusieurs types de nœud de membre sont sou
 
 Chaque type de nœud peut avoir différentes tailles de machines virtuelles, différents nombres de disques attachés, des scripts pour installer et configurer les nœuds, des configurations de port pour les machines virtuelles, plusieurs instances, etc. Ainsi, chaque type de nœud obtient son propre modèle de ressource de membre qui contient les détails du déploiement et de la configuration d’une infrastructure, ainsi que les détails relatifs à l’exécution de scripts pour déployer et configurer des logiciels sur la machine virtuelle.
 
-En général, pour les machines virtuelles, deux types de script sont utilisés : les scripts réutilisables à grande échelle et les scripts personnalisés.
+En général, pour les machines virtuelles, deux types de script sont utilisés : les scripts réutilisables à grande échelle et les scripts personnalisés.
 
 ### Scripts réutilisables à grande échelle
 
-Les scripts réutilisables à grande échelle peuvent être utilisés dans plusieurs types de modèle. L’un des meilleurs exemples de ces scripts réutilisables à grande échelle configure RAID sur Linux afin de regrouper les disques pour augmenter le nombre d’E/S par seconde. Quels que soient les logiciels installés sur la machine virtuelle, ce script permet de réutiliser les pratiques éprouvées pour les scénarios courants.
+Les scripts réutilisables à grande échelle peuvent être utilisés dans plusieurs types de modèle. L’un des meilleurs exemples de ces scripts réutilisables à grande échelle configure RAID sur Linux afin de regrouper les disques pour augmenter le nombre d’E/S par seconde. Quels que soient les logiciels installés sur la machine virtuelle, ce script permet de réutiliser les pratiques éprouvées pour les scénarios courants.
 
 ![Scripts réutilisables](./media/best-practices-resource-manager-design-templates/reusable-scripts.png)
 
@@ -299,11 +299,11 @@ Les modèles appellent généralement un ou plusieurs scripts qui installent et 
 
 **Les modèles de ressource de membre peuvent appeler des scripts pour un objectif spécifique, par exemple la configuration d’une machine virtuelle**
 
-## Exemple de modèle de solution avec étendue de capacité : Redis
+## Exemple de modèle de solution avec étendue de capacité : Redis
 
 Pour illustrer le fonctionnement d’une implémentation, examinons un exemple pratique de création d’un modèle qui facilite le déploiement et la configuration de Redis dans des tailles standard.
 
-Pour le déploiement, il existe un ensemble de ressources partagées (réseau virtuel, compte de stockage, groupes à haute disponibilité) et une ressource facultative (jumpbox). Il existe plusieurs configurations connues représentées par des tailles standard (petite, moyenne, grande), mais chacune dispose d’un type de nœud unique. Il existe également deux scripts propres aux besoins (installation et configuration).
+Pour le déploiement, il existe un ensemble de ressources partagées (réseau virtuel, compte de stockage, groupes à haute disponibilité) et une ressource facultative (jumpbox). Il existe plusieurs configurations connues représentées par des tailles standard (petite, moyenne, grande), mais chacune dispose d’un type de nœud unique. Il existe également deux scripts propres aux besoins (installation et configuration).
 
 ### Création de fichiers de modèle
 
@@ -315,7 +315,7 @@ Vous allez créer un modèle de ressource facultatif pour permettre le déploiem
 
 Comme Redis utilise simplement un type de nœud unique, vous allez créer un modèle de ressource de membre unique, nommé node-resources.json.
 
-Avec Redis, vous souhaitez installer chaque nœud individuel, puis, une fois tous les nœuds installés, vous souhaitez configurer le cluster. Vous disposez de scripts pour répondre à ses besoins : redis-cluster-install.sh et redis-cluster-setup.sh.
+Avec Redis, vous souhaitez installer chaque nœud individuel, puis, une fois tous les nœuds installés, vous souhaitez configurer le cluster. Vous disposez de scripts pour répondre à ses besoins : redis-cluster-install.sh et redis-cluster-setup.sh.
 
 ### Liaison des modèles
 
@@ -333,11 +333,11 @@ La topologie doit ressembler à cette illustration.
 
 ### Configuration d’un état
 
-Pour les nœuds du cluster, la configuration de l’état s’effectue en deux étapes, représentées par les scripts propres aux besoins : « redis-cluster install.sh » effectue l’installation de Redis et « redis-cluster-setup.sh » configure le cluster.
+Pour les nœuds du cluster, la configuration de l’état s’effectue en deux étapes, représentées par les scripts propres aux besoins : « redis-cluster install.sh » effectue l’installation de Redis et « redis-cluster-setup.sh » configure le cluster.
 
 ### Prise en charge des déploiements de taille différente
 
-Au sein des variables, le modèle de taille standard spécifie le nombre de nœuds de chaque type à déployer pour la taille spécifiée (*large*). Il déploie ensuite ce nombre d’instances de machine virtuelle à l’aide de boucles de ressources, en fournissant des noms uniques aux ressources en ajoutant un nom de nœud avec un numéro de séquence numérique à partir de *copyIndex()*. Il effectue cette opération pour les deux machines virtuelles de la zone sensible, comme défini dans le modèle de nom standard.
+Au sein des variables, le modèle de taille standard spécifie le nombre de nœuds de chaque type à déployer pour la taille spécifiée (*large*). Il déploie ensuite ce nombre d’instances de machine virtuelle à l’aide de boucles de ressources, en fournissant des noms uniques aux ressources en ajoutant un nom de nœud avec un numéro de séquence numérique à partir de *copyIndex()*. Il effectue cette opération pour les deux machines virtuelles de la zone sensible, comme défini dans le modèle de nom standard.
 
 ## Modèles de décomposition et avec étendue de solution de bout en bout
 
@@ -379,8 +379,8 @@ Pour publier votre modèle dans le Marketplace, vous devez établir simplement d
 
 ## Étapes suivantes
 
-- Pour voir des exemples contextuels de l’implémentation des principes de conception présentés dans cette rubrique, consultez [Exemples contextuels des meilleures pratiques d’implémentation des modèles](best-practices-resource-manager-examples.md).
+- Pour voir des exemples contextuels de l’implémentation des principes de conception présentés dans cette rubrique, consultez [Exemples contextuels des meilleures pratiques d’implémentation des modèles](best-practices-resource-manager-examples.md).
 - Pour obtenir des recommandations sur la façon de gérer la sécurité dans Azure Resource Manager, consultez [Considérations de sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
-- Pour en savoir plus sur le partage d’état vers et depuis des modèles, consultez [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
+- Pour en savoir plus sur le partage d’état dans les modèles, consultez [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

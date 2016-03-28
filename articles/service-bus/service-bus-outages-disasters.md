@@ -91,7 +91,7 @@ Si l'application peut tolérer qu'une entité Service Bus ne soit pas disponible
 
 Une file d'attente durable côté client conserve l'ordre des messages et protège l'application cliente des exceptions au cas où l'entité Service Bus n'est pas disponible. Elle peut être utilisée avec des transactions simples et distribuées.
 
-> [AZURE.NOTE] Cet exemple fonctionne bien dans les scénarios IaaS où le disque local ou le disque pour MSMQ est mappé à un compte de stockage et où les messages sont stockés de façon fiable avec MSMQ. Il n’est pas approprié pour les scénarios PaaS tels que les services cloud et les applications web.
+> [AZURE.NOTE] Cet exemple fonctionne bien dans les scénarios IaaS (Infrastructure as a Service) où le disque local ou le disque pour MSMQ est mappé à un compte de stockage et où les messages sont stockés de façon fiable avec MSMQ. Il n’est pas approprié pour les scénarios PaaS (Platform as a Service) tels que les services cloud et les applications web.
 
 ## Étapes suivantes
 
@@ -111,4 +111,4 @@ Pour plus d'informations sur la récupération d'urgence, consultez les articles
   [Continuité de l’activité des bases de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
   [Guide technique Azure Business Continuity]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

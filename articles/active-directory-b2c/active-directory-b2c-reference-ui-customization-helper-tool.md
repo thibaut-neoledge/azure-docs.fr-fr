@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d’Azure Active Directory B2C : un outil d’assistance utilisé pour illustrer la fonctionnalité de personnalisation de l’interface utilisateur de la page
@@ -79,7 +79,7 @@ Vous pouvez télécharger l’[outil d’assistance Azure Blob Storage et les ex
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Ce dépôt contient un répertoire `sample_templates\contoso` qui regroupe un exemple de contenu HTML et CSS, et des images. Pour que ces modèles puissent faire référence à votre propre compte Azure Blob Storage, vous devez modifier les fichiers HTML. Ouvrez `Index.htnml` et `EmailValidation.html`, puis remplacez toutes les instances de `https://localhost` par l’URL de votre propre conteneur que vous avez notée dans les étapes précédentes. Vous devez utiliser le chemin absolu des fichiers HTML car, dans ce cas, le code HTML sera fourni par Azure AD, sous le domaine `https://login.microsoftonline.com`.
+Ce référentiel contient un répertoire `sample_templates\contoso` qui regroupe un exemple de contenu HTML et CSS, et des images. Pour que ces modèles puissent faire référence à votre propre compte Azure Blob Storage, vous devez modifier les fichiers HTML. Ouvrez `Index.htnml` et `EmailValidation.html`, puis remplacez toutes les instances de `https://localhost` par l’URL de votre propre conteneur que vous avez notée dans les étapes précédentes. Vous devez utiliser le chemin absolu des fichiers HTML car, dans ce cas, le code HTML sera fourni par Azure AD, sous le domaine `https://login.microsoftonline.com`.
 
 ### Chargement des fichiers exemples
 
@@ -91,4 +91,4 @@ Maintenant que vous avez chargé l'exemple de contenu sur votre propre compte de
 
 Vous pouvez à présent utiliser le bouton **Exécuter maintenant** ou votre propre application pour réexécuter votre stratégie. Le résultat devrait être quasiment identique puisque vous avez utilisé le même exemple de contenu HTML et CSS dans les deux cas. Cependant, vos stratégies référencent maintenant votre propre instance d’Azure Blob Storage, et vous êtes libre de modifier et de recharger les fichiers. Pour plus d’informations sur la personnalisation du contenu HTML et CSS, reportez-vous au [principal article sur la personnalisation de l’interface utilisateur](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

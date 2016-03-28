@@ -3,8 +3,8 @@
    description="Décrit la procédure permettant de définir une ressource comme dépendante d’une autre ressource au cours du déploiement."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="mmercuri"
-   manager="wpickett"
+   authors="tfitzmac"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/07/2015"
-   ms.author="mmercuri"/>
+   ms.author="tomfitz"/>
 
 # Définition de dépendances dans les modèles Azure Resource Manager
 
@@ -53,7 +53,7 @@ Chaque ressource parente accepte uniquement certains types de ressources comme r
 
 ## fonction de référence
 
-La fonction de référence permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre. La propriété représentée par **propertyPath** ci-dessous est facultative ; si elle n’est pas spécifiée, la référence est à la ressource.
+La fonction de référence permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre. La propriété représentée par **propertyPath** ci-dessous est facultative ; si elle n’est pas spécifiée, la référence est à la ressource.
 
     reference('resourceName').propertyPath
 
@@ -66,4 +66,4 @@ Pour plus d’informations, consultez la [fonction de référence](../resource-g
 - Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md). 
 - Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0316_2016-->

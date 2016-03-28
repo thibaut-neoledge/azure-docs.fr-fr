@@ -227,7 +227,7 @@ type | Le type de propriété doit être défini sur : **OnPremisesOracle** | Ou
 connectionString | Spécifier les informations requises pour la connexion à l’instance de base de données Oracle pour la propriété connectionString. | Oui 
 gatewayName | Nom de la passerelle qui sera utilisée pour se connecter au serveur Oracle local | Oui
 
-Pour plus d’informations sur la définition des informations d’identification pour une source de données Oracle locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
+Pour plus d’informations sur la définition des informations d’identification pour une source de données Oracle locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)
 ## Propriétés de type du jeu de données Oracle
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (Oracle, Azure Blob, Azure Table, etc.).
@@ -312,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -208,19 +208,19 @@ AzureSearch\_SkipContent | "true" | Indique à l’indexeur d’objets blob de s
 <a name="IndexerParametersConfigurationControl"></a>
 ## Utilisation de paramètres d’indexeur pour contrôler l’extraction des documents
 
-Si vous souhaitez ignorer l’extraction de contenu pour tous les objets blob, utilisez un objet configuration d’indexeur ; ainsi, vous n’avez pas besoin d’ajouter de métadonnées personnalisées à chaque objet blob. Pour ce faire, définissez la propriété de configuration `SkipContent` sur `true` dans l’objet `parameters` :
+Si vous devez extraire des métadonnées, mais ignorer l’extraction de contenu pour tous les objets blob, vous pouvez demander ce comportement à l’aide de la configuration d’indexeur, au lieu d’avoir à ajouter des métadonnées `AzureSearch_SkipContent` à chaque objet blob. Pour ce faire, définissez la propriété de configuration `skipContent` sur `true` dans l’objet `parameters` :
 
- 	PUT https://[service name].search.windows.net/indexers/<your indexer name>?api-version=2015-02-28-Preview
+ 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
 	api-key: [admin key]
 
 	{
 	  ... other parts of indexer definition
-	  "parameters" : { "configuration" : { "SkipContent" : true } }
+	  "parameters" : { "configuration" : { "skipContent" : true } }
 	}
 
 ## Aidez-nous à améliorer Azure Search
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

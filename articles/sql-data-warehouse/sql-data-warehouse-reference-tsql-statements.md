@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/08/2016"
    ms.author="barbkess;sonyama"/>
 
 #Rubriques Transact-SQL
@@ -115,16 +115,16 @@
 
 
 ## Étapes suivantes
-Pour accéder à d’autres exemples TSQL, consultez la [Vue d’ensemble sur le développement SQL Data Warehouse][].
+Pour accéder à d’autres exemples TSQL, consultez [Rubriques de référence pour SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble sur le développement SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
+[Rubriques de référence pour SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

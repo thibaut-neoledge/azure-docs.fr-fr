@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Comment utiliser la bibliothèque cliente iOS pour Azure Mobile Services
@@ -27,7 +27,7 @@
 
 Ce guide indique le déroulement de scénarios courants dans le cadre de l'utilisation du [Kit de développement logiciel (SDK) iOS] Azure Mobile Services. Si vous débutez avec Mobile Services, vous devez d’abord suivre le didacticiel [Démarrage rapide de Mobile Services] pour configurer votre compte, créer une table et créer un service mobile.
 
-> [AZURE.NOTE]Ce guide utilise le dernier [Kit de développement logiciel (SDK) iOS Mobile Services](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Si votre projet utilise une version antérieure du Kit de développement, mettez d'abord à niveau l'infrastructure dans Xcode.
+> [AZURE.NOTE] Ce guide utilise le dernier [Kit de développement logiciel (SDK) iOS Mobile Services](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Si votre projet utilise une version antérieure du Kit de développement, mettez d'abord à niveau l'infrastructure dans Xcode.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -35,7 +35,7 @@ Ce guide indique le déroulement de scénarios courants dans le cadre de l'utili
 
 Ce guide part du principe que vous avez créé un service mobile avec une table. Pour plus d’informations, consultez la page [Création d’une table] ou réutilisez la table `TodoItem` créée dans le cadre du [Démarrage rapide de Mobile Services]. Ce guide suppose que la table a le même schéma que les tables dans ces didacticiels. Il suppose également que votre Xcode référence `WindowsAzureMobileServices.framework` et importe `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
-##<a name="create-client"></a>Procédure : Création du client Mobile Services
+##<a name="create-client"></a>Procédure : Création du client Mobile Services
 
 Pour accéder à un service mobile Azure dans votre projet, créez un objet client `MSClient`. Remplacez `AppUrl` et `AppKey` par les valeurs de tableau de bord de l'URL de service mobile et de la clé d'application, respectivement.
 
@@ -43,7 +43,7 @@ Pour accéder à un service mobile Azure dans votre projet, créez un objet clie
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" applicationKey:@"AppKey"];
 ```
 
-##<a name="table-reference"></a>Procédure : création d'une référence de table
+##<a name="table-reference"></a>Procédure : création d'une référence de table
 
 Pour accéder aux données de votre service mobile Azure, ou pour les mettre à jour, créez une référence à la table. Remplacez `TodoItem` par le nom de votre table.
 
@@ -51,7 +51,7 @@ Pour accéder aux données de votre service mobile Azure, ou pour les mettre à 
 	MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-##<a name="querying"></a>Procédure : interrogation des données
+##<a name="querying"></a>Procédure : interrogation des données
 
 Pour créer une requête de base de données, interrogez l'objet `MSTable`. La requête suivante obtient tous les éléments dans `TodoItem` et enregistre le texte de chaque élément.
 
@@ -67,7 +67,7 @@ Pour créer une requête de base de données, interrogez l'objet `MSTable`. La r
 }];
 ```
 
-##<a name="filtering"></a>Procédure : filtrage des données renvoyées
+##<a name="filtering"></a>Procédure : filtrage des données renvoyées
 
 Pour filtrer les résultats, il existe de nombreuses options.
 
@@ -88,21 +88,27 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-##<a name="query-object"></a>Procédure : utilisation de MSQuery
+##<a name="query-object"></a>Procédure : utilisation de MSQuery
 
-Pour effectuer une requête complexe (y compris le tri et la pagination), créez un objet `MSQuery`, directement ou en utilisant un prédicat :
+Pour effectuer une requête complexe (y compris le tri et la pagination), créez un objet `MSQuery`, directement ou en utilisant un prédicat :
 
 ```
     MSQuery *query = [table query];
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-`MSQuery` vous permet de contrôler plusieurs comportements de requête, y compris les suivants. Exécuter une requête `MSQuery` en appelant `readWithCompletion` sur celle-ci, comme illustré dans l'exemple suivant. * Spécifier l'ordre des résultats * Limiter les champs à retourner * Limiter le nombre d'enregistrements à retourner * Spécifier le nombre total dans la réponse * Spécifier les paramètres de chaîne de requête personnalisés dans la requête * Appliquer des fonctions supplémentaires
+`MSQuery` vous permet de contrôler plusieurs comportements de requête, y compris les suivants. Exécutez une requête `MSQuery` en appelant `readWithCompletion`, comme illustré dans l’exemple suivant.
+* Spécifier l’ordre des résultats
+* Limiter les champs à renvoyer
+* Limiter le nombre d’enregistrements à renvoyer
+* Spécifier le nombre total dans la réponse
+* Spécifier des paramètres de chaîne de requête personnalisés dans la requête
+* Appliquer des fonctions supplémentaires
 
 
-## <a name="sorting"></a>Procédure : trier des données avec MSQuery
+## <a name="sorting"></a>Procédure : trier des données avec MSQuery
 
-Pour trier les résultats, examinons un exemple. Pour trier dans l'ordre croissant sur le champ `text`, puis décroissant sur le champ `completion`, appelez `MSQuery` comme suit :
+Pour trier les résultats, examinons un exemple. Pour trier dans l'ordre croissant sur le champ `text`, puis décroissant sur le champ `completion`, appelez `MSQuery` comme suit :
 
 ```
 [query orderByAscending:@"text"];
@@ -118,9 +124,9 @@ Pour trier les résultats, examinons un exemple. Pour trier dans l'ordre croissa
 }];
 ```
 
-## <a name="paging"></a>Procédure : retour de données dans les pages avec MSQuery
+## <a name="paging"></a>Procédure : retour de données dans les pages avec MSQuery
 
-Mobile Services limite le nombre d'enregistrements qui sont renvoyés dans une réponse unique. Pour contrôler le nombre d'enregistrements affichés pour vos utilisateurs, vous devez mettre en œuvre un système de pagination. La pagination est effectuée à l'aide des trois propriétés suivantes de l'objet **MSQuery** :
+Mobile Services limite le nombre d'enregistrements qui sont renvoyés dans une réponse unique. Pour contrôler le nombre d'enregistrements affichés pour vos utilisateurs, vous devez mettre en œuvre un système de pagination. La pagination est effectuée à l'aide des trois propriétés suivantes de l'objet **MSQuery** :
 
 ```
 +	`BOOL includeTotalCount`
@@ -128,7 +134,7 @@ Mobile Services limite le nombre d'enregistrements qui sont renvoyés dans une r
 +	`NSInteger fetchOffset`
 ```
 
-Dans l'exemple suivant, une fonction simple demande 5 enregistrements au serveur et les ajoute à l'ensemble local des enregistrements précédemment chargés :
+Dans l'exemple suivant, une fonction simple demande 5 enregistrements au serveur et les ajoute à l'ensemble local des enregistrements précédemment chargés :
 
 ```
 // Create and initialize these properties
@@ -159,15 +165,15 @@ Dans l'exemple suivant, une fonction simple demande 5 enregistrements au serveu
 
 ```
 
-## <a name="selecting"></a><a name="parameters"></a>Procédure : limitation des champs et développement des paramètres de chaîne de requête avec MSQuery
+## <a name="selecting"></a><a name="parameters"></a>Procédure : limitation des champs et développement des paramètres de chaîne de requête avec MSQuery
 
-Pour limiter les champs à retourner dans une requête, spécifiez les noms des champs dans la propriété **selectFields**. Le code suivant renvoie uniquement les champs text et completed :
+Pour limiter les champs à retourner dans une requête, spécifiez les noms des champs dans la propriété **selectFields**. Le code suivant renvoie uniquement les champs text et completed :
 
 ```
 	query.selectFields = @[@"text", @"completed"];
 ```
 
-Pour inclure des paramètres de chaîne de requête supplémentaires dans la demande serveur (par exemple, si un script côté serveur personnalisé les utilise), remplissez `query.parameters` comme suit :
+Pour inclure des paramètres de chaîne de requête supplémentaires dans la demande serveur (par exemple, si un script côté serveur personnalisé les utilise), remplissez `query.parameters` comme suit :
 
 ```
 	query.parameters = @{
@@ -176,7 +182,7 @@ Pour inclure des paramètres de chaîne de requête supplémentaires dans la dem
 	};
 ```
 
-##<a name="inserting"></a>Procédure : insertion de données
+##<a name="inserting"></a>Procédure : insertion de données
 
 Pour insérer une nouvelle ligne de table, créez un `NSDictionary` et appelez `table insert`. Mobile Services génère automatiquement de nouvelles colonnes basées sur le `NSDictionary` si le [schéma dynamique] n'est pas désactivé.
 
@@ -196,9 +202,9 @@ Si `id` n'est pas fourni, le backend génère automatiquement un nouvel ID uniqu
 	}];
 ```
 
-##<a name="modifying"></a>Procédure : modification des données
+##<a name="modifying"></a>Procédure : modification des données
 
-Pour mettre à jour une ligne existante, modifiez un élément et appelez `update` :
+Pour mettre à jour une ligne existante, modifiez un élément et appelez `update` :
 
 ```
 	NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
@@ -208,7 +214,7 @@ Pour mettre à jour une ligne existante, modifiez un élément et appelez `updat
 	}];
 ```
 
-Vous pouvez également fournir l'ID de la ligne et le champ mis à jour :
+Vous pouvez également fournir l'ID de la ligne et le champ mis à jour :
 
 ```
 	[self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
@@ -218,9 +224,9 @@ Vous pouvez également fournir l'ID de la ligne et le champ mis à jour :
 
 Au minimum, l'attribut `id` doit être défini quand vous effectuez des mises à jour.
 
-##<a name="deleting"></a>Procédure : suppression de données
+##<a name="deleting"></a>Procédure : suppression de données
 
-Pour supprimer un élément, appelez `delete` avec l'élément :
+Pour supprimer un élément, appelez `delete` avec l'élément :
 
 ```
 	[self.table delete:item completion:^(id itemId, NSError *error) {
@@ -228,7 +234,7 @@ Pour supprimer un élément, appelez `delete` avec l'élément :
 	}];
 ```
 
-Vous pouvez également effectuer la suppression en fournissant un ID de ligne :
+Vous pouvez également effectuer la suppression en fournissant un ID de ligne :
 
 ```
 	[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
@@ -238,28 +244,28 @@ Vous pouvez également effectuer la suppression en fournissant un ID de ligne :
 
 Au minimum, l'attribut `id` doit être défini quand vous effectuez des suppressions.
 
-##<a name="#custom-api"></a>Procédure : appel d'une API personnalisée
+##<a name="#custom-api"></a>Procédure : appel d'une API personnalisée
 
-Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un format de corps de message autre que JSON. Pour obtenir un exemple montrant comment créer une API personnalisée dans votre service mobile, consultez [Procédure : définition d’un point de terminaison dans une API personnalisée](mobile-services-dotnet-backend-define-custom-api.md).
+Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un format de corps de message autre que JSON. Pour obtenir un exemple montrant comment créer une API personnalisée dans votre service mobile, consultez [Procédure : définition d’un point de terminaison dans une API personnalisée](mobile-services-dotnet-backend-define-custom-api.md).
 
 [AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
 
 
-##<a name="authentication"></a>Procédure : authentification des utilisateurs
+##<a name="authentication"></a>Procédure : authentification des utilisateurs
 
 Azure Mobile Services prend en charge plusieurs fournisseurs d'identité. Pour suivre un didacticiel de base, consultez [Authentification].
 
-Azure Mobile Services prend en charge deux workflows d'authentification :
+Azure Mobile Services prend en charge deux workflows d'authentification :
 
-- **Connexion gérée par le serveur** : Azure Mobile Services gère le processus de connexion pour le compte de votre application. Il affiche une page de connexion spécifique au fournisseur et s'authentifie auprès du fournisseur choisi.
+- **Connexion gérée par le serveur** : Azure Mobile Services gère le processus de connexion pour le compte de votre application. Il affiche une page de connexion spécifique au fournisseur et s'authentifie auprès du fournisseur choisi.
 
-- **Connexion gérée par le client** : l'_application_ demande un jeton au fournisseur d'identité et le présente à Azure Mobile Services pour authentification.
+- **Connexion gérée par le client** : l'_application_ demande un jeton au fournisseur d'identité et le présente à Azure Mobile Services pour authentification.
 
 Quand l'authentification réussit, vous obtenez un objet utilisateur avec une valeur d'ID utilisateur et le jeton d'authentification. Pour utiliser cet ID utilisateur pour autoriser les utilisateurs, consultez [Autorisation côté service]. Pour restreindre l'accès aux tables aux seuls utilisateurs authentifiés, consultez [Autorisations].
 
 ### Connexion gérée par serveur
 
-Voici comment vous pouvez ajouter la connexion gérée par le serveur au projet [Démarrage rapide de Mobile Services] ; vous pouvez utiliser un code similaire pour vos autres projets. Pour plus d'informations et pour voir un exemple de bout en bout en action, consultez [Authentification].
+Voici comment vous pouvez ajouter la connexion gérée par le serveur au projet [Démarrage rapide de Mobile Services] ; vous pouvez utiliser un code similaire pour vos autres projets. Pour plus d'informations et pour voir un exemple de bout en bout en action, consultez [Authentification].
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
@@ -277,11 +283,11 @@ L'exemple suivant utilise le [Kit de développement logiciel (SDK) Live Connect]
 	}];
 ```
 
-##<a name="caching-tokens"></a>Procédure : mise en cache des jetons d'authentification
+##<a name="caching-tokens"></a>Procédure : mise en cache des jetons d'authentification
 
-Voyons comment vous pouvez mettre en cache des jetons dans le projet [Démarrage rapide de Mobile Services] ; vous pouvez appliquer des étapes similaires à n'importe quel projet.[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+Voyons comment vous pouvez mettre en cache des jetons dans le projet [Démarrage rapide de Mobile Services] ; vous pouvez appliquer des étapes similaires à n'importe quel projet.[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
-##<a name="errors"></a>Procédure : gestion des erreurs
+##<a name="errors"></a>Procédure : gestion des erreurs
 
 Quand vous appelez un service mobile, le bloc completion contient un paramètre `NSError *error`. Si une erreur se produit, ce paramètre est non-nil. Vous devez vérifier ce paramètre dans votre code et gérer les erreurs, le cas échéant.
 
@@ -333,4 +339,4 @@ Le fichier [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestionnaire de conflits]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

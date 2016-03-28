@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migration de votre solution vers SQL Data Warehouse
@@ -45,11 +45,11 @@ Enfin, consultez la [vue d’ensemble sur le chargement][] qui présente différ
 
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 [vue d’ensemble sur le chargement]: sql-data-warehouse-overview-load.md
-[documentation de référence sur Transact-SQL]: sql-data-warehouse-overview-migrate.md
+[documentation de référence sur Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

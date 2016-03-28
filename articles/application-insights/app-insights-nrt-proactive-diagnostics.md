@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
  
 # Diagnostics proactifs en temps quasi-réel
 
-[Visual Studio Application Insights](app-insights-overview.md) vous avertit automatiquement en temps quasi-réel si le taux de requêtes ayant échoué de votre application web augmente considérablement. Pour vous aider à prioriser et à diagnostiquer le problème, la notification s’accompagne d’une analyse des caractéristiques des requêtes ayant échoué et de la télémétrie connexe. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert aucune installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal de référence. Pour fonctionner, elle nécessite tout de même un volume de trafic minimum.
+[Visual Studio Application Insights](app-insights-overview.md) vous avertit automatiquement en temps quasi-réel si une augmentation anormale du taux de demandes ayant échoué est détectée. Pour vous aider à prioriser et à diagnostiquer le problème, la notification s’accompagne d’une analyse des caractéristiques des requêtes ayant échoué et de la télémétrie connexe. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert aucune installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
 
 Cette fonctionnalité est utilisée pour les applications web Java et ASP.NET, hébergées dans le cloud ou sur vos propres serveurs. Elle sert également pour n’importe quelle application qui génère de la télémétrie de demande : par exemple, si vous avez un rôle de travail qui appelle [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-Les diagnostics proactifs sont démarrés dès que vous définissez [Application Insights pour votre projet](app-insights-get-started.md) et à la condition que votre application génère un certain volume minimal de télémétrie.
+Après avoir configuré [Application Insights pour votre projet](app-insights-get-started.md), et si votre application génère un certain volume minimal de télémétrie, un délai de 24 heures est nécessaire aux diagnostics proactifs pour découvrir le comportement normal de votre application, être activés et envoyer des alertes.
 
 Voici un exemple d’alerte :
 
@@ -29,45 +29,46 @@ Voici un exemple d’alerte :
 
 Notez qu’il vous indique :
 
+* le taux d’échec par rapport au comportement normal de l’application ;
 * combien d’utilisateurs sont affectés : afin de savoir dans quelle mesure vous devez vous inquiéter ;
-* un modèle caractéristique associé aux échecs. Dans cet exemple, il existe un nom de requête particulière (URL demandée) qui vous indique immédiatement où commencer la recherche dans votre code. Les autres possibilités peuvent être un type de navigateur ou d’appareil client spécifique ;
-* les exceptions, le suivi des journaux et les échecs des dépendances (bases de données ou d’autres composants externes) qui semblent associés aux demandes ayant échoué ;
+* un modèle caractéristique associé aux échecs. Cet exemple contient un code de réponse, un nom de demande (opération) et une version de l’application spécifiques. Ces informations vous indiquent immédiatement où commencer la recherche dans votre code. Les autres possibilités peuvent être un type de navigateur ou un système d’exploitation client spécifique ;
+* l’exception, le suivi des journaux et l’échec de dépendance (bases de données ou autres composants externes) qui semblent associés aux demandes identifiées ayant échoué ;
 * les liens directs aux recherches pertinentes sur la télémétrie dans Application Insights.
 
-Les [alertes de mesures](app-insights-alerts.md) ordinaires vous indiquent qu’un problème peut se poser. Mais les diagnostics proactifs NRT démarrent le travail de diagnostic à votre place, effectuent la majeure partie de l’analyse que vous auriez à effectuer vous-même. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.
+Les [alertes de mesures](app-insights-alerts.md) ordinaires vous indiquent un problème potentiel. Mais les diagnostics proactifs NRT démarrent le travail de diagnostic à votre place, effectuent la majeure partie de l’analyse que vous auriez à effectuer vous-même. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.
 
 ## Fonctionnement
 
-Les diagnostics proactifs en temps quasi-réel surveillent la télémétrie reçue depuis votre application, et en particulier le taux de requêtes ayant échoué. Cette mesure indique généralement le nombre de requêtes HTTP ayant renvoyé un code de réponse de 400 ou plus (à moins que vous n’ayez écrit du code personnalisé pour [filtrer](app-insights-api-filtering-sampling.md#filtering) ou générer vos propres appels [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
+Les diagnostics proactifs en temps quasi-réel surveillent la télémétrie reçue depuis votre application, et en particulier le taux de requêtes ayant échoué. Cette mesure détermine le nombre de demandes dont la propriété `Successful request` a la valeur false. Par défaut, `Successful request== (resultCode < 400)` (sauf si vous avez ajouté du code personnalisé pour [filtrer](app-insights-api-filtering-sampling.md#filtering) ou générer vos propres appels [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
 
-Les performances de votre application présentent un modèle de comportement typique. Certaines requêtes seront davantage sujettes aux erreurs que d’autres ; et le taux d’échec global peut s’accroître à mesure que la charge augmente. Les diagnostics proactifs en temps quasi-réel utilisent Machine Learning pour rechercher ces corrélations.
+Les performances de votre application présentent un modèle de comportement typique. Certaines requêtes seront davantage sujettes aux erreurs que d’autres ; et le taux d’échec global peut s’accroître à mesure que la charge augmente. Les diagnostics proactifs en temps quasi-réel utilisent Machine Learning pour rechercher ces anomalies.
 
-Comme la télémétrie entre dans Application Insights à partir de votre application web, les diagnostics proactifs NRT comparent le comportement actuel avec les modèles constatés au cours des derniers jours. Si le taux d’échec augmente considérablement par rapport aux prévisions définies en fonction des performances précédentes, une alerte est déclenchée.
+Comme la télémétrie entre dans Application Insights à partir de votre application web, les diagnostics proactifs NRT comparent le comportement actuel avec les modèles constatés au cours des derniers jours. Si une augmentation anormale du taux d’échec est observée par rapport aux performances précédentes, une analyse est déclenchée.
 
-Lorsqu’une alerte est déclenchée, le service effectue une analyse des clusters sur plusieurs dimensions des requêtes, afin d’identifier un modèle de valeurs caractérisant les échecs. Dans l’exemple ci-dessus, l’analyse met en évidence que les échecs concernent pour la plupart un nom de requête spécifique, mais qu’ils sont indépendants de l’instance d’hôte ou de serveur.
+Quand une analyse est déclenchée, le service effectue une analyse des clusters pour chaque demande ayant échoué, dans le but d’identifier un modèle de valeurs caractérisant les échecs. Dans l’exemple ci-dessus, l’analyse a découvert que la plupart des échecs sont liés à un code de résultat, un nom de demande, un hôte de l’URL serveur et une instance de rôle spécifiques. En revanche, l’analyse a découvert que la propriété du système d’exploitation client est distribuée sur plusieurs valeurs et qu’elle n’est donc pas répertoriée.
 
-L’analyseur recherche ensuite les exceptions et les défaillances de dépendance associées aux requêtes dans le cluster qu’il a identifié, avec un exemple de tous les journaux de suivi associés à ces requêtes.
+Quand votre service est instrumenté avec cette télémétrie, l’analyseur recherche une exception et un échec de dépendance qui sont associés aux demandes dans le cluster qu’il a identifié, avec un exemple de tous les journaux de suivi associés à ces demandes.
 
-L’analyse obtenue vous est envoyée par message électronique, sauf si vous ne l’avez pas configurée pour.
+L’analyse obtenue vous est envoyée sous forme d’alerte, sauf si vous n’avez pas configuré cette option.
 
 Comme les [alertes que vous définissez manuellement](app-insights-alerts.md), vous pouvez examiner l’état de l’alerte et la configurer dans le panneau Alertes de votre ressource Application Insights. Cependant, contrairement aux autres alertes, vous n’avez pas besoin d’installer ni de configurer les diagnostics proactifs NRT. Si vous le souhaitez, vous pouvez la désactiver ou changer l’adresse de messagerie électronique cible.
 
 ## Triage et diagnostic d’une alerte
 
-Une alerte indique qu’une anomalie dans le taux de requêtes ayant échoué a été détectée. Il est probable que votre application ou son environnement rencontre un problème.
+Une alerte indique qu’une augmentation anormale du taux de demandes ayant échoué a été détectée. Il est probable que votre application ou son environnement rencontre un problème.
 
-D’après le pourcentage de requêtes et le nombre d’utilisateurs touchés, vous pouvez évaluer l’urgence du problème. Dans l’exemple ci-dessus, le taux d’échec de 15 % est comparé à un taux normal d’1,3 %, ce qui suggère qu’un problème est en train de se produire. 22 utilisateurs distincts ont été affectés par des échecs pendant une opération particulière. S’il s’agissait de votre application, vous pourriez évaluer le niveau de gravité.
+D’après le pourcentage de requêtes et le nombre d’utilisateurs touchés, vous pouvez évaluer l’urgence du problème. Dans l’exemple ci-dessus, le taux d’échec de 15 % est comparé à un taux normal d’1,3 %, ce qui indique un problème. 22 utilisateurs distincts ont été affectés par des échecs pendant une opération particulière. S’il s’agissait de votre application, vous pourriez évaluer le niveau de gravité.
 
-Dans de nombreux cas, vous serez en mesure de diagnostiquer le problème rapidement à partir du nom de la demande, des exceptions, des dépendances et des données de suivi fournies.
+Dans de nombreux cas, vous serez en mesure de diagnostiquer le problème rapidement à partir du nom de la demande, de l’exception, de l’échec de dépendance et du journal de suivi fournis.
 
 Il existe certains autres indices. Par exemple, le taux d’échec de dépendance dans cet exemple est identique au taux d’exception (89,3 %). Cela signifie que l’exception émane directement de l’échec de dépendance, ce qui vous donne une idée précise de l’emplacement dans votre code où commencer la recherche.
 
-Pour approfondir vos recherches, les liens de chaque section vous dirigeront directement sur une [page de recherche](app-insights-diagnostic-search.md) comportant uniquement les requêtes, exceptions, dépendances ou suivis pertinents. Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), accéder à la ressource Application Insights pour votre application et ouvrir le panneau Défaillances.
+Pour approfondir vos recherches, les liens de chaque section vous dirigeront directement sur une [page de recherche](app-insights-diagnostic-search.md) comportant uniquement les demandes, l’exception, la dépendance ou les journaux de suivi pertinents. Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), accéder à la ressource Application Insights pour votre application et ouvrir le panneau Échecs.
 
-Dans cet exemple, en cliquant sur le lien de recherche, vous ouvrez le panneau de recherche Application Insights sur l’instruction SQL à l’origine du problème : les valeurs NULL fournies dans les champs obligatoires et qui n’ont pas été validées pendant l’opération d’enregistrement.
+Dans cet exemple, en cliquant sur le lien "Afficher les détails des échecs de dépendance", vous ouvrez le panneau de recherche Application Insights sur l’instruction SQL à l’origine du problème : des valeurs NULL fournies dans des champs obligatoires n’ont pas été validées pendant l’opération d’enregistrement.
 
 
-![Recherche de diagnostic](./media/app-insights-nrt-proactive-diagnostics/050.png)
+![Recherche de diagnostic](./media/app-insights-nrt-proactive-diagnostics/051.png)
 
 ## Consulter les alertes récentes
 
@@ -80,22 +81,22 @@ Cliquez sur une alerte pour afficher ses détails complets.
 
 ## Configurer des alertes 
 
-Ouvrez la page Alertes. L’alerte d’échec adaptative est incluse avec toutes les alertes que vous avez définies manuellement, et vous pouvez savoir si elle se trouve actuellement en état d’alerte.
+Ouvrez la page Alertes. Les diagnostics proactifs sont inclus avec toutes les alertes que vous avez définies manuellement, ce qui vous permet de savoir s’ils se trouvent actuellement en état d’alerte.
 
-![Dans la page Vue d’ensemble, cliquez sur la mosaïque Alertes, ou sur n’importe quelle page de mesures, cliquez sur le bouton Alertes.](./media/app-insights-nrt-proactive-diagnostics/020.png)
+![Dans la page Vue d’ensemble, cliquez sur la mosaïque Alertes, ou sur n’importe quelle page de mesures, cliquez sur le bouton Alertes.](./media/app-insights-nrt-proactive-diagnostics/021.png)
 
 Cliquez sur l’alerte pour la configurer.
 
-![Configuration](./media/app-insights-nrt-proactive-diagnostics/030.png)
+![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
-Notez que vous pouvez désactiver l’alerte d’échec adaptative, mais pas la supprimer (ni en créer une autre).
+Notez que vous pouvez désactiver les diagnostics proactifs, mais pas les supprimer (ni en créer d’autres).
 
 
 ## Quelle est la différence ?
 
 Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fonctionnalités d’Application Insights similaires mais distinctes.
 
-* C’est vous qui définissez les [alertes de mesures](app-insights-alerts.md), qui peuvent surveiller un large éventail de mesures telles que l’occupation du processeur, les taux de requêtes, les temps de chargement de page, et bien d’autres. Vous pouvez les utiliser pour savoir si vous devez ajouter des ressources, par exemple. En revanche, les diagnostics proactifs en temps quasi-réel ne couvrent qu’une petite gamme de mesures critiques (pour l’instant, le taux de requêtes ayant échoué uniquement), conçues pour vous avertir en temps quasi-réel si le taux de requêtes ayant échoué de votre application web augmente de manière significative par rapport à la normale.
+* C’est vous qui définissez les [alertes de mesures](app-insights-alerts.md), qui peuvent surveiller un large éventail de mesures telles que l’occupation du processeur, les taux de demandes, les temps de chargement de page, etc. Vous pouvez les utiliser pour savoir si vous devez ajouter des ressources, par exemple. En revanche, les diagnostics proactifs en temps quasi-réel ne couvrent qu’une petite gamme de mesures critiques (pour l’instant, le taux de requêtes ayant échoué uniquement), conçues pour vous avertir en temps quasi-réel si le taux de requêtes ayant échoué de votre application web augmente de manière significative par rapport à la normale.
 
     Les diagnostics proactifs NRT ajuste automatiquement son seuil en réponse aux conditions en vigueur.
 
@@ -106,7 +107,7 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
 *Pourquoi ai-je reçu cette alerte ?*
 
-*	Nous avons détecté une augmentation anormale de demandes ayant échoué par rapport à la ligne de base normale de la période précédente. Après l’analyse des défaillances et de la télémétrie associée, nous pensons qu’il existe un problème que vous devez examiner. 
+*	Nous avons détecté une augmentation anormale du taux de demandes ayant échoué par rapport au taux de référence de la période précédente. Après l’analyse des défaillances et de la télémétrie associée, nous pensons qu’il existe un problème que vous devez examiner. 
 
 *La notification signifie-t-elle obligatoirement que mon application rencontre un problème ?*
 
@@ -122,11 +123,11 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
 *Puis-je me désabonner ou obtenir des notifications envoyées à mes collègues ?*
 
-*	Oui, dans les règles d’alerte, cliquez sur la règle de diagnostics proactifs NRT pour la configurer. Vous pouvez désactiver cette alerte, ou modifier les destinataires de l’alerte. 
+*	Oui. Dans les règles d’alerte, cliquez sur la règle de diagnostics proactifs pour la configurer. Vous pouvez désactiver cette alerte, ou modifier les destinataires de l’alerte. 
 
 *J’ai perdu le courrier électronique Où puis-je trouver les notifications dans le portail ?*
 
-*	Dans les journaux d’audit. Cliquez sur Paramètres, Journaux d’audit, puis sur l’alerte souhaitée pour afficher ses détails complets.
+*	Dans les journaux d’audit. Cliquez sur Paramètres, Journaux d’audit, puis sur une alerte pour afficher son occurrence, avec des détails limités.
 
 *Certaines des alertes sont des problèmes connus et je ne souhaite pas les recevoir.*
 
@@ -137,4 +138,4 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
 *Votre avis sur le sujet nous intéresse. Merci d’envoyer vos commentaires à :* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

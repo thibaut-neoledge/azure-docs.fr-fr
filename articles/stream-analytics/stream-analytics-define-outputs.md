@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/02/2016"
+	ms.date="03/16/2016"
 	ms.author="jeffstok"/>
 
 # Cibler les sorties de transformations de données Stream Analytics vers des outils d’analyse et des options de stockage des données
@@ -23,10 +23,60 @@ Quand vous créez une tâche Stream Analytics, songez à la façon dont la sorti
 
 Pour permettre un éventail de modèles d’application, Azure Stream Analytics propose différentes options pour stocker et afficher les résultats de l’analyse. Cela vous permet d’afficher plus facilement la sortie des tâches et de rendre plus flexibles leur consommation et leur stockage pour l’entreposage de données et d’autres utilisations. Toute sortie configurée dans la tâche doit exister avant le démarrage de la tâche et avant le début du transit des événements. Par exemple, si vous utilisez le stockage d’objets blob en tant que sortie, la tâche ne crée pas de compte de stockage automatiquement. Celui-ci doit être créé par l’utilisateur avant que la tâche ASA démarre.
 
+## Azure Data Lake Store
 
-## Base de données SQL ##
+Stream Analytics prend en charge [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Ce type de stockage vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire. À l’heure actuelle, la création et la configuration des sorties Data Lake Store sont prises en charge uniquement dans le portail Azure Classic. De plus, Stream Analytics doit être autorisé à accéder à Data Lake Store. Des informations détaillées sur les autorisations et l’inscription à la version préliminaire de Data Lake Store (si nécessaire) sont fournies dans [cet article sur les sorties Data Lake](stream-analytics-data-lake-output.md).
 
-Vous pouvez utiliser une [base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les tâches Stream Analytics écriront dans une table existante d’une base de données SQL Azure. Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre tâche. Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
+Le tableau ci-dessous répertorie les noms et les descriptions des propriétés nécessaires à la création d’une sortie Data Lake Store.
+
+<table>
+<tbody>
+<tr>
+<td><B>NOM DE LA PROPRIÉTÉ</B></td>
+<td><B>DESCRIPTION</B></td>
+</tr>
+<tr>
+<td>Alias de sortie</td>
+<td>Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers Data Lake Store.</td>
+</tr>
+<tr>
+<td>Compte Data Lake Store</td>
+<td>Nom du compte de stockage où vous envoyez votre sortie. Vous voyez la liste déroulante des comptes Data Lake Store auxquels ont accès les utilisateurs connectés au portail.</td>
+</tr>
+<tr>
+<td>Modèle de préfixe de chemin [<I>facultatif</I>]</td>
+<td>Chemin de fichier utilisé pour écrire vos fichiers dans le compte Data Lake Store spécifié. <BR>{date}, {time}<BR>Exemple 1 : dossier1/journaux/{date}/{heure}<BR>Exemple 2 : dossier1/journaux/{date}</td>
+</tr>
+<tr>
+<td>Format de la date [<I>facultatif</I>]</td>
+<td>Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple&#160;: JJ/MM/AAAA</td>
+</tr>
+<tr>
+<td>Format de l’heure [<I>facultatif</I>]</td>
+<td>Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est&#160;HH.</td>
+</tr>
+<tr>
+<td>Format de sérialisation de l’événement</td>
+<td>Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge.</td>
+</tr>
+<tr>
+<td>Encodage</td>
+<td>S’il s’agit du format CSV ou JSON, un encodage doit être spécifié. UTF-8 est le seul format d’encodage actuellement pris en charge.</td>
+</tr>
+<tr>
+<td>Délimiteur</td>
+<td>Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données CSV. Valeurs prises en charge&#160;: virgule, point-virgule, espace, tabulation et barre verticale.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Applicable uniquement pour la sérialisation JSON. «&#160;Séparé par une ligne&#160;» spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. «&#160;Tableau&#160;» spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON.</td>
+</tr>
+</tbody>
+</table>
+
+## Base de données SQL
+
+Vous pouvez utiliser une [base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les tâches Stream Analytics écriront dans une table existante d’une base de données SQL Azure. Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre tâche. [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) peut également être spécifié en tant que sortie via l’option de sortie SQL Database (il s’agit d’une fonctionnalité d’évaluation). Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
 
 | Nom de la propriété | Description |
 |---------------|-------------|
@@ -37,7 +87,7 @@ Vous pouvez utiliser une [base de données SQL Azure](https://azure.microsoft.co
 | Mot de passe | Mot de passe de connexion à la base de données |
 | Table | Nom de la table où la sortie sera écrite. Le nom de la table est sensible à la casse et le schéma de cette table doit correspondre exactement au nombre de champs et aux types générés par la sortie de votre tâche. |
 
-## Stockage d'objets blob ##
+## Stockage d'objets blob
 
 Le stockage d’objets blob offre une solution peu coûteuse et évolutive pour stocker de grandes quantités de données non structurées dans le cloud. Pour une présentation du stockage d’objets blob Azure et de son utilisation, consultez [Utilisation du stockage d’objets blob](../storage/storage-dotnet-how-to-use-blobs.md).
 
@@ -114,6 +164,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 | Encodage | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge |
 | Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format | Applicable uniquement pour le type JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON. |
+
 ## Power BI
 
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche des résultats d’analyse. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par des métriques.
@@ -267,4 +318,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

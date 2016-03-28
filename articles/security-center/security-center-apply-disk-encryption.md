@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/10/2016"
    ms.author="terrylan"/>
 
 # Appliquer le chiffrement de disque dans Azure Security Center
@@ -33,20 +33,33 @@ Disk Encryption s’appuie sur les fonctionnalités standard de l’industrie [B
 
 ![][1]
 
+Pour chiffrer les machines virtuelles Azure qui ont fait l’objet d’une alerte par Security Center, nous vous recommandons de procéder de la manière suivante :
+
+- Installez et configurez Azure PowerShell. Vous pourrez ainsi exécuter les commandes PowerShell nécessaires afin d’obtenir la configuration requise pour le chiffrement des machines virtuelles Azure.
+- Récupérez et exécutez le script Azure PowerShell de configuration d’Azure Disk Encryption.
+- Chiffrez vos machines virtuelles.
+
+[Chiffrement d’une machine virtuelle Azure](security-center-disk-encryption.md) vous guidera à travers ces étapes. Pour suivre cette procédure, vous devez utiliser Windows 10 en tant qu’ordinateur client à partir duquel vous allez configurer le chiffrement de disque.
+
+Il existe de nombreuses méthodes permettant d’obtenir la configuration requise et de configurer le chiffrement des machines virtuelles Azure. Si vous êtes déjà familiarisé avec Azure PowerShell ou avec l’interface de ligne de commande Azure, vous pouvez opter pour d’autres approches. Pour en savoir plus sur ces autres approches, consultez [Azure Disk Encryption](../azure-security-disk-encryption.md).
+
+
+
 ## Étapes suivantes
 
 Ce document vous a montré comment implémenter la recommandation du Centre de sécurité « Apply disk encryption ». Pour plus d’informations sur le chiffrement de disque, consultez les rubriques suivantes :
 
-- [Encryption and key management with Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (Chiffrement et gestion de clés avec Azure Key Vault) (vidéo, 36 min 39 secondes) – Découvrez comment utiliser la gestion de chiffrement de disque pour des machines virtuelles IaaS et Azure Key Vault afin de protéger vos données.
-- [Azure disk encryption](../azure-security-disk-encryption.md) (document) – Découvrez comment activer le chiffrement de disque pour des machines virtuelles Windows et Linux.
+- [Chiffrement et gestion de clés avec Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (vidéo, 36 min 39 secondes) : découvrez comment utiliser la gestion du chiffrement des disques pour des machines virtuelles IaaS et Azure Key Vault afin de protéger et sécuriser vos données.
+- [Chiffrement d’une machine virtuelle Azure](security-center-disk-encryption.md) (document) : découvrez comment chiffrer des machines virtuelles Azure.
+- [Azure Disk Encryption](../azure-security-disk-encryption.md) (document) : découvrez comment activer le chiffrement de disque pour des machines virtuelles Windows et Linux.
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 - [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité.
 - [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
+- [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 - [Gestion des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) : FAQ concernant l’utilisation de ce service.
+- [FAQ Azure Security Center](security-center-faq.md) : Forum Aux Questions concernant l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure.
 
 
@@ -54,4 +67,4 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

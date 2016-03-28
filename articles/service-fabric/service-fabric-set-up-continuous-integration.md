@@ -1,6 +1,6 @@
 <properties
    pageTitle="Intégration continue pour Service Fabric | Microsoft Azure"
-   description="Découvrez comment configurer l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services (VSTS)."
+   description="Découvrez comment configurer l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services (VSTS)."
    services="service-fabric"
    documentationCenter="na"
    authors="cawams"
@@ -12,24 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/27/2015"
+   ms.date="01/27/2016"
    ms.author="cawa" />
 
-# Configuration de l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services (VSTS)
+# Configuration de l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services (VSTS)
 
-Cet article décrit les étapes de la configuration de l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services (VSTS) de sorte que votre application soit créée, empaquetée et déployée de manière automatique. Notez que ces instructions recréent le cluster à partir de zéro à chaque fois.
+Cet article décrit les étapes de la configuration de l’intégration continue pour une application Service Fabric à l’aide de Visual Studio Team Services (VSTS) de sorte que votre application soit créée, empaquetée et déployée de manière automatique. Notez que ces instructions recréent le cluster à partir de zéro à chaque fois.
 
 Ce document reflète la procédure actuelle et est susceptible d'évoluer au fil du temps.
 
 ## Configuration requise
 
-Pour commencer, configurez votre projet dans Visual Studio Team Services :
+Pour commencer, configurez votre projet dans Visual Studio Team Services :
 
 1. Si vous n’en avez pas déjà un, créez un compte Team Services et configurez-le en utilisant votre [compte Microsoft](http://www.microsoft.com/account).
 
 2. Créez un nouveau projet dans Team Services à l’aide du compte Microsoft.
 
-3. Placez la source pour votre application Service Fabric nouvelle ou existante dans ce projet.
+3. Placez la source pour votre application Service Fabric nouvelle ou existante dans ce projet.
 
 Consultez [Se connecter à Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) pour plus d’informations sur l’utilisation des projets Team Services.
 
@@ -42,25 +42,25 @@ Avant de configurer l’ordinateur de build, vous devez créer un [principal du 
 ### Installer Azure PowerShell et se connecter
 
 1.	Installez Azure PowerShell.
-2. Installez PowerShellGet. Pour ce faire, installez [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), qui inclut PowerShellGet.
+2. Installez PowerShellGet. Pour ce faire, installez [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), qui inclut PowerShellGet.
 
-    >[AZURE.NOTE] Vous pouvez ignorer cette étape si vous exécutez Windows 10 avec les dernières mises à jour.
+    >[AZURE.NOTE] Vous pouvez ignorer cette étape si vous exécutez Windows 10 avec les dernières mises à jour.
 
-3.	Installez et mettez à jour le module AzureRM. Si vous disposez d’une version précédente d’Azure PowerShell installée, supprimez-la :
+3.	Installez et mettez à jour le module AzureRM. Si vous disposez d’une version précédente d’Azure PowerShell installée, supprimez-la :
 
     a. Cliquez avec le bouton droit sur le bouton Démarrer, puis sélectionnez **Ajout/Suppression de programmes**.
 
-    b. Recherchez « Azure PowerShell » et désinstallez le programme.
+    b. Recherchez « Azure PowerShell » et désinstallez le programme.
 
     c. Lancez une invite de commandes PowerShell.
 
     d. Installez le module AzureRM à l’aide de la commande `Install-Module AzureRM`.
 
-    e. Mettez à jour le module « AzureRM » à l’aide de la commande `Update-AzureRM`.
+    e. Mettez à jour le module « AzureRM » à l’aide de la commande `Update-AzureRM`.
 
 3.	Désactivez (ou activez) la collecte de données Azure.
 
-    Les applets de commande Azure vous invitent à accepter ou à refuser la collecte de données jusqu’à ce que vous fassiez un choix. Ces invites bloquent l’automatisation en attendant l’entrée utilisateur. Pour supprimer ces invites en faisant un choix à l’avance, exécutez l’une des commandes suivantes :
+    Les applets de commande Azure vous invitent à accepter ou à refuser la collecte de données jusqu’à ce que vous fassiez un choix. Ces invites bloquent l’automatisation en attendant l’entrée utilisateur. Pour supprimer ces invites en faisant un choix à l’avance, exécutez l’une des commandes suivantes :
 
     - Enable-AzureRmDataCollection
 
@@ -89,7 +89,7 @@ Avant de configurer l’ordinateur de build, vous devez créer un [principal du 
     ```
     $password = Read-Host -AsSecureString
     ```
-4.	Exécutez le script PowerShell Create-ServicePrincipal.ps1 avec les paramètres suivants :
+4.	Exécutez le script PowerShell Create-ServicePrincipal.ps1 avec les paramètres suivants :
 
 |Paramètre|Valeur|
 |---|---|
@@ -131,9 +131,9 @@ Lorsque le script se termine, il génère les trois valeurs suivantes. Notez ces
 
 ### Installez Visual Studio 2015
 
-Si vous avez déjà configuré une machine (ou prévoyez de fournir la vôtre), installez [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) sur la machine sélectionnée.
+Si vous avez déjà configuré une machine (ou prévoyez de fournir la vôtre), installez [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) sur la machine sélectionnée.
 
-Si vous n’avez pas encore de machine, vous pouvez rapidement configurer une machine virtuelle Azure avec Visual Studio 2015 préinstallé. Pour ce faire :
+Si vous n’avez pas encore de machine, vous pouvez rapidement configurer une machine virtuelle Azure avec Visual Studio 2015 préinstallé. Pour ce faire :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -141,19 +141,19 @@ Si vous n’avez pas encore de machine, vous pouvez rapidement configurer une ma
 
 3. Sélectionnez **Marketplace**.
 
-4. Recherchez **Visual Studio 2015**.
+4. Recherchez **Visual Studio 2015**.
 
 5. Sélectionnez **Calculer** > **Machine virtuelle** > **À partir de la galerie**.
 
-6. Sélectionnez l’image **Visual Studio Enterprise 2015 Update 1 avec le Kit de développement logiciel (SDK) Azure 2.8 sur Windows Server 2012 R2**.
+6. Sélectionnez l’image **Visual Studio Enterprise 2015 Update 1 avec le Kit de développement logiciel (SDK) Azure 2.8 sur Windows Server 2012 R2**.
 
-    >[AZURE.NOTE] Le Kit de développement logiciel (SDK) Azure n’est pas un composant obligatoire, mais actuellement aucune image n’ayant que Visual Studio 2015 installé n’est disponible.
+    >[AZURE.NOTE] Le Kit de développement logiciel (SDK) Azure n’est pas un composant obligatoire, mais actuellement aucune image n’ayant que Visual Studio 2015 installé n’est disponible.
 
 7.	Suivez les instructions de la boîte de dialogue pour créer votre machine virtuelle.
 
-### Installer le Kit de développement logiciel (SDK) Service Fabric
+### Installer le Kit de développement logiciel (SDK) Service Fabric
 
-Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azure.microsoft.com/campaigns/service-fabric/) sur votre machine.
+Installez le [Kit de développement logiciel (SDK) Service Fabric](https://azure.microsoft.com/campaigns/service-fabric/) sur votre machine.
 
 ### Installation d'Azure PowerShell
 
@@ -163,7 +163,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 >[AZURE.NOTE] Effectuez cette opération *avant* de démarrer l’agent de build, sinon il ne sélectionnera pas la nouvelle variable d’environnement.
 
-1. Appuyez sur Win + R, puis tapez **regedit** et appuyez sur Entrée.
+1. Appuyez sur Win + R, puis tapez **regedit** et appuyez sur Entrée.
 
 2. Cliquez avec le bouton droit sur le nœud `HKEY_Users\.Default\Environment` et sélectionnez **Nouveau > Valeur de chaîne extensible**.
 
@@ -171,7 +171,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 ### Importer votre certificat Automation
 
-1.	Importez le certificat sur votre ordinateur de build. Pour ce faire :
+1.	Importez le certificat sur votre ordinateur de build. Pour ce faire :
 
     a. Copiez le fichier PFX créé par le script CreateAndUpload-Certificate.ps1 sur votre ordinateur de build.
 
@@ -188,7 +188,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
     b. Recherchez **Certificat**.
 
-    c. Sélectionnez **Outils d’administration** > **Gérer les certificats d’ordinateur**.
+    c. Sélectionnez **Outils d’administration** > **Gérer les certificats d’ordinateur**.
 
 3.	Accordez au compte de service local l’autorisation d’utiliser votre certificat Automation.
 
@@ -206,7 +206,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 ### Inscrire votre agent de build
 
-1.	Téléchargez agent.zip. Pour ce faire :
+1.	Téléchargez agent.zip. Pour ce faire :
 
     a. Connectez-vous à votre projet d’équipe, par exemple ****https://[your-VSTS-account-name].visualstudio.com**.
 
@@ -222,21 +222,21 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
         >[AZURE.NOTE] If you plan on building ASP.NET 5 Web Services, it's recommended that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
 
-2.	À partir d’une invite de commandes administrateur, exécutez `C:\agent\ConfigureAgent.cmd`. Le script vous invite à entrer les paramètres suivants :
+2.	À partir d’une invite de commandes administrateur, exécutez `C:\agent\ConfigureAgent.cmd`. Le script vous invite à entrer les paramètres suivants :
 
-|Paramètre|Valeur|
-|---|---|
-|Nom de l’agent|Acceptez la valeur par défaut, `Agent-[machine name]`.|
-|URL de TFS|Entrez l’URL de votre projet d’équipe, par exemple, `https://[your-VSTS-account-name].visualstudio.com`.|
-|Pool d’agents|Entrez le nom de votre pool d’agents. (Si vous n’avez pas créé de pool d’agents, acceptez la valeur par défaut).|
-|Dossier de travail|Acceptez la valeur par défaut. C’est le dossier dans lequel l’agent de build va effectivement créer votre application. Remarque : si vous prévoyez de créer des services web ASP.NET 5, il est recommandé de choisir le nom le plus court possible pour ce dossier pour éviter de rencontrer des erreurs PathTooLongExceptions lors du déploiement.|
-|Installer en tant que service Windows ?|La valeur par défaut est N. Remplacez cette valeur par **Y**.|
-|Compte d’utilisateur pour exécuter le service|Acceptez la valeur par défaut, `NT AUTHORITY\LocalService`.|
-|Annuler la configuration de l’agent existant ?|Acceptez la valeur par défaut, **N**.|
+    |Paramètre|Valeur|
+    |---|---|
+    |Nom de l’agent|Acceptez la valeur par défaut, `Agent-[machine name]`.
+    |URL de TFS|Entrez l’URL de votre projet d’équipe, par exemple, `https://[your-VSTS-account-name].visualstudio.com`.
+    |Pool d’agents|Entrez le nom de votre pool d’agents. (Si vous n’avez pas créé de pool d’agents, acceptez la valeur par défaut).|
+    |Dossier de travail|Acceptez la valeur par défaut. C’est le dossier dans lequel l’agent de build va effectivement créer votre application. Remarque : si vous prévoyez de créer des services web ASP.NET 5, il est recommandé de choisir le nom le plus court possible pour ce dossier pour éviter de rencontrer des erreurs PathTooLongExceptions lors du déploiement.|
+    |Installer en tant que service Windows ?|La valeur par défaut est N. Remplacez cette valeur par Y.|
+    |Compte d’utilisateur pour exécuter le service|Acceptez la valeur par défaut, `NT AUTHORITY\LocalService)`.|
+    |Annuler la configuration de l’agent existant ?|Acceptez la valeur par défaut, **N**.|
 
 3.  Vous êtes invité à saisir des informations d’identification. Entrez les informations d’identification de votre compte Microsoft qui dispose des droits pour votre projet d’équipe.
 
-4.  Vérifiez que votre agent de build a été inscrit. Pour ce faire :
+4.  Vérifiez que votre agent de build a été inscrit. Pour ce faire :
 
     a. Revenez à votre navigateur web (qui doit se trouver à la page `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`), puis actualisez la page.
 
@@ -259,9 +259,9 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 ### Créer la définition de build
 
-1.	Créez une définition de build vide. Pour ce faire :
+1.	Créez une définition de build vide. Pour ce faire :
 
-    a. Ouvrez votre projet dans Visual Studio Team Services.
+    a. Ouvrez votre projet dans Visual Studio Team Services.
 
     b. Sélectionnez l’onglet **Build**.
 
@@ -291,7 +291,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 |ServiceFabricClusterLocation|Nom de votre choix correspondant à l’emplacement de votre coffre de clés.|||
 |ServiceFabricClusterAdminPassword|Nom de votre choix.|X||
 |ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
-|ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` Remarque : le point de terminaison de connexion dans votre profil de publication est ignoré. Le point de terminaison de connexion pour votre cluster temporaire est utilisé à la place.|||
+|ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` Remarque : le point de terminaison de connexion dans votre profil de publication est ignoré. Le point de terminaison de connexion pour votre cluster temporaire est utilisé à la place.|||
 |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
 |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` Cela devrait être le dossier contenant votre fichier .sfproj.||||
 
@@ -336,7 +336,7 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 9.	Enregistrez la définition de build.
 
-### Ajouter une étape « Supprimer le groupe de ressources de cluster »
+### Ajouter une étape « Supprimer le groupe de ressources de cluster »
 
 Si un build précédent n’a pas nettoyé après lui (par exemple, si le build a été annulé avant de pouvoir nettoyer), il est possible qu’un groupe de ressources existant entre en conflit avec le nouveau. Pour éviter les conflits, nettoyez tout groupe de ressources restant (et ses ressources associées) avant d’en créer un nouveau.
 
@@ -352,7 +352,7 @@ Si un build précédent n’a pas nettoyé après lui (par exemple, si le build 
 
 6.	Enregistrez la définition de build.
 
-### Ajouter une étape « Configurer et déployer sur le cluster sécurisé »
+### Ajouter une étape « Configurer et déployer sur le cluster sécurisé »
 
 1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**
 
@@ -366,11 +366,11 @@ Si un build précédent n’a pas nettoyé après lui (par exemple, si le build 
 
 6.	Enregistrez la définition de build.
 
-### Ajouter une étape « Supprimer le groupe de ressources de cluster »
+### Ajouter une étape « Supprimer le groupe de ressources de cluster »
 
 Maintenant que vous avez terminé avec le cluster temporaire, vous pouvez le nettoyer. Si vous ne le faites pas, vous allez continuer à être facturé pour l’utilisation du cluster temporaire. Cette étape supprime le groupe de ressources, ce qui supprime le cluster et toutes les autres ressources dans le groupe.
 
->[AZURE.NOTE] Il existe une différence entre cette étape et l’étape « Supprimer le groupe de ressources de cluster » précédente : pour celle-ci, l’option « Toujours exécuter » doit être activée.
+>[AZURE.NOTE] Il existe une différence entre cette étape et l’étape « Supprimer le groupe de ressources de cluster » précédente : pour celle-ci, l’option « Toujours exécuter » doit être activée.
 
 1.	Dans l’onglet **Build**, sélectionnez la commande **Ajouter une étape de build…**
 
@@ -405,10 +405,10 @@ Les instructions précédentes créent un cluster pour chaque build et le suppri
 
 ## Étapes suivantes
 
-Pour en savoir plus sur l’intégration continue avec les applications de Service Fabric, consultez les articles suivants :
+Pour en savoir plus sur l’intégration continue avec les applications de Service Fabric, consultez les articles suivants :
 
 - [Documentation relative aux builds - Accueil](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
 - [Déployer un agent de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Créer et configurer une définition de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

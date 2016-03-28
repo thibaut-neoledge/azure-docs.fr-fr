@@ -29,15 +29,14 @@ Cette rubrique vous indique comment déplacer des ressources d’un groupe de re
 Plusieurs problèmes importants doivent être pris en considération avant de déplacer une ressource :
 
 1. Vous ne pouvez pas modifier l’emplacement de la ressource. Le déplacement d’une ressource consiste uniquement en sa translation vers un nouveau groupe de ressources. Le nouveau groupe de ressources peut présenter à un autre emplacement, mais l’emplacement de la ressource n’est aucunement modifié.
-2. Le fournisseur de la ressource déplacée doit être inscrit dans l’abonnement de destination. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource. Par exemple, si vous déplacez une instance du service Gestion des API vers un abonnement dans lequel le fournisseur de ressources **Microsoft.ApiManagement** n’a pas été inscrit, le déplacement échouera. Pour savoir comment vérifier l’état d’inscription et inscrire des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../resource-manager-supported-services/#resource-providers-and-types).
-2. Le groupe de ressources de destination doit comporter uniquement des ressources qui partagent le cycle de vie des ressources que vous déplacez.
-3. Si vous utilisez Azure PowerShell ou Azure CLI, assurez-vous de disposer de la version la plus récente. Pour mettre à jour votre version, exécutez Microsoft Web Platform Installer et vérifiez si une nouvelle version est disponible. Pour plus d’informations, consultez [Comment installer et configurer Azure PowerShell](powershell-install-configure.md) et [Installer Azure CLI](xplat-cli-install.md).
-4. L’opération de déplacement peut prendre un certain temps. Durant cet intervalle, votre invite attend que l’opération se termine.
-5. Lorsque vous déplacez des ressources, le groupe source et le groupe cible sont verrouillés pendant la durée de l'opération. Les opérations d’écriture et de suppression sont bloquées sur les groupes tant que le déplacement n’est pas terminé.
+2. Actuellement, tous les services ne permettent pas de déplacer les ressources. Consultez la liste ci-dessous pour plus d’informations sur les services qui prennent en charge le déplacement des ressources.
+3. Le fournisseur de la ressource déplacée doit être inscrit dans l’abonnement de destination. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource. Par exemple, si vous déplacez une instance du service Gestion des API vers un abonnement dans lequel le fournisseur de ressources **Microsoft.ApiManagement** n’a pas été inscrit, le déplacement échouera. Pour savoir comment vérifier l’état d’inscription et inscrire des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../resource-manager-supported-services/#resource-providers-and-types).
+4. Le groupe de ressources de destination doit comporter uniquement des ressources qui partagent le cycle de vie des ressources que vous déplacez.
+5. Si vous utilisez Azure PowerShell ou Azure CLI, assurez-vous de disposer de la version la plus récente. Pour mettre à jour votre version, exécutez Microsoft Web Platform Installer et vérifiez si une nouvelle version est disponible. Pour plus d’informations, consultez [Comment installer et configurer Azure PowerShell](powershell-install-configure.md) et [Installer Azure CLI](xplat-cli-install.md).
+6. L’opération de déplacement peut prendre un certain temps. Durant cet intervalle, votre invite attend que l’opération se termine.
+7. Lorsque vous déplacez des ressources, le groupe source et le groupe cible sont verrouillés pendant la durée de l'opération. Les opérations d’écriture et de suppression sont bloquées sur les groupes tant que le déplacement n’est pas terminé.
 
-## Services pris en charge
-
-Actuellement, tous les services ne permettent pas de déplacer les ressources.
+## Services qui prennent en charge le déplacement
 
 Pour l’instant, les services à partir desquels il est possible de déplacer les ressources vers un nouveau groupe de ressources et un nouvel abonnement sont les suivants :
 
@@ -45,6 +44,7 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - Applications App Service (consultez la section [Limitations d’App Service](#app-service-limitations) ci-après)
 - Automation
 - Batch
+- CDN
 - Data Factory
 - DocumentDB
 - Clusters HDInsight
@@ -56,12 +56,16 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - Search
 - Serveur de base de données SQL (consultez la section [Limitations des bases de données SQL](#sql-database-limitations) ci-après)
 
+## Services qui prennent partiellement en charge le déplacement
+
 Les services qui prennent en charge le déplacement des ressources vers un nouveau groupe de ressources mais pas vers un nouvel abonnement sont les suivants :
 
 - Machines virtuelles (classique)
 - Storage (classique)
 - Virtual Network
 - Microsoft Azure
+
+## Services qui ne prennent pas en charge le déplacement
 
 Les services qui ne prennent actuellement pas en charge le déplacement d’une ressource sont les suivants :
 
@@ -133,4 +137,4 @@ Spécifiez l’emplacement de destination de la ressource. Si d’autres ressour
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

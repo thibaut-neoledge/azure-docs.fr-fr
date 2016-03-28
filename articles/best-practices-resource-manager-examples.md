@@ -3,8 +3,8 @@
 	description="Présente des exemples de modèles Azure Resource Manager qui illustrent les meilleures pratiques."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Exemples contextuels des meilleures pratiques d’implémentation des modèles
 
@@ -30,13 +30,13 @@ Par exemple, dans le cas d’un modèle axé sur une technologie ayant déployé
 
 Pour évaluer ce scénario, il convient de prendre en compte le nombre de ressources susceptibles d’intervenir. Pour une implémentation robuste, votre modèle de fonctionnalité étendue ne doit pas être un simple compte de stockage dans une machine virtuelle unique avec une installation de SQL Server. Un modèle de fonctionnalité étendue solide doit déployer plusieurs machines virtuelles avec SQL Server, pour une grande disponibilité. Pour certaines fonctionnalités, telles qu’Analysis Services, votre topologie devra également comprendre Active Directory.
 
-Deux points essentiels sont à prendre en compte dans ce scénario : le cycle de vie relatif à l’utilisation de SQL Server et les éléments RBAC à lui appliquer. Plus particulièrement, le SQL Server sera-t-il mis à jour et supprimé avec le reste de la solution ou son cycle de vie changera-t-il à cause de la solution ou de parties de la solution. Si le cycle de vie doit varier varie, vous devez envisager de le placer dans un autre groupe de ressources.
+Deux points essentiels sont à prendre en compte dans ce scénario : le cycle de vie relatif à l’utilisation de SQL Server et les éléments RBAC à lui appliquer. Plus particulièrement, le SQL Server sera-t-il mis à jour et supprimé avec le reste de la solution ou son cycle de vie changera-t-il à cause de la solution ou de parties de la solution. Si le cycle de vie doit varier varie, vous devez envisager de le placer dans un autre groupe de ressources.
 
 Il faut également se demander comment appliquer les RBAC à votre modèle de solution étendue de fonctionnalité de SQL Server. En fonction de la manière les RBAC seront appliqués au sein de votre topologie, vous pouvez opter pour différents groupes de ressources prévus respectant ces caractéristiques. Vous pouvez appliquer les RBAC au niveau des ressources, mais vu le nombre de ressources nécessaires au modèle de solution étendue de fonctionnalité de SQL Server, mieux vaut envisager l’application d’un groupe de ressources avec RBAC distinct.
 
-On peut aussi envisager d’évaluer le modèle de solution avec étendue de fonctionnalité de SQL Server pour déterminer s’il crée certaines ressources lui-même ou s’il suit le principe « Apportez votre propre ressource » (BYOR). Dans un modèle « Apportez votre propre ressource » (BYOR), le modèle de fonctionnalité étendue permet à votre modèle de réutiliser les ressources existantes, l’exemple type étant un compte de stockage, un réseau virtuel ou un groupe à haute disponibilité. Si votre modèle de fonctionnalité étendue n’utilise pas l’approche BYOR, vous pouvez le modifier et obtenir des modèles de ressources facultatifs en utilisant l’approche décrite plus haut. Dans ce cas, votre modèle de solution étendue de bout disposerait d’un modèle de ressources partagées contenant ces ressources communes, et le modèle de fonctionnalité étendue serait étendu afin de prendre en charge ces ressources optionnelles. Vous obtenez ainsi un meilleur modèle de solution de fonctionnalité étendue car il peut être alors utilisé indépendamment ou comme partie d’un ensemble.
+On peut aussi envisager d’évaluer le modèle de solution avec étendue de fonctionnalité de SQL Server pour déterminer s’il crée certaines ressources lui-même ou s’il suit le principe « Apportez votre propre ressource » (BYOR). Dans un modèle « Apportez votre propre ressource » (BYOR), le modèle de fonctionnalité étendue permet à votre modèle de réutiliser les ressources existantes, l’exemple type étant un compte de stockage, un réseau virtuel ou un groupe à haute disponibilité. Si votre modèle de fonctionnalité étendue n’utilise pas l’approche BYOR, vous pouvez le modifier et obtenir des modèles de ressources facultatifs en utilisant l’approche décrite plus haut. Dans ce cas, votre modèle de solution étendue de bout disposerait d’un modèle de ressources partagées contenant ces ressources communes, et le modèle de fonctionnalité étendue serait étendu afin de prendre en charge ces ressources optionnelles. Vous obtenez ainsi un meilleur modèle de solution de fonctionnalité étendue car il peut être alors utilisé indépendamment ou comme partie d’un ensemble.
 
-Au moment de décider si le compte de stockage doit être transféré depuis le modèle de solution étendue de bout en bout, le RBAC doit être réévalué. Plus précisément, allez-vous vous assurer que le RBAC doit être appliqué à cette ressource spécifique ? Si c’est le cas, il faut l’appliquer à la ressource au moment du transfert, un niveau de confiance doit être mis en place non seulement dans le bloc de solution, mais également pour tout utilisateur souhaitant éventuellement l’appliquer au modèle de fonctionnalité étendue lorsqu’elle est utilisée de façon indépendante. Si le RBAC est essentiel, vous devez vous demander si vous souhaitez les transformer en un modèle facultatif au sein du modèle de solution de fonctionnalité étendue ou opter pour sa création avec le RBAC requis dans le modèle de solution de fonctionnalité étendue.
+Au moment de décider si le compte de stockage doit être transféré depuis le modèle de solution étendue de bout en bout, le RBAC doit être réévalué. Plus précisément, allez-vous vous assurer que le RBAC doit être appliqué à cette ressource spécifique ? Si c’est le cas, il faut l’appliquer à la ressource au moment du transfert, un niveau de confiance doit être mis en place non seulement dans le bloc de solution, mais également pour tout utilisateur souhaitant éventuellement l’appliquer au modèle de fonctionnalité étendue lorsqu’elle est utilisée de façon indépendante. Si le RBAC est essentiel, vous devez vous demander si vous souhaitez les transformer en un modèle facultatif au sein du modèle de solution de fonctionnalité étendue ou opter pour sa création avec le RBAC requis dans le modèle de solution de fonctionnalité étendue.
 
 Si vous décidez de les placer dans différents groupes de ressources, vous pouvez également utiliser des liens vers les ressources pour définir les relations entre les ressources, y compris lorsque les ressources s’étendent sur les groupes de ressources.
 
@@ -46,7 +46,7 @@ Il s’agit principalement d’un surensemble de l’exemple précédent. Dans c
 
 Outre les modèles de fonctionnalité étendue requis, la solution nécessitera des ressources supplémentaires, même s’il suffit de relier quelques scripts aux modèles de fonctionnalité étendue et de les configurer.
 
-Dans ce cas, on suppose qu’il existe un réseau virtuel partagé et un compte de stockage partagé. Pour ce faire, vous devez les ajouter à un modèle de ressources partagées dans votre modèle étendu de solution de bout en bout et vous assurer qu’une approche de type « Apportez votre propre ressource » est prise en charge dans les modèles de fonctionnalité étendue. Si ce n’est pas le cas, vous pouvez modifier vos modèles de fonctionnalité étendue, comme indiqué dans l’exemple précédent.
+Dans ce cas, on suppose qu’il existe un réseau virtuel partagé et un compte de stockage partagé. Pour ce faire, vous devez les ajouter à un modèle de ressources partagées dans votre modèle étendu de solution de bout en bout et vous assurer qu’une approche de type « Apportez votre propre ressource » est prise en charge dans les modèles de fonctionnalité étendue. Si ce n’est pas le cas, vous pouvez modifier vos modèles de fonctionnalité étendue, comme indiqué dans l’exemple précédent.
 
 Concernant les ressources supplémentaires que vous souhaitez ajouter, vous devez suivre un surensemble du modèle utilisé pour créer un modèle étendu de fonctionnalités individuelles. Dans ce cas, vous devez ajouter un modèle de ressources partagées, des modèles de ressources optionnels, des modèles de nœud membre et la configuration de l’état souhaitée (scripts, Chef, Puppet, Powershell DSC) correspondant aux nouvelles ressources. S’il existe des dépendances, vous devez les optimiser pour utiliser des références implicites par rapport aux dependsOn lorsque cela est possible et ce, afin d’éliminer le risque de dépendances isolées susceptibles d’avoir un impact sur le parallélisme (et la vitesse) de votre déploiement. Vous devez également prendre en compte le cycle de vie de ces ressources, les considérations RBAC et les dépendances pour déterminer s’ils doivent être placés dans différents groupes de ressources.
 
@@ -98,7 +98,7 @@ Un surensemble de l’isolation d’environnement comme mentionné précédemmen
 
 L’isolation de facturation est également utilisée pour gagner en transparence en matière de coûts liés à la consommation de la plateforme par des équipes spécifiques et la présentation des niveaux appropriés de responsabilité.
 
-Le cloud est souple et autorise un modèle de paiement à l’utilisation ; cette solution est moins familière pour certains développeurs issus d’un modèle ne faisant pas appel au cloud, où le matériel est acquis et détenu. Dans le modèle non cloud, il y avait des limites physiques en termes de nombre d’« ordinateurs » susceptibles d’être mis en marche et il y avait peu d’initiatives visant à baisser ou à éteindre les ressources non utilisées. De nombreux cas, l’acquisition de ce matériel dédié n’était pas effectuée par les développeurs qui l’utilisaient.
+Le cloud est souple et autorise un modèle de paiement à l’utilisation ; cette solution est moins familière pour certains développeurs issus d’un modèle ne faisant pas appel au cloud, où le matériel est acquis et détenu. Dans le modèle non cloud, il y avait des limites physiques en termes de nombre d’« ordinateurs » susceptibles d’être mis en marche et il y avait peu d’initiatives visant à baisser ou à éteindre les ressources non utilisées. De nombreux cas, l’acquisition de ce matériel dédié n’était pas effectuée par les développeurs qui l’utilisaient.
 
 En isolant les abonnements et en affectant la responsabilité de ces derniers à des équipes spécifiques, les propriétaires de services trouvaient ce type de partitionnement d’abonnement avantageux dans la conduite et l’application des comportements souhaités.
 
@@ -134,13 +134,13 @@ Outre l’accès contraint fourni par le RBAC, les entreprises doivent égalemen
 
 ### Mettre en œuvre des ressources avec Azure Resource Manager
 
-Auparavant, les entreprises utilisaient le partitionnement d’abonnement pour atteindre ces objectifs. Bien que ce soit possible, ce n’était pas l’idéal. Comme la création d’un abonnement est effectivement une activité commerciale, le service de gestion API n’avait pas présenté de mécanisme pour créer ou supprimer automatiquement les nouveaux abonnements qui autrefois étaient créés manuellement. Le nombre d’abonnements qui en résultait pouvait augmenter considérablement (pour des services très volumineux, par exemple, les services commerciaux de Microsoft), et le nombre obtenu se chiffrait à plus de 1 000 abonnements. Un tel événement se traduirait par la création de structures personnalisées servant à créer et à gérer des abonnements pour une organisation.
+Auparavant, les entreprises utilisaient le partitionnement d’abonnement pour atteindre ces objectifs. Bien que ce soit possible, ce n’était pas l’idéal. Comme la création d’un abonnement est effectivement une activité commerciale, le service de gestion API n’avait pas présenté de mécanisme pour créer ou supprimer automatiquement les nouveaux abonnements qui autrefois étaient créés manuellement. Le nombre d’abonnements qui en résultait pouvait augmenter considérablement (pour des services très volumineux, par exemple, les services commerciaux de Microsoft), et le nombre obtenu se chiffrait à plus de 1 000 abonnements. Un tel événement se traduirait par la création de structures personnalisées servant à créer et à gérer des abonnements pour une organisation.
 
 Avec le gestionnaire de ressources, le déploiement de plusieurs environnements dans un abonnement est beaucoup plus simple. Il assouplit les CAP fixes précédentes sur les ressources du modèle précédent, ce qui réduit considérablement le besoin de partition en raison de contraintes de ressources.
 
 Les environnements peuvent être placés dans des groupes de ressources, auxquels on peut appliquer un RBAC spécifique, ce qui vous permet de fournir l’isolation de l’environnement. Dans les scénarios où l’isolement géographique est requis, ce peut être aussi fait en utilisant des groupes de ressources. Comme les groupes de ressources peuvent s’étendre sur des zones géographiques, l’isolation spécifique pour un ou plusieurs sites peut se faire.
 
-Vous pouvez appliquer des balises aux ressources et aux groupes de ressources qui peuvent être utilisées dans les Reports de facturation et les résumés des vues pour assurer l’isolation de la facturation. Vous pouvez utiliser des balises pour définir le type d’environnement (recherche, formation, développement, test, production), ou des services ou des individus (« RH », « Finance », « John Smith », « Jane Jones »).
+Vous pouvez appliquer des balises aux ressources et aux groupes de ressources qui peuvent être utilisées dans les Reports de facturation et les résumés des vues pour assurer l’isolation de la facturation. Vous pouvez utiliser des balises pour définir le type d’environnement (recherche, formation, développement, test, production), ou des services ou des individus (« RH », « Finance », « John Smith », « Jane Jones »).
 
 La spécification d’audit est fournie dans le cadre du jeu sous-jacent d’Azure Resource Manager dans la boîte de fonctionnalités et peut être affichée dans un emplacement central.
 
@@ -150,7 +150,7 @@ Les clients finaux ont des comptes inscrits dans Azure Active Directory utilisé
 
 Bien que les limites de ressource soient assouplies dans Azure Resource Manager, il y aura toujours des limites. Au-delà de la création d’environnements, vous devez également prendre en compte la densité des environnements au sein de l’abonnement. La capacité de fournir un environnement revient à évaluer quel individu ou entreprise concerné doit vraiment en bénéficier. En particulier, il faut identifier les variantes entre les clients petits, moyens, grands et très grands en termes de ressources requises.
 
-Vous pouvez choisir d’utiliser des abonnements différents pour des tailles différentes pour atteindre une densité supérieure. Par exemple, vous pouvez mettre en place 1 000 environnements de petite taille, 500 déploiements de taille moyenne, 100 déploiements de grande taille et 10 de très grande taille dans un abonnement. Comme le coût de plusieurs abonnements n’est pas facturé, vous pouvez isoler les différentes tailles dans différents abonnements pour fournir la densité maximale. Cela est possible tout en conservant un nombre d’abonnements relativement modeste et facile à gérer.
+Vous pouvez choisir d’utiliser des abonnements différents pour des tailles différentes pour atteindre une densité supérieure. Par exemple, vous pouvez mettre en place 1 000 environnements de petite taille, 500 déploiements de taille moyenne, 100 déploiements de grande taille et 10 de très grande taille dans un abonnement. Comme le coût de plusieurs abonnements n’est pas facturé, vous pouvez isoler les différentes tailles dans différents abonnements pour fournir la densité maximale. Cela est possible tout en conservant un nombre d’abonnements relativement modeste et facile à gérer.
 
 Il faut se demander si vous êtes prêt à autoriser un client à augmenter ou modifier les tailles et, le cas échéant, comment s’y prendre.
 
@@ -178,7 +178,7 @@ Si l’entreprise demande à ce que certains trafics, par exemple, le trafic ent
 
 Un appareil virtuel n’est rien de plus qu’une machine virtuelle qui exécute une application permettant de gérer le trafic réseau d’une certaine façon, comme un pare-feu ou un périphérique NAT. De nombreux tiers fournissent des équipements de réseau virtuel sur Azure, et les entreprises peuvent également y placer les leurs.
 
-Une approche d’équipement « apportez votre propre » permet à une entreprise de réutiliser le code existant qui peut être utilisé dans leurs environnements locaux. La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP dans la machine virtuelle.
+Une approche d’équipement « apportez votre propre » permet à une entreprise de réutiliser le code existant qui peut être utilisé dans leurs environnements locaux. La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP dans la machine virtuelle.
 
 Comme dans les exemples précédents, le cycle de vie des ressources et les contraintes RBAC doivent être examinés et considérés comme faisant partie de votre stratégie de groupe de ressources.
 
@@ -202,9 +202,9 @@ Comme indiqué plus haut dans le document, il n’existe pas de coffre de clés.
 
 Un exemple d’installation de cette solution a été fourni dans la section Secrets et certificats plus haut dans ce document.
 
-## Activation d’un modèle « apportez votre propre abonnement »
+## Activation d’un modèle « apportez votre propre abonnement »
 
-Les entreprises informatiques, les intégrateurs de systèmes, et les fournisseurs de Services de cloud peuvent faire appel à un modèle de type « Apportez votre propre abonnement » pour leurs clients. Plus précisément, l’entreprise fournit un service au client final et utilise l’abonnement Azure de ce client d’une certaine façon.
+Les entreprises informatiques, les intégrateurs de systèmes, et les fournisseurs de Services de cloud peuvent faire appel à un modèle de type « Apportez votre propre abonnement » pour leurs clients. Plus précisément, l’entreprise fournit un service au client final et utilise l’abonnement Azure de ce client d’une certaine façon.
 
 Il existe plusieurs variantes de cette approche, chacune ayant des exigences légèrement différentes, comme détaillé ci-dessous.
 
@@ -214,7 +214,7 @@ Une entreprise avec une application de surveillance peut nécessiter un accès e
 
 #### Mettre en œuvre des ressources avec Azure Resource Manager
 
-Des informations détaillées sur cette mise en œuvre peuvent être consultées dans « Guide des développeurs sur Auth avec l’API d’Azure Resource Manager » qui se trouve [ici](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/). Ce document fournit des instructions de mise en œuvre pas à pas, ainsi que des exemples de code.
+Des informations détaillées sur cette mise en œuvre peuvent être consultées dans « Guide des développeurs sur Auth avec l’API d’Azure Resource Manager » qui se trouve [ici](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/). Ce document fournit des instructions de mise en œuvre pas à pas, ainsi que des exemples de code.
 
 ### Activation d’accès pour un tiers pour un déploiement unique du logiciel
 
@@ -254,4 +254,4 @@ Enfin, on peut souhaiter s’assurer que certaines ressources ne sont pas suppri
 - Pour obtenir des recommandations sur la façon de gérer la sécurité dans Azure Resource Manager, consultez [Considérations de sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
 - Pour en savoir plus sur le partage d’état vers et depuis des modèles, consultez [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

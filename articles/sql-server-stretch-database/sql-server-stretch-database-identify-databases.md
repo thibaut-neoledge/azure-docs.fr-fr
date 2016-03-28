@@ -61,6 +61,11 @@ Activer Stretch Database
 -   Pour activer Stretch Database sur une autre **table** lorsque Stretch est déjà activé sur la base de données, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md).
 
 ## Voir aussi
-[Limitations de la surface d’exposition et problèmes de blocage pour Stretch Database](sql-server-stretch-database-limitations.md) [Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md) [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+[Limitations de la surface d’exposition et problèmes de blocage pour Stretch Database](sql-server-stretch-database-limitations.md)
+
+[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md)
+
+[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

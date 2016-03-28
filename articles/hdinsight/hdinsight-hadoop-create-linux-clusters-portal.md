@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="03/09/2016"
    	ms.author="nitinme"/>
 
 
@@ -24,16 +24,15 @@
 
 Le portail Azure en version préliminaire est un outil web qui permet de gérer les services et les ressources hébergés dans le cloud Microsoft Azure. Aidez-vous des informations fournies dans ce document pour créer un cluster Linux dans HDInsight en utilisant le portail Azure en version préliminaire et votre navigateur web.
 
-##Configuration requise
-
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
+## Configuration requise
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Un navigateur web récent__. Le portail Azure en version préliminaire utilise les langages HTML5 et Javascript. Il est possible qu’il ne fonctionne pas correctement dans les anciens navigateurs web.
 
 ##Créer des clusters
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
@@ -156,6 +155,10 @@ Le portail Azure en version préliminaire est un outil web qui permet de gérer 
 - Consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 - Consultez [Personnalisation de clusters HDInsight basés sur Windows à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md).
 
+##Suppression du cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Étapes suivantes
 
 Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez les rubriques ci-dessous :
@@ -185,4 +188,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

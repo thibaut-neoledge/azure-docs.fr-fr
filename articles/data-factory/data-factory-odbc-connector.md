@@ -31,11 +31,11 @@ En dehors de la passerelle de gestion des données, vous devez également instal
 
 > [AZURE.NOTE] Consultez la page [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
-## Exemple : copie des données depuis un magasin de données ODBC vers un objet Blob Azure
+## Exemple : copie des données depuis un magasin de données ODBC vers un objet Blob Azure
 
-Cet exemple indique comment copier des données depuis un magasin de données ODBC vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Cet exemple indique comment copier des données depuis un magasin de données ODBC vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
  
-L’exemple contient les entités de fabrique de données suivantes :
+L’exemple contient les entités de fabrique de données suivantes :
 
 1.	Un service lié de type [OnPremisesOdbc](#odbc-linked-service-properties).
 2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -47,7 +47,7 @@ L’exemple copie toutes les heures les données de résultat d’une requête d
 
 Dans un premier temps, configurez la passerelle de gestion des données en suivant les instructions de l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Service lié de HDFS** : cet exemple utilise l’authentification de base. Consultez la section [Service lié ODBC](#odbc-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié de HDFS** : cet exemple utilise l’authentification de base. Consultez la section [Service lié ODBC](#odbc-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -65,7 +65,7 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	    }
 	}
 
-**Service lié Azure Storage**
+**Service lié Azure Storage**
 
 	{
 	  "name": "AzureStorageLinkedService",
@@ -79,9 +79,9 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 
 **Jeu de données d’entrée ODBC**
 
-L’exemple suppose que vous avez créé une table « MyTable » dans une base de données ODBC et qu’elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
+L’exemple suppose que vous avez créé une table « MyTable » dans une base de données ODBC et qu’elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
 
-La définition de « external » : « true » et la spécification de la stratégie externalData informent le service Data Factory qu'il s'agit d'une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
+La définition de « external » : « true » et la spécification de la stratégie externalData informent le service Data Factory qu'il s'agit d'une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
 	
 	{
 	    "name": "ODBCDataSet",
@@ -109,7 +109,7 @@ La définition de « external » : « true » et la spécification de la st
 
 **Jeu de données de sortie Azure Blob**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
 
 	{
 	    "name": "AzureBlobOdbcDataSet",
@@ -223,7 +223,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- | 
-| type | Le type de propriété doit être défini sur : **OnPremisesOdbc**. | Oui |
+| type | Le type de propriété doit être défini sur : **OnPremisesOdbc**. | Oui |
 | connectionString | Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Voir les exemples ci-dessous. | Oui
 | credential | Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote, par exemple “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | Non
 | authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont : Anonyme et De base. | Oui | 
@@ -232,7 +232,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au magasin de données ODBC. | Oui |
 
 
-Pour en savoir plus sur la définition des informations d’identification pour un magasin de données ODBC local, voir [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Pour en savoir plus sur la définition des informations d’identification pour un magasin de données ODBC local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 ### Utilisation de l’authentification de base
 
@@ -253,7 +253,7 @@ Pour en savoir plus sur la définition des informations d’identification pour 
 	}
 
 ### Utilisation de l’authentification de base avec des informations d’identification chiffrées
-Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (version 1.0 d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure d’Azure PowerShell).
+Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (version 1.0 d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure d’Azure PowerShell).
 
 	{
 	    "name": "odbc",
@@ -293,7 +293,7 @@ Vous pouvez chiffrer les informations d’identification à l’aide de l’appl
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **RelationalTable** (qui inclut le jeu de données ODBC) présente les propriétés suivantes.
+La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **RelationalTable** (qui inclut le jeu de données ODBC) présente les propriétés suivantes.
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
@@ -305,7 +305,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, quand la source est de type **RelationalSource** (ce qui inclut ODBC), les propriétés suivantes sont disponibles dans la section typeProperties :
+Dans le cas d’une activité de copie, quand la source est de type **RelationalSource** (ce qui inclut ODBC), les propriétés suivantes sont disponibles dans la section typeProperties :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -315,16 +315,16 @@ Dans le cas d’une activité de copie, quand la source est de type **Relational
 
 ### Mappage de type pour ODBC
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
 
-Lors du déplacement de données à partir de magasins de données ODBC, les types de données ODBC sont mappés aux types .NET, comme indiqué dans la rubrique [Mappages de types de données ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
+Lors du déplacement de données à partir de magasins de données ODBC, les types de données ODBC sont mappés aux types .NET, comme indiqué dans la rubrique [Mappages de types de données ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

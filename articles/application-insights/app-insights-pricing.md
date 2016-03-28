@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -136,8 +136,8 @@ Si vous rencontrez les seuils de limitation, voici quelques opérations à effec
 Votre niveau de tarification détermine la durée de conservation des données dans le portail, et donc les intervalles de temps les plus éloignés dont vous pouvez consulter les données.
 
 
-* Les points de données bruts (autrement dit, les instances que vous pouvez inspecter dans Recherche de diagnostic) sont conservés entre 7 et 30 jours.
-* Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées pour une minute pendant 30 jours et pour une heure ou un jour (selon le type) pendant 13 mois.
+* Les points de données bruts (autrement dit, les instances que vous pouvez inspecter dans Recherche de diagnostic) : 7 jours.
+* Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées pour une minute pendant 30 jours et pour une heure ou un jour (selon le type) pendant 90 mois.
 
 
 ## Échantillonnage
@@ -173,4 +173,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

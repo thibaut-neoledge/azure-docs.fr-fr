@@ -20,13 +20,10 @@
 
 Ces articles comportent des informations de référence associées à SQL Data Warehouse.
 
-[Éléments de langage Transact-SQL][]
-
-[Instructions Transact-SQL][]
-
-[Vues système Transact-SQL][]
-
-[Applets de commande PowerShell][]
+- [Éléments de langage Transact-SQL][]
+- [Instructions Transact-SQL][]
+- [Vues système Transact-SQL][]
+- [Applets de commande PowerShell][]
 
 
 
@@ -45,4 +42,4 @@ Pour obtenir des informations sur le développement, consultez la [vue d’ensem
 
 <!--MSDN references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

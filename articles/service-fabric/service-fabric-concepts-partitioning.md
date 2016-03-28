@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="03/15/2016"
    ms.author="bscholl"/>
 
 # Partitionnement des services fiables Service Fabric
@@ -372,4 +372,4 @@ Pour plus d'informations sur les concepts propres à Service Fabric, consultez l
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

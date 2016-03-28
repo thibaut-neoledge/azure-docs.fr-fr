@@ -22,17 +22,17 @@
 
 ## Vue d’ensemble
 
-Ce didacticiel explique comment prendre en charge le mode hors connexion dans une application Windows 8.1 Store ou Phone à l’aide d’un backend d’applications mobiles Azure. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le backend distant.
+Ce didacticiel explique comment prendre en charge le mode hors connexion dans une application Windows 8.1 Store ou Phone à l’aide d’un backend d’applications mobiles Azure. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le backend distant.
 
-Dans ce didacticiel, vous allez mettre à jour le projet d’application Windows 8.1 du didacticiel [Créer une application Windows] pour prendre en charge les fonctionnalités hors connexion d’Azure Mobile Apps. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Dans ce didacticiel, vous allez mettre à jour le projet d’application Windows 8.1 du didacticiel [Créer une application Windows] pour prendre en charge les fonctionnalités hors connexion d’Azure Mobile Apps. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 ## Configuration requise
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-* exécution de Visual Studio 2013 sur Windows 8.1 ;
+* exécution de Visual Studio 2013 sur Windows 8.1 ;
 * finalisation de [Créer une application Windows][create a windows app].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [SQLite pour Windows 8.1](http://www.sqlite.org/downloads)
@@ -41,22 +41,22 @@ Ce didacticiel requiert les éléments suivants :
 
 Les fonctionnalités hors connexion de l’application mobile Azure vous permettent d’interagir avec une base de données locale hors connexion. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez un `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l'interface `IMobileServiceSyncTable`. Dans ce didacticiel, nous utilisons SQLite pour le magasin local.
 
-1. Installez le runtime SQLite pour Windows 8.1 et Windows Phone 8.1.
+1. Installez le runtime SQLite pour Windows 8.1 et Windows Phone 8.1.
 
-    * **Windows 8.1 Runtime :** installez [SQLite pour Windows 8.1].
-    * **Windows Phone 8.1 :** installez [SQLite for Windows Phone 8.1].
+    * **Windows 8.1 Runtime :** installez [SQLite pour Windows 8.1].
+    * **Windows Phone 8.1 :** installez [SQLite for Windows Phone 8.1].
 
-    >[AZURE.NOTE] Ces instructions s’appliquent également aux projets Windows 10 UAP, mais vous devez installer à la place [SQLite pour Windows 10].
+    >[AZURE.NOTE] Ces instructions s’appliquent également aux projets Windows 10 UAP, mais vous devez installer à la place [SQLite pour Windows 10].
 
-2. Dans Visual Studio, ouvrez le projet que vous avez finalisé dans le didacticiel [Créer une application Windows]. Installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** pour les projets Runtime Windows 8.1 et Windows Phone 8.1. Ajoutez la référence NuGet aux projets Windows Store 8.1 et Windows Phone 8.1.
+2. Dans Visual Studio, ouvrez le projet que vous avez finalisé dans le didacticiel [Créer une application Windows]. Installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** pour les projets Runtime Windows 8.1 et Windows Phone 8.1. Ajoutez la référence NuGet aux projets Windows Store 8.1 et Windows Phone 8.1.
 
     >[AZURE.NOTE] Si l’installation crée une référence supplémentaire à une autre version de SQLite que vous avez installée, vous aurez une erreur de compilation. Vous devez résoudre cette erreur en supprimant les doublons dans le nœud **Références** de vos projets.
 
-3. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Références** pour les projets de plateforme Runtime Windows 8.1 et Windows Phone 8.1, et vérifiez qu'il existe une référence à SQLite, qui doit se trouver dans la section **Extensions**.
+3. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Références** pour les projets de plateforme Runtime Windows 8.1 et Windows Phone 8.1, et vérifiez qu'il existe une référence à SQLite, qui doit se trouver dans la section **Extensions**.
 
     ![][1] </br>
 
-    **Runtime Windows 8.1**
+    **Runtime Windows 8.1**
 
     ![][11] </br>
 
@@ -66,19 +66,19 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 
     ![][13]
 
-5. Dans l'Explorateur de solutions, dans le projet partagé, ouvrez le fichier MainPage.cs. Supprimez les commentaires des instructions using suivantes situées en haut du fichier :
+5. Dans l'Explorateur de solutions, dans le projet partagé, ouvrez le fichier MainPage.cs. Supprimez les commentaires des instructions using suivantes situées en haut du fichier :
 
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
         using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
 
-6. Dans MainPage.cs, commentez la ligne de code qui commence `todoTable` en tant que `IMobileServiceTable`. Supprimez les commentaires de la ligne de code qui commence `todoTable` en tant que `IMobileServiceSyncTable` :
+6. Dans MainPage.cs, commentez la ligne de code qui commence `todoTable` en tant que `IMobileServiceTable`. Supprimez les commentaires de la ligne de code qui commence `todoTable` en tant que `IMobileServiceSyncTable` :
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
 
 7. Dans MainPage.cs, dans la zone marquée `Offline sync`, supprimez les commentaires des méthodes `InitLocalStoreAsync` et `SyncAsync`. La méthode `InitLocalStoreAsync` initialise le contexte de synchronisation du client avec un magasin SQLite. Dans Visual Studio, vous pouvez sélectionner toutes les lignes commentées et utiliser le raccourci clavier **CTRL**+**K**+**U** pour supprimer les commentaires.
 
-	Notez que dans `SyncAsync` une opération push est exécutée à partir de `MobileServiceClient.SyncContext` plutôt que de `IMobileServicesSyncTable`. Il en est ainsi parce que le contexte suit les modifications apportées par le client à toutes les tables. Ceci permet de prendre en compte les scénarios dans lesquels des relations existent entre les tables. Pour plus d’informations, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps].
+	Notez que dans `SyncAsync` une opération push est exécutée à partir de `MobileServiceClient.SyncContext` plutôt que de `IMobileServicesSyncTable`. Il en est ainsi parce que le contexte suit les modifications apportées par le client à toutes les tables. Pour plus d’informations, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
         private async Task InitLocalStoreAsync()
         {
@@ -98,7 +98,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
             await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
         }
 
-8. Dans le gestionnaire d'événements `OnNavigatedTo`, supprimez le commentaire de l'appel vers `InitLocalStoreAsync` :
+8. Dans le gestionnaire d'événements `OnNavigatedTo`, supprimez le commentaire de l'appel vers `InitLocalStoreAsync` :
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -106,7 +106,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
             await RefreshTodoItems();
         }
 
-9. Supprimez les commentaires des 3 appels vers `SyncAsync` dans les méthodes `InsertTodoItem`, `UpdateCheckedTodoItem` et `ButtonRefresh_Click` :
+9. Supprimez les commentaires des 3 appels vers `SyncAsync` dans les méthodes `InsertTodoItem`, `UpdateCheckedTodoItem` et `ButtonRefresh_Click` :
 
         private async Task InsertTodoItem(TodoItem todoItem)
         {
@@ -135,7 +135,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
             ButtonRefresh.IsEnabled = true;
         }
 
-10. Ajoutez les gestionnaires d’exception à la méthode `SyncAsync` . Dans une situation hors connexion, une `MobileServicePushFailedException` sera levée avec `PushResult.Status == CancelledByNetworkError`.
+10. Ajoutez les gestionnaires d’exception à la méthode `SyncAsync` . Dans une situation hors connexion, une `MobileServicePushFailedException` sera levée avec `PushResult.Status == CancelledByNetworkError`.
 
         private async Task SyncAsync()
         {
@@ -176,7 +176,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 
 Dans cette section, vous allez modifier l’application cliente pour simuler un scénario hors connexion en coupant votre connexion avec le backend d’applications Azure Mobile App. Lorsque vous ajouterez des éléments de données, votre gestionnaire d’exceptions signalera que l’application fonctionne en mode hors connexion avec `PushResult.Status == CancelledByNetworkError`. Les éléments ajoutés seront stockés dans le magasin local et ne seront synchronisés avec le backend d’applications mobiles que quand vous serez à nouveau en ligne et après l’exécution d’un push vers le backend d’applications mobiles Azure Mobile App.
 
-1. Modifiez App.xaml.cs dans le projet partagé. Mettez en commentaire l’initialisation de **MobileServiceClient** et ajoutez les lignes suivantes qui utilisent une URL d’application mobile incorrecte :
+1. Modifiez App.xaml.cs dans le projet partagé. Mettez en commentaire l’initialisation de **MobileServiceClient** et ajoutez les lignes suivantes qui utilisent une URL d’application mobile incorrecte :
 
          public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
@@ -229,7 +229,7 @@ Nous avons utilisé les méthodes `IMobileServiceSyncTable.PullAsync` et `Mobile
 
 * Pour activer la synchronisation incrémentielle, transmettez un ID de requête à `PullAsync()`. L’ID de requête est utilisé pour stocker le dernier horodatage des résultats de la dernière opération d’extraction. L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Si la requête possède un paramètre, alors la même valeur de paramètre pourrait faire partie de l’ID de requête.
 
-    Par exemple, si vous filtrez sur le nom d’utilisateur, votre ID de requête unique peut être :
+    Par exemple, si vous filtrez sur le nom d’utilisateur, votre ID de requête unique peut être :
 
         await PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
@@ -242,9 +242,9 @@ Nous avons utilisé les méthodes `IMobileServiceSyncTable.PullAsync` et `Mobile
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
-* [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]
+* [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]
 
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
@@ -264,11 +264,11 @@ Nous avons utilisé les méthodes `IMobileServiceSyncTable.PullAsync` et `Mobile
 [Créer une application Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
-[SQLite pour Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
+[SQLite pour Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 
-[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

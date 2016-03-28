@@ -3,8 +3,8 @@
 	description="Enterprise Library est conçu pour faciliter un grand nombre de tâches pour les programmes clients qui interagissent avec les services cloud, y compris l’ajout d’une logique de nouvelle tentative pour les erreurs temporaires."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
-# Exemple de code : logique C&#x23; de nouvelle tentative Enterprise Library 6 pour se connecter à SQL Database
+# Exemple de code : logique C&#x23; de nouvelle tentative Enterprise Library 6 pour se connecter à SQL Database
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
@@ -32,7 +32,7 @@ Les classes EntLib sont conçues pour différencier deux catégories d’erreurs
 - Les erreurs temporaires, par exemple quand le serveur interrompt pendant quelques secondes son acceptation de nouvelles connexions, au cours de l’équilibrage de la charge système Azure.
 
 
-Enterprise Library 6 (EntLib60) est la dernière version, disponible depuis avril 2013.
+Enterprise Library 6 (EntLib60) est la dernière version, disponible depuis avril 2013.
 
 - Microsoft a publié le code source pour le grand public.
 - Microsoft ne prévoit pas de maintenance supplémentaire pour le code source.
@@ -41,10 +41,10 @@ Enterprise Library 6 (EntLib60) est la dernière version, disponible depuis avr
 ## Composants requis
 
 
-#### .NET Framework 4.0 ou une version ultérieure
+#### .NET Framework 4.0 ou une version ultérieure
 
 
-Microsoft .NET Framework 4.0 ou une version ultérieure doit être installé. Nous recommandons d’utiliser la version 4.6, qui est la dernière version disponible au moment de la rédaction de ce document.
+Microsoft .NET Framework 4.0 ou une version ultérieure doit être installé. Nous recommandons d’utiliser la version 4.6, qui est la dernière version disponible au moment de la rédaction de ce document.
 
 
 #### Visual Studio Community (édition gratuite)
@@ -53,7 +53,7 @@ Microsoft .NET Framework 4.0 ou une version ultérieure doit être installé. N
 Vous avez besoin d’un moyen pour compiler le code source à partir de cet exemple. Comme solution, vous pouvez installer l’[édition gratuite Microsoft Visual Studio *Community*](http://www.visualstudio.com/products/free-developer-offers-vs.aspx).
 
 
-Vous devrez peut-être enregistrer votre adresse de messagerie avec MSDN. La procédure est similaire à celle-ci :
+Vous devrez peut-être enregistrer votre adresse de messagerie avec MSDN. La procédure est similaire à celle-ci :
 
 
 1. [Accédez à MSDN](http://msdn.microsoft.com/).
@@ -63,20 +63,20 @@ Vous devrez peut-être enregistrer votre adresse de messagerie avec MSDN. La pro
 5. Cliquez sur **Créer un compte** en bas de la page.
 
 
-#### Enterprise Library 6 (EntLib60)
+#### Enterprise Library 6 (EntLib60)
 
 
-Vous pouvez installer EntLib60 de deux manières :
+Vous pouvez installer EntLib60 de deux manières :
 
 
-- Utilisez la fonctionnalité *NuGet* du gestionnaire de package dans Visual Studio :
+- Utilisez la fonctionnalité *NuGet* du gestionnaire de package dans Visual Studio :
  - Dans NuGet, recherchez **enterpriselibrary**.
 
 
-- Dans la [rubrique principale consacrée à EntLib60](http://msdn.microsoft.com/library/dn169621.aspx), recherchez la ligne **Téléchargements**, puis cliquez sur [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) pour télécharger les fichiers d’assembly .DLL binaires.
+- Dans la [rubrique principale consacrée à EntLib60](http://msdn.microsoft.com/library/dn169621.aspx), recherchez la ligne **Téléchargements**, puis cliquez sur [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) pour télécharger les fichiers d’assembly .DLL binaires.
 
 
-EntLib60 possède plusieurs fichiers d’assembly .DLL dont les noms commencent par le même préfixe **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll**, mais cet exemple de code concerne uniquement les deux assemblys suivants :
+EntLib60 possède plusieurs fichiers d’assembly .DLL dont les noms commencent par le même préfixe **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll**, mais cet exemple de code concerne uniquement les deux assemblys suivants :
 
 - Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling**.dll
 - Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling.Data**.dll
@@ -85,15 +85,15 @@ EntLib60 possède plusieurs fichiers d’assembly .DLL dont les noms commencent 
 ## Combinaison de classes EntLib
 
 
-Vous pouvez créer des classes EntLib à partir d’autres classes EntLib. Dans cet exemple de code, la séquence de création et d’utilisation est la suivante :
+Vous pouvez créer des classes EntLib à partir d’autres classes EntLib. Dans cet exemple de code, la séquence de création et d’utilisation est la suivante :
 
 
 1. Créez un objet **ExponentialBackoff**.
 2. Créez un objet **SqlDatabaseTransientErrorDetectionStrategy**.
-3. Créez un objet **RetryPolicy**. Paramètres d’entrée :
+3. Créez un objet **RetryPolicy**. Paramètres d’entrée :
  - Objet **ExponentialBackoff**.
  - Objet **SqlDatabaseTransientErrorDetectionStrategy**.
-4. Créez un objet **ReliableSqlConnection**. Paramètres d’entrée :
+4. Créez un objet **ReliableSqlConnection**. Paramètres d’entrée :
  - Objet **String** contenant le nom du serveur et les autres informations de connexion.
  - Objet **RetryPolicy**.
 5. Appelez la méthode **RetryPolicy .ExecuteAction** pour établir la connexion.
@@ -105,16 +105,16 @@ Vous pouvez créer des classes EntLib à partir d’autres classes EntLib. Dans 
 ## Compilation et exécution de l’exemple de code
 
 
-L’exemple de code source Program.cs est fourni plus loin dans cette rubrique. Pour compiler et exécuter l’exemple, procédez comme suit :
+L’exemple de code source Program.cs est fourni plus loin dans cette rubrique. Pour compiler et exécuter l’exemple, procédez comme suit :
 
 
 1. Dans Visual Studio, créez un projet pour un modèle d’application console C#.
 
 2. Dans le volet Explorateur de solutions, modifiez le fichier Program.cs presque vide en remplaçant son contenu initial par le code Program.cs fourni plus loin dans cette rubrique.
 
-3. Utilisez le menu Générer > Générer la solution dans Visual Studio pour compiler votre projet.
+3. Utilisez le menu Générer > Générer la solution dans Visual Studio pour compiler votre projet.
 
-4. Dans une fenêtre de commande cmd.exe, exécutez le programme comme indiqué ci-après. La sortie réelle d’une exécution est également affichée :
+4. Dans une fenêtre de commande cmd.exe, exécutez le programme comme indiqué ci-après. La sortie réelle d’une exécution est également affichée :
 
 
 ```
@@ -308,22 +308,22 @@ SELECT TOP 3
 ## Liens connexes
 
 
-- De nombreux liens pour obtenir plus d’informations sont proposés dans la rubrique [Enterprise Library 6 – Avril 2013](http://msdn.microsoft.com/library/dn169621.aspx).
+- De nombreux liens pour obtenir plus d’informations sont proposés dans la rubrique [Enterprise Library 6 – Avril 2013](http://msdn.microsoft.com/library/dn169621.aspx).
  - Pour voir le code source, cliquez sur le bouton en haut de cette rubrique pour [télécharger le code source EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898).
 
 
-- Livre électronique gratuit au format .PDF de Microsoft : [Guide du développeur Microsoft Enterprise Library, deuxième édition](http://www.microsoft.com/download/details.aspx?id=41145).
+- Livre électronique gratuit au format .PDF de Microsoft : [Guide du développeur Microsoft Enterprise Library, deuxième édition](http://www.microsoft.com/download/details.aspx?id=41145).
 
 
 - [Espace de noms Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.aspx)
 
 
-- [Informations de référence sur la bibliothèque de classes Enterprise Library 6](http://msdn.microsoft.com/library/dn170426.aspx)
+- [Informations de référence sur la bibliothèque de classes Enterprise Library 6](http://msdn.microsoft.com/library/dn170426.aspx)
 
 
-- [Exemple de code : logique C# de reconnexion à SQL Database avec ADO.NET](sql-database-develop-csharp-retry-windows.md)
+- [Exemple de code : logique C# de reconnexion à SQL Database avec ADO.NET](sql-database-develop-csharp-retry-windows.md)
 
 
 - [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

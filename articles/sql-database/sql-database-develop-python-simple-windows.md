@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -40,7 +40,7 @@ Installez [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
 
 Veillez choisir le fichier whl correct.
 
-Par exemple : si vous utilisez Python 2.7 sur un ordinateur 64 bits, choisissez : pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. Une fois le fichier .whl téléchargé, placez-le dans le dossier C:/Python27.
+Par exemple : si vous utilisez Python 2.7 sur un ordinateur 64 bits, choisissez : pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. Une fois le fichier .whl téléchargé, placez-le dans le dossier C:/Python27.
 
 À présent, installez le pilote pymssql à l'aide de pip à partir de la ligne de commande. cd dans C:/Python27 et exécutez ce qui suit
 
@@ -53,12 +53,12 @@ Vous trouverez des instructions pour activer l'utilisation de pip [ici](http://s
 
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
-## Étape 1 : obtenir les informations de connexion
+## Étape 1 : obtenir les informations de connexion
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Étape 2 : se connecter
+## Étape 2 : se connecter
 
 
 La fonction [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) est utilisée pour la connexion à la base de données SQL.
@@ -67,7 +67,7 @@ La fonction [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) est
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Étape 3 : exécuter une requête
+## Étape 3 : exécuter une requête
 
 La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) peut être utilisée pour récupérer un jeu de résultats d'une requête à partir d'une base de données SQL. Cette fonction accepte n'importe quelle requête et renvoie un jeu de résultats qui peut être itéré à l'aide de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -82,7 +82,7 @@ La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
 	    row = cursor.fetchone()
 
 
-## Étape 4 : insérer une ligne
+## Étape 4 : insérer une ligne
 
 Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL] (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
@@ -97,10 +97,10 @@ Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSER
 	    row = cursor.fetchone()
 
 
-## Étape 5 : restaurer une transaction
+## Étape 5 : restaurer une transaction
 
 
-Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
+Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
 
 -Commencez une transaction
@@ -121,4 +121,4 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

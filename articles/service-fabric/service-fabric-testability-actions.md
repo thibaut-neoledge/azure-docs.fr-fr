@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/04/2015"
+   ms.date="03/14/2016"
    ms.author="heeldin;motanv"/>
 
 # Actions de testabilité
@@ -211,10 +211,11 @@ ReplicaSelector est une application auxiliaire de testabilité qui est utilisée
 
 Pour ce faire, créez un objet ReplicaSelector, puis définissez la méthode de sélection du réplica et de la partition. Il est alors temps de les transmettre à l’API qui en a besoin. Si aucune option n’est sélectionnée, une partition et le réplica aléatoire sont utilisés par défaut.
 
-Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829"); PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid); long replicaId = 130559876481875498;
-
-
 ```csharp
+Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
+PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
+long replicaId = 130559876481875498;
+
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
@@ -235,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simuler des défaillances au cours des charges de travail de services](service-fabric-testability-workload-tests.md)
    - [Échecs de communication de service à service](service-fabric-testability-scenarios-service-communication.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

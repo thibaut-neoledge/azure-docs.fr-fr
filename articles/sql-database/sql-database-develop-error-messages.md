@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Codes d’erreur SQL : erreur de connexion de base de données | Microsoft Azure"
+	pageTitle="Codes d’erreur SQL : erreur de connexion de base de données | Microsoft Azure"
 	description="En savoir plus sur les codes d’erreur SQL pour les applications clientes SQL Database, tels que les erreurs de connexion de base de données courantes, les problèmes de copie de base de données et les erreurs générales."
 	keywords="code d’erreur sql, accès sql, erreur de connexion de base de données, codes d’erreur sql"
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -15,11 +15,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/06/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
-# Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes
+# Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes
 
 
 <!--
@@ -44,11 +44,11 @@ Le tableau suivant décrit les codes d’erreur SQL pour les erreurs de perte de
 ### Erreurs de connexion de base de données et erreurs temporaires les plus courantes
 
 
-Les erreurs temporaires se manifestent généralement comme l'un des messages d'erreur suivants à partir de vos programmes clients :
+Les erreurs temporaires se manifestent généralement comme l'un des messages d'erreur suivants à partir de vos programmes clients :
 
 - La base de données <db_name> sur le serveur <Azure_instance> n'est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session_id>
 
-- La base de données <db_name> sur le serveur <Azure_instance> n'est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session_id>. (Microsoft SQL Server, erreur : 40613)
+- La base de données <db_name> sur le serveur <Azure_instance> n'est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session <session_id>. (Microsoft SQL Server, erreur : 40613)
 
 - Une connexion existante a été fermée de force par l'hôte distant.
 
@@ -69,11 +69,11 @@ Les erreurs temporaires doivent inviter le programme client à exécuter la *log
 | ---: | ---: | :--- |
 | 4060 | 16 | Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. |
 |40197|17|Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion à votre serveur de base de données SQL vous reconnectera automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie.|
-|40501|20|Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : %d.<br/><br/>*Remarque :* pour plus d'informations, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).
+|40501|20|Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : %d.<br/><br/>*Remarque :* pour plus d'informations, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).
 |40613|17|La base de données ’%.&#x2a;ls’ sur le serveur ’%.&#x2a;ls’ n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session ’%.&#x2a;ls’’.|
 |49918|16|Impossible de traiter la requête. Ressources insuffisantes pour traiter la demande.<br/><br/>Le service est actuellement occupé. Relancez la requête ultérieurement. |
-|49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
-|49920|16|Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
+|49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
+|49920|16|Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -81,7 +81,7 @@ Les erreurs temporaires doivent inviter le programme client à exécuter la *log
 ## Erreurs de copie de base de données
 
 
-Le tableau suivant décrit les différentes erreurs que vous pouvez rencontrer lors de la copie d'une base de données dans Azure SQL Database. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
+Le tableau suivant décrit les différentes erreurs que vous pouvez rencontrer lors de la copie d'une base de données dans Azure SQL Database. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
 
 
 |Code d'erreur|Niveau de gravité|Description|
@@ -106,7 +106,7 @@ Le tableau suivant décrit les différentes erreurs que vous pouvez rencontrer l
 ## Erreurs de gouvernance des ressources
 
 
-Le tableau suivant décrit les erreurs causées par une utilisation excessive des ressources avec Azure SQL Database. Par exemple :
+Le tableau suivant décrit les erreurs causées par une utilisation excessive des ressources avec Azure SQL Database. Par exemple :
 
 
 - Votre transaction a peut-être été ouverte trop longtemps.
@@ -115,16 +115,16 @@ Le tableau suivant décrit les erreurs causées par une utilisation excessive de
 - Votre programme consomme peut-être trop d’espace `TempDb`.
 
 
-**Conseil :** le lien suivant fournit des informations supplémentaires qui s’appliquent à la plupart, voire à toutes les erreurs de cette section :
+**Conseil :** le lien suivant fournit des informations supplémentaires qui s’appliquent à la plupart, voire à toutes les erreurs de cette section :
 
 
-- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
+- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
 
 |Code d'erreur|Niveau de gravité|Description|
 |---:|---:|:---|
-|10928|20|ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l'ID de ressource = 2.<br/><br/>* Remarque :* pour plus d'informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md). |
-|10929|20|ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, veuillez réessayer ultérieurement.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>* Remarque :* pour plus d’informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).|
+|10928|20|ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l'ID de ressource = 2.<br/><br/>* Remarque :* pour plus d'informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md). |
+|10929|20|ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, veuillez réessayer ultérieurement.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>* Remarque :* pour plus d’informations sur cette erreur et sa résolution, consultez :<br/>•[Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).|
 |40544|20|La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles.|
 |40549|16|La session est arrêtée, car l’une des transactions est de longue durée. Essayez de la raccourcir.|
 |40550|16|La session a été arrêtée, car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes dans une transaction unique.|
@@ -136,7 +136,7 @@ Le tableau suivant décrit les erreurs causées par une utilisation excessive de
 Pour plus d'informations sur la gouvernance des ressources et les erreurs associées, voir :
 
 
-- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
+- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
 
 
@@ -180,13 +180,13 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40528|16|Les utilisateurs ne peuvent pas être mappés à des certificats, clés asymétriques ou connexions Windows dans cette version de SQL Server.|
 |40529|16|La fonction intégrée '%.&#x2a;ls' dans le contexte d'emprunt d'identité n'est pas prise en charge dans cette version de SQL Server.|
 |40532|11|Impossible d'ouvrir le serveur "%.&#x2a;ls" demandé par la connexion. La connexion a échoué.|
-|40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Remarque :* La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
+|40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Remarque :* La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
 |40604|16|Opération CREATE/ALTER DATABASE impossible car elle dépasse le quota du serveur.|
 |40606|16|L'association de bases de données n'est pas prise en charge dans cette version de SQL Server.|
 |40607|16|Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server.|
 |40611|16|Les serveurs peuvent avoir au maximum 128 règles de pare-feu définies.|
 |40614|16|L'adresse IP de début de la règle de pare-feu ne peut pas dépasser l'adresse IP de fin.|
-|40615|16|Impossible d'ouvrir le serveur '{0}' demandé par la connexion. Le client avec l'adresse IP '{1}' n'est pas autorisé à accéder au serveur. Pour activer l’accès, utilisez le portail de la base de données SQL ou exécutez l’élément sp\_set\_firewall\_rule sur la base de données master afin de créer une règle de pare-feu pour cette adresse IP ou cette plage d'adresses. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet.|
+|40615|16|Impossible d'ouvrir le serveur '{0}' demandé par la connexion. Le client avec l'adresse IP '{1}' n'est pas autorisé à accéder au serveur. Pour activer l’accès, utilisez le portail de la base de données SQL ou exécutez l’élément sp\_set\_firewall\_rule sur la base de données master afin de créer une règle de pare-feu pour cette adresse IP ou cette plage d'adresses. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet.|
 |40617|16|Le nom de la règle de pare-feu qui commence par <rule name> est trop long. La longueur maximale est 128.|
 |40618|16|Le nom de la règle de pare-feu ne peut pas être vide.|
 |40620|16|Échec de la connexion pour l'utilisateur "%.&#x2a;ls". La modification du mot de passe a échoué. La modification du mot de passe lors de la connexion n'est pas prise en charge dans cette version de SQL Server.|
@@ -196,7 +196,7 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40632|16|Échec de la validation de mot de passe. Le mot de passe ne respecte pas les exigences de la stratégie car il n'est pas assez complexe.|
 |40636|16|Impossible d'utiliser un nom de base de données réservé '%.&#x2a;ls' dans cette opération.|
 |40638|16|ID d’abonnement <subscription-id> non valide. L'abonnement n'existe pas.|
-|40639|16|La requête n’est pas conforme au schéma : <schema error>.|
+|40639|16|La requête n’est pas conforme au schéma : <schema error>.|
 |40640|20|Le serveur a rencontré une exception inattendue.|
 |40641|16|L'emplacement spécifié n'est pas valide.|
 |40642|17|Le serveur est actuellement trop occupé. Veuillez réessayer plus tard.|
@@ -211,14 +211,12 @@ Le tableau suivant répertorie toutes les erreurs générales qui n’appartienn
 |40651|16|Impossible de créer le serveur, car l’abonnement <subscription-id> est désactivé.|
 |40652|16|Impossible de déplacer ou de créer le serveur. L'abonnement <subscription-id> va dépasser le quota du serveur.|
 |40671|17|Échec de la communication entre la passerelle et le service de gestion. Veuillez réessayer ultérieurement.|
-|40852|16|Impossible d’ouvrir la base de données. *ls’ on server ’%.*ls’ demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet ’nom de serveur’.database.windows.net doit être transformé en nom de serveur’.database.`secure`.windows.net.| 
-|45168|16| Le système SQL Azure est sous charge et place une limite supérieure sur les opérations DB CRUD simultanées pour un seul serveur (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.| 
-|45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.
+|40852|16|Impossible d’ouvrir la base de données. *ls’ on server ’%.*ls’ demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet ’nom de serveur’.database.windows.net doit être transformé en nom de serveur’.database.`secure`.windows.net.| |45168|16| Le système SQL Azure est sous charge et place une limite supérieure sur les opérations DB CRUD simultanées pour un seul serveur (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.| |45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.
 
 
 ## Liens connexes
 
 - [Consignes et limitations générales de base de données SQL Azure](sql-database-general-limitations.md)
-- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
+- [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

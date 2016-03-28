@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="markvi"/>
 
 #Flux Azure Active Directory Identity Protection
@@ -89,7 +89,7 @@ Lorsqu’un administrateur a configuré une stratégie pour les risques à la co
 
  
 ## Connexion à risque bloquée
-Les administrateurs peuvent également choisir de définir une stratégie en matière de risque à la connexion pour bloquer les utilisateurs lors de la connexion selon le niveau de risque. Pour débloquer leur accès, les utilisateurs finaux doivent contacter un administrateur ou leur support technique, ou ils peuvent essayer de se connecter depuis un emplacement ou un appareil connu. Il n’a pas la possibilité de récupérer lui-même son compte en résolvant l’authentification multifacteur dans ce cas précis. <br><br> ![Correction](./media/active-directory-identityprotection-flows/130.png "Correction") <br>
+Les administrateurs peuvent également choisir de définir une stratégie en matière de risque à la connexion pour bloquer les utilisateurs lors de la connexion selon le niveau de risque. Pour débloquer leur accès, les utilisateurs finaux doivent contacter un administrateur ou leur support technique, ou ils peuvent essayer de se connecter depuis un emplacement ou un appareil connu. Il n’a pas la possibilité de récupérer lui-même son compte en résolvant l’authentification multifacteur dans ce cas précis. <br><br> ![Correction](./media/active-directory-identityprotection-flows/200.png "Correction") <br>
 
 
 
@@ -158,4 +158,4 @@ Si des utilisateurs compromis voient leur connexion bloquée, un administrateur 
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

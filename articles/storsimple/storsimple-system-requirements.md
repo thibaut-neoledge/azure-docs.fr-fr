@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="alkohli"/>
 
 # Configuration requise logicielle, de haute disponibilité et de réseau StorSimple
@@ -73,11 +73,29 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 
 > [AZURE.IMPORTANT] Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
 
+### Modèles d’URL pour règles de pare-feu 
+
+Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre appareil StorSimple et le service StorSimple Manager dépendent d’autres applications Microsoft telles qu’Azure Service Bus, Azure Active Directory Access Control, des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. L’administrateur réseau doit alors surveiller et mettre à jour les règles de pare-feu pour votre appareil StorSimple si nécessaire.
+
+Dans la plupart des cas, les règles de pare-feu peuvent être définies librement. Toutefois, vous pouvez utiliser les informations ci-dessous pour définir les règles de pare-feu avancées qui sont nécessaires à la création d’environnements sécurisés.
+
+> [AZURE.NOTE] Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées. Les adresses IP de destination doivent être définies sur les [plages d’adresses IP Azure Datacenter](https://www.microsoft.com/fr-FR/download/confirmation.aspx?id=41653).
+
+
+| Modèle d’URL | Composant/Fonctionnalité | Adresses IP d’appareil |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Service StorSimple Manager<br>Access Control Service<br>Azure Service Bus| Interfaces réseau activées pour le cloud |
+|`http://crl.microsoft.com/pki/*` |Révocation de certificat |Interfaces réseau activées pour le cloud |
+| `https://*.core.windows.net/*` | Comptes de stockage Azure et surveillance | Interfaces réseau activées pour le cloud |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Serveurs Microsoft Update<br> | Adresses IP fixes du contrôleur uniquement |
+| `http://*.deploy.akamaitechnologies.com` |CDN Akamai |Adresses IP fixes du contrôleur uniquement |
+| `https://*.partners.extranet.microsoft.com/*` | Package de prise en charge | Interfaces réseau activées pour le cloud |
+
 ### Métrique de routage
 
 Une métrique de routage est associée aux interfaces et à la passerelle qui acheminent les données vers les réseaux spécifiés. La métrique de routage est utilisée par le protocole de routage pour calculer le meilleur chemin vers une destination donnée, si plusieurs chemins existent pour la même destination. La métrique de routage est inversement proportionnelle à la préférence.
 
-Dans le contexte de StorSimple, si plusieurs interfaces et passerelles de réseau sont configurées pour canaliser le trafic, les métriques de routage entrent en jeu afin de déterminer l’ordre relatif dans lequel les interfaces seront utilisées. Les métriques de routage ne peuvent pas être modifiées par l’utilisateur. Toutefois, vous pouvez utiliser l’applet de commande `Get-HcsRoutingTable` pour imprimer la table de routage (et les métriques de routage) sur votre appareil StorSimple. Vous trouverez plus d'informations sur l'applet de commande Get-HcsRoutingTable dans [Dépannage du déploiement StorSimple](storsimple-troubleshoot-deployment.md).
+Dans le contexte de StorSimple, si plusieurs interfaces et passerelles de réseau sont configurées pour canaliser le trafic, les métriques de routage entrent en jeu afin de déterminer l’ordre relatif dans lequel les interfaces seront utilisées. Les métriques de routage ne peuvent pas être modifiées par l’utilisateur. Toutefois, vous pouvez utiliser l’applet de commande `Get-HcsRoutingTable` pour imprimer la table de routage (et les métriques de routage) sur votre appareil StorSimple. Pour plus d’informations sur l’applet de commande Get-HcsRoutingTable, consultez [Dépannage du déploiement StorSimple](storsimple-troubleshoot-deployment.md).
 
 Les algorithmes de routage sont différents selon la version logicielle s’exécutant sur votre appareil StorSimple.
 
@@ -103,7 +121,7 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métri
 
 - Un ensemble de valeurs prédéterminées ont été attribuées aux interfaces réseau. 	
 		
-- Examinez la table d'exemple ci-dessous et les valeurs attribuées aux différentes interfaces réseau lorsqu'elles sont activées ou désactivées pour le cloud, mais avec une passerelle configurée. Notez que les valeurs attribuées ici sont des valeurs d'exemple uniquement.
+- Examinez la table d'exemple ci-dessous et les valeurs attribuées aux différentes interfaces réseau lorsqu'elles sont activées ou désactivées pour le cloud, mais avec une passerelle configurée. Notez que les valeurs attribuées ici ne sont fournies qu’à titre d’exemple.
 
 		
 	| Interface réseau | Activée pour le cloud | Désactivée pour le cloud avec passerelle |
@@ -140,7 +158,7 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métri
 	
 - En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
 
-	Prenez l'exemple suivant :
+	Prenez l'exemple suivant :
 	un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
 		
 	Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
@@ -262,4 +280,4 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

@@ -36,9 +36,9 @@ API Apps fournissent les fonctionnalités suivantes :
 
 - **Intégration dans Logic Apps** : les applications API que vous créez peuvent être utilisées par [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md). Découvrez comment dans [Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques](../app-service-logic/app-service-logic-custom-hosted-api.md). Pour plus d’informations sur les modifications en cours dans l’intégration d’API Apps aux applications logiques, consultez [App Service API Apps : les nouveautés](app-service-api-whats-changed.md).
 
-- **Insérez votre API existante en l’état** : vous n’avez pas besoin de modifier le code de vos API existantes pour bénéficier des fonctionnalités d’application API Apps. Il vous suffit de déployer votre code dans une application API. Votre API peut utiliser n'importe quel langage ou framework pris en charge par App Service, notamment ASP.NET et c#, Java, PHP, Node.js et Python.
+- **Insérez votre API existante en l’état** : vous n’avez pas besoin de modifier le code de vos API existantes pour bénéficier des fonctionnalités d’application API Apps. Il vous suffit de déployer votre code dans une application API. Votre API peut utiliser n’importe quel langage ou framework pris en charge par App Service, notamment ASP.NET, C#, Java, PHP, Node.js et Python.
 
-En outre, les fonctionnalités proposées par API Apps, Web Apps et Mobile Apps sont interchangeables. Cela signifie qu'une instance d'API Apps permet de tirer parti des fonctionnalités de développement web et mobile, et de l'hébergement que les applications web et mobiles proposent. L'inverse est également vrai : par exemple, vous pouvez utiliser une application web pour héberger une API et toujours bénéficier des métadonnées Swagger pour la génération de code client et de CORS pour l'accès entre domaines. Pour plus d’informations, consultez [Vue d’ensemble de Web Apps](../app-service-web/app-service-web-overview.md) et [Vue d’ensemble de Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md).
+Une application API peut également tirer parti des fonctionnalités offertes par [Web Apps](../app-service-web/app-service-web-overview.md) et [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). L’inverse est également vrai : si vous utilisez une application web ou une application mobile pour héberger une API, elle peut exploiter des fonctionnalités d’API Apps, telles que les métadonnées Swagger pour la génération de code client et CORS pour l’accès entre domaines via un navigateur. La seule différence entre les trois types d’applications (API, web, mobiles) est qu’elles s’affichent avec un nom et une icône différents dans le portail Azure. Comme ces applications disposent toutes des mêmes fonctionnalités, vous n’êtes pas obligé de modifier le type d’une application pour obtenir telle ou telle fonctionnalité dont vous avez besoin. Toutefois, vous pouvez facilement modifier le type d’une application existante si vous le souhaitez. Pour plus d’informations, consultez la section **Modification d’un type d’application** dans [Prise en main d’API Apps et d’ASP.NET dans Azure App Service](app-service-api-dotnet-get-started.md#optional-changing-an-app-type).
 
 ## Amélioration d’API Apps à l’aide du service Gestion des API Azure 
 
@@ -60,10 +60,8 @@ Certaines fonctionnalités de Gestion des API et API Apps présentent des foncti
 
 ## Prise en main
 
-Pour prendre en main les applications API, suivez le didacticiel [Prise en main d’API Apps](app-service-api-dotnet-get-started.md).
+Pour prendre en main API Apps, suivez l’un des didacticiels [Prise en main d’API Apps](app-service-api-dotnet-get-started.md).
 
-Pour afficher la liste des problèmes connus liés à API Apps, consultez le [billet relatif aux problèmes connus d’API Apps](https://social.msdn.microsoft.com/Forums/fr-FR/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Pour poser des questions sur les applications API, démarrez un thread dans le [forum API Apps](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps).
 
-Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service](../app-service/app-service-value-prop-what-is.md).
-
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->
