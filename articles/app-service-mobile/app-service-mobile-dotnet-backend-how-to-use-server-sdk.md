@@ -5,7 +5,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps
@@ -160,7 +160,7 @@ Cette section vous explique comment publier votre projet de serveur principal .N
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## Définir un contrôleur de table
+##<a name="define-table-controller"></a> Définir un contrôleur de table
 
 Un contrôleur de table permet d’accéder aux données d’entité dans un magasin de données basé sur des tables, tel que Base de données SQL ou le stockage de table Azure. Les contrôleurs de table héritent de la classe générique **TableController**, le type générique étant une entité dans le modèle qui représente le schéma de table, comme indiqué ci-après :
 
@@ -217,6 +217,7 @@ Mobile Apps utilise les fonctions d’authentification d’App Service et d’AS
 + [Ajouter l’authentification à un projet de serveur](#add-auth)
 + [Utiliser l’authentification personnalisée pour votre application](#custom-auth)
 + [Récupérer des informations utilisateur authentifiées](#user-info)
++ [Limiter l’accès aux données pour les utilisateurs autorisés](#authorize)
 
 ### <a name="add-auth"></a>Ajouter l’authentification à un projet de serveur
 
@@ -324,6 +325,9 @@ Le code suivant appelle la méthode d’extension **GetAppServiceIdentityAsync**
 
 Notez que vous devez ajouter une instruction using pour `System.Security.Principal` afin de faire fonctionner la méthode d’extension **GetAppServiceIdentityAsync**.
 
+###<a name="authorize"></a>Limiter l’accès aux données pour les utilisateurs autorisés
+
+Il est souvent nécessaire de limiter les données qui sont retournées à un utilisateur authentifié. Ce type de partitionnement des données s’effectue en ajoutant une colonne UserId à la table et en stockant le SID de l’utilisateur au moment de l’insertion des données.
 
 ## Ajouter des notifications Push à un projet de serveur
 
@@ -365,9 +369,9 @@ Vous pouvez ajouter des notifications Push à votre projet de serveur en étenda
 
 À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d’informations, consultez [Ajout de notifications Push à votre application](app-service-mobile-ios-get-started-push.md). Pour plus d'informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d'ensemble de Notification Hubs](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Ajout de balises à l’installation d’un appareil pour activer un push ciblé
+##<a name="tags"></a>Ajouter des balises à l’installation d’un appareil pour activer un push ciblé
 
-Notification Hubs vous permet d’envoyer des notifications ciblées vers des enregistrements spécifiques à l’aide de balises. Une balise qui est créée automatiquement est l’ID d’installation, ce qui est spécifique à une instance de l’application sur un appareil donné. Une inscription avec un ID d’installation est également appelée une *installation*. Vous pouvez utiliser l’ID d’installation pour gérer l’installation, par exemple pour ajouter des balises. L’ID d’installation est accessible à partir de la propriété **installationId** sur le **MobileServiceClient**.
+Notification Hubs vous permet d’envoyer des notifications ciblées vers des enregistrements spécifiques à l’aide de balises. Une balise qui est créée automatiquement est l’ID d’installation, ce qui est spécifique à une instance de l’application sur un appareil donné. Une inscription avec un ID d’installation est également appelée *installation*. Vous pouvez utiliser l’ID d’installation pour gérer l’installation, par exemple pour ajouter des balises. L’ID d’installation est accessible à partir de la propriété **installationId** sur **MobileServiceClient**.
 
 L’exemple suivant montre comment utiliser un ID d’installation pour ajouter une balise à une installation spécifique dans Notification Hubs :
 
@@ -381,9 +385,9 @@ L’exemple suivant montre comment utiliser un ID d’installation pour ajouter 
 	    }
 	});
 
-Notez que toutes les balises fournies par le client pendant l’inscription aux notifications Push sont ignorées par le backend pendant la création de l’installation. Pour permettre à un client d’ajouter des balises à l’installation, vous devez créer une nouvelle API personnalisée qui ajoute des balises à l’aide du modèle ci-dessus. Pour obtenir un exemple de contrôleur d’API personnalisé qui permet aux clients d’ajouter des balises à une installation, consultez la page [Balises de notification Push ajoutées au client](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) dans l’exemple de démarrage rapide terminé d’App Service Mobile Apps pour le backend .NET.
+Notez que toutes les balises fournies par le client pendant l’inscription aux notifications Push sont ignorées par le backend pendant la création de l’installation. Pour permettre à un client d’ajouter des balises à l’installation, vous devez créer une nouvelle API personnalisée qui ajoute des balises à l’aide du modèle ci-dessus. Pour obtenir un exemple de contrôleur d’API personnalisé qui permet aux clients d’ajouter des balises à une installation, consultez [Balises de notification Push ajoutées au client](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) dans l’exemple de démarrage rapide final d’App Service Mobile Apps pour le serveur principal .NET.
 
-##<a name="push-user"></a>Envoi de notifications Push à un utilisateur authentifié
+##<a name="push-user"></a>Envoyer des notifications Push à un utilisateur authentifié
 
 Quand un utilisateur authentifié s’inscrit aux notifications Push, une balise avec l’ID d’utilisateur est automatiquement ajoutée à l’inscription. Grâce à cette balise, vous pouvez envoyer des notifications Push à tous les appareils inscrits par un utilisateur spécifique. Le code suivant permet d’obtenir le SID de l’utilisateur qui émet la demande et d’envoyer un modèle de notification Push à chaque inscription d’appareil pour cet utilisateur :
 
@@ -397,8 +401,8 @@ Quand un utilisateur authentifié s’inscrit aux notifications Push, une balise
 
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
-    
-Quand vous vous inscrivez à des notifications Push à partir d’un client authentifié, assurez-vous au préalable que l’authentification est bien terminée. Pour plus d’informations, consultez [Push aux utilisateurs](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) dans l’exemple de démarrage rapide terminé d’App Service Mobile Apps pour le backend .NET.
+
+Quand vous vous inscrivez à des notifications Push à partir d’un client authentifié, assurez-vous au préalable que l’authentification est bien terminée. Pour plus d’informations, consultez [Envoi de notifications Push aux utilisateurs](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) dans l’exemple de démarrage rapide final d’App Service Mobile Apps pour le serveur principal .NET.
 
 ## Déboguer et dépanner le Kit de développement logiciel (SDK) serveur .NET
 
@@ -457,4 +461,4 @@ Votre serveur exécuté localement est désormais équipé de manière appropri�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

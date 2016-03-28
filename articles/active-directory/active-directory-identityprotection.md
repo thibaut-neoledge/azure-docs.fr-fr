@@ -84,7 +84,7 @@ Mais Azure Active Directory Identity Protection est plus qu’un outil de survei
 
 ### Événements à risque
 
-Les événements à risque sont des événements qui ont été signalés comme suspects par Identity Protection et indiquent qu’une identité a peut-être été compromise. Pour obtenir la liste complète des événements à risque, consultez [Types d’événements à risque détectés par Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types).
+Les événements à risque sont des événements qui ont été signalés comme suspects par Identity Protection et indiquent qu’une identité a peut-être été compromise. Pour obtenir la liste complète des événements à risque, consultez [Types d’événements à risque détectés par Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md).
 
 Certains de ces événements à risque sont disponibles via les rapports d’activités anormales d’Azure AD dans le portail de gestion Azure. Le tableau ci-dessous répertorie les différents types d’événements à risque et le rapport d’**activités anormales d’Azure AD** correspondant. Microsoft poursuit ses investissements dans ce domaine et prévoit d’améliorer la précision de détection des événements à risque existants et d’ajouter de nouveaux types d’événements à risque de façon continue.
 
@@ -97,8 +97,7 @@ Certains de ces événements à risque sont disponibles via les rapports d’act
 | Connexions depuis des appareils infectés | Connexions à partir d’appareils potentiellement infectés |
 | Connexions depuis des adresses IP anonymes | Connexions à partir de sources inconnues |
 | Connexions depuis des adresses IP avec des activités suspectes |	Connexions depuis des adresses IP avec des activités suspectes |
-| Connexions depuis des emplacements non connus | - | 
-| Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
+| Connexions depuis des emplacements non connus | - | | Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
 
 Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans Azure AD Identity Protection et ne sont donc pas disponibles via Identity Protection. Ces rapports sont toujours disponibles dans le portail de gestion Azure, mais ils seront rendus obsolètes ultérieurement du fait de leur remplacement par des événements à risque dans Identity Protection.
 
@@ -165,9 +164,9 @@ Vous pouvez utiliser le niveau de risque des utilisateurs pour créer des strat�
 
 ## Fermeture manuelle des événements à risque
 
-Dans la plupart des cas, vous pouvez prendre des mesures de correction telles qu’une réinitialisation de mot de passe sécurisée pour fermer automatiquement les événements à risque. Toutefois, il se peut que cela ne soit pas toujours possible. <br> C’est par exemple le cas lorsque :
+Dans la plupart des cas, vous pouvez prendre des mesures de correction telles qu’une réinitialisation de mot de passe sécurisée pour fermer automatiquement les événements à risque. Toutefois, il se peut que cela ne soit pas toujours possible. <br> C’est par exemple le cas quand :
 
-- un utilisateur avec des événements à risque actif a été supprimé.
+- un utilisateur avec des événements à risque actifs a été supprimé ;
 - une enquête révèle qu’un événement à risque signalé a été effectué par l’utilisateur légitime.
 
 Comme les événements à risque dont l’état est défini sur **Actif** entrent dans le calcul du risque des utilisateurs, vous pouvez avoir besoin de réduire manuellement un niveau de risque en fermant manuellement les événements à risque. <br> Au cours de l’investigation, vous pouvez choisir d’effectuer n’importe laquelle des actions suivantes pour modifier l’état d’un événement à risque :
@@ -192,13 +191,13 @@ Comme les événements à risque dont l’état est défini sur **Actif** entren
 
 Une correction est une mesure visant à sécuriser une identité ou un appareil déjà identifié comme potentiellement ou effectivement compromis. Une mesure de correction permet de rétablir la sécurité de l’identité ou de l’appareil et de résoudre les anciens événements à risque associés à l’identité ou à l’appareil.
 
-Pour corriger les événements à risque d’un utilisateur, vous pouvez :
+Pour corriger les événements à risque d’un utilisateur, vous pouvez procéder comme suit :
 
-- effectuer une réinitialisation de mot de passe sécurisée pour corriger manuellement les événements à risque de l’utilisateur ; 
+- Effectuez une réinitialisation de mot de passe sécurisée pour corriger manuellement les événements à risque de l’utilisateur. 
 
-- configurer une stratégie de sécurité en matière de risque des utilisateurs pour atténuer ou corriger automatiquement les événements à risque de l’utilisateur ;
+- Configurez une stratégie de sécurité en matière de risque des utilisateurs pour atténuer ou corriger automatiquement les événements à risque de l’utilisateur.
 
-- réimager l’appareil infecté.
+- Réimager l’appareil infecté.
 
 
 ### Réinitialisation manuelle et sécurisée du mot de passe
@@ -229,30 +228,30 @@ La boîte de dialogue connexe fournit deux méthodes différentes pour réinitia
 
 Une stratégie de sécurité en matière de risque des utilisateurs est une stratégie d’accès conditionnel qui évalue le niveau de risque d’un utilisateur spécifique et applique des mesures de correction et d’atténuation en fonction de conditions et de règles prédéfinies. <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/500.png "Stratégie en matière de risque des utilisateurs") <br>
 
-Azure AD Identity Protection vous aide à gérer les mesures de correction et d’atténuation pour les utilisateurs associés à un indicateur de risque en vous permettant de :
+Azure AD Identity Protection vous aide à gérer les mesures de correction et d’atténuation pour les utilisateurs associés à un indicateur de risque, en vous permettant d’effectuer les opérations suivantes :
 
-- définir les utilisateurs et les groupes auxquels la stratégie s’applique ; <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/501.png "Stratégie en matière de risque des utilisateurs") <br>
+- Définir les utilisateurs et les groupes auxquels la stratégie s’applique : <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/501.png "Stratégie en matière de risque des utilisateurs") <br>
 
-- définir le niveau de risque d’un utilisateur (Faible, Moyen ou Élevé) qui déclenche un changement de mot de passe ; <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/502.png "Stratégie en matière de risque des utilisateurs") <br>
+- Définir le niveau de risque d’un utilisateur (Faible, Moyen ou Élevé) qui déclenche un changement de mot de passe : <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/502.png "Stratégie en matière de risque des utilisateurs") <br>
 
-- définir le niveau de risque d’un utilisateur (Faible, Moyen ou Élevé) qui entraîne un blocage de la connexion ; <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/503.png "Stratégie en matière de risque des utilisateurs") <br>
+- Définir le niveau de risque d’un utilisateur (Faible, Moyen ou Élevé) qui entraîne un blocage de la connexion : <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/503.png "Stratégie en matière de risque des utilisateurs") <br>
 
-- basculer l’état de votre stratégie ;<br><br> ![Inscription à MFA](./media/active-directory-identityprotection/403.png "Inscription à MFA") <br>
+- Activer ou désactiver votre stratégie : <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/403.png "Inscription à MFA") <br>
 
-- vérifier et évaluer l’impact d’un changement avant de l’appliquer. <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/504.png "Stratégie en matière de risque des utilisateurs") <br>
+- Examiner et évaluer l’impact d’un changement avant de l’appliquer : <br><br> ![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/504.png "Stratégie en matière de risque des utilisateurs") <br>
 
 
 La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs. Cependant, cela a pour effet d’exclure les utilisateurs associés à un indicateur de risque **Faible** et **Moyen**. Par conséquent, il se peut que des identités ou des appareils déjà identifiés comme potentiellement ou effectivement compromis ne soient pas sécurisés.
 
-Lors de la définition de la stratégie,
+Pour définir la stratégie
 
-- excluez les utilisateurs susceptibles de générer un grand nombre de faux positifs (développeurs, analystes de sécurité) ;
+- Excluez les utilisateurs susceptibles de générer un grand nombre de faux positifs (développeurs, analystes de sécurité).
 
-- excluez les utilisateurs situés dans des régions où l’activation de la stratégie n’est pas adaptée (par exemple, aucun accès au support technique) ;
+- Excluez les utilisateurs situés dans des régions où l’activation de la stratégie n’est pas adaptée (par exemple, aucun accès au support technique).
 
-- utilisez un niveau de risque **Élevé** pendant le déploiement initial de la stratégie ou si vous devez minimiser la complexité pour les utilisateurs finaux ;
+- Utilisez un niveau de risque **Élevé** pendant le déploiement initial de la stratégie ou si vous devez minimiser la complexité pour les utilisateurs finaux.
 
-- utilisez un niveau de risque **Faible** si votre organisation requiert une sécurité accrue. Le choix du niveau de risque **Faible** complique la connexion pour les utilisateurs, mais renforce la sécurité.
+- Utilisez un niveau de risque **Faible** si votre organisation nécessite une sécurité accrue. Le choix du niveau de risque **Faible** complique la connexion pour les utilisateurs, mais renforce la sécurité.
 
 Pour la plupart des organisations, nous recommandons de configurer un niveau de risque **Moyen** afin d’établir un juste équilibre entre facilité d’utilisation et sécurité.
 
@@ -260,7 +259,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez 
 
 - [Flux de récupération de compte compromis](active-directory-identityprotection-flows.md#compromised-account-recovery).  
 
-- [Flux de compte compromis bloqué](active-directory-identityprotection-flows.md#Compromised-account-blocked).
+- [Flux de compte compromis bloqué](active-directory-identityprotection-flows.md#compromised-account-blocked).
 
 
 **Pour ouvrir la boîte de dialogue de configuration connexe** :
@@ -281,7 +280,7 @@ Le blocage d’une connexion :
  
 - empêche la génération de nouveaux événements à risque pour l’utilisateur concerné ;
 
-- permet aux administrateurs de corriger manuellement les événements à risques affectant l’identité de l’utilisateur et de sécuriser à nouveau cette dernière.
+- permet aux administrateurs de corriger manuellement les événements à risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
 
 
 
@@ -299,32 +298,32 @@ Vous pouvez utiliser l’accès conditionnel dans Azure AD Identity Protection p
 
 Une stratégie en matière de risque à la connexion est une stratégie d’accès conditionnel consistant à évaluer le risque associé à une connexion spécifique et qui applique des mesures d’atténuation à partir de règles et de conditions prédéfinies.<br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/700.png "Stratégie en matière de risque à la connexion") <br>
 
-Azure AD Identity Protection vous aide à gérer l’atténuation des connexions à risque en vous permettant de :
+Azure AD Identity Protection vous aide à gérer l’atténuation des connexions à risque, en vous permettant d’effectuer les opérations suivantes :
 
-- définir les utilisateurs et les groupes auxquels la stratégie s’applique ; <br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/701.png "Stratégie en matière de risque à la connexion") <br>
+- Définir les utilisateurs et les groupes auxquels la stratégie s’applique : <br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/701.png "Stratégie en matière de risque à la connexion") <br>
 
-- définir le niveau de risque à la connexion (Faible, Moyen ou Élevé) qui déclenche une demande d’authentification multifacteur pour les connexions concernées ; <br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/702.png "Stratégie en matière de risque à la connexion") <br>
+- Définir le niveau de risque à la connexion (Faible, Moyen ou Élevé) qui déclenche une demande d’authentification multifacteur pour les connexions concernées : <br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/702.png "Stratégie en matière de risque à la connexion") <br>
 
-- définir le niveau de risque à la connexion (Faible, Moyen ou Élevé) qui entraîne le blocage des connexions concernées ; <br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/703.png "Stratégie en matière de risque à la connexion") <br>
+- Définir le niveau de risque à la connexion (Faible, Moyen ou Élevé) qui entraîne le blocage des connexions concernées : <br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/703.png "Stratégie en matière de risque à la connexion") <br>
 
-- basculer l’état de votre stratégie ;<br><br> ![Inscription à MFA](./media/active-directory-identityprotection/403.png "Inscription à MFA") <br>
+- Activer ou désactiver votre stratégie : <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/403.png "Inscription à MFA") <br>
 
-- vérifier et évaluer l’impact d’un changement avant de l’appliquer. <br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/704.png "Stratégie en matière de risque à la connexion") <br>
+- Examiner et évaluer l’impact d’un changement avant de l’appliquer : <br><br> ![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/704.png "Stratégie en matière de risque à la connexion") <br>
 
  
 La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs.<br> Cependant, cela a pour effet d’exclure les connexions associées à un indicateur de risque **Faible** et **Moyen**. Par conséquent, il se peut qu’un cybercriminel soit en mesure d’exploiter une identité compromise.
 
-Lors de la définition de la stratégie,
+Pour définir la stratégie
 
-- excluez les utilisateurs qui ne sont pas inscrits/ne peuvent pas s’inscrire à l’authentification multifacteur ;
+- Excluez les utilisateurs qui ne sont pas inscrits/ne peuvent pas s’inscrire à l’authentification multifacteur.
 
-- excluez les utilisateurs situés dans des régions où l’activation de la stratégie n’est pas adaptée (par exemple, aucun accès au support technique) ;
+- Excluez les utilisateurs situés dans des régions où l’activation de la stratégie n’est pas adaptée (par exemple, aucun accès au support technique).
 
-- excluez les utilisateurs susceptibles de générer un grand nombre de faux positifs (développeurs, analystes de sécurité) ;
+- Excluez les utilisateurs susceptibles de générer un grand nombre de faux positifs (développeurs, analystes de sécurité).
 
-- utilisez un niveau de risque **Élevé** pendant le déploiement initial de la stratégie ou si vous devez minimiser la complexité pour les utilisateurs finaux ;
+- Utilisez un niveau de risque **Élevé** pendant le déploiement initial de la stratégie ou si vous devez minimiser la complexité pour les utilisateurs finaux.
 
-- utilisez un niveau de risque **Faible** si votre organisation requiert une sécurité accrue. Le choix du niveau de risque **Faible** complique la connexion pour les utilisateurs, mais renforce la sécurité.
+- Utilisez un niveau de risque **Faible** si votre organisation nécessite une sécurité accrue. Le choix du niveau de risque **Faible** complique la connexion pour les utilisateurs, mais renforce la sécurité.
 
 Pour la plupart des organisations, nous recommandons de configurer un niveau de risque **Moyen** afin d’établir un juste équilibre entre facilité d’utilisation et sécurité.
 
@@ -341,11 +340,11 @@ La page **Événements à risque** de la console Identity Protection répertorie
 
 Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 
-- [Récupération de connexion à risque](active-directory-identityprotection-flows.md#risky-sign-in-recovery).  
+- [Récupération de connexion à risque](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
 
-- [Connexion à risque bloquée](active-directory-identityprotection-flows.md#risky-sign-in-blocked).
+- [Connexion à risque bloquée](active-directory-identityprotection-flows.md#risky-sign-in-blocked)
 
-- [Inscription à l’authentification multifacteur au cours d’une connexion à risque](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).
+- [Inscription à l’authentification multifacteur au cours d’une connexion à risque](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)
 
 
 
@@ -362,24 +361,24 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez 
 
 ## Stratégie d’inscription à l’authentification multifacteur
 
-Azure Multi-Factor Authentication est une méthode permettant de vérifier votre identité qui requiert l'utilisation d'autres méthodes que le nom d'utilisateur et le mot de passe. Ce service fournit une deuxième couche de sécurité pour les connexions et les transactions de l'utilisateur. <br> Nous vous recommandons d’exiger l’authentification multifacteur d’Azure pour les connexions des utilisateurs. en effet, Elle assure :
+Azure Multi-Factor Authentication est une méthode permettant de vérifier votre identité qui requiert l'utilisation d'autres méthodes que le nom d'utilisateur et le mot de passe. Ce service fournit une deuxième couche de sécurité pour les connexions et les transactions de l'utilisateur. <br> Nous vous recommandons d’exiger l’authentification multifacteur d’Azure des connexions des utilisateurs pour les raisons suivantes :
 
-- une authentification renforcée avec un éventail d’options de vérification simples
+- Elle fournit une authentification renforcée avec un éventail d’options de vérification simples.
 
-- un rôle clé dans la préparation de votre organisation pour protéger et récupérer les comptes compromis
+- Elle joue un rôle clé dans la préparation de votre organisation pour protéger et récupérer les comptes compromis.
 
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription à l’authentification multifacteur en configurant une stratégie qui vous permet de :
+Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription à l’authentification multifacteur en configurant une stratégie qui vous permet d’effectuer les opérations suivantes :
 
-- afficher l’état d’inscription actuel. <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/603.png "Inscription à MFA") <br>
+- Afficher l’état d’inscription actuel : <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/603.png "Inscription à MFA") <br>
 
-- définir les utilisateurs et les groupes auxquels la stratégie s’applique ; <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/601.png "Inscription à MFA") <br>
+- Définir les utilisateurs et les groupes auxquels la stratégie s’applique : <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/601.png "Inscription à MFA") <br>
 
-- définir la durée pendant laquelle ils sont autorisés à ignorer l’inscription ; <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/602.png "Inscription à MFA") <br>
+- Définir la durée pendant laquelle ils sont autorisés à ignorer l’inscription : <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/602.png "Inscription à MFA") <br>
 
-- basculer l’état de votre stratégie ;<br><br> ![Inscription à MFA](./media/active-directory-identityprotection/403.png "Inscription à MFA") <br>
+- Activer ou désactiver votre stratégie : <br><br> ![Inscription à MFA](./media/active-directory-identityprotection/403.png "Inscription à MFA") <br>
 
 Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 
@@ -410,4 +409,4 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez 
  - [Manuel d’Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossaire d’Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

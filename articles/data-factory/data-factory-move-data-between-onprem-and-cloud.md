@@ -42,7 +42,7 @@ La passerelle de données offre les fonctionnalités suivantes :
 ## Installer une passerelle de gestion des données
 
 ### Installation de la passerelle : configuration requise
-1.	Les versions de **système d’exploitation** prises en charge sont les suivantes : Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2.
+1.	Les versions de **système d’exploitation** prises en charge sont les suivantes : Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. L’installation de la passerelle de gestion des données sur un contrôleur de domaine n’est pas prise en charge actuellement.
 2.	La **configuration** recommandée pour l’ordinateur de passerelle est la suivante : au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go d’espace disque.
 3.	Si l’ordinateur hôte est en veille prolongée, la passerelle n’est pas en mesure de répondre à la demande de données. Vous devez donc configurer un **plan de gestion de l’alimentation** approprié sur l’ordinateur avant d’installer la passerelle. L’installation de la passerelle ouvre une invite si l’ordinateur est configuré pour la mise en veille prolongée.
 
@@ -115,7 +115,7 @@ En cas d’utilisation d’un pare-feu tiers, vous pouvez ouvrir manuellement le
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur de passerelle et que vous souhaitez configurer un service lié local, vous devez utiliser d’autres mécanismes que l’application de **configuration des informations d’identification** pour pouvoir configurer les informations d’identification du magasin de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consultez la section [Configuration des informations d’identification et de la sécurité](#setting-credentials-and-security) pour connaître la procédure de configuration des informations d’identification du magasin de données.
+Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur de passerelle et que vous souhaitez configurer un service lié local, vous devez utiliser d’autres mécanismes que l’application de **configuration des informations d’identification** pour pouvoir configurer les informations d’identification du magasin de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consultez la section [Configuration des informations d’identification et de la sécurité](#set-credentials-and-securityy) pour savoir comment configurer les informations d’identification du magasin de données.
 
 **Pour copier des données d’un magasin de données source vers un magasin de données récepteur :**
 
@@ -250,7 +250,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 	
 
 ### Étape 3 : créer des services liés 
-Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **SqlServerLinkedService**. Le service **SqlServerLinkedService** associe une base de données SQL Server locale, et le service lié **StorageLinkedService** associe un magasin d’objets blobs Azure à la fabrique de données. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
+Dans cette étape, vous allez créer deux services liés, **AzureStorageLinkedService** et **SqlServerLinkedService**. Le service **SqlServerLinkedService** associe une base de données SQL Server locale, et le service lié **AzureStorageLinkedService** associe un magasin d’objets blob Azure à la fabrique de données. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
 
 #### Ajout d’un service lié à une base de données SQL Server locale
 1.	Dans **Data Factory Editor**, cliquez sur **Nouvelle banque de données** sur la barre d’outils, puis sélectionnez **SQL Server**. 
@@ -281,7 +281,9 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServic
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
-	   
+	
+		Les informations d’identification sont **chiffrées** à l’aide d’un certificat détenu par le service Data Factory. Si vous voulez plutôt utiliser le certificat qui est associé à la passerelle de gestion des données, consultez [Définir les informations d’identification de manière sécurisée](#set-credentials-and-security).
+    
 2.	Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié SQL Server.
 
 #### Ajout d’un service lié pour un compte de stockage Azure
@@ -289,7 +291,7 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServic
 1. Dans **Data Factory Editor**, dans la barre de commandes, cliquez sur **Nouvelle banque de données**, puis sur **Azure Storage**.
 2. Entrez le nom de votre compte de stockage Azure dans le champ **Nom du compte**.
 3. Entrez la clé de votre compte de stockage Azure dans le champ **Clé du compte**.
-4. Cliquez sur l’option **Déployer** pour déployer le service lié **StorageLinkedService**.
+4. Cliquez sur l’option **Déployer** pour déployer le service lié **AzureStorageLinkedService**.
    
  
 ### Étape 4 : créer des jeux de données d’entrée et sortie
@@ -370,7 +372,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 		  "name": "OutputBlobTable",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/outfromonpremdf",
 		      "format": {
@@ -387,8 +389,8 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
   
 	Notez les points suivants :
 	
-	- Le **type** est défini sur **AzureBlob**.
-	- Le paramètre **linkedServiceName** est défini sur **StorageLinkedService** (vous avez créé ce service lié à l’étape 2).
+	- **type** est défini sur **AzureBlob**.
+	- Le paramètre **linkedServiceName** est défini sur **AzureStorageLinkedService** (vous avez créé ce service lié à l’étape 2).
 	- Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. Vous devez simplement créer le conteneur **adftutorial**.
 	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
 
@@ -473,7 +475,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	- Dans la section des activités, toutes les activités ont le **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié en tant que **type de source**, et **BlobSink** en tant que **type sink**.
-	- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
+- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
@@ -581,45 +583,39 @@ Cette section décrit les opérations pour déplacer une passerelle client d’u
 10. Une fois l’inscription de la passerelle terminée, vous devez voir **Inscription** définie sur **Inscrit** et **État** sur la valeur **Démarré** de la page d’accueil du Gestionnaire de configuration de passerelle. 
 
 ## Configuration des informations d’identification et de la sécurité
+Pour chiffrer les informations d’identification dans Data Factory Editor, procédez comme suit :
 
-Vous pouvez également créer un service lié SQL Server à l’aide du panneau Services liés au lieu d’utiliser Data Factory Editor.
- 
-3.	Dans la page d’accueil Data Factory, cliquez sur la vignette **Services liés**. 
-4.	Dans le panneau **Services liés**, cliquez sur **Nouvelle banque de données** dans la barre de commandes. 
-4.	Entrez le **nom** **SqlServerLinkedService**. 
-2.	Cliquez sur la flèche en regard du **type**, puis sélectionnez **SQL Server**.
-
-	![Créer un magasin de données](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	D’autres paramètres devraient apparaître sous **Type**.
-4.	Pour le paramètre **Passerelle de données**, sélectionnez la passerelle que vous venez de créer. 
-
-	![Paramètres de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	Entrez le nom de votre serveur de base de données pour le paramètre **Serveur**.
-5.	Entrez le nom de la base de données pour le paramètre **Base de données**.
-6.	Cliquez sur la flèche en regard d’**Informations d’identification**.
-
-	![Panneau Informations d’identification](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	Dans le panneau **Informations d’identification**, cliquez sur **Cliquez ici pour définir les informations d’identification**.
-8.	Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
-
-	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+1. Cliquez sur un **service lié** existant dans l’arborescence pour afficher sa définition JSON ou créez un autre service lié qui nécessite une passerelle de gestion des données (par exemple, SQL Server ou Oracle). 
+2. Dans l’éditeur JSON, entrez le nom de la passerelle pour la propriété **gatewayName**. 
+3. Entrez le nom du serveur pour la propriété **Data Source** dans **connectionString**.
+4. Entrez le nom de la base de données pour la propriété **Initial Catalog** dans **connectionString**.    
+5. Cliquez sur le bouton **Chiffrer** dans la barre de commandes. La boîte de dialogue **Configuration des informations d’identification** doit s’afficher. ![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+6. Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :  
 	1.	Sélectionnez l’**authentification** que le service de Data Factory doit utiliser pour se connecter à la base de données. 
 	2.	Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 
 	3.	Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**.  
-	4.	Cliquez sur **OK** pour fermer la boîte de dialogue. 
-4. Cliquez sur **OK** pour fermer le panneau **Informations d'identification**. 
-5. Cliquez sur **OK** dans le panneau **Nouveau magasin de données**. 	
-6. Vérifiez que l’état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+	4.	Cliquez sur **OK** pour chiffrer les informations d’identification et fermer la boîte de dialogue. 
+5.	Vous devez maintenant voir une propriété **encryptedCredential** dans **connectionString**.		
+		
+			{
+	    		"name": "SqlServerLinkedService",
+		    	"properties": {
+		        	"type": "OnPremisesSqlServer",
+			        "description": "",
+		    	    "typeProperties": {
+		    	        "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+		            	"gatewayName": "adftutorialgateway"
+		        	}
+		    	}
+			}
 
 Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
 
-Quand vous utilisez l’application « Configuration des informations d’identification » lancée à partir du portail Azure pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet Certificat du gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur de passerelle.
+Quand vous utilisez l’application **Configuration des informations d’identification** lancée à partir du portail Azure pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet **Certificat** du **Gestionnaire de configuration de la passerelle de gestion des données** sur l’ordinateur de la passerelle.
 
-Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez alors chiffrer les informations d’identification retournées par cette applet de commande et les ajouter à l’élément EncryptedCredential de connectionString dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou dans l’extrait de code JSON dans Data Factory Editor dans le portail.
+Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez alors chiffrer les informations d’identification retournées par cette applet de commande et les ajouter à l’élément **EncryptedCredential** de **connectionString** dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou dans l’extrait de code JSON dans Data Factory Editor dans le portail.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**Remarque :** si vous utilisez l’application « Configuration des informations d’identification », celle-ci définit automatiquement les informations d’identification chiffrées dans le service lié, comme indiqué ci-dessus.
 
 Il existe une autre approche pour définir les informations d’identification à l’aide de Data Factory Editor. Si vous créez un service SQL Server lié à l’aide de l’éditeur et entrez les informations d’identification en texte brut, ces informations d’identification sont chiffrées à l’aide d’un certificat appartenant au service Data Factory et NON le certificat qui a servi à configurer la passerelle. Bien que cette approche puisse être un peu plus rapide dans certains cas, elle reste moins sécurisée. Par conséquent, nous vous recommandons de suivre cette approche uniquement à des fins de développement/test.
 
@@ -690,4 +686,4 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 5.	La passerelle déchiffre les informations d'identification avec le même certificat puis se connecte au magasin de données local avec le type d'authentification approprié.
 6.	La passerelle copie les données du magasin local vers un stockage cloud, ou d'un stockage cloud vers un magasin de données local selon la configuration de l'activité de copie dans le pipeline de données. Remarque : pour cette étape, la passerelle communique directement avec le service de stockage basé sur le cloud (par exemple, Azure Blob, SQL Azure) via un canal sécurisé (HTTPS).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

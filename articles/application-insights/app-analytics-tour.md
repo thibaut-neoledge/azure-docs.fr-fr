@@ -33,7 +33,7 @@ Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards
 
 ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-analytics/001.png)
 
-## Compter les lignes
+## [Count](app-analytics-aggregations.md#count) : compter les lignes
 
 Les métriques telles que les compteurs de performance sont stockées dans une table appelée metrics. Chaque ligne est un point de données de télémétrie provenant du Kit de développement logiciel (SDK) Application Insights dans une application. Pour déterminer la taille de la table, nous allons diriger son contenu vers un opérateur qui compte simplement les lignes :
 
@@ -50,9 +50,9 @@ Voici le résultat :
 ![](./media/app-analytics-tour/010.png)
 
 	
-`Count` est un des nombreux [opérateurs de requête](app-analytics-queries.md) que nous pouvons organiser en canal, pour filtrer, remodeler et joindre les données en plusieurs étapes.
+[`Count`](app-analytics-aggregations.md#count) est un des nombreux [opérateurs de requête](app-analytics-queries.md) que nous pouvons organiser en canal, pour filtrer, remodeler et joindre les données en plusieurs étapes.
 	
-## Take : afficher n lignes
+## [Take](app-analytics-aggregations.md#take) : afficher n lignes
 
 
 Examinons quelques données : quel est le contenu d’un échantillon de 5 lignes ?
@@ -75,7 +75,7 @@ Développez un élément pour afficher les détails :
 ![Choisissez la vue de table et utilisez Configurer les colonnes](./media/app-analytics-tour/040.png)
 
 
-## Top et sort
+## [Top](app-analytics-aggregations.md#top) et [sort](app-analytics-aggregations.md#sort)
 
 `take` est utile pour obtenir un exemple rapide d’un résultat, mais il n’affiche pas les lignes de la table dans un ordre particulier. Pour obtenir un affichage ordonné, utilisez `top` (pour un échantillon) ou `sort` (qui porte sur la table entière).
 
@@ -86,7 +86,7 @@ Afficher les n premières lignes, classées par une colonne particulière :
 	requests | top 10 by timestamp desc 
 ```
 
-* *Syntaxe :* la plupart des opérateurs ont des paramètres de mot clé comme `by`.
+* *Syntaxe* : la plupart des opérateurs ont des paramètres de mot clé comme `by`.
 * `desc` = ordre décroissant, `asc` = ordre croissant.
 
 ![](./media/app-analytics-tour/260.png)
@@ -100,12 +100,12 @@ Afficher les n premières lignes, classées par une colonne particulière :
 
 Le résultat serait le même, mais l’exécution de la requête serait un peu plus lente. (Vous pouvez également écrire `order`, qui est un alias de `sort`.)
 
-Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement trier de nouveau les enregistrements que vous avez récupérés.
+Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement retrier les enregistrements que vous avez récupérés.
 
 
-## Project : sélectionner, renommer et calculer des colonnes
+## [Project](app-analytics-aggregations.md#project) : sélectionner, renommer et calculer des colonnes
 
-Utilisez `project` pour choisir uniquement les colonnes que vous souhaitez :
+Utilisez [`project`](app-analytics-aggregations.md#project) pour choisir uniquement les colonnes qui vous intéressent :
 
 ```AIQL
 
@@ -133,14 +133,14 @@ Vous pouvez également renommer des colonnes et en définir de nouvelles :
 Dans l’expression scalaire :
 
 * `%` est l’opérateur modulo habituel. 
-* `1d` (le chiffre un, suivi de « d ») est un littéral d’intervalle de temps qui signifie un jour. Voici d’autres littéraux d’intervalle de temps : `12h`, `30m`, `10s`, `0.01s`.
+* `1d` (le chiffre un, suivi de la lettre d) est un littéral d’intervalle de temps qui signifie un jour. Voici d’autres littéraux d’intervalle de temps : `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrondit une valeur au multiple inférieur le plus proche de la valeur de base que vous fournissez. Ainsi, `floor(aTime, 1s)` arrondit une heure vers le bas à la seconde la plus proche.
 
 Les [expressions](app-analytics-scalars.md) peuvent inclure tous les opérateurs habituels (`+`, `-`, ...), et il existe une gamme de fonctions utiles.
 
-## Extend : calculer des colonnes
+## [Extend](app-analytics-aggregations.md#extend) : calculer des colonnes
 
-Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, utilisez `extend` :
+Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, utilisez [`extend`](app-analytics-aggregations.md#extend) :
 
 ```AIQL
 
@@ -149,9 +149,9 @@ Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, ut
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Utiliser `extend` est plus concis que `project` si vous souhaitez conserver toutes les colonnes existantes.
+Utiliser [`extend`](app-analytics-aggregations.md#extend) est plus concis que [`project`](app-analytics-aggregations.md#project) si vous souhaitez conserver toutes les colonnes existantes.
 
-## Summarize : agréger des groupes de lignes
+## [Summarize](app-analytics-aggregations.md#summarize) : agréger des groupes de lignes
 
 En examinant un exemple de table, nous pouvons voir les champs où sont stockées les différentes données de télémétrie. Par exemple, `exception | take 20` nous montre rapidement que les messages d’exception se trouvent dans un champ appelé `outerExceptionType`.
 
@@ -168,7 +168,7 @@ Mais au lieu de nous attarder sur chacune des instances, demandons le nombre d�
 `Summarize` regroupe les lignes qui ont les mêmes valeurs dans les champs nommés dans la clause `by`, ce qui produit une ligne de résultat unique par groupe. Ainsi, dans ce cas, il y a une ligne par type d’exception. La fonction d’agrégation `count()` compte les lignes dans chaque groupe, fournissant une colonne dans le résultat.
 
 
-De nombreuses [fonctions d’agrégation](app-analytics-aggregations.md) sont à votre disposition, et vous pouvez utiliser plusieurs d’entre elles dans un même opérateur summarize pour produire plusieurs colonnes calculées.
+De nombreuses [fonctions d’agrégation](app-analytics-aggregations.md) sont à votre disposition. Vous pouvez utiliser plusieurs d’entre elles dans un même opérateur summarize pour produire plusieurs colonnes calculées.
 
 Par exemple, nous allons répertorier les requêtes HTTP pour lesquelles ces exceptions se produisent. À nouveau, en examinant un exemple de la table d’exceptions, vous remarquerez que les chemins des requêtes HTTP apparaissent dans une colonne nommée `operation_Name`.
 
@@ -184,7 +184,7 @@ Par exemple, nous allons répertorier les requêtes HTTP pour lesquelles ces exc
 La fonction d’agrégation `makeset()` crée un ensemble de toutes les valeurs spécifiées dans chaque groupe. Comme le montre cet exemple, une seule opération est à l’origine de chaque exception.
 
 
-Le résultat d’un résumé a :
+Le résultat d’un résumé contient :
 
 * chaque colonne nommée dans `by` ;
 * plus une colonne pour chaque expression d’agrégation ;
@@ -205,7 +205,7 @@ Vous pouvez utiliser des valeurs scalaires (numériques, heure ou intervalle) da
 
 ![](./media/app-analytics-tour/225.png)
 
-`bin` réduit tous les horodatages à des intervalles de 1 jour. C’est un alias de `floor`, fonction courante dans la plupart des langages. Il réduit simplement chaque valeur au multiple le plus proche du modulo que vous spécifiez ; ainsi, `summarize` peut affecter les lignes à des groupes d’une taille raisonnable. (Sans cette fonction, nous aurions une ligne de résultat pour chaque fraction de seconde et les données ne seraient pas du tout résumées).
+`bin` réduit tous les horodatages à des intervalles de 1 jour. C’est un alias de `floor`, fonction courante dans la plupart des langages. Il réduit simplement chaque valeur au multiple le plus proche du modulo que vous spécifiez. Ainsi, `summarize` peut affecter les lignes à des groupes d’une taille raisonnable. (Sans cette fonction, nous aurions une ligne de résultat pour chaque fraction de seconde et les données ne seraient pas du tout résumées).
 
 Nous pouvons aller au-delà de la vue de table. Examinons les résultats dans la vue graphique avec l’option barres verticales :
 
@@ -214,7 +214,7 @@ Nous pouvons aller au-delà de la vue de table. Examinons les résultats dans la
 Bien que nous n’ayons pas trié les résultats par heure (comme le montre l’affichage de table), le graphique affiche toujours les dates dans l’ordre approprié.
 
 
-## Where : filtrage sur une condition
+## [Where](app-analytics-aggregations.md#where) : filtrer une condition
 
 Si vous avez configuré la surveillance Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines des données de télémétrie dans la base de données proviennent des navigateurs.
 
@@ -234,7 +234,7 @@ L’opérateur `where` prend une expression booléenne. Voici quelques points cl
 
  * `and`, `or` : opérateurs booléens
  * `==`, `<>` : égal et non égal
- * `=~`, `!=` : chaîne respectant la casse (égal et non égal). Il existe de nombreux autres opérateurs de comparaison de chaîne.
+ * `=~`, `!=` : chaîne ne respectant pas la casse (égal et non égal). Il existe de nombreux autres opérateurs de comparaison de chaîne.
 
 Tout savoir sur les [expressions scalaires](app-analytics-scalars.md).
 
@@ -357,7 +357,7 @@ La clause `where` exclut les sessions à déclenchement unique (sessionDuration=
 
 
 
-## Centiles
+## [Centiles](app-analytics-aggregations.md#percentiles)
 
 Quelles sont les plages de durées qui couvrent différents pourcentages de sessions ?
 
@@ -403,9 +403,9 @@ Pour obtenir une répartition distincte pour chaque pays, il suffit simplement d
 ![](./media/app-analytics-tour/190.png)
 
 
-## Join
+## [Join](app-analytics-aggregations.md#join)
 
-Nous avons accès à trois tables : metric, exceptions et event. `event` comprend des rapports de requête, des affichages de pages, des événements personnalisés, etc.
+Nous avons accès à plusieurs tables, y compris les demandes et les exceptions.
 
 Pour rechercher les exceptions liées à une requête qui a retourné une réponse d’échec, nous pouvons joindre les tables sur `session_Id` :
 
@@ -422,7 +422,7 @@ Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélection
 
 
 
-## Let : affecter un résultat à une variable
+## [Let](app-analytics-aggregations.md#let) : affecter un résultat à une variable
 
 Utilisez [let](./app-analytics-syntax.md#let-statements) pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 
@@ -441,4 +441,4 @@ Utilisez [let](./app-analytics-syntax.md#let-statements) pour séparer les parti
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

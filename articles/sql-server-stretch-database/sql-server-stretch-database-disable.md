@@ -52,11 +52,11 @@ Si vous souhaitez simplement suspendre la migration des données, consultez [Sus
 
 ### Utiliser Transact-SQL pour désactiver Stretch Database pour une table
 
--   Pour désactiver Stretch pour une table et copier les données distantes de la table à partir d’Azure SQL Database vers SQL Server, exécutez la commande suivante. Cette commande ne peut pas être annulée.
+-   Pour désactiver Stretch Database pour une table et copier les données distantes de la table à partir d’Azure vers SQL Server, exécutez la commande suivante. Cette commande ne peut pas être annulée.
 
     ```tsql
     ALTER TABLE <table name>
-       SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
+       SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
     ```
     Cette opération entraîne des coûts de transfert de données. Pour plus d’informations, consultez [Tarification - Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
 
@@ -90,6 +90,9 @@ ALTER DATABASE <database name>
 ```
 
 ## Voir aussi
-[Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx) [Suspendre et reprendre Stretch Database](sql-server-stretch-database-pause.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+[Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+[Suspendre et reprendre Stretch Database](sql-server-stretch-database-pause.md)
+
+<!---HONumber=AcomDC_0316_2016-->

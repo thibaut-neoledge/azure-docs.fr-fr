@@ -18,7 +18,7 @@
 
 # Conception de votre solution
 
-Cet article vous explique comment concevoir les fonctionnalités suivantes dans votre solution IoT (Internet des objets) :
+Cet article vous explique comment concevoir les fonctionnalités suivantes dans votre solution IoT (Internet des objets) :
 
 - Approvisionnement des appareils
 - Passerelles de champ
@@ -26,7 +26,7 @@ Cet article vous explique comment concevoir les fonctionnalités suivantes dans 
 
 ## Approvisionnement des appareils
 
-Les solutions IoT stockent des données sur les appareils individuels, telles que :
+Les solutions IoT stockent des données sur les appareils individuels, telles que :
 
 - Clés d'authentification et identité de l'appareil
 - Version et type de matériel de l'appareil
@@ -44,7 +44,7 @@ L'article [Guide de gestion d'un appareil IoT Hub][lnk-device-management] décri
 
 Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et votre IoT Hub. Elle est généralement située près de vos appareils. Vos appareils communiquent directement avec la passerelle de champ à l’aide d’un protocole pris en charge. La passerelle de champ communique avec IoT Hub à l’aide d’un protocole pris en charge par ce dernier. Une passerelle de champ peut être un appareil ou logiciel autonome spécialisé qui s'exécute sur du matériel existant.
 
-Une passerelle de champ est différente d’un appareil de routage de trafic simple, par exemple un pare-feu ou un appareil de traduction d’adresses réseau (NAT), car elle a généralement un rôle actif dans la gestion de l’accès et du flux des informations dans votre solution. Par exemple, une passerelle de champ peut :
+Une passerelle de champ est différente d’un appareil de routage de trafic simple, par exemple un pare-feu ou un appareil de traduction d’adresses réseau (NAT), car elle a généralement un rôle actif dans la gestion de l’accès et du flux des informations dans votre solution. Par exemple, une passerelle de champ peut :
 
 - Gérer les appareils locaux. Par exemple, une passerelle de champ peut effectuer le traitement de règle d'événement et envoyer des commandes aux appareils en réponse à des données de télémétrie spécifiques.
 - Filtrer ou regrouper des données de télémétrie avant de les transmettre à IoT Hub. Ceci peut réduire la quantité de données qui sont envoyées à IoT Hub et réduire les coûts de votre solution.
@@ -56,7 +56,7 @@ Une passerelle de champ est différente d’un appareil de routage de trafic sim
 
 ### Types de passerelles de champ
 
-Une passerelle de champ peut être *transparente* ou *opaque*:
+Une passerelle de champ peut être *transparente* ou *opaque* :
 
 | &nbsp; | Passerelle transparente | Passerelle opaque|
 |--------|-------------|--------|
@@ -64,7 +64,7 @@ Une passerelle de champ peut être *transparente* ou *opaque*:
 | IoT Hub peut fournir un [dispositif anti-usurpation d'identité d'appareil][lnk-devguide-antispoofing] | Oui | Non |
 | [Quotas et limitations][lnk-throttles-quotas] | Appliquer à chaque appareil | Appliquer à la passerelle de champ |
 
-> [AZURE.IMPORTANT]  Quand vous utilisez un modèle de passerelle opaque, tous les appareils qui se connectent par le biais de la passerelle partagent la même file d’attente cloud-à-appareil, qui peut contenir au maximum 50 messages. Ainsi, le modèle de passerelle opaque ne doit être utilisé que quand très peu d’appareils se connectent par le biais de chaque passerelle de champ et que leur trafic cloud-à-appareil est faible.
+> [AZURE.IMPORTANT]  Quand vous utilisez un modèle de passerelle opaque, tous les appareils qui se connectent par le biais de la passerelle partagent la même file d’attente cloud-à-appareil, qui peut contenir au maximum 50 messages. Ainsi, le modèle de passerelle opaque ne doit être utilisé que quand très peu d’appareils se connectent par le biais de chaque passerelle de champ et que leur trafic cloud-à-appareil est faible.
 
 ### Autres considérations
 
@@ -78,7 +78,7 @@ Un service de jeton est un service cloud personnalisé. Il utilise une *stratég
 
   ![Étapes du modèle de service de jeton][img-tokenservice]
 
-Voici les principales étapes du modèle de service de jeton :
+Voici les principales étapes du modèle de service de jeton :
 
 1. Créez une [stratégie d'accès partagé IoT Hub][lnk-devguide-security] avec des autorisations **DeviceConnect** pour votre hub IoT. Vous pouvez créer cette stratégie dans le [portail Azure][lnk-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
 2. Lorsqu'un appareil doit accéder à votre hub IoT, il demande à votre service de jetons un jeton signé. L’appareil peut s’authentifier avec votre registre d’identité d’appareil personnalisé/schéma d’authentification pour déterminer l’identité d’appareil que le service de jeton utilise pour créer le jeton.
@@ -103,12 +103,14 @@ Dans le modèle par pulsations, l’appareil envoie des messages appareil-à-clo
 
 Une implémentation plus complexe pourrait inclure les informations de la [surveillance des opérations][lnk-devguide-opmon] pour identifier les appareils qui ne parviennent pas à se connecter ou à communiquer. Quand vous implémentez le modèle par pulsations, veillez à vérifier les [quotas et limitations IoT Hub][].
 
+> [AZURE.NOTE] Si une solution IoT a uniquement besoin de l’état de la connexion de l’appareil pour déterminer si elle doit envoyer des messages Cloud vers appareil, et que ces messages ne sont pas diffusés à de larges groupes d’appareils, une solution plus simple peut être de définir un délai d’expiration court. Vous obtenez le même résultat qu’en maintenant l’état de la connexion de l’appareil avec sa pulsation, tout en étant beaucoup plus efficace. Il est également possible, en demandant des accusés de réception des messages, d’être informé par IoT Hub des appareils qui peuvent recevoir des messages et de ceux qui ne sont pas en ligne ou qui sont en état d’échec. Reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-messaging] pour plus d’informations sur les messages Cloud vers appareil.
+
 ## Étapes suivantes
 
-Suivez ces liens pour en savoir plus sur Azure IoT Hub :
+Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
 - [Prise en main d'IoT Hub (didacticiel)][lnk-get-started]
-- [Qu’est-ce qu’Azure IoT Hub ?][lnk-what-is-hub]
+- [Qu’est-ce qu’Azure IoT Hub ?][lnk-what-is-hub]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -127,8 +129,9 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [quotas et limitations IoT Hub]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

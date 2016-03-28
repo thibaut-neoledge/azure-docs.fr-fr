@@ -75,9 +75,7 @@ Cet article explique certaines des erreurs courantes que vous pouvez rencontrer 
 
 **Motif de l’erreur :** si votre runbook est un flux de travail PowerShell, il stocke des objets complexes au format désérialisé afin de conserver l’état du runbook si le flux de travail est suspendu.
 
-**Conseils de dépannage :**
-
-L’une des trois solutions qui suivent pour corriger ce problème :
+**Conseils de dépannage :** L’une des trois solutions qui suivent pour corriger ce problème :
 
 1. Si vous transférez des objets complexes d’une applet de commande vers une autre, encapsulez ces applets de commande dans un bloc InlineScript.  
 2. Transmettez le nom ou la valeur dont vous avez besoin depuis l’objet complexe au lieu de transmettre la totalité de l’objet.  
@@ -139,9 +137,7 @@ L’une des trois solutions qui suivent pour corriger ce problème :
 
 - L’applet de commande **New-AzureRmAutomationModule** est utilisée pour charger le module, et vous ne disposez pas du chemin d’accès de stockage complet ou n’avez pas chargé le module en utilisant une URL accessible publiquement.
 
-**Conseils de dépannage :**
-
-l’une des solutions qui suivent peut corriger ce problème :
+**Conseils de dépannage :** l’une des solutions qui suivent peut corriger ce problème :
 
 - Vérifiez que le module respecte le format suivant : nom\_module.Zip **->** nom\_module ou numéro de version **->** (nom\_module.psm1, nom\_module.psd1)
 
@@ -167,7 +163,7 @@ l’une des solutions qui suivent peut corriger ce problème :
     - Pour affecter une configuration de nœud à un nœud à l’aide d’une applet de commande PowerShell, utilisez l’applet de commande **Set-AzureRmAutomationDscNode**.
 
 
-### Scénario : aucune configuration de nœud (fichier mof) ne s’est produite au cours d’une compilation de configuration
+### Scénario : aucune configuration de nœud (fichiers MOF) ne s’est produite au cours d’une compilation de configuration
 
 **Erreur :** le travail de compilation de votre DSC a été interrompu avec l’erreur : « Compilation completed successfully, but no node configuration .mofs were generated » (« La compilation s’est terminée correctement, mais aucune configuration de nœud .mofs n’a été générée »).
 
@@ -210,4 +206,4 @@ Si vous avez suivi les étapes de dépannage ci-dessus et avez besoin d’aide �
 
 - Publier vos commentaires ou vos demandes de fonctionnalités pour Azure Automation sur [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!-------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

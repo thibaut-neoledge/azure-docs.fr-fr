@@ -1,27 +1,27 @@
-<properties 
- pageTitle="Authentification sortante de Scheduler" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Authentification sortante de Scheduler"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Authentification sortante de Scheduler
 
 Les travaux de Scheduler peuvent avoir besoin de faire appel à des services qui requièrent une authentification. De cette façon, un service appelé peut déterminer si le travail de Scheduler peut accéder à ses ressources. Certains de ces services incluent d'autres services Azure, Salesforce.com, Facebook et des sites Web personnalisés sécurisés.
 
 ## Ajout et suppression de l'authentification
 
-L'ajout de l'authentification à un travail de Scheduler est simple : il suffit d'ajouter un élément enfant JSON `authentication` à l'élément `request` lors de la création ou de la mise à jour d'un travail. Les secrets transmis au service de Scheduler dans une requête PUT, PATCH ou POST, dans le cadre de l'objet `authentication`, ne sont jamais retournés dans les réponses. Dans les réponses, les informations secrètes ont la valeur null ou peuvent disposer d'un jeton public qui représente l'entité authentifiée.
+L'ajout de l'authentification à un travail de Scheduler est simple : il suffit d'ajouter un élément enfant JSON `authentication` à l'élément `request` lors de la création ou de la mise à jour d'un travail. Les secrets transmis au service de Scheduler dans une requête PUT, PATCH ou POST, dans le cadre de l'objet `authentication`, ne sont jamais retournés dans les réponses. Dans les réponses, les informations secrètes ont la valeur null ou peuvent disposer d'un jeton public qui représente l'entité authentifiée.
 
 Pour supprimer l'authentification, exécutez PUT ou PATCH de façon explicite sur le travail, définissant l'objet `authentication` sur null. Vous ne verrez pas de propriétés d'authentification en réponse.
 
@@ -53,10 +53,10 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 
 ## Exemple de requête et de réponse pour l'authentification ClientCertificate
 
-L'exemple de requête suivant effectue une requête PUT qui incorpore l'authentification `ClientCertificate`. La requête est la suivante :
+L'exemple de requête suivant effectue une requête PUT qui incorpore l'authentification `ClientCertificate`. La requête est la suivante :
 
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -86,7 +86,7 @@ L'exemple de requête suivant effectue une requête PUT qui incorpore l'authenti
 	  }
 	}
 
-Une fois que cette requête est envoyée, la réponse est la suivante :
+Une fois que cette requête est envoyée, la réponse est la suivante :
 
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -98,7 +98,7 @@ Une fois que cette requête est envoyée, la réponse est la suivante :
 	x-ms-servedbyregion: ussouth2
 	X-AspNet-Version: 4.0.30319
 	X-Powered-By: ASP.NET
-	 
+
 
 	{
 	  "id": "testScheduler",
@@ -153,9 +153,9 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 
 ## Exemple de requête et de réponse pour l'authentification de base
 
-L'exemple de requête suivant effectue une requête PUT qui incorpore l'authentification `Basic`. La requête est la suivante :
+L'exemple de requête suivant effectue une requête PUT qui incorpore l'authentification `Basic`. La requête est la suivante :
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -184,7 +184,7 @@ L'exemple de requête suivant effectue une requête PUT qui incorpore l'authenti
 	  }
 	}
 
-Une fois que cette requête est envoyée, la réponse est la suivante :
+Une fois que cette requête est envoyée, la réponse est la suivante :
 
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -257,9 +257,9 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 
 ## Exemple de requête et de réponse pour l'authentification ActiveDirectoryOAuth
 
-L'exemple de requête suivant effectue une requête PUT qui incorpore l'authentification `ActiveDirectoryOAuth`. La requête est la suivante :
+L'exemple de requête suivant effectue une requête PUT qui incorpore l'authentification `ActiveDirectoryOAuth`. La requête est la suivante :
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -290,7 +290,7 @@ L'exemple de requête suivant effectue une requête PUT qui incorpore l'authenti
 	  }
 	}
 
-Une fois que cette requête est envoyée, la réponse est la suivante :
+Une fois que cette requête est envoyée, la réponse est la suivante :
 
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -336,10 +336,10 @@ Une fois que cette requête est envoyée, la réponse est la suivante :
 	}
 
 ## Voir aussi
- 
+
 
  [Présentation d'Azure Scheduler](scheduler-intro.md)
- 
+
  [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
 
  [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
@@ -354,10 +354,4 @@ Une fois que cette requête est envoyée, la réponse est la suivante :
 
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
-
-  
-
- 
-  
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

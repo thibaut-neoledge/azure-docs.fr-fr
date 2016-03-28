@@ -81,7 +81,9 @@ Dans la version préliminaire actuelle de SQL Server 2016, les tables compatible
 
 -   Vous ne pouvez pas exécuter d’opérations METTRE À JOUR ou SUPPRIMER dans une table compatible Stretch.
 
--   Il est impossible d’INSÉRER dans la table de base de données SQL Azure distante.
+-   Vous ne pouvez pas effectuer d’opérations INSERT à distance dans une table compatible Stretch Database sur un serveur lié.
+
+-   Vous ne pouvez pas utiliser la réplication avec une table compatible Stretch Database.
 
 -   Il est impossible de créer un index pour une vue comprenant des tables compatibles Stretch.
 
@@ -90,6 +92,11 @@ Dans la version préliminaire actuelle de SQL Server 2016, les tables compatible
 -   Les filtres sur les index ne sont pas propagés à la table distante.
 
 ## Voir aussi
-[Identifier des bases de données et des tables pour Stretch Database en exécutant Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) [Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md) [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+[Identifier des bases de données et des tables pour Stretch Database en exécutant Stretch Database Advisor](sql-server-stretch-database-identify-databases.md)
+
+[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md)
+
+[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

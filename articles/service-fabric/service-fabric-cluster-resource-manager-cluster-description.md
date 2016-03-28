@@ -1,6 +1,6 @@
 <properties
    pageTitle="Description du cluster de l'équilibreur de ressources | Microsoft Azure"
-   description="Description d'un cluster Service Fabric en spécifiant les domaines d'erreur, domaines de mise à niveau, propriétés du nœud et capacités du nœud à l'équilibreur de ressources."
+   description="Description d’un cluster Service Fabric en spécifiant les domaines d’erreur, domaines de mise à niveau, propriétés du nœud et capacités du nœud du Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,22 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Description d'un cluster Service Fabric
-
+# Description d’un cluster Service Fabric
 Le Gestionnaire de ressources de cluster Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster. Pendant l’exécution, le Gestionnaire de ressources utilise ces informations pour garantir une haute disponibilité des services en cours d’exécution dans le cluster, tout en faisant en sorte que les ressources du cluster soient convenablement utilisées.
 
 ## Concepts clés
 Les fonctionnalités du Gestionnaire de ressources de cluster qui décrivent un cluster sont les suivantes :
+
 - Domaines d'erreur
 - Domaines de mise à niveau
 - Propriétés du nœud
 - Capacités du nœud
 
-### Domaines d'erreur
-
+## Domaines d'erreur
 Un domaine d’erreur est une zone d’échec coordonné. Une machine unique constitue un domaine d’erreur (puisqu’elle peut cesser de fonctionner de manière indépendante pour de nombreuses raisons : coupure électrique, défaillance de disque ou erreur de microprogramme de carte d’interface réseau). Si plusieurs machines sont connectées au même commutateur Ethernet, elles se trouvent dans le même domaine d’erreur, tout comme celles connectées à une source d’alimentation unique.
 
 Si vous avez défini votre propre cluster, vous devez réfléchir à ces différents domaines d’erreur et vous assurer que vos domaines d’erreur ont été configurés correctement pour que Service Fabric sache où placer des services de manière sûre. Par « sûre », nous voulons dire « intelligente » : nous ne voulons pas placer des services à un emplacement où la perte d’un domaine d’erreur entraîne leur panne. Dans l’environnement Azure, nous exploitons les informations de domaine d’erreur fournies par le contrôleur de structure/gestionnaire de ressources Azure pour configurer correctement les nœuds du cluster en votre nom. Pour donner un exemple simple, dans l’illustration ci-dessous (Figure 7), nous avons appliqué une couleur à toutes les entités qui correspondent raisonnablement à un domaine d’erreur et répertorié les différents domaines d’erreur correspondants. Dans cet exemple, nous avons des centres de données (DC), des racks (R) et des panneaux (B). En théorie, si chaque panneau contient plusieurs machines virtuelles, il peut exister une autre couche dans la hiérarchie de domaine d’erreur.
@@ -45,8 +44,7 @@ Si vous avez défini votre propre cluster, vous devez réfléchir à ces différ
 
  ![Deux dispositions de cluster différentes][Image2]
 
-### Domaines de mise à niveau
-
+## Domaines de mise à niveau
 Les domaines de mise à niveau correspondent à une autre fonctionnalité qui permet au Gestionnaire de ressources Service Fabric de comprendre la disposition du cluster afin de planifier les échecs à l’avance. Les domaines de mise à niveau définissent des zones (des ensembles de nœuds, en réalité) qui s’arrêteront simultanément au cours d’une mise à niveau.
 
 Les domaines de mise à niveau sont très semblables aux domaines d’erreur, avec cependant quelques différences clés. Tout d’abord, les domaines de mise à niveau sont généralement définis par la stratégie, alors que les domaines d’erreur sont rigoureusement définis par les zones d’échec coordonné (et donc généralement par la disposition matérielle de l’environnement). Toutefois, dans le cas des domaines de mise à niveau, vous devez décider du nombre de domaines. Une autre différence est que les domaines de mise à niveau (en tout cas, à l’heure actuelle) ne sont pas hiérarchiques. Ils ressemblent davantage à une simple balise qu’à une hiérarchie.
@@ -94,7 +92,7 @@ ClusterManifest.xml
 ```
 > [AZURE.NOTE] Dans les déploiements Azure, les domaines d'erreur et de mise à niveau affectés par Azure. Par conséquent, la définition des nœuds et des rôles au sein de l'option Infrastructure pour Azure n'inclut pas les informations sur les domaines d'erreur ou de mise à niveau.
 
-## Contraintes de placement et propriétés de nœud
+## Contraintes de positionnement et propriétés de nœud
 Parfois (en réalité, la plupart du temps), vous voudrez vous assurer que certaines charges de travail s’exécutent uniquement sur certains nœuds ou certains ensembles de nœuds. Par exemple, certaines charges de travail peuvent nécessiter des GPU ou des SSD, tandis que d’autres n’en ont pas besoin. Presque toutes les architectures multiniveau en sont un bon exemple : certaines machines servent de système frontal/d’interface desservant une partie de l’application, pendant qu’un autre ensemble (souvent avec des ressources matérielles différentes) gère le travail des couches de calcul ou de stockage. Service Fabric s’attend à ce que, même dans un monde dominé par les microservices, il y ait des cas où des charges de travail particulières doivent s’exécuter sur des configurations matérielles données, par exemple :
 
 - une application multiniveau existante a été « augmentée et déplacée » dans un environnement Service Fabric
@@ -159,7 +157,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 Les contraintes de placement (ainsi que de nombreuses autres propriétés dont nous allons parler) sont spécifiées pour chaque instance de service individuelle. Les mises à jour prennent toujours la place (remplacent) de ce qui a été précédemment spécifié.
 
-### Capacité
+## Capacité
 L’une des principales tâches de n’importe quel orchestrateur consiste à vous aider à gérer la consommation de ressources du cluster. Si vous tentez d’exécuter efficacement des services, vous ne voudrez certainement pas qu’un ensemble de nœuds soit actif (entraînant des conflits de ressources et des performances médiocres) tandis que d’autres sont froids (gaspillage de ressources). Mais prenons un exemple encore plus simple que l’équilibrage de charge (que nous examinerons dans une minute) : et si vous vous assuriez en premier lieu que les nœuds ne soient pas à cours de ressources ?
 
 Il s’avère que Service Fabric représente les ressources sous la forme d’éléments qu’il appelle « métriques ». Les métriques correspondent à n’importe quelle ressource logique ou physique que vous souhaitez décrire pour Service Fabric. Par exemple, « WorkQueueDepth » et « MemoryInMb » sont des métriques. Les métriques sont différentes des contraintes et des propriétés de nœud, dans la mesure où les propriétés de nœud sont généralement des descripteurs statiques des nœuds eux-mêmes, tandis que les métriques concernent les ressources physiques que les services consomment lorsqu’ils s’exécutent sur un nœud. Une propriété pourrait donc être par exemple HasSSD et pourrait être définie sur true ou false, tandis que la quantité d’espace disponible sur ce disque SSD (et consommée par les services) serait une métrique comme « DriveSpaceInMb ». La capacité du nœud définit « DriveSpaceInMb » sur la quantité totale d’espace non réservé sur le disque, et les services indiquent la quantité de la métrique qu’ils ont utilisée pendant leur exécution.
@@ -204,8 +202,7 @@ ClusterManifest.xml
 
 Il est également possible que la charge d’un service évolue de manière dynamique. Dans ce cas, il est possible que l’emplacement actuel d’un réplica ou d’une instance devienne non valide, étant donné que l’utilisation combinée de tous les réplicas et de toutes les instances de ce nœud dépasse les capacités du nœud. Nous étudierons ultérieurement ce scénario, dans lequel la charge peut être modifiée de manière dynamique, mais où, en termes de capacité, elle est gérée de la même façon : la gestion des ressources de Service Fabric intervient automatiquement et ramène le nœud au-dessous de la capacité en déplaçant un ou plusieurs réplicas ou instances de ce nœud vers des nœuds différents. Ce faisant, le Gestionnaire de ressources essaie de réduire le coût de tous les mouvements (nous reviendrons sur la notion de coût ultérieurement).
 
-###Capacité de cluster
-
+##Capacité de cluster
 Par conséquent, comment faire en sorte que l’ensemble du cluster ne soit pas saturé ? Avec la charge dynamique, nous ne pouvons en réalité pas faire grand-chose (étant donné que les services peuvent avoir un pic de charge indépendamment des actions effectuées par le Gestionnaire de ressources : un cluster ayant beaucoup de marge aujourd’hui pourra manquer de puissance demain), mais il existe certains contrôles conçus pour éviter les erreurs de base. La première chose que nous pouvons faire est d’empêcher la création de nouvelles charges de travail qui risquent de saturer le cluster.
 
 Supposons que vous créez un service sans état simple et qu’une charge y est associée (nous reviendrons plus tard sur les rapports de charge par défaut et dynamique). Supposons que ce service ait besoin de certaines ressources (par exemple l’espace disque) et qu’il consomme par défaut 5 unités d’espace disque pour chaque instance du service. Vous souhaitez créer 3 instances du service. Parfait ! Cela signifie que nous avons besoin de 15 unités d’espace disque dans le cluster pour être en mesure de créer ces instances de service. Service Fabric calcule en continu la capacité globale et la consommation de chaque métrique, pour que nous puissions facilement effectuer cette détermination et rejeter l’appel de création de service si l’espace est insuffisant.
@@ -251,11 +248,11 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-- [En savoir plus sur l’architecture du Gestionnaire de ressources de cluster](service-fabric-cluster-resource-manager-architecture.md)
-- [En savoir plus sur les mesures de défragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [Obtenir une présentation du Gestionnaire de ressources de cluster Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Pour plus d’informations sur l’architecture et le flux d’informations dans Cluster Resource Manager, consultez [cet article ](service-fabric-cluster-resource-manager-architecture.md)
+- La définition des mesures de défragmentation est une façon de consolider la charge sur les nœuds au lieu de la répartir. Pour savoir comment configurer la défragmentation, reportez-vous à [cet article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Commencer au début et [obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur l’[équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -265,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

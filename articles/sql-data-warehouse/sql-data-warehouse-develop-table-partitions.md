@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partitions de tables dans SQL Data Warehouse
@@ -22,6 +22,9 @@ Pour migrer les définitions des partitions SQL Server vers SQL Data Warehouse, 
 
 - Supprimez les schémas et fonctions de partition SQL Server, car le système les gère pour vous lorsque vous créez la table.
 - Définissez les partitions lorsque vous créez la table. Il vous suffit d’indiquer les points de limite des partitions, en précisant s’ils doivent correspondre à un paramètre `RANGE RIGHT` ou `RANGE LEFT` effectif.
+
+REMARQUE : pour en savoir plus sur les partitions dans SQL Server, consultez [Tables et index partitionnés](https://msdn.microsoft.com/library/ms190787.aspx).
+
 
 ### Dimensionnement des partitions
 SQL DW offre à un DBA plusieurs options pour les types de table : du segment de mémoire, index cluster (CI) et index de la banque des colonnes (CCI). Pour chacun de ces types de table, l’administrateur peut également partitionner la table, ce qui signifie le diviser en plusieurs sections afin d’améliorer les performances. Toutefois, la création d’une table comportant un nombre de partitions trop élevé peut entraîner la dégradation de performances ou d’échecs de requêtes dans certaines circonstances. Ces inquiétudes sont particulièrement vrais dans le cadre de tables CCI. Pour que le partitionnement soit utile, il est important pour un administrateur de savoir quand utiliser le partitionnement et le nombre de partitions à créer. Ces instructions sont destinées à aider les administrateurs à faire les bons choix en matière de scénarios.
@@ -333,4 +336,4 @@ Une fois que vous avez migré le schéma de base de données vers SQL Data Wareh
 
 <!-- Other web references -->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

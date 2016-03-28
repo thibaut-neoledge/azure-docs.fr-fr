@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/15/2016"
 	ms.author="jgao"/>
 
 # Analyse des journaux de HDInsight
@@ -99,14 +99,14 @@ Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos b
 2. Dans le menu **Affichage**, cliquez sur **Cloud Explorer**. Ou cliquez simplement sur **CTRL+\\, CTRL+X**.
 3. Dans **Cloud Explorer**, sélectionnez **Types de ressources**. L’autre option disponible est **Groupes de ressources**.
 4. Développez **Comptes de stockage**, le compte de stockage par défaut pour votre cluster, puis **Tables**.
-5. Double-cliquez sur hadoopservicelog.
+5. Double-cliquez sur **hadoopservicelog**.
 6. Ajoutez un filtre. Par exemple :
 	
 		TraceLevel eq 'ERROR'
 
 	![Choisir les colonnes des journaux HDInsight Hadoop](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
-	Pour plus d’informations sur la création de filtres, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+	Pour plus d’informations sur la création de filtres, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](../vs-azure-tools-table-designer-construct-filter-strings.md).
  
 ##Journaux écrits dans le stockage d’objets Blob Azure
 
@@ -114,7 +114,7 @@ Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos b
 
 Pour afficher les journaux, consultez [Accéder aux journaux des applications YARN dans HDInsight sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Pour plus d’informations sur les journaux des applications, consultez la page [Simplifier la gestion et l’accès des journaux utilisateur dans YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+Pour plus d’informations sur les journaux des applications, consultez la page [Simplifying user-logs management and access in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
  
  
 ## Afficher les journaux de travail et d’état d’intégrité du cluster
@@ -146,7 +146,7 @@ Vous pouvez utiliser l’interface utilisateur YARN pour effectuer les opératio
 
 ###Accéder à l’interface utilisateur HBase
 
-À partir du portail Azure, cliquez sur un nom de cluster HDInsight HBase pour ouvrir le panneau du cluster. Dans le panneau du cluster, cliquez sur **Tableau de bord**. Quand vous y êtes invité, entrez les informations d’identification d’administrateur du cluster. Dans la Console de requête qui s’ouvre, cliquez sur **Interface utilisateur HBase**.
+À partir du portail Azure, cliquez sur un nom de cluster HDInsight HBase pour ouvrir le panneau du cluster. Dans le panneau du cluster, cliquez sur **Tableau de bord**. Quand vous y êtes invité, entrez les informations d’identification d’administrateur du cluster. Dans la console de requête qui s’ouvre, cliquez sur **Interface utilisateur HBase**.
 
 ## Codes d’erreur HDInsight
 
@@ -341,4 +341,4 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 - [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 - [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

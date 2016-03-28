@@ -1,8 +1,8 @@
 ## Envoi de messages vers Event Hubs
 
-Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre hub d’événements. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l’utilisation des rubriques et files d’attente Service Bus avec AMQP en partant du langage Java comme indiqué [ici](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Pour plus d’informations, consultez la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et la page [Service de messagerie Java](http://www.oracle.com/technetwork/java/jms/index.html).
+Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre hub d’événements. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l’utilisation des rubriques et des files d’attente Service Bus avec AMQP en partant du langage Java comme indiqué [ici](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Pour plus d’informations, consultez la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et la page [Service de messagerie Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
-1. Dans Eclipse, installez le [Kit de ressources Azure pour Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Il inclut les bibliothèques clientes Qpid JMS AMQP.
+1. Dans Eclipse, installez le [Kit de ressources Azure pour Eclipse](../articles/azure-toolkit-for-eclipse.md). Il inclut les bibliothèques clientes Qpid JMS AMQP.
 
 2. Dans Eclipse, créez un projet Java nommé **Sender**.
 
@@ -10,9 +10,9 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 
 	![][8]
 
-4. Créez un fichier nommé **servicebus.properties** à la racine du projet **Sender**, avec le contenu suivant. N’oubliez pas de remplacer les valeurs de votre :
-	- nom d’Event Hub ;
-	- nom d’espace de noms (ce dernier est généralement `{event hub name}-ns`) ;
+4. Créez un fichier nommé **servicebus.properties** à la racine du projet **Sender**, avec le contenu suivant. N’oubliez pas de remplacer les valeurs de votre :
+	- nom d’Event Hub ;
+	- nom d’espace de noms (ce dernier est généralement `{event hub name}-ns`) ;
 	- clé **SendRule** codée URL (vous avez noté cette clé lorsque vous avez créé votre Event Hub). Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 			# servicebus.properties - sample JNDI configuration
@@ -26,7 +26,7 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 			# topic.[jndi_name] = [physical_name]
 			queue.EventHub = {event hub name}
 
-5. Créez une classe appelée **Sender**. Ajoutez les instructions `import` suivantes :
+5. Créez une classe appelée **Sender**. Ajoutez les instructions `import` suivantes :
 
 		import java.io.BufferedReader;
 		import java.io.IOException;
@@ -45,7 +45,7 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 		import javax.naming.InitialContext;
 		import javax.naming.NamingException;
 
-6. Ensuite, ajoutez le code suivant :
+6. Ensuite, ajoutez le code suivant :
 
 		public static void main(String[] args) throws NamingException,
 				JMSException, IOException, InterruptedException {
@@ -92,4 +92,4 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

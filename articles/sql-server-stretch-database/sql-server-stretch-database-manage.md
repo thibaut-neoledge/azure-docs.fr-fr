@@ -51,6 +51,9 @@ Pour obtenir des suggestions de dépannage, consultez [Surveillance et dépannag
 -   Les conditions de votre réseau peuvent s’être dégradées. Pour plus d’informations sur les problèmes ou les défaillances récents, contactez votre administrateur réseau.
 
 ## Voir aussi
-[Surveillance de Stretch Database](sql-server-stretch-database-monitor.md) [Sauvegarde et restauration de bases de données compatibles Stretch](sql-server-stretch-database-backup.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+[Surveiller Stretch Database](sql-server-stretch-database-monitor.md)
+
+[Sauvegarder et restaurer des bases de données Stretch](sql-server-stretch-database-backup.md)
+
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestionnaire de ressources de cluster Service Fabric - Affinité"
+   pageTitle="Cluster Resource Manager Service Fabric - Affinité | Microsoft Azure"
    description="Vue d’ensemble des autres règles et stratégies de positionnement pour les services Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Affinité
+# Configuration et utilisation de l’affinité de service dans Service Fabric
 
 L’affinité est une caractéristique qui n’a à première vue aucun sens dans un environnement de microservice. L’affinité est un contrôle qui permet principalement de faciliter la transition d’applications volumineuses précédemment monolithiques dans le cloud et les microservices.
 
@@ -48,25 +48,24 @@ L’affinité est représentée par un des jeux de corrélations et comporte deu
 
 ![Modes d’affinité et leurs effets][Image1]
 
-#### Meilleur état souhaité
+### Meilleur état souhaité
 Il existe quelques différences entre l’affinité et les architectures monolithiques. La principale est qu’une relation d’affinité est la meilleure option, car des services fondamentalement différents peuvent échouer indépendamment, par exemple. D’autres caractéristiques, telles que les limites de capacité, peuvent entraîner la séparation des différents réplicas du service.
 
 
-#### Chaînes et étoiles
+### Chaînes et étoiles
 Aujourd’hui, nous ne sommes pas en mesure de modéliser les chaînes de relations d’affinité. Cela signifie qu’un service qui est un service enfant dans une relation d’affinité ne peut pas être un parent dans une autre relation d’affinité. En d’autres termes, si vous souhaitez modéliser ce type de relation, vous devez effectivement le modéliser en tant qu’étoile, plutôt qu’en tant que chaîne, en apparentant l’enfant le plus bas au parent de l’enfant « intermédiaire ».
 
 ![Chaînes et étoiles dans le contexte des relations d’affinité][Image2]
 
 Notez également que les relations d’affinité d’aujourd’hui sont directionnelles. Cela signifie que la règle d’affinité applique uniquement le fait que l’enfant est situé au même endroit que le parent. Si le parent bascule soudainement vers un autre nœud (ou toute autre action limitée qui force le déplacement du parent uniquement), le Gestionnaire de ressources ne détecte pas de problème tant qu’il n’a pas remarqué que l’enfant n’est pas au même emplacement que le parent. Dans ce cas, la relation n’est pas appliquée immédiatement.
 
-#### Prise en charge du partitionnement
+### Prise en charge du partitionnement
 Voici une dernière remarque concernant l’affinité : les relations d’affinité ne sont pas prises en charge lorsque le parent est partitionné. Il se peut que cela change à l’avenir. Mais pour l’instant, cette prise en charge n’est pas prévue.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-- [En savoir plus sur la configuration des services](service-fabric-cluster-resource-manager-configure-services.md)
+- Pour plus d’informations sur les autres options disponibles pour la configuration des services, consultez la rubrique sur les autres configurations de Cluster Resource Manager disponibles [En savoir plus sur la configuration des services](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

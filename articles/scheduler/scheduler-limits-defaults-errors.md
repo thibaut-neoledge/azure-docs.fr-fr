@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Limites, valeurs par défaut et codes d'erreur de Scheduler
@@ -55,7 +55,7 @@ Les opérations API peuvent également retourner des informations d'erreur suppl
 
 
  [Présentation d'Azure Scheduler](scheduler-intro.md)
- 
+
  [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
 
  [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
@@ -69,7 +69,5 @@ Les opérations API peuvent également retourner des informations d'erreur suppl
  [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

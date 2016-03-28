@@ -13,153 +13,117 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/07/2016"
+	ms.date="03/11/2016"
 	ms.author="wesmc"/>
 
 # Authentifier avec l’API REST de Mobile Engagement
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Ce document décrit en détail comment faire fonctionner le mécanisme d’authentification pour les nouvelles API.
+Ce document décrit comment obtenir un jeton OAuth AAD valide pour s’authentifier auprès des API REST Mobile Engagement.
 
 Il suppose que vous disposez d’un abonnement Azure valide et que vous avez créé une application Mobile Engagement à l'aide d'un de nos [didacticiels pour les développeurs](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## Authentification
 
-Un jeton OAuth basé sur Microsoft Azure Active Directory doit être utilisé pour l’authentification.
+Un jeton OAuth basé sur Microsoft Azure Active Directory est utilisé pour l’authentification.
 
-Pour authentifier une requête API, un en-tête d'autorisation doit être ajouté à chaque requête. Il doit être au format suivant :
+Pour authentifier une requête API, un en-tête d’autorisation doit être ajouté à chaque requête, qui se présente sous la forme suivante :
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
 
 >[AZURE.NOTE] Les jetons Azure Active Directory expirent dans 1 heure.
 
-Il existe plusieurs façons d’obtenir un jeton. Comme les API sont généralement appelées à partir d'un service cloud, vous utiliserez probablement une clé d’API. Dans la terminologie Azure, une clé d’API est appelée mot de passe principal de du service. La procédure suivante décrit comment la configurer manuellement.
+Il existe plusieurs façons d’obtenir un jeton. Comme les API sont généralement appelées à partir d’un service cloud, vous voulez utiliser une clé API. Dans la terminologie Azure, une clé d’API est appelée mot de passe principal de du service. La procédure suivante décrit comment la configurer manuellement.
 
-> [AZURE.WARNING] La clé affichée dans Azure Active Directory n'est PAS la clé d'API Mobile Engagement affichée dans le portail. Le concept de clé d'API Mobile Engagement est obsolète et a été remplacé par l'authentification AAD décrite dans ce document.
+### Installation unique (à l'aide d’un script)
 
-#### Installation unique (manuelle)
+Vous devez suivre l’ensemble des instructions ci-dessous pour effectuer l’installation à l’aide d’un script PowerShell qui prend le temps minimal pour l’installation, mais utilise les valeurs par défaut les plus autorisées. Si vous le souhaitez, vous pouvez également suivre les instructions de l’[installation manuelle](mobile-engagement-api-authentication-manual.md) pour effectuer cette opération directement à partir du portail Azure et affiner la configuration.
 
-Lors de cette opération, notez les informations suivantes qui vous serviront ultérieurement :
-	
-1. Création d’une application Azure Active Directory à l’aide de [ce guide](../resource-group-create-service-principal-portal.md).
+1. Récupérez la dernière version d’Azure PowerShell [ici](http://aka.ms/webpi-azps). Consultez ce [lien](../powershell-install-configure.md) pour obtenir des instructions de téléchargement.  
 
-	- Le nom de l'application que vous avez choisi s’appelle `{AD_APP_NAME}` dans ce document.
-	- L'identificateur de client affiché dans le menu de configuration s’appelle `{CLIENT_ID}` dans ce document.
-	- La clé affichée une seule fois après l'enregistrement s’appelle `{CLIENT_SECRET}` dans ce document.
-	- Cliquez sur le bouton **AFFICHER LES POINTS DE TERMINAISON** dans la barre inférieure, copiez l’**URL DU POINT DE TERMINAISON DU JETON OAUTH 2.0**, également appelée `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token` dans ce document. <br/>                                    
-2. Attribuez un rôle au principal du service, par exemple Lecteur ou Propriétaire, à l'aide de l’[interface de ligne de commande Azure](../xplat-cli-install.md).
+2. Une fois Azure PowerShell installé, utilisez les commandes suivantes pour vérifier que le **module Azure** est installé :
 
-	Si vous êtes sous Windows, modifiez votre variable d’environnement `PATH` afin d’inclure `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\bin` et pouvoir utiliser les commandes azure.
+    a. Vérifiez que le module Azure PowerShell est disponible dans la liste des modules disponibles.
+    
+		Get-Module –ListAvailable 
 
-	Exécutez les commandes suivantes pour configurer votre compte avec l'interface de ligne de commande (CLI) Azure :
+	![Modules Azure disponibles][1]
+    	
+    b. Si vous ne trouvez pas le module Azure PowerShell dans la liste ci-dessus, vous devez exécuter la commande suivante :
+    	
+		Import-Module Azure 
+    	
+3. Connectez-vous à Azure Resource Manager à partir de PowerShell en exécutant la commande suivante et en fournissant vos nom d’utilisateur et mot de passe pour votre compte Azure :
+    	
+		Login-AzureRmAccount
 
-		azure config mode arm 
-		azure login
+4. Si vous avez plusieurs abonnements, vous devez exécuter ce qui suit :
 
-	Cette commande permet ensuite de rechercher l'ID objet de votre application.
-
-		$ azure ad sp show --search {AD_APP_NAME} 
-		info: Executing command ad sp show 
-		+ Getting active directory service principals
-		data: Object Id: 71785194-b7f5-4701-a9d6-fefb6cd32d18 
-		data: Display Name: {AD_APP_NAME} 
-		data: Service Principal Names:
-		data: {AD_APP_URI}
-		data: 8cdaf270-763c-4577-b2a2-ce559b47d353 
-		data: 
-		info: ad sp show command OK
-
-	Notez l’élément `Object Id` dans la sortie.
-
-	Affectez ensuite le rôle `Owner` au principal du service à l'aide de cette commande :
-  
-		$ azure role assignment create --objectId {OBJECT_ID} -o Owner 
-		info: Executing command role assignment create
-		+ Finding role with specified name
-		-data: RoleAssignmentId :
-		/subscriptions/{SUBSCRIPTION_ID}/providers/Microsoft.Authorization/roleAssignm
-		ents/009392b1-2b7c-4de8-8f70-1fccb2e0a331 
-		data: RoleDefinitionName : Reader
-		data: RoleDefinitionId : acdd72a7-3385-48ef-bd42-f606fba81ae7 
-		data: Scope : /subscriptions/{SUBSCRIPTION_ID} 
-		data: Display Name : {AD_APP_NAME}
-		data: SignInName :
-		data: ObjectId : {OBJECT_ID} 
-		data: ObjectType : ServicePrincipal
-
-#### Installation unique (à l'aide d’un script)
-
-Il s'agit d'une autre façon d’effectuer les étapes susmentionnées à l'aide d'un script PowerShell.
-
-1. Récupérez la dernière version d’Azure PowerShell. Consultez ce [lien](../powershell-install-configure.md) pour obtenir des instructions de téléchargement. 
-
-2. Ouvrez Windows PowerShell en mode administrateur et assurez-vous que vous avez installé les [applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx).
-
-		Install-Module AzureRM
-		Install-AzureRM
-
-3. Exécutez la commande suivante :
-
-		Import-Module AzureRM.profile
-
-4. Exécutez la commande suivante pour lancer une boîte de dialogue de connexion. Après la connexion, la commande indique que l'abonnement est "actif", ce qui signifie que toutes les commandes que vous exécutez s'appliquent à cet abonnement.
-
-		Add-AzureRmAccount
-
-5. Exécutez la commande suivante pour répertorier tous vos abonnements. Copiez le GUID de l'abonnement que vous souhaitez utiliser.
+	a. Obtenez une liste de tous vos abonnements et copiez le SubscriptionId de l’abonnement que vous souhaitez utiliser. Vérifiez que cet abonnement est le même que celui qui possède l’application Mobile Engagement avec laquelle vous allez interagir à l’aide des API.
 
 		Get-AzureRmSubscription
 
-6. Exécutez la commande suivante pour spécifier le GUID qui servira à configurer l'abonnement à utiliser. Ceci est particulièrement utile lorsque vous avez plusieurs abonnements.
+	b. Exécutez la commande suivante pour spécifier le SubscriptionId qui servira à configurer l’abonnement à utiliser.
 
 		Select-AzureRmSubscription –SubscriptionId <subscriptionId>
 
-7. Copiez le texte du script [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) sur votre ordinateur local puis exécutez-le.
+5. Copiez le texte du script [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) sur votre ordinateur local puis enregistrez-le en tant qu’applet de commande PowerShell (par exemple, `APIAuth.ps1`) et exécutez-le `.\APIAuth.ps1`.
+	
+6. Le script vous demande de fournir une entrée pour **nom\_principal**. Indiquez ici un nom approprié que vous souhaitez utiliser pour créer votre application Active Directory (par exemple, APIAuth).
 
-	>[Azure.Note] Votre stratégie de sécurité par défaut peut vous empêche d'exécuter un script PowerShell. Dans ce cas, configurez temporairement votre stratégie d'exécution pour permettre l'exécution du script à l'aide de la commande suivante :
+7. Une fois le script terminé, il affiche les quatre valeurs suivantes nécessaires pour l’authentification par programmation auprès d’Active Directory. Veillez à bien les copier.
+		
+	**TenantId**, **SubscriptionId**, **ApplicationId** et **Secret**.
 
-	>	Set-ExecutionPolicy RemoteSigned
+	Vous utilisez la valeur TenantId `{TENANT_ID}`, la valeur ApplicationId `{CLIENT_ID}` et la valeur Secret `{CLIENT_SECRET}`.
 
-	Le script vous invite à attribuer un "nom" à votre principal de service. Vous pouvez attribuer le nom de votre choix.
+	> [AZURE.NOTE] Votre stratégie de sécurité par défaut peut vous empêche d'exécuter un script PowerShell. Dans ce cas, configurez temporairement votre stratégie d'exécution pour permettre l'exécution du script à l'aide de la commande suivante :
 
-	Une fois le script terminé, il affiche quatre valeurs qui doivent être authentifiées par programmation avec Active Directory : **TenantId**, **SubscriptionId**, **ApplicationId** et **Secret**.
+    	> Set-ExecutionPolicy RemoteSigned
 
-	Copiez ces valeurs pour référence. Pour obtenir maintenant un jeton d’accès, vous utilisez la valeur TenantId `{TENANT_ID}`, la valeur ApplicationId `{CLIENT_ID}` et la valeur Secret `{CLIENT_SECRET}`.
+8. Voici à quoi ressemble le jeu d’applets de commande PS.
 
-8. Vérifiez sur le portail de gestion Azure qu’une nouvelle application Active Directory apparaît sous **Afficher les applications que ma société possède**.
+	![][3]
+
+9. Vérifiez dans le portail de gestion Azure qu’une application Active Directory a été créée avec le nom fourni au script appelé **nom\_principal** sous **Afficher les applications que ma société possède**.
+
+	![][4]
 
 #### Procédure d'obtention d'un jeton valide
 
-Pour obtenir un nouveau jeton, appelez cette API :
+1. Appelez l’API avec les paramètres suivants et veillez à remplacer les valeurs TENANT\_ID, CLIENT\_ID et CLIENT\_SECRET :
 
-	https://login.microsoftonline.com/{TENANT_ID}/oauth2/token 
+	- **URL de requête** sous la forme **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
+- **En-tête Content-Type HTTP** sous la forme *application/x-www-form-urlencoded*
+	- **Corps de la requête HTTP** sous la forme *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
-Voici un exemple de requête :
+	Voici un exemple de requête :
 
-	POST /{TENANT_ID}/oauth2/token HTTP/1.1
-	Host: login.microsoftonline.com
-	Content-Type: application/x-www-form-urlencoded Content-Length: 195
-	grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
-	urce=https%3A%2F%2Fmanagement.core.windows.net%2F
+		POST /{TENANT_ID}/oauth2/token HTTP/1.1
+		Host: login.microsoftonline.com
+		Content-Type: application/x-www-form-urlencoded
+		grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
+		urce=https%3A%2F%2Fmanagement.core.windows.net%2F
 
-Voici un exemple de réponse :
+	Voici un exemple de réponse :
 
-	HTTP/1.1 200 OK
-	Content-Type: application/json; charset=utf-8
-	Content-Length: 1234
+		HTTP/1.1 200 OK
+		Content-Type: application/json; charset=utf-8
+		Content-Length: 1234
 	
-	{"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
-	5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_T
-	OKEN}}
+		{"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
+		5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
 
-Cet exemple incluait l’encodage de l’URL des paramètres POST, et la valeur `resource` est en fait `https://management.core.windows.net/`. Veillez également à encoder l’URL `{CLIENT_SECRET}` car elle peut contenir des caractères spéciaux.
+	Cet exemple incluait l’encodage de l’URL des paramètres POST, et la valeur `resource` est en fait `https://management.core.windows.net/`. Veillez également à encoder l’URL `{CLIENT_SECRET}` car elle peut contenir des caractères spéciaux.
 
-Dans chaque appel d'API, incluez l'en-tête de requête d'autorisation :
+	> [AZURE.NOTE] Pour le test, vous pouvez utiliser un outil client HTTP comme [Fiddler](http://www.telerik.com/fiddler) ou l’[extension Postman sur Chrome](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
 
-	Authorization: Bearer {ACCESS_TOKEN}
+2. Dans chaque appel d'API, incluez l'en-tête de requête d'autorisation :
 
-Si vous obtenez un code d'état 401, vérifiez le corps de la réponse car il peut vous indiquer que le jeton a expiré. Dans ce cas, récupérez un nouveau jeton.
+		Authorization: Bearer {ACCESS_TOKEN}
+
+	Si vous obtenez un code d'état 401, vérifiez le corps de la réponse car il peut vous indiquer que le jeton a expiré. Dans ce cas, récupérez un nouveau jeton.
 
 ##Utilisation des API
 
@@ -169,7 +133,7 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 
 2. Vous devez spécifier certains paramètres dans l'URI de la requête qui identifie votre application. L'URI de la requête ressemble à ceci :
 
-		https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/MobileEngagement/
+		https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
 		providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
 
 	Pour obtenir les paramètres, cliquez sur le nom de votre application puis sur Tableau de bord : vous verrez alors une page similaire à celle-ci, avec 3 paramètres.
@@ -177,10 +141,17 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 	- **1** `{subscription-id}`
 	- **2** `{app-collection}`
 	- **3** `{app-resource-name}`
+	- **4** Le nom de votre groupe de ressources va être **MobileEngagement** sauf si vous en avez créé un autre. 
 
-	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
+	![Paramètres URI d’API Mobile Engagement][2]
 
 >[AZURE.NOTE] <br/>
 >1. Ignorez l’adresse racine de l’API car elle s’appliquait aux API précédentes.<br/> 2. Vous devez utiliser le nom de ressource de l'application qui est différent du nom de l'application elle-même. 
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!-- Images -->
+[1]: ./media/mobile-engagement-api-authentication/azure-module.png
+[2]: ./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png
+[3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
+[4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
+
+<!---HONumber=AcomDC_0316_2016-->

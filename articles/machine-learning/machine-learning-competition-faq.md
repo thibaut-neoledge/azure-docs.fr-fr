@@ -3,7 +3,7 @@
 	description="Forum Aux Questions (FAQ) sur les concours Microsoft Azure Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="hning86"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # FAQ sur le concours Microsoft Azure Machine Learning
@@ -70,4 +70,4 @@ Microsoft vérifiera les résultats du classement privé, puis nous vous contact
 
 Si vous êtes le gagnant d’un concours, vous devrez signer une déclaration d’éligibilité, de licence et de non-droit. Ce formulaire réitère les règles du concours. Les gagnants devront remplir un formulaire fiscal W-9 des États-Unis ou un formulaire W-8BEN pour ceux qui ne sont pas des contribuables situés aux États-Unis.
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -47,9 +47,42 @@ Deux flux d’authentification sont pris en charge : un flux serveur et un flux 
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
+###<a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes
+
+Plusieurs types d’applications Apache Cordova utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth. Cela pose des problèmes, car le service d’authentification sait uniquement comment utiliser votre service par défaut. L’utilisation de l’émulateur Ripple, l’exécution de votre service localement ou dans un autre Azure App Service avec une redirection vers Azure App Service pour l’authentification, ou Live Reload avec Ionic, en sont des exemples. Suivez ces instructions pour ajouter vos paramètres régionaux à la configuration :
+
+1. Connectez-vous au [portail Azure].
+2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre application mobile.
+3. Cliquez sur **Outils**.
+4. Cliquez sur **Explorateur de ressources** dans le menu OBSERVER, puis cliquez sur **Atteindre**. Une nouvelle fenêtre ou un nouvel onglet s’ouvre.
+5. Développez les nœuds **config**, **authsettings** pour votre site dans le volet de navigation de gauche.
+6. Cliquez sur **Modifier**.
+7. Recherchez l’élément "allowedExternalRedirectUrls". Il est défini sur Null. Modifiez-le comme suit :
+
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
+
+    Remplacez les URL par les URL de votre service. Par exemple, "http://localhost:3000" (pour le service Node.js) ou "http://localhost:4400" (pour le service Ripple). Il s’agit seulement d’exemples. Votre situation, y compris pour les services mentionnés dans les exemples, peut être différente.
+8. Cliquez sur le bouton **Lecture/Écriture** dans le coin supérieur droit de l’écran.
+9. Cliquez sur le bouton vert **PUT**.
+
+Les paramètres sont alors enregistrés. Ne fermez pas la fenêtre du navigateur avant la fin de l’enregistrement des paramètres. Vous devez également ajouter ces URL de bouclage aux paramètres de CORS :
+
+1. Connectez-vous au [portail Azure].
+2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre application mobile.
+3. Le panneau Paramètres s’ouvre automatiquement. Si ce n’est pas le cas, cliquez sur **Tous les paramètres**.
+4. Cliquez sur **CORS** sous le menu de l’API.
+5. Entrez l’URL à ajouter dans la zone correspondante et appuyez sur Entrée.
+6. Entrez des URL supplémentaires, si nécessaire.
+7. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
+
+L’application des nouveaux paramètres prend environ 10 à 15 secondes.
+
 ##<a name="register-for-push"></a>Procédure : inscription aux notifications Push
 
-Installez le plug-in [phonegap-plugin-push] pour gérer les notifications Push. Vous pouvez l’ajouter facilement à l’aide de la commande `cordova plugin add` sur la ligne de commande, ou par le biais du programme d’installation de plug-in Git dans Visual Studio. Le code suivant dans votre application Apache Cordova inscrit votre appareil aux notifications Push :
+Installez le plug-in [phonegap-plugin-push] pour gérer les notifications Push. Vous pouvez l’ajouter facilement en exécutant la commande `cordova plugin add` sur la ligne de commande, ou par le biais du programme d’installation de plug-in Git dans Visual Studio. Le code suivant dans votre application Apache Cordova inscrit votre appareil aux notifications Push :
 
 ```
 var pushOptions = {
@@ -91,9 +124,10 @@ pushHandler.on('error', function (error) {
 Utilisez le Kit de développement logiciel (SDK) Notification Hubs pour envoyer des notifications Push à partir du serveur. Vous ne devez jamais envoyer de notifications Push directement à partir de clients, car cela peut favoriser le déclenchement d’une attaque par déni de service contre Notification Hubs ou le PNS.
 
 <!-- URLs. -->
+[portail Azure]: https://portal.azure.com
 [Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Prise en main de l'authentification]: app-service-mobile-cordova-get-started-users.md
-[Ajout de l’authentification à votre application]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [plug-in Apache Cordova pour Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [votre première application Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -101,6 +135,6 @@ Utilisez le Kit de développement logiciel (SDK) Notification Hubs pour envoyer 
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentation de l’objet Query]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
 
-<!----------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

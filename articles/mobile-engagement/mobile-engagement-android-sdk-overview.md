@@ -13,43 +13,44 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
-#SDK Android pour Azure Mobile Engagement
+#SDK Android pour Azure Mobile Engagement
 
-Commencez par là pour obtenir tous les détails de l'intégration d'Azure Mobile Engagement dans une application Android. Si vous souhaitez tout d'abord l'essayer, pensez à effectuer notre [didacticiel de 15 minutes](mobile-engagement-android-get-started.md).
+Commencez par là pour obtenir tous les détails de l'intégration d'Azure Mobile Engagement dans une application Android. Si vous souhaitez tout d'abord l'essayer, pensez à effectuer notre [didacticiel de 15 minutes](mobile-engagement-android-get-started.md).
 
 Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engagement-android-sdk-content.md).
 
 ##Procédures d'intégration
-1. Démarrez ici : [comment intégrer Mobile Engagement dans votre application Android](mobile-engagement-android-integrate-engagement.md)
+1. Démarrez ici : [comment intégrer Mobile Engagement dans votre application Android](mobile-engagement-android-integrate-engagement.md)
 
-2. Pour les notifications : [comment intégrer le module Couverture (notifications) à votre application Android](mobile-engagement-android-integrate-engagement-reach.md)
-	1. Google Cloud Messaging (GCM) : [comment intégrer GCM à Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-	2. Amazon Device Messaging (ADM) : [comment intégrer ADM à Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+2. Pour les notifications : [comment intégrer le module Couverture (notifications) à votre application Android](mobile-engagement-android-integrate-engagement-reach.md)
+	1. Google Cloud Messaging (GCM) : [comment intégrer GCM à Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+	2. Amazon Device Messaging (ADM) : [comment intégrer ADM à Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-3. Implémentation du plan de balise : [utilisation de l'API avancée de balisage de Mobile Engagement dans votre application Android](mobile-engagement-android-use-engagement-api.md)
+3. Implémentation du plan de balise : [utilisation de l'API avancée de balisage de Mobile Engagement dans votre application Android](mobile-engagement-android-use-engagement-api.md)
 
 
 ##Notes de publication
 
-##4\.1.5 (01/02/2016)
+##4\.2.0 (03/11/2016)
 
-- Améliorations de la stabilité.
+- Le Kit de développement logiciel (SDK) est désormais sous licence MIT.
+- Autorise la spécification d’un identificateur d’appareil personnalisé au moment de l’initialisation du Kit de développement logiciel (SDK).
 
 ##4\.1.0 (25/08/2015)
 
 - Gestion du nouveau modèle d’autorisation pour Android M.
 - Vous pouvez désormais configurer les fonctionnalités de localisation lors de l’exécution au lieu d’utiliser `AndroidManifest.xml`.
-- Résolution d’un bogue d’autorisation : si vous utilisez `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` n’est plus nécessaire.
+- Résolution d’un bogue d’autorisation : si vous utilisez `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` n’est plus nécessaire.
 - Améliorations de la stabilité.
 
-Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-android-release-notes.md).
+Pour toutes les versions, consultez les [notes de publication complètes](mobile-engagement-android-release-notes.md).
 
 ##Procédures de mise à niveau
 
 Si vous avez déjà intégré une version plus ancienne de notre kit de développement logiciel (SDK) dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

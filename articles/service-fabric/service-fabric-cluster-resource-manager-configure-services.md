@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuration de services avec Service Fabric Cluster Resource Manager"
+   pageTitle="Configuration de services avec Service Fabric Cluster Resource Manager | Microsoft Azure"
    description="Description d’un service Service Fabric en spécifiant des mesures, des contraintes de placement et d’autres stratégies de positionnement."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 
-# Configuration des services
+# Configuration des paramètres Cluster Resource Manager pour les services Service Fabric
 Service Fabric Cluster Resource Manager permet d’obtenir un contrôle détaillé des règles qui régissent chaque service nommé individuel. Chaque instance de service peut spécifier des règles pour son allocation dans le cluster. Chaque instance peut également définir l’ensemble de mesures qu’elle souhaite inclure dans un rapport, y compris leur importance pour ce service. En général, la configuration des services se décompose en trois tâches :
 
-1. Configuration des contraintes de placement
+1. Configuration des contraintes de positionnement
 2. Configuration des mesures
 3. Configuration des règles de placement avancées (moins fréquent)
 
@@ -35,11 +35,12 @@ Les mesures sont la liste des ressources que ce service doit prendre en compte, 
 ## Autres règles de placement
 Il existe d’autres types de règles de placement qui sont principalement utiles dans les clusters qui sont répartis géographiquement ou dans d’autres scénarios moins courants. Celles-ci sont configurées via Corrélations ou Stratégies. Même si elles ne sont pas couramment utilisées, nous allons les décrire par souci d’exhaustivité.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-- [En savoir plus sur les mesures](service-fabric-cluster-resource-manager-metrics.md)
-- [En savoir plus sur l’Affinité de service](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-- [En savoir plus sur les stratégies de positionnement du service](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-- [Obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- Les mesures représentent la façon dont Service Fabric Cluster Resource Manager gère la consommation et la capacité du cluster. Pour en savoir plus sur ces mesures et la façon de les configurer, consultez [cet article](service-fabric-cluster-resource-manager-metrics.md)
+- L’affinité est un mode que vous pouvez configurer pour vos services. Ce n’est pas courant, mais si nécessaire, vous trouverez plus d’informations [ici](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+- Il existe de nombreuses règles de positionnement différentes qui peuvent être configurées sur votre service pour gérer des scénarios supplémentaires. Vous trouverez plus d’informations sur ces différentes stratégies de positionnement [ici](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+- Commencer au début et [obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur l’[équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
+- Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur celles-ci, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

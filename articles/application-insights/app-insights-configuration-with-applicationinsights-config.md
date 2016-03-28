@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/12/2016" 
 	ms.author="awills"/>
 
 # Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
@@ -54,7 +54,7 @@ Vous pouvez également écrire votre propre code de suivi des dépendances à l'
 
 ### Télémétrie des diagnostics Application Insights
 
-Le `DiagnosticsTelemetryModule` répertorie les erreurs dans le code d'instrumentation Application Insights lui-même. Par exemple, si le code ne peut pas accéder aux compteurs de performances ou si un `ITelemetryInitializer` renvoie une exception. La télémétrie de trace suivie par ce module s'affiche dans la [Recherche de diagnostic][diagnostic].
+Le `DiagnosticsTelemetryModule` répertorie les erreurs dans le code d'instrumentation Application Insights lui-même. Par exemple, si le code ne peut pas accéder aux compteurs de performances ou si un `ITelemetryInitializer` renvoie une exception. La télémétrie de trace suivie par ce module s'affiche dans la [Recherche de diagnostic][diagnostic]. Envoie des données de diagnostic à dc.services.vsallin.net.
  
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
 * Package NuGet [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights). Si vous installez simplement ce package, le fichier ApplicationInsights.config n'est pas créé automatiquement. 
@@ -85,9 +85,9 @@ Indique le [temps de réponse et le code résultant](app-insights-asp-net.md) de
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - suit les exceptions non gérées pour les rôles de travail, les services Windows et les applications de console.
 * Package NuGet [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
-### API de base
+### Microsoft.ApplicationInsights
 
-Le package de base fournit l'[API de base](https://msdn.microsoft.com/library/mt420197.aspx) du Kit de développement logiciel (SDK). Les autres modules de télémétrie l'utilisent. Vous pouvez également [l'utiliser pour définir votre propre télémétrie](app-insights-api-custom-events-metrics.md).
+Le package Microsoft.ApplicationInsights fournit l’[API de base](https://msdn.microsoft.com/library/mt420197.aspx) du Kit de développement logiciel (SDK). Les autres modules de télémétrie l'utilisent. Vous pouvez également [l'utiliser pour définir votre propre télémétrie](app-insights-api-custom-events-metrics.md).
 
 * Aucune entrée dans ApplicationInsights.config.
 * Package NuGet [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights). Si vous installez simplement ce package NuGet, aucun fichier .config n'est créé.
@@ -123,12 +123,14 @@ Les initialiseurs standard sont tous définis par les packages NuGet web ou Wind
  - `Language` est défini sur le nom de `CurrentCulture`.
 * `DomainNameRoleInstanceTelemetryInitializer` met à jour la propriété `RoleInstance` du contexte `Device` pour tous les éléments de télémétrie avec le nom de domaine de l'ordinateur sur lequel l'application web est exécutée.
 * `OperationNameTelemetryInitializer` met à jour la propriété `Name` de `RequestTelemetry` et la propriété `Name` du contexte `Operation` de tous les éléments de télémétrie à partir de la méthode HTTP, ainsi que les noms du contrôleur ASP.NET MVC et de l’action appelée pour traiter la demande.
-* `OperationIdTelemetryInitializer` met à jour la propriété de contexte `Operation.Id` de tous les éléments de télémétrie suivis lors du traitement d'une demande avec le `RequestTelemetry.Id` généré automatiquement.
+* `OperationIdTelemetryInitializer` ou `OperationCorrelationTelemetryInitializer` met à jour la propriété de contexte `Operation.Id` de tous les éléments de télémétrie suivis lors du traitement d'une demande avec le `RequestTelemetry.Id` généré automatiquement.
 * `SessionTelemetryInitializer` met à jour la propriété `Id` du contexte `Session` pour tous les éléments de télémétrie avec la valeur extraite du cookie `ai_session` généré par le code d’instrumentation JavaScript Application Insights en cours d'exécution dans le navigateur de l'utilisateur. 
-* `SyntheticTelemetryInitializer` met à jour les propriétés de contexte `User`, `Session` et `Operation` de tous les éléments de télémétrie suivis lors du traitement d'une requête émanant d'une source synthétique, comme un test de disponibilité ou un robot de moteur de recherche. Par défaut, [Metrics Explorer](app-insights-metrics-explorer.md) n'affiche pas la télémétrie synthétique.
+* `SyntheticTelemetryInitializer` ou `SyntheticUserAgentTelemetryInitializer` met à jour les propriétés de contexte `User`, `Session` et `Operation` de tous les éléments de télémétrie suivis lors du traitement d'une requête émanant d'une source synthétique, comme un test de disponibilité ou un robot de moteur de recherche. Par défaut, [Metrics Explorer](app-insights-metrics-explorer.md) n'affiche pas la télémétrie synthétique. 
+
+    Ensemble de `<Filters>` qui identifie les propriétés des requêtes.
 * `UserAgentTelemetryInitializer` met à jour la propriété `UserAgent` du contexte `User` de tous les éléments de télémétrie à partir de l’en-tête HTTP `User-Agent` de la demande.
 * `UserTelemetryInitializer` met à jour les propriétés `Id` et `AcquisitionDate` du contexte `User` pour tous les éléments de télémétrie avec les valeurs extraites du cookie `ai_user` généré par le code d’instrumentation JavaScript Application Insights en cours d'exécution dans le navigateur de l'utilisateur.
-
+* `WebTestTelemetryInitializer` définit l’ID utilisateur, l’ID de session et les propriétés de la source de synthèse pour des requêtes HTTP provenant des [tests de disponibilité](app-insights-monitor-web-app-availability.md). Ensemble de `<Filters>` qui identifie les propriétés des requêtes.
 
 ## Processeurs de télémétrie (ASP.NET)
 
@@ -285,4 +287,4 @@ Pour obtenir une nouvelle clé, [créez une nouvelle ressource dans le portail A
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

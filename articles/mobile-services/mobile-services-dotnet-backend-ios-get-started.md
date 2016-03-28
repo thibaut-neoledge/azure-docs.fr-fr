@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
@@ -101,4 +101,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

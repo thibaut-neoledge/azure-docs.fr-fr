@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 # Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery (version héritée)
@@ -197,11 +197,11 @@ Notez les points suivants :
 **Composant** | **Configuration requise** | **Détails**
 --- | --- | --- 
 **Compte Azure** | Vous aurez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer avec une [version d'évaluation gratuite](pricing/free-trial/).
-**Stockage Azure** | <p>Vous devez posséder un compte de stockage Azure pour stocker les données répliquées</p><p>Le compte doit être un [compte de stockage géo-redondant standard](../storage/storage-redundancy.md#geo-redundant-storage) ou un [compte de stockage Premium](../storage/storage-premium-storage.md).</p><p>Il doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement.</p><p>Pour en savoir plus, consultez la rubrique [Introduction à Microsoft Azure Storage](../storage/storage-introduction.md)</p>
+**Stockage Azure** | <p>Vous devez posséder un compte de stockage Azure pour stocker les données répliquées</p><p>Le compte doit être un [compte de stockage géo-redondant standard](../storage/storage-redundancy.md#geo-redundant-storage) ou un [compte Premium Storage](../storage/storage-premium-storage.md).</p><p>Il doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement. Nous ne prenons pas en charge le déplacement des comptes Storage créés à l’aide du [nouveau portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.</p><p>Pour plus d'informations, consultez [Présentation de Microsoft Azure Storage](../storage/storage-introduction.md)</p>
 **Réseau virtuel Azure** | Vous aurez besoin d'un réseau virtuel Azure sur lequel le serveur de configuration et le serveur cible maître seront déployés. Il doit être dans le même abonnement et la même région que le coffre Azure Site Recovery. Si vous souhaitez répliquer des données avec une connexion ExpressRoute ou VPN, le réseau virtuel Azure doit être connecté à votre réseau local par le biais d'une connexion ExpressRoute ou d'un VPN de site à site.
 **Ressources Azure** | Assurez-vous d'avoir suffisamment de ressources Azure pour déployer tous les composants. Découvrez plus d’informations dans [Limites d’abonnement Azure](../azure-subscription-service-limits.md).
 **Machines virtuelles Azure** | <p>Les machines virtuelles que vous souhaitez protéger doivent être conformes aux [conditions préalables Azure](site-recovery-best-practices.md).</p><p>** Nombre de disques** : un maximum de 31 disques peut être pris en charge sur un seul serveur protégé</p><p>** Tailles de disque** : la capacité d’un disque ne doit pas être supérieure à 1 023 Go</p><p>** Clustering ** : les serveurs en cluster ne sont pas pris en charge</p><p>** Démarrage ** : le démarrage Unified Extensible Firmware Interface (UEFI) / Extensible Firmware Interface (EFI) n'est pas pris en charge</p><p>** Volumes ** : les volumes chiffrés Bitlocker ne sont pas pris en charge</p><p> **Noms de serveur** : les noms doivent contenir entre 1 et 63 caractères (lettres, chiffres et traits d’union). Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre ou un chiffre. Une fois qu'un ordinateur est protégé, vous pouvez modifier le nom Azure.</p>
-**Serveur de configuration** | <p>Une machine virtuelle A3 standard basée sur une image de la galerie Azure Site Recovery Windows Server 2012 R2 est créée dans votre abonnement pour le serveur de configuration. Elle est créée comme première instance d'un nouveau service cloud. Si vous sélectionnez Internet public comme type de connectivité pour le serveur de configuration, le service cloud sera créé avec une adresse IP publique réservée.</p><p>Le chemin d'installation doit contenir uniquement des caractères anglais.</p>
+**Serveur de configuration** | <p>Une machine virtuelle A3 standard basée sur une image de la galerie Azure Site Recovery Windows Server 2012 R2 est créée dans votre abonnement pour le serveur de configuration. Elle est créée comme première instance d'un nouveau service cloud. Si vous sélectionnez Internet public comme type de connectivité pour le serveur de configuration, le service cloud est créé avec une adresse IP publique réservée.</p><p>Le chemin d’installation doit contenir uniquement des caractères anglais.</p>
 **Serveur cible maître** | <p>Machine virtuelle Azure A4, D14 ou DS4 standard.</p><p>Le chemin d'installation doit uniquement comprendre des caractères anglais. Par exemple, le chemin d'accès doit être **/usr/local/ASR** pour un serveur cible maître exécutant Linux.</p></p>
 **Serveur de traitement** | <p>Vous pouvez déployer le serveur de traitement sur un ordinateur physique ou virtuel exécutant Windows Server 2012 R2 avec les dernières mises à jour. Effectuez l’installation sur C:/.</p><p>Nous vous recommandons de placer le serveur sur le même réseau et sous-réseau que les ordinateurs que vous souhaitez protéger.</p><p>Installez VMware vSphere CLI 5.5.0 sur le serveur de traitement. Le composant VMware vSphere CLI est requis sur le serveur de traitement pour pouvoir détecter les machines virtuelles gérées par un serveur vCenter ou les machines virtuelles exécutées sur un hôte ESXi.</p><p>Le chemin d'installation doit uniquement comprendre des caractères anglais.</p><p>Le système de fichiers ReFS n'est pas pris en charge.</p>
 **VMware** | <p>Un serveur VMware vCenter qui gère vos hyperviseurs VMware vSphere. Il doit exécuter vCenter version 5.1 ou 5.5 avec les dernières mises à jour.</p><p>Un ou plusieurs hyperviseurs vSphere contenant les machines virtuelles VMware que vous souhaitez protéger. L'hyperviseur doit exécuter ESX/ESXi version 5.1 ou 5.5 avec les dernières mises à jour.</p><p>Des outils VMware doivent être installés et exécutés sur les machines virtuelles VMware.</p>  
@@ -310,11 +310,11 @@ Le serveur de configuration est déployé dans un service cloud Azure créé aut
 	- Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy, le port et les informations d’identification.
 	- Les URL suivantes doivent être accessibles via le proxy :
 		- **.hypervrecoverymanager.windowsazure.com
-		- **.accesscontrol.windows.net
-		- **.backup.windowsazure.com
-		- **.blob.core.windows.net
-		- **.store.core.windows.net
-	- Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu’elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP du centre de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) et pour le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu’elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP du centre de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) et pour le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 	![Inscription de proxy](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
 
@@ -417,9 +417,8 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 8. Si vous exécutez Linux :
 	1. Assurez-vous que vous avez installé les derniers services d'intégration Linux (LIS) avant d'installer le logiciel du serveur cible maître. Vous trouverez la dernière version de LIS, ainsi que des instructions d'installation [ici](https://www.microsoft.com/download/details.aspx?id=46842). Redémarrez la machine après l'installation de LIS.
 	2. Dans **Préparer les ressources (Azure) cibles**, cliquez sur **Télécharger et installer des logiciels supplémentaires (uniquement pour le serveur cible maître Linux)** pour télécharger le package du serveur cible maître Linux. Copiez le fichier tar téléchargé sur l'ordinateur virtuel à l'aide d'un client sftp. Ou vous pouvez aussi vous connecter au serveur cible maître Linux déployé et utiliser *wgethttp://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* pour télécharger le fichier.
-	2. Connectez-vous au serveur à l'aide d'un client Secure Shell. Notez que si vous êtes connecté au réseau Azure via VPN, vous devez utiliser l'adresse IP interne. Sinon, utilisez l'adresse IP externe et le point de terminaison public SSH.
-	3. Extrayez les fichiers du programme d’installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***  
-	![Serveur cible maître Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
+2. Connectez-vous au serveur à l'aide d'un client Secure Shell. Notez que si vous êtes connecté au réseau Azure via VPN, vous devez utiliser l'adresse IP interne. Sinon, utilisez l'adresse IP externe et le point de terminaison public SSH.
+	3. Extrayez les fichiers du programme d’installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Serveur cible maître Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
 	4. Assurez-vous que vous êtes dans le répertoire dans lequel vous avez extrait le contenu du fichier tar.
 	5. Copiez la phrase secrète du serveur de configuration dans un fichier local à l'aide de la commande **echo*`<passphrase>`* > passphrase.txt**
 	6. Exécutez la commande « **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt** ».
@@ -698,6 +697,8 @@ Ajoutez des ordinateurs comme suit :
 	![Ajouter un serveur V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
 4. Dans **Spécifier les ressources cibles**, sélectionnez les serveurs cibles maîtres et le stockage à utiliser pour la réplication, puis déterminez si les paramètres doivent être utilisés pour toutes les charges de travail. Sélectionnez [Compte de stockage Premium](../storage/storage-premium-storage.md) lors de la configuration de la protection des charges de travail qui nécessitent des performances d’E/S élevées et une faible latence pour héberger des charges de travail gourmandes en E/S. Si vous souhaitez utiliser un compte de stockage Premium pour vos disques de charges de travail, vous devez utiliser la cible maître de série DS. Vous ne pouvez pas utiliser de disques de stockage Premium avec une cible maître qui n’est pas de série DS.
 
+	>[AZURE.NOTE] Nous ne prenons pas en charge le déplacement des comptes Storage créés à l’aide du [nouveau portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.
+
 	![Serveur vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
 5. Dans **Spécifier les comptes**, sélectionnez le compte à utiliser pour installer le service de mobilité sur des ordinateurs protégés. Les informations d'identification de compte sont nécessaires pour l’installation automatique du service de mobilité. Si vous ne pouvez pas sélectionner un compte, assurez-vous que vous en avez établi un comme décrit à l'étape 2. Notez que ce compte ne peut pas être accédé par Azure. Pour Windows server, le compte doit disposer de privilèges d'administrateur sur le serveur source. Pour Linux, le compte doit être racine.
@@ -805,4 +806,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

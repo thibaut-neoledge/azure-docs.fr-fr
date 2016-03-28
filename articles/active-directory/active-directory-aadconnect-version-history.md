@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/29/2016"
+   ms.date="03/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : historique de publication des versions
@@ -28,14 +28,23 @@ Liens connexes :
 - Pour plus d'informations sur les autorisations requises pour appliquer une mise à jour, consultez [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.119.0
+Publié : mars 2016
+
+**Problèmes résolus :**
+
+- Nous nous sommes assurés que l’installation Express ne peut pas être utilisée sur Windows Server 2008 (pré-R2) car la synchronisation du mot de passe n’est pas prise en charge sur ce système d’exploitation.
+- La mise à niveau à partir de DirSync avec une configuration de filtre personnalisée n’a pas fonctionné comme prévu.
+- Lors de la mise à niveau vers une version plus récente et sans aucune modification de la configuration, une importation/synchronisation complète ne doit pas être planifiée.
+
 ## 1\.1.110.0
 Publié : février 2016
 
 **Problèmes résolus :**
 
-- La mise à niveau à partir de versions antérieures ne fonctionne pas si l'installation n'est pas dans le dossier **C:\\Program Files** par défaut.
-- Si vous installez et désélectionnez **Lancer le processus de synchronisation...** à la fin de l'assistant d’installation, la réexécution du l'assistant d’installation n'activera pas le planificateur.
-- Le planificateur ne fonctionne pas comme prévu sur les serveurs où le format de date et d'heure n'est pas fr-FR. Il bloque également `Get-ADSyncScheduler` pour renvoyer les heures appropriées.
+- La mise à niveau à partir de versions antérieures ne fonctionne pas si l’installation ne se trouve pas dans le dossier **C:\\Program Files** par défaut.
+- Si vous installez et désélectionnez **Lancer le processus de synchronisation...** à la fin de l’assistant d’installation, la réexécution de l’assistant d’installation n’activera pas le planificateur.
+- Le planificateur ne fonctionne pas comme prévu sur les serveurs où le format de date et d'heure n'est pas fr-FR. Il empêche également `Get-ADSyncScheduler` de renvoyer les heures appropriées.
 - Si vous avez installé une version antérieure d'Azure AD Connect avec ADFS comme option de connexion et mise à niveau, vous ne pouvez pas réexécuter l'assistant d’installation.
 
 ## 1\.1.105.0
@@ -248,4 +257,4 @@ Publiée : septembre 2014
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

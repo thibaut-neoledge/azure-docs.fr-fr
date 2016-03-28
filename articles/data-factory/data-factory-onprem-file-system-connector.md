@@ -442,7 +442,7 @@ password | Spécifiez le mot de passe de l’utilisateur (userid). | Non (si vou
 Encryptedcredential | Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzureRmDataFactoryEncryptValue<br/><br/>**Remarque :** vous devez utiliser Azure PowerShell version 0.8.14 ou supérieure pour utiliser des applets de commande telles que New-AzureRmDataFactoryEncryptValue avec le paramètre de type OnPremisesFileSystemLinkedService | Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut)
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au serveur de fichiers local. | Oui
 
-Pour plus d’informations sur la définition des informations d’identification pour une source de données d’un système de fichiers local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
+Pour plus d’informations sur la définition des informations d’identification pour une source de données d’un système de fichiers local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)
 
 **Exemple : utilisation d’un nom d'utilisateur et d’un mot de passe en texte brut**
 	
@@ -608,4 +608,4 @@ false | mergeFiles | Pour un dossier source nommé Dossier1 avec la structure su
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

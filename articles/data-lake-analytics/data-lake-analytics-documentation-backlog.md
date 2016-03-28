@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/10/2016"
+   ms.date="03/10/2016"
    ms.author="mwinkle"/>
 
 # Backlog de la documentation Azure Data Lake Analytics
@@ -24,12 +24,13 @@ Nous continuerons d’alimenter la nouvelle documentation pour accompagner Azure
 
 Domaine |Rubrique | Priorité | Statut | Affecté à | Demandé par 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
+Service | Refonte du contenu | 1 | En cours de traitement | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | Requête distribuée | 1 | En attente | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | Déplacement de données entre WASB et ADLS | 1 | Pending | tbd | Ye Xing (ml)
 U-SQL | Conseils de test unitaire pour le modèle UDO | 1 | Pending | tbd | [@ddobric](https://github.com/ddobric) 
 U-SQL | Traitement JSON | 2 | Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 Service | Interaction avec Curl | 3 |Pending |[@mumian](https://github.com/mumian)
-U-SQL | Tables partitionnées |1 | En cours de traitement | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Tables partitionnées |1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Réglage des performances | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
 U-SQL | Guide du programmeur | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Prise en main du langage U-SQL à partir d’un contexte T-SQL | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
@@ -58,4 +59,4 @@ Plusieurs possibilités vous sont données pour fournir des commentaires sur le 
 * Envoyer une requête de tirage sur ce document dans le [référentiel de contenu Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Envoyer un e-mail à l’adresse [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

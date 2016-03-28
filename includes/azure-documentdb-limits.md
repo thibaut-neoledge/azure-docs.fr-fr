@@ -1,7 +1,7 @@
 =======
 Entité|Quota (offre standard)
 ---|---
-Comptes de base de données*|5
+Comptes de base de données*|50
 Nombre de bases de données par compte de base de données|100
 Nombre d'utilisateurs par compte de base de données (pour l'ensemble des bases de données)|500 000
 Nombre d'autorisations par compte de base de données (pour l'ensemble des bases de données)|2 000 000
@@ -24,10 +24,10 @@ Nombre maximal de clauses JOIN par requête* |5
 Nombre maximal de clauses AND par requête* |20
 Nombre maximal de clauses OR par requête* |20
 Nombre maximal de valeurs par expression IN* |200
-Nombre maximal de points dans un argument de polygone dans une requête ST_WITHIN* |256
+Nombre maximal de points dans un argument de polygone dans une requête ST\_WITHIN* |256
 Nombre maximal de créations de collection par minute* |5
 Nombre maximal d'opérations de mise à l'échelle par minute* |5
 
 Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

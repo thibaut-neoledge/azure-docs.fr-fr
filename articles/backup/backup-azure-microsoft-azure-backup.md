@@ -3,8 +3,8 @@
   description="Assurez-vous que votre environnement est correctement préparé à la sauvegarde des charges de travail à l’aide d’Azure Backup Server"
   services="backup"
   documentationCenter=""
-  authors="Jim-Parker"
-  manager="jwhit"
+  authors="pvrk"
+  manager="shivamg"
   editor=""
   keywords="serveur de sauvegarde Azure ; coffre de sauvegarde"/>
 
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="02/04/2016"
-  ms.author="jimpark; trinadhk;"/>
+  ms.author="jimpark;trinadhk;pullabhk"/>
 
 # Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server
 
@@ -211,4 +211,4 @@ Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion d
 - [Sauvegarde de serveur SharePoint](backup-azure-backup-sharepoint.md)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

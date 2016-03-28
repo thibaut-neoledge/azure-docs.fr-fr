@@ -261,6 +261,27 @@ La vue de diagramme avec les deux activités dans le même pipeline se présente
 
 ![Chaînage des activités dans le même pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
+### Copie ordonnée
+Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Si, par exemple, vous avez deux activités de copie dans un pipeline : ActivitédeCopie1 et ActivitédeCopie2 avec les jeux de données de sortie de données d’entrée suivants.
+
+ActivitédeCopie1 : Entrée : JeudeDonnées1 Sortie : JeudeDonnées2
+
+ActivitédeCopie2 : Entrées : JeudeDonnées2 Sortie : JeudeDonnées 4
+
+ActivitédeCopie2 s’exécute uniquement si ActivitédeCopie1 s’est exécutée avec succès et que JeudeDonnées2 est disponible.
+
+Dans l’exemple ci-dessus, ActivitédeCopie2 peut avoir une entrée différente, par exemple JeudeDonnées3, mais vous devrez également spécifier JeudeDonnées2 en tant qu’entrée pour ActivitédeCopie2, afin que l’activité ne puisse pas s’exécuter avant que ActivitédeCopie1 ne soit terminée. Par exemple :
+
+ActivitédeCopie1 : Entrée : JeudeDonnées1 Sortie : JeudeDonnées2
+
+ActivitédeCopie2 : Entrées : JeudeDonnées3 Sortie JeudeDonnées2 : JeudeDonnées 4
+
+Lorsque plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 ne commence que lorsque les conditions suivantes sont remplies :
+
+- ActivitédeCopie2 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données ne sera pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
+- JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.  
+
+
 
 ## Modélisation des jeux de données avec des fréquences différentes
 
@@ -632,4 +653,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

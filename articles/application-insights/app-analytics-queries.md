@@ -545,6 +545,11 @@ Par exemple, le résultat de `reduce by city` peut inclure :
 | Paris | 27163 |
 
 
+## directive render
+
+    T | render [ table | timechart  | barchart | piechart ]
+
+Render indique à la couche de présentation comment afficher la table. Il doit s’agir du dernier élément du canal. C’est une alternative pratique à l’utilisation des commandes affichées, ce qui vous permet d’enregistrer une requête avec une méthode de présentation particulière.
 
 
 ## opérateur sort 
@@ -671,8 +676,8 @@ Prend deux tables ou plus et retourne les lignes de toutes les tables.
  *  Expression de requête, telle que `(events | where id==42)`
  *  Ensemble de tables spécifié par un caractère générique. Par exemple, `E*` assure l’union de toutes les tables dans la base de données dont le nom commence par `E`.
 * `kind` : 
- * `inner` -Le résultat comporte le sous-ensemble de colonnes qui sont communes à toutes les tables d’entrée.
- * `outer` -Le résultat comporte toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée sont définies sur `null`.
+ * `inner` - Le résultat comporte le sous-ensemble de colonnes qui sont communes à toutes les tables d’entrée.
+ * `outer` - Le résultat comporte toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée sont définies sur `null`.
 * `withsource=`*ColumnName :* si spécifiée, la sortie va inclure une colonne appelée *ColumnName* dont la valeur indique la table source correspondant à chaque ligne.
 
 **Retourne**
@@ -725,7 +730,7 @@ Filtre une table d’après le sous-ensemble de lignes correspondant à un préd
 **Arguments**
 
 * *T* : entrée tabulaire dont les enregistrements doivent être filtrés.
-* *Prédicate :* `boolean`[expression](app-analytics-scalars.md#boolean) sur les colonnes de *T*. Elle est évaluée pour chaque ligne dans *T*.
+* *Predicate :* `boolean`[expression](app-analytics-scalars.md#boolean) sur les colonnes de *T*. Elle est évaluée pour chaque ligne dans *T*.
 
 **Retourne**
 
@@ -735,7 +740,7 @@ Les lignes de *T* dont le *prédicat* est `true`.
 
 Pour obtenir des performances optimales :
 
-* **Utilisez des comparaisons simples** entre les noms de colonne et les constantes. (« Constante » s’entend dans le sens de constante au fil de la table, de telle sorte que `now()` et `ago()` soient OK, tout comme les valeurs scalaires affectées à l’aide d’une [instruction](app-analytics-syntax.md#let-statements) `let`.)
+* **Utilisez des comparaisons simples** entre les noms de colonne et les constantes. (« Constante » s’entend dans le sens de constante au fil de la table, de telle sorte que `now()` et `ago()` soient OK, tout comme les valeurs scalaires affectées à l’aide d’une [instruction `let`](app-analytics-syntax.md#let-statements).)
 
     Par exemple, préférez `where Timestamp >= ago(1d)` à `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -761,4 +766,4 @@ Notez que nous plaçons la comparaison entre deux colonnes à la fin, car elle n
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

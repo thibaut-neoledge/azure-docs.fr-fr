@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="daleche"/>
 
 
-# Restauration d’une table spécifique à partir d’une sauvegarde Base de données SQL Azure
+# Comment restaurer une table unique à partir d’une sauvegarde Azure SQL Database
 
 Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadvertance les données d’une base de données SQL et vous voulez récupérer l’unique table affectée. Cet article décrit comment restaurer une table unique dans une base de données à partir d’une des sauvegardes automatiquement effectuées par Base de données SQL Azure, en fonction du niveau de performances sélectionné.
 
@@ -67,4 +67,4 @@ Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadve
 ## Étape de vérification
 1. Interrogez et testez la table nouvellement copiée pour vérifier que les données sont intactes. Après confirmation, vous pouvez supprimer la table renommée de la section **Étapes de préparation** (par exemple, &lt;nom de la table&gt;\_old).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

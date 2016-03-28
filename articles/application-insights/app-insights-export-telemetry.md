@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="03/10/2016" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -91,6 +91,17 @@ Lorsque vous ouvrez votre magasin d’objets blob, vous voyez un conteneur avec 
 ![Inspectez le magasin d’objets blob avec un outil adapté.](./media/app-insights-export-telemetry/04-data.png)
 
 La date et l’heure sont au format UTC et correspondent au moment où la télémétrie a été placée dans le magasin, et pas au moment où elle a été générée. Par conséquent, si vous écrivez du code pour télécharger les données, il peut parcourir les données de façon linéaire.
+
+Voici le format du chemin d’accès :
+
+
+    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+  
+Where
+
+-	`blobCreationTimeUtc` est l’heure de création de l’objet blob dans le stockage intermédiaire interne
+-	`blobDeliveryTimeUtc` est l’heure de copie de l’objet blob vers le stockage de destination d’exportation
+
 
 
 ## <a name="format"></a> Format de données
@@ -212,4 +223,4 @@ L’exportation continue redémarre.
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

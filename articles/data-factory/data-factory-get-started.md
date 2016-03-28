@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/01/2016"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 # Didacticiel : copie de données d’Azure Blob Storage vers une base de données SQL Azure
@@ -22,6 +22,7 @@
 - [Utilisation de Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Utiliser PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Utilisation de Visual Studio](data-factory-get-started-using-vs.md)
+- [Utilisation de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
 Ce didacticiel crée une fabrique de données Azure et un pipeline avec une activité de copie pour copier des données d’un stockage d’objets blob Azure dans une base de données SQL Azure.
 
@@ -115,4 +116,4 @@ Pour plus d’informations sur l’activité de copie dans Azure Data Factory, c
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

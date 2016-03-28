@@ -24,7 +24,7 @@
 
 
 
-## Opérateur `summarize`
+## opérateur summarize
 
 Génère une table qui agrège le contenu de la table d’entrée.
 
@@ -42,21 +42,21 @@ Génère une table qui agrège le contenu de la table d’entrée.
 ### Syntaxe
 
     T | summarize
-         [  [Column =] Aggregation [`,` ...]]
+         [  [ Column = ] Aggregation [ , ... ]]
          [ by
-            [Column =] GroupExpression [`,` ...]]
+            [ Column = ] GroupExpression [ , ... ]]
 
 **Arguments**
 
-* *Column :* nom facultatif d’une colonne de résultats. Prend par défaut un nom dérivé de l’expression.
-* *Aggregation :* appel d’une fonction d’agrégation telle que `count()` ou `avg()`, avec des noms de colonne comme arguments. Consultez la liste des fonctions d’agrégation ci-dessous.
-* *GroupExpression :* expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou de `bin()` avec une colonne numérique ou de temps en tant qu’argument. 
+* *Column* : nom facultatif d’une colonne de résultats. Prend par défaut un nom dérivé de l’expression.
+* *Aggregation* : appel à une fonction d’agrégation telle que `count()` ou `avg()`, avec des noms de colonne comme arguments. Consultez la liste des fonctions d’agrégation ci-dessous.
+* *GroupExpression* : expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou une fonction `bin()` avec une colonne numérique ou de temps comme argument. 
 
-Si vous fournissez une expression numérique ou de temps sans utiliser `bin()`, AI Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou `1.0` pour les nombres.
+Si vous fournissez une expression numérique ou de temps sans utiliser `bin()`, AI Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou de `1.0` pour les nombres.
 
-Si vous ne fournissez pas une *GroupExpression*, la table entière est résumée dans une ligne de sortie unique.
+Si vous ne fournissez pas *GroupExpression*, la table entière est résumée dans une ligne de sortie unique.
 
-Vous devez utiliser un type simple, pas un type dynamique dans la clause `by`. Par exemple, le transtypage `tostring` est essentiel ici :
+Vous devez utiliser un type simple, pas un type dynamique, dans la clause `by`. Par exemple, le transtypage `tostring` est essentiel ici :
 
     exceptions
 	| summarize count()
@@ -78,14 +78,15 @@ Requête qui affiche les temps de réponse moyens à différentes requêtes HTTP
 
 ### Résumer par colonnes numériques
 
-Pour effectuer un regroupement d’après un critère scalaire continu comme un nombre ou une heure, nous devons utiliser la fonction `bin` (également appelée `floor`) pour répartir la plage continue en emplacements.
+Pour effectuer un regroupement d’après un critère scalaire continu comme un nombre ou une heure, utilisez la fonction `bin` (également appelée `floor`) pour répartir la plage continue en emplacements.
 
     requests
     | summarize count() 
-      by duration_range=bin(duration, 1)
+      by bin(duration, 1000)/1000
 
 ![result](./media/app-analytics-aggregations/04.png)
 
+(Le champ de durée de requête est un nombre en millisecondes.)
  
 ## Conseils
 
@@ -171,9 +172,9 @@ requests
 | sort by max_pop_tod asc
 ```
 
-## FONCTIONS D’AGRÉGATION
+## AGRÉGATIONS
 
-## Quelconque 
+## any 
 
     any(Expression)
 
@@ -191,14 +192,15 @@ traces
 | top 10 by count_level desc 
 ```
 
+<a name="argmin"></a> <a name="argmax"></a>
 ## argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
-Recherche dans le groupe la ligne correspondant à la valeur maximale (ou minimale) de *ExprToMaximize* (ou ExprToMinimize), et retourne la valeur de *ExprToReturn* (ou `*` pour retourner la ligne entière).
+Recherche dans le groupe la ligne correspondant à la valeur maximale de *ExprToMaximize* ou à la valeur minimale de ExprToMinimize, et retourne la valeur de *ExprToReturn* (ou `*` pour retourner la ligne entière).
 
-**Conseil** : Les colonnes analysées sont automatiquement renommées. Pour vérifier que vous utilisez les noms corrects, examinez les résultats à l’aide de `take 5` avant de les transmettre à un autre opérateur.
+**Conseil** : les colonnes analysées sont automatiquement renommées. Pour vérifier que vous utilisez les noms corrects, examinez les résultats à l’aide de `take 5` avant de les transmettre à un autre opérateur.
 
 **Exemples**
 
@@ -322,20 +324,20 @@ Le schéma s’apparente à un sous-ensemble d’annotations de type TypeScript,
 
 Retourne le nombre de lignes pour lesquelles *Predicate* vaut `true`. Si *Predicate* n’est pas spécifié, retourne le nombre total d’enregistrements dans le groupe.
 
-**Conseil pour optimiser les performances** : Utilisez `summarize count(filter)` à la place de `where filter | summarize count()`.
+**Conseil pour optimiser les performances** : utilisez `summarize count(filter)` à la place de `where filter | summarize count()`.
    
 
 ## dcount
 
     dcount( Expression [ ,  Accuracy ])
 
-Retourne une estimation du nombre de valeurs distinctes de *Expr* dans le groupe. (Pour répertorier les valeurs distinctes, utilisez [`makeset`](#makeset).)
+Retourne une estimation du nombre de valeurs distinctes de *Expr* dans le groupe. (Pour afficher les valeurs distinctes, utilisez [`makeset`](#makeset).)
 
-*Accuracy*, si spécifié, détermine le compromis entre vitesse et précision.
+Si *Accuracy* est spécifié, détermine le compromis entre vitesse et précision.
 
- * `0` : calcul le moins précis et le plus rapide.
+ * `0` : calcul le moins précis, mais le plus rapide.
  * `1` (valeur par défaut) : meilleur compromis entre précision et vitesse de calcul (environ 0,8 % d’erreur).
- * `2` : calcul le plus précis et le plus lent (environ 0,4 % d’erreur).
+ * `2` : calcul le plus précis, mais le plus lent (environ 0,4 % d’erreur).
 
 **Exemple**
 
@@ -357,7 +359,7 @@ Retourne un tableau (JSON) `dynamic` de toutes les valeurs de *Expr* dans le gro
 
     makeset(Expression [ , MaxSetSize ] )
 
-Retourne un tableau (JSON) `dynamic` du jeu de valeurs distinctes que *Expr* prend dans le groupe. (Conseil : Pour compter uniquement les valeurs distinctes, utilisez [`dcount`](#dcount).)
+Retourne un tableau (JSON) `dynamic` du jeu de valeurs distinctes que *Expr* prend dans le groupe. (Conseil : pour comptabiliser uniquement les valeurs distinctes, utilisez [`dcount`](#dcount).)
   
 *  *MaxSetSize* est une limite de nombre entier facultative sur le nombre maximal d’éléments retournés (la valeur par défaut est *128*).
 
@@ -382,8 +384,10 @@ Calcule la valeur maximale de *Expr*.
 
 Calcule la valeur minimale de *Expr*.
 
-**Conseil** : Ces fonctions ne donnent que des valeurs maximale ou minimale, par exemple, le prix le plus élevé ou le plus bas. Pour que la ligne contienne d’autres colonnes, par exemple, le nom du fournisseur proposant le prix le plus bas, utilisez [argmin ou argmax](#argmin-argmax).
+**Conseil** : ces fonctions ne donnent que des valeurs maximale ou minimale, par exemple, le prix le plus élevé ou le plus bas. Pour que la ligne contienne d’autres colonnes, par exemple, le nom du fournisseur proposant le prix le plus bas, utilisez [argmin ou argmax](#argmin-argmax).
 
+
+<a name="percentile"></a> <a name="percentiles"></a>
 ## percentile, percentiles
 
     percentile(Expression, Percentile)
@@ -459,4 +463,4 @@ Retourne la somme de *Expr* sur le groupe.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

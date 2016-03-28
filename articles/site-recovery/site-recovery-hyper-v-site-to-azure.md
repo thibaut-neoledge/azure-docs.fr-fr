@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 
 # Réplication de machines virtuelles Hyper-V en local dans Azure (sans VMM) avec Azure Site Recovery
 
-Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour obtenir un rapide aperçu, consultez [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
+Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour obtenir un rapide aperçu, consultez [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
 
 ## Vue d’ensemble
 
@@ -38,14 +38,14 @@ Avant de commencer, assurez-vous que tout est en place.
 ### Conditions préalables pour Azure
 
 - Vous aurez besoin d’un compte [Microsoft Azure](https://azure.microsoft.com/). Vous pouvez commencer par une version d’[essai gratuit](pricing/free-trial/).
-- Vous aurez besoin d’un compte de stockage Azure pour stocker les données répliquées. La géo-réplication doit être activée pour ce compte. Il doit se trouver dans la même région que le coffre Azure Site Recovery et être associé au même abonnement. [En savoir plus sur Azure Storage](../storage/storage-introduction.md).
+- Vous aurez besoin d’un compte de stockage Azure pour stocker les données répliquées. La géo-réplication doit être activée pour ce compte. Il doit se trouver dans la même région que le coffre Azure Site Recovery et être associé au même abonnement. Nous ne prenons pas en charge le déplacement des comptes Storage créés à l’aide du [nouveau portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources. [En savoir plus sur Azure Storage](../storage/storage-introduction.md).
 - Vous devez disposer d’un réseau virtuel Azure afin que les machines virtuelles puissent se connecter à un réseau lorsque vous procédez à un basculement depuis votre site principal.
 
 ### Conditions préalables liées à Hyper-V
 
-- Dans le site local source, vous devez disposer d’au moins un serveur exécutant Windows Server 2012 R2 avec le rôle Hyper-V. Ce serveur doit :
-- contenir une ou plusieurs machines virtuelles ;
-- être connecté à Internet, directement ou via un proxy ;
+- Dans le site local source, vous devez disposer d’au moins un serveur exécutant Windows Server 2012 R2 avec le rôle Hyper-V. Ce serveur doit :
+- contenir une ou plusieurs machines virtuelles ;
+- être connecté à Internet, directement ou via un proxy ;
 - exécuter les correctifs décrits dans l’article [2961977](https://support.microsoft.com/fr-FR/kb/2961977 "KB2961977") de la base de connaissances.
 
 ### Configuration requise pour les machines virtuelles
@@ -54,18 +54,18 @@ Les machines virtuelles à protéger doivent répondre à la [configuration requ
 
 ### Conditions préalables requises par les fournisseurs et les agents
 
-Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez installer le fournisseur Azure Site Recovery et l’agent associé sur chaque serveur Hyper-V. Notez les points suivants :
+Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez installer le fournisseur Azure Site Recovery et l’agent associé sur chaque serveur Hyper-V. Notez les points suivants :
 
 - Il est recommandé de toujours utiliser la dernière version de ce fournisseur et de cet agent. Ceux-ci sont disponibles dans le portail Site Recovery.
 - Tous les serveurs Hyper-V d’un coffre doivent disposer des mêmes versions du fournisseur et de l’agent.
-- Le fournisseur exécuté sur le serveur se connecte à Site Recovery via Internet. Vous pouvez effectuer cette action sans proxy, au moyen des paramètres de proxy actuellement configurés sur le serveur Hyper-V, ou à l’aide des paramètres de proxy personnalisés que vous avez configurés lors de l’installation du fournisseur. Vous devez vous assurer que le serveur proxy que vous souhaitez utiliser peut accéder à ces URL pour se connecter à Azure :
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
+- Le fournisseur exécuté sur le serveur se connecte à Site Recovery via Internet. Vous pouvez effectuer cette action sans proxy, au moyen des paramètres de proxy actuellement configurés sur le serveur Hyper-V, ou à l’aide des paramètres de proxy personnalisés que vous avez configurés lors de l’installation du fournisseur. Vous devez vous assurer que le serveur proxy que vous souhaitez utiliser peut accéder à ces URL pour se connecter à Azure :
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 	
-- Autorisez également les adresses IP décrites dans les [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+- Autorisez également les adresses IP décrites dans les [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 
 Cette illustration montre les différents canaux et ports de communication utilisés par Azure Site Recovery pour l’orchestration et la réplication.
@@ -73,19 +73,19 @@ Cette illustration montre les différents canaux et ports de communication utili
 ![Topologie B2A](./media/site-recovery-hyper-v-site-to-azure/B2ATopology.png)
 
 
-## Étape 1 : Créer un coffre
+## Étape 1 : Créer un coffre
 
 1. Connectez-vous au [portail de gestion](https://portal.azure.com).
 
 
-2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
+2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
 
 
-3. Cliquez sur **Créer nouveau** > **Création rapide**.
+3. Cliquez sur **Créer nouveau** > **Création rapide**.
 
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 
-5. Dans **Region**, sélectionnez la région géographique du coffre. Pour vérifier les régions prises en charge, consultez la section relative aux disponibilités géographiques sur la page [Tarification d’Azure Site Recovery](pricing/details/site-recovery/).
+5. Dans **Region**, sélectionnez la région géographique du coffre. Pour vérifier les régions prises en charge, consultez la section relative aux disponibilités géographiques sur la page [Tarification d’Azure Site Recovery](pricing/details/site-recovery/).
 
 6. Cliquez sur **Create vault**.
 
@@ -94,7 +94,7 @@ Cette illustration montre les différents canaux et ports de communication utili
 Vérifiez la barre d’état pour vous assurer que le coffre a été créé correctement. Le coffre apparaît comme **Actif** sur la page principale Recovery Services.
 
 
-## Étape 2 : Créer un site Hyper-V
+## Étape 2 : Créer un site Hyper-V
 
 1. Dans la page Recovery Services, cliquez sur le coffre pour ouvrir la page Démarrage rapide. Vous pouvez aussi ouvrir cette page à tout moment au moyen de l’icône.
 
@@ -106,28 +106,28 @@ Vérifiez la barre d’état pour vous assurer que le coffre a été créé corr
 
 3. Sur la page **Créer un site Hyper-V**, cliquez sur **Créer un site Hyper-V**. Spécifiez un nom de site et enregistrez-le.
 
-	![Site Hyper-V](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateSite2.png)
+	![Site Hyper-V](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateSite2.png)
 
 
-## Étape 3 : Installer le fournisseur et l’agent
+## Étape 3 : Installer le fournisseur et l’agent
 Installez le fournisseur et l’agent sur chaque serveur Hyper-V hébergeant les machines virtuelles que vous souhaitez protéger.
 
-Si vous les installez sur un cluster Hyper-V, exécutez les étapes 5 à 11 sur chaque nœud du cluster de basculement. Une fois que tous les nœuds sont enregistrés et que la protection est activée, les machines virtuelles sont protégées, même si elles sont migrées d’un nœud vers un autre dans le cluster.
+Si vous les installez sur un cluster Hyper-V, exécutez les étapes 5 à 11 sur chaque nœud du cluster de basculement. Une fois que tous les nœuds sont enregistrés et que la protection est activée, les machines virtuelles sont protégées, même si elles sont migrées d’un nœud vers un autre dans le cluster.
 
 1. Dans **Préparer les serveurs Hyper-V**, cliquez sur **Télécharger un fichier de clé d’inscription** .
-2. Sur la page **Télécharger une clé d’inscription**, cliquez sur l’option **Télécharger** située en regard du site. Téléchargez la clé dans un lieu sûr facilement accessible par le serveur Hyper-V. Une fois générée, la clé est valide pendant 5 jours.
+2. Sur la page **Télécharger une clé d’inscription**, cliquez sur l’option **Télécharger** située en regard du site. Téléchargez la clé dans un lieu sûr facilement accessible par le serveur Hyper-V. Une fois générée, la clé est valide pendant 5 jours.
 
 	![Clé d’enregistrement](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_DownloadKey2.png)
 
 4. Cliquez sur **Télécharger le fournisseur** pour obtenir sa dernière version.
-5. Exécutez le fichier sur chaque serveur Hyper-V à inscrire dans le coffre. Le fichier installe deux composants :
-	- **Fournisseur Azure Site Recovery** : gère la communication et l’orchestration entre le serveur Hyper-V et le portail Microsoft Azure Site Recovery.
-	- **Agent Azure Recovery Services** : gère le transport de données entre les machines virtuelles en cours d’exécution sur le serveur Hyper-V source et Microsoft Azure Storage.
-6. Dans **Microsoft Update**, vous pouvez opter pour l’installation de mises à jour. Une fois ce paramètre activé, les mises à jour du fournisseur et de l’agent sont installées en fonction de votre stratégie Microsoft Update.
+5. Exécutez le fichier sur chaque serveur Hyper-V à inscrire dans le coffre. Le fichier installe deux composants :
+	- **Fournisseur Azure Site Recovery** : gère la communication et l’orchestration entre le serveur Hyper-V et le portail Microsoft Azure Site Recovery.
+	- **Agent Azure Recovery Services** : gère le transport de données entre les machines virtuelles en cours d’exécution sur le serveur Hyper-V source et Microsoft Azure Storage.
+6. Dans **Microsoft Update**, vous pouvez opter pour l’installation de mises à jour. Une fois ce paramètre activé, les mises à jour du fournisseur et de l’agent sont installées en fonction de votre stratégie Microsoft Update.
 
 	![Mises à jour Microsoft](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider1.png)
 
-7. Dans le champ **Installation**, indiquez où vous souhaitez installer le fournisseur et l’agent sur le serveur Hyper-V.
+7. Dans le champ **Installation**, indiquez où vous souhaitez installer le fournisseur et l’agent sur le serveur Hyper-V.
 
 	![Emplacement d’installation](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider2.png)
 
@@ -136,7 +136,7 @@ Si vous les installez sur un cluster Hyper-V, exécutez les étapes 5 à 11 sur
 	![Installation terminée](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider3.png)
 
 
-9. Sur la page **Connexion Internet**, indiquez la façon dont le fournisseur se connecte à Microsoft Azure Site Recovery. Sélectionnez **Utiliser les paramètres proxy par défaut du système** pour utiliser les paramètres de connexion Internet par défaut configurés sur le serveur. Si vous n’indiquez aucune valeur, les paramètres par défaut seront utilisés.
+9. Sur la page **Connexion Internet**, indiquez la façon dont le fournisseur se connecte à Microsoft Azure Site Recovery. Sélectionnez **Utiliser les paramètres proxy par défaut du système** pour utiliser les paramètres de connexion Internet par défaut configurés sur le serveur. Si vous n’indiquez aucune valeur, les paramètres par défaut seront utilisés.
 
 	![Paramètres Internet](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider4.png)
 
@@ -149,64 +149,67 @@ Si vous les installez sur un cluster Hyper-V, exécutez les étapes 5 à 11 sur
 
 	![Enregistrement du serveur](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider6.png)
 
-11. Une fois l’inscription terminée, les métadonnées du serveur Hyper-V sont récupérées par Microsoft Azure Site Recovery et le serveur s’affiche sur l’onglet **Sites Hyper-V**, sur la page **Serveurs** du coffre.
+11. Une fois l’inscription terminée, les métadonnées du serveur Hyper-V sont récupérées par Microsoft Azure Site Recovery et le serveur s’affiche sur l’onglet **Sites Hyper-V**, sur la page **Serveurs** du coffre.
 
 	![Enregistrement du serveur](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider7.png)
 
 
 ### Installer le fournisseur à partir de la ligne de commande
 
-Vous avez également la possibilité d’installer le fournisseur Azure Site Recovery à partir de la ligne de commande. Nous vous recommandons d’utiliser cette méthode si vous souhaitez installer le fournisseur sur un ordinateur exécutant Windows Server Core 2012 R2. Utilisez la ligne de commande ci-dessous :
+Vous avez également la possibilité d’installer le fournisseur Azure Site Recovery à partir de la ligne de commande. Nous vous recommandons d’utiliser cette méthode si vous souhaitez installer le fournisseur sur un ordinateur exécutant Windows Server Core 2012 R2. Utilisez la ligne de commande ci-dessous :
 
 1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription dans un dossier, par exemple C:\\ASR.
-2. Ouvrez une invite de commandes en tant qu’administrateur et saisissez la commande suivante :
+2. Ouvrez une invite de commandes en tant qu’administrateur et saisissez la commande suivante :
 
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 
-3. Installez ensuite le fournisseur en exécutant :
+3. Installez ensuite le fournisseur en exécutant :
 
 		C:\ASR> setupdr.exe /i
 
-4. Exécutez la commande suivante pour terminer l’enregistrement :
+4. Exécutez la commande suivante pour terminer l’enregistrement :
 
     	CD C:\Program Files\Microsoft Azure Site Recovery Provider
     	C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
-Les paramètres sont les suivants :
+Les paramètres sont les suivants :
 
-- **/Credentials** : spécifiez l’emplacement de la clé d’inscription que vous avez téléchargée.
-- **/FriendlyName** : spécifiez un nom pour identifier le serveur hôte Hyper-V. Ce nom apparaîtra dans le portail
-- **/EncryptionEnabled** : facultatif. Spécifiez si vous souhaitez chiffrer les machines virtuelles de réplication dans Azure (chiffrement au repos).
-- **/proxyAddress** ; **/proxyport** ; **/proxyUsername** ; **/proxyPassword** : facultatifs. Spécifiez les paramètres de proxy si vous souhaitez utiliser un proxy personnalisé ; sinon, votre serveur proxy existant requiert une authentification.
+- **/Credentials** : spécifiez l’emplacement de la clé d’inscription que vous avez téléchargée.
+- **/FriendlyName** : spécifiez un nom pour identifier le serveur hôte Hyper-V. Ce nom apparaîtra dans le portail
+- **/EncryptionEnabled** : facultatif. Spécifiez si vous souhaitez chiffrer les machines virtuelles de réplication dans Azure (chiffrement au repos).
+- **/proxyAddress** ; **/proxyport** ; **/proxyUsername** ; **/proxyPassword** : facultatifs. Spécifiez les paramètres de proxy si vous souhaitez utiliser un proxy personnalisé ; sinon, votre serveur proxy existant requiert une authentification.
 
 
-## Étape 4 : Création d’un compte de stockage Azure 
+## Étape 4 : Création d’un compte de stockage Azure 
 
-1. Dans la zone **Préparer des ressources**, sélectionnez l’option **Créer un compte de stockage** pour créer un compte Microsoft Azure Storage, si nécessaire. La géo-réplication doit être activée pour ce compte. Ce dernier doit se trouver dans la même région que le coffre Microsoft Azure Site Recovery et être associé au même abonnement.
+1. Dans la zone **Préparer des ressources**, sélectionnez l’option **Créer un compte de stockage** pour créer un compte Microsoft Azure Storage, si nécessaire. La géo-réplication doit être activée pour ce compte. Ce dernier doit se trouver dans la même région que le coffre Microsoft Azure Site Recovery et être associé au même abonnement.
 
 	![Créez un compte de stockage](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
 
-## Étape 5 : Créer et configurer des groupes de protection
+>[AZURE.NOTE] Nous ne prenons pas en charge le déplacement des comptes Storage créés à l’aide du [nouveau portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.
+
+
+## Étape 5 : Créer et configurer des groupes de protection
 
 Les groupes de protection sont des regroupements logiques incluant les machines virtuelles que vous voulez protéger au moyen de ces paramètres de protection. Vous appliquez des paramètres de protection à un groupe de protection, et ces paramètres sont appliqués à toutes les machines virtuelles que vous ajoutez au groupe.
 
 1. Dans **Créer et configurer des groupes de protection**, cliquez sur **Créer un nouveau groupe de protection**. Si la configuration requise n’est pas respectée, un message s’affiche. Vous pouvez cliquer sur **Afficher les détails** pour obtenir plus d’informations.
 
-2. Sur l’onglet **Groupes de protection**, ajoutez un groupe de protection. Spécifiez un nom, le site Hyper-V source, le système Microsoft **Azure** cible, le nom de votre abonnement à Microsoft Azure Site Recovery et votre compte Microsoft Azure Storage.
+2. Sur l’onglet **Groupes de protection**, ajoutez un groupe de protection. Spécifiez un nom, le site Hyper-V source, le système Microsoft **Azure** cible, le nom de votre abonnement à Microsoft Azure Site Recovery et votre compte Microsoft Azure Storage.
 
 	![Groupe de protection](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_ProtectionGroupCreate3.png)
 
 
-2. Dans **Paramètres de réplication**, définissez l’option **Copier la fréquence** pour indiquer la fréquence de synchronisation du delta des données entre les systèmes cible et source. Vous pouvez choisir une fréquence de 30 secondes, 5 minutes ou 15 minutes.
+2. Dans **Paramètres de réplication**, définissez l’option **Copier la fréquence** pour indiquer la fréquence de synchronisation du delta des données entre les systèmes cible et source. Vous pouvez choisir une fréquence de 30 secondes, 5 minutes ou 15 minutes.
 3. Dans la zone **Conserver les points de récupération**, indiquez le nombre d’heures de stockage de l’historique de récupération.
 4. Dans la zone **Fréquence des instantanés cohérents au niveau applicatif**, vous pouvez indiquer si le système doit créer des instantanés en utilisant le service VSS (Volume Shadow Copy Service) pour garantir que les applications présentent un état cohérent lors de la création de l’instantané. Par défaut, aucun instantané n’est créé. Assurez-vous que cette valeur est inférieure au nombre de points de récupération supplémentaires que vous configurez. Cette option est uniquement prise en charge lorsque la machine virtuelle exécute un système d’exploitation Windows.
-5. Dans la zone **Heure de début de la réplication initiale**, spécifiez à quel moment la réplication initiale des machines virtuelles au sein du groupe de protection doit être envoyée à Microsoft Azure.
+5. Dans la zone **Heure de début de la réplication initiale**, spécifiez à quel moment la réplication initiale des machines virtuelles au sein du groupe de protection doit être envoyée à Microsoft Azure.
 
 	![Groupe de protection](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_ProtectionGroup4.png)
 
 
-## Étape 6 : Activer la protection des machines virtuelles
+## Étape 6 : Activer la protection des machines virtuelles
 
 
 Ajoutez des machines virtuelles à un groupe de protection pour activer leur protection.
@@ -219,44 +222,44 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 	![activer la protection des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_AddVM3.png)
 
 	Les tâches d’activation de la protection démarrent. Effectuez un suivi de la progression sur l’onglet **Tâches**. Lorsque la tâche de finalisation de la protection s’exécute, la machine virtuelle est prête à être basculée.
-3. Une fois la protection activée, vous pouvez effectuer les opérations suivantes :
+3. Une fois la protection activée, vous pouvez effectuer les opérations suivantes :
 
-	- afficher les machines virtuelles dans le champ **Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles**. Vous pouvez accéder aux détails de la machine dans l’onglet **Propriétés** ;
-	- configurer les propriétés du basculement des machines virtuelles dans **Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles** *nom\_machine\_virtuelle* > **Configurer**. Vous pouvez configurer les éléments suivants :
-		- **Nom** : nom de la machine virtuelle dans Microsoft Azure.
-		- **Taille** : taille cible de la machine virtuelle ayant basculé.
+	- afficher les machines virtuelles dans le champ **Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles**. Vous pouvez accéder aux détails de la machine dans l’onglet **Propriétés** ;
+	- configurer les propriétés du basculement des machines virtuelles dans **Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles** *nom\_machine\_virtuelle* > **Configurer**. Vous pouvez configurer les éléments suivants :
+		- **Nom** : nom de la machine virtuelle dans Microsoft Azure.
+		- **Taille** : taille cible de la machine virtuelle ayant basculé.
 
 		![Configurer les propriétés des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- Configurez les paramètres supplémentaires des machines virtuelles dans le champ **Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles** *nom\_machine\_virtuelle* > **Configurer**. Cela inclut :
+	- Configurez les paramètres supplémentaires des machines virtuelles dans le champ *Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles** *nom\_machine\_virtuelle* > **Configurer**. Cela inclut :
 
-		- **Cartes réseau** : le nombre de cartes réseau est défini par la taille spécifiée pour la machine virtuelle cible. Vérifiez dans les [spécifications de taille de machine virtuelle](../virtual-machines/virtual-machines-size-specs.md#size-tables) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille.
+		- **Cartes réseau** : le nombre de cartes réseau est défini par la taille spécifiée pour la machine virtuelle cible. Vérifiez dans les [spécifications de taille de machine virtuelle](../virtual-machines/virtual-machines-size-specs.md#size-tables) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille.
 
 
-			Lorsque vous modifiez la taille d’une machine virtuelle et enregistrez les paramètres, le nombre de cartes réseau changera lors de la prochaine ouverture de la page **Configurer**. Le nombre de cartes réseau des machines virtuelles cible est au minimum le nombre de cartes réseau sur la machine virtuelle source et au maximum le nombre de cartes réseau prises en charge par la machine virtuelle choisie en fonction de sa taille. Vous trouverez l'explication ci-dessous :
+			Lorsque vous modifiez la taille d’une machine virtuelle et enregistrez les paramètres, le nombre de cartes réseau changera lors de la prochaine ouverture de la page **Configurer**. Le nombre de cartes réseau des machines virtuelles cible est au minimum le nombre de cartes réseau sur la machine virtuelle source et au maximum le nombre de cartes réseau prises en charge par la machine virtuelle choisie en fonction de sa taille. Vous trouverez l'explication ci-dessous :
 
 
 			- Si le nombre de cartes réseau sur la machine source est inférieur ou égal au nombre de cartes autorisé pour la taille de la machine cible, la cible présente le même nombre de cartes que la source.
 			- Si le nombre de cartes de la machine virtuelle source dépasse la valeur de taille cible autorisée, la taille cible maximale est utilisée.
 			- Par exemple, si une machine source présente deux cartes réseau et que la taille de la machine cible en accepte quatre, la machine cible présentera deux cartes. Si la machine source inclut deux cartes, mais que la taille cible prise en charge accepte une seule carte, la machine cible présentera une seule carte. 	
-		- **Réseau Microsoft Azure** : indiquez le réseau vers lequel la machine virtuelle doit basculer. Si la machine virtuelle présente plusieurs cartes réseau, l’ensemble des cartes doit être connecté au même réseau Microsoft Azure.
-		- **Sous-réseau** : pour chaque carte réseau de la machine virtuelle, sélectionnez le sous-réseau dans le réseau Microsoft Azure auquel la machine doit se connecter après le basculement.
-		- **Adresse IP cible** : si la carte réseau de la machine virtuelle source est configurée pour utiliser une adresse IP statique, vous pouvez indiquer l’adresse IP de la machine virtuelle cible, afin de vérifier que la machine présente la même adresse IP après le basculement. Si vous n’en indiquez aucune, n’importe quelle adresse disponible sera affectée lors du basculement. Si vous spécifiez une adresse en cours d’utilisation, le basculement échoue.
+		- **Réseau Microsoft Azure** : indiquez le réseau vers lequel la machine virtuelle doit basculer. Si la machine virtuelle présente plusieurs cartes réseau, l’ensemble des cartes doit être connecté au même réseau Microsoft Azure.
+		- **Sous-réseau** : pour chaque carte réseau de la machine virtuelle, sélectionnez le sous-réseau dans le réseau Microsoft Azure auquel la machine doit se connecter après le basculement.
+		- **Adresse IP cible** : si la carte réseau de la machine virtuelle source est configurée pour utiliser une adresse IP statique, vous pouvez indiquer l’adresse IP de la machine virtuelle cible, afin de vérifier que la machine présente la même adresse IP après le basculement. Si vous n’en indiquez aucune, n’importe quelle adresse disponible sera affectée lors du basculement. Si vous spécifiez une adresse en cours d’utilisation, le basculement échoue.
 
 		![Configurer les propriétés des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
 
 
 
 
-## Étape 7 : créer un plan de récupération
+## Étape 7 : créer un plan de récupération
 
 Pour tester le déploiement, vous pouvez exécuter un basculement de test pour une seule machine virtuelle ou un plan de récupération qui contient une ou plusieurs machines virtuelles. [En savoir plus](site-recovery-create-recovery-plans.md) sur la création d’un plan de récupération.
 
-## Étape 8 : tester le déploiement
+## Étape 8 : tester le déploiement
 
 Il existe deux manières d’exécuter un test de basculement vers Azure.
 
-- **Tester le basculement sans réseau Azure** : ce type de test de basculement vérifie que la machine virtuelle s’affiche correctement dans Azure. La machine virtuelle ne sera connectée à aucun réseau Azure après le basculement.
-- **Tester le basculement avec un réseau Azure** : ce type de basculement vérifie que l’ensemble de l’environnement de réplication s’affiche comme prévu et qu’après le basculement les machines virtuelles se connectent au réseau Azure cible spécifié. Notez que, pour le test de basculement, le sous-réseau de la machine virtuelle test sera déterminé en fonction du sous-réseau de la machine virtuelle de réplication. Ceci diffère de la réplication normale, selon laquelle le sous-réseau d’une machine virtuelle de réplication est basé sur le sous-réseau de la machine virtuelle source.
+- **Tester le basculement sans réseau Azure** : ce type de test de basculement vérifie que la machine virtuelle s’affiche correctement dans Azure. La machine virtuelle ne sera connectée à aucun réseau Azure après le basculement.
+- **Tester le basculement avec un réseau Azure** : ce type de basculement vérifie que l’ensemble de l’environnement de réplication s’affiche comme prévu et qu’après le basculement les machines virtuelles se connectent au réseau Azure cible spécifié. Notez que, pour le test de basculement, le sous-réseau de la machine virtuelle test sera déterminé en fonction du sous-réseau de la machine virtuelle de réplication. Ceci diffère de la réplication normale, selon laquelle le sous-réseau d’une machine virtuelle de réplication est basé sur le sous-réseau de la machine virtuelle source.
 
 Si vous souhaitez exécuter un test de basculement sans spécifier de réseau Azure, vous n’avez rien à préparer.
 
@@ -265,10 +268,10 @@ Pour exécuter un test de basculement avec un réseau Azure cible, vous devez cr
 
 Pour pouvoir tester intégralement votre déploiement réseau et de réplication, vous devez configurer l’infrastructure afin que la machine virtuelle répliquée fonctionne comme prévu. Pour ce faire, vous pouvez par exemple configurer une machine virtuelle en tant que contrôleur de domaine avec DNS et la répliquer dans Azure à l’aide de Site Recovery pour la créer dans le réseau de test en exécutant un test de basculement. [Lisez cet article](site-recovery-active-directory.md#considerations-for-test-failover) pour passer en revue les considérations relatives au test de basculement pour Active Directory.
 
-Exécutez un test de basculement, en procédant comme suit :
+Exécutez un test de basculement, en procédant comme suit :
 
 1. Dans l'onglet **Plans de récupération**, sélectionnez le plan et cliquez sur **Test de basculement**.
-2. Sur la page **Confirmer le test de basculement**, sélectionnez **Aucun** ou un réseau Microsoft Azure spécifique. Remarque : si vous sélectionnez **Aucun**, le test de basculement vérifie que la machine virtuelle a été répliquée correctement dans Microsoft Azure, mais il ne vérifie pas la configuration de votre réseau de réplication.
+2. Sur la page **Confirmer le test de basculement**, sélectionnez **Aucun** ou un réseau Microsoft Azure spécifique. Remarque : si vous sélectionnez **Aucun**, le test de basculement vérifie que la machine virtuelle a été répliquée correctement dans Microsoft Azure, mais il ne vérifie pas la configuration de votre réseau de réplication.
 
 	![Test de basculement](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_TestFailoverNoNetwork.png)
 
@@ -277,15 +280,15 @@ Exécutez un test de basculement, en procédant comme suit :
 5. Après le basculement, vous pouvez voir le réplica de test de la machine virtuelle dans le portail Azure. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle.
 
 	1. Vérifiez que les machines virtuelles démarrent correctement.
-    2. Si vous voulez vous connecter à la machine virtuelle dans Azure avec le Bureau à distance après le basculement, activez Connexion Bureau à distance sur la machine virtuelle avant d’exécuter le test de basculement. Vous devez également ajouter un point de terminaison RDP sur la machine virtuelle. Pour cela, vous pouvez utiliser les [Runbooks de Microsoft Azure Automation](site-recovery-runbook-automation.md).
-    3. Une fois le basculement effectué, si vous utilisez une adresse IP publique pour vous connecter à la machine virtuelle dans Microsoft Azure via le Bureau à distance, vérifiez qu’aucune stratégie du domaine ne vous empêche de vous connecter à une machine virtuelle au moyen d’une adresse publique.
+    2. Si vous voulez vous connecter à la machine virtuelle dans Azure avec le Bureau à distance après le basculement, activez Connexion Bureau à distance sur la machine virtuelle avant d’exécuter le test de basculement. Vous devez également ajouter un point de terminaison RDP sur la machine virtuelle. Pour cela, vous pouvez utiliser les [Runbooks Azure Automation](site-recovery-runbook-automation.md).
+    3. Une fois le basculement effectué, si vous utilisez une adresse IP publique pour vous connecter à la machine virtuelle dans Microsoft Azure via le Bureau à distance, vérifiez qu’aucune stratégie du domaine ne vous empêche de vous connecter à une machine virtuelle au moyen d’une adresse publique.
 
-6. Une fois le test effectué, procédez comme suit :
+6. Une fois le test effectué, procédez comme suit :
 
 	- Cliquez sur **Le test de basculement est terminé**. Nettoyez l’environnement de test afin qu’il mette hors tension et supprime automatiquement les machines virtuelles de test.
 	- Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
-7. Lorsque le basculement se trouve en phase **Terminer le test**, terminez la vérification comme suit :
-	1. Examinez la machine virtuelle de réplication dans le portail Microsoft Azure. Vérifiez que la machine virtuelle démarre correctement.
+7. Lorsque le basculement se trouve en phase **Terminer le test**, terminez la vérification comme suit :
+	1. Examinez la machine virtuelle de réplication dans le portail Microsoft Azure. Vérifiez que la machine virtuelle démarre correctement.
 	2. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle.
 	3. Cliquez sur **Terminer le test** pour finir l’opération.
 	4. Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
@@ -295,4 +298,4 @@ Exécutez un test de basculement, en procédant comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

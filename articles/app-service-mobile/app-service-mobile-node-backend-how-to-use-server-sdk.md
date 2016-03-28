@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -642,37 +642,37 @@ Le code suivant vous montre comment utiliser l’objet Push pour envoyer une not
 	    // Send a push notification using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error. 
-	        }           
+                // Do something or log the error.
+	        }
         });
     }
 
 En créant un modèle d’inscription Push à partir du client, vous pouvez simplement envoyer un modèle de message Push à des appareils sur toutes les plateformes prises en charge. Le code suivant montre comment envoyer un modèle de notification :
 
 	// Define the template payload.
-	var payload = '{"messageParam": "This is a template payload."}'; 
+	var payload = '{"messageParam": "This is a template payload."}';
 
     // Only do the push if configured
     if (context.push) {
 		// Send a template notification.
         context.push.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
 
 ##<a name="push-user"></a>Procédure : envoi de notifications Push à un utilisateur authentifié à l’aide de balises
-Lorsqu’un utilisateur authentifié s’inscrit aux notifications Push, une balise avec l’ID d’utilisateur est automatiquement ajoutée à l’inscription. Grâce à cette balise, vous pouvez envoyer des notifications Push à tous les appareils inscrits par un utilisateur spécifique. Le code suivant permet d’obtenir le SID de l’utilisateur qui émet la demande, et d’envoyer un modèle de notification Push à chaque inscription de périphérique pour cet utilisateur :
+Lorsqu’un utilisateur authentifié s’inscrit aux notifications Push, une balise avec l’ID d’utilisateur est automatiquement ajoutée à l’inscription. Grâce à cette balise, vous pouvez envoyer des notifications Push à tous les appareils inscrits par un utilisateur spécifique. Le code suivant permet d’obtenir le SID de l’utilisateur qui émet la demande et d’envoyer un modèle de notification Push à chaque inscription d’appareil pour cet utilisateur :
 
     // Only do the push if configured
     if (context.push) {
 		// Send a notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -815,12 +815,10 @@ Le kit de développement logiciel (SDK) Azure Mobile Apps permet d’accéder à
     api.get.access = 'authenticated';
     module.exports = api;
 
-
-
 ## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>Procédure : débogage, diagnostic et résolution des problèmes sur Azure Mobile Apps
 
+Azure App Service fournit plusieurs techniques de débogage et de résolution des problèmes pour les applications Node.js. Consultez les articles suivants pour prendre en main le dépannage de votre serveur principal mobile Node.js :
 
-Azure App Service fournit plusieurs techniques de débogage et de résolution des problèmes pour les applications Node.js. Toutes ces techniques sont disponibles :
 - [Surveiller les applications web dans Microsoft Azure App Service]
 - [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]
 - [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]
@@ -872,7 +870,7 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [3]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-config.png
 [4]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-authconfig.png
 [5]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-newuser-1.png
-[6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
+[6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
 [Android Client QuickStart]: app-service-mobile-android-get-started.md
@@ -914,4 +912,4 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

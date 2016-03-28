@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion des mesures avec Azure Service Fabric Cluster Resource Manager"
+   pageTitle="Gestion des mesures avec Azure Service Fabric Cluster Resource Manager | Microsoft Azure"
    description="Découvrir comment configurer et utiliser les mesures dans Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Mesures
+# Gestion de la consommation des ressources et des charges dans Service Fabric à l’aide de mesures
 Les mesures sont le terme générique utilisé dans Service Fabric pour les ressources qui intéressent vos services. En règle générale, une mesure est tout ce que vous souhaitez gérer en termes de ressource afin de traiter les performances de vos services.
 
 Dans tous les exemples ci-dessus, nous avons continué à faire référence aux mesures de façon implicite ; les éléments tels que la mémoire, le disque, l’utilisation du processeur sont tous des exemples de mesures. Il s’agit de mesures physiques, des ressources qui correspondent aux ressources physiques sur le nœud qui doivent être gérées. Les mesures peuvent également être des mesures logiques, des ressources telles que « MyWorkQueueDepth » qui sont définies par l’application et qui correspondent à un certain niveau de consommation de ressources (mais où l’application ne les connaît pas vraiment ou ne sait pas les mesurer).
@@ -109,7 +109,7 @@ Maintenant que nous vous avons montré comment définir vos propres mesures, exa
 ## Charge
 La charge est la notion générale correspondant à la quantité d’une métrique donnée qui est consommée par une instance ou un réplica de service sur un nœud donné.
 
-### Charge par défaut
+## Charge par défaut
 La charge par défaut est la quantité de charge supposée par Resource Manager qui sera consommée par chaque instance ou réplica de ce service jusqu’à la réception de mises à jour de ces instances ou réplicas de service. Pour les services plus simples, c’est une définition statique qui n’est jamais mise à jour dynamiquement et qui, par conséquent, sera utilisée pendant toute la durée de vie du service. Cela fonctionne parfaitement pour une planification de capacité simple, car c’est exactement ce que nous avons l’habitude de faire : dédier certaines ressources à certaines charges de travail, mais l’avantage est qu’au moins maintenant nous fonctionnons dans un état d’esprit de microservices où les ressources ne sont pas réellement statiquement affectées à des charges de travail particulières et où les utilisateurs ne font pas partie de la boucle de prise de décision.
 
 Nous autorisons les services avec état à spécifier la charge par défaut à la fois pour les réplicas principaux et secondaires. En réalité, pour de nombreux services, ces nombres sont différents en raison des différentes charges de travail exécutées par les réplicas principaux et secondaires, et puisque les réplicas principaux assument souvent les opérations de lecture et d’écriture (ainsi que la plupart des tâches de calcul), la charge par défaut d’un réplica principal est supérieure à celle des réplicas secondaires.
@@ -117,7 +117,6 @@ Nous autorisons les services avec état à spécifier la charge par défaut à l
 Maintenant, disons que vous avez exécuté votre service pendant un certain temps et que vous avez remarqué que certains réplicas ou instances de votre service consomment beaucoup plus de ressources que d’autres ou que leur consommation varie dans le temps. Peut-être qu’ils sont associés à un client particulier, ou qu’ils correspondent simplement à des charges de travail qui varient au cours de la journée, telles que le trafic de messagerie ou les actions. De toute façon, vous remarquez que vous ne pouvez utiliser aucun « nombre unique » pour la charge sans désactivation par un nombre important. Vous remarquez également que la « désactivation » dans l’estimation initiale entraîne Service Fabric à sur ou sous-allouer des ressources à votre service, ce qui se traduit par des nœuds qui sont sur ou sous-utilisés. Que faire, alors ? Eh bien, votre service pourrait signaler la charge à la volée !
 
 ## Charge dynamique
-
 Les rapports de charge dynamique permettent aux réplicas ou aux instances d’ajuster leur allocation/utilisation de mesures signalée dans le cluster pendant toute leur durée de vie. Un réplica ou une instance de service qui était à froid et n’effectuait aucun travail signale généralement qu’il/elle utilisait peu de ressources, tandis que les réplicas ou les instances occupés signalent qu’ils en utilisent plus. Ce niveau général d’attrition du cluster permet de réorganiser les réplicas et les instances de service dans le cluster à la volée afin de garantir que les services et les instances obtiennent les ressources dont ils ont besoin, ou plutôt que les services occupés soient capables de réclamer des ressources d’autres réplicas ou instances actuellement à froid ou effectuant moins de travail. Le signalement de charge à la volée peut être effectué via la méthode ReportLoad, disponible sur la ServicePartition, et disponible en tant que propriété sur le StatefulService de base. Au sein de votre service, le code ressemblerait à ceci :
 
 Code :
@@ -128,6 +127,7 @@ this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory",
 
 Les réplicas ou les instances de service peuvent signaler la charge uniquement pour les mesures qu’ils sont autorisés à utiliser. La liste de mesures est définie lors de la création de chaque service. Si un réplica ou une instance de service tente de signaler la charge pour une mesure non autorisée par leur configuration, Service Fabric consigne l’état mais l’ignore, ce qui signifie que nous ne l’utiliserons pas pour le calcul ou le signalement de l’état du cluster. C’est parfait car cela permet une meilleure expérimentation. Le code peut mesurer et signaler tout élément, s’il sait le faire, et l’opérateur peut configurer, modifier et mettre à jour les règles d’équilibrage des ressources pour ce service à la volée sans avoir à modifier le code. Il peut s’agir, par exemple, de la désactivation d’une mesure ayant un état incorrect, de la reconfiguration du poids des mesures en fonction du comportement ou de l’activation d’une nouvelle mesure uniquement une fois que le code a déjà été déployé et validé.
 
+## Mélange des valeurs de charge par défaut et des rapports de charge dynamique
 Est-il judicieux d’avoir une charge par défaut spécifiée pour un service qui va signaler la charge dynamiquement ? Absolument ! Dans ce cas, la charge par défaut représente une estimation jusqu’à ce que les vrais rapports commencent à parvenir du réplica ou de l’instance de service réel(le). C’est fantastique car cela fournit à Resource Manager des éléments de travail lors du placement du réplica ou de l’instance au moment de la création. La charge par défaut devient une estimation initiale qui permet à Resource Manager de placer les instances ou les réplicas de service au bon endroit dès le début. Si aucune information n’avait été fournie, le placement aurait effectivement été aléatoire et nous aurions certainement dû déplacer des éléments dès l’arrivée des vrais rapports de charge.
 
 Reprenons l’exemple précédent et voyons ce qui se passe lorsque nous ajoutons une charge personnalisée, puis, une fois le service créé, lorsqu’il est mis à jour dynamiquement. Dans cet exemple, nous allons utiliser « Memory » et supposer que nous avons initialement créé le service avec état avec la commande suivante :
@@ -145,6 +145,7 @@ Voyons quelle pourrait être une disposition de cluster possible :
 ![Équilibre de cluster avec des mesures par défaut et des mesures personnalisées][Image2]
 
 Informations importantes à noter :
+
 -	Puisque les réplicas ou les instances utilisent la charge par défaut du service jusqu’à ce qu’ils signalent leur propre charge, nous savons que les réplicas à l’intérieur de la partition 1 du service avec état n’ont pas signalé de charge propre
 -	Les réplicas secondaires dans une partition peuvent avoir leur propre charge
 -	Dans l’ensemble, les mesures semblent assez bonnes, avec une différence entre les charges maximale et minimale sur un nœud (pour la mémoire, la mesure personnalisée qui nous intéresse le plus, comme dit précédemment) d’un facteur de 1,75 seulement (le nœud ayant le plus de charge de mémoire est N3, le moins de charge N2, et 28/16 = 1,75), donc un assez bon équilibre !
@@ -183,17 +184,16 @@ Dans l’exemple du bas, nous avons distribué les réplicas basés à la fois s
 
 Tenant compte des poids des mesures, l’équilibre global est calculé en fonction de la moyenne des poids des mesures. Nous équilibrons un service par rapport à ses propres poids de mesure définis.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-- [En savoir plus sur la configuration des services](service-fabric-cluster-resource-manager-configure-services.md)
-- [En savoir plus sur les mesures de défragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [Découvrir comment Cluster Resource Manager équilibre la charge dans le cluster](service-fabric-cluster-resource-manager-balancing.md)
-- [Obtenir une présentation du Gestionnaire de ressources de cluster Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- [En savoir plus sur le coût du mouvement de service](service-fabric-cluster-resource-manager-movement-cost.md)
+- Pour plus d’informations sur les autres options disponibles pour la configuration des services, consultez la rubrique sur les autres configurations de Cluster Resource Manager disponibles [En savoir plus sur la configuration des services](service-fabric-cluster-resource-manager-configure-services.md)
+- La définition des mesures de défragmentation est une façon de consolider la charge sur les nœuds au lieu de la répartir. Pour savoir comment configurer la défragmentation, reportez-vous à [cet article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur l’[équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
+- Commencer au début et [obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- Le coût du déplacement est une façon de signaler à Cluster Resource Manager que certains services sont plus coûteux à déplacer que d’autres. Pour en savoir plus sur le coût du déplacement, reportez-vous à [cet article](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/11/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,20 @@ Affichons les résultats avec la présentation graphique à barres, en choisissa
 
 Il semblerait que notre application soit plus populaire lors de la pause déjeuner et à l’heure du coucher à Hyderabad. (Et nous devrions examiner ces 500 codes).
 
-Le langage possède de nombreuses capacités semblables à SQL, et bien plus encore. Comme dans SQL, vous pouvez filtrer les données, regrouper les enregistrements, trier et joindre les tables. Vous pouvez également effectuer des calculs sur les champs. Contrairement à SQL, ces fonctions sont divisées en différentes opérations et au lieu d’imbriquer les requêtes, vous dirigez les données d’une opération vers une autre de manière très intuitive. Cela facilite l’écriture de requêtes très complexes.
+
+Il existe également des opérations statistiques puissantes :
+
+![](./media/app-analytics/025.png)
+
+
+Le langage possède de nombreuses fonctionnalités attrayantes :
+
+* [Filtrer](app-analytics-queries.md) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et mesures personnalisées.
+* [Joindre](app-analytics-queries.md#join-operator) plusieurs tables ; mettez en corrélation les demandes avec les affichages de page, les appels de dépendance, les exceptions et les suivis du journal.
+* [Agrégations](app-analytics-aggregations.md) statistiques puissantes.
+* Toutes aussi puissantes que SQL, mais beaucoup plus facile pour les requêtes complexes : au lieu d’imbriquer des instructions, vous dirigez les données d’une opération élémentaire à l’autre.
+* Visualisations immédiates et puissantes.
+
 
 
 >[AZURE.NOTE] Nous vous recommandons de commencer par la [visite guidée du langage](app-analytics-tour.md).
@@ -56,7 +69,7 @@ Le langage possède de nombreuses capacités semblables à SQL, et bien plus enc
 ## Connectez-vous à vos données Application Insights
 
 
-Ouvrez Analytics à partir du [panneau Vue d'ensemble](app-insights-dashboards.md) de votre application dans Application Insights :
+Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application dans Application Insights :
 
 ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-analytics/001.png)
 
@@ -66,4 +79,4 @@ Ouvrez Analytics à partir du [panneau Vue d'ensemble](app-insights-dashboards.m
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

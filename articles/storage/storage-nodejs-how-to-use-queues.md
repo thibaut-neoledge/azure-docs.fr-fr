@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de files d’attente à partir de Node.js | Microsoft Azure"
+	pageTitle="Utilisation du stockage de files d’attente à partir de Node.js | Microsoft Azure"
 	description="Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Node.js."
 	services="storage"
 	documentationCenter="nodejs"
@@ -23,7 +23,7 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de File d’attente Microsoft Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent l’**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de File d’attente Microsoft Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent l’**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -58,7 +58,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 ### Importation du package
 
-À l'aide d'un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l'application dans laquelle vous souhaitez utiliser le stockage :
+À l'aide d'un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l'application dans laquelle vous souhaitez utiliser le stockage :
 
     var azure = require('azure-storage');
 
@@ -86,17 +86,17 @@ Si la file d’attente est créée, `result` a la valeur true. Si la file d’at
 
 ### Filtres
 
-Des opérations facultatives de filtrage peuvent être appliquées aux opérations exécutées par le biais de **QueueService**. Il peut s’agir d’opérations de journalisation, de relance automatique, etc. Les filtres sont des objets qui implémentent une méthode avec la signature :
+Des opérations facultatives de filtrage peuvent être appliquées aux opérations exécutées par le biais de **QueueService**. Il peut s’agir d’opérations de journalisation, de relance automatique, etc. Les filtres sont des objets qui implémentent une méthode avec la signature :
 
 		function handle (requestOptions, next)
 
-Après le prétraitement des options de la requête, la méthode doit appeler « next » en passant un rappel avec la signature suivante :
+Après le prétraitement des options de la requête, la méthode doit appeler « next » en passant un rappel avec la signature suivante :
 
 		function (returnObject, finalCallback, next)
 
 Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d'autres filtres ou simplement appeler finalCallback pour terminer l'utilisation du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **QueueService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **QueueService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueSvc = azure.createQueueService().withFilter(retryOperations);
@@ -127,13 +127,13 @@ Vous pouvez lire furtivement le message au début de la file d'attente sans l'en
 
 ## Suppression du message suivant dans la file d'attente
 
-Le traitement d'un message se fait en deux étapes :
+Le traitement d'un message se fait en deux étapes :
 
 1. Enlever le message de la file d'attente.
 
 2. Supprimer le message.
 
-Pour enlever un message de la file d’attente, utilisez **getMessages**. Cela rend les messages invisibles dans la file d'attente, et aucun autre client ne peut les traiter. Lorsque votre application a traité un message, appelez **deleteMessage** pour supprimer le message de la file d’attente. L'exemple suivant obtient un message, puis le supprime :
+Pour enlever un message de la file d’attente, utilisez **getMessages**. Cela rend les messages invisibles dans la file d'attente, et aucun autre client ne peut les traiter. Lorsque votre application a traité un message, appelez **deleteMessage** pour supprimer le message de la file d’attente. L'exemple suivant obtient un message, puis le supprime :
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
@@ -147,14 +147,14 @@ Pour enlever un message de la file d’attente, utilisez **getMessages**. Cela r
 	  }
 	});
 
-> [AZURE.NOTE] Par défaut, un message est masqué uniquement pendant 30 secondes avant d'être de nouveau visible pour les autres clients. Vous pouvez indiquer une autre valeur en utilisant `options.visibilityTimeout` avec **getMessages**.
+> [AZURE.NOTE] Par défaut, un message est masqué uniquement pendant 30 secondes avant d'être de nouveau visible pour les autres clients. Vous pouvez indiquer une autre valeur en utilisant `options.visibilityTimeout` avec **getMessages**.
 
 > [AZURE.NOTE]
 L’utilisation de **getMessages** alors qu’il n’y a pas de message dans la file d’attente ne renvoie pas d’erreur, mais ne renvoie pas non plus de message.
 
 ## Modification du contenu d'un message en file d'attente
 
-Vous pouvez changer le contenu d'un message qui se trouve dans la file d'attente en utilisant **updateMessage**. L'exemple suivant met à jour le texte d'un message :
+Vous pouvez changer le contenu d'un message qui se trouve dans la file d'attente en utilisant **updateMessage**. L'exemple suivant met à jour le texte d'un message :
 
     queueSvc.getMessages('myqueue', function(error, result, response){
 	  if(!error){
@@ -170,12 +170,12 @@ Vous pouvez changer le contenu d'un message qui se trouve dans la file d'attente
 
 ## Options supplémentaires pour la suppression des messages dans la file d'attente
 
-Il existe deux méthodes pour personnaliser l'extraction d'un message d'une file d'attente :
+Il existe deux méthodes pour personnaliser l'extraction d'un message d'une file d'attente :
 
-* `options.numOfMessages` - Extraire un lot de messages (jusqu’à 32).
+* `options.numOfMessages` - Extraire un lot de messages (jusqu’à 32).
 * `options.visibilityTimeout` - Définir une durée d’invisibilité plus longue ou plus courte.
 
-L'exemple suivant utilise la méthode **getMessages** pour obtenir 15 messages dans un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. La durée d'invisibilité est passée à cinq minutes pour tous les messages renvoyés par cette méthode.
+L'exemple suivant utilise la méthode **getMessages** pour obtenir 15 messages dans un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. La durée d'invisibilité est passée à cinq minutes pour tous les messages renvoyés par cette méthode.
 
     queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
 	  if(!error){
@@ -202,7 +202,7 @@ L'exemple suivant utilise la méthode **getMessages** pour obtenir 15 messages 
 	  }
 	});
 
-## Procédure : Affichage de la liste de disques
+## Procédure : Affichage de la liste de disques
 
 Pour extraire une liste de files d'attente, utilisez **listQueuesSegmented**. Pour extraire une liste filtrée par un certain préfixe, utilisez **listQueuesSegmentedWithPrefix**.
 
@@ -226,13 +226,13 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 Pour effacer tous les messages d'une file d'attente sans supprimer cette dernière, utilisez **clearMessages**.
 
-## Procédure : Utilisation des signatures d’accès partagé
+## Procédure : Utilisation des signatures d’accès partagé
 
 Les signatures d'accès partagé sont un moyen sécurisé de fournir un accès précis aux files d'attente sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos files d'attente, par exemple pour autoriser une application mobile à soumettre des messages.
 
 Une application approuvée, comme un service cloud, génère une signature d'accès partagé à l'aide de **generateSharedAccessSignature** de **QueueService**, et la fournit à une application non approuvée ou à moitié approuvée. Par exemple, une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
 
-L'exemple suivant génère une nouvelle stratégie d'accès partagé qui autorise le détenteur de la signature d'accès partagé à ajouter des messages à la file d'attente et expire 100 minutes après son heure de création.
+L'exemple suivant génère une nouvelle stratégie d'accès partagé qui autorise le détenteur de la signature d'accès partagé à ajouter des messages à la file d'attente et expire 100 minutes après son heure de création.
 
 	var startDate = new Date();
 	var expiryDate = new Date(startDate);
@@ -267,7 +267,7 @@ Comme la signature d'accès partagé a été générée avec un accès en ajout,
 
 Vous pouvez également utiliser une liste de contrôle d'accès (ACL) pour définir la stratégie d'accès pour une signature d'accès partagé. Cela est utile si vous voulez autoriser plusieurs clients à accéder à une file d'attente, mais fournir des stratégies d'accès différentes à chaque client.
 
-Une liste de contrôle d'accès est implémentée à l'aide d'un tableau de stratégies d'accès, dans lequel un ID est associé à chaque stratégie. L'exemple suivant définit deux stratégies ; une pour « user1 » et une pour « user2 » :
+Une liste de contrôle d'accès est implémentée à l'aide d'un tableau de stratégies d'accès, dans lequel un ID est associé à chaque stratégie. L'exemple suivant définit deux stratégies ; une pour « user1 » et une pour « user2 » :
 
 	var sharedAccessPolicy = [
 	  {
@@ -288,13 +288,13 @@ Une liste de contrôle d'accès est implémentée à l'aide d'un tableau de stra
 	  }
 	];
 
-L'exemple suivant obtient la liste de contrôle d'accès active pour **myqueue**, puis ajoute les nouvelles stratégies à l'aide de **setQueueAcl**. Cette approche permet :
+L'exemple suivant obtient la liste de contrôle d'accès active pour **myqueue**, puis ajoute les nouvelles stratégies à l'aide de **setQueueAcl**. Cette approche permet :
 
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
       if(!error){
 		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		queueSvc.setQueueAcl('myqueue', result, function(error, result, response){
+		result.signedIdentifiers = result.signedIdentifiers.concat(sharedAccessPolicy);
+		queueSvc.setQueueAcl('myqueue', result.signedIdentifiers, function(error, result, response){
 	  	  if(!error){
 	    	// ACL set
 	  	  }
@@ -302,7 +302,7 @@ L'exemple suivant obtient la liste de contrôle d'accès active pour **myqueue**
 	  }
 	});
 
-Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une signature d'accès partagé basée sur l'ID pour une stratégie. L'exemple suivant crée une signature d'accès partagé pour « user2 » :
+Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une signature d'accès partagé basée sur l'ID pour une stratégie. L'exemple suivant crée une signature d'accès partagé pour « user2 » :
 
 	queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
@@ -331,4 +331,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
   [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

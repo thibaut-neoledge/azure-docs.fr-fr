@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="03/09/2016"
    	ms.author="nitinme"/>
 
 #Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell
@@ -25,16 +25,15 @@ Azure PowerShell est un environnement de création de scripts vous permettant de
 
 > [AZURE.NOTE] Azure PowerShell est uniquement disponible sur les clients Windows. Si vous utilisez un client Linux, Unix ou Mac OS X, consultez [Créer un cluster HDInsight basé sur Linux avec l’interface de ligne de commande Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure pour créer un cluster.
 
-##Composants requis
-
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
+## Configuration requise
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerSHell__. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des applets de commande HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez la rubrique [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 ##Créer des clusters
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Les procédures suivantes sont nécessaires pour mettre en service un cluster HDInsight en utilisant Azure PowerShell :
 
@@ -114,6 +113,10 @@ L’approvisionnement peut prendre jusqu’à 15 minutes.
 - Consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
 - Consultez [Personnalisation de clusters HDInsight basés sur Windows à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
+##Suppression du cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Étapes suivantes
 
 Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez les rubriques ci-dessous :
@@ -143,4 +146,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->
