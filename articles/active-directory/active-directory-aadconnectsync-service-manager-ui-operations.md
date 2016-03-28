@@ -35,7 +35,8 @@ La colonne **État** regroupe les informations les plus importantes et présente
 | --- | --- |
 | stopped-* | L’exécution n’a pas pu se terminer. Par exemple, si le système distant est arrêté et ne peut pas être contacté. |
 | stopped-error-limit | Il existe plus de 5 000 erreurs. L’exécution a été automatiquement arrêtée en raison du grand nombre d’erreurs. |
-| completed-*-errors | L’exécution s’est terminée, mais il existe des erreurs (moins de 5 000) qui doivent être examinées. | | completed-*-warnings | L’exécution s’est terminée, mais des données ne sont pas dans l’état attendu. Si vous avez des erreurs, alors ceci n’est, en général, qu’un symptôme. N’examinez pas les avertissements avant d’avoir résolu les erreurs. |
+| completed-*-errors | L’exécution s’est terminée, mais il existe des erreurs (moins de 5 000) qui doivent être examinées. | 
+| completed-*-warnings | L’exécution s’est terminée, mais des données ne sont pas dans l’état attendu. Si vous avez des erreurs, alors ceci n’est, en général, qu’un symptôme. N’examinez pas les avertissements avant d’avoir résolu les erreurs. |
 | réussi | Aucun problème. |
 
 Lorsque vous sélectionnez une ligne, la partie inférieure est mise à jour pour afficher les détails de cette exécution. À l’extrême gauche de la partie inférieure, une liste peut s’afficher indiquant **Step #**. Ceci ne s’affiche que si votre forêt contient plusieurs domaines et que chaque domaine est représenté par une étape. Le nom de domaine se trouve sous le titre **Partition**. Sous **Statistiques de synchronisation**, vous trouverez plus d’informations sur le nombre de modifications qui ont été traitées. Vous pouvez cliquer sur les liens pour obtenir la liste des objets modifiés. Si vous avez des objets avec une erreur, ceux-ci s’affichent sous **Erreurs de synchronisation**.
@@ -56,4 +57,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!----------HONumber=AcomDC_0309_2016-->

@@ -75,7 +75,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 
 			![Panneau Réseau virtuel](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+			Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Extension des capacités de HDInsight à l’aide d’Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
   
 
   		
@@ -142,4 +142,4 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 * [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md) : découvrez comment envoyer des tâches par programme à HDInsight
 * [Gérer les clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!----------HONumber=AcomDC_0309_2016-->

@@ -104,7 +104,12 @@ Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et port
 
 | Noms de domaine | Ports | Description |
 | ------ | --------- | ------------ |
-| **. servicebus.windows.net | 443, 80 | Écouteurs sur Service Bus Relay via TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) || *. servicebus.windows.net | 9350 à 9354 | Système Service Bus Relay facultatif via TCP || *. core.windows.net | 443 | HTTPS || *. clouddatahub.net | 443 | HTTPS || Graph.Windows.NET | 443 | HTTPS || Login.Windows.NET | 443 | HTTPS | 
+| *. servicebus.windows.net | 443, 80 | Écouteurs sur Service Bus Relay via TCP (nécessite le port 443 pour l’acquisition du jeton Access Control) |
+| *. servicebus.windows.net | 9350 à 9354 | Système Service Bus Relay facultatif via TCP |
+| *. core.windows.net | 443 | HTTPS |
+| *. clouddatahub.net | 443 | HTTPS |
+| Graph.Windows.NET | 443 | HTTPS |
+| Login.Windows.NET | 443 | HTTPS | 
 
 Au niveau du pare-feu Windows, ces ports de sortie sont normalement activés. Sinon, vous pouvez configurer en conséquence les domaines et les ports sur l’ordinateur de passerelle.
 
@@ -686,4 +691,4 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 5.	La passerelle déchiffre les informations d'identification avec le même certificat puis se connecte au magasin de données local avec le type d'authentification approprié.
 6.	La passerelle copie les données du magasin local vers un stockage cloud, ou d'un stockage cloud vers un magasin de données local selon la configuration de l'activité de copie dans le pipeline de données. Remarque : pour cette étape, la passerelle communique directement avec le service de stockage basé sur le cloud (par exemple, Azure Blob, SQL Azure) via un canal sécurisé (HTTPS).
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!------HONumber=AcomDC_0316_2016-->

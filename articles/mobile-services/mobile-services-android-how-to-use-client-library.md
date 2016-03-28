@@ -304,7 +304,7 @@ Si une application fournit la valeur d'un ID, Mobile Services la stocke en l'ét
 La valeur pour le `id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
 
 + Caractères de contrôle : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1].
-+  Caractères imprimables : **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
++  Caractères imprimables : **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Les ID « . » et « .. »
 
 Vous pouvez également utiliser des ID d'entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` à l'aide de l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d’informations sur l’utilisation de l’interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services].
@@ -938,4 +938,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!----------HONumber=AcomDC_0309_2016-->
