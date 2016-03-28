@@ -91,4 +91,4 @@ Maintenant que vous avez chargé l'exemple de contenu sur votre propre compte de
 
 Vous pouvez à présent utiliser le bouton **Exécuter maintenant** ou votre propre application pour réexécuter votre stratégie. Le résultat devrait être quasiment identique puisque vous avez utilisé le même exemple de contenu HTML et CSS dans les deux cas. Cependant, vos stratégies référencent maintenant votre propre instance d’Azure Blob Storage, et vous êtes libre de modifier et de recharger les fichiers. Pour plus d’informations sur la personnalisation du contenu HTML et CSS, reportez-vous au [principal article sur la personnalisation de l’interface utilisateur](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

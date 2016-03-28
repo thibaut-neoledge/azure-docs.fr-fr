@@ -224,15 +224,15 @@ Pour installer Azure PowerShell, suivez les étapes décrites dans la section pr
 
 2.	À partir d’une invite de commandes administrateur, exécutez `C:\agent\ConfigureAgent.cmd`. Le script vous invite à entrer les paramètres suivants :
 
-|Paramètre|Valeur|
-|---|---|
-|Nom de l’agent|Acceptez la valeur par défaut, `Agent-[machine name]`.|
-|URL de TFS|Entrez l’URL de votre projet d’équipe, par exemple, `https://[your-VSTS-account-name].visualstudio.com`.|
-|Pool d’agents|Entrez le nom de votre pool d’agents. (Si vous n’avez pas créé de pool d’agents, acceptez la valeur par défaut).|
-|Dossier de travail|Acceptez la valeur par défaut. C’est le dossier dans lequel l’agent de build va effectivement créer votre application. Remarque : si vous prévoyez de créer des services web ASP.NET 5, il est recommandé de choisir le nom le plus court possible pour ce dossier pour éviter de rencontrer des erreurs PathTooLongExceptions lors du déploiement.|
-|Installer en tant que service Windows ?|La valeur par défaut est N. Remplacez cette valeur par **Y**.|
-|Compte d’utilisateur pour exécuter le service|Acceptez la valeur par défaut, `NT AUTHORITY\LocalService`.|
-|Annuler la configuration de l’agent existant ?|Acceptez la valeur par défaut, **N**.|
+    |Paramètre|Valeur|
+    |---|---|
+    |Nom de l’agent|Acceptez la valeur par défaut, `Agent-[machine name]`.
+    |URL de TFS|Entrez l’URL de votre projet d’équipe, par exemple, `https://[your-VSTS-account-name].visualstudio.com`.
+    |Pool d’agents|Entrez le nom de votre pool d’agents. (Si vous n’avez pas créé de pool d’agents, acceptez la valeur par défaut).|
+    |Dossier de travail|Acceptez la valeur par défaut. C’est le dossier dans lequel l’agent de build va effectivement créer votre application. Remarque : si vous prévoyez de créer des services web ASP.NET 5, il est recommandé de choisir le nom le plus court possible pour ce dossier pour éviter de rencontrer des erreurs PathTooLongExceptions lors du déploiement.|
+    |Installer en tant que service Windows ?|La valeur par défaut est N. Remplacez cette valeur par Y.|
+    |Compte d’utilisateur pour exécuter le service|Acceptez la valeur par défaut, `NT AUTHORITY\LocalService)`.|
+    |Annuler la configuration de l’agent existant ?|Acceptez la valeur par défaut, **N**.|
 
 3.  Vous êtes invité à saisir des informations d’identification. Entrez les informations d’identification de votre compte Microsoft qui dispose des droits pour votre projet d’équipe.
 

@@ -52,11 +52,11 @@ Une passerelle de champ est différente d’un appareil de routage de trafic sim
 - Transformer les données de télémétrie pour faciliter le traitement de votre back-end de solution.
 - Effectuer la traduction de protocole pour permettre aux appareils de communiquer avec IoT Hub, même lorsqu’ils n’utilisent pas les protocoles de transport pris en charge par IoT Hub.
 
-> [AZURE.NOTE] En général, vous déployez une passerelle de champ de façon locale pour vos appareils, mais dans certains scénarios vous pouvez déployer une [passerelle de protocole][lnk-gateway] dans le cloud.
+> [AZURE.NOTE]En général, vous déployez une passerelle de champ de façon locale pour vos appareils, mais dans certains scénarios vous pouvez déployer une [passerelle de protocole][lnk-gateway] dans le cloud.
 
 ### Types de passerelles de champ
 
-Une passerelle de champ peut être *transparente* ou *opaque* :
+Une passerelle de champ peut être *transparente* ou *opaque*:
 
 | &nbsp; | Passerelle transparente | Passerelle opaque|
 |--------|-------------|--------|

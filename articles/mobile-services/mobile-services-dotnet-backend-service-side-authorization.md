@@ -83,4 +83,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 <!-- URLs. -->
 [Ajout de l'authentification à une application Mobile Services existante]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
