@@ -312,7 +312,7 @@ Pour implémenter et déployer une application multiniveau basée sur SQL Server
 
 Le tableau suivant présente une comparaison entre le développement web traditionnel avec Azure Cloud Services et Azure Web Apps par rapport à SQL Server dans le service Azure Virtual Machines. Ce tableau inclut Azure Web Apps, car vous pouvez utiliser SQL Server dans une machine virtuelle Azure en tant que source de données pour Azure Web Apps via son adresse IP virtuelle publique ou son nom DNS.
 
-|Développement web classique dans Azure Virtual Machines|Services cloud dans Azure|Hébergement web avec Azure Web Apps|
+||Développement web classique dans Azure Virtual Machines|Services cloud dans Azure|Hébergement web avec Azure Web Apps|
 |---|---|---|---|
 |**Migration d’applications au niveau local**|Applications existantes telles quelles.|Les applications ont besoin de rôles web et de travail.|Les applications existantes telles quelles, mais convient pour les applications web autonomes et les services web qui nécessitent une extensibilité rapide.|
 |**Déploiement et développement**|Visual Studio, WebMatrix, Visual Web Developer, WebDeploy, FTP, TFS, Gestionnaire des services Internet, PowerShell.|Visual Studio, Kit de développement logiciel (SDK) Azure, TFS, PowerShell. Chaque service cloud comporte deux environnements dans lesquels vous pouvez déployer vos packages de service et votre configuration : un environnement intermédiaire et un environnement de production. Vous pouvez déployer un service cloud dans l'environnement intermédiaire afin d'effectuer des tests avant de le passer en production.|Visual Studio, WebMatrix, Visual Web Developer, FTP, GIT, BitBucket, CodePlex, DropBox, GitHub, Mercurial, TFS, WebDeploy, PowerShell.|
