@@ -359,7 +359,8 @@ Le paramètre `<Instances>` spécifie le nombre de machines virtuelles sur lesqu
 
 ## Créer l’application à partir de zéro
 
-Si vous n'avez pas encore téléchargé [l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
+Si vous n'avez pas encore téléchargé
+[l'application terminée](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faites-le maintenant. Vous allez copier les fichiers du projet téléchargé dans le nouveau projet.
 
 La création de l'application Contoso Ads implique les étapes suivantes :
 

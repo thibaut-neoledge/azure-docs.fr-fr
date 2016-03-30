@@ -80,7 +80,8 @@ Dans cette étape, vous allez lier votre compte de stockage Azure à votre fabri
 
 	![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Une fois que le service lié est déployé, la fenêtre **Draft-1** doit disparaître tandis que **AzureStorageLinkedService** s’affiche dans l’arborescence sur la gauche. ![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Une fois que le service lié est déployé, la fenêtre **Draft-1** doit disparaître tandis que **AzureStorageLinkedService** s’affiche dans l’arborescence sur la gauche. 
+   	![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Créer le service lié Azure HDInsight

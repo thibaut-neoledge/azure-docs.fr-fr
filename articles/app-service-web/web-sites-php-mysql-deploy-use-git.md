@@ -214,7 +214,7 @@ Pour générer et exécuter l'application en local, procédez comme suit : notez
 
 		php -S localhost:8000
 
-Vous pouvez à présent accéder à ****http://localhost:8000/** pour tester l'application.
+Vous pouvez à présent accéder à **http://localhost:8000/** pour tester l'application.
 
 
 ##Publier votre application
