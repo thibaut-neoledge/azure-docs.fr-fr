@@ -39,7 +39,7 @@ Le code complet de ce didacticiel est disponible [sur GitHub](https://github.com
 
 Ce didacticiel requiert les éléments suivants :
 
-+ [Kit de développement logiciel (SDK) Mobile Services iOS version 2.x]
++ [Kit de développement logiciel (SDK) Mobile Services iOS version 1.2.4]
 + Version la plus récente de [Xcode]
 + Un appareil compatible iOS 8 (ou version ultérieure)
 + Un abonnement au [programme pour développeurs Apple](https://developer.apple.com/programs/)
@@ -86,7 +86,7 @@ Votre hub de notification est maintenant configuré pour APNS, et vous disposez 
 
    	![Xcode - profil d’approvisionnement][9]
 
-4. Téléchargez la [version 2.x du kit de développement logiciel (SDK) Mobile Services iOS] et décompressez le fichier. Dans Xcode, cliquez avec le bouton droit de la souris sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Copy items if needed**, puis cliquez sur **Add**.
+4. Téléchargez la [version 1.2.4 du kit de développement logiciel (SDK) Mobile Services iOS] et décompressez le fichier. Dans Xcode, cliquez avec le bouton droit de la souris sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Copy items if needed**, puis cliquez sur **Add**.
 
 	>[AZURE.NOTE] Le kit de développement logiciel Notification Hubs ne prend pas en charge le bitcode sur Xcode7. Vous devez définir **Activer le bitcode** sur **Non** dans les **Options de build** de votre projet.
 
@@ -486,9 +486,8 @@ Pour obtenir des informations générales sur Notification Hubs, consultez [Reco
 
 
 <!-- URLs. -->
-[Mobile Services iOS SDK version 1.2.4]: http://aka.ms/kymw2g
-[Kit de développement logiciel (SDK) Mobile Services iOS version 2.x]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads
-[version 2.x du kit de développement logiciel (SDK) Mobile Services iOS]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads
+[Kit de développement logiciel (SDK) Mobile Services iOS version 1.2.4]: http://aka.ms/kymw2g
+[version 1.2.4 du kit de développement logiciel (SDK) Mobile Services iOS]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -507,4 +506,4 @@ Pour obtenir des informations générales sur Notification Hubs, consultez [Reco
 [Guide de programmation des notifications locales et push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

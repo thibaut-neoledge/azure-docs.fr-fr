@@ -38,7 +38,7 @@ Vous apprendrez ce qui suit :
 
 * Comment créer une application web App Service pendant la création d’un projet web dans Visual Studio.
 * Comment déployer un projet web sur une application web App Service à l’aide de Visual Studio.
-* utiliser le [portail Azure](/overview/preview-portal/) pour surveiller et gérer votre application web.
+* utiliser le [portail Azure](/features/azure-portal/) pour surveiller et gérer votre application web.
 
 À la fin du didacticiel, une section [Résolution des problèmes](#troubleshooting) contient des suggestions sur la conduite à tenir en cas de dysfonctionnement, et la section [Étapes suivantes](#next-steps) vous oriente vers d’autres didacticiels plus détaillés sur l’utilisation d’Azure App Service.
 
@@ -108,7 +108,7 @@ Le diagramme illustre ce que vous faites dans les étapes de création et de dé
 
 	Cette zone de liste modifiable vous permet de sélectionner un groupe de ressources existant ou d’en créer un en tapant un nom différent des groupes de ressources existants de votre abonnement.
 
-	Un groupe de ressources est une collection de ressources Azure telles que des applications API, des bases de données, des machines virtuelles, etc. Pour un didacticiel, il est généralement préférable de créer un groupe de ressources, car cela permet de supprimer en une étape les ressources Azure que vous créez pour le didacticiel. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+	Un groupe de ressources est une collection de ressources Azure telles que des applications web, des bases de données, des machines virtuelles. Pour un didacticiel, il est généralement préférable de créer un groupe de ressources, car cela permet de supprimer en une étape les ressources Azure que vous créez pour le didacticiel. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
 4. Cliquez sur le bouton **Nouveau** situé en regard de la liste déroulante **Plan App Service**.
 
@@ -116,7 +116,7 @@ Le diagramme illustre ce que vous faites dans les étapes de création et de dé
 
 	La capture d’écran montre des exemples de valeur pour **Nom de l’application web**, **Abonnement** et **Groupe de ressources**. Vos valeurs sont différentes.
 
-	Au cours des étapes suivantes, vous allez créer un plan de service d’application pour le nouveau groupe de ressources. Un plan de service d’application spécifie les ressources de calcul sur lesquelles votre application API s’exécute. Par exemple, si vous choisissez le niveau Gratuit, votre application API s’exécute sur des machines virtuelles partagées, tandis que pour certains niveaux payants, elle s’exécute sur des machines virtuelles dédiées. Pour plus d’informations, consultez [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) (Présentation des plans App Service).
+	Au cours des étapes suivantes, vous allez créer un plan de service d’application pour le nouveau groupe de ressources. Un plan de service d’application spécifie les ressources de calcul nécessaires à l’exécution de votre application web. Par exemple, si vous choisissez le niveau Gratuit, votre application API s’exécute sur des machines virtuelles partagées, tandis que pour certains niveaux payants, elle s’exécute sur des machines virtuelles dédiées. Pour plus d’informations, consultez [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) (Présentation des plans App Service).
 
 5. Dans la boîte de dialogue **Configurer le plan App Service**, entrez « MyExamplePlan » ou un autre nom si vous préférez.
 
@@ -146,9 +146,11 @@ Le diagramme illustre ce que vous faites dans les étapes de création et de dé
 
 	![Application web créée dans la fenêtre Activité d’Azure App Service](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
-	L’application web s’affiche dans **Cloud Explorer**.
+	Et vous pouvez voir l’application web dans la fenêtre **Cloud Explorer** de Visual Studio.
 
 	![Application web créée dans Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
+	
+	Cette fenêtre vous permet d’afficher et de gérer une large plage de ressources Azure. La capture d’écran montre uniquement les applications web, mais vous verrez plusieurs types de ressources dans votre fenêtre **Cloud Explorer**. Exécutez un clic droit sur une ressource, par exemple, votre application web pour afficher les options de gestion des données.
 
 ## Déploiement du projet web dans l’application web Azure
 
@@ -162,13 +164,13 @@ Dans cette section, vous déployez le projet web dans l’application web, comme
 
 	Au bout de quelques secondes, l’Assistant **Publier le site web** s’ouvre. L’Assistant s’ouvre sur un *profil de publication* présentant des paramètres pour le déploiement du projet web sur la nouvelle application web. Si vous souhaitez exécuter le déploiement sur une autre application web, cliquez sur l’onglet **Profil** pour créer un autre profil. Pour ce didacticiel, vous devez accepter les paramètres de déploiement de l’application web que vous avez créée plus tôt.
 
-	Le profil de publication contient le nom d’utilisateur et le mot de passe pour le déploiement. Ces informations d’identification ont été générées pour vous, mais vous pouvez modifier les valeurs que vous choisissez. Vous verrez comment procéder dans la section du didacticiel qui présente le portail Azure. Le mot de passe est chiffré dans un fichier utilisateur spécifique masqué dans le dossier `Properties\PublishProfiles`.
+	Le profil de publication contient le nom d’utilisateur et le mot de passe pour le déploiement. Ces informations d’identification ont été générées pour vous et vous n’êtes pas obligé de les saisir ou de les modifier. Le mot de passe est chiffré dans un fichier utilisateur spécifique masqué dans le dossier `Properties\PublishProfiles`.
 
 8. Sous l’onglet **Connexion** de l’Assistant **Publier le site web**, cliquez sur **Suivant**.
 
 	![Sur l’onglet Connexion de l’assistant Publier le site Web, cliquez sur Suivant](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
-	L’onglet suivant est l’onglet **Paramètres**. Vous pouvez modifier l’onglet configuration de build pour déployer une build de débogage pour le [débogage distant](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). L’onglet offre également plusieurs **Options de publication des fichiers** :
+	L’onglet suivant est l’onglet **Paramètres**. Vous pouvez modifier l’onglet Configuration de build pour déployer une build de débogage pour le [débogage distant](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). L’onglet offre également plusieurs **Options de publication des fichiers** :
 
 	* Supprimer les fichiers supplémentaires de la destination
 	* Précompiler durant la publication
@@ -198,7 +200,7 @@ Dans cette section, vous déployez le projet web dans l’application web, comme
 
 > [AZURE.TIP] Vous pouvez activer la barre d’outils **Publication Web en un clic** pour accélérer le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. Vous pouvez utiliser cette barre d’outils pour sélectionner un profil ou encore cliquer sur un bouton pour publier ou pour ouvrir l’Assistant **Publier le site web**. ![Barre d’outil Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
-## Surveillance et gestion de l’application web dans le portail Azure
+## <a id="portal"></a> Surveillance et gestion de l’application web dans le portail Azure
 
 Le [portail Azure](/services/management-portal/) est une interface web qui vous permet de gérer et de surveiller vos services Azure, tels que l’application web que vous venez de créer. Dans cette section du didacticiel, vous allez examiner certaines des possibilités offertes par le portail.
 
@@ -218,8 +220,8 @@ Le [portail Azure](/services/management-portal/) est une interface web qui vous 
 
 	![Panneau Paramètres dans le portail Azure](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	Notez le lien **Informations d’identification du déploiement** dans la section **Publication**. C’est à ce stade que vous créez un nouveau nom d’utilisateur et un mot de passe pour le déploiement. Vous pouvez saisir un nom d’utilisateur et le mot de passe de votre choix, puis entrer les mêmes valeurs sur l’onglet **Connexion** de l’Assistant **Publier le site Web** dans votre projet web.
-
+	Notez le lien **Informations d’identification du déploiement** dans la section **Publication**. C’est à ce stade que vous créez un nom d’utilisateur personnalisé et un mot de passe pour le déploiement. Cliquez sur le bouton **Enregistrer** en haut du panneau pour soumettre votre modification. Si vous créez un nom d’utilisateur et un mot de passe, puis entrez les mêmes valeurs sur l’onglet **Connexion** de l’Assistant **Publier le site web** dans votre projet web.
+	
 	La capture d’écran ne représente qu’une vue partielle du panneau **Paramètres**. Ce panneau comporte d’autres sections que celles qui sont affichées.
 
 4. Cliquez sur **Paramètres de l’application** dans la section **Général** du panneau **Paramètres** pour afficher un exemple des paramètres configurables dans le portail.
@@ -234,7 +236,7 @@ Ce ne sont là que quelques-unes des fonctionnalités du portail. Vous pouvez cr
 
 Lorsque vous n’avez plus besoin l’application web que vous avez créée pour ce didacticiel, vous pouvez la supprimer.
 
-Un moyen simple de supprimer votre application web consiste à cliquer sur le bouton **Supprimer** en haut du panneau **Web App** dans le portail Azure. Il est toutefois encore plus judicieux de supprimer le groupe de ressources que vous avez créé pour y placer l’application web. Pour ce didacticiel, le groupe de ressources contient uniquement l’application web, mais en général, un groupe de ressources est constitué d’une collection de ressources liées. Par exemple, votre application web peut utiliser une base de données ou un compte de stockage Azure qui devient inutile lorsque vous n’avez plus besoin de l’application web. Lorsque vous supprimez un groupe de ressources, tout ce qu’il contient est supprimé. Pour supprimer un groupe de ressources à l’aide du portail Azure, exécutez les opérations qui suivent.
+Un moyen simple de supprimer votre application web consiste à cliquer sur le bouton **Supprimer** en haut du panneau **Web App** dans le portail Azure. Il est toutefois encore plus judicieux de supprimer le groupe de ressources que vous avez créé pour y placer l’application web. Pour ce didacticiel, le groupe de ressources contient uniquement l’application web, mais en général, un groupe de ressources est constitué d’une collection de ressources liées. Par exemple, votre application web peut utiliser une base de données ou un compte de stockage Azure qui devient inutile lorsque vous supprimez l’application web. Lorsque vous supprimez un groupe de ressources, tout ce qu’il contient est supprimé. Pour supprimer un groupe de ressources à l’aide du portail Azure, exécutez les opérations qui suivent.
 
 1. Accédez à la page d’accueil du [portail Azure](https://portal.azure.com).
 
@@ -254,7 +256,7 @@ Si vous rencontrez un problème pendant que vous progressez dans ce didacticiel,
 
 Si vous vous trouvez sur un réseau d’entreprise et que vous essayez d’exécuter un déploiement au-delà d’un pare-feu dans Azure App Service, assurez-vous que les ports 443 et 8172 sont ouverts pour le déploiement Web. Si vous ne pouvez pas ouvrir ces ports, consultez la section Étapes suivantes pour connaître les autres options de déploiement.
 
-Une fois que vous aurez configuré votre application web ASP.NET dans Azure App Service, vous souhaiterez peut-être en savoir plus sur les fonctionnalités de Visual Studio qui simplifient la résolution des problèmes. Pour plus d’informations sur la journalisation, le débogage à distance, etc., consultez la section [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Une fois que vous aurez configuré votre application web ASP.NET dans Azure App Service, vous souhaiterez peut-être en savoir plus sur les fonctionnalités de Visual Studio qui simplifient la résolution des problèmes. Pour plus d’informations sur la journalisation, le débogage à distance, etc. consultez la section [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Étapes suivantes
 
@@ -270,7 +272,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 * Création d’applications API
 
-	Vous avez vu comment créer une instance d’Azure App Service qui est principalement destinée à héberger un site web. App Service dispose également de fonctionnalités conçues pour faciliter le développement, le test et l’hébergement des API. Pour plus d’informations, consultez [Prise en main d’API Apps et d’ASP.NET dans Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md).
+	Vous avez vu comment créer une instance d’Azure App Service qui est principalement destinée à héberger un site web. Ces instances sont appelées applications web. App Service dispose également de fonctionnalités conçues pour faciliter le développement, le test et l’hébergement des API. Les instances de Service d’application destinées principalement aux API hôtes sont appelées applications API. Pour plus d’informations, consultez [Prise en main d’API Apps et d’ASP.NET dans Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md).
 
 * Autres méthodes de déploiement d’un projet web
 
@@ -289,6 +291,6 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 * Comparaison entre App Service, Azure Cloud Services et Azure Virtual Machines pour les applications web
 
-	Azure vous permet d’exécuter des applications web dans App Service Web Apps (comme vous l’avez vu dans ce didacticiel), mais aussi dans Cloud Services ou Virtual Machines. Pour plus d’informations, consultez [Microsoft Azure Websites, Web Roles, and VMs: When to use which?](/manage/services/web-sites/choose-web-app-service/) (Applications web, services cloud et machines virtuelles Azure : quand les utiliser ?)
+	Azure vous permet d’exécuter des applications web dans App Service Web Apps (comme vous l’avez vu dans ce didacticiel), mais aussi dans Cloud Services ou Virtual Machines. Pour plus d’informations, consultez [Windows Azure Websites, Web Roles, and VMs: When to use which?](/manage/services/web-sites/choose-web-app-service/) (Applications web, services cloud et machines virtuelles Azure : quand les utiliser ?)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

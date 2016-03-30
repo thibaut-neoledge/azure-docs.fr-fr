@@ -2,20 +2,20 @@
 
 Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’interface de ligne de commande Azure, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../articles/xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **`azure config mode`** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
 
-	Voici le résultat attendu pour la commande ci-dessus :
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		info:    New mode is arm
 
-3. Si nécessaire, exécutez la commande **`azure group create`** pour créer un groupe de ressources, comme indiqué ci-dessous. Observez le résultat de la commande. La liste affichée après le résultat présente les différents paramètres utilisés. Pour plus d'informations sur les groupes de ressources, consultez la [Présentation d'Azure Resource Manager](resource-group-overview.md).
+3. Si nécessaire, exécutez la commande **`azure group create`** pour créer un groupe de ressources, comme indiqué ci-dessous. Observez le résultat de la commande. La liste affichée après le résultat présente les différents paramètres utilisés. Pour plus d'informations sur les groupes de ressources, consultez la [Présentation d'Azure Resource Manager](../articles/resource-group-overview.md).
 
 		azure group create -n TestRG -l centralus
 
-	Voici le résultat attendu pour la commande ci-dessus :
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		info:    Executing command group create
 		+ Getting resource group TestRG
@@ -36,7 +36,7 @@ Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’int
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-	Voici le résultat attendu pour la commande ci-dessus :
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		info:    Executing command group deployment create
 		+ Initializing template configurations and parameters
@@ -69,7 +69,7 @@ Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’int
 
 		azure network vnet show -g TestRG -n TestVNet
 
-	Voici le résultat attendu pour la commande ci-dessus :
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
@@ -89,4 +89,4 @@ Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’int
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

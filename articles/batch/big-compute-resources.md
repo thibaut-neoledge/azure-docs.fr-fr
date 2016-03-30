@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ressources pour les charges de travail par lots et HPC dans le cloud | Microsoft Azure"
+   pageTitle="Ressources pour les charges de travail par lots et HPC dans le cloud | Microsoft Azure"
    description="Répertorie des ressources techniques pour vous aider à exécuter vos charges de travail à grande échelle en parallèle, par lots et HPC (calcul haute performance) dans Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="01/26/2016"
    ms.author="danlep"/>
 
-# Big Compute dans Azure : ressources techniques pour Batch et HPC (calcul haute performance)
+# Big Compute dans Azure : ressources techniques pour Batch et HPC (calcul haute performance)
 Il s'agit d'un guide de ressources techniques pour vous aider à exécuter vos charges de travail à grande échelle en parallèle, par lots et HPC (calculs complexes) dans Azure. Étendez vos charges de travail existantes HPC ou Batch dans le cloud Azure ou créez des solutions Big Compute dans Azure à l'aide d'une variété de services Azure.
 
 ## Options de solutions
@@ -25,7 +25,7 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 * [Solutions HPC et Batch](batch-hpc-solutions.md)
 
-* [Vidéo : Big Compute dans le cloud avec Azure et HPC](https://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [Vidéo : Big Compute dans le cloud avec Azure et HPC](https://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure Batch
@@ -34,9 +34,9 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 * [Documentation](https://azure.microsoft.com/documentation/services/batch/)
 
-* Informations de référence sur les API [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) et [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+* Informations de référence sur les API [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) et [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
-* [Didacticiel : prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md)
+* [Didacticiel : prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md)
 
 * [Forum Azure Batch](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurebatch)
 
@@ -55,7 +55,7 @@ HPC Pack est la solution HPC gratuite de Microsoft construite autour des technol
 * [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Options de cluster HPC avec Microsoft HPC Pack dans Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [Options de cluster HPC avec Microsoft HPC Pack dans Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 
 * [Intégration à des instances de travail Azure avec HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -87,11 +87,12 @@ Ces modèles Azure permettent de déployer des clusters HPC Linux.
 
 ## Instances de calcul intensif
 
-Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-specs.md), y compris des instances [A8 et A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) nécessitant beaucoup de ressources système et capables de se connecter à un réseau RDMA principal pour exécuter vos charges de travail HPC Linux et Windows.
+Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-windows-sizes.md), y compris des instances [A8 et A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) nécessitant beaucoup de ressources système et capables de se connecter à un réseau RDMA principal pour exécuter vos charges de travail HPC Linux et Windows.
 
-* [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [Configuration d'un cluster Windows RDMA avec Microsoft HPC Pack pour exécuter des applications MPI](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
+
+* [Configuration d'un cluster Windows RDMA avec Microsoft HPC Pack pour exécuter des applications MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
 ## Plans d'architecture
 
@@ -128,7 +129,7 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 
 * [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
 
-* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
 
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 
@@ -145,4 +146,4 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](https://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -17,11 +17,11 @@
 
 # Présentation d’Azure Scheduler
 
-Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud. Ensuite, il planifie et exécute ces actions automatiquement. Scheduler effectue cette opération à l’aide du [portail Azure](scheduler-get-started-portal.md), du code, de l’[API REST](https://msdn.microsoft.com/library/dn528946) ou d’Azure PowerShell.
+Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud. Ensuite, il planifie et exécute ces actions automatiquement. Scheduler effectue cette opération à l’aide du [portail Azure](scheduler-get-started-portal.md), du code, de l’[API REST](https://msdn.microsoft.com/library/mt629143.aspx) ou d’Azure PowerShell.
 
-Le scheduler crée, gère et appelle le travail planifié. Scheduler n’héberge pas de charge de travail et n’exécute pas de code. Il se contente d’_appeler_ du code qui est hébergé ailleurs, par exemple, dans Azure, localement ou auprès d’un autre fournisseur. Il effectue l'appel via HTTP, HTTPS ou une file d'attente de stockage.
+Le scheduler crée, gère et appelle le travail planifié. Scheduler n’héberge pas de charge de travail et n’exécute pas de code. Il se contente d’_appeler_ du code qui est hébergé ailleurs, par exemple, dans Azure, localement ou auprès d’un autre fournisseur. Il effectue des appels via HTTP, HTTPS, une file d’attente de stockage, une file d’attente Service Bus ou une rubrique Service Bus.
 
-Scheduler planifie les [tâches](scheduler-concepts-terms.md), conserve un historique des résultats de leur exécution, qui pourront faire l’objet d’une consultation, et planifie de façon déterministe et fiable les charges de travail à exécuter. Azure WebJobs (partie de la fonctionnalité d’applications Web dans le Service d’application Azure) et autres fonctionnalités de planification d’Azure utilisent le planificateur en arrière-plan. L'[API REST de Scheduler](https://msdn.microsoft.com/library/dn528946) permet de gérer la communication de ces actions. Ainsi, Scheduler prend en charge les [planifications complexes et la périodicité avancée facilement](scheduler-advanced-complexity.md).
+Scheduler planifie les [tâches](scheduler-concepts-terms.md), conserve un historique des résultats de leur exécution, qui pourront faire l’objet d’une consultation, et planifie de façon déterministe et fiable les charges de travail à exécuter. Azure WebJobs (partie de la fonctionnalité d’applications Web dans le Service d’application Azure) et autres fonctionnalités de planification d’Azure utilisent le planificateur en arrière-plan. L'[API REST de Scheduler](https://msdn.microsoft.com/library/mt629143.aspx) permet de gérer la communication de ces actions. Ainsi, Scheduler prend en charge les [planifications complexes et la périodicité avancée facilement](scheduler-advanced-complexity.md).
 
 Il existe plusieurs scénarios qui se prêtent à l’utilisation de Scheduler. Par exemple :
 
@@ -50,4 +50,4 @@ Scheduler vous permet de créer, de mettre à jour, de supprimer, d’afficher e
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

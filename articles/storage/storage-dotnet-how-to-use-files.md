@@ -210,8 +210,9 @@ Lorsqu’un client accède au stockage de fichiers, la version de SMB utilisée 
 
 Pour illustrer comment monter un partage de fichiers Azure, nous allons créer une machine virtuelle Azure exécutant Windows, à laquelle nous accéderons à distance pour monter le partage.
 
-1. Commencez par créer une machine virtuelle Azure en suivant les instructions de la page [Créer une machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-tutorial.md).
-2. Connectez-vous ensuite à la une machine virtuelle Azure en suivant les instructions de la page [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md).
+
+1. Commencez par créer une machine virtuelle Azure en suivant les instructions de la page [Créer une machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+2. Connectez-vous ensuite à la machine virtuelle Azure en suivant les instructions de la page [Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure](../virtual-machines/virtual-machines-windows-log-on.md).
 3. Ouvrez une fenêtre PowerShell sur la machine virtuelle.
 
 ### Conservation des informations d'identification de votre compte de stockage pour la machine virtuelle
@@ -646,4 +647,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

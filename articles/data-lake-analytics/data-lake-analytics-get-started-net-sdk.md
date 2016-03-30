@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Didacticiel : prise en main d’Analytique Data Lake Azure à l’aide du kit de développement logiciel .NET | Azure" 
+   pageTitle="Didacticiel : prise en main d’Analytique Data Lake Azure à l’aide du kit de développement logiciel .NET | Azure" 
    description="Apprenez à utiliser le kit de développement .NET pour créer les comptes Data Lake Store, créez des travaux Analytique Data Lake et envoyez des travaux rédigés en U-SQL." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -16,7 +16,7 @@
    ms.date="02/25/2016"
    ms.author="edmaca"/>
 
-# Didacticiel : prise en main d’Analytique Data Lake Azure à l’aide du kit de développement logiciel .NET
+# Didacticiel : prise en main d’Analytique Data Lake Azure à l’aide du kit de développement logiciel .NET
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
@@ -25,7 +25,7 @@ Découvrez comment utiliser le kit de développement logiciel .NET Azure pour cr
 
 Dans ce didacticiel, vous allez développer une application de console C# qui contient un script U-SQL qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertit en fichier CSV (valeurs séparées par des virgules). Pour suivre ce même didacticiel à l’aide d’autres outils pris en charge, cliquez sur les onglets en haut de cette section.
 
-**Processus Analytique Data Lake de base :**
+**Processus Analytique Data Lake de base :**
 
 ![Diagramme du flux de processus Analytique Data Lake Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
@@ -36,14 +36,14 @@ Dans ce didacticiel, vous allez développer une application de console C# qui co
 
 ##Configuration requise
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C+**.
-- **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure**. Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C+**.
+- **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure**. Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Outils Data Lake pour Visual Studio](http://aka.ms/adltoolsvs)**. 
 - **Un compte Analytique Data Lake**. Consultez [Créer un compte Analytique Data Lake Azure](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	Data Lake Tools pour Visual Studio ne prend pas en charge la création de comptes Data Lake Analytics. Pour en créer un, utilisez le portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET Azure ou l’interface de ligne de commande Azure.
+	Data Lake Tools pour Visual Studio ne prend pas en charge la création de comptes Data Lake Analytics. Pour en créer un, utilisez le portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET Azure ou l’interface de ligne de commande Azure.
 
 ##Création d’une application de console
 
@@ -55,7 +55,7 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
 
 1. Ouvrez Visual Studio.
 2. Création d’une application console C#.
-3. Ouvrez la console de gestion de package Nuget suivante, puis exécutez les commandes suivantes :
+3. Ouvrez la console de gestion de package Nuget suivante, puis exécutez les commandes suivantes :
 
         Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
         Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
@@ -84,18 +84,18 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
     
     Dans le programme C#, vous devez préparer le dossier **/Samples/Data/SearchLog.tsv** fichier et le **/Output/**.
 	
-	Il est plus simple d’utiliser des chemins d’accès relatifs pour les fichiers stockés dans les comptes Data Lake par défaut. Vous pouvez également utiliser des chemins d’accès absolus. Par exemple :
+	Il est plus simple d’utiliser des chemins d’accès relatifs pour les fichiers stockés dans les comptes Data Lake par défaut. Vous pouvez également utiliser des chemins d’accès absolus. Par exemple :
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    Vous devez utiliser des chemins d’accès absolus pour accéder aux fichiers dans les comptes de stockage liés. La syntaxe des fichiers stockés dans le compte de stockage Azure lié est la suivante :
+    Vous devez utiliser des chemins d’accès absolus pour accéder aux fichiers dans les comptes de stockage liés. La syntaxe des fichiers stockés dans le compte de stockage Azure lié est la suivante :
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
     >[AZURE.NOTE] Les conteneurs d’objets blobs Azure avec autorisations d’accès aux objets blobs publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
        
        
-5. Dans Program.cs, collez le code suivant :
+5. Dans Program.cs, collez le code suivant :
 
         using System;
         using System.IO;
@@ -157,7 +157,7 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
                     WaitForNewline("Source data file prepared.", "Submitting a job.");
 
                     // Submit the job
-                    string jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
+                    Guid jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
                     WaitForNewline("Job submitted.", "Waiting for job completion.");
 
                     // Wait for job completion
@@ -290,9 +290,9 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
 
                 // Submit a U-SQL job by providing script contents.
                 // Returns the job ID
-                public static string SubmitJobByScript(string script, string jobName)
+                public static Guid SubmitJobByScript(string script, string jobName)
                 {
-                    var jobId = Guid.NewGuid().ToString();
+                    var jobId = Guid.NewGuid();
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties);
 
@@ -302,11 +302,11 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
                 }
 
                 // Submit a U-SQL job by providing a path to the script
-                public static string SubmitJobByPath(string scriptPath, string jobName)
+                public static Guid SubmitJobByPath(string scriptPath, string jobName)
                 {
                     var script = File.ReadAllText(scriptPath);
 
-                    var jobId = Guid.NewGuid().ToString();
+                    var jobId = Guid.NewGuid();
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1000, degreeOfParallelism: 1);
 
@@ -315,7 +315,7 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
                     return jobId;
                 }
 
-                public static JobResult WaitForJob(string jobId)
+                public static JobResult WaitForJob(Guid jobId)
                 {
                     var jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
                     while (jobInfo.State != JobState.Ended)
@@ -369,8 +369,8 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
 - Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
 - Pour voir une requête plus complexe, consultez [Analyse de journaux de site web à l’aide d’Analytique Data Lake Azure](data-lake-analytics-analyze-weblogs.md).
 - Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec les outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Pour découvrir U-SQL, consultez les articles [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence sur le langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+- Pour découvrir U-SQL, consultez les articles [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence sur le langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de l’analyse de données Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

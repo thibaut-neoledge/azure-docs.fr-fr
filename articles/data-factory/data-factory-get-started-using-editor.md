@@ -25,21 +25,20 @@
 - [Utilisation de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
 
-##Dans ce didacticiel
 Ce didacticiel comprend les étapes suivantes :
 
 Étape | Description
 -----| -----------
-[Étape 1 : créer une fabrique de données Azure](#CreateDataFactory) | Dans cette étape, vous allez créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.  
-[Étape 2 : créer des services liés](#CreateLinkedServices) | Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **AzureSqlLinkedService**. StorageLinkedService lie le stockage Azure et AzureSqlLinkedService lie la base de données SQL Azure à ADFTutorialDataFactory. Les données d'entrée pour le pipeline se trouvent dans un conteneur d'objets blob dans le stockage d'objets blob Azure et les données de sortie sont stockées dans une table dans la base de données SQL Azure. Par conséquent, vous ajoutez ces deux magasins de données en tant que services liés à la fabrique de données.      
-[Étape 3 : créer des tables d'entrée et de sortie](#CreateInputAndOutputDataSets) | Dans l'étape précédente, vous avez créé des services liés qui font référence à des magasins de données contenant des données d'entrée/sortie. Dans cette étape, vous allez définir deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d'entrée/sortie qui sont stockées dans les magasins de données. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur d'objets blob qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous spécifiez la table SQL qui stocke les données de sortie. Vous devez également spécifier d'autres propriétés telles que la structure des données, la disponibilité des données, etc. 
-[Étape 4 : créer et exécuter un pipeline](#CreateAndRunAPipeline) | Dans cette étape, vous allez créer un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données ADFTutorialDataFactory. Le pipeline effectue une **activité de copie** qui copie les données d'entrée de l'objet blob Azure vers la table SQL Azure de sortie. L’activité de copie effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un service disponible à l’échelle mondiale qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md). 
-[Étape 5 : surveiller les tranches et le pipeline](#MonitorDataSetsAndPipeline) | Dans cette étape, vous allez surveiller les tranches de tables d’entrée et de sortie à l’aide du portail Azure.
+[créer une fabrique de données Azure](#create-data-factory) | Dans cette étape, vous allez créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.  
+[créer des services liés](#create-linked-services) | Dans cette étape, vous allez créer deux services liés : **AzureStorageLinkedService** et **AzureSqlLinkedService**. AzureStorageLinkedService lie le stockage Azure et AzureSqlLinkedService lie la base de données SQL Azure à ADFTutorialDataFactory. Les données d'entrée pour le pipeline se trouvent dans un conteneur d'objets blob dans le stockage d'objets blob Azure et les données de sortie sont stockées dans une table dans la base de données SQL Azure. Par conséquent, vous ajoutez ces deux magasins de données en tant que services liés à la fabrique de données.      
+[Créer des jeux de données d'entrée et de sortie](#create-datasets) | Dans l'étape précédente, vous avez créé des services liés qui font référence à des magasins de données contenant des données d'entrée/sortie. Dans cette étape, vous allez définir deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d'entrée/sortie qui sont stockées dans les magasins de données. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur d'objets blob qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous spécifiez la table SQL qui stocke les données de sortie. Vous devez également spécifier d'autres propriétés telles que la structure des données, la disponibilité des données, etc. 
+[Créer un pipeline](#create-pipeline) | Dans cette étape, vous allez créer un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données ADFTutorialDataFactory. Le pipeline effectue une **activité de copie** qui copie les données d'entrée de l'objet blob Azure vers la table SQL Azure de sortie. L’activité de copie effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un service disponible à l’échelle mondiale qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie [Activités de déplacement des données](data-factory-data-movement-activities.md). 
+[Surveillance d’un pipeline](#monitor-pipeline) | Dans cette étape, vous allez surveiller les tranches de tables d’entrée et de sortie à l’aide du portail Azure.
 
 > [AZURE.IMPORTANT] 
 Passez en revue l'article [Vue d'ensemble du didacticiel](data-factory-get-started.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
 
-## <a name="CreateDataFactory"></a>Étape 1 : création d’une fabrique de données Microsoft Azure
+## Créer une fabrique de données
 Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
 
 1.	Une fois connecté au [portail Azure][azure-portal], cliquez dans le coin inférieur gauche sur **NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Fabrique de données** dans le panneau **Analyse de données**. 
@@ -71,10 +70,10 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 
     ![Page d'accueil Data Factory][image-data-factory-get-stated-factory-home-page]
 
-## <a name="CreateLinkedServices"></a>Étape 2 : créer des services liés
+## créer des services liés
 Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Un magasin de données peut être un compte de stockage Azure, une base de données SQL Azure ou une base de données SQL Server locale.
 
-Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **AzureSqlLinkedService**. Le service lié StorageLinkedService lie un compte de stockage Azure Storage et AzureSqlLinkedService lie une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Vous allez créer un pipeline à une étape ultérieure de ce didacticiel pour copier les données d'un conteneur d'objets blob dans StorageLinkedService vers une table SQL dans AzureSqlLinkedService.
+Dans cette étape, vous allez créer deux services liés : **AzureStorageLinkedService** et **AzureSqlLinkedService**. Le service lié AzureStorageLinkedService lie un compte de stockage Azure Storage et AzureSqlLinkedService lie une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Plus loin dans ce didacticiel, vous allez créer un pipeline qui servira à copier les données d’un conteneur d’objets blob dans AzureStorageLinkedService vers une table SQL dans AzureSqlLinkedService.
 
 ### Créer un service lié pour le compte de stockage Azure
 1.	Dans le panneau **FABRIQUE DE DONNÉES**, cliquez sur la vignette **Créer et déployer** pour lancer l'**éditeur** de la fabrique de données.
@@ -88,11 +87,11 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServic
     
 6. Remplacez les éléments **nom\_compte** et **clé\_compte** par le nom du compte et les valeurs de clé de compte de votre compte Microsoft Azure Storage.
 
-	![Éditeur - Stockage d’objets blob - JSON][image-editor-blob-storage-json]
+	![Éditeur - Stockage d’objets blob - JSON](./media/data-factory-get-started-using-editor/getstarted-editor-blob-storage-json.png)
 	
 	Pour en savoir plus sur les propriétés JSON, voir [Référence de script JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-6. Cliquez sur l’option **Déployer** de la barre d’outils pour déployer le service lié StorageLinkedService. Vérifiez que le message **SERVICE LIÉ CRÉÉ AVEC SUCCÈS** s’affiche dans la barre de titre.
+6. Cliquez sur l’option **Déployer** de la barre d’outils pour déployer le service lié AzureStorageLinkedService. Vérifiez que le message **SERVICE LIÉ CRÉÉ AVEC SUCCÈS** s’affiche dans la barre de titre.
 
 	![Éditeur - Stockage d'objets blob - Déploiement][image-editor-blob-storage-deploy]
 
@@ -105,11 +104,11 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServic
 3. Cliquez sur l’option **Déployer** de la barre d’outils pour créer et déployer le service AzureSqlLinkedService. 
    
 
-## <a name="CreateInputAndOutputDataSets"></a>Étape 3 : créer des tables d'entrée et de sortie
-À l'étape précédente, vous avez créé les services liés **StorageLinkedService** et **AzureSqlLinkedService** pour lier un compte Azure Storage et une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Dans cette étape, vous allez définir deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d'entrée/sortie qui sont stockées dans les magasins de données référencés par StorageLinkedService et AzureSqlLinkedService, respectivement. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur d'objets blob qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous devez spécifier la table SQL qui stocke les données de sortie.
+## Créer des jeux de données
+À l’étape précédente, vous avez créé les services liés **AzureStorageLinkedService** et **AzureSqlLinkedService** pour lier un compte Azure Storage et une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Dans cette étape, vous allez définir deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d’entrée/sortie qui sont stockées dans les magasins de données référencés par AzureStorageLinkedService et AzureSqlLinkedService, respectivement. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur d'objets blob qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous devez spécifier la table SQL qui stocke les données de sortie.
 
-### Créer une table d'entrée 
-Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans cette étape, vous allez créer une table nommée **EmpBlobTable** qui pointe vers un conteneur d'objets blob dans l'emplacement Azure Storage représenté par le service lié **StorageLinkedService**.
+### Créer le jeu de données d’entrée 
+Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans cette étape, vous allez créer une table nommée **EmpBlobTable** qui pointe vers un conteneur d’objets blob dans l’emplacement Azure Storage représenté par le service lié **AzureStorageLinkedService**.
 
 1. Dans l'**éditeur** de Data Factory, cliquez sur le bouton **Nouveau jeu de données** dans la barre d'outils et cliquez sur **Table d'objets blob** dans le menu déroulant. 
 2. Remplacez le script JSON dans le volet droit par l'extrait de code JSON suivant : 
@@ -128,7 +127,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 		      }
 		    ],
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/",
 			  "fileName": "emp.txt",
@@ -149,7 +148,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
      Notez les points suivants :
 	
 	- Le **type** de jeu de données est défini sur **AzureBlob**.
-	- **linkedServiceName** a la valeur **StorageLinkedService**. Vous avez créé ce service lié à l'étape 2.
+	- **linkedServiceName** est défini sur la valeur **StorageLinkedService**. Vous avez créé ce service lié à l'étape 2.
 	- **folderPath** a la valeur du conteneur **adftutorial**. Vous pouvez également spécifier le nom d'un objet blob dans le dossier. Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.  
 	- Le **type** de format a la valeur **TextFormat**.
 	- Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).	
@@ -174,9 +173,9 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 
 	Pour plus d'informations sur les propriétés JSON, consultez [Référence sur la création de scripts JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-2. Cliquez sur **Déployer** dans la barre d'outils pour créer et déployer la table **EmpTableFromBlob**. Vérifiez que le message **TABLE CORRECTEMENT CRÉÉE** s'affiche dans la barre de titre de l'éditeur.
+2. Cliquez sur **Déployer** dans la barre d'outils pour créer et déployer la table **EmpTableFromBlob**. Vérifiez que le message **TABLE CORRECTEMENT CRÉÉE** s’affiche dans la barre de titre de l’éditeur.
 
-### Créer la table de sortie
+### Créer un jeu de données de sortie
 Dans cette partie de l'étape, vous allez créer une table de sortie nommée **EmpSQLTable** qui pointe vers une table SQL de la base de données SQL Azure, représentée par le service lié **AzureSqlLinkedService**.
 
 1. Dans l'**éditeur** de Data Factory, cliquez sur le bouton **Nouveau jeu de données** dans la barre d'outils et cliquez sur **Table SQL Azure** dans le menu déroulant. 
@@ -220,8 +219,8 @@ Dans cette partie de l'étape, vous allez créer une table de sortie nommée **E
 3. Cliquez sur **Déployer** dans la barre d'outils pour créer et déployer la table **EmpSQLTable**.
 
 
-## <a name="CreateAndRunAPipeline"></a>Étape 4 : créer et exécuter un pipeline
-Dans cette étape, vous créez un pipeline avec une **activité de copie** qui utilise **EmpTableFromBlob** comme entrée et **EmpSQLTable** comme sortie.
+## Création d’un pipeline
+Dans cette étape, vous créez un pipeline avec une **activité de copie** qui utilise **EmpTableFromBlob** en entrée et **EmpSQLTable** en sortie.
 
 1. Dans l'**éditeur** de Data Factory, cliquez sur le bouton **Nouveau pipeline** dans la barre d'outils. Si ce bouton n'est pas affiché dans la barre d'outils, cliquez sur **... (points de suspension)**. Vous pouvez également cliquer sur **Pipelines** dans l'arborescence, puis sur **Nouveau pipeline**.
 
@@ -310,7 +309,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 4. Cliquez sur **Fabrique de données** dans la barre de navigation située dans le coin supérieur gauche pour revenir à la vue schématique. La vue schématique affiche tous les pipelines. Dans cet exemple, vous avez créé un seul pipeline.
  
 
-## <a name="MonitorDataSetsAndPipeline"></a>Étape 5 : surveiller les jeux de données et le pipeline
+## Surveillance d’un pipeline
 Dans cette étape, vous allez utiliser le portail Azure Classic pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus d'informations sur l'utilisation des applets de commande pour la surveillance, consultez [Surveiller et gérer Data Factory à l'aide des applets de commande PowerShell][monitor-manage-using-powershell].
 
 1. Accédez au [portail Azure Classic (en version préliminaire)][azure-portal] s’il n’est pas déjà ouvert. 
@@ -421,8 +420,6 @@ Pour plus d’informations sur l’**activité de copie** dans Azure Data Factor
 
 [image-editor-newdatastore-button]: ./media/data-factory-get-started-using-editor/getstarted-editor-newdatastore-button.png
 
-[image-editor-blob-storage-json]: ./media/data-factory-get-started-using-editor/getstarted-editor-blob-storage-json.png
-
 [image-editor-blob-storage-deploy]: ./media/data-factory-get-started-using-editor/getstarted-editor-blob-storage-deploy.png
 
 [image-editor-azure-sql-settings]: ./media/data-factory-get-started-using-editor/getstarted-editor-azure-sql-settings.png
@@ -459,4 +456,4 @@ Pour plus d’informations sur l’**activité de copie** dans Azure Data Factor
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

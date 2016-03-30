@@ -28,7 +28,7 @@ Dans ce didacticiel, vous allez utiliser l’Assistant Data Factory Copy pour cr
 
 > [AZURE.IMPORTANT] Passez en revue l’article [Vue d’ensemble du didacticiel](data-factory-get-started.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
 
-## <a name="CreateDataFactory"></a>Étape 1 : création d’une fabrique de données Microsoft Azure
+## Créer une fabrique de données
 Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
 
 1.	Une fois connecté au [portail Azure](https://portal.azure.com), cliquez dans le coin inférieur gauche sur **+NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Fabrique de données** dans le panneau **Analyse de données**. 
@@ -60,38 +60,38 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 
     ![Page d'accueil Data Factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Créer un pipeline à l’aide de l’Assistant de copie
+## Création d’un pipeline
 
 1. Dans la page d’accueil Data Factory, cliquez sur la vignette **Copier les données** pour lancer l’**Assistant de copie**. 
 2. Dans la page **Propriétés** :
-	1. Entrez **CopyFromBlobToAzureSql** comme **Nom de la tâche**
+	1. Saisissez **CopyFromBlobToAzureSql** comme **Nom de la tâche**
 	2. Saisissez **Description** (facultative).
 	3. Remarquez la **Date heure de début** et **Date heure de fin**. Modifier la **Date heure de fin** pour le jour suivant à partir de la **Date heure de début**. 
 	3. Cliquez sur **Next**.  
 
 	![Outil de copie - page Propriétés](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
-3. Sur la page **Source Data Store** (Magasin de données source), cliquez sur la vignette **Stockage d’objets blob Azure** . Cette page sert à spécifier le magasin de données source pour la tâche de copie. Vous pouvez utiliser un service lié de magasin de données existant (ou) spécifier un nouveau magasin de données. Pour utiliser un service lié existant, vous devez cliquer sur **FROM EXISTING LINKED SERVICES** (À partir des services liés existants) et sélectionnez le service lié à droite. 
+3. Sur la page **Magasin de données source**, cliquez sur la vignette **Stockage d’objets blob Azure**. Cette page sert à spécifier le magasin de données source pour la tâche de copie. Vous pouvez utiliser un service lié de magasin de données existant (ou) spécifier un nouveau magasin de données. Pour utiliser un service lié existant, vous devez cliquer sur **À PARTIR DES SERVICES LIÉS EXISTANTS** et sélectionnez le service lié à droite. 
 
 	![Outil de copie - page Source data store (Magasin de données source)](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
-5. Sur la page **Specify the Azure Blob storage account** (Spécifier le compte de stockage d’objets bols Azure) :
+5. Sur la page **Spécifier le compte de stockage d’objets blob Azure** :
 	1. Saisissez **AzureStorageLinkedService** comme **nom du service lié**.
-	2. Confirmez **From Azure subscriptions** (À partir des abonnements) pour **Méthode de sélection de compte**. 
+	2. Confirmez **À partir des abonnements** pour **Méthode de sélection de compte**. 
 	3. Sélectionnez un **compte de stockage Azure** dans la liste des comptes de stockage Azure disponibles dans l’abonnement sélectionné. Vous pouvez également choisir de saisir manuellement les paramètres de compte de stockage en sélectionnant l’option **Saisir manuellement** comme **méthode de sélection de compte**, puis cliquez sur **Suivant**. 
 
 	![Outil de copie - spécifiez le compte de stockage d’objets blob Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
-6. Sur la page **Choose the input file or folder** (Choisir le fichier ou le dossier d’entrée) :
+6. Sur la page **Choisir le fichier ou le dossier d’entrée** :
 	1. Accédez au dossier **adftutorial**.
 	2. Sélectionnez **emp.txt**, puis cliquez sur **Choisir**
 	3. Cliquez sur **Next**. 
 
 	![Outil de copie - choisissez le fichier ou le dossier d’entrée](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. Sur la page **File format settings** (Paramètres de format de fichier), sélectionnez les valeurs **par défaut**, puis cliquez sur **Suivant**.
+7. Sur la page **Paramètres de format de fichier**, sélectionnez les valeurs **par défaut**, puis cliquez sur **Suivant**.
 
 	![Outil de copie - Paramètres de format de fichier](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. Sur la page du magasin de destination, cliquez sur la vignette **Base de données SQL Azure**, puis cliquez sur **Suivant**.
 9. Sur la page **Spécifier la base de données SQL Azure** :
 	1. Saisissez le nom **AzureSqlLinkedService** du champ **Nom du service lié**. 
-	2. Vérifiez que la **méthode de sélection du serveur/de la base de données** est définie sur **From Azure subscriptions** (À partir des abonnements Azure).
+	2. Vérifiez que la **méthode de sélection du serveur/de la base de données** est définie sur **À partir des abonnements Azure**.
 	3. Sélectionnez **Nom du serveur** et **Base de données**.
 	4. Saisissez **Nom d’utilisateur** et **Mot de passe**.
 	5. Cliquez sur **Next**.  
@@ -100,12 +100,12 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 	![Outil de copie - Mappage de Table](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. Sur la page **Mappage de schéma** cliquez sur **Suivant**.
 11. Passez en revue les informations contenues dans la page **Résumé**, puis cliquez sur **Terminer**. Cela crée deux services liés, deux jeux de données (entrée et sortie) et un pipeline dans la fabrique de données (à partir de l’endroit où vous avez lancé l’Assistant de copie). 
-12. Sur la page **Déploiement réussi** cliquez sur **Click here to monitor copy pipeline** (Cliquer ici pour surveiller le pipeline de copie).
+12. Sur la page **Déploiement réussi** cliquez sur **Cliquer ici pour surveiller le pipeline de copie**.
 
 	![Outil de copie - Déploiement réussi](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Suivez les instructions de la section [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) (Surveillance et gestion du pipeline à l’aide de l’application de surveillance) pour en savoir plus sur la façon de surveiller le pipeline que vous venez de créer.
+13. Suivez les instructions de la section [Surveillance et gestion du pipeline à l’aide de l’application de surveillance](data-factory-monitor-manage-app.md) pour en savoir plus sur la façon de surveiller le pipeline que vous venez de créer.
 
 	![Application de surveillance](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

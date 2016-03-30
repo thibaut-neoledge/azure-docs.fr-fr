@@ -2,6 +2,7 @@
 	pageTitle="Vue d’ensemble du service Azure Active Directory Device Registration | Microsoft Azure"
 	description="est la base des scénarios d’accès conditionnel en fonction de l’appareil. Lors de l’inscription d’un appareil, Azure Active Directory Device Registration fournit une identité à l’appareil qui sera utilisée pour authentifier l’appareil lors de la connexion de l’utilisateur."
 	services="active-directory"
+	keywords="enregistrement de l’appareil, activer l’enregistrement de l’appareil"
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -12,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.topic="get-started-article"
+	ms.date="03/18/2016"
 	ms.author="femila"/>
 
 # Vue d’ensemble du service Azure Active Directory Device Registration
@@ -36,15 +37,16 @@ Vous pouvez afficher et activer/désactiver les appareils inscrits via le portai
 
 ## Activer le service Azure Active Directory Device Registration
 La section suivante décrit comment activer le service Azure Active Directory Device Registration pour votre annuaire.
-Pour activer le service Azure Active Directory Device Registration
--------------------------------------------------------------
-1. Ouvrez une session sur le portail Azure en tant qu’administrateur.
-1. Dans le volet gauche, sélectionnez **Active Directory**.
-1. Dans l’onglet **Annuaire**, sélectionnez votre annuaire.
-1. Sélectionnez l’onglet **Configurer**.
-1. Faites défiler jusqu’à la section intitulée **Appareils**.
-1. Sélectionnez **TOUS** pour **LES UTILISATEURS PEUVENT JOINDRE DES APPAREILS À L’ESPACE DE TRAVAIL**.
-1. Sélectionnez le nombre maximal d’appareils que vous souhaitez autoriser par utilisateur.
+
+###Pour activer le service Azure Active Directory Device Registration
+
+1. Connectez-vous au portail Azure en tant qu’administrateur.
+2. Dans le volet gauche, sélectionnez **Active Directory**.
+3. Dans l’onglet **Annuaire**, sélectionnez votre annuaire.
+4. Sélectionnez l’onglet **Configurer**.
+5. Faites défiler jusqu’à la section intitulée **Appareils**.
+6. Sélectionnez **TOUS** pour **LES UTILISATEURS PEUVENT JOINDRE DES APPAREILS À L’ESPACE DE TRAVAIL**.
+7. Sélectionnez le nombre maximal d’appareils que vous souhaitez autoriser par utilisateur.
 
 >[AZURE.NOTE]
 L’inscription auprès de Microsoft Intune ou de Mobile Device Management pour Office 365 nécessite la jonction d’espace de travail. Si vous avez configuré l’un de ces services, TOUS est sélectionné et le bouton AUCUN est désactivé.
@@ -85,4 +87,4 @@ Le service Azure Active Directory Device Registration vous permet d’inscrire v
 - [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
 - [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

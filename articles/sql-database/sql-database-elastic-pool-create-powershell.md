@@ -26,6 +26,8 @@
 
 Découvrez comment créer un [pool de base de données élastique](sql-database-elastic-pool.md) avec des applets de commande PowerShell.
 
+Pour connaître les codes d’erreur courants, consultez la page [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md)
+
 > [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
 
 
@@ -49,7 +51,7 @@ Pour créer une base de données directement à l’intérieur d’un pool, util
 
 
 
-## Déplacer une base de données autonome dans un pool de base de données élastique
+## Déplacer une base de données autonome dans un pool de bases de données élastique
 
 Pour placer une base de données dans un pool, utilisez l’applet de commande [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) et définissez le paramètre **ElasticPoolName**.
 
@@ -91,4 +93,4 @@ Ce script permet de créer un serveur ; lorsqu’il vous demande un nom d’util
 
 Pour en savoir plus sur les bases de données élastiques et les pools de bases de données élastiques, consultez l’article [Référence du pool de base de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

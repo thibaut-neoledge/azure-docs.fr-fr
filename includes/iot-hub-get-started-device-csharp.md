@@ -8,7 +8,7 @@ Dans cette section, vous allez créer une application console Windows qui simule
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SimulatedDevice**, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans la fenêtre **Gestionnaire de package NuGet**, recherchez **Client d’appareils Microsoft Azure**, cliquez sur **Installer**et acceptez les conditions d’utilisation.
+3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **Microsoft.Azure.Devices.Client**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices.Client**, puis acceptez les conditions d’utilisation.
 
 	Cette opération lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT - Device SDK NuGet][lnk-device-nuget].
 
@@ -73,4 +73,4 @@ Dans cette section, vous allez créer une application console Windows qui simule
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

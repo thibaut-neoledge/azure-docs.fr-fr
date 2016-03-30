@@ -47,7 +47,7 @@ Si vous utilisez une version d’Azure PowerShell **antérieure à la version 1.
 Pour plus d’informations, consultez [Deprecation of Switch AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) (Désapprobation de Switch AzureMode dans Azure PowerShell).
 
 
-## Étape 1 : Créer la fabrique de données
+## Créer une fabrique de données
 
 Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de données Azure nommée **FirstDataFactoryPSH**. Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie pour copier des données d’une source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée et produire des données de sortie. Commençons par la création de la fabrique de données dans cette étape.
 
@@ -70,7 +70,7 @@ Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de do
 
 Avant de créer un pipeline, vous devez d’abord créer quelques entités de la fabrique de données. Créez d’abord des services liés pour lier des magasins de données/calculs à votre magasin de données, définissez des jeux de données d’entrée et de sortie pour représenter les données dans les magasins de données liés, puis créez le pipeline avec une activité qui utilise ces jeux de données.
 
-## Étape 2 : Créer des services liés 
+## créer des services liés 
 Dans cette étape, vous allez lier votre compte de stockage Azure et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte de stockage Azure contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple. Vous devez identifier les services de magasin de données/de calcul qui sont utilisés dans votre scénario et les lier à la fabrique de données en créant des services liés.
 
 ### Créer le service lié Azure Storage
@@ -147,10 +147,10 @@ Dans cette étape, vous allez lier un cluster HDInsight à la demande à votre f
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
-## Étape 3 : Créer les jeux de données
+## Créer des jeux de données
 Dans cette étape, vous allez créer des jeux de données pour représenter les données d’entrée et de sortie pour le traitement Hive. Ces jeux de données font référence au service **StorageLinkedService** que vous avez créé précédemment dans ce didacticiel. Le service lié pointe vers un compte de stockage Azure, et les jeux de données spécifient le conteneur, le dossier et le nom de fichier dans le stockage qui contient les données d’entrée et de sortie.
 
-### Créer la table d’entrée
+### Créer le jeu de données d’entrée
 1. Créez un fichier JSON nommé **InputTable.json** dans le dossier **C:\\ADFGetStarted** avec le contenu suivant :
 
 		{
@@ -193,7 +193,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 		New-AzureRmDataFactoryDataset $df -File .\InputTable.json
 
-### Créer le jeu de données de sortie
+### Créer un jeu de données de sortie
 Vous allez maintenant créer le jeu de données de sortie pour représenter les données de sortie stockées dans le stockage d’objets blob Azure.
 
 1. Créez un fichier JSON nommé **OutputTable.json** dans le dossier **C:\\ADFGetStarted** avec le contenu suivant :
@@ -223,7 +223,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
-## Étape 3 : Créer votre premier pipeline
+## Création d’un pipeline
 Dans cette étape, vous allez créer votre premier pipeline avec une activité **HDInsightHive**. Notez que le segment d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1), que le segment de sortie est produit mensuellement et que la propriété du planificateur pour l’activité est également définie sur Mensuellement (voir ci-dessous). Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, le jeu de données de sortie est ce qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. Les propriétés utilisées dans le code JSON suivant sont expliquées à la fin de cette section.
 
 
@@ -290,7 +290,7 @@ Dans cette étape, vous allez créer votre premier pipeline avec une activité *
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Félicitations, vous avez réussi à créer votre premier pipeline avec Azure PowerShell.
 
-### <a name="MonitorDataSetsAndPipeline"></a> Surveillance des jeux de données et du pipeline
+## Surveillance d’un pipeline
 Au cours de cette étape, vous allez utiliser Azure PowerShell pour surveiller ce qui se passe dans une fabrique de données Azure.
 
 1. Exécutez **Get-AzureRmDataFactory** et affectez le résultat à une variable **$df**.
@@ -356,4 +356,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

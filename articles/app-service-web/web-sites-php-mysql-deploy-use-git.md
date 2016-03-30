@@ -3,9 +3,9 @@
 	description="Didacticiel expliquant comment créer une application web PHP stockant les données dans MySQL et comment utiliser un déploiement Git dans Azure"
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/09/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
 
@@ -29,13 +29,13 @@
 
 Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l'outil de ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s’appliquent à n’importe quel système d’exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
 
-Vous apprendrez à effectuer les opérations suivantes:
+Vous apprendrez à effectuer les opérations suivantes :
 
 * création d’une application web et d’une base de données MySQL à l’aide du [portail Azure](https://portal.azure.com). PHP étant activé par défaut dans [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714), l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publication et republication de votre application dans Azure en utilisant Git.
 * Activer l’extension du compositeur pour automatiser les tâches de compositeur tous les `git push`.
 
-En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans Web Apps. Voici une capture d'écran de l'application terminée:
+En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans Web Apps. Voici une capture d'écran de l'application terminée :
 
 ![Site Web PHP Azure][running-app]
 
@@ -46,7 +46,7 @@ Ce didacticiel part du principe que [PHP][install-php], l'outil de ligne de comm
 
 ##<a id="create-web-site-and-set-up-git"></a>Créer une application web et configurer la publication Git
 
-Pour créer une application web et une base de données MySQL, suivez la procédure ci-après:
+Pour créer une application web et une base de données MySQL, suivez la procédure ci-après :
 
 1. Connectez-vous au [portail Azure][management-portal].
 2. Cliquez sur l'icône **Nouveau**.
@@ -85,9 +85,9 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 ##Obtention des informations de connexion MySQL distantes
 
-Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps, vous devez disposer des informations de connexion. Pour obtenir vos informations de connexion MySQL, procédez comme suit:
+Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps, vous devez disposer des informations de connexion. Pour obtenir vos informations de connexion MySQL, procédez comme suit :
 
-1. À partir de votre groupe de ressources, cliquez sur la base de données:
+1. À partir de votre groupe de ressources, cliquez sur la base de données :
 
 	![Sélectionner la base de données][select-database]
 
@@ -105,7 +105,7 @@ Après avoir créé une application web, vous pouvez la développer localement, 
 
 L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L'application se compose d'un seul fichier (dont le code est disponible ci-dessous pour un copier/coller) :
 
-* **index.php**: affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
 
 Pour générer et exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et l'outil de ligne de commande MySQL (inclus dans MySQL) sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
 
@@ -214,7 +214,7 @@ Pour générer et exécuter l'application en local, procédez comme suit : notez
 
 		php -S localhost:8000
 
-Vous pouvez à présent accéder à **http://localhost:8000/** pour tester l'application.
+Vous pouvez à présent accéder à ****http://localhost:8000/** pour tester l'application.
 
 
 ##Publier votre application
@@ -325,4 +325,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

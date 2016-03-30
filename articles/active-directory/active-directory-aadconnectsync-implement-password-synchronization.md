@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -90,7 +90,7 @@ Si l’utilisateur modifie de nouveau le mot de passe local, le nouveau mot de p
 
 Si vous utilisez la configuration rapide lorsque vous installez Azure AD Connect, la synchronisation de mot de passe est activée par défaut.
 
-Si vous utilisez des paramètres personnalisés lors de l'installation d'Azure AD Connect, ils activent la synchronisation de mot de passe sur la page de connexion utilisateur. ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+Si vous utilisez des paramètres personnalisés lors de l'installation d'Azure AD Connect, ils activent la synchronisation de mot de passe sur la page de connexion utilisateur. ![usersignin](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
 Si vous choisissez d'utiliser **Fédération avec AD FS**, vous pouvez éventuellement activer la synchronisation de mot de passe comme sauvegarde en cas d'échec de votre infrastructure AD FS. Vous pouvez également l'activer si vous prévoyez d'utiliser les Services de domaine Azure AD.
 
@@ -116,13 +116,17 @@ Pour plus d'informations sur la sécurité et FIPS, consultez [Synchronisation, 
 
 Démarrer le **Synchronization Service Manager**, ouvrez **Connectors (Connecteurs)**, sélectionnez le connecteur Active Directory dans lequel se trouve l'utilisateur, sélectionnez **Search Connector Space (Rechercher dans l'espace connecteur)**, puis recherchez l'utilisateur souhaité.
 
-![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
+![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
 
 Dans les paramètres de l'utilisateur, sélectionnez l'onglet **lignage** et assurez-vous qu'au moins une règle de synchronisation affiche pour la **Synchronisation de mot de passe** la valeur **True**. Si la configuration par défaut est activée, il s'agit de la règle de synchronisation nommée **In from AD - User AccountEnabled**.
 
+Vous devez également [suivre l’utilisateur](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) dans le métaverse jusqu’à l’espace de connecteur Azure AD et vous assurer qu’il existe également une règle sortante dont l’option **Synchronisation de mot de passe** est définie sur **True**. Dans la configuration par défaut, il s’agit de la règle de synchronisation nommée **Sortant vers AAD - joindre l’utilisateur**.
+
+![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+
 Pour afficher les détails de synchronisation de mot de passe, cliquez sur le bouton **journal...** au bas de cette page. La page affichera alors une vue de l'historique de l'état de synchronisation de mot de passe de l'utilisateur sur cette page pour la semaine passée.
 
-![objet](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
+![objet](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 La colonne d'état peut avoir les valeurs suivantes et également indiquer le problème et la raison pour laquelle un mot de passe n'est pas synchronisé.
 
@@ -159,4 +163,4 @@ Il ne doit pas être nécessaire de forcer une synchronisation complète de tous
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->
