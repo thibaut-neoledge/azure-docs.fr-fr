@@ -44,7 +44,7 @@ Ouvrez votre terminal et procédez aux installations suivantes :
 
 - Sélectionnez votre langue et acceptez les termes du contrat.
 
-- Sur l'écran des paramètres d'installation, activez les cases à cocher en regard d’*Ajouter des exécutables Ruby à votre CHEMIN D’ACCÈS*et d’*Associer les fichiers .rb et .rbw à cette installation Ruby*.
+- Sur l'écran des paramètres d'installation, activez les cases à cocher en regard d’*Ajouter des exécutables Ruby à votre CHEMIN D’ACCÈS* et d’*Associer les fichiers .rb et .rbw à cette installation Ruby*.
 
 
 **2) DevKit :** téléchargez le DevKit de la [page RubyInstaller](http://rubyinstaller.org/downloads/)
