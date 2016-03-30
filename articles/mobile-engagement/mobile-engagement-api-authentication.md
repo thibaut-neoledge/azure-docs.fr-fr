@@ -95,7 +95,7 @@ Vous devez suivre l’ensemble des instructions ci-dessous pour effectuer l’in
 1. Appelez l’API avec les paramètres suivants et veillez à remplacer les valeurs TENANT\_ID, CLIENT\_ID et CLIENT\_SECRET :
 
 	- **URL de requête** sous la forme **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-- **En-tête Content-Type HTTP** sous la forme *application/x-www-form-urlencoded*
+	- **En-tête Content-Type HTTP** sous la forme *application/x-www-form-urlencoded*
 	- **Corps de la requête HTTP** sous la forme *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	Voici un exemple de requête :
@@ -154,4 +154,4 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
