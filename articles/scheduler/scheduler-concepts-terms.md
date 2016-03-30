@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016" 
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Concepts, terminologie et hiérarchie d’entités de Scheduler
@@ -23,9 +23,8 @@ Le tableau suivant décrit les ressources principales exposées ou utilisées pa
 
 |Ressource | Description |
 |---|---|
-|**Service cloud**|Sur le plan conceptuel, un service cloud représente une application. Un abonnement peut avoir plusieurs services cloud.|
 |**Collection de travaux**|Une collection de travaux contient un groupe de travaux et conserve les paramètres, les quotas et les limitations qui sont partagés par les travaux au sein de la collection. Une collection de travaux est créée par le propriétaire d’un abonnement et regroupe des travaux en fonction des limites de l’utilisation ou de l’application. Une collection est limitée à une région. Elle permet également la mise en œuvre de quotas pour limiter l’utilisation de tous les travaux de la collection. Les quotas incluent MaxJobs et MaxRecurrence.|
-|**Travail**|Un travail définit une seule action récurrente, avec des stratégies d'exécution simples ou complexes. Les actions peuvent inclure des requêtes HTTP ou des requêtes de file d'attente de stockage.|
+|**Travail**|Un travail définit une seule action récurrente, avec des stratégies d'exécution simples ou complexes. Les actions peuvent inclure des demandes HTTP, de file d’attente de stockage, de file d’attente Service Bus ou de rubrique Service Bus.|
 |**Historique des travaux**|Un historique des travaux représente les détails de l'exécution d'un travail. Il contient le succès ou l'échec, ainsi que les détails de la réponse.|
 
 ## Gestion des entités de Scheduler
@@ -34,14 +33,13 @@ Globalement, le planificateur et l'API de gestion de service exposent les opéra
 
 |Fonctionnalité|Description et adresse URI|
 |---|---|
-|**Gestion du service cloud**|Prise en charge de GET, PUT et DELETE pour la création et la modification des services cloud <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
-|**Gestion de la collection de travaux**|Prise en charge de GET, PUT et DELETE pour la création et la modification des collections de travaux et des travaux qu'elles contiennent. Une collection de travaux sert de conteneur pour les travaux et mappe ceux-ci aux quotas et paramètres partagés. Les exemples de quotas présentés ultérieurement, sont le nombre maximal de travaux et le plus petit intervalle de périodicité. <p>PUT et DELETE : `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET : `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
-|**Gestion des travaux**|Prise en charge de GET, PUT, POST, PATCH et DELETE pour la création et la modification des travaux. Tous les travaux doivent appartenir à une collection de travaux qui existe déjà, afin qu’il n’y ait pas de création implicite. <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
-|**Gestion de l'historique des travaux**|Prise en charge de GET pour l'extraction de 60 jours d'historique d'exécution, comme le temps de travail écoulé et les résultats d'exécution du travail. Ajoute la prise en charge du paramètre de chaîne de requête pour le filtrage basé sur l’état et le statut. <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
+|**Gestion de la collection de travaux**|Prise en charge de GET, PUT et DELETE pour la création et la modification des collections de travaux et des travaux qu'elles contiennent. Une collection de travaux sert de conteneur pour les travaux et mappe ceux-ci aux quotas et paramètres partagés. Les exemples de quotas présentés ultérieurement, sont le nombre maximal de travaux et le plus petit intervalle de périodicité. <p>PUT et DELETE : `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET : `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
+|**Gestion des travaux**|Prise en charge de GET, PUT, POST, PATCH et DELETE pour la création et la modification des travaux. Tous les travaux doivent appartenir à une collection de travaux qui existe déjà, afin qu’il n’y ait pas de création implicite. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+|**Gestion de l'historique des travaux**|Prise en charge de GET pour l'extraction de 60 jours d'historique d'exécution, comme le temps de travail écoulé et les résultats d'exécution du travail. Ajoute la prise en charge du paramètre de chaîne de requête pour le filtrage basé sur l’état et le statut. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
 ## Types de travaux
 
-Il existe deux types de travaux : les travaux HTTP (y compris les travaux HTTPS qui prennent en charge SSL) et les travaux de file d'attente de stockage. Les travaux HTTP sont idéaux si vous disposez d'un point de terminaison d'une charge de travail ou d'un service existant. Vous pouvez utiliser les travaux de file d’attente de stockage pour publier des messages aux files d’attente de stockage et donc, ces travaux sont idéaux pour les charges de travail qui utilisent des files d’attente de stockage.
+Il existe plusieurs types de travaux : les travaux HTTP (notamment les travaux HTTPS prenant en charge SSL), les travaux de file d’attente de stockage et les travaux de file d’attente ou de rubrique Service Bus. Les travaux HTTP sont idéaux si vous disposez d'un point de terminaison d'une charge de travail ou d'un service existant. Vous pouvez utiliser les travaux de file d’attente de stockage pour publier des messages aux files d’attente de stockage et donc, ces travaux sont idéaux pour les charges de travail qui utilisent des files d’attente de stockage. De même, les travaux Service Bus conviennent aux charges de travail utilisant les files d’attente et rubriques Service Bus.
 
 ## L’entité « travail » en détail
 
@@ -131,7 +129,7 @@ Examinons chacun en détail :
 
 ## action et errorAction
 
-« action » est l’action appelée sur chaque occurrence et décrit un type d’appel de service. L’action correspond à l’opération qui sera exécutée, en fonction de la planification spécifiée. Scheduler prend en charge les actions HTTP et file d’attente de stockage.
+« action » est l’action appelée sur chaque occurrence et décrit un type d’appel de service. L’action correspond à l’opération qui sera exécutée, en fonction de la planification spécifiée. Scheduler prend en charge des actions HTTP, de file d’attente de stockage, de rubrique Service Bus ou de file d’attente Service Bus.
 
 L’action dans l’exemple ci-dessus est une action http. Voici un exemple d'action de file d'attente de stockage :
 
@@ -146,6 +144,15 @@ L’action dans l’exemple ci-dessus est une action http. Voici un exemple d'ac
 					"My message body",
 			},
 	}
+
+Voici un exemple d’action de rubrique Service Bus.
+
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Peut être netMessaging ou AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+
+Voici un exemple d’action de file d’attente Service Bus.
+
+
+  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Peut être netMessaging ou AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
 « errorAction » est le gestionnaire d'erreurs, l'action appelée lorsque l'action principale échoue. Vous pouvez utiliser cette variable pour appeler un point de terminaison de gestion d’erreur ou envoyer une notification utilisateur. L’opération peut servir à atteindre un point de terminaison secondaire au cas où le premier ne serait pas disponible (par exemple, en cas de sinistre sur le site du point de terminaison) ou pour notifier un point de terminaison de traitement d’erreur. Comme l'action principale, l'action d'erreur peut être une logique simple ou composite basée sur d'autres actions. Pour savoir comment créer un jeton SAS, consultez [Créer et utiliser une signature d'accès partagé](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
@@ -207,4 +214,4 @@ L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval*
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

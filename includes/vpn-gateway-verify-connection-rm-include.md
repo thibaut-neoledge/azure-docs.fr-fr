@@ -1,6 +1,6 @@
 ### Vérification de votre connexion à l'aide du portail Azure
 
-Vous pouvez vérifier une connexion VPN dans le portail Azure en accédant à **Passerelles de réseau virtuel** -> ***cliquez sur votre nom de votre passerelle*** -> **Paramètres** -> **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le volet **Connexion**.
+Vous pouvez vérifier une connexion VPN dans le portail Azure en accédant à **Passerelles de réseau virtuel** -> ***cliquez sur le nom de votre passerelle*** -> **Paramètres** -> **Connexions**. Sélectionnez le nom de la connexion pour afficher des informations supplémentaires dans le volet **Connexion**.
 
 ### Vérification de votre connexion à l'aide de PowerShell
 
@@ -37,4 +37,4 @@ Vous pouvez également vérifier que votre connexion a abouti en exécutant la c
 	    "egressBytesTransferred": 4142431
 	  }
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

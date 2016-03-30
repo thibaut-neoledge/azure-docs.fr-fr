@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Installation personnalisée d’Azure AD Connect
@@ -68,7 +68,7 @@ Si vous recevez une erreur et rencontrez des problèmes de connectivité, consul
 ## Pages de la section Synchronisation
 
 ### Connexion de vos annuaires
-Pour vous connecter à votre service de domaine Active Directory, Azure AD Connect a besoin des informations d’identification d’un compte doté d’autorisations suffisantes. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour plus d’informations, consultez [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account).
+Pour vous connecter à votre service de domaine Active Directory, Azure AD Connect a besoin des informations d’identification d’un compte doté d’autorisations suffisantes. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, par exemple, FABRIKAM\\syncuser ou fabrikam.com\\syncuser. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour plus d’informations, consultez [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account).
 
 ![Répertoire Connect](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
@@ -131,8 +131,10 @@ Selon les services sélectionnés à l’étape précédente, cette page affiche
 
 ![Fonctionnalités facultatives](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
+>[AZURE.WARNING] La suppression d’attributs peut affecter la fonctionnalité de l’impact. Pour avoir de meilleures pratiques et des recommandations, consultez [Attributs synchronisés](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
+
 ### Synchronisation des attributs des extensions d’annuaire
-Les extensions d’annuaire vous permettent d’étendre le schéma dans Azure AD en utilisant des attributs personnalisés ajoutés par votre organisation ou d’autres attributs dans Active Directory. Pour utiliser cette fonctionnalité, sélectionnez **Synchronisation des attributs des extensions d’annuaire** sur la page **Fonctionnalités facultatives**. Vous allez accéder à cette page et sélectionner vos attributs supplémentaires.
+Les extensions d’annuaire vous permettent d’étendre le schéma dans Azure AD en utilisant des attributs personnalisés ajoutés par votre organisation ou d’autres attributs dans Active Directory. Pour utiliser cette fonctionnalité, sélectionnez **Synchronisation des attributs des extensions d’annuaire** dans la page **Fonctionnalités facultatives**. Vous allez accéder à cette page et sélectionner vos attributs supplémentaires.
 
 ![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
@@ -199,13 +201,13 @@ Lorsque vous sélectionnez le domaine à fédérer avec votre annuaire local, Az
 
 ![Domaine Azure AD](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 
-> [AZURE.NOTE] Azure AD Connect tente de vérifier le domaine pendant l’étape de configuration. Si vous poursuivez la configuration sans ajouter les enregistrements DNS hébergeant votre domaine DNS, l’Assistant n’est pas en mesure d’effectuer la configuration.</br>
+> [AZURE.NOTE] Azure AD Connect tente de vérifier le domaine pendant l’étape de configuration. Si vous poursuivez la configuration sans ajouter les enregistrements DNS à l’endroit où votre domaine DNS est généré, l’Assistant n’est pas en mesure d’effectuer la configuration.</br>
 
 ## Pages de configuration et de vérification
 C’est dans cette page que la configuration a réellement lieu.
 
 > [AZURE.NOTE]
-Avant de poursuivre l’installation et si vous avez configuré la fédération, vérifiez que vous avez configuré la [résolution de noms pour les serveurs de fédération](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
+Avant de poursuivre l’installation et si vous avez configuré la fédération, vérifiez que vous avez configuré la [Résolution de noms pour les serveurs de fédération](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
 
 ![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -238,4 +240,4 @@ Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’i
 
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

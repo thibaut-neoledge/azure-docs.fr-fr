@@ -95,7 +95,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
     var Promise = require('bluebird');
     ```
 
-5. Ajoutez les déclarations de variable suivantes, en remplaçant les espaces réservés par les valeurs que vous avez notées précédemment. La valeur de l’espace réservé **{your event hub-compatible namespace}** provient du **point de terminaison compatible avec Event Hub**. Elle prend la forme **xxxxnamespace.servicebus.windows.net**.
+5. Ajoutez les déclarations de variable suivantes, en remplaçant les espaces réservés par les valeurs que vous avez notées précédemment. La valeur de l’espace réservé **{your event hub-compatible namespace}** provient du champ **point de terminaison compatible avec Event Hub** dans le portail. Elle prend la forme **namespace.servicebus.windows.net** (sans le préfixe **sb://*).
 
     ```
     var protocol = 'amqps';
@@ -108,7 +108,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
 
     > [AZURE.NOTE] Ce code repose sur l’hypothèse selon laquelle vous avez créé votre IoT Hub dans le niveau F1 (gratuit). Un IoT Hub gratuit comporte deux partitions nommées « 0 » et « 1 ». Si vous avez créé votre IoT Hub en utilisant l’un des autres niveaux tarifaires, vous devez ajuster le code pour créer un objet **MessageReceiver** pour chaque partition.
 
-6. Ajoutez la définition de filtre suivante. Cette application utilise un filtre lorsqu’elle crée un récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Cette opération est utile dans un environnement de test, car elle vous permet de voir l’ensemble actuel des messages, mais dans un environnement de production, votre code doit vérifier qu’il traite la totalité des messages. Pour plus d’informations, voir le didacticiel [Traitement des messages appareil-à-cloud IoT Hub][lnk-processd2c-tutorial].
+6. Ajoutez la définition de filtre suivante. Cette application utilise un filtre lorsqu’elle crée un récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Cette opération est utile dans un environnement de test, car elle vous permet de voir l’ensemble actuel de messages, mais dans un environnement de production, votre code doit vérifier qu’il traite la totalité des messages. Pour plus d’informations, voir le didacticiel [Traiter les messages appareil-à-cloud IoT Hub][lnk-processd2c-tutorial].
 
     ```
     var filterOffset = new Date().getTime();
@@ -182,4 +182,4 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -271,7 +271,7 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	Un groupe de ressources est une collection de ressources Azure telles que des applications API, des bases de données, des machines virtuelles, etc. Pour ce didacticiel, il est préférable de créer un groupe de ressources, car cela facilitera la suppression en une étape de toutes les ressources Azure que vous créez pour le didacticiel.
 
-	Cette zone vous permet de sélectionner un [groupe de ressources](../azure-preview-portal-using-resource-groups.md) existant ou d’en créer un en tapant un nom différent des groupes de ressources existants de votre abonnement.
+	Cette zone vous permet de sélectionner un [groupe de ressources](../azure-portal/resource-group-portal.md) existant ou d’en créer un en tapant un nom différent des groupes de ressources existants de votre abonnement.
 
 4. Cliquez sur le bouton **Nouveau** situé en regard de la liste déroulante **Plan App Service**.
 
@@ -534,4 +534,4 @@ Pour obtenir un exemple de modèle Azure Resource Manager qui définit la propri
 
 Dans ce didacticiel, vous avez vu comment créer des applications API, y déployer du code, y générer du code client et les consommer à partir de clients .NET. Le didacticiel suivant de la série de prise en main d’API Apps montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md). Les didacticiels ultérieurs montrent comment implémenter l’authentification et l’autorisation.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

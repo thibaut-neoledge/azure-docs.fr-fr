@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gestion des conteneurs ACS avec l’API REST | Microsoft Azure"
-   description="Déployez des conteneurs vers un cluster Mesos ACS (Azure Container Service) à l’aide de l’API REST Marathon."
+   description="Déployez des conteneurs vers un cluster Mesos ACS (Azure Container Service) à l’aide de l’API REST Marathon."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
@@ -22,13 +22,13 @@
 
 Mesos offre un environnement de déploiement et de mise à l’échelle de la charge de travail en cluster tout en faisant abstraction du matériel sous-jacent. Mesos repose sur des infrastructures qui gèrent la planification et l’exécution de charges de calcul. Bien qu’il existe des infrastructures pour de nombreuses charges de travail courantes, ce document décrit en détail la création et la mise à l’échelle des déploiements de conteneurs avec Marathon.
 
-Avant de pouvoir suivre ces exemples, vous devez disposer d’un cluster Mesos configuré dans ACS et connecté à distance. Pour plus d’informations sur ces éléments, consultez les articles suivants :
+Avant de pouvoir suivre ces exemples, vous devez disposer d’un cluster Mesos configuré dans ACS et connecté à distance. Pour plus d’informations sur ces éléments, consultez les articles suivants :
 
 - [Déploiement d’un cluster Azure Container Service](./container-service-deployment.md) 
 - [Connexion à un cluster ACS](./container-service-connect.md)
 
 
-Une fois connectées au cluster ACS, les API Mesos et REST associées sont accessibles via http://localhost:local-port. Les exemples cités dans ce document partent du principe que vous créez un tunnel sur le port 80. Par exemple, le point de terminaison Marathon peut être joint à `http://localhost/marathon/v2/`. Pour plus d’informations sur les différentes API, consultez la documentation Mesosphere relative à l’[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) et à l’[API Chronos](https://mesos.github.io/chronos/docs/api.html), ainsi que la documentation Apache relative à l’[API Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Une fois connectées au cluster ACS, les API Mesos et REST associées sont accessibles via http://localhost:local-port. Les exemples cités dans ce document partent du principe que vous créez un tunnel sur le port 80. Par exemple, le point de terminaison Marathon peut être joint à `http://localhost/marathon/v2/`. Pour plus d’informations sur les différentes API, consultez la documentation Mesosphere relative à l’[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) et à l’[API Chronos](https://mesos.github.io/chronos/docs/api.html), ainsi que la documentation Apache relative à l’[API Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## Collecte d’informations à partir de Mesos et de Marathon
 
@@ -46,9 +46,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Déploiement d’un conteneur Docker
+## Déploiement d’un conteneur Docker formaté
 
-Les conteneurs Docker sont déployés via Marathon à l’aide d’un fichier json décrivant le déploiement souhaité. L’exemple suivant permet de déployer le conteneur nginx en liant le port 80 de l’agent Mesos au port 80 du conteneur.
+Les conteneurs Docker formaté sont déployés via Marathon à l’aide d’un fichier json décrivant le déploiement souhaité. L’exemple suivant permet de déployer le conteneur nginx en liant le port 80 de l’agent Mesos au port 80 du conteneur.
 
 ```json
 {
@@ -69,13 +69,13 @@ Les conteneurs Docker sont déployés via Marathon à l’aide d’un fichier js
 }
 ```
 
-Pour déployer un conteneur Docker, créez votre propre fichier json ou utilisez l’exemple présenté dans la page de [démonstration d’Azure ACS](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), et stockez-le dans un emplacement accessible. Ensuite, exécutez la commande suivante en spécifiant le nom du fichier json pour déployer le conteneur.
+Pour déployer un conteneur formaté Docker, créez votre propre fichier json ou utilisez l’exemple présenté dans la page de [démonstration d’Azure ACS](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), et stockez-le dans un emplacement accessible. Ensuite, exécutez la commande suivante en spécifiant le nom du fichier json pour déployer le conteneur.
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
 ```
 
-Vous devez obtenir un résultat semblable à ce qui suit :
+Vous devez obtenir un résultat semblable à ce qui suit :
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
@@ -87,7 +87,7 @@ Vous devez obtenir un résultat semblable à ce qui suit :
 curl localhost/marathon/v2/apps
 ```
 
-## Mise à l’échelle d’un conteneur Docker
+## Mettre vos conteneurs à niveau
 
 L’API Marathon peut également servir à diminuer ou augmenter la taille des déploiements d’applications. Dans l’exemple précédent, nous avons déployé une instance d’une application. Nous allons maintenant porter ce nombre d’instances à trois. Pour ce faire, créez un fichier json avec le texte json suivant et enregistrez-le dans un emplacement accessible.
 
@@ -97,7 +97,7 @@ L’API Marathon peut également servir à diminuer ou augmenter la taille des d
 
 Exécutez la commande suivante pour augmenter le nombre d’instances de l’application.
 
-> Remarque : l’URI http://localhost/marathon/v2/apps/ est suivi de l’ID de l’application que vous souhaitez mettre à l’échelle. Si vous utilisiez l’exemple nginx fourni ici, l’URI serait http://localhost/v2/nginx.
+> Remarque : l’URI http://localhost/marathon/v2/apps/ est suivi de l’ID de l’application que vous souhaitez mettre à l’échelle. Si vous utilisiez l’exemple nginx fourni ici, l’URI serait http://localhost/v2/nginx.
 
 ```json
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -109,7 +109,7 @@ Pour finir, en interrogeant le point de terminaison Marathon à propos des appli
 curl localhost/marathon/v2/apps
 ```
 
-## Interaction de l’API REST de Marathon avec PowerShell
+## Interaction de l’API REST de Marathon avec PowerShell
 
 Ces mêmes actions peuvent être effectuées à l’aide de PowerShell sur un système Windows. Ce rapide exercice permettra d’exécuter des tâches similaires à celles de l’exercice précédent, mais cette fois à l’aide des commandes PowerShell.
 
@@ -119,7 +119,7 @@ Pour collecter des informations sur le cluster Mesos (par exemple, le nom et l�
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Les conteneurs Docker sont déployés via Marathon à l’aide d’un fichier json décrivant le déploiement souhaité. L’exemple suivant permet de déployer le conteneur nginx en liant le port 80 de l’agent Mesos au port 80 du conteneur.
+Les conteneurs Docker formatés sont déployés via Marathon à l’aide d’un fichier json décrivant le déploiement souhaité. L’exemple suivant permet de déployer le conteneur nginx en liant le port 80 de l’agent Mesos au port 80 du conteneur.
 
 ```json
 {
@@ -140,7 +140,7 @@ Les conteneurs Docker sont déployés via Marathon à l’aide d’un fichier js
 }
 ```
 
-Créez votre propre fichier json ou utilisez l’exemple présenté dans la page de [démonstration d’Azure ACS](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), et stockez-le dans un emplacement accessible. Ensuite, exécutez la commande suivante en spécifiant le nom du fichier json pour déployer le conteneur.
+Créez votre propre fichier json ou utilisez l’exemple présenté dans la page de [démonstration d’Azure ACS](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), et stockez-le dans un emplacement accessible. Ensuite, exécutez la commande suivante en spécifiant le nom du fichier json pour déployer le conteneur.
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
@@ -154,10 +154,10 @@ L’API Marathon peut également servir à diminuer ou augmenter la taille des d
 
 Exécutez la commande suivante pour augmenter le nombre d’instances de l’application.
 
-> Remarque : l’URI http://loclahost/marathon/v2/apps/ est suivi de l’ID de l’application que vous souhaitez mettre à l’échelle. Si vous utilisiez l’exemple nginx fourni ici, l’URI serait http://localhost/v2/nginx.
+> Remarque : l’URI http://loclahost/marathon/v2/apps/ est suivi de l’ID de l’application que vous souhaitez mettre à l’échelle. Si vous utilisiez l’exemple nginx fourni ici, l’URI serait http://localhost/v2/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

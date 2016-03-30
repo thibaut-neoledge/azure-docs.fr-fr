@@ -308,7 +308,7 @@ Vous allez créer deux interfaces réseau, une pour chaque machine virtuelle. Pl
 ```
 
 ## Machine virtuelle
-Vous allez créer deux machines virtuelles à l’aide de la fonction copyIndex(), comme vous l’avez fait lors de la création des [interfaces réseau](#network-interface). La création de machines virtuelles dépend du compte de stockage, de l’interface réseau et du groupe à haute disponibilité. Cette machine virtuelle sera créée à partir d’une image de marketplace, telle qu’elle est définie dans la propriété `storageProfile` ; la propriété `imageReferece` est utilisée pour définir l’éditeur d’image, l’offre, la référence (SKU) et la version. Enfin, un profil de diagnostic est configuré pour activer les diagnostics de la machine virtuelle.
+Vous allez créer deux machines virtuelles à l’aide de la fonction copyIndex(), comme vous l’avez fait lors de la création des [interfaces réseau](#network-interface). La création de machines virtuelles dépend du compte de stockage, de l’interface réseau et du groupe à haute disponibilité. Cette machine virtuelle sera créée à partir d’une image du marché, comme indiqué dans la propriété `storageProfile` ; la propriété `imageReference` est utilisée pour définir l’éditeur d’image, l’offre, la référence et la version. Enfin, un profil de diagnostic est configuré pour activer les diagnostics de la machine virtuelle.
 
 Pour trouver les propriétés pertinentes pour une image de marketplace, appuyez-vous sur l’article [Parcourir et sélectionner des images de machine virtuelle](./virtual-machines/resource-groups-vm-searching.md). Pour les images publiées par des éditeurs tiers, vous devez spécifier une autre propriété nommée `plan`. Vous trouverez un exemple dans [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) à partir de la galerie des modèles de démarrage rapide.
 
@@ -503,4 +503,4 @@ Vous avez créé votre modèle ; celui-ci est prêt pour le déploiement.
 - Pour plus d’informations sur la structure du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour apprendre à déployer des modèles, consultez [Déployer un groupe de ressources avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

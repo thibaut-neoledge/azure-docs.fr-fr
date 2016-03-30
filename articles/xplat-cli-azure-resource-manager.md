@@ -1,7 +1,7 @@
 
 <properties
 	pageTitle="Interface de ligne de commande Azure avec Resource Manager | Microsoft Azure"
-	description="Utilisez l'interface de ligne de commande Azure pour Mac, Linux et Windows pour déployer plusieurs ressources comme groupe de ressources."
+	description="Utilisez l'interface de ligne de commande Azure pour Mac, Linux et Windows pour déployer plusieurs ressources comme groupe de ressources."
 	editor=""
 	manager="timlt"
 	documentationCenter=""
@@ -11,7 +11,7 @@
 <tags
 	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="01/19/2016"
@@ -20,7 +20,7 @@
 # Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
 
 
@@ -33,27 +33,27 @@ Cette rubrique décrit comment créer et gérer des ressources Azure en utilisan
 
 Utilisez Azure Resource Manager pour créer et gérer un groupe de _ressources_ (qui sont des entités gérées par l'utilisateur, comme une machine virtuelle, un serveur de bases de données, une base de données ou un site web) comme une seule unité logique ou un seul _groupe de ressources_.
 
-L'un des avantages d'Azure Resource Manager réside dans le fait que vous pouvez créer vos ressources Azure d'une manière _déclarative_ : vous décrivez la structure et les relations d'un groupe de ressources pouvant être déployé dans des *modèles* JSON. Le modèle identifie les paramètres qui peuvent être renseignés en ligne lors de l'exécution d'une commande ou stockés dans un fichier JSON azuredeploy-parameters.json distinct. Vous pouvez donc facilement créer de nouvelles ressources en utilisant le même modèle et en changeant simplement les paramètres. Par exemple, un modèle qui crée un site web a des paramètres pour le nom du site, la région du site web et d'autres paramètres courants.
+L’un des avantages d’Azure Resource Manager réside dans le fait que vous pouvez créer vos ressources Azure de manière _déclarative_ : vous décrivez la structure et les relations d’un groupe de ressources pouvant être déployé dans des *modèles* JSON. Le modèle identifie les paramètres qui peuvent être renseignés en ligne lors de l'exécution d'une commande ou stockés dans un fichier JSON azuredeploy-parameters.json distinct. Vous pouvez donc facilement créer de nouvelles ressources en utilisant le même modèle et en changeant simplement les paramètres. Par exemple, un modèle qui crée un site web a des paramètres pour le nom du site, la région du site web et d'autres paramètres courants.
 
-Lorsqu'un modèle est utilisé pour modifier ou créer un groupe, un _déploiement_ est créé, avant d'être appliqué au groupe. Pour plus d'informations sur Azure Resource Manager, voir la [Présentation d'Azure Resource Manager](resource-group-overview.md).
+Lorsqu'un modèle est utilisé pour modifier ou créer un groupe, un _déploiement_ est créé, avant d'être appliqué au groupe. Pour plus d'informations sur Azure Resource Manager, voir la [Présentation d'Azure Resource Manager](resource-group-overview.md).
 
-Une fois le déploiement effectuez, vous devez gérer les ressources individuelles impérativement sur la ligne de commande, comme dans le modèle de déploiement classique (gestion des services). Par exemple, utilisez les commandes de l'interface de ligne de commande de l'Azure Resource Manager pour démarrer, arrêter ou supprimer des ressources telles que [les machines virtuelles Azure Resource Manager](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+Une fois le déploiement effectuez, vous devez gérer les ressources individuelles impérativement sur la ligne de commande, comme dans le modèle de déploiement classique (gestion des services). Par exemple, utilisez les commandes de l'interface de ligne de commande de l'Azure Resource Manager pour démarrer, arrêter ou supprimer des ressources telles que [les machines virtuelles Azure Resource Manager](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Authentification
 
-Pour utiliser Azure Resource Manager avec l'interface de ligne de commande Azure, vous devez vous authentifier auprès de Microsoft Azure en utilisant un compte professionnel ou scolaire (un compte d'organisation) ou un compte Microsoft (à partir de la version 0.9.10 de l'interface de ligne de commande). L'authentification avec un certificat installé à l'aide d'un fichier .publishsettings ne fonctionne pas dans ce mode.
+Pour utiliser Azure Resource Manager avec l'interface de ligne de commande Azure, vous devez vous authentifier auprès de Microsoft Azure en utilisant un compte professionnel ou scolaire (un compte d'organisation) ou un compte Microsoft (à partir de la version 0.9.10 de l'interface de ligne de commande). L'authentification avec un certificat installé à l'aide d'un fichier .publishsettings ne fonctionne pas dans ce mode.
 
 Pour plus d'informations sur l'authentification auprès de Microsoft Azure, consultez la rubrique [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE] Lorsque vous utilisez un compte professionnel ou scolaire, qui est géré par Azure Active Directory, vous pouvez également utiliser Azure Role-Based Access Control (RBAC) pour gérer l'accès et l'utilisation des ressources Azure. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
+>[AZURE.NOTE] Lorsque vous utilisez un compte professionnel ou scolaire, qui est géré par Azure Active Directory, vous pouvez également utiliser Azure Role-Based Access Control (RBAC) pour gérer l'accès et l'utilisation des ressources Azure. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-## Définition du mode Azure Resource Manager
+## Définition du mode Azure Resource Manager
 
 Étant donné que le mode Azure Resource Manager n'est pas activé par défaut, utilisez la commande suivante pour activer les commandes Resource Manager de l'interface de ligne de commande Azure.
 
 	azure config mode arm
 
->[AZURE.NOTE] Le mode Azure Resource Manager et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
+>[AZURE.NOTE] Le mode Azure Resource Manager et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
 
 ## Recherche d'emplacements
 
@@ -69,7 +69,7 @@ Un groupe de ressources est un regroupement logique de réseaux, de stockage et 
 
 	azure group create -n "testRG" -l "West US"
 
-Vous allez déployer ce groupe de ressources « testRG » ultérieurement, lorsque de l'utilisation d'un modèle pour lancer une machine virtuelle Ubuntu. Une fois que vous avez créé un groupe de ressources, vous pouvez ajouter des ressources telles que des machines virtuelles et des réseaux ou du stockage.
+Vous allez déployer ce groupe de ressources « testRG » ultérieurement, lorsque de l'utilisation d'un modèle pour lancer une machine virtuelle Ubuntu. Une fois que vous avez créé un groupe de ressources, vous pouvez ajouter des ressources telles que des machines virtuelles et des réseaux ou du stockage.
 
 
 ## Utilisation de modèles de groupe de ressources
@@ -78,15 +78,15 @@ Vous allez déployer ce groupe de ressources « testRG » ultérieurement, lor
 
 Quand vous utilisez des modèles, vous pouvez [créer vos propres modèles](resource-group-authoring-templates.md), utiliser l'un des modèles de la [galerie de modèles](https://azure.microsoft.com/documentation/templates/) également disponibles sur [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-La création d’un nouveau modèle n’est pas abordée dans cet article. Pour commencer, utilisez le modèle _101-simple-vm-from-image_ disponible à partir dans la [galerie de modèles](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Par défaut, ceci crée une seule machine virtuelle Ubuntu 14.04.2-LTS dans un nouveau réseau virtuel avec un seul sous-réseau dans la région Ouest des États-Unis. Vous devez uniquement spécifier les quelques paramètres suivants pour utiliser ce modèle :
+La création d’un nouveau modèle n’est pas abordée dans cet article. Pour commencer, utilisez le modèle _101-simple-vm-from-image_ disponible dans la [galerie de modèles](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Par défaut, ceci crée une seule machine virtuelle Ubuntu 14.04.2-LTS dans un nouveau réseau virtuel avec un seul sous-réseau dans la région Ouest des États-Unis. Vous devez uniquement spécifier les quelques paramètres suivants pour utiliser ce modèle :
 
-* Nom d'utilisateur administrateur pour la machine virtuelle = `adminUsername`
-* Mot de passe = `adminPassword`
-* Nom de domaine pour la machine virtuelle = `dnsLabelPrefix`
+* nom d’utilisateur administrateur de la machine virtuelle = `adminUsername`
+* mot de passe = `adminPassword`
+* nom de domaine de la machine virtuelle = `dnsLabelPrefix`
 
->[AZURE.TIP] Ces étapes n'indiquent qu'une manière d'utiliser un modèle de machine virtuelle avec l'interface de ligne de commande Azure. Pour d'autres exemples, consultez la rubrique [Déploiement et gestion de machines virtuelles à l'aide des modèles Azure Resource Manager et de l'interface de ligne de commande Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+>[AZURE.TIP] Ces étapes n'indiquent qu'une manière d'utiliser un modèle de machine virtuelle avec l'interface de ligne de commande Azure. Pour d'autres exemples, consultez la rubrique [Déploiement et gestion de machines virtuelles à l'aide des modèles Azure Resource Manager et de l'interface de ligne de commande Azure](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
-1. Suivez le lien « En savoir plus avec GitHub » pour télécharger les fichiers azuredeploy.json et azuredeploy.parameters.json depuis GitHub dans un dossier de travail sur votre ordinateur local. (Veillez à sélectionner le format _brut_ de chaque fichier dans GitHub.)
+1. Suivez le lien « En savoir plus avec GitHub » pour télécharger les fichiers azuredeploy.json et azuredeploy.parameters.json depuis GitHub dans un dossier de travail sur votre ordinateur local. (Veillez à sélectionner le format _brut_ de chaque fichier dans GitHub.)
 
 2. Ouvrez le fichier azuredeploy.parameters.json dans un éditeur de texte et entrez des valeurs de paramètre appropriées pour votre environnement (en laissant la valeur **ubuntuOSVersion** inchangée).
 
@@ -192,7 +192,7 @@ Les modèles vous permettent de déclarer des modifications de la configuration 
 
 		azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
-	>[AZURE.NOTE] Vous pouvez enregistrer les données JSON dans un fichier au moyen du caractère &gt; pour canaliser la sortie vers le fichier. Par exemple :
+	>[AZURE.NOTE] Vous pouvez enregistrer les données JSON dans un fichier au moyen du caractère &gt; pour canaliser la sortie vers le fichier. Par exemple :
 	>
 	> `azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
@@ -208,11 +208,11 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 
 ## Étapes suivantes
 
-* Pour plus d'informations sur l'utilisation d'Azure Resource Manager avec Azure PowerShell, voir [Utilisation d'Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
+* Pour plus d'informations sur l'utilisation d'Azure Resource Manager avec Azure PowerShell, voir [Utilisation d'Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
 * Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, voir [Utilisation de groupes de ressources pour gérer vos ressources Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

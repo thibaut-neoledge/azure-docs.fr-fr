@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
+   ms.date="03/18/2016"
    ms.author="cherylmc"/>
 
 # Configurer la coexistence de connexions de site à site et ExpressRoute
@@ -34,7 +34,8 @@ Les circuits ExpressRoute doivent être préconfigurés avant que vous suiviez l
 - **Les connexions point à site ne sont pas prises en charge :** vous ne pouvez pas activer de connexions VPN point à site avec le même réseau virtuel connecté à ExpressRoute. Des connexions VPN point à site et ExpressRoute ne peuvent pas coexister pour le même réseau virtuel.
 - **Le tunneling forcé ne peut pas être activé sur la passerelle VPN de site à site :** vous pouvez uniquement utiliser ExpressRoute pour « forcer » l’ensemble du trafic Internet vers votre réseau local. 
 - **Passerelles standard ou hautes performances uniquement :** vous devez utiliser une passerelle standard ou hautes performances pour la passerelle ExpressRoute comme pour la passerelle VPN de site à site. Consultez [SKU de passerelle](../vpn-gateway/vpn-gateway-about-vpngateways.md) pour plus d’informations sur les références de passerelle.
-- **Condition requise d’itinéraire statique :** si votre réseau local est connecté à ExpressRoute et à un VPN de site à site, vous devez avoir configuré un itinéraire statique sur votre réseau local pour acheminer la connexion VPN de site à site vers l’Internet public.
+- **Uniquement la passerelle VPN basée sur l’itinéraire :** vous devez utiliser une passerelle VPN basée sur un itinéraire. Consultez la page [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) pour plus d’informations sur la passerelle VPN basée sur l’itinéraire.
+- **Condition requise d’itinéraire statique :** si votre réseau local est connecté à la fois à ExpressRoute et à un VPN de site à site, vous devez avoir configuré un itinéraire statique sur votre réseau local pour acheminer la connexion VPN de site à site vers l’Internet public.
 - **La passerelle ExpressRoute doit d’abord être configurée :** vous devez commencer par créer la passerelle ExpressRoute avant d’ajouter la passerelle VPN de site à site.
 
 
@@ -61,16 +62,16 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
 
 - Je n’ai pas de réseau virtuel et dois en créer un
 	
-	Si vous ne disposez pas déjà d’un réseau virtuel, cette procédure vous guide dans la création d’un réseau virtuel en utilisant le modèle de déploiement classique et dans l’établissement de nouvelles connexions ExpressRoute et VPN de site à site. Pour procéder à la configuration, suivez les étapes décrites dans la section [Pour créer un réseau virtuel et des connexions qui coexistent](#new).
+	Si vous ne disposez pas déjà d’un réseau virtuel, cette procédure vous guide dans la création d’un réseau virtuel en utilisant le modèle de déploiement classique et dans l’établissement de nouvelles connexions ExpressRoute et VPN de site à site. Pour procéder à la configuration, suivez les étapes décrites dans la section [Créer un réseau virtuel et des connexions qui coexistent](#new).
 
 - J’ai déjà un réseau virtuel répondant au modèle de déploiement classique
 
-	Vous disposez peut-être déjà d’un réseau virtuel avec une connexion VPN de site à site existante ou une connexion ExpressRoute. La section [Pour configurer des connexions qui coexistent pour un réseau virtuel existant](#add) vous guide tout au long des étapes de suppression de la passerelle et de création de connexions ExpressRoute et VPN de site à site. Notez que vous devez effectuer les étapes dans un ordre très spécifique lorsque vous créez les connexions. N’utilisez pas les instructions contenues dans d’autres articles pour créer des connexions et des passerelles.
+	Vous disposez peut-être déjà d’un réseau virtuel avec une connexion VPN de site à site existante ou une connexion ExpressRoute. La section [Configurer des connexions qui coexistent pour un réseau virtuel existant](#add) vous guide tout au long des étapes de suppression de la passerelle et de création de connexions ExpressRoute et VPN de site à site. Notez que vous devez effectuer les étapes dans un ordre très spécifique lorsque vous créez les connexions. N’utilisez pas les instructions contenues dans d’autres articles pour créer des connexions et des passerelles.
 
 	Lors de cette procédure, si vous créez des connexions pouvant coexister, vous devez supprimer votre passerelle, puis configurer de nouvelles passerelles. En d’autres termes, vous subissez un temps d’arrêt pour les connexions entre différents locaux lorsque vous supprimez et recréez la passerelle et les connexions, mais vous ne devez pas migrer les ordinateurs virtuels ou les services vers un nouveau réseau virtuel. Les machines virtuelles et les services sont toujours en mesure de communiquer via l’équilibreur de charge lorsque vous configurez votre passerelle s’ils sont configurés pour ce faire.
 
 
-## <a name ="new"/> Pour créer un réseau virtuel et des connexions qui coexistent
+## <a name ="new"/> Créer un réseau virtuel et des connexions qui coexistent
 
 Cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute appelées à coexister.
 
@@ -180,7 +181,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et dans l�
 
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
 
-## <a name ="add"/> Pour configurer des connexions qui coexistent pour un réseau virtuel existant
+## <a name ="add"/> Configurer des connexions qui coexistent pour un réseau virtuel existant
 
 Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connexion VPN de site à site, vous devez d’abord supprimer la passerelle existante pour permettre aux deux connexions de se connecter au réseau virtuel existant. Cela signifie que votre site local perd la connexion à votre réseau virtuel via la passerelle lorsque vous effectuez cette configuration.
 
@@ -212,10 +213,10 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-6. À ce stade, vous disposez d’un réseau virtuel sans passerelles. Pour créer des passerelles et finaliser vos connexions, vous pouvez passer à l’[Étape 4 : Créez une passerelle ExpressRoute](#gw), plus haut.
+6. À ce stade, vous disposez d’un réseau virtuel sans passerelles. Pour créer de nouvelles passerelles et finaliser vos connexions, vous pouvez passer à l’[Étape 4 : Créer une passerelle ExpressRoute](#gw), dans les étapes qui précèdent.
 
 ## Étapes suivantes
 
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

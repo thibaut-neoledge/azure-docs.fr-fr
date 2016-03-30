@@ -4,9 +4,9 @@
 	description="Ceci est la page d’Azure AD Connect Health spécifiant comment surveiller votre infrastructure AD FS locale."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 # Utilisation d’Azure AD Connect Health avec AD FS
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health.
@@ -32,7 +32,7 @@ Si vous sélectionnez une alerte, vous aurez accès à des informations supplém
 ## Analyse de l’utilisation pour AD FS
 L’analyse de l’utilisation d’Azure AD Connect Health observe le trafic d’authentification des serveurs de fédération. Sélectionnez la zone Analyse de l’utilisation pour ouvrir le panneau Analyse de l’utilisation, qui vous indique les mesures et les regroupements.
 
->[AZURE.NOTE] Pour utiliser l’analyse de l’utilisation avec AD FS, vous devez vous assurer que les audits AD FS sont activés. Pour plus d’informations, consultez [Activer l’audit pour AD FS](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs).
+>[AZURE.NOTE] Pour utiliser l’analyse de l’utilisation avec AD FS, vous devez vous assurer que les audits AD FS sont activés. Pour plus d’informations, consultez [Activer l’audit pour AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 
 ![Portail Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
@@ -79,13 +79,13 @@ Azure AD Connect Health pour AD FS fournit un rapport sur les 50 utilisateurs do
 Dans ce rapport, vous pouvez facilement retrouver les informations suivantes :
 
 - Nombre total de demandes ayant échoué en raison d’un nom d’utilisateur/mot de passe incorrect au cours des 30 derniers jours
-- Nombre moyen d’utilisateurs dont la connexion a échoué en raison d’un nom d’utilisateur/mot de passe incorrect sur une base quotidienne. 
- 
+- Nombre moyen d’utilisateurs dont la connexion a échoué en raison d’un nom d’utilisateur/mot de passe incorrect sur une base quotidienne.
+
 Le fait de cliquer sur cette section vous amène au panneau de rapport principal qui fournit des détails supplémentaires. Il comprend un graphique fournissant des informations sur les tendances ; celles-ci servent à établir un point de comparaison des demandes dont le nom d’utilisateur ou le mot de passe est incorrect et la liste des 50 utilisateurs dont les tentatives de connexion échouent le plus souvent.
- 
+
 Ce graphique fournit les informations suivantes :
 
-- Le nombre total d’échecs de connexion en raison d’un nom d’utilisateur/mot de passe incorrect sur une base quotidienne. 
+- Le nombre total d’échecs de connexion en raison d’un nom d’utilisateur/mot de passe incorrect sur une base quotidienne.
 - Le nombre total d’utilisateurs uniques dont les tentatives de connexion ont échoué sur une base quotidienne.
 
 ![Portail Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report2a.png)
@@ -93,10 +93,10 @@ Ce graphique fournit les informations suivantes :
 Le rapport fournit les informations suivantes :
 
 | Élément de rapport | Description
-| ------ | -------- | 
+| ------ | -------- |
 |ID d'utilisateur| Affiche l’ID d’utilisateur qui a été utilisé. Notez que la valeur affichée est celle entrée par l’utilisateur. Dans certains cas, vous verrez également qu’un mauvais ID d’utilisateur est utilisé.|
 |Tentatives ayant échoué|Affiche le nombre total de tentatives ayant échoué pour cet ID d’utilisateur. Le tableau est trié par nombre décroissant de tentatives ayant échoué.|
-|Dernier échec|Affiche l’horodatage du dernier échec. 
+|Dernier échec|Affiche l’horodatage du dernier échec.
 
 
 
@@ -113,4 +113,4 @@ Le rapport fournit les informations suivantes :
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

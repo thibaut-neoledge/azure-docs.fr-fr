@@ -124,7 +124,6 @@ Un travail est une collecte de données et spécifie comment le calcul est effec
 	- Azure Batch peut détecter les tâches qui échouent et les relancer. Le **nombre maximal de tentatives de tâche** peut être spécifié comme une contrainte, et indiquer notamment si une tâche doit toujours être systématiquement relancée ou ne jamais l’être. Lorsqu’une tâche est relancée, cela signifie qu’elle est remise en file d’attente afin d’être réexécutée.
 - Les tâches peuvent être ajoutées au travail par votre application cliente, ou une [Tâche du gestionnaire de travaux](#jobmanagertask) peut être spécifiée. Une tâche de gestionnaire de travaux utilise l’API Batch et contient les informations nécessaires à la création des tâches requises pour un travail, avec la tâche qui s’exécute sur l’un des nœuds de calcul au sein du pool. La tâche du gestionnaire de travaux est gérée spécifiquement par Batch : elle est remise en file d’attente dès que le travail est créé et elles sont relancées lorsqu’elle échoue. Une tâche de gestionnaire de travaux est requise pour les travaux créés dans le cadre d’un calendrier du travail, car il s’agit du seul moyen de définir les tâches avant que le travail ne soit instancié. D’autres informations sur les tâches du gestionnaire du travail apparaissent ci-dessous.
 
-
 ### <a name="task"></a>Tâche
 
 Une tâche est une unité de calcul associée à un travail et exécutée sur un nœud. Les tâches sont affectées à un nœud afin d’être exécutées ou sont mises en file d’attente jusqu’à ce qu’un nœud soit disponible. Elle utilise les ressources suivantes :
@@ -192,7 +191,15 @@ Pour une présentation détaillée de l’exécution des travaux MPI dans Batch 
 
 #### <a name="taskdep"></a>Dépendance entre tâches
 
-La dépendance entre tâches, comme son nom l’indique, vous permet de préciser que l’exécution d’une tâche dépend de l’achèvement préalable d’une ou de plusieurs tâches. La tâche « en aval » peut utiliser le résultat de la tâche « en amont », ou peut-être dépendante des initialisations effectuées par la tâche en amont. Dans ce scénario, vous pouvez spécifier que votre projet utilise l’interdépendance des tâches, puis, pour chaque tâche qui dépend d’une autre tâche (ou de plusieurs autres), préciser desquelles elle dépend.
+La dépendance entre tâches, comme son nom l’indique, vous permet de préciser que l’exécution d’une tâche dépend de l’achèvement préalable d’autres tâches. Cette fonctionnalité prend en charge des situations dans lesquelles une tâche « en aval » consomme le résultat d’une sortie d’une tâche « en amont », ou lorsqu’une tâche en amont effectue une initialisation requise par une tâche en aval. Pour utiliser cette fonctionnalité, vous devez d’abord activer les dépendances de tâche sur la tâche Batch. Ensuite, pour chaque tâche qui dépend d’une autre (ou de plusieurs autres), vous devez spécifier les tâches dont elle dépend.
+
+Avec l’interdépendance des tâches, vous pouvez configurer des scénarios suivants :
+
+* *taskB* dépend de *taskA* (*taskB* ne commence pas tant que l’exécution de *taskA* n’est pas terminée)
+* *taskC* dépend de *taskA* et de *taskB*
+* *taskD* dépend d’une suite de tâches, notamment les tâches *1* à *10*, avant de pouvoir s’exécuter
+
+Découvrez l’exemple de code [TaskDependencies][github_sample_taskdeps] dans le référentiel GitHub [azure-batch-samples][github_samples]. Vous apprendrez grâce à lui à configurer des tâches qui dépendent d’autres tâches à l’aide de la bibliothèque [Batch .NET][batch_net_api].
 
 ### <a name="jobschedule"></a>Travaux planifiés
 
@@ -347,7 +354,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 
 - **Désactiver la planification des tâches sur le nœud** ([REST][rest_offline] | [.NET][net_offline])
 
-	Cette opération est efficace puisqu’elle place le nœud « hors connexion ». Ainsi, aucune tâche ultérieure ne peut lui être assignée. Toutefois, le nœud est autorisé à poursuivre son exécution et à rester dans le pool. Cela vous permet de faire une recherche approfondie sur la cause des échecs sans perdre les données de la tâche en échec et sans que le nœud n’occasionne d’autres échecs de tâche supplémentaires. Par exemple, vous pouvez désactiver la planification des tâches sur le nœud, puis vous connecter à distance pour examiner les journaux des événements de ce nœud ou encore résoudre d’autres problèmes. Une fois que vous avez terminé votre recherche, vous pouvez remettre le nœud en ligne en activant la planification des tâches ([REST][rest_online], [.NET][net_online]), ou effectuez l’une des actions ci-dessus.
+	Cette opération est efficace puisqu’elle place le nœud « hors connexion ». Ainsi, aucune tâche ultérieure ne peut lui être assignée. Toutefois, le nœud est autorisé à poursuivre son exécution et à rester dans le pool. Cela vous permet de faire une recherche approfondie sur la cause des échecs sans perdre les données de la tâche en échec et sans que le nœud n’occasionne d’autres échecs de tâche supplémentaires. Par exemple, vous pouvez désactiver la planification des tâches sur le nœud, puis vous connecter à distance pour examiner les journaux des événements de ce nœud ou encore résoudre d’autres problèmes. Une fois que vous avez terminé votre recherche, vous pouvez remettre le nœud en ligne en activant la planification des tâches ([REST][rest_online], [.NET][net_online]), ou effectuer l’une des actions ci-dessus.
 
 > [AZURE.IMPORTANT] Pour chaque action mentionnée ci-dessus (redémarrer, réinitialiser, supprimer, désactiver la planification des tâches), vous pouvez indiquer la manière dont les tâches en cours d’exécution sur le nœud sont gérées lorsque vous effectuez l’action. Par exemple, lorsque vous désactivez la planification des tâches sur un nœud avec la bibliothèque cliente Batch.NET, vous pouvez indiquer une valeur d’énumération [DisableComputeNodeSchedulingOption][net_offline_option]. Celle-ci sert à préciser s’il faut **interrompre** les tâches en cours d’exécution, les **remettre en file d’attente** pour les planifier sur d’autres nœuds ou finaliser les tâches en cours avant d’exécuter l’action (**TaskCompletion**).
 
@@ -366,6 +373,8 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -392,7 +401,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/fr-FR/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -402,4 +411,4 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

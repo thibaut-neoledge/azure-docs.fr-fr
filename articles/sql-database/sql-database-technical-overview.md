@@ -63,4 +63,4 @@ Maintenant que vous avez lu l’introduction à la base de données SQL et répo
 
 - Voir l’index des titres et descriptions de l’article [All topics for Azure sql-database service](sql-database-index-all-articles.md) (Ensemble des rubriques relatives au service de base de données SQL Azure).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

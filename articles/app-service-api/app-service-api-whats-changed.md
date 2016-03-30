@@ -111,6 +111,10 @@ L’ancien modèle API Apps proposait des API qui permettaient de découvrir pen
 3. Créez votre propre application API de découverte et faites en sorte que les autres applications API s’inscrivent auprès de l’application de découverte au démarrage.
 4. Au moment du déploiement, renseignez les paramètres d’application de toutes les applications API (et des clients) avec les points de terminaison des autres applications API. Ceci est viable dans les déploiements de modèles et depuis que API Apps vous confère le contrôle de l’URL.
 
+## Utilisation d’API Apps avec Logic Apps
+
+Le nouveau modèle d’API Apps fonctionne bien avec le [schéma Logic Apps version 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+
 ## Étapes suivantes
 
 Pour en savoir plus, lisez les articles de la [section Documentation de l’API Apps](https://azure.microsoft.com/documentation/services/app-service/api/). Ils ont été mis à jour pour prendre en compte le nouveau modèle pour API Apps. Par ailleurs, accédez aux forums pour obtenir des détails ou des conseils supplémentaires sur la migration :
@@ -118,4 +122,4 @@ Pour en savoir plus, lisez les articles de la [section Documentation de l’API 
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps)
 - [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

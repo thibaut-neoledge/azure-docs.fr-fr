@@ -39,7 +39,7 @@ Outre les conditions préalables répertoriées dans la rubrique Vue d’ensembl
 > [AZURE.IMPORTANT]
 Vous devez exécuter les étapes préalables énumérées [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) pour effectuer la procédure pas à pas décrite dans cet article.
 
-## Étape 1 : Création du modèle ARM
+## Créer un modèle ARM
 
 Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\\ADFGetStarted** avec le contenu suivant :
 
@@ -103,7 +103,7 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
                                 "clusterSize": 4,
                                 "version":  "3.2",
             					"timeToLive": "00:05:00",
-                                "osType": "linux",
+                                "osType": "windows",
             					"linkedServiceName": "[variables('storageLinkedServiceName')]",
     						}
 	                    }
@@ -220,7 +220,7 @@ Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l�
 
 Notez les points suivants :
 
-- La fabrique de données crée pour vous un cluster HDInsight **Linux** avec le JSON ci-dessus. Vous pouvez également lui faire créer un cluster HDInsight **Windows**. Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations. 
+- La fabrique de données crée pour vous un cluster HDInsight **Windows** avec le JSON ci-dessus. Vous pouvez également lui faire créer un cluster HDInsight **Linux**. Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations. 
 - Vous pouvez utiliser **votre propre cluster HDInsight** au lieu d’utiliser un cluster HDInsight à la demande. Consultez [Service lié HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) pour plus d’informations.
 - Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. C’est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (**timeToLive**) et est supprimé une fois le traitement activé.
 
@@ -230,7 +230,7 @@ Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-ser
 
 > [AZURE.NOTE] Vous pouvez trouver un autre exemple de modèle ARM pour créer une fabrique de données Azure sur [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
 
-## Étape 2 : Déployer des entités Data Factory à l’aide du modèle ARM
+## Créer une fabrique de données
 
 1. Démarrez **Azure PowerShell** et exécutez la commande suivante. 
 	- Exécutez **Login-AzureRmAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.  
@@ -239,7 +239,7 @@ Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-ser
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
-## Surveiller le pipeline
+## Surveillance d’un pipeline
  
 1.	Après la connexion au [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. ![Parcourir tout -> Fabriques de données](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Dans le panneau **Fabriques de données**, cliquez sur la fabrique de données (**TutorialFactoryARM**) que vous avez créée.	
@@ -256,4 +256,4 @@ Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-ser
 10. Quand l’état du segment est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -3,7 +3,7 @@
 	description="Didacticiel expliquant comment créer une application web PHP stockant les données dans MySQL et comment utiliser un déploiement FTP dans Azure." 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,14 +14,14 @@
 	ms.devlang="PHP" 
 	ms.topic="hero-article" 
 	ms.date="01/12/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 #Créer une application web PHP-MySQL dans Azure App Service et la déployer à l’aide de FTP
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -29,21 +29,21 @@
 
 Ce didacticiel vous indique comment créer une application web PHP-MySQL et comment la déployer à l’aide de FTP. Il part du principe que vous avez installé [PHP][install-php], [MySQL][install-mysql], un serveur Web et un client FTP sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
  
-Vous apprendrez à effectuer les opérations suivantes :
+Vous apprendrez à effectuer les opérations suivantes :
 
-* création d’une application web et d’une base de données MySQL à l’aide du portail Azure (PHP étant activé par défaut dans Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
+* création d’une application web et d’une base de données MySQL à l’aide du portail Azure (PHP étant activé par défaut dans Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publier votre application sur Azure avec FTP.
  
-En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans une application web. Voici une capture d'écran de l'application terminée :
+En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans une application web. Voici une capture d'écran de l'application terminée :
 
 ![Site Web PHP Azure][running-app]
 
->[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise, et vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise, et vous ne prenez aucun engagement.
 
 
 ##Créer une application web et configurer la publication FTP
 
-Pour créer une application web et une base de données MySQL, suivez la procédure ci-après :
+Pour créer une application web et une base de données MySQL, suivez la procédure ci-après :
 
 1. Connectez-vous au [portail Azure][management-portal].
 2. Cliquez sur l’icône **+ Nouveau** dans le coin supérieur gauche du portail Azure.
@@ -76,18 +76,18 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 ##Générer et tester votre application localement
 
-L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L’application se compose de deux fichiers :
+L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L’application se compose de deux fichiers :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
-* **createtable.php** : crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **createtable.php** : crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
 
 Pour générer et exécuter l’application localement, suivez la procédure ci-après. notez que ces étapes partent du principe que PHP, MySQL et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
 
-1. Créez une base de données MySQL nommée `registration`. Pour cela, utilisez l'invite de commandes MySQL avec cette commande :
+1. Créez une base de données MySQL nommée `registration`. Pour cela, utilisez l'invite de commandes MySQL avec cette commande :
 
 		mysql> create database registration;
 
-2. Dans le répertoire racine de votre serveur web, créez un dossier nommé `registration` et deux fichiers à l’intérieur : un fichier nommé `createtable.php` et un autre nommé `index.php`.
+2. Dans le répertoire racine de votre serveur web, créez un dossier nommé `registration` et deux fichiers à l’intérieur : un fichier nommé `createtable.php` et un autre nommé `index.php`.
 
 3. Ouvrez le fichier `createtable.php` dans un éditeur de texte ou un environnement de développement intégré (IDE), puis ajoutez le code suivant. Ce code permet de créer la table `registration_tbl` dans la base de données `registration`.
 
@@ -218,13 +218,13 @@ Vous pouvez maintenant accéder à [http://localhost/inscription/index.php][loca
 
 ##Obtention des informations de connexion MySQL et FTP
 
-Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps, vous devez disposer des informations de connexion. Pour obtenir vos informations de connexion MySQL, procédez comme suit :
+Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps, vous devez disposer des informations de connexion. Pour obtenir vos informations de connexion MySQL, procédez comme suit :
 
-1. À partir du panneau Application web du service d’application Azure, cliquez sur le lien vers le groupe de ressources :
+1. À partir du panneau Application web du service d’application Azure, cliquez sur le lien vers le groupe de ressources :
 
 	![Sélectionner Groupe de ressources][select-resourcegroup]
 
-1. À partir de votre groupe de ressources, cliquez sur la base de données :
+1. À partir de votre groupe de ressources, cliquez sur la base de données :
 
 	![Sélectionner la base de données][select-database]
 
@@ -236,13 +236,13 @@ Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps
 
     ![Noter les propriétés][note-properties]
 
-3. Dans votre application web, cliquez sur le lien **Télécharger le profil de publication** dans le coin inférieur droit de la page :
+3. Dans votre application web, cliquez sur le lien **Télécharger le profil de publication** dans le coin inférieur droit de la page :
 
 	![Télécharger le profil de publication][download-publish-profile]
 
 4. Ouvrez le fichier `.publishsettings` dans un éditeur XML.
 
-3. Recherchez l’élément `<publishProfile >` dont la structure de publication `publishMethod="FTP"` est semblable à celle-ci :
+3. Recherchez l’élément `<publishProfile >` dont la structure de publication `publishMethod="FTP"` est semblable à celle-ci :
 
 		<publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].azurewebsites.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
 			...
@@ -252,7 +252,7 @@ Notez les attributs `publishUrl`, `userName` et `userPWD`.
 
 ##Publier votre application
 
-Après avoir testé votre application localement, vous pouvez la publier dans votre application web à l’aide de FTP. Cependant, vous devez d'abord mettre à jour les informations de connexion à la base de données dans l'application. En utilisant les informations de connexion à la base de données obtenues précédemment (dans la section **Obtention des informations de connexion MySQL et FTP**), mettez à jour les informations suivantes dans **les deux** fichiers `createdatabase.php` et `index.php` avec les valeurs appropriées :
+Après avoir testé votre application localement, vous pouvez la publier dans votre application web à l’aide de FTP. Cependant, vous devez d'abord mettre à jour les informations de connexion à la base de données dans l'application. En utilisant les informations de connexion à la base de données obtenues précédemment (dans la section **Obtention des informations de connexion MySQL et FTP**), mettez à jour les informations suivantes dans **les deux** fichiers `createdatabase.php` et `index.php` avec les valeurs appropriées :
 
 	// DB connection info
 	$host = "value of Data Source";
@@ -303,4 +303,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->
