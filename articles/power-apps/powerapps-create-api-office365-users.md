@@ -95,7 +95,7 @@ Si vous ne disposez pas d’une application AAD avec sa clé et sa clé secrète
 8. Définissez l’**URL de réponse** située sous la section _OAuth 2_ sur l’URL de redirection que vous avez reçue quand vous avez ajouté la nouvelle API Office 365 Utilisateurs dans le portail Azure (dans cette rubrique). Sélectionnez **Ajouter une application** :  
 ![Configuration de l’application AAD Contoso][11]
 
-9. Dans la fenêtre **Autorisations pour d’autres applications**, sélectionnez **API Office 365 Unifié (version préliminaire) **, puis sélectionnez **OK**.
+9. Dans la fenêtre **Autorisations pour d’autres applications**, sélectionnez **API Office 365 Unifié (version préliminaire)**, puis sélectionnez **OK**.
 
 10. Dans la page Configurer, notez que _API Office 365 Unifié (version préliminaire)_ est ajouté à la liste _Autorisations pour d’autres applications_.
 
@@ -128,4 +128,4 @@ Dans cette rubrique, vous avez vu comment ajouter l’API Office 365 Users à Po
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!----------HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0309_2016-->
