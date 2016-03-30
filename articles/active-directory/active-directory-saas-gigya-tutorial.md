@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Gigya**, tapez votre URL selon le modèle suivant « **http://company.gigya.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Gigya**, tapez votre URL selon le modèle suivant « *http://company.gigya.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configurer l’URL de l’application")
 

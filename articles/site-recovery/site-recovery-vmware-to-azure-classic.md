@@ -67,7 +67,8 @@ Composants du scénario :
 - **Un serveur d’administration local** : le serveur d’administration exécute les composants Site Recovery :
 	- **Serveur de configuration** : coordonne la communication et gère les processus de réplication et de récupération des données.
 	- **Serveur de traitement** : fait office de passerelle de réplication. Il reçoit les données d’ordinateurs source protégés, les optimise grâce à la mise en cache, la compression et le chiffrement et envoie les données de réplication vers le stockage Azure. Il gère également l’installation Push du service Mobilité sur des machines protégées et assure la détection automatique des machines virtuelles VMware.
-	- **Serveur cible maître** : gère les données de réplication pendant la restauration automatique à partir d’Azure. Vous pouvez également déployer un serveur d’administration se comportant comme un serveur de traitement, afin de mettre à niveau votre déploiement.
+	- **Serveur cible maître** : gère les données de réplication pendant la restauration automatique à partir d’Azure.
+	Vous pouvez également déployer un serveur d’administration se comportant comme un serveur de traitement, afin de mettre à niveau votre déploiement.
 - **Service Mobilité** : ce composant est déployé sur chaque ordinateur (machine virtuelle VMware ou serveur physique) que vous souhaitez répliquer vers Azure. Il enregistre les écritures de données sur la machine et les transmet au serveur de traitement.
 - **Azure** : vous n’avez pas besoin de créer de machines virtuelles Azure pour gérer la réplication et le basculement. Le service Site Recovery assure la gestion, puis la réplication des données directement sur le stockage Azure. Les machines virtuelles Azure répliquées sont automatiquement tournées uniquement en cas de basculement vers Azure. Toutefois, si vous souhaitez effectuer une restauration à partir d’Azure vers le site local, vous devrez configurer une machine virtuelle Azure pour qu’elle serve de serveur de traitement.
 
@@ -203,7 +204,8 @@ Les tableaux résument les conditions préalables de déploiement de ce scénari
 3. Cliquez sur **Créer nouveau** > **Création rapide**.
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 5. Dans **Region**, sélectionnez la région géographique du coffre. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
-6. Cliquez sur **Créer un archivage**. ![Nouveau coffre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
+6. Cliquez sur **Créer un archivage**.
+	![Nouveau coffre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
 
 Vérifiez la barre d'état pour vous assurer que le coffre a été créé correctement. Le coffre apparaît comme **Actif** dans la page **Recovery Services**.
 
@@ -301,7 +303,8 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 13.  Dans **Résumé**, passez en revue les informations.
 
 	![Résumé](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] Le proxy de Microsoft Azure Recovery Services Agent doit être installé. Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
+>[AZURE.WARNING] Le proxy de Microsoft Azure Recovery Services Agent doit être installé.
+>Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
@@ -461,7 +464,8 @@ Les programmes d’installation sont disponibles dans C:\\Program Files (x86)\\M
 Système d’exploitation source | Fichier d’installation du service Mobilité
 --- | ---
 Windows Server (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
