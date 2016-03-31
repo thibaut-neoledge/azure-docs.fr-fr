@@ -231,7 +231,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 ### Configurer le tableau de bord de chemin à froid
 Dans le pipeline de données de chemin à froid, l'objectif principal est d’obtenir la prévision de la demande de chaque région. Power BI se connecte à une base de données SQL Azure en tant que source de données où sont stockés les résultats de la prédiction.
 
-> [AZURE.NOTE] (1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
+> [AZURE.NOTE] \(1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 
 
@@ -288,4 +288,4 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 
 -   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
