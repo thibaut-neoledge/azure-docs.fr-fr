@@ -293,4 +293,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 	Azure vous permet d’exécuter des applications web dans App Service Web Apps (comme vous l’avez vu dans ce didacticiel), mais aussi dans Cloud Services ou Virtual Machines. Pour plus d’informations, consultez [Microsoft Azure Websites, Web Roles, and VMs: When to use which?](/manage/services/web-sites/choose-web-app-service/) (Applications web, services cloud et machines virtuelles Azure : quand les utiliser ?)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

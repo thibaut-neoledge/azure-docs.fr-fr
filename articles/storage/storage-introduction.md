@@ -251,4 +251,4 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 - [Utilisation du stockage de fichiers à partir de Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
