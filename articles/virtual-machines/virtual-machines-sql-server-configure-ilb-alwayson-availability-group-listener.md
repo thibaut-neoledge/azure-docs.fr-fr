@@ -138,4 +138,4 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!------HONumber=AcomDC_0204_2016-->
+<!-------HONumber=AcomDC_0204_2016-->
