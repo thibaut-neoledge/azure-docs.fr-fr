@@ -27,8 +27,10 @@
 ---
 
 [ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
+<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) 
+| [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -43,21 +45,22 @@ Les expressions scalaires sont distinctes des [requêtes](app-analytics-queries.
 ## Valeurs scalaires
 
 [casts](#casts) | [comparisons](#scalar-comparisons) 
-<br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Les types pris en charge sont :
 
 | Type | Nom(s) supplémentaire(s) | Type .NET équivalent |
 | --------- | -------------------- | -------------------- |
-| `bool` | `boolean` | `System.Boolean` |
-| `datetime`| `date` | `System.DateTime` |
-| `dynamic` | | `System.Object` |
-| `guid` | `uuid`, `uniqueid` | `System.Guid` |
-| `int` | | `System.Int32` |
-| `long` | | `System.Int64` |
-| `double` | `real` | `System.Double` |
-| `string` | | `System.String` |
-| `timespan`| `time` | `System.TimeSpan` |
+| `bool`    | `boolean`            | `System.Boolean`     |
+| `datetime`| `date`               | `System.DateTime`    |
+| `dynamic` |                      | `System.Object`      |
+| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
+| `int`     |                      | `System.Int32`       |
+| `long`    |                      | `System.Int64`       |
+| `double`  | `real`               | `System.Double`      |
+| `string`  |                      | `System.String`      |
+| `timespan`| `time`               | `System.TimeSpan`    |
 
 ### Casts
 
@@ -191,7 +194,7 @@ True ou false selon si la valeur est null ou not null.
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **Exemple**
@@ -223,8 +226,7 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 
 ## Nombres
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | 
-[tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Littéraux numériques
 
@@ -355,7 +357,7 @@ Fonction racine carrée.
 ## Date et heure
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
 
 ### Littéraux de date et d’heure
 
@@ -538,7 +540,7 @@ Alias `timespan()`.
 
 ## Chaîne
 
-[countof](#countof) | [extract](#extract) | [extractjson](#extractjson) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 
 ### Littéraux de chaîne
@@ -547,7 +549,7 @@ Les règles sont les mêmes que dans JavaScript.
 
 Les chaînes peuvent être placées entre guillemets simples ou doubles.
 
-La barre oblique inverse (``) est utilisée pour échapper les caractères tels que `\t` (tabulation), `\n` (renvoi à la ligne) et les instances de guillemets englobants.
+La barre oblique inverse (`\`) est utilisée pour échapper les caractères tels que `\t` (tabulation), `\n` (renvoi à la ligne) et les instances de guillemets englobants.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -696,7 +698,7 @@ Indique si l’argument est une chaîne vide ou s’il a la valeur isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 
@@ -1150,4 +1152,4 @@ Notez que « [0] » indique la présence d’un tableau, mais ne spécifie pas l
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
