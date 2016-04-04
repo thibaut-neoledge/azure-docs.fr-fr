@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/21/2016" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,7 @@ Les dernières informations sur les limites de ressources pour une base de donn�
 Un objectif clé de SQL Database V12 était d’améliorer la compatibilité avec Microsoft SQL Server 2014 et de maintenir la compatibilité au fur et à mesure de la publication de nouvelles versions de SQL Server. Entre autres, la version 12 (V12) est désormais équivalente à SQL Server dans le domaine de la programmabilité. Exemple :
 
 
-- [Fonctions Windows](http://msdn.microsoft.com/library/bb934097.aspx), avec [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Fonctions Windows](http://msdn.microsoft.com/library/ms189798.aspx), avec [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
 
 - [Index XML](http://msdn.microsoft.com/library/bb934097.aspx) et [index XML sélectifs](http://msdn.microsoft.com/library/jj670104.aspx)
 
@@ -166,4 +166,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nivea
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

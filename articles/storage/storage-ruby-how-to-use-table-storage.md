@@ -3,9 +3,9 @@
 	description="Découvrez comment utiliser le stockage de tables Azure dans Azure. Les exemples de code sont écrits à l’aide de l’API Ruby."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Utilisation du stockage de tables Azure à partir de Ruby
@@ -31,7 +31,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 ## Création d'une application Ruby
 
-Pour obtenir des instructions sur la création d’une application Ruby, consultez la section [Application web Ruby on Rails sur une machine virtuelle Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Pour obtenir des instructions sur la création d’une application Ruby, consultez la page [Application web Ruby on Rails sur une machine virtuelle Azure](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md).
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -60,11 +60,11 @@ Pour obtenir ces valeurs à partir d'un compte de stockage classique ou ARM sur 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
-3. Sur le panneau Paramètres à droite, cliquez sur **Clés d'accès**.
-4. Sur le panneau Clés d'accès qui s'affiche, vous verrez la clé d'accès 1 et la clé d'accès 2. Vous pouvez utiliser les deux. 
-5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers. 
+3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès**.
+4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux. 
+5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers. 
 
-Pour obtenir ces valeurs à partir d'un compte de stockage classique sur le portail Classic :
+Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le portail Classic :
 
 1. Connectez-vous au [portail Classic](https://manage.windowsazure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
@@ -100,7 +100,7 @@ Plusieurs méthodes permettent de mettre à jour une entité existante :
 * **insert\_or\_merge\_entity() :** met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
 * **insert\_or\_replace\_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
 
-L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()**:
+L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()** :
 
 	entity = { "content" => "test entity with updated content",
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
@@ -129,7 +129,7 @@ Pour interroger une entité dans une table, utilisez la méthode **get\_entity()
 
 ## Interrogation d’un ensemble d’entités
 
-Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey**:
+Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
@@ -163,4 +163,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

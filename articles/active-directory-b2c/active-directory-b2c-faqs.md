@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/21/2016"
 	ms.author="swkrish"/>
 
 # Version préliminaire d'Azure Active Directory B2C : FAQ
@@ -46,6 +46,7 @@ Non, mais cette fonctionnalité est sur notre feuille de route. Les étendues pa
 
 - Facebook : courrier électronique
 - Google+ : courrier électronique
+- Compte Microsoft : profil de messagerie openid
 - Amazon : profil
 - LinkedIn : r\_emailaddress, r\_basicprofile
 
@@ -59,7 +60,7 @@ Chaque client Azure AD B2C a son propre panneau de fonctionnalités B2C sur le p
 
 ### Comment puis-je personnaliser les courriers électroniques de vérification (le contenu et le champ « De: ») envoyés par Azure AD B2C ?
 
-Utilisez la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md) pour personnaliser le contenu des e-mails de vérification. Le champ « De: » peut être modifié via le support technique.
+Utilisez la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md) pour personnaliser le contenu des courriers électroniques de vérification. Le champ « De: » peut être modifié via le support technique.
 
 ### Comment puis-je migrer mes noms d’utilisateur, mots de passe et profils existants à partir de ma base de données vers Azure AD B2C ?
 
@@ -111,6 +112,6 @@ Nous ne pouvons fournir aucune informations sur la date de disponibilité pour l
 
 ## Plus d’informations
 
-Vous pouvez également consulter les [Limites, restrictions et contraintes de la version préliminaire](active-directory-b2c-limitations.md) actuelle.
+Vous pouvez également consulter les [Limites, restrictions et contraintes actuelles de la version préliminaire](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

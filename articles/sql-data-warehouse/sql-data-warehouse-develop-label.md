@@ -19,12 +19,12 @@
 # Utiliser des libellés pour instrumenter des requêtes dans SQL Data Warehouse
 SQL Data Warehouse prend en charge le concept de « libellé de requête ». Avant de l’étudier plus avant, voici un exemple parlant :
 
-	```
-	SELECT *
-	FROM sys.tables
-	OPTION (LABEL = 'My Query Label')
-	;
-	```
+```
+SELECT *
+FROM sys.tables
+OPTION (LABEL = 'My Query Label')
+;
+```
 
 Cette dernière ligne balise la chaîne « My Query Label » dans la requête. Cette action est particulièrement utile, car ce libellé peut être interrogé via des DMV. Elle nous fournit un mécanisme de suivi des requêtes posant des problèmes et nous permet d’identifier la progression de l’exécution d’une action ETL.
 
@@ -32,12 +32,12 @@ Cette dernière ligne balise la chaîne « My Query Label » dans la requête. C
 
 Pour effectuer une recherche basée sur un libellé, vous pouvez utiliser la requête suivante, qui tire parti de DMV :
 
-	```
-	SELECT  *
-	FROM    sys.dm_pdw_exec_requests r
-	WHERE   r.[label] = 'My Query Label'
-	;
-	```
+```
+SELECT  *
+FROM    sys.dm_pdw_exec_requests r
+WHERE   r.[label] = 'My Query Label'
+;
+```
 
 > [AZURE.NOTE] Vous devez impérativement encapsuler les crochets ou les guillemets doubles entourant le libellé du mot lors de l’interrogation. En effet, le libellé est un mot réservé. Il entraîne une erreur s’il n’est pas délimité.
 
@@ -54,4 +54,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -32,7 +32,7 @@ Cependant, certains fournisseurs de ressources offrent deux versions de la resso
 - **Stockage** : il prend en charge les comptes de stockage nécessaires qui stockent les disques durs virtuels pour les machines virtuelles, notamment leur système d’exploitation et les disques de données supplémentaires.
 - **Réseau** : il prend en charge les cartes réseau, adresses IP des machines virtuelles et sous-réseaux au sein de réseaux virtuels, ainsi que les équilibreurs de charge facultatifs, les adresses IP des équilibreurs de charge et les groupes de sécurité réseau.
 
-Pour ces types de ressources, vous devez connaître la version que vous utilisez, car les opérations prises en charge diffèrent. Pour plus d’informations sur la transition des ressources de calcul, de réseau et de stockage, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Pour ces types de ressources, vous devez connaître la version que vous utilisez, car les opérations prises en charge diffèrent. Pour plus d’informations sur la transition des ressources de calcul, de réseau et de stockage, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 ## Caractéristiques de Resource Manager
 
@@ -93,7 +93,7 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Vous pouvez également accéder au portail préliminaire et spécifier qu'il s'agit d'un déploiement classique (pour les catégories Calcul, Stockage et Mise en réseau)
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -177,9 +177,9 @@ Plusieurs points importants sont à prendre en compte lors de l’utilisation de
 
 Si les temps d’arrêt ne pénalisent pas vos machines virtuelles, vous pouvez les faire passer du déploiement classique à Resource Manager à l’aide de [scripts PowerShell ASM2ARM](https://github.com/fullscale180/asm2arm).
 
-Pour obtenir une liste des commandes de l’interface de ligne de commande Azure équivalentes lors de la transition d’un déploiement classique vers Resource Manager, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
+Pour obtenir une liste des commandes de l’interface de ligne de commande Azure équivalentes lors de la transition d’un déploiement classique vers Resource Manager, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows](./virtual-machines/virtual-machines-linux-cli-manage.md).
 
-Pour plus d’informations sur la transition des ressources de calcul, de réseau et de stockage, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Pour plus d’informations sur la transition des ressources de calcul, de réseau et de stockage, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles de déploiement différents, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
@@ -188,4 +188,4 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 - Pour en savoir plus sur la création de modèles de déploiement déclaratifs, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

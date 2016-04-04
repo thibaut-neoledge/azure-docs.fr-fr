@@ -20,11 +20,11 @@
 
 Si vous stockez des données historiques dans une table distincte, vous pouvez configurer Stretch Database pour migrer la totalité de la table. Si votre table contient à la fois des données historiques et des données actuelles, d’autre part, vous pouvez spécifier un prédicat de filtre pour sélectionner les lignes à transférer. Le prédicat de filtre doit appeler une fonction tabulaire inline. Cette rubrique explique comment écrire une fonction tabulaire inline pour sélectionner les lignes à migrer.
 
-Dans la version CTP 3.1 via RC0, l’option permettant de spécifier un prédicat n’est pas disponible dans l’assistant Activation de base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer l’extension de base de données avec cette option. Pour en savoir plus, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+Dans la version CTP 3.1 via RC1, l’option permettant de spécifier un prédicat n’est pas disponible dans l’Assistant Activation de base de données pour Stretch. Vous devez utiliser l’instruction ALTER TABLE pour configurer l’extension de base de données avec cette option. Pour en savoir plus, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
 
-> [!IMPORTANT] Si vous fournissez un prédicat de filtre qui fonctionne mal, la migration de données est elle aussi médiocre. Stretch Database applique le prédicat de filtre à la table à l’aide de l’opérateur CROSS APPLY.
+    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
 ## Exigences de base pour la fonction tabulaire inline
 La fonction tabulaire inline requise pour une fonction de filtre Stretch Database ressemble à l’exemple qui suit.
@@ -45,7 +45,7 @@ La liaison de schéma est nécessaire pour éviter que les colonnes utilisées p
 Si la fonction retourne un résultat non vide, la ligne est éligible à la migration ; autrement dit, si la fonction ne retourne aucune ligne, la ligne ne peut être retenue pour la migration.
 
 ### Conditions
-Le <*prédicat*> peut comporter une condition, ou plusieurs reliées entre elles par l’opérateur logique AND.
+Le &lt;*prédicat*&gt; peut comporter une condition ou plusieurs conditions reliées entre elles par l’opérateur logique AND.
 
 ```
 <predicate> ::= <condition> [ AND <condition> ] [ ...n ]
@@ -70,7 +70,7 @@ Une condition primitive peut effectuer l’une des comparaisons suivantes.
 
 -   Comparer un paramètre de fonction à une expression constante. Par exemple, `@column1 < 1000`.
 
-    Voici un exemple qui vérifie si la valeur de la colonne *date* est &lt; 1\\/1\\/2016.
+    Voici un exemple qui vérifie si la valeur de la colonne *date* est &lt; 1/1/2016.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -410,4 +410,4 @@ Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de c
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

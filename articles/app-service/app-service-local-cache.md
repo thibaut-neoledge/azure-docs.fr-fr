@@ -105,7 +105,7 @@ Consultez plus haut la section sur les meilleures pratiques relatives à l’uti
  
 ### Comment puis-je savoir si mon site a basculé pour utiliser le cache local ? 
 
-Si vous utilisez la fonctionnalité de cache local avec des environnements intermédiaires, l’opération d’échange ne prend fin qu’une fois le cache local initialisé. Pour vérifier si votre site s’exécute sur le cache local, vous pouvez consulter la variable d’environnement de processus de travail `WEBSITE_LOCALCACHE_READY`. Utilisez les instructions indiquées pour accéder à la variable d’environnement de processus de travail sur plusieurs instances.
+Si vous utilisez la fonctionnalité de cache local avec des environnements intermédiaires, l’opération d’échange ne prend fin qu’une fois le cache local initialisé. Pour vérifier si votre site s’exécute sur le cache local, vous pouvez consulter la variable d’environnement de processus de travail WEBSITE\_LOCALCACHE\_READY. Utilisez les instructions de la page relative à la [variable d’environnement du processus de travail](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) pour accéder à la variable d’environnement de processus de travail sur plusieurs instances.
  
 ### Je viens de publier de nouvelles modifications, mais mon application web ne semble pas les avoir intégrées. Pourquoi ? 
 Si votre application web utilise un cache local, vous devez redémarrer votre site pour qu’il obtienne les dernières modifications. Vous ne voulez pas effectuer cette procédure sur un site de production ? Consultez les options d’emplacement plus haut.
@@ -118,4 +118,4 @@ Avec le cache local, l’aspect de vos dossiers de données et de journaux diff�
 
 Le cache local peut en effet aider à empêcher les redémarrages d’application web liés au stockage. Toutefois, votre application web peut toujours subir un redémarrage pendant les mises à niveau planifiées de l’infrastructure de la machine virtuelle. Les redémarrages globaux de l’application alors que le cache local est activé sont normalement moins fréquents.
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

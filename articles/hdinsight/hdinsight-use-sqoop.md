@@ -62,7 +62,7 @@ Vous allez d'abord exporter *sample.log* et *hivesampletable* vers la base de do
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/fr-FR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Le modèle ARM est situé dans un conteneur blob public, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    Le modèle ARM est situé dans un conteneur blob public, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
     Le modèle ARM appelle un package bacpac pour déployer les schémas de table vers la base de données SQL. Le package bacpac est lui aussi situé dans un conteneur blob public, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
     
@@ -97,7 +97,7 @@ Si vous choisissez d’utiliser une base de données SQL Azure ou Microsoft SQL 
 
 - **Base de données SQL Azure** : vous devez configurer une règle de pare-feu pour le serveur de base de données SQL Azure afin d’autoriser l'accès depuis votre station de travail. Pour des instructions sur la création d'une base de données SQL Azure et la configuration d'un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. 
 
-    > [AZURE.NOTE] Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels qu’Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis la version préliminaire du portail Azure. Pour obtenir des instructions sur la création d'une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue].
+    > [AZURE.NOTE] Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels qu’Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue].
 
 - **SQL Server** : si votre cluster HDInsight se trouve sur le même réseau virtuel que SQL Server dans Azure, vous pouvez utiliser les étapes décrites dans cet article pour importer et exporter des données vers une base de données SQL Server.
 
@@ -288,7 +288,6 @@ Dans cette section, vous allez créer une application console C# pour exporter l
 
 		var parameters = new SqoopJobSubmissionParameters
 		{
-		    UserName = ExistingClusterUsername,
 		    Command = cmdExport
 		};
 		
@@ -374,7 +373,7 @@ L’exemple PowerShell effectue les étapes suivantes :
 
 8. Importez la table mobiledata dans le cluster HDInsight.
 
-	Pour examiner le fichier de données modifiées, vous pouvez utiliser la version préliminaire du portail Azure, un outil d'exploration Azure Storage, ou Azure PowerShell. Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l'utilisation d’Azure PowerShell pour télécharger un fichier et afficher son contenu.
+	Pour examiner le fichier de données modifiées, vous pouvez utiliser le portail Azure, un outil d’exploration Azure Storage, ou Azure PowerShell. Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l'utilisation d’Azure PowerShell pour télécharger un fichier et afficher son contenu.
 
 
 ### Exemple PowerShell
@@ -791,4 +790,4 @@ L’exemple PowerShell effectue les étapes suivantes :
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

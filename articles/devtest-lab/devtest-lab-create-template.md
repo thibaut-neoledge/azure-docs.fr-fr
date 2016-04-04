@@ -1,6 +1,6 @@
-<properties
-	pageTitle="Création d’une image personnalisée DevTest Lab à partir d’un fichier VHD | Microsoft Azure"
-	description="Apprenez à créer une image personnalisée à partir d’un fichier VHD, qui peut ensuite servir à créer des machines virtuelles dans une instance de service DevTest Lab"
+    <properties
+	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,7 +20,7 @@
 
 ## Vue d’ensemble
 
-Une fois que vous avez [créé une instance de service DevTest Lab](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md). Quand vous créez une machine virtuelle, vous spécifiez une *base*, qui peut être une *image personnalisée* ou *image du Marketplace*. Dans cet article, vous allez apprendre à créer une image personnalisée à partir d’un fichier VHD. Notez que vous devez avoir accès à un fichier VHD valide pour effectuer toutes les étapes de cet article.
+Une fois que vous avez [créé une instance de service DevTest Lab](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md). Quand vous créez une machine virtuelle, vous spécifiez une *base*, qui peut être une *image personnalisée* ou une *image du Marketplace*. Dans cet article, vous allez apprendre à créer une image personnalisée à partir d’un fichier VHD. Notez que vous devez avoir accès à un fichier VHD valide pour effectuer toutes les étapes de cet article.
 
 ## Création d’une image personnalisée
 
@@ -78,4 +78,4 @@ Pour ajouter une nouvelle image personnalisée, vous devez avoir accès à un fi
 
 Une fois que vous avez ajouté une image personnalisée à utiliser pendant la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre instance du service DevTest Lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

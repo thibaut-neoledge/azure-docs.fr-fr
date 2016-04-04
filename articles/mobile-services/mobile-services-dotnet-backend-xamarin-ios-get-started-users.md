@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2015" 
+	ms.date="03/18/2016" 
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -22,11 +22,12 @@
 
 &nbsp;
 
->[AZURE.NOTE]Il s'agit d'une rubrique Azure Mobile Services. Microsoft Azure recommande des applications mobiles Azure App Service pour tous les nouveaux déploiements de serveur principal mobile. Pour plus d'informations, consultez le [didacticiel équivalent dans la documentation Mobile Apps](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez [Ajouter l’authentification à votre application Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
 Cette rubrique montre comment authentifier des utilisateurs dans Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
 1. [Inscrire votre application pour l'authentification et configurer Mobile Services]
 2. [Restreindre les autorisations de table aux utilisateurs authentifiés]
@@ -44,9 +45,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;&nbsp;6. Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un simulateur. Vérifiez qu'une exception non gérée avec un code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
+&nbsp;&nbsp;&nbsp;6. Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un simulateur. Vérifiez qu'une exception non gérée avec un code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
 
-Cela se produit, car l'application essaie d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table *TodoItem* nécessite désormais l'authentification.
+Cela se produit, car l’application essaie d’accéder à Mobile Services en tant qu’utilisateur non authentifié alors que la table *TodoItem* nécessite désormais l’authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
@@ -54,13 +55,13 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 Dans cette section, vous allez modifier l'application de façon à afficher un écran de connexion avant d'afficher des données. Quand l’application démarre, elle ne se connecte pas à votre service mobile et n’affiche pas de données. Après le premier geste d'actualisation de l'utilisateur, l'écran de connexion s'affiche. Une fois la connexion réussie, la liste des tâches s'affiche.
 
-1. Dans le projet client, ouvrez le fichier **QSTodoService.cs** et ajoutez les déclarations suivantes à QSTodoService :
+1. Dans le projet client, ouvrez le fichier **QSTodoService.cs** et ajoutez les déclarations suivantes à QSTodoService :
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. Ajoutez une nouvelle méthode **Authenticate** à **QSTodoService** avec la définition suivante :
+2. Ajoutez une nouvelle méthode **Authenticate** à **QSTodoService** avec la définition suivante :
 
         private async Task Authenticate(UIViewController view)
         {
@@ -74,11 +75,11 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
             }
         }
 
-	> [AZURE.NOTE] Lorsque vous utilisez un autre fournisseur d'identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Lorsque vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Ouvrez **QSTodoListViewController.cs** et modifiez la définition de méthode de **ViewDidLoad** pour supprimer ou placer en commentaire l'appel à **RefreshAsync()** vers la fin.
+3. Ouvrez **QSTodoListViewController.cs** et modifiez la définition de méthode de **ViewDidLoad** pour supprimer ou placer en commentaire l’appel à **RefreshAsync()** vers la fin.
 
-4. Ajoutez le code suivant en haut de la définition de méthode **RefreshAsync** :
+4. Ajoutez le code suivant en haut de la définition de méthode **RefreshAsync** :
 
 		// Add at the start of the RefreshAsync method.
 		if (todoService.User == null) {
@@ -89,11 +90,11 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 			}
 		}
 		
-	Cette opération affiche un écran de connexion pour tenter l'authentification lorsque la propriété **User** est égale à null. Lorsque la connexion est réussie, la propriété **User** est définie.
+	Cette opération affiche un écran de connexion pour tenter l’authentification lorsque la propriété **User** a la valeur null. Lorsque la connexion est réussie, la propriété **User** est définie.
 
-5. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans le simulateur iPhone. Vérifiez que l'application n'affiche aucune donnée. **RefreshAsync()** n'a pas encore été appelée.
+5. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans le simulateur iPhone. Vérifiez que l'application n'affiche aucune donnée. **RefreshAsync()** n’a pas encore été appelé.
 
-6. Effectuez le geste d'actualisation en tirant la liste des éléments vers le bas, ce qui appelle **RefreshAsync()**. Cette opération appelle **Authenticate()** pour démarrer l'authentification et l'écran de connexion s'affiche. Lorsque vous êtes authentifié, l'application affiche la liste des tâches et vous pouvez mettre à jour les données.
+6. Effectuez le geste d’actualisation en tirant la liste des éléments vers le bas, ce qui appelle **RefreshAsync()**. Cette opération appelle **Authenticate()** pour démarrer l’authentification et l’écran de connexion s’affiche. Lorsque vous êtes authentifié, l'application affiche la liste des tâches et vous pouvez mettre à jour les données.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -117,4 +118,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

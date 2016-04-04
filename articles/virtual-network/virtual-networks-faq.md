@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # FAQ Virtual Network
@@ -21,6 +21,6 @@
 
 ## Réseau virtuel avec connectivité intersite (VPN)
 
-Pour les dernières questions sur les VPN du réseau virtuel, voir [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
+Pour les dernières questions sur les VPN du réseau virtuel, voir [FAQ sur la passerelle VPN](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

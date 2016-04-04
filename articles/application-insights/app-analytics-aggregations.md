@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Instruction summarize et fonctions d’agrégation dans Application Insights Analytics" 
-	description="Informations de référence sur les fonctions d’agrégation et l’instruction summarize dans Application Insights Analytics, outil de recherche puissant pour Application Insights." 
+	pageTitle="Récapitulatif et agrégation dans Analytics au sein d’Application Insights" 
+	description="Informations de référence sur les fonctions d’agrégation et l’instruction summarize dans Analytics, puissant outil de recherche d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Agrégation dans Application Insights Analytics
+# Agrégation dans Analytics
 
-[Application Insights Analytics](app-analytics.md) est un moteur de recherche puissant pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Application Insights Analytics (AIQL).
+[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -52,7 +52,7 @@ Génère une table qui agrège le contenu de la table d’entrée.
 * *Aggregation* : appel à une fonction d’agrégation telle que `count()` ou `avg()`, avec des noms de colonne comme arguments. Consultez la liste des fonctions d’agrégation ci-dessous.
 * *GroupExpression* : expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou une fonction `bin()` avec une colonne numérique ou de temps comme argument. 
 
-Si vous fournissez une expression numérique ou de temps sans utiliser `bin()`, AI Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou de `1.0` pour les nombres.
+Si vous fournissez une expression numérique ou de temps sans utiliser `bin()`, Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou de `1.0` pour les nombres.
 
 Si vous ne fournissez pas *GroupExpression*, la table entière est résumée dans une ligne de sortie unique.
 
@@ -307,7 +307,7 @@ La syntaxe du schéma retourné est la suivante :
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
-Le schéma s’apparente à un sous-ensemble d’annotations de type TypeScript, encodées sous la forme d’une valeur dynamique AIQL. En Typescript, l’exemple de schéma serait le suivant :
+Le schéma s’apparente à un sous-ensemble d’annotations de type TypeScript, encodées sous la forme d’une valeur dynamique. En Typescript, l’exemple de schéma serait le suivant :
 
     var someobject: 
     { 
@@ -463,4 +463,4 @@ Retourne la somme de *Expr* sur le groupe.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

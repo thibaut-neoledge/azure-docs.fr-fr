@@ -1,6 +1,6 @@
 <properties
 	pageTitle="FAQ sur le concours Machine Learning | Microsoft Azure"
-	description="Forum Aux Questions (FAQ) sur les concours Microsoft Azure Machine Learning."
+	description="Forum Aux Questions (FAQ) sur Microsoft Cortana Analytics Suite Competitions."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,7 +16,7 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# FAQ sur le concours Microsoft Azure Machine Learning
+# Forum Aux Questions (FAQ) sur Microsoft Cortana Analytics Suite Competitions
 
 **Où puis-je poser des questions générales sur la science des données ?**
 
@@ -70,4 +70,4 @@ Microsoft vérifiera les résultats du classement privé, puis nous vous contact
 
 Si vous êtes le gagnant d’un concours, vous devrez signer une déclaration d’éligibilité, de licence et de non-droit. Ce formulaire réitère les règles du concours. Les gagnants devront remplir un formulaire fiscal W-9 des États-Unis ou un formulaire W-8BEN pour ceux qui ne sont pas des contribuables situés aux États-Unis.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

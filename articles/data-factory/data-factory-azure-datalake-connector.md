@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure Data Lake Store à l’aide d’Azure Data Factory
@@ -58,7 +58,7 @@ L’exemple copie des données appartenant à une série horaire depuis un stock
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@ L’exemple copie des données appartenant à une série horaire depuis un stock
 La procédure qui suit décrit les étapes nécessaires à la création d’un service lié Azure Data Lake Store à l’aide de Data Factory Editor.
 
 1. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et sélectionnez **Azure Data Lake Store**.
-2. Dans l’éditeur JSON, pour la propriété **datalakeUri**, saisissez l’URI correspondant au lac de données.
+2. Dans l’éditeur JSON, pour la propriété **dataLakeStoreUri**, saisissez l’URI correspondant au lac de données.
 3. Cliquez sur le bouton **Autoriser** de la barre de commandes. Une fenêtre contextuelle doit apparaître.
 
 	![Bouton Autoriser](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@ L’exemple copie des données appartenant à une série horaire depuis un magas
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,7 +405,7 @@ Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide
 | Propriété | Description | Requis |
 | :-------- | :----------- | :-------- |
 | type | La propriété type doit être définie sur : **AzureDataLakeStore** | Oui |
-| dataLakeUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Oui |
+| dataLakeStoreUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Oui |
 | autorisation | Cliquez sur le bouton **Autoriser** dans **Data Factory Editor** et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | Oui |
 | sessionId | ID de session OAuth issu de la session d’autorisation oauth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement lorsque vous utilisez Data Factory Editor. | Oui |  
 | accountName | Nom du compte de lac de données | Non |
@@ -608,4 +608,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

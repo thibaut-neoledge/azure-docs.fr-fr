@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Prise en main du connecteur SMTP et ajout de celui-ci à votre application logique
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API SMTP](../connectors/create-api-smtp.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API SMTP](../connectors/connectors-create-api-smtp.md).
 
 Connexion à un serveur SMTP et envoie d’e-mails avec des pièces jointes. Avec l’action « Envoyer le message électronique » du connecteur SMTP, vous pouvez envoyer un message électronique à une ou plusieurs adresses électroniques.
 
@@ -102,4 +102,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/08/2016"
 	ms.author="genli"/>
 
 # Que puis-je faire si mon abonnement Azure est désactivé ?
@@ -43,4 +43,4 @@ Si vous ne pouvez pas accéder au portail, envoyez la demande de prise en charge
 
 Pour plus d’informations, consultez [Comment créer un ticket de support pour les problèmes de facturation et d’abonnement Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

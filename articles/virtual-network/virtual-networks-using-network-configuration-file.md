@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="12/07/2015"
+	ms.date="03/15/2016"
 	ms.author="telmos"/>
 
 # Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau
@@ -27,7 +27,7 @@ Pour modifier le fichier de configuration réseau, il vous suffit d'ouvrir le fi
 
 Vous devez respecter les instructions relatives aux [paramètres de schéma du fichier de configuration réseau](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-Azure considère tout sous-réseau qui comprend des éléments déployés comme étant **« en cours d'utilisation »**. Une fois le sous-réseau utilisé, il ne peut pas être modifié. Avant toute modification, déplacez tout ce que vous avez déployé sur le sous-réseau vers un autre sous-réseau qui n'est pas modifié. Consultez [Déplacer une machine virtuelle ou une instance de rôle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md).
+Azure considère tout sous-réseau qui comprend des éléments déployés comme étant **« en cours d'utilisation »**. Une fois le sous-réseau utilisé, il ne peut pas être modifié. Avant toute modification, déplacez tout ce que vous avez déployé sur le sous-réseau vers un autre sous-réseau qui n'est pas modifié. Consultez [Déplacer une machine virtuelle ou une instance de rôle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md).
 
 ## Exportation et importation de paramètres de réseau virtuel avec le portail de gestion  
 Vous pouvez importer les paramètres d’exportation de configuration réseau contenus dans votre fichier de configuration réseau à l’aide de PowerShell ou du portail de gestion. Les instructions ci-dessous vous aideront à exporter et importer ces paramètres à l'aide du portail de gestion.
@@ -48,4 +48,4 @@ Lorsque effectuez une exportation, tous les paramètres des réseaux virtuels de
 3. Dans la page **Importer le fichier de configuration de réseau**, accédez à votre fichier de configuration réseau, puis cliquez sur la flèche **Suivant**.
 4. Dans la page **Création de votre réseau**, vous verrez des informations à l’écran présentant les sections de votre configuration réseau qui vont être créées ou modifiées. Si les modifications vous paraissent correctes, cliquez sur la coche pour passer à la mise à jour ou à la création de votre réseau virtuel. 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

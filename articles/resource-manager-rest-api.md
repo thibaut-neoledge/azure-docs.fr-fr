@@ -66,7 +66,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type
 
 **Génération du jeton d’accès à l’aide de PowerShell :**
 
-```powersell
+```powershell
 Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
@@ -240,4 +240,4 @@ Content-Type: application/json
 
 La réponse JSON, qui est assez longue pour cette requête, a été omise afin d’améliorer la lisibilité de cette documentation. La réponse contient des informations sur le déploiement basé sur un modèle que vous venez de créer.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

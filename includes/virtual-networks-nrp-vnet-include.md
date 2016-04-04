@@ -1,7 +1,7 @@
 ## Réseau virtuel
 Les ressources de réseaux virtuels et de sous-réseaux permettent de définir une limite de sécurité pour les charges de travail s’exécutant dans Azure. Un réseau virtuel est caractérisé par une collection d’espaces d’adressage, appelés blocs CIDR.
 
->[AZURE.NOTE]Les administrateurs réseau sont familiarisés avec la notation CIDR. Si vous n’êtes pas familiarisé avec CIDR, [obtenez davantage d’informations](http://whatismyipaddress.com/cidr).
+>[AZURE.NOTE] Les administrateurs réseau sont familiarisés avec la notation CIDR. Si vous n’êtes pas familiarisé avec CIDR, [obtenez davantage d’informations](http://whatismyipaddress.com/cidr).
 
 ![Réseau virtuel avec plusieurs sous-réseaux](./media/resource-groups-networking/Figure4.png)
 
@@ -14,7 +14,7 @@ Les réseaux virtuels contiennent les propriétés suivantes.
 |**ipAddress**|Adresse IP assignée à l’objet. Il s’agit d’une propriété en lecture seule.|104\.42.233.77|
 
 ### Sous-réseaux
-Un sous-réseau est une ressource enfant d’un réseau virtuel, et permet de définir des segments d’espaces d’adressage dans un bloc CIDR, à l’aide de préfixes d’adresses IP. Les cartes d’interface réseau (NIC) peuvent être ajoutées aux sous-réseaux et connectées aux machines virtuelles, ce qui fournit une connectivité pour différentes charges de travail.
+Un sous-réseau est une ressource enfant d’un réseau virtuel, et permet de définir des segments d’espaces d’adressage dans un bloc CIDR, à l’aide de préfixes d’adresses IP. Les cartes d’interface réseau (NIC) peuvent être ajoutées aux sous-réseaux et connectées aux machines virtuelles, ce qui fournit une connectivité pour différentes charges de travail.
 
 Les sous-réseaux contiennent les propriétés suivantes.
 
@@ -26,7 +26,7 @@ Les sous-réseaux contiennent les propriétés suivantes.
 |**ipConfigurations**|Collection d’objets de configuration IP utilisée par la carte réseau connectée au sous-réseau|voir [itinéraires définis par l’utilisateur](#Route-table)|
 
 
-Exemple de réseau virtuel au format JSON :
+Exemple de réseau virtuel au format JSON :
 
 	{
 	    "name": "TestVNet",
@@ -72,8 +72,8 @@ Exemple de réseau virtuel au format JSON :
 
 ### Ressources supplémentaires
 
-- Obtenez davantage d’informations sur les [réseaux virtuels](virtual-networks-overview.md).
+- Obtenez davantage d’informations sur les [réseaux virtuels](../articles/virtual-network/virtual-networks-overview.md).
 - Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) pour les réseaux virtuels.
 - Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) pour les sous-réseaux.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

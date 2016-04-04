@@ -50,8 +50,9 @@ Ceci représente les données qui peuvent être générées par diverses sources
 
 Voici les outils que vous pouvez utiliser :
  
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md). Vous pouvez écrire des données directement dans Data Lake Store à partir du cluster Storm.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – Vous pouvez recevoir des événements à partir d’Event Hubs, puis les écrire dans Data Lake Store à l’aide du [Kit de développement logiciel (SDK) .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
+* [Azure Stream Analytics](../stream-analytics-data-lake-output) : les événements reçus dans Event Hubs peuvent être écrits dans Azure Data Lake à l’aide d’une sortie Azure Data Lake Store.
+* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) : vous pouvez écrire des données directement dans Data Lake Store à partir du cluster Storm.
+* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) : vous pouvez recevoir des événements à partir d’Event Hubs, puis les écrire dans Data Lake Store à l’aide du [Kit de développement logiciel (SDK) .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### Données relationnelles
 
@@ -84,7 +85,7 @@ La plupart des types de clusters HDInsight (Hadoop, HBase, Storm) prend en charg
 
 Pour télécharger des jeux de données qui comptent plusieurs téraoctets, l’utilisation des méthodes décrites ci-dessus peut parfois être lente et coûteuse. Dans ce cas, vous pouvez utiliser les options suivantes.
 
-* **Téléchargement « hors ligne » des données**. Vous pouvez utiliser le [service Azure Import/Export](../storage/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers un objet blob d’Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) ou l’[outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) pour déplacer des données à partir des objets blob d’Azure Storage vers Data Lake Store.
+* **Téléchargement « hors connexion » des données**. Vous pouvez utiliser le [service Azure Import/Export](../storage/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers un objet blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) ou l’[outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) pour déplacer des données des objets blob Azure Storage vers Data Lake Store.
 
 	>[AZURE.NOTE] Si vous utilisez le service Import/Export, la taille des fichiers sur les disques durs que vous envoyez au centre de données Azure ne doit pas être supérieure à 200 Go.
 
@@ -98,7 +99,7 @@ Une fois que les données sont disponibles dans Data Lake Store, vous pouvez ex�
 
 Vous pouvez consulter les exemples suivants.
 
-* [Créer un cluster HDInsight avec Data Lake Store comme stockage](data-lake-store-hdinsight-hadoop-use-portal.md).
+* [Créer un cluster HDInsight avec Data Lake Store comme stockage.](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
 
@@ -130,7 +131,7 @@ Vous pouvez utiliser une combinaison de services pour créer des représentation
 
 ![Visualisation des données dans Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualisation des données dans Data Lake Store")
 
-* Vous pouvez commencer par utiliser [Azure Data Factory pour déplacer les données à partir de Data Lake Store vers Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
+* Vous pouvez commencer par utiliser [Azure Data Factory pour déplacer les données de Data Lake Store vers Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
 * Ensuite, vous pouvez [intégrer Power BI à Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) pour créer une représentation visuelle des données.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

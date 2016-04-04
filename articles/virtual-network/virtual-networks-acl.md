@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Qu’est-ce qu’une liste de contrôle d’accès de point de terminaison (ACL) ?
 
 Une liste de contrôle d’accès de point de terminaison (ACL) est une amélioration de sécurité disponible pour votre déploiement Azure. Une liste ACL permet d’autoriser ou refuser le trafic de manière sélective pour un point de terminaison de machine virtuelle. Cette capacité de filtrage des paquets offre une couche de sécurité supplémentaire. Vous ne pouvez spécifier des listes de contrôle d’accès réseau que pour les points de terminaison. Vous ne pouvez pas spécifier de liste ACL pour un réseau virtuel ou un sous-réseau spécifique contenu dans un réseau virtuel.
 
-> [AZURE.IMPORTANT] Il est recommandé d’utiliser autant que possible les groupes de sécurité réseau (NSG) au lieu des listes de contrôle d’accès. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Qu’est-ce qu’un groupe de sécurité réseau ?](../virtual-networks-nsg).
+> [AZURE.IMPORTANT] Il est recommandé d’utiliser autant que possible les groupes de sécurité réseau (NSG) au lieu des listes de contrôle d’accès. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Qu’est-ce qu’un groupe de sécurité réseau ?](virtual-networks-nsg.md).
 
-Les listes ACL peuvent être configurées à l’aide de PowerShell ou du portail de gestion. Pour configurer une liste de contrôle d’accès réseau à l’aide de PowerShell, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](virtual-networks-acl-powershell.md). Pour configurer une liste de contrôle d’accès réseau à l’aide du portail de gestion, consultez [Configuration des points de terminaison sur une machine virtuelle](../virtual-machines-set-up-endpoints/).
+Les listes ACL peuvent être configurées à l’aide de PowerShell ou du portail de gestion. Pour configurer une liste de contrôle d’accès réseau à l’aide de PowerShell, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](virtual-networks-acl-powershell.md). Pour configurer une liste de contrôle d’accès réseau à l’aide du portail de gestion, consultez [Configuration des points de terminaison sur une machine virtuelle](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
 Les listes de contrôle d’accès réseau vous permettent d’effectuer les opérations suivantes :
 
@@ -97,6 +97,6 @@ Les liste de contrôle d’accès réseau peuvent être spécifiées sur un poin
 
 ## Étapes suivantes
 
-[Comment gérer les listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../virtual-networks-acl-powershell)
+[Comment gérer les listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](virtual-networks-acl-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

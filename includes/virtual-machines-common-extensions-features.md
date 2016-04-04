@@ -2,82 +2,83 @@
 
 
 
-For details about the VM Agents and how they work to support VM Extensions, see [VM Agent and VM Extensions Overview](virtual-machines-windows-classic-manage-extensions.md).
+Pour plus d’informations sur les agents de machine virtuelle et la manière dont ils prennent en charge les extensions de machine virtuelle, consultez [Vue d’ensemble de l’agent de machine virtuelle et des extensions de machine virtuelle](virtual-machines-windows-classic-manage-extensions.md).
 
-##Azure VM Extensions
+##Extensions de machine virtuelle Azure
 
-VM Extensions implement most of the critical functionality that you want to use with your VMs, including basic functionality like resetting passwords, configuring RDP, and many, many others. Because new extensions are added all the time, the number of possible features your VMs support in Azure continues to increase. By default, several basic VM extensions are installed when you create your VM from the Image Gallery, including **IaaSDiagnostics** (currently Windows VMs only), **VMAccess**, and **BGInfo** (also currently Windows only). However, not all extensions are implemented on both Windows and Linux at any specific time, due to the constant flow of feature updates and new extensions.
+Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques à utiliser avec vos machines virtuelles, notamment des fonctionnalités de base telles que la réinitialisation des mots de passe, la configuration de RDP, et bien d'autres encore. Comme de nouvelles extensions sont ajoutées en permanence, le nombre de fonctionnalités disponibles pour vos machines virtuelles Azure augmente lui aussi. Par défaut, de nombreuses extensions de machine virtuelle de base sont installées lorsque vous créez votre machine virtuelle à partir de la galerie, par exemple **IaaSDiagnostics** (actuellement uniquement pour les machines virtuelles Windows), **VMAccess** et **BGInfo** (également uniquement pour les machines virtuelles Windows). Cependant, toutes les extensions ne sont pas mises en œuvre sur Windows et Linux à un moment précis, à cause du flux constant de nouvelles extensions et de mises à jour.
 
-##Connectivity and Basic Management
+##Connectivité et gestion de base
 
-The following extensions are critical to enabling, re-enabling, or disabling basic connectivity with your VMs once they are created and running.
+Les extensions suivantes sont indispensables pour activer, réactiver ou désactiver la connectivité de base avec vos machines virtuelles une fois qu'elles sont créées et sont en cours d'exécution
 
-|VM Extension Name|Feature Description|More Information
+|Nom de l'extension de machine virtuelle|Description de la fonctionnalité|Informations complémentaires
 |---|---|---|
-|VMAccessAgent (Windows)|Create, update, and reset user information and RDP and SSH connection configurations.|[Windows](virtual-machines-windows-classic-extensions-customscript.md)
-|VMAccessForLinux (Linux)|Create, update, and reset user information and RDP and SSH connection configurations.|[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
+|VMAccessAgent (Windows)|Créer, mettre à jour et réinitialiser les informations utilisateur et la configuration des connexions RDP et SSH|[Windows](virtual-machines-windows-classic-extensions-customscript.md)
+|VMAccessForLinux (Linux)|Créer, mettre à jour et réinitialiser les informations utilisateur et la configuration des connexions RDP et SSH|[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
-##Deployment and Configuration Management
+##Gestion du déploiement et de la configuration
 
-The following extensions support different kinds of deployment and configuration management scenarios and features. See also the section on VM Operations and Management, below.
+Les extensions suivantes prennent en charge différents types de scénarios de déploiement et de gestion de la configuration et des fonctionnalités. Consultez également la rubrique concernant les opérations et la gestion de machines virtuelles ci-dessous.
 
-|VM Extension Name|Feature Description|More Information|
+|Nom de l'extension de machine virtuelle|Description de la fonctionnalité|Informations complémentaires|
 |---|---|---|
-|**MSEnterpriseApplication**|Implements features for support by Windows System Center.|[System Center 2012 R2 Virtual Machine Roles](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx)|
-|**Octopus Deploy** (DSC Extension-based)|Supports automated deployment of ASP.NET web applications and Windows Services into development, test, and production environments.|[Getting Started with Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Getting%20started)|
-|**Visual Studio Release Manager** (DSC Extension-based)|Supports continuous deployment with Visual Studio.|[Automate deployments with Release Management](https://msdn.microsoft.com/Library/vs/alm/Release/overview)|
+|**MSEnterpriseApplication**|Met en œuvre des fonctionnalités de prise en charge par Windows System Center.|[Rôles de machine virtuelle System Center 2012 R2](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx)|
+|**Octopus Deploy** (basé sur une extension DSC)|Prend en charge le déploiement automatisé d'applications web ASP.NET et de services Windows dans des environnements de développement, de test et de production.|[Mise en route d'Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Getting%20started)|
+|**Visual Studio Release Manager** (basé sur une extension DSC)|Prend en charge un déploiement continu avec Visual Studio.|[Automatiser les déploiements avec Release Management](https://msdn.microsoft.com/Library/vs/alm/Release/overview)|
 |**CentosChefClient**|||
-|**ChefClient**|Creates a Chef client on Windows. (Can also use the DSC extension, below.)|[Chef and Microsoft Azure](https://www.getchef.com/solutions/azure/)|
+|**ChefClient**|Crée un client Chef sous Windows. (Peut également utiliser l'extension DSC, voir ci-dessous.)|[Chef et Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
-|**DockerExtension**|Installs the Docker daemon to support remote Docker commands.|[How to Use the Docker Virtual Machine Extension](virtual-machines-linux-dockerextension.md)For more extensive information, see the [Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
-|**DSC**|PowerShell DSC (Desired State Configuration) extension.|[Azure PowerShell DSC (Desired State Configuration) extension](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
-|**PuppetEnterpriseAgent**|Implements the features of Puppet Enterprise. |[Puppet on Azure](http://puppetlabs.com/solutions/microsoft)|
-|**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Invokes custom scripts on the VM at any time: startup or during lifetime.|[Custom Script Extension](virtual-machines-windows-classic-extensions-customscript.md) | [Linux](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)|
-|**AzureCATExtensionHandler**|Consumes the diagnostic data collected by **IaaSDiagnostics** and few other data sources such as [Azure Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343270.aspx) and transforms it into an aggregated data set appropriate for SAP Host control process to consume|[Azure Enhanced Monitoring for SAP](https://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
+|**DockerExtension**|Installe le démon Docker pour prendre en charge des commandes Docker distantes.|[Utilisation de l’extension de machine virtuelle Docker](virtual-machines-linux-dockerextension.md)Pour plus d’informations, voir le [Guide de l’utilisateur Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
+|**DSC**|Extension PowerShell DSC (Desired State Configuration, configuration d'état souhaité).|[Extension Azure PowerShell DSC (Desired State Configuration, configuration d'état souhaité)](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
+|**PuppetEnterpriseAgent**|Met en œuvre les fonctionnalités de Puppet Enterprise. |[Puppet sur Azure](http://puppetlabs.com/solutions/microsoft)|
+|**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Appelle des scripts personnalisés sur la machine virtuelle à tout moment : au démarrage ou pendant le cycle de vie.|[Extension de script personnalisé](virtual-machines-windows-classic-extensions-customscript.md) | [Linux](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)|
+|**AzureCATExtensionHandler**|Consomme les données de diagnostics collectées par **IaaSDiagnostics** et d’autres sources de données telles que les [mesures Azure Storage Analytics](https://msdn.microsoft.com/library/azure/hh343270.aspx) et les transforme en un jeu de données agrégé adapté au processus de contrôle d’hôte SAP.|[Surveillance Azure améliorée pour SAP](https://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
-##Security and Protection
+##Sécurité et protection
 
-The extensions in this section provide critical security features for your Azure VMs.
+Les extensions abordées dans cette section fournissent des fonctionnalités de sécurité stratégiques pour vos machines virtuelles Azure.
 
-|VM Extension Name|Feature Description|More Information|
+|Nom de l'extension de machine virtuelle|Description de la fonctionnalité|Informations complémentaires|
 |---|---|---|
-|**CloudLinkSecureVMWindowsAgent**|Provides Microsoft Azure customers with the capability to encrypt their virtual machine data on a multi-tenant shared infrastructure and fully control of the encryption keys for their encrypted data on Azure storage infrastructure.|[Securing Microsoft Azure Virtual Machines leveraging BitLocker and Native OS encryption](http://www.cloudlinktech.com/azure)|
-|**McAfeeEndpointSecurity**|Protects your VM against malicious software.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
-|**TrendMicroDSA**|Enables TrendMicro’s Deep Security platform support to provide intrusion detection and prevention, firewall, anti-malware, web reputation, log inspection, and integrity monitoring.|[How to install and configure Trend Micro Deep Security as a Service on an Azure VM](virtual-machines-windows-classic-install-trend.md)|
-|**PortalProtectExtension**|Guards against threats to your Microsoft SharePoint environment.|[Securing Your SharePoint Deployment on Azure](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
-|**IaaSAntimalware**|Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your system.|[Download antimalware documentation](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
-|**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 enables security and performance across physical and virtual systems.|[How to install and configure Symantec Endpoint Protection on an Azure VM](virtual-machines-windows-classic-install-symantec.md)
+|**CloudLinkSecureVMWindowsAgent**|Permet aux clients Microsoft Azure de chiffrer leurs données de machine virtuelle dans une infrastructure partagée mutualisée et de contrôler entièrement les clés de chiffrement pour les données chiffrées dans l'infrastructure de stockage Azure.|[Sécurisation des machines virtuelles Microsoft Azure utilisant le chiffrement BitLocker et le système d'exploitation natif](http://www.cloudlinktech.com/azure)|
+|**McAfeeEndpointSecurity**|Protège votre machine virtuelle contre les logiciels malveillants.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
+|**TrendMicroDSA**|Active la prise en charge de la plate-forme Deep Security de TrendMicro pour détecter et bloquer les intrusions et les logiciels malveillants, ajouter un pare-feu, gérer la réputation web, inspecter le journal et surveiller l'intégrité.|[Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure](virtual-machines-windows-classic-install-trend.md)|
+|**PortalProtectExtension**|Protège des menaces pesant sur votre environnement Microsoft SharePoint.|[Sécurisation de votre déploiement SharePoint sur Azure](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
+|**IaaSAntimalware**|Microsoft Antimalware pour les services cloud Azure et les machines virtuelles est une fonctionnalité de protection en temps réel qui permet d'identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants grâce à des alertes configurables vous avertissant lorsque des logiciels malveillants ou indésirables connus tentent de s'installer ou de s'exécuter sur votre système.|[Télécharger la documentation sur la protection contre les logiciels malveillants](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
+|**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 assure la sécurité et les performances sur les systèmes physiques et virtuels.|[Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Azure](virtual-machines-windows-classic-install-symantec.md)
 
-##VM Operations and Management
+##Fonctionnement et gestion des machines virtuelles
 
-Supports common operations management features and behavior. See also the section on Deployment and Configuration Management, above.
+Prend en charge des fonctionnalités de gestion des opérations courantes. Référez-vous également à la rubrique concernant la gestion du déploiement et de la configuration ci-dessus.
 
-|**VM Extension Name**|Feature Description|More Information|
+|**Nom de l'extension de machine virtuelle**|Description de la fonctionnalité|Informations complémentaires|
 |---|---|---|
-|**AzureVmLogCollector**|You can use the **AzureVMLogCollector** extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs. |[AzureLogCollector Extension](virtual-machines-windows-log-collector-extension.md)|
-|**IaaSDiagnostics**|Enables, disables, and configures Azure Diagnostics, and is also used by the **AzureCATExtensionHandler** to support SAP monitoring.|[Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
-|**OSPatchingForLinux**|Enables the Azure VM administrators to automate the VM OS updates with the customized configurations. You can use the OSPatching extension to configure OS updates for your virtual machines, including: Specify how often and when to install OS patches, Specify what patches to install, and Configure the reboot behavior after updates|[OS Patching Extension Blog Post](https://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). See also the readme and source on Github at [OS Patching Extension](https://github.com/Azure/azure-linux-extensions).|
+|**AzureVmLogCollector**|Vous pouvez utiliser l’extension **AzureVMLogCollector** à la demande pour exécuter une collecte unique de journaux depuis une ou plusieurs machines virtuelles de Service Cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à une machine virtuelle quelconque. |[AzureLogCollector Extension](virtual-machines-windows-log-collector-extension.md)|
+|**IaaSDiagnostics**|Active, désactive et configure Azure Diagnostics et est également utilisé par **AzureCATExtensionHandler** pour prendre en charge la surveillance SAP.|[Surveillance des machines virtuelles Microsoft Azure avec l'extension Azure Diagnostics](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
+|**OSPatchingForLinux**|Permet aux administrateurs de machines virtuelles Azure d'automatiser les mises à jour du système d'exploitation des machines virtuelles à l'aide de configurations personnalisées. Vous pouvez utiliser l'extension OSPatching pour configurer des mises à jour du système d'exploitation pour vos machines virtuelles, notamment : spécifier la fréquence et le moment de l'installation des correctifs de système d'exploitation, spécifier les correctifs à installer et configurer le comportement de redémarrage après les mises à jour|[Billet de blog OS Patching Extension](https://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Voir aussi le fichier Lisez-moi et la source sur Github : [OS Patching Extension](https://github.com/Azure/azure-linux-extensions).|
 
-##Developing and Debugging
+##Développement et débogage
 
-These VM extensions are listed here for completeness, as they provide support for Visual Studio-related features and are not intended to be used directly.
+Ces extensions de machine virtuelle sont répertoriées ici par souci d'exhaustivité, car elles prennent en charge des fonctionnalités Visual Studio et ne sont pas destinées à être utilisées directement.
 
-|VM Extension Name|Feature Description|More Information|
+|Nom de l'extension de machine virtuelle|Description de la fonctionnalité|Informations complémentaires|
 |---|---|---|
-|**VS14CTPDebugger**|Supports remote debugging from VS using the Azure SDK 2.4|[Remote Debugging in Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx)|
-|**VS2013Debugger**|Supports remote debugging from VS using the Azure SDK 2.4||
-|**VS2012Debugger**|Supports remote debugging from VS using the Azure SDK 2.4||
-|**RemoteDebugVS14CTP**|Supports remote debugging from VS using the Azure SDK 2.3||
-|**RemoteDebugVS2013**|Supports remote debugging from VS using the Azure SDK 2.3||
-|**RemoteDebugVS2012**|Supports remote debugging from VS using the Azure SDK 2.3||
-|**WebDeployForVSDevTest**|Installs and configures IIS and Web Deploy on Windows Server. Removing or disabling it is not supported.|
+|**VS14CTPDebugger**|Permet le débogage à distance depuis Visual Sudio à l'aide du Kit de développement logiciel (SDK) Azure 2.4|[Débogage à distance dans Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx)|
+|**VS2013Debugger**|Permet le débogage à distance depuis Visual Sudio à l'aide du Kit de développement logiciel (SDK) Azure 2.4||
+|**VS2012Debugger**|Permet le débogage à distance depuis Visual Sudio à l'aide du Kit de développement logiciel (SDK) Azure 2.4||
+|**RemoteDebugVS14CTP**|Permet le débogage à distance depuis Visual Sudio à l'aide du Kit de développement logiciel (SDK) Azure 2.3||
+|**RemoteDebugVS2013**|Permet le débogage à distance depuis Visual Sudio à l'aide du Kit de développement logiciel (SDK) Azure 2.3||
+|**RemoteDebugVS2012**|Permet le débogage à distance depuis Visual Sudio à l'aide du Kit de développement logiciel (SDK) Azure 2.3||
+|**WebDeployForVSDevTest**|Installe et configure IIS et Web Deploy sur Windows Server. Sa suppression ou sa désactivation ne sont pas prises en charge.|
 
-##Miscellaneous Features
+##Fonctionnalités diverses
 
-These extensions provide support for other VM features that might be useful.
+Ces extensions permettent la prise en charge d'autres fonctionnalités de machine virtuelle qui peuvent être utiles.
 
-|VM Extension Name|Feature Description|More Information|
+|Nom de l'extension de machine virtuelle|Description de la fonctionnalité|Informations complémentaires|
 |---|---|---|
-|**BGInfo**|Presents a consolidated picture of useful server information on the desktop when using RDP.|[BGInfo Extension](https://msdn.microsoft.com/library/dn606289.aspx)|
-|**HpcVmDrivers**|Installs, configures, and maintains the remote direct memory access (RDMA) network device drivers on a size A8 or A9 VM running Windows Server 2012 R2 or Windows Server 2012. Enables clustered A8 or A9 VMs to use the RDMA network when running parallel MPI applications.|[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+|**BGInfo**|Présente une image consolidée des informations de serveur utiles sur le Bureau lors de l'utilisation de RDP.|[Extension BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
+|**HpcVmDrivers**|Installe, configure et conserve les pilotes de périphérique réseau avec accès direct à la mémoire à distance (RDMA) sur une machine virtuelle A8 ou A9 exécutant Windows Server 2012 R2 ou Windows Server 2012. Permet aux machines virtuelles A8 ou A9 en cluster d’utiliser le réseau RDMA pendant l’exécution d’applications MPI parallèles.|[À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
+<!---HONumber=AcomDC_0323_2016-->

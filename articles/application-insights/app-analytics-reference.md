@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Documents de référence pour Application Analytics" 
-	description="Expressions régulières dans Application Analytics, outil de recherche puissant pour Application Insights." 
+	pageTitle="Documents de référence pour Analytics dans Application Insights" 
+	description="Expressions régulières dans Analytics, le puissant outil de recherche d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-# Documents de référence
+# Application Insights : documents de référence Analytics
 
-[Application Analytics](app-analytics.md) est un moteur de recherche puissant pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Application Analytics (CSL).
-
+[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -45,7 +44,7 @@ Cette page répertorie la syntaxe des expressions régulières acceptée par RE2
 |\\p{Greek} |classe de caractères Unicode 
 |\\PN |classe de caractères Unicode exclue (nom d’une lettre) 
 |\\P{Greek} |classe de caractères Unicode exclue 
-|Composites: | 
+|Composites : | 
 |xy |x suivi de y 
 |x&#124;y |x ou y (préférer x) 
 | 
@@ -415,4 +414,4 @@ Cette page répertorie la syntaxe des expressions régulières acceptée par RE2
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

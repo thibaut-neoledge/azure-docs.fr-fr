@@ -66,7 +66,7 @@ BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l
 > [AZURE.NOTE] **Où mes données doivent-elles se trouver pour BCP ?**
 > Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
 
-1. Vérifiez que la base de données et les tables sont créées dans la base de données SQL Server cible. Voici un exemple montrant comment faire à l’aide des commandes `Create Database` et `Create Table`:
+1. Vérifiez que la base de données et les tables sont créées dans la base de données SQL Server cible. Voici un exemple montrant comment faire à l’aide des commandes `Create Database` et `Create Table` :
 
 		CREATE DATABASE <database_name>
 	
@@ -91,7 +91,8 @@ BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l
 
 Si le volume de données déplacées est important, vous pouvez accélérer l’opération en exécutant plusieurs commandes BCP simultanément dans un script PowerShell.
 
-> [AZURE.NOTE] **Traitement de volumes importants de données** Pour optimiser le chargement de volumes importants et très importants de jeux de données, partitionnez vos tables de base de données physiques et logiques en utilisant plusieurs groupes de fichiers et tables de partition. Pour plus d’informations sur la création et le chargement de données dans des tables de partition, consultez l’article [Importer des données en bloc et en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] **Traitement de volumes importants de données** 
+> Pour optimiser le chargement de volumes importants et très importants de jeux de données, partitionnez vos tables de base de données physiques et logiques en utilisant plusieurs groupes de fichiers et tables de partition. Pour plus d’informations sur la création et le chargement de données dans des tables de partition, consultez l’article [Importer des données en bloc et en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
 L’exemple de script PowerShell ci-dessous montre comment effectuer des insertions en parallèle à l’aide de BCP :
@@ -175,7 +176,7 @@ Chacune de ces étapes est décrite ci-après :
 
 ### Assistant de déploiement d'une base de données SQL Server sur une machine virtuelle Microsoft Azure
 
-L’**Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure** est une méthode simple et recommandée pour déplacer des données d’une instance SQL Server locale vers un serveur SQL Server sur une machine virtuelle Azure. Pour des instructions détaillées, ainsi qu’une discussion des autres possibilités, consultez [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
+L’**Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure** est une méthode simple et recommandée pour déplacer des données d’une instance SQL Server locale vers un serveur SQL Server sur une machine virtuelle Azure. Pour des instructions détaillées, ainsi qu’une discussion des autres possibilités, consultez [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Exporter dans un fichier plat
 
@@ -219,11 +220,11 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 
 ## Ressources
 
-[Migration d'une base de données vers SQL Server sur une machine virtuelle Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[Migration d'une base de données vers SQL Server sur une machine virtuelle Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
 
-[Vue d’ensemble de SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
+[Vue d’ensemble de SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

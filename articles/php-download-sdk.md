@@ -3,7 +3,7 @@
 	description="Découvrez comment télécharger et installer le Kit de développement logiciel (SDK) Azure pour PHP."
 	documentationCenter="php"
 	services="app-service\web"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,13 +14,13 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="12/16/2015"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Téléchargement du Kit de développement logiciel (SDK) Azure pour PHP
 
 ## Vue d'ensemble
 
-Le Kit de développement logiciel (SDK) Azure pour PHP inclut des composants qui vous permettent de développer, de déployer et de gérer des applications PHP pour Azure. Il inclut plus précisément les éléments suivants :
+Le Kit de développement logiciel (SDK) Azure pour PHP inclut des composants qui vous permettent de développer, de déployer et de gérer des applications PHP pour Azure. Il inclut plus précisément les éléments suivants :
 
 * **Bibliothèques clientes PHP pour Azure**. L'interface de ces bibliothèques de classes permet d'accéder aux fonctionnalités Azure, telles que les services de gestion des données et les services cloud.  
 * **Interface de ligne de commande Azure pour Mac, Linux et Windows (Azure CLI)**. Cet ensemble de commandes permet de déployer et de gérer des services Azure, tels que Sites Web Azure et Azure Virtual Machines. L’interface de ligne de commande Azure fonctionne sur toutes les plateformes, dont Mac, Linux et Windows.
@@ -31,7 +31,7 @@ Les sections ci-dessous présentent les procédures de téléchargement et d'ins
 
 Les instructions de cette rubrique partent du principe que [PHP][install-php] est installé.
 
-> [AZURE.NOTE]Vous devez disposer de PHP 5.3 ou d'une version ultérieure pour utiliser les bibliothèques clientes PHP pour Azure.
+> [AZURE.NOTE] Vous devez disposer de PHP 5.3 ou d'une version ultérieure pour utiliser les bibliothèques clientes PHP pour Azure.
 
 ##Bibliothèques clientes PHP pour Azure
 
@@ -44,9 +44,9 @@ Pour plus d'informations sur l'utilisation des bibliothèques clientes PHP pour 
 1. [Installez Git][install-git].
 
 
-	> [AZURE.NOTE]Sous Windows, vous devez aussi ajouter l’exécutable Git à votre variable d’environnement PATH.
+	> [AZURE.NOTE] Sous Windows, vous devez aussi ajouter l’exécutable Git à votre variable d’environnement PATH.
 
-2. Créez un fichier nommé **composer.json** à la racine de votre projet et ajoutez-y le code suivant :
+2. Créez un fichier nommé **composer.json** à la racine de votre projet et ajoutez-y le code suivant :
 
         {
             "repositories": [
@@ -65,19 +65,19 @@ Pour plus d'informations sur l'utilisation des bibliothèques clientes PHP pour 
 
 3. Téléchargez **[composer.phar][composer-phar]** à la racine du projet.
 
-4. Ouvrez une invite de commandes et exécutez cette commande à la racine du projet :
+4. Ouvrez une invite de commandes et exécutez cette commande à la racine du projet :
 
 		php composer.phar install
 
 ###Installation d'un package PEAR
 
-Pour installer les bibliothèques clientes PHP pour Azure en tant que package PEAR, procédez comme suit :
+Pour installer les bibliothèques clientes PHP pour Azure en tant que package PEAR, procédez comme suit :
 
 1. [Installez PEAR][install-pear].
-2. Configurez le canal PEAR Azure :
+2. Configurez le canal PEAR Azure :
 
 		pear channel-discover pear.windowsazure.com
-3. Installez le package PEAR :
+3. Installez le package PEAR :
 
 		pear install pear.windowsazure.com/WindowsAzure-0.4.1
 
@@ -85,11 +85,11 @@ Pour installer les bibliothèques clientes PHP pour Azure en tant que package PE
 
 ###Installation manuelle
 
-Pour télécharger et installer manuellement les bibliothèques clientes PHP pour Azure, procédez comme suit :
+Pour télécharger et installer manuellement les bibliothèques clientes PHP pour Azure, procédez comme suit :
 
 1. Téléchargez une archive ZIP qui contient les bibliothèques de [GitHub][php-sdk-github]. Sinon, répliquez le répertoire et clonez-le sur votre ordinateur local. (La deuxième option requiert un compte GitHub et l’installation locale de Git.)
 
-	> [AZURE.NOTE]Les bibliothèques clientes PHP pour Azure ont une dépendance sur les packages PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) et [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). La méthode recommandée pour résoudre ces dépendances consiste à installer ces packages à l'aide du [Gestionnaire de package PEAR](http://pear.php.net/manual/en/installation.php).
+	> [AZURE.NOTE] Les bibliothèques clientes PHP pour Azure ont une dépendance sur les packages PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) et [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). La méthode recommandée pour résoudre ces dépendances consiste à installer ces packages à l'aide du [Gestionnaire de package PEAR](http://pear.php.net/manual/en/installation.php).
 
 2. Copiez le répertoire `WindowsAzure` de l’archive téléchargée dans la structure de répertoires de votre application et référencez les classes à partir de votre application.
 
@@ -130,4 +130,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

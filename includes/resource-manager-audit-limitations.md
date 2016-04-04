@@ -1,7 +1,8 @@
-The audit log contains all actions performed on your resources. You can use the audit logs to find an error when troubleshooting or 
-to monitor how a user in your organization modified a resource.
+Le journal d’audit contient toutes les actions effectuées sur vos ressources. Vous pouvez utiliser les journaux d’audit pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource.
 
-There are two important limitations to keep in mind when working with audit logs:
+Il existe deux limitations importantes à prendre en compte lorsque vous travaillez avec des journaux d’audit :
 
-1. Audit logs are only retained for 90 days.
-2. You can only query for a range of 15 days or less.
+1. Les journaux d’audit sont conservés pendant 90 jours seulement.
+2. Vous pouvez demander une plage de 15 jours maximum.
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management : modification ou affichage des paramètres par défaut d’un rôle"
+   pageTitle="Modifier ou afficher les paramètres par défaut d’un rôle | Microsoft Azure"
    description="Découvrez comment modifier les paramètres par défaut d’identités privilégiées avec l’extension Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/10/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management : comment modifier ou afficher les paramètres d’activation par défaut d’un rôle
@@ -52,4 +52,4 @@ Pour plus d’informations sur l’utilisation de la solution MFA avec Privilege
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

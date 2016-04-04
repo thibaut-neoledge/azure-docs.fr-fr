@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 # Tâches courantes de démarrage dans le service cloud
@@ -23,7 +23,7 @@ Consultez [cet article](cloud-services-startup-tasks.md) pour comprendre comment
 
 De nombreuses tâches ici utilisent le
 
->[AZURE.NOTE]Les tâches de démarrage ne s’appliquent pas aux rôles de machine virtuelle ; elles ne concernent que les rôles web de service cloud et de travail.
+>[AZURE.NOTE] Les tâches de démarrage ne s’appliquent pas aux rôles de machine virtuelle ; elles ne concernent que les rôles web de service cloud et de travail.
 
 
 ## Définir des variables d’environnement avant le démarrage d’un rôle
@@ -60,7 +60,7 @@ Si des variables d’environnement doivent être définies pour une tâche spéc
 </ServiceDefinition>
 ```
 
-Les variables peuvent également utiliser une [valeur Azure XPath valide](https://msdn.microsoft.com/library/azure/hh404006.aspx) pour faire référence à des informations sur le déploiement. Au lieu d’utiliser l’attribut `value`, définissez un élément enfant [RoleInstanceValue].
+Les variables peuvent également utiliser une [valeur Azure XPath valide](cloud-services-role-config-xpath.md) pour faire référence à des informations sur le déploiement. Au lieu d’utiliser l’attribut `value`, définissez un élément enfant [RoleInstanceValue].
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -73,7 +73,7 @@ Les variables peuvent également utiliser une [valeur Azure XPath valide](https:
 
 L’outil en ligne de commande [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) peut être utilisé pour gérer les paramètres IIS au démarrage sur Azure. *AppCmd.exe* fournit un accès en ligne de commande pratique aux paramètres de configuration à utiliser dans les tâches de démarrage sur Azure. *AppCmd.exe* permet d’ajouter, de modifier ou de supprimer des paramètres de site web pour les applications et les sites.
 
-Toutefois, tenez compte des points suivants quand vous utilisez *AppCmd.exe* en tant que tâche de démarrage :
+Toutefois, tenez compte des points suivants quand vous utilisez *AppCmd.exe* en tant que tâche de démarrage :
 
 - Les tâches de démarrage peuvent être exécutées plusieurs fois entre les redémarrages. Cela peut se produire si le rôle est recyclé, par exemple.
 - Certaines actions *AppCmd.exe* peuvent générer des erreurs si elles sont exécutées plusieurs fois. Ajouter une section à *Web.config* deux fois peut générer une erreur.
@@ -158,7 +158,7 @@ Une tâche de démarrage qui crée une règle de pare-feu doit avoir [executionC
 </ServiceDefinition>
 ```
 
-Pour ajouter la règle de pare-feu, vous devez utiliser les commandes `netsh advfirewall firewall` appropriées dans votre fichier de commandes de démarrage. Dans cet exemple, la tâche de démarrage nécessite les fonctionnalités de sécurité et de chiffrement pour le port TCP 80.
+Pour ajouter la règle de pare-feu, vous devez utiliser les commandes `netsh advfirewall firewall` appropriées dans votre fichier de commandes de démarrage. Dans cet exemple, la tâche de démarrage nécessite les fonctionnalités de sécurité et de chiffrement pour le port TCP 80.
 
     REM   Add a firewall rule in a startup task.
     
@@ -169,9 +169,9 @@ Pour ajouter la règle de pare-feu, vous devez utiliser les commandes `netsh adv
     EXIT /B %errorlevel%
 
 
-## Bloquer une adresse IP spécifique
+## Bloquer une adresse IP spécifique
 
-Vous pouvez restreindre l’accès d’un rôle web Azure à un ensemble d’adresses IP spécifiques en modifiant votre fichier IIS **web.config** et en créant un fichier de commandes qui déverrouille la section **ipSecurity** du fichier **ApplicationHost.config**.
+Vous pouvez restreindre l’accès d’un rôle web Azure à un ensemble d’adresses IP spécifiques en modifiant votre fichier IIS **web.config** et en créant un fichier de commandes qui déverrouille la section **ipSecurity** du fichier **ApplicationHost.config**.
 
 Tout d’abord, créez un fichier de commandes qui s’exécute au démarrage de votre rôle et qui permet de déverrouiller la section **ipSecurity** du fichier **ApplicationHost.config**. Créez un dossier à la racine de votre rôle web appelé **startup** et, dans ce dossier, créez un fichier de commandes appelé **startup.cmd**. Définissez les propriétés de ce fichier sur **Toujours copier** pour vous assurer qu’il sera déployé.
 
@@ -188,15 +188,15 @@ Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef].
 </ServiceDefinition>
 ```
 
-Ajoutez cette commande au fichier **startup.cmd** :
+Ajoutez cette commande au fichier **startup.cmd** :
 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
 Ainsi, le fichier de commandes **startup.cmd** s’exécute chaque fois que le rôle web est initialisé et la section **ipSecurity** nécessaire est systématiquement déverrouillée.
 
-Enfin, modifiez la [section system.webServer](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) du fichier **web.config** de votre rôle web pour ajouter une liste d’adresses IP bénéficiant d’un droit d’accès, comme illustré dans l’exemple suivant :
+Enfin, modifiez la [section system.webServer](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) du fichier **web.config** de votre rôle web pour ajouter une liste d’adresses IP bénéficiant d’un droit d’accès, comme illustré dans l’exemple suivant :
 
-Cet exemple de configuration **permet** à toutes les adresses IP d’accéder au serveur, sauf aux deux adresses IP définies.
+Cet exemple de configuration **permet** à toutes les adresses IP d’accéder au serveur, sauf aux deux adresses IP définies.
 
 ```xml
 <system.webServer>
@@ -211,7 +211,7 @@ Cet exemple de configuration **permet** à toutes les adresses IP d’accéder 
 </system.webServer>
 ```
 
-Cet exemple de configuration **refuse** à toutes les adresses IP le droit d’accéder au serveur, sauf aux deux adresses IP définies.
+Cet exemple de configuration **refuse** à toutes les adresses IP le droit d’accéder au serveur, sauf aux deux adresses IP définies.
 
 ```xml
 <system.webServer>
@@ -239,7 +239,7 @@ PowerShell, par défaut, n’exécute aucun script non signé. Sauf si vous sign
     EXIT /B %errorlevel%
 
 
-Si vous utilisez un SE invité qui exécute PowerShell 2.0 ou 1.0, vous pouvez forcer la version 2 à s’exécuter et, si elle n’est pas disponible, utiliser la version 1.
+Si vous utilisez un SE invité qui exécute PowerShell 2.0 ou 1.0, vous pouvez forcer la version 2 à s’exécuter et, si elle n’est pas disponible, utiliser la version 1.
 
     REM   Attempt to set the execution policy by using PowerShell version 2.0 syntax.
     PowerShell -Version 2.0 -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
@@ -262,7 +262,7 @@ Pour créer la ressource de stockage local, ajoutez une section [LocalResources]
 
 Pour utiliser une ressource de stockage local dans votre tâche de démarrage, vous devez créer une variable d’environnement pour faire référence à l’emplacement de la ressource de stockage local. Ensuite, la tâche de démarrage et l’application sont en mesure de lire et d’écrire des fichiers dans la ressource de stockage local.
 
-Les sections appropriées du fichier **ServiceDefinition.csdef** sont indiquées ici :
+Les sections appropriées du fichier **ServiceDefinition.csdef** sont indiquées ici :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -397,7 +397,7 @@ Voici quelques meilleures pratiques à suivre quand vous configurez la tâche po
 
 ### Toujours consigner les activités de démarrage
 
-Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de commandes, il est préférable de récupérer autant de données que possible sur le fonctionnement des fichiers de commandes. La consignation de la sortie des fichiers de commandes, **stdout** et **stderr**, peut fournir des informations importantes au moment du débogage et de la correction des fichiers de commandes. Pour consigner **stdout** et **stderr** dans le fichier StartupLog.txt dans le répertoire indiqué par la variable d’environnement **%TEMP%**, ajoutez le texte `>>  "%TEMP%\\StartupLog.txt" 2>&1` à la fin des lignes que vous souhaitez enregistrer. Par exemple, pour exécuter setup.exe dans le répertoire **% PathToApp1Install** :
+Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de commandes, il est préférable de récupérer autant de données que possible sur le fonctionnement des fichiers de commandes. La consignation de la sortie des fichiers de commandes, **stdout** et **stderr**, peut fournir des informations importantes au moment du débogage et de la correction des fichiers de commandes. Pour consigner **stdout** et **stderr** dans le fichier StartupLog.txt dans le répertoire indiqué par la variable d’environnement **%TEMP%**, ajoutez le texte `>>  "%TEMP%\\StartupLog.txt" 2>&1` à la fin des lignes que vous souhaitez enregistrer. Par exemple, pour exécuter setup.exe dans le répertoire **% PathToApp1Install** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
@@ -405,7 +405,7 @@ Si vous souhaitez consigner toute la sortie de la tâche de démarrage sans ajou
 
 Voici comment rediriger toute la sortie d’un fichier de commandes de démarrage. Dans cet exemple, le fichier ServerDefinition.csdef crée une tâche de démarrage qui appelle Startup1.cmd. Startup1.cmd appelle Startup2.cmd, en redirigeant toute la sortie vers % TEMP%\\StartupLog.txt.
 
-ServiceDefinition.cmd :
+ServiceDefinition.cmd :
 
 ```xml
 <Startup>
@@ -413,7 +413,7 @@ ServiceDefinition.cmd :
 </Startup>
 ```
 
-Startup1.cmd :
+Startup1.cmd :
 
     REM   Startup1.cmd calls the main startup batch file, Startup2.cmd, redirecting all output
     REM   to the StartupLog.txt log file.
@@ -440,7 +440,7 @@ Startup1.cmd :
        EXIT %ERRORLEVEL%
     )
 
-Startup2.cmd :
+Startup2.cmd :
 
     REM   This is the batch file where the startup steps should be performed. Because of the
     REM   way Startup2.cmd was called, all commands and their outputs will be stored in the
@@ -460,7 +460,7 @@ Un exemple de tâche de démarrage qui nécessite des privilèges élevés est u
 
 ### Utiliser l’attribut taskType approprié
 
-L’attribut [taskType][Task] détermine la façon dont la tâche de démarrage doit être exécutée. Trois valeurs sont possibles : **simple**, **background** et **foreground**. Les tâches en arrière-plan et de premier plan sont lancées de manière asynchrone, puis les tâches simples sont exécutées de façon synchrone une par une.
+L’attribut [taskType][Task] détermine la façon dont la tâche de démarrage doit être exécutée. Trois valeurs sont possibles : **simple**, **background** et **foreground**. Les tâches en arrière-plan et de premier plan sont lancées de manière asynchrone, puis les tâches simples sont exécutées de façon synchrone une par une.
 
 Dans le cas des tâches de démarrage **simple**, vous pouvez définir l’ordre dans lequel les tâches doivent être exécutées en fonction de l’ordre dans lequel elles sont répertoriées dans le fichier ServiceDefinition.csdef. Si une tâche **simple** se termine par un code de sortie différent de zéro, la procédure de démarrage s’arrête et le rôle ne démarre pas.
 
@@ -503,4 +503,4 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

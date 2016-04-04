@@ -49,13 +49,14 @@ Vous pouvez utiliser le stockage Premium pour disques de deux manières :
 - Commencez par créer un compte Premium Storage. Ensuite, lorsque vous créez une machine virtuelle DS ou GS, sélectionnez le compte Premium Storage dans les paramètres de configuration du stockage. OU,
 - Lors de la création d’une machine virtuelle DS ou GS, créez un compte Premium Storage dans les paramètres de configuration du stockage, ou laissez le portail Azure créer un compte Premium Storage par défaut.
 
+
 Pour des instructions détaillées, voir la section [Démarrage rapide](#quick-start), plus loin dans cet article.
 
 >[AZURE.NOTE] Un compte de stockage premium ne peut pas être mappé sur un nom de domaine personnalisé.
 
 ## Machines virtuelles des séries DS et GS
 
-Premium Storage prend en charge les machines virtuelles Azure des séries DS et GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS ou GS. Vous ne pouvez cependant pas utiliser de disques de stockage Premium avec des machines virtuelles qui ne sont pas de série DS ou GS. Pour plus d’informations sur les tailles et les types de machines virtuelles Azure disponibles, voir [Tailles des machines virtuelles](../virtual-machines/virtual-machines-size-specs.md). Voici quelques-unes des caractéristiques des machines virtuelles des séries DS et GS :
+Premium Storage prend en charge les machines virtuelles Azure des séries DS et GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS ou GS. Vous ne pouvez cependant pas utiliser de disques de stockage Premium avec des machines virtuelles qui ne sont pas de série DS ou GS. Pour plus d’informations sur les tailles et les types de machines virtuelles Azure disponibles, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-linux-sizes.md). Voici quelques-unes des caractéristiques des machines virtuelles des séries DS et GS :
 
 **Service cloud** : vous pouvez ajouter des machines virtuelles de la série DS à un service cloud incluant uniquement des machines virtuelles de ce type. Évitez d’ajouter des machines virtuelles de la série DS à un service cloud incluant des machines virtuelles d’un autre type. Vous pouvez migrer vos disques durs virtuels vers un nouveau service cloud exécutant uniquement des machines virtuelles de la série DS. Si vous souhaitez conserver la même adresse IP virtuelle (VIP) pour le nouveau service cloud hébergeant vos machines virtuelles de la série DS, utilisez les [adresses IP réservées](../virtual-network/virtual-networks-instance-level-public-ip.md). Des machines virtuelles de la série GS peuvent être ajoutés à un service cloud existant exécutant seulement des machines virtuelles de la série GS.
 
@@ -73,7 +74,7 @@ Premium Storage prend en charge les machines virtuelles Azure des séries DS et 
 
 Actuellement, la machine virtuelle DS la plus puissante est STANDARD\_DS14, qui offre un débit maximum de 512 Mo par seconde sur l’ensemble des disques. La machine virtuelle de série GS DS la plus puissante est STANDARD\_GS5, qui offre un débit allant jusqu’à 2 000 Mo par seconde sur l’ensemble des disques. Notez que ces limites ne valent que pour le trafic de disques, pas pour les présences dans le cache ou le trafic réseau. Une bande passante distincte est disponible pour le trafic réseau des machines virtuelles. Il ne s’agit pas de la bande passante dédiée aux disques de stockage Premium.
 
-Pour obtenir les informations les plus récentes sur le maximum d’IOPS et de bande passante pour les machines virtuelles des séries DS et GS, voir [Tailles des machines virtuelles](../virtual-machines/virtual-machines-size-specs.md) Pour en savoir plus sur les disques Premium Storage et leurs limites d’E/S par seconde et de débit, voir le tableau de la section relative aux [objectifs de performances et d’extensibilité de Premium Storage](#premium-storage-scalability-and-performance-targets) dans cet article.
+Pour obtenir les informations les plus récentes sur le maximum d’IOPS et de bande passante pour les machines virtuelles des séries DS et GS, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-linux-sizes.md) Pour en savoir plus sur les disques Premium Storage et leurs limites d’E/S par seconde et de débit, consultez le tableau de la section [Objectifs de performances et d’évolutivité lors de l’utilisation de Premium Storage](#scalability-and-performance-targets-whfr-FRing-premium-storage) dans cet article.
 
 ## Objectifs de performances et d’extensibilité de Premium Storage
 
@@ -145,7 +146,7 @@ Quand vous configurez un disque sur un compte de stockage Premium, le nombre d'o
 
 Voici quelques éléments importants que vous devez savoir sur les objectifs de performances et d’extensibilité de Premium Storage :
 
-- **Capacité et performances configurées** : lorsque vous configurez un disque Premium Storage, contrairement au stockage standard, la capacité, les IOPS et le débit de ce disque sont garantis. Par exemple, si vous créez un disque P30, Azure configure une capacité de stockage de 1 024 To, 5 000 IOPS et un débit de 200 Mo par seconde pour ce disque. Votre application peut utiliser tout ou partie de la capacité et des performances.
+- **Capacité et performances configurées** : lorsque vous configurez un disque Premium Storage, contrairement au stockage standard, la capacité, les IOPS et le débit de ce disque sont garantis. Par exemple, si vous créez un disque P30, Azure configure une capacité de stockage de 1 024 Go, 5 000 IOPS et un débit de 200 Mo par seconde pour ce disque. Votre application peut utiliser tout ou partie de la capacité et des performances.
 
 - **Taille du disque** : Azure mappe la taille du disque (arrondie à la valeur supérieure) à l’option de disque Premium Storage la plus proche, comme indiqué dans le tableau. Par exemple, un disque de 100 Go correspond à l’option P10 et peut prendre en charge jusqu'à 500 IOPS et un débit de 100 Mo par seconde. De même, un disque de 400 Go correspond à une option P20 et peut prendre en charge jusqu'à 2 300 IOPS et un débit de 150 Mo par seconde.
 
@@ -241,7 +242,7 @@ Consultez les instructions importantes ci-dessous pour configurer vos machines v
 	- Si vous utilisez **XFS**, désactivez les barrières à l'aide de l'option de montage « nobarrier ». (Pour activer les barrières, utilisez l’option « barrier ».)
 
 - Pour les disques de stockage Premium dont le paramètre de cache est « ReadWrite », les barrières doivent être activées pour pérenniser les écritures.
-- Pour conserver les étiquettes de volume après le redémarrage de la machine virtuelle, vous devez mettre à jour /etc/fstab avec les références UUID aux disques. Consultez également [Association d’un disque de données à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk.md).
+- Pour conserver les étiquettes de volume après le redémarrage de la machine virtuelle, vous devez mettre à jour /etc/fstab avec les références UUID aux disques. Consultez également [Association d’un disque de données à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-classic-attach-disk.md).
 
 Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version de LIS (Linux Integration Services version 4.0 pour Microsoft Azure). Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour une charge de travail particulière.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -385,7 +386,7 @@ Pour pouvoir utiliser Premium Storage, vous devez créer une machine virtuelle d
 
 	![Disque Premium][Image2]
 
-Pour plus de détails, voir [Connexion d’un disque de données dans le portail Azure](../virtual-machines/virtual-machines-attach-disk-preview/).
+Pour plus de détails, consultez [Connexion d’un disque de données dans le portail Azure](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
 
 #### IV. Modification de la stratégie de mise en cache via le portail Azure
 
@@ -526,12 +527,14 @@ Pour plus d’informations sur Azure Storage Premium, voir les articles suivants
 
 - [Migration vers le stockage Premium Azure](storage-migration-to-premium-storage.md)
 
+
 ### Billets de blog
 
 - [Mise à la disposition générale d’Azure Storage Premium](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 - [Annonce de la série GS : ajout de prise en charge de Premium Storage pour les machines virtuelles les plus grandes dans le Cloud Public](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
+
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 [Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

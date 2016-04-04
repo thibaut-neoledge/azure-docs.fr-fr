@@ -1,10 +1,10 @@
 1. Connectez-vous à votre abonnement Azure en suivant les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
 
-2. Assurez-vous que vous êtes en mode de gestion des services, en utilisant :
+2. Assurez-vous que vous êtes en mode de gestion des services, en utilisant :
 
         azure config mode asm
 
-3. Trouvez l'image Linux que vous souhaitez charger à partir des images disponibles :
+3. Trouvez l'image Linux que vous souhaitez charger à partir des images disponibles :
 
         azure vm image list | grep "Linux"
 
@@ -25,15 +25,15 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE] Pour une machine virtuelle Linux, vous devez fournir l’option `-e` dans `vm create` ; il n’est pas possible d’activer SSH une fois la machine virtuelle créée. Pour plus d’informations sur SSH, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-use-ssh-key.md).
+    >[AZURE.NOTE] Pour une machine virtuelle Linux, vous devez fournir l’option `-e` dans `vm create` ; il n’est pas possible d’activer SSH une fois la machine virtuelle créée. Pour plus d’informations sur SSH, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-ssh-from-linux.md).
 
     Notez que l'image *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* est celle que nous avons choisie dans la liste d'images lors de l'étape ci-dessus. *MyTestVM* est le nom de notre nouvelle machine virtuelle et *adminUser* est le nom d’utilisateur pour la connexion SSH à la machine virtuelle. Vous pouvez remplacer ces variables selon vos besoins. Pour plus d’informations sur cette commande, consultez [Utilisation de l’interface de ligne de commande Azure avec la gestion des services Azure](virtual-machines-command-line-tools.md).
 
-5. La machine virtuelle Linux nouvellement créée s'affiche dans la liste donnée par :
+5. La machine virtuelle Linux nouvellement créée s'affiche dans la liste donnée par :
 
         azure vm list
 
-6. Vous pouvez vérifier les attributs de la machine virtuelle à l'aide de la commande :
+6. Vous pouvez vérifier les attributs de la machine virtuelle à l'aide de la commande :
 
         azure vm show MyTestVM
 
@@ -41,4 +41,4 @@
 
 Pour plus d’informations sur toutes les commandes des machines virtuelles de l’interface de ligne de commande Azure, consultez [Utilisation de l’interface de ligne de commande Azure avec l’API de gestion des services](virtual-machines-command-line-tools.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

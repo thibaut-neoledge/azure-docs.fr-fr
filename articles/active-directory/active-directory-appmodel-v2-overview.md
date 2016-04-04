@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
 # Connecter les utilisateurs de compte Microsoft et d’Azure AD dans une même application
@@ -22,19 +22,16 @@ Auparavant, un développeur d’application qui souhaitait prendre en charge à 
 
 Les applications qui utilisent le point de terminaison v2.0 peuvent également consommer des API REST à partir de [Microsoft Graph](https://graph.microsoft.io) et [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) à l’aide d’un type de compte.
 
-> [AZURE.NOTE]
-	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
-
-
-## Prise en main
-Choisissez votre plateforme préférée ci-dessous pour créer une application à l’aide de nos bibliothèques et infrastructures open source. Vous pouvez également utiliser notre documentation du protocole OAuth 2.0 et OpenID Connect pour envoyer et recevoir les messages de protocole directement sans utiliser une bibliothèque d’authentification. <!-- TODO: Finalize this table  -->
+## Mise en route
+Choisissez votre plateforme préférée ci-dessous pour créer une application à l’aide de nos bibliothèques et infrastructures open source. Vous pouvez également utiliser notre documentation du protocole OAuth 2.0 et OpenID Connect pour envoyer et recevoir les messages de protocole directement sans utiliser une bibliothèque d’authentification.
+<!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## Nouveautés	
+## Nouveautés
 Les informations conceptuelles ici seront utiles pour comprendre ce qui est et ce qui n’est pas possible avec le point de terminaison v2.0.
 
-- Si vous avez créé une application pendant la période d’évaluation du point de terminaison v2.0 2015, veillez à [consulter ces dernières modifications du protocole](active-directory-v2-preview-oidc-changes.md) que nous avons récemment apportées.
+- Si vous avez créé une application pendant la version préliminaire du point de terminaison v2.0 2015, veillez à [consulter les dernières modifications du protocole](active-directory-v2-preview-oidc-changes.md) que nous avons récemment apportées.
 - Découvrez les [différents types d’application que vous pouvez créer avec le point de terminaison v2.0](active-directory-v2-flows.md).
 - Si vous êtes développeur et que vous connaissez bien Azure Active Directory, prenez connaissance des [mises à jour concernant nos protocoles, ainsi que des différences qui caractérisent le point de terminaison v2.0](active-directory-v2-compare.md).
 - Familiarisez-vous avec les [limites, les restrictions et les contraintes](active-directory-v2-limitations.md) du point de terminaison v2.0.
@@ -49,13 +46,15 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
 - [Le portail d’inscription des applications Microsoft](https://apps.dev.microsoft.com)
 - [Informations de référence sur les API Office 365 REST](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Microsoft Graph](https://graph.microsoft.io)
-- Vous trouverez ci-dessous les bibliothèques et les exemples open source qui ont été testés avec le point de terminaison v2.0. Veuillez noter que les fonctionnalités telles que [Enregistrement client dynamique OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) et les points de terminaison de validation de jeton ne sont pas encore pris en charge. Il peut être nécessaire de les désactiver dans la bibliothèque pour utiliser le point de terminaison v2 :  
+- Vous trouverez ci-dessous les bibliothèques et les exemples open source qui ont été testés avec le point de terminaison v2.0.
 
   - [Serveur d’identité WSO2 Java](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
-  - [Client de base PHP OpenID Connect](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Exemple Android OpenID Connect](https://github.com/learning-layers/android-openid-connect)
+  - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Client OAuth2 iOS](https://github.com/nxtbgthng/OAuth2Client)
+  - [Client OAuth2 Android](https://github.com/wuman/android-oauth-client)
+  - [Client OpenID Connect Android](https://github.com/kalemontes/OIDCAndroidLib)
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
@@ -63,4 +62,4 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
 - Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

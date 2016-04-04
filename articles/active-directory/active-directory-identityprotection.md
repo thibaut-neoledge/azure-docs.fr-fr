@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -35,7 +35,7 @@ La version préliminaire d’Azure Active Directory Identity Protection présent
 
 - Les stratégies de sécurité ne fonctionnent pas pour les domaines fédérés
 
-- Les événements à risque ne sont pas détectés pour les domaines fédérés
+- Les événements de risque sont détectés uniquement pour les applications fédérées avec Azure Active Directory
 
 ##Mise en route
 
@@ -97,7 +97,7 @@ Certains de ces événements à risque sont disponibles via les rapports d’act
 | Connexions depuis des appareils infectés | Connexions à partir d’appareils potentiellement infectés |
 | Connexions depuis des adresses IP anonymes | Connexions à partir de sources inconnues |
 | Connexions depuis des adresses IP avec des activités suspectes |	Connexions depuis des adresses IP avec des activités suspectes |
-| Connexions depuis des emplacements non connus | - |
+| Connexions depuis des emplacements non connus | - | 
 | Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
 
 Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans Azure AD Identity Protection et ne sont donc pas disponibles via Identity Protection. Ces rapports sont toujours disponibles dans le portail de gestion Azure, mais ils seront rendus obsolètes ultérieurement du fait de leur remplacement par des événements à risque dans Identity Protection.
@@ -410,4 +410,4 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez 
  - [Manuel d’Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossaire d’Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
 
-<!------HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

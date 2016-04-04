@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Expressions scalaires dans Application Insights Analytics" 
-	description="Nombres, chaînes, expressions dynamiques et types dans Application Insights Analytics, outil de recherche puissant pour Application Insights." 
+	pageTitle="Expressions scalaires dans Analytics au sein d’Application Insights" 
+	description="Nombres, chaînes, expressions dynamiques et types dans Analytics, puissant outil de recherche d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,29 +12,31 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Expressions scalaires dans Application Insights Analytics
+# Expressions scalaires dans Analytics
 
 
-[Application Insights Analytics](app-analytics.md) est un puissant moteur de recherche pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Application Insights Analytics (AIQL).
+[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor)
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt)
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
+<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
+<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) 
+| [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
 
 
-« Scalaire » indique des valeurs comme des nombres ou des chaînes qui peuvent occuper une cellule unique dans une table AIQL. Les expressions scalaires sont créées à partir d’opérateurs et de fonctions scalaires et donnent des valeurs scalaires. `sqrt(score)/100 > target+2` est une expression scalaire.
+« Scalaire » indique des valeurs comme des nombres ou des chaînes qui peuvent occuper une cellule unique dans une table. Les expressions scalaires sont créées à partir d’opérateurs et de fonctions scalaires et donnent des valeurs scalaires. `sqrt(score)/100 > target+2` est une expression scalaire.
 
 « Scalaire » inclut également des tableaux et des objets composites qui peuvent également être stockés dans une cellule unique de la base de données.
 
@@ -42,22 +44,23 @@ Les expressions scalaires sont distinctes des [requêtes](app-analytics-queries.
 
 ## Valeurs scalaires
 
-[casts](#casts) | [comparisons](#scalar-comparisons)
-<br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) 
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Les types pris en charge sont :
 
 | Type | Nom(s) supplémentaire(s) | Type .NET équivalent |
 | --------- | -------------------- | -------------------- |
-| `bool` | `boolean` | `System.Boolean` |
-| `datetime`| `date` | `System.DateTime` |
-| `dynamic` | | `System.Object` |
-| `guid` | `uuid`, `uniqueid` | `System.Guid` |
-| `int` | | `System.Int32` |
-| `long` | | `System.Int64` |
-| `double` | `real` | `System.Double` |
-| `string` | | `System.String` |
-| `timespan`| `time` | `System.TimeSpan` |
+| `bool`    | `boolean`            | `System.Boolean`     |
+| `datetime`| `date`               | `System.DateTime`    |
+| `dynamic` |                      | `System.Object`      |
+| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
+| `int`     |                      | `System.Int32`       |
+| `long`    |                      | `System.Int64`       |
+| `double`  | `real`               | `System.Double`      |
+| `string`  |                      | `System.String`      |
+| `timespan`| `time`               | `System.TimeSpan`    |
 
 ### Casts
 
@@ -161,8 +164,8 @@ Cette fonction retourne la valeur de *ifTrue* si *predicate* prend la valeur `tr
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a>
-<a name="isnotnull"/></a>
+<a name="isnull"/></a> 
+<a name="isnotnull"/></a> 
 <a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
@@ -223,8 +226,7 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 
 ## Nombres
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) |
-[tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Littéraux numériques
 
@@ -241,13 +243,13 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 | - | Soustraire |
 | * | Multiplier |
 | / | Diviser |
-| % | Modulo |
-||
-|`<` |Inférieur à
-|`<=`|Inférieur ou égal à
-|`>` |Supérieur à
-|`>=`|Supérieur ou égal à
-|`<>`|Non égal à
+| % | Modulo | 
+|| 
+|`<` |Inférieur à 
+|`<=`|Inférieur ou égal à 
+|`>` |Supérieur à 
+|`>=`|Supérieur ou égal à 
+|`<>`|Non égal à 
 |`!=`|Non égal à
 
 
@@ -355,7 +357,7 @@ Fonction racine carrée.
 ## Date et heure
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
 
 ### Littéraux de date et d’heure
 
@@ -538,7 +540,7 @@ Alias `timespan()`.
 
 ## Chaîne
 
-[countof](#countof) | [extract](#extract) | [extractjson](#extractjson) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 
 ### Littéraux de chaîne
@@ -555,7 +557,7 @@ La barre oblique inverse (`\`) est utilisée pour échapper les caractères tels
 
 ### Littéraux de chaîne masqués
 
-Les littéraux de chaîne masqués sont des chaînes qu’AI Analytics masquera lors de la sortie de la chaîne (par exemple, lors d’un suivi). Le processus de masquage remplace tous les caractères masqués par un caractère de démarrage (`*`).
+Les littéraux de chaîne masqués sont des chaînes qu’Analytics masque lors de la sortie de la chaîne (par exemple, lors d’un suivi). Le processus de masquage remplace tous les caractères masqués par un caractère de démarrage (`*`).
 
 Pour créer un littéral de chaîne masqué, ajouter `h` ou « H ». Par exemple :
 
@@ -666,14 +668,14 @@ Cet exemple est équivalent à `substring(Text, 2, 4)` :
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a>
-<a name="isnotempty"></a>
+<a name="notempty"></a> 
+<a name="isnotempty"></a> 
 <a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
 
-True si l’argument est une chaîne vide ou s’il a la valeur null.
+True si l’argument est une chaîne vide ou s’il a la valeur null. 
 Voir aussi [isnull](#isnull).
 
 
@@ -843,8 +845,8 @@ Convertit une chaîne en majuscules.
 
 ## Tableaux et objets - types dynamiques
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
-<br/>
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) 
+<br/> 
 [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
@@ -859,7 +861,7 @@ Voici le résultat d’une requête sur une exception d’Application Insights. 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Mais utilise `arraylength` et d’autres fonctions AIQL (pas « .length » !)
+* Mais utilisez `arraylength` et d’autres fonctions Analytics (pas « .length »)
 
 **Conversion** Dans certains cas, il est nécessaire de convertir un élément que vous extrayez à partir d’un objet, car son type peut varier. Par exemple, `summarize...to` a besoin d’un type spécifique :
 
@@ -1079,7 +1081,7 @@ Dans l’exemple suivant, lorsque `context_custom_metrics` est une `string`, le 
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-ensuite le fragment AIQL suivant récupère la valeur de l’emplacement `duration` dans l’objet et à partir de cette valeur, il récupère deux emplacements, `duration.value` et `duration.min` (`118.0` et `110.0`, respectivement).
+Ensuite, le fragment suivant récupère la valeur de l’emplacement `duration` dans l’objet et à partir de cette valeur, il récupère deux emplacements, `duration.value` et `duration.min` (`118.0` et `110.0`, respectivement).
 
 ```AIQL
 T
@@ -1150,4 +1152,4 @@ Notez que « [0] » indique la présence d’un tableau, mais ne spécifie pas l
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---------HONumber=AcomDC_0309_2016--->
+<!----HONumber=AcomDC_0323_2016-->

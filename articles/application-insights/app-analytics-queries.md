@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Opérateurs et requêtes dans Application Insights Analytics" 
-	description="Référence des opérateurs utilisés pour effectuer des requêtes dans Application Insights Analytics, le puissant outil de recherche d’Application Insights." 
+	pageTitle="Opérateurs et requêtes Analytics dans Application Insights" 
+	description="Référence des opérateurs utilisés pour effectuer des requêtes dans Analytics, le puissant outil de recherche d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
-# Syntaxe des requêtes dans Application Insights Analytics
+# Requêtes dans Analytics
 
 
-[Application Insights Analytics](app-analytics.md) est un puissant moteur de recherche pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Application Insights Analytics (AIQL).
+[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -611,7 +611,7 @@ Une table indiquant le nombre d’éléments ayant un prix dans chaque intervall
 * *Aggregation :* appel d’une [fonction d’agrégation](app-analytics-aggregations.md) telle que `count()` ou `avg()`, avec des noms de colonne comme arguments. Voir la [liste des fonctions d’agrégation](app-analytics-aggregations.md).
 * *GroupExpression :* expression sur les colonnes, qui fournit un ensemble de valeurs distinctes. En général, il s’agit d’un nom de colonne qui fournit déjà un ensemble restreint de valeurs, ou de `bin()` avec une colonne numérique ou de temps en tant qu’argument. 
 
-Si vous fournissez une expression numérique ou de temps sans utiliser `bin()`, AI Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou `1.0` pour les nombres.
+Si vous fournissez une expression numérique ou de temps sans utiliser `bin()`, Analytics l’applique automatiquement avec un intervalle de `1h` pour les heures ou de `1.0` pour les nombres.
 
 Si vous ne fournissez pas une *GroupExpression*, la table entière est résumée dans une ligne de sortie unique.
 
@@ -676,8 +676,8 @@ Prend deux tables ou plus et retourne les lignes de toutes les tables.
  *  Expression de requête, telle que `(events | where id==42)`
  *  Ensemble de tables spécifié par un caractère générique. Par exemple, `E*` assure l’union de toutes les tables dans la base de données dont le nom commence par `E`.
 * `kind` : 
- * `inner` -Le résultat comporte le sous-ensemble de colonnes qui sont communes à toutes les tables d’entrée.
- * `outer` -Le résultat comporte toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée sont définies sur `null`.
+ * `inner` - Le résultat comporte le sous-ensemble de colonnes qui sont communes à toutes les tables d’entrée.
+ * `outer` - Le résultat comporte toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée sont définies sur `null`.
 * `withsource=`*ColumnName :* si spécifiée, la sortie va inclure une colonne appelée *ColumnName* dont la valeur indique la table source correspondant à chaque ligne.
 
 **Retourne**
@@ -766,4 +766,4 @@ Notez que nous plaçons la comparaison entre deux colonnes à la fin, car elle n
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

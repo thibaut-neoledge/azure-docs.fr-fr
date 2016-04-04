@@ -1,165 +1,126 @@
-<properties 
-	pageTitle="Opérations d’audit avec Resource Manager | Microsoft Azure" 
-	description="Utilisez le journal d’audit dans Resource Manager pour passer en revue les actions et les erreurs des utilisateurs. Affiche PowerShell, l’interface de ligne de commande Azure et REST." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Opérations d’audit avec Resource Manager | Microsoft Azure"
+	description="Utilisez le journal d’audit dans Resource Manager pour passer en revue les actions et les erreurs des utilisateurs. Affiche le portail Azure, PowerShell, l’interface CLI Azure et REST."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/21/2016"
 	ms.author="tomfitz"/>
 
 # Opérations d’audit avec Resource Manager
 
-Lorsque vous rencontrez un problème lors du déploiement ou pendant la durée de vie de votre solution, vous devez découvrir ce qui s’est produit. Resource Manager fournit deux méthodes vous permettant de découvrir ce qui s’est passé et pourquoi. Vous pouvez utiliser les commandes de déploiement pour récupérer des informations concernant des déploiements et des opérations spécifiques. Vous pouvez également utiliser les journaux d’audit pour récupérer des informations concernant des déploiements et d’autres actions effectuées pendant la durée de vie de la solution. Cette rubrique se concentre sur les journaux d’audit.
+Les journaux d’audit vous permettent de déterminer :
 
-Le journal d’audit contient toutes les actions effectuées sur vos ressources. Par conséquent, si un utilisateur de votre organisation modifie une ressource, vous serez en mesure d’identifier l’action, le temps et l’utilisateur.
+- Les opérations qui ont été effectuées sur les ressources de votre abonnement
+- Les utilisateurs qui ont lancé l’opération (même si les opérations lancées par un service principal ne retournent pas d’utilisateur en tant qu’appelant)
+- Le moment où a eu lieu l’opération
+- L’état de l’opération
+- Les valeurs d’autres propriétés qui peuvent vous aider à effectuer des recherches sur l’opération
 
-Il existe deux limitations importantes à prendre en compte lorsque vous travaillez avec des journaux d’audit :
+[AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-1. Les journaux d’audit sont conservés pendant 90 jours seulement.
-2. Vous pouvez demander une plage de 15 jours maximum.
+Cette rubrique traite de l’audit des opérations. Si vous voulez en savoir plus sur les journaux d’audit pour résoudre les problèmes liés à un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-Vous pouvez récupérer des informations à partir des journaux d’audit par le biais d’Azure PowerShell, de l’interface de ligne de commande Azure, de l’API REST ou du portail Azure.
+Vous pouvez récupérer des informations dans les journaux d’audit par le biais du portail Azure, d’Azure PowerShell, de l’interface de ligne de commande Azure, de l’API REST Insights ou de [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## PowerShell
+## Portail pour afficher les journaux d’audit
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+1. Pour afficher les journaux d’audit dans le portail, sélectionnez **Parcourir** et **Journaux d’audit**.
 
-Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions de PowerShell antérieures à la version 1.0). Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées.
+    ![sélectionner des journaux d’audit](./media/resource-group-audit/select-audit-logs.png)
 
-L’exemple suivant montre comment utiliser le journal d’audit pour rechercher les actions effectuées pendant le cycle de vie de la solution. Vous pouvez voir le moment où l’action s’est produite et l’utilisateur qui l’a demandée. Les dates de début et de fin sont indiquées dans un format de date.
+2. Le panneau **Journaux d’audit** affiche un résumé des opérations récentes de tous les groupes de ressources de votre abonnement. Il inclut une représentation graphique du moment où ont eu lieu les opérations et de leur état, ainsi qu’une liste des opérations.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+    ![afficher des actions](./media/resource-group-audit/audit-summary.png)
 
-Vous pouvez également utiliser les fonctions de date pour spécifier la plage de dates, par exemple les 15 derniers jours.
+3. Pour rechercher un type particulier d’action, vous pouvez filtrer les opérations affichées dans le panneau des journaux d’audit. Sélectionnez **Filtrer** en haut du panneau.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15)
+    ![filtrer les journaux](./media/resource-group-audit/filter-logs.png)
 
-En fonction de l’heure de début que vous spécifiez, les commandes précédentes peuvent renvoyer une longue liste des actions pour ce groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, si vous tentez de rechercher la manière dont une application web a été arrêtée, vous pouvez exécuter la commande suivante et voir qu’une action d’arrêt a été effectuée par someone@example.com.
+4. Dans le panneau **Filtre**, vous pouvez sélectionner plusieurs conditions pour limiter le nombre d’opérations affichées. Par exemple, vous pouvez afficher toutes les actions effectuées par un utilisateur particulier au cours de la semaine dernière.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    ![définir des options de filtre](./media/resource-group-audit/set-filter.png)
 
-    Authorization     :
-                        Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-                        Action    : Microsoft.Web/sites/stop/action
-                        Role      : Subscription Admin
-                        Condition :
-    Caller            : someone@example.com
-    CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-    EventSource       : Administrative
-    EventTimestamp    : 8/28/2015 4:08:18 PM
-    OperationName     : Microsoft.Web/sites/stop/action
-    ResourceGroupName : ExampleGroup
-    ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-    Status            : Succeeded
-    SubscriptionId    : xxxxx
-    SubStatus         : OK
+Une fois la vue des journaux d’audit mise à jour, seules les opérations qui répondent à la condition spécifiée sont affichées. Ces paramètres sont conservés lors de la prochaine consultation des journaux d’audit, vous devrez donc peut-être modifier ces valeurs pour étendre l’affichage des opérations.
 
-Dans l’exemple suivant, nous allons rechercher uniquement les actions qui ont échoué après l’heure de début spécifiée. Nous allons également inclure le paramètre **DetailedOutput** pour voir les messages d’erreur.
+Vous pouvez également afficher automatiquement les journaux d’audit d’une ressource particulière en les sélectionnant dans le panneau de cette ressource. Dans le portail, sélectionnez la ressource à auditer, puis **Journaux d’audit**.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
-    
-Si cette commande renvoie trop d’entrées et de propriétés, vous pouvez cibler vos efforts d’audit en récupérant la propriété **properties**.
+![auditer une ressource](./media/resource-group-audit/audit-by-resource.png)
 
-    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+Notez que le journal d’audit est automatiquement filtré sur la dernière ressource sélectionnée pour la semaine précédente.
 
-    Content
-    -------
-    {}
-    {[statusCode, Conflict], [statusMessage, {"Code":"Conflict","Message":"Website with given name mysite already exists...
-    {[statusCode, Conflict], [serviceRequestId, ], [statusMessage, {"Code":"Conflict","Message":"Website with given name...
+![filtrer par ressource](./media/resource-group-audit/filtered-by-resource.png)
 
-En outre, vous pouvez affiner les résultats en examinant le message d’état.
+## PowerShell pour afficher les journaux d’audit
 
-    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+1. Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog**. Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées. Si vous ne spécifiez pas une heure de début et de fin, les entrées de la dernière heure sont retournées. Par exemple, pour récupérer les opérations d’un groupe de ressources pendant la dernière heure d’exécution :
 
-    Code       : Conflict
-    Message    : Website with given name mysite already exists.
-    Target     :
-    Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-    Innererror :
+        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup
 
+    L’exemple suivant montre comment utiliser le journal d’audit pour rechercher les opérations effectuées à un moment spécifié. Les dates de début et de fin sont indiquées dans un format de date.
 
-## Interface de ligne de commande Azure
+        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
 
-Pour récupérer les entrées de journal, exécutez la commande **azure group log show**.
+    Vous pouvez également utiliser les fonctions de date pour spécifier la plage de dates, par exemple, les 14 derniers jours.
 
-    azure group log show ExampleGroup
+        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 
-Vous pouvez filtrer les résultats avec un utilitaire JSON comme [jq](http://stedolan.github.io/jq/download/). L’exemple suivant montre comment rechercher des opérations qui impliquaient la mise à jour d’un fichier de configuration web.
+2. En fonction de l’heure de début que vous spécifiez, les commandes précédentes peuvent retourner une longue liste d’opérations pour le groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, si vous recherchez la manière dont une application web a été arrêtée, vous pouvez exécuter la commande suivante et voir qu’une action d’arrêt a été effectuée par someone@contoso.com.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == "Update web sites config")"
+        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+        
+        Authorization     :
+        Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+        Action    : Microsoft.Web/sites/stop/action
+        Role      : Subscription Admin
+        Condition :
+        Caller            : someone@contoso.com
+        CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
+        EventSource       : Administrative
+        EventTimestamp    : 8/28/2015 4:08:18 PM
+        OperationName     : Microsoft.Web/sites/stop/action
+        ResourceGroupName : ExampleGroup
+        ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+        Status            : Succeeded
+        SubscriptionId    : xxxxx
+        SubStatus         : OK
 
-Vous pouvez ajouter le paramètre **–-last-deployment** pour limiter les entrées renvoyées aux opérations à partir du dernier déploiement uniquement.
+3. Vous pouvez rechercher les actions effectuées par un utilisateur particulier, même pour un groupe de ressources qui n’existe plus.
 
-    azure group log show ExampleGroup --last-deployment
+        PS C:\> Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
-Si la liste des opérations à partir du dernier déploiement est trop longue, vous pouvez filtrer les résultats sur les opérations ayant échoué uniquement.
+## Interface CLI Azure pour afficher les journaux d’audit
 
-    azure group log show tfCopyGroup --last-deployment --json | jq ".[] | select(.status.value == "Failed")"
+1. Pour récupérer les entrées de journal, exécutez la commande **azure group log show**.
 
-                                   /Microsoft.Web/Sites/ExampleSite
-    data:    SubscriptionId:       <guid>
-    data:    EventTimestamp (UTC): Thu Aug 27 2015 13:03:27 GMT-0700 (Pacific Daylight Time)
-    data:    OperationName:        Update website
-    data:    OperationId:          cb772193-b52c-4134-9013-673afe6a5604
-    data:    Status:               Failed
-    data:    SubStatus:            Conflict (HTTP Status Code: 409)
-    data:    Caller:               someone@example.com
-    data:    CorrelationId:        a8c7a2b4-5678-4b1b-a50a-c17230427b1e
-    data:    Description:
-    data:    HttpRequest:          clientRequestId: <guid>
-                                   clientIpAddress: 000.000.000.000
-                                   method:          PUT
+        azure group log show ExampleGroup
 
-    data:    Level:                Error
-    data:    ResourceGroup:        ExampleGroup
-    data:    ResourceProvider:     Azure Web Sites
-    data:    EventSource:          Administrative
-    data:    Properties:           statusCode:       Conflict
-                                   serviceRequestId:
-                                   statusMessage:    {"Code":"Conflict","Message":"Website with given name
-                                   ExampleSite already exists.","Target":null,"
-                                   Details
-                                   ":[{"Message":"Website with given name ExampleSite already exists."},
-                                   {"Code":"Conflict"},
-                                   {"ErrorEntity":{"Code":"Conflict","Message":"Website with given
-                                   name ExampleSite already exists.","ExtendedCode
-                                   ":"
-                                   54001","MessageTemplate":"Website with given name {0} already exists.",
-                                   "Parameters":["ExampleSite"],"
-                                   InnerErrors":null}}],"Innererror":null}
+2. Vous pouvez filtrer les résultats avec un utilitaire JSON comme [jq](http://stedolan.github.io/jq/download/). L’exemple suivant montre comment rechercher des opérations qui ont mis à jour un fichier de configuration web.
 
+        azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == "Update web sites config")"
 
+3. Vous pouvez rechercher les actions d’un utilisateur particulier.
 
-## API REST
+        azure group log show ExampleGroup --json | jq ".[] | select(.caller=="someone@contoso.com")"
+
+## API REST pour afficher les journaux d’audit
 
 Les opérations REST à utiliser avec le journal d’audit font partie de l’[API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Pour récupérer les événements du journal d’audit, consultez [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## Portail
-
-Vous pouvez également afficher des opérations journalisées via le portail. Il vous suffit de sélectionner le panneau des journaux d’audit.
-
-![sélectionner des journaux d’audit](./media/resource-group-audit/select-audit.png)
-
-Ensuite, affichez la liste des dernières opérations.
-
-![afficher des actions](./media/resource-group-audit/show-actions.png)
-
-Sélectionnez n’importe quelle opération pour plus d’informations la concernant.
-
 ## Étapes suivantes
 
+- Les journaux d’audit Azure sont utilisables avec Power BI pour obtenir des informations plus détaillées sur les actions de votre abonnement. Consultez [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore).
 - Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
-- Pour savoir comment autoriser l’accès à un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
-- Pour savoir comment effectuer des actions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
+- Pour en savoir plus sur les commandes qui permettent de résoudre les problèmes liés aux déploiements, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Pour savoir comment empêcher des suppressions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

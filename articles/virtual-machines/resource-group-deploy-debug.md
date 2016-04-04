@@ -1,7 +1,7 @@
 <properties
    pageTitle="Résolution des problèmes liés aux déploiements de groupes de ressources | Microsoft Azure"
    description="Décrit les problèmes courants de déploiement de ressources créés à l'aide du modèle de déploiement Resource Manager et montre comment détecter et résoudre ces problèmes."
-   services="azure-resource-manager,virtual-machines"
+   services="azure-resource-manager,virtual-machines-linux"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
@@ -178,7 +178,7 @@ Pour PowerShell, utilisez **Test-AzureRmResourceGroupDeployment**.
 
 Pour l’interface de ligne de commande Azure, utilisez **azure group template validate <resource group>**
 
-L’exemple suivant montre comment valider un modèle et tous les paramètres requis. L’interface de ligne de commande Azure vous propose des valeurs de paramètres requises.
+L’exemple suivant montre comment valider un modèle et tous les paramètres requis. L’interface de ligne de commande Azure vous propose des valeurs de paramètres requises.
 
         azure group template validate \
         > --template-uri "https://contoso.com/templates/azuredeploy.json" \
@@ -222,7 +222,7 @@ Vous pouvez spécifier un type de ressource particulier avec :
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-Pour PowerShell 1.0, utilisez **Get-AzureRmResourceProvider** pour obtenir les emplacements pris en charge.
+Pour PowerShell 1.0, utilisez **Get-AzureRmResourceProvider** pour obtenir les emplacements pris en charge.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -275,7 +275,7 @@ Mais avec Azure Active Directory, vous ou votre administrateur pouvez contrôler
 
 Il est possible que vous rencontriez également des problèmes lorsqu’un déploiement atteint un quota par défaut, ce qui peut être par groupe de ressources, par abonnement, par compte, et pour d’autres étendues également. Vérifiez, à votre convenance, que vous disposez des ressources disponibles pour effectuer correctement le déploiement. Pour obtenir des informations complètes sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
-Pour examiner les quotas de votre abonnement concernant les cœurs, vous devez utiliser la commande `azure vm list-usage` dans l’interface de ligne de commande Azure et l’applet de commande **Get-AzureRmVMUsage** dans PowerShell. Ce qui suit présente la commande dans l’interface de ligne de commande Azure et indique que le quota de cœurs d’un compte d’évaluation gratuit est de 4 :
+Pour examiner les quotas de votre abonnement concernant les cœurs, vous devez utiliser la commande `azure vm list-usage` dans l’interface de ligne de commande Azure et l’applet de commande **Get-AzureRmVMUsage** dans PowerShell. Ce qui suit présente la commande dans l’interface de ligne de commande Azure et indique que le quota de cœurs d’un compte d’évaluation gratuit est de 4 :
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -285,7 +285,7 @@ Pour examiner les quotas de votre abonnement concernant les cœurs, vous devez u
     data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
-Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest des États-Unis dans l’abonnement ci-dessus, vous obtenez une erreur de déploiement qui peut ressembler à ceci (dans le portail ou en examinant les journaux de déploiement) :
+Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest des États-Unis dans l’abonnement ci-dessus, vous obtenez une erreur de déploiement qui peut ressembler à ceci (dans le portail ou en examinant les journaux de déploiement) :
 
     statusCode:Conflict
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -293,25 +293,25 @@ Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest
 
 Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
 
-> [AZURE.NOTE] N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions. 
-<!-- --> 
-Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json. 
+> [AZURE.NOTE] N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
 <!-- -->
-		azure provider show Microsoft.Compute --json | jq ’.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}’
-	 {
-	  "name": "virtualMachines", 
-		  "apiVersions": [
-		  "2015-05-01-preview",
-		  "2014-12-01-preview"
-	   ],
-	   "locations": [
-	   "East US", 
-	   "West US", 
-	   "West Europe", 
-	   "East Asia", 
-	   "Southeast Asia" 
-	   ] 
-	}
+Pour être spécifique concernant les cœurs par exemple, vous pouvez vérifier les régions pour lesquelles demander le volume de quota approprié à l’aide de la commande suivante, qui dirige vers **jq** pour l’analyse JSON.
+<!-- -->
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
+          "name": "virtualMachines",
+          "apiVersions": [
+            "2015-05-01-preview",
+            "2014-12-01-preview"
+          ],
+          "locations": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ]
+        }
 
 
 ## Vérification de l’inscription du fournisseur de ressources
@@ -333,7 +333,7 @@ Pour obtenir une liste de fournisseurs de ressources et l’état de votre inscr
 
 Pour inscrire un fournisseur, utilisez **Register-AzureProvider**.
 
-Pour PowerShell 1.0, utilisez **Get-AzureRmResourceProvider**.
+Pour PowerShell 1.0, utilisez **Get-AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -368,7 +368,7 @@ Pour voir si le fournisseur est enregistré pour être utilisé à l'aide de l'i
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-Là encore, si vous souhaitez plus d’informations sur les fournisseurs, notamment sur leur disponibilité régionale, entrez `azure provider list --json`. Les éléments suivants sélectionnent uniquement le premier élément de la liste à afficher :
+Là encore, si vous souhaitez plus d’informations sur les fournisseurs, notamment sur leur disponibilité régionale, entrez `azure provider list --json`. Les éléments suivants sélectionnent uniquement le premier élément de la liste à afficher :
 
         azure provider list --json | jq '.[0]'
         {
@@ -407,7 +407,7 @@ Pour inscrire un fournisseur, consultez [Inscription d'un abonnement auprès d'u
 
 Si vous utilisez des modèles que vous avez créés, il est important de comprendre que le système Azure Resource Manager signale la réussite d’un déploiement en cas de retour réussi de tous les fournisseurs par le déploiement. Cela signifie que tous vos éléments de modèle ont été déployés pour votre utilisation.
 
-Toutefois, cela ne signifie pas nécessairement que votre groupe de ressources est « actif et prêt pour vos utilisateurs ». Par exemple, la plupart des déploiements demandent le téléchargement de certaines mises à niveau, l'attente pour d'autres, des ressources sans modèle, ou encore l'installation de scripts complexes ou d'une autre activité exécutable qu'Azure ne connaît pas, car il ne s'agit pas d'une activité suivie par un fournisseur. Dans ce cas, cela peut prendre un moment avant que vos ressources soient prêtes pour une utilisation concrète. Par conséquent, il est normal que l'état du déploiement indique la réussite un certain temps avant que votre déploiement puisse être utilisé.
+Toutefois, cela ne signifie pas nécessairement que votre groupe de ressources est « actif et prêt pour vos utilisateurs ». Par exemple, la plupart des déploiements demandent le téléchargement de certaines mises à niveau, l'attente pour d'autres, des ressources sans modèle, ou encore l'installation de scripts complexes ou d'une autre activité exécutable qu'Azure ne connaît pas, car il ne s'agit pas d'une activité suivie par un fournisseur. Dans ce cas, cela peut prendre un moment avant que vos ressources soient prêtes pour une utilisation concrète. Par conséquent, il est normal que l'état du déploiement indique la réussite un certain temps avant que votre déploiement puisse être utilisé.
 
 Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement en créant un script personnalisé pour votre modèle personnalisé (à l'aide de l'extension [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), par exemple) qui sait comment détecter la disponibilité pour tout le système par une surveillance de l'ensemble du déploiement et qui se termine correctement uniquement lorsque les utilisateurs peuvent interagir avec la totalité du déploiement. Si vous voulez vous assurer que votre extension est la dernière à s'exécuter, utilisez la propriété **dependsOn** dans votre modèle. Un exemple s’affiche lors de la [Création de modèles de déploiement](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
@@ -415,7 +415,7 @@ Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement
 Lorsque vous travaillez avec vos ressources Azure à partir de la ligne de commande, vous collectez les outils qui vous aideront à exécuter votre tâche. Les modèles de groupe de ressources Azure sont des documents JSON, et l’API Azure Resource Manager accepte et retourne des données en JSON. Par conséquent, les outils d’analyse JSON sont l’un des premiers éléments que vous utiliserez pour parcourir des informations relatives à vos ressources, ainsi que pour concevoir des modèles et fichiers de paramètres de modèle ou interagir avec ces modèles et fichiers.
 
 ### Outils Mac, Linux et Windows
-Si vous utilisez l'interface de ligne de commande Azure pour Mac, Linux et Windows, vous êtes probablement familiarisé avec les outils de téléchargement standard tels que **[curl](http://curl.haxx.se/)** et **[wget](https://www.gnu.org/software/wget/)**, ou **[Resty](https://github.com/beders/Resty)**, et les utilitaires JSON tels que **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, et les bibliothèques de langue qui traitent JSON. (Beaucoup de ces outils disposent également de ports pour Windows, tels que [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) ; en fait, il existe plusieurs manières d’obtenir des outils Linux et d’autres outils logiciels open source fonctionnant également sur Windows.)
+Si vous utilisez l'interface de ligne de commande Azure pour Mac, Linux et Windows, vous êtes probablement familiarisé avec les outils de téléchargement standard tels que **[curl](http://curl.haxx.se/)** et **[wget](https://www.gnu.org/software/wget/)**, ou **[Resty](https://github.com/beders/Resty)**, et les utilitaires JSON tels que **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, et les bibliothèques de langue qui traitent JSON. (Beaucoup de ces outils disposent également de ports pour Windows, tels que [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) ; en fait, il existe plusieurs manières d’obtenir des outils Linux et d’autres outils logiciels open source fonctionnant également sur Windows.)
 
 Cette rubrique inclut certaines commandes d'interface de ligne de commande Azure que vous pouvez utiliser avec **jq** pour obtenir précisément les informations souhaitées avec plus d'efficacité. Vous devez choisir l’ensemble d’outils que vous maîtrisez pour mieux comprendre l’utilisation des ressources Azure.
 
@@ -435,4 +435,4 @@ Pour maîtriser la création de modèles, lisez le document [Création de modèl
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

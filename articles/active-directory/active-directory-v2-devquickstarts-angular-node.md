@@ -51,7 +51,8 @@ Dans un premier temps, créez une application dans le [portail d’inscription d
 Copiez l’**ID d’application** affecté à votre application ; vous en aurez besoin rapidement.
 
 ## Installer adal.js
-Pour commencer, accédez au projet téléchargé, puis installez adal.js. Si [bower](http://bower.io/) est installé, il vous suffit d’exécuter cette commande. En cas d’incompatibilité de versions de dépendance, sélectionnez la version la plus élevée. ```
+Pour commencer, accédez au projet téléchargé, puis installez adal.js. Si [bower](http://bower.io/) est installé, il vous suffit d’exécuter cette commande. En cas d’incompatibilité de versions de dépendance, sélectionnez la version la plus élevée.
+```
 bower install adal-angular#experimental
 ```
 
@@ -240,4 +241,4 @@ Pour poursuivre l’apprentissage sur le point de terminaison v2.0, consultez de
 - [Azure AD sur Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentation Azure AD sur [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

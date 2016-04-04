@@ -1,23 +1,25 @@
-### VPN type for the Resource Manager deployment model
+### Type VPN pour le modèle de déploiement Resource Manager
 
-|      | **Route-based**    | **Policy-based** |
+| | **Basé sur un itinéraire** | **Basé sur des stratégies** |
 |-----------------------------------|--------------------|------------------|
-| **Site-to-Site**                  | yes                | yes              |
-| **VNet-to-VNet**                  | yes                | no               |
-| **Multi-Site**                    | yes                | no               |
-| **S2S and ExpressRoute coexist**  | not yet available  | no               |
-| **Point-to-Site**                 | yes                | no               |
-| **Classic to Resource Manager**   | yes                | no               |
+| **De site à site** | yes | yes |
+| **Connexion entre deux réseaux virtuels** | yes | no |
+| **Multi-sites** | yes | no |
+| **Coexistence de S2S et ExpressRoute** | non disponible pour l’instant | no |
+| **De point à site** | yes | no |
+| **Classic vers Gestionnaire de ressources** | yes | no |
 
 
-### VPN type for the classic deployment model
+### Type VPN pour le modèle de déploiement classique
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Dynamique** | **Statique** |
 |---------------------------------------------|--------------------|--------------|
-| **Site-to-Site**                            | yes                | yes          |
-| **VNet-to-VNet**                            | yes                | no           |
-| **Multi-Site**                              | yes                | no           |
-| **S2S and ExpressRoute coexist**            | yes                | no           |
-| **Point-to-Site**                           | yes                | no           |
-| **Classic to Resource Manager**             | yes                | no           |
+| **De site à site** | yes | yes |
+| **Connexion entre deux réseaux virtuels** | yes | no |
+| **Multi-sites** | yes | no |
+| **Coexistence de S2S et ExpressRoute** | yes | no |
+| **De point à site** | yes | no |
+| **Classic vers Gestionnaire de ressources** | yes | no |
+
+<!---HONumber=AcomDC_0323_2016-->

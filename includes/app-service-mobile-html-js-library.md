@@ -1,12 +1,12 @@
-##<a name="create-client"></a>Création du client
+##<a name="create-client"></a>Créer une connexion cliente
 
-Créez une connexion client en créant un objet `WindowsAzure.MobileServicesClient`. Remplacez `appUrl` par l’URL de votre application mobile.
+Créez une connexion cliente en créant un objet `WindowsAzure.MobileServiceClient`. Remplacez `appUrl` par l’URL de votre application mobile.
 
 ```
-var client = WindowsAzure.MobileServicesClient(appUrl);
+var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-##<a name="table-reference"></a>Procédure : création d'une référence de table
+##<a name="table-reference"></a>Utilisation des tables
 
 Pour accéder aux données ou les mettre à jour, créez une référence à la table principale. Remplacez `tableName` par le nom de votre table.
 
@@ -14,7 +14,17 @@ Pour accéder aux données ou les mettre à jour, créez une référence à la t
 var table = client.getTable(tableName);
 ```
 
-##<a name="querying"></a>Procédure : interrogation d’une référence de table
+Une fois que vous disposez d’une référence de table, vous pouvez continuer à utiliser votre table :
+
+* [Interroger une table](#querying)
+  * [Filtrage des données](#table-filter)
+  * [Pagination des données](#table-paging)
+  * [Tri des données](#sorting-data)
+* [Insertion de données](#inserting)
+* [Modification des données](#modifying)
+* [Suppression de données](#deleting)
+
+###<a name="querying"></a>Procédure : interrogation d’une référence de table
 
 Une fois que vous disposez d’une référence de table, vous pouvez l’utiliser pour rechercher des données sur le serveur. Les requêtes sont effectuées dans un langage de type LINQ. Pour retourner toutes les données de la table, utilisez la syntaxe suivante :
 
@@ -48,7 +58,7 @@ La fonction success est appelée avec les résultats. Ne recourez pas à `for (v
 
 Pour plus d’informations sur la syntaxe de requête, consultez la [documentation de l’objet Query].
 
-### Filtrage des données sur le serveur
+####<a name="table-filter"></a>Filtrage des données sur le serveur
 
 Vous pouvez utiliser une clause `where` sur la référence de table :
 
@@ -72,7 +82,7 @@ table
     .then(success, failure);
 ```
 
-### Pagination des données
+####<a name="table-paging"></a>Pagination des données
 
 Utilisez les méthodes take() et skip(). Par exemple, si vous souhaitez fractionner la table en enregistrements de 100 lignes :
 
@@ -102,7 +112,7 @@ La méthode `.includeTotalCount()` est utilisée pour ajouter un champ totalCoun
 Vous pouvez ensuite utiliser la variable pages et des boutons d’interface utilisateur pour fournir une liste de pages ; utilisez loadPage() pour charger les nouveaux enregistrements pour chaque page. Vous devez implémenter une sorte de mise en cache pour accélérer l’accès aux enregistrements qui ont déjà été chargés.
 
 
-###<a name="sorting-data"></a>Procédure : renvoi de données triées
+####<a name="sorting-data"></a>Procédure : renvoi de données triées
 
 Utilisez les méthodes de requête .orderBy() ou .orderByDescending() :
 
@@ -115,7 +125,7 @@ table
 
 Pour plus d’informations sur l’objet Query, consultez la [documentation de l’objet Query].
 
-##<a name="inserting"></a>Procédure : insertion de données
+###<a name="inserting"></a>Procédure : insertion de données
 
 Créez un objet JavaScript avec la date appropriée et appelez table.insert() de façon asynchrone :
 
@@ -136,7 +146,7 @@ Une fois l’insertion correctement effectuée, l’élément inséré est retou
 
 Notez que le Kit de développement logiciel (SDK) de serveur Node.js Azure Mobile Apps prend en charge le schéma dynamique à des fins de développement. Dans le cas du schéma dynamique, le schéma de la table est mis à jour à la volée ; vous pouvez ainsi ajouter des colonnes à la table simplement en les spécifiant dans une opération d’insertion ou de mise à jour. Nous vous recommandons de désactiver le schéma dynamique avant de déplacer votre application vers un environnement de production.
 
-##<a name="modifying"></a>Procédure : modification des données
+###<a name="modifying"></a>Procédure : modification des données
 
 Comme dans le cas de la méthode .insert(), vous devez créer un objet de mise à jour, puis appeler .update(). L’objet de mise à jour doit contenir l’ID de l’enregistrement à mettre à jour, obtenu au moment de la lecture de l’enregistrement ou de l’appel de .insert().
 
@@ -153,7 +163,7 @@ table
     }, failure);
 ```
 
-##<a name="deleting"></a>Procédure : suppression de données
+###<a name="deleting"></a>Procédure : suppression de données
 
 Appelez la méthode .del() pour supprimer un enregistrement. Transmettez l’ID d’une référence d’objet :
 
@@ -165,4 +175,4 @@ table
     }, failure);
 ```
 
-<!-------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/16/2016"
 	ms.author="tobiast"/>
 
 
@@ -28,17 +28,17 @@
 
 ### .NET Framework
 
-.NET Framework est préinstallé avec Windows. Pour Linux et Mac OS X, vous pouvez télécharger .NET Framework à partir du [projet Mono](http://www.mono-project.com/).
+.NET Framework est préinstallé avec Windows. Pour Linux et Mac OS X, vous pouvez télécharger .NET Framework à partir du [projet Mono](http://www.mono-project.com/).
 
 ### Base de données SQL
 
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer un exemple de base de données. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
-## Étape 1 : obtenir la chaîne de connexion
+## Étape 1 : obtenir la chaîne de connexion
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## Étape 2 : se connecter
+## Étape 2 : se connecter
 
 La [classe System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) est utilisée pour la connexion à la base de données SQL.
 
@@ -58,7 +58,7 @@ class Sample
 }
 ```
 
-## Étape 3 : exécuter une requête
+## Étape 3 : exécuter une requête
 
 Vous pouvez utiliser les classes [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) et [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) pour récupérer un jeu de résultats d'une requête à partir de la base de données SQL. Notez que System.Data.SqlClient prend également en charge la récupération de données dans une classe [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) hors connexion.
 
@@ -98,7 +98,7 @@ class Sample
 
 ```  
 
-## Étape 4 : insérer une ligne
+## Étape 4 : insérer une ligne
 
 Dans cet exemple, vous allez découvrir comment exécuter une instruction [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL] (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://msdn.microsoft.com/library/ms179610.aspx) générée automatiquement.
 
@@ -133,4 +133,4 @@ class Sample
 }
 ```
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

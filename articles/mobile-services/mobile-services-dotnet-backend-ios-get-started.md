@@ -23,7 +23,7 @@
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> Pour la version Mobile Apps équivalente de cette rubrique, consultez l’article [Créer une application iOS dans Azure Mobile Apps](../app-service-mobile/app-service-mobile-android-get-started.md).
+> Pour la version Mobile Apps équivalente de cette rubrique, consultez l’article [Créer une application iOS dans Azure Mobile Apps](../app-service-mobile/app-service-mobile-ios-get-started.md).
 
 Ce didacticiel présente l’ajout d’un service principal cloud à une application iOS à l’aide d’Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application _To do list_ qui stocke les données d'application dans le nouveau service mobile. Le service mobile utilise .NET et Visual Studio pour la logique métier côté serveur. Pour créer un service mobile avec une logique métier côté serveur en JavaScript, consultez la [version relative au service principal JavaScript] de cette rubrique.
 
@@ -101,4 +101,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

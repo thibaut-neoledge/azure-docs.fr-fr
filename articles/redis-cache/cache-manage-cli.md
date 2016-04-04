@@ -31,7 +31,7 @@ Pour créer et gérer des instances de cache Redis Azure à l’aide de l’inte
 -	Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 -	[Installer l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
 -	Connectez votre installation d’interface de ligne de commande Azure à un compte Azure personnel ou à un compte Azure professionnel ou scolaire, puis connectez-vous à partir de l’interface de ligne de commande Azure à l’aide de la commande `azure login`. Pour comprendre les différences et faire votre choix, consultez [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
--	Avant d'exécuter les commandes suivantes, basculez l'interface de ligne de commande Azure en mode Gestionnaire de ressources en exécutant la commande `azure config mode arm`. Pour plus d'informations, consultez [Définition du mode Azure Resource Manager](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	Avant d'exécuter les commandes suivantes, basculez l'interface de ligne de commande Azure en mode Gestionnaire de ressources en exécutant la commande `azure config mode arm`. Pour plus d'informations, consultez [Définition du mode Azure Resource Manager](../xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
 
 ## Propriétés du cache Redis
 
@@ -271,4 +271,4 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/21/2016"
    ms.author="sngun; v-reagie"/>
 
 # Conseils de dépannage pour les erreurs courantes dans Azure Automation
@@ -105,7 +105,7 @@ Cet article explique certaines des erreurs courantes que vous pouvez rencontrer 
 
 **Conseils de dépannage :** l’une des solutions qui suivent peut corriger ce problème :
 
-- Vérifiez que vous avez correctement saisi le nom de l’applet de commande et vérifiez que le chemin d’accès à l’applet de commande est correct.  
+- Vérifiez que vous avez correctement saisi le nom de l’applet de commande.  
 
 - Assurez-vous que l’applet de commande existe dans votre compte Automation et qu’il n’y a aucun conflit. Pour vérifier si l’applet de commande est présent, ouvrez un runbook en mode édition et recherchez l’applet de commande que vous souhaitez trouver dans la bibliothèque ou exécutez **Get-Command ``<CommandName>``**. Une fois que vous avez vérifié que l’applet de commande est disponible pour le compte, et qu’il n’existe aucun conflit de nom avec d’autres applets de commande ou runbooks, ajoutez-la à la zone de dessin et assurez-vous que vous utilisez un paramètre valide défini dans votre runbook.
 
@@ -206,4 +206,4 @@ Si vous avez suivi les étapes de dépannage ci-dessus et avez besoin d’aide �
 
 - Publier vos commentaires ou vos demandes de fonctionnalités pour Azure Automation sur [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

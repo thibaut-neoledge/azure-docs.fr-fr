@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Cloud Services et certificats de gestion | Microsoft Azure" 
-	description="Découvrez comment créer et utiliser des certificats avec Microsoft Azure." 
+	description="Découvrez comment créer et utiliser des certificats avec Microsoft Azure." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -23,41 +23,41 @@ Les certificats utilisés dans Azure sont des certificats x.509 v3 et peuvent ê
 
 Les certificats utilisés par Azure peuvent contenir une clé privée ou publique. Les certificats comportent une empreinte numérique qui permet de les identifier sans ambiguïté. Cette empreinte numérique est utilisée dans le [fichier de configuration](cloud-services-configure-ssl-certificate.md) Azure pour identifier le certificat qu’un service cloud doit utiliser.
 
-## Que sont les certificats de service ?
+## Que sont les certificats de service ?
 Les certificats de service sont associés aux services cloud et sécurisent les communications à destination et en provenance du service. Par exemple, si vous avez déployé un rôle web, vous pouvez fournir un certificat qui peut authentifier un point de terminaison HTTPS exposé. Les certificats de service, définis dans votre définition de service, sont déployés automatiquement sur la machine virtuelle qui exécute une instance de votre rôle.
 
-Vous pouvez charger les certificats de service dans le portail Azure Classic par l’intermédiaire de ce portail ou à l’aide de l’API de gestion des services. Les certificats de service sont associés à un service cloud spécifique et affectés à un déploiement dans le fichier de définition de service.
+Vous pouvez charger les certificats de service dans le portail Azure Classic par l’intermédiaire de ce portail ou à l’aide de l’API de gestion des services. Les certificats de service sont associés à un service cloud spécifique et affectés à un déploiement dans le fichier de définition de service.
 
 Les certificats de service peuvent être gérés séparément de vos services et par différentes personnes. Par exemple, un développeur peut charger un package de services qui fait référence à un certificat précédemment chargé dans Azure par un responsable informatique. Un responsable informatique peut gérer et renouveler ce certificat en modifiant la configuration du service sans avoir à charger un nouveau package de services. Ceci est rendu possible par le fait que le nom logique du certificat et le nom et l’emplacement de son magasin sont spécifiés dans le fichier de définition de service, alors que l’empreinte numérique du certificat est spécifiée dans le fichier de configuration de service. Pour mettre à jour le certificat, il est uniquement nécessaire de charger un nouveau certificat et de modifier la valeur d’empreinte numérique dans le fichier de configuration de service.
 
-## Que sont les certificats de gestion ?
-Les certificats de gestion vous permettent de vous authentifier auprès de l’API de gestion des services fournie par le portail Azure Classic. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. Ces certificats ne sont pas réellement associés aux services cloud.
+## Que sont les certificats de gestion ?
+Les certificats de gestion vous permettent de vous authentifier auprès de l’API de gestion des services fournie par le portail Azure Classic. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. Ces certificats ne sont pas réellement associés aux services cloud.
 
->[AZURE.WARNING] Soyez prudent ! Ces types de certificat permettent à toute personne qui s’authentifie par leur biais de gérer l’abonnement auquel ils sont associés.
+>[AZURE.WARNING] Soyez prudent ! Ces types de certificat permettent à toute personne qui s’authentifie par leur biais de gérer l’abonnement auquel ils sont associés.
 
 ### Limites
-Le nombre de certificats de gestion est limité à 100 par abonnement. Il existe également une limite de 100 certificats de gestion pour l’ensemble des abonnements figurant sous un identificateur d’utilisateur d’administrateur de service spécifique. Si l’identificateur d’utilisateur de l’administrateur de compte a déjà été utilisé pour ajouter 100 certificats de gestion et que d’autres certificats sont nécessaires, vous pouvez ajouter un coadministrateur pour disposer des certificats supplémentaires.
+Le nombre de certificats de gestion est limité à 100 par abonnement. Il existe également une limite de 100 certificats de gestion pour l’ensemble des abonnements figurant sous un identificateur d’utilisateur d’administrateur de service spécifique. Si l’identificateur d’utilisateur de l’administrateur de compte a déjà été utilisé pour ajouter 100 certificats de gestion et que d’autres certificats sont nécessaires, vous pouvez ajouter un coadministrateur pour disposer des certificats supplémentaires.
 
-Avant d’ajouter plus de 100 certificats, regardez si vous pouvez réutiliser un certificat existant. L’utilisation de coadministrateurs complique parfois inutilement votre processus de gestion des certificats.
+Avant d’ajouter plus de 100 certificats, regardez si vous pouvez réutiliser un certificat existant. L’utilisation de coadministrateurs complique parfois inutilement votre processus de gestion des certificats.
 
 
 <a name="create"></a>
 ## Création d’un certificat auto-signé
-Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil disponible, à condition qu’il remplisse les conditions suivantes :
+Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil disponible, à condition qu’il remplisse les conditions suivantes :
 
-* Certificat X.509.
+* Certificat X.509.
 * Contient une clé privée.
-* Créé pour l’échange de clés (fichier .pfx).
+* Créé pour l’échange de clés (fichier .pfx).
 * Le nom du sujet doit correspondre au domaine servant à accéder au service cloud.
     > Vous ne pouvez pas acquérir un certificat SSL pour le domaine cloudapp.net (ou pour tout domaine lié à Azure). Le nom d'objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour accéder à votre application. Par exemple, **contoso.net**, mais pas **contoso.cloudapp.net**.
-* Chiffrement à 2 048 bits au minimum.
-* **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel*.
+* Chiffrement à 2 048 bits au minimum.
+* **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel*.
 
-Vous disposez de deux méthodes simples pour créer un certificat sur Windows : avec l’utilitaire `makecert.exe` ou avec IIS.
+Vous disposez de deux méthodes simples pour créer un certificat sur Windows : avec l’utilitaire `makecert.exe` ou avec IIS.
 
 ### Makecert.exe
 
-Cet utilitaire est installé avec Visual Studio 2013/2015. Il s’agit d’un utilitaire de console qui vous permet de créer et d’installer des certificats. Si vous lancez le raccourci **Invite de commandes développeur pour VS2015** créé au moment de l’installation de Visual Studio, une invite de commandes s’affiche avec cet outil dans le chemin d’accès.
+Cet utilitaire est installé avec Visual Studio 2013/2015. Il s’agit d’un utilitaire de console qui vous permet de créer et d’installer des certificats. Si vous lancez le raccourci **Invite de commandes développeur pour VS2015** créé au moment de l’installation de Visual Studio, une invite de commandes s’affiche avec cet outil dans le chemin d’accès.
 
     makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
 
@@ -70,14 +70,14 @@ De nombreuses pages sur Internet vous expliquent comment procéder avec IIS. Vou
 Vous pouvez utiliser Java pour [créer un certificat](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[Cet ](../virtual-machines/virtual-machines-linux-use-ssh-key.md) article décrit comment créer des certificats avec SSH.
+[Cet ](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) article décrit comment créer des certificats avec SSH.
 
 ## Étapes suivantes
 
-[Chargez votre certificat de service dans le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou dans le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)).
+[Chargez votre certificat de service dans le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou dans le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
-Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic.
+Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic.
 
 >[AZURE.NOTE] Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

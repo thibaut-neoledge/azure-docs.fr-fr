@@ -470,7 +470,7 @@ Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la
 
 Dans un flux serveur, Azure App Service gère le flux d’authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d’authentification App Service après avoir établi une authentification avec le fournisseur d’identité. La [méthode LoginAsync] renvoie un [MobileServiceUser], qui fournit à la fois l’[UserId] de l’utilisateur authentifié et le [MobileServiceAuthenticationToken], sous la forme d’un jeton Web JSON (JWT). Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez la section [Mise en cache du jeton d'authentification](#caching).
 
-###Flux client
+###<a name="client-flow"></a>Flux client
 
 Votre application peut également contacter le fournisseur d’identité de manière indépendante, puis fournir le jeton renvoyé à App Service à des fins d’authentification. Le flux client permet de proposer l'authentification unique aux utilisateurs ou de récupérer d'autres données utilisateur auprès du fournisseur d'identité.
 
@@ -560,7 +560,7 @@ Le code suivant s’authentifie à l’aide du SDK Live et utilise le jeton reto
         }
     }
 
-Consultez la documentation pour obtenir plus d’informations sur [SDK Live Windows].
+Consultez la documentation pour obtenir plus d’informations sur le [Kit de développement logiciel (SDK) Windows Live].
 
 ###<a name="caching"></a>Mise en cache du jeton d'authentification
 Dans certains cas, l'appel à la méthode de connexion peut être évité après la première authentification de l'utilisateur. Vous pouvez utiliser [PasswordVault] pour les applications Windows Store afin de mettre en cache l'identité de l'utilisateur actif lors de sa première connexion et, par la suite, à chaque fois que vous vérifiez si son identité est présente dans le cache. Lorsque le cache est vide, vous devez toujours soumettre l'utilisateur au processus de connexion.
@@ -595,19 +595,19 @@ Dans le cas des applications Windows Phone, vous pouvez chiffrer et mettre en ca
 
 -->
 
-### <a name="adal"></a>Authentification des utilisateurs avec la bibliothèque Active Directory Authentication Library
+### <a name="adal"></a>Authentification des utilisateurs avec la bibliothèque ADAL (Active Directory Authentication Library)
 
 Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
-1. Si vous souhaitez configurer le serveur principal de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory]. Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
+1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory]. Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
 
 2. Dans Visual Studio ou Xamarin Studio, ouvrez votre projet et ajoutez une référence au package NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Au cours de la recherche, incluez les versions préliminaires.
 
 3. Ajoutez le code ci-dessous à votre application, en fonction de la plateforme utilisée. Dans chaque cas, effectuez les remplacements suivants :
 
-* Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application. Vous devez utiliser le format https://login.windows.net/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure Classic].
+* Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Vous devez utiliser le format https://login.windows.net/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre annuaire Azure Active Directory dans le [portail Azure Classic].
 
-* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
+* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du backend de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
 
 * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
 
@@ -708,7 +708,7 @@ Les rubriques suivantes traitent des notifications Push :
 * [Obtention d’un SID de package Windows Store](#package-sid)
 * [Inscription avec des modèles inter-plateformes](#register-xplat)
 
-###<a name="register-for-push"></a>Procédure : Inscription aux notifications Push
+###<a name="register-for-push"></a>Procédure : inscription aux notifications Push
 
 Le client Mobile Apps permet de s’inscrire aux notifications Push avec Azure Notification Hubs. Lors de l'inscription, vous obtenez un handle à partir de spécifique à la plate-forme Push Notification Service (PNS). Vous fournissez ensuite cette valeur, ainsi que toutes les balises lorsque vous créez l'inscription. Le code suivant inscrit votre application Windows aux notifications push avec le service de notification Windows (Windows Notification Service, WNS) :
 
@@ -895,7 +895,7 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Centre de développement Windows]: https://dev.windows.com/fr-FR/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[SDK Live Windows]: https://msdn.microsoft.com/fr-FR/library/bb404787.aspx
+[Kit de développement logiciel (SDK) Windows Live]: https://msdn.microsoft.com/fr-FR/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [API Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495101.aspx
@@ -911,4 +911,4 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 [SymbolSource]: http://www.symbolsource.org/
 [instructions SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

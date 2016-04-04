@@ -47,7 +47,7 @@ Pour plus d’informations sur les chaînes de connexion, consultez [Configurati
 
 Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque Xamarin, prennent uniquement en charge l’authentification par jeton de signature d’accès partagé (SAP). Vous devez créer ce jeton SAP à l’aide d’un outil ou d’une application qui prend en charge l’authentification par clé partagée. Azure PowerShell permet de facilement générer le jeton SAP :
 
-1. Installez Azure PowerShell si ce n’est pas déjà fait. Il est recommandé d’utiliser la dernière version des applets de commande Azure PowerShell. Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md#Install).
+1. Installez Azure PowerShell si ce n’est pas déjà fait. Il est recommandé d’utiliser la dernière version des applets de commande Azure PowerShell. Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md#Install).
 
 2. Ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubliez pas de remplacer *ACCOUNT\_NAME* et *ACCOUNT\_KEY==* par vos propres informations d’identification. Remplacez *CONTAINER\_NAME* par le nom de votre choix.
 
@@ -154,8 +154,8 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 | **Start** | Permet de démarrer l’émulateur de stockage. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: démarrez l’émulateur dans le processus actuel au lieu de créer un nouveau processus. |
 | **Stop** | Permet d’arrêter l’émulateur de stockage. | `AzureStorageEmulator stop` | |
 | **État** | Permet d’imprimer l’état de l’émulateur de stockage. | `AzureStorageEmulator status` | |
-| **Clear** | Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: efface les données d’objet blob. <br/>*queue*: efface les données de file d’attente. <br/>*table*: efface les données de table. <br/>*all*: efface toutes les données de tous les services. |
-| **Init** | Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\\instanceName*: spécifie le serveur hébergeant l’instance SQL. <br/>*-sqlinstance instanceName*: spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate*: force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-inprocess*: effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus en cours avec des autorisations élevées pour exécuter l’initialisation. |
+| **Clear** | Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob* : efface les données d’objet blob. <br/>*queue* : efface les données de file d’attente. <br/>*table* : efface les données de table. <br/>*all* : efface toutes les données de tous les services. |
+| **Init** | Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\\instanceName* : spécifie le serveur hébergeant l’instance SQL. <br/>*-sqlinstance instanceName* : spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate* : force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-inprocess* : effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus en cours avec des autorisations élevées pour exécuter l’initialisation. |
                                                                                                                   
 ## Différences entre l’émulateur de stockage et Azure Storage
 
@@ -232,4 +232,4 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 - La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

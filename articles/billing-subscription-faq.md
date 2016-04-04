@@ -125,9 +125,9 @@ Pour obtenir des instructions sur l’utilisation d’une autre carte de crédit
 
 Notre contrat de niveau de service en matière de disponibilité s’applique aux applications des clients qui utilisent au minimum deux instances de rôle. Il n’existe aucun contrat SLA pour les instances uniques. Pour obtenir des informations complètes, consultez notre page relative au [contrat SLA](https://azure.microsoft.com/support/legal/sla/).
 
-**Maintenance planifiée (portail Classic)**: pour les configurations multi-instance et à instance unique, Azure vous envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l’avance pour les instances uniques et 48 heures à l’avance pour les instances multi-instance). Ce courrier électronique sera envoyé aux comptes de messagerie de l’administrateur, de l’administrateur de service et du coadministrateur du compte fournis dans l’abonnement.
+**Maintenance planifiée (portail Classic)** : pour les configurations multi-instance et à instance unique, Azure vous envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l’avance pour les instances uniques et 48 heures à l’avance pour les instances multi-instance). Ce courrier électronique sera envoyé aux comptes de messagerie de l’administrateur, de l’administrateur de service et du coadministrateur du compte fournis dans l’abonnement.
 
-**REMARQUE :** pour plus d’informations spécifiques aux machines virtuelles, consultez l’article [Maintenance planifiée des machines virtuelles Azure](./virtual-machines/virtual-machines-planned-maintenance.md).
+**REMARQUE :** pour plus d’informations propres aux machines virtuelles, consultez l’article [Maintenance planifiée des machines virtuelles Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
 **Maintenance non planifiée :** en cas d’interruption de service non planifiée sur la plateforme Azure, les mises à jour d’état ont lieu sur le [tableau de bord du service](http://status.azure.com/) et les clients en sont également informés dans le [portail Azure Classic](https://manage.windowsazure.com/).
 
@@ -217,11 +217,14 @@ Pour afficher et modifier les informations de compte Azure, vous devez vous conn
 2.	Dans la page Abonnements, cliquez sur l’abonnement pour lequel vous voulez mettre à jour le moyen de paiement.
 3.	Dans la page de synthèse de l’**abonnement**, cliquez sur Modifier le moyen de paiement. L’outil **Modifier le moyen de paiement** apparaît dans une fenêtre séparée.
 
-**REMARQUE**: vous pouvez également accéder au Centre des comptes à partir du portail Microsoft Azure Classic. Pour ce faire, cliquez sur votre nom de compte, puis sur Afficher ma facture. 4. Dans la page **Choisir le moyen de paiement**, cliquez sur la liste déroulante, sélectionnez le moyen de paiement à mettre à jour, puis cliquez sur **Modifier**. 5. Dans la page des détails, vérifiez l’exactitude du type de carte bancaire sélectionné et du numéro de carte saisi. 6. Apportez les modifications nécessaires, puis cliquez sur **Suivant**.
+**REMARQUE** : vous pouvez également accéder au Centre des comptes à partir du portail Microsoft Azure Classic. Pour ce faire, cliquez sur votre nom de compte, puis sur Afficher ma facture.
+4.	Dans la page **Choisir le moyen de paiement**, cliquez sur la liste déroulante, sélectionnez le moyen de paiement à mettre à jour, puis cliquez sur **Modifier**.
+5.	Dans la page des détails, vérifiez l’exactitude du type de carte bancaire sélectionné et du numéro de carte saisi.
+6.	Apportez les modifications nécessaires, puis cliquez sur **Suivant**.
 
 Pour plus d’informations, consultez l’article [Comment modifier la carte de crédit utilisée pour payer un abonnement Azure](billing-how-to-change-credit-card.md).
 
-**REMARQUE**: pour l’instant, l’outil Modifier le moyen de paiement ne vous permet pas de supprimer une carte de crédit existante utilisée comme moyen de paiement. Pour plus d’informations sur la suppression d’une carte de crédit, consultez la question « Comment supprimer une carte de crédit que je n’utilise plus comme mode de paiement Azure ? » dans cet article.
+**REMARQUE** : pour l’instant, l’outil Modifier le moyen de paiement ne vous permet pas de supprimer une carte de crédit existante utilisée comme moyen de paiement. Pour plus d’informations sur la suppression d’une carte de crédit, consultez la question « Comment supprimer une carte de crédit que je n’utilise plus comme mode de paiement Azure ? » dans cet article.
 
 ### Pourquoi ne puis-je pas modifier ou ajouter des détails à mon abonnement ?
 
@@ -241,7 +244,7 @@ Pour les clients concernés par les offres spéciales membres avec avantages (co
 
 ### Puis-je ajuster le montant de la limite de dépense ?
 
-Pour la première version de cette fonction, la limite de dépense est définie à 0 $ et ne peut pas être ajustée. Elle est conçue pour permettre aux clients bénéficiant des offres d’essai gratuit, MSDN, MPN ou BizSpark d’utiliser Azure avec l’assurance totale de ne pas être facturés. Pour plus d’informations, consultez Limite de dépense Azure (https://azure.microsoft.com/pricing/spending-limits/).
+Pour la première version de cette fonction, la limite de dépense est définie à 0 $ et ne peut pas être ajustée. Elle est conçue pour permettre aux clients bénéficiant des offres d’essai gratuit, MSDN, MPN ou BizSpark d’utiliser Azure avec l’assurance totale de ne pas être facturés. Pour plus d’informations, consultez Limite de dépense Azure https://azure.microsoft.com/pricing/spending-limits/).
 
 ### Quels sont les pays et les régions dans lesquels Microsoft Azure est disponible à la vente, et quelles sont les devises d’achat d’Azure ?
 
@@ -255,4 +258,4 @@ Oui.
 
 Il n’y a actuellement aucun projet d’offre Azure ou SQL Database via SPLA.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

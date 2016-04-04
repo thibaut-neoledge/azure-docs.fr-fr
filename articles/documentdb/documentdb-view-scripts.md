@@ -117,4 +117,4 @@ Pour plus d’informations sur la programmation côté serveur de DocumentDB, co
 
 Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider quand vous en apprenez plus sur DocumentDB.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

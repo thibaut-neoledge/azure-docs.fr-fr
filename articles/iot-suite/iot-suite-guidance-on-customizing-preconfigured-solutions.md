@@ -81,12 +81,14 @@ En outre, Azure IoT fournit un [exemple de Kit de développement logiciel C](htt
 
 Les [Kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks) fournissent des bibliothèques pour la connexion de nombreux types d’appareils (langages et systèmes d’exploitation) à des solutions IoT.
 
-## Étapes suivantes
+## Commentaires
 
-Vous avez une personnalisation que vous aimeriez voir couverte dans ce document ? Veuillez ajouter des suggestions de fonctionnalités à [User Voice](https://feedback.azure.com/forums/321918-azure-iot), commenter cet article ci-dessous ou envoyer un courrier électronique à iotsolhelp@microsoft.com.
+Vous avez une personnalisation que vous aimeriez voir couverte dans ce document ? Veuillez ajouter des suggestions de fonctionnalités à [User Voice](https://feedback.azure.com/forums/321918-azure-iot) ou commenter cet article ci-dessous.
+
+## Étapes suivantes
 
 Pour plus d’informations sur les appareils IoT, consultez le [site de développement Azure IoT](https://azure.microsoft.com/develop/iot/) pour y trouver des liens et de la documentation.
 
 [Kit SDK d’appareils IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

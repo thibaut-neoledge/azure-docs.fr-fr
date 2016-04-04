@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Utilisation et ajout du connecteur Salesforce dans votre application logique
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API Salesforce](../connectors/create-api-salesforce.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API Salesforce](../connectors/connectors-create-api-salesforce.md).
 
 Connectez-vous à Salesforce pour créer et modifier des entités telles que les comptes et les prospects. Voici les scénarios d’intégration classiques qui impliquent Salesforce :
 
@@ -108,4 +108,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/10/2016" 
+    ms.date="03/17/2016" 
     ms.author="b-hoedid"/>
 
 # Notifications relatives aux ressources DocumentDB nouvelles ou modifiées à l’aide de Logic Apps
@@ -624,7 +624,7 @@ L’action suivante consiste à enregistrer les documents dans le [stockage d’
 
 Le code est généré à partir de l’action du concepteur. Vous n’êtes pas obligé de modifier le code.
 
-Si vous n’êtes pas familiarisé avec l’utilisation de l’API d’objets blob Azure, consultez la page [Prise en main de l’API de stockage d’objets blob Azure](../connectors/create-api-azureblobstorage.md).
+Si vous n’êtes pas familiarisé avec l’utilisation de l’API d’objets blob Azure, consultez la page [Prise en main de l’API de stockage d’objets blob Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
 #### Opérations
 
@@ -1156,4 +1156,4 @@ Veuillez télécharger et utiliser le code de l’application logique fourni sur
 
 Pour en savoir plus sur DocumentDB, consultez le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) associé.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

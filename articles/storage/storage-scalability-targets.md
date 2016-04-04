@@ -40,7 +40,8 @@ Si les besoins de votre application dépassent les objectifs d’extensibilité 
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Pour plus d’informations, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-size-specs.md).
+
+Pour plus d'informations, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ### Comptes de stockage standard
 
@@ -85,4 +86,4 @@ Les partitions affectent l’extensibilité et l’équilibrage de charge de cha
 - [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](storage-performance-checklist.md)
 - [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

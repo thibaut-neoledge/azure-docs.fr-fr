@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Exemples de requêtes dans Application Insights Analytics" 
-	description="Exemples de requêtes dans Application Insights Analytics, outil de recherche puissant pour Application Insights." 
+	pageTitle="Exemples de requêtes dans Application Insights - Analytics" 
+	description="Exemples de requêtes dans Application Insights - Analytics, outil de recherche puissant pour Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Exemples pour Application Insights Analytics
+# Exemples Analytics pour Application Insights
 
-[Application Insights Analytics](app-analytics.md) est un moteur de recherche puissant pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Application Insights Analytics (AIQL). Pour une bonne prise en main, vous pouvez également consulter une [présentation du langage](app-analytics-tour.md).
+[Analytics](app-analytics.md) est un moteur de recherche puissant pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics. Pour une bonne prise en main, vous pouvez également consulter une [présentation du langage](app-analytics-tour.md).
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,7 +29,7 @@ Il existe plusieurs choses à faire et à ne pas faire pour accélérer l’exé
 
 Choses à faire :
 
--	Utiliser les filtres de temps en premier. Application Insights Analytics est optimisé pour utiliser les filtres de temps.
+-	Utiliser les filtres de temps en premier. Application Insights - Analytics est optimisé pour utiliser les filtres de temps.
 -	Placer les filtres qui doivent écarter la plupart des données au début de la requête (juste après les filtres de temps).
 -	Vérifier que la plupart de vos filtres apparaissent au début de la requête (avant de commencer à utiliser « extend »). 
 -	Préférer le mot clé « has » à « contains » quand vous recherchez des jetons complets. « has » est plus performant, car il ne recherche pas de sous-chaînes.
@@ -104,7 +104,7 @@ Events
 
 La jointure fait correspondre chaque heure de démarrage à toutes les heures d’arrêt à partir de la même adresse IP du client. Ainsi, nous commençons par supprimer les correspondances comportant des heures d’arrêt antérieures.
 
-Ensuite, nous effectuons des regroupements par heure de démarrage et adresse IP pour obtenir un groupe par session. Nous devons fournir une fonction `bin` pour le paramètre StartTime ; sinon, AI Analytics utilise automatiquement des emplacements de 1 heure et fait correspondre certaines heures de début avec des heures d’arrêt incorrectes.
+Ensuite, nous effectuons des regroupements par heure de démarrage et adresse IP pour obtenir un groupe par session. Nous devons fournir une fonction `bin` pour le paramètre StartTime ; sinon, Analytics utilise automatiquement des emplacements de 1 heure et fait correspondre certaines heures de début avec des heures d’arrêt incorrectes.
 
 `argmin` sélectionne la ligne avec la durée la plus petite dans chaque groupe, tandis que le paramètre `*` englobe toutes les autres colonnes, dont les noms se voient attribuer le préfixe « min\_ ».
 
@@ -264,7 +264,7 @@ Ce résultat peut être restitué sous forme de graphique à barres ou de graphi
 
 ## Variantes de jointure
 
-La variante exacte de l’opérateur de jointure est spécifiée avec le mot clé kind. À ce jour, AI Analytics prend en charge six variantes d’opérateur de jointure : jointure interne avec déduplication à gauche (type par défaut), jointure interne standard, jointure externe gauche, jointure externe droite, jointure externe complète et jointure anti gauche.
+La variante exacte de l’opérateur de jointure est spécifiée avec le mot clé kind. À ce jour, Analytics prend en charge six variantes d’opérateur de jointure : jointure interne avec déduplication à gauche (type par défaut), jointure interne standard, jointure externe gauche, jointure externe droite, jointure externe complète et jointure anti gauche.
  
 Type de jointure par défaut (aucun genre spécifié) Nous allons utiliser deux exemples de tables pour expliquer le fonctionnement de la jointure :
  
@@ -310,7 +310,7 @@ Tandis que le résultat de la jointure serait :
 
 (Notez que les clés « a » et « d » n’apparaissent pas dans la sortie, car elles ne figuraient pas à la fois côté gauche et côté droit).
  
-(Historiquement, il s’agit de la première implémentation de la jointure prise en charge par la version initiale d’AI Analytics ; elle est utile dans les scénarios d’analyse de journal/suivi classique pour la mise en corrélation de deux événements (chacun correspondant à un critère de filtrage) sous le même ID de corrélation et la récupération de tous les aspects du phénomène étudié, en ignorant plusieurs aspects des enregistrements de suivi contributeurs).
+(Historiquement, il s’agit de la première implémentation de la jointure prise en charge par la version initiale d’Analytics ; elle est utile dans les scénarios d’analyse de journal/suivi classique pour la mise en corrélation de deux événements (chacun correspondant à un critère de filtrage) sous le même ID de corrélation et la récupération de tous les aspects du phénomène étudié, en ignorant plusieurs aspects des enregistrements de suivi contributeurs).
  
 ### Jointure interne (kind=inner) 
 
@@ -437,4 +437,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

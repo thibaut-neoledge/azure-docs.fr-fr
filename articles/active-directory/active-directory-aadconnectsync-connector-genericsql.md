@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/08/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Référence technique du connecteur SQL générique
@@ -22,7 +22,7 @@ Cet article décrit le connecteur SQL générique. Cet article s’applique aux 
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Doit utiliser le correctif logiciel 4.1.3461.0 ou une version [KB2870703](https://support.microsoft.com/kb/2870703) ultérieure.
+    -   Nécessité d’utiliser le correctif logiciel 4.1.3671.0 ou une version ultérieure [KB3092178](https://support.microsoft.com/kb/3092178).
 
 Pour MIM2016 et FIM2010R2, le connecteur est disponible en téléchargement dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -297,4 +297,4 @@ Si l’utilisateur choisit l’option de requête SQL, l’exportation nécessit
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

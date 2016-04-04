@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sommaire des procédures Azure AD Privileged Identity Management"
+   pageTitle="Premiers pas avec Azure AD Privileged Identity Management"
    description="Découvrez comment gérer des rôles privilégiés avec l’extension Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/09/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Premiers pas avec Azure AD Privileged Identity Management
@@ -37,4 +37,4 @@
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

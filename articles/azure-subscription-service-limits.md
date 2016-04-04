@@ -130,7 +130,7 @@ Pour plus d'informations sur les limites des comptes de stockage, consultez [Obj
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Pour plus d'informations, consultez [Tailles des machines virtuelles](../articles/virtual-machines/virtual-machines-size-specs.md).
+Pour plus d'informations, consultez [Tailles des machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 **Comptes de stockage standard**
 
@@ -280,8 +280,8 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Présentation des limites et des augmentations Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Tailles de machines virtuelles et services cloud pour Microsoft Azure](virtual-machines/virtual-machines-size-specs.md)
+[Tailles de machines virtuelles et services cloud pour Microsoft Azure](virtual-machines/virtual-machines-linux-sizes.md)
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

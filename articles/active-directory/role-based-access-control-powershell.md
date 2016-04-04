@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell"
+	pageTitle="Guide sur le contrôle d’accès en fonction du rôle (RBAC) pour PowerShell"
 	description="Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell
+# Guide sur le contrôle d’accès en fonction du rôle (RBAC) pour PowerShell
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Interface de ligne de commande Azure](role-based-access-control-xplat-cli.md)
 
 
@@ -61,8 +61,6 @@ Comme le RBAC ne fonctionne qu’avec Azure Resource Manager, la première chose
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-Pour plus d'informations, voir la section [Utilisation de Windows PowerShell avec le gestionnaire de ressources](../powershell-azure-resource-manager.md).
-
 Pour vous connecter à vos abonnements Azure, tapez :
 
     PS C:\> Add-AzureAccount
@@ -75,8 +73,6 @@ Si vous disposez de plusieurs abonnements et souhaitez changer d’abonnement, u
     PS C:\> Get-AzureSubscription
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
-
-Pour plus d'informations, consultez la section [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
 
 ## Contrôle des affectations de rôle existantes
 
@@ -96,7 +92,7 @@ Vous pouvez également contrôler les affectations de rôles existantes pour une
 Cela renverra toutes les affectations de rôles pour un utilisateur spécifique dans votre locataire AD, qui dispose d'une affectation de rôle « Propriétaire » pour le groupe de ressources « group1 ». L'affectation de rôle peut avoir deux origines :
 
 1. Une affectation de rôle « Propriétaire » à l'utilisateur pour le groupe de ressources.
-2. Une affectation de rôle « Propriétaire » à l’utilisateur pour le parent du groupe de ressources (l’abonnement, dans le cas présent), car toute autorisation à un certain niveau est héritée par tous ses enfants.
+2. Une affectation de rôle « Propriétaire » à l’utilisateur pour le parent du groupe de ressources (à savoir l’abonnement dans le cas présent). Si vous affectez une autorisation au niveau du parent, tous les enfants ont les mêmes autorisations.
 
 Tous les paramètres de cette applet de commande sont facultatifs. Vous pouvez les combiner pour contrôler des affectations de rôles avec différents filtres.
 
@@ -104,34 +100,36 @@ Tous les paramètres de cette applet de commande sont facultatifs. Vous pouvez l
 
 Pour créer une affectation de rôle, vous devez réfléchir aux éléments suivants :
 
-Les utilisateurs auxquels vous voulez affecter le rôle : vous pouvez utiliser les applets de commande Azure Active Directory suivantes pour afficher les utilisateurs, groupes et principaux de service figurant dans votre locataire AD.
+- Les utilisateurs auxquels vous voulez affecter le rôle : vous pouvez utiliser les applets de commande Azure Active Directory suivantes pour afficher les utilisateurs, groupes et principaux de service figurant dans votre locataire AD.  
 
+	```
     PS C:\> Get-AzureADUser
 	PS C:\> Get-AzureADGroup
 	PS C:\> Get-AzureADGroupMember
 	PS C:\> Get-AzureADServicePrincipal
+	```
 
-Quel rôle vous souhaitez affecter : vous pouvez utiliser l'applet de commande suivante pour afficher les définitions de rôles prises en charge.
+- Quel rôle vous souhaitez affecter : vous pouvez utiliser l'applet de commande suivante pour afficher les définitions de rôles prises en charge.
 
-    PS C:\> Get-AzureRoleDefinition
+    `PS C:\> Get-AzureRoleDefinition`
 
-Quelle étendue vous souhaitez affecter : il existe trois niveaux d'étendue.
-  - L'abonnement actuel
-  - Un groupe de ressources ; pour obtenir la liste des groupes de ressources, tapez `PS C:\> Get-AzureResourceGroup`
-  - Une ressource ; pour obtenir la liste des ressources, tapez `PS C:\> Get-AzureResource`
+- L'étendue à laquelle s'applique l'affectation : il existe trois niveaux d'étendue
+	- L'abonnement actuel
+	- Un groupe de ressources. Pour obtenir la liste des groupes de ressources, entrez `PS C:\> Get-AzureResourceGroup`
+	- Une ressource. Pour obtenir la liste des ressources, entrez `PS C:\> Get-AzureResource`
 
 Ensuite, utilisez `New-AzureRoleAssignment` pour créer une affectation de rôle. Par exemple :
 
-	#This will create a role assignment at the current subscription level for a user as a reader.
+	#Create a role assignment at the current subscription level for a user as a reader.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-	#This will create a role assignment at a resource group level.
+	#Create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-	#This will create a role assignment for a group at a resource group level.
+	#Create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-	#This will create a role assignment at a resource level.
+	#Create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -158,6 +156,6 @@ Pour en savoir plus sur le contrôle d'accès en fonction du rôle à l'aide de 
 - [Blog Windows PowerShell](http://blogs.msdn.com/powershell) : découvrez les nouvelles fonctionnalités de Windows PowerShell.
 - [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
 - [Configurer le contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande Azure](role-based-access-control-xplat-cli.md)
-- [Résolution des problèmes de contrôle d'accès basé sur les rôles](role-based-access-control-troubleshooting.md)
+- [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

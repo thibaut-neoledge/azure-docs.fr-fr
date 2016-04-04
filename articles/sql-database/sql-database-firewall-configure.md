@@ -72,7 +72,7 @@ Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’
 
 ## Création de règles de pare-feu au niveau de la base de données
 
-Après avoir configuré le premier pare-feu au niveau du serveur, vous pouvez limiter l’accès à certaines bases de données. Si vous spécifiez dans la règle de pare-feu au niveau de la base de données une plage d’adresses IP qui se situe en dehors de la plage spécifiée dans la règle de pare-feu au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage de niveau de base de données peuvent accéder à la base de données. Vous pouvez avoir un maximum de 128 règles de pare-feu au niveau de la base de données par base de données. Les règles de pare-feu au niveau de la base données pour les bases de données principale et utilisateur peuvent être créées et gérées via Transact-SQL. Pour plus d’informations, consultez la rubrique [Configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md).
+Après avoir configuré le premier pare-feu au niveau du serveur, vous pouvez limiter l’accès à certaines bases de données. Si vous spécifiez dans la règle de pare-feu au niveau de la base de données une plage d’adresses IP qui se situe en dehors de la plage spécifiée dans la règle de pare-feu au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage de niveau de base de données peuvent accéder à la base de données. Vous pouvez avoir un maximum de 128 règles de pare-feu au niveau de la base de données par base de données. Les règles de pare-feu au niveau de la base données pour les bases de données principale et utilisateur peuvent être créées et gérées via Transact-SQL. Pour plus d’informations sur la configuration des règles de pare-feu au niveau de la base de données, consultez [sp\_set\_database\_firewall\_rule (bases de données SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ## Gestion par programmation des règles de pare-feu
 
@@ -138,4 +138,4 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

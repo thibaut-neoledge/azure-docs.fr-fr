@@ -51,7 +51,8 @@ Dans un premier temps, créez une application dans le [portail d’inscription d
 Copiez l’**ID d’application** affecté à votre application ; vous en aurez besoin rapidement.
 
 ## Installer adal.js
-Pour commencer, accédez au projet téléchargé, puis installez adal.js. Si [bower](http://bower.io/) est installé, il vous suffit d’exécuter cette commande. En cas d’incompatibilité de versions de dépendance, sélectionnez la version la plus élevée. ```
+Pour commencer, accédez au projet téléchargé, puis installez adal.js. Si [bower](http://bower.io/) est installé, il vous suffit d’exécuter cette commande. En cas d’incompatibilité de versions de dépendance, sélectionnez la version la plus élevée.
+```
 bower install adal-angular#experimental
 ```
 
@@ -222,10 +223,10 @@ return $http.get('/api/tasks');
 
 Félicitations ! Votre application intégrée Azure AD à page unique est désormais terminée. Vous pouvez lui tirer votre chapeau. Elle peut authentifier les utilisateurs, appeler de manière sécurisée son API REST du serveur principal à l’aide d’OpenID Connect, et obtenir des informations de base sur l’utilisateur. Dès le départ, elle prend en charge l’ensemble des utilisateurs disposant d’un compte Microsoft personnel ou un compte professionnel/scolaire d’Azure AD. Exécutez l’application, puis, dans un navigateur, accédez à `https://localhost:44326/`. Connectez-vous à un compte personnel Microsoft ou à un compte scolaire/professionnel. Ajoutez des tâches à la liste des tâches de l’utilisateur, puis déconnectez-vous. Essayez de vous connecter avec l’autre type de compte. Si vous avez besoin qu’un locataire Azure AD crée des utilisateurs scolaires/professionnels, [découvrez comment en obtenir un ici](active-directory-howto-tenant.md) (c’est gratuit).
 
-Pour poursuivre l’apprentissage sur le point de terminaison v2.0, consultez de nouveau notre [guide du développeur v2.0](active-directory-appmodel-v2-overview.md). Pour obtenir des ressources supplémentaires, consultez :
+Pour en savoir plus sur le point de terminaison v2.0, consultez de nouveau notre [guide du développeur v2.0](active-directory-appmodel-v2-overview.md). Pour obtenir des ressources supplémentaires, consultez :
 
 - [Exemples Azure sur GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD sur Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentation Azure AD sur [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

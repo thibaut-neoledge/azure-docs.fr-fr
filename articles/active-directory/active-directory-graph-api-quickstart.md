@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/25/2016"
+      ms.date="03/18/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Démarrage rapide pour l'API Graph Azure AD
@@ -124,6 +124,7 @@ Pour plus d'informations sur les entités et les types Azure AD exposés par Gra
 
 ## Étapes suivantes
 
-En savoir plus sur l’[API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- En savoir plus sur l’[API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- En savoir plus sur les [Étendues d’autorisation de l’API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->
