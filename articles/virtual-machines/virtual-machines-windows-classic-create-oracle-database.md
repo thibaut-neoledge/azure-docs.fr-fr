@@ -17,7 +17,7 @@
 
 #Créer une machine virtuelle Oracle Database dans Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle Resource Manager
 
 
 L’exemple suivant vous indique comment créer une machine virtuelle sur la base d’une image Oracle Database fournie par Microsoft et exécutée sur Windows Server 2012 dans Azure. La procédure à suivre implique deux étapes. Tout d’abord, créez la machine virtuelle, puis créez l’instance Oracle Database dans la machine virtuelle. L’exemple présenté concerne Oracle Database version 12c, mais les étapes sont presque identiques pour la version 11g.
@@ -67,7 +67,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 5.	Répondez aux invites pour vous connecter à la machine virtuelle. Lorsque vous y êtes invité, entrez le nom d’administrateur et le mot de passe fournis lors de la création de la machine virtuelle.
 
-6.	Créez une variable d’environnement nommée **ORACLE\_HOSTNAME** dont la valeur correspond au nom d’ordinateur de la machine virtuelle. Vous pouvez créer cette variable d’environnement en procédant comme suit :
+6.	Créez une variable d’environnement nommée **ORACLE_HOSTNAME** dont la valeur correspond au nom d’ordinateur de la machine virtuelle. Vous pouvez créer cette variable d’environnement en procédant comme suit :
 
 	a. Cliquez sur **Démarrer**, saisissez **Panneau de configuration**, cliquez sur l’icône **Panneau de configuration**, et sélectionnez **Système et sécurité**, puis **Système,** et enfin cliquez sur **Paramètres système avancés.**
 
@@ -111,7 +111,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 3.	Exécutez la commande suivante dans l’invite de commandes SQL Plus.
 
-		**select * from GLOBAL\_NAME;**
+		**select \* from GLOBAL\_NAME;**
 
 	Vous devez alors obtenir le nom global de la base de données que vous avez créée.
 
@@ -200,4 +200,4 @@ Maintenant que vous avez configuré votre machine virtuelle et créé votre base
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016--->
+<!----HONumber=AcomDC_0323_2016--->
