@@ -21,7 +21,7 @@
 
 Cette fonctionnalité est utilisée pour les applications web Java et ASP.NET, hébergées dans le cloud ou sur vos propres serveurs. Elle sert également pour n’importe quelle application qui génère de la télémétrie de demande : par exemple, si vous avez un rôle de travail qui appelle [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-Après avoir configuré [Application Insights pour votre projet](app-insights-get-started.md), et si votre application génère un certain volume minimal de télémétrie, un délai de 24 heures est nécessaire aux diagnostics proactifs pour découvrir le comportement normal de votre application, être activés et envoyer des alertes.
+Après avoir configuré [Application Insights pour votre projet](app-insights-get-started.md), et si votre application génère un certain volume minimal de télémétrie, un délai de 24 heures est nécessaire aux diagnostics proactifs en temps quasi réel pour découvrir le comportement normal de votre application, être activés et envoyer des alertes.
 
 Voici un exemple d’alerte :
 
@@ -41,7 +41,7 @@ Les [alertes de mesures](app-insights-alerts.md) ordinaires vous indiquent un pr
 
 Les diagnostics proactifs en temps quasi-réel surveillent la télémétrie reçue depuis votre application, et en particulier le taux de requêtes ayant échoué. Cette mesure détermine le nombre de demandes dont la propriété `Successful request` a la valeur false. Par défaut, `Successful request== (resultCode < 400)` (sauf si vous avez ajouté du code personnalisé pour [filtrer](app-insights-api-filtering-sampling.md#filtering) ou générer vos propres appels [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
 
-Les performances de votre application présentent un modèle de comportement typique. Certaines requêtes seront davantage sujettes aux erreurs que d’autres ; et le taux d’échec global peut s’accroître à mesure que la charge augmente. Les diagnostics proactifs en temps quasi-réel utilisent Machine Learning pour rechercher ces anomalies.
+Les performances de votre application présentent un modèle de comportement typique. Certaines requêtes seront davantage sujettes aux erreurs que d’autres ; et le taux d’échec global peut s’accroître à mesure que la charge augmente. Les diagnostics proactifs en temps quasi réel utilisent Machine Learning pour rechercher ces anomalies.
 
 Comme la télémétrie entre dans Application Insights à partir de votre application web, les diagnostics proactifs NRT comparent le comportement actuel avec les modèles constatés au cours des derniers jours. Si une augmentation anormale du taux d’échec est observée par rapport aux performances précédentes, une analyse est déclenchée.
 
@@ -51,7 +51,7 @@ Quand votre service est instrumenté avec cette télémétrie, l’analyseur rec
 
 L’analyse obtenue vous est envoyée sous forme d’alerte, sauf si vous n’avez pas configuré cette option.
 
-Comme les [alertes que vous définissez manuellement](app-insights-alerts.md), vous pouvez examiner l’état de l’alerte et la configurer dans le panneau Alertes de votre ressource Application Insights. Cependant, contrairement aux autres alertes, vous n’avez pas besoin d’installer ni de configurer les diagnostics proactifs NRT. Si vous le souhaitez, vous pouvez la désactiver ou changer l’adresse de messagerie électronique cible.
+Comme les [alertes que vous définissez manuellement](app-insights-alerts.md), vous pouvez examiner l’état de l’alerte et la configurer dans le panneau Alertes de votre ressource Application Insights. Cependant, contrairement aux autres alertes, vous n’avez pas besoin d’installer ni de configurer les diagnostics proactifs en temps quasi réel. Si vous le souhaitez, vous pouvez la désactiver ou changer l’adresse de messagerie électronique cible.
 
 ## Triage et diagnostic d’une alerte
 
@@ -138,4 +138,4 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
 *Votre avis sur le sujet nous intéresse. Merci d’envoyer vos commentaires à :* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

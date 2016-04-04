@@ -65,6 +65,8 @@ Dans la version préliminaire actuelle de SQL Server 2016, les éléments suivan
 
 -   Contraintes de clés étrangères qui référencent la table
 
+    La table sur laquelle vous ne pouvez pas activer Stretch est celle référencée par une contrainte de clé étrangère. Dans une relation parent-enfant (par exemple, Orders et Order Details), il s’agit de la table parente (Orders).
+
 **Index**
 -   Index en texte intégral
 
@@ -99,4 +101,4 @@ Dans la version préliminaire actuelle de SQL Server 2016, les tables compatible
 
 [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -17,9 +17,9 @@
 
 # Exemples de configuration de routeur pour configurer et gérer des NAT
 
-Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper MX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau.
+Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper SRX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau.
 
->[AZURE.IMPORTANT]Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
+>[AZURE.IMPORTANT] Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
 
 Les exemples de configuration de routeur ci-dessous s'appliquent aux homologations Azure Public et Microsoft. Vous ne devez pas configurer un système NAT pour l'homologation privée Azure. Consultez [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration NAT requise pour ExpressRoute](expressroute-nat.md) pour plus d'informations.
 
@@ -50,22 +50,22 @@ Les exemples de configuration de routeur ci-dessous s'appliquent aux homologatio
 
 ### Configuration PAT pour le trafic de Microsoft au réseau client
 
-#### Interfaces et sens :
+#### Interfaces et sens :
 	Source Interface (where the traffic enters the ASA): inside
 	Destination Interface (where the traffic exits the ASA): outside
 
-#### Configuration :
-Pool NAT :
+#### Configuration :
+Pool NAT :
 
 	object network outbound-PAT
 		host <NAT-IP>
 
-Serveur cible :
+Serveur cible :
 
 	object network Customer-Network
 		network-object <IP> <Subnet-Mask>
 
-Groupe d’objets pour les adresses IP de clients
+Groupe d’objets pour les adresses IP de clients
 
 	object-group network MSFT-Network-1
 		network-object <MSFT-IP> <Subnet-Mask>
@@ -73,12 +73,12 @@ Groupe d’objets pour les adresses IP de clients
 	object-group network MSFT-PAT-Networks
 		network-object object MSFT-Network-1
 
-Commandes NAT :
+Commandes NAT :
 
 	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## Routeurs de la série Juniper MX 
+## Routeurs de la série Juniper SRX 
 
 ### 1\. Création d’interfaces Ethernet redondantes pour le cluster
 
@@ -319,4 +319,4 @@ Consultez les exemples de la page [Exemples de configuration de routage](express
 
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

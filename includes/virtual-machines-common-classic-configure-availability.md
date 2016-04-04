@@ -1,95 +1,96 @@
 
 
 
-An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines] [].
+Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d’informations sur cette procédure, voir la rubrique [Gestion de la disponibilité des machines virtuelles][].
 
-It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load balancing for Azure infrastructure services] [].
+Il est recommandé d’utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de charge pour garantir que votre application soit toujours disponible et qu’elle s’exécute correctement. Pour plus d'informations sur les points de terminaison à équilibrage de la charge, consultez la page [Équilibrage de charge pour les services d'infrastructure Azure][].
 
-In the classic deployment model, you can put virtual machines into an availability set by using one of two options:
+Dans le modèle de déploiement classique, vous pouvez placer des machines virtuelles dans un groupe à haute disponibilité en utilisant l’une des deux options suivantes :
 
-- [Option 1: Create a virtual machine and an availability set at the same time] []. Then, add new virtual machines to the set when you create those virtual machines.
-- [Option 2: Add an existing virtual machine to an availability set] [].
+- [Option 1: Créer simultanément une machine virtuelle et un groupe à haute disponibilité][]. Ensuite, ajouter de nouvelles machines virtuelles à l’ensemble lorsque vous créez ces ordinateurs virtuels.
+- [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité][].
 
->[AZURE.NOTE] In the classic model, virtual machines that you want to put in the same availability set must belong to the same cloud service.
+>[AZURE.NOTE] Dans le modèle classique, les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.
 
-## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time##
+## <a id="createset"> </a>Option 1 : Créer simultanément une machine virtuelle et un groupe à haute disponibilité.##
 
-You can use either the Azure classic portal or Azure PowerShell commands to do this.
+Pour cela, vous pouvez utiliser le portail Azure Classic ou des commandes Azure PowerShell.
 
-To use the Azure classic portal:
+Pour utiliser le portail Azure Classic :
 
-1. If you haven't already done so, sign in to the Azure classic portal.
+1. Si ce n’est pas déjà fait, connectez-vous au portail Azure Classic.
 
-2. On the command bar, click **New**.
+2. Dans la barre de commandes, cliquez sur **New**.
 
-3. Click **Virtual Machine**, and then click **From Gallery**.
+3. Cliquez sur **Virtual Machine**, puis sur **From Gallery**.
 
-4. Use the first two screens to select an image, a user name and password, and so on. For more details, see [Create a virtual machine running Windows][].
+4. Utilisez les deux premiers écrans pour sélectionner une image, un nom d’utilisateur et un mot de passe, et ainsi de suite. Pour en savoir plus, consultez la rubrique [Création d'une machine virtuelle exécutant Windows][].
 
-5. In the third screen, you can configure resources for networking, storage, and availability. Do the following:
+5. Le troisième écran vous permet de configurer des ressources pour la mise en réseau, le stockage et la disponibilité. Effectuez les actions suivantes :
 
-	1. Choose the appropriate cloud service. Leave it set to **Create a new cloud service** (unless you are adding this new virtual machine to an existing virtual machine cloud service). Then, under **Cloud Service DNS Name**, type a name. The DNS name becomes part of the URI that's used to contact the virtual machine. The cloud service acts as a communications and isolation group. All virtual machines in the same cloud service can communicate with each other, can be set up for load balancing, and can be placed in the same availability set.
+	1. Utilisez le nom de service cloud approprié. Gardez la valeur **Créer un nouveau service cloud** activée (sauf si vous ajoutez cette nouvelle machine virtuelle à un service cloud de machine virtuelle existant). Ensuite, sous **Nom du cloud Service DNS**, tapez un nom. Ce nom fait alors partie de l’URI utilisé pour contacter la machine virtuelle. Le service cloud agit comme un groupe de communication et d’isolement. Toutes les machines virtuelles du même service cloud peuvent communiquer entre elles, être configurées pour équilibrer la charge et placées dans le même groupe à haute disponibilité.
 
-	2. Under **Region/Affinity Group/Virtual Network**, specify a virtual network if you plan to use one. **Important**: If you want a virtual machine to use a virtual network, you must join the virtual machine to the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview][].
+	2. Sous **Région/Groupe d’affinités/Réseau virtuel**, sélectionnez un réseau virtuel si vous envisagez d’en utiliser un. **Important** : si vous souhaitez qu’une machine virtuelle utilise un réseau virtuel, vous devez l’associer au réseau virtuel lorsque vous la créez. Vous ne pouvez pas associer la machine virtuelle à un réseau virtuel après l’avoir créée. Pour en savoir plus, voir la page [Vue d’ensemble d’Azure Virtual Network][].
 
-	3. Create the availability set. Under **Availability Set**, leave it set to **Create an availability set**. Then, type a name for the set.
+	3. Créez le groupe à haute disponibilité. Sous **Jeu de disponibilité**, laissez l’option **Créer un groupe à haute disponibilité** activée. Entrez ensuite le nom du groupe.
 
-	4. Create the default endpoints and add more endpoints if needed. You also can add endpoints later.
+	4. Créez les points de terminaison par défaut et ajoutez-en d’autres si nécessaire. Vous pourrez également ajouter d’autres points de terminaison par la suite.
 
-	![Create an availability set for a new virtual machine](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
+	![Création d’un groupe à haute disponibilité pour une nouvelle machine virtuelle](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
-6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](virtual-machines-windows-classic-agents-and-extensions.md).
+6. Sur le quatrième écran, cliquez sur les extensions que vous voulez installer. Les extensions procurent des fonctionnalités qui facilitent la gestion de la machine virtuelle, telles que l’exécution de logiciels anti-programmes malveillants ou la réinitialisation de mots de passe. Pour en savoir plus, voir la page [Agent de machine virtuelle Azure et extensions de machine virtuelle](virtual-machines-windows-classic-agents-and-extensions.md).
 
-7.	Click the arrow to create the virtual machine and the availability set.
+7.	Cliquez sur la flèche pour créer la machine virtuelle et le groupe à haute disponibilité.
 
-	From the dashboard of the new virtual machine, you can click **Configure** to see that the virtual machine belongs to the new availability set.
+	Dans le tableau de bord de la nouvelle machine virtuelle, vous pouvez cliquer sur **Configurer** pour voir que la machine virtuelle appartient au nouveau groupe à haute disponibilité.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see the following:
+Pour utiliser des commandes Azure PowerShell afin de créer une machine virtuelle Azure et l’ajouter à un groupe à haute disponibilité nouveau ou existant, voir les rubriques suivantes :
 
 
-- [Use Azure PowerShell to create and preconfigure Linux-based virtual machines](virtual-machines-linux-classic-createpowershell.md)
-- [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md)
+- [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Linux](virtual-machines-linux-classic-createpowershell.md)
+- [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-windows-classic-create-powershell.md)
 
-## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
+## <a id="addmachine"> </a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité##
 
-In the Azure classic portal, you can add existing virtual machines to an existing availability set
- or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
+Dans le portail Azure Classic, vous pouvez ajouter des machines virtuelles existantes à un groupe à haute disponibilité existant, ou en créer un pour ces machines. (N’oubliez pas que les machines virtuelles dans un même groupe à haute disponibilité doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Avec Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant.
 
-1. If you have not already done so, sign in to the Azure classic portal.
+1. Si ce n’est pas déjà fait, connectez-vous au portail Azure Classic.
 
-2. On the command bar, click **Virtual Machines**.
+2. Dans la barre de commandes, cliquez sur **Machines virtuelles**.
 
-3. From the list of virtual machines, select the name of the virtual machines that you want to add to the set.
+3. Dans la liste des machines virtuelles, sélectionnez le nom de la machine virtuelle que vous voulez ajouter au groupe.
 
-4. From the tabs below the virtual machine name, click **Configure**.
+4. Dans les onglets sous le nom de la machine virtuelle, cliquez sur **Configurer**.
 
-5. In the Settings section, find **Availability Set**. Do one of the following:
+5. Dans la zone Paramètres, recherchez **Jeu de disponibilité**. Effectuez l’une des actions suivantes :
 
-	A. Select **Create an availability set**, and then type a name for the set.
+	A. Sélectionnez **Créer un groupe à haute disponibilité**, puis saisissez un nom pour le groupe.
 
-	B. Select **Select an availability set**, and then select a set from the list.
+	B. Sélectionnez **Sélectionner un groupe à haute disponibilité**, puis choisissez un groupe dans la liste.
 
-	![Create an availability set for an existing virtual machine](./media/virtual-machines-common-classic-configure-availability/VMavailabilityExistingVM.png)
+	![Création d’un groupe à haute disponibilité pour une machine virtuelle existante](./media/virtual-machines-common-classic-configure-availability/VMavailabilityExistingVM.png)
 
-6. Click **Save**.
+6. Cliquez sur **Save**.
 
-To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &lt;VmCloudServiceName&gt;), replace everything within the quotes, including the < and > characters, with the correct names.
+Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShell de niveau administrateur et exécutez la commande suivante. Pour les espaces réservés (tels que &lt;VmCloudServiceName&gt;), remplacez tout ce qui se trouve entre guillemets, y compris les caractères < and >, par les noms adéquats.
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE] The virtual machine might have to be restarted to finish adding it to the availability set.
+>[AZURE.NOTE] Il se peut que la machine virtuelle doive être redémarrée pour terminer son ajout au groupe à haute disponibilité.
 
-## Additional resources
+## Ressources supplémentaires
 
-[Articles for virtual machines in Service Management]
+[Articles pour les machines virtuelles dans la gestion des services]
 
 <!-- LINKS -->
-[Option 1: Create a virtual machine and an availability set at the same time]: #createset
-[Option 2: Add an existing virtual machine to an availability set]: #addmachine
+[Option 1: Créer simultanément une machine virtuelle et un groupe à haute disponibilité]: #createset
+[Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité]: #addmachine
 
-[Load balancing for Azure infrastructure services]: virtual-machines-linux-load-balance.md
-[Manage the availability of virtual machines]: virtual-machines-linux-manage-availability.md
+[Équilibrage de charge pour les services d'infrastructure Azure]: virtual-machines-linux-load-balance.md
+[Gestion de la disponibilité des machines virtuelles]: virtual-machines-linux-manage-availability.md
 
-[Create a virtual machine running Windows]: virtual-machines-windows-hero-tutorial.md
-[Virtual Network overview]: virtual-networks-overview.md
-[Articles for virtual machines in Service Management]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines 
+[Création d'une machine virtuelle exécutant Windows]: virtual-machines-windows-hero-tutorial.md
+[Vue d’ensemble d’Azure Virtual Network]: virtual-networks-overview.md
+[Articles pour les machines virtuelles dans la gestion des services]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
+
+<!---HONumber=AcomDC_0323_2016-->

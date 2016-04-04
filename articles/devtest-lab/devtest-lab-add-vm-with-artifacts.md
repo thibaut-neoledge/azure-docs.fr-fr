@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2016"
+	ms.date="03/21/2016"
 	ms.author="tarcher"/>
 
 # Ajout d’une machine virtuelle avec des artefacts à un laboratoire de test et développement DevTest Lab
@@ -26,11 +26,11 @@ Vous créez une machine virtuelle dans un laboratoire de test et développement 
 
 Les *artefacts* de laboratoire de test et développement vous permettent de spécifier des *actions* qui sont exécutées lorsque la machine virtuelle est créée.
 
-Les actions des artefacts peuvent réaliser des procédures, telles que l’exécution de scripts Windows Powershell, l’exécution de commande Bash et l’installation de logiciels.
+Les actions des artefacts peuvent réaliser des procédures, telles que l’exécution de scripts Windows PowerShell, l’exécution de commandes Bash et l’installation de logiciels.
 
 Les *paramètres* des artefacts vous permettent de personnaliser l'artefact pour votre scénario spécifique.
 
-Cet article vous explique comment créer une machine virtuelle dans votre laboratoire à l'aide d'artefacts.
+Cet article vous explique comment créer une machine virtuelle dans votre laboratoire à l’aide d’artefacts.
 
 ## Ajout d'une machine virtuelle avec des artefacts
 
@@ -123,4 +123,4 @@ Les étapes suivantes montrent comment afficher ou modifier les paramètres d’
 - Une fois la machine virtuelle créée, vous pouvez vous y connecter en cliquant sur **Connexion** sur son panneau.
 - Découvrez comment créer des artefacts en consultant l’article [Découvrez comment créer vos propres artefacts pour les utiliser avec DevTest Labs](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

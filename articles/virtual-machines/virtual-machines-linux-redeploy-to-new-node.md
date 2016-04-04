@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Redéployer des machines virtuelles | Microsoft Azure" 
 	description="Décrit comment redéployer des machines virtuelles pour atténuer les problèmes de connexion SSH." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="virtual-machines" 
 	authors="dsk-2015" 
 	manager="timlt"
@@ -10,7 +10,7 @@
 	
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux"
@@ -26,4 +26,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

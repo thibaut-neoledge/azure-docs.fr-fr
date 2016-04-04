@@ -11,7 +11,7 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/29/2015"
@@ -23,7 +23,7 @@ L’interface Azure CLI offre un ensemble de commandes multiplateforme open-sour
 
 
 
-Pour vous connecter à votre abonnement à partir de l’interface de ligne de commande Azure, vous pouvez au choix :
+Pour vous connecter à votre abonnement à partir de l’interface de ligne de commande Azure, vous pouvez au choix :
 
 * **Se connecter à Azure à l'aide d'un compte professionnel ou scolaire ou d'une identité de compte Microsoft**. Cette méthode utilise un type d'identité de compte quelconque pour l'authentification. L'interface de ligne de commande actuelle prend aussi en charge l'authentification interactive pour les comptes pour lesquels l'authentification multifacteur (multi-factor authentication) est activée. Après l'établissement d'une connexion de manière interactive, vous pouvez utiliser les commandes Resource Manager ou classiques (Service Management).
 
@@ -41,20 +41,20 @@ Les versions 0.9.9 et ultérieures de l'interface de ligne de commande prennent 
 
 ## Utilisation de la méthode de connexion interactive
 
-Utilisez la commande `azure login` (sans arguments) pour vous identifier de manière interactive avec :
+Utilisez la commande `azure login` (sans arguments) pour vous identifier de manière interactive avec :
 
 - une identité de compte professionnel ou scolaire qui requiert une authentification multifacteur, ou
 - une identité de compte Microsoft pour accéder à la fonctionnalité Resource Manager en mode déploiement
 
 > [AZURE.NOTE]  Dans les deux cas, l'authentification et l'autorisation sont effectuées à l'aide d'Azure Active Directory. Si vous utilisez une identité de compte Microsoft, le processus de connexion accède à votre domaine par défaut Azure Active Directory. (Si vous disposez d'une version d'évaluation gratuite, vous ne remarquerez peut-être pas qu'Azure Active Directory a créé un domaine par défaut pour votre compte.)
 
-L'établissement d'une connexion interactive est simple : saisissez `azure login`, puis suivez les invites comme indiqué ci-dessous :
+L'établissement d'une connexion interactive est simple : saisissez `azure login`, puis suivez les invites comme indiqué ci-dessous :
 
 	azure login                                                                                                                                                                                         
 	info:    Executing command login
 	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
 
-Copiez le code proposé ci-dessus et ouvrez un navigateur à l'adresse http://aka.ms/devicelogin. Entrez le code et vous serez invité à entrer le nom d'utilisateur et le mot de passe pour l'identité que vous souhaitez utiliser. Une fois le processus terminé, l'interface de commande termine le processus de connexion. Le résultat suivant peut s'afficher :
+Copiez le code proposé ci-dessus et ouvrez un navigateur à l'adresse http://aka.ms/devicelogin. Entrez le code et vous serez invité à entrer le nom d'utilisateur et le mot de passe pour l'identité que vous souhaitez utiliser. Une fois le processus terminé, l'interface de commande termine le processus de connexion. Le résultat suivant peut s'afficher :
 
 	info:    Added subscription Visual Studio Ultimate with MSDN
 	info:    Added subscription Azure Free Trial
@@ -65,7 +65,7 @@ Copiez le code proposé ci-dessus et ouvrez un navigateur à l'adresse http://ak
 ## Utilisation d'une connexion non interactive avec un compte professionnel ou scolaire
 
 
-La méthode de connexion non interactive ne fonctionne qu'avec un compte professionnel ou scolaire, également appelé *compte d'organisation*. Ce compte est géré par votre organisation et est défini dans l’instance Azure Active Directory de l’organisation. Vous pouvez [créer un compte d'organisation](#create-an-organizational-account) si vous n'en avez pas, ou vous pouvez [créer un ID professionnel ou scolaire depuis votre ID de compte Microsoft](./virtual-machines/resource-group-create-work-id-from-personal.md). Pour cela, vous devez spécifier un nom d'utilisateur ou un nom d'utilisateur et un mot de passe pour la commande `azure login`, comme dans l'exemple suivant :
+La méthode de connexion non interactive ne fonctionne qu'avec un compte professionnel ou scolaire, également appelé *compte d'organisation*. Ce compte est géré par votre organisation et est défini dans l’instance Azure Active Directory de l’organisation. Vous pouvez [créer un compte d'organisation](#create-an-organizational-account) si vous n'en avez pas, ou vous pouvez [créer un ID professionnel ou scolaire depuis votre ID de compte Microsoft](./virtual-machines/virtual-machines-windows-create-aad-work-id.md). Pour cela, vous devez spécifier un nom d'utilisateur ou un nom d'utilisateur et un mot de passe pour la commande `azure login`, comme dans l'exemple suivant :
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
@@ -78,17 +78,17 @@ Entrez votre mot de passe lorsque vous y êtes invité.
 
 	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
 
-* **Pour vous déconnecter**, utilisez la commande suivante :
+* **Pour vous déconnecter**, utilisez la commande suivante :
 
 		azure logout -u <username>
 
-	Si les abonnements associés au compte étaient authentifiés uniquement avec Active Directory, la déconnexion supprime les informations d'abonnement du profil local. Toutefois, si un fichier de paramètres de publication avait également été importé pour les abonnements, la déconnexion supprime uniquement les informations Active Directory associées du profil local.
+	Si les abonnements associés au compte étaient authentifiés uniquement avec Active Directory, la déconnexion supprime les informations d'abonnement du profil local. Toutefois, si un fichier de paramètres de publication avait également été importé pour les abonnements, la déconnexion supprime uniquement les informations Active Directory associées du profil local.
 
 ## Utilisation de la méthode basée sur un fichier de paramètres de publication
 
 Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de commande classiques (Service Management), vous pouvez vous connecter à l'aide d'un fichier de paramètres de publication.
 
-* **Pour télécharger le fichier de paramètres de publication** de votre compte, utilisez la commande suivante :
+* **Pour télécharger le fichier de paramètres de publication** de votre compte, utilisez la commande suivante :
 
 		azure account download
 
@@ -96,9 +96,9 @@ Cette commande ouvre votre navigateur par défaut et vous invite à vous connect
 
 > [AZURE.NOTE] Si votre compte est associé à plusieurs clients Azure Active Directory, vous pouvez être invité à sélectionner l'annuaire Active Directory pour lequel vous voulez télécharger un fichier de paramètres de publication.
 >
-> Une fois l’annuaire Active Directory sélectionné à partir de la page de téléchargement ou par le biais du portail Azure Classic, il est utilisé par défaut par le portail Classic et par la page de téléchargement. Une fois qu'un paramètre par défaut a été défini, le texte « __cliquez ici pour revenir à la page de sélection__ » apparaît en haut de la page de téléchargement. Utilisez le lien affiché pour revenir à la page de sélection.
+> Une fois l’annuaire Active Directory sélectionné à partir de la page de téléchargement ou par le biais du portail Azure Classic, il est utilisé par défaut par le portail Classic et par la page de téléchargement. Une fois qu'un paramètre par défaut a été défini, le texte « __cliquez ici pour revenir à la page de sélection__ » apparaît en haut de la page de téléchargement. Utilisez le lien affiché pour revenir à la page de sélection.
 
-* **Pour importer le fichier de paramètres de publication**, exécutez la commande suivante :
+* **Pour importer le fichier de paramètres de publication**, exécutez la commande suivante :
 
 		azure account import <path to your .publishsettings file>
 
@@ -107,7 +107,7 @@ Cette commande ouvre votre navigateur par défaut et vous invite à vous connect
 
 ## Abonnements multiples
 
-Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements associés à vos informations d’identification. Un abonnement spécifique est sélectionné comme abonnement par défaut et est utilisé par l’interface de ligne de commande Azure durant l’exécution des opérations. Vous pouvez afficher les abonnements et identifier l’abonnement par défaut à l’aide de la commande `azure account list`. Cette commande renvoie des informations similaires aux suivantes :
+Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements associés à vos informations d’identification. Un abonnement spécifique est sélectionné comme abonnement par défaut et est utilisé par l’interface de ligne de commande Azure durant l’exécution des opérations. Vous pouvez afficher les abonnements et identifier l’abonnement par défaut à l’aide de la commande `azure account list`. Cette commande renvoie des informations similaires aux suivantes :
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -115,7 +115,7 @@ Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accè
 	data:    Azure-sub-1       ####################################  true
 	data:    Azure-sub-2       ####################################  false
 
-Dans la liste ci-dessus, la colonne **Current** indique que l’abonnement par défaut actuel est Azure-sub-1. Pour modifier l’abonnement par défaut, utilisez la commande `azure account set` et spécifiez l’abonnement à utiliser par défaut. Par exemple :
+Dans la liste ci-dessus, la colonne **Current** indique que l’abonnement par défaut actuel est Azure-sub-1. Pour modifier l’abonnement par défaut, utilisez la commande `azure account set` et spécifiez l’abonnement à utiliser par défaut. Par exemple :
 
 	azure account set Azure-sub-2
 
@@ -129,7 +129,7 @@ Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser 
 
 ## Stockage des paramètres de l'interface de ligne de commande
 
-Que vous vous connectiez avec un compte professionnel ou scolaire ou que vous importiez des paramètres de publication, votre profil d'interface de ligne de commande et vos journaux sont stockés dans un répertoire `.azure` situé dans votre répertoire `user`. Le répertoire `user` est protégé par le système d’exploitation ; toutefois, il est recommandé de prendre des mesures supplémentaires pour chiffrer le répertoire `user`. Pour ce faire, procédez comme suit :
+Que vous vous connectiez avec un compte professionnel ou scolaire ou que vous importiez des paramètres de publication, votre profil d'interface de ligne de commande et vos journaux sont stockés dans un répertoire `.azure` situé dans votre répertoire `user`. Le répertoire `user` est protégé par le système d’exploitation ; toutefois, il est recommandé de prendre des mesures supplémentaires pour chiffrer le répertoire `user`. Pour ce faire, procédez comme suit :
 
 * Sur Windows, modifiez les propriétés d'annuaire ou utilisez BitLocker.
 * Sur Mac, activez FileVault pour l'annuaire.
@@ -156,4 +156,4 @@ Que vous vous connectiez avec un compte professionnel ou scolaire ou que vous im
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

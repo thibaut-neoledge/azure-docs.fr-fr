@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="03/23/2016" 
 	ms.author="mimig"/>
 
 
@@ -43,7 +43,7 @@ Oui, DocumentDB prend en charge les transactions entre documents exprimées en p
 DocumentDB est le choix idéal pour les nouvelles applications web et mobiles lorsque l'évolutivité, les performances et la possibilité d'interroger des données sans schéma sont primordiales. DocumentDB permet un développement rapide et prend en charge l'itération continue des modèles de données d'application. Les applications qui gèrent du contenu généré par l’utilisateur et des données sont [communément utilisées dans DocumentDB](documentdb-use-cases.md).
 
 ### DocumentDB est-il conforme à HIPAA ?
-DocumentDB n’est pas actuellement conforme à la réglementation HIPAA, bien que ce service Azure devrait prochainement se mettre en conformité. Pour plus d’informations sur Microsoft et HIPAA, consultez la page [HIPAA et la loi HITECH](https://www.microsoft.com/fr-FR/TrustCenter/Compliance/HIPAA).
+Oui, DocumentDB est conforme à HIPAA. HIPAA établit les conditions requises pour l’utilisation, la divulgation et la protection des informations de santé identifiables de façon individuelle. Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/fr-FR/TrustCenter/Compliance/HIPAA).
 
 ### Quelles sont les limites de mise à l’échelle de DocumentDB ?
 Les comptes DocumentDB peuvent être mis à l’échelle en termes de stockage et de débit en ajoutant des collections. Consultez la rubrique [Limites de DocumentDB](documentdb-limits.md) pour connaître les quotas de service du nombre de collections. S’il vous faut des collections supplémentaires, [contactez le support technique](documentdb-increase-limits.md) pour augmenter le quota de votre compte.
@@ -115,4 +115,4 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 [query]: documentdb-sql-query.md
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

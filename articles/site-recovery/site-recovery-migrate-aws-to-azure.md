@@ -13,21 +13,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="03/16/2016"
 	ms.author="raynew"/>
 
 #  Migrer des machines virtuelles Windows dans Amazon Web Services (AWS) vers Azure avec Azure Site Recovery
 
-Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour avoir un rapide aperçu, consultez la section [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
+## Vue d'ensemble
+
+Cet article explique comment utiliser Site Recovery pour migrer des instances de Windows s’exécutant dans AWS sur Azure. Avant de commencer, sachez que :
+
+- Vous ne pouvez que migrer pour l’instant. Cela signifie que vous pouvez les basculer d’AWS vers Azure, mais vous ne pouvez pas les restaurer à nouveau.
+- Cet article résume et utilise la plupart des étapes décrites en détail dans [Répliquer des machines virtuelles VMware ou des serveurs physiques sur Azure](site-recovery-vmware-to-azure-classic.md), qui fournit les dernières instructions améliorées pour la configuration de la réplication. Nous vous suggérons de suivre cet article pour obtenir des instructions détaillées lors de la migration.
+- Vous **ne devez plus suivre** les instructions de cet [article hérité](site-recovery-vmware-to-azure-classic-legacy.md).
+
+Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
 
-## Vue d’ensemble
-
-Cet article explique comment utiliser Site Recovery pour migrer ou basculer des instances de Windows s’exécutant dans AWS sur Azure. Il résume les étapes décrites en détail dans [Répliquer des machines virtuelles VMware ou des serveurs physiques sur Azure](site-recovery-vmware-to-azure-classic.md). L’article lié est la dernière version améliorée du scénario qui réplique des machines virtuelles VMware ou des serveurs physiques Windows/Linux sur Azure. Nous vous suggérons de consulter cet article pour obtenir des instructions détaillées sur chaque étape du déploiement.
-
->[AZURE.NOTE] Pour la migration de différentes machines virtuelles Windows dans AWS, vous ne devez **plus suivre** les instructions de cet [article hérité](site-recovery-vmware-to-azure-classic-legacy.md).
-
-## Prise en main
+## Configuration requise
 
 Voici ce dont vous avez besoin pour commencer :
 
@@ -58,6 +60,6 @@ Voici ce dont vous avez besoin pour commencer :
 		
 ## Étapes suivantes
 
-Publier des commentaires ou des questions dans le [forum Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+En savoir plus sur les autres scénarios de réplication dans [Qu’est-ce que le service Azure Site Recovery ?](site-recovery-overview.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

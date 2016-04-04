@@ -66,13 +66,13 @@ Pour utiliser les packages d’applications, vous devez d’abord lier un compte
 
 ![Avertissement Aucun compte de stockage configuré dans le portail Azure][9]
 
-Le service Batch utilise le compte de stockage associé pour le stockage et la récupération des packages d’applications. Après avoir lié les deux comptes, Batch peut déployer automatiquement les packages stockés dans le compte de stockage lié sur vos nœuds de calcul. Cliquez sur **Paramètres du compte de stockage** sur le panneau *Avertissement*, puis **Compte de stockage** sur le panneau *Compte de stockage* pour lier un compte de stockage existant à votre compte Batch.
+Le service Batch utilise le compte de stockage associé pour le stockage et la récupération des packages d’applications. Après avoir lié les deux comptes, Batch peut déployer automatiquement les packages stockés dans le compte de stockage lié sur vos nœuds de calcul. Cliquez sur **Paramètres du compte de stockage** sur le panneau *Avertissement*, puis **Compte de stockage** sur le panneau *Compte de stockage* pour lier un compte de stockage à votre compte Batch.
 
 ![Panneau Sélectionner un compte de stockage dans le portail Azure][10]
 
-Vous pouvez utiliser un compte de stockage existant dans votre abonnement ou en créer un pour le stockage de package d’application. Pour obtenir des détails sur la création d’un compte de stockage, consultez « Créer un compte de stockage » sous [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Une fois que vous avez créé un compte de stockage, vous pouvez le lier à votre compte Batch à l'aide du panneau *Compte de stockage*.
+Nous vous recommandons de créer un compte de stockage *spécifiquement* pour une utilisation avec votre compte Batch et de le sélectionner ici. Pour obtenir des détails sur la création d’un compte de stockage, consultez « Créer un compte de stockage » sous [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). Une fois que vous avez créé un compte de stockage, vous pouvez le lier à votre compte Batch à l'aide du panneau *Compte de stockage*.
 
-> [AZURE.WARNING] Étant donné que Batch stocke vos packages d’applications ’ l'aide d’Azure Storage, vous êtes [facturé comme d’habitude][storage_pricing] pour les données d’objets blob de bloc. Veillez à prendre en compte la taille et le nombre de vos packages d’applications et à supprimer régulièrement les packages obsolètes pour réduire les coûts.
+> [AZURE.WARNING] Étant donné que Batch stocke vos packages d’applications à l'aide d’Azure Storage, vous êtes [facturé comme d’habitude][storage_pricing] pour les données d’objets blob de blocs. Veillez à prendre en compte la taille et le nombre de vos packages d’applications et à supprimer régulièrement les packages obsolètes pour réduire les coûts.
 
 ### Affichage des applications en cours
 
@@ -87,7 +87,7 @@ Cette opération ouvre le panneau *Applications* :
 Le panneau *Applications* affiche l’ID de chaque application dans votre compte, ainsi que les propriétés suivantes :
 
 * **Packages** : le nombre de versions associées à cette application.
-* **Version par défaut** : si vous ne spécifiez pas une version lors de la définition de l’application pour un pool, cette version sera installée. Ce paramètre est facultatif.
+* **Version par défaut** : si vous ne spécifiez pas de version lors de la définition de l’application pour un pool, cette version sera installée. Ce paramètre est facultatif.
 * **Autoriser les mises à jour** : si cette valeur est définie sur *Non*, les mises à jour et les suppressions de package sont désactivées pour l’application. Seules de nouvelles versions du package d’application peuvent être ajoutées. La valeur par défaut est *Oui*.
 
 ### Affichage des détails de l’application
@@ -114,7 +114,7 @@ Le panneau *Nouvelle application* contient les champs suivants pour spécifier l
 
 **Metadata**
 
-Vous pouvez soit fournir manuellement les métadonnées de l’application en entrant des valeurs directement dans les zones de texte **ID d’application** et **Version**, soit vous pouvez télécharger un fichier JSON qui contient les métadonnées. Pour spécifier l’ID d’application et la version manuellement, il suffit de laisser le sélecteur de liste déroulante **Métadonnées** sur **Entrer des métadonnées** (la valeur par défaut) et d’entrer manuellement les valeurs dans les zones de texte **ID d’application** et **Version**.
+Vous pouvez soit fournir manuellement les métadonnées de l’application en entrant des valeurs directement dans les zones de texte **ID d’application** et **Version**, soit télécharger un fichier JSON qui contient les métadonnées. Pour spécifier l’ID d’application et la version manuellement, il suffit de laisser le sélecteur de liste déroulante **Métadonnées** sur **Entrer des métadonnées** (la valeur par défaut) et d’entrer manuellement les valeurs dans les zones de texte **ID d’application** et **Version**.
 
 Pour spécifier un fichier de métadonnées au format JSON qui contient l’ID et la version d’un package, sélectionnez **Télécharger un fichier de métadonnées** dans la liste déroulante **Métadonnées** :
 
@@ -183,7 +183,7 @@ Lorsque vous cliquez sur **Mettre à jour**, le panneau *Mettre à jour le packa
 
 **Supprimer**
 
-Lorsque vous cliquez sur **Supprimer**, vous êtes invité à confirmer la suppression de la version du package et Batch supprime le package dans Azure Storage. Si vous supprimez la version par défaut d’une application, le paramètre de version par défaut est supprimé de l’application.
+Lorsque vous cliquez sur **Supprimer**, vous êtes invité à confirmer la suppression de la version du package. Batch supprime le package dans Azure Storage. Si vous supprimez la version par défaut d’une application, le paramètre de version par défaut est supprimé de l’application.
 
 ![Supprimer l’application][12]
 
@@ -191,9 +191,9 @@ Lorsque vous cliquez sur **Supprimer**, vous êtes invité à confirmer la suppr
 
 Maintenant que nous avons couvert le téléchargement et la gestion des packages d’applications à l’aide du portail Azure, nous sommes prêts à discuter de leur déploiement sur les nœuds de calcul et de leur exécution avec des tâches Batch.
 
-Pour installer un package d’application sur les nœuds de calcul dans un pool, vous indiquez au moins une *référence* de package d’application pour le pool. Pour ce faire, dans Batch .NET, vous ajoutez une ou plusieurs classes [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] lorsque vous créez le pool ou à un pool existant.
+Pour installer un package d’application sur les nœuds de calcul dans un pool, indiquez au moins une *référence* de package d’application pour le pool. Pour ce faire, dans Batch .NET, ajoutez une ou plusieurs classes [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] à la création du pool ou à un pool existant.
 
-La classe [ApplicationPackageReference][net_pkgref] spécifie un l’ID et la version d’une application à installer sur les nœuds de calcul d’un pool.
+La classe [ApplicationPackageReference][net_pkgref] spécifie un ID et la version d’une application à installer sur les nœuds de calcul d’un pool.
 
 ```csharp
 // Create the unbound CloudPool
@@ -218,7 +218,7 @@ await myCloudPool.CommitAsync();
 
 ## Exécution des applications installées
 
-Lorsque chaque nœud de calcul rejoint un pool (ou est redémarré ou reconfiguré), les packages que vous avez spécifiés sont téléchargés et extraits vers un répertoire nommé au sein de `AZ_BATCH_ROOT_DIR` sur le nœud. Batch crée également une variable d’environnement pour les lignes de commande de votre tâche à utiliser lors de l’appel des fichiers binaires applicatifs ; cette variable se conforme au schéma d’affectation de noms suivant :
+Lorsque chaque nœud de calcul rejoint un pool (ou est redémarré ou réinitialisé), les packages que vous avez spécifiés sont téléchargés et extraits vers un répertoire nommé au sein de `AZ_BATCH_ROOT_DIR` sur le nœud. Batch crée également une variable d’environnement pour les lignes de commande de votre tâche à utiliser lors de l’appel des fichiers binaires applicatifs ; cette variable se conforme au schéma d’affectation de noms suivant :
 
 `AZ_BATCH_APP_PACKAGE_appid#version`
 
@@ -316,4 +316,4 @@ Avec les packages d’applications, vous pouvez plus facilement fournir à vos c
 [12]: ./media/batch-application-packages/app_pkg_12.png "Boîte de dialogue de confirmation de la suppression d’un package dans le portail Azure"
 [13]: ./media/batch-application-packages/app_pkg_13.png "Détail de la sélection d’un fichier de métadonnées"
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

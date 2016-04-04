@@ -120,7 +120,7 @@ Ces étapes supposent que vous avez défini un coffre de clés et une clé secr�
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Accédez à votre application Active Directory. Vous obtiendrez l’ID d’application au moment de la connexion.
+2. Accédez à votre application Active Directory. Vous avez besoin de l’ID d’application au moment de la connexion.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@ Vous avez créé une application Active Directory et un principal du service pou
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Fournir un certificat via un script PowerShell automatisé
 
-1. Accédez à votre application Active Directory. Vous obtiendrez l’ID d’application au moment de la connexion.
+1. Accédez à votre application Active Directory. Vous avez besoin de l’ID d’application au moment de la connexion.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -517,4 +517,4 @@ Pour obtenir des informations supplémentaires sur l’utilisation de certificat
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

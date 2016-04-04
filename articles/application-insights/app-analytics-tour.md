@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Visite guidée d’Application Insights Analytics" 
-	description="Courts exemples de toutes les requêtes principales dans Application Insights Analytics, outil de recherche puissant pour Application Insights." 
+	pageTitle="Visite guidée d’Analytics dans Application Insights" 
+	description="Courts exemples de toutes les requêtes principales dans Analytics, outil de recherche puissant d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Visite guidée d’Application Insights Analytics
+# Visite guidée d’Analytics dans Application Insights
 
 
-Application Insights Analytics est un moteur de recherche et de diagnostic puissant pour vos données de télémétrie [Application Insights](app-insights-overview.md).
+[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -100,7 +100,7 @@ Afficher les n premières lignes, classées par une colonne particulière :
 
 Le résultat serait le même, mais l’exécution de la requête serait un peu plus lente. (Vous pouvez également écrire `order`, qui est un alias de `sort`.)
 
-Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement retrier les enregistrements que vous avez récupérés.
+Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais, bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement retrier les enregistrements que vous avez récupérés.
 
 
 ## [Project](app-analytics-aggregations.md#project) : sélectionner, renommer et calculer des colonnes
@@ -205,7 +205,7 @@ Vous pouvez utiliser des valeurs scalaires (numériques, heure ou intervalle) da
 
 ![](./media/app-analytics-tour/225.png)
 
-`bin` réduit tous les horodatages à des intervalles de 1 jour. C’est un alias de `floor`, fonction courante dans la plupart des langages. Il réduit simplement chaque valeur au multiple le plus proche du modulo que vous spécifiez. Ainsi, `summarize` peut affecter les lignes à des groupes d’une taille raisonnable. (Sans cette fonction, nous aurions une ligne de résultat pour chaque fraction de seconde et les données ne seraient pas du tout résumées).
+`bin` réduit tous les horodatages à des intervalles d’un jour. C’est un alias de `floor`, fonction courante dans la plupart des langages. Il réduit simplement chaque valeur au multiple le plus proche du modulo que vous spécifiez. Ainsi, `summarize` peut affecter les lignes à des groupes d’une taille raisonnable. (Sans cette fonction, nous aurions une ligne de résultat pour chaque fraction de seconde et les données ne seraient pas du tout résumées).
 
 Nous pouvons aller au-delà de la vue de table. Examinons les résultats dans la vue graphique avec l’option barres verticales :
 
@@ -436,9 +436,9 @@ Utilisez [let](./app-analytics-syntax.md#let-statements) pour séparer les parti
     | take 30
 ```
 
-> Conseil : dans le client AI Analytics, ne placez pas de lignes vides entre les différentes parties de l’expression. Exécutez-la en totalité.
+> Conseil : dans le client Analytics, ne placez pas de lignes vides entre les différentes parties de l’expression. Exécutez-la en totalité.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

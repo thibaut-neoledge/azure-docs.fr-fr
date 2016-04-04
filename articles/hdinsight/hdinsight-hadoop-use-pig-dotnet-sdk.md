@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation de Hadoop Pig avec .NET dans HDInsight | Microsoft Azure"
+   pageTitle="Utilisation de Hadoop Pig avec .NET dans HDInsight | Microsoft Azure"
    description="Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight."
    services="hdinsight"
    documentationCenter=".net"
@@ -31,11 +31,11 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 ##<a id="prereq"></a>Configuration requise
 
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
+* Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
 
-* Visual Studio 2012, 2013 ou 2015
+* Visual Studio 2012, 2013 ou 2015
 
 ##<a id="certificate"></a>Création d'un certificat de gestion
 
@@ -49,7 +49,7 @@ Pour obtenir des instructions, consultez la page [Création d'un certificat auto
 
 Chaque abonnement Azure est identifié par une valeur GUID, appelée ID d’abonnement. Procédez comme suit pour trouver cette valeur.
 
-1. Visitez le [portail Azure](version préliminaire du portail).
+1. Visitez le [portail Azure][preview-portal].
 
 2. Dans la barre située sur la gauche du portail, sélectionnez __Parcourir tout__, puis sélectionnez __Abonnements__ dans le panneau __Parcourir__.
 
@@ -59,28 +59,28 @@ Enregistrez l’ID d’abonnement, car il sera utilisé ultérieurement.
 
 ##<a id="create"></a>Création de l'application
 
-1. Ouvrez Visual Studio 2012 ou 2013
+1. Ouvrez Visual Studio 2012 ou 2013
 2. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**.
-3. Pour le nouveau projet, entrez ou sélectionnez les valeurs suivantes :
+3. Pour le nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
 	<table>
-<tr>
-<th>Propriété</th>
-<th>Valeur</th>
-</tr>
-<tr>
-<th>Catégorie</th>
-<th>Modèles/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>Modèle</th>
-<th>Application console</th>
-</tr>
-<tr>
-<th>Nom</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>Propriété</th>
+	<th>Valeur</th>
+	</tr>
+	<tr>
+	<th>Catégorie</th>
+	<th>Modèles/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Modèle</th>
+	<th>Application console</th>
+	</tr>
+	<tr>
+	<th>Nom</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 4. Cliquez sur **OK** pour créer le projet.
 5. À partir du menu **Outils**, sélectionnez **Gestionnaire de package de bibliothèque** ou **Gestionnaire de package Nuget**, puis sélectionnez **Console du gestionnaire de package**.
 6. Exécutez la commande suivante dans la console pour installer les packages du Kit de développement logiciel (SDK) .NET.
@@ -122,7 +122,6 @@ Enregistrez l’ID d’abonnement, car il sera utilisé ultérieurement.
                     // Define the Pig job
                     var parameters = new PigJobSubmissionParameters()
                     {
-                        UserName = ExistingClusterUsername,
                         Query = queryString,
                     };
         
@@ -156,6 +155,6 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-[version préliminaire du portail] : https://portal.azure.com/
+[preview-portal]: https://portal.azure.com/
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

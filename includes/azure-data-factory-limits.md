@@ -27,6 +27,6 @@ Délai d’expiration des nouvelles tentatives | 1 seconde | 1 seconde
 
 ### Limites d’appels du service web
 
-Azure Resource Manager comprend des limites pour les appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../articles/azure-subscription-service-limits/#resource-group-limits).
+Azure Resource Manager comprend des limites pour les appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

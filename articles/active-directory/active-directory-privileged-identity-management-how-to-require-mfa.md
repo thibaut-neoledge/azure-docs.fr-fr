@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management : comment exiger une authentification multifacteur"
+   pageTitle="Exiger Multi-Factor Authentication (authentification multifacteur) | Microsoft Azure"
    description="Découvrez comment exiger l’application de la solution MFA pour les identités dotées de privilèges avec l’extension Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management : Comment exiger l’authentification MFA
+# Azure AD Privileged Identity Management : Comment exiger l’authentification MFA
 
 Il est vivement recommandé d’exiger l’application de la solution Multi-Factor Authentication (MFA) pour tous vos administrateurs.
 
@@ -41,4 +41,4 @@ Si les utilisateurs s’authentifient en local, vous pouvez également faire en 
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

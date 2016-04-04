@@ -1,45 +1,45 @@
 
-This article shows you how to use Azure Resource Manager templates and the Azure CLI to do the following common tasks for deploying and managing Azure virtual machines. For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](virtual-machines-linux-app-frameworks.md).
+Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-linux-app-frameworks.md).
 
 
-- [Quick-create a virtual machine in Azure](#quick-create-a-vm-in-azure)
-- [Deploy a virtual machine in Azure from a template](#deploy-a-vm-in-azure-from-a-template)
-- [Create a virtual machine from a custom image](#create-a-custom-vm-image)
-- [Deploy a virtual machine that uses a virtual network and a load balancer](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
-- [Remove a resource group](#remove-a-resource-group)
-- [Show the log for a resource group deployment](#show-the-log-for-a-resource-group-deployment)
-- [Display information about a virtual machine](#display-information-about-a-virtual-machine)
-- [Connect to a Linux-based virtual machine](#log-on-to-a-linux-based-virtual-machine)
-- [Stop a virtual machine](#stop-a-virtual-machine)
-- [Start a virtual machine](#start-a-virtual-machine)
-- [Attach a data disk](#attach-a-data-disk)
+- [Création rapide d’une machine virtuelle dans Azure](#quick-create-a-vm-in-azure)
+- [Déploiement d’une machine virtuelle dans Azure à partir d’un modèle](#deploy-a-vm-in-azure-from-a-template)
+- [Création d’une machine virtuelle à partir d’une image personnalisée](#create-a-custom-vm-image)
+- [Déploiement d’une machine virtuelle qui utilise un réseau virtuel et un équilibreur de charge](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [Suppression d’un groupe de ressources](#remove-a-resource-group)
+- [Affichage du journal d’un déploiement de groupe de ressources](#show-the-log-for-a-resource-group-deployment)
+- [Affichage des informations relatives à une machine virtuelle](#display-information-about-a-virtual-machine)
+- [Connexion à une machine virtuelle Linux](#log-on-to-a-linux-based-virtual-machine)
+- [Arrêt d’une machine virtuelle](#stop-a-virtual-machine)
+- [Démarrage d’une machine virtuelle](#start-a-virtual-machine)
+- [Association d’un disque de données](#attach-a-data-disk)
 
-## Getting ready
+## Préparation
 
-Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](xplat-cli-install.md).
+Avant de pouvoir utiliser l'interface de ligne de commande Azure avec des groupes de ressources Azure, vous devez avoir la version adéquate de l'interface de ligne de commande Azure, ainsi qu'un compte Azure. Si vous ne disposez pas de l'interface de ligne de commande Azure, [installez-la](xplat-cli-install.md).
 
-### Update your Azure CLI version to 0.9.0 or later
+### Mettre à jour votre interface de ligne de commande Microsoft Azure vers la version 0.9.0 ou une version ultérieure
 
-Type `azure --version` to see whether you have already installed version 0.9.0 or later. 
+Entrez `azure --version` pour savoir si vous avez déjà installé la version 0.9.0 ou une version ultérieure.
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-If your version is not 0.9.0 or later, you need to update it by using one of the native installers or through **npm** by typing `npm update -g azure-cli`.
+Si vous disposez d'une version antérieure à la version 0.9.0, vous devez la mettre à jour en utilisant l'un des programmes d'installation natifs ou via **npm**, en tapant `npm update -g azure-cli`.
 
-You can also run Azure CLI as a Docker container by using the following [Docker image](https://registry.hub.docker.com/u/microsoft/azure-cli/). From a Docker host, run the following command:
+Vous pouvez également exécuter l'interface de ligne de commande Azure en tant que conteneur Docker à l'aide de l'[image Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) suivante. À partir d’un hôte Docker, exécutez la commande suivante :
 
 	docker run -it microsoft/azure-cli
 
-### Set your Azure account and subscription
+### Configurer votre compte et votre abonnement Microsoft Azure
 
-If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement MSDN, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-Now [log in to your Azure account interactively](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts for an interactive login experience to your Azure account. 
+À présent, [connectez-vous à votre compte Azure de façon interactive](../xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis en suivant les invites pour une expérience de connexion interactive à votre compte Azure.
 
-> [AZURE.NOTE] If you have a work or school ID and you know you do not have two-factor authentication enabled, you can **also** use `azure login -u` along with the work or school ID to log in *without* an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](virtual-machines-windows-create-aad-work-id.md) to log in the same way.
+> [AZURE.NOTE] Si vous disposez d'un ID professionnel ou scolaire et que vous savez que l'authentification à deux facteurs n'est pas activée, vous pouvez **également** utiliser `azure login -u` avec l'ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d'un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](virtual-machines-windows-create-aad-work-id.md) pour vous connecter de la même façon.
 
-Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
+Votre compte peut avoir plusieurs abonnements. Vous pouvez répertorier vos abonnements en tapant `azure account list`, ce qui pourrait donner ceci :
 
     azure account list
     info:    Executing command account list
@@ -50,38 +50,38 @@ Your account may have more than one subscription. You can list your subscription
     data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
     data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 
-You can set the current Azure subscription by typing the following. Use the subscription name or the ID that has the resources you want to manage.
+Vous pouvez définir l’abonnement Azure actuel en tapant la commande suivante. Utilisez le nom d’abonnement ou l’ID doté des ressources que vous souhaitez gérer.
 
 	azure account set <subscription name or ID> true
 
 
 
-### Switch to the Azure CLI resource group mode
+### Passer en mode de groupe de ressources d’interface de ligne de commande Microsoft Azure
 
-By default, the Azure CLI starts in the service management mode (**asm** mode). Type the following to switch to resource group mode.
+Par défaut, l'interface de ligne de commande Azure démarre en mode Azure Service Management (mode **asm**). Tapez la commande suivante pour basculer en mode de groupe de ressources.
 
 	azure config mode arm
 
-## Understanding Azure resource templates and resource groups
+## Présentation des groupes et des modèles de ressources Azure
 
-Most applications are built from a combination of different resource types (such as one or more VMs and storage accounts, a SQL database, a virtual network, or a content delivery network). The default Azure service management API and the Azure classic portal represented these items by using a service-by-service approach. This approach requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
+La plupart des applications sont basées sur une combinaison de différents types de ressources (au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un réseau de distribution de contenu). L’API de gestion des services Azure par défaut et le portail Azure Classic présentaient ces éléments en suivant une approche au cas par cas. ce qui nécessitait un déploiement et une gestion propres à chaque service (ou l’obtention d’outils supplémentaires pour le faire) et interdisait l’usage d’une seule unité logique de déploiement.
 
-*Azure Resource Manager templates*, however, make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion. Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group.
+Cependant, les *modèles Azure Resource Manager* permettent de regrouper le déploiement et la gestion de ces différentes ressources en une seule unité logique de déploiement de manière déclarative. Au lieu de devoir utiliser une suite de commandes pour indiquer à Azure les éléments à déployer les uns après les autres, il vous suffit de décrire l’intégralité de votre déploiement dans un fichier JSON, comprenant toutes vos ressources, ainsi que les configurations et les paramètres de déploiement leur étant associés, puis d’indiquer à Azure de déployer ces ressources en tant que groupe.
 
-You can then manage the overall life cycle of the group's resources by using Azure CLI resource management commands to:
+Vous pouvez ensuite gérer l’ensemble du cycle de vie des ressources du groupe en utilisant les commandes de gestion des ressources de l’interface de ligne de commande Azure pour :
 
-- Stop, start, or delete all of the resources within the group at once.
-- Apply Role-Based Access Control (RBAC) rules to lock down security permissions on them.
-- Audit operations.
-- Tag resources with additional metadata for better tracking.
+- arrêter, démarrer ou supprimer d’un coup toutes les ressources au sein du groupe ;
+- appliquer des règles de contrôle d’accès en fonction du rôle (RBAC) pour le verrouillage des autorisations de sécurité ;
+- mener des opérations d’audit ;
+- baliser des ressources avec des métadonnées supplémentaires pour améliorer leur suivi.
 
-You can learn lots more about Azure resource groups and what they can do for you in the [Azure Resource Manager overview](../resource-group-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+Pour plus d'informations sur les groupes de ressources Azure et ce qu'ils peuvent faire pour vous, consultez [Présentation d'Azure Resource Manager](../resource-group-overview.md). Si vous êtes intéressé par la création de modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-## <a id="quick-create-a-vm-in-azure"></a>Task: Quick-create a VM in Azure
+## <a id="quick-create-a-vm-in-azure"></a>Tâche : Créer rapidement une machine virtuelle dans Azure
 
-Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM. That's when you want to use the `azure vm quick-create` command, and pass the arguments necessary to create a VM and its infrastructure.
+Parfois, comme par exemple lorsque vous voulez tester quelque chose sur une nouvelle machine virtuelle, vous savez quelle image vous voulez utiliser et vous avez immédiatement besoin d’une machine virtuelle de cette image sans vous préoccuper de son infrastructure. C’est dans ce genre de situation qu’il faut utiliser la commande `azure vm quick-create` et transmettre les arguments nécessaires à la création d’une machine virtuelle et son infrastructure.
 
-First, create your resource group.
+Commencez par créer votre groupe de ressources.
 
     azure group create coreos-quick westus
     info:    Executing command group create
@@ -97,31 +97,31 @@ First, create your resource group.
     info:    group create command OK
 
 
-Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md). But for this article, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
+Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide de l’interface de ligne de commande Azure, consultez [Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](virtual-machines-linux-cli-ps-findimage.md). Mais pour cet article, voici une brève liste d’images populaires. Nous allons utiliser l’image Stable de CoreOS pour cette création rapide.
 
-> [AZURE.NOTE] For ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template language and in the Azure CLI. This will allow you to always use the latest and patched version of the image without having to modify your scripts or templates. This is shown below.
+> [AZURE.NOTE] Pour l’élément ComputeImageVersion, vous pouvez simplement ajouter 'latest' en tant que paramètre dans le langage du modèle et dans l’interface de ligne de commande Azure. Ceci vous permettra de toujours utiliser la version la plus récente et corrigée de l’image, sans modifier vos scripts ou vos modèles. Consultez l’illustration ci-dessous.
 
-| PublisherName                        | Offer                                 | Sku                         | Version |
+| PublisherName | Offer | Sku | Version |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic                        | CentOS                                     | 7                                | 7.0.201503          |
-| OpenLogic                        | CentOS                                     | 7.1                              | 7.1.201504          |
-| CoreOS                           | CoreOS                                     | Beta                             | 647.0.0             |
-| CoreOS                           | CoreOS                                     | Stable                           | 633.1.0             |
-| MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             | 8.0.40459           |
-| MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             | 1.0.0               |
-| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         | 1.0.0               |
-| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       | 1.0.0               |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      | 12.0.2430           |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    | 12.0.2430           |
-| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      | 12.04.201504230     |
-| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      | 14.04.201503090     |
-| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  | 3.0.201503          |
-| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               | 4.0.201503          |
-| MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview | 5.0.201504          |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          | 1.0.141204          |
-| MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           | 4.3.4665            |
+| OpenLogic | CentOS | 7 | 7\.0.201503 |
+| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
+| CoreOS | CoreOS | Bêta | 647\.0.0 |
+| CoreOS | CoreOS | Stable | 633\.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Entreprise | 1\.0.0 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour l’entrepôt de données | 12\.0.2430 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour le traitement transactionnel en ligne | 12\.0.2430 |
+| Canonical | UbuntuServer | 12\.04.5-LTS | 12\.04.201504230 |
+| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3\.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4\.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | Windows Server Technical Preview | 5\.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
 
-Just create your VM by entering the `azure vm quick-create` command and being ready for the prompts. It should look something like this:
+Créez simplement votre machine virtuelle en entrant la commande `azure vm quick-create` et en vous préparant à répondre aux invites. Le résultat suivant doit s’afficher :
 
     azure vm quick-create
     info:    Executing command vm quick-create
@@ -204,29 +204,29 @@ Just create your VM by entering the `azure vm quick-create` command and being re
     data:            FQDN                    :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
     info:    vm quick-create command OK
 
-And away you go with your new VM.
+Et vous voici avec une nouvelle machine virtuelle.
 
-## <a id="deploy-a-vm-in-azure-from-a-template"></a>Task: Deploy a VM in Azure from a template
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Tâche : Déployer une machine virtuelle dans Azure à partir d’un modèle
 
-Use the instructions in these sections to deploy a new Azure VM by using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
+Suivez les instructions des sections suivantes pour déployer une nouvelle machine virtuelle Azure à l’aide d’un modèle avec l’interface de ligne de commande Azure. Ce modèle crée une seule machine virtuelle dans un réseau virtuel avec un seul sous-réseau et, contrairement à la commande `azure vm quick-create`, il permet de décrire précisément ce que vous voulez et de le répéter sans erreurs. Voici le résultat du modèle :
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
-### Step 1: Examine the JSON file for the template parameters
+### Étape 1 : examen du fichier JSON pour obtenir les paramètres du modèle
 
-Here are the contents of the JSON file for the template. (The template is also located in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json).)
+Voici le contenu du fichier JSON relatif au modèle. (Ce modèle est également disponible sur [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json).)
 
-Templates are flexible, so the designer may have chosen to give you lots of parameters or chosen to offer only a few by creating a template that is more fixed. In order to collect the information you need to pass the template as parameters, open the template file (this topic has a template inline, below) and examine the **parameters** values.
+Le concepteur d’un modèle peut choisir de le rendre flexible en le dotant de nombreux paramètres modifiables, ou rigide, en le dotant uniquement de quelques paramètres. Pour collecter les informations, vous devez transmettre le modèle en tant que série de paramètres, ouvrir le fichier du modèle (cette rubrique comporte un modèle inline, ci-dessous) et examiner les valeurs **parameters**.
 
-In this case, the template below will ask for:
+Dans ce cas, le modèle ci-dessous vous demandera :
 
-- A unique storage account name.
-- An admin user name for the VM.
-- A password.
-- A domain name for the outside world to use.
-- An Ubuntu Server version number -- but it will accept only one of a list.
+- Un nom de compte de stockage unique.
+- Un nom d’utilisateur administrateur de la machine virtuelle.
+- Un mot de passe.
+- Un nom de domaine pour le monde extérieur à utiliser.
+- Un numéro de version Ubuntu Server, mais accepte uniquement l’un de ceux répertoriés dans une liste.
 
-Once you decide on these values, you're ready to create a group for and deploy this template into your Azure subscription.
+Une fois que vous avez déterminé ces valeurs, vous pouvez créer un groupe pour votre abonnement Azure et y déployer ce modèle.
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -404,11 +404,11 @@ Once you decide on these values, you're ready to create a group for and deploy t
     }
 
 
-### Step 2: Create the virtual machine by using the template
+### Étape 2 : création de la machine virtuelle à l’aide du modèle
 
-Once you have your parameter values ready, you must create a resource group for your template deployment and then deploy the template.
+Lorsque vos valeurs de paramètres sont prêtes, vous devez créer un groupe de ressources pour le déploiement de votre modèle avant de procéder à celui-ci.
 
-To create the resource group, type `azure group create <group name> <location>` with the name of the group you want and the datacenter location into which you want to deploy. This happens quickly:
+Pour créer le groupe de ressources, tapez `azure group create <group name> <location>` en indiquant le nom du groupe de votre choix et l'emplacement du centre de données où a lieu le déploiement. Le processus est rapide :
 
     azure group create myResourceGroup westus
     info:    Executing command group create
@@ -424,16 +424,16 @@ To create the resource group, type `azure group create <group name> <location>` 
     info:    group create command OK
 
 
-Now to create the deployment, call `azure group deployment create` and pass:
+À présent, pour créer le déploiement, appelez `azure group deployment create` et transmettez :
 
-- The template file (if you saved the above JSON template to a local file).
-- A template URI (if you want to point at the file in GitHub or some other web address).
-- The resource group into which you want to deploy.
-- An optional deployment name.
+- Le fichier du modèle (si vous avez enregistré le modèle JSON ci-dessus dans un fichier local).
+- Un URI de modèle (si vous souhaitez pointer vers le fichier dans GitHub ou vers une autre adresse web).
+- Le groupe de ressources dans lequel le déploiement a lieu.
+- Un nom pour le déploiement (facultatif).
 
-You will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, your deployment will begin.
+Vous êtes invité à entrer les valeurs des paramètres dans la section "parameters" du fichier JSON. Lorsque vous avez indiqué toutes les valeurs des paramètres, votre déploiement commence.
 
-Here is an example:
+Voici un exemple :
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json myResourceGroup firstDeployment
     info:    Executing command group deployment create
@@ -443,7 +443,7 @@ Here is an example:
     adminPassword: password
     dnsNameForPublicIP: newdomainname
 
-You will receive the following type of information:
+Le type d'information suivant s'affiche :
 
     + Initializing template configurations and parameters
     + Creating a deployment
@@ -471,15 +471,15 @@ You will receive the following type of information:
 
 
 
-## <a id="create-a-custom-vm-image"></a>Task: Create a custom VM image
+## <a id="create-a-custom-vm-image"></a>Tâche : Créer une image de machine virtuelle personnalisée
 
-You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM from a specific .vhd file in Azure by using a template via the Azure CLI. The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD).
+Maintenant que vous avez vu l’utilisation basique des modèles, vous pouvez utiliser des instructions similaires pour créer une machine virtuelle personnalisée à partir d’un fichier .vhd spécifique dans Azure à l’aide d’un modèle utilisant l’interface de ligne de commande Azure. La différence est qu’ici, ce modèle crée une seule machine virtuelle à partir d’un disque dur virtuel spécifié.
 
-### Step 1: Examine the JSON file for the template
+### Étape 1 : examen du fichier JSON pour obtenir le modèle
 
-Here are the contents of the JSON file for the template that this section uses as an example.
+Voici le contenu du fichier JSON pour le modèle utilisé à titre d’exemple dans cette section.
 
-Again, you will need to find the values you want to enter for the parameters that do not have default values. When you run the `azure group deployment create` command, the Azure CLI will prompt you to enter those values.
+Ici encore, vous devez rechercher les valeurs que vous souhaitez entrer pour les paramètres qui n’ont pas de valeurs par défaut. Lorsque vous exécutez la commande `azure group deployment create`, l’interface de ligne de commande Azure vous invite à entrer ces valeurs.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
@@ -662,17 +662,17 @@ Again, you will need to find the values you want to enter for the parameters tha
         ]
     }
 
-### Step 2: Obtain the VHD
+### Étape 2 : récupérer le disque dur virtuel
 
-Obviously, you'll need a .vhd for this. You can use one you already have in Azure, or you can upload one.
+Évidemment, vous aurez besoin d’un fichier .vhd pour cela. Vous pouvez utiliser un fichier dont vous disposez dans Azure ou en télécharger un.
 
-For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
+Dans le cas d’une machine virtuelle Windows, consultez la page [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-windows-classic-createupload-vhd.md).
 
-For a Linux-based virtual machine, see [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-classic-create-upload-vhd.md).
+Pour une machine virtuelle Linux, consultez [Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-### Step 3: Create the virtual machine by using the template
+### Étape 3 : création de la machine virtuelle à l’aide du modèle
 
-Now you're ready to create a new virtual machine based on the .vhd. Create a group to deploy into, by using `azure group create <location>`:
+Vous êtes maintenant prêt à créer une machine virtuelle basée sur le fichier .vhd. Créez un groupe pour le déploiement avec la commande `azure group create <location>` :
 
     azure group create myResourceGroupUser eastus
     info:    Executing command group create
@@ -687,7 +687,7 @@ Now you're ready to create a new virtual machine based on the .vhd. Create a gro
     data:
     info:    group create command OK
 
-Then create the deployment by using the `--template-uri` option to call in the template directly (or you can use the `--template-file` option to use a file that you have saved locally). Note that because the template has defaults specified, you are prompted for only a few things. If you deploy the template in different places, you may find that some naming collisions occur with the default values (particularly the DNS name you create).
+Ensuite, créez le déploiement avec l'option `--template-uri` pour appeler directement le modèle (ou utilisez l'option `--template-file` pour utiliser un fichier enregistré localement). Notez que, comme le modèle possède des valeurs par défaut, vous n’avez pas à renseigner beaucoup d’invites. Si vous déployez le modèle à différents endroits, il est possible que des conflits de noms se produisent vis-à-vis des valeurs par défaut (notamment le nom DNS que vous avez créé).
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
@@ -700,7 +700,7 @@ Then create the deployment by using the `--template-uri` option to call in the t
     osType: linux
     subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-Output looks something like the following:
+Le résultat ressemble à cela :
 
     + Initializing template configurations and parameters
     + Creating a deployment
@@ -736,17 +736,17 @@ Output looks something like the following:
     info:    group deployment create command OK
 
 
-## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Task: Deploy a multi-VM application that uses a virtual network and an external load balancer
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Tâche : Déployer une application de plusieurs machines virtuelles utilisant un réseau virtuel et un équilibreur de charge externe
 
-This template allows you to create two virtual machines under a load balancer and configure a load-balancing rule on Port 80. This template also deploys a storage account, virtual network, public IP address, availability set, and network interfaces.
+Ce modèle vous permet de créer deux machines virtuelles sous un équilibreur de charge et de configurer une règle d’équilibrage de charge sur le port 80. Il déploie également un compte de stockage, un réseau virtuel, une adresse IP publique, un groupe à haute disponibilité et des interfaces réseau.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
-Follow these steps to deploy a multi-VM application that uses a virtual network and a load balancer by using a Resource Manager template in the GitHub template repository via Azure PowerShell commands.
+Procédez comme suit pour déployer une application de plusieurs machines virtuelles utilisant un réseau virtuel et un équilibreur de charge à l’aide d’un modèle du Gestionnaire des ressources dans le référentiel de modèles GitHub via des commandes Azure PowerShell.
 
-### Step 1: Examine the JSON file for the template
+### Étape 1 : examen du fichier JSON pour obtenir le modèle
 
-Here are the contents of the JSON file for the template. If you want the most recent version, it's located [at the Github repository for templates](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). This topic uses the `--template-uri` switch to call in the template, but you can also use the `--template-file` switch to pass a local version.
+Voici le contenu du fichier JSON relatif au modèle. Si vous voulez la version la plus récente, elle se trouve [dans le référentiel GitHub de modèles](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Cette rubrique utilise le commutateur `--template-uri` pour appeler le modèle, mais vous pouvez également utiliser le commutateur `--template-file` pour transmettre une version locale.
 
 
     {
@@ -1080,9 +1080,9 @@ Here are the contents of the JSON file for the template. If you want the most re
         ]
     }
 
-### Step 2: Create the deployment by using the template
+### Étape 2 : création du déploiement à l’aide du modèle
 
-Create a resource group for the template by using `azure group create <location>`. Then, create a deployment into that resource group by using `azure group deployment create` and passing the resource group, passing a deployment name, and answering the prompts for parameters in the template that did not have default values.
+Créez un groupe de ressources pour le modèle à l’aide de `azure group create <location>`. Ensuite, créez un déploiement dans ce groupe de ressources à l'aide de la commande `azure group deployment create`, puis transmettez le groupe de ressources et un nom de déploiement et renseignez les invites relatives aux paramètres du modèle n'ayant pas de valeurs par défaut.
 
 
     azure group create lbgroup westus
@@ -1099,7 +1099,7 @@ Create a resource group for the template by using `azure group create <location>
     info:    group create command OK
 
 
-Now use the `azure group deployment create` command and the `--template-uri` option to deploy the template. Be ready with your parameter values when it prompts you, as shown below.
+À présent, utilisez la commande `azure group deployment create` et l’option `--template-uri` pour déployer le modèle. Préparez-vous à renseigner les invites relatives aux valeurs de paramètres, comme indiqué ci-dessous.
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json \
@@ -1146,11 +1146,11 @@ Now use the `azure group deployment create` command and the `--template-uri` opt
     data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
 
-Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image. Want to create a Docker cluster with multiple swarm managers? [You can do it](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Notez que ce modèle déploie une image Windows Server ; toutefois, vous pouvez facilement la remplacer par n’importe quelle image Linux. Vous souhaitez créer un cluster Docker avec plusieurs gestionnaires swarm ? [Vous pouvez le faire](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a id="remove-a-resource-group"></a>Task: Remove a resource group
+## <a id="remove-a-resource-group"></a>Tâche : Supprimer un groupe de ressources
 
-Remember that you can redeploy to a resource group, but if you are done with one, you can delete it by using `azure group delete <group name>`.
+N'oubliez pas que vous pouvez effectuer un redéploiement dans un groupe de ressources, mais si vous ne voulez plus en utiliser un, vous pouvez le supprimer en utilisant `azure group delete <group name>`.
 
     azure group delete myResourceGroup
     info:    Executing command group delete
@@ -1158,25 +1158,25 @@ Remember that you can redeploy to a resource group, but if you are done with one
     + Deleting resource group myResourceGroup
     info:    group delete command OK
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>Task: Show the log for a resource group deployment
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Tâche : Afficher le journal d'un déploiement de groupe de ressources
 
-This one is common while you're creating or using templates. The call to display the deployment logs for a group is `azure group log show <groupname>`, which displays quite a bit of information that's useful for understanding why something happened -- or didn't. (For more information on troubleshooting your deployments, as well as other information about issues, see [Troubleshooting resource group deployments in Azure](resource-group-deploy-debug.md).)
+Cette tâche est courante lors de la création ou de l’utilisation de modèles. L’appel permettant d’afficher les journaux de déploiement d’un groupe est `azure group log show <groupname>`. Cela entraîne l’affichage d’informations utiles pour comprendre pourquoi un événement s’est produit ou ne s’est pas produit. Pour plus d'informations sur la résolution des problèmes de vos déploiements, mais aussi pour obtenir des informations supplémentaires sur les problèmes, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-group-deploy-debug.md).
 
-To target specific failures, for example, you might use tools like **jq** to query things a bit more precisely, such as which individual failures you need to correct. The following example uses **jq** to parse a deployment log for **lbgroup**, looking for failures.
+Pour résoudre certaines défaillances, vous pouvez utiliser des outils tels que **jq** pour obtenir des renseignements plus précis, comme par exemple, l’identification des défaillances individuelles à corriger. L'exemple suivant utilise **jq** pour analyser un journal de déploiement à la recherche de défaillances dans **lbgroup**.
 
     azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 
-You can discover very quickly what went wrong, fix, and retry. In the following case, the template had been creating two VMs at the same time, which created a lock on the .vhd. (After we modified the template, the deployment succeeded quickly.)
+Vous pouvez découvrir très rapidement ce qui pose problème, le corriger et recommencer. Dans le cas suivant, le modèle a créé simultanément deux machines virtuelles, entraînant ainsi un verrouillage du fichier .vhd. Une fois le modèle modifié, le déploiement réussit rapidement.
 
     {
       "statusCode": "Conflict",
-      "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+      "statusMessage": "{"status":"Failed","error":{"code":"ResourceDeploymentFailure","message":"The resource operation completed with terminal provisioning state 'Failed'.","details":[{"code":"AcquireDiskLeaseFailed","message":"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd."}]}}"
     }
 
 
-## <a id="display-information-about-a-virtual-machine"></a>Task: Display information about a virtual machine
+## <a id="display-information-about-a-virtual-machine"></a>Tâche : Afficher les informations relatives à une machine virtuelle
 
-You can see information about specific VMs in your resource group by using the `azure vm show <groupname> <vmname> command`. If you have more than one VM in your group, you might first need to list the VMs in a group by using `azure vm list <groupname>`.
+Des informations relatives à des machines virtuelles spécifiques sont disponibles dans votre groupe de ressources. Consultez-les en utilisant la commande `azure vm show <groupname> <vmname> command`. Si vous avez plusieurs machines virtuelles dans votre groupe, vous aurez peut-être besoin de les répertorier dans un groupe à l'aide de la commande `azure vm list <groupname>`.
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1186,7 +1186,7 @@ You can see information about specific VMs in your resource group by using the `
     data:    myVM0  Succeeded          westus    Standard_A1
     data:    myVM1  Failed             westus    Standard_A1
 
-And then, looking up myVM1:
+Ensuite, recherchez myVM1 :
 
     azure vm show zoo myVM1
     info:    Executing command vm show
@@ -1239,45 +1239,46 @@ And then, looking up myVM1:
     info:    vm show command OK
 
 
-> [AZURE.NOTE] If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)** or **[jsawk](https://github.com/micha/jsawk)**, or language libraries that are good for the task.
+> [AZURE.NOTE] Si vous souhaitez stocker et manipuler la sortie des commandes de votre console par programme, vous pouvez utiliser un outil d’analyse JSON tel que **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** ou les bibliothèques de langages adaptées à cette tâche.
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>Task: Log on to a Linux-based virtual machine
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tâche : Se connecter à une machine virtuelle Linux
 
-Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
+En général, les machines Linux sont connectées via SSH. Pour plus d’informations, consultez [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-ssh-from-linux.md).
 
-## <a id="stop-a-virtual-machine"></a>Task: Stop a VM
+## <a id="stop-a-virtual-machine"></a>Tâche : Arrêter une machine virtuelle
 
-Run this command:
+Exécutez cette commande :
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT] Use this parameter to keep the virtual IP (VIP) of the vnet in case it's the last VM in that vnet. <br><br> If you use the `StayProvisioned` parameter, you'll still be billed for the VM.
+>[AZURE.IMPORTANT] Utilisez ce paramètre pour conserver l’adresse IP virtuelle du réseau virtuel s’il s’agit de la dernière machine virtuelle de ce réseau virtuel. <br><br>Si vous utilisez le paramètre `StayProvisioned`, vous êtes toujours facturé pour cette machine virtuelle.
 
-## <a id="start-a-virtual-machine"></a>Task: Start a VM
+## <a id="start-a-virtual-machine"></a>Tâche : Démarrer une machine virtuelle
 
-Run this command:
+Exécutez cette commande :
 
     azure vm start <group name> <virtual machine name>
 
-## <a id="attach-a-data-disk"></a>Task: Attach a data disk
+## <a id="attach-a-data-disk"></a>Tâche : Associer un disque de données
 
-You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it in the same command.
+Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, cette même commande entraîne la création du fichier .vhd et son association.
 
-To attach a new disk, run this command:
+Pour associer un nouveau disque, exécutez cette commande :
 
      azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
-To attach an existing data disk, run this command:
+Pour associer un disque existant, exécutez cette commande :
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
 
-Then you'll need to mount the disk, as you normally would in Linux (or in Windows).
+Vous devrez ensuite monter le disque, comme vous le feriez normalement sous Linux (ou sous Windows).
 
 
-## Next steps
+## Étapes suivantes
 
-For far more examples of Azure CLI usage with the **arm** mode, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager overview](../resource-group-overview.md).
+Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d'Azure Resource Manager](../resource-group-overview.md).
 
 
-For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](virtual-machines-linux-app-frameworks.md).
+Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-linux-app-frameworks.md).
 
+<!---HONumber=AcomDC_0323_2016-->

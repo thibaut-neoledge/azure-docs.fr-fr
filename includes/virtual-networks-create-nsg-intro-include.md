@@ -2,4 +2,4 @@ Vous pouvez utiliser un groupe de sécurité réseau pour contrôler le trafic v
 
 Pour plus d’informations sur les groupes de sécurité réseau, consultez la page [Présentation d’un groupe de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

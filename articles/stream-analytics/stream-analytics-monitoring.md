@@ -14,33 +14,33 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Présentation de la surveillance des tâches Stream Analytics et des requêtes
 
-## Introduction : page de surveillance
+## Introduction : page de surveillance
 
-Le portail de gestion Azure et le portail Azure en version préliminaire affichent les mesures de performances clés qui peuvent servir à surveiller et résoudre les problèmes affectant les performances de vos requêtes et de vos tâches.
+Le portail de gestion Azure et le portail Azure affichent les mesures de performances clés qui peuvent servir à surveiller et résoudre les problèmes affectant les performances de vos requêtes et de vos tâches.
 
-Dans le portail de gestion Azure, cliquez sur l’onglet **Surveiller** d’une tâche Stream Analytics en cours d’exécution pour afficher ces mesures. Il existe un délai de 1 minute maximum dans les mesures de performances s’affichant sur la page de surveillance.
+Dans le portail de gestion Azure, cliquez sur l’onglet **Surveiller** d’une tâche Stream Analytics en cours d’exécution pour afficher ces mesures. Il existe un délai de 1 minute maximum dans les mesures de performances s’affichant sur la page de surveillance.
 
   ![Tableau de bord de surveillance des tâches](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)
 
-Dans le portail Azure en version préliminaire, accédez à la tâche Stream Analytics dont vous souhaitez consulter les mesures et affichez la section **Surveillance**.
+Dans le portail Azure, accédez à la tâche Stream Analytics dont vous souhaitez consulter les mesures et affichez la section **Surveillance**.
 
-  ![Tableau de bord de surveillance des tâches dans le portail Azure en version préliminaire](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
+  ![Tableau de bord de surveillance des tâches dans le portail Azure](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
 
 Lors de la première création d’une tâche Stream Analytics dans une région, vous devez configurer les Diagnostics pour cette région. Pour ce faire, cliquez n’importe où dans la section **Surveillance** et le panneau **Diagnostics** s’affiche. Ici, vous pouvez activer les diagnostics et spécifier un compte de stockage pour les données d’analyse.
 
-  ![Configurer les diagnostics des requêtes dans le portail Azure en version préliminaire](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
+  ![Configurer les diagnostics des requêtes dans le portail Azure](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
 ## Mesures disponibles pour Stream Analytics
 
 
 | Mesure | Définition |
 |--------|-------------|
-| Utilisation de % d’unités de diffusion | Utilisation des unités de diffusion affectées à une tâche à partir de l’onglet Mettre à l’échelle de la tâche. Si cet indicateur atteint 80 % ou plus, il est fort probable que le traitement des événements soit retardé ou arrêté. |
+| Utilisation de % d’unités de diffusion | Utilisation des unités de diffusion affectées à une tâche à partir de l’onglet Mettre à l’échelle de la tâche. Si cet indicateur atteint 80 % ou plus, il est fort probable que le traitement des événements soit retardé ou arrêté. |
 | Événements d’entrée | Quantité de données reçues par la tâche Stream Analytics, en termes de nombre d’événements. Cela permet de valider que les événements sont envoyés à la source d’entrée. |
 | Octets des événements d’entrée | Quantité de données reçues par la tâche Stream Analytics, en termes de débit en octets |
 | Événements de sortie | Quantité de données envoyées par la tâche Stream Analytics à la cible de sortie, en termes de nombre d’événements. |
@@ -51,29 +51,29 @@ Lors de la première création d’une tâche Stream Analytics dans une région,
 
 ## Personnalisation de la surveillance dans le portail de gestion Azure ##
 
-6 mesures maximum peuvent être affichées sur un graphique
+6 mesures maximum peuvent être affichées sur un graphique
 
 Pour passer de l'affichage des valeurs relatives (valeur finale uniquement pour chaque mesure) à l'affichage des valeurs absolues (Axe Y affiché), sélectionnez Relative ou Absolute en haut du graphique.
 
   ![Valeurs relatives ou absolues lors de la surveillance des requêtes](./media/stream-analytics-monitoring/02-stream-analytics-monitoring.png)
 
-Les mesures peuvent être affichées dans le graphique de surveillance en agrégations de 1 heure, 12 heures, 24 heures ou 7 jours.
+Les mesures peuvent être affichées dans le graphique de surveillance en agrégations de 1 heure, 12 heures, 24 heures ou 7 jours.
 
-Pour modifier la plage horaire des mesures affichées dans le graphique, sélectionnez 1 heure, 24 heures ou 7 jours en haut du graphique.
+Pour modifier la plage horaire des mesures affichées dans le graphique, sélectionnez 1 heure, 24 heures ou 7 jours en haut du graphique.
 
   ![Échelle de temps de surveillance des requêtes](./media/stream-analytics-monitoring/03-stream-analytics-monitoring.png)
 
 Vous pouvez définir des règles qui vous informent par e-mail lorsque la tâche dépasse un seuil défini.
 
-## Personnalisation de la surveillance dans le portail Azure en version préliminaire ##
+## Personnalisation de la surveillance dans le portail Azure ##
 
-Vous pouvez régler le type de graphique, les mesures affichées et la période dans les paramètres Modifier le graphique. Pour plus d’informations, consultez [Personnalisation de la surveillance](./azure-portal/insights-how-to-customize-monitoring.md).
+Vous pouvez régler le type de graphique, les mesures affichées et la période dans les paramètres Modifier le graphique. Pour plus d’informations, consultez [Personnalisation de la surveillance](../azure-portal/insights-how-to-customize-monitoring.md).
 
-  ![Échelle de temps de surveillance des requêtes dans le portail Azure en version préliminaire](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
+  ![Échelle de temps de surveillance des requêtes dans le portail Azure](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
 
 ## Statut de tâche
 
-Le statut des tâches Stream Analytics peut être affiché dans le portail Azure, où une liste des tâches est disponible. Vous pouvez voir la liste des tâches en cliquant sur l’icône Stream Analytics dans le portail Azure.
+Le statut des tâches Stream Analytics peut être affiché dans le portail Azure Classic, où une liste des tâches est disponible. Vous pouvez voir la liste des tâches en cliquant sur l’icône Stream Analytics dans le portail Azure Classic.
 
 | Statut | Définition |
 |--------|------------|
@@ -107,4 +107,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

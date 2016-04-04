@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Conversion de WordPress en WordPress multisite dans Azure App Service" 
+	pageTitle="Conversion de WordPress en WordPress multisite dans Azure App Service" 
 	description="Découvrez comment convertir une application web WordPress créée par le biais de la galerie dans Azure, en WordPress multisite" 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,11 +14,11 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="01/12/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 
-# Conversion de WordPress en WordPress multisite dans Azure App Service
+# Conversion de WordPress en WordPress multisite dans Azure App Service
 
 ## Vue d'ensemble
 
@@ -26,7 +26,7 @@
 
 Ce didacticiel vous explique comment prendre une application Web WordPress existante créée par le biais de la galerie dans Azure et la convertir en une installation WordPress multisite. En outre, vous allez apprendre à attribuer un domaine personnalisé à chacun des sous-sites de votre installation.
 
-Ce didacticiel part du principe que vous disposez d'une installation existante de WordPress. Si ce n'est pas le cas, suivez les instructions fournies dans la page [Création d'un site Web WordPress à partir de la galerie dans Azure][website-from-gallery].
+Ce didacticiel part du principe que vous disposez d'une installation existante de WordPress. Si ce n'est pas le cas, suivez les instructions fournies dans la page [Création d'un site Web WordPress à partir de la galerie dans Azure][website-from-gallery].
 
 La conversion d'une installation existante d'un site unique WordPress en multisite est généralement assez simple et un grand nombre d'étapes initiales sont tirées de la page [Création d'un réseau][wordpress-codex-create-a-network] sur le [Codex WordPress](http://codex.wordpress.org).
 
@@ -34,7 +34,7 @@ Commençons.
 
 ## Autorisation du multisite
 
-Vous devez d’abord activer le multisite via le fichier `wp-config.php` avec la constante **WP\_ALLOW\_MULTISITE**. Vous disposez de deux méthodes pour modifier vos fichiers d’application web : via FTP et via Git. Si vous ne savez pas comment configurer l'une de ces méthodes, consultez les didacticiels suivants :
+Vous devez d’abord activer le multisite via le fichier `wp-config.php` avec la constante **WP\_ALLOW\_MULTISITE**. Vous disposez de deux méthodes pour modifier vos fichiers d’application web : via FTP et via Git. Si vous ne savez pas comment configurer l'une de ces méthodes, consultez les didacticiels suivants :
 
 * [Site web PHP avec MySQL et FTP][website-w-mysql-and-ftp-ftp-setup]
 
@@ -46,11 +46,11 @@ Ouvrez le fichier `wp-config.php` avec l’éditeur de votre choix et ajoutez ce
 
 	define( 'WP_ALLOW_MULTISITE', true );
 
-Assurez-vous d'enregistrer le fichier et de le renvoyer au serveur !
+Assurez-vous d'enregistrer le fichier et de le renvoyer au serveur !
 
 ## Configuration réseau
 
-Connectez-vous à la zone *wp-admin* de votre application web. Vous devez voir un nouvel élément nommé **Réseau** sous le menu **Outils**. Cliquez sur **Réseau** et entrez les informations sur votre réseau.
+Connectez-vous à la zone *wp-admin* de votre application web. Vous devez voir un nouvel élément nommé **Réseau** sous le menu **Outils**. Cliquez sur **Réseau** et entrez les informations sur votre réseau.
 
 ![Écran Configuration réseau][wordpress-network-setup]
 
@@ -76,7 +76,7 @@ Le plug-in [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-ma
 
 ## Activer le mappage de domaine sur l’application web
 
-Le mode **Gratuit** du plan [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ne prend pas en charge l’ajout de domaines personnalisés à Web Apps. Vous devez basculer vers le mode **Partagé** ou **Standard**. Pour ce faire :
+Le mode **Gratuit** du plan [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ne prend pas en charge l’ajout de domaines personnalisés à Web Apps. Vous devez basculer vers le mode **Partagé** ou **Standard**. Pour ce faire :
 
 * Connectez-vous au portail Azure et recherchez votre application web. 
 * Cliquez sur l’onglet **Passage à une édition supérieure** dans **Paramètres**.
@@ -85,11 +85,11 @@ Le mode **Gratuit** du plan [App Service](http://go.microsoft.com/fwlink/?LinkId
 
 Il se peut que vous receviez un message vous demandant de vérifier la modification et vous informant que votre application web peut désormais générer des frais en fonction de votre utilisation et des autres configurations définies.
 
-Le traitement des nouveaux paramètres prend quelques secondes ; il est maintenant temps de commencer à configurer votre domaine.
+Le traitement des nouveaux paramètres prend quelques secondes ; il est maintenant temps de commencer à configurer votre domaine.
 
 ## Vérification de votre domaine
 
-Avant que la fonctionnalité Azure Web Apps vous permette de mapper un domaine sur le site, vous devez commencer par vérifier que vous êtes autorisé à effectuer cette opération. Pour ce faire, vous devez ajouter un nouvel enregistrement CNAME à votre entrée DNS.
+Avant que la fonctionnalité Azure Web Apps vous permette de mapper un domaine sur le site, vous devez commencer par vérifier que vous êtes autorisé à effectuer cette opération. Pour ce faire, vous devez ajouter un nouvel enregistrement CNAME à votre entrée DNS.
 
 * Connectez-vous au gestionnaire DNS de votre domaine.
 * Créez un enregistrement CNAME *awverify*.
@@ -107,22 +107,22 @@ Lorsque les *Paramètres SSL* s’affichent, vous voyez apparaître les champs d
 
 Une fois que vous avez tapé votre domaine dans la zone de texte, Azure vérifie l’enregistrement CNAME que vous avez créé précédemment. Si la propagation du DNS n'est pas complète, un indicateur rouge s'affiche. Si elle est terminée, vous voyez une coche verte.
 
-Notez l'adresse IP affichée en bas de la boîte de dialogue. Elle est nécessaire pour configurer l'enregistrement A pour votre domaine.
+Notez l'adresse IP affichée en bas de la boîte de dialogue. Elle est nécessaire pour configurer l'enregistrement A pour votre domaine.
 
-## Configuration de l'enregistrement A du domaine
+## Configuration de l'enregistrement A du domaine
 
-Si les autres étapes se sont correctement déroulées, vous pouvez désormais attribuer le domaine à votre application web Azure via un enregistrement DNS A.
+Si les autres étapes se sont correctement déroulées, vous pouvez désormais attribuer le domaine à votre application web Azure via un enregistrement DNS A.
 
-Il est important de remarquer que les applications web Azure acceptent les enregistrements CNAME et A. Toutefois, vous *devez* utiliser un enregistrement A pour activer le mappage de domaine approprié. Un enregistrement CNAME ne peut pas être transféré vers un autre CNAME, qui correspond à ce qu'Azure a créé pour vous avec VOTRE\_DOMAINE.azurewebsites.net.
+Il est important de remarquer que les applications web Azure acceptent les enregistrements CNAME et A. Toutefois, vous *devez* utiliser un enregistrement A pour activer le mappage de domaine approprié. Un enregistrement CNAME ne peut pas être transféré vers un autre CNAME, qui correspond à ce qu'Azure a créé pour vous avec VOTRE\_DOMAINE.azurewebsites.net.
 
-À l'aide de l'adresse IP de l'étape précédente, revenez sur votre gestionnaire DNS et configurez l'enregistrement A de manière ce qu'il pointe sur cette IP.
+À l'aide de l'adresse IP de l'étape précédente, revenez sur votre gestionnaire DNS et configurez l'enregistrement A de manière ce qu'il pointe sur cette IP.
 
 
 ## Installation et configuration du plug-in
 
 Actuellement, la fonctionnalité multisite de WordPress ne dispose pas d'une méthode intégrée pour mapper les domaines personnalisés. Toutefois, il existe un plug-in nommé [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] qui ajoute cette fonctionnalité pour vous. Connectez-vous à la partie Admin du réseau de votre site et installez le plug-in **WordPress MU Domain Mapping**.
 
-Après avoir installé et activé le plug-in, accédez à **Paramètres** > **Mappage de domaine** pour configurer le plug-in. Dans la première zone de texte, *Adresse IP du serveur*, entrez l'adresse IP utilisée pour configurer l'enregistrement A du domaine. Définissez les *Options du domaine* de votre choix (les valeurs par défaut font souvent l'affaire), puis cliquez sur **Enregistrer**.
+Après avoir installé et activé le plug-in, accédez à **Paramètres** > **Mappage de domaine** pour configurer le plug-in. Dans la première zone de texte, *Adresse IP du serveur*, entrez l'adresse IP utilisée pour configurer l'enregistrement A du domaine. Définissez les *Options du domaine* de votre choix (les valeurs par défaut font souvent l'affaire), puis cliquez sur **Enregistrer**.
 
 ## Mappage du domaine
 
@@ -132,12 +132,12 @@ Par défaut, le nouveau domaine est réécrit sur le domaine de site généré a
 
 ## Répétition de l'opération
 
-La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines illimité à une application web. Pour ajouter un autre domaine, vous devez exécuter les sections **Vérification de votre domaine** et **Configuration de l'enregistrement A du domaine** pour chaque domaine.
+La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines illimité à une application web. Pour ajouter un autre domaine, vous devez exécuter les sections **Vérification de votre domaine** et **Configuration de l'enregistrement A du domaine** pour chaque domaine.
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
@@ -153,4 +153,4 @@ La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

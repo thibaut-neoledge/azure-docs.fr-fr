@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Instructions dans Application Analytics" 
-	description="Requêtes, expressions et instructions let dans Application Analytics, l’outil de recherche puissant pour Application Insights." 
+	pageTitle="Instructions dans Analytics Application Insights" 
+	description="Requêtes, expressions et instructions let dans Analytics, le puissant outil de recherche d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Instructions dans Application Analytics
+# Instructions Analytics dans Application Insights
 
-[Application Analytics](app-analytics.md) est un moteur de recherche puissant pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Application Analytics (CSL).
-
+[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## Modèle de données
 
-Dans CSL :
+Dans AIQL :
 
 * Une *base de données* ne contient aucune *table* ou plusieurs.
 * Une *table* contient :
@@ -67,7 +66,7 @@ Il existe quatre types d’instructions dans CSL :
 
 ### Requêtes de données
   
-Demandes en lecture seuls concernant les données stockées dans Application Analytics. Par exemple :
+Demandes en lecture seule concernant les données stockées dans Analytics. Par exemple :
 
 * `event` : renvoie tous les enregistrements dans la table nommée « événement ».
 * `event | count` : renvoie un nombre d’enregistrements dans « événement ».
@@ -269,4 +268,4 @@ Les paramètres pour des fonctions nommées doivent être scalaires.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

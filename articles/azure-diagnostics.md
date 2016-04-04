@@ -58,7 +58,7 @@ Notez que Web Apps n'utilise pas les diagnostics Azure. Trouver les informations
 Pour des rubriques plus avancées, voir
 - [Utilisation des diagnostics avec Application Insights pour Cloud Services](./application-insights/app-insights-cloudservices.md)
 - [Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-- [Utilisation de PowerShell pour configurer les diagnostics sur Cloud Services](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
+- [Utilisation de PowerShell pour configurer les diagnostics sur Cloud Services](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 
 
 ## Virtual Machines avec les diagnostics Azure
@@ -66,8 +66,8 @@ Pour des rubriques plus avancées, voir
 - [Configurer les diagnostics Azure sur une machine virtuelle Azure](./virtual-machines-dotnet-diagnostics.md)
 
 Pour des rubriques plus avancées, voir
-- [Utilisation de PowerShell pour configurer les diagnostics sur Azure Virtual Machines](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
-- [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
+- [Utilisation de PowerShell pour configurer les diagnostics sur Azure Virtual Machines](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
+- [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
 ## Service Fabric avec les diagnostics Azure
 Commencez avec [Surveillance d’une application Service Fabric](./service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). De nombreux autres articles sur les diagnostics Service Fabric sont disponibles dans l'arborescence de navigation sur la gauche, à partir de cet article.
@@ -79,4 +79,4 @@ Commencez avec [Surveillance d’une application Service Fabric](./service-fabri
 - Apprenez à [acheminer les informations des diagnostics Azure vers Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - Si vous rencontrez des difficultés avec le lancement des diagnostics ou la recherche des données dans les tables Azure Storage, voir [Résolution des problèmes des diagnostics Azure](./azure-diagnostics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

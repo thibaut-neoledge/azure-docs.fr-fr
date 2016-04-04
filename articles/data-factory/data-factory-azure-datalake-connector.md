@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure Data Lake Store à l’aide d’Azure Data Factory
@@ -58,7 +58,7 @@ L’exemple copie des données appartenant à une série horaire depuis un stock
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@ L’exemple copie des données appartenant à une série horaire depuis un stock
 La procédure qui suit décrit les étapes nécessaires à la création d’un service lié Azure Data Lake Store à l’aide de Data Factory Editor.
 
 1. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et sélectionnez **Azure Data Lake Store**.
-2. Dans l’éditeur JSON, pour la propriété **datalakeUri**, saisissez l’URI correspondant au lac de données.
+2. Dans l’éditeur JSON, pour la propriété **dataLakeStoreUri**, saisissez l’URI correspondant au lac de données.
 3. Cliquez sur le bouton **Autoriser** de la barre de commandes. Une fenêtre contextuelle doit apparaître.
 
 	![Bouton Autoriser](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@ L’exemple copie des données appartenant à une série horaire depuis un magas
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,14 +405,14 @@ Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide
 | Propriété | Description | Requis |
 | :-------- | :----------- | :-------- |
 | type | La propriété type doit être définie sur : **AzureDataLakeStore** | Oui |
-| dataLakeUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Oui |
+| dataLakeStoreUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Oui |
 | autorisation | Cliquez sur le bouton **Autoriser** dans **Data Factory Editor** et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | Oui |
 | sessionId | ID de session OAuth issu de la session d’autorisation oauth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement lorsque vous utilisez Data Factory Editor. | Oui |  
 | accountName | Nom du compte de lac de données | Non |
 | subscriptionId | ID d’abonnement Azure | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
 | nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
 
-Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** arrive à expiration au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Le message d’erreur suivant peut s’afficher à l’**expiration du jeton** d’authentification : « Erreur de l’opération d’informations d’identification : \_grant - AADSTS70002 non valide : Erreur lors de la validation des informations d’identification. AADSTS70008 : L’autorisation d’accès fournie est expirée ou révoquée. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** arrive à expiration au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Le message d’erreur suivant peut s’afficher à l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
 
 
 | Type d’utilisateur | Expire après |
@@ -608,4 +608,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

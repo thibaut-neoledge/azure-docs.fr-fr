@@ -36,7 +36,7 @@ Si vous avez défini votre propre cluster, vous devez réfléchir à ces différ
 
  Lors de l’exécution, le Gestionnaire de ressources de cluster Service Fabric considère les domaines d’erreur dans le cluster et tente de répartir les réplicas d’un service donné afin qu’ils soient tous dans des domaines d’erreur distincts. Ce processus permet de s’assurer qu’en cas d’échec d’un domaine d’erreur, la disponibilité de ce service n’est pas compromise.
 
- Le Gestionnaire de ressources de cluster Service Fabric ne tient pas véritablement compte du nombre de couches de la hiérarchie. Cependant, dans la mesure où il cherche à s’assurer que la perte d’une partie de la hiérarchie n’influe pas sur le cluster ou les services exécutés sur celui-ci, il est généralement préférable que chaque niveau de profondeur du domaine d’erreur inclue le même nombre de machines. Cela évite qu’une partie de la hiérarchie doive contenir plus de services que d’autres à la fin de la journée.
+ Le gestionnaire de ressources de cluster Service Fabric ne tient pas véritablement compte du nombre de couches de la hiérarchie. Cependant, dans la mesure où il cherche à s’assurer que la perte d’une partie de la hiérarchie n’influe pas sur le cluster ou les services exécutés sur celui-ci, il est généralement préférable que chaque niveau de profondeur du domaine d’erreur inclue le même nombre de machines. Cela évite qu’une partie de la hiérarchie doive contenir plus de services que d’autres à la fin de la journée.
 
  Si vous configurez votre cluster d’une manière qui crée un déséquilibre dans l’« arborescence » de domaines d’erreur, le Gestionnaire de ressources aura du mal à déterminer l’allocation optimale des réplicas, en particulier car cela signifie que la perte d’un domaine donné peut grandement affecter la disponibilité du cluster. Le Gestionnaire de ressources est alors partagé entre l’utilisation efficace des machines dans ce domaine « lourd » et le placement des services de façon à ce que la perte du domaine n’entraîne aucun problème.
 
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

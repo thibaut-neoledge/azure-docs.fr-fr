@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Protéger les données sensibles dans la base de données SQ avec le chiffrement de base de données | Microsoft Azure"
+	pageTitle="Chiffrement intégral - Protéger les données sensibles dans Azure SQL Database avec le chiffrement de base de données"
 	description="Protéger les données sensibles de votre base de données SQL en quelques minutes."
 	keywords="chiffrement des données, clé de chiffrement, chiffrement cloud"	
 	services="sql-database"
@@ -18,7 +18,7 @@
 	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Protéger les données sensibles de la base de données SQL à l’aide du chiffrement de base de données et stocker vos clés de chiffrement dans Azure Key Vault
+# Chiffrement intégral - Protéger les données sensibles de la base de données SQL à l’aide du chiffrement de base de données et stocker vos clés de chiffrement dans Azure Key Vault
 
 > [AZURE.SELECTOR]
 - [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
@@ -689,4 +689,4 @@ Après avoir créé une base de données qui utilise le chiffrement intégral, v
 - [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

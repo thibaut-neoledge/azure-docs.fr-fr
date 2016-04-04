@@ -2,102 +2,83 @@
 
 
 
-Run the HPC Pack IaaS deployment PowerShell script on a client
-computer to deploy a complete HPC Pack cluster in Azure infrastructure
-services (IaaS). The script provides several deployment options, and can add cluster compute nodes running supported Linux
-distributions or Windows Server operating systems.
+Exécutez le script PowerShell de déploiement du HPC Pack IaaS sur un ordinateur client pour déployer un cluster HPC Pack complet dans les services d’infrastructure Azure (IaaS). Le script fournit plusieurs options de déploiement et peut ajouter des nœuds de calcul de cluster exécutant des distributions Linux prises en charge ou des systèmes d’exploitation Windows Server.
 
-Depending on your environment and choices, the script can create all the cluster infrastructure, including the Azure virtual network, storage accounts, cloud services, domain controller, remote or local SQL databases, head node, broker nodes, compute nodes, and Azure cloud service (“burst”, or PaaS) nodes. Alternatively, the script can use pre-existing Azure infrastructure and then create the HPC cluster head node, broker nodes, compute nodes, and Azure burst nodes.
+Selon votre environnement et vos choix, le script peut créer toute l’infrastructure de clusters, y compris le réseau virtuel Azure, les comptes de stockage, les services cloud, le contrôleur de domaine, les bases de données SQL locales ou distantes, le nœud principal, les nœuds du répartiteur, les nœuds de calcul et les nœuds de service cloud Azure (« nœuds d’extension » ou PaaS). Sinon, le script peut utiliser l’infrastructure Azure existante, puis créer le nœud principal de cluster HPC, les nœuds du répartiteur, les nœuds de calcul et les nœuds d’extension Azure.
 
 
-For background information about planning an HPC Pack cluster, see the [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) and [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) content in the HPC Pack TechNet Library.
+Pour des informations générales sur la planification d’un cluster HPC Pack, consultez [Évaluation du produit et planification](https://technet.microsoft.com/library/jj899596.aspx) et [Mise en route](https://technet.microsoft.com/library/jj899590.aspx) dans la bibliothèque TechNet HPC Pack.
 
->[AZURE.NOTE]You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For an example, see [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/), [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/), or [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
+>[AZURE.NOTE]Vous pouvez également utiliser un modèle Azure Resource Manager pour déployer un cluster HPC Pack. Pour obtenir un exemple, consultez [Création d’un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/), [Création d’un cluster HPC avec une image de nœud de calcul personnalisée](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)ou [Création d’un cluster HPC avec des nœuds de calcul Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
 
-## Prerequisites
+## Configuration requise
 
-* **Azure subscription** - You can use a subscription in either the Azure Global or Azure China service. Your subscription limits will affect the number and type of cluster nodes you can deploy. For information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-
-
-* **Windows client computer with Azure PowerShell 0.8.7 or later installed and configured** - See [Install and configure Azure PowerShell](../powershell-install-configure.md). The script runs in Azure Service Management.
+* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Vos limites d’abonnement affecteront le nombre et le type de nœuds de cluster que vous pouvez déployer. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
 
-* **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.0 of the script.
-
-* **Script configuration file** - You'll need to create an XML file that the script uses to configure the HPC cluster. For information and examples, see sections later in this article.
+* **Ordinateur client Windows avec Azure PowerShell 0.8.7 ou version ultérieure installé et configuré**. Consultez [Installer et configurer Azure PowerShell](../powershell-install-configure.md). Le script s’exécute dans Azure Service Management.
 
 
-## Syntax
+* **Script de déploiement du HPC Pack IaaS** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.0 du script.
+
+* **Fichier de configuration de script** : vous devez créer un fichier XML qui sera utilisé par le script pour configurer le cluster HPC. Pour obtenir plus d’informations et des exemples, consultez les sections appropriées, plus loin dans cet article.
+
+
+## Syntaxe
 
 ```
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
->[AZURE.NOTE]You must run the script as an administrator.
+>[AZURE.NOTE]Vous devez exécuter chacun des scripts en tant qu’administrateur.
 
-### Parameters
+### Paramètres
 
-* **ConfigFile** - Specifies the file path of the configuration file to describe the HPC cluster. For more information, see [Configuration file](#Configuration-file) in this topic, or the file Manual.rtf, in the folder containing the script.
+* **ConfigFile** : spécifie le chemin d’accès du fichier de configuration pour décrire le cluster HPC. Pour plus d’informations, consultez [Fichier de configuration](#Configuration-file) dans cette rubrique, ou le fichier Manual.rtf, dans le dossier contenant le script.
 
-* **AdminUserName** - Specifies the user name. If the domain forest is created by the script, this becomes the local administrator user name for all VMs as well as the domain administrator name. If the domain forest already exists, this specifies the domain user as the local administrator user name to install HPC Pack.
+* **AdminUserName** : spécifie le nom d’utilisateur. Si la forêt de domaines est créée par le script, cela devient le nom d’utilisateur de l’administrateur local pour toutes les machines virtuelles, ainsi que le nom d’administrateur de domaine. Si la forêt de domaines existe déjà, cela indique l’utilisateur du domaine comme nom d’utilisateur d’administrateur local pour installer HPC Pack.
 
-* **AdminPassword** - Specifies the administrator’s password. If not specified in the command line, the script will prompt you to input the password.
+* **AdminPassword** : spécifie le mot de passe de l’administrateur. S’il n’a pas été spécifié dans la ligne de commande, le script vous invite à entrer le mot de passe.
 
-* **HPCImageName** (optional) - Specifies the HPC Pack VM image name used to deploy the HPC cluster. It must be a Microsoft-provided HPC Pack image from the Azure Marketplace. If not specified (recommended in most cases), the script chooses the latest published HPC Pack image.
+* **HPCImageName** (facultatif) : spécifie le nom d’image de la machine virtuelle HPC Pack à utiliser pour le déploiement du cluster HPC. Ce doit être une image HPC Pack fournie par Microsoft à partir d’Azure Marketplace. S’il n’a pas été spécifié (recommandé dans la plupart des cas), le script choisit la dernière image HPC Pack publiée.
 
-    >[AZURE.NOTE] Deployment will fail if you don't specify a valid HPC Pack image.
+    >[AZURE.NOTE] Le déploiement échouera si vous ne spécifiez pas d’image HPC Pack valide.
 
-* **LogFile** (optional) - Specifies the deployment log file path. If not specified, the script will create a log file in the temp directory of the computer running the script.
+* **LogFile** (facultatif) : spécifie le chemin du fichier journal de déploiement. S’il n’a pas été spécifié, le script crée un fichier journal dans le répertoire temp de l’ordinateur qui exécute le script.
 
-* **Force** (optional) - Suppresses all the confirmation prompts.
+* **Force** (facultatif) : supprime toutes les invites de confirmation.
 
-* **NoCleanOnFailure** (optional) - Specifies that the Azure VMs that are not successfully deployed will not be removed. You must remove these VMs manually before rerunning the script to continue the deployment, or the deployment may fail.
+* **NoCleanOnFailure** (facultatif) : spécifie que les machines virtuelles Azure qui n’ont pas été correctement déployées ne soient pas supprimées. Vous devez supprimer manuellement ces machines virtuelles avant de réexécuter le script pour poursuivre le déploiement, sinon le déploiement peut échouer.
 
-* **PSSessionSkipCACheck** (optional) - For every cloud service with VMs deployed by this script, a self-signed certificate is automatically generated by Azure, and all the VMs in the cloud service use this certificate as the default Windows Remote Management (WinRM) certificate. To deploy HPC features in these Azure VMs, the script by default temporarily installs these certificates in the Local Computer\\Trusted Root Certification Authorities store of the client computer to suppress the “not trusted CA” security error during script execution; the certificates are removed when the script finishes. If this parameter is specified, the certificates are not installed in the client computer, and the security warning is suppressed.
+* **PSSessionSkipCACheck** (facultatif) : pour chaque service cloud avec des machines virtuelles déployées par ce script, un certificat auto-signé est automatiquement généré par Azure, et toutes les machines virtuelles du service cloud utilisent ce certificat en tant que certificat Windows Remote Management (WinRM) par défaut. Pour déployer des fonctionnalités HPC dans ces machines virtuelles Azure, le script par défaut installe temporairement ces certificats dans le magasin Ordinateur local\\Autorités de certification racines de confiance de l’ordinateur client pour supprimer l’erreur de sécurité d’autorité de certification non approuvée pendant l’exécution du script ; les certificats sont supprimés quand le script se termine. Si ce paramètre est spécifié, les certificats ne sont pas installés sur l’ordinateur client et l’avertissement de sécurité est supprimé.
 
-    >[AZURE.IMPORTANT] This parameter is not recommended for production deployments.
+    >[AZURE.IMPORTANT] Ce paramètre n’est pas recommandé pour les déploiements de production.
 
-### Example
+### Exemple
 
-The following example creates a new HPC Pack cluster using the
-configuration file *MyConfigFile.xml*, and specifies administrative
-credentials for installing the cluster.
+L’exemple suivant crée un cluster HPC Pack à l’aide du fichier de configuration *MyConfigFile.xml* et spécifie les informations d’identification d’administration pour l’installation du cluster.
 
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
-### Additional considerations
+### Considérations supplémentaires
 
-* The script uses the HPC Pack VM image in the Azure Marketplace to create the cluster head node. The latest image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 installed.
+* Le script utilise l’image de machine virtuelle HPC Pack dans Azure Marketplace pour créer le nœud principal du cluster. La dernière image est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3.
 
-* The script can optionally enable job submission through the HPC Pack web portal or the HPC Pack REST API.
+* Le script peut éventuellement activer la soumission de travaux via le portail web HPC Pack ou l’API REST du HPC Pack.
 
-* The script can optionally run custom pre- and post-configuration scripts on the head node if you want to install additional software or configure other settings.
+* Le script peut éventuellement exécuter des scripts de pré- et post-configuration personnalisés sur le nœud principal si vous souhaitez installer des logiciels supplémentaires ou configurer d’autres paramètres.
 
 
-## Configuration file
+## Fichier de configuration
 
-The configuration file for the deployment script is an XML
-file. The schema file HPCIaaSClusterConfig.xsd is in the HPC Pack IaaS
-deployment script folder. **IaaSClusterConfig** is the root element of
-the configuration file, which contains the child elements described in
-detail in the file Manual.rtf in the deployment script folder. For example files for different scenarios, see
-[Example configuration files](#Example-configuration-files) in this article.
+Le fichier de configuration pour le script de déploiement est un fichier XML. Le fichier de schéma HPCIaaSClusterConfig.xsd se trouve dans le dossier de script de déploiement du HPC Pack IaaS. **IaaSClusterConfig** est l’élément racine du fichier de configuration qui contient les éléments enfants décrits en détail dans le fichier Manual.rtf dans le dossier de script de déploiement. Pour consulter des fichiers d’exemple pour les différents scénarios, consultez [Exemples de fichiers de configuration](#Example-configuration-files) dans cet article.
 
-## Example configuration files
+## Exemples de fichiers de configuration
 
-### Example 1
+### Exemple 1
 
-The following configuration file deploys an HPC Pack cluster in an existing domain forest. The cluster has 1 head node with local databases and 12 compute nodes with the BGInfo VM extension applied.
-Automatic installation of Windows updates is disabled for all the VMs in
-the domain forest. All the cloud services are created directly in the
-East Asia location. The compute nodes are created in 3 cloud services
-and 3 storage accounts (i.e., _MyHPCCN-0001_ to _MyHPCCN-0005_ in
-_MyHPCCNService01_ and _mycnstorage01_; _MyHPCCN-0006_ to _MyHPCCN0010_ in
-_MyHPCCNService02_ and _mycnstorage02_; and _MyHPCCN-0011_ to _MyHPCCN-0012_ in
-_MyHPCCNService03_ and _mycnstorage03_). The compute nodes are created from
-an existing private image captured from a compute node. The auto grow
-and shrink service is enabled with default grow and shrink intervals.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales et 12 nœuds de calcul avec l’extension de machine virtuelle BGInfo appliquée. L’installation automatique des mises à jour Windows est désactivée pour toutes les machines virtuelles dans la forêt de domaines. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul sont créés dans 3 services cloud et 3 comptes de stockage (c’est-à-dire, _MyHPCCN-0001_ à _MyHPCCN-0005_ dans _MyHPCCNService01_ et _mycnstorage01_ ; _MyHPCCN-0006_ à _MyHPCCN0010_ dans _MyHPCCNService02_ et _mycnstorage02_ ; et _MyHPCCN-0011_ à _MyHPCCN-0012_ dans _MyHPCCNService03_ et _mycnstorage03_). Les nœuds de calcul sont créés à partir d’une image privée existante capturée depuis un nœud de calcul. Le service d’agrandissement et de réduction automatiques est activé avec des intervalles d’agrandissement et de réduction par défaut.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -159,16 +140,9 @@ and shrink service is enabled with default grow and shrink intervals.
 
 ```
 
-### Example 2
+### Exemple 2
 
-The following configuration file deploys an HPC Pack cluster
-in an existing domain forest. The cluster contains 1 head node, 1
-database server with a 500GB data disk, 2 broker nodes running the Windows
-Server 2012 R2 operating system, and 5 compute nodes running the Windows
-Server 2012 R2 operating system. The cloud service MyHPCCNService is
-created in the affinity group *MyIBAffinityGroup*, and all the other cloud
-services are created in the affinity group *MyAffinityGroup*. The HPC Job
-Scheduler REST API and HPC web portal are enabled on the head node.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster contient 1 nœud principal, 1 serveur de base de données avec un disque de données de 500 Go, 2 nœuds de répartiteur exécutant le système d’exploitation Windows Server 2012 R2 et 5 nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Le service cloud MyHPCCNService est créé dans le groupe d’affinités *MyIBAffinityGroup*. Tous les autres services cloud sont créés dans le groupe d’affinités *MyAffinityGroup*. L’API REST du planificateur de travaux HPC et le portail web HPC sont activés sur le nœud principal.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -220,18 +194,9 @@ Scheduler REST API and HPC web portal are enabled on the head node.
 </IaaSClusterConfig>
 ```
 
-### Example 3
+### Exemple 3
 
-The following configuration file creates a new domain forest
-and Deployments an HPC Pack cluster which has 1 head node with local
-databases and 20 Linux compute nodes. All the cloud services are created
-directly in the East Asia location. The Linux compute nodes are created
-in 4 cloud services and 4 storage accounts (i.e. _MyLnxCN-0001_ to
-_MyLnxCN-0005_ in _MyLnxCNService01_ and _mylnxstorage01_, _MyLnxCN-0006_ to
-_MyLnxCN-0010_ in _MyLnxCNService02_ and _mylnxstorage02_, _MyLnxCN-0011_ to
-_MyLnxCN-0015_ in _MyLnxCNService03_ and _mylnxstorage03_, and _MyLnxCN-0016_ to
-_MyLnxCN-0020_ in _MyLnxCNService04_ and _mylnxstorage04_). The compute nodes
-are created from an OpenLogic CentOS version 7.0 Linux image.
+Le fichier de configuration suivant crée une nouvelle forêt de domaines et le déploiement d’un cluster HPC Pack qui a 1 nœud principal avec des bases de données locales et 20 nœuds de calcul Linux. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul Linux sont créés dans 4 services cloud et 4 comptes de stockage (c’est-à-dire _MyLnxCN-0001_ à _MyLnxCN-0005_ dans _MyLnxCNService01_ et _mylnxstorage01_ ; _MyLnxCN-0006_ à _MyLnxCN-0010_ dans _MyLnxCNService02_ et _mylnxstorage02_ ; _MyLnxCN-0011_ à _MyLnxCN-0015_ dans _MyLnxCNService03_ et _mylnxstorage03_ ; et _MyLnxCN-0016_ à _MyLnxCN-0020_ dans _MyLnxCNService04_ et _mylnxstorage04_). Les nœuds de calcul sont créés à partir d’une image Linux OpenLogic CentOS version 7.0.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -279,13 +244,9 @@ are created from an OpenLogic CentOS version 7.0 Linux image.
 ```
 
 
-### Example 4
+### Exemple 4
 
-The following configuration file deploys an HPC Pack cluster
-which has a head node with local databases and 5 compute nodes running
-the Windows Server 2008 R2 operating system. All the cloud services are
-created directly in the East Asia location. The head node acts as domain
-controller of the domain forest.
+Le fichier de configuration suivant déploie un cluster HPC Pack qui possède un nœud principal avec des bases de données locales et 5 nœuds exécutant le système d’exploitation Windows Server 2008 R2. Tous les services cloud sont créés directement dans l’emplacement East Asia. Le nœud principal agit en tant que contrôleur de domaine de la forêt de domaines.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -321,13 +282,9 @@ controller of the domain forest.
 </IaaSClusterConfig>
 ```
 
-### Example 5
+### Exemple 5
 
-The following configuration file deploys an HPC Pack cluster
-in an existing domain forest. The cluster has 1 head node with local
-databases, two Azure node templates are created, and 3 Medium size Azure
-nodes are created for Azure node template _AzureTemplate1_. A script file
-will run on the head node after the head node is configured.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales, 2 modèles de nœud Azure sont créés et 3 nœuds Azure de taille moyenne sont créés pour le modèle de nœud Azure _AzureTemplate1_. Un fichier de script s’exécutera sur le nœud principal après la configuration de ce dernier.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -392,36 +349,17 @@ will run on the head node after the head node is configured.
   </AzureBurst>
 </IaaSClusterConfig>
 ```
-## Known issues
+## Problèmes connus
 
 
-* **“VNet doesn’t exist” error** - If you run the HPC Pack IaaS deployment script to deploy multiple
-clusters in Azure concurrently under one subscription, one or more
-deployments may fail with the error “VNet *VNet\_Name* doesn't exist”.
-If this error occurs, re-run the script for the failed deployment.
+* **Erreur « Le réseau virtuel n’existe pas »** : si vous exécutez le script de déploiement du HPC Pack IaaS pour déployer plusieurs clusters dans Azure simultanément sous un même abonnement, un ou plusieurs déploiements peuvent échouer avec l’erreur « Le réseau virtuel *nom\_VNet* n’existe pas ». Si cette erreur se produit, réexécutez le script de déploiement qui a échoué.
 
-* **Problem accessing the Internet from the Azure virtual network** - If you create an HPC Pack cluster with a new domain controller by using
-the deployment script, or you manually promote a VM to domain
-controller, you may experience problems connecting the VMs in the Azure
-virtual network to the Internet. This can occur if a forwarder DNS
-server is automatically configured on the domain controller, and this
-forwarder DNS server doesn’t resolve properly.
+* **Problème d’accès à Internet à partir du réseau virtuel Azure** : si vous créez un cluster HPC Pack avec un nouveau contrôleur de domaine en utilisant le script de déploiement, ou si vous promouvez manuellement une machine virtuelle en contrôleur de domaine, vous pouvez rencontrer des problèmes de connexion des machines virtuelles du réseau virtuel Azure à Internet. Cela peut se produire si un serveur DNS redirecteur est automatiquement configuré sur le contrôleur de domaine et si ce serveur DNS redirecteur ne se résout pas correctement.
 
-    To work around this problem, log on to the domain controller and either
-    remove the forwarder configuration setting or configure a valid
-    forwarder DNS server. To do this, in Server Manager click **Tools** >
-    **DNS** to open DNS Manager, and then double-click **Forwarders**.
+    Pour contourner ce problème, ouvrez une session sur le contrôleur de domaine et supprimez le paramètre de configuration du redirecteur ou configurez un serveur DNS redirecteur valide. Pour ce faire, dans le Gestionnaire de serveur, cliquez sur **Outils** > **DNS** pour ouvrir le Gestionnaire DNS, puis double-cliquez sur **Redirecteurs**.
 
-* **Problem accessing RDMA network from size A8 or A9 VMs** - If you add Windows Server compute node or broker node VMs of size A8 or
-A9 by using the deployment script, you may experience problems
-connecting those VMs to the RDMA application network. One reason this
-can occur is if the HpcVmDrivers extension is not properly installed
-when the size A8 or A9 VMs are added to the cluster. For example, the
-extension might be stuck in the installing state.
+* **Problèmes d’accès au réseau RDMA à partir de machines virtuelles de taille A8 ou A9** : si vous ajoutez des machines virtuelles à nœud de calcul ou nœud de répartiteur Windows Server de taille A8 ou A9 à l’aide du script de déploiement, vous pouvez rencontrer des problèmes pour la connexion de ces machines virtuelles au réseau d’application RDMA. Cela peut se produire par exemple si l’extension HpcVmDrivers n’est pas installée correctement lorsque les machines virtuelles de taille A8 ou A9 sont ajoutées au cluster. Par exemple, l’extension peut être bloquée à l’état d’installation.
 
-    To work around this problem, first check the state of the extension in
-    the VMs. If the extension is not properly installed, try removing the
-    nodes from the HPC cluster and then add the nodes again. For example,
-    you can add compute node VMs by running the Add-HpcIaaSNode.ps1 script on the head node.
+    Pour contourner ce problème, vérifiez tout d’abord l’état de l’extension dans les machines virtuelles. Si l’extension n’est pas installée correctement, essayez de supprimer les nœuds de cluster HPC, puis ajoutez de nouveau les nœuds. Par exemple, vous pouvez ajouter des machines virtuelles à nœud de calcul en exécutant le script Add-HpcIaaSNode.ps1 sur le nœud principal.
 
-
+<!---HONumber=AcomDC_0323_2016-->

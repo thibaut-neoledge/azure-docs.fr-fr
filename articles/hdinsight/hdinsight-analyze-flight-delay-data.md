@@ -710,7 +710,6 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 * [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop]
 * [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
 * [Développement de programmes MapReduce en Java pour HDInsight][hdinsight-develop-mapreduce]
-* [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight][hdinsight-develop-streaming]
 
 
 
@@ -730,7 +729,6 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
@@ -742,4 +740,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

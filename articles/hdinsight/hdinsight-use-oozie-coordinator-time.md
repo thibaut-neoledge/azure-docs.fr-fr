@@ -102,7 +102,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 3.  **L'emplacement du fichier journal log4j**. Le séparateur de champ est « , ». Le séparateur de ligne par défaut est « \\n ». La table externe Hive est utilisée pour éviter que le fichier de données soit supprimé de son emplacement d'origine au cas où vous souhaiteriez exécuter à plusieurs reprises le workflow Oozie.
 3. **L'instruction INSERT OVERWRITE** compte les occurrences de chaque type de niveau de journalisation à partir de la table Hive log4j et enregistre la sortie dans un emplacement de stockage d’objets blob Azure.
 
-**Remarque**: il existe un problème connu de chemin d'accès à Hive. Vous le rencontrez lors de l'envoi d'une tâche Oozie. Les instructions permettant d'y remédier sont disponibles dans le Wiki TechNet : [Erreur Hive HDInsight : impossible de renommer][technetwiki-hive-error].
+**Remarque** : il existe un problème connu de chemin d'accès à Hive. Vous le rencontrez lors de l'envoi d'une tâche Oozie. Les instructions permettant d'y remédier sont disponibles dans le Wiki TechNet : [Erreur Hive HDInsight : impossible de renommer][technetwiki-hive-error].
 
 **Définition du fichier de script HiveQL appelé par le workflow**
 
@@ -645,7 +645,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 
 **Vérification du journal des erreurs de la tâche**
 
-Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log depuis le nœud principal du cluster. Pour plus d'informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l'aide de la version préliminaire du portail Azure][hdinsight-admin-portal].
+Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log depuis le nœud principal du cluster. Pour plus d’informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l’aide du portail Azure][hdinsight-admin-portal].
 
 **Réexécution du didacticiel**
 
@@ -694,7 +694,6 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 - [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop]
 - [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
 - [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
-- [Développement de tâches de diffusion Hadoop en C# pour HDInsight][hdinsight-develop-streaming-jobs]
 - [Développement de programmes MapReduce en Java pour HDInsight][hdinsight-develop-java-mapreduce]
 
 
@@ -716,7 +715,6 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
@@ -744,4 +742,4 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

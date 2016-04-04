@@ -41,7 +41,7 @@ Azure Automation est un service géré dans Microsoft Azure qui vous permet d’
 
 Une ressource DSC est un module de code qui présente des fonctionnalités spécifiques, telles que la gestion de mise en réseau, Active Directory ou SQL Server. La ressource DSC Chocolatey sait comment accéder à un serveur NuGet (entre autres), télécharger les packages, installer les packages et ainsi de suite. Il existe de nombreuses autres ressources DSC dans la [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title). Vous-même devez installer ces modules dans le serveur Pull Azure Automation DSC afin qu’ils puissent être utilisés par vos configurations.
 
-Les modèles ARM offrent un moyen de générer votre infrastructure par des déclarations (réseaux, sous-réseaux, sécurité du réseau et routage, équilibreurs de charge, cartes réseau, machines virtuelles, etc.). Voici un [article](../resource-manager-deployment-model.md) qui compare le modèle de déploiement ARM (déclaratif) au modèle de déploiement Azure Service Management (ASM ou classique) (impératif). Ce deuxième [article](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md) traite des fournisseurs de ressources de base, du calcul, du stockage et du réseau.
+Les modèles ARM offrent un moyen de générer votre infrastructure par des déclarations (réseaux, sous-réseaux, sécurité du réseau et routage, équilibreurs de charge, cartes réseau, machines virtuelles, etc.). Voici un [article](../resource-manager-deployment-model.md) qui compare le modèle de déploiement ARM (déclaratif) au modèle de déploiement Azure Service Management (ASM ou classique) (impératif). Ce deuxième [article](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) traite des fournisseurs de ressources de base, du calcul, du stockage et du réseau.
 
 Un modèle ARM se distingue par sa capacité à installer une extension de machine virtuelle dans la machine virtuelle à mesure de son approvisionnement. Une extension de machine virtuelle possède des fonctionnalités spécifiques, telles que l’exécution d’un script personnalisé, l’installation d’un logiciel antivirus ou encore l’exécution d’un script de configuration DSC. Il existe de nombreux autres types d’extensions de machine virtuelle.
 
@@ -185,4 +185,4 @@ La source complète de cet exemple se trouve dans ce [projet Visual Studio](http
 - [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

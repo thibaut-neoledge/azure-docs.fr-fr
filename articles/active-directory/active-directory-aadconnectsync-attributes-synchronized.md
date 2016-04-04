@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -22,9 +22,13 @@
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync. Les attributs sont regroupés selon l’application Azure AD associée.
 
 ## Attributs à synchroniser
-Une question fréquente concerne *la liste des attributs dont la synchronisation est obligatoire*. L’approche recommandée consiste à conserver les attributs par défaut pour qu’une liste d’adresses globale complète puisse être construite dans le cloud. Il se peut que votre organisation ne souhaite pas synchroniser certains attributs vers le cloud. Dans ce cas, commencez par la liste des attributs ci-dessous et identifiez ceux qui contiennent des informations d’identification personnelle et ne peuvent pas être synchronisés. Ensuite, désélectionnez ces attributs lors de l’installation à l’aide de l’[application Azure AD et du filtrage des attributs](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+Une question fréquente concerne *la liste des attributs dont la synchronisation est obligatoire*. L’approche recommandée consiste à conserver les attributs par défaut pour qu’une liste d’adresses globale complète puisse être construite dans le cloud et afin de disposer de toutes les fonctionnalités dans les charges de travail Office 365. Dans certains cas, votre organisation ne souhaitera pas synchroniser certains attributs sur le cloud, car ils contiennent des données sensibles ou personnelles, comme dans l'exemple ci-dessous.
 
-Lorsque vous désélectionnez des attributs, prenez garde à ne désélectionner que ceux qu’il est absolument impossible de synchroniser.
+![mauvais attributs](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+
+Dans ce cas, commencez par la liste des attributs ci-dessous et identifiez ceux qui contiennent des informations sensibles ou personnelles et ne peuvent pas être synchronisés. Ensuite, désélectionnez ces attributs lors de l’installation à l’aide de l’[application Azure AD et du filtrage des attributs](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+
+>[AZURE.WARNING] Lorsque vous désélectionnez des attributs, prenez garde à ne désélectionner que ceux qu’il est absolument impossible de synchroniser. Désélectionner d’autres attributs peut avoir un impact négatif sur les fonctionnalités.
 
 ## Office 365 ProPlus
 
@@ -374,6 +378,11 @@ Lorsque vous désélectionnez des attributs, prenez garde à ne désélectionner
 | userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
 
 ## Applications tierces
+Il s'agit d'un ensemble d'attributs utilisés comme attributs nécessaires au minimum pour une application ou une charge de travail générique. Il peut être utilisé pour des charges de travail non répertoriées ici ou pour une application hors applications Microsoft. Il est utilisé explicitement pour les applications suivantes :
+
+- Yammer (seul l’utilisateur est véritablement consommé)
+- [Scénarios de collaboration transorganisationnelle B2B (Business-to-Business) hybride proposés par des ressources comme SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
+
 Il s’agit d’un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Office 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base.
 
 | Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
@@ -451,13 +460,13 @@ Les objets d’appareil sont créés dans Active Directory. Il peut s’agir d�
 | msDS-RegisteredOwner | X| |
 
 
-## Remarques sur les attributs
+## Remarques
 - Quand vous utilisez un ID secondaire, l’attribut local userPrincipalName est synchronisé avec l’attribut Azure AD onPremisesUserPrincipalName. L’attribut de l’ID secondaire, par exemple mail, sera synchronisé avec l’attribut Azure AD userPrincipalName.
-
+- Dans la liste ci-dessus, le type d'objet **Utilisateur** s'applique également au type d'objet **iNetOrgPerson**.
 
 ## Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

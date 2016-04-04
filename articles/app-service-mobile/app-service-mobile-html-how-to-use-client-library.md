@@ -32,10 +32,10 @@ Installez le Kit de développement logiciel (SDK) JavaScript Azure Mobile Apps �
 npm install azure-mobile-apps-client --save
 ```
 
-Une fois installé, la bibliothèque se trouve dans `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`. Copiez ce fichier vers votre espace web.
+Une fois le Kit installé, la bibliothèque se trouve dans `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`. Copiez ce fichier vers votre espace web.
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 La bibliothèque peut également être utilisée en tant que module ES2015, au sein d'environnements CommonJS tels que Browserify et Webpack, et en tant que bibliothèque AMD. Par exemple :
@@ -103,7 +103,7 @@ Utilisez le Kit de développement logiciel (SDK) Notification Hubs pour envoyer 
 <!-- URLs. -->
 [Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Prise en main de l'authentification]: app-service-mobile-cordova-get-started-users.md
-[Ajout de l’authentification à votre application]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [your first Apache Cordova app]: http://cordova.apache.org/#getstarted
@@ -111,6 +111,6 @@ Utilisez le Kit de développement logiciel (SDK) Notification Hubs pour envoyer 
 [plug-in phonegap-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentation de l’objet Query]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
 
-<!----------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -3,9 +3,9 @@
 	description="Découvrez comment utiliser Blob Storage pour charger, télécharger, répertorier et supprimer le contenu d’objets blob. Les exemples sont écrits en Ruby."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Utilisation du stockage d'objets blob à partir de Ruby
@@ -31,7 +31,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 ## Création d'une application Ruby
 
-Créez une application Ruby. Pour des instructions, consultez [Application web Ruby on Rails sur une machine virtuelle Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Créez une application Ruby. Pour des instructions, consultez [Application web Ruby on Rails sur une machine virtuelle Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -90,7 +90,7 @@ L’exemple de code suivant crée un conteneur ou imprime l'erreur le cas éché
 
 Si vous souhaitez que les fichiers du conteneur soient publics, vous pouvez définir le niveau d'accès du conteneur.
 
-Vous pouvez simplement modifier l’appel à <strong>create\_container()</strong> pour passer l’option **:public\_access\_level**:
+Vous pouvez simplement modifier l’appel à <strong>create\_container()</strong> pour passer l’option **:public\_access\_level** :
 
 	container = azure_blob_service.create_container("test-container",
 	  :public_access_level => "<public access level>")
@@ -98,9 +98,9 @@ Vous pouvez simplement modifier l’appel à <strong>create\_container()</strong
 
 Les valeurs valides pour l'option **:public\_access\_level** sont les suivantes :
 
-* **blob**: spécifie un accès public total en lecture pour le conteneur et les données d’objets blob. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
+* **blob** : spécifie un accès public total en lecture pour le conteneur et les données d’objets blob. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
-* **container**: spécifie un accès public en lecture pour les objets blob. les données d’objets blob à l’intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
+* **container** : spécifie un accès public en lecture pour les objets blob. les données d’objets blob à l’intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
 
 Vous pouvez également modifier le niveau d'accès public d'un conteneur en utilisant la méthode **set\_container\_acl()** afin de spécifier le niveau d'accès public.
 
@@ -155,4 +155,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

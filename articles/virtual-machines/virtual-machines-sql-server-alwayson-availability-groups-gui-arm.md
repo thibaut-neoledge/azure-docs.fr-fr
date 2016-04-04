@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Configurer des groupes de disponibilité AlwaysOn dans Azure Resource Manager | Microsoft Azure"
 	description="Créez un groupe de disponibilité AlwaysOn avec des machines virtuelles Azure en mode Azure Resource Manager. Ce didacticiel utilise principalement l’interface utilisateur pour créer automatiquement l’ensemble de la solution."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
@@ -19,9 +19,9 @@
 # Configurer un groupe de disponibilité AlwaysOn dans des machines virtuelles Azure Resource Manager (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portail - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portail - Azure Classic](virtual-machines-windows-classic-portal-sql-availability.md)
+- [PowerShell - Classique](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
 
@@ -30,19 +30,19 @@
 
 Ce didacticiel complet vous montre comment créer un groupe de disponibilité SQL Server avec des machines virtuelles Azure Resource Manager. Il utilise des panneaux Azure pour configurer un modèle. Au cours de ce didacticiel, vous allez passer en revue les paramètres par défaut, entrer les paramètres exigés et mettre à jour les panneaux du portail.
 
->[AZURE.NOTE] Dans le portail de gestion Azure, il existe une nouvelle installation de la galerie pour les groupes de disponibilité AlwaysOn avec un écouteur. Elle vous permet de configurer automatiquement tous les éléments nécessaires pour les groupes de disponibilité AlwaysOn. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure Classic](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+>[AZURE.NOTE] Dans le portail de gestion Azure, il existe une nouvelle installation de la galerie pour les groupes de disponibilité AlwaysOn avec un écouteur. Elle vous permet de configurer automatiquement tous les éléments nécessaires pour les groupes de disponibilité AlwaysOn. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure Classic](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
-À la fin du didacticiel, votre solution SQL Server AlwaysOn dans Azure comprendra les éléments suivants :
+À la fin du didacticiel, votre solution SQL Server AlwaysOn dans Azure comprendra les éléments suivants :
 
-- un réseau virtuel contenant plusieurs sous-réseaux, notamment un sous-réseau frontal et un sous-réseau principal ;
+- un réseau virtuel contenant plusieurs sous-réseaux, notamment un sous-réseau frontal et un sous-réseau principal ;
 
-- deux contrôleurs de domaine avec un domaine Active Directory (AD) ;
+- deux contrôleurs de domaine avec un domaine Active Directory (AD) ;
 
-- deux machines virtuelles SQL Server déployées dans le sous-réseau principal et jointes au domaine AD ;
+- deux machines virtuelles SQL Server déployées dans le sous-réseau principal et jointes au domaine AD ;
 
-- un cluster WSFC à 3 nœuds avec le modèle de quorum Nœud majoritaire ;
+- un cluster WSFC à 3 nœuds avec le modèle de quorum Nœud majoritaire ;
 
-- un groupe de disponibilité avec deux réplicas avec validation synchrone d'une base de données de disponibilité.
+- un groupe de disponibilité avec deux réplicas avec validation synchrone d'une base de données de disponibilité.
 
 La figure suivante est une représentation graphique de la solution.
 
@@ -50,29 +50,29 @@ La figure suivante est une représentation graphique de la solution.
 
 Toutes les ressources de cette solution appartiennent à un groupe de ressources unique.
 
-Ce didacticiel part des principes suivants :
+Ce didacticiel part des principes suivants :
 
-- Vous disposez déjà d’un compte Azure. Si vous n’en avez pas, [inscrivez-vous pour obtenir un compte d’essai](http://azure.microsoft.com/pricing/free-trial/).
+- Vous disposez déjà d’un compte Azure. Si vous n’en avez pas, [inscrivez-vous pour obtenir un compte d’essai](http://azure.microsoft.com/pricing/free-trial/).
 
-- Vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l’interface graphique utilisateur. Pour plus d’informations, consultez [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-provision-sql-server.md).
+- Vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l’interface graphique utilisateur. Pour plus d’informations, consultez [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-windows-classic-portal-sql.md).
 
-- Vous avez déjà une très bonne connaissance des groupes de disponibilité AlwaysOn. Pour plus d’informations, consultez [Groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+- Vous avez déjà une très bonne connaissance des groupes de disponibilité AlwaysOn. Pour plus d’informations, consultez [Groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] Si l’utilisation des groupes de disponibilité AlwaysOn avec SharePoint vous intéresse, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] Si l’utilisation des groupes de disponibilité AlwaysOn avec SharePoint vous intéresse, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
 
-Dans ce didacticiel, nous allons utiliser le portail Azure pour :
+Dans ce didacticiel, nous allons utiliser le portail Azure pour :
 
-- sélectionner le nouveau modèle de groupe de disponibilité AlwaysOn à partir du portail ;
+- sélectionner le nouveau modèle de groupe de disponibilité AlwaysOn à partir du portail ;
 
-- passer en revue les paramètres du modèle et mettre à jour quelques paramètres de configuration pour votre environnement ;
+- passer en revue les paramètres du modèle et mettre à jour quelques paramètres de configuration pour votre environnement ;
 
-- surveiller Azure pendant la création de tout l’environnement ;
+- surveiller Azure pendant la création de tout l’environnement ;
 
-- nous connecter à l’un des contrôleurs de domaine, puis à l’un des serveurs SQL Server ;
+- nous connecter à l’un des contrôleurs de domaine, puis à l’un des serveurs SQL Server ;
 
 ## approvisionner un groupe de disponibilité AlwaysOn à partir de la galerie avec le modèle de déploiement Resource Manager.
 
-Azure fournit une image de galerie pour l’ensemble de la solution. Pour localiser le modèle :
+Azure fournit une image de galerie pour l’ensemble de la solution. Pour localiser le modèle :
 
 1. 	Connectez-vous au portail Azure avec votre compte.
 1.	Dans le portail Azure, cliquez sur **+Nouveau**. Le portail ouvre le panneau Nouveau. 
@@ -82,7 +82,7 @@ Azure fournit une image de galerie pour l’ensemble de la solution. Pour locali
 
 ### Concepts de base
 
-Cliquez sur **Concepts de base** et configurez les paramètres suivants :
+Cliquez sur **Concepts de base** et configurez les paramètres suivants :
 
 - **Nom d’utilisateur de l’administrateur** correspond à un compte d’utilisateur doté d’autorisations d’administrateur de domaine et membre du rôle serveur fixe sysadmin SQL Server sur les deux instances de SQL Server. Pour ce didacticiel, utilisez **DomainAdmin**. 
 
@@ -94,7 +94,7 @@ Cliquez sur **Concepts de base** et configurez les paramètres suivants :
 
 - **Emplacement** correspond à la région Azure où les ressources sont créées pour ce didacticiel. Sélectionnez une région Azure pour héberger l’infrastructure.
 
-Voici ce a quoi le panneau **Concepts de base** va ressembler :
+Voici ce a quoi le panneau **Concepts de base** va ressembler :
 
 ![Concepts de base](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/1-basics.png)
 
@@ -104,7 +104,7 @@ Voici ce a quoi le panneau **Concepts de base** va ressembler :
 
 Ce modèle de galerie Azure crée un domaine avec de nouveaux contrôleurs de domaine. Il crée également un réseau et deux sous-réseaux. Le modèle ne permet pas la création de serveurs dans un domaine ou un réseau virtuel existant. L’étape suivante consiste à configurer les paramètres de domaine et réseau.
 
-Dans le panneau **Paramètres de domaine et réseau**, examinez les valeurs prédéfinies des paramètres de domaine et réseau :
+Dans le panneau **Paramètres de domaine et réseau**, examinez les valeurs prédéfinies des paramètres de domaine et réseau :
 
 - **Nom de domaine racine de la forêt** correspond au nom de domaine utilisé pour le domaine Active Directory qui héberge le cluster. Pour ce didacticiel, utilisez **contoso.com**. 
 
@@ -114,9 +114,9 @@ Dans le panneau **Paramètres de domaine et réseau**, examinez les valeurs pré
 
 - **Nom du sous-réseau SQL Server** correspond au nom d’une partie du réseau virtuel qui héberge les serveurs SQL Server et le témoin de partage de fichiers. Pour ce didacticiel, utilisez **subnet-2**. Ce sous-réseau utilise le préfixe d’adresse **10.0.1.0/26**.
 
-Pour en savoir plus sur les réseaux virtuels dans Azure, consultez [Vue d’ensemble des réseaux virtuels](virtual-networks-overview.md).
+Pour en savoir plus sur les réseaux virtuels dans Azure, consultez [Vue d’ensemble des réseaux virtuels](../virtual-network/virtual-networks-overview.md).
 
-Les **paramètres de domaine et réseau** doivent ressembler à ceci :
+Les **paramètres de domaine et réseau** doivent ressembler à ceci :
 
 ![Paramètres de domaine et réseau](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/2-domain.png)
  
@@ -144,7 +144,7 @@ Si nécessaire, vous pouvez modifier ces valeurs. Pour ce didacticiel, utilisez 
 
 Pour **Taille de la machine virtuelle, paramètres de stockage**, choisissez une taille de machine virtuelle SQL Server et vérifiez les autres paramètres.
 
-- **Taille de la machine virtuelle SQL Server** correspond à la taille de la machine virtuelle Azure pour les deux serveurs SQL Server. Choisissez une taille de machine virtuelle appropriée à votre charge de travail. Si vous générez cet environnement pour le didacticiel, utilisez **DS2**. Pour des charges de travail de production, choisissez une taille de machine virtuelle pouvant gérer la charge de travail. De nombreuses charges de travail de production exigent **DS4** ou plus. Le modèle génère deux machines virtuelles de cette taille et installe SQL Server sur chacune d’elles. Pour plus d’informations, consultez [Tailles des machines virtuelles](virtual-machines-size-specs.md).
+- **Taille de la machine virtuelle SQL Server** correspond à la taille de la machine virtuelle Azure pour les deux serveurs SQL Server. Choisissez une taille de machine virtuelle appropriée à votre charge de travail. Si vous générez cet environnement pour le didacticiel, utilisez **DS2**. Pour des charges de travail de production, choisissez une taille de machine virtuelle pouvant gérer la charge de travail. De nombreuses charges de travail de production exigent **DS4** ou plus. Le modèle génère deux machines virtuelles de cette taille et installe SQL Server sur chacune d’elles. Pour plus d’informations, consultez [Tailles de machines virtuelles](virtual-machines-linux-sizes.md).
 
 >[AZURE.NOTE]Azure installe SQL Server Enterprise Edition. Le coût dépend de l’édition et de la taille de la machine virtuelle. Pour plus d’informations sur les coûts actuels, consultez [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
@@ -156,9 +156,9 @@ Pour **Taille de la machine virtuelle, paramètres de stockage**, choisissez une
 
 - **Compte de stockage des contrôleurs de domaine** correspond au nom du compte de stockage des contrôleurs de domaine. Pour ce didacticiel, utilisez **alwaysondc01**.
 
-- **Taille du disque de données SQL Server** correspond à la taille du disque de données SQL Server en To. Spécifiez un nombre compris entre 1 et 4 Il s’agit de la taille du disque de données qui est attaché à chaque serveur SQL Server. Pour ce didacticiel, utilisez **1**.
+- **Taille du disque de données SQL Server** correspond à la taille du disque de données SQL Server en To. Spécifiez un nombre compris entre 1 et 4 Il s’agit de la taille du disque de données qui est attaché à chaque serveur SQL Server. Pour ce didacticiel, utilisez **1**.
 
-- **Optimisation du stockage** définit les paramètres de configuration de stockage spécifiques des machines virtuelles SQL Server en fonction du type de charge de travail. Tous les serveurs SQL de ce scénario utilisent Premium Storage avec un cache hôte de disque Azure défini en lecture seule. De plus, vous pouvez optimiser les paramètres SQL Server pour la charge de travail en choisissant l’un de ces trois paramètres :
+- **Optimisation du stockage** définit les paramètres de configuration de stockage spécifiques des machines virtuelles SQL Server en fonction du type de charge de travail. Tous les serveurs SQL de ce scénario utilisent Premium Storage avec un cache hôte de disque Azure défini en lecture seule. De plus, vous pouvez optimiser les paramètres SQL Server pour la charge de travail en choisissant l’un de ces trois paramètres :
 
     - **Charge de travail générale** ne définit aucun paramètre de configuration spécifique. 
 
@@ -174,9 +174,9 @@ Pour ce didacticiel, utilisez le paramètre **Charge de travail générale**.
 
 ####Remarque sur le stockage
 
-D’autres optimisations dépendent de la taille des disques de données SQL Server. Pour chaque téraoctet de disque de données, Azure ajoute un stockage premium de 1 To supplémentaire (SSD). Si un serveur exige 2 To ou plus, le modèle crée un pool de stockage sur chaque serveur SQL Server. Un pool de stockage est une forme de virtualisation du stockage où plusieurs disques sont configurés pour fournir une capacité, une résilience et des performances plus élevées. Le modèle crée alors un espace de stockage dans le pool de stockage et le présente sous la forme de données uniques au système d’exploitation. Le modèle désigne ce disque en tant que disque de données pour SQL Server. Il règle le pool de stockage pour SQL Server avec les paramètres suivants :
+D’autres optimisations dépendent de la taille des disques de données SQL Server. Pour chaque téraoctet de disque de données, Azure ajoute un stockage premium de 1 To supplémentaire (SSD). Si un serveur exige 2 To ou plus, le modèle crée un pool de stockage sur chaque serveur SQL Server. Un pool de stockage est une forme de virtualisation du stockage où plusieurs disques sont configurés pour fournir une capacité, une résilience et des performances plus élevées. Le modèle crée alors un espace de stockage dans le pool de stockage et le présente sous la forme de données uniques au système d’exploitation. Le modèle désigne ce disque en tant que disque de données pour SQL Server. Il règle le pool de stockage pour SQL Server avec les paramètres suivants :
 
-- La taille d’entrelacement est le paramètre d’entrelacement du disque virtuel. Ce paramètre a pour valeur 64 Ko pour les charges de travail transactionnelles. Pour les charges de travail d’entreposage de données, le paramètre s’élève à 256 Ko. 
+- La taille d’entrelacement est le paramètre d’entrelacement du disque virtuel. Ce paramètre a pour valeur 64 Ko pour les charges de travail transactionnelles. Pour les charges de travail d’entreposage de données, le paramètre s’élève à 256 Ko. 
 
 - La résilience est simple (aucune résilience).
 
@@ -184,13 +184,13 @@ D’autres optimisations dépendent de la taille des disques de données SQL Ser
 
 - Le nombre de colonnes est égal au nombre de disques dans le pool de stockage. 
 
-Pour plus d’informations sur l’espace de stockage et les pools de stockage, consultez :
+Pour plus d’informations sur l’espace de stockage et les pools de stockage, consultez :
 
 - [Vue d’ensemble des espaces de stockage](http://technet.microsoft.com/library/hh831739.aspx). 
 
 - [Sauvegarde et pools de stockage Windows Server](http://technet.microsoft.com/library/dn390929.aspx)
 
-Pour plus d’informations sur les bonnes pratiques de configuration SQL Server, consultez [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md).
+Pour plus d’informations sur les bonnes pratiques de configuration SQL Server, consultez [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-classic-sql-perf.md).
 
 
 ###Paramètres de SQL Server
@@ -199,7 +199,7 @@ Dans **Paramètres de SQL Server**, passez en revue et modifiez le préfixe du n
 
 - **Préfixe du nom SQL Server** est utilisé pour créer un nom pour chaque serveur SQL Server. Pour ce didacticiel, utilisez **Contoso-ag**. Les noms SQL Server sont *Contoso-ag-0* et *Contoso-ag-1*. 
 
-- **Version de SQL Server** correspond à la version de SQL Server. Pour ce didacticiel, utilisez **SQL Server 2014**. Vous pouvez également choisir **SQL Server 2012** ou **SQL Server 2016**.
+- **Version de SQL Server** correspond à la version de SQL Server. Pour ce didacticiel, utilisez **SQL Server 2014**. Vous pouvez également choisir **SQL Server 2012** ou **SQL Server 2016**.
 
 - **Nom d’utilisateur du compte de service SQL Server** correspond au nom du compte de domaine pour le service SQL Server. Pour ce didacticiel, utilisez **sqlservice**.
 
@@ -235,7 +235,7 @@ Surveillez la progression du déploiement depuis le portail Azure. Une icône re
 
 Les nouvelles instances de SQL Server sont en cours d’exécution sur les machines virtuelles qui n’ont pas de connexions à Internet. En revanche, les contrôleurs de domaine ont une connexion Internet. Pour vous connecter aux serveurs SQL avec le Bureau à distance, commencez par établir une connexion RDP à l’un des contrôleurs de domaine. À partir du contrôleur de domaine, ouvrez une deuxième connexion RDP à SQL Server.
 
-Pour établir une connexion RDP au contrôleur de domaine principal, procédez comme suit :
+Pour établir une connexion RDP au contrôleur de domaine principal, procédez comme suit :
 
 1.	À partir du tableau de bord du portail Azure, vérifiez que le déploiement a réussi. 
 
@@ -250,7 +250,7 @@ Pour établir une connexion RDP au contrôleur de domaine principal, procédez c
 
 1.	Le **Bureau à distance** peut vous avertir que l’ordinateur distant n’a pas pu être authentifié en raison de problèmes liés à son certificat de sécurité. Le nom du certificat de sécurité vous est indiqué. Si vous avez suivi le didacticiel, ce nom est **ad-primary-dc.contoso.com**. Cliquez sur **Oui**.
 
-Vous êtes maintenant connecté au contrôleur de domaine principal. Pour établir une connexion RDP au serveur SQL Server, procédez comme suit :
+Vous êtes maintenant connecté au contrôleur de domaine principal. Pour établir une connexion RDP au serveur SQL Server, procédez comme suit :
 
 1.	Sur le contrôleur de domaine, ouvrez **Connexion Bureau à distance**. 
 
@@ -260,4 +260,4 @@ Vous êtes maintenant connecté au contrôleur de domaine principal. Pour établ
 
 Vous êtes maintenant connecté avec RDP au serveur SQL Server. Vous pouvez ouvrir SQL Server Management Studio, vous connecter à l’instance par défaut de SQL Server et vérifier que le groupe de disponibilité AlwaysOn est configuré.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

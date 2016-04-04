@@ -45,12 +45,12 @@ Suivez les étapes spécifiées dans la section appropriée selon votre scénari
 ### Composants requis
 - Vous aurez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez souscrire un abonnement pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/) d’un mois ou visiter la page [Tarification Azure](https://azure.microsoft.com/pricing/) pour davantage d’options.
 - Pour exécuter les applets de commande PowerShell, vous avez besoin du module Microsoft Azure PowerShell. Pour télécharger le module, consultez la page [Téléchargements Microsoft Azure](https://azure.microsoft.com/downloads/).
-- Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles de série DS ou GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-size-specs.md) et [Tailles des services cloud](../cloud-services/cloud-services-sizes-specs.md).
+- Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles de série DS ou GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md) et [Tailles des services cloud](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Considérations
 
 #### Tailles de machine virtuelle
-Les spécifications des tailles des machines virtuelles Azure sont répertoriées dans la section [Tailles des machines virtuelles](../virtual-machines/virtual-machines-size-specs.md). Passez en revue les caractéristiques de performances des machines virtuelles fonctionnant avec Premium Storage et choisissez la taille de machine virtuelle la mieux adaptée à votre charge de travail. Assurez-vous que la bande passante disponible est suffisante sur votre machine virtuelle pour gérer le trafic du disque.
+Les spécifications des tailles des machines virtuelles Azure sont répertoriées dans la section [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md). Passez en revue les caractéristiques de performances des machines virtuelles fonctionnant avec Premium Storage et choisissez la taille de machine virtuelle la mieux adaptée à votre charge de travail. Assurez-vous que la bande passante disponible est suffisante sur votre machine virtuelle pour gérer le trafic du disque.
 
 
 #### Tailles du disque
@@ -73,6 +73,7 @@ Les comptes de stockage Premium ont les objectifs d’évolutivité suivants en 
 Pour plus d’informations sur les spécifications de Premium Storage, consultez la page [Objectifs d’évolutivité et de performances lors de l’utilisation de Premium Storage](storage-premium-storage.md#scalability-and-performance-targets-whfr-FRing-premium-storage).
 
 #### Disques de données supplémentaires
+
 En fonction de votre charge de travail, déterminez si les disques de données supplémentaires sont nécessaires pour votre machine virtuelle. Vous pouvez joindre plusieurs disques de données persistantes à votre machine virtuelle. Si nécessaire, vous pouvez répartir les données sur les disques pour augmenter la capacité et les performances du volume. Si vous équilibrez les disques de données de stockage Premium à l’aide des [espaces de stockage](http://technet.microsoft.com/library/hh831739.aspx), vous devez les configurer avec une colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d'une distribution inégale du trafic sur les disques. Pour les machines virtuelles Linux, vous pouvez utiliser l’utilitaire *mdadm* pour obtenir le même résultat. Consultez l’article [Configuration d’un RAID logiciel sur Linux](../virtual-machines/virtual-machines-linux-configure-raid.md) pour plus d’informations.
 
 #### Stratégie de mise en cache du disque
@@ -296,7 +297,7 @@ Créez une nouvelle instance de machine virtuelle Azure de série DS à l’aide
 
 Spécifiez d’autres informations de machine virtuelle Azure, comme un service cloud, une région, un compte de stockage, un groupe à haute disponibilité et une stratégie de mise en cache. Notez que l’instance de machine virtuelle doit se trouver avec le système d’exploitation ou les disques de données associés ; le service cloud, la région et le compte de stockage sélectionnés doivent donc tous se trouver au même emplacement que les disques durs virtuels sous-jacents de ces disques.
 
-### Joindre un disque de données
+### Attacher un disque de données
 
 Enfin, si vous avez inscrit les disques durs virtuels des disques de données, joignez-les à la nouvelle machine virtuelle Azure de série DS ou GS.
 
@@ -312,7 +313,9 @@ Utilisez l’applet de commande PowerShell suivante pour joindre un disque de do
 
 ## Migration des machines virtuelles Azure existantes vers Azure Premium Storage
 
-Si vous disposez d’une machine virtuelle Azure qui utilise des disques de stockage Standard, suivez la procédure ci-dessous pour migrer vers Premium Storage. De manière générale, la migration implique deux étapes : - Migration des disques à partir d’un compte de stockage Standard vers un compte Premium Storage - Conversion de la taille des machines virtuelles d’une série A/D/G vers une série DS ou GS, comme il convient, pour l’utilisation de disques Premium Storage.
+Si vous disposez d’une machine virtuelle Azure qui utilise des disques de stockage Standard, suivez la procédure ci-dessous pour migrer vers Premium Storage. De façon générale, la migration implique deux étapes :
+-	Migration des disques du compte de stockage Standard au compte Premium Storage
+-	Conversion de la taille de la machine virtuelle de A/D/G vers DS ou GS, comme requis pour l’utilisation de disques Premium Storage.
 
 En outre, reportez-vous à la section précédente sur les considérations permettant de comprendre les différentes optimisations possibles pour Premium Storage. Selon les optimisations applicables à vos applications, le processus de migration peut correspondre à l’un des scénarios de migration ci-dessous.
 
@@ -663,8 +666,8 @@ Les bases de données et autres applications complexes peuvent nécessiter des �
 Consultez les ressources suivantes pour des scénarios spécifiques de migration des machines virtuelles :
 
 - [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure.](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
-- [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/virtual-machines-linux-create-upload-vhd.md)
+- [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)
+- [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 - [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consultez également les ressources suivantes pour en savoir plus sur Azure Storage and Azure Virtual Machines :
@@ -677,4 +680,4 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

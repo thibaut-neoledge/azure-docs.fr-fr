@@ -1,422 +1,424 @@
 
 
-Azure is an excellent platform to implement dev/test or proof-of-concept configurations, because it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
+Azure est une excellente plateforme d’implémentation de configurations de développement/test ou de validation technique, car elle ne nécessite qu’un investissement réduit pour tester une approche spécifique d’implémentation de vos solutions. Toutefois, vous devez être en mesure de distinguer les pratiques pour un environnement de développement/test faciles à mettre en place des pratiques plus difficiles et détaillées pour l’implémentation entièrement fonctionnelle et prête pour la production d’une charge de travail informatique.
 
-This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
+Ce guide identifie les nombreux domaines pour lesquels la planification est un élément essentiel au bon fonctionnement d’une charge de travail informatique dans Azure. Par ailleurs, la planification indique un ordre pour la création des ressources nécessaires. Même si une certaine flexibilité est possible, nous recommandons d’appliquer l’ordre indiqué dans cet article à la planification et la prise de décision.
 
-This article was adapted from the content in the [Azure implementation guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft) and Hugo Salcedo (Application Development Manager for Microsoft) for their original material.
+Cet article est une adaptation du contenu du billet de blog [Instructions pour la mise en œuvre d’Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Merci à Santiago Cánepa et Hugo Salcedo (responsables du développement d’applications chez Microsoft) pour leur documentation d’origine.
 
-> [AZURE.NOTE] Affinity groups have been deprecated. Their use is not described here. For more information, see [About regional VNets and affinity groups](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] Groupes d’affinités sont déconseillés. Leur utilisation n’est pas décrite ici. Pour en savoir plus, consultez [À propos des réseaux virtuels régionaux et des groupes d’affinités](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
-## 1. Naming conventions
+## 1\. Conventions d’affectation de noms
 
-You should have a good naming convention in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with managing those resources.
+Vous devez avoir une convention d’affectation de noms adaptée avant tout processus de création dans Azure. Une convention d’affectation de noms garantit que toutes les ressources ont un nom prévisible, afin de réduire la charge administrative associée à leur gestion.
 
-You might choose to follow a specific set of naming conventions defined for your entire organization or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well.
+Vous pouvez choisir de suivre un ensemble spécifique de conventions d’affectation de noms définies pour votre organisation, ou pour un compte ou abonnement Azure spécifique. Bien qu’il soit facile d’établir des règles implicites au sein d’entreprises lorsque vous travaillez avec des ressources Azure, ce modèle n’est pas très souple lorsqu’une équipe doit travailler sur un projet sur Azure.
 
-You should agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across the sets of rules that make up those conventions.
+Vous devez convenir d’un ensemble de conventions d’affectation de noms en amont. Certains facteurs sont à prendre en compte pour l’ensemble des règles en matière de conventions d’affectation de noms.
 
 ### Affixes
 
-When creating certain resources, Azure uses some defaults to simplify management of the resources that are associated with these resources. For example, when creating the first virtual machine for a new cloud service, the Azure classic portal attempts to use the virtual machine’s name for the name of a new cloud service for the virtual machine.
+Lors de la création de certaines ressources, Azure utilise certains paramètres par défaut pour simplifier la gestion des ressources qui leur sont associées. Par exemple, lorsque vous créez la première machine virtuelle d’un nouveau service cloud, le portail Azure Classic tente d’utiliser le nom de la machine virtuelle comme nom de service cloud pour la machine virtuelle.
 
-Therefore, it is beneficial to identify types of resources that need an affix to identify that type. In addition, clearly specify whether the affix will be at:
+Par conséquent, il est utile d’identifier les types de ressources nécessitant un affixe. En outre, spécifiez clairement si l’affixe sera placé
 
-- The beginning of the name (prefix)
-- The end of the name (suffix)
+- au début du nom (préfixe)
+- à la fin du nom (suffixe)
 
-For instance, here are two possible names for a resource group that hosts a calculation engine:
+Voici deux exemples de noms possibles pour un groupe de ressources hébergeant un moteur de calcul :
 
-- Rg-CalculationEngine (prefix)
-- CalculationEngine-Rg (suffix)
+- Rg-CalculationEngine (préfixe)
+- CalculationEngine-Rg (suffixe)
 
-Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
+Les affixes peuvent faire référence à différents aspects des ressources spécifiques. Le tableau suivant présente des exemples généralement utilisés.
 
-Aspect | Examples | Notes
+Aspect | Exemples | Remarques
 --- | --- | ---
-Environment | dev, stg, prod | Depending on the purpose and name of each environment.
-Location | usw (West US), use (East US 2) | Depending on the region of the datacenter or the region of the organization.
-Azure component, service, or product | Rg for resource group, Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
-Role | sql, ora, sp, iis | Depending on the role of the virtual machine.
-Instance | 01, 02, 03, etc. | For resources that have more than one instance. For example, load balanced web servers in a cloud service.
+Environnement | dev, stg, prod | En fonction de l’objectif et du nom de chaque environnement.
+Emplacement | usw (West US), use (East US 2) | En fonction de la région du centre de données et de l’organisation.
+Composant, service ou produit Azure | Rg pour groupe de ressources, Svc pour service cloud, VNet pour réseau virtuel | En fonction du produit auquel la ressource est associée.
+Rôle | sql, ora, sp, iis | En fonction du rôle de la machine virtuelle.
+Instance | 01, 02, 03, etc. | Pour les ressources possédant plusieurs instances. Par exemple, des serveurs Web à charge équilibrée dans un service cloud.
 
-When establishing your naming conventions, make sure that they clearly state which affixes to use for each type of resource, and in which position (prefix vs suffix).
+Lors de l’établissement de conventions d’affectation de noms, assurez-vous qu’elles indiquent clairement les affixes à utiliser pour chaque type de ressource et à quelle position (suffixe ou préfixe).
 
 ### Dates
 
-It is often important to determine the date of creation from the name of a resource. We recommend the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date will be sorted alphabetically and chronologically at the same time.
+Dans de nombreux cas, il est important de déterminer la date de création à partir du nom d’une ressource. Nous recommandons le format de date AAAAMMJJ. Ce format permet non seulement d’enregistrer la date complète, mais également de trier simultanément par ordre alphabétique et par ordre chronologique deux ressources dont les noms diffèrent uniquement au niveau de la date.
 
-### Naming resources
+### Ressources d’affectation de noms
 
-You should define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
+Vous devez définir chaque type de ressource dans la convention d’affectation de noms, qui doit comprendre des règles définissant l’attribution de nom pour chaque ressource créée. Ces règles doivent s’appliquer à tous les types de ressources, par exemple :
 
-- Subscriptions
-- Accounts
-- Storage accounts
-- Virtual networks
-- Subnets
-- Availability sets
-- Resource groups
-- Cloud services
-- Virtual machines
-- Endpoints
-- Network security groups
-- Roles
+- Abonnements
+- Comptes
+- Comptes de stockage
+- Réseaux virtuels
+- Sous-réseaux
+- Groupes à haute disponibilité
+- Groupes de ressources
+- Services cloud
+- Machines virtuelles
+- Points de terminaison
+- groupes de sécurité réseau ;
+- contrôleur
 
-To ensure that the name provides enough information to determine to which resource it refers, you should use descriptive names.
+Les noms doivent être descriptifs, afin de fournir suffisamment d’informations pour déterminer la ressource à laquelle ils font référence.
 
-### Computer names
+### Noms des ordinateurs
 
-When administrators create a virtual machine, Microsoft Azure requires them to provide a virtual machine name of up to 15 characters. Azure uses the virtual machine name as the Azure virtual machine resource name. Azure uses the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same.
+Lorsque les administrateurs créent une machine virtuelle, ils doivent spécifier un nom de machine virtuelle de 15 caractères maximum dans Microsoft Azure. Azure utilise ensuite le nom de la machine virtuelle comme nom de ressource de la machine virtuelle Azure. Azure utilise le même nom comme nom d’ordinateur pour le système d’exploitation installé sur la machine virtuelle. Toutefois, ces noms peuvent ne pas toujours être identiques.
 
-In case a virtual machine is created from a .vhd image file that already contains an operating system, the virtual machine name in Azure can differ from the virtual machine’s operating system computer name. This situation can add a degree of difficulty to virtual machine management, which we therefore do not recommend. Assign the Azure virtual machine resource the same name as the computer name that you assign to the operating system of that virtual machine.
+Si une machine virtuelle est créée à partir d’un fichier d’image .vhd qui contient déjà un système d’exploitation, le nom de la machine virtuelle dans Azure peut différer du nom d’ordinateur du système d’exploitation de la machine virtuelle. Dans ce cas, la gestion de la machine virtuelle devient plus difficile. C’est pourquoi nous le déconseillons. Affectez à la ressource de la machine virtuelle Azure le nom d’ordinateur attribué au système d’exploitation de cette machine virtuelle.
 
-We recommend that the Azure virtual machine name be the same as the underlying operating system computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS computer naming conventions](https://support.microsoft.com/kb/188997/).
+Nous recommandons que le nom de la machine virtuelle Azure soit le même que le nom d’ordinateur du système d’exploitation sous-jacent. Pour cette raison, suivez les règles d’affectation de noms NetBIOS, comme décrit dans les [Conventions d’affectation de noms d’ordinateur Microsoft NetBIOS](https://support.microsoft.com/kb/188997/).
 
-### Storage account names
+### Noms des comptes de stockage
 
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, voir [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). En outre, le nom du compte de stockage, en association avec core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net
 - mystorageaccount.queue.core.windows.net
 
 
-### Azure building block names
+### Noms des blocs de construction Azure
 
-Azure building blocks are application-level services that Azure offers, typically to those applications taking advantage of PaaS features, although IaaS resources might leverage some, like SQL Database, Traffic Manager, and others.
+Les blocs de construction Azure sont des services de niveau applications, généralement offerts par Azure aux applications tirant parti de fonctionnalités PaaS, bien que les ressources IaaS puissent en exploiter certaines, notamment la base de données SQL, Traffic Manager, etc.
 
-These services rely on an array of artifacts that are created and registered in Azure. These also need to be considered in your naming conventions.
+Ces services s’appuient sur un tableau d’artefacts créés et enregistrés dans Azure. Ils doivent être également pris en compte dans vos conventions d’affectation de noms.
 
-### Implementation guidelines recap for naming conventions
+### Récapitulatif des instructions d’implémentation pour les conventions d’affectation de noms
 
-Decision:
+Décision :
 
-- What are your naming conventions for Azure resources?
+- Quelles sont vos conventions d’affectation de noms pour les ressources Azure ?
 
-Task:
+Tâche :
 
-- Define the naming conventions in terms of affixes, hierarchy, string values, and other policies for Azure resources.
+- Définir les conventions d’affectation de noms en termes d’affixes, la hiérarchie, les valeurs de chaînes de caractères et d’autres stratégies pour les ressources Microsoft Azure.
 
-## 2. Subscriptions and accounts
+## 2\. Abonnements et comptes
 
-In order to work with Azure, you need one or more Azure subscriptions. Resources, like cloud services or virtual machines, exist in the context of those subscriptions.
+Pour utiliser Azure, vous avez besoin d’un ou de plusieurs abonnements Azure. Des ressources telles que des services cloud ou des machines virtuelles existent dans le contexte de ces abonnements.
 
-- Enterprise customers typically have an Enterprise Enrollment, which is the top-most resource in the hierarchy, and is associated to one or more accounts.
-- For consumers and customers without an Enterprise Enrollment, the top-most resource is the account.
-- Subscriptions are associated to accounts, and there can be one or more subscriptions per account. Azure records billing information at the subscription level.
+- Les clients d’entreprises disposent généralement d’une inscription d’entreprise, qui est la ressource principale dans la hiérarchie et est associée à un ou plusieurs comptes.
+- Pour les particuliers et les clients sans inscription d’entreprise, la ressource principale est le compte.
+- Les abonnements sont associés à des comptes, et chaque compte peut être associé à un ou plusieurs abonnements. Azure enregistre les informations de facturation au niveau de l’abonnement.
 
-Due to the limit of two hierarchy levels on the Account/Subscription relationship, it is important to align the naming convention of accounts and subscriptions to the billing needs. For instance, if a global company uses Azure, they might choose to have one account per region, and have subscriptions managed at the region level.
+La relation compte/abonnement étant limitée à deux niveaux de hiérarchie, il est important d’aligner la convention d’affectation de noms des comptes et des abonnements sur les besoins liés à la facturation. Par exemple, si une entreprise multinationale utilise Azure, elle peut choisir d’avoir un seul compte par région et des abonnements gérés au niveau régional.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
-For instance, you might use this structure.
+Par exemple, vous pouvez utiliser la structure suivante.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
-Following the same example, if a region decides to have more than one subscription associated to a particular group, then the naming convention should incorporate a way to encode the extra on either the account or the subscription name. This organization allows massaging billing data to generate the new levels of hierarchy during billing reports.
+En reprenant le même exemple, si une région décide d’avoir plusieurs abonnements associés à un groupe spécifique, la convention d’affectation de noms doit alors comprendre un code pour l’information supplémentaire dans le nom du compte ou de l’abonnement. Cette organisation permet le transfert de données de facturation pour générer de nouveaux niveaux de hiérarchie lors de l’établissement de rapports de facturation.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-The organization could look like this.
+Vous trouverez ci-dessous un exemple d’organisation.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
-Microsoft provides detailed billing via a downloadable file for a single account or for all accounts in an enterprise agreement. You can process this file, for example, by using Microsoft Excel. This process would ingest the data, partition the resources that encode more than one level of the hierarchy into separate columns, and use a pivot table or PowerPivot to provide dynamic reporting capabilities.
+Microsoft fournit une facturation détaillée au moyen d’un fichier téléchargeable, pour un compte unique ou pour tous les comptes liés à un accord d’entreprise. Vous pouvez traiter ce fichier, par exemple, à l’aide de Microsoft Excel. Dans ce cas, le processus reçoit des données, partage les ressources qui encodent plusieurs niveaux de hiérarchie dans des colonnes distinctes et utilise un tableau croisé dynamique ou PowerPivot pour permettre la création de rapports dynamiques.
 
-### Implementation guidelines recap for subscriptions and accounts
+### Récapitulatif des instructions d’implémentation pour les abonnements et les comptes
 
-Decision:
+Décision :
 
-- What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
+- Quel est l’ensemble d’abonnements et de comptes dont vous avez besoin pour héberger votre charge de travail ou votre infrastructure informatique ?
 
-Task:
+Tâche :
 
-- Create the set of subscriptions and accounts using your naming convention.
+- Créer l’ensemble d’abonnements et de comptes à l’aide de votre convention d’affectation de noms.
 
-## 3. Storage
+## 3\. Stockage
 
-Azure Storage is an integral part of many Azure solutions. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting virtual machines.
+Le stockage Azure fait partie intégrante de nombreuses solutions Azure. Le stockage Azure fournit des services pour le stockage des données de fichiers, les données non structurées et les messages. Il fait également partie de l’infrastructure de prise en charge des machines virtuelles.
 
-There are two types of storage accounts available from Azure. A standard storage account gives you access to blob storage (used for storing Azure virtual machine disks), table storage, queue storage, and file storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure virtual machine disks only.
+Il existe deux types de comptes de stockage disponibles dans Azure. Un compte de stockage standard vous donne accès au stockage d’objets blob (utilisé pour le stockage de disques de machines virtuelles Azure), de tables, de files d’attente et de fichiers de stockage. Le stockage Premium est conçu pour des applications hautes performances, telles que les serveurs SQL dans un cluster AlwaysOn, et prend actuellement en charge uniquement les disques de machine virtuelle Azure.
 
-Storage accounts are bound to scalability targets. See [Microsoft Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure storage scalability and performance targets](../storage-scalability-targets.md).
+Les comptes de stockage sont liés à des objectifs d’extensibilité. Pour vous familiariser avec les limites de stockage Azure actuelles, voir [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits). Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../storage-scalability-targets.md).
 
-Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, because the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
+Azure crée des machines virtuelles avec un disque de système d’exploitation, et éventuellement plusieurs disques de données facultatifs. Le disque de système d’exploitation et les disques de données sont des objets blob de pages Azure, tandis que le disque temporaire est stocké localement sur le nœud comprenant l’emplacement de la machine. Le disque temporaire est alors inapproprié pour les données qui doivent être conservées au cours d’un recyclage de système, car la machine peut être migrée en mode silencieux d’un nœud à l’autre, ce qui implique la perte de toutes les données de ce disque. Ne stockez rien sur le disque temporaire.
 
-Operating system disks and data disks have a maximum size of 1023 gigabytes (GB) because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can implement disk striping in Windows to surpass this limit.
+Les disques de système d’exploitation et les disques de données ont une taille maximale de 1 023 Go, étant donné que la taille maximale d’un objet blob est de 1 024 Go et qu’il doit contenir les métadonnées (pied de page) du fichier VHD (un Go compte 1 024<sup>3</sup> octets). Vous pouvez mettre en place un entrelacement de disques dans Windows pour dépasser cette limite.
 
-### Striped disks
-Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
+### Disques agrégés par bandes
+Outre la possibilité de créer des disques d’une taille supérieure à 1 023 Go dans plusieurs instances, l’entrelacement de disques améliore les performances en permettant à plusieurs objets blob de sauvegarder le stockage d’un seul volume. Avec l’agrégation par bandes, l’E/S requise pour écrire et lire des données à partir d’un seul disque logique est exécutée en parallèle.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+Azure impose des limites quant à la quantité de disques de données et de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-linux-sizes.md).
 
-If you are using disk striping for Azure data disks, consider the following guidelines:
+Si vous utilisez l’entrelacement pour les disques de données Azure, respectez les consignes suivantes :
 
-- Data disks should always be the maximum size (1023 GB)
-- Attach the maximum data disks allowed for the virtual machine size
-- Use storage spaces configuration
-- Use storage striping configuration
-- Avoid using Azure data disk caching options (caching policy = None)
+- Les disques de données doivent toujours avoir la taille maximale (1 023 Go)
+- Attachez le nombre maximum autorisé de disques de données pour la taille de machine virtuelle
+- Utilisez la configuration des espaces de stockage
+- Utilisez la configuration de l’entrelacement du stockage
+- Évitez d’utiliser des options de mise en cache des disques de données Azure (Stratégie de mise en cache = Aucune)
 
-For more information, see [Storage spaces - designing for performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Pour plus d’informations, voir la page [Espaces de stockage : une conception pour la performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
-### Multiple storage accounts
+### Comptes de stockage multiples
 
-Using multiple storage accounts to back the disks associated with many virtual machines ensures that the aggregated I/O of those disks is well below the scalability targets for each one of those storage accounts.
+L’utilisation de plusieurs comptes de stockage pour sauvegarder les disques associés à de nombreuses machines virtuelles garantit que les E/S agrégées de ces disques sont largement en-dessous des objectifs d’extensibilité pour chaque compte de stockage.
 
-We recommend that you start with the deployment of one virtual machine per storage account.
+Nous recommandons de commencer par le déploiement d’une machine virtuelle par compte de stockage.
 
-### Storage layout design
+### Conception de la disposition du stockage
 
-To implement these strategies to implement the disk subsystem of the virtual machines with good performance, an IT workload or infrastructure typically takes advantage of many storage accounts. These host many VHD blobs. In some instances, more than one blob is associated to one single volume in a virtual machine.
+Pour mettre en œuvre ces stratégies de manière à mettre en œuvre le sous-système de disques des machines virtuelles avec des performances optimales, une charge de travail ou une infrastructure informatique tire généralement parti de plusieurs comptes de stockage. Ils hébergent de nombreux objets blob VHD. Dans certains cas, plusieurs objets blob sont associés à un seul volume sur une machine virtuelle.
 
-This situation can add complexity to the management tasks. Designing a sound strategy for storage, including appropriate naming for the underlying disks and associated VHD blobs is key.
+Cette situation peut compliquer les tâches de gestion. La conception d’une stratégie solide pour le stockage, notamment la dénomination appropriée pour les disques sous-jacents et les objets BLOB associés, est un élément clé.
 
-### Implementation guidelines recap for storage
+### Récapitulatif des instructions d’implémentation pour le stockage
 
-Decisions:
+Décisions :
 
-- Do you need disk striping to create disks larger than 500 terabytes (TB)?
-- Do you need disk striping to achieve optimal performance for your workload?
-- What set of storage accounts do you need to host your IT workload or infrastructure?
+- Avez-vous besoin d’un entrelacement pour créer des disques d’une taille supérieure à 500 téraoctets (To) ?
+- Avez-vous besoin d’un entrelacement pour optimiser les performances de votre charge de travail ?
+- Quel est l’ensemble de comptes de stockage dont vous avez besoin pour héberger votre charge de travail ou votre infrastructure informatique ?
 
-Task:
+Tâche :
 
-- Create the set of storage accounts using your naming convention. You can use the Azure portal, the Azure classic portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
+- Créer l’ensemble de comptes de stockage à l’aide de votre convention d’affectation de noms. Vous pouvez utiliser le portail Azure, le portail Azure Classic ou l’applet de commande PowerShell **New-AzureStorageAccount**.
 
-## 4. Cloud services
+## 4\. Services cloud
 
-Cloud services are a fundamental building block in Azure service management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
+Les services cloud sont un bloc de construction fondamental de la gestion des services Azure, à la fois pour les services PaaS et IaaS. Pour le PaaS, les services cloud représentent une association de rôles dont les instances peuvent communiquer entre elles. Les services cloud sont associés à une adresse IP virtuelle publique (VIP) et à un équilibrage de charge, qui prend le trafic entrant provenant d’Internet et équilibre la charge pour les rôles configurés de manière recevoir le trafic.
 
-In the case of IaaS, cloud services offer similar functionality, although in most cases, the load balancer functionality is used to forward traffic to specific TCP or UDP ports from the Internet to the many virtual machines within that cloud service.
+Dans le cas de l’IaaS, les services cloud offrent des fonctionnalités similaires, bien que, dans la plupart des cas, la fonctionnalité d’équilibrage de charge soit utilisée pour transférer le trafic vers des ports TCP ou UDP spécifiques à partir d’Internet vers les nombreuses machines virtuelles au sein de ce service cloud.
 
-> [AZURE.NOTE] Cloud services do not exist in Azure Resource Manager. For an introduction to the advantages of Resource Manager, see [Azure compute, network and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md).
+> [AZURE.NOTE] Les services cloud n’existent pas dans Azure Resource Manager. Pour découvrir les avantages de Resource Manager, voir la page [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
-Cloud service names are especially important in IaaS because Azure uses them as part of the default naming convention for disks. The cloud service name can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.
+Les noms de service cloud sont particulièrement importants dans l’IaaS, car Azure les utilise en tant que partie intégrante de la convention d’affectation de noms pour les disques par défaut. Le nom de service cloud ne peut contenir que des lettres, des chiffres et des traits d’union. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.
 
-Azure exposes the cloud service names, because they are associated to the VIP, in the domain “cloudapp.net”. For a better user experience of the application, a vanity name should be configured as needed to replace the fully qualified cloud service name. This is typically done with a CNAME record in your public DNS that maps the public DNS name of your resource (for example, www.contoso.com) to the DNS name of the cloud service hosting the resource (for example, the cloud service hosting the web servers for www.contoso.com).
+Azure expose les noms de service cloud, dans la mesure où ils sont associés à l’adresse IP virtuelle dans le domaine « cloudapp.net ». Pour une expérience utilisateur de l’application optimale, un surnom doit être configuré pour remplacer le nom de service cloud complet. Pour cela, utilisez un enregistrement CNAME dans votre DNS public qui mappe le nom DNS public de votre ressource (par exemple, www.contoso.com) sur le nom DNS du service cloud qui héberge la ressource (par exemple, le service cloud qui héberge les serveurs web pour www.contoso.com).
 
-In addition, the naming convention used for cloud services might need to tolerate exceptions because the cloud service names must be unique among all other Microsoft Azure cloud services, regardless of the Microsoft Azure tenant.
+En outre, la convention d’affectation de noms utilisée pour les services cloud devra peut-être tolérer des exceptions, car les noms de service cloud doivent être uniques parmi tous les autres services cloud Microsoft Azure, quel que soit le locataire Microsoft Azure.
 
-One important limitation of cloud services to consider is that only one virtual machine management operation can be performed at a time for all the virtual machines in the cloud service. When you perform a virtual machine management operation on one virtual machine in the cloud service, you must wait until it is finished before you can perform a new management operation on another virtual machine. Therefore, you should keep the number of virtual machines in a cloud service low.
+Limite importante des services cloud à prendre en compte : seule une opération de gestion de machine virtuelle peut être effectuée à la fois pour toutes les machines virtuelles dans le service cloud. Lorsque vous effectuez une opération de gestion de machine virtuelle sur une machine virtuelle dans le service cloud, vous devez attendre qu’elle soit terminée avant de pouvoir en effectuer une nouvelle sur une autre machine virtuelle. Par conséquent, vous ne devez conserver qu’un petit nombre de machines virtuelles dans un service cloud.
 
-Azure subscriptions can support a maximum of 200 cloud services.
+Les abonnements Azure peuvent prendre en charge 200 services cloud au maximum.
 
-### Implementation guidelines recap for cloud services
+### Récapitulatif des instructions d’implémentation pour les services cloud
 
-Decision:
+Décision :
 
-- What set of cloud services do you need to host your IT workload or infrastructure?
+- Quel est l’ensemble de services cloud dont vous avez besoin pour héberger votre charge de travail ou votre infrastructure informatique ?
 
-Task:
+Tâche :
 
-- Create the set of cloud services using your naming convention. You can use the Azure classic portal or the **New-AzureService** PowerShell cmdlet.
+- Créer l’ensemble de services cloud à l’aide de votre convention d’affectation de noms. Vous pouvez utiliser le portail Azure Classic ou l’applet de commande PowerShell **New-AzureService**.
 
-## 5. Virtual networks
+## 5\. Réseaux virtuels
 
-The next logical step is to create the virtual networks necessary to support the communications across the virtual machines in the solution. Although it is possible to host multiple virtual machines of an IT workload within just one cloud service, virtual networks are recommended.
+L’étape logique suivante consiste à créer les réseaux virtuels nécessaires pour prendre en charge les communications entre les machines virtuelles dans la solution. Bien qu’il soit possible d’héberger plusieurs machines virtuelles d’une charge de travail informatique dans un seul service cloud, des réseaux virtuels sont recommandés.
 
-Virtual networks are a container for virtual machines for which you can also specify subnets, custom addressing, and DNS configuration options. Virtual machines within the same virtual network can communicate directly with other computers within the same virtual network, regardless of which cloud service they are a member of. Within the virtual network, this communication remains private, without the need for the communication to go through the public endpoints. This communication can occur via IP address, or by name, using a DNS server installed in the virtual network, or on-premises, if the virtual machine is connected to the corporate network.
+Les réseaux virtuels constituent un conteneur pour les machines virtuelles pour lesquelles vous pouvez également spécifier des sous-réseaux, un adressage personnalisé et des options de configuration de DNS. Les machines virtuelles au sein du même réseau virtuel peuvent communiquer directement avec d’autres ordinateurs dans le même réseau virtuel, quel que soit le service cloud dont elles sont membres. Cette communication reste privée au sein du réseau virtuel, sans avoir besoin de passer par des points de terminaison publics. Cette communication peut être établie par l’intermédiaire d’une adresse IP ou par un nom, à l’aide d’un serveur DNS installé dans le réseau virtuel ou sur site, si l’ordinateur virtuel est connecté au réseau d’entreprise.
 
-### Site connectivity
-If on-premises users and computers do not require ongoing connectivity to virtual machines in an Azure virtual network, create a cloud-only virtual network.
+### Connectivité de site
+Si les utilisateurs et les ordinateurs sur site ne nécessitent pas de connectivité continue aux machines virtuelles dans un réseau virtuel Azure, créez un réseau virtuel uniquement dans le cloud.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
-This is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these virtual machines using Remote Desktop connections, remote PowerShell sessions, Secure Shell (SSH) connections, and point-to-site VPN connections.
+Cette solution s’applique généralement à des charges de travail Internet, telles qu’un serveur web Internet. Vous pouvez gérer ces machines virtuelles à l’aide de connexions Bureau à distance, de sessions PowerShell à distance, de connexions SSH (Secure Shell) et de connexions VPN de point à site.
 
-Because they do not connect to your on-premises network, cloud-only virtual networks can use any portion of the private IP address space.
+Les réseaux virtuels ne se connectant pas à votre réseau local, les réseaux virtuels uniquement basés sur le cloud peuvent utiliser une partie de l’espace d’adressage IP privé.
 
-If on-premises users and computers require ongoing connectivity to virtual machines in an Azure virtual network, create a cross-premises virtual network and connect it to your on-premises network with an ExpressRoute or site-to-site VPN connection.
+Si les utilisateurs et ordinateurs locaux nécessitent une connectivité continue aux machines virtuelles dans un réseau virtuel Azure, créez un réseau virtuel intersite et connectez-le à votre réseau local avec une connexion ExpressRoute ou VPN de site à site.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
-In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
+Dans cette configuration, le réseau virtuel Azure est essentiellement une extension cloud de votre réseau local.
 
-Because they connect to your on-premises network, cross-premises virtual networks must use a portion of the address space used by your organization that is unique, and the routing infrastructure must support routing traffic to that portion by forwarding it to your on-premises VPN device.
+Les réseaux virtuels intersite se connectant à votre réseau local, ils doivent utiliser une partie unique de l’espace d’adressage utilisé par votre organisation. Et l’infrastructure de routage doit prendre en charge le routage de trafic vers cette partie en le transmettant à votre périphérique VPN local.
 
-To allow packets to travel from your cross-premises virtual network to your on-premises network, you must configure the set of relevant on-premises address prefixes as part of the local network definition for the virtual network. Depending on the address space of the virtual network and the set of relevant on-premises locations, there can be many address prefixes in the local network.
+Pour autoriser les paquets à circuler de votre réseau virtuel intersite vers votre réseau local, vous devez configurer le jeu de préfixes d’adresses locales pertinents dans le cadre de la définition du réseau local pour le réseau virtuel. En fonction de l’espace d’adressage du réseau virtuel et de l’ensemble des emplacements locaux concernés, le réseau local peut comprendre de nombreux préfixes d’adresse.
 
-You can convert a cloud-only virtual network to a cross-premises virtual network, but it will most likely require you to renumber your virtual network address space, your subnets, and the virtual machines that use static Azure-assigned IP addresses, known as Dynamic IPs (DIPs). Therefore, carefully consider the type of virtual networks you need (cloud-only versus cross-premises) before you create them.
+Vous pouvez convertir un réseau virtuel cloud en un réseau virtuel intersite, mais il nécessitera probablement une renumérotation de votre espace d’adressage de réseau virtuel, de vos sous-réseaux et de vos machines virtuelles qui utilisent des adresses IP statiques affectées par Azure, appelées IP dynamiques (DIP). Par conséquent, déterminez avec attention le type de réseaux virtuels dont vous avez besoin (cloud ou intersite) avant de les créer.
 
-### Subnets
-Subnets allow you to organize resources that are related, either logically (for example, one subnet for virtual machines associated to the same application), or physically (for example, one subnet per cloud service), or to employ subnet isolation techniques for added security.
+### Sous-réseaux
+Les sous-réseaux vous permettent d’organiser des ressources apparentées, soit logiquement (par exemple, un sous-réseau pour les machines virtuelles associées à la même application), soit physiquement (par exemple, un sous-réseau par service cloud), ou d’employer des techniques d’isolation de sous-réseaux pour renforcer la sécurité.
 
-For cross-premises virtual networks, you should design subnets with the same conventions that you use for on-premises resources, keeping in mind that **Azure always uses the first three IP addresses of the address space for each subnet**. To determine the number of addresses needed for the subnet, count the number of virtual machines that you need now, estimate for future growth, and then use the following table to determine the size of the subnet.
+Pour les réseaux virtuels intersite, vous devez concevoir des sous-réseaux avec les conventions que vous utilisez pour les ressources locales, en gardant à l’esprit qu’**Azure utilise toujours les trois premières adresses IP de l’espace d’adressage pour chaque sous-réseau**. Pour déterminer le nombre d’adresses nécessaires pour le sous-réseau, comptez le nombre de machines virtuelles dont vous avez besoin maintenant, estimez sa croissance future, puis utilisez le tableau suivant pour déterminer la taille du sous-réseau.
 
-Number of virtual machines needed | Number of host bits needed | Size of the subnet
+Nombre de machines virtuelles nécessaires | Nombre de bits hôte nécessaires | Taille du sous-réseau
 --- | --- | ---
-1–3 | 3 | /29
-4–11	 | 4 | /28
-12–27 | 5 | /27
-28–59 | 6 | /26
-60–123 | 7 | /25
+1 à 3 | 3 | /29
+4 à 11 | 4 | /28
+12 à 27 | 5 | /27
+28 à 59 | 6 | /26
+60 à 123 | 7 | /25
 
-> [AZURE.NOTE] For normal on-premises subnets, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 2. For an Azure subnet, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 5 (2 plus 3 for the addresses that Azure uses on each subnet).
+> [AZURE.NOTE] Pour des sous-réseaux locaux normaux, le nombre maximal d’adresses d’hôte pour un sous-réseau avec n bits hôte est 2<sup>n</sup> – 2. Pour un sous-réseau Azure, le nombre maximal d’adresses d’hôte pour un sous-réseau avec n bits hôte est 2<sup>n</sup> – 5 (2 plus 3 pour les adresses qu’Azure utilise sur chaque sous-réseau).
 
-If you choose a subnet size that is too small, you will have to renumber and redeploy the virtual machines in the subnet.
+Si vous choisissez une taille de sous-réseau trop petite, vous devrez renuméroter et redéployer les machines virtuelles dans le sous-réseau.
 
-### Implementation guidelines recap for virtual networks
+### Récapitulatif des instructions d’implémentation pour les réseaux virtuels
 
-Decisions:
+Décisions :
 
-- What type of virtual network do you need to host your IT workload or infrastructure (cloud-only or cross-premises)?
-- For cross-premises virtual networks, how much address space do you need to host the subnets and virtual machines now and for reasonable expansion in the future?
+- Quel type de réseau virtuel devez-vous pour héberger votre charge de travail ou votre infrastructure informatique (cloud ou intersite) ?
+- Pour les réseaux virtuels intersite, de quelle taille d’espace adressage avez-vous besoin pour héberger les sous-réseaux et les machines virtuelles maintenant et pour une extension future raisonnable ?
 
-Tasks:
+Tâches :
 
-- Define the address space for the virtual network.
-- Define the set of subnets and the address space for each.
-- For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the virtual machines in the virtual network need to reach.
-- Create the virtual network using your naming convention. You can use the Azure portal or the Azure classic portal.
+- Définir l’espace d’adressage du réseau virtuel.
+- Définir l’ensemble de sous-réseaux et l’espace d’adressage pour chacun.
+- Pour les réseaux virtuels intersite, définir l’ensemble des espaces d’adressage de réseau local pour les emplacements locaux auxquels les machines virtuelles doivent accéder dans le réseau virtuel.
+- Créer le réseau virtuel à l’aide de votre convention d’affectation de noms. Vous pouvez utiliser le portail Azure ou le portail Azure Classic.
 
-## 6. Availability sets
+## 6\. Groupes à haute disponibilité
 
-In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
+Dans le PaaS Azure, les services cloud comprennent un ou plusieurs rôles qui exécutent du code d’application. Les rôles peuvent avoir une ou plusieurs instances de machine virtuelle provisionnées automatiquement par la structure. À un moment donné, Azure peut mettre à jour les instances de ces rôles, mais, comme elles font partie du même rôle, Azure ne les met pas à jour simultanément afin d’éviter une interruption de service pour le rôle.
 
-In Azure IaaS, the concept of role is not significant, because each IaaS virtual machine represents a role with a single instance. In order to hint to Azure not to bring down two or more associated machines at the same time (for example, for operating system updates of the node where they reside), the concept of availability sets was introduced. An availability set tells Azure not to bring down all the machines in the same availability set at the same time to prevent a service outage. The virtual machine members of an availability set have a 99.95% uptime service level agreement.
+Dans l’IaaS Azure, le concept de rôle n’est pas significatif, étant donné que chaque machine virtuelle IaaS représente un rôle avec une seule instance. Le concept de groupes à haute disponibilité a été introduit afin qu’Azure n’interrompe pas deux ordinateurs associés ou plus simultanément (par exemple, pour les mises à jour du système d’exploitation du nœud où ils se trouvent). Un groupe à haute disponibilité indique à Azure ne pas interrompre simultanément toutes les machines dans le même groupe à haute disponibilité afin d’éviter une interruption de service. Les membres de la machine virtuelle d’un groupe à haute disponibilité ont un contrat de niveau service stipulant une disponibilité de 99,95 %.
 
-Availability sets must be part of the high-availability planning of the solution. An availability set is defined as the set of virtual machines within a single cloud service that have the same availability set name. You can create availability sets after you create cloud services.
+Les groupes à haute disponibilité doivent faire partie de la planification de la haute disponibilité de la solution. Un groupe à haute disponibilité est défini comme l’ensemble des machines virtuelles au sein d’un unique service cloud qui ont le même nom de groupe de disponibilité. Vous pouvez créer des groupes à haute disponibilité après la création de services cloud.
 
-### Implementation guidelines recap for availability sets
+### Récapitulatif des instructions d’implémentation pour groupes à haute disponibilité
 
-Decision:
+Décision :
 
-- How many availability sets do you need for the various roles and tiers in your IT workload or infrastructure?
+- De combien de groupe à haute disponibilité avez-vous besoin pour les différents rôles et niveaux de votre charge de travail ou infrastructure informatique ?
 
-Task:
+Tâche :
 
-- Define the set of availability sets using your naming convention. You can associate a virtual machine to an availability set when you create the virtual machines, or you can associate a virtual machine to an availability set after the virtual machine has been created.
+- Définir l’ensemble des groupes à haute disponibilité à l’aide de votre convention d’affectation de noms. Vous pouvez associer une machine virtuelle à un groupe à haute disponibilité lorsque vous créez les machines virtuelles, ou vous pouvez associer une machine virtuelle à un groupe à haute disponibilité après l’avoir créée.
 
-## 7. Virtual machines
+## 7\. Machines virtuelles
 
-In Azure PaaS, Azure manages virtual machines and their associated disks. You must create and name cloud services and roles, and then Azure creates instances associated to those roles. In the case of Azure IaaS, it is up to you to provide names for the cloud services, virtual machines, and associated disks.
+Dans le PaaS Azure, Azure gère des machines virtuelles et leurs disques associés. Vous devez créer et nommer des services cloud et des rôles, et Azure crée ensuite des instances associées à ces rôles. Dans le cas de l’IaaS Azure, c’est à vous de donner des noms aux services cloud, aux machines virtuelles et aux disques associés.
 
-To reduce administrative burden, the Azure classic portal uses the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
+Pour réduire la charge administrative, le portail Azure Classic utilise le nom d’ordinateur comme suggestion pour le nom par défaut du service cloud associé (dans le cas où le client choisit de créer un service cloud lors de l’exécution de l’Assistant de création de machines virtuelles).
 
-In addition, Azure names disks and their supporting VHD blobs using a combination of the cloud service name, the computer name, and the creation date.
+En outre, les disques de noms Azure et leurs objets blob VHD associés à l’aide d’une combinaison du nom du service cloud, du nom d’ordinateur et la date de création.
 
-In general, the number of disks is much greater than the number of virtual machines. You should be careful when manipulating virtual machines to prevent orphaning disks. Also, disks can be deleted without deleting the supporting blob. If this is the case, the blob remains in the storage account until manually deleted.
+En général, le nombre de disques sera nettement supérieur à la quantité de machines virtuelles. Lorsque vous manipulez des machines virtuelles, veillez à éviter les disques orphelins. En outre, les disques peuvent être supprimés sans supprimer l’objet blob associé. Si c’est le cas, l’objet blob reste dans le compte de stockage jusqu’à sa suppression manuelle.
 
-### Implementation guidelines recap for virtual machines
+### Récapitulatif des instructions d’implémentation pour les machines virtuelles
 
-Decision:
+Décision :
 
-- How many virtual machines do you need to provide for the IT workload or infrastructure?
+- Quel est le nombre de machines virtuelles que vous devez fournir pour l’infrastructure ou la charge de travail informatique ?
 
-Tasks:
+Tâches :
 
-- Define each virtual machine name using your naming convention.
-- Create your virtual machines with the Azure portal, the Azure classic portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
+- Définir chaque nom de machine virtuelle à l’aide de votre convention d’affectation de noms.
+- Créez vos machines virtuelles à l’aide du portail Azure, du portail Azure Classic, de l’applet de commande PowerShell **New-AzureVM**, de l’interface de ligne de commande Azure ou des modèles Resource Manager.
 
-## Example of an IT workload: The Contoso financial analysis engine
+## Exemple d’une charge de travail informatique : le moteur d’analyse financière Contoso
 
-The Contoso Corporation has developed a next-generation financial analysis engine with leading-edge proprietary algorithms to aid in futures market trading. They want to make this engine available to its customers as a set of servers in Azure, which consist of:
+La société Contoso Corporation a développé un moteur d’analyse financière de nouvelle génération avec les algorithmes propriétaires de pointe pour vous aider dans vos futures transactions financières. Elle souhaite proposer ce moteur à ses clients sous forme d’un ensemble de serveurs dans Azure constitué :
 
-- Two (and eventually more) IIS-based web servers running custom web services in a web tier
-- Two (and eventually more) IIS-based application servers that perform the calculations in an application tier
-- A SQL Server 2014 cluster with AlwaysOn availability groups (two SQL Servers and a majority node witness) that stores historical and ongoing calculation data in a database tier
-- Two Active Directory domain controllers for a self-contained forest and domain in the authentication tier, which is required by SQL Server clustering
-- All of the servers are located on two subnets; a front end subnet for the web servers and a back end subnet for the application servers, a SQL Server 2014 cluster, and domain controllers
+- de deux serveurs web IIS (ou plus) exécutant des services web personnalisés dans un niveau web ;
+- de deux serveurs d’application IIS (ou plus) qui exécutent leurs calculs dans un niveau application ;
+- d’un cluster SQL Server 2014 avec des groupes de disponibilité AlwaysOn (deux serveurs SQL et un témoin de nœud majoritaire) qui stocke les données d’historique et de calcul continu dans un niveau de base de données ;
+- de deux contrôleurs de domaine Active Directory pour une forêt autonome et un domaine dans le niveau d’  
+authentification requis par les clusters SQL Server ;
+- de tous les serveurs se trouvant sur deux sous-réseaux, un sous-réseau frontal pour les serveurs web et un sous-réseau back-end pour les serveurs d’applications, un cluster SQL Server 2014 et des contrôleurs de domaine.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-Incoming secure web traffic from the Contoso clients on the Internet needs to be load-balanced among the web servers. Calculation request traffic in the form of HTTP requests from the web servers needs to be balanced among the application servers. Additionally, the engine must be designed for high availability.
+La charge du trafic Web entrant sécurisé des clients Contoso sur Internet doit être répartie sur les serveurs web. Le trafic de requêtes de calcul sous la forme de requêtes HTTP depuis les serveurs web doit être réparti sur les serveurs d’applications. En outre, le moteur doit être conçu pour la haute disponibilité.
 
-The resulting design must incorporate:
+La conception qui en résulte doit comprendre :
 
-- A Contoso Azure subscription and account
-- Storage accounts
-- A virtual network with two subnets
-- Availability sets for the sets of servers with a similar role
-- Virtual machines
-- A single resource group
+- un abonnement et un compte Azure ;
+- des comptes de stockage ;
+- un réseau virtuel avec deux sous-réseaux ;
+- des groupes à haute disponibilité pour les groupes de serveurs avec un rôle similaire ;
+- Machines virtuelles
+- un seul groupe de ressources.
 
-All of the above will follow these Contoso naming conventions:
+Tous les éléments ci-dessus sont conformes aux conventions d’affectation de noms de Contoso :
 
-- Contoso uses [IT workload]-[location]-[Azure resource] as a prefix. For this example, "azfae" (Azure Financial Analysis Engine) is the IT workload name and "use" (East US 2) is the location, because most of Contoso's initial customers are on the East Coast of the United States.
-- Storage accounts use contosoazfaeusesa[description] Note that contoso was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
-- Virtual networks use AZFAE-USE-VN[number].
-- Availability sets use azfae-use-as-[role].
-- Virtual machine names use azfae-use-vm-[vmname].
+- Contoso utilise [Charge de travail informatique]-[Emplacement]-[Ressources Azure] comme préfixe. Pour cet exemple, « azfae » (Azure Financial Analysis Engine, moteur d’analyse financière Azure) est le nom de la charge de travail informatique et « use » (East US 2) est l’emplacement, car la plupart des clients initiaux de Contoso sont situés sur la côte est des États-Unis.
+- Les comptes de stockage utilisent contosoazfaeusesa[description]. Notez que contoso a été ajouté au préfixe pour garantir l’unicité et que les noms de compte de stockage ne prennent pas en charge l’utilisation de traits d’union.
+- Les réseaux virtuels utilisent AZFAE-USE-VN[numéro].
+- Les groupes à haute disponibilité utilisent azfae-use-as-[rôle].
+- Les noms de machine virtuelle utilisent azfae-use-vm-[nom de machine virtuelle].
 
-### Azure subscriptions and accounts
+### Abonnements et comptes Azure
 
-Contoso is using their Enterprise subscription, named Contoso Enterprise Subscription, to provide billing for this IT workload.
+Contoso utilise son abonnement d’entreprise, nommé Contoso Enterprise Subscription, pour fournir des informations de facturation pour cette charge de travail informatique.
 
-### Storage accounts
+### des comptes de stockage ;
 
-Contoso determined that they needed two storage accounts:
+Contoso a déterminé que deux comptes de stockage sont nécessaires :
 
-- **contosoazfaeusesawebapp** for the standard storage of the web servers, application servers, and domain controlles and their extra data disks
-- **contosoazfaeusesasqlclust** for the premium storage of the SQL Server cluster servers and their extra data disks
+- **contosoazfaeusesawebapp** pour le stockage standard de serveurs Web, de serveurs d'applications et de contrôleurs de domaine avec leurs disques de données supplémentaires ;
+- **contosoazfaeusesasqlclust** pour le stockage premium de serveurs SQL Server en cluster et de leurs disques de données supplémentaires.
 
-### A virtual network with subnets
+### Un réseau virtuel avec des sous-réseaux
 
-Because the virtual network does not need ongoing connectivity to the Contoso on-premises network, Contoso decided on a cloud-only virtual network.
+Étant donné que le réseau virtuel n’a pas besoin d’une connectivité continue au réseau Contoso local, Contoso a décidé d’adopter un réseau virtuel cloud.
 
-They created a cloud-only virtual network with the following settings using the Azure portal:
+Un réseau virtuel cloud a été créé avec les paramètres suivants via le portail Azure :
 
-- Name: AZFAE-USE-VN01
-- Location: East US 2
-- Virtual network address space: 10.0.0.0/8
-- First subnet:
-	- Name: FrontEnd
-	- Address space: 10.0.1.0/24
-- Second subnet:
-	- Name: BackEnd
-	- Address space: 10.0.2.0/24
+- Nom : AZFAE-USE-VN01
+- Emplacement : East US 2
+- Espace d’adressage du réseau virtuel : 10.0.0.0/8
+- Premier sous-réseau :
+	- Nom : FrontEnd
+	- Espace d’adressage : 10.0.1.0/24
+- Second sous-réseau :
+	- Nom : BackEnd
+	- Espace d’adressage : 10.0.2.0/24
 
-### Availability sets
+### Groupes à haute disponibilité
 
-To maintain high availability of all four tiers of their financial analysis engine, Contoso decided on four availability sets:
+Pour assurer une haute disponibilité sur les quatre niveaux de son moteur d’analyse financière, Contoso a adopté quatre groupes à haute disponibilité :
 
-- **azfae-use-as-dc** for the domain controllers
-- **azfae-use-as-web** for the web servers
-- **azfae-use-as-app** for the application servers
-- **azfae-use-as-sql** for the servers in the SQL Server cluster
+- **azfae-use-as-dc** pour les contrôleurs de domaine ;
+- **azfae-use-as-web** pour les serveurs web ;
+- **azfae-use-as-app** pour les serveurs d’applications ;
+- **azfae-use-as-sql** pour les serveurs du cluster SQL Server.
 
-These availability sets will be created along with the virtual machines.
+Ces groupes à haute disponibilité seront créés avec les machines virtuelles.
 
-### Virtual machines
+### Machines virtuelles
 
-Contoso decided on the following names for their Azure virtual machines:
+Contoso a donné les noms suivants à ses machines virtuelles :
 
-- **azfae-use-vm-dc01** for the first domain controller
-- **azfae-use-vm-dc02** for the second domain controller
-- **azfae-use-vm-web01** for the first web server
-- **azfae-use-vm-web02** for the second web server
-- **azfae-use-vm-app01** for the first application server
-- **azfae-use-vm-app02** for the second application server
-- **azfae-use-vm-sql01** for the first SQL Server in the SQL Server cluster
-- **azfae-use-vm-sql02** for the second SQL Server in the SQL Server cluster
-- **azfae-use-vm-sqlmn01** for the majority node witness in the SQL Server cluster
+- **azfae-use-vm-dc01** pour le premier contrôleur de domaine ;
+- **azfae-use-vm-dc02** pour le second contrôleur de domaine ;
+- **azfae-use-vm-web01** pour le premier serveur web ;
+- **azfae-use-vm-web02** pour le second serveur Web ;
+- **azfae-use-vm-app01** pour le premier serveur d’applications ;
+- **azfae-use-vm-app02** pour le second serveur d’applications ;
+- **azfae-use-vm-sql01** pour le premier serveur SQL dans le cluster SQL Server ;
+- **azfae-use-vm-sql02** pour le second serveur SQL dans le cluster SQL Server ;
+- **azfae-use-vm-sqlmn01** pour le témoin de nœud majoritaire dans le cluster SQL Server.
 
-Here is the resulting configuration.
+Voici la configuration obtenue.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
-This configuration incorporates:
+Cette configuration comprend :
 
-- A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
-- Two storage accounts
-- Four availability sets, one for each tier of the financial analysis engine
-- The virtual machines for the four tiers
-- An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
-- An internal load balanced set for unencrypted web traffic from the web servers to the application servers
-- A single resource group
+- un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
+- deux comptes de stockage ;
+- quatre groupes à haute disponibilité, un pour chaque niveau du moteur d’analyse financière ;
+- les machines virtuelles pour les quatre niveaux ;
+- un jeu d’équilibrage de charge externe pour le trafic Web basé sur HTTPS depuis Internet vers les serveurs web ;
+- un jeu d’équilibrage de charge interne pour le trafic Web non crypté depuis les serveurs Web vers les serveurs d’applications.
+- un seul groupe de ressources.
 
-## Additional resources
+## Ressources supplémentaires
 
-[Microsoft Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#storage-limits)
+[Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits)
 
-[Sizes for virtual machines](virtual-machines-linux-sizes.md)
+[Tailles de machines virtuelles](virtual-machines-linux-sizes.md)
 
-[Azure storage scalability and performance targets](../storage-scalability-targets.md)
+[Objectifs de performance et d’extensibilité d’Azure Storage](../storage-scalability-targets.md)
 
-[Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
+[Diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
-[Azure compute, network, and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
+[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
+<!---HONumber=AcomDC_0323_2016-->

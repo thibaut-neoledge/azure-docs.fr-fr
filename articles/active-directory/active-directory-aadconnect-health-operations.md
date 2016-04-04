@@ -3,7 +3,7 @@
 	description="Cet article décrit les opérations supplémentaires pouvant être effectuées après le déploiement d’Azure AD Connect Health."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="02/21/2016"
+	ms.author="vakarand"/>
 
 # Opérations Azure AD Connect Health
 
@@ -22,6 +22,9 @@ La rubrique suivante décrit les différentes opérations pouvant être effectu�
 
 ## Activer les notifications par courrier électronique
 Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie des notifications par courrier électronique quand des alertes sont générées pour indiquer que votre infrastructure d’identité présente un défaut d’intégrité. Cela se produit lorsqu’une alerte est générée, et quand elle est marquée comme résolue. Pour configurer les notifications par courrier électronique, suivez les instructions ci-dessous.
+
+![Découverte des notifications par courrier électronique Azure AD Connect Health](./media/active-directory-aadconnect-health/email_noti_discover.png)
+
 >[AZURE.NOTE] Les notifications par courrier électronique sont désactivées par défaut.
 
 
@@ -95,9 +98,9 @@ Tous les autres rôles (comme « Administrateurs de l’accès utilisateur » ou
 
 Azure AD Connect prend en charge la gestion des accès à deux niveaux :
 
-- ***Toutes les instances de service***: ceci est le chemin d’accès recommandé pour la plupart des clients, et contrôle l’accès pour toutes les instances de service (par exemple, une batterie de serveurs ADFS) dans tous les types de rôles surveillés par Azure AD Connect Health.
+- ***Toutes les instances de service*** : ceci est le chemin d’accès recommandé pour la plupart des clients, et contrôle l’accès pour toutes les instances de service (par exemple, une batterie de serveurs ADFS) dans tous les types de rôles surveillés par Azure AD Connect Health.
 
-- ***Instance de service***: dans certains cas, vous pouvez être amené à paramétrer l’accès en fonction d’un type de rôle ou d’une instance de service. Dans ce cas, vous pouvez gérer l’accès au niveau de l’instance de service.
+- ***Instance de service*** : dans certains cas, vous pouvez être amené à paramétrer l’accès en fonction d’un type de rôle ou d’une instance de service. Dans ce cas, vous pouvez gérer l’accès au niveau de l’instance de service.
 
 L’autorisation est accordée si un utilisateur final a accès au niveau Annuaire ou Instance de service.
 
@@ -109,15 +112,15 @@ Pour autoriser un accès utilisateur au niveau *toutes les instances de service*
 1. Cliquez sur la partie « Utilisateurs » de la section Configurer.<br> ![Panneau principal (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Sélectionnez « Ajouter ».
 3. Sélectionnez le « Rôle », par exemple « Propriétaire ».<br> ![Ajouter un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. Tapez le nom ou l’identificateur du groupe ou de l’utilisateur cible. Vous pouvez sélectionner un ou plusieurs utilisateurs ou groupes en même temps. Cliquez sur « Sélectionner» .
-![Sélectionner un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+4. Tapez le nom ou l’identificateur du groupe ou de l’utilisateur cible. Vous pouvez sélectionner un ou plusieurs utilisateurs ou groupes en même temps. Cliquez sur « Sélectionner» .![Sélectionner un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Sélectionnez « OK ».<br>
 
 6. Une fois l’affectation de rôle terminée, les utilisateurs et/ou les groupes apparaissent dans la liste.<br> ![Liste des utilisateurs (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Au terme de ces étapes, les utilisateurs et groupes répertoriés bénéficient d’un accès en fonction des rôles qui leur ont été affectés.
 >[AZURE.NOTE]
--Les administrateurs généraux disposent toujours d’un accès complet à toutes les opérations, mais les comptes d’administrateurs généraux ne sont pas présents dans la liste ci-dessus. - La fonctionnalité « Inviter des utilisateurs » N’EST PAS prise en charge dans Azure AD Connect Health.
+- Les administrateurs généraux disposent toujours d’un accès complet à toutes les opérations, mais les comptes d’administrateurs généraux ne sont pas présents dans la liste ci-dessus.
+- La fonctionnalité Inviter des utilisateurs N’EST PAS prise en charge dans Azure AD Connect Health.
 
 #### Étape 3 : partager l’emplacement du panneau avec des utilisateurs ou des groupes
 1. Une fois les autorisations affectées, un utilisateur peut accéder à Azure AD Connect Health à l’adresse [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
@@ -140,4 +143,4 @@ Vous pouvez supprimer un utilisateur ou un groupe de la partie du contrôle d’
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

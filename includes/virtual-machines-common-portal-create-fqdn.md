@@ -1,27 +1,29 @@
 
 
 
-When you create a virtual machine in the [Azure portal](https://portal.azure.com) using the **Resource Manager** deployment model, the portal creates a public IP resource for the virtual machine. You can use this IP address to remotely access the virtual machine. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) or FQDN, by default, it is extremely easy to create one once the virtual machine is created. This article demonstrates the steps to create a DNS name or FQDN.
+Lorsque vous créez une machine virtuelle dans le [portail Azure](https://portal.azure.com) à l’aide du modèle de déploiement du **Gestionnaire des ressources**, le portail crée une ressource d’adresse IP publique pour la machine virtuelle. Vous pouvez utiliser cette adresse IP pour accéder à distance à la machine virtuelle. Bien que le portail ne crée pas de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), par défaut, il est très facile d’en générer un une fois la machine virtuelle créée. Cet article explique les étapes pour créer un nom DNS ou un nom de domaine complet.
 
-The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using the **Resource Manager**. Follow these steps once your virtual machine starts running.
+Cet article suppose que vous vous êtes connecté à votre abonnement dans le portail et créé une machine virtuelle avec les images disponibles, à l’aide de **Gestionnaire des ressources**. Une fois que votre machine virtuelle commence à s’exécuter, suivez ces étapes.
 
-1.  View the virtual machine settings on the portal and click on the Public IP address.
+1.  Affichez les paramètres de machine virtuelle sur le portail, puis cliquez sur l’adresse IP publique.
 
-    ![locate ip resource](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+    ![localiser la ressource d’adresse IP](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2.  Note that the DNS name for the Public IP is blank. Click **All settings** for the Public IP blade.
+2.  Notez que le nom DNS de l’adresse IP publique est vide. Cliquez sur **Tous les paramètres** pour accéder au panneau de l’adresse IP publique.
 
-    ![settings ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
+    ![paramètres ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Open the **Configuration** tab in the Public IP Settings. Enter the desired DNS name label and **Save** this configuration.
+3.  Ouvrez l’onglet **Configuration** dans les paramètres de l’adresse IP publique. Entrez l’étiquette souhaitée pour le nom DNS, puis **enregistrez** cette configuration.
 
-    ![enter dns name label](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+    ![entrer l’étiquette du nom dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
-    The Public IP resource will now show this new DNS label on its blade.
+    La ressource d’adresse IP publique affiche désormais ce nouveau nom DNS sur son panneau.
 
-4.  Close the Public IP blades and go back to the virtual machine blade in the portal. Verify that the DNS name/FQDN appears next to the IP address for the Public IP resource.
+4.  Fermez les panneaux de l’adresse IP publique, puis revenez au panneau de la machine virtuelle dans le portail. Vérifiez que le nom DNS/nom de domaine complet apparaît en regard de l’adresse IP pour la ressource d’adresse IP publique.
 
-    ![FQDN is created](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+    ![le nom de domaine complet est créé](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
 
-    You can now connect remotely to the virtual machine using this DNS name. For example, use `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com`, when connecting to a Linux virtual machine which has the fully qualified domain name of `testdnslabel.centralus.cloudapp.azure.com` and user name of `adminuser`.
+    Vous pouvez maintenant vous connecter à distance à la machine virtuelle à l’aide de ce nom DNS. Par exemple, utilisez `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com` lorsque vous vous connectez à une machine virtuelle Linux qui présente le nom de domaine complet `testdnslabel.centralus.cloudapp.azure.com` et le nom d’utilisateur `adminuser`.
+
+<!---HONumber=AcomDC_0323_2016-->

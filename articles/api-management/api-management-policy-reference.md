@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Référence sur les stratégies Gestion des API Azure
@@ -59,7 +59,7 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 	-	[Convert JSON to XML][] : convertit le corps de la demande ou de la réponse de JSON en XML.
 	-	[Convert XML to JSON][] :convertit le corps de la demande ou de la réponse de XML en JSON.
 	-	[Find and replace string in body][] : recherche une sous-chaîne de demande ou de réponse et la remplace par une autre sous-chaîne.
-	-	[Mask URLs in content][] : réécrit (masque) les liens dans le corps de la réponse et dans l’en-tête de l’emplacement afin qu’ils pointent vers un lien équivalent via la passerelle.
+	-	[Mask URLs in content][] : réécrit (masque) les liens dans le corps de la réponse afin qu’ils pointent vers un lien équivalent via la passerelle.
 	-	[Set backend service][] : modifie le service principal pour une demande entrante.
 	-	[Set body][] : définit le corps du message pour les demandes entrantes et sortantes.
 	-	[Set HTTP header][] : affecte une valeur à un en-tête de réponse et/ou de demande existant ou bien ajoute un nouvel en-tête de réponse et/ou de demande.
@@ -121,4 +121,4 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Détection et diagnostic des incidents dans les applications Windows Store et Windows Phone avec Application Insights" 
-	description="Analysez les problèmes de performances de votre application pour appareil Windows avec Application Insights." 
+	pageTitle="Détection et diagnostic des incidents dans les applications Windows Store et Windows Phone" 
+	description="Analysez les problèmes de performances de votre application pour appareil Windows." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,94 +12,28 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2015" 
+	ms.date="03/17/2016" 
 	ms.author="awills"/>
 
-# Détection et diagnostic des incidents dans les applications Windows Store et Windows Phone avec Application Insights
+# Analytics pour les applications Windows Store
 
-*Application Insights est à l'état de version préliminaire.*
+Microsoft propose deux solutions pour les appareils devOps : [HockeyApp](http://hockeyapp.net/) pour les appareils clients ; et [Application Insights](app-insights-overview.md) pour le côté serveur et les pages web côté client.
 
-Si vos utilisateurs rencontrent des incidents lors de l’utilisation de votre application, vous devez le savoir rapidement et obtenir le plus d’informations sur les conditions de ces incidents. Avec Application Insights, vous pouvez surveiller la fréquence à laquelle se produisent ces incidents, recevoir des alertes lorsqu’ils surviennent et étudier des rapports les concernant.
+[HockeyApp](http://hockeyapp.net/) est notre solution Mobile DevOps pour le développement d’applications pour appareils iOS, OS X, Android ou Windows, ainsi que des applications inter-plateformes sur Xamarin, Cordova et Unity. Avec elle, vous pouvez distribuer des versions pour les testeurs de versions béta, collecter des données liées aux pannes et obtenir des retours utilisateur. Elle est intégrée à Visual Studio Team Services, ce qui permet d’activer des déploiements de versions simples et d’intégrer des éléments de travail.
 
-Le terme « incident » signifie que l'application s'arrête en raison d'une exception non interceptée. Si votre application intercepte une exception, vous pouvez l’intégrer dans un rapport avec [l’API TrackException][apiexceptions] tout en continuant l’exécution de l’application. Dans ce cas, cette exception ne sera pas enregistrée comme un incident.
+Accédez à :
 
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp pour Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
+* [Blog HockeyApp](http://hockeyapp.net/blog/)
+* Rejoignez le programme [HockeyApp Preseason](http://hockeyapp.net/preseason/) pour bénéficier de versions préliminaires.
 
-## Surveillance de la fréquence d'incident
+Si votre application dispose d’un côté serveur, utilisez [Application Insights](app-insights-overview.md) pour l’analyse du côté serveur web de votre application sur [ASP.NET](app-insights-asp-net.md) ou [J2EE](app-insights-java-get-started.md).
 
-Si vous ne l'avez pas encore fait, ajoutez [Application Insights à votre projet d’application][windows] et publiez-le de nouveau.
+Vous pouvez également utiliser [Application Insights pour les applications de bureau Windows](app-insights-windows-desktop.md).
 
-Les incidents sont affichés sur le volet Vue d’ensemble de votre application dans le [portail Application Insights][portal].
+> [AZURE.NOTE] Le 15 juin 2016, nous arrêterons d’afficher des données dans Application Insights pour les applications iOS, Android, Windows Store et Windows Phone.
+> 
+> [En savoir plus sur cette modification](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
 
-![](./media/app-insights-windows-crashes/appinsights-d018-oview.png)
-
-Vous pouvez modifier la période indiquée par le graphique.
-
-
-## Configuration d’une alerte pour détecter les incidents
-
-![À partir du graphique d’incidents, cliquez sur Règles d'alerte, puis sur Ajouter une alerte](./media/app-insights-windows-crashes/appinsights-d023-alert.png)
-
-## Diagnostic des incidents
-
-Pour savoir si certaines versions de votre application sont plus sujettes aux incidents que d’autres, cliquez sur le graphique des incidents et répartissez les résultats en fonction des versions de l’application :
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashSegment.png)
-
-
-Pour découvrir les exceptions qui provoquent des incidents, ouvrez Recherche de diagnostic. Si vous souhaitez supprimer les autres types de données de télémétrie pour vous concentrer sur ces exceptions :
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashExceptions.png)
-
-[En savoir plus sur le filtrage dans Recherche de diagnostic][diagnostic]
- 
-
-Cliquez sur n'importe quelle exception pour afficher ses détails, notamment son arborescence des appels de procédure et ses propriétés associées.
-
-![](./media/app-insights-windows-crashes/appinsights-d26crash.png)
-
-Consultez les autres exceptions et événements qui se sont produits peu de temps avant ou après cette exception :
-
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashRelated.png)
-
-## Insertion d’événements et de journaux de suivi
-
-Pour faciliter le diagnostic des problèmes, vous pouvez [insérer un suivi des appels et rechercher les journaux dans Application Insights][diagnostic].
-
-## <a name="debug"></a>Comparaison entre le mode de débogage et le mode de version finale
-
-#### Déboguer
-
-Si vous développez en mode débogage, les événements sont envoyés dès qu'ils sont générés. Si vous êtes déconnecté d’Internet, puis que vous quittez l’application avant de vous reconnecter, la télémétrie hors connexion est ignorée.
-
-#### Version finale
-
-Si vous développez en configuration de version finale, les événements sont stockés dans l’appareil, puis envoyés lors de la reprise de l’application. Les données sont également envoyées lors de la première utilisation de l’application. S'il vous n’êtes pas connecté à Internet lors du démarrage, les données de télémétrie précédentes, tout comme celles du cycle de vie actuel, sont stockées, puis envoyées lors de la prochaine connexion.
-
-## <a name="next"></a>Étapes suivantes
-
-[Problèmes de détection, de tri et de diagnostic avec Application Insights][detect]
-
-[API Application Insights][api]
-
-[Capture des journaux de diagnostic][trace]
-
-[Résolution des problèmes](app-insights-windows-troubleshoot.md)
-
-
-
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
-[trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
-
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

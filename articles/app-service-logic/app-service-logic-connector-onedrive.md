@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur OneDrive dans votre application logique
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API OneDrive](../connectors/create-api-onedrive.md).
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview, cliquez sur [API OneDrive](../connectors/connectors-create-api-onedrive.md).
 
 Connectez-vous à votre compte OneDrive pour charger, télécharger et supprimer des fichiers. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur OneDrive à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
@@ -29,12 +29,12 @@ Pour utiliser le connecteur OneDrive, vous devez d’abord créer une instance d
 3.	Configurez le connecteur OneDrive comme suit :
 
 	![][1]
-	- **Nom** : donnez un nom à votre connecteur OneDrive
-	- **Plan App Service** : sélectionnez ou créez un plan App Service
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur
-	- **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur
+	- **Nom** : indiquez le nom de votre connecteur OneDrive.
+	- **Plan App Service** : sélectionnez ou créez un plan App Service.
+	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
+	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
 
 4. Cliquez sur Créer. Un connecteur OneDrive est créé.
 5. Une fois l’instance de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur OneDrive.
@@ -51,8 +51,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur OneDr
 	![][2]
 4.	Vous pouvez déposer l’application API du connecteur OneDrive dans l’éditeur en cliquant sur « Connecteur OneDrive ». Cliquez sur le bouton Autoriser. Indiquez vos informations d’identification Microsoft (si vous n’êtes pas connecté automatiquement). Cliquez sur « Oui » pour autoriser l’accès.
 
-	![][3]
-	![][4]
+	![][3] ![][4]
 
 5.	Vous pouvez maintenant utiliser le connecteur OneDrive dans le flux. Actuellement, aucun déclencheur n’est disponible dans le connecteur OneDrive. Les actions disponibles sont Obtenir le fichier, charger un fichier, Supprimer le fichier et Répertorier les fichiers.
 
@@ -64,10 +63,10 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur OneDr
 
 	Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
 
- - **Chemin du fichier**: spécifiez le chemin du fichier à charger.
- - **Contenu**: spécifie le contenu du fichier à télécharger.
- - **Encodage de transfert de contenu**: spécifiez none ou base64.
- - **Remplacer**: spécifiez « true » pour remplacer le fichier existant. Il s’agit d’une propriété avancée.
+ - **Chemin du fichier** : spécifiez le chemin du fichier à charger.
+ - **Contenu** : spécifie le contenu du fichier à télécharger.
+ - **Encodage de transfert de contenu** : spécifiez none ou base64.
+ - **Remplacer** : spécifiez « true » pour remplacer le fichier existant. Il s’agit d’une propriété avancée.
 
 7. Une fois ces propriétés définies, l’action « Charger un fichier » est configurée et utilisable dans votre flux. De même, d’autres actions peuvent être configurées.
 
@@ -99,4 +98,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
 [Définition des API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -33,7 +33,6 @@ Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les t�
 Une documentation abondante existe sur le Web pour les technologies liées à Hadoop, telles que la programmation et la diffusion MapReduce basées sur Java, ainsi que pour l’utilisation des cmdlets dans les scripts Windows PowerShell. Pour plus d'informations sur ces ressources, consultez :
 
 - [Développement de programmes MapReduce en Java pour Hadoop dans HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Envoi de tâches Hadoop dans HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Présentation d'Azure HDInsight][hdinsight-introduction]
 
@@ -42,7 +41,7 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
 - [Utilisation d'Hive dans HDInsight](hdinsight-use-hive.md)
 - [Utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
  
-**Conditions préalables**:
+**Conditions préalables** :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
@@ -120,7 +119,7 @@ Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d�
 
 > [AZURE.NOTE] Les étapes de ce didacticiel s’appliquent uniquement aux clusters Azure HDInsight Windows. Pour obtenir un exemple de diffusion en continu pour les clusters HDInsight Linux, consultez la rubrique [Développement de programmes de diffusion en continu Python pour HDInsight](hdinsight-hadoop-streaming-python.md).
 
-Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis [stdin][stdin-stdout-stderr] (ligne par ligne), puis envoient leur résultat vers [stdout][stdin-stdout-stderr]. Le programme compte tous les mots dans le texte.
+Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis stdinstdin-stdout-stderr (ligne par ligne), puis envoient leur résultat vers stdoutstdin-stdout-stderr. Le programme compte tous les mots dans le texte.
 
 Lorsqu'un exécutable est spécifié pour les **mappeurs**, chaque tâche de mappeur lance l'exécutable en tant que processus distinct lorsque le mappeur est initialisé. Durant son exécution, la tâche du mappeur convertit ses entrées en lignes et les utilise pour alimenter le [stdin][stdin-stdout-stderr] du processus.
 
@@ -998,4 +997,4 @@ Le code du programme MapReduce TeraSort est présenté pour l’inspection dans 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

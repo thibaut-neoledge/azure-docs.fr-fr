@@ -63,7 +63,7 @@ Pour obtenir cette clé, vous pouvez également ouvrir une session sur le [porta
 
 ## Création d'une application Ruby
 
-Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configuration de votre application pour l'utilisation de Service Bus
 
@@ -237,4 +237,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
  
 [portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

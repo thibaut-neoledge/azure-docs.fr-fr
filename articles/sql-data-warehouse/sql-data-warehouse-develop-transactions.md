@@ -23,6 +23,33 @@ Comme vous le savez, SQL Data Warehouse propose la prise en charge de l’ensemb
 ## Niveaux d’isolation des transactions
 SQL Data Warehouse implémente les transactions ACID. Toutefois, l’isolation de la prise en charge des transactions se limite à `READ UNCOMMITTED`. Ce paramètre ne peut pas être modifié. Vous pouvez implémenter un certain nombre de méthodes de codage pour éviter les lectures erronées des données, si le problème se pose. Les méthodes les plus populaires reposent sur la commande CTAS et le basculement des partitions de table (souvent appelé « modèle de fenêtre glissante ») afin d’empêcher les utilisateurs d’interroger les données en cours de préparation. On utilise également des vues qui appliquent un filtre préliminaire aux données.
 
+## Taille de la transaction
+Une transaction de modification de données unique est limitée en taille. Aujourd’hui, la limite est appliquée « par distribution ». Pour obtenir la valeur totale, nous devons donc multiplier la limite par le nombre de distributions. Pour évaluer approximativement le nombre maximal de lignes dans la transaction, divisez la limite de la distribution par la taille totale de chaque colonne. Pour les colonnes à longueur variable, pensez à prendre une longueur de colonne moyenne au lieu d’utiliser la taille maximale.
+
+Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
+* Une distribution égale des données s’est produite 
+* La longueur de ligne moyenne est de 250 octets
+
+| DWU | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
+| ------ | -------------------------- | ----------------------- | -------------------------- | ----------------------- | ------------------------ |
+| DW100 | 1 | 60 | 60 | 4 000 000 | 240 000 000 |
+| DW200 | 1\.5 | 60 | 90 | 6 000 000 | 360 000 000 |
+| DW300 | 2\.25 | 60 | 135 | 9 000 000 | 540 000 000 |
+| DW400 | 3 | 60 | 180 | 12 000 000 | 720 000 000 |
+| DW500 | 3,75 | 60 | 225 | 15 000 000 | 900 000 000 |
+| DW600 | 4\.5 | 60 | 270 | 18 000 000 | 1 080 000 000 |
+| DW1000 | 7\.5 | 60 | 450 | 30 000 000 | 1 800 000 000 |
+| DW1200 | 9 | 60 | 540 | 36 000 000 | 2 160 000 000 |
+| DW1500 | 11,25 | 60 | 675 | 45 000 000 | 2 700 000 000 |
+| DW2000 | 15 | 60 | 900 | 60 000 000 | 3 600 000 000 |
+
+La limite de taille de transaction est appliquée par transaction ou opération. Elle n’est pas appliquée à toutes les transactions simultanées. Par conséquent, chaque transaction est autorisée à écrire cette quantité de données dans le journal.
+
+Pour optimiser et réduire la quantité de données écrites dans le journal, consultez l’article sur les [meilleures pratiques relatives aux transactions][].
+
+> [AZURE.WARNING] La taille de transaction maximale ne peut être obtenue que pour les tables distribuées HASH ou ROUND\_ROBIN où la répartition des données est égale. Si la transaction écrit les données de manière asymétrique dans les distributions, alors la limite est susceptible d’être atteinte avant la taille de transaction maximale.
+<!--REPLICATED_TABLE-->
+
 ## État des transactions
 SQL Data Warehouse utilise la fonction XACT\_STATE() pour signaler l’échec d’une transaction, en utilisant la valeur -2. Cette valeur signifie que la transaction a échoué et est marquée pour une restauration uniquement.
 
@@ -107,9 +134,10 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Article references-->
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
+[meilleures pratiques relatives aux transactions]: sql-data-warehouse-develop-best-practices-transactions.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

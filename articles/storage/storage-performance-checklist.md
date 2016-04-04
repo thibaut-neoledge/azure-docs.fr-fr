@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016" 
+	ms.date="03/18/2016"
 	ms.author="robinsh"/>
 
 # Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
@@ -48,6 +48,7 @@ Dans cet article, les pratiques éprouvées sont classées dans les groupes suiv
 ||Tous les services|	Outils|	[Utilisez-vous la version la plus récente des outils et bibliothèques clientes fournis par Microsoft ?](#subheading13)
 ||Tous les services|	Nouvelle tentatives|	[Utilisez-vous une stratégie de nouvelles tentatives d'interruption exponentielle pour les erreurs de limitation et les délais d'expiration ?](#subheading14)
 ||Tous les services|	Nouvelle tentatives|	[Votre application empêche-t-elle les nouvelles tentatives pour les erreurs non renouvelables ?](#subheading15)
+||Objets blob|	Objectifs d'évolutivité|	[Disposez-vous d’un grand nombre de clients qui accèdent simultanément à un seul objet ?](#subheading46)
 ||Objets blob|	Objectifs d'évolutivité|	[Votre application respecte-t-elle l'objectif d'évolutivité relatif aux opérations ou à la bande passante pour un objet blob unique ?](#subheading16)
 ||Objets blob|	Copie d'objets blob|	[La copie des objets blob s'effectue-t-elle de manière efficace ?](#subheading17)
 ||Objets blob|	Copie d'objets blob|	[Utilisez-vous AzCopy pour les copies en bloc d'objets blob ?](#subheading18)
@@ -74,10 +75,10 @@ Dans cet article, les pratiques éprouvées sont classées dans les groupes suiv
 ||Files d’attente|	Objectifs d'évolutivité|	[Vous approchez-vous des objectifs d'évolutivité en termes de messages par seconde ?](#subheading39)
 ||Files d’attente|	Configuration|	[Avez-vous désactivé Nagle pour améliorer les performances des petites demandes ?](#subheading40)
 ||Files d’attente|	Taille des messages|	[Vos messages sont-ils compacts pour améliorer les performances de la file d'attente ?](#subheading41)
-||Files d’attente|	Récupération en bloc|	[Récupérez-vous plusieurs messages dans une seule opération « Get » ?](#subheading41)
-||Files d’attente|	Fréquence d'interrogation|	[Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#subheading42)
-||Files d’attente|	Mise à jour de message|	[Utilisez-vous la méthode UpdateMessage pour stocker la progression du traitement des messages et éviter de devoir retraiter l'intégralité du message en cas d'erreur ?](#subheading43)
-||Files d’attente|	Architecture|	[Utilisez-vous des files d'attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#subheading44)
+||Files d’attente|	Récupération en bloc|	[Récupérez-vous plusieurs messages dans une seule opération « Get » ?](#subheading42)
+||Files d’attente|	Fréquence d'interrogation|	[Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#subheading43)
+||Files d’attente|	Mise à jour de message|	[Utilisez-vous la méthode UpdateMessage pour stocker la progression du traitement des messages et éviter de devoir retraiter l'intégralité du message en cas d'erreur ?](#subheading44)
+||Files d’attente|	Architecture|	[Utilisez-vous des files d'attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#subheading45)
 
 
 ##<a name="allservices"></a>Tous les Services
@@ -102,7 +103,10 @@ Si votre application s’approche des objectifs d’extensibilité d’un seul c
 -	Si votre application atteint les objectifs d’extensibilité, vérifiez que vous utilisez bien une interruption exponentielle pour les nouvelles tentatives (voir [Nouvelles tentatives](#subheading14)). Il est préférable de veiller à ne jamais s’approcher des objectifs d’extensibilité (en utilisant l’une des méthodes ci-dessus). Vous vous assurez ainsi que votre application n’effectue pas de nouvelle tentative immédiatement, ce qui aurait pour conséquence d’empirer la limitation.  
 
 ####Ressources utiles
-Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d’extensibilité : - vous pouvez consulter les objectifs d’extensibilité sur la page [Objectifs de performance et d’extensibilité d’Azure Storage](storage-scalability-targets.md). Pour plus d’informations sur les options de redondance de stockage, consultez [Réplication Azure Storage](storage-redundancy.md) et le billet de blog [Options de redondance et stockage géo-redondant avec accès en lecture Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx). - Pour obtenir des informations en cours sur la tarification des services Azure, consultez [Tarification Azure](https://azure.microsoft.com/pricing/overview/).
+Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d'évolutivité :
+-	Pour plus d’informations sur les objectifs d’évolutivité, consultez [Objectifs de performance et évolutivité d’Azure Storage](storage-scalability-targets.md).
+-	Consultez la [réplication Azure Storage](storage-redundancy.md) et le billet de blog [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) pour plus d’informations sur les options de redondance de stockage.
+-	Pour obtenir des informations à jour sur la tarification des services Azure, consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/overview/).  
 
 ###Mise en réseau
 Bien que les appels d’API soient importants, les contraintes de réseau physiques de l’application ont souvent un impact majeur sur les performances. Vous trouverez, ci-dessous, certaines des limitations auxquelles les utilisateurs peuvent être confrontés.
@@ -115,7 +119,7 @@ Dans le cas de la bande passante, le problème est souvent dû aux capacités du
 Comme c’est le cas pour toute utilisation du réseau, veuillez tenir compte du fait que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif. L’utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.
 
 #####Ressources utiles
-Pour plus d’informations sur les tailles de machines virtuelles et la bande passante allouée, consultez [Tailles de machines virtuelles](../virtual-machines/virtual-machines-size-specs.md).
+Pour plus d’informations sur les tailles de machines virtuelles et la bande passante allouée, consultez [Tailles de machines virtuelles](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ####<a name="subheading4"></a>Emplacement
 Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, dans le cas d’un site web qui utilise Azure Storage, tous deux doivent se trouver dans la même région (Ouest des États-Unis ou Asie du Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts. Au moment de la rédaction du présent document, l’utilisation de la bande passante dans une seule région était gratuite.
@@ -200,6 +204,15 @@ Pour plus d’informations sur les codes d’erreur de stockage, voir la page [C
 Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s'appliquent spécifiquement au service BLOB.
 
 ###Objectifs d’extensibilité propres aux objets blob
+
+####<a name="subheading46"></a>Plusieurs clients accédant simultanément à un seul objet
+Si vous avez un grand nombre de clients qui accèdent simultanément à un seul objet, vous devrez prendre en compte les objectifs d’évolutivité de compte de stockage et par objet. Le nombre exact de clients qui peuvent accéder à un objet unique varie en fonction de facteurs tels que le nombre de clients demandant l’accès à l’objet simultanément, la taille de l’objet, les conditions réseau, etc.
+
+Si l’objet peut être distribué via un CDN, comme les images ou les vidéos provenant d’un site web, vous devez utiliser un CDN. Voir [ici](#subheading5).
+
+Dans d’autres scénarios tels que les simulations scientifiques où les données sont confidentielles, vous disposez de deux options. La première consiste à échelonner l’accès de votre charge de travail de façon à ce que l’objet soit accessible sur une période de temps au lieu d’un accès simultané. Sinon, vous pouvez copier temporairement l’objet sur plusieurs comptes de stockage pour améliorer le nombre total d’E/S par objet et sur les comptes de stockage. Dans un test limité, nous avons constaté qu’environ 25 machines virtuelles pouvaient télécharger simultanément un objet blob de 100 Go (chaque machine virtuelle téléchargeait en parallèle à l’aide de 32 threads). Si vous avez 100 clients devant accéder à l’objet, copiez-le dans un deuxième compte de stockage et attribuez l’accès au premier objet blob aux 50 premières machines virtuelles, puis les 50 machines virtuelles suivantes accèdent au deuxième objet blob. Les résultats varient selon le comportement de vos applications. Nous vous conseillons de tester ceci pendant la conception.
+
+
 ####<a name="subheading16"></a>Bande passante et opérations par objet blob
 Le débit maximal en lecture ou en écriture sur un objet blob unique est de 60 Mo/seconde (soit environ 480 Mbits/s), ce qui est supérieur aux capacités de nombreux réseaux côté client (y compris la carte réseau physique qui équipe l’appareil client). De plus, un seul objet blob prend en charge plus de 500 demandes par seconde. Si vous risquez de dépasser ces limites lorsque plusieurs clients doivent lire le même objet blob, il est conseillé d’utiliser un CDN pour distribuer l’objet blob.
 
@@ -336,8 +349,8 @@ Dans Azure Storage, les transactions par lots sont connues sous le nom de transa
 #####<a name="subheading36"></a>Opération Upsert
 Lorsque cela s'avère possible, il est conseillé d'utiliser des opérations de table **Upsert**. Il existe deux types d’opération **Upsert** ; tous deux peuvent se révéler plus efficaces qu’une opération **Insert** et **Update** classique :
 
--	**InsertOrMerge**: utilisez cette opération lorsque vous souhaitez télécharger un sous-ensemble des propriétés de l’entité, mais ne savez pas si cette dernière existe déjà. Si elle existe, cet appel met à jour les propriétés incluses dans l’opération **Upsert** et laisse toutes les propriétés existantes en l’état. Si elle n’existe pas, cet appel insère la nouvelle entité. Cela revient à utiliser la projection dans une requête, en ce sens que vous devez simplement télécharger les propriétés qui sont modifiées.
--	**InsertOrReplace**: utilisez cette opération lorsque vous souhaitez télécharger une toute nouvelle entité, mais ne savez pas si cette dernière existe déjà. Ne l’utilisez que lorsque vous n’avez aucun doute quant à la qualité de la nouvelle entité téléchargée, car elle écrase complètement l’ancienne entité. Vous souhaitez, par exemple, mettre à jour l’entité qui stocke l’emplacement actuel d’un utilisateur et ce, que l’application ait déjà stocké ou non des données d’emplacement pour cet utilisateur ; la nouvelle entité d’emplacement est complète et vous n’avez besoin d’aucune information d’une entité précédente.
+-	**InsertOrMerge** : utilisez cette opération lorsque vous souhaitez télécharger un sous-ensemble des propriétés de l’entité, mais ne savez pas si cette dernière existe déjà. Si elle existe, cet appel met à jour les propriétés incluses dans l’opération **Upsert** et laisse toutes les propriétés existantes en l’état. Si elle n’existe pas, cet appel insère la nouvelle entité. Cela revient à utiliser la projection dans une requête, en ce sens que vous devez simplement télécharger les propriétés qui sont modifiées.
+-	**InsertOrReplace** : utilisez cette opération lorsque vous souhaitez télécharger une toute nouvelle entité, mais ne savez pas si cette dernière existe déjà. Ne l’utilisez que lorsque vous n’avez aucun doute quant à la qualité de la nouvelle entité téléchargée, car elle écrase complètement l’ancienne entité. Vous souhaitez, par exemple, mettre à jour l’entité qui stocke l’emplacement actuel d’un utilisateur et ce, que l’application ait déjà stocké ou non des données d’emplacement pour cet utilisateur ; la nouvelle entité d’emplacement est complète et vous n’avez besoin d’aucune information d’une entité précédente.
 
 #####<a name="subheading37"></a>Stockage de séries de données dans une seule entité
 Parfois, une application stocke une série de données fréquemment nécessaires pour tout récupérer à la fois : par exemple, une application peut suivre l’utilisation du processeur au fil du temps pour tracer un graphique propagée des données à partir des dernières 24 heures. Une méthode consiste à disposer d’une entité de table par heure, chaque entité représentant alors une heure donnée et stockant l’utilisation du processeur au cours de cette période. Pour représenter ces données sur un graphique, l’application doit récupérer les entités qui contiennent les données des 24 dernières heures.
@@ -380,6 +393,5 @@ Il est conseillé d’utiliser des files d’attente pour rendre l’architectur
 
 ##Conclusion
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l’utilisation d’Azure Storage. Nous invitons tous les développeurs d’applications à évaluer chacune d’elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -34,7 +34,7 @@ API Apps fournissent les fonctionnalités suivantes :
 
 - **Intégration Visual Studio** : les outils dédiés de Visual Studio rationalisent le travail de création, de déploiement, de consommation, de débogage et de gestion des applications API. Pour en savoir plus, consultez [Annonce du Kit de développement logiciel (SDK) Microsoft Azure version 2.8.1 pour .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
 
-- **Intégration dans Logic Apps** : les applications API que vous créez peuvent être utilisées par [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md). Découvrez comment dans [Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques](../app-service-logic/app-service-logic-custom-hosted-api.md). Pour plus d’informations sur les modifications en cours dans l’intégration d’API Apps aux applications logiques, consultez [App Service API Apps : les nouveautés](app-service-api-whats-changed.md).
+- **Intégration dans Logic Apps** : les applications API que vous créez peuvent être utilisées par [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md). Pour plus d’informations, consultez [Utilisation de votre API personnalisée hébergée sur App Service avec Logic Apps](../app-service-logic/app-service-logic-custom-hosted-api.md) et [Nouvelle version de schéma 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 - **Insérez votre API existante en l’état** : vous n’avez pas besoin de modifier le code de vos API existantes pour bénéficier des fonctionnalités d’application API Apps. Il vous suffit de déployer votre code dans une application API. Votre API peut utiliser n’importe quel langage ou framework pris en charge par App Service, notamment ASP.NET, C#, Java, PHP, Node.js et Python.
 
@@ -64,4 +64,4 @@ Pour prendre en main API Apps, suivez l’un des didacticiels [Prise en main d�
 
 Pour poser des questions sur les applications API, démarrez un thread dans le [forum API Apps](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

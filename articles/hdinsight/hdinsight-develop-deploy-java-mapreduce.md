@@ -24,18 +24,18 @@ Ce didacticiel vous accompagne tout au long d’un scénario de bout en bout per
 
 ##<a name="prerequisites"></a>Configuration requise
 
-Avant de commencer ce didacticiel, vous devez avoir effectué les tâches suivantes :
+Avant de commencer ce didacticiel, vous devez avoir effectué les tâches suivantes :
 
 - Installation de l’émulateur HDInsight Pour obtenir des instructions, consultez la page [Prise en main de l'émulateur HDInsight][hdinsight-emulator]. Vérifiez que tous les services requis sont en cours d’exécution. Sur l’ordinateur où est installé l’émulateur HDInsight, lancez la ligne de commande Hadoop à partir du raccourci sur le bureau, naviguez jusqu’à **C:\\hdp**, puis exécutez la commande **start\_local\_hdp\_services.cmd**.
 - Azure PowerShell installé sur l'ordinateur d'émulation. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
-- Installation de la plateforme Java JDK 7 ou version ultérieure sur l'ordinateur d'émulation. Cet élément est déjà disponible sur l'ordinateur d'émulation.
+- Installation de la plateforme Java JDK 7 ou version ultérieure sur l'ordinateur d'émulation. Cet élément est déjà disponible sur l'ordinateur d'émulation.
 - Installation et configuration d'[Apache Maven](http://maven.apache.org/).
 - Abonnement Azure actif. Pour obtenir des instructions, consultez les pages traitant des [options d'achat][azure-purchase-options], des [offres spéciales membres][azure-member-offers] ou de la [version d'évaluation gratuite][azure-free-trial].
 
 
 ##<a name="develop"></a>Utilisation d’Apache Maven pour créer un programme MapReduce en Java
 
-Créez une application MapReduce de comptage de mots. Il s'agit d'une application toute simple qui compte les occurrences de chaque mot dans un ensemble de saisies donné. Dans cette section, nous effectuerons les tâches suivantes :
+Créez une application MapReduce de comptage de mots. Il s'agit d'une application toute simple qui compte les occurrences de chaque mot dans un ensemble de saisies donné. Dans cette section, nous effectuerons les tâches suivantes :
 
 1. Création d’un projet au moyen d’Apache Maven
 2. Mise à jour du modèle d’objet du projet (POM)
@@ -50,7 +50,7 @@ Créez une application MapReduce de comptage de mots. Il s'agit d'une applicatio
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	Cela créera un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre __artifactID__ (**wordcountjava** dans cet exemple). Ce répertoire contiendra les éléments ci-après :
+	Cela créera un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre __artifactID__ (**wordcountjava** dans cet exemple). Ce répertoire contiendra les éléments ci-après :
 
 	* __pom.xml__ - Le [modèle d’objet du projet (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)qui contient les informations et la configuration utilisées pour générer le projet.
 
@@ -59,7 +59,7 @@ Créez une application MapReduce de comptage de mots. Il s'agit d'une applicatio
 
 **Pour mettre à jour le POM**
 
-1. Modifiez le fichier __pom.xml__ et ajoutez l’élément suivant dans la section `<dependencies>` :
+1. Modifiez le fichier __pom.xml__ et ajoutez l’élément suivant dans la section `<dependencies>` :
 
 		<dependency>
 		  <groupId>org.apache.hadoop</groupId>
@@ -79,7 +79,7 @@ Créez une application MapReduce de comptage de mots. Il s'agit d'une applicatio
 
 	Ceci indique à Maven que le projet a besoin des bibliothèques (figurant dans <artifactId>) avec une version spécifique (figurant dans <version>). Au moment de la compilation, il sera téléchargé à partir du référentiel Maven par défaut. Vous pouvez utiliser la [recherche du référentiel Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) pour en afficher davantage.
 
-2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
+2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
 
 		<build>
   		  <plugins>
@@ -115,7 +115,7 @@ Créez une application MapReduce de comptage de mots. Il s'agit d'une applicatio
 
 1. Accédez au répertoire __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ et renommez le fichier __app.java__ en __WordCount.java__.
 2. Ouvrez le Bloc-notes.
-2. Copiez et collez le programme suivant dans le Bloc-notes :
+2. Copiez et collez le programme suivant dans le Bloc-notes :
 
 		package org.apache.hadoop.examples;
 
@@ -194,7 +194,7 @@ Créez une application MapReduce de comptage de mots. Il s'agit d'une applicatio
 
 1. Ouvrez une invite de commandes et indiquez le répertoire __wordcountjava__.
 
-2. Utilisez la commande suivante pour générer un fichier JAR contenant l’application :
+2. Utilisez la commande suivante pour générer un fichier JAR contenant l’application :
 
 		mvn clean package
 
@@ -207,7 +207,7 @@ Créez une application MapReduce de comptage de mots. Il s'agit d'une applicatio
 
 ##<a name="test"></a>Test du programme sur l’émulateur
 
-Le test de la tâche MapReduce sur l'émulateur HDInsight inclut les procédures suivantes :
+Le test de la tâche MapReduce sur l'émulateur HDInsight inclut les procédures suivantes :
 
 1. Téléchargement des fichiers de données pour le Hadoop Distributed File System (HDFS) sur l’émulateur
 2. Création d'un groupe d'utilisateurs local
@@ -218,7 +218,7 @@ L’émulateur HDInsight utilise HDFS en tant que système de fichiers par défa
 
 Ce didacticiel utilise la commande **copyFromLocal** HDFS pour le téléchargement des fichiers de données vers HDFS. La section suivante montre comment télécharger des fichiers vers le stockage d’objets blob Azure en utilisant Azure PowerShell. Pour connaître les autres méthodes de téléchargement des fichiers sur le stockage d'objets blob Azure, consultez la page [Téléchargement de données vers HDInsight][hdinsight-upload-data].
 
-Ce didacticiel utilise la structure de dossiers HDFS suivante :
+Ce didacticiel utilise la structure de dossiers HDFS suivante :
 
 Dossier|Remarque
 ---|---
@@ -236,28 +236,28 @@ Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop\_ho
 **Copie des fichiers de données vers le HDFS de l’émulateur**
 
 1. Ouvrez la ligne de commande Hadoop à partir de votre Bureau. La ligne de commande Hadoop est installée par le programme d’installation de l’émulateur.
-2. Dans la fenêtre de ligne de commande Hadoop, exécutez la commande suivante pour créer un répertoire pour les fichiers d’entrée :
+2. Dans la fenêtre de ligne de commande Hadoop, exécutez la commande suivante pour créer un répertoire pour les fichiers d’entrée :
 
 		hadoop fs -mkdir /WordCount
 		hadoop fs -mkdir /WordCount/Input
 
-	Le chemin utilisé ici est le chemin d'accès relatif. Il équivaut à ceci :
+	Le chemin utilisé ici est le chemin d'accès relatif. Il équivaut à ceci :
 
 		hadoop fs -mkdir hdfs://localhost:8020/WordCount/Input
 
-3. Exécutez la commande suivante pour copier certains fichiers texte vers le dossier d'entrée sur le HDFS :
+3. Exécutez la commande suivante pour copier certains fichiers texte vers le dossier d'entrée sur le HDFS :
 
 		hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common*.txt /WordCount/Input
 
 	La tâche MapReduce compte les mots de ces fichiers.
 
-4. Exécutez la commande suivante pour répertorier et vérifier les fichiers téléchargés :
+4. Exécutez la commande suivante pour répertorier et vérifier les fichiers téléchargés :
 
 		hadoop fs -ls /WordCount/Input
 
 **Création d’un groupe d’utilisateurs local**
 
-Pour exécuter correctement la tâche MapReduce dans le cluster, vous devez créer un groupe d’utilisateurs appelé hdfs. À ce groupe, vous devez également ajouter un utilisateur appelé hadoop et l’utilisateur local avec lequel vous vous connectez à l’émulateur. Utilisez les commandes suivantes à partir d'une invite de commandes avec élévation de privilèges :
+Pour exécuter correctement la tâche MapReduce dans le cluster, vous devez créer un groupe d’utilisateurs appelé hdfs. À ce groupe, vous devez également ajouter un utilisateur appelé hadoop et l’utilisateur local avec lequel vous vous connectez à l’émulateur. Utilisez les commandes suivantes à partir d'une invite de commandes avec élévation de privilèges :
 
 		# Add a user group called hdfs
 		net localgroup hdfs /add
@@ -275,27 +275,27 @@ Pour exécuter correctement la tâche MapReduce dans le cluster, vous devez cré
 
 		hadoop fs -rm - r /WordCount/Output
 
-2. Exécutez la commande suivante :
+2. Exécutez la commande suivante :
 
 		hadoop jar C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /WordCount/Input /WordCount/Output
 
-	Une fois la tâche terminée, le résultat obtenu doit ressembler à la capture d’écran suivante :
+	Une fois la tâche terminée, le résultat obtenu doit ressembler à la capture d’écran suivante :
 
 	![HDI.EMulator.WordCount.Run][image-emulator-wordcount-run]
 
-	Comme vous pouvez le voir sur cette capture d’écran, le mappage et la réduction sont terminés à 100 %. L'ID de la tâche est également répertorié. Vous pouvez récupérer un rapport identique en utilisant le raccourci **État Hadoop MapReduce** depuis votre bureau, puis en recherchant le même ID de tâche.
+	Comme vous pouvez le voir sur cette capture d’écran, le mappage et la réduction sont terminés à 100 %. L'ID de la tâche est également répertorié. Vous pouvez récupérer un rapport identique en utilisant le raccourci **État Hadoop MapReduce** depuis votre bureau, puis en recherchant le même ID de tâche.
 
 Vous pouvez également exécuter une tâche MapReduce en utilisant Azure PowerShell. Pour plus d'informations, consultez la page [Prise en main de l'émulateur HDInsight][hdinsight-emulator].
 
 **Affichage du résultat à partir du HDFS**
 
 1. Ouvrez la ligne de commande Hadoop.
-2. Exécutez les commandes suivantes pour afficher le résultat :
+2. Exécutez les commandes suivantes pour afficher le résultat :
 
 		hadoop fs -ls /WordCount/Output/
 		hadoop fs -cat /WordCount/Output/part-r-00000
 
-	Pour afficher la page, ajoutez « |more » à la fin de la commande. Ou utilisez la commande **findstr** pour rechercher un modèle de chaîne :
+	Pour afficher la page, ajoutez « |more » à la fin de la commande. Ou utilisez la commande **findstr** pour rechercher un modèle de chaîne :
 
 		hadoop fs -cat /WordCount/Output/part-r-00000 | findstr "there"
 
@@ -311,7 +311,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 **Création d’un stockage d’objets blob et d’un conteneur**
 
 1. Ouvrez Azure PowerShell.
-2. Définissez les variables, puis exécutez ces commandes :
+2. Définissez les variables, puis exécutez ces commandes :
 
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
@@ -320,7 +320,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 
 	La variable **$subscripionName** est associée à votre abonnement Azure. Vous devez nommer les éléments **$storageAccountName\_Data** et **$containerName\_Data**. Pour connaître les restrictions relatives aux attributions de noms, consultez la page [Affectation de noms et références aux conteneurs, objets BLOB et métadonnées](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
-3. Exécutez les commandes suivantes pour créer un compte de stockage et un conteneur de stockage d’objets blob sur le compte :
+3. Exécutez les commandes suivantes pour créer un compte de stockage et un conteneur de stockage d’objets blob sur le compte :
 
 		# Select an Azure subscription
 		Select-AzureSubscription $subscriptionName
@@ -333,7 +333,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
 		New-AzureStorageContainer -Name $containerName_Data -Context $destContext
 
-4. Exécutez les commandes suivantes pour vérifier le compte de stockage et le conteneur :
+4. Exécutez les commandes suivantes pour vérifier le compte de stockage et le conteneur :
 
 		Get-AzureStorageAccount -StorageAccountName $storageAccountName_Data
 		Get-AzureStorageContainer -Context $destContext
@@ -341,7 +341,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 **Téléchargement des fichiers de données**
 
 1. Ouvrez Azure PowerShell.
-2. Définissez les trois premières variables, puis exécutez les commandes suivantes :
+2. Définissez les trois premières variables, puis exécutez les commandes suivantes :
 
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
@@ -354,20 +354,20 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 
 	Notez que le dossier des fichiers source est **c:\\Hadoop\\hadoop-1.1.0-SNAPSHOT** et le dossier de destination est **WordCount/Input**.
 
-3. Exécutez les commandes suivantes pour obtenir une liste des fichiers .txt contenus dans le dossier des fichiers sources :
+3. Exécutez les commandes suivantes pour obtenir une liste des fichiers .txt contenus dans le dossier des fichiers sources :
 
 		# Get a list of the .txt files
 		$filesAll = Get-ChildItem $localFolder
 		$filesTxt = $filesAll | where {$_.Extension -eq ".txt"}
 
-4. Exécutez les commandes suivantes pour créer un objet de contexte de stockage :
+4. Exécutez les commandes suivantes pour créer un objet de contexte de stockage :
 
 		# Create a storage context object
 		Select-AzureSubscription $subscriptionName
 		$storageaccountkey = get-azurestoragekey $storageAccountName_Data | %{$_.Primary}
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName_Data -StorageAccountKey $storageaccountkey
 
-5. Exécutez les commandes suivantes pour copier les fichiers :
+5. Exécutez les commandes suivantes pour copier les fichiers :
 
 		# Copy the files from the local workstation to the Blob container
 		foreach ($file in $filesTxt){
@@ -380,7 +380,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 		    Set-AzureStorageBlobContent -File $fileName -Container $containerName_Data -Blob $blobName -Context $destContext
 		}
 
-6. Utilisez les commandes suivantes pour répertorier les fichiers téléchargés :
+6. Utilisez les commandes suivantes pour répertorier les fichiers téléchargés :
 
 		# List the uploaded files in the Blob storage container
         Write-Host "The Uploaded data files:" -BackgroundColor Green
@@ -391,7 +391,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 **Téléchargement de l’application de comptage de mots**
 
 1. Ouvrez Azure PowerShell.
-2. Définissez les trois premières variables, puis exécutez les commandes suivantes :
+2. Définissez les trois premières variables, puis exécutez les commandes suivantes :
 
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
@@ -404,18 +404,18 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 
 	Notez que le dossier de destination est **WordCount/jars**.
 
-4. Exécutez les commandes suivantes pour créer un objet de contexte de stockage :
+4. Exécutez les commandes suivantes pour créer un objet de contexte de stockage :
 
 		# Create a storage context object
 		Select-AzureSubscription $subscriptionName
 		$storageaccountkey = get-azurestoragekey $storageAccountName_Data | %{$_.Primary}
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName_Data -StorageAccountKey $storageaccountkey
 
-5. Exécutez la commande suivante pour copier les applications :
+5. Exécutez la commande suivante pour copier les applications :
 
 		Set-AzureStorageBlobContent -File $jarFile -Container $containerName_Data -Blob "$blobFolder/WordCount.jar" -Context $destContext
 
-6. Utilisez les commandes suivantes pour répertorier les fichiers téléchargés :
+6. Utilisez les commandes suivantes pour répertorier les fichiers téléchargés :
 
 		# List the uploaded files in the Blob storage container
         Write-Host "The Uploaded application file:" -BackgroundColor Green
@@ -425,7 +425,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
 
 ##<a name="run"></a>Exécution de la tâche MapReduce sur Azure HDInsight
 
-Dans cette section, vous allez créer un script Azure PowerShell qui effectue les tâches suivantes :
+Dans cette section, vous allez créer un script Azure PowerShell qui effectue les tâches suivantes :
 
 1. Approvisionnement d'un cluster HDInsight
 
@@ -450,7 +450,7 @@ Dans cette section, vous allez créer un script Azure PowerShell qui effectue le
 **Pour exécuter le script Azure PowerShell**
 
 1. Ouvrez le Bloc-notes.
-2. Copiez et collez le code suivant :
+2. Copiez et collez le code suivant :
 
 		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -526,14 +526,14 @@ Dans cette section, vous allez créer un script Azure PowerShell qui effectue le
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
-3. Définissez les six premières variables du script. La variable **$stringPrefix** permet d’ajouter la chaîne spécifiée sous forme de préfixe au nom du cluster HDInsight, au nom du compte de stockage et au nom du conteneur de stockage d’objets blob. Étant donné que ces noms doivent comprendre entre 3 et 24 caractères, vérifiez que la chaîne que vous spécifiez et que les noms utilisés par ce script n’excèdent pas ensemble la limite de caractères. Vous devez uniquement utiliser des minuscules pour **$stringPrefix**.
+3. Définissez les six premières variables du script. La variable **$stringPrefix** permet d’ajouter la chaîne spécifiée sous forme de préfixe au nom du cluster HDInsight, au nom du compte de stockage et au nom du conteneur de stockage d’objets blob. Étant donné que ces noms doivent comprendre entre 3 et 24 caractères, vérifiez que la chaîne que vous spécifiez et que les noms utilisés par ce script n’excèdent pas ensemble la limite de caractères. Vous devez uniquement utiliser des minuscules pour **$stringPrefix**.
 
 	Les variables **$storageAccountName\_Data** et **$containerName\_Data** correspondent au compte de stockage et au conteneur utilisés pour le stockage des fichiers de données et de l’application. La variable **$location** doit correspondre à l’emplacement du compte de stockage des données.
 
 4. Consultez le reste des variables.
 5. Enregistrez le fichier de script.
 6. Ouvrez Azure PowerShell.
-7. Exécutez la commande suivante pour définir la stratégie d’exécution sur RemoteSigned :
+7. Exécutez la commande suivante pour définir la stratégie d’exécution sur RemoteSigned :
 
 		PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
@@ -548,20 +548,20 @@ Cette section montre comment télécharger et afficher le résultat. Pour obteni
 
 1. Ouvrez la fenêtre Azure PowerShell.
 2. Remplacez le répertoire par **C:\\Tutorials\\WordCountJava**. Le dossier Azure Powershell par défaut est **C:\\Windows\\System32\\WindowsPowerShell\\v1.0**. Les cmdlets que vous allez exécuter vont télécharger le fichier de résultat vers le dossier en cours. Vous n'êtes pas autorisé à télécharger les fichiers vers les dossiers du système.
-2. Exécutez les commandes suivantes pour définir les valeurs :
+2. Exécutez les commandes suivantes pour définir les valeurs :
 
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-r-00000"
 
-3. Exécutez les commandes suivantes pour créer un objet de contexte de stockage Azure :
+3. Exécutez les commandes suivantes pour créer un objet de contexte de stockage Azure :
 
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
 
-4. Exécutez les commandes suivantes pour télécharger et afficher le résultat :
+4. Exécutez les commandes suivantes pour télécharger et afficher le résultat :
 
 		Get-AzureStorageBlobContent -Container $containerName_Data -Blob $blobName -Context $storageContext -Force
 		cat "./$blobName" | findstr "there"
@@ -569,9 +569,8 @@ Cette section montre comment télécharger et afficher le résultat. Pour obteni
 Une fois la tâche terminée, vous pouvez soit exporter les données vers SQL Server ou une base de données SQL Azure en utilisant [Sqoop][hdinsight-use-sqoop], soit exporter les données vers Excel.
 
 ##<a id="nextsteps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à développer une tâche MapReduce en Java, à tester l’application sur l’émulateur HDInsight et à écrire un script Azure PowerShell pour approvisionner un cluster HDInsight et exécuter une tâche MapReduce sur le cluster. Pour en savoir plus, consultez les articles suivants :
+Dans ce didacticiel, vous avez appris à développer une tâche MapReduce en Java, à tester l’application sur l’émulateur HDInsight et à écrire un script Azure PowerShell pour approvisionner un cluster HDInsight et exécuter une tâche MapReduce sur le cluster. Pour en savoir plus, consultez les articles suivants :
 
-- [Développement de programmes MapReduce de diffusion en continu Hadoop en C# pour HDInsight][hdinsight-develop-streaming]
 - [Prise en main d’Azure HDInsight][hdinsight-get-started]
 - [Prise en main de l’émulateur HDInsight][hdinsight-emulator]
 - [Utilisation du stockage d’objets blob Azure avec HDInsight][hdinsight-storage]
@@ -590,7 +589,6 @@ Dans ce didacticiel, vous avez appris à développer une tâche MapReduce en Jav
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-emulator]: ../hdinsight-get-started-emulator.md
@@ -610,4 +608,4 @@ Dans ce didacticiel, vous avez appris à développer une tâche MapReduce en Jav
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

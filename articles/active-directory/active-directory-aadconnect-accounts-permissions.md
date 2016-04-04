@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/04/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -113,7 +113,7 @@ Un compte de service local est créé par l’Assistant d’installation (sauf s
 
 Le compte est créé avec un mot de passe long et complexe qui n’expire pas.
 
-Ce compte étant utilisé par Windows pour stocker les clés de chiffrement, le mot de passe de ce compte ne doit pas être réinitialisé ou modifié.
+Ce compte permet de stocker les mots de passe des autres comptes de manière sécurisée. Ces autres mots de passe de compte sont stockés dans la base de données. Les clés privées des clés de chiffrement sont protégées par le chiffrement de clé secrète des services de chiffrement à l’aide de la protection DPAPI (Windows Data Protection). Vous ne devez pas réinitialiser le mot de passe du compte de service, sinon Windows détruit les clés de chiffrement pour des raisons de sécurité.
 
 Si vous utilisez un serveur SQL Server complet, le compte de service est le propriétaire de la base de données créée pour le moteur de synchronisation. Le service ne fonctionne pas comme prévu avec d’autres autorisations. Une connexion SQL est également créée.
 
@@ -134,4 +134,4 @@ Le compte de service est créé avec un mot de passe long et complexe qui n’ex
 
 En savoir plus sur l'[Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

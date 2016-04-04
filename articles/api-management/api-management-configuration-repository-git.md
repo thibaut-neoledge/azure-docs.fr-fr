@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
@@ -117,7 +117,7 @@ Pour construire la commande git, utilisez le mot de passe codé, avec votre nom 
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Une fois le dépôt cloné, vous pouvez l’afficher et l’utiliser dans votre système de fichiers local. Pour plus d’informations, consultez [Vue d’ensemble de la structure des fichiers et des dossiers du dépôt Git local](#file-and-folder-structure-overview-of-local-git-repository).
+Une fois le dépôt cloné, vous pouvez l’afficher et l’utiliser dans votre système de fichiers local. Pour plus d’informations, consultez [Référence de la structure des fichiers et des dossiers du dépôt Git local](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## Pour mettre à jour votre dépôt local avec la dernière configuration de l’instance du service
 
@@ -279,6 +279,9 @@ Pour plus d’informations sur d’autres méthodes pour gérer votre instance d
 -	Gérer votre instance de service à l’aide de l’API REST
 	-	[Référence de l’API REST Gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## Regarder une vidéo de présentation
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
@@ -294,4 +297,4 @@ Pour plus d’informations sur d’autres méthodes pour gérer votre instance d
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

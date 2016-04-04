@@ -19,35 +19,37 @@
 
 
 # Configuration d’un cluster de calcul hybride avec Microsoft HPC Pack et des instances Azure à la demande
-Ce didacticiel vous indique comment utiliser Microsoft HPC Pack 2012 R2 et Azure pour configurer un petit cluster hybride de calculs complexes (HPC). Le cluster se compose d'un nœud principal local (ordinateur exécutant le système d'exploitation Windows Server et HPC Pack) et de plusieurs nœuds de calcul que vous déployez comme instances de rôle de travail dans un service cloud Azure. Vous pouvez ensuite exécuter des tâches de calcul sur le cluster hybride.
+Ce didacticiel vous indique comment utiliser Microsoft HPC Pack 2012 R2 et Azure pour configurer un petit cluster hybride de calculs complexes (HPC). Le cluster se compose d'un nœud principal local (ordinateur exécutant le système d'exploitation Windows Server et HPC Pack) et de plusieurs nœuds de calcul que vous déployez comme instances de rôle de travail dans un service cloud Azure. Vous pouvez ensuite exécuter des tâches de calcul sur le cluster hybride.
 
 ![Cluster HPC hybride][Overview]
 
-Ce didacticiel présente une approche, parfois nommée « cloudburst », visant à utiliser des ressources évolutives à la demande dans Azure afin d’exécuter des applications nécessitant beaucoup de calculs.
+Ce didacticiel présente une approche, parfois nommée « cloudburst », visant à utiliser des ressources évolutives à la demande dans Azure afin d’exécuter des applications nécessitant beaucoup de calculs.
 
-Ce didacticiel ne requiert pas d'expérience préalable avec les clusters de calcul ou HPC Pack. Il vise uniquement à vous aider à déployer rapidement un cluster de calcul hybride à des fins de démonstration. Pour connaître les éléments à prendre en compte ainsi que la procédure à suivre pour déployer un HPC Pack hybride à plus grande échelle dans un environnement de production, consultez les [instructions détaillées](http://go.microsoft.com/fwlink/p/?LinkID=200493). Pour d’autres scénarios avec HPC Pack, notamment le déploiement automatisé de clusters dans des machines virtuelles Azure, consultez [Options pour créer et gérer un cluster HPC (calcul haute performance) dans Azure avec Microsoft HPC Pack](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
+Ce didacticiel ne requiert pas d'expérience préalable avec les clusters de calcul ou HPC Pack. Il vise uniquement à vous aider à déployer rapidement un cluster de calcul hybride à des fins de démonstration. Pour connaître les éléments à prendre en compte ainsi que la procédure à suivre pour déployer un HPC Pack hybride à plus grande échelle dans un environnement de production, consultez les [instructions détaillées](http://go.microsoft.com/fwlink/p/?LinkID=200493). Pour d’autres scénarios avec HPC Pack, notamment le déploiement automatisé de clusters dans des machines virtuelles Azure, consultez [Options pour créer et gérer un cluster HPC (calcul haute performance) dans Azure avec Microsoft HPC Pack](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md).
 
->[AZURE.NOTE] Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-specs.md) pour vos ressources de calcul, afin de répondre aux différentes charges de travail. Par exemple, les instances A8 et A9 combinent hautes performances et accès à des applications à faible latence et débit élevé, nécessaires à certaines applications HPC. Consultez la page [À propos des instances de calcul intensif A8, A9, A10 et A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
+
+>[AZURE.NOTE] Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-windows-sizes.md) pour vos ressources de calcul, afin de répondre aux différentes charges de travail. Par exemple, les instances A8 et A9 combinent hautes performances et accès à des applications à faible latence et débit élevé, nécessaires à certaines applications HPC. Consultez la page [À propos des instances de calcul intensif A8, A9, A10 et A11](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+
 
 ## Composants requis
 
-* **Abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Un ordinateur local qui exécute une version de Windows Server 2012 R2 ou Windows Server 2012**, et qui sera le nœud principal du cluster HPC. Si vous n'utilisez pas déjà Windows Server, vous pouvez télécharger et installer une [version d'évaluation](http://technet.microsoft.com/evalcenter/dn205286.aspx).
+* **Un ordinateur local qui exécute une version de Windows Server 2012 R2 ou Windows Server 2012**, et qui sera le nœud principal du cluster HPC. Si vous n'utilisez pas déjà Windows Server, vous pouvez télécharger et installer une [version d'évaluation](http://technet.microsoft.com/evalcenter/dn205286.aspx).
 
 	* Cet ordinateur doit être associé à un domaine Active Directory.
 
 	* Vérifiez qu'aucun autre rôle serveur ou service de rôle n'est installé.
 
-	* Le système d'exploitation doit être installé dans l'une des langues suivantes pour prendre en charge HPC Pack : anglais, japonais ou chinois (simplifié).
+	* Le système d'exploitation doit être installé dans l'une des langues suivantes pour prendre en charge HPC Pack : anglais, japonais ou chinois (simplifié).
 
 	* Vérifiez que les mises à jour importantes et critiques sont installées.
 
 * **HPC Pack 2012 R2** - [Téléchargez](http://go.microsoft.com/fwlink/p/?linkid=328024) le package d’installation pour obtenir gratuitement la dernière version et copiez les fichiers sur l’ordinateur servant de nœud principal ou vers un emplacement sur le réseau. Sélectionnez les fichiers d'installation de la même langue que votre serveur Windows Server.
 
-* **Compte de domaine** : ce compte doit disposer d’autorisations d’administrateur local sur le nœud principal pour installer HPC Pack.
+* **Compte de domaine** : ce compte doit disposer d’autorisations d’administrateur local sur le nœud principal pour installer HPC Pack.
 
-* **Connectivité TCP sur le port 443** entre le nœud principal et Azure.
+* **Connectivité TCP sur le port 443** entre le nœud principal et Azure.
 
 ## Installation du HPC Pack sur le nœud principal
 
@@ -61,9 +63,9 @@ Vous devez tout d'abord installer Microsoft HPC Pack sur un ordinateur qui exéc
 
 	![Configuration de HPC Pack 2012][install_hpc1]
 
-4. Sur la page **Page du Contrat de licence logicielle Microsoft**, cliquez sur **Suivant**.
+4. Sur la page **Microsoft Software User Agreement page**, cliquez sur **Suivant**.
 
-5. Sur la page **Sélectionner le type d’installation**, cliquez sur **Créer un cluster HPC en créant un nœud principal**, puis sur **Suivant**.
+5. Sur la page **Sélectionner le type d’installation**, cliquez sur **Create a new HPC cluster by creating a head node**, puis sur **Suivant**.
 
 	![Sélectionner le type d'installation][install_hpc2]
 
@@ -79,12 +81,12 @@ Vous devez tout d'abord installer Microsoft HPC Pack sur un ordinateur qui exéc
 
 	![Installer][install_hpc6]
 
-9. Une fois l'installation terminée, désactivez **Démarrer HPC Cluster Manager**, puis cliquez sur **Terminer**. Vous lancerez HPC Cluster Manager à une étape ultérieure pour terminer la configuration du nœud principal.
+9. Une fois l'installation terminée, désactivez **Start HPC Cluster Manager**, puis cliquez sur **Finish**. (Vous pourrez démarrer HPC Cluster Manager à une étape ultérieure.)
 
 	![Terminer][install_hpc7]
 
 ## Préparation de l'abonnement à Azure
-Utilisez le [portail Azure Classic](https://manage.windowsazure.com) pour réaliser les étapes suivantes avec votre abonnement Azure. Ces instructions doivent être suivies afin de pouvoir par la suite déployer les nœuds Azure à partir du nœud principal local.
+Utilisez le [portail Azure Classic](https://manage.windowsazure.com) pour réaliser les étapes suivantes avec votre abonnement Azure. Ces instructions doivent être suivies afin de pouvoir par la suite déployer les nœuds Azure à partir du nœud principal local.
 
 - Téléchargement d'un certificat de gestion (requis pour les connexions sécurisées entre le nœud principal et les services Azure)
 
@@ -95,9 +97,9 @@ Utilisez le [portail Azure Classic](https://manage.windowsazure.com) pour réal
 	>[AZURE.NOTE]Notez votre ID d'abonnement Azure. Il vous sera utile par la suite. Cette information est disponible dans vos [informations de compte](https://account.windowsazure.com/Subscriptions)</a> Azure.
 
 ### Téléchargement du certificat de gestion par défaut
-HPC Pack installe un certificat auto-signé sur le nœud principal, nommé « Default Microsoft HPC Azure Management certificate ». Vous pouvez le télécharger en tant que certificat de gestion Azure. Ce certificat est fourni à des fins de test et pour les déploiements pour validation technique.
+HPC Pack installe un certificat auto-signé sur le nœud principal, nommé « Default Microsoft HPC Azure Management certificate ». Vous pouvez le télécharger en tant que certificat de gestion Azure. Ce certificat est fourni à des fins de test et pour les déploiements pour validation technique.
 
-1. Sur l'ordinateur faisant office de nœud principal, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Sur l'ordinateur faisant office de nœud principal, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 
 2. Cliquez sur **Paramètres**, puis sur **Certificats de gestion**.
 
@@ -105,7 +107,7 @@ HPC Pack installe un certificat auto-signé sur le nœud principal, nommé « D
 
 	![Paramètres de certificat][upload_cert1]
 
-4. Sur le nœud principal, accédez au fichier C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Cliquez ensuite sur le bouton représentant une **coche**.
+4. Sur le nœud principal, accédez au fichier C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer. Cliquez ensuite sur le bouton représentant une **coche**.
 
 	![Télécharger le certificat][install_hpc10]
 
@@ -151,7 +153,7 @@ Effectuez quelques unes des étapes de configuration de cluster requises afin qu
 
 4. Cliquez sur **Suivant** pour accepter les valeurs par défaut sur les pages suivantes de l'Assistant. Ensuite, sous l'onglet **Review**, cliquez sur **Configure** pour terminer la configuration réseau.
 
-5. Dans la liste **Deployment To-do List**, cliquez sur **Fournir des informations d'identification pour l'installation**.
+5. Dans la liste **Deployment To-do List**, cliquez sur **Provide installation credentials**.
 
 6. Dans la boîte de dialogue **Installation Credentials**, entrez les informations d'identification du compte de domaine utilisé pour installer HPC Pack. Cliquez ensuite sur **OK**.
 
@@ -167,9 +169,9 @@ Effectuez quelques unes des étapes de configuration de cluster requises afin qu
 
 	>[AZURE.NOTE]La série de noms génère des noms uniquement pour les nœuds de calcul joints au domaine. Les nœuds de travail Azure sont nommés de façon automatique.
 
-9. Dans la liste **Deployment To-do List**, cliquez sur **Créer un modèle de nœud**. Le modèle de nœud vous sert d'exemple pour ajouter des nœuds Azure au cluster.
+9. Dans la liste **Deployment To-do List**, cliquez sur **Create a node template**. Le modèle de nœud vous sert d'exemple pour ajouter des nœuds Azure au cluster.
 
-10. Procédez comme suit dans l'Assistant Create Node Template :
+10. Procédez comme suit dans l'Assistant Create Node Template :
 
 	a. Sur la page **Choisir un type de modèle de nœud**, cliquez sur **Modèle de nœud Azure**, puis cliquez sur **Suivant**.
 
@@ -203,13 +205,13 @@ Dans le cadre de ce didacticiel, vous allez ajouter deux petits nœuds.
 
 	![Ajouter un nœud Azure][add_node1_1]
 
-3. Sur la page **Specify New Nodes**, sélectionnez le modèle de nœud Azure créé précédemment (par défaut, son nom est **Default AzureNode Template**). Indiquez ensuite **2** nœuds de format « **Small** », puis cliquez sur **Suivant**.
+3. Sur la page **Specify New Nodes**, sélectionnez le modèle de nœud Azure créé précédemment (par défaut, son nom est **Default AzureNode Template**). Indiquez ensuite **2** nœuds de format « **Small** », puis cliquez sur **Suivant**.
 
 	![Spécifier les nœuds][add_node2]
 
 	Pour plus d’informations sur les tailles disponibles, consultez la page [Tailles de services cloud](../cloud-services/cloud-services-sizes-specs.md).
 
-4. Sur la page **Completing the Add Node Wizard**, cliquez sur **Terminer**.
+4. Sur la page **Completing the Add Node Wizard**, cliquez sur **Finish**.
 
 	 Deux nœuds Azure, nommés **AzureCN-0001** et **AzureCN-0002**, sont désormais affichés dans HPC Cluster Manager. Leur état est **Not-Deployed**.
 
@@ -250,7 +252,7 @@ Pour vérifier l’installation, utilisez la commande **clusrun** de HPC Pack po
 
 1. Ouvrez une invite de commandes sur le nœud principal.
 
-2. Tapez la commande suivante :
+2. Tapez la commande suivante :
 
 	`clusrun /nodes:azurecn* ipconfig`
 
@@ -260,7 +262,7 @@ Pour vérifier l’installation, utilisez la commande **clusrun** de HPC Pack po
 
 ## Exécution d'une tâche de test
 
-Envoyez maintenant une tâche de test à exécuter sur le cluster hybride. Le présent exemple est un simple balayage paramétrique (un type de calcul intrinsèquement parallèle) qui exécute des sous-tâches qui ajoutent un entier à lui-même via la commande **set /a**. Tous les nœuds du cluster contribuent à terminer les sous-tâches pour les entiers de 1 à 100.
+Envoyez maintenant une tâche de test à exécuter sur le cluster hybride. Le présent exemple est un simple balayage paramétrique (un type de calcul intrinsèquement parallèle) qui exécute des sous-tâches qui ajoutent un entier à lui-même via la commande **set /a**. Tous les nœuds du cluster contribuent à terminer les sous-tâches pour les entiers de 1 à 100.
 
 1. Dans HPC Cluster Manager, sous **Job Management**, dans le volet **Actions**, cliquez sur **New Parametric Sweep Job**.
 
@@ -304,11 +306,11 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
 
 ## Ressources associées
 
-* [HPC Pack 2012 R2 et HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697
+* [HPC Pack 2012 R2 et HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697
 
 * [Burst to Azure Worker Role Instances with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
-* [Options de cluster HPC avec Microsoft HPC Pack dans Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
-* [Big Compute dans Azure : ressources techniques pour Batch et HPC (calculs complexes)](../batch/big-compute-resources.md)
+* [Options de cluster HPC avec Microsoft HPC Pack dans Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
+* [Big Compute dans Azure : ressources techniques pour Batch et HPC (calculs complexes)](../batch/big-compute-resources.md)
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -348,4 +350,4 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

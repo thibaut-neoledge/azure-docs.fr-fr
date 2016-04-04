@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="03/10/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"
 />
 
@@ -27,7 +27,7 @@ Les travaux Stream Analytics prennent en charge plusieurs méthodes de sortie, d
 
 ## Autoriser un compte Data Lake Store
 
-1.  Quand vous sélectionnez Data Lake Store comme sortie dans le portail de gestion Azure, vous êtes invité à autoriser l’utilisation de votre Data Lake Store existant ou à demander l’accès à la version préliminaire de Data Lake Store via le portail Azure en version préliminaire.
+1.  Quand vous sélectionnez Data Lake Store comme sortie dans le portail de gestion Azure, vous êtes invité à autoriser l’utilisation de votre Data Lake Store existant ou à demander l’accès à la version préliminaire de Data Lake Store au moyen du portail Azure Classic.
 
     ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
 
@@ -59,11 +59,11 @@ Une fois le compte Data Lake Store authentifié, vous pouvez configurer les prop
 </tr>
 <tr>
 <td>Format de la date [<I>facultatif</I>]</td>
-<td>Si le jeton de la date est utilisé dans le chemin du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple&#160;: JJ/MM/AAAA</td>
+<td>Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple&#160;: JJ/MM/AAAA</td>
 </tr>
 <tr>
 <td>Format de l’heure [<I>facultatif</I>]</td>
-<td>Si le jeton de l’heure est utilisé dans le chemin du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est&#160;HH.</td>
+<td>Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est&#160;HH.</td>
 </tr>
 <tr>
 <td>Format de sérialisation de l’événement</td>
@@ -92,4 +92,4 @@ Pour le résoudre, arrêtez le travail en cours d’exécution et accédez à vo
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

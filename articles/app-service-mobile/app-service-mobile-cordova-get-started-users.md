@@ -54,7 +54,7 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 
     Voici un exemple Content-Security-Policy (implémenté pour Azure Active Directory) :
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'
 			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
     Vous devez remplacer `https://login.windows.net` par l’hôte OAuth du tableau ci-dessus. Consultez la [documentation Content-Security-Policy] pour en savoir plus sur cette balise META.
@@ -96,11 +96,20 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 * En savoir plus [À propos de l’authentification] avec Azure App Service.
 * Poursuivez le didacticiel en ajoutant les [Notifications Push] à votre application Apache Cordova.
 
+Découvrez comment utiliser les Kits de développement logiciel.
+
+* [Kit de développement logiciel (SDK) Apache Cordova]
+* [Kit de développement logiciel du serveur ASP.NET]
+* [Kit de développement logiciel du serveur Node.js]
+
 <!-- URLs. -->
 [Prise en main de Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Prise en main des applications mobiles]: app-service-mobile-cordova-get-started.md
 [documentation Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Notifications Push]: app-service-mobile-cordova-get-started-push.md
 [À propos de l’authentification]: app-service-mobile-auth.md
+[Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

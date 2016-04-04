@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="03/09/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Autorisation côté service des utilisateurs de Mobile Services
@@ -73,4 +73,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

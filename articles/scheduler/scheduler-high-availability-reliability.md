@@ -30,7 +30,7 @@ Azure Scheduler est disponible par le biais de l'interface utilisateur dans pres
 
 Le composant frontal Azure Scheduler est non seulement disponible pour les requêtes de gestion, mais votre propre travail est également répliqué au niveau géographique. En cas de panne dans une région, Azure Scheduler bascule et garantit que le travail est exécuté à partir d'un autre centre de données dans la région géographique associée.
 
-Par exemple, si vous avez créé un travail dans le Centre-Sud des États-Unis, Azure Scheduler réplique automatiquement ce travail dans le Centre-Nord des États-Unis. En cas de défaillance dans le Centre-Sud des États-Unis, Azure Scheduler s'assure que le travail est exécuté depuis le Centre-Nord des États-Unis. [La liste des régions Azure associées est disponible ici](https://msdn.microsoft.com/library/azure/dn758204.aspx).
+Par exemple, si vous avez créé un travail dans le Centre-Sud des États-Unis, Azure Scheduler réplique automatiquement ce travail dans le Centre-Nord des États-Unis. En cas de défaillance dans le Centre-Sud des États-Unis, Azure Scheduler s'assure que le travail est exécuté depuis le Centre-Nord des États-Unis. [Pour obtenir une explication détaillée des fonctionnalités de géo-réplication d’Azure, reportez-vous à cette rubrique.](../sql-database/sql-database-business-continuity-design.md)
 
 ![][1]
 
@@ -56,7 +56,7 @@ Par exemple, dans le diagramme ci-dessous, Azure Scheduler suit sa stratégie de
 
 ![][2]
 
-Notez que la même stratégie de nouvelle tentative s'applique à l'action d'origine et à l'action d'erreur alternative. Le type d'action de l'action d'erreur alternative peut également être différent du type d'action de l'action principale. Par exemple, tandis que l'action principale peut appeler un point de terminaison HTTP, l'action d'erreur peut à la place être une action de file d'attente de stockage qui effectue la journalisation des erreurs.
+Notez que la même stratégie de nouvelle tentative s'applique à l'action d'origine et à l'action d'erreur alternative. Le type d'action de l'action d'erreur alternative peut également être différent du type d'action de l'action principale. Par exemple, tandis que l’action principale peut appeler un point de terminaison HTTP, l’action d’erreur peut à la place être une action de file d’attente de stockage, de file d’attente Service Bus ou de rubrique Service Bus qui effectue la journalisation des erreurs.
 
 Pour savoir comment configurer un point de terminaison alternatif, consultez [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
@@ -85,4 +85,4 @@ Pour savoir comment configurer un point de terminaison alternatif, consultez [er
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

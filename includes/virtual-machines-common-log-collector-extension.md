@@ -1,28 +1,29 @@
 
-Diagnosing issues with an Microsoft Azure cloud service requires collecting the service’s log files on virtual machines as the issues occur. You can use the AzureLogCollector extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.
-> [AZURE.NOTE]Descriptions for most of the logged information can be found at http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessite la collecte des fichiers journaux de service sur les machines virtuelles lorsque les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux depuis une ou plusieurs machines virtuelles de Service Cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à une machine virtuelle quelconque.
+> [AZURE.NOTE]Vous trouverez des descriptions de la plupart des informations consignées sur http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 
-There are two modes of collection dependent on the types of files to be collected.
-- Azure Guest Agent Logs only (GA). This collection mode includes all the logs related to Azure guest agents and other Azure components.
-- All Logs (Full). This collection mode will collect all files in GA mode plus:
+Il existe deux modes de collecte dépendant des types de fichier à recueillir.
+- Journaux des agents invités Azure uniquement (GA). Ce mode de collecte inclut tous les journaux liés aux agents invités Azure et d’autres composants Azure.
+- Tous les journaux (complète). Ce mode de collecte recueille tous les fichiers en mode GA plus :
 
-  - system and application event logs
+  - journaux des événements système et d’application
   
-  - HTTP error logs
+  - Journaux d’erreurs HTTP
   
-  - IIS Logs
+  - Journaux IIS
   
-  - Setup logs
+  - Fichiers journaux d’installation
   
-  - other system logs
+  - autres journaux système.
 
-In both collection modes, additional data collection folders can be specified by using a collection of the following structure:
+Dans les deux modes de collecte, les dossiers de collecte de données supplémentaires peuvent être spécifiés à l’aide d’une collection de la structure suivante :
 
-- **Name**: The name of the collection, which will be used as the name of subfolder inside the zip file to be collected.
+- **Nom** : nom de la collection qui sera utilisé comme nom de sous-dossier dans le fichier zip à collecter.
 
-- **Location**: The path to the folder on the virtual machine where file will be collected.
+- **Emplacement** : chemin d’accès au dossier sur l’ordinateur virtuel dans lequel les fichiers seront collectés.
 
-- **SearchPattern**: The pattern of the names of files to be collected. Default is “*”
+- **Modèle de recherche** : modèle des noms de fichiers à collecter. « * » constitue la valeur par défaut.
 
-- **Recursive**: if the files will be collected recursively under the folder.
-
+- **Récursive** : si les fichiers sont collectés de façon récursive sous le dossier.
+
+<!---HONumber=AcomDC_0323_2016-->

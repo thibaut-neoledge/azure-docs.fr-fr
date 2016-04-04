@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Comment définir une adresse IP privée statique en mode ARM à l’aide de l’interface de ligne de commande PowerShell | Microsoft Azure"
+   pageTitle="Comment définir une adresse IP privée statique en mode ARM à l’aide de l’interface de ligne de commande PowerShell | Microsoft Azure"
    description="Connaître les adresses IP statiques et les gérer en mode ARM à l’aide de l’interface de ligne de commande"
    services="virtual-network"
    documentationCenter="na"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
-# Définir une adresse IP privée statique dans l’invite de commande AZURE
+# Définir une adresse IP privée statique dans l’invite de commande AZURE
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
@@ -29,16 +29,16 @@
 
 Les commandes d’interface de ligne de commande Azure attendent un environnement simple déjà créé. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](virtual-networks-create-vnet-arm-cli.md).
 
-## Spécification d’une adresse IP privée statique lors de la création d’une machine virtuelle
-Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd* d’un réseau virtuel nommé *TestVNet* avec une adresse IP privée statique de *192.168.1.101*, procédez comme suit :
+## Spécification d’une adresse IP privée statique lors de la création d’une machine virtuelle
+Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd* d’un réseau virtuel nommé *TestVNet* avec une adresse IP privée statique de *192.168.1.101*, procédez comme suit :
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    New mode is arm
 
@@ -46,7 +46,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 
 		azure network public-ip create -g TestRG -n TestPIP -l centralus
 	
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network public-ip create
 		+ Looking up the public ip "TestPIP"
@@ -69,7 +69,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 
 		azure network nic create -g TestRG -n TestNIC -l centralus -a 192.168.1.101 -m TestVNet -k FrontEnd
 
-	Sortie attendue :
+	Sortie attendue :
 
 		+ Looking up the network interface "TestNIC"
 		+ Looking up the subnet "FrontEnd"
@@ -98,7 +98,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 
 		azure vm create -g TestRG -n DNS01 -l centralus -y Windows -f TestNIC -i TestPIP -F TestVNet -j FrontEnd -o vnetstorage -q bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 -u adminuser -p AdminP@ssw0rd
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command vm create
 		+ Looking up the VM "DNS01"
@@ -124,13 +124,13 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 	- **-F (ou --nom vnet)**. Nom du réseauVNet où sera créée la machine virtuelle.
 	- **-j (or --vnet-subnet-name)**. Nom du sous-réseau où sera créée la machine virtuelle.
 
-## Comment récupérer des informations d’adresse IP privée statique pour une machine virtuelle
+## Comment récupérer des informations d’adresse IP privée statique pour une machine virtuelle
 
-Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande d’interface de ligne de commande Azure, et examinez les valeurs *Private IP alloc-method* et *Adresse IP privée* :
+Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande d’interface de ligne de commande Azure, et examinez les valeurs *Private IP alloc-method* et *Adresse IP privée* :
 
 	azure vm show -g TestRG -n DNS01
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command vm show
 	+ Looking up the VM "DNS01"
@@ -178,14 +178,14 @@ Sortie attendue :
 	data:            Public IP address       :40.122.213.159
 	info:    vm show command OK
 
-## Comment supprimer une adresse IP privée statique d’une machine virtuelle
+## Comment supprimer une adresse IP privée statique d’une machine virtuelle
 Vous ne pouvez pas supprimer une adresse IP privée statique à partir d’une carte réseau dans l’interface de ligne de commande de Resource Manager. Vous devez créer une nouvelle carte réseau qui utilise une adresse IP dynamique, supprimer la carte réseau précédente de la machine virtuelle et ajouter la nouvelle carte réseau à la machine virtuelle. Pour modifier la carte réseau de la machine virtuelle utilisée dans les commandes ci-dessus, suivez les étapes ci-dessous.
 	
 1. Exécutez la commande **azure network nic create** pour créer une nouvelle carte réseau à l’aide de l’allocation d’adresses IP dynamiques. Notez que cette fois, vous n’avez pas besoin de spécifier l’adresse IP.
 
 		azure network nic create -g TestRG -n TestNIC2 -l centralus -m TestVNet -k FrontEnd
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nic create
 		+ Looking up the network interface "TestNIC2"
@@ -211,7 +211,7 @@ Vous ne pouvez pas supprimer une adresse IP privée statique à partir d’une c
 
 		azure vm set -g TestRG -n DNS01 -N TestNIC2
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command vm set
 		+ Looking up the VM "DNS01"
@@ -223,19 +223,19 @@ Vous ne pouvez pas supprimer une adresse IP privée statique à partir d’une c
 
 		azure network nic delete -g TestRG -n TestNIC --quiet
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nic delete
 		+ Looking up the network interface "TestNIC"
 		+ Deleting network interface "TestNIC"
 		info:    network nic delete command OK
 
-## Comment ajouter une adresse IP privée statique à une machine virtuelle existante
-Pour ajouter une adresse IP privée statique à la carte d’interface réseau utilisée par la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
+## Comment ajouter une adresse IP privée statique à une machine virtuelle existante
+Pour ajouter une adresse IP privée statique à la carte d’interface réseau utilisée par la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
 
 	azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network nic set
 	+ Looking up the network interface "TestNIC2"
@@ -260,8 +260,8 @@ Sortie attendue :
 
 ## Étapes suivantes
 
-- En savoir plus sur les [adresses IP publiques réservées](../virtual-networks-reserved-public-ip).
-- En savoir plus sur les [adresses IP publiques de niveau d’instance](../virtual-networks-instance-level-public-ip).
-- Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md).
+- En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md).
+- Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

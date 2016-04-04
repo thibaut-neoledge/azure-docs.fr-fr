@@ -1,15 +1,16 @@
 
 
-A *custom* virtual machine simply means a virtual machine that you create using the **From Gallery** option because it gives you more configuration choices than the **Quick Create** option. These choices include:
+Une machine virtuelle *personnalisée* correspond à une machine virtuelle que vous avez créée à l’aide de l’option **À partir de la galerie**, car elle propose davantage de possibilités de configuration que l’option **Création rapide**. Les choix sont les suivants :
 
-- Connecting the virtual machine to a virtual network.
-- Installing the Azure Virtual Machine Agent and Azure Virtual Machine Extensions, such as for antimalware.
-- Adding the virtual machine to existing cloud services.
-- Adding the virtual machine to an existing Storage account.
-- Adding the virtual machine to an availability set.
+- Connecter la machine virtuelle à un réseau virtuel
+- Installer l’agent de machine virtuelle et les extensions de machine virtuelle Azure, telles que l’extension anti-programme malveillant
+- Ajouter la machine virtuelle aux services cloud existants
+- Ajouter la machine virtuelle à un compte de stockage existant
+- Ajouter la machine virtuelle à un groupe à haute disponibilité
 
-> [AZURE.IMPORTANT] If you want your virtual machine to use a virtual network so you can connect to it directly by host name or set up cross-premises connections, make sure that you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For details on virtual networks, see [Azure Virtual Network overview](virtual-networks-overview.md).
+> [AZURE.IMPORTANT] Si vous souhaitez que la machine virtuelle utilise un réseau virtuel pour pouvoir vous y connecter directement par le nom d'hôte ou configurer des connexions entre différents emplacements, veillez à spécifier le réseau virtuel lors de la création de la machine virtuelle. Vous pouvez configurer une machine virtuelle pour qu’elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](virtual-networks-overview.md).
 
 
-## To create the virtual machine
+## Création de la machine virtuelle
 
+<!---HONumber=AcomDC_0323_2016-->

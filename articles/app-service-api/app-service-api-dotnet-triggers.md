@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/16/2016" 
 	ms.author="guayan"/>
 
 # Déclencheurs des applications API Azure App Service
+
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview API Apps.
+
 
 ## Vue d'ensemble
 
@@ -339,4 +342,4 @@ Voici un exemple de la façon dont cette classe peut être implémentée pour fa
     }
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

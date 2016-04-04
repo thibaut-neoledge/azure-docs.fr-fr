@@ -1,50 +1,52 @@
-## Understand planned vs. unplanned maintenance
-There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
+## Différence entre maintenance planifiée et non planifiée
+Il existe deux types d’événements de plateforme Microsoft Azure susceptibles d’avoir un effet sur la disponibilité de vos machines virtuelles : la maintenance planifiée et la maintenance non planifiée.
 
-- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
+- **Les événements de maintenance planifiés** sont des mises à jour périodiques effectuées par Microsoft sur la plateforme sous-jacente Azure pour améliorer la fiabilité, les performances et la sécurité de l'infrastructure hébergeant vos machines virtuelles. La majorité de ces mises à jour ont lieu sans affecter les machines virtuelles et les services cloud. Toutefois, il arrive que ces mises à jour requièrent un redémarrage de votre machine virtuelle afin que les mises à jour de l'infrastructure de la plateforme soient appliquées.
 
-- **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot.
+- **Les événements de maintenance non planifiés** ont lieu lorsque l'infrastructure physique ou matérielle sous-jacente de votre machine virtuelle a connu une défaillance. Cela comprend les défaillances du réseau local, du disque local ou au niveau du rack. Lorsqu'une défaillance de ce type est détectée, la plateforme Azure migre automatiquement votre machine virtuelle de la machine physique défectueuse vers une machine physique saine. De tels événements sont rares, mais peuvent entraîner un redémarrage de votre machine virtuelle.
 
-## Follow best practices when you design your application for high availability
-To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
+## Meilleures pratiques de conception de votre application pour la haute disponibilité
+Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ces événements, nous vous recommandons les meilleures pratiques suivantes pour la haute disponibilité de vos machines virtuelles :
 
-* [Configure multiple virtual machines in an Availability Set for redundancy]
-* [Configure each application tier into separate Availability Sets]
-* [Combine the Load Balancer with Availability Sets]
-* [Avoid single instance virtual machines in Availability Sets]
+* [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]
+* [Configuration de chaque couche application dans des groupes à haute disponibilité séparés]
+* [Combinaison de l'équilibrage de charge et des groupes à haute disponibilité]
+* [Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité]
 
-### Configure multiple virtual machines in an Availability Set for redundancy
-To provide redundancy to your application, we recommend that you group two or more virtual machines in an Availability Set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information about service level agreements, see the “Cloud Services, virtual machines, and Virtual Network” section in [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+### Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance
+Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu'au moins une des machines virtuelles sera disponible pendant un événement de maintenance planifié ou non et répondra au niveau de 99,95 % inscrit dans les contrats de niveau de service Azure. Pour plus d’informations sur les contrats de niveau de service, consultez la section « Services cloud, machines virtuelles et réseau virtuel » dans [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
 
-Each virtual machine in your Availability Set is assigned an Update Domain (UD) and a Fault Domain (FD) by the underlying Azure platform. For a given Availability Set, five non-user-configurable UDs are assigned to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same UD as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of UDs being rebooted may not proceed sequentially during planned maintenance, but only one UD will be rebooted at a time.
+Chaque machine virtuelle de votre groupe à haute disponibilité se voit attribuer un domaine de mise à jour et un domaine d'erreur par la plateforme Azure sous-jacente. Pour un groupe à haute disponibilité donné, cinq domaines de mises à jour non configurables par l'utilisateur sont attribués pour indiquer les groupes de machines virtuelles et les équipements physiques sous-jacents pouvant être redémarrés en même temps. Dans le cas où un seul groupe à haute disponibilité comprend plus de cinq machines virtuelles, la sixième machine sera placée dans le même domaine de mise à jour que la première, la septième dans le même que la deuxième, etc. L'ordre de redémarrage des domaines de mise à jour ne peut être traité de manière séquentielle au cours de la maintenance planifiée, mais les domaines de mise à jour seront redémarrés un par un.
 
-FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Set does not protect your application from operating system or application-specific failures, it does limit the impact of potential physical hardware failures, network outages, or power interruptions.
-
-<!--Image reference-->
-   ![UD FD configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
-
->[AZURE.NOTE] For instructions, see [How to Configure an Availability Set for virtual machines] [].
-
-### Configure each application tier into separate Availability Sets
-If the virtual machines in your Availability Set are all nearly identical and serve the same purpose for your application, we recommend that you configure an Availability Set for each tier of your application.  If you place two different tiers in the same Availability Set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an Availability Set for each tier, you guarantee that at least one virtual machine in each tier will be available.
-
-For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx, etc., in a single Availability Set. Make sure that only front-end virtual machines are placed in the same Availability Set. Similarly, make sure that only data-tier virtual machines are placed in their own Availability Set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
+Les domaines de défaillance définissent le groupe de machines virtuelles partageant une source d'alimentation et un commutateur réseau communs. Par défaut, les machines virtuelles configurées dans votre groupe à haute disponibilité sont réparties entre deux domaines de défaillance. Le fait de placer vos machines virtuelles dans un groupe à haute disponibilité ne protège pas vos applications des défaillances du système d’exploitation ou propres aux applications, mais limite l’effet des défaillances des équipements physiques, des pannes du serveur et des coupures d’électricité.
 
 <!--Image reference-->
-   ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![Configuration UD FD](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+
+>[AZURE.NOTE] Pour obtenir des instructions, consultez [Comment configurer un groupe à haute disponibilité pour des machines virtuelles][].
+
+### Configuration de chaque couche application dans des groupes à haute disponibilité séparés
+Si les machines virtuelles de votre groupe à haute disponibilité sont presque identiques et ont la même fonction au sein de votre application, nous vous recommandons de configurer un groupe à haute disponibilité pour chaque couche de votre application. Si vous placez deux couches différentes dans le même groupe à haute disponibilité, toutes les machines virtuelles de la même couche application peuvent être redémarrées en même temps. En configurant deux machines virtuelles ou plus dans un groupe à haute disponibilité par couche, vous vous assurez qu'au moins une machine de chaque couche restera disponible.
+
+Par exemple, vous pouvez rassembler toutes les machines virtuelles utilisant IIS, Apache, Nginx, etc. pour le composant frontal de votre application dans un seul groupe à haute disponibilité. Assurez-vous que seules les machines virtuelles frontales sont placées dans le même groupe à haute disponibilité. Assurez-vous également que seules les machines virtuelles de la couche de données sont placées dans leur propre groupe à haute disponibilité, au même titre que vos machines virtuelles répliquées SQL Server ou vos machines MySQL.
+
+<!--Image reference-->
+   ![Couches de l'application](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 
-### Combine the Load Balancer with Availability Sets
-Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, read [Load Balancing virtual machines](virtual-machines-linux-load-balance.md).
+### Combinaison de l'équilibrage de charge et des groupes à haute disponibilité
+Combinez l'équilibrage de charge Azure avec un groupe à haute disponibilité pour une meilleure résilience de votre application. L'équilibrage de charge Azure répartit le trafic entre plusieurs machines virtuelles. L'équilibrage de charge Azure est compris pour nos machine virtuelles de niveau Standard. Notez que tous les niveaux de machines virtuelles n’intègrent pas l’équilibreur de charge Azure. Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez la section [Équilibrage de charge des machines virtuelles](virtual-machines-linux-load-balance.md).
 
-If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance.
+Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entre plusieurs machines virtuelles, tout événement de maintenance planifié aura un effet sur l'unique machine virtuelle en charge du trafic, ce qui entraînera une panne de votre couche application. Placer plusieurs machines virtuelles de la même couche dans le même équilibrage de charge et groupe à haute disponibilité permet de toujours avoir au moins une instance disponible pour le trafic.
 
-### Avoid single instance virtual machines in Availability Sets
-Avoid leaving a single instance virtual machine in an Availability Set by itself. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. Please note, single virtual machine instance within an Availability Set, will also receive advanced email notification in multi-instance virtual machines planned maintenance notification. 
+### Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité
+Évitez de laisser une instance unique de machine virtuelle dans un groupe à haute disponibilité. Les machines virtuelles ayant adopté cette configuration ne sont pas sous la garantie des contrats de niveau de service et connaissent des interruptions de service au cours des événements de maintenance planifiés. Veuillez noter que, si vous déployez une instance unique de machine virtuelle dans un groupe à haute disponibilité, vous recevrez également, à l’avance par e-mail, une notification de maintenance planifiée des machines virtuelles à instances multiples.
 
 <!-- Link references -->
-[Configure multiple virtual machines in an Availability Set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure each application tier into separate Availability Sets]: #configure-each-application-tier-into-separate-availability-sets
-[Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets
-[Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[How to Configure An Availability Set for virtual machines]: virtual-machines-windows-classic-configure-availability.md
+[Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
+[Configuration de chaque couche application dans des groupes à haute disponibilité séparés]: #configure-each-application-tier-into-separate-availability-sets
+[Combinaison de l'équilibrage de charge et des groupes à haute disponibilité]: #combine-the-load-balancer-with-availability-sets
+[Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Comment configurer un groupe à haute disponibilité pour des machines virtuelles]: virtual-machines-windows-classic-configure-availability.md
+
+<!---HONumber=AcomDC_0323_2016-->

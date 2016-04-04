@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Analytics, outil de recherche puissant pour Application Insights" 
-	description="Présentation d’Application Analytics, l’outil de recherche puissant pour Application Insights." 
+	pageTitle="Analytics, puissant outil de recherche d’Application Insights" 
+	description="Présentation d’Analytics, le puissant outil de recherche d’Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Application Insights Analytics : présentation du langage
+# Analytics dans Application Insights
 
 
-[Application Insights Analytics](app-analytics.md) est un moteur de requête puissant pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Application Insights (AIQL).
+[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-Une requête AIQL classique est une table *source* suivie d’une série d’*opérateurs* séparés par des `|`.
+Une requête classique est une table *source* suivie d’une série d’*opérateurs* séparés par des `|`.
 
 Par exemple, essayons de découvrir à quelle heure les citoyens de Hyderabad accèdent à notre application web. Et parallèlement, découvrons les codes de résultats qui sont retournés à leurs requêtes HTTP.
 
@@ -79,4 +79,4 @@ Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->
