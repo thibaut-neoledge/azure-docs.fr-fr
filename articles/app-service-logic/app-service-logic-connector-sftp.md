@@ -68,7 +68,8 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 - **Masque de fichiers à exclure** : spécifiez le masque à appliquer pour exclure des fichiers. Si la propriété « Masque de fichiers » est également définie, la propriété « Masque de fichiers à exclure » est appliquée en premier.
 
 
-	![][9] ![][10]
+	![][9]  
+	![][10]
 
 7.	De même, vous pouvez utiliser les actions SFTP dans le flux. Vous pouvez utiliser l’action « Charger le fichier » pour charger un fichier sur le serveur SFTP. Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
 
@@ -79,7 +80,8 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 	- ****Ajouter à la fin si existant ** : spécifiez « true » ou « false ». Lorsque vous spécifiez « true », les données sont ajoutées à la fin du fichier (s’il existe). Lorsque vous spécifiez « false », le fichier est remplacé (s’il existe).
 - **Dossier temporaire** : si cette propriété est définie, l’adaptateur charge le fichier dans le « Chemin du dossier temporaire ». Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans « Chemin du dossier ». Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
 
-	![][11] ![][12]
+	![][11]  
+	![][12]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).

@@ -31,7 +31,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 ##<a id="prereq"></a>Configuration requise
 
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
 
@@ -49,7 +49,7 @@ Pour obtenir des instructions, consultez la page [Création d'un certificat auto
 
 Chaque abonnement Azure est identifié par une valeur GUID, appelée ID d’abonnement. Procédez comme suit pour trouver cette valeur.
 
-1. Visitez le [portail Azure][preview-portal].
+1. Visitez le [portail Azure][version préliminaire du portail].
 
 2. Dans la barre située sur la gauche du portail, sélectionnez __Parcourir tout__, puis sélectionnez __Abonnements__ dans le panneau __Parcourir__.
 
@@ -61,7 +61,7 @@ Enregistrez l’ID d’abonnement, car il sera utilisé ultérieurement.
 
 1. Ouvrez Visual Studio 2012 ou 2013
 2. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**.
-3. Pour le nouveau projet, entrez ou sélectionnez les valeurs suivantes :
+3. Pour le nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
 	<table>
 	<tr>
@@ -155,6 +155,6 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-[preview-portal]: https://portal.azure.com/
+[version préliminaire du portail] : https://portal.azure.com/
 
 <!---HONumber=AcomDC_0323_2016-->

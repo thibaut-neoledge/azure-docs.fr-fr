@@ -51,7 +51,8 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur OneDr
 	![][2]
 4.	Vous pouvez déposer l’application API du connecteur OneDrive dans l’éditeur en cliquant sur « Connecteur OneDrive ». Cliquez sur le bouton Autoriser. Indiquez vos informations d’identification Microsoft (si vous n’êtes pas connecté automatiquement). Cliquez sur « Oui » pour autoriser l’accès.
 
-	![][3] ![][4]
+	![][3]
+	![][4]
 
 5.	Vous pouvez maintenant utiliser le connecteur OneDrive dans le flux. Actuellement, aucun déclencheur n’est disponible dans le connecteur OneDrive. Les actions disponibles sont Obtenir le fichier, charger un fichier, Supprimer le fichier et Répertorier les fichiers.
 

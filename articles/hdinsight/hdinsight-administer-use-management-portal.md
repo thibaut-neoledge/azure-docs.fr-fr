@@ -83,7 +83,8 @@ L’installation de logiciels personnalisés sur le cluster à l’aide d’une 
 	
 	- Pour personnaliser le menu, effectuez un clic droit sur le menu, puis cliquez sur **Personnaliser**.
 	- **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
-	- **Tableau de bord**, **Tableau de bord du cluster** et **URL : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux. -**SSH (Secure Shell)**: instructions de connexion au cluster à l’aide d’une connexion SSH (Secure Shell).
+	- **Tableau de bord**, **Tableau de bord du cluster** et **URL** : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux. 
+	- **SSH (Secure Shell)**: instructions de connexion au cluster à l’aide d’une connexion SSH (Secure Shell).
 	- **Mise à l’échelle du cluster** : permet de modifier le nombre de nœuds de travail pour ce cluster.
 	- **Supprimer** : supprime le cluster.
 	- **Démarrage rapide (![icône nuage et foudre = démarrage rapide](./media/hdinsight-administer-use-portal-linux/quickstart.png))** : affiche des informations qui vous aideront à prendre en main HDInsight.
@@ -120,7 +121,7 @@ L’installation de logiciels personnalisés sur le cluster à l’aide d’une 
 	
 	- **Nom d’hôte** : nom du Cluster.
 	- **URL de cluster**.
-	- **État** : inclut Abandonné, Accepté, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, En fonctionnement, En cours d’exécution, Erreur, En cours de suppression, Supprimé, TimedOut, DeleteQueued, DeleteTimedOut, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
+	- **État** : inclut Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
 	- **Région** : emplacement Azure. Pour obtenir la liste des emplacements Azure pris en charge, consultez la zone de liste déroulante **Région** sur [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 	- **Données créées**.
 	- **Système d’exploitation** : **Windows** ou **Linux**.
@@ -199,7 +200,8 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
 ##Pause/Arrêt de clusters
 
-La plupart des travaux Hadoop sont les traitements par lots exécutés occasionnellement seulement. Pour la plupart des clusters Hadoop, il existe de longues périodes pendant lequel le cluster n’est pas utilisé pour le traitement. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
+La plupart des travaux Hadoop sont les traitements par lots exécutés occasionnellement seulement. Pour la plupart des clusters Hadoop, il existe de longues périodes pendant lequel le cluster n’est pas utilisé pour le traitement. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. 
+Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
 
 Il existe de nombreuses façons de programmer le processus :
 

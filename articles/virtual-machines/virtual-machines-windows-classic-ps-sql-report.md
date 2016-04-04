@@ -633,7 +633,7 @@ Pour vérifier que les fonctions de base du serveur de rapports fonctionnent, ou
 
 		http://localhost/Reports
 
-- À partir de votre ordinateur local, accédez au Gestionnaire de rapports **distant** sur la machine virtuelle. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Lorsque vous êtes invité à entrer un mot de passe, utilisez les informations d’identification d’administrateur que vous avez créées lors de l’approvisionnement de la machine virtuelle. Le nom d’utilisateur est au format [Domaine][nom utilisateur], où le domaine correspond au nom de la machine virtuelle, par exemple ssrsnativecloud\\testuser. Si vous n’utilisez pas HTTP**S**, supprimez le **s** dans l’URL. Pour plus d’informations sur la création d’utilisateurs supplémentaires sur la machine virtuelle, consultez la section suivante.
+- À partir de votre ordinateur local, accédez au Gestionnaire de rapports **distant** sur la machine virtuelle. Mettez à jour le nom DNS dans l’exemple suivant, comme requis. Lorsque vous êtes invité à entrer un mot de passe, utilisez les informations d’identification d’administrateur que vous avez créées lors de l’approvisionnement de la machine virtuelle. Le nom d’utilisateur est au format [Domaine]\[nom utilisateur], où le domaine correspond au nom de la machine virtuelle, par exemple ssrsnativecloud\\testuser. Si vous n’utilisez pas HTTP**S**, supprimez le **s** dans l’URL. Pour plus d’informations sur la création d’utilisateurs supplémentaires sur la machine virtuelle, consultez la section suivante.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -705,4 +705,4 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-classic-sql-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

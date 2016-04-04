@@ -44,7 +44,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 ##Présentation du scénario
 
-Le cluster HDInsight inclut des exemples de données. Vous utilisez une table Hive appelée **hivesampletable**, qui référence le fichier de données situé sous ****wasb:///hive/warehouse/hivesampletable**. Cette table contient des données relatives aux appareils mobiles. Le schéma de la table Hive est le suivant :
+Le cluster HDInsight inclut des exemples de données. Vous utilisez une table Hive appelée **hivesampletable**, qui référence le fichier de données situé sous **wasb:///hive/warehouse/hivesampletable**. Cette table contient des données relatives aux appareils mobiles. Le schéma de la table Hive est le suivant :
 
 | Champ | Type de données |
 | ----- | --------- |

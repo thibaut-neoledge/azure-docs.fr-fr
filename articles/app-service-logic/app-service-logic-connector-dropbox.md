@@ -50,11 +50,18 @@ Un connecteur peut être créé dans une application logique ou directement à p
 ## Utilisation du connecteur Dropbox dans votre application logique
 Une fois votre application API créée, vous pouvez utiliser le connecteur Dropbox comme une action pour votre application logique. Pour ce faire :
 
-1.	Dans votre application logique, ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d'applications logiques et configurer votre flux : ![][3]
-2.	Le connecteur Dropbox est répertorié dans la galerie : ![][4]
-3.	Sélectionnez le connecteur Dropbox pour l'ajouter automatiquement dans le concepteur. Sélectionnez **Autoriser**, saisissez vos informations d'identification, puis sélectionnez **Autoriser** : ![][5] ![][6] ![][7]
+1.	Dans votre application logique, ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d'applications logiques et configurer votre flux :
+	![][3]
+2.	Le connecteur Dropbox est répertorié dans la galerie :
+	![][4]
+3.	Sélectionnez le connecteur Dropbox pour l'ajouter automatiquement dans le concepteur. Sélectionnez **Autoriser**, saisissez vos informations d'identification, puis sélectionnez **Autoriser**:
+	![][5]
+	![][6]
+	![][7]
 
-Vous pouvez maintenant utiliser le connecteur Dropbox dans le flux. Vous pouvez utiliser l'action Dropbox « Télécharger le fichier » pour télécharger un fichier dans votre compte Dropbox : ![][8] ![][9]
+Vous pouvez maintenant utiliser le connecteur Dropbox dans le flux. Vous pouvez utiliser l'action Dropbox « Télécharger le fichier » pour télécharger un fichier dans votre compte Dropbox :
+![][8]
+![][9]
 
 Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
 

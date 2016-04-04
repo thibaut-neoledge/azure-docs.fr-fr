@@ -299,7 +299,7 @@ Pour plus d’informations sur la création de journaux d’application dans Web
 
 ### Ajout d'instructions de suivi à l'application
 
-1. Ouvrez *Controllers\\HomeController.cs*, puis remplacez le contenu du fichier par le code suivant afin d’ajouter les instructions `Trace` ainsi qu’une instruction `using` au `System.Diagnostics` :
+1. Ouvrez *Controllers\HomeController.cs*, puis remplacez le contenu du fichier par le code suivant afin d’ajouter les instructions `Trace` ainsi qu’une instruction `using` au `System.Diagnostics` :
 
 		using System;
 		using System.Collections.Generic;

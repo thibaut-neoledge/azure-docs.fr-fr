@@ -40,7 +40,7 @@ Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de c
 
 Il existe deux options principales pour l’installation : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) et [WebPI](http://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu.
 
-Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/fr-FR/blog/azps-1-0/).
+Pour plus d’informations, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 ## Étape 2 : Définir votre abonnement
 
@@ -393,4 +393,4 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 
 [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

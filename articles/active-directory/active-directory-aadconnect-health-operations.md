@@ -112,15 +112,16 @@ Pour autoriser un accès utilisateur au niveau *toutes les instances de service*
 1. Cliquez sur la partie « Utilisateurs » de la section Configurer.<br> ![Panneau principal (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Sélectionnez « Ajouter ».
 3. Sélectionnez le « Rôle », par exemple « Propriétaire ».<br> ![Ajouter un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. Tapez le nom ou l’identificateur du groupe ou de l’utilisateur cible. Vous pouvez sélectionner un ou plusieurs utilisateurs ou groupes en même temps. Cliquez sur « Sélectionner» .![Sélectionner un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+4. Tapez le nom ou l’identificateur du groupe ou de l’utilisateur cible. Vous pouvez sélectionner un ou plusieurs utilisateurs ou groupes en même temps. Cliquez sur « Sélectionner» .
+![Sélectionner un utilisateur (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Sélectionnez « OK ».<br>
 
 6. Une fois l’affectation de rôle terminée, les utilisateurs et/ou les groupes apparaissent dans la liste.<br> ![Liste des utilisateurs (section RBAC d’Azure AD Connect Health)](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Au terme de ces étapes, les utilisateurs et groupes répertoriés bénéficient d’un accès en fonction des rôles qui leur ont été affectés.
 >[AZURE.NOTE]
-- Les administrateurs généraux disposent toujours d’un accès complet à toutes les opérations, mais les comptes d’administrateurs généraux ne sont pas présents dans la liste ci-dessus.
-- La fonctionnalité Inviter des utilisateurs N’EST PAS prise en charge dans Azure AD Connect Health.
+-Les administrateurs généraux disposent toujours d’un accès complet à toutes les opérations, mais les comptes d’administrateurs généraux ne sont pas présents dans la liste ci-dessus. 
+- La fonctionnalité « Inviter des utilisateurs » N’EST PAS prise en charge dans Azure AD Connect Health.
 
 #### Étape 3 : partager l’emplacement du panneau avec des utilisateurs ou des groupes
 1. Une fois les autorisations affectées, un utilisateur peut accéder à Azure AD Connect Health à l’adresse [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).

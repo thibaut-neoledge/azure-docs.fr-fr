@@ -163,7 +163,12 @@ Utilisez le tableau suivant pour déterminer si le module de contrôleur EBOD fo
 
 |État | Module d’E/S OK (vert) | Panne du module d’E/S (orange) | Activité sur les ports de l’hôte (vert) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Module de contrôleur OK | ALLUMÉ |ÉTEINT | - | | Panne du module de contrôleur | ÉTEINT | ALLUMÉ | - | | Aucune connexion au port hôte externe | - | - | ÉTEINT || Connexion au port hôte externe – aucune activité | - | - | ALLUMÉ || Connexion au port hôte externe - activité | - | - | Clignote || Erreur de métadonnées du module de contrôleur | Clignote | - | - |
+| Module de contrôleur OK | ALLUMÉ |ÉTEINT | - | 
+| Panne du module de contrôleur | ÉTEINT | ALLUMÉ | - | 
+| Aucune connexion au port hôte externe | - | - | ÉTEINT |
+| Connexion au port hôte externe – aucune activité | - | - | ALLUMÉ |
+| Connexion au port hôte externe - activité | - | - | Clignote |
+| Erreur de métadonnées du module de contrôleur | Clignote | - | - |
 
 ## Voyants LED du lecteur de disque relatifs au boîtier principal et au boîtier EBOD
 
