@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Utiliser le portail Azure pour gérer des ressources Azure | Microsoft Azure" 
-	description="Regroupez plusieurs ressources dans un groupe logique qui devient la limite de cycle de vie pour les ressources qu’il contient." 
+	description="Utilisez le portail Azure et Azure Resource Manager pour déployer et gérer vos ressources. Cet article explique comment baliser des ressources et afficher des journaux d’audit." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -13,24 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/11/2016" 
+	ms.date="03/29/2016" 
 	ms.author="tomfitz"/>
 
 
-# Utilisation du portail Azure pour gérer vos ressources Azure
+# Utilisation du portail Azure pour déployer et gérer vos ressources Azure
 
 ## Introduction
 
-Azure Resource Manager vous permet de déployer et de gérer vos solutions via des groupes de ressources. Cette rubrique fournit un aperçu de la façon dont vous pouvez utiliser les groupes de ressources dans le portail Azure. En général, un groupe de ressources contient des ressources associées à une application spécifique. Par exemple, un groupe peut contenir une application web qui héberge votre site web public, une base de données SQL qui stocke les données relationnelles utilisées par le site et un compte de stockage qui stocke les ressources non relationnelles. Chaque ressource d’un groupe de ressources doit partager le même cycle de vie. Pour plus d’informations sur Resource Manager, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+Cette rubrique montre comment utiliser le [portail Azure](https://portal.azure.com) avec [Azure Resource Manager](../resource-group-overview.md) pour déployer et gérer vos ressources Azure.
 
-Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour l’état de chaque service, voir [Graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/)
+Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com). Pour connaître l’état de chaque service, voir [Graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/)
 
-Vous pouvez également gérer des ressources via Azure PowerShell et l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de ces interfaces, voir [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md) et [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+Vous pouvez également gérer des ressources via Azure PowerShell et l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de ces interfaces, voir [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md) et [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md). Pour plus d’informations sur le déploiement de solutions avec Visual Studio, voir [Création et déploiement des groupes de ressources Azure via Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
+## Créer et gérer des groupes de ressources
 
-## Création d’un groupe de ressources et des ressources
-
-Si vous devez créer un groupe de ressources vide, vous pouvez sélectionner **Nouveau**, **Gestion** et **Groupe de ressources**.
+Pour créer un groupe de ressources vide, sélectionnez **Nouveau**, **Gestion** et **Groupe de ressources**.
 
 ![créer un groupe de ressources vide](./media/resource-group-portal/create-empty-group.png)
 
@@ -38,15 +37,35 @@ Vous spécifiez son nom et son emplacement, puis, si nécessaire, sélectionnez 
 
 ![définir les valeurs d’un groupe](./media/resource-group-portal/set-group-properties.png)
 
-Lors du déploiement de vos ressources, vous pouvez choisir de les déployer sur le groupe de ressources que vous avez créé. L’illustration suivante montre comment créer une application web dans un groupe de ressources existant.
+Une fois votre groupe de ressources créé, vous pouvez y déployer des ressources. Pour commencer le déploiement, sélectionnez simplement **Nouveau** et choisissez le type de ressource que vous souhaitez déployer.
+
+![déployer des ressources](./media/resource-group-portal/deploy-resource.png)
+
+Si vous ne voyez pas le type de ressource que vous souhaitez déployer, vous pouvez lancer une recherche sur le Marketplace.
+
+![effectuer une recherche sur le marketplace](./media/resource-group-portal/search-resource.png)
+
+Selon le type de ressource que vous avez sélectionné, vous devrez définir une collection de propriétés pertinentes avant le déploiement. Ces options ne sont pas présentées ici, car elles varient selon le type de ressource. Pour tous les types, vous devez sélectionner un groupe de ressources de destination. L’illustration suivante montre comment créer une application web et la déployer dans le groupe de ressources que vous venez de créer.
 
 ![Créer un groupe de ressources](./media/resource-group-portal/select-existing-group.png)
 
-Vous pouvez également décider de créer un groupe de ressources lors du déploiement de vos ressources. Au lieu de sélectionner l’un des groupes de ressources existant dans votre abonnement, sélectionnez **Nouveau** et nommez le groupe de ressources.
+Vous pouvez également décider de créer un groupe de ressources lors du déploiement de vos ressources. Au lieu de sélectionner l’un des groupes de ressources existants dans votre abonnement, sélectionnez **Nouveau** et nommez le groupe de ressources.
 
 ![créer un groupe de ressources](./media/resource-group-portal/select-new-group.png)
 
-## Parcourir les groupes de ressources
+Votre déploiement commence. Cette opération peut prendre quelques minutes. Vous recevez une notification une fois le déploiement terminé.
+
+![afficher une notification](./media/resource-group-portal/view-notification.png)
+
+### Ajouter des ressources à un groupe de ressources existant
+
+Vous pouvez ajouter des ressources à un groupe de ressources au moyen de la commande **Ajouter** sur le panneau du groupe de ressources.
+
+![ajouter une ressource](./media/resource-group-portal/add-resource.png)
+
+Vous pouvez sélectionner la ressource de votre choix dans la liste proposée.
+
+### Parcourir les groupes de ressources
 
 Vous pouvez parcourir tous les groupes de ressources en cliquant sur **Groupes de ressources**.
 
@@ -56,41 +75,44 @@ Lorsque vous sélectionnez un groupe de ressources particulier, un panneau vous 
 
 ![Résumé du groupe de ressources](./media/resource-group-portal/group-summary.png)
 
-Il permet également d'obtenir une vue unifiée des informations de facturation et de surveillance pour toutes les ressources du groupe.
+Vous pouvez ajouter des tables et graphiques supplémentaires dans le panneau Groupe de ressources en sélectionnant **Ajouter une section** sous le résumé.
 
-![surveillance et facturation](./media/resource-group-portal/monitoring-billing.png)
+![ajoutez une section](./media/resource-group-portal/add-section.png)
 
-## Afficher votre abonnement et vos coûts
+Une galerie de vignettes s’affiche pour vous permettre de sélectionner les informations à inclure dans le panneau. Les types de vignettes affichées sont filtrés par type de ressource. Si vous sélectionnez une autre ressource, vous obtiendrez des vignettes différentes.
 
-Vous pouvez afficher des informations sur votre abonnement et sur les coûts cumulés de toutes vos ressources. Sélectionnez **Abonnements** et l’abonnement que vous souhaitez voir. Il se peut que vous n’ayez qu’un seul abonnement à sélectionner.
+![ajoutez une section](./media/resource-group-portal/tile-gallery.png)
 
-![subscription](./media/resource-group-portal/select-subscription.png)
+Faites glisser la vignette de votre choix dans l’espace disponible.
 
-Dans le panneau de l’abonnement, vous voyez un taux d’avancement.
+![faire glisser une vignette](./media/resource-group-portal/drag-tile.png)
 
-![taux d’avancement](./media/resource-group-portal/burn-rate.png)
+Sélectionnez **Terminé** en haut du portail. Votre nouvelle vue est maintenant intégrée au panneau.
 
-Ainsi qu’une répartition des coûts par type de ressource.
+![afficher une vignette](./media/resource-group-portal/show-lens.png)
 
-![coût des ressources](./media/resource-group-portal/cost-by-resource.png)
-
-## Personnalisation de l'interface
-
-Pour accéder rapidement au résumé du groupe de ressources, vous pouvez épingler le panneau à votre tableau d'accueil.
+Pour accéder rapidement à un groupe de ressources, vous pouvez épingler le panneau à votre tableau de bord.
 
 ![épingler un groupe de ressources](./media/resource-group-portal/pin-group.png)
 
-Vous pouvez également épingler une section du panneau à votre tableau d'accueil en cliquant sur les points de suspension (...) situés au-dessus de la section. Vous pouvez aussi personnaliser la taille de la section dans le panneau ou supprimer complètement cette section. L’image suivante montre comment épingler, personnaliser ou supprimer la section Événements.
+Vous pouvez également épingler une section du panneau à votre tableau de bord en cliquant sur les points de suspension (...) situés au-dessus de la section. Vous pouvez aussi personnaliser la taille de la section dans le panneau ou supprimer complètement cette section. L’illustration suivante montre comment épingler, personnaliser ou supprimer la section Processeur et mémoire.
 
-![épingler une section](./media/resource-group-portal/pin-section.png)
+![épingler une section](./media/resource-group-portal/pin-cpu-section.png)
 
-Après avoir épinglé la section Événements au tableau d'accueil, vous apercevrez un résumé des événements dans le tableau d'accueil.
+Après avoir épinglé la section au tableau de bord, vous obtenez le résumé sur le tableau de bord.
 
-![tableau d’accueil des événements](./media/resource-group-portal/events-startboard.png)
+![afficher le tableau de bord](./media/resource-group-portal/view-startboard.png)
 
-Vous pouvez le sélectionner immédiatement pour obtenir plus de détails sur les événements.
+Vous pouvez le sélectionner immédiatement pour obtenir plus de détails sur les données.
 
-## Affichage des anciens déploiements
+### Supprimer un groupe de ressources
+
+Comme les groupes de ressources permettent de gérer le cycle de vie de l’ensemble des ressources englobées, la suppression d’un groupe de ressources entraîne celle de toutes les ressources qu’il contient. Vous pouvez également supprimer des ressources individuelles d'un groupe de ressources. Soyez prudent lorsque vous supprimez un groupe de ressources, car d'autres ressources peuvent y être liées. Vous pouvez voir toutes les ressources liées dans la carte des ressources et prendre les mesures nécessaires pour éviter des conséquences fâcheuses lorsque vous supprimez des groupes de ressources. Les ressources liées ne seront pas supprimées, mais elles risquent de ne pas fonctionnent comme prévu.
+
+![supprimer un groupe](./media/resource-group-portal/delete-group.png)
+
+
+## Afficher les anciens déploiements
 
 Le panneau du groupe de ressources indique la date et l'état du dernier déploiement de ce groupe de ressources. Vous pouvez sélectionner le lien pour afficher l'historique des déploiements du groupe.
 
@@ -104,11 +126,19 @@ Vous pouvez consulter les opérations individuelles qui ont été exécutées pe
 
 ![détails de l'opération](./media/resource-group-portal/operation-details.png)
 
-Si vous sélectionnez une des opérations, les détails de cette opération apparaissent. Cela peut être particulièrement utile lorsqu'une opération a échoué, comme indiqué ci-dessous. Cela peut également vous aider à identifier l’origine de l'échec d'un déploiement. Dans l’image suivante, vous pouvez constater que le site web n'a pas été déployé car le nom n'est pas unique.
+Pour plus d’informations sur la résolution des problèmes liés à un déploiement, consultez l’article [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
 
-![message de l'opération](./media/resource-group-portal/operation-message.png)
+Vous pouvez récupérer le modèle utilisé pour le déploiement en sélectionnant **Exporter le modèle**.
 
-## Affichage des journaux d'audit
+![exporter le modèle](./media/resource-group-portal/export-template.png)
+
+Vous obtenez alors le modèle précisément utilisé pour ce déploiement.
+
+![afficher le modèle](./media/resource-group-portal/show-template.png)
+
+Ce modèle ne représente pas le groupe de ressources de manière exhaustive ; si vous avez ajouté ou supprimé des ressources en dehors de ce déploiement, ces actions ne sont pas répercutées dans le modèle. Le panneau inclut le modèle, un fichier de paramètres à utiliser avec le modèle et un script PowerShell permettant de déployer le modèle. Vous pouvez télécharger ces 3 fichiers en sélectionnant **Enregistrer dans le fichier**.
+
+## Afficher les journaux d’audit
 
 Le journal d'audit contient non seulement les opérations de déploiement, mais aussi toutes les opérations de gestion effectuées sur les ressources dans le cadre de votre abonnement. Par exemple, les journaux d'audit vous indiquent quand un utilisateur de votre organisation a arrêté une application. Pour afficher les journaux d’audit, sélectionnez **Parcourir tout** puis **Journaux d’audit**.
 
@@ -120,37 +150,17 @@ La section sur les opérations vous indique les opérations individuelles qui on
 
 Vous pouvez sélectionner une des opérations pour afficher des détails supplémentaires, notamment quel utilisateur a exécuté l'opération.
 
-Vous pouvez filtrer les informations affichées dans le journal d'audit en sélectionnant **Filtrer**.
+Pour plus d’informations sur l’affichage des journaux d’audit, consultez [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
 
-![filtrer un journal](./media/resource-group-portal/filter-logs.png)
-
-Vous pouvez sélectionner le type d'opération à afficher, par exemple celles appartenant à un groupe de ressources ou à une ressource, celles survenues pendant une période précise, celles lancées par un appelant spécifique, ou les niveaux de l'opération.
-
-![options de filtrage](./media/resource-group-portal/filter-options.png)
-
-## Ajout de ressources à des groupes de ressources
-
-Vous pouvez ajouter des ressources à un groupe de ressources au moyen de la commande **Ajouter** sur le panneau du groupe de ressources.
-
-![ajouter une ressource](./media/resource-group-portal/add-resource.png)
-
-Vous pouvez sélectionner la ressource de votre choix dans la liste proposée.
-
-## Suppression de groupes de ressources
-
-Comme les groupes de ressources permettent de gérer le cycle de vie de l’ensemble des ressources englobées, la suppression d’un groupe de ressources entraîne celle de toutes les ressources qu’il contient. Vous pouvez également supprimer des ressources individuelles d'un groupe de ressources. Soyez prudent lorsque vous supprimez un groupe de ressources, car d'autres ressources peuvent y être liées. Vous pouvez voir toutes les ressources liées dans la carte des ressources et prendre les mesures nécessaires pour éviter des conséquences fâcheuses lorsque vous supprimez des groupes de ressources. Les ressources liées ne seront pas supprimées, mais elles risquent de ne pas fonctionnent comme prévu.
-
-![supprimer un groupe](./media/resource-group-portal/delete-group.png)
-
-## Balisage des ressources
+## Baliser des ressources
 
 Vous pouvez appliquer des balises à des groupes de ressources pour organiser logiquement vos ressources. Pour plus d’informations sur l’utilisation des balises par le biais du portail, consultez [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
 
-## Déploiement d'un modèle personnalisé
+## Déployer un modèle personnalisé
 
 Si vous souhaitez effectuer un déploiement sans utiliser un des modèles de Marketplace, vous pouvez créer un modèle personnalisé qui définit l'infrastructure de votre solution. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-Pour déployer un modèle personnalisé via le portail, sélectionnez **Nouveau**, et commencez à rechercher **Déploiement de modèle** jusqu’à ce que vous puissiez le sélectionner dans les options.
+Pour déployer un modèle personnalisé via le portail, sélectionnez **Nouveau** et commencez à rechercher **Déploiement de modèle** jusqu’à ce que vous puissiez le sélectionner dans les options.
 
 ![rechercher un déploiement de modèle](./media/resource-group-portal/search-template.png)
 
@@ -162,11 +172,32 @@ Après avoir lancé le déploiement du modèle, vous pouvez créer le modèle pe
 
 ![créer un modèle](./media/resource-group-portal/show-custom-template.png)
 
+## Afficher votre abonnement et vos coûts
+
+Vous pouvez afficher des informations sur votre abonnement et sur les coûts cumulés de toutes vos ressources. Sélectionnez **Abonnements** suivi de l’abonnement de votre choix. Il se peut que vous n’ayez qu’un seul abonnement à sélectionner.
+
+![subscription](./media/resource-group-portal/select-subscription.png)
+
+Dans le panneau de l’abonnement, vous voyez un taux d’avancement.
+
+![taux d’avancement](./media/resource-group-portal/burn-rate.png)
+
+Ainsi qu’une répartition des coûts par type de ressource.
+
+![coût des ressources](./media/resource-group-portal/cost-by-resource.png)
+
+## Contrôle d’accès pour les tableaux de bord Azure
+
+L’accès aux informations affichées par la plupart des vignettes dans le portail est régi par le [contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md) (RBAC) Azure. Pour intégrer des tableaux de bord en toute transparence dans l’écosystème, tous les tableaux de bord publiés sont implémentés en tant que ressources Azure. Du point de vue du contrôle d’accès, les tableaux de bord sont traités de la même manière qu’une machine virtuelle ou un compte de stockage.
+
+Voici un exemple. Supposons que vous disposez d’un abonnement Azure et que les différents membres de votre équipe ont reçu les rôles de **propriétaire**, **contributeur** ou **lecteur** de l’abonnement. Les utilisateurs associés au rôle de propriétaire ou de contributeur seront en mesure de répertorier, afficher, créer, modifier ou supprimer des tableaux de bord dans l’abonnement. Les utilisateurs ayant le rôle de lecteur pourront répertorier et afficher des tableaux de bord, sans les modifier ou les supprimer. Les utilisateurs ayant un accès en lecture seront en mesure d’apporter des modifications locales à un tableau de bord publié (par exemple, lors de la résolution d’un problème), mais n’auront pas la possibilité de republier ces modifications sur le serveur. Ils pourront effectuer une copie privée du tableau de bord pour leur propre usage.
+
+Notez que les vignettes individuelles du tableau de bord appliquent leurs propres exigences en matière de contrôle d’accès, compte tenu des ressources dont ils affichent les données. Autrement dit, vous pouvez concevoir un tableau de bord que vous pouvez partager à plus grande échelle tout en protégeant les données contenues dans chaque vignette.
+
 ## Étapes suivantes
-Mise en route
 
 - Pour une introduction aux concepts de Resource Manager, consultez [Vue d'ensemble d’Azure Resource Manager](../resource-group-overview.md).
-- Pour plus d’informations sur l’utilisation d’Azure PowerShell lors du déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+- Pour plus d’informations sur l’utilisation d’Azure PowerShell lors du déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 - Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

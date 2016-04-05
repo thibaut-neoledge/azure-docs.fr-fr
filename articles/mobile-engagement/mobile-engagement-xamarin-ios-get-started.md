@@ -1,0 +1,171 @@
+<properties
+	pageTitle="Prise en main d’Azure Mobile Engagement pour Xamarin.iOS"
+	description="Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications Xamarin.iOS."
+	services="mobile-engagement"
+	documentationCenter="xamarin"
+	authors="piyushjo"
+	manager=""
+	editor="" />
+
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="03/25/2016"
+	ms.author="piyushjo" />
+
+# Prise en main d’Azure Mobile Engagement pour les applications Xamarin.iOS
+
+[AZURE.INCLUDE [Sélecteur de didacticiel Hero](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+
+Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l’utilisation de votre application et envoyer des notifications Push aux utilisateurs segmentés d’une application Xamarin.iOS. Dans ce didacticiel, vous allez créer une application Xamarin.iOS vide qui collecte des données de base et reçoit des notifications Push à l’aide du service APN (Apple Push Notification).
+
+Ce didacticiel requiert les éléments suivants :
+
++ [Xamarin Studio](http://xamarin.com/studio) 
++ [Kit de développement logiciel (SDK) Mobile Engagement pour Xamarin](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
+
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
+
+##<a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application iOS
+
+[AZURE.INCLUDE [Création d’application Mobile Engagement dans le portail](../../includes/mobile-engagement-create-app-in-portal.md)]
+
+##<a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
+
+Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications push.
+
+Nous allons créer une application de base à l’aide de Xamarin afin d’illustrer l’intégration :
+
+###Créer un projet Xamarin.iOS
+
+1. Démarrez Xamarin Studio. Accédez à **File** -> **New** -> **Solution**. 
+
+    ![][1]
+
+2. Sélectionnez **Single View App** et vérifiez que **C#** est le langage sélectionné, puis cliquez sur **Next**.
+
+    ![][2]
+
+3. Renseignez les champs **App Name** et **Organization Identifier**, puis cliquez sur **Next**.
+
+    ![][3]
+
+	> [AZURE.IMPORTANT] Assurez-vous que le profil de publication que vous utilisez pour déployer votre application iOS utilise un ID de l’application qui correspond exactement à l’identificateur Bundle Identifier indiqué ici.
+
+4. Mettez à jour les champs **Project Name**, **Solution Name** et **Location** si nécessaire, puis cliquez sur **Create**.
+
+    ![][4]
+ 
+Xamarin Studio crée l’application de démonstration dans laquelle nous allons intégrer Mobile Engagement.
+
+###Connexion de votre application au serveur principal Mobile Engagement
+
+1. Dans la fenêtre Solution, cliquez avec le bouton droit sur le dossier **Packages**, puis sélectionnez **Add Packages...**
+
+    ![][5]
+
+2. Recherchez **Microsoft Azure Mobile Engagement Xamarin SDK** et ajoutez-le à votre solution.
+
+    ![][6]
+   
+3. Ouvrez **AppDelegate.cs** et ajoutez-y l’instruction using suivante :
+
+		using Microsoft.Azure.Engagement.Xamarin;
+
+4. Dans la méthode **FinishedLaunching**, ajoutez ce qui suit pour initialiser la connexion avec le serveur principal Mobile Engagement. Veillez à ajouter la chaîne **ConnectionString**. Ce code utilise également un paramètre **NotificationIcon** factice, qui est ajouté par le Kit de développement logiciel (SDK) Mobile Engagement que vous pouvez remplacer.
+
+		EngagementConfiguration config = new EngagementConfiguration {
+		                ConnectionString = "YourConnectionStringFromAzurePortal",
+		                NotificationIcon = UIImage.FromBundle("close")
+		            };
+	    EngagementAgent.Init (config);
+
+##<a id="monitor"></a>Activation de la surveillance en temps réel
+
+Pour commencer à envoyer des données et à vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran au serveur principal Mobile Engagement.
+
+1. Ouvrez **ViewController.cs** et ajoutez-y l’instruction using suivante :
+
+		using Microsoft.Azure.Engagement.Xamarin;
+
+2. Remplacez la classe dans laquelle `ViewController` hérite de `UIViewController` à `EngagementViewController`.
+
+##<a id="monitor"></a>Connexion d’application avec l’analyse en temps réel
+
+[AZURE.INCLUDE [Connexion d’application avec l’analyse en temps réel](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+
+##<a id="integrate-push"></a>Activation des notifications push et de la messagerie in-app
+
+Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs et REACH à l’aide de notifications push et de la messagerie in-app, dans le cadre d’une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement. Les sections suivantes vous permettent de configurer votre application pour la réception.
+
+### Modifier votre délégué d'Application
+
+1. Ouvrez **AppDelegate.cs** et ajoutez-y l’instruction using suivante :
+
+		using System; 
+
+2. Maintenant, dans la méthode `FinishedLaunching`, ajoutez ce qui suit pour vous inscrire afin de recevoir les messages de type Push après `EngagementAgent.init(...)`
+
+		if (UIDevice.CurrentDevice.CheckSystemVersion(8,0))
+        {
+            var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
+                (UIUserNotificationType.Badge |
+                    UIUserNotificationType.Sound |
+                    UIUserNotificationType.Alert),
+                null);
+            UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
+            UIApplication.SharedApplication.RegisterForRemoteNotifications ();
+        }
+        else
+        {
+            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (
+                UIRemoteNotificationType.Badge |
+                UIRemoteNotificationType.Sound |
+                UIRemoteNotificationType.Alert);
+        }
+
+3. Pour finir, mettez à jour ou ajoutez les méthodes suivantes :
+
+		public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, 
+            Action<UIBackgroundFetchResult> completionHandler)
+        {
+            EngagementAgent.ApplicationDidReceiveRemoteNotification(userInfo, completionHandler);
+        }
+
+        public override void RegisteredForRemoteNotifications (UIApplication application, NSData deviceToken)
+        {
+            // Register device token on Engagement
+            EngagementAgent.RegisterDeviceToken(deviceToken);
+        }
+
+        public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
+        {
+            Console.WriteLine("Failed to register for remote notifications: Error '{0}'", error);
+        }
+
+4. Dans le fichier **Info.plist** de la solution, vérifiez que l’identificateur **Bundle Identifier** correspond à l’identificateur **App ID** dont vous disposez dans le profil d’approvisionnement de l’Apple Dev Center.
+
+	![][7]
+
+5. Dans le même fichier **Info.plist**, assurez-vous d’avoir coché les cases **Enable Background Modes** et **Remote Notifications**.
+
+ 	![][8]
+
+6. Exécutez l’application sur l’appareil que vous avez associé à ce profil de publication.
+
+[AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
+
+<!-- Images. -->
+[1]: ./media/mobile-engagement-xamarin-ios-get-started/new-solution.png
+[2]: ./media/mobile-engagement-xamarin-ios-get-started/app-type.png
+[3]: ./media/mobile-engagement-xamarin-ios-get-started/configure-project-name.png
+[4]: ./media/mobile-engagement-xamarin-ios-get-started/configure-project-confirm.png
+[5]: ./media/mobile-engagement-xamarin-ios-get-started/add-nuget.png
+[6]: ./media/mobile-engagement-xamarin-ios-get-started/add-nuget-azme.png
+[7]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-confirm-bundle.png
+[8]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-configure-push.png
+
+<!---HONumber=AcomDC_0330_2016-->

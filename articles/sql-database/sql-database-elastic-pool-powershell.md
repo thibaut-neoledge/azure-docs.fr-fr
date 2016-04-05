@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Mettre à l’échelle les ressources grâce aux pools de base de données élastique| Microsoft Azure" 
+    pageTitle="Mettre à l’échelle les ressources grâce aux pools de base de données élastique| Microsoft Azure" 
     description="Découvrez comment utiliser PowerShell pour mettre à l’échelle la base de données SQL Azure en créant un pool de base de données élastique pour gérer plusieurs bases de données." 
 	keywords="bases de données multiples, mise à l’échelle"    
 	services="sql-database" 
@@ -20,13 +20,13 @@
 # Créer un pool de base de données élastique avec PowerShell pour mettre à l’échelle les ressources sur plusieurs bases de données SQL 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Portail Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 Découvrez comment gérer plusieurs bases de données en créant un [pool de base de données élastique](sql-database-elastic-pool.md) à l’aide des applets de commande PowerShell.
 
-> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
+> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
 
 Les pools de base de données élastique permettent de mettre à l’échelle les ressources et la gestion sur plusieurs bases de données SQL.
 
@@ -54,7 +54,7 @@ Après vous être connecté, des informations s'affichent sur l'écran, notammen
 
 ### Sélectionner votre abonnement Azure
 
-Pour sélectionner l’abonnement, vous avez besoin de votre identifiant ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez le copier à partir de l'étape précédente, ou, si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
+Pour sélectionner l’abonnement, vous avez besoin de votre identifiant ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez le copier à partir de l'étape précédente, ou, si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -63,13 +63,13 @@ Pour sélectionner l’abonnement, vous avez besoin de votre identifiant ou de v
 
 Vous disposez maintenant d’un accès pour exécuter des applets de commande en fonction de votre abonnement Azure. L’étape suivante consiste donc à établir le groupe de ressources qui contient le serveur dans lequel le pool de base de données élastique est créé pour contenir plusieurs bases de données. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** pour obtenir la liste des emplacements autorisés.
 
-Si vous disposez déjà d'un groupe de ressources, vous pouvez accéder à l’étape suivante, ou vous pouvez exécuter la commande suivante pour créer un groupe de ressources :
+Si vous disposez déjà d'un groupe de ressources, vous pouvez accéder à l’étape suivante, ou vous pouvez exécuter la commande suivante pour créer un groupe de ressources :
 
 	New-AzureRmResourceGroup -Name "resourcegroup1" -Location "West US"
 
 ### Créer un serveur 
 
-Les pools élastiques de bases de données sont créés dans des serveurs Base de données SQL Azure. Si vous disposez déjà d’un serveur, vous pouvez passer à l’étape suivante ou exécuter l’applet de commande suivante [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) pour créer un serveur V12. Remplacer le nom du serveur (ServerName) par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser l'emplacement valide de votre choix.
+Les pools élastiques de bases de données sont créés dans des serveurs Base de données SQL Azure. Si vous disposez déjà d’un serveur, vous pouvez passer à l’étape suivante ou exécuter l’applet de commande suivante [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) pour créer un serveur V12. Remplacer le nom du serveur (ServerName) par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser l'emplacement valide de votre choix.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
@@ -78,7 +78,7 @@ Lorsque vous exécutez cette commande, une fenêtre s'ouvre dans laquelle vous d
 
 ### Configurer une règle de pare-feu de serveur pour autoriser l'accès au serveur
 
-Établissez une règle de pare-feu pour accéder au serveur. Exécutez la commande [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx) en remplaçant les adresses IP de début et de fin par des valeurs autorisées pour votre ordinateur.
+Établissez une règle de pare-feu pour accéder au serveur. Exécutez la commande [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx) en remplaçant les adresses IP de début et de fin par des valeurs autorisées pour votre ordinateur.
 
 Si votre serveur doit autoriser l'accès à d'autres services Azure, ajoutez le commutateur **-AllowAllAzureIPs** qui insère une règle de pare-feu spéciale et autorise le trafic Azure complet à accéder au serveur.
 
@@ -89,7 +89,7 @@ Pour en savoir plus, consultez [Pare-feu de la base de données SQL Azure](https
 
 ## Créer un pool élastique de bases de données et des bases de données élastiques
 
-Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle de pare-feu configurés pour vous permettre un accès au serveur. L’applet de commande [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) crée le pool de base de données élastique. Cette commande crée un pool qui partage un total de 400 eDTU. Chaque base de données dans le pool a toujours 10 eDTU garanties disponibles (DatabaseDtuMin). Les différentes bases de données dans le pool peuvent consommer un maximum de 100 eDTU (DatabaseDtuMax). Pour une explication détaillée des paramètres, consultez [Pools élastiques de bases de données SQL Azure](sql-database-elastic-pool.md).
+Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle de pare-feu configurés pour vous permettre un accès au serveur. L’applet de commande [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) crée le pool de base de données élastique. Cette commande crée un pool qui partage un total de 400 eDTU. Chaque base de données dans le pool a toujours 10 eDTU garanties disponibles (DatabaseDtuMin). Les différentes bases de données dans le pool peuvent consommer un maximum de 100 eDTU (DatabaseDtuMax). Pour une explication détaillée des paramètres, consultez [Pools élastiques de bases de données SQL Azure](sql-database-elastic-pool.md).
 
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
@@ -146,7 +146,7 @@ Vous pouvez suivre l’état d'opérations de pools de bases de données élasti
 
 ### Obtenir des mesures de consommation de ressources pour un pool élastique de bases de données
 
-Mesures récupérables sous la forme d'un pourcentage de la limite de pool de ressources :
+Mesures récupérables sous la forme d'un pourcentage de la limite de pool de ressources :
 
 * Utilisation moyenne du processeur - cpu\_percent 
 * Utilisation moyenne des E/S - data\_io\_percent 
@@ -158,7 +158,7 @@ Mesures récupérables sous la forme d'un pourcentage de la limite de pool de re
 * Taille de stockage totale pour le pool élastique – storage\_in\_megabytes 
 
 
-Granularité des mesures/périodes de rétention :
+Granularité des mesures/périodes de rétention :
 
 * Les données seront renvoyées avec une granularité de 5 minutes.  
 * La durée de conservation des données est de 14 jours.  
@@ -167,41 +167,41 @@ Granularité des mesures/périodes de rétention :
 Cette applet de commande et API limite le nombre de lignes pouvant être récupérées au cours d'un seul appel à 1 000 (environ 3 jours de données avec une granularité de 5 minutes). Mais cette commande peut être appelée plusieurs fois avec des intervalles de temps de début / fin différents pour récupérer plus de données.
 
 
-Obtenez les mesures :
+Obtenez les mesures :
 
 	$metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
-Obtenez des jours supplémentaires en répétant l'appel et en ajoutant les données :
+Obtenez des jours supplémentaires en répétant l'appel et en ajoutant les données :
 
 	$metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
  
-Formatez la table :
+Formatez la table :
 
     $table = Format-MetricsAsTable $metrics 
 
-Exportez vers un fichier CSV :
+Exportez vers un fichier CSV :
 
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation} 
 
 ### Obtenir des mesures de consommation de ressources pour une base de données élastique
 
-Ces API sont les mêmes que les API actuelles (V12) utilisées pour surveiller l'utilisation des ressources d'une base de données autonome, à l'exception de la différence sémantique suivante :
+Ces API sont les mêmes que les API actuelles (V12) utilisées pour surveiller l'utilisation des ressources d'une base de données autonome, à l'exception de la différence sémantique suivante :
 
-* Dans ce cas, les métriques d'API sont obtenues sous forme de pourcentage de DTU MAX par base de données (databaseDtuMax) (ou le nombre maximal équivalent pour la métrique sous-jacente telle que le processeur, les E/S, etc.) défini pour ce pool de bases de données élastiques. Par exemple, une utilisation de 50 % de l'une de ces métriques indique que la consommation des ressources spécifiques est de 50 % de la limite supérieure par base de données définie pour cette ressource dans le pool de bases de données élastiques parent. 
+* Dans ce cas, les métriques d'API sont obtenues sous forme de pourcentage de DTU MAX par base de données (databaseDtuMax) (ou le nombre maximal équivalent pour la métrique sous-jacente telle que le processeur, les E/S, etc.) défini pour ce pool de bases de données élastiques. Par exemple, une utilisation de 50 % de l'une de ces métriques indique que la consommation des ressources spécifiques est de 50 % de la limite supérieure par base de données définie pour cette ressource dans le pool de bases de données élastiques parent. 
 
-Obtenez les métriques :
+Obtenez les métriques :
 
     $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
-Le cas échéant, obtenez des jours supplémentaires en répétant l'appel et en ajoutant les données :
+Le cas échéant, obtenez des jours supplémentaires en répétant l'appel et en ajoutant les données :
 
     $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
 
-Formatez la table :
+Formatez la table :
 
     $table = Format-MetricsAsTable $metrics 
 
-Exportez vers un fichier CSV :
+Exportez vers un fichier CSV :
 
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
@@ -237,4 +237,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

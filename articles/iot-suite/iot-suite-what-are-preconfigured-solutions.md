@@ -34,8 +34,7 @@ Le tableau suivant montre le mappage entre les solutions et des fonctionnalités
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
 |------------------------|-----|-----|-----|-----|-----|
-| [Surveillance à distance][lnk-remote-monitoring] | Oui | Oui | Oui | Oui | - | 
-| [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
+| [Surveillance à distance][lnk-remote-monitoring] | Oui | Oui | Oui | Oui | - | | [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
 
 - *Données* : entrer des données à l'échelle dans le cloud.
 - *Identité d'appareil* : gérer les identités uniques de chaque appareil connecté.
@@ -115,6 +114,8 @@ Dans cette solution préconfigurée, le portail de la solution fait partie du **
 
 ## Étapes suivantes
 
+Pour plus d’informations sur les architectures de solution IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch].
+
 Explorez ces ressources pour en savoir plus sur les solutions IoT préconfigurées :
 
 - [Prise en main des solutions préconfigurées IoT][lnk-preconf-get-started]
@@ -133,5 +134,6 @@ Explorez ces ressources pour en savoir plus sur les solutions IoT préconfiguré
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -64,8 +64,9 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 |**Cologix** | Pris en charge | Bientôt disponible | Montréal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Pris en charge | Amsterdam, Dublin, Londres |
 | **Comcast** | Pris en charge | Non pris en charge | Silicon Valley, Washington DC |
-| **CoreSite** | Pris en charge | Pris en charge | Los Angeles | 
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Pris en charge | Pris en charge | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
+| **euNetworks** | Pris en charge | Pris en charge | Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Pris en charge | Pris en charge | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Pris en charge | Pris en charge | Amsterdam, Londres, Singapour, Washington DC |
 | **Internet Solutions - Cloud Connect** | Pris en charge | Pris en charge | Amsterdam, Londres |
@@ -134,6 +135,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 
 |**Fournisseur de connectivité**|**Microsoft Exchange**|**Emplacements d’homologation**|
 |---|---|---|
+|**Alaska Communications**|Equinix|Seattle|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 ## Intégrateurs système ExpressRoute
@@ -152,4 +154,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

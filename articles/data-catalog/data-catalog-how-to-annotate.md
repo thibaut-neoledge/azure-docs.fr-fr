@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 
@@ -34,7 +34,7 @@ Tout le monde possède un avis. Et c’est une bonne chose. Avec **Azure Data Ca
 Chacune de ces perspectives est précieuse, et **Azure Data Catalog** utilise une approche de crowdsourcing à l’égard des métadonnées, qui permet de capturer et d’utiliser chacune d’elles en vue d’établir une image complète des sources de données inscrites. À l’aide du portail **Azure Data Catalog**, chaque utilisateur peut ajouter et modifier ses propres annotations, tout en consultant les annotations apportées par les autres utilisateurs.
 
 ## Différents types d’annotations
-La version préliminaire d’**Azure Data Catalog** prend en charge les types d’annotations suivants :
+**Azure Data Catalog** prend en charge les types d’annotations suivants :
 
 | Annotation | Remarques |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,4 +61,4 @@ L’inscription d’une source de données avec **Azure Data Catalog** favorise 
 ## Voir aussi
 - Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) pour des informations détaillées sur l’annotation de sources de données.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

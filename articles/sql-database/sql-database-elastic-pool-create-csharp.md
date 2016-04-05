@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Créer un pool de base de données élastique (C#) | Microsoft Azure"
-    description="Utilisez les techniques de développement de bases de données C# pour créer un pool de base de données élastique SQL Azure afin de pouvoir partager des ressources entre plusieurs bases de données."
+    pageTitle="Créer un pool de base de données élastique avec C# | Microsoft Azure"
+    description="Utilisez les techniques de développement de bases de données C# pour créer un pool de base de données élastique évolutif dans la base de données SQL Azure afin de pouvoir partager des ressources entre plusieurs bases de données."
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/22/2016"
+    ms.date="03/24/2016"
     ms.author="sstein"/>
 
-# Créer un pool de base de données élastique (C#)
+# Créer un pool élastique de bases de données élastique avec C&#x23;
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-elastic-pool-create-portal.md)
@@ -37,7 +37,7 @@ Comme les exemples utilisent la [bibliothèque Base de données SQL pour .NET](h
 
 
 
-## Créer un pool de base de données élastique
+## Créer un pool
 
 
     // Create elastic pool: configure create or update parameters and properties explicitly
@@ -56,7 +56,7 @@ Comme les exemples utilisent la [bibliothèque Base de données SQL pour .NET](h
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Déplacer une base de données existante vers un pool élastique de bases de données
+## Déplacer une base de données existante vers un pool
 
 
     // Retrieve current database properties
@@ -82,7 +82,7 @@ Comme les exemples utilisent la [bibliothèque Base de données SQL pour .NET](h
 
 
 
-## Créer une base de données dans un pool de base de données élastique
+## Créer une nouvelle base de données dans un pool
 
 
     // Create a database: configure create or update parameters and properties explicitly
@@ -105,7 +105,7 @@ Comme les exemples utilisent la [bibliothèque Base de données SQL pour .NET](h
 
 
 
-## Créer un exemple de pool de base de données élastique (C#)
+## Créer un exemple de pool C&#x23;
 
 
 Les bibliothèques suivantes sont requises pour l’exécution de cet exemple. Vous pouvez les installer en exécutant les commandes suivantes dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) dans Visual Studio : (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**).
@@ -145,7 +145,7 @@ Créez une application console et remplacez le contenu de Program.cs par le code
         static string adminPassword = "<server password (store it securely!)>";
         static string serverVersion = "12.0";
 
-        // elastic database pool variables
+        // pool variables
         static string elasticPoolName = "<pool name>";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -168,7 +168,7 @@ Créez une application console et remplacez le contenu de Program.cs par le code
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -270,7 +270,7 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 ## Étapes suivantes
 
 - [Gérer votre pool](sql-database-elastic-pool-manage-csharp.md)
-- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques facilitent l’exécution des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
+- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
 
 
 ## Ressources supplémentaires
@@ -280,4 +280,4 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 - [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Référence du pool de base de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

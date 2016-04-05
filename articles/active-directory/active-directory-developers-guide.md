@@ -89,16 +89,13 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 - [Exemples Azure Active Directory](https://github.com/azure-samples?query=active-directory) : le moyen le plus simple de parcourir la liste d’exemples est d’utiliser l’[index des exemples de code](active-directory-code-samples.md).
 
+- [ADAL pour .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx) : documentation de la bibliothèque d’authentification .NET.
 
 ### API Graph
 
 - [Informations de référence sur l’API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx) : informations de référence REST pour l’API Azure Active Directory Graph. [Découvrez l’expérience interactive de référence de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - [Étendues d’autorisation de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) : étendues d’autorisation OAuth 2.0 utilisées pour contrôler l’accès d’une application aux données d’annuaire d’un client.
-
-### Bibliothèques d’authentification
-
-- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx) : documentation de la bibliothèque d’authentification .NET.
 
 ### Protocoles d’authentification
 
@@ -142,4 +139,4 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

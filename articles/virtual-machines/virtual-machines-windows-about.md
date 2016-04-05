@@ -1,6 +1,6 @@
 <properties
-	pageTitle="À propos des machines virtuelles Azure | Microsoft Azure"
-	description="Découvrez les informations de base sur les machines virtuelles dans Azure qui utilisent les deux modèles de déploiement."
+	pageTitle="À propos des machines virtuelles Windows | Microsoft Azure"
+	description="Découvrez les informations de base sur les machines virtuelles Windows dans Azure qui utilisent les deux modèles de déploiement."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,14 +17,14 @@
 	ms.date="03/10/2016"
 	ms.author="cynthn"/>
 
-#À propos des machines virtuelles Azure 
+#À propos des machines virtuelles Windows dans Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 Azure Virtual Machines est l’un des nombreux types de ressources informatiques évolutives, à la demande proposées par Azure. En règle générale, une machine virtuelle sera mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique.
 
-Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle : configuration, mise à jour corrective et maintenance du système du logiciel qui s’exécute sur la machine virtuelle.
+Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle : configuration, mise à jour corrective et maintenance du système du logiciel qui s’exécute sur la machine virtuelle. Vous pouvez également en savoir plus [sur les machines virtuelles Linux dans Azure](virtual-machines-linux-about.md).
 
 Ce tableau vous permet de comparer les choix proposés par Azure.
 
@@ -43,4 +43,4 @@ Comme ce didacticiel vous aide à créer rapidement une machine virtuelle, il ne
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

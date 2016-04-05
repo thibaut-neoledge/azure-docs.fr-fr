@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="03/29/2016"
 	ms.author="vakarand"/>
 
 
@@ -31,7 +31,7 @@ Le tableau qui suit est une liste d’exigences d’utilisation d’Azure AD Con
 |L’agent Azure AD Connect Health est installé sur chaque serveur cible| Azure AD Connect Health requiert qu’un agent soit installé sur les serveurs cibles pour fournir les données affichées dans le portail. </br></br>Par exemple, pour obtenir des données sur votre infrastructure AD FS locale, l’agent doit être installé sur les serveurs AD FS, les serveurs proxy AD FS et les serveurs proxy d’application web. </br></br>** Important : ** Le compte que vous utilisez lors de l’installation des agents doit être un compte professionnel ou scolaire et ne peut pas être un compte Microsoft. Pour plus d’informations, consultez [Inscription à Azure en tant qu’organisation](sign-up-organization.md)|
 |Connectivité sortante vers les points de terminaison de service Azure|Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health répertoriés ci-dessous. Si vous bloquez la connectivité sortante, assurez-vous d’ajouter les éléments suivants à la liste autorisée : </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Ports du pare-feu sur le serveur qui exécute l’agent.| L’agent requiert que les ports de pare-feu suivants soient ouverts pour pouvoir communiquer avec les points de terminaison du service Azure AD Health.</br></br><li>Port TCP/UDP 443</li><li>Port TCP/UDP 5671</li>
-|Autoriser les sites web suivants en cas d’activation de la sécurité renforcée d’IE|Les sites web suivants doivent être autorisés si la sécurité renforcée d’Internet Explorer est activée sur le serveur où l’agent sera installé.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Le serveur de fédération pour votre organisation approuvé par Azure Active Directory. Par exemple : https://sts.contoso.com</li>
+|Autoriser les sites web suivants en cas d’activation de la sécurité renforcée d’IE|Les sites Web suivants doivent être autorisés si la sécurité renforcée d’Internet Explorer est activée sur le serveur où l’agent sera installé.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Le serveur de fédération pour votre organisation approuvé par Azure Active Directory. Par exemple : https://sts.contoso.com</li>
 
 
 
@@ -134,7 +134,7 @@ Pour vérifier que l’agent a été installé, ouvrez les services et procédez
 
 ![Vérifier Azure AD Connect Health pour la synchronisation](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] N'oubliez pas que l'utilisation d'Azure AD Connect Health requiert Azure AD Premium. Si vous ne disposez pas d'Azure AD Premium, vous ne serez pas en mesure d'effectuer la configuration dans le portail Azure. Vous trouverez plus d'informations sur la configuration requise [ici](active-directory-aadconnect-health-agent-install.md#requirements).
+> [AZURE.NOTE] N'oubliez pas que l'utilisation d'Azure AD Connect Health requiert Azure AD Premium. Si vous ne disposez pas d'Azure AD Premium, vous ne serez pas en mesure d'effectuer la configuration dans le portail Azure. Vous trouverez plus d'informations sur la configuration requise [ici](active-directory-aadconnect-health-agent-install.md#requirements).
 
 
 ## Enregistrement manuel d’Azure AD Connect Health pour la synchronisation
@@ -233,4 +233,4 @@ Vous pouvez utiliser l’indicateur - ShowResults dans la commande pour afficher
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->
