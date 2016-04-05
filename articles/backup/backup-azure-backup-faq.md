@@ -42,7 +42,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q3. Quelle version du serveur SCDPM est prise en charge ?** <br/> R3. Nous vous recommandons d’installer le [dernier](http://aka.ms/azurebackup_agent) agent Azure Backup sur le dernier correctif cumulatif de SCDPM (UR6 depuis juillet 2015)
 
-****Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
+**Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
 
 **Q5. Le nombre d’archivages de sauvegarde pouvant être créés dans chaque abonnement Azure est-il limité ?** <br/> R5. Oui. Depuis juillet 2015, vous pouvez créer 25 archivages par abonnement. Si vous avez besoin de plus d’archivages, créez un autre abonnement.
 

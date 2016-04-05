@@ -69,7 +69,8 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup)](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup)](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l’agent Azure Backup), </p> <p>[Serveur Azure Backup)](backup-azure-microsoft-azure-backup.md) (inclut l’agent Azure Backup)</p> |
-| Machines virtuelles IaaS Azure (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) | | Machines virtuelles IaaS Azure (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Machines virtuelles IaaS Azure (Windows)| - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
+| Machines virtuelles IaaS Azure (Linux) | - | [Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
 
 ## Prise en charge ARM et Linux
 

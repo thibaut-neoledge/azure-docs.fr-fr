@@ -85,9 +85,9 @@ Utilisez les informations suivantes si vous envisagez d'utiliser les clés SSH a
 
 À la création d'un cluster HDInsight sous Linux, vous devez fournir la clé publique précédemment créée. Pour les clients Linux, Unix ou OS X, vous pouvez créer un cluster HDInsight de deux façons :
 
-* **Portail Azure** : utilise un portail web pour créer le cluster.
+* **Portail Azure**: utilise un portail web pour créer le cluster.
 
-* **Interface de ligne de commande Azure pour Mac, Linux et Windows** : utilise des commandes de ligne de commande pour créer le cluster.
+* **Interface de ligne de commande Azure pour Mac, Linux et Windows**: utilise des commandes de ligne de commande pour créer le cluster.
 
 Chacune de ces méthodes nécessite un mot de passe ou une clé publique. Pour plus d’informations sur la création d’un cluster HDInsight sous Linux, consultez [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -116,11 +116,11 @@ Pour plus d’informations sur l’utilisation de cette commande, consultez la r
 
 À partir d’une session terminal, utilisez la commande SSH pour vous connecter au nœud principal du cluster en saisissant le nom d’utilisateur et l’adresse du cluster :
 
-* **Adresse SSH** : vous pouvez utiliser deux adresses pour vous connecter à un cluster à l’aide de SSH :
+* **Adresse SSH**: vous pouvez utiliser deux adresses pour vous connecter à un cluster à l’aide de SSH :
 
-    * **Connexion au nœud principal** : nom du cluster suivi de **-ssh.azurehdinsight.net**. Par exemple **mycluster-ssh.azurehdinsight.net**
+    * **Connexion au nœud principal**: nom du cluster suivi de **-ssh.azurehdinsight.net**. Par exemple **mycluster-ssh.azurehdinsight.net**
     
-    * **Connexion au nœud de périmètre** : si votre cluster est un serveur R exécuté sur HDInsight, le cluster contient également un nœud de périmètre accessible à l’aide de **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, où __CLUSTERNAME__ désigne le nom du cluster.
+    * **Connexion au nœud de périmètre**: si votre cluster est un serveur R exécuté sur HDInsight, le cluster contient également un nœud de périmètre accessible à l’aide de **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, où __CLUSTERNAME__ désigne le nom du cluster.
 
 * **Nom d’utilisateur** : le nom d’utilisateur SSH que vous avez fourni en créant le cluster
 
