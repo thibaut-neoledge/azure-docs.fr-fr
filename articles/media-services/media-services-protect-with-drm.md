@@ -7,7 +7,14 @@
 	manager="erikre"
 	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/18/2016"" ms.author="juliako"/>
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+ 	ms.date="03/28/2016" 
+	ms.author="juliako"/>
 
 
 #Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
@@ -623,4 +630,4 @@ L’exemple suivant illustre la fonctionnalité présentée dans le kit de déve
 
 [Annonce des services de distribution de licence Google Widevine dans Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

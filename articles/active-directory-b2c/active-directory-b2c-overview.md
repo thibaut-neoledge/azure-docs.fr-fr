@@ -37,7 +37,6 @@ Vous pouvez écrire votre application dans le service Azure Active Directory B2C
 Revenez souvent pour en savoir plus sur les futures modifications apportées à Azure Active Directory B2C en version préliminaire. Nous tweeterons également à propos des mises à jour via @AzureAD.
 
 - Découvrez notre [infrastructure de stratégie extensible](active-directory-b2c-reference-policies.md) et les types de stratégie que vous pouvez créer et utiliser dans vos applications.
-- Placez un signet sur notre page [État du service](active-directory-b2c-service-health.md) pour avoir des notifications sur les mesures d’atténuation, l’état et les problèmes mineurs de service. Continuez de surveiller le [Tableau de bord d’état Azure](https://azure.microsoft.com/status/) également.
 - [Limites, restrictions et contraintes de la version préliminaire](active-directory-b2c-limitations.md) actuelles.
 
 ## Articles sur les procédures
@@ -46,7 +45,7 @@ Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active D
 
 - Configurer des comptes [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) et [LinkedIn](active-directory-b2c-setup-li-app.md) à utiliser dans vos applications grand public.
 - [Utiliser des attributs personnalisés pour recueillir des informations sur vos consommateurs](active-directory-b2c-reference-custom-attr.md).
-- [Activer l’authentification multifacteurs Azure dans vos applications grand public](active-directory-b2c-reference-mfa.md).
+- [Activer Azure Multi-Factor Authentication dans vos applications grand public](active-directory-b2c-reference-mfa.md).
 - [Configurer une réinitialisation de mot de passe libre-service pour vos consommateurs](active-directory-b2c-reference-sspr.md).
 - [Personnaliser l’aspect des pages d’inscription, de connexion et des autres pages accessibles aux consommateurs](active-directory-b2c-reference-ui-customization.md) prises en charge par Azure Active Directory B2C.
 - [Utiliser l’API Azure Active Directory Graph pour créer, lire, mettre à jour et supprimer des consommateurs par programme](active-directory-b2c-devquickstarts-graph-dotnet.md) dans votre client Azure Active Directory B2C.
@@ -56,12 +55,12 @@ Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active D
 Les liens ci-dessous vous seront utiles pour explorer le service en profondeur :
 
 - Consultez les [informations de tarification relatives à Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
-- Pour obtenir une aide sur Stack Overflow, utilisez les balises [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
-- Dites-nous ce que vous pensez de la version préliminaire sur [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/). Votre avis nous intéresse ! Ajoutez « AzureADB2C » dans le titre de votre publication pour nous aider à la repérer.
+- Pour obtenir une aide sur le dépassement de la capacité de la pile, utilisez les balises [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
+- Dites-nous ce que vous pensez de la version préliminaire sur [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/). Votre avis nous intéresse ! Ajoutez « AzureADB2C » dans le titre de votre publication pour nous aider à la repérer.
 - Azure Active Directory B2C prend en charge les protocoles standard, OpenID Connect et OAuth 2.0, à l’aide d’un modèle d’inscription d’application que nous appelons « Modèle d’application v2.0 ».
   - [Informations de référence sur les protocoles du modèle d’application v2.0](active-directory-b2c-reference-protocols.md)
   - [Informations de référence sur les jetons du modèle d’application v2.0](active-directory-b2c-reference-tokens.md)
 - Consultez les [FAQ sur Azure Active Directory B2C](active-directory-b2c-faqs.md).
-- [Déposez les demandes d’assistance pour Azure Active Directory B2C](active-directory-b2c-support.md).
+- [Dépôt de demandes de support pour Azure Active Directory B2C](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

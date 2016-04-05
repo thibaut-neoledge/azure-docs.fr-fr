@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Afficher, modifier, créer et charger des documents JSON à l’aide de l’Explorateur de documents DocumentDB
@@ -158,4 +158,4 @@ Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans 
 
 Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider lorsque vous en apprenez plus sur DocumentDB.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

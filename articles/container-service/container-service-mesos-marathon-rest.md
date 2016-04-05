@@ -32,10 +32,10 @@ Une fois connectées au cluster ACS, les API Mesos et REST associées sont acces
 
 ## Collecte d’informations à partir de Mesos et de Marathon
 
-Avant de déployer des conteneurs vers le cluster Mesos, vous devez recueillir certaines informations sur le cluster Mesos, notamment le nom et l’état actuel des agents Mesos. Pour ce faire, interrogez le point de terminaison `master/slaves` sur un serveur principal Mesos. Si tout se passe bien, vous accéderez à une liste d’agents Mesos accompagnée de quelques-unes de leurs propriétés.
+Avant de déployer des conteneurs vers le cluster Mesos, vous devez recueillir certaines informations sur le cluster Mesos, notamment le nom et l’état actuel des agents Mesos. Pour ce faire, interrogez le point de terminaison `master/slaves` sur l’API REST Mesos. Si tout se passe bien, vous accéderez à une liste d’agents Mesos accompagnée de quelques-unes de leurs propriétés.
 
 ```bash
-curl http://localhost/master/slaves
+curl http://localhost/mesos/master/slaves
 ```
 
 À présent, utilisez le point de terminaison `/apps` de Marathon pour vérifier les déploiements d’application actuels vers le cluster Mesos. S’il s’agit d’un nouveau cluster, un tableau vide s’affichera pour les applications.
@@ -160,4 +160,4 @@ Exécutez la commande suivante pour augmenter le nombre d’instances de l’app
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

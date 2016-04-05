@@ -1,10 +1,10 @@
-<properties 
-    pageTitle="Créer un pool de base de données élastique (PowerShell) | Microsoft Azure" 
-    description="Découvrez comment utiliser PowerShell pour mettre à l’échelle la base de données SQL Azure en créant un pool de base de données élastique pour gérer plusieurs bases de données." 
-	services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Créer un pool de base de données élastique (PowerShell) | Microsoft Azure"
+    description="Découvrez comment utiliser PowerShell pour mettre à l’échelle les ressources de la base de données SQL Azure en créant un pool de base de données élastique évolutif pour gérer plusieurs bases de données."
+	services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
     ms.devlang="NA"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="03/15/2016"
+    ms.workload="data-management"
+    ms.date="03/27/2016"
     ms.author="sstein"/>
 
-# Créer un pool de base de données élastique (PowerShell) 
+# Créer un pool élastique de bases de données
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-elastic-pool-create-portal.md)
@@ -33,16 +33,14 @@ Pour connaître les codes d’erreur courants, consultez la page [Codes d’erre
 
 Vous devez utiliser Azure PowerShell 1.0 ou une version supérieure. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
+## Créer un pool
 
-
-## Créer un pool de base de données élastique
-
-L’applet de commande [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) permet de créer un pool de base de données élastique.
+L’applet de commande [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) permet de créer un pool.
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Créer une base de données élastique dans un pool de base de données élastique
+## Créer une base de données élastique dans un pool
 
 Pour créer une base de données directement à l’intérieur d’un pool, utilisez l’applet de commande [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) et définissez le paramètre **ElasticPoolName**.
 
@@ -51,7 +49,7 @@ Pour créer une base de données directement à l’intérieur d’un pool, util
 
 
 
-## Déplacer une base de données autonome dans un pool de bases de données élastique
+## Déplacer une base de données autonome vers un pool
 
 Pour placer une base de données dans un pool, utilisez l’applet de commande [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) et définissez le paramètre **ElasticPoolName**.
 
@@ -59,7 +57,7 @@ Pour placer une base de données dans un pool, utilisez l’applet de commande [
 
 
 
-## Créer un exemple de pool de base de données élastique (PowerShell)
+## Créer un exemple de pool PowerShell
 
 Ce script permet de créer un serveur ; lorsqu’il vous demande un nom d’utilisateur et un mot de passe, entrez un nom d’utilisateur et un mot de passe d’administrateur pour votre nouveau serveur (pas vos informations d’identification Azure).
 
@@ -72,7 +70,7 @@ Ce script permet de créer un serveur ; lorsqu’il vous demande un nom d’util
 
     Login-AzureRmAccount
     Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
     New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
@@ -86,11 +84,11 @@ Ce script permet de créer un serveur ; lorsqu’il vous demande un nom d’util
 ## Étapes suivantes
 
 - [Gérer votre pool](sql-database-elastic-pool-manage-powershell.md)
-- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques facilitent l’exécution des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
+- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
 
 
 ## Référence des bases de données élastiques
 
 Pour en savoir plus sur les bases de données élastiques et les pools de bases de données élastiques, consultez l’article [Référence du pool de base de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

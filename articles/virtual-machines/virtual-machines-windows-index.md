@@ -195,7 +195,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résolution des échecs d’extension de machine virtuelle Azure](virtual-machines-windows-extensions-troubleshoot.md)
 
-[Résolution des problèmes liés aux déploiements de groupes de ressources](resource-group-deploy-debug.md)
+[Résolution des problèmes liés aux déploiements de groupes de ressources](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -375,4 +375,4 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résoudre les problèmes d’allocation pendant la création, le redémarrage ou le redimensionnement de machines virtuelles dans Azure](virtual-machines-windows-allocation-failure.md)
 
-<!-----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

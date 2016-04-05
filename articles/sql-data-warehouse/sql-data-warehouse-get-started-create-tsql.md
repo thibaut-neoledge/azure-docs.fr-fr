@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Création de SQL Data Warehouse à l’aide TQSL
@@ -32,13 +32,18 @@ Cet article vous explique comment créer un entrepôt SQL Data Warehouse à l’
 
 Cet article n’abordera pas la façon de configurer correctement Visual Studio et de se connecter. Pour obtenir une description complète de la procédure à suivre, consultez la documentation relative aux [connexions et requêtes][]. Pour commencer, vous devez ouvrir l’Explorateur d’objets SQL Server dans Visual Studio et vous connecter au serveur que vous allez utiliser pour créer votre entrepôt SQL Data Warehouse. Une fois que vous avez terminé, vous êtes en mesure de créer un entrepôt SQL Data Warehouse en exécutant la commande suivante sur la base de données MASTER :
 
-        CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```sql
+CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```
 
 Vous pouvez également créer un entrepôt de données SQL en ouvrant la ligne de commande et en exécutant la commande suivante :
 
-        sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```
+sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```
 
-Lors de l’exécution des instructions TSQL, notez les paramètres MAXSIZE et SERVICE\_OBJECTIVE. Ils serviront à définir le volume de stockage et les ressources de calcul alloués à l’instance d’entrepôt de données. MAXSIZE accepte les volumes suivants et nous vous suggérons de choisir un volume important pour laisser de la place pour une éventuelle évolution :
+
+Lors de l’exécution des instructions TSQL, notez les paramètres `MAXSIZE` et `SERVICE_OBJECTIVE`. Ils serviront à définir le volume de stockage initial et les ressources de calcul alloués à l’instance d’entrepôt de données. `MAXSIZE` accepte les tailles suivantes (nous suggérons de choisir une taille plus importante pour permettre la croissance) :
 
 + 250 Go
 + 500 Go
@@ -51,7 +56,7 @@ Lors de l’exécution des instructions TSQL, notez les paramètres MAXSIZE et S
 + 40960 Go
 + 51200 Go
 
-SERVICE\_OBJECTIVE indique le nombre de DWU avec laquelle votre instance démarre avec et acceptera les valeurs suivantes :
+`SERVICE_OBJECTIVE` indique le nombre de DWU avec laquelle votre instance démarre et accepte les valeurs suivantes :
 
 + DW100
 + DW200
@@ -76,4 +81,4 @@ Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger
 [charger les données d’exemple]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [page de tarification]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

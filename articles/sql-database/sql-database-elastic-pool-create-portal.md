@@ -11,25 +11,25 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/24/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Créer un pool de base de données élastique évolutif pour les bases de données SQL dans le portail Azure
+# Créer un pool de base de données élastique évolutif pour les bases de données SQL avec le portail Azure
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-elastic-pool-create-portal.md)
-- [C#](sql-database-elastic-pool-create-csharp.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
+- [C#](sql-database-elastic-pool-create-csharp.md)
 
-Cet article vous montre comment créer un [pool de base de données élastique](sql-database-elastic-pool.md) évolutif dans le [portail Azure](https://portal.azure.com/). Vous pouvez créer un pool de deux façons. Si vous connaissez la configuration de pool souhaitée, vous pouvez créer un pool depuis le début. Vous pouvez également commencer par une recommandation du service, qui dispose d’une intelligence intégrée qui recommande une configuration de pool si elle est plus rentable en fonction de la télémétrie d’utilisation passée de la base de données.
+Cet article vous montre comment créer un [pool de base de données élastique](sql-database-elastic-pool.md) évolutif avec le [portail Azure](https://portal.azure.com/). Vous pouvez créer un pool de deux façons. Vous pouvez le faire à partir de zéro si vous connaissez la configuration de pool souhaitée ou si vous commencez par une recommandation issue du service. La base de données SQL est dotée d’une intelligence intégrée qui recommande une configuration de pool si cela semble plus économique pour vous en fonction de la dernière télémétrie d’utilisation de vos bases de données.
 
 Vous pouvez ajouter plusieurs pools à un serveur, mais il est impossible d’ajouter des bases de données de différents serveurs dans le même pool. Pour créer un pool, vous devez disposer au moins d’une base de données sur un serveur V12. Si vous en êtes dépourvu, consultez l’article [Créer votre première base de données SQL Azure](sql-database-get-started.md). Vous pouvez créer un pool avec une seule base de données, mais les pools ne sont rentables que s’ils comportent plusieurs bases de données. Consultez l’article [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Les pools sont uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’une version antérieure, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
+> [AZURE.NOTE] Les pools sont uniquement disponibles avec des serveurs de base de données SQL V12. Si vous avez des bases de données sur un serveur V11, vous pouvez [utiliser un script PowerShell pour les identifier comme candidats à un pool](sql-database-elastic-pool-database-assessment-powershell.md) sur un serveur V12, puis [utiliser PowerShell pour mettre à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
 
 ##Créer un pool
 1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Serveurs SQL**, puis sur le serveur qui contient les bases de données que vous souhaitez ajouter à un pool.
@@ -47,9 +47,9 @@ Vous pouvez ajouter plusieurs pools à un serveur, mais il est impossible d’aj
 
     ![Configurer un pool élastique](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
-3. Pour modifier le niveau de tarification du pool, cliquez successivement sur **Niveau de tarification**, sur le niveau de tarification de votre choix, et sur **Sélectionner**.
+3. Pour modifier le niveau tarifaire du pool, cliquez sur **Niveau tarifaire**, sur le niveau tarifaire de votre choix, puis sur **Sélectionner**.
 
-    > [AZURE.IMPORTANT] Une fois que vous avez choisi le niveau de tarification et validé vos modifications en cliquant sur **OK** à la dernière étape, vous ne pouvez plus modifier le niveau de tarification du pool.
+    > [AZURE.IMPORTANT] Une fois que vous avez choisi le niveau tarifaire et validé vos modifications en cliquant sur **OK** à la dernière étape, vous ne pouvez plus modifier le niveau tarifaire du pool.
 
 4. Cliquez sur **Configurer le pool**, où vous pouvez ajouter des bases de données et choisir les paramètres de ressources du pool.
 5. Pour ajouter des bases de données, cliquez successivement sur **Ajouter une base de données**, les bases de données que vous souhaitez ajouter, et le bouton **Sélectionner**.
@@ -66,13 +66,13 @@ Vous pouvez ajouter plusieurs pools à un serveur, mais il est impossible d’aj
 
     | Paramètre de performance | Description |
     | :--- | :--- |
-    | **eDTU du pool** et **Go du pool** (par du paramètre du pool)| eDTU max qui sont à la disposition de toutes les bases de données du pool et qui sont partagées par celles-ci. Les eDTU max disponibles dans un pool dépendent du niveau de tarification (niveau de service). Le paramètre **eDTU du pool** est mis en corrélation avec le stockage disponible pour le pool. Pour chaque eDTU que vous allouez au pool, vous obtenez une quantité fixe de stockage de base de données, et inversement. |
-    | **eDTU min** (par paramètre de base de données)| Nombre minimal d’eDTU du pool garanti pour une base de données à tout moment. Le paramètre **eDTU min** est généralement défini sur n’importe quelle valeur comprise entre 0 et l’utilisation moyenne eDTU de l’historique par base de données. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. |
-    | **eDTU max** (par paramètre de base de données) | Nombre maximal d’eDTU qu’une base de données du pool peut utiliser. Vous pouvez définir ce plafond au maximum sur la valeur du paramètre **eDTU du pool**. Définissez une valeur suffisamment élevée pour le paramètre **eDTU max** par base de données afin de gérer des rafales ou des pics max en fonction du pic d’utilisation de la base de données. Une certaine allocation excessive du groupe est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. **Exemple :** supposons que le pic d’utilisation par base de données soit défini sur 50 eDTU et que seuls 20 % des 100 bases de données du groupe connaissent simultanément un pic d’utilisation. Si le nombre d’eDTU maximal par base de données est défini sur 50 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le paramètre **eDTU du pool** sur 1 000. Le paramètre **eDTU max** n’est pas une garantie de ressource pour une base de données. Il s’agit d’un plafond du nombre d’eDTU qui peut être atteint s’il est défini. |
+    | **eDTU du pool** et **Go du pool** (par paramètre du pool)| eDTU max qui sont à la disposition de toutes les bases de données du pool et qui sont partagées par celles-ci. Les eDTU max disponibles dans un pool dépendent du niveau de tarification (niveau de service). Le paramètre **eDTU du pool** est mis en corrélation avec le stockage disponible pour le pool. Pour chaque eDTU que vous allouez au pool, vous obtenez une quantité fixe de stockage de base de données, et inversement. |
+    | **eDTU min** (par paramètre de base de données)| Nombre minimal d’eDTU du pool garanti pour toutes les bases de données à tout moment. Le paramètre **eDTU min** est généralement défini sur n’importe quelle valeur comprise entre 0 et l’utilisation moyenne eDTU de l’historique par base de données. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. |
+    | **eDTU max** (par paramètre de base de données) | Nombre maximal d’eDTU qu’une base de données du pool peut utiliser. Vous pouvez définir ce plafond au maximum sur la valeur du paramètre **eDTU du pool**. Définissez une valeur suffisamment élevée pour le paramètre **eDTU max** par base de données afin de gérer des rafales ou des pics max en fonction du pic d’utilisation de la base de données. Une certaine allocation excessive du groupe est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. **Exemple :** supposons que le pic d’utilisation par base de données soit défini sur 50 eDTU et que seuls 20 % des 100 bases de données du groupe connaissent simultanément un pic d’utilisation. Si le nombre d’eDTU maximal par base de données est défini sur 50 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le paramètre **eDTU du pool** sur 1 000. Le paramètre **eDTU max** n’est pas une garantie de ressource pour une base de données. Il s’agit d’un plafond du nombre d’eDTU qui peut être atteint s’il est défini. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. |
 
     Pour plus d’informations sur les limites de chaque niveau de service, consultez l’article [Référence du pool de base de données élastique](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases). Pour obtenir des conseils détaillés sur la définition d’une taille de pool sur mesure, consultez l’article [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 
-7. Lorsque vous avez terminé, cliquez sur **Sélectionner**, puis cliquez sur **OK** pour créer le pool.
+7. Lorsque vous avez terminé, cliquez sur **Sélectionner**, puis sur **OK** pour créer le pool.
 
 ##Comprendre les recommandations relatives au pool
 Le service SQL Database évalue l’historique d’utilisation et recommande un ou plusieurs pools lorsque cela est plus rentable que d’utiliser des bases de données uniques. Chaque recommandation est configurée avec un sous-ensemble unique de bases de données du serveur qui correspond le mieux au pool. La recommandation relative au pool comprend les éléments suivants :
@@ -93,4 +93,4 @@ Le service évalue les besoins en ressources et la rentabilité du déplacement 
 - [Gérer un pool élastique de base de données SQL en C#](sql-database-client-library.md)
 - [Référence de base de données élastique](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

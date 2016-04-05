@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.date="03/25/2016"
 	ms.author="jeffreyg"/>
 
 # Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)
@@ -82,7 +82,7 @@ Le tableau suivant résume les principales caractéristiques de SQL Database et 
       <li type=round>Applications SQL Server qui nécessitent un accès aux ressources locales (par exemple, Active Directory) à partir d’Azure via un tunnel sécurisé.
       <li type=round>Si vous avez besoin d'un environnement informatique personnalisé avec des droits d'administration complets.
       <li type=round>Scénarios de développement et de test rapides lorsque vous ne souhaitez pas acheter du matériel SQL Server local non destiné à la production.
-      <li type=round>Récupération d’urgence pour les applications SQL Server locales à l’aide de [Sauvegarde et restauration SQL Server avec le service de stockage d’objets blob Microsoft Azure](http://msdn.microsoft.com/library/jj919148.aspx) ou de [Réplicas AlwaysOn avec les machines virtuelles Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
+      <li type=round>Récupération d’urgence pour les applications SQL Server locales à l’aide de [Sauvegarde et restauration SQL Server avec le service de stockage d’objets blob Microsoft Azure](http://msdn.microsoft.com/library/jj919148.aspx) ou de [Réplicas AlwaysOn avec les machines virtuelles Azure]
       <li type=round>Bases de données volumineuses de plus de 1&#160;To.
       </ul></td>
 </tr>
@@ -105,7 +105,7 @@ Le tableau suivant résume les principales caractéristiques de SQL Database et 
 <tr>
    <td valign="middle"><p><b>Continuité des activités</b></p></td>
    <td valign="middle"><ul><li type=round>Outre les fonctionnalités intégrées d'infrastructure de tolérance de panne, Azure SQL Database fournit des fonctionnalités telles que la limite de restauration dans le temps, la géorestauration et la géoréplication afin d'améliorer la continuité de l'activité. Pour plus d’informations, consultez [Vue d’ensemble de la continuité des activités avec SQL Database](sql-database-business-continuity.md).</ul></td>
-   <td valign="middle"><ul><li type=round>L’option SQL&#160;Server sur les machines virtuelles Azure vous permet de configurer une solution de haute disponibilité et de récupération d’urgence pour les besoins spécifiques de votre base de données. Vous pouvez donc disposer d'un système hautement optimisé pour votre application. Vous pouvez tester et exécuter des basculements par vous-même si nécessaire. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur les machines virtuelles Azure]((../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
+   <td valign="middle"><ul><li type=round>L’option SQL&#160;Server sur les machines virtuelles Azure vous permet de configurer une solution de haute disponibilité et de récupération d’urgence pour les besoins spécifiques de votre base de données. Vous pouvez donc disposer d'un système hautement optimisé pour votre application. Vous pouvez tester et exécuter des basculements par vous-même si nécessaire. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur les machines virtuelles Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
 
 </tr>
 <tr>
@@ -187,7 +187,7 @@ Choisissez **Azure SQL Database** dans les cas suivants :
 
 - Vous souhaitez que Microsoft effectue des opérations de gestion courantes sur vos bases de données et vous avez besoin d'une plus grande disponibilité offerte par le biais des contrats SLA pour les bases de données.
 
-Pour commencer, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+
 
 Choisissez **SQL Server sur les machines virtuelles Azure** dans les cas suivants :
 
@@ -195,8 +195,13 @@ Choisissez **SQL Server sur les machines virtuelles Azure** dans les cas suivant
 
 - Vous avez des ressources informatiques, et vous avez besoin de droits d’administration complets sur SQL Server ainsi que d’une compatibilité totale avec la version de SQL Server locale. Cette approche vous permet de réduire les coûts de développement ou de modifications des applications existantes avec la possibilité d'exécuter la plupart des applications. En outre, elle fournit un contrôle intégral sur la machine virtuelle, le système d’exploitation et la configuration de la base de données.
 
-Pour commencer, consultez [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-classic-portal-sql.md).
+
 
 > [AZURE.NOTE] Voulez-vous essayer SQL Server 2016 CTP2 ? Inscrivez-vous à Microsoft Azure, puis allez [ici](http://aka.ms/sql2016vm "ici") pour créer une machine virtuelle avec SQL Server 2016 CTP2 déjà installé.
 
-<!---HONumber=AcomDC_0323_2016-->
+## Étapes suivantes
+- Pour la prise en main de la base de données SQL, consultez [Didacticiel sur la base de données SQL : Créer une base de données SQL en quelques minutes à l’aide du portail Azure](sql-database-get-started.md).
+- Voir [Tarification – SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)
+- Pour la prise en main du serveur SQL sur les machines virtuelles SQL Server, consultez [Approvisionnement d’une machine virtuelle SQL Server dans Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md).
+
+<!---HONumber=AcomDC_0330_2016-->

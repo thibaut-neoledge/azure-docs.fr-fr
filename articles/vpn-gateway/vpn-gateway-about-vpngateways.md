@@ -42,7 +42,10 @@ L’exemple ci-dessous montre un sous-réseau de passerelle nommé GatewaySubnet
 
 ## <a name="gwtype"></a>Types de passerelle
 
-Le type de passerelle spécifie comment la passerelle se connecte ; il s’agit d’un paramètre de configuration requis pour le modèle de déploiement Resource Manager. Ne confondez pas le type de passerelle avec le type de réseau privé virtuel, qui spécifie le type de routage pour votre réseau privé virtuel. Les valeurs disponibles GatewayType sont : *Vpn* et *ExpressRoute*.
+Le type de passerelle spécifie comment la passerelle se connecte ; il s’agit d’un paramètre de configuration requis pour le modèle de déploiement Resource Manager. Ne confondez pas le type de passerelle avec le type de réseau privé virtuel, qui spécifie le type de routage pour votre réseau privé virtuel. Les valeurs disponibles pour `-GatewayType` sont :
+
+- Vpn
+- ExpressRoute
 
 
 Cet exemple pour le modèle de déploiement Resource Manager spécifie la valeur de -GatewayType comme étant *Vpn*. Lorsque vous créez une passerelle, vous devez vous assurer que le type de passerelle convient pour votre configuration.
@@ -57,7 +60,7 @@ Lorsque vous créez une passerelle VPN, vous devez spécifier la passerelle de r
 - Standard
 - HighPerformance
 
-L’exemple ci-dessous spécifie la valeur GatewaySku comme étant *Standard*.
+L’exemple ci-dessous spécifie la valeur `-GatewaySku` comme étant *Standard*.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
@@ -68,7 +71,7 @@ Le tableau ci-dessous indique les types de passerelle et le débit total estimé
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-## <a name="vpntype"></a>Types de réseau privé virtuel
+## <a name="vpntype"></a>Types de VPN
 
 Chaque configuration nécessite un type de réseau privé virtuel spécifique afin de fonctionner. Si vous combinez deux configurations, telles que la création d’une connexion de site à site et une connexion de point-à-site au même réseau virtuel, vous devez utiliser un type de réseau privé virtuel qui satisfait les exigences des deux types de connexion. Pour les connexions de point-à-site et de site à site coexistantes, vous devez utiliser un type de VPN basé sur un itinéraire lorsque vous travaillez avec le modèle de déploiement Azure Resource Manager ; si vous travaillez avec le mode de déploiement classique, utilisez une passerelle dynamique.
 
@@ -78,9 +81,22 @@ Il existe deux types de VPN :
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-Cet exemple pour le modèle de déploiement Resource Manager spécifie la valeur de -VpnType comme étant *RouteBased*. Lorsque vous créez une passerelle, vous devez vous assurer que -VpnType convient pour votre configuration.
+Cet exemple pour le modèle de déploiement Resource Manager spécifie la valeur `-VpnType` comme étant *RouteBased*. Lorsque vous créez une passerelle, vous devez vous assurer que -VpnType convient pour votre configuration.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="connectiontype"></a>Types de connexion
+
+Chaque configuration nécessite un type de connexion spécifique. Les valeurs de Resource Manager PowerShell disponibles pour `-ConnectionType` sont :
+
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
+
+Dans l’exemple ci-dessous, nous créons une connexion de site à site qui requiert le type de connexion « IPsec ».
+
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## <a name="lng"></a>Passerelles de réseau local
@@ -91,7 +107,7 @@ La passerelle de réseau local fait généralement référence à votre emplacem
 
 ### Modifier les préfixes d’adresse - Resource Manager
 
-Lorsque vous modifiez les préfixes d’adresse, la procédure diffère selon que vous avez déjà créé votre passerelle VPN ou non. Consultez la section [Modifier les préfixes d’adresse d’une passerelle de réseau local](vpn-gateway-create-site-to-site-rm-powershell.md#modify).
+Lorsque vous modifiez les préfixes d’adresse, la procédure diffère selon que vous avez déjà créé votre passerelle VPN ou non. Consultez la section [Modifier les préfixes d’adresse d’une passerelle de réseau local](vpn-gateway-create-site-to-site-rm-powershell.md#modify) de l’article.
 
 Dans l’exemple ci-dessous, vous pouvez voir qu’une passerelle de réseau local nommée MyOnPremiseWest est en cours de spécification. Celle-ci contiendra deux préfixes d’adresses IP.
 
@@ -122,4 +138,4 @@ Pour plus d’informations avant de poursuivre avec la planification et la conce
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

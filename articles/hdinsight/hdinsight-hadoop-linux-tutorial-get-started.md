@@ -20,8 +20,8 @@
 # Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight
 
 > [AZURE.SELECTOR]
-- [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 
 Apprenez à créer des clusters [Hadoop](http://hadoop.apache.org/) dans HDInsight et à exécuter des tâches Hive dans HDInsight. [Apache Hive](https://hive.apache.org/) est le composant le plus populaire de l’écosystème Hadoop. HDInsight est actuellement fourni avec 4 types de cluster différents : [Hadoop](hdinsight-hadoop-introduction), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) et [Storm](hdinsight-storm-overview.md). Chaque type de cluster prend en charge un ensemble de composants bien spécifiques. Les 4 types de cluster prennent en charge Hive. Pour obtenir la liste des composants pris en charge dans HDInsight, consultez [Nouveautés des versions de cluster Hadoop fournies par HDInsight](hdinsight-component-versioning.md).
 
@@ -31,7 +31,7 @@ Apprenez à créer des clusters [Hadoop](http://hadoop.apache.org/) dans HDInsig
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Abonnement Azure** : pour créer un compte d’essai gratuit d’une durée d’un mois, accédez à [azure.microsoft.com/free](https://azure.microsoft.com/free).
+- **Abonnement Azure**: pour créer un compte d’essai gratuit d’une durée d’un mois, accédez à [azure.microsoft.com/free](https://azure.microsoft.com/free).
 
 ## Créer un cluster
 
@@ -161,4 +161,4 @@ Si vous voulez en savoir plus sur la création ou la gestion d’un cluster HDIn
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

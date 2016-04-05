@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/23/2016"
+	 ms.date="03/24/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Service Azure Backup – Forum aux questions
@@ -42,7 +42,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q3. Quelle version du serveur SCDPM est prise en charge ?** <br/> R3. Nous vous recommandons d’installer le [dernier](http://aka.ms/azurebackup_agent) agent Azure Backup sur le dernier correctif cumulatif de SCDPM (UR6 depuis juillet 2015)
 
-****Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
+**Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
 
 **Q5. Le nombre d’archivages de sauvegarde pouvant être créés dans chaque abonnement Azure est-il limité ?** <br/> R5. Oui. Depuis juillet 2015, vous pouvez créer 25 archivages par abonnement. Si vous avez besoin de plus d’archivages, créez un autre abonnement.
 
@@ -54,7 +54,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q9. Comment inscrire mon serveur dans un autre centre de données ?**<br/> R9. Les données de sauvegarde sont envoyées au centre de données du service Azure Backup dans lequel elles sont inscrites. Le moyen le plus simple de modifier le centre de données est de désinstaller/réinstaller l’agent et de l’inscrire dans un nouveau centre de données.
 
-**Q10. Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?** R10. Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées. Vous devez enregistrer le nouveau nom du serveur avec le coffre de sauvegarde. Dans la mesure où il s’agit d’un nouvel enregistrement, la première opération de sauvegarde est une sauvegarde complète et non une sauvegarde incrémentielle. Si vous devez récupérer des données précédemment sauvegardées dans le coffre avec le nom de l’ancien serveur, vous pouvez récupérer des données à l’aide d’[**un autre serveur**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) option dans l’assistant **Récupérer des données**.
+**Q10. Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?** R10. Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées. Vous devez enregistrer le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous créez un nouvel enregistrement, la première opération de sauvegarde est une sauvegarde complète et non une sauvegarde incrémentielle. Si vous devez récupérer des données précédemment sauvegardées dans le coffre avec le nom de l’ancien serveur, vous pouvez récupérer des données à l’aide d’[**un autre serveur**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) option dans l’assistant **Récupérer des données**.
 
 
 **Q11. À partir de quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?** <br/> R11. L’ensemble suivant de lecteurs/volumes ne peut pas être sauvegardé :
@@ -91,7 +91,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Question 18. Si j’annule une opération de sauvegarde après le démarrage, les données de sauvegarde sont-elles supprimées ?** <br/> R18 : non. L’archivage de sauvegarde stocke les données sauvegardées qui ont été transférées jusqu’au moment de l’annulation. Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde. En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Une sauvegarde incrémentielle optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données plusieurs fois.
 
-**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/> R19 : cet avertissement peut se produire quand les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si vous recevez cet avertissement, [reconfigurez la stratégie de sauvegarde](backup-azure-backup-windows-server.md), puis **Exécuter la sauvegarde maintenant** pour resynchroniser le serveur local avec Azure.
+**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/> R19 : cet avertissement est généré lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si vous recevez cet avertissement, [reconfigurez la stratégie de sauvegarde](backup-azure-backup-windows-server.md), puis **Exécuter la sauvegarde maintenant** pour resynchroniser le serveur local avec Azure.
 
 **Question 20. Quelles sont les règles de pare-feu devant être configurées pour Azure Backup ?** <br/> R20. Pour avoir une protection transparente des données sur site vers Azure et la charge de travail vers Azure, il est recommandé que vous autorisiez votre pare-feu à communiquer avec les URL suivantes :
 
@@ -105,7 +105,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q22. Puis-je installer l’agent Azure Backup sur une machine virtuelle Azure pour sauvegarder des fichiers et des dossiers présents sur le stockage temporaire fourni par la machine virtuelle Azure ?** <br/> A22. Vous pouvez installer l’agent Azure Backup sur le système d’exploitation Windows invité et sauvegarder des fichiers et des dossiers sur le stockage temporaire. Toutefois, notez que les sauvegardes échoueront une fois que les données de stockage temporaire seront effacées. En outre, si les données de stockage temporaire ont été supprimées, vous pouvez uniquement restaurer les stockages non volatiles.
 
-**Q23. Quelle est la longueur du chemin d’accès pouvant être spécifiée dans le cadre de la stratégie d’agent Azure Backup avec l’agent Azure Backup ?** <br/> A23. L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par les API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). En cas de sauvegarde de fichiers dont la longueur de chemin d’accès du fichier est supérieure à celui qui est spécifié par l’API Windows, les clients peuvent choisir de sauvegarder le dossier parent ou le lecteur de disque des fichiers de sauvegarde.
+**Q23. Quelle est la longueur du chemin d’accès pouvant être spécifiée dans le cadre de la stratégie d’agent Azure Backup avec l’agent Azure Backup ?** <br/> A23. L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par l’API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Si votre chemin d’accès au fichier dépasse la longueur autorisée par l’API Windows, vous pouvez sauvegarder le dossier parent ou le lecteur de disque des fichiers de votre choix.
 
 **Q24 Quels sont les caractères autorisés dans le chemin d’accès du fichier de stratégie de sauvegarde Azure à l’aide de l’agent Azure Backup ?** <br/> A24. L’agent Azure Backup utilise le format NTFS. Elle active les [caractères NTFS pris en charge](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) dans le cadre de la spécification de fichier.
 
@@ -145,9 +145,9 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 **Q7. Une copie incrémentielle est-elle transférée pour les stratégies de rétention planifiées ?** <br/> R7. Non, la copie incrémentielle est envoyée en fonction de l’heure mentionnée dans la page de planification de sauvegarde. Les points qui peuvent être conservés sont déterminés par la stratégie de rétention.
 
-**Q8. Si la sauvegarde est conservée sur une longue durée, la récupération des données prend-elle plus de temps (par exemple, la récupération du point le plus ancien) ?** <br/> R8. Non. Le temps de récupération est le même pour le point le plus ancien ou le dernier point. Chaque point de récupération se comporte comme un point complet.
+**Q8. Si une sauvegarde est conservée pendant une longue période, faut-il plus de temps pour récupérer un point de données plus ancien ?** <br/> R8. Non, le délai de récupération reste identique pour les points de données récents ou anciens. Chaque point de récupération se comporte comme un point complet.
 
-**Q9. Si chaque point de récupération est un point complet, a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?**<br/> R9. Les produits avec points de rétention à long terme stockent les données de sauvegarde en tant que points complets. Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer. Les copies incrémentielles *occupent moins d’espace de stockage*, mais vous devez restaurer une chaîne de données qui rallonge le temps de récupération. L’architecture de stockage unique d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche de stockage de données garantit que votre bande passante entrante et sortante est utilisée de façon efficace. La quantité de stockage de données et le temps nécessaire pour récupérer les données sont tous les deux réduits au minimum.
+**Q9. Si chaque point de récupération est un point complet, a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?**<br/> R9. Les produits avec points de rétention à long terme stockent les données de sauvegarde en tant que points complets. Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer. Les copies incrémentielles *occupent moins d’espace de stockage*, mais vous devez restaurer une chaîne de données qui rallonge le temps de récupération. L’architecture de stockage d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche de stockage de données garantit que votre bande passante entrante et sortante est utilisée de façon efficace. La quantité de stockage de données et le temps nécessaire pour récupérer les données sont tous les deux réduits au minimum.
 
 **Q10. Le nombre de points de récupération pouvant être créés est-il limité ?**<br/> R10. Non. Nous avons éliminé les limites sur les points de récupération. Vous pouvez créer autant de points de récupération que vous le souhaitez.
 
@@ -172,25 +172,24 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 ## Cache de sauvegarde
 
-**Q1. Comment puis-je modifier l’emplacement du cache spécifié pour l’agent Azure Backup ?**<br/>
-
-1. Arrêtez le moteur Backup en exécutant la commande qui suit dans une invite de commandes avec élévation de privilèges :
+**Q1. Comment puis-je modifier l’emplacement du cache spécifié pour l’agent Azure Backup ?**<br/> R1. Parcourez dans l’ordre la liste ci-dessous pour modifier l’emplacement du cache.
+- Arrêtez le moteur Backup en exécutant la commande qui suit dans une invite de commandes avec élévation de privilèges :
 
   ```PS C:\> Net stop obengine```
 
-2. Copiez le dossier d’espace de cache dans un autre lecteur disposant d’un espace suffisant. Vous devez copier les fichiers du dossier d’espace de cache au lieu de les déplacer. L’espace de cache d’origine peut être supprimé après avoir confirmé que les sauvegardes fonctionnent avec le nouvel espace de cache.
+- Ne déplacez pas les fichiers, mais copiez le dossier d’espace de cache dans un autre lecteur disposant d’un espace suffisant. L’espace de cache d’origine peut être supprimé après avoir confirmé que les sauvegardes fonctionnent avec le nouvel espace de cache.
 
-3. Mettez à jour les entrées de Registre suivantes en utilisant le chemin d’accès au nouveau dossier d’espace de cache.<br/>
+- Mettez à jour les entrées de Registre suivantes en utilisant le chemin d’accès au nouveau dossier d’espace de cache.<br/>
 
 |Chemin d’accès au Registre | Clé de Registre | Valeur |
 | ------ | ------- | ------|
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Emplacement du nouveau dossier de cache* |
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Emplacement du nouveau dossier de cache* |
 
-4. Démarrez le moteur Backup en exécutant la commande qui suit dans une invite de commandes avec élévation de privilèges :
+- Démarrez le moteur Backup en exécutant la commande qui suit dans une invite de commandes avec élévation de privilèges :
 
   ```PS C:\> Net start obengine```
 
   Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

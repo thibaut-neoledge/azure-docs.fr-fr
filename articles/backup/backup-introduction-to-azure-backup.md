@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="03/28/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # Qu’est-ce qu’Azure Backup ?
@@ -32,7 +32,7 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 | Diverses options de stockage | Choisissez le stockage de sauvegarde adapté à vos besoins : <li>un objet blob de blocs LRS (stockage localement redondant), idéal pour les clients qui cherchent à réduire leurs coûts tout en protégeant leurs données contre les défaillances matérielles locales ; <li>un objet blob de blocs de stockage par géo-réplication, qui fournit trois copies de plus dans un centre de données associé afin de garantir la haute disponibilité de vos données de sauvegarde, même en cas de sinistre sur le site Azure. |
 | Transfert de données illimité | Aucuns frais ne sont facturés pour le transfert de données sortant pendant une opération de restauration à partir du coffre Azure Backup. Les données entrantes transférées vers Azure sont également gratuites. Fonctionne avec le service d’importation dans lequel il est disponible. |
 | Chiffrement des données | Le chiffrement des données garantit une transmission et un stockage sécurisés des données client dans le cloud public. La phrase secrète de chiffrement est stockée au niveau de la source et n’est jamais transmise ou stockée dans Azure. La clé de chiffrement est nécessaire pour restaurer les données et seul le client dispose d’un accès complet aux données du service. |  
-| Sauvegarde cohérente avec les applications | Des sauvegardes compatibles avec les applications sous Windows garantissent que les correctifs sont inutiles au moment de la restauration, ce qui réduit l’objectif de temps de récupération et permet aux clients de revenir à l’état d’exécution plus vite. |
+| Sauvegarde cohérente avec les applications | L’exécution de sauvegardes cohérentes au niveau applicatif sur Windows évite d’avoir à appliquer des correctifs au moment de la restauration, de manière à réduire l’objectif de temps de récupération. Les clients sont ainsi en mesure de rétablir plus rapidement le fonctionnement de leurs opérations. |
 | Rétention à long terme | Au lieu d’acheter des solutions de sauvegarde sur bande hors site, les clients peuvent sauvegarder leurs données dans Azure, ce qui offre une solution sémantique de type bande à bas coût. |
 
 ## Composants d’Azure Backup
@@ -55,8 +55,8 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 | --- | --- | --- | --- |
 | Agent Azure Backup (MARS) | <li>Peut sauvegarder des fichiers et des dossiers sur une machine avec le système d’exploitation Windows, physique ou virtuelle (les machines virtuelles peuvent se trouver n’importe où, sur site ou sur Azure)<li>Aucun serveur de sauvegarde distinct n’est requis<li>Utilise Azure Backup Vault | <li>Sauvegarde trois fois par jour/restauration au niveau fichier<li>Restauration de niveau fichier/dossier/volume uniquement, indépendante de l’application<li>Aucune prise en charge de Linux | fichiers/dossiers/volumes |
 | System Center Data Protection Manager (DPM) | <li>Instantanés en fonction de l’application (VSS)<li>Flexibilité complète pour effectuer les sauvegardes<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V) | <li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle). | fichiers/dossiers/volumes<br>/machines virtuelles/applications |
-| Microsoft Azure Backup Server | <li>Instantanés en fonction de l’application (VSS)<li>Flexibilité complète pour effectuer les sauvegardes<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V)<li>Ne nécessite pas de licence System Center | <li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle).<li>Exige toujours un abonnement Azure en direct<li>Aucune prise en charge pour la sauvegarde sur bande | fichiers/dossiers/volumes<br>/machines virtuelles/applications |
-| Sauvegarde des machines virtuelles IaaS Azure | <li>Sauvegardes natives pour Windows/Linux<li>Aucune installation d’agent spécifique requise<li>Sauvegarde au niveau Fabric sans infrastructure de sauvegarde nécessaire<li>Utilise un coffre Azure Backup | <li>Restauration une fois par jour/restauration au niveau disque<li>Impossible d’effectuer une sauvegarde en local | Machines virtuelles<br>Disques individuels |
+| Microsoft Azure Backup Server | <li>Instantanés en fonction de l’application (VSS)<li>Flexibilité complète pour effectuer les sauvegardes<li>Granularité de récupération (tout)<li>Peut utiliser le coffre Azure Backup<li>Prise en charge de Linux (s’il est hébergé sur Hyper-V)<li>Ne nécessite pas de licence System Center | <li>Absence de prise en charge hétérogène (sauvegarde de machine virtuelle VMware, sauvegarde de la charge de travail Oracle).<li>Requiert toujours un abonnement Azure en direct<li>Aucune prise en charge de la sauvegarde sur bande | fichiers/dossiers/volumes<br>/machines virtuelles/applications |
+| Sauvegarde des machines virtuelles IaaS Azure | <li>Sauvegardes natives pour Windows/Linux<li>Aucune installation d’agent spécifique requise<li>Sauvegarde au niveau Fabric sans infrastructure de sauvegarde nécessaire<li>Utilise un coffre Azure Backup | <li>Restauration une fois par jour/restauration au niveau du disque<li>Impossible d’effectuer une sauvegarde en local | Machines virtuelles<br>Disques individuels |
 
 ## Quelles applications et charges de travail est-il possible de sauvegarder ?
 
@@ -84,7 +84,7 @@ Azure Backup est une solution de sauvegarde hybride qui intègre donc plusieurs 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Fonctionnalités
-Ces cinq tableaux récapitulent la manière dont les fonctionnalités Azure Backup sont gérées dans chaque composant :
+Ces cinq tableaux récapitulent la manière dont les fonctionnalités de sauvegarde sont gérées au niveau de chaque composant :
 
 ### Storage
 
@@ -102,7 +102,7 @@ Ces cinq tableaux récapitulent la manière dont les fonctionnalités Azure Back
 Le coffre Azure Backup est la cible de stockage par défaut sur tous les composants. System Center DPM et le serveur de sauvegarde offrent également la possibilité d’avoir une copie du disque local. Toutefois, seul System Center DPM permet d’écrire des données sur un périphérique de stockage sur bande.
 
 #### Sauvegarde incrémentielle
-Chaque composant prend en charge la sauvegarde incrémentielle quel que soit le stockage cible (disque, bande, coffre de sauvegarde). Une sauvegarde incrémentielle permet de s’assurer que les sauvegardes sont rentables en termes de stockage et de temps. Pour ce faire, il transfère seulement les modifications effectuées depuis la dernière sauvegarde sur le stockage cible.
+Chaque composant prend en charge la sauvegarde incrémentielle quel que soit le stockage cible (disque, bande, coffre de sauvegarde). La sauvegarde incrémentielle garantit un stockage efficace des sauvegardes, en transférant uniquement les modifications apportées depuis la dernière sauvegarde.
 
 #### Compression
 En outre, les sauvegardes sont compressées afin de réduire la quantité d’espace de stockage requise. L’extension de machine virtuelle est le seul composant qui n’effectue aucune compression. Avec l’extension de machine virtuelle, toutes les données de sauvegarde sont copiées du compte de stockage client vers le coffre de sauvegarde dans la même région sans être compressées. Bien que cela augmente légèrement le volume de stockage utilisé, le fait de stocker des données sans compression permet d’accélérer les restaurations.
@@ -156,10 +156,10 @@ La sauvegarde des machines virtuelles Azure exige la configuration du chiffremen
 
 Étant donné que l’extension de machine virtuelle lit directement les données à partir du compte Azure Storage via le réseau de stockage, il n’est pas nécessaire d’optimiser ce trafic. Comme le trafic transite sur le réseau de stockage local dans le centre de données Azure, la question de la compression liée aux problèmes de bande passante ne se pose pas véritablement.
 
-Pour les clients qui protègent leurs données sur un serveur de sauvegarde (Serveurs DPM ou Azure Backup), le trafic généré entre le serveur principal et le serveur de sauvegarde peut également être compressé afin d’économiser de la bande passante.
+Si vous protégez vos données sur un serveur de sauvegarde (serveur DPM ou Azure Backup), le trafic généré entre le serveur principal et le serveur de sauvegarde peut également être compressé afin d’économiser de la bande passante.
 
 #### Limitation du réseau
-L’agent Azure Backup fournit la fonctionnalité de limitation qui vous permet de contrôler l’utilisation de la bande passante réseau pendant le transfert de données. Cela peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation du transfert de données s’applique aux activités de sauvegarde et de restauration.
+L’agent Azure Backup fournit la fonctionnalité de limitation qui vous permet de contrôler l’utilisation de la bande passante réseau pendant le transfert de données. Cette limitation peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation du transfert de données s’applique aux activités de sauvegarde et de restauration.
 
 ### Sauvegarde et rétention
 
@@ -182,7 +182,7 @@ Les informations d’identification de coffre sont utilisées uniquement pendant
 ## Quelle est la différence entre Azure Backup et Azure Site Recovery ?
 De nombreux clients ont tendance à confondre récupération de sauvegarde et récupération d’urgence. Les deux opérations capturent des données et fournissent une sémantique de restauration, mais chacune est associée à une proposition de valeur bien spécifique.
 
-Azure Backup sauvegarde les données en local et dans le cloud. Azure Site Recovery coordonne la réplication, le basculement et la restauration automatique des machines virtuelles et des serveurs physiques. Les deux services sont importants, car votre solution de récupération d’urgence doit copier vos données en toute sécurité et les rendre récupérables (Azure Backup) *et* assurer la disponibilité et l’accessibilité de vos charges de travail (Azure Site Recovery) en cas de panne.
+Azure Backup sauvegarde les données en local et dans le cloud. Azure Site Recovery coordonne la réplication, le basculement et la restauration automatique des machines virtuelles et des serveurs physiques. Les deux services sont importants, car votre solution de récupération d’urgence doit copier vos données en toute sécurité et les rendre récupérables (Azure Backup) *et* assurer la disponibilité de vos charges de travail (Azure Site Recovery) en cas de panne.
 
 Les concepts qui suivent vous aideront à prendre des décisions importantes en matière de sauvegarde et de récupération.
 
@@ -211,4 +211,4 @@ Comme ces didacticiels vous aident à effectuer des sauvegardes rapides, ils n�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

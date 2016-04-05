@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -59,12 +59,12 @@ Dans ce didacticiel, vous allez créer une table dans Azure SQL Data Warehouse e
 
 À partir d’une invite de commande, connectez-vous à votre instance à l’aide de la commande suivante, qui remplace les valeurs de manière appropriée :
 
-```
+```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 ```
 Une fois que vous êtes connecté, copiez le script de table suivant sur l’invite sqlcmd, puis appuyez sur la touche Entrée :
 
-```
+```sql
 CREATE TABLE DimDate2
 (
     DateId INT NOT NULL,
@@ -106,13 +106,13 @@ Enregistrez-les dans votre répertoire temporaire local, C:\\Temp\\DimDate2.txt.
 ### Étape 3 : Connecter et importer les données
 Grâce à bcp, vous pouvez connecter et importer les données à l’aide de la commande suivante, qui remplace de manière appropriée les valeurs :
 
-```
+```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Pour vérifier que les données ont été chargées, établissez préalablement une connexion avec sqlcmd, puis exécutez la commande TSQL suivante :
 
-```
+```sql
 SELECT * FROM DimDate2 ORDER BY 1;
 GO
 ```
@@ -140,7 +140,7 @@ Azure SQL Data Warehouse ne prend pas encore en charge les statistiques à créa
 
 À partir d'une invite sqlcmd, exécutez les instructions CREATE STATISTICS suivantes :
 
-```
+```sql
 create statistics [DateId] on [DimDate2] ([DateId]);
 create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
@@ -154,7 +154,7 @@ Dans ce didacticiel, vous allez créer un fichier de données à partir d’une 
 
 L’utilitaire bcp vous permet de connecter et d’exporter les données à l’aide de la commande suivante, qui remplace de manière appropriée les valeurs :
 
-```
+```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier. Les données du fichier doivent correspondre au texte ci-dessus :
@@ -196,4 +196,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->
