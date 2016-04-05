@@ -26,7 +26,7 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 
 - **Portail SaaS distinct** : permet d’accéder facilement à l’équipe marketing sans avoir à passer par le portail de gestion Azure.
 
-- **Disponibilité des API REST en open source** : pour une intégration et une automatisation avec les systèmes CRM/CMS/informatiques utilisant des API multiplateformes, nous fournissons des API REST open source et un Kit de développement logiciel (SDK) .NET pour utiliser ces API et vous permettre une intégration et une automatisation facilitées avec Mobile Engagement. Voir [ceci] pour plus d’informations (mobile-engagement-api-authentication.md)
+- **Disponibilité des API REST en open source** : pour une intégration et une automatisation avec les systèmes CRM/CMS/informatiques utilisant des API multiplateformes, nous fournissons des API REST open source et un Kit de développement logiciel (SDK) .NET pour utiliser ces API et vous permettre une intégration et une automatisation facilitées avec Mobile Engagement. Voir [ceci](mobile-engagement-api-authentication.md) pour plus d’informations
 
 - **Connecteur Power BI disponible** : vous pouvez également extraire des graphiques d’analyse clés dans un tableau de bord Power BI. Consultez ce [guide](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-mobile/)
 
