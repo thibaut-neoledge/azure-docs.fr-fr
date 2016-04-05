@@ -49,7 +49,7 @@ La rubrique [Rôles RBAC intégrés](role-based-access-built-in-roles.md) réper
 L’accès que vous accordez à des étendues parentes est hérité par les étendues enfant. Si vous attribuez le rôle de Lecteur à un groupe Azure AD dans l’étendue de l’abonnement, les membres de ce groupe pourront voir tous les groupes de ressources et toutes les ressources de l’abonnement. Si vous attribuez le rôle de Collaborateur à une application dans l’étendue du groupe de ressources, celle-ci pourra gérer les ressources de tous types dans ce groupe de ressources, mais pas dans les autres groupes de ressources de l’abonnement.
 
 ### Comparaison entre RBAC Azure et Administrateur d’abonnement classiques
-Les administrateurs et coadministrateurs d’abonnement classiques ont un accès total à l’abonnement Azure. Ils peuvent gérer des ressources à l’aide du [portail Azure](https://portal.azure.com) avec des API Azure Resource Manager ou du [portail Azure Classic](https://manage.windowsazure.com) et des API de gestion des services Windows Azure. Dans le modèle RBAC, les administrateurs classiques se voient attribuer le rôle de propriétaire dans l’étendue de l’abonnement.
+Les administrateurs et coadministrateurs d’abonnement classiques ont un accès total à l’abonnement Azure. Ils peuvent gérer des ressources à l’aide du [portail Azure](https://portal.azure.com) avec des API Azure Resource Manager ou du [portail Azure Classic](https://manage.windowsazure.com) et des API de gestion des services Microsoft Azure. Dans le modèle RBAC, les administrateurs classiques se voient attribuer le rôle de propriétaire dans l’étendue de l’abonnement.
 
 RBAC Azure est pris en charge uniquement par le portail Azure et les nouvelles API Azure Resource Manager. Les utilisateurs et les applications qui se voient attribuer des rôles RBAC ne peuvent pas utiliser le portail de gestion classique et les API de gestion des services Azure.
 
@@ -103,4 +103,4 @@ Vous pouvez attribuer des rôles et gérer l’accès avec les commandes RBAC Az
 - Voir les [rôles RBAC intégrés](role-based-access-built-in-roles.md)
 - Définissez vos propres [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->
