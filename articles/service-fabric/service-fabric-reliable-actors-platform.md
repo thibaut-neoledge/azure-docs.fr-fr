@@ -3,7 +3,7 @@
    description="Décrit comment Reliable Actors utilise les fonctionnalités de la plateforme Service Fabric en traitant les concepts du point de vue des développeurs d’acteur."
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor="vturecek"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/15/2016"
-   ms.author="amanbha"/>
+   ms.author="vturecek"/>
 
 # Comment les Acteurs fiables utilisent la plateforme Service Fabric
 
