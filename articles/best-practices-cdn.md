@@ -65,8 +65,8 @@ La liste suivante répertorie des exemples de temps médian jusqu’au premier o
 |Séoul, KR| 190 | 190 | 0 % |
 
 
-* A un nœud de CDN Azure dans la même ville. 
-** A un nœud de CDN Azure dans une ville voisine.
+\* A un nœud de CDN Azure dans la même ville. 
+\*\* A un nœud de CDN Azure dans une ville voisine.
 
 ## Défis  
 
@@ -284,4 +284,4 @@ Notez que l’utilisation de la réécriture d’URL requiert que vous apportiez
 + [Intégration d’un service cloud à Azure CDN](./cdn/cdn-cloud-service-with-cdn.md/)
 + [Meilleures pratiques pour le réseau de distribution de contenu Microsoft Azure](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

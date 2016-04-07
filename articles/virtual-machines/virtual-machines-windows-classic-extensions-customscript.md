@@ -23,7 +23,8 @@ Cet article donne une vue d’ensemble de l’utilisation de l’extension de sc
 
 Les extensions de machine virtuelle créées par Microsoft et les éditeurs tiers de confiance étendent les fonctionnalités de la machine virtuelle. Pour consulter une vue d’ensemble des extensions de machine virtuelles, voir [Fonctionnalités et extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md).
 
-Lien :[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript.md).
+Lien :
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript.md).
 
 
 ## Vue d’ensemble de l’extension de script personnalisé
@@ -91,4 +92,4 @@ Pour apprendre comment utiliser l’extension de script personnalisé avec les m
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

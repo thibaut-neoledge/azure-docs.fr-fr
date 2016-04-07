@@ -61,11 +61,11 @@ Un connecteur peut être créé dans une application logique ou directement à p
 ## Utilisation du connecteur SMTP dans votre application logique
 Une fois votre connecteur créé, vous pouvez utiliser le connecteur SMTP comme action pour votre application logique. Pour ce faire :
 
-1.	Créez une application logique :
+1.	Créez une application logique :  
 ![][2]
-2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur Logic Apps et configurer votre flux de travail :
+2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur Logic Apps et configurer votre flux de travail :  
 ![][3]
-3.	Le connecteur SMTP apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite. Sélectionnez-le :
+3.	Le connecteur SMTP apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite. Sélectionnez-le :  
 ![][4]
 4.	Sélectionnez le connecteur SMTP pour l’ajouter automatiquement au Concepteur de flux de travail.
 
@@ -102,4 +102,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->
