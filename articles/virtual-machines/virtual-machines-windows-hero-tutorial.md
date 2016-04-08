@@ -117,4 +117,4 @@ Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez a
 * Automatisez le déploiement et la gestion des machines virtuelles et des charges de travail à l’aide des [modèles d’Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * Vous pouvez également [créer une machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md) rapidement à l’aide de l’interface de ligne de commande Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
