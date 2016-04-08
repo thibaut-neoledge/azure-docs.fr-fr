@@ -11,7 +11,7 @@ Cliquez sur le bouton **Déployer sur Azure** à partir du [lien du modèle](htt
 
 ![Déploiement simple avec des balises](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Ce modèle inclut les balises suivantes :*Service**Application* et *Créé par*. Vous pouvez ajouter/modifier ces balises directement dans le modèle si vous voulez d’autres noms de balises.
+Ce modèle inclut les balises suivantes :*Service* *Application* et *Créé par*. Vous pouvez ajouter/modifier ces balises directement dans le modèle si vous voulez d’autres noms de balises.
 
 ![Balises Azure dans un modèle](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
@@ -169,4 +169,4 @@ En analysant ces balises ainsi que leur utilisation, les organisations sont en m
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
