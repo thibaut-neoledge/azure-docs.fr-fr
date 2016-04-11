@@ -187,7 +187,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
     a. Un utilisateur est créé dans Active Directory avec un nom UPN de **Joe@contoso.com** et ayant une ProxyAddress **smtp:Joe@contoso.com**
 
-    b. Les propriétés de cet objet sont en conflit avec un Groupe existant, où ProxyAddress est ** SMTP:Joe@contoso.com**.
+    b. Les propriétés de cet objet sont en conflit avec un Groupe existant, où ProxyAddress est **SMTP:Joe@contoso.com**.
 
     c. Lors de l’exportation, une erreur de **conflit ProxyAddress** est levée au lieu de mettre en quarantaine les attributs à l’origine du conflit. L’opération est retentée à chaque cycle de synchronisation, comme cela était le cas avant l’activation de la fonction de résilience.
 
@@ -223,7 +223,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
     a. L’**Utilisateur A** est synchronisé en premier avec **UPN = User@contoso.com**.
 
-    b. Une tentative est ensuite faite pour synchroniser l’**Utilisateur B** avec ** UPN = User@contoso.com**.
+    b. Une tentative est ensuite faite pour synchroniser l’**Utilisateur B** avec **UPN = User@contoso.com**.
 
     c. L’UPN de **l’Utilisateur B** est modifié en **User1234@contoso.onmicrosoft.com** et **User@contoso.com** est ajouté à **DirSyncProvisioningErrors**.
 

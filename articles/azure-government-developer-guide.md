@@ -92,7 +92,8 @@ Portail de gestion|manage.windowsazure.com|manage.windowsazure.us
 Généralités|*.windows.net|*.usgovcloudapi.net
 Principal|*.core.windows.net|*.core.usgovcloudapi.net
 Calcul|*.cloudapp.net|*.usgovcloudapp.net
-Stockage d’objets blob|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Stockage de files d’attente|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Stockage d’objets blob|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net
+Stockage de files d’attente|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Stockage de tables|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Gestion des services|management.core.windows.net|management.core.usgovcloudapi.net
 Base de données SQL|*.database.windows.net|*.database.usgovcloudapi.net
