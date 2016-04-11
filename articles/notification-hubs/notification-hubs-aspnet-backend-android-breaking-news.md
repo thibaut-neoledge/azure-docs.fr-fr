@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/15/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 
@@ -36,7 +36,7 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 
 La première étape consiste à ajouter des éléments de l’interface utilisateur à l’activité principale existante qui permettent à l’utilisateur de sélectionner des catégories auxquelles s’inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre Notification Hub avec les catégories sélectionnées sous forme de balises.
 
-1. Ouvrez votre fichier res/layout/activity\_main.xml et remplacez le contenu par ce qui suit :
+1. Ouvrez votre fichier res/layout/activity\_main.xml et remplacez le contenu par ce qui suit :
 
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -86,7 +86,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 			        android:text="@string/button_subscribe" />
 		</LinearLayout>
 
-2. Ouvrez votre fichier res\\values\\string.xml et ajoutez les lignes suivantes :
+2. Ouvrez votre fichier res\\values\\string.xml et ajoutez les lignes suivantes :
 
 	    <string name="button_subscribe">Subscribe</string>
 	    <string name="label_world">World</string>
@@ -96,7 +96,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	La présentation graphique de votre fichier main\_activity.xml doit ressembler à ceci :
+	La présentation graphique de votre fichier main\_activity.xml doit ressembler à ceci :
 
 	![][A1]
 
@@ -174,7 +174,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 	Cette classe utilise le stockage local pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également des méthodes pour s’inscrire à ces catégories.
 
 
-4. Dans la classe **MainActivity**, supprimez vos champs privés pour **NotificationHub** et **GoogleCloudMessaging**, puis ajoutez un champ pour **Notifications** :
+4. Dans la classe **MainActivity**, supprimez vos champs privés pour **NotificationHub** et **GoogleCloudMessaging**, puis ajoutez un champ pour **Notifications** :
 
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
@@ -198,10 +198,10 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 
 	`HubName` et `HubListenConnectionString` doivent être configurés avec les espaces réservés `<hub name>` et `<connection string with listen access>`, avec le nom du hub de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
 
-	> [AZURE.NOTE]Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
+	> [AZURE.NOTE] Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
 
 
-6. Ensuite, ajoutez les importations ci-après et la méthode `subscribe` pour gérer l’événement de clic sur le bouton d’abonnement :
+6. Ensuite, ajoutez les importations ci-après et la méthode `subscribe` pour gérer l’événement de clic sur le bouton d’abonnement :
 		
 		import android.widget.CheckBox;
 		import java.util.HashSet;
@@ -240,16 +240,16 @@ Votre application peut désormais stocker un ensemble de catégories dans le sto
 
 Les étapes suivantes permettent l’inscription auprès du concentrateur de notification au démarrage en utilisant les catégories qui ont été stockées dans le stockage local.
 
-> [AZURE.NOTE]Comme la valeur de registrationId affectée par Google Cloud Messaging (GCM) peut changer à n’importe quel moment, vous devez vous inscrire fréquemment aux notifications afin d’éviter les défaillances. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
+> [AZURE.NOTE] Comme la valeur de registrationId affectée par Google Cloud Messaging (GCM) peut changer à n’importe quel moment, vous devez vous inscrire fréquemment aux notifications afin d’éviter les défaillances. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
 
 
-1. Ajoutez le code suivant à la fin de la méthode **onCreate**, dans la classe **MainActivity** :
+1. Ajoutez le code suivant à la fin de la méthode **onCreate**, dans la classe **MainActivity** :
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 
 	Cette opération garantit que chaque fois que l'application démarre, elle récupère les catégories du stockage local et demande une inscription pour ces catégories.
 
-2. Puis mettez à jour la méthode `onStart()` de la classe `MainActivity`, comme suit :
+2. Puis mettez à jour la méthode `onStart()` de la classe `MainActivity`, comme suit :
 
     @Override protected void onStart() { super.onStart(); isVisible = true;
 
@@ -293,7 +293,7 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 ##Étapes suivantes
 
-Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d’autres scénarios avancés Notification Hubs :
+Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d’autres scénarios avancés Notification Hubs :
 
 + [Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]
 
@@ -319,4 +319,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [portail Azure Classic]: https://manage.windowsazure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

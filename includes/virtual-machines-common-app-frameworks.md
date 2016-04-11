@@ -1,7 +1,5 @@
 
 
-Les charges de travail nécessitent généralement de nombreuses ressources pour fonctionner conformément à la conception. Les modèles Azure Resource Manager vous permettent de définir non seulement comment les applications sont configurées, mais également comment les ressources sont déployées pour prendre en charge les applications configurées. Cet article vous présente les modèles les plus populaires de la galerie et vous donne des informations sur l’utilisation du portail Azure, d’Azure PowerShell ou de l’interface de ligne de commande Azure pour les déployer.
-
 ## Applications
 
 Dans ce tableau, vous pourrez trouver plus d’informations sur les paramètres utilisés dans le modèle, inspecter le modèle avant de le déployer ou le déployer directement depuis le portail Azure.
@@ -26,7 +24,7 @@ Dans ce tableau, vous pourrez trouver plus d’informations sur les paramètres 
 | WordPress | [Galerie](https://azure.microsoft.com/documentation/templates/wordpress-single-vm-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/wordpress-single-vm-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | ZooKeeper | [Galerie](https://azure.microsoft.com/documentation/templates/zookeeper-cluster-ubuntu-vm/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/zookeeper-cluster-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fzookeeper-cluster-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 
-En plus de ces modèles, vous pouvez parcourir les [modèles de la galerie](https://azure.microsoft.com/documentation/templates/).
+Outre ces modèles, vous pouvez parcourir les [modèles de la galerie](https://azure.microsoft.com/documentation/templates/).
 
 ## Portail Azure
 
@@ -41,7 +39,7 @@ Le panneau de développement personnalisé s’affiche :
 1.	Pour le panneau **Modèle**, cliquez sur **Enregistrer**.
 2.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 3.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-4.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour en créer un nouveau pour ce déploiement.
+4.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Vous pouvez également cliquer sur **Ou créer** pour en créer un pour ce déploiement.
 5.	Si nécessaire, cliquez sur **Emplacement**, puis sélectionnez l’emplacement Azure approprié.
 6.	Si nécessaire, cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation de ce modèle.
 7.	Cliquez sur **Create**.
@@ -55,23 +53,23 @@ Exécutez les commandes suivantes pour créer le groupe de ressources et le dép
 	New-AzureRmResourceGroup -Name {resource-group-name} -Location {location}
 	New-AzureRmResourceGroupDeployment -Name {deployment-name} -ResourceGroupName {resource-group-name} -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
 
-Lorsque vous exécutez la commande **New-AzureRMResourceGroupDeployment**, vous êtes invité à fournir les valeurs des paramètres du modèle. Selon le modèle, le déploiement des ressources par Azure peut prendre un certain temps.
+Lorsque vous exécutez la commande **New-AzureRMResourceGroupDeployment**, vous êtes invité à entrer les valeurs des paramètres du modèle. Selon le modèle, le déploiement des ressources par Azure peut prendre un certain temps.
 
 ## Interface de ligne de commande Azure
 
-[Installez l’interface de ligne de commande Azure](../xplat-cli-install.md), connectez-vous et veillez à activer les commandes Resource Manager. Pour plus d’informations sur la façon de procéder, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+[Installez l’interface de ligne de commande Azure](../articles/xplat-cli-install.md), connectez-vous et veillez à activer les commandes Resource Manager. Pour plus d’informations sur la façon de procéder, consultez l’article [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) (Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager).
 
 Exécutez les commandes suivantes pour créer le groupe de ressources et le déploiement, après que vous avez remplacé le texte entre crochets par le nom du groupe de ressources, l’emplacement, le nom du déploiement et le nom du modèle :
 
 	azure group create {resource-group-name} {location}
 	azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json {resource-group-name} {deployment-name}
 
-Lorsque vous exécutez la commande **azure group deployment create**, vous êtes invité à fournir les valeurs des paramètres du modèle. Selon le modèle, le déploiement des ressources par Azure peut prendre un certain temps.
+Lorsque vous exécutez la commande **Azure group deployment create**, vous êtes invité à entrer les valeurs des paramètres du modèle. Selon le modèle, le déploiement des ressources par Azure peut prendre un certain temps.
 
 ## Étapes suivantes
 
 Découvrez tous les modèles à votre disposition sur [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-En savoir plus sur [Azure Resource Manager](../resource-group-template-deploy.md).
+En savoir plus sur [Azure Resource Manager](../articles/resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

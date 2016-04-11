@@ -66,27 +66,27 @@ Dans l’application créée, deux rôles et un rôle implicite sont définis lo
 
 -   **LECTURE SEULE IMPLICITE :** il s’agit du même mode que la lecture seule, mais il est accordé à tous les utilisateurs de votre client AAD. Il a été prévu pour des raisons pratiques au cours du développement. Vous pouvez supprimer ce rôle en modifiant le fichier source [RolePermissions.cs][lnk-resource-cs].
 
-### Modification des rôles d’application
+### Modification des rôles d’application pour un utilisateur
+
+Vous pouvez utiliser la procédure suivante pour définir un utilisateur dans Active Directory en tant qu’administrateur de votre solution préconfigurée.
 
 Vous devez être un administrateur général AAD pour modifier les rôles d’un utilisateur :
 
-1. Connectez-vous au [portail Azure Classic][lnk-classic-portal].
+1. Connectez-vous au [Portail Azure Classic][lnk-classic-portal].
 
-2. Sélectionnez **Active Directory**
+2. Sélectionnez **Active Directory**.
 
-3. Cliquez sur le nom de votre client AAD
+3. Cliquez sur le nom de votre client AAD (il s’agit du répertoire que vous avez choisi sur Azureiotsuite.com lorsque vous avez approvisionné votre solution).
 
 4. Cliquez sur **Applications**.
 
-5. Si vous ne voyez pas votre application dans la liste, faites défiler le menu déroulant jusqu’à **Afficher** supprimer jusqu’à **Applications que ma société possède** et cliquez sur la coche.
-
-6. Cliquez sur le nom de l’application qui correspond au nom de votre solution préconfigurée.
+5. Cliquez sur le nom de l’application qui correspond au nom de votre solution préconfigurée. Si vous ne voyez pas votre application dans la liste, faites défiler le menu déroulant jusqu’à **Afficher** supprimer jusqu’à **Applications que ma société possède** et cliquez sur la coche.
 
 7. Cliquez sur **Utilisateurs**.
 
 8. Sélectionnez l’utilisateur dont vous souhaitez permuter les rôles.
 
-9. Cliquez sur le bouton affecter et le rôle que vous souhaitez attribuer, cliquez sur la case à cocher.
+9. Cliquez sur **Attribuer**, puis sélectionnez le rôle (par exemple, **Admin**) que vous souhaitez attribuer à l’utilisateur en cochant la case correspondante.
 
 ## Forum Aux Questions
 
@@ -145,4 +145,4 @@ Si vous êtes sûr de disposer d’un abonnement Azure, validez le mappage de vo
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

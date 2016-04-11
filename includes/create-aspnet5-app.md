@@ -1,21 +1,23 @@
-1. From the Visual Studio menu, select **File > New > Project**.
+1. Dans le menu Visual Studio, sélectionnez **Fichier > Nouveau > Projet**.
 
-1. The **New Project** dialog will display.
+1. La boîte de dialogue **Nouveau projet** s’affiche.
 
-	![New Project dialog](./media/create-aspnet5-app/create-web-app.png)
+	![Boîte de dialogue Nouveau projet](./media/create-aspnet5-app/create-web-app.png)
 
-1. Under the **Templates** section of the **New Project** dialog, select **Visual C# > Web**.
+1. Dans la section **Modèles** de la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C# > Web**.
 
-1. Select **ASP.NET Web Application**.
+1. Sélectionnez **Application web ASP.NET**.
 
-1. Give your new application a name (or take the default).
+1. Donnez un nom à votre nouvelle application (ou utilisez la valeur par défaut).
 
-1. Tap **OK**.
+1. Appuyez sur **OK**.
 
-1. The **New ASP.NET Project** dialog will display.
+1. La boîte de dialogue **Nouveau projet ASP.NET** s’affiche.
 
-	![New ASP.NET Project dialog](./media/create-aspnet5-app/choose-template.png)
+	![Boîte de dialogue Nouveau projet ASP.NET](./media/create-aspnet5-app/choose-template.png)
 
-1. Under ASP.NET 5 Templates, select ASP.NET Web Application.
+1. Sous Modèles ASP.NET 5, sélectionnez Application Web ASP.NET.
 
-1. Tap **OK**.
+1. Appuyez sur **OK**.
+
+<!---HONumber=AcomDC_0330_2016-->

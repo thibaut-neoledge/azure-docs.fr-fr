@@ -81,6 +81,10 @@ Utilisez le niveau tarifaire De base ou un niveau supérieur pour Web Apps. Pour
 
 Vous pouvez utiliser l’[Assistant Mise à niveau ClearDB](https://www.cleardb.com/store/azure/upgrade). Actuellement, nous ne proposons pas de chemin de mise à niveau dans le portail Azure.
 
+## Ma base de données ClearDB ne s’affiche pas dans le portail Azure.
+
+Si nous créons une base de données ClearDB à l’aide d’Azure Resource Manager ou du [nouveau portail Azure](https://portal.azure.com), elle ne sera pas visible dans l’[ancien portail](https://manage.windowsazure.com). Pour contourner ce problème, liez votre base de données manuellement à l’application web. De même, si vous créez une base de données ClearDB dans l’[ancien portail](https://manage.windowsazure.com), vous ne pourrez pas voir votre base de données dans le [nouveau portail Azure](https://portal.azure.com). Il n’existe aucune solution de contournement pour ce scénario.
+
 ## Qui dois-je contacter pour obtenir de l’aide quand ma base de données est en panne ?
 
 Contactez le [support ClearDB](https://www.cleardb.com/developers/help/support) pour tout problème lié à la base de données. Préparez-vous à fournir des informations sur votre abonnement Azure.
@@ -89,9 +93,13 @@ Contactez le [support ClearDB](https://www.cleardb.com/developers/help/support) 
 
 Non. Vous ne pouvez pas créer des utilisateurs supplémentaires, mais vous pouvez créer des bases de données sur votre cluster de base de données ClearDB.
 
+## Les bases de données Basic/Pro peuvent-elles être mises à niveau sur place comme les plans Planetary actuellement sur le portail de ClearDB ?
+
+Oui, les bases de données Basic peuvent être mises à niveau sur place (Basic 60 à Basic 500). Les bases de données Pro peuvent être mises à niveau sur place (Pro 125 à Pro 1000) à l’exception de Pro 60. Actuellement, nous ne prenons pas en charge la mise à niveau de la base de données Pro 60.
+
 ## Lorsque je migre mes ressources d’un abonnement à un autre, ma base de données ClearDB MySQL migre-t-elle également ?  
 
-Lorsque vous effectuez la migration de ressources entre les différents abonnements, certaines [limitations](app-service-move-resources.md) s’appliquent. Une base de données ClearDB MySQL est un service tiers et ne peut donc pas être migrée lors d’une migration d’abonnement Azure. Si vous ne gérez pas la migration de votre base de données MySQL avant la migration des ressources Azure, vos bases de données ClearDB MySQL peuvent être désactivées. Commencez par migrer manuellement vos bases de données, puis effectuez la migration des abonnements Azure pour votre application web.
+Lorsque vous effectuez la migration de ressources entre les différents abonnements, certaines [limitations](./app-service-web/app-service-move-resources.md) s’appliquent. Une base de données ClearDB MySQL est un service tiers et ne peut donc pas être migrée lors d’une migration d’abonnement Azure. Si vous ne gérez pas la migration de votre base de données MySQL avant la migration des ressources Azure, vos bases de données ClearDB MySQL peuvent être désactivées. Commencez par migrer manuellement vos bases de données, puis effectuez la migration des abonnements Azure pour votre application web.
 
 ## Puis-je acheter WordPress évolutif avec un abonnement Contrat Entreprise ?
 
@@ -120,8 +128,12 @@ L’accès à Azure Marketplace pour les services tiers peut être géré par le
 
 Contactez le [support technique](http://aka.ms/AzureEntSupport) pour toute question sur la facturation liée à votre inscription Contrat Entreprise. L’équipe du support du portail Contrat Entreprise peut répondre à votre question ou trouver une solution à votre problème.
 
+ 
+
+
+
 ## Plus d’informations
 
 [FAQ Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

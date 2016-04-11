@@ -24,7 +24,7 @@ Dans la version CTP 3.1 via RC1, l’option permettant de spécifier un prédica
 
 Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
 
-    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+>   [AZURE.NOTE] Si vous fournissez un prédicat de filtre qui fonctionne mal, la migration de données est elle aussi médiocre. Stretch Database applique le prédicat de filtre à la table à l’aide de l’opérateur CROSS APPLY.
 
 ## Exigences de base pour la fonction tabulaire inline
 La fonction tabulaire inline requise pour une fonction de filtre Stretch Database ressemble à l’exemple qui suit.
@@ -333,7 +333,7 @@ La nouvelle fonction tabulaire inline est configurée de la façon suivante.
 
 -   L’ordre des arguments d’opérateur ne peut être modifié.
 
--   Seules les valeurs constantes qui font partie d’une comparaison `<, <=, >, >=` peuvent être modifiées d’une manière rendant le prédicat moins restrictif.
+-   Seules les valeurs constantes qui font partie d’une comparaison `<, <=, >, >=` peuvent être modifiées de manière à rendre le prédicat moins restrictif.
 
 ### Exemple de remplacement valide
 Supposons que la fonction suivante est le prédicat de filtre actuel.
@@ -404,10 +404,10 @@ GO
 Il est impossible de supprimer la fonction tabulaire inline tant qu’une table utilise la fonction en tant que prédicat de filtre.
 
 ## Vérifier le prédicat de filtre appliqué à une table
-Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de catalogue **sys.remote\_data\_archive\_tables** et vérifiez la valeur de la colonne **filter\_predicate**. Si la valeur est null, la table entière est éligible à l’archivage. Pour plus d’informations, consultez [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+Pour vérifier le prédicat de filtre appliqué à une table, ouvrez la vue de catalogue **sys.remote\_data\_archive\_tables** et vérifiez la valeur de la colonne **filter\_predicate**. Si la valeur est null, la table entière est éligible à l’archivage. Pour plus d’informations, voir [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Voir aussi
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

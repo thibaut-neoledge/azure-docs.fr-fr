@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/09/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess"/>
 
 # Récupérer une base de données après une défaillance dans SQL Data Warehouse
@@ -52,7 +52,7 @@ Pour récupérer une base de données, utilisez l’applet de commande [Start-Az
 5. Créez la demande de récupération de la base de données.
 6. Surveillez la progression de la récupération.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -113,4 +113,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [portail Azure]: https://portal.azure.com/
 [contactant le support]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

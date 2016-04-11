@@ -61,9 +61,9 @@ Utilisez les options suivantes lorsque vous exécutez CREATE TABLE ou ALTER TABL
 
 -   Si vous le souhaitez, utilisez la clause `FILTER_PREDICATE = <predicate>` pour spécifier un prédicat pour sélectionner les lignes à migrer si la table contient à la fois des données d’historique et des données actuelles. Le prédicat doit appeler une fonction table inline. Pour plus d’informations, consultez [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md). Si vous ne spécifiez pas de prédicat de filtre, la table entière est migrée.
 
-        > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+    >   [AZURE.NOTE] Si vous fournissez un prédicat de filtre qui fonctionne mal, la migration de données est elle aussi médiocre. Stretch Database applique le prédicat de filtre à la table à l’aide de l’opérateur CROSS APPLY.
 
-    Dans la version CTP 3.1 jusqu’à RC1, cette option n’est pas disponible dans l’Assistant Activer la base de données pour Stretch. Vous devez utiliser l’instruction CREATE TABLE ou ALTER TABLE pour configurer une table pour Stretch Database avec cette option. Pour en savoir plus, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+    Dans la version CTP 3.1 jusqu’à RC1, cette option n’est pas disponible dans l’Assistant Activer la base de données pour Stretch. Vous devez utiliser l’instruction CREATE TABLE ou ALTER TABLE pour configurer une table pour Stretch Database avec cette option. Pour plus d’informations, voir [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 -   Spécifiez `MIGRATION_STATE = OUTBOUND` pour démarrer la migration des données immédiatement, ou `MIGRATION_STATE = PAUSED` pour reporter le début de la migration des données.
 
@@ -76,7 +76,7 @@ Voici un exemple qui migre la table entière et commence immédiatement la migra
 ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-Voici un exemple qui migre uniquement les lignes identifiées par la fonction table inline `dbo.fn_stretchpredicate` et reporte la migration des données. Pour plus d’informations sur le prédicat de filtre, consultez [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md).
+Voici un exemple qui migre uniquement les lignes identifiées par la Fonction table inline `dbo.fn_stretchpredicate` et reporte la migration des données. Pour plus d’informations sur le prédicat de filtre, voir [Écrire une Fonction table inline pour sélectionner des lignes (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 ALTER TABLE <table name>
@@ -85,7 +85,7 @@ ALTER TABLE <table name>
         MIGRATION_STATE = PAUSED ) );
 ```
 
-Pour en savoir plus, consultez [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+Pour plus d’informations, voir [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 ### Créer une table avec Stretch Database activé
 Pour créer une nouvelle table avec Stretch Database activé, exécutez la commande CREATE TABLE.
@@ -96,7 +96,7 @@ Voici un exemple qui migre la table entière et commence immédiatement la migra
 CREATE TABLE <table name> ...
     WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-Voici un exemple qui migre uniquement les lignes identifiées par la fonction table inline `dbo.fn_stretchpredicate` et reporte la migration des données. Pour plus d’informations sur le prédicat de filtre, consultez [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md).
+Voici un exemple qui migre uniquement les lignes identifiées par la Fonction table inline `dbo.fn_stretchpredicate` et reporte la migration des données. Pour plus d’informations sur le prédicat de filtre, voir [Écrire une Fonction table inline pour sélectionner des lignes (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 CREATE TABLE <table name> ...
@@ -105,7 +105,7 @@ CREATE TABLE <table name> ...
         MIGRATION_STATE = PAUSED ) );
 ```
 
-Pour en savoir plus, consultez [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
+Pour plus d’informations, voir [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
 
 
 ## Voir aussi
@@ -114,4 +114,4 @@ Pour en savoir plus, consultez [CREATE TABLE (Transact-SQL)](https://msdn.micros
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transactions dans SQL Data Warehouse
@@ -57,7 +57,7 @@ SQL Data Warehouse utilise la fonction XACT\_STATE() pour signaler l’échec d�
 
 Dans SQL Server, vous pouvez voir apparaître un fragment de code ressemblant à ce qui suit :
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -83,7 +83,7 @@ Notez que l’instruction `SELECT` survient avant l’instruction `ROLLBACK`. Pa
 
 Dans SQL Data Warehouse, le code doit ressembler à ce qui suit :
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -140,4 +140,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

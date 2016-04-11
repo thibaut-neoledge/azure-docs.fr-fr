@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@ Pour configurer l’intégration d’Ultipro à Azure AD, vous devez ajouter Ult
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, tapez **Ultipro**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)<br>
-7. Dans le volet de résultats, sélectionnez **Ultipro**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>
+7. Dans le volet de résultats, sélectionnez **Ultipro**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L'objectif de cette section est de vous montrer comment configurer et tester l'authentification unique Azure AD avec Ultipro avec un utilisateur de test appelé « Britta Simon ».
@@ -106,11 +106,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
     b. Cliquez sur **Next**.
 
 
-5. Pour obtenir l'authentification unique configurée pour votre application, contactez votre équipe de support Ultipro via [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com) et fournissez-leur les éléments suivants :
+5. Pour obtenir l’authentification unique configurée pour votre application, contactez votre équipe de support Ultipro via [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com) et fournissez-lui les éléments suivants :
 
     - Le fichier de certificat téléchargé
 
-    - L’**URL de l'émetteur**
+    - L’**URL de l’émetteur**
 
     - L’**URL SSO SAML**
 
@@ -221,4 +221,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

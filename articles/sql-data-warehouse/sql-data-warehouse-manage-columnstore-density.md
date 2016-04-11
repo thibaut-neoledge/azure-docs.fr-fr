@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestion des index columnstore
@@ -24,7 +24,7 @@ Cet article explique comment interroger les métadonnées d’index columnstore 
 ## Interrogation des métadonnées de Columnstore
 Pour comprendre la densité de votre index columnstore, vous devez interroger les métadonnées système. Voici un exemple du type d’informations que vous pouvez obtenir.
 
-```
+```sql
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 WITH CSI
@@ -73,7 +73,7 @@ FROM    CSI
 
 Après avoir créé la vue, les métadonnées du columnstore peuvent être facilement analysées. Vous trouverez ci-dessous un exemple de requête.
 
-```
+```sql
 SELECT	[table_name]
 ,		[table_partition_count]
 ,		[row_count_total]
@@ -149,4 +149,4 @@ Pour plus d’informations sur la gestion, consultez la présentation de la [ges
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

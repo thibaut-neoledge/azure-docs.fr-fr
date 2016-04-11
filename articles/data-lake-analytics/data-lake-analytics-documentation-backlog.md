@@ -32,7 +32,8 @@ U-SQL | Traitement JSON | 2 | Pending | [@mumian](https://github.com/mumian) | [
 Service | Interaction avec Curl | 3 |Pending |[@mumian](https://github.com/mumian)
 U-SQL | Tables partitionnées |1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Réglage des performances | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
-U-SQL | Guide du programmeur | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Guide du programmeur UDO U-SQL | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Guide du programmeur U-SQL | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Prise en main du langage U-SQL à partir d’un contexte T-SQL | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
 U-SQL | Prise en main du langage U-SQL à partir d’un contexte Hive | 1 | Pending | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
 U-SQL | Diagrammes ferroviaires grammaticaux | 1 | en cours, à l'aide de [ceci](http://bottlecaps.de/rr/ui) | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
@@ -42,7 +43,7 @@ Outils | Utilisation des outils de diagnostic | 1 | Pending | [@mumian](https://
 U-SQL | Expliquez les techniques permettant d’effectuer des jointures basé sur une plage | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Options d’authentification ADLS | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Soumission de travail à l’aide de l’interface de ligne de commande multiplateforme | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
-U-SQL | Mises à jour des documents de référence pour REDUCE et COMBINE | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+U-SQL | Mises à jour des documents de référence pour REDUCE et COMBINE | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@MikeRys](https://github.com/mikerys)
 Outils | Test unitaire de vos fonctions définies par l’utilisateur U-SQL dans Azure Data Lake Tools pour Visual Studio | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 Outils | Graphiques sur les tâches et vue d’exécution du vertex dans Azure Data Lake Tools pour Visual Studio | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
@@ -61,4 +62,4 @@ Plusieurs possibilités vous sont données pour fournir des commentaires sur le 
 * Envoyer une requête de tirage sur ce document dans le [référentiel de contenu Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Envoyer un e-mail à l’adresse [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

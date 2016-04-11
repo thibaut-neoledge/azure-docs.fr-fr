@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Requête SQL et syntaxe SQL dans DocumentDB
@@ -1223,7 +1223,7 @@ Voici un exemple de méthode d'enregistrement de fonction définie par l'utilisa
 	   };
 	   
 	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-	       collectionSelfLink/* link of the parent collection*/, 
+	       UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
 	       regexMatchUdf).Result;  
                                                                              
 L’exemple ci-dessus crée une fonction définie par l’utilisateur dont le nom est `REGEX_MATCH`. Elle accepte les deux valeurs de chaîne JSON `input` et `pattern`, et vérifie si la première correspond au modèle spécifié dans la seconde à l’aide de la fonction string.match() de JavaScript.
@@ -1285,7 +1285,9 @@ Pour développer la puissance des fonctions définies par l'utilisateur, étudio
 	                }"
             };
 
-            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(collection.SelfLink, seaLevelUdf);
+            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
+                UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
+                seaLevelUdf);
 	
 	
 L'exemple ci-dessous utilise les fonctions définies par l'utilisateur.
@@ -2316,7 +2318,7 @@ Le prochain exemple illustre des jointures, exprimées via l'opérateur LINQ Sel
 
 Le client .NET effectue une itération automatique à travers l'ensemble des pages des résultats de la requête dans les blocs foreach, comme indiqué précédemment. Les options de requête présentées dans la section sur l’API REST sont également disponibles dans le Kit de développement logiciel (SDK) .NET à l’aide des classes `FeedOptions` et `FeedResponse` dans la méthode CreateDocumentQuery. Vous pouvez aussi contrôler le nombre de pages en utilisant le paramètre `MaxItemCount`.
 
-Les développeurs peuvent également contrôler la pagination de façon explicite en créant `IDocumentQueryable` à l’aide de l'objet `IQueryable`, puis en lisant les valeurs ` ResponseContinuationToken` avant de les transmettre en tant que `RequestContinuationToken` dans `FeedOptions`. `EnableScanInQuery` peut être défini pour autoriser les analyses lorsque la stratégie d’indexation configurée ne peut pas prendre en charge la requête.
+Vous pouvez également contrôler la pagination de façon explicite en créant `IDocumentQueryable` à l’aide de l’objet `IQueryable`, puis en lisant les valeurs ` ResponseContinuationToken` avant de les transmettre en tant que `RequestContinuationToken` dans `FeedOptions`. `EnableScanInQuery` peut être défini pour autoriser les analyses lorsque la stratégie d’indexation configurée ne peut pas prendre en charge la requête. Dans le cas les collections partitionnées, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une seule partition (bien que DocumentDB puisse extraire automatiquement cet élément du texte de la requête), et `EnableCrossPartitionQuery` pour exécuter des requêtes qu’il peut être nécessaire d’exécuter sur plusieurs partitions.
 
 Reportez-vous aux [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net) pour obtenir plus d’exemples de requête.
 
@@ -2367,9 +2369,9 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 7.	Spécification Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Techniques d’évaluation des requêtes pour les bases de données volumineuses [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.Traitement des requêtes dans des systèmes de bases de données relationnelles parallèles, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Traitement des requêtes dans des systèmes de bases de données relationnelles parallèles, IEEE Computer Society Press, 1994.
-12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins : Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
+10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
+12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins : Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
 
@@ -2378,4 +2380,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

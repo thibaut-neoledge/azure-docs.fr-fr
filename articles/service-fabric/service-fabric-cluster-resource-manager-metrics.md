@@ -122,7 +122,7 @@ Les rapports de charge dynamique permettent aux réplicas ou aux instances d’a
 Code :
 
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("Foo", 42) });
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
 ```
 
 Les réplicas ou les instances de service peuvent signaler la charge uniquement pour les mesures qu’ils sont autorisés à utiliser. La liste de mesures est définie lors de la création de chaque service. Si un réplica ou une instance de service tente de signaler la charge pour une mesure non autorisée par leur configuration, Service Fabric consigne l’état mais l’ignore, ce qui signifie que nous ne l’utiliserons pas pour le calcul ou le signalement de l’état du cluster. C’est parfait car cela permet une meilleure expérimentation. Le code peut mesurer et signaler tout élément, s’il sait le faire, et l’opérateur peut configurer, modifier et mettre à jour les règles d’équilibrage des ressources pour ce service à la volée sans avoir à modifier le code. Il peut s’agir, par exemple, de la désactivation d’une mesure ayant un état incorrect, de la reconfiguration du poids des mesures en fonction du comportement ou de l’activation d’une nouvelle mesure uniquement une fois que le code a déjà été déployé et validé.
@@ -196,4 +196,4 @@ Tenant compte des poids des mesures, l’équilibre global est calculé en fonct
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -41,13 +41,15 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 2. Cliquez sur **NOUVEAU**, sur **Analyse des données**, puis sur **HDInsight**.
 
     ![Création d’un cluster dans le portail Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Créer un cluster dans le portail Azure")
+3. Entrez le **nom du cluster** : ce nom doit être globalement unique.
+4. Cliquez sur **Sélectionner un type de cluster**, puis choisissez :
 
-3. Entrez :
-
-    - **Nom du cluster** : ce nom doit être globalement unique.
-    - **Type de cluster** : si vous ne savez pas lequel choisir, sélectionnez **Hadoop**.
-    - **Système d’exploitation du cluster** : sélectionnez **Linux**.
+    - **Type de cluster** : si vous ne savez pas lequel choisir, sélectionnez **Hadoop**. Il s’agit du type de cluster le plus répandu.
+    - **Système d’exploitation** : sélectionnez **Linux**.
     - **Version** : utilisez la version par défaut si vous ne savez pas laquelle choisir. Pour plus d’informations, consultez [Versions de clusters HDInsight](hdinsight-component-versioning.md).
+    - **Niveau de cluster**: Azure HDInsight propose deux catégories d’offres de cloud Big Data : Niveau Standard et Niveau Premium. Pour plus d’informations, consultez [Niveaux de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+    
+    ![Configuration du niveau premium HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 4. Cliquez sur **Abonnement** pour sélectionner l’abonnement Azure qui sera utilisé pour le cluster.
 
@@ -158,7 +160,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 ##Personnalisation des clusters
 
 - Consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-- Consultez [Personnalisation de clusters HDInsight Windows à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md).
+- Consultez [Personnalisation de clusters HDInsight Windows à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 ##Suppression du cluster
 
@@ -193,4 +195,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

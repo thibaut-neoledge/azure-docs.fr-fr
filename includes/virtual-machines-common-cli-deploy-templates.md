@@ -1,5 +1,5 @@
 
-Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-linux-app-frameworks.md).
+Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
 
 - [Création rapide d’une machine virtuelle dans Azure](#quick-create-a-vm-in-azure)
@@ -35,9 +35,9 @@ Vous pouvez également exécuter l'interface de ligne de commande Azure en tant 
 
 Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement MSDN, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-À présent, [connectez-vous à votre compte Azure de façon interactive](../xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis en suivant les invites pour une expérience de connexion interactive à votre compte Azure.
+À présent, [connectez-vous à votre compte Azure de façon interactive](../articles/xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis en suivant les invites pour une expérience de connexion interactive à votre compte Azure.
 
-> [AZURE.NOTE] Si vous disposez d'un ID professionnel ou scolaire et que vous savez que l'authentification à deux facteurs n'est pas activée, vous pouvez **également** utiliser `azure login -u` avec l'ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d'un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](virtual-machines-windows-create-aad-work-id.md) pour vous connecter de la même façon.
+> [AZURE.NOTE] Si vous disposez d'un ID professionnel ou scolaire et que vous savez que l'authentification à deux facteurs n'est pas activée, vous pouvez **également** utiliser `azure login -u` avec l'ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d'un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md) pour vous connecter de la même façon.
 
 Votre compte peut avoir plusieurs abonnements. Vous pouvez répertorier vos abonnements en tapant `azure account list`, ce qui pourrait donner ceci :
 
@@ -75,7 +75,7 @@ Vous pouvez ensuite gérer l’ensemble du cycle de vie des ressources du groupe
 - mener des opérations d’audit ;
 - baliser des ressources avec des métadonnées supplémentaires pour améliorer leur suivi.
 
-Pour plus d'informations sur les groupes de ressources Azure et ce qu'ils peuvent faire pour vous, consultez [Présentation d'Azure Resource Manager](../resource-group-overview.md). Si vous êtes intéressé par la création de modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Pour plus d'informations sur les groupes de ressources Azure et ce qu'ils peuvent faire pour vous, consultez [Présentation d'Azure Resource Manager](../articles/resource-group-overview.md). Si vous êtes intéressé par la création de modèles, consultez [Création de modèles Azure Resource Manager](../articles/resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Tâche : Créer rapidement une machine virtuelle dans Azure
 
@@ -97,7 +97,7 @@ Commencez par créer votre groupe de ressources.
     info:    group create command OK
 
 
-Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide de l’interface de ligne de commande Azure, consultez [Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](virtual-machines-linux-cli-ps-findimage.md). Mais pour cet article, voici une brève liste d’images populaires. Nous allons utiliser l’image Stable de CoreOS pour cette création rapide.
+Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide de l’interface de ligne de commande Azure, consultez [Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Mais pour cet article, voici une brève liste d’images populaires. Nous allons utiliser l’image Stable de CoreOS pour cette création rapide.
 
 > [AZURE.NOTE] Pour l’élément ComputeImageVersion, vous pouvez simplement ajouter 'latest' en tant que paramètre dans le langage du modèle et dans l’interface de ligne de commande Azure. Ceci vous permettra de toujours utiliser la version la plus récente et corrigée de l’image, sans modifier vos scripts ou vos modèles. Consultez l’illustration ci-dessous.
 
@@ -666,9 +666,9 @@ Ici encore, vous devez rechercher les valeurs que vous souhaitez entrer pour les
 
 Évidemment, vous aurez besoin d’un fichier .vhd pour cela. Vous pouvez utiliser un fichier dont vous disposez dans Azure ou en télécharger un.
 
-Dans le cas d’une machine virtuelle Windows, consultez la page [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-windows-classic-createupload-vhd.md).
+Dans le cas d’une machine virtuelle Windows, consultez la page [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
-Pour une machine virtuelle Linux, consultez [Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Pour une machine virtuelle Linux, consultez [Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
 
 ### Étape 3 : création de la machine virtuelle à l’aide du modèle
 
@@ -1160,7 +1160,7 @@ N'oubliez pas que vous pouvez effectuer un redéploiement dans un groupe de ress
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>Tâche : Afficher le journal d'un déploiement de groupe de ressources
 
-Cette tâche est courante lors de la création ou de l’utilisation de modèles. L’appel permettant d’afficher les journaux de déploiement d’un groupe est `azure group log show <groupname>`. Cela entraîne l’affichage d’informations utiles pour comprendre pourquoi un événement s’est produit ou ne s’est pas produit. Pour plus d'informations sur la résolution des problèmes de vos déploiements, mais aussi pour obtenir des informations supplémentaires sur les problèmes, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-group-deploy-debug.md).
+Cette tâche est courante lors de la création ou de l’utilisation de modèles. L’appel permettant d’afficher les journaux de déploiement d’un groupe est `azure group log show <groupname>`. Cela entraîne l’affichage d’informations utiles pour comprendre pourquoi un événement s’est produit ou ne s’est pas produit. Pour plus d'informations sur la résolution des problèmes de vos déploiements, mais aussi pour obtenir des informations supplémentaires sur les problèmes, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../articles/resource-manager-troubleshoot-deployments-cli.md).
 
 Pour résoudre certaines défaillances, vous pouvez utiliser des outils tels que **jq** pour obtenir des renseignements plus précis, comme par exemple, l’identification des défaillances individuelles à corriger. L'exemple suivant utilise **jq** pour analyser un journal de déploiement à la recherche de défaillances dans **lbgroup**.
 
@@ -1243,7 +1243,7 @@ Ensuite, recherchez myVM1 :
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tâche : Se connecter à une machine virtuelle Linux
 
-En général, les machines Linux sont connectées via SSH. Pour plus d’informations, consultez [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-ssh-from-linux.md).
+En général, les machines Linux sont connectées via SSH. Pour plus d’informations, consultez [Utilisation de SSH avec Linux dans Azure](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tâche : Arrêter une machine virtuelle
 
@@ -1276,9 +1276,9 @@ Vous devrez ensuite monter le disque, comme vous le feriez normalement sous Linu
 
 ## Étapes suivantes
 
-Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d'Azure Resource Manager](../resource-group-overview.md).
+Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d'Azure Resource Manager](../articles/resource-group-overview.md).
 
 
-Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-linux-app-frameworks.md).
+Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

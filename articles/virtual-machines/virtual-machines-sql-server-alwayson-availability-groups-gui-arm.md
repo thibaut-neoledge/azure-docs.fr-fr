@@ -54,7 +54,7 @@ Ce didacticiel part des principes suivants :
 
 - Vous disposez déjà d’un compte Azure. Si vous n’en avez pas, [inscrivez-vous pour obtenir un compte d’essai](http://azure.microsoft.com/pricing/free-trial/).
 
-- Vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l’interface graphique utilisateur. Pour plus d’informations, consultez [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-windows-classic-portal-sql.md).
+- Vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l’interface graphique utilisateur. Pour plus d’informations, voir [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 - Vous avez déjà une très bonne connaissance des groupes de disponibilité AlwaysOn. Pour plus d’informations, consultez [Groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -260,4 +260,4 @@ Vous êtes maintenant connecté au contrôleur de domaine principal. Pour établ
 
 Vous êtes maintenant connecté avec RDP au serveur SQL Server. Vous pouvez ouvrir SQL Server Management Studio, vous connecter à l’instance par défaut de SQL Server et vérifier que le groupe de disponibilité AlwaysOn est configuré.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

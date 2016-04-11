@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestion des index
@@ -29,13 +29,13 @@ Vous pouvez optimiser votre reconstruction d’index de deux manières :
 
 Voici un exemple montrant comment reconstruire une partition unique :
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
 ALTER INDEX..REBUILD est mieux adapté aux petits volumes de données, en particulier sur les index columnstore. Les groupes de lignes ouvertes, fermées et compressées sont inclus dans la reconstruction. Toutefois, si la partition est volumineuse, vous constaterez que `CTAS` est l’opération la plus efficace. Voici un exemple de reconstruction d’index complet
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ```
 
@@ -45,7 +45,7 @@ Consultez l’article [ALTER INDEX][] pour plus d’informations sur cette synta
 
 Voici un exemple montrant comment reconstruire une partition à l’aide de CTAS :
 
-```
+```sql
 -- Step 01. Select the partition of data and write it out to a new table using CTAS
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
@@ -82,7 +82,6 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 
 -- Step 04. Switch IN the rebuilt data
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
-
 ```
 
 ## Étapes suivantes
@@ -102,4 +101,4 @@ Pour plus de conseils sur la gestion, consultez la présentation de la [gestion]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Nouveautés d’Azure Data Catalog | Microsoft Azure"
-   description="Vue d’ensemble des nouvelles fonctionnalités de la version préliminaire d’Azure Data Catalog."
+   description="Vue d’ensemble des nouvelles fonctionnalités ajoutées à Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/14/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Nouveautés d'Azure Data Catalog
@@ -216,4 +216,4 @@ Depuis la semaine du 28 août 2015, les fonctionnalités suivantes ont été ajo
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

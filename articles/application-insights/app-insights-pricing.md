@@ -53,7 +53,7 @@ Vous pouvez à tout moment passer à la version d’évaluation Premium gratuite
 * Le quota varie selon le niveau de tarification que vous avez choisi.
 * Le quota est calculé à partir de minuit (UTC), le premier jour de chaque mois.
 * Le graphique de points de données indique la quantité de quota utilisée ce mois-ci.
-* Le quota est mesuré en *points de données.* Un point de données est un appel à une des méthodes de suivi, qu’elle soit appelée explicitement dans votre code ou par l’un des modules standard de télémétrie. 
+* Le quota est mesuré en *points de données.* Un point de données est un appel à une des méthodes de suivi, qu’elle soit appelée explicitement dans votre code ou par l’un des modules standard de télémétrie. Il peut être associé à plusieurs propriétés et métriques.
 * Les points de données sont générées par les éléments suivants :
  * [Les modules du Kit de développement logiciel (SDK)](app-insights-configuration-with-applicationinsights-config.md) qui collectent automatiquement les données, par exemple pour signaler une requête ou une panne, ou pour mesurer les performances.
  * [Les appels d’API](app-insights-api-custom-events-metrics.md) `Track...` que vous avez écrits, tels que `TrackEvent` ou `trackPageView`.
@@ -67,7 +67,7 @@ Vous pouvez à tout moment passer à la version d’évaluation Premium gratuite
 * Vous pouvez également inspecter des points de données individuels à la source pendant le débogage :
  * Si vous exécutez votre application en mode débogage dans Visual Studio, les points de données sont enregistrés dans la fenêtre Sortie. 
  * Pour afficher les points de données clients, ouvrez le volet de débogage de votre navigateur (généralement, F12), puis ouvrez l’onglet Réseau.
-* Le débit de données est (par défaut) réduit par [échantillonnage adaptatif](app-insights-sampling). Autrement dit, lorsque l’utilisation de votre application augmente, le taux de télémétrie n’augmente pas autant que vous pouviez le penser.
+* Le débit de données peut (par défaut) être réduit par un [échantillonnage ADaptatif](app-insights-sampling). Autrement dit, lorsque l’utilisation de votre application augmente, le taux de télémétrie n’augmente pas autant que vous pouviez le penser.
 
 ### Dépassement
 
@@ -173,4 +173,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

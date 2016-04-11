@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 #  Azure Active Directory B2C en version préliminaire : utilisation d’attributs personnalisés pour recueillir des informations sur vos clients
@@ -48,4 +48,9 @@ L’attribut personnalisé est actuellement disponible dans la liste des **attri
 
 La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifier l’expérience utilisateur. Vous devez maintenant voir « ShoeSize » dans la liste d’attributs collectés lors de l’inscription du consommateur, et le voir dans le jeton retourné à votre application.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Remarques
+
+- Au-delà des stratégies d’inscription, il est également possible d’utiliser des attributs personnalisés dans les stratégies de connexion ou d’authentification ainsi que dans les stratégies de modification de profil.
+- Les attributs personnalisés présentent toutefois un inconvénient connu. L’attribut est créé lors de sa première utilisation dans une stratégie, et non pas lorsque vous l’ajoutez à la liste des **Attributs utilisateur**. Nous prévoyons de résoudre ce problème rapidement.
+
+<!---HONumber=AcomDC_0330_2016-->

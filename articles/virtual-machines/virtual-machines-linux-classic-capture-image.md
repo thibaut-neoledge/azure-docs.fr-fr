@@ -38,7 +38,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 2. Dans la fenêtre SSH, tapez la commande suivante. Notez que le résultat de `waagent` peut varier légèrement en fonction de la version utilisée :
 
-	`sudo waagent -deprovision`
+	`sudo waagent -deprovision+user`
 
 	Cette commande essaie de nettoyer le système et de le préparer pour le réapprovisionnement. Cette opération effectue les tâches suivantes :
 
@@ -87,7 +87,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 
 ## Étapes suivantes
-L'image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de la CLI Azure et fournir le nom de l’image que vous venez de créer. Pour plus d'informations sur la commande, consultez [Utilisation de l'interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec la gestion des services Azure](virtual-machines-command-line-tools.md). Vous pouvez également utiliser le [portail Azure Classic][] pour créer une machine virtuelle personnalisée en utilisant l'option **À partir de la galerie** et en sélectionnant l'image que vous venez de créer. Pour plus d’informations, consultez [Création d’une machine virtuelle personnalisée][].
+L'image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de la CLI Azure et fournir le nom de l’image que vous venez de créer. Pour plus d'informations sur la commande, consultez [Utilisation de l'interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec la gestion des services Azure](../virtual-machines-command-line-tools.md). Vous pouvez également utiliser le [portail Azure Classic][] pour créer une machine virtuelle personnalisée en utilisant l'option **À partir de la galerie** et en sélectionnant l'image que vous venez de créer. Pour plus d’informations, consultez [Création d’une machine virtuelle personnalisée][].
 
 **Voir aussi :** [Guide d’utilisateur de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -98,4 +98,4 @@ L'image est prête à être utilisée pour créer des machines virtuelles. Vous 
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Comment créer une machine virtuelle Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

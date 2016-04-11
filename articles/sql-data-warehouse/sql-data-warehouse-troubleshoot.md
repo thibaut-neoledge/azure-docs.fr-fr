@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Résolution de problèmes
@@ -38,7 +38,7 @@ Consultez nos pages sur la [connexion](sql-data-warehouse-get-started-connect.md
 ## Performances des requêtes
 SQL Data Warehouse utilise des constructions SQL Server communes pour l'exécution de requêtes, notamment les statistiques. Les [statistiques](sql-data-warehouse-develop-statistics.md) sont des objets contenant des informations sur la plage et la fréquence de valeurs dans une colonne de base de données. Le moteur de requête utilise ces statistiques pour optimiser l'exécution des requêtes et améliorer leurs performances. Vous pouvez utiliser la requête suivante pour déterminer la dernière fois que vos statistiques ont été mises à jour.
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],
@@ -90,4 +90,4 @@ Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de 
 
 <!--Other web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/27/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimisation des transactions pour SQL Data Warehouse
@@ -89,7 +89,7 @@ Vous trouverez ci-dessous quatre exemples expliquant comment optimiser votre cod
 ### Optimisation des opérations de suppression de grande envergure à l’aide de CTAS
 Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver : création d’une table avec [CTAS][]. Après la création, utilisez une paire de commandes [RENAME OBJECT][] afin d’échanger les noms des tables.
 
-```
+```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
 
 --Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
@@ -124,7 +124,7 @@ Dans l’exemple suivant, une mise à jour complète de table a été convertie 
 
 Dans ce cas, nous ajoutons a posteriori une valeur de remise aux ventes dans la table :
 
-```
+```sql
 --Step 01. Create a new table containing the "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
@@ -192,7 +192,7 @@ Les étapes constitutives d’un basculement de partitions sont les suivantes :
 
 Toutefois, pour faciliter l’identification des partitions à basculer, nous devons dans un premier temps générer une procédure d’assistance, semblable à celle ci-dessous.
 
-```
+```sql
 CREATE PROCEDURE dbo.partition_data_get
 	@schema_name		   NVARCHAR(128)
 ,	@table_name			   NVARCHAR(128)
@@ -240,7 +240,7 @@ Cette procédure optimise la réutilisation du code et permet de conserver un ex
 
 Le code ci-dessous représente les cinq étapes mentionnées plus haut pour l’exécution d’une opération de basculement complet de partitions.
 
-```
+```sql
 --Create a partitioned aligned empty table to switch out the data 
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
@@ -346,7 +346,7 @@ Pour les opérations de grande envergure de modifications de données, il peut s
 
 Vous trouverez ci-dessous un exemple de travail. La taille du lot a été définie sur un nombre insignifiant, ceci pour mettre en évidence la technique. Dans la réalité, la taille du lot serait bien plus importante.
 
-```
+```sql
 SET NO_COUNT ON;
 IF OBJECT_ID('tempdb..#t') IS NOT NULL
 BEGIN
@@ -437,4 +437,4 @@ Pour plus de conseils sur le développement et pour consulter du contenu relatif
 <!--MSDN references-->
 [alter index]: https://msdn.microsoft.com/fr-FR/library/ms188388.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

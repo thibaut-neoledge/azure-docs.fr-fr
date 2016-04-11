@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/>
 	
 # Utiliser les fonctionnalités des applications logiques
@@ -61,6 +61,11 @@ Cette application logique risque de causer un grand volume d’e-mails. Les éta
 
 7.  Enfin, effectuez un glisser-déplacer de la zone e-mail vers la zone **If Yes**. Cela signifie que vous ne recevrez des e-mails que lorsque le nombre de followers est atteint.
 
+## Répétition sur une liste à l’aide de forEach
+
+La boucle forEach spécifie un tableau sur lequel répéter une action. Le flux échouera s’il ne se présente pas sous la forme d’un tableau. Par exemple, si action1 génère un tableau de messages et que vous souhaitez envoyer chaque message, vous pouvez inclure cette instruction forEach dans les propriétés de votre action : forEach : "@action(’action1’).outputs.messages"
+ 
+
 ## Utilisation du mode code pour modifier une application logique
 
 Outre le concepteur, vous pouvez modifier directement le code qui définit une application logique en procédant comme suit.
@@ -91,7 +96,7 @@ Le code suivant met à jour votre application logique existante pour utiliser de
  
 Les paramètres constituent un bon moyen d'extraire des valeurs que vous êtes susceptible de modifier souvent. Ils sont particulièrement utiles quand vous devez substituer des paramètres dans différents environnements. Pour plus d’informations sur la façon de substituer des paramètres en fonction de l’environnement, consultez notre [Documentation sur l’API REST](https://msdn.microsoft.com/library/mt643787.aspx).
 
-Maintenant, quand vous cliquez sur **Enregistrer**, toutes les heures, les nouveaux tweets qui ont plus de 5 retweets sont envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
+À présent, quand vous cliquez sur **Enregistrer**, toutes les heures, les nouveaux tweets qui ont plus de 5 retweets sont envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
 
 Pour en savoir plus sur les définitions d'application logique, consultez la rubrique [Créer des définitions d'application logique](app-service-logic-author-definitions.md).
 
@@ -107,4 +112,4 @@ Les services peuvent appeler un point de terminaison d'application logique pour 
 <!-- Shared links -->
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

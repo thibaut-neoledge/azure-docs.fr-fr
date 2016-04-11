@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # Utilisation des applets de commande PowerShell et des API REST avec SQL Data Warehouse
@@ -26,29 +26,29 @@ De la même manière, les API REST pour **Azure SQL Database** peuvent égalemen
 
 ## Acquérir et exécuter les applets de commande Azure PowerShell
 
-1. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
-2. Pour exécuter le module, entrez **Windows PowerShell** dans la fenêtre de démarrage.
-3. Si vous n’avez pas encore ajouté votre compte à la machine, exécutez l’applet de commande suivante. (Pour plus d’informations, consultez la rubrique [Comment installer et configurer Azure PowerShell]() :
+1. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://aka.ms/webpi-azps). Pour plus d’informations sur ce programme d’installation, voir [Installation et configuration d’Azure PowerShell][].
+2. Pour exécuter le module, tapez **Windows PowerShell** dans la fenêtre de démarrage.
+3. Exécutez cette applet de commande pour vous connecter à Azure Resource Manager.
 
-	```
-	Login-AzureRmAccount
-	```
+```PowerShell
+Login-AzureRmAccount
+```
 
 3. Sélectionnez l’abonnement à la base de données que vous souhaitez suspendre ou reprendre. L’abonnement nommé « mysubscription » est sélectionné.
 
-	```
-	Select-AzureRmSubscription -SubscriptionName "MySubscription"
-	```
+```Powershell
+Select-AzureRmSubscription -SubscriptionName "MySubscription"
+```
 
 ## Suspend-AzureRmSqlDatabase
 
-Pour plus d’informations sur cette commande, consultez [Suspend-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
+Pour plus d’informations sur cette commande, voir [Suspend-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
 
 ### Exemple 1 : Interruption d’une base de données par nom sur un serveur
 
 Dans cet exemple, une base de données appelée « Database02 » et hébergée sur un serveur appelé « Server01 » est interrompue. Le serveur est un groupe de ressources Azure appelé « ResourceGroup1 ».
 
-```
+```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
@@ -56,7 +56,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "
 
 Dans cet exemple, une base de données appelée « Database02 » est récupérée d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ». L’objet récupéré est redirigé vers **Suspend-AzureRmSqlDatabase**. En conséquence, la base de données est interrompue. La dernière commande affiche les résultats.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
@@ -64,13 +64,13 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-Pour plus d’informations sur cette commande, consultez [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
+Pour accéder à la référence des commandes, consultez [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
 
 ### Exemple 1 : Reprise d’une base de données par nom sur un serveur
 
 Dans cet exemple, les opérations d’une base de données appelée « Database02 » et hébergée sur un serveur « Server01 » sont reprises. Le serveur est hébergé dans un groupe de ressources appelé « ResourceGroup1 ».
 
-```
+```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
@@ -78,7 +78,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "S
 
 Dans cet exemple, une base de données appelée « Database02 » est récupérée d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ». L’objet est redirigé vers **Resume-AzureRmSqlDatabase**.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
@@ -96,7 +96,7 @@ RestorePointCreationDate |Prise de l’instantané de sauvegarde (rempli quand r
 ### Exemple 1: Extraction des points de restauration de base de données par nom sur un serveur
 Dans cet exemple, les points de restauration d’une base de données appelée « Database02 » sont récupérés d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ».
 
-```
+```Powershell
 $restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
@@ -106,7 +106,7 @@ $restorePoints
 
 Dans cet exemple, une base de données appelée « Database02 » est récupérée d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ». L’objet de base de données est redirigé vers **Get-AzureRmSqlDatabase**, et le résultat comprend les points de restauration de la base de données. La dernière commande imprime les résultats.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
 $retorePoints
@@ -123,7 +123,7 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 
 <!--Article references-->
 [vue d’ensemble de référence de SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
-[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
+[Installation et configuration d’Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -133,4 +133,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

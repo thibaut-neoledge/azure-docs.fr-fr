@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Envoi de notifications interplateformes aux utilisateurs avec Notification Hubs (ASP.NET)"
-	description="Découvrez comment utiliser des modèles Notification Hubs pour envoyer, dans une même demande, une notification indépendante de la plateforme qui cible toutes les plateformes."
+	description="Découvrez comment utiliser des modèles Notification Hubs pour envoyer, dans une même demande, une notification indépendante de la plateforme qui cible toutes les plateformes."
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/11/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs
@@ -23,11 +23,11 @@ Dans le didacticiel précédent [Notification des utilisateurs avec Notification
 
 > [AZURE.NOTE] Notification Hubs permet à un appareil d’inscrire plusieurs modèles avec la même balise. Dans ce cas, un message entrant ciblant cette balise déclenche l'envoi de plusieurs notifications à destination de l'appareil, une pour chaque modèle. Cela vous permet d'afficher le même message dans plusieurs notifications visuelles, par exemple, sous la forme d'un badge et d'une notification toast dans une application Windows Store.
 
-Pour envoyer des notifications interplateforme à l'aide de modèles, procédez comme suit :
+Pour envoyer des notifications interplateforme à l'aide de modèles, procédez comme suit :
 
 1. Dans l'Explorateur de solutions de Visual Studio, développez le dossier **Controllers**, puis ouvrez le fichier RegisterController.cs.
 
-2. Recherchez le bloc de code dans la méthode **Post** qui crée une inscription. Remplacez le contenu de `switch` par le code suivant :
+2. Recherchez le bloc de code dans la méthode **Post** qui crée une inscription. Remplacez le contenu de `switch` par le code suivant :
 
 		switch (deviceUpdate.Platform)
         {
@@ -58,7 +58,7 @@ Pour envoyer des notifications interplateforme à l'aide de modèles, procédez 
 
 	Ce code permet d’appeler la méthode propre à la plateforme pour créer une inscription de modèle et non une inscription native. Les inscriptions existantes n'ont pas besoin d'être modifiées, car les inscriptions de modèle sont dérivées d'inscriptions natives.
 
-3. Dans le contrôleur **Notifications**, remplaez la méthode **sendNotification** par le code suivant :
+3. Dans le contrôleur **Notifications**, remplaez la méthode **sendNotification** par le code suivant :
 
         public async Task<HttpResponseMessage> Post()
         {
@@ -83,7 +83,7 @@ Pour envoyer des notifications interplateforme à l'aide de modèles, procédez 
 
 ## Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel, vous trouverez des informations supplémentaires sur Notification Hubs et les modèles dans les rubriques suivantes :
+Maintenant que vous avez terminé ce didacticiel, vous trouverez des informations supplémentaires sur Notification Hubs et les modèles dans les rubriques suivantes :
 
 + **[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]** <br/>Présente un autre scénario d'utilisation des modèles.
 
@@ -108,4 +108,4 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

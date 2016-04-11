@@ -21,7 +21,7 @@
 
 Vous pouvez facilement effectuer la migration de vos sites web qui s’exécutent sur Internet Information Services (IIS) version 6 ou ultérieure vers [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
->[AZURE.IMPORTANT] La fin du support de Windows Server 2003 est programmée pour le 14 juillet 2015. Si vous hébergez actuellement vos sites web sur un serveur IIS exécutant Windows Server 2003, la fonctionnalité Web Apps constitue une solution sûre, économique et stable pour conserver vos sites web en ligne. Quant à l’Assistant Migration d’applications web, il facilite l’automatisation de votre processus de migration.
+>[AZURE.IMPORTANT] La fin du support de Windows Server 2003 est intervenue le 14 juillet 2015. Si vous hébergez actuellement vos sites web sur un serveur IIS exécutant Windows Server 2003, la fonctionnalité Web Apps constitue une solution sûre, économique et stable pour conserver vos sites web en ligne. Quant à l’Assistant Migration d’applications web, il facilite l’automatisation de votre processus de migration.
 
 L’[Assistant Migration Web Apps](https://www.movemetothecloud.net/) peut analyser votre installation de serveur IIS, identifier les sites pouvant faire l’objet d’une migration vers App Service, mettre en surbrillance les éléments dont la migration est impossible ou qui ne sont pas pris en charge sur la plateforme, puis effectuer la migration de vos sites web et des bases de données associées vers Azure.
 
@@ -135,4 +135,4 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

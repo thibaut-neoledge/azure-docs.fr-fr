@@ -14,35 +14,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/17/2016"
 	ms.author="curtand"/>
 
 
 # Utilisation d’attributs pour créer des règles avancées
-Le portail Azure vous offre la possibilité de définir les règles avancées dans Azure Active Directory (Azure AD) pour activer des appartenances dynamiques plus complexes aux groupes Azure AD.
 
-**Pour créer la règle avancée** Dans le portail Azure, sous l’onglet **Configurer** du groupe, cochez la case d’option **Règle avancée**, puis tapez votre règle avancée dans la zone de texte fournie. Vous pouvez créer votre règle avancée à l’aide des informations suivantes.
+Le portail Azure Classic vous permet de créer des règles avancées pour activer des appartenances dynamiques plus complexes basées sur les attributs aux groupes Azure Active Directory (Azure AD).
+
+## Pour créer une règle avancée
+
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis ouvrez le répertoire de votre organisation.
+
+2. Sélectionnez l’onglet **Groupes**, puis ouvrez le groupe que vous souhaitez modifier.
+
+3. Sélectionnez l’onglet **Configurer**, sélectionnez l’option **Règle avancée** et entrez la règle avancée dans la zone de texte.
 
 ## Construction du corps d’une règle avancée
-La règle avancée que vous pouvez créer pour l’appartenance dynamique à des groupes est essentiellement une expression binaire qui se compose de trois parties et qui génère un résultat true ou false. Les trois parties sont les suivantes :
+
+La règle avancée que vous pouvez créer pour l’appartenance dynamique à des groupes est essentiellement une expression binaire qui se compose de trois parties et qui génère un résultat true ou false. Les trois parties sont les suivantes :
 
 - Paramètre de gauche (leftParameter)
 - Opérateur binaire (binaryOperator)
 - Constante de droite (rightConstant)
 
-Une règle avancée complète ressemble à ceci : (leftParameter binaryOperator «RightConstant»). Elle nécessite des parenthèses ouvrantes et fermantes pour l’ensemble de l’expression binaire, des guillemets doubles pour la constante de droite et l’utilisation de la syntaxe user.property pour le paramètre de gauche. Une règle avancée peut se composer de plusieurs expressions binaires séparées par les opérateurs logiques -and, -or et -not. Voici des exemples de règles avancées correctement construites :
+Une règle avancée complète ressemble à ceci : (leftParameter binaryOperator «RightConstant»). Elle nécessite des parenthèses ouvrantes et fermantes pour l’ensemble de l’expression binaire, des guillemets doubles pour la constante de droite et l’utilisation de la syntaxe user.property pour le paramètre de gauche. Une règle avancée peut se composer de plusieurs expressions binaires séparées par les opérateurs logiques -and, -or et -not. Voici des exemples de règles avancées correctement construites :
 
 - (user.department -eq "Sales") -or (user.department -eq "Marketing")
 - (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 Pour obtenir la liste complète des paramètres et des opérateurs de règle d’expression pris en charge, consultez les sections ci-dessous.
 
-La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 048 caractères.
-> [AZURE.NOTE]
-Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant $null en tant que constante. Par exemple : user.department -eq $null. Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : "Sa`"les".
+La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 048 caractères.
 
-##Opérateurs de règle d’expression pris en charge
-Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
+> [AZURE.NOTE]
+Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant $null en tant que constante. Par exemple : user.department -eq $null. Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"Sales".
+
+## Opérateurs de règle d’expression pris en charge
+Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
 
 | Opérateur | Syntaxe |
 |-----------------|----------------|
@@ -56,18 +65,21 @@ Le tableau suivant répertorie tous les opérateurs de règle d’expression pri
 | Correspond | -match |
 
 
+## Correction d’erreur de requête
+Le tableau suivant répertorie les erreurs potentielles et la méthode pour les corriger si elles se produisent
+
 | Erreur d’analyse de requête | Utilisation incorrecte | Utilisation corrigée |
-|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Erreur : attribut non pris en charge. | (user.invalidProperty -eq "Value") | (user.department -eq "value")La propriété doit correspondre à l’une de celles figurant dans la liste des propriétés prises en charge ci-dessus. |
-| Erreur : l’opérateur n’est pas pris en charge sur l’attribut. | (user.accountEnabled -contains true) | (user.accountEnabled - eq true)La propriété est de type booléen. Utilisez les opérateurs pris en charge (-eq ou -ne) sur un type booléen dans la liste ci-dessus. |
-| Erreur : erreur de compilation de la requête. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")L’opérateur logique doit correspondre à l’un de ceux figurant dans la liste des propriétés prises en charge ci-dessus.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Erreur dans l’expression régulière. |
-| Erreur : l’expression binaire n’est pas au format correct. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
-| Erreur : une erreur inconnue s’est produite lors de la configuration des appartenances dynamiques. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
+|-----------------------|-------------------|-----------------------------|
+| Erreur : attribut non pris en charge. | (user.invalidProperty -eq "Value") | (user.department -eq "value")<br/>La propriété doit correspondre à l’une de celles figurant dans la [liste des propriétés prises en charge](#supported-properties). |
+| Erreur : l’opérateur n’est pas pris en charge sur l’attribut. | (user.accountEnabled -contains true) | (user.accountEnabled - eq true)<br/>La propriété est de type booléen. Utilisez les opérateurs pris en charge (-eq ou -ne) sur un type booléen dans la liste ci-dessus. |
+| Erreur : erreur de compilation de la requête. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>L’opérateur logique doit correspondre à l’un de ceux figurant dans la liste des propriétés prises en charge ci-dessus.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Erreur dans l’expression régulière. |
+| Erreur : l’expression binaire n’est pas au format correct. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
+| Erreur : une erreur inconnue s’est produite lors de la configuration des appartenances dynamiques. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
 
-##Paramètres pris en charge
-Voici toutes les propriétés d’utilisateur que vous pouvez utiliser dans vos règles avancées :
+## Propriétés prises en charge
+Voici toutes les propriétés d’utilisateur que vous pouvez utiliser dans vos règles avancées :
 
-**Propriétés de type booléen**
+### Propriétés de type booléen
 
 Opérateurs autorisés
 
@@ -82,7 +94,7 @@ Opérateurs autorisés
 | accountEnabled | true false | user.accountEnabled -eq true) |
 | dirSyncEnabled | true false null | (user.dirSyncEnabled -eq true) |
 
-**Propriétés de type chaîne**
+### Propriétés de type chaîne
 
 Opérateurs autorisés
 
@@ -111,31 +123,31 @@ Opérateurs autorisés
 
 | Propriétés | Valeurs autorisées | Usage |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| city | Toute valeur de chaîne ou $null. | (user.city -eq "value") |
-| country | Toute valeur de chaîne ou $null. | (user.country -eq "value") |
-| department | Toute valeur de chaîne ou $null. | (user.department -eq "value") |
+| city | Toute valeur de chaîne ou $null | (user.city -eq "value") |
+| country | Toute valeur de chaîne ou $null | (user.country -eq "value") |
+| department | Toute valeur de chaîne ou $null | (user.department -eq "value") |
 | displayName | Toute valeur de chaîne. | (user.displayName -eq "value") |
-| facsimileTelephoneNumber | Toute valeur de chaîne ou $null. | (user.facsimileTelephoneNumber -eq "value") |
-| givenName | Toute valeur de chaîne ou $null. | (user.givenName -eq "value") |
-| jobTitle | Toute valeur de chaîne ou $null. | (user.jobTitle -eq "value") |
-| mail | Toute valeur de chaîne ou $null. Adresse SMTP de l’utilisateur. | (user.mail -eq "value") |
-| mailNickName | Toute valeur de chaîne. Alias de messagerie de l’utilisateur. | (user.mailNickName -eq "value") |
-| mobile | Toute valeur de chaîne ou $null. | (user.mobile -eq "value") |
+| facsimileTelephoneNumber | Toute valeur de chaîne ou $null | (user.facsimileTelephoneNumber -eq "value") |
+| givenName | Toute valeur de chaîne ou $null | (user.givenName -eq "value") |
+| jobTitle | Toute valeur de chaîne ou $null | (user.jobTitle -eq "value") |
+| mail | Toute valeur de chaîne ou $null (adresse SMTP de l’utilisateur) | (user.mail -eq "value") |
+| mailNickName | Toute valeur de chaîne (alias de messagerie de l’utilisateur) | (user.mailNickName -eq "value") |
+| mobile | Toute valeur de chaîne ou $null | (user.mobile -eq "value") |
 | objectId | GUID de l’objet utilisateur | (user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | passwordPolicies | Aucune DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName | Toute valeur de chaîne ou $null. | (user.physicalDeliveryOfficeName -eq "value") |
-| postalCode | Toute valeur de chaîne ou $null. | (user.postalCode -eq "value") |
+| physicalDeliveryOfficeName | Toute valeur de chaîne ou $null | (user.physicalDeliveryOfficeName -eq "value") |
+| postalCode | Toute valeur de chaîne ou $null | (user.postalCode -eq "value") |
 | preferredLanguage | Code ISO 639-1 | (user.preferredLanguage -eq "fr-FR") |
-| sipProxyAddress | Toute valeur de chaîne ou $null. | (user.sipProxyAddress -eq "value") |
-| state | Toute valeur de chaîne ou $null. | (user.state -eq "value") |
-| streetAddress | Toute valeur de chaîne ou $null. | (user.streetAddress -eq "value") |
-| surname | Toute valeur de chaîne ou $null. | (user.surname -eq "value") |
-| telephoneNumber | Toute valeur de chaîne ou $null. | (user.telephoneNumber -eq "value") |
+| sipProxyAddress | Toute valeur de chaîne ou $null | (user.sipProxyAddress -eq "value") |
+| state | Toute valeur de chaîne ou $null | (user.state -eq "value") |
+| streetAddress | Toute valeur de chaîne ou $null | (user.streetAddress -eq "value") |
+| surname | Toute valeur de chaîne ou $null | (user.surname -eq "value") |
+| telephoneNumber | Toute valeur de chaîne ou $null | (user.telephoneNumber -eq "value") |
 | usageLocation | Paramètre régional à deux lettres | (user.usageLocation -eq "US") |
 | userPrincipalName | Toute valeur de chaîne. | (user.userPrincipalName -eq "alias@domain") |
 | userType | member guest $null | (user.userType -eq "Member") |
 
-**Propriétés de type collection de chaînes**
+### Propriétés de type collection de chaînes
 
 Opérateurs autorisés
 
@@ -152,11 +164,11 @@ Opérateurs autorisés
 ## Attributs d’extension et attributs personnalisés
 Les attributs d’extension et les attributs personnalisés sont pris en charge dans les règles d’appartenance dynamique.
 
-Les attributs d’extension sont synchronisés à partir d’un Windows Server AD et prennent le format « ExtensionAttributeX », où X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension :
+Les attributs d’extension sont synchronisés à partir d’un Windows Server AD et prennent le format « ExtensionAttributeX », où X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension :
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Les attributs personnalisés sont synchronisés à partir d’un système AD Windows Server local ou à partir d’une application SaaS connectée et le format de la chaîne « user.extension\_[GUID]\_\_[Attribut] », où [GUID] est l’identificateur unique, dans AAD, de l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
+Les attributs personnalisés sont synchronisés à partir d’un système AD Windows Server local ou à partir d’une application SaaS connectée et le format de la chaîne « user.extension\_[GUID]\_\_[Attribut] », où [GUID] est l’identificateur unique, dans AAD, de l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
@@ -164,16 +176,24 @@ Vous pouvez accéder au nom de l’attribut personnalisé dans le répertoire en
 
 ## Règle de collaborateurs
 Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attribut de responsable hiérarchique d’un utilisateur.
-Pour configurer un groupe en tant que groupe « Responsable »
---------------------------------------------------------------------------------
-1. Dans le portail d’administration, cliquez sur l’onglet **Configurer** et sélectionnez **Règle avancée**.
-2. Saisissez la règle en utilisant la syntaxe suivante : Collaborateurs de *Collaborateurs de {ID\_utilisateur\_du\_responsable}* Voici un exemple e règle valable pour Collaborateurs :
 
-Collaborateurs directs pour « 62e19b97-8b3d-4d4a-a106-4ce66896a863 »
+**Pour configurer un groupe en tant que groupe « Responsable »**
 
-où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable. L’ID objet se trouve dans le portail d’administration AAD, dans l’onglet Profil de la page Utilisateur de l’utilisateur qui est responsable.
+1. Dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 
-3. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Notez que le remplissage initial du groupe peut prendre quelques minutes.
+2. Sélectionnez l’onglet **Groupes**, puis ouvrez le groupe que vous souhaitez modifier.
+
+3. Sélectionnez l’onglet **Configurer**, puis sélectionnez **RÈGLE AVANCÉE**.
+
+4. Entrez la règle avec la syntaxe suivante :
+
+	Collaborateurs pour *Collaborateurs pour {ID objet\_du\_responsable}*. Voici un exemple e règle valable pour Collaborateurs :
+
+					Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
+
+	où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable. L’ID objet se trouve dans Azure AD, dans l’**onglet Profil** de la page Utilisateur de l’utilisateur qui est responsable.
+
+3. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Le remplissage initial du groupe peut prendre quelques minutes.
 
 
 ## Informations supplémentaires
@@ -185,8 +205,8 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
+* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

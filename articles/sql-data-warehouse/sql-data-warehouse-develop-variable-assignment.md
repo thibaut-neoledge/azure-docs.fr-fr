@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Affecter des variables dans SQL Data Warehouse
@@ -25,14 +25,14 @@ Pour définir une valeur de variable, il existe différentes méthodes, parfaite
 
 Dans SQL Data Warehouse, l’initialisation de variables avec l’instruction DECLARE constitue l’une des méthodes les plus flexibles pour définir une valeur de variable.
 
-```
+```sql
 DECLARE @v  int = 0
 ;
 ```
 
 De plus, vous pouvez utiliser cette instruction pour définir plusieurs variables à la fois. En effet, vous ne pouvez pas utiliser les éléments `SELECT` et `UPDATE` pour exécuter ceci :
 
-```
+```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
 ,       @v1 INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Jones')
 ;
@@ -40,7 +40,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 
 De plus, il n’est pas possible d’initialiser et d’utiliser une variable au sein de la même instruction DECLARE. Illustrons notre propos : la commande de l’exemple ci-dessous n’est **pas** autorisée, car l’élément « @p1 » est initialisé, mais également utilisé dans la même instruction DECLARE. Cela entraîne une erreur.
 
-```
+```sql
 DECLARE @p1 int = 0
 ,       @p2 int = (SELECT COUNT (*) FROM sys.types where is_user_defined = @p1 )
 ;
@@ -51,7 +51,7 @@ L’instruction SET est très couramment utilisée pour définir une variable un
 
 Tous les exemples ci-dessous illustrent des modes de définition d’une variable avec l’instruction SET, qui sont parfaitement valables :
 
-```
+```sql
 SET     @v = (Select max(database_id) from sys.databases);
 SET     @v = 1;
 SET     @v = @v+1;
@@ -76,4 +76,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

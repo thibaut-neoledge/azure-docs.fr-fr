@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/30/2016" 
 	ms.author="andrl"/>
 
 # Programmation DocumentDB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
@@ -74,7 +74,7 @@ Les procédures stockées sont enregistrées par collection, et elles peuvent s'
 
 	// register the stored procedure
 	var createdStoredProcedure;
-	client.createStoredProcedureAsync(collection._self, helloWorldStoredProc)
+	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
 		.then(function (response) {
 		    createdStoredProcedure = response.resource;
 		    console.log("Successfully created stored procedure");
@@ -86,7 +86,7 @@ Les procédures stockées sont enregistrées par collection, et elles peuvent s'
 Une fois que la procédure stockée est enregistrée, nous pouvons l'exécuter sur la base de la collection et renvoyer les résultats au client.
 
 	// execute the stored procedure
-	client.executeStoredProcedureAsync(createdStoredProcedure._self)
+	client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
 		.then(function (response) {
 		    console.log(response.result); // "Hello, World"
 		}, function (err) {
@@ -101,21 +101,21 @@ Extrapolons à partir de cet exemple et ajoutons à la procédure stockée d'aut
 ### Exemple : Écriture d’une procédure stockée pour créer un document 
 L'extrait de code suivant indique comment utiliser l'objet context pour interagir avec les ressources DocumentDB.
 
-	var createDocumentStoredProc = {
-	    id: "createMyDocument",
-	    body: function createMyDocument(documentToCreate) {
-	        var context = getContext();
-	        var collection = context.getCollection();
-	
-	        var accepted = collection.createDocument(collection.getSelfLink(),
-	              documentToCreate,
-				function (err, documentCreated) {
-				    if (err) throw new Error('Error' + err.message);
-				    context.getResponse().setBody(documentCreated.id)
-				});
-	        if (!accepted) return;
-	    }
-	}
+    var createDocumentStoredProc = {
+        id: "createMyDocument",
+        body: function createMyDocument(documentToCreate) {
+            var context = getContext();
+            var collection = context.getCollection();
+
+            var accepted = collection.createDocument(collection.getSelfLink(),
+                  documentToCreate,
+                  function (err, documentCreated) {
+                      if (err) throw new Error('Error' + err.message);
+                      context.getResponse().setBody(documentCreated.id)
+                  });
+            if (!accepted) return;
+        }
+    }
 
 
 Cette procédure stockée prend en entrée documentToCreate, le corps d'un document à créer dans la collection actuelle. Toutes ces opérations sont asynchrones et dépendent de rappels de fonction JavaScript. La fonction de rappel présente deux paramètres, un pour l'objet d'erreur en cas d'échec de l'opération et un pour l'objet créé. À l'intérieur du rappel, les utilisateurs peuvent gérer l'exception ou générer une erreur. Si aucun rappel n'est fourni et qu'une erreur se produit, le runtime DocumentDB génère une erreur.
@@ -123,7 +123,7 @@ Cette procédure stockée prend en entrée documentToCreate, le corps d'un docum
 Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opération a échoué. Dans le cas contraire, elle définit l'ID du document créé en tant que corps de la réponse au client. Voici la façon dont cette procédure stockée est exécutée avec des paramètres d'entrée.
 
 	// register the stored procedure
-	client.createStoredProcedureAsync(collection._self, createDocumentStoredProc)
+	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
 		.then(function (response) {
 		    var createdStoredProcedure = response.resource;
 	
@@ -134,7 +134,7 @@ Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opéra
 		        author: "Douglas Adams"
 		    };
 	
-		    return client.executeStoredProcedureAsync(createdStoredProcedure._self,
+		    return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
 	              docToCreate);
 		}, function (error) {
 		    console.log("Error", error);
@@ -221,6 +221,8 @@ Dans DocumentDB, JavaScript est hébergé dans le même espace mémoire que la b
 	);
 
 Cette procédure stockée utilise des transactions au sein d'une application de jeu pour échanger des éléments entre deux joueurs en une seule opération. Elle essaie de lire deux documents, correspondant chacun aux ID de joueur transmis en tant qu'arguments. Si les deux documents de joueur sont trouvés, la procédure stockée les met à jour en intervertissant leurs éléments. Si des erreurs se produisent en chemin, elle génère une exception JavaScript qui annule implicitement la transaction.
+
+Si la collection de la procédure stockée est enregistrée sur une collection à partition unique, la transaction est étendue à tous les documents au sein de la collection. Si la collection est partitionnée, les procédures stockées sont exécutées dans l’étendue de transaction d’une clé de partition unique. Chaque exécution de procédure stockée doit alors inclure une valeur de clé de partition correspondant à l’étendue sous laquelle la transaction doit être exécutée. Pour plus d’informations, consultez [Partitionnement de DocumentDB](documentdb-partition-data.md).
 
 ### Validation et restauration
 Les transactions sont intégrées de façon approfondie et native dans le modèle de programmation JavaScript de DocumentDB. Dans une fonction JavaScript, toutes les opérations sont automatiquement encapsulées dans une transaction unique. Si le code JavaScript s'exécute sans erreur, les opérations dans la base de données sont validées. En effet, les instructions BEGIN TRANSACTION et COMMIT TRANSACTION dans des bases de données relationnelles sont implicites dans DocumentDB.
@@ -405,7 +407,7 @@ L'exemple suivant montre les post-déclencheurs en action :
 Le déclencheur peut être enregistré comme indiqué dans l'exemple suivant.
 
 	// register post-trigger
-	client.createTriggerAsync(collection.self, updateMetadataTrigger)
+	client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
 		.then(function(createdTrigger) { 
 		    var docToCreate = { 
 		        name: "artist_profile_1023",
@@ -457,12 +459,12 @@ L'exemple suivant crée une fonction définie par l'utilisateur pour calculer le
 La fonction définie par l'utilisateur peut ensuite être utilisée dans des requêtes comme dans l'exemple suivant :
 
 	// register UDF
-	client.createUserDefinedFunctionAsync(collection.self, taxUdf)
+	client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
 		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
-		    return client.queryDocuments(collection.self,
+		    return client.queryDocuments('dbs/testdb/colls/testColl',
 	               query).toArrayAsync();
 		}, function(error) {
 		    console.log("Error" , error);
@@ -477,17 +479,15 @@ La fonction définie par l'utilisateur peut ensuite être utilisée dans des req
 ## API de requête intégrée au langage JavaScript
 En plus de l’émission de requêtes à l’aide de la grammaire SQL de DocumentDB, le kit de développement logiciel (SDK) côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index DocumentDB.
 
-> [AZURE.NOTE] `__` (trait de soulignement double) est un alias pour `getContext().getCollection()`.
-> <br/>
-> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
+> [AZURE.NOTE] `__` (trait de soulignement double) est un alias pour `getContext().getCollection()`. <br/> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
 
-Les fonctions prises en charge incluent :
+Les fonctions prises en charge sont les suivantes :
 <ul>
 <li>
 <b>chain() ... .value([callback] [, options])</b>
 <ul>
 <li>
-commence un appel chaîné qui doit se terminer par la valeur ().
+Commence un appel chaîné qui doit se terminer par value().
 </li>
 </ul>
 </li>
@@ -495,7 +495,7 @@ commence un appel chaîné qui doit se terminer par la valeur ().
 <b>filter(predicateFunction [, options] [, callback])</b>
 <ul>
 <li>
-Filtre l’entrée à l’aide d’une fonction de prédicat renvoyant True/False pour filtrer les documents d’entrée/de sortie dans le jeu de résultats. Ce comportement est semblable à celui d’une clause WHERE dans SQL.
+Filtre l’entrée à l’aide d’une fonction de prédicat qui renvoie true/false afin de filtrer les documents d’entrée dans le jeu résultant. Ce comportement est semblable à celui d’une clause WHERE dans SQL.
 </li>
 </ul>
 </li>
@@ -503,7 +503,7 @@ Filtre l’entrée à l’aide d’une fonction de prédicat renvoyant True/Fals
 <b>map(transformationFunction [, options] [, callback])</b>
 <ul>
 <li>
-Applique la projection d’une fonction de transformation qui mappe chaque élément d’entrée à une valeur ou un objet JavaScript. Ce comportement est semblable à celui d’une clause SELECT dans SQL.
+Applique une projection à partir d’une fonction de transformation qui mappe chaque élément d’entrée à une valeur ou un objet JavaScript. Ce comportement est semblable à celui d’une clause SELECT dans SQL.
 </li>
 </ul>
 </li>
@@ -511,7 +511,7 @@ Applique la projection d’une fonction de transformation qui mappe chaque élé
 <b>pluck([propertyName] [, options] [, callback])</b>
 <ul>
 <li>
-il s’agit d’un raccourci vers un mappage qui extrait la valeur d’une propriété unique de chaque élément d’entrée.
+Ceci est un raccourci pour un mappage qui extrait la valeur d’une propriété unique de chaque élément d’entrée.
 </li>
 </ul>
 </li>
@@ -519,7 +519,7 @@ il s’agit d’un raccourci vers un mappage qui extrait la valeur d’une propr
 <b>flatten([isShallow] [, options] [, callback])</b>
 <ul>
 <li>
-Combine et regroupe les tableaux à partir de chaque élément d’entrée en un tableau unique. Ce comportement est semblable à SelectMany dans LINQ.
+Combine et aplatit les tableaux à partir de chaque élément d’entrée en un seul tableau. Ce comportement est semblable à SelectMany dans LINQ.
 </li>
 </ul>
 </li>
@@ -527,7 +527,7 @@ Combine et regroupe les tableaux à partir de chaque élément d’entrée en un
 <b>sortBy([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre croissant à l’aide du prédicat donné. Ce comportement est semblable à une clause ORDER BY dans SQL.
+Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre croissant à l’aide du prédicat donné. Ce comportement est semblable à celui d’une clause ORDER BY dans SQL.
 </li>
 </ul>
 </li>
@@ -627,34 +627,34 @@ Comme pour les requêtes SQL, les clés de propriété de document (par exemple,
 <tr>
 <th>SQL</th>
 <th>API de requête JavaScript</th>
-<th>détails</th>
+<th>Détails</th>
 </tr>
 <tr>
 <td>
 <pre>
-Sélectionner *
-à partir de documents
-</pre>
-</td>
-<td>
-<pre>
-\_\_.map(function(doc) {
-    doc retour;
-});
-</pre>
-</td>
-<td>Résultats dans tous les documents (paginés avec le jeton de continuation) en tant qu'est.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg, docs.actions
+SELECT *
 FROM docs
 </pre>
 </td>
 <td>
 <pre>
-\_\_.map(function(doc) {
+__.map(function(doc) {
+    return doc;
+});
+</pre>
+</td>
+<td>Renvoie tous les documents (paginés avec jeton de continuation) tels quels.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg, docs.actions 
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
     return {
         id: doc.id,
         msg: doc.message,
@@ -663,55 +663,55 @@ FROM docs
 });
 </pre>
 </td>
-<td>Projette l’ID, le message (doté de l’alias msg) et l’action à partir de tous les documents.</td>
+<td>Projette l’ID, le message (alias msg) et l’action de tous les documents.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT * 
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(doc) {
+    return doc.id === "X998_Y998";
+});
+</pre>
+</td>
+<td>Requêtes pour les documents avec le prédicat&#160;: id = "X998_Y998".</td>
 </tr>
 <tr>
 <td>
 <pre>
 SELECT *
 FROM docs
-WHERE docs.id="X998\_Y998"
+WHERE ARRAY_CONTAINS(docs.Tags, 123)
 </pre>
 </td>
 <td>
 <pre>
-\_\_.filter(function(doc) {
-    return doc.id === "X998\_Y998";
+__.filter(function(x) {
+    return x.Tags &amp;&amp; x.Tags.indexOf(123) > -1;
 });
 </pre>
 </td>
-<td>Demande au système de renvoyer les documents avec le prédicat : id = "X998\_Y998".</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-WHERE ARRAY\_CONTAINS(docs.Tags, 123)
-</pre>
-</td>
-<td>
-<pre>
-\_\_.filter(function(x) {
-    return x.Tags && x.Tags.indexOf(123) > -1;
-});
-</pre>
-</td>
-<td>Demande au système de renvoyer les documents comportant la propriété Tags sous forme de tableau contenant la valeur 123.</td>
+<td>Requêtes pour les documents comportant une propriété Tags, et Tags est un tableau contenant la valeur 123.</td>
 </tr>
 <tr>
 <td>
 <pre>
 SELECT docs.id, docs.message AS msg
-FROM docs
-WHERE docs.id="X998\_Y998"
+FROM docs 
+WHERE docs.id="X998_Y998"
 </pre>
 </td>
 <td>
 <pre>
-\_\_.chain()
+__.chain()
     .filter(function(doc) {
-        return doc.id === "X998\_Y998";
+        return doc.id === "X998_Y998";
     })
     .map(function(doc) {
         return {
@@ -722,7 +722,7 @@ WHERE docs.id="X998\_Y998"
     .value();
 </pre>
 </td>
-<td>Demande au système de renvoyer les documents avec un prédicat, id = "X998\_Y998", puis projette l’ID et le message (doté de l’alias msg).</td>
+<td>Interroge les documents avec un prédicat, id = "X998_Y998", puis projette l’ID et le message (alias msg).</td>
 </tr>
 <tr>
 <td>
@@ -730,24 +730,24 @@ WHERE docs.id="X998\_Y998"
 SELECT VALUE tag
 FROM docs
 JOIN tag IN docs.Tags
-ORDER BY docs.\_ts
+ORDER BY docs._ts
 </pre>
 </td>
 <td>
 <pre>
-\_\_.chain()
+__.chain()
     .filter(function(doc) {
-        return doc.Tags && Array.isArray(doc.Tags);
+        return doc.Tags &amp;&amp; Array.isArray(doc.Tags);
     })
     .sortBy(function(doc) {
-    	return doc.\_ts;
+    	return doc._ts;
     })
     .pluck("Tags")
     .flatten()
     .value()
 </pre>
 </td>
-<td>Filtre les documents comportant la propriété de tableau Tags, trie les documents trouvés en fonction de la propriété système \_ts timestamp, puis projette et regroupe le tableau Tags.</td>
+<td>Filtre les documents comportant une propriété de tableau, Tags, trie les documents résultants par la propriété système _ts timestamp, puis projette et aplatit le tableau Tags.</td>
 </tr>
 </tbody>
 </table>
@@ -786,13 +786,13 @@ Outre le client [Node.js](documentdb-sdk-node.md), DocumentDB prend en charge le
 	};
 	
 	// register stored procedure
-	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(collection.SelfLink, markAntiquesSproc);
+	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
 	dynamic document = new Document() { Id = "Borges_112" };
 	document.Title = "Aleph";
 	document.Year = 1949;
 	
 	// execute stored procedure
-	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
+	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
 
 
 Cet exemple illustre l’utilisation du [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) pour créer un pré-déclencheur et un document dans lequel le déclencheur est activé.
@@ -809,7 +809,7 @@ Cet exemple illustre l’utilisation du [Kit de développement logiciel (SDK) .N
 	    TriggerType = TriggerType.Pre
 	};
 	
-	Document createdItem = await client.CreateDocumentAsync(collection.SelfLink, new Document { Id = "documentdb" },
+	Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
 	    new RequestOptions
 	    {
 	        PreTriggerInclude = new List<string> { "CapitalizeName" },
@@ -827,7 +827,7 @@ Enfin, l’exemple suivant illustre la création d’une fonction définie par l
 	    }"
 	};
 	
-	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
+	foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
 	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
@@ -857,8 +857,7 @@ Toutes les opérations DocumentDB peuvent être effectuées sur la base de l'arc
 	}
 
 
-La procédure stockée est enregistrée en exécutant une demande POST sur la base de l'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement.
-Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
+La procédure stockée est enregistrée en exécutant une requête POST sur la base de l’URI dbs/testdb/colls/testColl/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement. Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -924,4 +923,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 - [Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 - [Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

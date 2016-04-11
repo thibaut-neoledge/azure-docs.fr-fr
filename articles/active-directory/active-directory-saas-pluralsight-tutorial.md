@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@ Pour configurer l’intégration de Pluralsight à Azure AD, vous devez ajouter 
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, tapez **Pluralsight**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_01.png)<br>
-7. Dans le volet de résultats, sélectionnez **Pluralsight**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>
+7. Dans le volet de résultats, sélectionnez **Pluralsight**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_06.png)<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Pluralsight au moyen d’un utilisateur de test appelé « Britta Simon ».
@@ -92,7 +92,7 @@ Vous pouvez également ajouter l’attribut **Unique ID** avec la valeur appropr
 
 1. Dans le portail Azure Classic, puis dans la page d’intégration d’application **Pluralsight**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Pluralsight**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_03.png)<br>
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Pluralsight**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br>![Configurer l’authentification unique](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_03.png)<br>
 
 3. Dans la page **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_04.png) <br>
 
@@ -102,7 +102,7 @@ Vous pouvez également ajouter l’attribut **Unique ID** avec la valeur appropr
     b. Cliquez sur **Next**.
 
 
-4. Dans la page **Configurer l’authentification unique sur Pluralsight**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_05.png) <br>
+4. Sur la page **Configurer l’authentification unique sur Pluralsight**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_05.png) <br>
 
     a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
 
@@ -216,4 +216,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

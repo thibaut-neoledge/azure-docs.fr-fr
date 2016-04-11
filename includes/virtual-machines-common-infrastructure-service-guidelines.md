@@ -6,7 +6,7 @@ Ce guide identifie les nombreux domaines pour lesquels la planification est un �
 
 Cet article est une adaptation du contenu du billet de blog [Instructions pour la mise en œuvre d’Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Merci à Santiago Cánepa et Hugo Salcedo (responsables du développement d’applications chez Microsoft) pour leur documentation d’origine.
 
-> [AZURE.NOTE] Groupes d’affinités sont déconseillés. Leur utilisation n’est pas décrite ici. Pour en savoir plus, consultez [À propos des réseaux virtuels régionaux et des groupes d’affinités](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] Groupes d’affinités sont déconseillés. Leur utilisation n’est pas décrite ici. Pour en savoir plus, consultez [À propos des réseaux virtuels régionaux et des groupes d’affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Conventions d’affectation de noms
 
@@ -140,7 +140,7 @@ Le stockage Azure fait partie intégrante de nombreuses solutions Azure. Le stoc
 
 Il existe deux types de comptes de stockage disponibles dans Azure. Un compte de stockage standard vous donne accès au stockage d’objets blob (utilisé pour le stockage de disques de machines virtuelles Azure), de tables, de files d’attente et de fichiers de stockage. Le stockage Premium est conçu pour des applications hautes performances, telles que les serveurs SQL dans un cluster AlwaysOn, et prend actuellement en charge uniquement les disques de machine virtuelle Azure.
 
-Les comptes de stockage sont liés à des objectifs d’extensibilité. Pour vous familiariser avec les limites de stockage Azure actuelles, voir [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits). Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../storage-scalability-targets.md).
+Les comptes de stockage sont liés à des objectifs d’extensibilité. Pour vous familiariser avec les limites de stockage Azure actuelles, voir [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md#storage-limits). Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../articles/storage/storage-scalability-targets.md).
 
 Azure crée des machines virtuelles avec un disque de système d’exploitation, et éventuellement plusieurs disques de données facultatifs. Le disque de système d’exploitation et les disques de données sont des objets blob de pages Azure, tandis que le disque temporaire est stocké localement sur le nœud comprenant l’emplacement de la machine. Le disque temporaire est alors inapproprié pour les données qui doivent être conservées au cours d’un recyclage de système, car la machine peut être migrée en mode silencieux d’un nœud à l’autre, ce qui implique la perte de toutes les données de ce disque. Ne stockez rien sur le disque temporaire.
 
@@ -149,7 +149,7 @@ Les disques de système d’exploitation et les disques de données ont une tail
 ### Disques agrégés par bandes
 Outre la possibilité de créer des disques d’une taille supérieure à 1 023 Go dans plusieurs instances, l’entrelacement de disques améliore les performances en permettant à plusieurs objets blob de sauvegarder le stockage d’un seul volume. Avec l’agrégation par bandes, l’E/S requise pour écrire et lire des données à partir d’un seul disque logique est exécutée en parallèle.
 
-Azure impose des limites quant à la quantité de disques de données et de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-linux-sizes.md).
+Azure impose des limites quant à la quantité de disques de données et de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 Si vous utilisez l’entrelacement pour les disques de données Azure, respectez les consignes suivantes :
 
@@ -410,15 +410,15 @@ Cette configuration comprend :
 
 ## Ressources supplémentaires
 
-[Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits)
+[Abonnement Microsoft Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Tailles de machines virtuelles](virtual-machines-linux-sizes.md)
+[Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md)
 
-[Objectifs de performance et d’extensibilité d’Azure Storage](../storage-scalability-targets.md)
+[Objectifs de performance et d’extensibilité d’Azure Storage](../articles/storage/storage-scalability-targets.md)
 
 [Diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

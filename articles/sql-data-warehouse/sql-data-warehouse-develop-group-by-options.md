@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Options de regroupement dans SQL Data Warehouse
 
-La clause [GROUP BY] est utilisée pour regrouper des données dans un ensemble de lignes récapitulatives. Elle présente également quelques options, qui étendent ses fonctionnalités ; celles-ci doivent faire l’objet d’un contournement, car elles ne sont pas directement prises en charge par Azure SQL Data Warehouse.
+La clause [GROUP BY][] est utilisée pour regrouper des données dans un ensemble de lignes récapitulatives. Elle présente également quelques options, qui étendent ses fonctionnalités ; celles-ci doivent faire l’objet d’un contournement, car elles ne sont pas directement prises en charge par Azure SQL Data Warehouse.
 
 Ces options sont :
 - GROUP BY avec ROLLUP
@@ -30,7 +30,7 @@ L’option la plus simple consiste à utiliser `UNION ALL` à la place, afin d�
 
 Voici un exemple d’instruction GROUP BY utilisant l’option `ROLLUP` :
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount)             AS TotalSalesAmount
@@ -50,7 +50,7 @@ En utilisant l’option ROLLUP, nous avons demandé les agrégations suivantes :
 
 Pour remplacer cet élément, vous devons utiliser l’élément `UNION ALL`, en spécifiant les agrégations requises de manière explicite pour renvoyer les même résultats :
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount) AS TotalSalesAmount
@@ -84,7 +84,7 @@ Utilisons l’exemple ci-dessus.
 
 La première étape consiste à définir le « cube » qui définit tous les niveaux d’agrégation que nous souhaitons créer. N’oublions pas de tenir compte de l’action CROSS JOIN associant les deux tables dérivées. Cette action génère tous les niveaux qu’il nous faut. Le reste du code est uniquement placé à des fins de formatage.
 
-```
+```sql
 CREATE TABLE #Cube
 WITH
 (   DISTRIBUTION = ROUND_ROBIN
@@ -119,7 +119,7 @@ Les résultats de la commande CTAS sont affichés ci-dessous :
 
 La deuxième étape consiste à spécifier une table cible pour stocker les résultats temporaires :
 
-```
+```sql
 DECLARE
  @SQL NVARCHAR(4000)
 ,@Columns NVARCHAR(4000)
@@ -142,7 +142,7 @@ WITH
 
 Quant à la troisième étape, elle consiste à effectuer une boucle sur notre cube de colonnes effectuant l’agrégation. La requête sera exécutée une seule fois pour chaque ligne de la table temporaire « #Cube » ; elle stockera les résultats dans la table temporaire « #Results ».
 
-```
+```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
 
 WHILE @i<=@nbr
@@ -166,7 +166,7 @@ END
 
 Enfin, nous pouvons renvoyer les résultats en lisant simplement les données de la table temporaire « #Results ».
 
-```
+```sql
 SELECT *
 FROM #Results
 ORDER BY 1,2,3
@@ -191,4 +191,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -38,7 +38,7 @@ Pour utiliser le portail Azure Classic :
 
 	![Création d’un groupe à haute disponibilité pour une nouvelle machine virtuelle](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
-6. Sur le quatrième écran, cliquez sur les extensions que vous voulez installer. Les extensions procurent des fonctionnalités qui facilitent la gestion de la machine virtuelle, telles que l’exécution de logiciels anti-programmes malveillants ou la réinitialisation de mots de passe. Pour en savoir plus, voir la page [Agent de machine virtuelle Azure et extensions de machine virtuelle](virtual-machines-windows-classic-agents-and-extensions.md).
+6. Sur le quatrième écran, cliquez sur les extensions que vous voulez installer. Les extensions procurent des fonctionnalités qui facilitent la gestion de la machine virtuelle, telles que l’exécution de logiciels anti-programmes malveillants ou la réinitialisation de mots de passe. Pour en savoir plus, voir la page [Agent de machine virtuelle Azure et extensions de machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
 
 7.	Cliquez sur la flèche pour créer la machine virtuelle et le groupe à haute disponibilité.
 
@@ -47,8 +47,8 @@ Pour utiliser le portail Azure Classic :
 Pour utiliser des commandes Azure PowerShell afin de créer une machine virtuelle Azure et l’ajouter à un groupe à haute disponibilité nouveau ou existant, voir les rubriques suivantes :
 
 
-- [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Linux](virtual-machines-linux-classic-createpowershell.md)
-- [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-windows-classic-create-powershell.md)
+- [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Linux](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
+- [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"> </a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité##
 
@@ -86,11 +86,11 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 [Option 1: Créer simultanément une machine virtuelle et un groupe à haute disponibilité]: #createset
 [Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité]: #addmachine
 
-[Équilibrage de charge pour les services d'infrastructure Azure]: virtual-machines-linux-load-balance.md
-[Gestion de la disponibilité des machines virtuelles]: virtual-machines-linux-manage-availability.md
+[Équilibrage de charge pour les services d'infrastructure Azure]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[Gestion de la disponibilité des machines virtuelles]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 
-[Création d'une machine virtuelle exécutant Windows]: virtual-machines-windows-hero-tutorial.md
-[Vue d’ensemble d’Azure Virtual Network]: virtual-networks-overview.md
+[Création d'une machine virtuelle exécutant Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Vue d’ensemble d’Azure Virtual Network]: ../articles/virtual-network/virtual-networks-overview.md
 [Articles pour les machines virtuelles dans la gestion des services]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse
@@ -44,7 +44,7 @@ Pour restaurer une base de données, utilisez l’applet de commande [Start-Azur
 6. Restaurez la base de données au niveau du point de restauration souhaité.
 7. Surveillez la progression de la restauration.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -95,13 +95,13 @@ Pour restaurer une base de données supprimée, utilisez l’applet de commande 
 3. Sélectionnez l’abonnement qui contient la base de données supprimée à restaurer.
 4. Dans la liste des bases de données supprimées, recherchez la base de données supprimée et sa date de suppression.
 
-```
+```Powershell
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
 5. Accédez à la base de données supprimée et démarrez la restauration.
 
-```
+```Powershell
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
 
 $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName "<NewDatabaseName>"
@@ -141,4 +141,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

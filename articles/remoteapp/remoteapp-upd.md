@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Utilisation d’Azure RemoteApp avec des comptes d’utilisateur Office 365 | Microsoft Azure"
-	description="Découvrez comment utiliser Azure RemoteApp avec des comptes d’utilisateur Office 365"
+    pageTitle="Comment Azure RemoteApp enregistre-t-il les paramètres et les données utilisateur ? | Microsoft Azure"
+	description="Découvrez comment Azure RemoteApp enregistre les données utilisateur à l'aide du disque de profil utilisateur."
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/04/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 # Comment Azure RemoteApp enregistre-t-il les paramètres et les données utilisateur ?
@@ -26,12 +26,12 @@ Chaque UPD offre 50 Go de stockage persistant et contient à la fois les paramè
 
 Continuez votre lecture pour obtenir des détails spécifiques sur les données de profil utilisateur.
 
->[AZURE.NOTE]Vous avez besoin de désactiver le disque de profil utilisateur ? À présent, vous pouvez le faire. Consultez le billet de blog de Pavithra, [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), pour plus d’informations.
+>[AZURE.NOTE] Vous avez besoin de désactiver le disque de profil utilisateur ? À présent, vous pouvez le faire. Consultez le billet de blog de Pavithra, [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), pour plus d’informations.
 
 
 ## Comment un administrateur peut-il accéder aux données ?
 
-Si vous avez besoin d’accéder aux données pour l’un de vos utilisateurs (pour la récupération d’urgence ou si l’utilisateur quitte l’entreprise), contactez [Azure RemoteApp](mailto:remoteappforum@microsoft.com) et fournissez les informations d’abonnement de la collection et l’identité de l’utilisateur. L’équipe Azure RemoteApp vous fournira une URL pour accéder au disque dur virtuel. Téléchargez ce disque dur virtuel et récupérez les documents ou fichiers dont vous avez besoin. Notez que le disque dur virtuel est de 50 Go, il prendra donc un peu de temps à télécharger.
+Si vous avez besoin d’accéder aux données pour l'un de vos utilisateurs (pour la récupération d'urgence ou si l'utilisateur quitte l'entreprise), contactez [Azure RemoteApp](mailto:remoteappforum@microsoft.com) et fournissez les informations d'abonnement de la collection et l'identité de l'utilisateur. L’équipe Azure RemoteApp vous fournira une URL pour accéder au disque dur virtuel. Téléchargez ce disque dur virtuel et récupérez les documents ou fichiers dont vous avez besoin. Notez que le disque dur virtuel est de 50 Go, il prendra donc un peu de temps à télécharger.
 
 
 ## Les données sont-elles sauvegardées ?
@@ -80,11 +80,11 @@ Oui, tout ce qui écrit dans la clé HKEY\_Current\_User fait partie de l’UPD.
 
 Oui, vous pouvez demander à Azure RemoteApp de désactiver les UPD d’un abonnement, mais vous ne pouvez pas effectuer cette opération vous-même. Cela signifie que les UPD seront désactivés pour toutes les collections de l'abonnement.
 
-Vous souhaiterez peut-être désactiver les UPD dans les situations suivantes :
+Vous souhaiterez peut-être désactiver les UPD dans les situations suivantes :
 
-- Vous avez besoin d’un accès et d’un contrôle complet des données utilisateur (aux fins d’audit et de vérification ; p. ex., institutions financières).
+- Vous avez besoin d’un accès et d’un contrôle complet des données utilisateur (aux fins d’audit et de vérification ; p. ex., institutions financières).
 - Vous possédez des solutions tierces de gestion des profils utilisateur en local, et souhaitez continuer à les utiliser dans votre déploiement Azure RemoteApp joint à un domaine. Cela nécessiterait le chargement de l’agent de profil dans l’image Gold. 
-- Vous n’avez pas besoin de stockage de données local, toutes vos données sont dans le cloud (p. ex., OneDrive Entreprise) ou dans un partage de fichiers, et vous aimeriez contrôler l’enregistrement des données en local à l’aide d’Azure RemoteApp.
+- Vous n’avez pas besoin de stockage de données local, toutes vos données sont dans le cloud (p. ex., OneDrive Entreprise) ou dans un partage de fichiers, et vous aimeriez contrôler l’enregistrement des données en local à l’aide d’Azure RemoteApp.
 
 Consultez [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) pour plus d’informations.
 
@@ -94,7 +94,7 @@ Oui, mais vous devrez configurer cette opération dans l'image du modèle avant 
 
 1. Exécutez **gpedit.msc** sur l’image du modèle.
 2. Accédez à **Configuration utilisateur > Modèles d’administration > Composants Windows > Explorateur**.
-3. Sélectionnez les options suivantes :
+3. Sélectionnez les options suivantes :
 	- **Dans Poste de travail, masquer ces lecteurs spécifiés**
 	- **Empêcher l'accès aux lecteurs à partir du Poste de travail**
 
@@ -121,6 +121,10 @@ Si vous souhaitez exécuter un script de démarrage, commencez par créer une t�
 
 ![Création d’une tâche système qui s'exécute lorsqu'un utilisateur ouvre une session](./media/remoteapp-upd/upd2.png)
 
+Dans l'onglet **Général**, veillez à choisir "BUILTIN\\Users" comme **compte utilisateur** sous Sécurité.
+
+![Remplacement du compte d'utilisateur par un groupe](./media/remoteapp-upd/upd4.png)
+
 La tâche planifiée lancera le script de démarrage à l'aide des informations d'identification de l'utilisateur. Planifiez l’exécution de la tâche chaque fois qu'un utilisateur ouvre une session.
 
 ![Définition du déclencheur pour la tâche sur « à l’ouverture de la session »](./media/remoteapp-upd/upd3.png)
@@ -137,4 +141,22 @@ Non, cette opération n'est pas prise en charge dans Azure RemoteApp, qui utilis
 
 Non, cette fonctionnalité n’est pas prise en charge dans Azure RemoteApp.
 
-<!---HONumber=AcomDC_1217_2015-->
+## Est-il possible de stocker localement des données sur la machine virtuelle ?
+
+NON, les données stockées sur la machine virtuelle ailleurs que dans l'UPD seront perdues. Il est fort probable que l'utilisateur ne recevra pas la même machine virtuelle la prochaine fois qu'il se connecte à Azure RemoteApp. Les machines virtuelles n'étant pas dédiées à un utilisateur spécifique, celui-ci ne se connecte donc pas à la même machine virtuelle, et les données seront perdues. En outre, lorsque nous mettre à jour la collection, les machines virtuelles existantes sont remplacées par un nouvel ensemble de machines virtuelles - ce qui signifie que toutes les données stockées sur la machine virtuelle elle-même sont perdues. Il est recommandé de stocker les données dans l'UPD, un stockage partagé comme des fichiers Azure, un serveur de fichiers à l'intérieur d'un réseau virtuel, ou sur le cloud à l'aide de OneDrive Entreprise ou un autre système de stockage cloud pris en charge comme DropBox.
+
+## Comment monter un partage de fichiers Azure sur une machine virtuelle à l'aide de PowerShell ?
+
+Vous pouvez utiliser l'applet de commande Net-PSDrive pour monter le lecteur, comme suit :
+
+    New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \<storage-account-name>.file.core.windows.net<share-name> -Credential :<storage-account-name>
+
+
+Vous pouvez également enregistrer vos informations d'identification en exécutant la commande suivante :
+
+    cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+
+
+Vous pouvez ainsi ignorer le paramètre -Credential dans l'applet de commande New-PSDrive.
+
+<!---HONumber=AcomDC_0330_2016-->

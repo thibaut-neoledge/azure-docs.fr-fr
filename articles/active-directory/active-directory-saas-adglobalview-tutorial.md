@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@ Pour configurer l’intégration d’ADP GlobalView à Azure AD, vous devez ajou
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, tapez **ADP GlobalView**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_01.png)<br>
-7. Dans le volet de résultats, sélectionnez **ADP GlobalView**, puis cliquez sur **Terminer** pour ajouter l’application.<br><br>
+7. Dans le volet de résultats, sélectionnez **ADP GlobalView**, puis cliquez sur **Terminer** pour ajouter l’application.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_06.png)<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec ADP GlobalView au moyen d’un utilisateur de test appelé « Britta Simon ».
@@ -84,7 +84,7 @@ Pour configurer et tester l’authentification unique Azure AD avec ADP GlobalVi
 
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application ADP GlobalView.
 
-Votre application ADP GlobalView s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre un exemple : Le nom de la revendication sera toujours **PersonImmutableID** et sa valeur mappée à ExtensionAttribute2 qui contient la valeur EmployeeID de l’utilisateur. Ici, le mappage utilisateur d’Azure AD à ADP GlobalView est effectué avec EmployeeID, mais vous pouvez le mapper à une valeur différente également basée sur les paramètres de votre application. Collaborez avec l’équipe ADP GlobalView pour utiliser l’identificateur correct d’un utilisateur et mapper cette valeur avec la revendication **PersonImmutableID**. Vous pouvez également mapper les revendications Email et UserID, comme indiqué dans l’image ci-dessous.
+Votre application ADP GlobalView s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre un exemple : Le nom de la revendication sera toujours **« PersonImmutableID »** et sa valeur mappée à ExtensionAttribute2 qui contient la valeur EmployeeID de l’utilisateur. Ici, le mappage utilisateur d’Azure AD à ADP GlobalView est effectué avec EmployeeID, mais vous pouvez le mapper à une valeur différente également basée sur les paramètres de votre application. Collaborez avec l’équipe ADP GlobalView pour utiliser l’identificateur correct d’un utilisateur et mapper cette valeur avec la revendication **PersonImmutableID**. Vous pouvez également mapper les revendications Email et UserID, comme indiqué dans l’image ci-dessous.
  
 <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_02.png) <br>
 
@@ -229,4 +229,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

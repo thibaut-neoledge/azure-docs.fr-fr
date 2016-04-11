@@ -13,12 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/15/2015"
+   ms.date="03/23/2016"
    ms.author="yuemlu"/>
 
 # SE invité d'Azure 
 
 Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## SE invité mars 
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-023 | [3142015] | Mise à jour de sécurité cumulative pour Internet Explorer | 4\.30, 3.37, 2.49 | 8 mars 2016 |  
+| MS16-026 | [3143148] | Mise à jour de sécurité pour les polices graphiques afin de résoudre les problèmes d’exécution de code à distance | 4\.30, 3.37, 2.49 | 8 mars 2016 |  
+| MS16-027 | [3143146] | Mise à jour de sécurité pour Windows Media afin de résoudre les problèmes d’exécution de code à distance | 4\.30, 3.37, 2.49 | 8 mars 2016 |  
+| MS16-028 | [3143081] | Mise à jour de sécurité pour la bibliothèque PDF Microsoft Windows afin de résoudre les problèmes d’exécution de code à distance | 4\.30, 3.37 | 8 mars 2016 |  
+| MS16-030 | [3143136] | Mise à jour de sécurité pour Windows OLE afin de résoudre les problèmes d’exécution de code à distance | 4\.30, 3.37, 2.49 | 8 mars 2016 |  
+| MS16-031 | [3140410] | Mise à jour de sécurité pour Microsoft Windows afin de résoudre un problème d’élévation de privilèges | 2\.49 | 8 mars 2016 |  
+| MS16-032 | [3143141] | Mise à jour de sécurité pour le service d’ouverture de session secondaire afin de résoudre un problème d’élévation de privilèges | 4\.30, 3.37, 2.49 | 8 mars 2016 |  
+| MS16-033 | [3143142] | Mise à jour de sécurité pour le pilote de classe de stockage de masse USB Windows afin de résoudre un problème d’élévation de privilèges | 4\.30, 3.37, 2.49 | 8 mars 2016 |  
+| MS16-034 | [3143145] | Mise à jour de sécurité pour les pilotes en mode noyau Windows permettant de résoudre un problème d’élévation de privilèges | 4\.30, 3.37, 2.49 | 8 mars 2016 | | MS16-035 | [3141780] | Mise à jour de sécurité pour .NET Framework afin de résoudre un problème de contournement de la fonctionnalité de sécurité | 4\.30, 3.37, 2.49 | 8 mars 2016 |  
 
 
 ## SE invité février
@@ -207,7 +221,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS15-014 | [3004361][3004361] | Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité | 4\.17, 3.24, 2.36 | N/A |
 | MS15-015 | [3031432][3031432] | Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges | 4\.17, 3.24, 2.36 | N/A |
 | MS15-016 | [3029944][3029944] | Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations | 4\.17, 3.24, 2.36 | N/A |
-| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque**: elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
+| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
  
 
 ## SE invité janvier
@@ -241,6 +255,18 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A | [3007054][3007054] | Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2999802][2999802] | Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2896881][2896881] | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
+
+
+[3142015]: http://support.microsoft.com/kb/3142015
+[3143148]: http://support.microsoft.com/kb/3143148
+[3143146]: http://support.microsoft.com/kb/3143146
+[3143081]: http://support.microsoft.com/kb/3143081
+[3143136]: http://support.microsoft.com/kb/3143136
+[3140410]: http://support.microsoft.com/kb/3140410
+[3143141]: http://support.microsoft.com/kb/3143141
+[3143142]: http://support.microsoft.com/kb/3143142
+[3143145]: http://support.microsoft.com/kb/3143145
+[3141780]: http://support.microsoft.com/kb/3141780
 
 [3134220]: http://support.microsoft.com/kb/3134220
 [3134811]: http://support.microsoft.com/kb/3134811
@@ -406,4 +432,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

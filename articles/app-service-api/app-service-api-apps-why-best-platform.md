@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d'ensemble d'API Apps" 
+	pageTitle="Vue d’ensemble d’API Apps | Microsoft Azure" 
 	description="Découvrez pourquoi Azure App Service est la meilleure plateforme de développement, de publication et d'hébergement des API RESTful." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # Vue d'ensemble d'API Apps
 
 API Apps est l'un des quatre types d'application proposés par l'[Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![Types d’applications dans Azure App Service](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-[App Service](../app-service/app-service-value-prop-what-is.md) est une plateforme entièrement gérée qui apporte un ensemble riche de fonctionnalités pour les scénarios web, mobiles et les scénarios d’intégration. API Apps dans App Service fournissent des fonctionnalités qui facilitent la gestion, l'hébergement et l'utilisation des API dans le cloud et en local. Déployez votre API en tant qu'application API dans App Service et bénéficiez d'une sécurité de classe entreprise, d'un contrôle d'accès simple, d'une connectivité hybride, de la génération automatique du kit de développement logiciel et d'une intégration transparente dans [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+[App Service](../app-service/app-service-value-prop-what-is.md) est une plateforme entièrement gérée conçues pour les scénarios Web et mobiles ainsi que pour les scénarios d’intégration. API Apps dans App Service fournissent des fonctionnalités qui facilitent la gestion, l'hébergement et l'utilisation des API dans le cloud et en local. Déployez votre API en tant qu'application API dans App Service et bénéficiez d'une sécurité de classe entreprise, d'un contrôle d'accès simple, d'une connectivité hybride, de la génération automatique du kit de développement logiciel et d'une intégration transparente dans [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## Quel est le rôle d’API Apps ?
 
@@ -64,4 +64,4 @@ Pour prendre en main API Apps, suivez l’un des didacticiels [Prise en main d�
 
 Pour poser des questions sur les applications API, démarrez un thread dans le [forum API Apps](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

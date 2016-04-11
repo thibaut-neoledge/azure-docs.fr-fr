@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-Cet article décrit comment utiliser le portail Azure pour surveiller, gérer et redimensionner un pool de bases de données élastique et les bases de données dans le pool. La base de données SQL dispose d’une intelligence intégrée qui analyse la télémétrie de l’historique de l’utilisation et recommande de façon proactive un pool pour les bases de données quand il s’avère plus rentable. Vous pouvez également ajouter et supprimer des bases de données avant de valider les modifications et voir l’impact sur le stockage et les performances du pool.
+Cet article décrit comment utiliser le portail Azure pour surveiller, gérer et redimensionner un pool de bases de données élastique et les bases de données dans le pool. La Base de données SQL dispose d’une intelligence intégrée qui analyse la télémétrie de l’historique de l’utilisation et recommande de façon proactive un pool pour les bases de données quand il se révèle plus rentable. Vous pouvez également ajouter et supprimer des bases de données avant de valider les modifications et voir l’impact sur le stockage et les performances du pool.
 
 Pour effectuer les étapes décrites dans cet article, vous aurez besoin de bases de données et d’un pool. Consultez [Créer un pool](sql-database-elastic-pool-create-portal.md) si vous avez déjà des bases de données et le [didacticiel des bases de données SQL](sql-database-get-started) si vous n’en avez pas.
 
@@ -131,4 +131,4 @@ Les tâches élastiques vous permettent d'exécuter des scripts Transact-SQL, qu
 - [Créer un pool de bases de données élastique avec C#](sql-database-elastic-pool-create-csharp.md)
 - [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

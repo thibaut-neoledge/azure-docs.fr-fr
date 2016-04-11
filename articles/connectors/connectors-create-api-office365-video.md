@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/23/2016"
 ms.author="deonhe"/>
 
 # Prendre en main l'API Office 365 Video
@@ -33,7 +33,7 @@ Pour ajouter une opération aux applications logiques, consultez [Créer une app
 
 ## Déclencheurs et actions
 
-L’API Office 365 Users met à votre disposition les actions ci-après. Il n'y a aucun déclencheur.
+L’API Office 365 Video met à votre disposition les actions ci-après. Il n’y a aucun déclencheur.
 
 | Déclencheurs | Actions|
 | --- | --- |
@@ -221,4 +221,4 @@ Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo. ```GET: 
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="03/28/2016"
 	ms.author="v-shysun"/>
 
 #Résoudre les problèmes relatifs aux autorisations et à l’accès aux bases de données Azure SQL
@@ -37,4 +37,4 @@ Utilisez cette rubrique pour accorder et refuser l’accès à une base de donn�
 ## Pour créer des connexions supplémentaires pour les utilisateurs avec des privilèges élevés vers la base de données master virtuelle
 - Utilisez l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx), et consultez la section Gestion des connexions de [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md) pour plus de détails.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

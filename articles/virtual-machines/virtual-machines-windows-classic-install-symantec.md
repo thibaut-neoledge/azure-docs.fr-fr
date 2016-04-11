@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+	ms.date="03/28/2016"
+	ms.author="iainfou"/>
 
 # Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows
 
@@ -84,7 +84,7 @@ Pour vérifier que l’extension de sécurité Symantec a été installée et es
 
 
 <!--Link references-->
-[Symantec]: http://go.microsoft.com/fwlink/p/?LinkId=403942
+[Symantec]: http://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
 
 [Portal]: http://manage.windowsazure.com
 
@@ -98,4 +98,4 @@ Pour vérifier que l’extension de sécurité Symantec a été installée et es
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

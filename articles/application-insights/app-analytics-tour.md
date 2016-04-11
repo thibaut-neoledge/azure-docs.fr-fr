@@ -12,15 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 
  
 # Visite guidée d’Analytics dans Application Insights
 
-
-[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-analytics.md) vous permet d’exécuter de puissantes requêtes sur les données de télémétrie collectées par [Application Insights](app-insights-overview.md) à partir de votre application. Ces pages décrivent son langage de requête.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -70,10 +69,12 @@ Choisissez les colonnes et ajustez leurs positions :
 
 ![Cliquez sur le sélecteur de colonnes en haut à droite des résultats](./media/app-analytics-tour/030.png)
 
+
 Développez un élément pour afficher les détails :
  
 ![Choisissez la vue de table et utilisez Configurer les colonnes](./media/app-analytics-tour/040.png)
 
+> [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. N’oubliez pas que cette méthode de tri n’affiche pas toujours réellement les éléments les plus grands ou les plus petits. Pour cela, vous devez utiliser l’opérateur `top` ou `sort`.
 
 ## [Top](app-analytics-aggregations.md#top) et [sort](app-analytics-aggregations.md#sort)
 
@@ -86,7 +87,7 @@ Afficher les n premières lignes, classées par une colonne particulière :
 	requests | top 10 by timestamp desc 
 ```
 
-* *Syntaxe* : la plupart des opérateurs ont des paramètres de mot clé comme `by`.
+* *Syntaxe :* la plupart des opérateurs ont des paramètres de mot clé comme `by`.
 * `desc` = ordre décroissant, `asc` = ordre croissant.
 
 ![](./media/app-analytics-tour/260.png)
@@ -100,7 +101,7 @@ Afficher les n premières lignes, classées par une colonne particulière :
 
 Le résultat serait le même, mais l’exécution de la requête serait un peu plus lente. (Vous pouvez également écrire `order`, qui est un alias de `sort`.)
 
-Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais, bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement retrier les enregistrements que vous avez récupérés.
+Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement trier de nouveau les enregistrements que vous avez récupérés.
 
 
 ## [Project](app-analytics-aggregations.md#project) : sélectionner, renommer et calculer des colonnes
@@ -232,7 +233,7 @@ Examinons uniquement les exceptions signalées à partir des navigateurs :
 
 L’opérateur `where` prend une expression booléenne. Voici quelques points clés les concernant :
 
- * `and`, `or` : opérateurs booléens
+ * `and`, `or`: opérateurs booléens
  * `==`, `<>` : égal et non égal
  * `=~`, `!=` : chaîne ne respectant pas la casse (égal et non égal). Il existe de nombreux autres opérateurs de comparaison de chaîne.
 
@@ -441,4 +442,4 @@ Utilisez [let](./app-analytics-syntax.md#let-statements) pour séparer les parti
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,28 +14,38 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/17/2016"
 	ms.author="curtand"/>
 
 # Groupes dédiés dans Azure Active Directory
 
-Dans Azure Active Directory, des groupes dédiés sont automatiquement créés, et l’adhésion à ces groupes est également automatique. Vous ne pouvez pas ajouter ou retirer des membres à ces groupes dédiés via le portail Azure, les applets Windows PowerShell ou via un programme. Pour activer les groupes dédiés, dans le portail Azure, sous l’onglet Configurer, définissez l’option **Activer les groupes dédiés sur Oui**.
+Dans Azure Active Directory (Azure AD), la fonctionnalité des groupes dédiés crée et remplit automatiquement l’appartenance aux groupes Azure AD prédéfinis. Les membres des groupes dédiés ne peuvent pas être ajoutés, ni supprimés via le portail Azure Classic, les applets Windows PowerShell ou via un programme.
+
+>[AZURE.NOTE] Les groupes dédiés nécessitent qu’une licence Azure AD Premium soit affectée à
+>- l’administrateur qui gère la règle sur un groupe
+>- tous les utilisateurs qui sont sélectionnés par la règle pour être membres du groupe
+
+**Pour activer les groupes dédiés**
+
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis ouvrez le répertoire de votre organisation.
+
+2. Sélectionnez l’onglet **Groupes**, puis ouvrez le groupe que vous souhaitez modifier.
+
+3. Sélectionnez l’onglet **Configurer**, puis définissez **Activer les groupes dédiés** sur **Oui**.
 
 Une fois que l’option Activer les groupes dédiés est définie sur **Oui**, vous pouvez configurer l’annuaire pour qu’il crée automatiquement le groupe dédié Tous les utilisateurs. Pour ce faire, définissez l’option **Activer le groupe Tous les utilisateurs** sur **Oui**. Vous pouvez ensuite également modifier le nom de ce groupe dédié, en effectuant votre saisie dans le champ **Nom d’affichage du groupe Tous les utilisateurs**.
 
-Le groupe dédié Tous les utilisateurs peut vous permettre d’attribuer les mêmes autorisations à l’ensemble des utilisateurs de votre répertoire. Par exemple, vous pouvez autoriser l’ensemble des utilisateurs de votre répertoire à accéder à l’application SaaS, en attribuant l’accès à cette application au groupe dédié Tous les utilisateurs.
+Le groupe Tous les utilisateurs peut vous permettre d’attribuer les mêmes autorisations à l’ensemble des utilisateurs de votre répertoire. Par exemple, vous pouvez autoriser l’ensemble des utilisateurs de votre répertoire à accéder à l’application SaaS, en attribuant l’accès à cette application au groupe dédié Tous les utilisateurs.
 
-Remarque : le groupe « Tous les utilisateurs » dédié inclut tous les utilisateurs de l’annuaire, dont les invités et les utilisateurs externes. Si vous avez besoin d’un groupe qui exclut les utilisateurs externes, vous pouvez créer un groupe avec une règle dynamique telle que
+Le groupe « Tous les utilisateurs » dédié inclut tous les utilisateurs du répertoire, dont les invités et les utilisateurs externes. Si vous avez besoin d’un groupe qui exclut les utilisateurs externes, vous pouvez créer un groupe avec une règle dynamique basée sur attribut telle que la suivante :
 
-(user.userPrincipalName -notContains "#EXT#@")
+				(user.userPrincipalName -notContains "#EXT#@")
 
-Pour un groupe qui exclut tous les invités, utilisez une règle telle que
+Pour un groupe qui exclut tous les invités, utilisez une règle telle que la suivante :
 
-(user.userType -ne "Guest")
+				(user.userType -ne "Guest")
 
-Cet article explique en détail comment créer une règle pour gérer les membres d’un groupe dans Azure Active Directory :
-
-* [Création d’une règle simple pour configurer l’appartenance dynamique au groupe](active-directory-accessmanagement-simplerulegroup.md)
+Pour en savoir plus sur la création de règles *avancées* (règles qui peuvent contenir plusieurs comparaisons) pour l’appartenance dynamique à un groupe, consultez la page [Utilisation d’attributs pour créer des règles avancées](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
 
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
@@ -45,4 +55,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

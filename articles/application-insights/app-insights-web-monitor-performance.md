@@ -110,43 +110,52 @@ La sélection d'une métrique désactive les autres métriques qui peuvent s'aff
 
 ## Compteurs de performances système
 
-Certaines mesures utilisables peuvent provenir de [compteurs de performances](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows offre un large éventail de compteurs de ce type ; vous pouvez également définir les vôtres.
+
+Windows offre un large éventail de compteurs de performances, et vous pouvez également définir les vôtres.
 
 Pour les applications hébergées sur Azure, [envoyez des diagnostics Azure vers Application Insights](app-insights-azure-diagnostics.md).
 
-Cet exemple montre les compteurs de performance disponibles par défaut. Nous avons [ajouté un graphique distinct](app-insights-metrics-explorer.md#editing-charts-and-grids) pour chaque compteur et nommé le graphique en [l’enregistrant en tant que favori](app-insights-metrics-explorer.md#editing-charts-and-grids) :
+Pour afficher un jeu commun de [compteurs de performances](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters), ouvrez le panneau **Serveurs**. Vous pouvez également choisir les compteurs en modifiant un graphique et en sélectionnant une mesure à partir de la section des compteurs de performances :
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
+La liste complète des mesures disponibles sur votre système peut être déterminée sur les systèmes Windows à l'aide de la commande PowerShell [`Get-Counter -ListSet *`](https://technet.microsoft.com/library/hh849685.aspx).
 
-Si les compteurs requis ne figurent pas dans la liste de propriétés, vous pouvez les ajouter à l’ensemble collecté par le Kit de développement logiciel (SDK). Ouvrez le fichier ApplicationInsights.config et modifiez la directive du collecteur de performances :
+Si les compteurs requis ne figurent pas dans la liste des mesures, vous pouvez les ajouter à l’ensemble collecté par le Kit de développement logiciel (SDK). Ouvrez le fichier ApplicationInsights.config et modifiez la directive du collecteur de performances :
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
         <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement. Pour savoir quels compteurs sont disponibles dans votre système, lisez [cette présentation](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+Vous pouvez capturer les compteurs standard et ceux que vous avez vous-même mis en œuvre. `\Objects\Processes` est disponible sur tous les systèmes Windows ; `\Sales...` est un exemple de compteur personnalisé qui peut être mis en œuvre dans un serveur web.
+
+Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement.
+
 
 L’élément `ReportAs` est requis pour les noms des compteurs qui contiennent des caractères autres que ceux-ci : lettres, parenthèses, barres obliques, tirets, traits de soulignement, espaces et points.
 
-Si vous spécifiez une instance, elle est collectée en tant que propriété « CounterInstanceName » de la mesure signalée.
+Si vous spécifiez une instance, elle est collectée en tant que dimension « CounterInstanceName » de la mesure signalée.
 
-Si vous préférez, vous pouvez écrire le code suivant, pour obtenir le même effet :
+### Collecte des compteurs de performances dans le code
+
+Pour collecter les compteurs de performances système et les transmettre à Application Insights, vous pouvez utiliser l'extrait de code ci-dessous :
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+Ou vous pouvez effectuer la même opération avec les mesures personnalisées que vous avez créées :
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
-En outre, si vous souhaitez collecter les compteurs de performances système et les transmettre à Application Insights, vous pouvez utiliser l'extrait de code ci-dessous :
-
-    var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
-    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+En outre, si vous souhaitez
 
 ### Nombre d’exceptions
 
@@ -201,4 +210,4 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

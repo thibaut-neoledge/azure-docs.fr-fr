@@ -48,8 +48,6 @@ Ce didacticiel est destiné à vous présenter les étapes nécessaires pour ins
 
 - Vous avez installé les [applets de commande Azure PowerShell](../powershell-install-configure.md).
 
-- Vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l’interface graphique utilisateur. Pour plus d’informations, consultez [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-windows-classic-portal-sql.md)
-
 - Vous avez déjà une connaissance approfondie des groupes de disponibilité AlwaysOn pour les solutions sur site. Pour plus d’informations, consultez [Groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Connexion à votre abonnement Azure et création du réseau virtuel
@@ -632,4 +630,4 @@ Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de 
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

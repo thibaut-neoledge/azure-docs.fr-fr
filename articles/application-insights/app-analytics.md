@@ -16,12 +16,10 @@
 	ms.author="awills"/>
 
 
-
-
 # Analytics dans Application Insights
 
 
-[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-analytics.md) vous permet d’exécuter de puissantes requêtes sur les données de télémétrie collectées par [Application Insights](app-insights-overview.md) à partir de votre application. Ces pages décrivent son langage de requête.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -66,6 +64,8 @@ Le langage possède de nombreuses fonctionnalités attrayantes :
 >[AZURE.NOTE] Nous vous recommandons de commencer par la [visite guidée du langage](app-analytics-tour.md).
 
 
+
+
 ## Connectez-vous à vos données Application Insights
 
 
@@ -74,9 +74,12 @@ Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards
 ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-analytics/001.png)
 
 
+## Limites
+
+Les résultats de requête sont actuellement limités à une seule semaine de données d’historique.
 
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

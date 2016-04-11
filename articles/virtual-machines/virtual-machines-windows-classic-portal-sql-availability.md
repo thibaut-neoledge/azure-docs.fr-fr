@@ -52,9 +52,9 @@ Notez qu'il s'agit d'une configuration possible. Par exemple, vous pouvez rédui
 
 Ce didacticiel part des principes suivants :
 
-- vous disposez déjà d’un compte Azure ;
+- Vous disposez déjà d’un compte Azure.
 
-- vous savez déjà comment configurer une machine virtuelle SQL Server dans la galerie de machines virtuelles avec l'interface graphique utilisateur. Pour plus d'informations, consultez [Configuration d'une machine virtuelle SQL Server dans Azure](virtual-machines-windows-classic-portal-sql.md)
+- Vous savez déjà comment approvisionner une machine virtuelle SQL Server classique de la galerie de machines virtuelles avec l’interface graphique utilisateur.
 
 - Vous avez déjà une connaissance approfondie des groupes de disponibilité AlwaysOn. Pour plus d'informations, consultez [Groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -547,6 +547,6 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 ## Étapes suivantes
 Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de disponibilité dans Azure. Pour configurer un écouteur pour ce groupe de disponibilité, consultez [Configuration d’un écouteur pour les groupes de disponibilité AlwaysOn dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
-Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

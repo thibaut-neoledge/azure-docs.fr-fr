@@ -13,22 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # Kit de développement logiciel (SDK) DocumentDB
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](documentdb-sdk-dotnet.md)
+- [Kit de développement logiciel (SDK) Node.js](documentdb-sdk-node.md)
+- [Kit de développement logiciel (SDK) Java](documentdb-sdk-java.md)
+- [Kit de développement logiciel (SDK) Python](documentdb-sdk-python.md)
 
 ##Kit de développement logiciel (SDK) Python DocumentDB
 
-<table> <tr><td>**Télécharger**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr> <tr><td>**Contribuer**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr> <tr><td>**Documentation**</td><td>[Documentation de référence pour le Kit de développement logiciel (SDK) Python](http://azure.github.io/azure-documentdb-python/)</td></tr> <tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Python](documentdb-python-application.md)</td></tr> <tr><td>**Plateforme actuellement prise en charge**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr> </table></br>
+<table>
+<tr><td>**Télécharger**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Participer**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Documentation**</td><td>[Documentation de référence du Kit de développement logiciel (SDK) Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Python](documentdb-python-application.md)</td></tr>
+<tr><td>**Plateforme actuellement prise en charge**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
+</table></br>
 
 ## Notes de publication
+
+### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
+- Implémentation des [collections partitionnées](documentdb-partition-data.md) et des [niveaux de performances définis par l’utilisateur](documentdb-performance-levels.md). 
 
 ### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - Ajoutez des programmes de résolution de partitions par hachage et par spécification de plages de valeurs pour vous aider lors du partitionnement des applications sur plusieurs partitions.
@@ -40,7 +49,7 @@
 ### <a name="1.2.0"/>[1\.2.0](https://pypi.python.org/pypi/pydocumentdb/1.2.0)
 - Prise en charge de l'index géospatial.
 - Valide la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, \\ ou se terminer par un espace.
-- Ajoute le nouvel en-tête « progression de la transformation de l'index » à ResourceResponse.
+- Ajoute le nouvel en-tête « progression de la transformation de l'index » à ResourceResponse.
 
 ### <a name="1.1.0"/>[1\.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
 - Implémente la stratégie d'indexation V2
@@ -52,30 +61,20 @@
 - Kit de développement logiciel (SDK) GA
 
 ## Dates de lancement et de suppression
-Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
+Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
 Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
 
-> [AZURE.WARNING]Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Python antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
+> [AZURE.WARNING]
+Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Python antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
 
 <br/>
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.5.0](#1.5.0) | 3 janvier 2016 |--- 
-| [1\.4.2](#1.4.2) | 6 octobre 2015 |--- 
-| [1\.4.1](#1.4.1) | 6 octobre 2015 |--- 
-| [1\.2.0](#1.2.0) | 6 août 2015 |--- 
-| [1\.1.0](#1.1.0) | 9 juillet 2015 |--- 
-| [1\.0.1](#1.0.1) | 25 mai 2015 |--- 
-| [1\.0.0](#1.0.0) | 7 avril 2015 |--- 
-| 0.9.4-version préliminaire | 14 janvier 2015 | 29 février 2016 
-| 0.9.3-version préliminaire | 9 décembre 2014 | 29 février 2016
-| 0.9.2-version préliminaire | 25 novembre 2014 | 29 février 2016 
-| 0.9.1-version préliminaire | 23 septembre 2014 | 29 février 2016 
-| 0.9.0-version préliminaire | 21 août 2014 | 29 février 2016
+| [1\.6.0](#1.6.0) | 29 mars 2016 |--- | [1\.5.0](#1.5.0) | 03 janvier 2016 |--- | [1\.4.2](#1.4.2) | 06 octobre 2015 |--- | [1\.4.1](#1.4.1) | 06 octobre 2015 |--- | [1\.2.0](#1.2.0) | 06 août 2015 |--- | [1\.1.0](#1.1.0) | 09 juillet 2015 |--- | [1\.0.1](#1.0.1) | 25 mai 2015 |--- | [1\.0.0](#1.0.0) | 07 avril 2015 |--- | Version préliminaire 0.9.4 | 14 janvier 2015 | 29 février 2016 | Version préliminaire 0.9.3 | 09 décembre 2014 | 29 février 2016 | Version préliminaire 0.9.2 | 25 novembre 2014 | 29 février 2016 | Version préliminaire 0.9.1 | 23 septembre 2014 | 29 février 2016 | Version préliminaire 0.9.0 | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -84,4 +83,4 @@ Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) s
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

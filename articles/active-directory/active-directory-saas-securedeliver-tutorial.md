@@ -64,8 +64,7 @@ Pour configurer l’intégration de Secure Deliver à Azure AD, vous devez ajout
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, entrez **Secure Deliver**.<br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
-7. Dans le volet des résultats, sélectionnez **Secure Deliver**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>
-
+7. Dans le volet des résultats, sélectionnez **Secure Deliver**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_02.png)<br>
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Secure Deliver au moyen d’un utilisateur de test appelé « Britta Simon ».
 
@@ -90,7 +89,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
 1. Dans le portail Azure AD, puis dans la page d’intégration d’application **Secure Deliver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Secure Deliver**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Secure Deliver**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
 
 3. Dans la page **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
 
@@ -100,7 +99,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
     b. Cliquez sur **Next**.
 
 
-4. Dans la page **Configurer l’authentification unique sur Secure Deliver**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) <br>
+4. Sur la page **Configurer l’authentification unique sur Secure Deliver**, procédez comme suit : <br><br>![Configurer l’authentification unique](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) <br>
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
@@ -220,4 +219,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

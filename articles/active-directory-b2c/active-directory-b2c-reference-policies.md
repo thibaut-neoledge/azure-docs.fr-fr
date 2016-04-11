@@ -72,7 +72,7 @@ Pour activer l’inscription dans votre application, vous devez créer une strat
 2. Cliquez sur **Stratégies d'inscription**.
 3. Cliquez sur **+Ajouter** en haut du volet.
 4. Le **Nom** détermine le nom de la stratégie d'inscription utilisé par votre application. Par exemple, entrez « SiUp ».
-5. Cliquez sur **Fournisseurs d'identité** et sélectionnez « Adresse de messagerie ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
+5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Inscription par le biais d’une adresse e-mail ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
 6. Cliquez sur **Attributs d'inscription**. Ici, vous choisissez les attributs que vous souhaitez collecter auprès du client au cours de l’inscription. Par exemple, sélectionnez « Pays/région », « Nom d'affichage » et « Code postal ». Cliquez sur **OK**.
 7. Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience d’inscription réussie. Par exemple, sélectionnez « Nom d'affichage », « Fournisseur d'identité », « Code postal », « Nouvel utilisateur » et « ID d'objet de l'utilisateur ».
 8. Cliquez sur **Create**. Notez que la stratégie créée s’affiche sous la forme « **B2C\_1\_SiUp** » (le fragment **B2C\_1\_** est automatiquement ajouté) dans le volet **Stratégies d’inscription**.
@@ -91,12 +91,31 @@ Pour activer la connexion à votre application, vous devez créer une stratégie
 2. Cliquez sur **Stratégies d’authentification**.
 3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 4. Le **Nom** détermine le nom de la stratégie de connexion utilisée par votre application. Par exemple, entrez « SiIn ».
-5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Adresse de messagerie ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
+5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Inscription par le biais du compte local ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
 6. Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience de connexion réussie. Par exemple, sélectionnez « Nom d'affichage », « Fournisseur d'identité », « Code postal » et « ID d'objet de l'utilisateur ». Cliquez sur **OK**.
 7. Cliquez sur **Create**. Notez que la stratégie créée s'affiche sous la forme « **B2C\_1\_SiIn** » (le fragment **B2C\_1\_** est automatiquement ajouté) dans le volet **Stratégies de connexion**.
 8. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiIn** ».
 9. Sélectionnez « Contoso B2C app » dans le menu déroulant **Applications** et `https://localhost:44321/` dans la liste déroulante **URL de réponse/URI de redirection**.
 10. Cliquez sur **Exécuter maintenant**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à vous connecter à votre application.
+
+    > [AZURE.NOTE]
+    La création de la stratégie et les mises à jour peuvent prendre jusqu’à une minute.
+
+## Création d’une stratégie d’inscription ou de connexion
+
+Cette stratégie gère les expériences d’inscription et de connexion des utilisateurs avec une configuration unique. Les utilisateurs sont dirigés vers le chemin d’accès correct (inscription ou connexion) en fonction du contexte. Cet article décrit également le contenu des jetons que l’application recevra en cas d’inscription ou de connexion réussie.
+
+1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Cliquez sur **Stratégies d’inscription ou de connexion**.
+3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
+4. Le **Nom** détermine le nom de la stratégie d'inscription utilisé par votre application. Par exemple, entrez « SiUpIn ».
+5. Cliquez sur **Fournisseurs d’identité** et sélectionnez « Inscription par le biais d’une adresse e-mail ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
+6. Cliquez sur **Attributs d’inscription**. Ici, vous choisissez les attributs que vous souhaitez collecter auprès du client au cours de l’inscription. Par exemple, sélectionnez « Pays/région », « Nom d'affichage » et « Code postal ». Cliquez sur **OK**.
+7. Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience de d’inscription ou de connexion réussie. Par exemple, sélectionnez « Nom d'affichage », « Fournisseur d'identité », « Code postal », « Nouvel utilisateur » et « ID d'objet de l'utilisateur ».
+8. Cliquez sur **Create**. Notez que la stratégie créée s'affiche sous la forme « **B2C\_1\_SiUpIn** » (le fragment **B2C\_1\_** est automatiquement ajouté) dans le volet **Stratégies de d’inscription ou de connexion**.
+9. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiUpIn** ».
+10. Sélectionnez « Contoso B2C app » dans le menu déroulant **Applications** et `https://localhost:44321/` dans la liste déroulante **URL de réponse/URI de redirection**.
+11. Cliquez sur **Exécuter maintenant**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à vous inscrire ou à vous connecter à votre application.
 
     > [AZURE.NOTE]
     La création de la stratégie et les mises à jour peuvent prendre jusqu’à une minute.
@@ -124,7 +143,7 @@ Pour activer la modification de profil dans votre application, vous devez créer
 
 Pour activer la réinitialisation affinée du mot de passe sur votre application, vous devez créer une stratégie de réinitialisation du mot de passe. Notez que l’option de réinitialisation du mot de passe au niveau du client spécifiée [ici](active-directory-b2c-reference-sspr.md) est toujours applicable pour les stratégies d’authentification. Cette stratégie décrit les expériences des clients lors de la réinitialisation du mot de passe et le contenu des jetons que l’application reçoit en cas d’opération réussie.
 
-1. [Procédez comme suit pour accéder au panneau des fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Cliquez sur **Stratégies de réinitialisation du mot de passe**.
 3. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 4. Le **Nom** détermine le nom de la stratégie de réinitialisation du mot de passe utilisé par votre application. Par exemple, entrez « SSPR ».
@@ -142,4 +161,4 @@ Pour activer la réinitialisation affinée du mot de passe sur votre application
 
 - [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

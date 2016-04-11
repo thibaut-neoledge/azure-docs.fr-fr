@@ -10,7 +10,7 @@ Regardez ces vidéos pour en savoir plus sur les jeux de mise à l’échelle de
 
 ## Création et gestion des jeux de mise à l’échelle de machine virtuelle
 
-Les jeux de mise à l’échelle de machine virtuelle peuvent être définis et déployés à l’aide de modèles JSON et d’[API REST](https://msdn.microsoft.com/library/mt589023.aspx), tout comme des machines virtuelles Azure Resource Manager individuelles. Par conséquent, les méthodes de déploiement d’Azure Resource Manager standard peuvent être utilisées. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Les jeux de mise à l’échelle de machine virtuelle peuvent être définis et déployés à l’aide de modèles JSON et d’[API REST](https://msdn.microsoft.com/library/mt589023.aspx), tout comme des machines virtuelles Azure Resource Manager individuelles. Par conséquent, les méthodes de déploiement d’Azure Resource Manager standard peuvent être utilisées. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../articles/resource-group-authoring-templates.md).
 
 Vous trouverez des modèles d’exemple de jeux de mise à l’échelle de machine virtuelle parmi les référentiels de démarrage rapide GitHub, ici :
 
@@ -26,7 +26,7 @@ Pour augmenter ou diminuer le nombre de machines virtuelles dans un jeu de mise 
 
 Si vous redéployez un modèle pour modifier la capacité, vous pouvez définir un modèle beaucoup plus petit incluant uniquement la référence SKU et la capacité mise à jour. Un exemple de cela est indiqué ici : [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Pour être guidé parmi les étapes qui crée un jeu de mise à l’échelle automatique, consultez les [machines de mise à l’échelle automatique dans un jeu de mise à l’échelle de machine virtuelle](virtual-machines-windows-ps-vmss-create.md)
+Pour être guidé parmi les étapes qui crée un jeu de mise à l’échelle automatique, consultez les [machines de mise à l’échelle automatique dans un jeu de mise à l’échelle de machine virtuelle](../articles/virtual-machines/virtual-machines-windows-ps-vmss-create.md)
 
 ## Surveillance de votre jeu de mise à l’échelle de machine virtuelle
 
@@ -79,7 +79,7 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 
 **Q** Quelles sont les autres limites de ressource qui existent pour les jeux de mise à l’échelle de machine virtuelle ?
 
-**A.** Vous êtes limité à la création de seulement de 500 machines virtuelles dans plusieurs jeux de mise à l’échelle par région pendant la période d’évaluation. Les [limites du Service d’abonnement Azure /](../azure-subscription-service-limits.md) s’appliquent.
+**A.** Vous êtes limité à la création de seulement de 500 machines virtuelles dans plusieurs jeux de mise à l’échelle par région pendant la période d’évaluation. Les [limites du Service d’abonnement Azure /](../articles/azure-subscription-service-limits.md) s’appliquent.
 
 **Q.** Les disques de données sont-ils pris en charge dans les jeux de mise à l’échelle de machine virtuelle ?
 
@@ -130,4 +130,4 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 
 **A.** Oui. Un ensemble de mise à l’échelle est un ensemble haute disponibilité implicite avec 3 FD et 5 UD. Vous n’avez pas besoin de configurer quoi que ce soit sous virtualMachineProfile. Dans les futures versions, les jeux de mise à l’échelle de machine virtuelle peuvent s’étendre sur plusieurs clients, mais dans l’immédiat, un jeu de mise à l’échelle est un ensemble de disponibilité unique.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

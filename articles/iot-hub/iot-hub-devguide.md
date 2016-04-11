@@ -68,7 +68,7 @@ Lorsque vous utilisez des Kits de développement logiciel (SDK) ou intégrations
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Parfois, le Kit SDK nécessite une valeur **Nom d’hôte** ou **Espace de noms**. Dans ce cas, supprimez le schéma du **point de terminaison compatible avec les hubs d’événements**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Parfois, le Kit SDK nécessite une valeur **Nom d’hôte** ou **Espace de noms**. Dans ce cas, supprimez le schéma du **point de terminaison compatible avec les hubs d’événements**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie de sécurité d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au hub d’événements ci-dessus.
 
@@ -412,7 +412,7 @@ Notez que cela ne signifie pas que vous pouvez remplacer Event Hubs par IoT Hub 
 
 Pour plus d’informations sur la façon d’utiliser les messages appareil-à-cloud, reportez-vous à [API et kits de développement logiciel (SDK) IoT Hub][lnk-apis-sdks].
 
-> [AZURE.NOTE] Lorsque vous utilisez HTTP pour envoyer des messages appareil-à-cloud, les chaînes suivantes peuvent uniquement contenir des caractères ASCII : valeurs de propriétés système, noms et valeurs de propriétés d’application.
+> [AZURE.NOTE] Si vous utilisez HTTP pour envoyer des messages appareil-à-cloud, les valeurs et les noms de propriétés ne peuvent contenir que des caractères alphanumériques ASCII plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Trafic autre que la télémétrie
 
@@ -420,7 +420,7 @@ Dans de nombreux cas, outre les points de données de télémétrie, les apparei
 
 Pour plus d’informations sur la meilleure façon de traiter ce type de message, consultez [Traitement appareil-à-cloud][lnk-guidance-d2c-processing].
 
-#### Options de configuration appareil-à-cloud <a id="d2cconfiguration"></a>
+#### Options de configuration Appareil vers cloud <a id="d2cconfiguration"></a>
 
 Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler les messages appareil-à-cloud.
 
@@ -429,7 +429,7 @@ Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler l
 
 À l’instar d’Event Hubs, IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison de la réception de messages appareil-à-cloud.
 
-Toutes les propriétés ci-dessus peuvent être modifiées à la fois via le [portail Azure][lnk-management-portal] ou par programmation via [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis].
+Toutes les propriétés ci-dessus peuvent être modifiées à la fois via le [portail Azure][lnk-management-portal] ou par programme via [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis].
 
 #### Propriétés de la fonction anti-usurpation <a id="antispoofing"></a>
 
@@ -451,19 +451,19 @@ La propriété **ConnectionAuthMethod** contient un objet sérialisé JSON avec 
 }
 ```
 
-### Cloud-à-appareil <a id="c2d"></a>
+### Cloud vers appareil <a id="c2d"></a>
 
 Comme expliqué dans la section [Points de terminaison](#endpoints), vous pouvez envoyer des messages cloud-à-appareil via un point de terminaison accessible au service (**/messages/devicebound**), et un appareil peut recevoir ces messages via un point de terminaison spécifique de l’appareil (**/devices/{deviceId}/messages/devicebound**).
 
 Chaque message cloud-à-appareil cible un seul appareil en définissant la propriété **to** sur **/devices/{deviceId}/messages/devicebound**.
 
-**Important** : chaque file d’attente d’appareil peut contenir jusqu’à 50 messages cloud-à-appareil. Les tentatives d’envoi d’un nombre supérieur de messages au même appareil entraînent une erreur.
+**Important** : chaque file d’attente d’appareil peut contenir jusqu’à 50 messages Cloud vers appareil. Les tentatives d’envoi d’un nombre supérieur de messages au même appareil entraînent une erreur.
 
-> [AZURE.NOTE] Lorsque vous envoyez des messages cloud-à-appareil, les chaînes suivantes peuvent uniquement contenir des caractères ASCII : valeurs de propriétés système, noms et valeurs de propriétés d’application.
+> [AZURE.NOTE] Lorsque vous envoyez des messages appareil-à-cloud, les valeurs et les noms de propriétés ne peuvent contenir que des caractères alphanumériques ASCII plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Cycle de vie des messages <a id="message lifecycle"></a>
 
-Pour mettre en œuvre *au moins une fois* la garantie de remise, les messages cloud-à-appareil sont conservés dans les files d’attente par appareil et les appareils doivent explicitement reconnaître leur *achèvement* pour qu’IoT Hub puisse les supprimer de la file d’attente. Cela garantit la résilience contre les échecs de connectivité et d’appareils.
+Pour mettre en œuvre *au moins une fois* la garantie de remise, les messages Cloud vers appareil sont conservés dans les files d’attente par appareil et les appareils doivent explicitement reconnaître leur *achèvement* pour qu’IoT Hub puisse les supprimer de la file d’attente. Cela garantit la résilience contre les échecs de connectivité et d’appareils.
 
 L’illustration suivante présente le graphique d’état du cycle de vie d’un message cloud-à-appareil.
 
@@ -477,13 +477,13 @@ Un appareil peut également :
 
 Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **En file d’attente** après un *délai de visibilité (ou de verrouillage)* dont la valeur par défaut est d’une minute. Un message peut passer de l’état **En file d’attente** à l’état **Invisible** et inversement, au maximum le nombre de fois spécifié dans la propriété *Nombre maximal de diffusions* sur IoT Hub. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Lettre morte**. De même, IoT Hub attribue à un message l’état **Lettre morte** à l’issue de son délai d’expiration (consultez [Durée de vie](#ttl)).
 
-Pour un didacticiel relatif aux messages cloud-à-appareil, consultez [Prise en main des messages cloud-à-appareil Azure IoT Hub][lnk-getstarted-c2d-tutorial]. Pour consulter les rubriques de référence à propos des différences de présentation de la fonctionnalité cloud-à-appareil entre les API et le Kit SDK, consultez [Kits de développement logiciel (SDK) et API d’IoT Hub][lnk-apis-sdks].
+Pour un didacticiel relatif aux messages Cloud vers Appareil, consultez [Prise en main des messages Cloud vers Appareil Azure IoT Hub][lnk-getstarted-c2d-tutorial]. Pour consulter les rubriques de référence à propos des différences de présentation de la fonctionnalité Cloud vers appareil entre les API et le kit de développement logiciel, consultez [Kits de développement logiciel (SDK) et API d’IoT Hub][lnk-apis-sdks].
 
 > [AZURE.NOTE] Généralement, les messages cloud-à-appareil sont achevés à chaque fois que la perte du message n’affecte pas la logique d’application. Cela peut se produire dans de nombreux scénarios différents. Par exemple : le contenu du message a été conservé sur l’espace de stockage local, une opération a été exécutée avec succès ou le message transporte des informations temporaires dont la perte n’aurait aucune répercussion sur le fonctionnement de l’application. Parfois, pour les tâches à long terme, vous pouvez envoyer le message cloud-à-appareil après avoir maintenu la description de la tâche sur le stockage local, puis notifier le système principal d’application en envoyant un ou plusieurs messages appareil-à-cloud, à différentes étapes de progression de la tâche.
 
 #### Durée de vie <a id="ttl"></a>
 
-Chaque message cloud-à-appareil est doté d’un délai d’expiration. Il peut être défini explicitement par le service (propriété **ExpiryTimeUtc**) ou il est défini par IoT Hub avec la *durée de vie* par défaut spécifiée en tant que propriété IoT Hub. Consultez [Options de configuration cloud-à-appareil](#c2dconfiguration).
+Chaque message cloud-à-appareil est doté d’un délai d’expiration. Il peut être défini explicitement par le service (propriété **ExpiryTimeUtc**) ou il est défini par IoT Hub avec la *durée de vie* par défaut spécifiée en tant que propriété IoT Hub. Consultez [Options de configuration Cloud vers appareil](#c2dconfiguration).
 
 > [AZURE.NOTE] Un moyen courant de tirer parti de l’expiration du message consiste à définir des valeurs de durée de vie courtes pour éviter l’envoi de messages à des appareils déconnectés. Vous obtenez le même résultat qu’avec la gestion de l’état de connexion de l’appareil, tout en étant beaucoup plus efficace. Il est également possible, en demandant des accusés de réception des messages, d’être informé par IoT Hub des appareils qui peuvent recevoir des messages et de ceux qui ne sont pas en ligne ou qui sont en état d’échec.
 
@@ -512,14 +512,14 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 | Propriété | Description |
 | -------- | ----------- |
 | EnqueuedTimeUtc | Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
-| OriginalMessageId | **MessageId** du message cloud-à-appareil auquel appartiennent ces informations de commentaires. |
+| OriginalMessageId | **MessageId** du message Cloud vers appareil auquel appartiennent ces informations de commentaires. |
 | StatusCode | Entier obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> 0 = succès <br/> 1 = message expiré <br/> 2 = nombre maximal de remises dépassé <br/> 3 = message rejeté |
 | Description | Valeurs des chaînes pour **StatusCode**. |
-| DeviceId | **DeviceId** de l’appareil cible du message cloud-à-appareil auquel appartient ce commentaire. |
-| DeviceGenerationId | **DeviceGenerationId** de l’appareil cible du message cloud-à-appareil auquel appartient ce commentaire. |
+| DeviceId | **DeviceId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
+| DeviceGenerationId | **DeviceGenerationId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
 
 
-**Important**. Le service doit spécifier un **MessageId** pour le message cloud-à-appareil afin de pouvoir mettre en corrélation ses commentaires avec le message d’origine.
+**Important**. Le service doit spécifier un **MessageId** pour le message Cloud vers appareil afin de pouvoir mettre en corrélation ses commentaires avec le message d’origine.
 
 **Exemple**. Voici un exemple de corps de message de commentaires.
 
@@ -540,7 +540,7 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 ]
 ```
 
-#### Options de configuration cloud-à-appareil <a id="c2dconfiguration"></a>
+#### Options de configuration Cloud vers appareil <a id="c2dconfiguration"></a>
 
 Chaque IoT Hub expose les options de configuration suivantes pour les messages cloud-à-appareil :
 
@@ -557,7 +557,7 @@ Pour plus d’informations, consultez [Gérer des IoT Hubs][lnk-manage].
 
 Chaque abonnement Azure peut avoir au maximum 10 hubs IoT.
 
-Chaque hub IoT est configuré avec un certain nombre d’unités dans une référence SKU spécifique (pour plus d’informations, consultez [Tarification Azure IoT Hub][lnk-pricing]). La référence et le nombre d’unités déterminent le quota quotidien maximal de messages que vous pouvez envoyer.
+Chaque IoT Hub est configuré avec un certain nombre d’unités dans une référence SKU spécifique (pour plus d’informations, consultez [Tarification Azure IoT Hub][lnk-pricing]). La référence et le nombre d’unités déterminent le quota quotidien maximal de messages que vous pouvez envoyer.
 
 La référence détermine également le seuil de limitation qu’IoT Hub applique sur les opérations.
 
@@ -575,6 +575,11 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 | Envois cloud-à-appareil | 100/min/unité |
 | Réceptions cloud-à-appareil | 1 000/min/unité |
 
+Il est important de préciser que la limitation des *connexions des appareils* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités qui sont configurées pour le hub.
+
+Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Cela signifie que pour connecter 100 000 appareils, au moins 1 000 secondes sont nécessaires (environ 16 minutes). Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre d’identité de l’appareil.
+
+
 **Remarque**. À tout moment, il est possible d’augmenter les quotas ou les limites en augmentant le nombre d’unités approvisionnées dans un hub IoT.
 
 **Important** : Les opérations de registre des identités sont prévues pour une utilisation au moment de l’exécution lors de scénarios de gestion d’appareils et d’approvisionnement. La lecture ou la mise à jour de plusieurs identités d’appareils sont prises en charge lors de [tâches d’importation/exportation](#importexport).
@@ -583,7 +588,7 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 
 Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub, suivez les liens ci-après pour en savoir plus :
 
-- [Prise en main des hubs IoT (didacticiel).][lnk-get-started]
+- [Prise en main de concentrateurs IoT Hubs (didacticiel).][lnk-get-started]
 - [Compatibilité des plateformes de système d’exploitation et du matériel][lnk-compatibility]
 - [Centre de développement Azure IoT][lnk-iotdev]
 - [Conception de votre solution][lnk-guidance]
@@ -634,4 +639,4 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

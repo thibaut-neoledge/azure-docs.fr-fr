@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs notifie les utilisateurs pour iOS avec backend .NET
@@ -24,7 +24,7 @@
 
 La prise en charge des notifications Push dans Azure vous permet d’accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles. Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme présenté dans la rubrique de conseils [Inscription auprès du serveur principal de votre application](notification-hubs-registration-management.md#registration-management-from-a-backend).
 
-> [AZURE.NOTE]Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md). Ce didacticiel est également un prérequis pour le didacticiel sur les [notifications Push sécurisées (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md). Si vous utilisez Mobile Services comme service principal, consultez la [version consacrée à Mobile Services](../mobile-services-javascript-backend-ios-push-notifications-app-users.md) de ce didacticiel.
+> [AZURE.NOTE] Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md). Ce didacticiel est également un prérequis pour le didacticiel sur les [notifications Push sécurisées (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md). Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article [Mobile Apps concernant la prise en main des notifications Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 
 
@@ -34,19 +34,19 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 1. Ouvrez l'application d'affichage Page simple que vous avez créée dans le didacticiel [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md).
 
-	> [AZURE.NOTE]Dans cette section, nous partons du principe que vous avez configuré votre projet avec un nom d’organisation vide. Si ce n’est pas le cas, vous devez ajouter le nom de votre organisation à tous les noms de classe.
+	> [AZURE.NOTE] Dans cette section, nous partons du principe que vous avez configuré votre projet avec un nom d’organisation vide. Si ce n’est pas le cas, vous devez ajouter le nom de votre organisation à tous les noms de classe.
 
-2. Dans Main.storyboard, ajoutez les composants indiqués dans la capture d'écran ci-dessous de la bibliothèque d'objets :
+2. Dans Main.storyboard, ajoutez les composants indiqués dans la capture d'écran ci-dessous de la bibliothèque d'objets :
 
     ![][1]
 
-	+ **Nom d'utilisateur** : champ UITextField avec du texte d'espace réservé, *Entrer le nom d'utilisateur*, juste en dessous de l'étiquette des résultats d'envoi et entre les marges gauche et droite, en dessous de l'étiquette des résultats d'envoi.
-	+ **Mot de passe** : champ UITextField avec du texte d'espace réservé, *Entrer le mot de passe*, juste en dessous du champ de texte du nom d'utilisateur et entre les marges gauche et droite, en dessous du champ de texte du nom d'utilisateur. Cochez l'option **Sécuriser l'entrée de texte** dans l'inspecteur d'attributs sous *Touche Retour*.
-	+ **Connexion** : un UIButton étiqueté immédiatement en dessous du champ de texte du mot de passe et décochez l'option **Activé** dans l'inspecteur d'attributs, sous *Contrôle-Contenu*
-	+ **WNS** : étiquette et commutateur pour activer l'envoi de la notification du service de notification Windows, si elle a été configurée sur le hub. Consultez le didacticiel [Prise en main de Windows](notification-hubs-windows-store-dotnet-get-started.md).
-	+ **GCM** : étiquette et commutateur pour activer l'envoi de la notification à Google Cloud Messaging, si elle a été configurée sur le hub. Consultez le didacticiel [Prise en main d'Android](notification-hubs-android-get-started.md).
-	+ **APNS** : étiquette et commutateur pour activer l'envoi de la notification au service de notification de la plateforme Apple.
-	+ **Nom d'utilisateur du destinataire** : champ UITextField avec du texte d'espace réservé, *Balise du nom d'utilisateur du destinataire*, juste en dessous de l'étiquette GCM et entre les marges gauche et droite, en dessous de l'étiquette GCM.
+	+ **Nom d'utilisateur** : champ UITextField avec du texte d'espace réservé, *Entrer le nom d'utilisateur*, juste en dessous de l'étiquette des résultats d'envoi et entre les marges gauche et droite, en dessous de l'étiquette des résultats d'envoi.
+	+ **Mot de passe** : champ UITextField avec du texte d'espace réservé, *Entrer le mot de passe*, juste en dessous du champ de texte du nom d'utilisateur et entre les marges gauche et droite, en dessous du champ de texte du nom d'utilisateur. Cochez l'option **Sécuriser l'entrée de texte** dans l'inspecteur d'attributs sous *Touche Retour*.
+	+ **Connexion** : un UIButton étiqueté immédiatement en dessous du champ de texte du mot de passe et décochez l'option **Activé** dans l'inspecteur d'attributs, sous *Contrôle-Contenu*
+	+ **WNS** : étiquette et commutateur pour activer l'envoi de la notification du service de notification Windows, si elle a été configurée sur le hub. Consultez le didacticiel [Prise en main de Windows](notification-hubs-windows-store-dotnet-get-started.md).
+	+ **GCM** : étiquette et commutateur pour activer l'envoi de la notification à Google Cloud Messaging, si elle a été configurée sur le hub. Consultez le didacticiel [Prise en main d'Android](notification-hubs-android-get-started.md).
+	+ **APNS** : étiquette et commutateur pour activer l'envoi de la notification au service de notification de la plateforme Apple.
+	+ **Nom d'utilisateur du destinataire** : champ UITextField avec du texte d'espace réservé, *Balise du nom d'utilisateur du destinataire*, juste en dessous de l'étiquette GCM et entre les marges gauche et droite, en dessous de l'étiquette GCM.
 
 
 	Certains composants ont été ajoutés dans le didacticiel [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md).
@@ -86,7 +86,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 		@end
 
-5. Dans RegisterClient.m, mettez à jour la section `@interface` :
+5. Dans RegisterClient.m, mettez à jour la section `@interface` :
 
 		@interface RegisterClient ()
 
@@ -266,14 +266,14 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 	Notez que cette classe a besoin que sa propriété **authorizationHeader** soit définie afin de fonctionner correctement. Cette propriété est définie par la classe **ViewController** après la connexion.
 
-7. Dans ViewController.h, ajoutez une instruction `#import` pour RegisterClient.h. Ensuite, ajoutez une déclaration pour le jeton de l'appareil et faites référence à une instance `RegisterClient` dans la section `@interface` :
+7. Dans ViewController.h, ajoutez une instruction `#import` pour RegisterClient.h. Ensuite, ajoutez une déclaration pour le jeton de l'appareil et faites référence à une instance `RegisterClient` dans la section `@interface` :
 
 		#import "RegisterClient.h"
 
 		@property (strong, nonatomic) NSData* deviceToken;
 		@property (strong, nonatomic) RegisterClient* registerClient;
 
-8. Dans ViewController.m, ajoutez une déclaration de méthode privée dans la section `@interface` :
+8. Dans ViewController.m, ajoutez une déclaration de méthode privée dans la section `@interface` :
 
 		@interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
@@ -283,7 +283,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 		@end
 
-> [AZURE.NOTE]L'extrait de code suivant n'étant pas un système d'authentification sécurisé, vous devez remplacer l'implémentation de **createAndSetAuthenticationHeaderWithUsername:AndPassword:** par votre mécanisme d'authentification spécifique qui génère un jeton d'authentification devant être consommé par la classe cliente du registre, par exemple, OAuth, Active Directory.
+> [AZURE.NOTE] L'extrait de code suivant n'étant pas un système d'authentification sécurisé, vous devez remplacer l'implémentation de **createAndSetAuthenticationHeaderWithUsername:AndPassword:** par votre mécanisme d'authentification spécifique qui génère un jeton d'authentification devant être consommé par la classe cliente du registre, par exemple, OAuth, Active Directory.
 
 9. Ensuite, dans la section `@implementation` de ViewController.m, ajoutez le code suivant qui ajoute l'implémentation pour la définition du jeton de l'appareil et de l'en-tête de l'authentification.
 
@@ -422,7 +422,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 		self.RecipientField.delegate = self;
 		self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
 
-12. À présent, dans **AppDelegate.m**, supprimez tout le contenu de la méthode **application:didRegisterForPushNotificationWithDeviceToken:** et remplacez-le par ce qui suit pour faire en sorte que le contrôleur d'affichage contienne le dernier jeton de l'appareil extrait des APN :
+12. À présent, dans **AppDelegate.m**, supprimez tout le contenu de la méthode **application:didRegisterForPushNotificationWithDeviceToken:** et remplacez-le par ce qui suit pour faire en sorte que le contrôleur d'affichage contienne le dernier jeton de l'appareil extrait des APN :
 
 		// Add import to the top of the file
 		#import "ViewController.h"
@@ -434,7 +434,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 		    rvc.deviceToken = deviceToken;
 		}
 
-13. Enfin, assurez-vous qu'**AppDelegate.m** contient la méthode suivante :
+13. Enfin, assurez-vous qu'**AppDelegate.m** contient la méthode suivante :
 
 		- (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
@@ -465,4 +465,4 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

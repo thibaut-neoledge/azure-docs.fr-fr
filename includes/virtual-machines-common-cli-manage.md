@@ -1,6 +1,6 @@
 Cet article illustre les commandes équivalentes de l’interface de ligne de commande Azure (Azure CLI) pour créer et gérer des machines virtuelles Azure dans la gestion des services Azure et le Gestionnaire de ressources Azure. Ces informations vous serviront de guide pratique pour migrer des scripts d'un mode de commande à l'autre.
 
-* Si vous n'avez pas déjà installé l'interface de ligne de commande Azure et si vous n'êtes pas encore connecté à votre abonnement, consultez [Installation de l'interface de ligne de commande Azure](../xplat-cli-install.md) et [Connexion à un abonnement Azure à partir de l'interface de ligne de commande Azure](../xplat-cli-connect.md). Lorsque vous souhaitez utiliser les commandes du mode Gestionnaire de ressources, veillez à vous connecter avec la méthode par connexion.
+* Si vous n'avez pas déjà installé l'interface de ligne de commande Azure et si vous n'êtes pas encore connecté à votre abonnement, consultez [Installation de l'interface de ligne de commande Azure](../articles/xplat-cli-install.md) et [Connexion à un abonnement Azure à partir de l'interface de ligne de commande Azure](../articles/xplat-cli-connect.md). Lorsque vous souhaitez utiliser les commandes du mode Gestionnaire de ressources, veillez à vous connecter avec la méthode par connexion.
 
 * Pour vous familiariser avec le mode Gestionnaire de ressources dans l’interface CLI Azure, vous devrez peut-être changer de mode de commande. Par défaut, l’interface de ligne de commande démarre en mode gestion des services Azure. Pour passer au mode Gestionnaire de ressources, exécutez `azure config mode arm`. Pour revenir au mode Gestion des services, exécutez `azure config mode asm`.
 
@@ -9,11 +9,11 @@ Cet article illustre les commandes équivalentes de l’interface de ligne de co
 ## Tâches de machine virtuelle
 Le tableau suivant compare les tâches courantes de machine virtuelle que vous pouvez effectuer avec les commandes CLI Azure dans la gestion des services et le Gestionnaire de ressources. Avec de nombreuses commandes du Gestionnaire de ressources, vous devez passer le nom d'un groupe de ressources existant.
 
-> [AZURE.NOTE] Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez la rubrique [Utilisation de l’interface CLI Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface CLI Azure](virtual-machines-linux-cli-deploy-templates.md).
+> [AZURE.NOTE] Ces exemples n’incluent pas les opérations basées sur des modèles qui sont recommandées pour les déploiements de machines virtuelles dans le Gestionnaire de ressources. Pour plus d’informations, consultez la rubrique [Utilisation de l’interface CLI Azure avec Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface CLI Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 Task | Gestion des services | Gestionnaire de ressources
 -------------- | ----------- | -------------------------
-Créer la machine virtuelle de base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenir l’`image-urn` à partir de la commande `azure vm image list`. Consultez [cet article](virtual-machines-linux-cli-ps-findimage.md) pour découvrir des exemples.)
+Créer la machine virtuelle de base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenir l’`image-urn` à partir de la commande `azure vm image list`. Consultez [cet article](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) pour découvrir des exemples.)
 Créer une machine virtuelle Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Créer une machine virtuelle Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Énumérer les machines virtuelles | `azure  vm list [options]` | `azure  vm list [options]`
@@ -42,6 +42,6 @@ Obtenir toutes les tailles de machines virtuelles disponibles | Non disponible |
 
 ## Étapes suivantes
 
-* Pour d’autres exemples de commandes de l’interface de ligne de commande, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Service Management](virtual-machines-command-line-tools.md) et [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](azure-cli-arm-commands.md).
+* Pour d’autres exemples de commandes de l’interface de ligne de commande, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Service Management](../articles/virtual-machines-command-line-tools.md) et [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](../articles/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

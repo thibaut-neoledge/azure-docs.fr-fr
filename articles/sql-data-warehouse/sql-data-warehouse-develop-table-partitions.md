@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/14/2016"
+   ms.date="03/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partitions de tables dans SQL Data Warehouse
@@ -38,9 +38,9 @@ Normalement, les partitions de table sont utiles de deux manières principales :
 Lors de la création d’index de colonne en cluster dans SQL DW, un administrateur doit prendre en compte un facteur supplémentaire : nombre de lignes. Les tables ICC peuvent atteindre un degré élevé de compression et permet d’accélérer l’exécution des requêtes SQL DW. En raison du fonctionnement de la compression en interne dans SQL DW, chaque table CCI doit comporter un grand nombre de lignes avant que les données sont compressées. En outre, SQL DW répartit les données sur un grand nombre de distributions et chaque distribution est divisée en partitions. Pour obtenir une compression et des performances optimales, un minimum de 100 000 lignes de distribution et de partition sont nécessaires. Dans l’exemple ci-dessus, si la table de faits de ventes contient 36 partitions mensuelles, et étant donné que SQL DW comporte 60 distributions, la table de faits de ventes doit contenir des lignes 6 millions de lignes par mois, ou 216 millions de ligne lorsque tous les mois sont remplis. Si une table contient beaucoup moins de lignes que la valeur minimale recommandée, l’administrateur doit envisager la création de la table avec moins de partitions afin d’augmenter le nombre de lignes par distribution.
 
 
-Pour dimensionner la taille de la base de données actuelle au niveau de la partition, utilisez une requête similaire à ce qui suit :
+Pour dimensionner votre base de données SQL Server actuelle au niveau de la partition, utilisez une requête semblable à ce qui suit :
 
-```
+```sql
 SELECT      s.[name]                        AS      [schema_name]
 ,           t.[name]                        AS      [table_name]
 ,           i.[name]                        AS      [index_name]
@@ -54,7 +54,7 @@ SELECT      s.[name]                        AS      [schema_name]
 FROM        sys.schemas s
 JOIN        sys.tables t                    ON      t.[schema_id]         = s.[schema_id]
 JOIN        sys.partitions p                ON      p.[object_id]         = t.[object_id]
-JOIN        sys.allocation_units a          ON      a.[container_id]        = p.[partition_id]
+JOIN        sys.allocation_units a          ON      a.[container_id]      = p.[partition_id]
 JOIN        sys.indexes i                   ON      i.[object_id]         = p.[object_id]
                                             AND     i.[index_id]          = p.[index_id]
 JOIN        sys.data_spaces ds              ON      ds.[data_space_id]    = i.[data_space_id]
@@ -83,7 +83,7 @@ Taille de la partition MPP = Taille de la partition SMP / Nombre de distribution
 
 Vous pouvez déterminer le nombre de distributions figurant dans votre base de données SQL Data Warehouse en appliquant la requête suivante :
 
-```
+```sql
 SELECT  COUNT(*)
 FROM    sys.pdw_distributions
 ;
@@ -96,7 +96,7 @@ Il reste un dernier facteur à prendre en compte en ce qui concerne les partitio
 
 Si vous voulez obtenir des informations sur l’allocation de la mémoire pour chaque distribution, interrogez les vues de gestion dynamique du gouverneur de ressources. En réalité, votre allocation de mémoire sera inférieure aux nombres indiqués ci-dessous. Toutefois, cette figure peut vous aider à dimensionner vos partitions lors d’opérations de gestion des données.
 
-```
+```sql
 SELECT  rp.[name]								AS [pool_name]
 ,       rp.[max_memory_kb]						AS [max_memory_kb]
 ,       rp.[max_memory_kb]/1024					AS [max_memory_mb]
@@ -122,7 +122,7 @@ Pour fractionner une partition qui contient déjà des données, la méthode la 
 
 Voici un exemple de table columnstore partitionnée qui inclut une ligne dans chaque partition :
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
         [ProductKey]            int          NOT NULL
@@ -157,7 +157,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 Nous pouvons ensuite rechercher le nombre de lignes exploitant la vue de catalogue `sys.partitions` :
 
-```
+```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
 ,       i.[name] as Index_name
 ,       p.partition_number as Partition_nmbr
@@ -174,7 +174,7 @@ WHERE t.[name] = 'FactInternetSales'
 
 Si nous essayons de fractionner cette table, l’erreur suivante s’affiche :
 
-```
+```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
@@ -182,7 +182,7 @@ Le message 35346, au niveau 15, état 1, ligne 44, indique que la clause SPLIT d
 
 Cependant, nous pouvons utiliser la commande `CTAS` pour créer une table afin de stocker nos données.
 
-```
+```sql
 CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -200,7 +200,7 @@ WHERE   1=2
 
 Comme les limites de la partition sont alignées, le basculement est autorisé. La table source présente donc une partition vide, que nous pouvons fractionner.
 
-```
+```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -208,7 +208,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 Il ne nous reste plus qu’à aligner nos données en fonction des limites de la nouvelle partition, via la commande `CTAS`, et à faire basculer nos données une nouvelle fois vers la table principale.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -229,7 +229,7 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 
 Une fois le déplacement des données effectué, il est judicieux d’actualiser les statistiques sur la table cible, afin de vérifier qu’elles reflètent de manière précise la nouvelle distribution des données sur leurs partitions respectives.
 
-```
+```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
@@ -238,7 +238,7 @@ Pour éviter que la définition de votre table ne **se corrompe** dans votre sys
 
 1. Créez la table en tant que table partitionnée, mais sans ajouter de valeurs de partition.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -262,7 +262,7 @@ WITH
 
 2. Appliquez à la table la commande `SPLIT` lors du processus de déploiement :
 
-```
+```sql
 -- Create a table containing the partition boundaries
 
 CREATE TABLE #partitions
@@ -336,4 +336,4 @@ Une fois que vous avez migré le schéma de base de données vers SQL Data Wareh
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Exemples de développement Data Catalog | Microsoft Azure"
+   pageTitle="Exemples de développement Data Catalog | Microsoft Azure"
    description="Commencez à développer des applications de catalogue à l’aide de l’API REST Data Catalog."
    services="data-catalog"
    documentationCenter=""
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/03/2016"
+   ms.date="03/30/2016"
    ms.author="derrickv"/>
 
 
-# Exemples de développement Data Catalog
+# Exemples de développement Data Catalog
 Commencez à développer des applications Data Catalog à l’aide de l’API REST Data Catalog. L’API REST Data Catalog est une API REST qui fournit un accès par programme aux ressources Data Catalog pour enregistrer, annoter et rechercher des ressources de données par programme.
 
-Voici les exemples disponibles sur GitHub :
+Voici les exemples disponibles sur GitHub :
 
-- [Prise en main d’Azure Data Catalog](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-get-started/)
+- [Prise en main d’Azure Data Catalog](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-get-started/)
 
   Exemple qui illustre comment s’authentifier avec Azure AD pour inscrire, rechercher et supprimer une ressource de données à l’aide de l’API REST Data Catalog.
 
@@ -34,4 +34,4 @@ Voici les exemples disponibles sur GitHub :
 
   Exemple qui montre comment utiliser l’API REST Data Catalog pour extraire des ressources d’Azure Data Catalog et les sérialiser dans un fichier. Il montre également comment sélectionner un ensemble de ressources sérialisées au format json et les placer dans le catalogue. Cet exemple prend en charge l’exportation d’un sous-ensemble du catalogue à l’aide d’une requête de recherche.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

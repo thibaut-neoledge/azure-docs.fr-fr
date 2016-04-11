@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Pool de base de données élastique pour les bases de données SQL | Microsoft Azure"
 	description="Découvrez comment vous pouvez maîtriser la croissance exponentielle dans les bases de données SQL avec des pools de bases de données élastiques, qui sont un moyen de partager des ressources disponibles entre plusieurs bases de données."
-	keywords="base de données élastique,bases de données sql"	
+	keywords="base de données élastique,bases de données sql"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/11/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -20,7 +20,7 @@
 
 # Maîtrise de la croissance exponentielle dans les bases de données SQL à l'aide de pools de bases de données élastiques pour partager des ressources
 
-Un développeur SaaS doit créer et gérer des dizaines, des centaines, voire des milliers de bases de données SQL. Les pools élastiques simplifient la création, la maintenance et la gestion des performances des bases de données dans le cadre d’un budget que vous contrôlez. Ajoutez des bases de données au pool ou retirez-en à volonté. [Créez un pool de base de données élastique](sql-database-elastic-pool-portal.md) pour vos bases de données SQL en quelques minutes à l’aide du portail Microsoft Azure, de [PowerShell](sql-database-elastic-pool-powershell.md) ou de [C#](sql-database-elastic-pool-csharp.md).
+Un développeur SaaS doit créer et gérer des dizaines, des centaines, voire des milliers de bases de données SQL. Les pools élastiques simplifient la création, la maintenance et la gestion des performances des bases de données dans le cadre d’un budget que vous contrôlez. Ajoutez des bases de données au pool ou retirez-en à volonté. Voir [Créer un pool de base de données élastique évolutif pour les bases de données SQL avec le portail Azure](sql-database-elastic-pool-create-portal.md), [avec PowerShell](sql-database-elastic-pool-powershell.md) ou [avec C#](sql-database-elastic-pool-csharp.md).
 
 Pour plus d’informations sur les API et les erreurs, consultez [Informations de référence sur les pools de base de données élastique](sql-database-elastic-pool-reference.md).
 
@@ -63,9 +63,9 @@ Dans la version préliminaire actuelle, les bases de données élastiques prenne
 
 Les bases de données qui se trouvent dans un pool de bases de données élastiques sont sauvegardées automatiquement par le système et la stratégie de rétention de la sauvegarde est la même que le niveau de service correspondant pour les bases de données uniques. Pour résumer, les bases de données dans chaque niveau ont une plage de restauration différente :
 
-* **Pool de base** : restauration possible à un point quelconque au cours des 7 derniers jours. 
+* **Pool de base** : restauration possible à un point quelconque au cours des 7 derniers jours.
 * **Pool standard** : restauration possible à un point quelconque au cours des 14 derniers jours.
-* **Pool premium** : restauration possible à un point quelconque au cours des 35 derniers jours. 
+* **Pool premium** : restauration possible à un point quelconque au cours des 35 derniers jours.
 
 Lors de l’aperçu, les bases de données dans un pool seront restaurées vers une base de données dans le même pool. Les bases de données supprimées seront toujours restaurées comme une base de données autonome en dehors du pool dans le niveau de performance le plus bas pour ce niveau de service. Par exemple, une base de données élastique dans un pool Standard est supprimée sera restaurée comme une base de données S0. Vous pouvez effectuer des opérations de restauration de bases de données à l'aide du portail Azure ou par programmation en utilisant l'API REST. La prise en charge des applets de commande PowerShell sera bientôt disponible.
 
@@ -86,4 +86,4 @@ Par contre, il est possible d’exporter une base de données depuis un pool. Ac
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

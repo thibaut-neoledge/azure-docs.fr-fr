@@ -34,13 +34,13 @@ Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement 
 Pour créer le groupe de sécurité réseau **NSG-FrontEnd** selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
 1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Cliquez sur **Parcourir** > **Groupes de sécurité réseau**.
+2. Cliquez sur **Parcourir >** > **Groupes de sécurité réseau**.
 
-	![Portail Azure - Groupes de sécurité réseau](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Portail Azure - Groupes de sécurité réseau](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. Dans le panneau **Groupes de sécurité réseau**, cliquez sur **Ajouter**.
-
-	![Portail Azure - Groupes de sécurité réseau](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+  
+    ![Portail Azure - Groupes de sécurité réseau](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
 4. Dans le panneau **Créer un groupe de sécurité réseau**, créez un groupe de sécurité réseau nommé *NSG-FrontEnd* dans le groupe de ressources *RG-NSG*, puis cliquez sur **Créer**.
 
@@ -103,4 +103,4 @@ Pour créer le groupe de sécurité réseau **NSG-BackEnd** et l’associer au s
 - Découvrez comment [gérer des groupes de sécurité réseau existants](virtual-network-manage-nsg-arm-portal.md).
 - [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

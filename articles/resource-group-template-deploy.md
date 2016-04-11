@@ -16,7 +16,7 @@
    ms.date="03/21/2016"
    ms.author="tomfitz"/>
 
-# Déployer un groupe de ressources avec un modèle Azure Resource Manager
+# Déployer des ressources à l’aide de modèles Azure Resource Manager
 
 Cette rubrique explique comment utiliser les modèles Azure Resource Manager pour déployer vos ressources dans Azure. Elle montre comment déployer vos ressources à l’aide d’Azure PowerShell, d’Azure CLI, de l’API REST ou du portail Azure.
 
@@ -292,4 +292,4 @@ Pour savoir comment définir des paramètres dans le modèle, consultez la secti
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

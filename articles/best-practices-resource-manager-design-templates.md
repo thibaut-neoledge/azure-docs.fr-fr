@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/23/2016"
 	ms.author="tomfitz"/>
 
 # Meilleures pratiques relatives à la conception des modèles Azure Resource Manager
@@ -145,7 +145,7 @@ Initialement, vous pouvez penser qu’un modèle doit donner aux clients la flex
 
 De prime abord, les configurations ouvertes semblent idéales. Elles vous permettent de sélectionner un type de machine virtuelle et de fournir un nombre arbitraire de nœuds et de disques attachés pour ces nœuds, et ce, en tant que paramètres pour un modèle. Néanmoins, lorsque vous examinez attentivement et considérez les modèles qui vont déployer plusieurs machines virtuelles de tailles différentes, d’autres considérations apparaissent et rendent ce choix moins approprié dans de nombreux scénarios.
 
-Dans l’article intitulé [Tailles de machines virtuelles et services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) figurant sur le site web Azure, les différents types de machines virtuelles et les tailles disponibles sont identifiés, ainsi que le nombre de disques (2, 4, 8, 16 ou 32) pouvant être attachés. Chaque disque attaché fournit 500 E/S par seconde, et plusieurs disques peuvent être regroupés pour obtenir un multiplicateur de ce nombre d’E/S par seconde. Par exemple, 16 disques peuvent être regroupés pour fournir 8 000 E/S par seconde. Le regroupement est effectué avec la configuration dans le système d’exploitation, à l’aide des espaces de stockage Microsoft Windows ou des disques RAID (Redundant Array of Inexpensive Disk) dans Linux.
+L’article [Sizes for virtual machines](./virtual-machines/virtual-machines-windows-sizes.md) présente les différents types et tailles de machines virtuelles disponibles, ainsi que le nombre de disques (2, 4, 8, 16 ou 32) pouvant être attachés. Chaque disque attaché fournit 500 E/S par seconde, et plusieurs disques peuvent être regroupés pour obtenir un multiplicateur de ce nombre d’E/S par seconde. Par exemple, 16 disques peuvent être regroupés pour fournir 8 000 E/S par seconde. Le regroupement est effectué avec la configuration dans le système d’exploitation, à l’aide des espaces de stockage Microsoft Windows ou des disques RAID (Redundant Array of Inexpensive Disk) dans Linux.
 
 Une configuration ouverte permet de sélectionner un nombre d’instances de machine virtuelle, un nombre de différents types de machine virtuelle et les tailles de ces instances, un nombre de disques qui peut varier en fonction du type de machine virtuelle et un ou plusieurs scripts pour configurer le contenu de la machine virtuelle.
 
@@ -379,8 +379,7 @@ Pour publier votre modèle dans le Marketplace, vous devez établir simplement d
 
 ## Étapes suivantes
 
-- Pour voir des exemples contextuels de l’implémentation des principes de conception présentés dans cette rubrique, consultez [Exemples contextuels des meilleures pratiques d’implémentation des modèles](best-practices-resource-manager-examples.md).
 - Pour obtenir des recommandations sur la façon de gérer la sécurité dans Azure Resource Manager, consultez [Considérations de sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
 - Pour en savoir plus sur le partage d’état dans les modèles, consultez [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

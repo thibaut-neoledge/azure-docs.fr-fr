@@ -113,10 +113,13 @@ Pour obtenir des évaluations de l’utilisation des ressources plus flexibles a
 
 Dans les cas où vous ne pouvez pas utiliser les outils, la procédure pas à pas suivante peut vous aider à estimer si un pool est plus économique que les bases de données uniques :
 
-1.	Estimez les eDTU nécessaires pour le pool comme suit : MAX (<*nombre total de BD* X *utilisation moyenne en DTU par BD*>, <*nombre de BD connaissant un pic simultané* X *pic d’utilisation en DTU par BD*)
-2.	Estimez l’espace de stockage nécessaire pour le pool en ajoutant le nombre d’octets nécessaires pour toutes les bases de données du pool. Déterminez ensuite la taille du pool d’eDTU qui fournit cette quantité de stockage. Pour connaître les limites de stockage du pool en fonction de la taille du pool d’eDTU, consultez [Limites relatives aux eDTU et au stockage pour les pools de bases de données et bases de données élastiques](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+1.	Estimez les eDTU nécessaires pour le pool comme suit :
+
+    MAX(<*nombre total de BD* X *utilisation moyenne en DTU par BD*>, <br> <*nombre de BD connaissant un pic simultané* X *pic d’utilisation en DTU par BD*)
+
+2.	Estimez l’espace de stockage nécessaire pour le pool en ajoutant le nombre d’octets nécessaires pour toutes les bases de données du pool. Déterminez ensuite la taille du pool d’eDTU qui fournit cette quantité de stockage. Pour connaître les limites de stockage du pool en fonction de la taille du pool d’eDTU, voir [Limites relatives aux eDTU et au stockage pour les pools et bases de données élastiques](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 3.	Prenez la plus grande des estimations d’eDTU de l’étape 1 et de l’étape 2.
-4.	Consultez la [page de tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/) et recherchez la plus petite taille du pool d’eDTU qui est supérieure à l’estimation de l’étape 3.
+4.	Consultez la [page de tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/) et recherchez la plus petite taille du pool d’eDTU qui est supérieure à l’estimation de l’Étape 3.
 5.	Comparez le prix du pool trouvé à l’étape 5 à celui de l’utilisation des niveaux de performances appropriés pour les bases de données uniques.
 
 ## Résumé
@@ -126,9 +129,9 @@ Les bases de données uniques ne sont pas toutes de parfaits candidats à un poo
 ## Étapes suivantes
 
 - [Créer un pool de bases de données élastiques](sql-database-elastic-pool-create-portal.md)
-- [Surveiller, gérer et dimensionner un pool de bases de données élastique](sql-database-elastic-pool-manage-portal.md).
+- [Surveiller, gérer et dimensionner un pool de bases de données élastique.](sql-database-elastic-pool-manage-portal.md)
 - [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md)
 - [Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md)
 - [Script PowerShell pour identifier les bases de données adaptées à un pool de bases de données élastique](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

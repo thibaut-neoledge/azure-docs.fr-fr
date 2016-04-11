@@ -1,8 +1,5 @@
-Quand vous créez une machine virtuelle, redémarrez des machines virtuelles ayant été arrêtées (désallouées) ou redimensionnez une machine virtuelle, Microsoft Azure alloue des ressources de calcul à votre abonnement. Vous pouvez parfois recevoir des erreurs lorsque vous effectuez ces opérations, avant même d’avoir atteint les limites de votre abonnement Azure. Cet article explique les causes de certains échecs d’allocation courants et propose des solutions possibles. Les informations qu’il contient peuvent également vous être utiles dans le cadre de la planification du déploiement de vos services.
 
-La section « Étapes de dépannage générales » répertorie les étapes permettant de résoudre les problèmes courants. La section « Étapes de dépannage détaillées » fournit les étapes de résolution pour chaque message d’erreur spécifique. Avant de commencer, voici quelques informations contextuelles qui vous permettront de comprendre le fonctionnement de l’allocation et pourquoi des échecs d’allocation se produisent.
-
-Si votre problème avec Azure n’est pas traité dans cet article, parcourez les [forums Azure sur MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou sur Twitter (@AzureSupport). Vous pouvez également créer une demande de support Azure en sélectionnant ** Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options/).
+Si votre problème avec Azure n’est pas traité dans cet article, parcourez les [forums Azure sur MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou sur Twitter (@AzureSupport). Vous pouvez également créer une demande de support Azure en sélectionnant **Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options/).
 ## Informations contextuelles
 ### Fonctionnement de l’allocation
 Les serveurs des centres de données Azure sont partitionnés en clusters. En règle générale, les tentatives de demande d’allocation sont exécutées dans plusieurs clusters, mais il est possible que certaines contraintes de la demande d’allocation forcent la plateforme Azure à exécuter la tentative dans un seul cluster. Dans cet article, nous parlerons « d’épinglage à un cluster ». La Figure 1 ci-dessous illustre le cas d’une allocation normale dans laquelle la tentative est exécutée dans plusieurs clusters. Le schéma 2 illustre le cas d’une allocation épinglée au Cluster 2, là où est hébergé le service cloud CS\_1 ou le groupe à haute disponibilité existant. ![Schéma d’allocation](./media/virtual-machines-common-allocation-failure/Allocation1.png)
@@ -204,4 +201,4 @@ Sélectionnez une nouvelle taille de machine virtuelle à allouer. Si cette opé
 
 « Le serveur a rencontré une erreur interne. Relancez la demande. » Ou « Impossible de produire une allocation pour le service. »
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -23,7 +23,7 @@
 
 Un cluster Hadoop se compose de plusieurs machines virtuelles (nœuds) utilisées dans le processus de distribution des tâches sur le cluster. Azure isole les détails de l’implémentation de l’installation et la configuration des nœuds individuels afin de fournir uniquement les informations de configuration générales. Cet article aborde ces paramètres de configuration.
 
->[AZURE.NOTE] Les informations de ce document sont propres aux clusters HDInsight sous Windows. Pour obtenir des informations sur les clusters Linux, consultez [Création de clusters Hadoop Windows dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+>[AZURE.NOTE] Les informations de ce document sont propres aux clusters HDInsight sous Windows. Pour plus d’informations sur les clusters Linux, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Types de cluster
 
@@ -243,4 +243,4 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modèles ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Prise en main du chiffrement transparent des données (TDE)
@@ -32,7 +32,7 @@ Pour activer le chiffrement transparent des données pour SQL Data Warehouse, pr
 1. Connectez-vous à la base de données *master* sur le serveur hébergeant la base de données à l'aide d'identifiants de connexion administrateurs ou membres du rôle **dbmanager** dans la base de données master
 2. Exécutez l'instruction suivante pour chiffrer la base de données.
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -43,7 +43,7 @@ Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse
 1. Connectez-vous à la base de données *master* à l'aide d'identifiants de connexion administrateurs ou membres du rôle **dbmanager** dans la base de données master
 2. Exécutez l'instruction suivante pour chiffrer la base de données.
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
@@ -54,7 +54,7 @@ Pour vérifier l’état du chiffrement pour SQL Data Warehouse, procédez comme
 1. Connectez-vous à la base de données *master* ou d’instance à l'aide d'identifiants de connexion administrateurs ou membres du rôle **dbmanager** dans la base de données master
 2. Exécutez l'instruction suivante pour chiffrer la base de données.
 
-```
+```sql
 SELECT
 	[name],
 	[is_encrypted]
@@ -73,4 +73,4 @@ Un résultat de ```1``` indique une base de données chiffrée, ```0``` indique 
 
 <!--Link references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->
