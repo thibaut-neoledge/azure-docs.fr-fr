@@ -1,5 +1,5 @@
 
-Pour en savoir plus sur les disques, consultez la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-linux-about-disks-vhds.md).
+Pour en savoir plus sur les disques, consultez la section [À propos des disques et VHD pour machines virtuelles](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 ##<a id="attachempty"></a>Association d’un disque vide
 
@@ -54,4 +54,4 @@ Pour attacher un disque existant, vous devez disposer d’un fichier .vhd dans u
 
 	![Disque de données correctement attaché](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

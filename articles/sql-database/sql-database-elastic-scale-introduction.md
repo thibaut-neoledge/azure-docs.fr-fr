@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/01/2016"
+    ms.date="03/24/2016"
     ms.author="ddove;sidneyh"/>
 
 # Vue d’ensemble des fonctionnalités de base de données élastique
 
 Les fonctionnalités de **base de données élastique** vous permettent d'utiliser les ressources virtuellement illimitées de la **base de données SQL Azure** afin de créer des solutions pour les charges de travail transactionnelles et en particulier les applications Software as a Service (SaaS). Les fonctionnalités de base de données élastique se composent des éléments suivants :
 
-* Outils de base de données élastique : ces deux outils simplifient le développement et la gestion des solutions de base de données partitionnées. Ces outils incluent la [bibliothèque cliente de la base de données élastique](sql-database-elastic-database-client-library.md) et l’[outil de fusion et de fractionnement de la base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md). 
-* [Pools de bases de données élastiques](sql-database-elastic-pool-guidance.md) (version préliminaire) : un pool est un ensemble de bases de données auquel vous pouvez à tout moment ajouter ou supprimer des bases de données. Les bases de données du pool partagent une quantité fixe de ressources (également appelées unités de transaction de bases de données ou DTU). Vous payez un prix fixe pour les ressources, ce qui vous permet de calculer facilement les coûts tout en gérant les performances. 
+* Outils de base de données élastique : ces deux outils simplifient le développement et la gestion des solutions de base de données partitionnées. Ces outils incluent la [bibliothèque cliente de la base de données élastique](sql-database-elastic-database-client-library.md) et l’[outil de fusion et de fractionnement de la base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md).
+* [Pools de bases de données élastiques](sql-database-elastic-pool-guidance.md) (version préliminaire) : un pool est un ensemble de bases de données auquel vous pouvez à tout moment ajouter ou supprimer des bases de données. Les bases de données du pool partagent une quantité fixe de ressources (également appelées unités de transaction de bases de données ou DTU). Vous payez un prix fixe pour les ressources, ce qui vous permet de calculer facilement les coûts tout en gérant les performances.
 * [Tâches de base de données élastique](sql-database-elastic-jobs-overview.md) (version préliminaire) : utilisez des tâches pour gérer un grand nombre de bases de données SQL Azure. Exécutez facilement les opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte télémétrique du client (customer) à l’aide des tâches.
 * [Requête de base de données élastique](sql-database-elastic-query-overview.md) (version préliminaire) : vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données. Cela permet une connexion à des outils de création de rapports comme Excel, PowerBI, Tableau, etc.
 
@@ -33,13 +33,13 @@ Pour obtenir une version imprimable de cette illustration, consultez la page [T�
 
 Dans ce graphique, les couleurs de la base de données représentent des schémas. Les bases de données de même couleur partagent les mêmes schémas.
 
-1. Un ensemble de **bases de données SQL Azure** est hébergé sur Azure avec une architecture de partitionnement. 
+1. Un ensemble de **bases de données SQL Azure** est hébergé sur Azure avec une architecture de partitionnement.
 2. La **bibliothèque cliente de base de données élastique** sert à gérer un ensemble de partitions.
-3. Un sous-ensemble des bases de données est placé dans un **pool de base de données élastique**. (Voir [Maîtrise de la croissance avec les bases de données élastiques](sql-database-elastic-pool.md)). 
+3. Un sous-ensemble des bases de données est placé dans un **pool de base de données élastique**. (Voir [Maîtrise de la croissance avec les bases de données élastiques](sql-database-elastic-pool.md)).
 4. Une **tâche de base de données élastique** exécute des scripts T-SQL sur toutes les bases de données.
 5. L’**outil de fusion et fractionnement** sert à déplacer des données d’une partition à l’autre.
 6. La **requête de base de données élastique** vous permet d’écrire une requête qui s’étend sur toutes les bases de données de l’ensemble de partitions.
-  
+
 ## Défis et promesses
 
 Obtenir l'élasticité et l'échelle pour les applications en cloud a été simple pour le calcul et le stockage blob : il suffit d'ajouter ou de soustraire des unités. Mais cela reste un défi pour le traitement des informations de bases de données relationnelles. Nous avons vu ces défis émerger plus particulièrement dans les deux scénarios suivants :
@@ -93,7 +93,7 @@ Pour obtenir un exemple d’application illustrant la bibliothèque cliente, voi
 
 Pour utiliser l’outil de fusion et de fractionnement, vous devez [configurer la sécurité](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Pour plus de détails sur le pool de base de données élastique, voir [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md), ou créez un pool à l’aide du [didacticiel](sql-database-elastic-pool-portal.md).
+Pour plus de détails sur le pool de base de données élastique, voir [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md), ou créez un pool à l’aide du [didacticiel](sql-database-elastic-pool-create-portal.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -108,4 +108,4 @@ Que pouvons-nous améliorer ? Cette rubrique explique-t-elle la fonctionnalité 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

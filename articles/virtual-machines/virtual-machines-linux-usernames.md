@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/25/2016" 
 	ms.author="szark"/>
 
 
@@ -25,7 +25,7 @@
 
 Quand vous configurez une machine virtuelle Linux sur Azure, vous devez spécifier le nom d’utilisateur non racine que vous pourrez utiliser ultérieurement pour vous connecter à la machine virtuelle. Vous pouvez choisir le nom du nouvel utilisateur, ou en cas d’approvisionnement via le portail Azure Classic, vous pouvez accepter le nom par défaut, « azureuser ».
 
-Dans la plupart des cas, ce nouvel utilisateur n’existe pas dans l’image de base et est créé pendant le processus d’approvisionnement. Si l'utilisateur existe dans l'image de machine virtuelle de base, l'agent Linux Azure configure simplement le mot de passe (et/ou la clé SSH) pour cet utilisateur selon les informations indiquées lors de la création de la machine virtuelle.
+Dans la plupart des cas, ce nouvel utilisateur n’existe pas dans l’image de base et sera créé pendant le processus d’approvisionnement. Si l’utilisateur existe dans l’image de machine virtuelle de base, l’agent Linux Azure configure simplement le mot de passe et/ou la clé SSH pour cet utilisateur selon les informations indiquées lors de la création de la machine virtuelle.
 
 **Toutefois**, Linux définit un ensemble de noms d’utilisateur à ne pas utiliser pour la création de nouveaux utilisateurs. Le processus d’approvisionnement **échoue** si vous essayez d’approvisionner une machine virtuelle Linux via un utilisateur système existant, défini comme utilisateur avec un ID utilisateur de 0 à 99. L’utilisateur `root`, présentant l’ID utilisateur 0, en est un bon exemple.
 
@@ -251,4 +251,4 @@ Voici les noms d’utilisateurs que vous ne devez pas utiliser pour approvisionn
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

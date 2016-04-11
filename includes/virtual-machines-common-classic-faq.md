@@ -15,7 +15,7 @@ Pour les images du client Windows, certaines versions de Windows 7 et Windows 8.
 
 ## Quelle quantité de stockage puis-je utiliser avec une machine virtuelle ?
 
-Chaque disque de données peut avoir une capacité allant jusqu’à 1 To Le nombre de disques de données que vous pouvez utiliser dépend de la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-linux-sizes.md).
+Chaque disque de données peut avoir une capacité allant jusqu’à 1 To Le nombre de disques de données que vous pouvez utiliser dépend de la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 Un compte de stockage Azure fournit le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, voir [Tarification – Stockage](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
@@ -23,9 +23,9 @@ Un compte de stockage Azure fournit le stockage pour le disque du système d’e
 
 Azure prend uniquement en charge les disques durs virtuels fixes au format VHD. Si vous voulez utiliser un disque VHDX que vous souhaitez utiliser dans Azure, convertissez-le d’abord à l’aide du Gestionnaire Hyper-V ou de l’applet de commande [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Une fois l’opération effectuée, utilisez l’applet de commande [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (en mode de gestion des services) pour télécharger le VHD sur un compte de stockage dans Azure afin de pouvoir l’utiliser avec des machines virtuelles.
 
-- Pour obtenir des instructions concernant Linux, voir [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+- Pour obtenir des instructions concernant Linux, voir [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
 
-- Pour obtenir des instructions concernant Windows, référez-vous à [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-windows-classic-createupload-vhd.md).
+- Pour obtenir des instructions concernant Windows, référez-vous à [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
 ## Ces machines virtuelles sont-elles identiques aux machines virtuelles Hyper-V ?
 
@@ -45,17 +45,17 @@ Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appa
 
 Vous devez établir une connexion à distance pour vous connecter à la machine virtuelle, en utilisant Connexion Bureau à distance pour une machine virtuelle Windows ou un Secure Shell (SSH) pour une machine virtuelle Linux. Pour obtenir des instructions, consultez les liens suivants :
 
-- [Connexion à une machine virtuelle exécutant Windows Server](virtual-machines-windows-classic-connect-logon.md) 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.  
-- [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-classic-log-on.md) Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
+- [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md) 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.  
+- [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
 
 
-En cas de problème avec le bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](virtual-machines-windows-extensions-features.md) pour résoudre le problème.
+En cas de problème avec le bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) pour résoudre le problème.
 
 Pour les machines virtuelles Windows, les options supplémentaires incluent :
 
 - Dans le portail Azure en version préliminaire, recherchez la machine virtuelle, puis cliquez sur **Réinitialiser l’accès à distance** à partir de la barre de commandes.
-- Consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
-- Utilisez Windows PowerShell Remoting pour vous connecter à la machine virtuelle ou créer des points de terminaison supplémentaires pour la connexion d'autres ressources à la machine virtuelle. Pour plus d’informations, voir [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-windows-classic-setup-endpoints.md).
+- Consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
+- Utilisez Windows PowerShell Remoting pour vous connecter à la machine virtuelle ou créer des points de terminaison supplémentaires pour la connexion d'autres ressources à la machine virtuelle. Pour plus d’informations, voir [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
 Si vous connaissez bien Hyper-V, vous pouvez rechercher un outil similaire à VMConnect. Azure n’offre pas d’outil similaire car l’accès console à une machine virtuelle n’est pas pris en charge.
 
@@ -65,7 +65,7 @@ Vous ne devez pas utiliser le disque temporaire (le lecteur D: pour Windows ou /
 
 ## Comment puis-je modifier la lettre de lecteur d’un disque temporaire ?
 
-Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-classic-change-drive-letter.md).
+Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
 
 ## Comment puis-je mettre à niveau le système d’exploitation invité ?
 
@@ -82,7 +82,7 @@ Pour des informations générales sur les outils et processus de migration vers 
 
 Les images fournies par Azure n’ont pas de nom d’utilisateur et de mot de passe préconfigurés. Lorsque vous créez une machine virtuelle à l’aide de l’une de ces images, vous devez fournir un nom d’utilisateur et un mot de passe que vous utiliserez pour vous connecter à la machine virtuelle.
 
-Si vous avez oublié le nom d’utilisateur ou le mot de passe et que vous avez installé l’agent de machine virtuelle, vous pouvez installer et utiliser l’extension [VMAccess](virtual-machines-windows-extensions-features.md) pour résoudre le problème.
+Si vous avez oublié le nom d’utilisateur ou le mot de passe et que vous avez installé l’agent de machine virtuelle, vous pouvez installer et utiliser l’extension [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) pour résoudre le problème.
 
 Informations supplémentaires :
 
@@ -102,7 +102,7 @@ Azure offre plusieurs options de solutions antivirus, mais c’est à vous qu’
 
 ## Quelles sont les options disponibles en matière de sauvegarde et de récupération d’urgence ?
 
-Azure Backup est disponible en version préliminaire dans certaines régions. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
+Azure Backup est disponible en version préliminaire dans certaines régions. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](../articles/backup/backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
 
 Une autre option consiste à utiliser les fonctionnalités de capture instantanée de stockage d’objets blob. Pour ce faire, vous devez arrêter la machine virtuelle avant toute opération qui repose sur un instantané d’objet blob. Cela enregistre les écritures de données en attente et assure la cohérence du fichier système.
 
@@ -138,4 +138,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

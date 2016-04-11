@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migration de votre schéma vers SQL Data Warehouse#
@@ -65,7 +65,7 @@ SQL Data Warehouse prend en charge les types de données métiers les plus coura
 
 Vous pouvez identifier les colonnes de votre entrepôt de données qui contiennent des types incompatibles, via la requête suivante :
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -145,4 +145,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

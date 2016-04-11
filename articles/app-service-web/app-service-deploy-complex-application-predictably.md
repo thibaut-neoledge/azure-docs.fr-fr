@@ -298,11 +298,11 @@ Découvrez comment [appliquer les méthodologies agiles et publier en continu vo
 -	[Fonctions des modèles Azure Resource Manager](../resource-group-template-functions.md)
 -	[Déploiement d’une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md)
 -	[Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
--	[Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../virtual-machines/resource-group-deploy-debug.md)
+-	[Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 
 
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

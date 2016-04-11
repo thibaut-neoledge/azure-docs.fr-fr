@@ -36,11 +36,11 @@ Pour créer le groupe de sécurité réseau **NSG-FrontEnd** selon le scénario 
 1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
 2. Cliquez sur **Parcourir >** > **Groupes de sécurité réseau**.
 
-	![Portail Azure - Groupes de sécurité réseau](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Portail Azure - Groupes de sécurité réseau](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. Dans le panneau **Groupes de sécurité réseau**, cliquez sur **Ajouter**.
-
-	![Portail Azure - Groupes de sécurité réseau](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+  
+    ![Portail Azure - Groupes de sécurité réseau](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
 4. Dans le panneau **Créer un groupe de sécurité réseau**, créez un groupe de sécurité réseau nommé *NSG-FrontEnd* dans le groupe de ressources *RG-NSG*, puis cliquez sur **Créer**.
 
@@ -48,9 +48,9 @@ Pour créer le groupe de sécurité réseau **NSG-FrontEnd** selon le scénario 
 
 ## Création de règles dans un NSG existant
 
-Pour créer des règles dans un NSG existant à partir du portail Azure, suivez les étapes ci-dessous.
+Pour créer des règles dans un groupe de sécurité réseau existant à partir du portail Azure, suivez les étapes ci-dessous.
 
-2. Cliquez sur **Parcourir >** > **Groupes de sécurité réseau**.
+2. Cliquez sur **Parcourir** > **Groupes de sécurité réseau**.
 
 3. Dans la liste des NSGs, cliquez sur **NSG-FrontEnd** > **Règles de sécurité de trafic entrant**.
 
@@ -72,7 +72,7 @@ Pour créer des règles dans un NSG existant à partir du portail Azure, suivez 
 
 ## Associer le groupe de sécurité réseau au sous-réseau FrontEnd
 
-1. Cliquez sur **Parcourir >** > **Groupes de ressources** > **RG-NSG**.
+1. Cliquez sur **Parcourir** > **Groupes de ressources** > **RG-NSG**.
 2. Dans le panneau **RG-NSG**, cliquez sur **...** > **TestVNet**.
 
 	![Portail Azure - TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
@@ -94,7 +94,7 @@ Pour créer le groupe de sécurité réseau **NSG-BackEnd** et l’associer au s
 
 	|Règle de trafic entrant|Règle de trafic sortant|
 	|---|---|
-	|![Portail Azure - Règle de trafic entrant](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Portail Azure - Règle de trafic sortant](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
+	|![Portail Azure - Règle entrante](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Portail Azure - Règle entrante](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
 
 3. Répétez les étapes de la section [Associer le groupe de sécurité réseau au sous-réseau FrontEnd](#Associate-the-NSG-to-the-FrontEnd-subnet) pour associer le groupe de sécurité réseau **NSG-Backend** au sous-réseau **BackEnd**.
 
@@ -103,4 +103,4 @@ Pour créer le groupe de sécurité réseau **NSG-BackEnd** et l’associer au s
 - Découvrez comment [gérer des groupes de sécurité réseau existants](virtual-network-manage-nsg-arm-portal.md).
 - [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

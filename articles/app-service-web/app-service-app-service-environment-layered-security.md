@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/28/2016" 
 	ms.author="stefsch"/>
 
 # Implémentation d’une architecture de sécurité en couche avec les environnements App Service
@@ -28,22 +28,22 @@ Le schéma ci-dessous présente un exemple d’architecture avec une application
 
 ![Architecture conceptuelle][ConceptualArchitecture]
 
-Les symboles « plus » verts indiquent que le groupe de sécurité réseau sur le sous-réseau contenant « apiase » autorise les appels entrants des applications web en amont, ainsi que les appels internes. Toutefois, le même groupe de sécurité réseau refuse explicitement l’accès au trafic entrant général à partir d’Internet.
+Les symboles « plus » verts indiquent que le groupe de sécurité réseau sur le sous-réseau contenant « apiase » autorise les appels entrants des applications web en amont, ainsi que les appels internes. Toutefois, le même groupe de sécurité réseau refuse explicitement l’accès au trafic entrant général à partir d’Internet.
 
-Le reste de cette rubrique décrit les étapes nécessaires pour configurer le groupe de sécurité réseau sur le sous-réseau contenant « apiase ».
+Le reste de cette rubrique décrit les étapes nécessaires pour configurer le groupe de sécurité réseau sur le sous-réseau contenant « apiase ».
 
 ## Détermination du comportement réseau ##
 Pour savoir quelles règles de sécurité réseau sont nécessaires, vous devez déterminer les clients réseau qui seront autorisés à atteindre l’environnement App Service contenant l’application API et les clients qui seront bloqués.
 
-Étant donné que les [groupes de sécurité réseau (NSG)][NetworkSecurityGroups] sont appliqués aux sous-réseaux et que les environnements App Service sont déployés dans des sous-réseaux, les règles contenues dans un NSG s’appliquent à **toutes** les applications s’exécutant dans un environnement App Service. À l’aide de l’exemple d’architecture de cet article, une fois qu’un groupe de sécurité réseau est appliqué au sous-réseau contenant « apiase », toutes les applications s’exécutant dans l’environnement App Service « apiase » seront protégées par le même ensemble de règles de sécurité.
+Étant donné que les [groupes de sécurité réseau (NSG)][NetworkSecurityGroups] sont appliqués aux sous-réseaux et que les environnements App Service sont déployés dans des sous-réseaux, les règles contenues dans un NSG s’appliquent à **toutes** les applications s’exécutant dans un environnement App Service. À l’aide de l’exemple d’architecture de cet article, une fois qu’un groupe de sécurité réseau est appliqué au sous-réseau contenant « apiase », toutes les applications s’exécutant dans l’environnement App Service « apiase » seront protégées par le même ensemble de règles de sécurité.
 
-- **Déterminer l’adresse IP sortante des appelants en amont :** quelles sont les adresses IP des appelants en amont ? L’accès de ces adresses devra être explicitement autorisé dans le NSG. Les appels entre les environnements App Service étant considérés comme des appels « Internet », cela signifie que l’accès de l’adresse IP sortante affectée à chacun des trois environnements App Service en amont doit être autorisé dans le NSG pour le sous-réseau « apiase ». Pour plus d’informations sur la détermination de l’adresse IP sortante pour les applications s’exécutant dans un environnement App Service, consultez l’article de présentation [Architecture réseau][NetworkArchitecture].
-- **L’application API principale devra-t-elle s’appeler elle-même ?** Un point subtil et parfois négligé est le scénario dans lequel l’application principale doit s’appeler elle-même. Si une application API principale dans un environnement App Service doit s’appeler elle-même, elle est également traitée comme un appel « Internet ». Dans l’exemple d’architecture, cela nécessite également d’autoriser l’accès à partir de l’adresse IP sortante de l’environnement App Service « apiase ».
+- **Déterminer l’adresse IP sortante des appelants en amont :** quelles sont les adresses IP des appelants en amont ? L’accès de ces adresses devra être explicitement autorisé dans le NSG. Les appels entre les environnements App Service étant considérés comme des appels « Internet », cela signifie que l’accès de l’adresse IP sortante affectée à chacun des trois environnements App Service en amont doit être autorisé dans le NSG pour le sous-réseau « apiase ». Pour plus d’informations sur la détermination de l’adresse IP sortante pour les applications s’exécutant dans un environnement App Service, consultez l’article de présentation [Architecture réseau][NetworkArchitecture].
+- **L’application API principale devra-t-elle s’appeler elle-même ?** Un point subtil et parfois négligé est le scénario dans lequel l’application principale doit s’appeler elle-même. Si une application API principale dans un environnement App Service doit s’appeler elle-même, elle est également traitée comme un appel « Internet ». Dans l’exemple d’architecture, cela nécessite également d’autoriser l’accès à partir de l’adresse IP sortante de l’environnement App Service « apiase ».
 
 ## Configuration du groupe de sécurité réseau ##
-Une fois que l’ensemble d’adresses IP sortantes est connu, l’étape suivante consiste à créer un groupe de sécurité réseau. Dans la mesure où les environnements App Service sont actuellement uniquement pris en charge dans les réseaux virtuels « v1 », la [configuration NSG][NetworkSecurityGroupsClassic] est effectuée à l’aide de la prise en charge NSG classique dans Powershell.
+Une fois que l’ensemble d’adresses IP sortantes est connu, l’étape suivante consiste à créer un groupe de sécurité réseau. Dans la mesure où les environnements App Service sont actuellement uniquement pris en charge dans les réseaux virtuels « v1 », la [configuration NSG][NetworkSecurityGroupsClassic] est effectuée à l’aide de la prise en charge NSG classique dans Powershell.
 
-Pour l’exemple d’architecture, les environnements sont situés dans le sud du centre des États-Unis (South Central US), donc un NSG vide est créé dans cette région :
+Pour l’exemple d’architecture, les environnements sont situés dans le sud du centre des États-Unis (South Central US), donc un NSG vide est créé dans cette région :
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
@@ -52,13 +52,13 @@ Tout d’abord, une règle d’autorisation explicite est ajoutée pour l’infr
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
     
-Ensuite, deux règles sont ajoutées pour autoriser les appels HTTP et HTTPS à partir du premier environnement App Service en amont (« fe1ase »).
+Ensuite, deux règles sont ajoutées pour autoriser les appels HTTP et HTTPS à partir du premier environnement App Service en amont (« fe1ase »).
 
     #Grant access to requests from the first upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe1ase" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe1ase" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Effacez et recommencez pour les deuxième et troisième environnements App Service en amont (« fe2ase » et « fe3ase »).
+Effacez et recommencez pour les deuxième et troisième environnements App Service en amont (« fe2ase » et « fe3ase »).
 
     #Grant access to requests from the second upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe2ase" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
@@ -68,7 +68,7 @@ Effacez et recommencez pour les deuxième et troisième environnements App Servi
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Enfin, accordez l’accès à l’adresse IP sortante de l’environnement App Service de l’API principale afin qu’elle puisse s’appeler elle-même.
+Enfin, accordez l’accès à l’adresse IP sortante de l’environnement App Service de l’API principale afin qu’elle puisse s’appeler elle-même.
 
     #Allow apps on the apiase environment to call back into itself
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
@@ -80,18 +80,18 @@ La liste complète des règles du groupe de sécurité réseau est affichée ci-
 
 ![Configuration de NSG][NSGConfiguration]
 
-L’étape finale consiste à appliquer le NSG au sous-réseau qui contient l’environnement App Service « apiase ».
+L’étape finale consiste à appliquer le NSG au sous-réseau qui contient l’environnement App Service « apiase ».
 
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
 
-Avec le NSG appliqué au sous-réseau, seuls les trois environnements App Service en amont et l’environnement App Service contenant l’API principale sont autorisés à appeler dans l’environnement « apiase ».
+Avec le NSG appliqué au sous-réseau, seuls les trois environnements App Service en amont et l’environnement App Service contenant l’API principale sont autorisés à appeler dans l’environnement « apiase ».
 
 
 ## Informations et liens supplémentaires ##
 Configuration de [groupes de sécurité réseau][NetworkSecurityGroupsClassic] sur les réseaux virtuels classiques.
 
-Présentation des [adresses IP sortantes][NetworkArchitecture] et des environnements App Service.
+Présentation des [adresses IP sortantes][NetworkArchitecture] et des environnements App Service.
 
 [Ports réseau][InboundTraffic] utilisés par les environnements App Service.
 
@@ -109,4 +109,4 @@ Présentation des [adresses IP sortantes][NetworkArchitecture] et des environne
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

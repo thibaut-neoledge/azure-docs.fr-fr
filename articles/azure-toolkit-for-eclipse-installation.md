@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/09/2016" 
+    ms.date="03/28/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -22,7 +22,7 @@
 
 Le kit de ressources Azure pour Eclipse contient des modèles et des fonctionnalités qui vous permettent de créer, de développer, de tester et de déployer des applications Azure avec l'environnement de développement Eclipse. Ce projet Open Source possède un code source disponible sous licence Apache 2.0 sur le site du projet sur GitHub à l'adresse suivante :
 
-<https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>.
+<https://github.com/microsoft/azure-tools-for-java>
 
 Les étapes suivantes vous montrent comment installer le kit de ressources Azure pour Eclipse.
 
@@ -70,4 +70,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

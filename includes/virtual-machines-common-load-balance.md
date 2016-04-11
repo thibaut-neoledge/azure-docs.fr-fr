@@ -17,7 +17,7 @@ Traffic Manager utilise trois méthodes d’équilibrage de charge pour réparti
 - **Performances** : utilisez cette méthode lorsque vos points de terminaison se trouvent à des emplacements géographiques différents et que vous souhaitez que les clients à l’origine des demandes utilisent le point de terminaison « le plus proche » (latence la plus faible).
 - **Tourniquet (round robin)** : utilisez cette méthode si vous souhaitez répartir la charge sur un ensemble de services cloud situés dans le même centre de données ou sur des services cloud ou des sites Web figurant dans différents centres de données.
 
-Pour plus d'informations, consultez la page [À propos des méthodes d'équilibrage de charge dans Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md).
+Pour plus d'informations, consultez la page [À propos des méthodes d'équilibrage de charge dans Traffic Manager](../articles/traffic-manager/traffic-manager-load-balancing-methods.md).
 
 Le diagramme suivant montre un exemple d’équilibrage de charge de tourniquet (round robin) utilisé pour répartir le trafic entre différents services cloud.
 
@@ -30,7 +30,7 @@ Cela se déroule généralement de la manière suivante :
 3.	Traffic Manager choisit le service cloud suivant dans la liste du tourniquet (round robin) et renvoie le nom DNS. Le serveur DNS du client Internet résout le nom en adresse IP et l'envoie au client Internet.
 4.	Le client Internet se connecte au service cloud choisi par Traffic Manager.
 
-Pour plus d'informations, consultez la rubrique [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+Pour plus d'informations, consultez la rubrique [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md).
 
 ## Équilibrage de charge Azure pour des machines virtuelles ##
 
@@ -42,7 +42,7 @@ Le diagramme suivant montre un point de terminaison à charge équilibrée pour 
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/LoadBalancing.png)
 
-Pour plus d’informations, consultez la page [Équilibrage de charge Azure](../load-balancer/load-balancer-overview.md). Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge](../load-balancer/load-balancer-internet-getstarted.md).
+Pour plus d’informations, consultez la page [Équilibrage de charge Azure](../articles/load-balancer/load-balancer-overview.md). Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge](../articles/load-balancer/load-balancer-internet-getstarted.md).
 
 Azure peut également équilibrer la charge au sein d’un service cloud ou réseau virtuel. On parle alors d'équilibrage de charge interne, que l'on peut utiliser comme suit :
 
@@ -58,15 +58,15 @@ Le diagramme suivant montre un exemple de point de terminaison interne à charge
 
 ## Considérations relatives à l’équilibreur de charge
 
-Un équilibreur de charge est configuré par défaut pour mettre fin à une session inactive pendant 4 minutes. Si l’application derrière un équilibreur de charge conserve une connexion inactive pendant plus de 4 minutes sans une configuration de persistance de connexion, la connexion est supprimée. Vous pouvez modifier le comportement de l’équilibreur de charge Azure pour autoriser un [paramètre de délai d’attente plus long](../load-balancer/load-balancer-tcp-idle-timeout.md).
+Un équilibreur de charge est configuré par défaut pour mettre fin à une session inactive pendant 4 minutes. Si l’application derrière un équilibreur de charge conserve une connexion inactive pendant plus de 4 minutes sans une configuration de persistance de connexion, la connexion est supprimée. Vous pouvez modifier le comportement de l’équilibreur de charge Azure pour autoriser un [paramètre de délai d’attente plus long](../articles/load-balancer/load-balancer-tcp-idle-timeout.md).
 
-Un autre élément à prendre en compte est le type de mode de distribution pris en charge par l’équilibreur de charge Azure. Vous pouvez configurer l’affinité d’IP source (adresse IP source, adresse IP de destination) ou le protocole IP source (adresse IP source, adresse IP de destination et protocole). Pour plus d’informations, consultez [Mode de distribution de l’équilibreur de charge (affinité d’IP source)](../load-balancer/load-balancer-distribution-mode.md).
+Un autre élément à prendre en compte est le type de mode de distribution pris en charge par l’équilibreur de charge Azure. Vous pouvez configurer l’affinité d’IP source (adresse IP source, adresse IP de destination) ou le protocole IP source (adresse IP source, adresse IP de destination et protocole). Pour plus d’informations, consultez l’article [Azure Load Balancer distribution mode (source IP affinity)](../articles/load-balancer/load-balancer-distribution-mode.md) (Mode de distribution de l’équilibreur de charge Azure [affinité d’IP source]).
 
 
 ## Étapes suivantes
 
-Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge interne](../load-balancer/load-balancer-internal-getstarted.md).
+Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge interne](../articles/load-balancer/load-balancer-internal-getstarted.md).
 
-Pour plus d’informations sur l’équilibrage de charge, voir l’article [Équilibrage de charge interne](../load-balancer/load-balancer-internal-overview.md).
+Pour plus d’informations sur l’équilibrage de charge, voir l’article [Équilibrage de charge interne](../articles/load-balancer/load-balancer-internal-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/23/2016"
    ms.author="alkohli" />
 
 # Remplacer le module de batterie de secours sur votre appareil StorSimple
@@ -31,11 +31,11 @@ Ce didacticiel explique comment :
 
 ## Retirer le module de batterie de secours
 
-Le module de batterie de secours pour votre appareil Microsoft Azure StorSimple est une unité remplaçable sur site. Avant son installation dans le module PCM, le module de batterie doit être conservé dans son emballage d’origine.
+Le module de batterie de secours pour votre appareil StorSimple est une unité remplaçable sur site. Avant son installation dans le module PCM, le module de batterie doit être conservé dans son emballage d’origine. Procédez comme suit pour supprimer la batterie de secours.
 
 #### Pour retirer le module de batterie de secours
 
-1. Dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **Statut matériel**. Sous **Composants partagés**, regardez l’état de la batterie.
+1. Dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Sous **Composants partagés**, regardez l’état de la batterie.
 
 2. Identifiez le PCM dans lequel la batterie est défectueuse. La figure 1 illustre l’arrière de l’appareil StorSimple.
 
@@ -79,7 +79,7 @@ Le module de batterie de secours pour votre appareil Microsoft Azure StorSimple 
 
 ## Installer un nouveau module de batterie de secours
 
-Procédez comme suit pour installer le module de batterie de remplacement dans le boîtier principal de votre appareil StorSimple.
+Procédez comme suit pour installer le module de batterie de remplacement dans le PCM du boîtier principal de votre appareil StorSimple.
 
 #### Pour installer le module de batterie
 
@@ -89,11 +89,11 @@ Procédez comme suit pour installer le module de batterie de remplacement dans l
 
 3. Remplacez le PCM dans le boîtier principal en procédant de la manière décrite dans [Remplacement d’un module d’alimentation et de refroidissement (PCM) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md).
 
-4. Une fois le remplacement terminé, accédez au portail Azure Classic, puis à **Appareils** > **Maintenance** > **Statut matériel**, et contrôlez l’état de la batterie pour vérifier que l’installation est réussie. Si le voyant LED est vert, la batterie est saine.
+4. Une fois le remplacement terminé, accédez à **Appareils** > **Maintenance** > **État du matériel** dans le portail Azure Classic. Vérifiez l'état de la batterie pour vous assurer que l'installation a réussi. Un état vert indique que la batterie est saine.
 
 ## Entretenir le module de batterie de secours
 
-Le module de batterie de secours de votre appareil alimente le contrôleur en cas de panne de courant. Il permet à l’appareil StorSimple d’enregistrer des données critiques avant de s’arrêter de façon contrôlée. Ce système, équipé de deux batteries entièrement chargées dans les PCM, peut faire face à deux pannes de courant consécutives.
+Dans votre appareil StorSimple, le module de batterie de secours de votre appareil alimente le contrôleur en cas de panne de courant. Il permet à l’appareil StorSimple d’enregistrer des données critiques avant de s’arrêter de façon contrôlée. Ce système, équipé de deux batteries entièrement chargées dans les PCM, peut faire face à deux pannes de courant consécutives.
 
 Dans le portail Azure Classic, l’option **Statut matériel** dans la page **Maintenance** indique si la batterie ne fonctionne pas correctement ou si elle approche de la fin de sa durée de vie. L’état de la batterie est indiqué par **Batterie dans PCM 0** ou **Batterie dans PCM 1** sous **Composants partagés**. Cette page indique l’état **DÉTÉRIORÉ** si la fin de durée de vie approche et l’état **ÉCHEC** si elle est atteinte.
 
@@ -115,4 +115,4 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

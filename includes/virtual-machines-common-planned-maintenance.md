@@ -1,13 +1,5 @@
 
 
-## Pourquoi Azure exécute une maintenance planifiée
-
-Microsoft Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte qui supporte les machines virtuelles. Nombre de ces mises à jour sont exécutées sans impact sur les machines virtuelles ou les services cloud, y compris les mises à jour de préservation de la mémoire.
-
-Cependant, certaines d’entre elles requièrent un redémarrage de vos machines virtuelles pour appliquer les mises à jour requises sur l’infrastructure. Les machines virtuelles sont éteintes lorsqu’on applique le correctif sur l’infrastructure, puis elles sont redémarrées.
-
-Il existe deux sortes de maintenance qui peuvent avoir un impact sur la disponibilité de votre machine virtuelle : maintenance planifiée et non planifiée. Cette page décrit comment Microsoft Azure exécute une maintenance planifiée. Pour plus d'informations sur la maintenance non planifiée, consultez la page [Compréhension de la maintenance planifiée et non planifiée](virtual-machines-windows-manage-availability.md).
-
 ## Mises à jour de préservation de la mémoire
 
 Pour une classe de mises à jour dans Microsoft Azure, les clients ne verront aucun impact sur leurs machines virtuelles en cours d’exécution. La plupart de ces mises à jour sont des composants ou des services qui peuvent être mis à jour sans interférer avec l'instance en cours d'exécution. Certaines de ces mises à jour sont des mises à jour d’infrastructure de la plateforme sur le système d’exploitation hôte qui peuvent être appliquées sans requérir un redémarrage complet de la machine virtuelle.
@@ -24,7 +16,7 @@ Deux types de configuration de machine virtuelle sont disponibles : multi-instan
 
 La configuration multi-instance fournit la redondance entre les machines physiques, la puissance et le réseau. Elle est recommandée pour garantir la disponibilité de votre application. Toutes les machines virtuelles du groupe à haute disponibilité doivent servir le même objectif à votre application.
 
-Pour plus d’informations sur la configuration des machines virtuelles pour une haute disponibilité, consultez [Gérer la disponibilité des machines virtuelles](virtual-machines-windows-manage-availability.md).
+Pour plus d’informations sur la configuration des machines virtuelles pour une haute disponibilité, consultez les articles [Gestion de la disponibilité des machines virtuelles Windows](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) ou [Gestion de la disponibilité des machines virtuelles Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md).
 
 En revanche, une configuration à instance unique est utilisée pour les machines virtuelles autonomes qui ne sont pas placées dans un groupe à haute disponibilité. Ces machines virtuelles ne répondent pas aux conditions du contrat de niveau de service (SLA), qui requiert le déploiement de deux machines virtuelles au minimum sous le même groupe à haute disponibilité.
 
@@ -39,7 +31,7 @@ Lors d’une mise à jour de configuration multi-instance, les machines virtuell
 
 Chaque machine virtuelle de votre groupe à haute disponibilité se voit attribuer un domaine de mise à jour et un domaine d’erreur par la plateforme Azure sous-jacente. Chaque domaine de mise à jour est un groupe de machines virtuelles qui sera redémarré dans la même fenêtre de temps. Chaque domaine d’erreur est un groupe de machines virtuelles qui partagent une source d’alimentation et un commutateur réseau communs.
 
-Pour plus d’informations sur les domaines de mise à jour et les domaines d’erreur, consultez [Configurer plusieurs machines virtuelles dans un groupe à haute disponibilité pour la redondance](virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Pour plus d’informations sur les domaines de mise à jour et les domaines d’erreur, consultez [Configurer plusieurs machines virtuelles dans un groupe à haute disponibilité pour la redondance](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 Pour empêcher les domaines de mise à jour de passer en mode hors connexion en même temps, la maintenance s’effectue de la façon suivante : arrêt de chaque machine virtuelle dans un domaine de mise à jour, application de la mise à jour aux ordinateurs hôtes, redémarrage des machines virtuelles et passage au domaine de mise à jour suivant. L’événement de maintenance planifiée se termine une fois tous les domaines mis à jour.
 
@@ -99,8 +91,8 @@ Gouvernement américain - Iowa | Gouvernement américain - Virginie
 
 
 <!--Link references-->
-[Virtual Machines Manage Availability]: virtual-machines-windows-hero-tutorial.md
+[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

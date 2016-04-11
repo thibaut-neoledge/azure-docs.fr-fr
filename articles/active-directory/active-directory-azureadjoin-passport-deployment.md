@@ -3,6 +3,7 @@
 	description="Instructions de déploiement pour activer Microsoft Passport dans votre organisation."
 	services="active-directory"
 	documentationCenter=""
+	keywords="configurer Microsoft Passport, déploiement de Microsoft Passport for Work"
 	authors="femila"
 	manager="stevenpo"
 	editor=""
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -25,7 +26,7 @@ Après avoir connecté les appareils du domaine Windows 10 à Azure Active Direc
 ## Déployer la version 1509 de System Center Configuration Manager pour l’évaluation technique
 Pour déployer des certificats utilisateur en fonction des clés de Microsoft Passport, vous avez besoin des ressources suivantes :
 
-- **Version 1509 de System Center Configuration Manager pour l’évaluation technique**. Pour plus d’informations, consultez [Évaluation technique de Microsoft System Center Configuration Manager](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) et [Blog de l’équipe System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+- **Version 1509 de System Center Configuration Manager pour l’évaluation technique** Pour plus d’informations, consultez [Évaluation technique de Microsoft System Center Configuration Manager](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) et [Blog de l’équipe System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 - **Infrastructure à clé publique (PKI)** : pour activer Microsoft Passport for Work à l’aide de certificats utilisateur, vous devez disposer d’une infrastructure PKI. Si vous n’en avez pas, ou si vous ne souhaitez pas l’utiliser pour les certificats utilisateur, vous pouvez procéder comme suit :
  - **Déployer un contrôleur de domaine** : déployez un contrôleur de domaine qui dispose de Windows Server 2016 build 10551 (ou version ultérieure) et suivez les étapes pour [installer un contrôleur de domaine réplica dans un domaine existant](https://technet.microsoft.com/library/jj574134.aspx) ou [installer une nouvelle forêt Active Directory, si vous créez un nouvel environnement](https://technet.microsoft.com/library/jj574166). (Les fichiers ISO sont disponibles en téléchargement sur [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
 
@@ -39,7 +40,7 @@ Pour déployer des certificats utilisateur en fonction des clés de Microsoft Pa
 4.	Cliquez avec le bouton droit sur votre nouvel objet de stratégie de groupe, puis sélectionnez **Modifier**.
 5.	Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Passport for Work**.
 6.	Cliquez avec le bouton droit sur **Activer Passport for Work**, puis sélectionnez **Modifier**.
-7.	Activez la case d’option **Activé**, puis cliquez sur **Appliquer**. Cliquez sur **OK**.
+7.	Sélectionnez la case d’option **Activé**, puis cliquez sur **Appliquer**. Cliquez sur **OK**.
 8.	Vous pouvez maintenant lier l’objet de stratégie de groupe à l’emplacement de votre choix. Pour activer cette stratégie pour tous les appareils joints à un domaine Windows 10 de votre organisation, liez la stratégie de groupe au domaine. Par exemple :
  - Une unité d’organisation spécifique dans Active Directory où les ordinateurs Windows 10 joints au domaine seront situés
  - Un groupe de sécurité spécifique contenant des ordinateurs Windows 10 joints au domaine qui sera inscrit automatiquement auprès d’Azure AD
@@ -118,4 +119,4 @@ Voici l’exemple de code XML :
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Créer une API Bing Search dans PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/create-api-bingsearch.md)
+- [Logic Apps](../articles/connectors/connectors-create-api-bingsearch.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
 
 Ajoutez l’API Bing Search à l’environnement App Service (locataire) de votre organisation.
@@ -51,7 +51,7 @@ Lorsque vous avez terminé, une nouvelle API Recherche Bing est ajoutée à votr
 
 ## Consulter les API REST
 
-Informations de référence sur l’[API REST Bing Search](../connectors/create-api-bingsearch.md).
+Informations de référence sur l’[API REST Bing Search](../connectors/connectors-create-api-bingsearch.md).
 
 
 ## Résumé et étapes suivantes
@@ -66,4 +66,4 @@ Vous venez de voir comment ajouter l’API Recherche Bing à PowersApps Enterpri
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

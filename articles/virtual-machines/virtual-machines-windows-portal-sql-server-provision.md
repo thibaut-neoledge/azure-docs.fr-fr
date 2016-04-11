@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Approvisionnement d’une machine virtuelle SQL Server dans Azure Resource Manager (GUI) | Microsoft Azure"
+	pageTitle="Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure | Microsoft Azure"
 	description="Créez une machine virtuelle SQL Server en mode Azure Resource Manager. Ce didacticiel utilise l'interface utilisateur et des outils, plutôt que des scripts."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -15,21 +15,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/22/2015"
+	ms.date="03/24/2016"
 	ms.author="mikeray" />
 
-# Approvisionnement d’une machine virtuelle SQL Server dans Azure Resource Manager
+# Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure
 
-> [AZURE.SELECTOR]
-- [Portail classique](virtual-machines-windows-classic-portal-sql.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
-- [Portail Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md)
-
-<br/>
-
->[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+## Vue d’ensemble
 
 Ce didacticiel de bout en bout vous montre comment approvisionner une machine virtuelle Azure dans le portail à l’aide du modèle Azure Resource Manager et comment configurer SQL Server à partir d’un modèle dans la galerie Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
 
 La galerie de machines virtuelles Azure inclut différentes images contenant Microsoft SQL Server. Vous pouvez sélectionner l’une des images de machine virtuelle à partir de la galerie et approvisionner la machine virtuelle en quelques clics pour votre environnement Azure.
 
@@ -112,7 +107,7 @@ Sous **Connectivité SQL**, spécifiez **Public (Internet)** pour autoriser les 
 
 Pour vous connecter à SQL Server via Internet, vous devez également activer l’authentification SQL Server.
 
->[AZURE.NOTE]Pour la sécurité, limitez le port source à l’aide du groupe de sécurité réseau. Pour plus d’informations, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+>[AZURE.NOTE]Pour la sécurité, limitez le port source à l’aide du groupe de sécurité réseau. Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 Si vous préférez ne pas activer automatiquement les connexions au moteur de base de données via Internet, choisissez l’une des options suivantes :
 - **Local (dans la machine virtuelle uniquement)** pour autoriser les connexions à SQL Server uniquement à partir de la machine virtuelle.
@@ -144,7 +139,7 @@ Par défaut, Azure optimise le stockage pour 5 000 E/S par seconde, 200 Mbit/s e
 
 L’illustration suivante présente le panneau de configuration de stockage. <br/>![Stockage de SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE] Les limites de configuration de stockage dépendent de la taille de la machine virtuelle. Pour plus d’informations, consultez [Tailles de machines virtuelles](virtual-machines-linux-sizes.md)
+>[AZURE.NOTE] Les limites de configuration de stockage dépendent de la taille de la machine virtuelle. Pour plus d’informations, consultez [Tailles de machines virtuelles](virtual-machines-linux-sizes.md).
 
 ### Application de correctifs
 La **mise à jour corrective automatisée SQL** est activée par défaut. La mise à jour corrective automatisée permet à Azure de corriger automatiquement SQL Server et le système d’exploitation. Spécifiez un jour de la semaine, une heure et une durée pour la fenêtre de maintenance. Azure effectue la mise à jour corrective dans la fenêtre de maintenance. La planification de la fenêtre de maintenance utilise les paramètres régionaux de la machine virtuelle pour l’heure. Si vous ne souhaitez pas qu’Azure corrige automatiquement SQL Server et le système d’exploitation, cliquez sur **Désactiver**.
@@ -208,4 +203,4 @@ Les étapes suivantes ne sont pas requises si vous devez uniquement accéder à 
 ##<a id="Next">Étapes suivantes
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

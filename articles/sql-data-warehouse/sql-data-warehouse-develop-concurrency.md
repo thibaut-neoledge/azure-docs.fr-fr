@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/04/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
@@ -227,7 +227,7 @@ Par exemple, si DW500 est la valeur actuelle du paramètre DWU de SQL Data Wareh
 
 Pour examiner en détail les différences dans l’allocation des ressources mémoire dans la perspective du gouverneur de ressources, utilisez la requête suivante :
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -282,7 +282,7 @@ Un utilisateur a d’abord besoin d’une connexion pour que vous puissiez lui a
 
 Ouvrez une connexion à la base de données MASTER de votre SQL Data Warehouse et exécutez les commandes suivantes :
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -294,19 +294,19 @@ Une fois que la connexion a été créée, un compte d’utilisateur doit être 
 
 Ouvrez une connexion à la base de données SQL Data Warehouse et exécutez la commande suivante :
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 Lorsque vous avez terminé, vous devez accorder des autorisations à l’utilisateur. L’exemple indiqué ci-dessous accorde `CONTROL` dans la base de données SQL Data Warehouse. Au niveau de la base de données, `CONTROL` est l’équivalent de db\_owner dans SQL Server.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 Pour afficher les rôles de gestion des charges de travail, utilisez la requête suivante :
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -316,13 +316,13 @@ AND     ro.[is_fixed_role]  = 0
 
 Pour ajouter un utilisateur à un rôle de gestion des charges de travail, utilisez la requête suivante :
 
-```
+```sql
 EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 Pour supprimer un utilisateur d’un rôle de gestion des charges de travail, utilisez la requête suivante :
 
-```
+```sql
 EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
@@ -330,7 +330,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 
 Pour afficher les utilisateurs membres d’un rôle donné, utilisez la requête suivante :
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -343,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### Détection des requêtes en file d’attente
 Pour identifier les requêtes qui sont placées dans une file d’attente de concurrence, vous pouvez toujours consulter la vue de gestion dynamique (DMV) `sys.dm_pdw_exec_requests`.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -374,7 +374,7 @@ Le type BackupConcurrencyResourceType est visible lorsqu’une base de données 
 
 Pour effectuer l’analyse des requêtes actuellement placées en file d’attente afin de déterminer les ressources attendues par une requête, consultez la vue de gestion dynamique `sys.dm_pdw_waits`.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -411,7 +411,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 Pour visualiser uniquement les temps d’attente de ressource consommés par une requête donnée, vous pouvez vous reporter à la vue de gestion dynamique `sys.dm_pdw_resource_waits`. Le temps d’attente d’une ressource mesure uniquement le délai nécessaire à la fourniture de la ressource, par opposition au temps d’attente de signal qui correspond au délai requis par le serveur SQL Server sous-jacent pour planifier la requête dans l’unité centrale.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -430,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 Enfin, pour l’analyse des tendances historiques des attentes, SQL Data Warehouse fournit la gestion de vue dynamique `sys.dm_pdw_wait_stats`.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -455,4 +455,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

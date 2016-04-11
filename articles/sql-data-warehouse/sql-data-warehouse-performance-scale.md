@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Performances et mise à l’échelle élastiques avec SQL Data Warehouse
@@ -40,7 +40,7 @@ Pour augmenter votre puissance de calcul, vous pouvez ajouter d’autres DWU au 
 
 Dans le [Portail Azure Classic][], vous pouvez cliquer sur l’icône de « Montée en puissance parallèle » en haut de votre page SQL Data Warehouse, puis utiliser le curseur pour augmenter ou baisser la quantité d’unités DWU appliquée à votre entrepôt de données avant de cliquer sur « Enregistrer ». Si vous souhaitez chanter l’échelle par programmation, le code T-SQL ci-dessous indique comment ajuster l’allocation de DWU pour votre instance SQL Data Warehouse :
 
-```
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
@@ -49,7 +49,7 @@ Veuillez noter que cette T-SQL doit être exécuté sur votre serveur logique et
 
 Vous pouvez obtenir le même résultat à l’aide de PowerShell, en exécutant le code ci-dessous :
 
-```
+```Powershell
 Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
 ```
 
@@ -64,20 +64,18 @@ L’interruption et la reprise de votre capacité de calcul s’effectuent via l
 
 Le code ci-dessous indique comment effectuer une pause à l’aide de PowerShell :
 
-```
+```Powershell
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
 
 Il est également très simple de reprendre le service à l’aide de PowerShell :
 
-```
+```Powershell
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 Pour en savoir plus sur l’utilisation de PowerShell, consultez [Utilisation des applets de commande PowerShell et des API REST avec SQL Data Warehouse][].
-
-
 
 ## Étapes suivantes
 Pour consulter une présentation sur les performances, accédez à la [vue d’ensemble sur les performances][].
@@ -96,4 +94,4 @@ Pour consulter une présentation sur les performances, accédez à la [vue d’e
 [Portail Azure Classic]: http://portal.azure.com/
 [portail Azure Classic]: http://portal.azure.com/
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,9 +1,10 @@
 > [AZURE.SELECTOR]
-- [Overview](../articles/application-insights/app-insights-analytics.md)
-- [Tour](../articles/application-insights/app-insights-analytics-tour.md)
-- [Queries](../articles/application-insights/app-insights-analytics-queries.md)
-- [Aggregation](../articles/application-insights/app-insights-analytics-aggregations.md)
-- [Scalars](../articles/application-insights/app-insights-analytics-scalars.md)
-- [Using](../articles/application-insights/app-insights-analytics-using.md)
-- [Reference](../articles/application-insights/app-insights-analytics-reference.md)
+- [Vue d'ensemble](../articles/application-insights/app-insights-analytics.md)
+- [Visite](../articles/application-insights/app-insights-analytics-tour.md)
+- [Requêtes](../articles/application-insights/app-insights-analytics-queries.md)
+- [Agrégation](../articles/application-insights/app-insights-analytics-aggregations.md)
+- [Données scalaires](../articles/application-insights/app-insights-analytics-scalars.md)
+- [L'utilisation de](../articles/application-insights/app-insights-analytics-using.md)
+- [Référence](../articles/application-insights/app-insights-analytics-reference.md)
 
+<!---HONumber=AcomDC_0330_2016-->

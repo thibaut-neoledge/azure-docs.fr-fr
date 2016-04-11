@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour diffuser les dernières nouvelles
@@ -25,7 +25,7 @@
 
 ##Vue d'ensemble
 
-Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Windows Store ou Windows Phone 8.1 (non-Silverlight). Si vous ciblez Windows Phone 8.1 Silverlight, consultez la version [Windows Phone](notification-hubs-windows-phone-send-breaking-news.md). Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d’utilisateurs qui ont manifesté antérieurement leur intérêt : lecteur RSS, applications pour fans de musique, etc.
+Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Windows Store ou Windows Phone 8.1 (non-Silverlight). Si vous ciblez Windows Phone 8.1 Silverlight, consultez la version [Windows Phone](notification-hubs-windows-phone-send-breaking-news.md). Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d’utilisateurs qui ont manifesté antérieurement leur intérêt : lecteur RSS, applications pour fans de musique, etc.
 
 Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n’est pas nécessaire de les mettre en service à l’avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-routing-tag-expressions.md).
 
@@ -37,7 +37,7 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 
 La première étape consiste à ajouter des éléments de l’interface utilisateur à votre page principale existante qui permettent à l’utilisateur de sélectionner des catégories auxquelles s’inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre Notification Hub avec les catégories sélectionnées sous forme de balises.
 
-1. Ouvrez le fichier projet MainPage.xaml, puis copiez le code suivant dans l'élément **Grid** :
+1. Ouvrez le fichier projet MainPage.xaml, puis copiez le code suivant dans l'élément **Grid** :
 
         <Grid>
             <Grid.RowDefinitions>
@@ -62,14 +62,14 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
         </Grid>
 
 
-2. Cliquez avec le bouton droit sur le projet **Partagé**, ajoutez une nouvelle classe nommée **Notifications**, ajoutez le modificateur **public** à la définition de la classe, puis ajoutez les instructions **using** suivantes au nouveau fichier de code :
+2. Cliquez avec le bouton droit sur le projet **Partagé**, ajoutez une nouvelle classe nommée **Notifications**, ajoutez le modificateur **public** à la définition de la classe, puis ajoutez les instructions **using** suivantes au nouveau fichier de code :
 
 		using Windows.Networking.PushNotifications;
 		using Microsoft.WindowsAzure.Messaging;
 		using Windows.Storage;
 		using System.Threading.Tasks;
 
-3. Ajoutez le code suivant dans la nouvelle classe **Notifications** :
+3. Ajoutez le code suivant dans la nouvelle classe **Notifications** :
 
 		private NotificationHub hub;
 
@@ -111,16 +111,16 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 
     Cette classe utilise le stockage local pour stocker les catégories de nouvelles que cet appareil doit recevoir. Notez que, au lieu d’appeler la méthode *RegisterNativeAsync*, nous appelons *RegisterTemplateAsync* pour enregistrer les catégories à l’aide d’un modèle d’inscription.
 	
-	Nous avons également fourni un nom pour le modèle (« simpleWNSTemplateExample »), parce qu’il est possible que nous inscrivions plusieurs modèles (par exemple un pour les notifications toast et un pour les vignettes) et nous devons donc les nommer pour pouvoir les mettre à jour ou les supprimer.
+	Nous avons également fourni un nom pour le modèle (« simpleWNSTemplateExample »), parce qu’il est possible que nous inscrivions plusieurs modèles (par exemple un pour les notifications toast et un pour les vignettes) et nous devons donc les nommer pour pouvoir les mettre à jour ou les supprimer.
 
-	Notez que si un appareil inscrit plusieurs modèles avec la même balise, un message entrant ciblant cette balise entraînera l'envoi de plusieurs notifications à l'appareil (un pour chaque modèle). Ce comportement s'avère utile lorsque le même message logique doit générer plusieurs notifications visuelles, par exemple affichant un badge et un toast dans une application Windows Store.
+	Notez que si un appareil inscrit plusieurs modèles avec la même balise, un message entrant ciblant cette balise entraînera l'envoi de plusieurs notifications à l'appareil (un pour chaque modèle). Ce comportement s'avère utile lorsque le même message logique doit générer plusieurs notifications visuelles, par exemple affichant un badge et un toast dans une application Windows Store.
 
-	Pour plus d’informations sur les modèles, consultez la rubrique [Modèles](notification-hubs-templates.md).
-
-
+	Pour plus d’informations sur les modèles, consultez la rubrique [Modèles](notification-hubs-templates.md).
 
 
-4. Dans le fichier projet App.xaml.cs, ajoutez la propriété suivante à la classe **App** :
+
+
+4. Dans le fichier projet App.xaml.cs, ajoutez la propriété suivante à la classe **App** :
 
 		public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
 
@@ -128,13 +128,13 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 
 	Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with listen access>` par le nom du concentrateur de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
 
-	> [AZURE.NOTE]Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d’accès complet est utilisée dans un service de serveur principal sécurisé pour l’envoi de notifications et la modification d’inscriptions existantes.
+	> [AZURE.NOTE] Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d’accès complet est utilisée dans un service de serveur principal sécurisé pour l’envoi de notifications et la modification d’inscriptions existantes.
 
-5. Dans MainPage.xaml.cs, ajoutez la ligne suivante :
+5. Dans MainPage.xaml.cs, ajoutez la ligne suivante :
 
 		using Windows.UI.Popups;
 
-6. Dans le fichier projet MainPage.xaml.cs, ajoutez la méthode suivante :
+6. Dans le fichier projet MainPage.xaml.cs, ajoutez la méthode suivante :
 
 		private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -161,7 +161,7 @@ Votre application peut désormais stocker un ensemble de catégories dans le sto
 
 Les étapes suivantes permettent l’inscription auprès du concentrateur de notification au démarrage en utilisant les catégories qui ont été stockées dans le stockage local.
 
-> [AZURE.NOTE]L'URI de canal affecté par le Service de notifications Push Windows (WNS) pouvant changer à n'importe quel moment, vous devez vous inscrire fréquemment aux notifications afin d'éviter les défaillances de notification. Cet exemple s’inscrit aux notifications chaque fois que l’application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
+> [AZURE.NOTE] L'URI de canal affecté par le Service de notifications Push Windows (WNS) pouvant changer à n'importe quel moment, vous devez vous inscrire fréquemment aux notifications afin d'éviter les défaillances de notification. Cet exemple s’inscrit aux notifications chaque fois que l’application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
 
 1. Ouvrez le fichier App.xaml.cs et mettez à jour la méthode **InitNotificationsAsync** pour utiliser la classe `notifications` pour vous abonner en fonction des catégories.
 
@@ -174,7 +174,7 @@ Les étapes suivantes permettent l’inscription auprès du concentrateur de not
 
 	Cette opération garantit que chaque fois que l'application démarre, elle récupère les catégories du stockage local et demande une inscription pour ces catégories. La méthode **InitNotificationsAsync** a été créée dans le cadre du didacticiel [Prise en main de Notification Hubs][get-started].
 
-3. Dans le fichier projet MainPage.xaml.cs, ajoutez le code suivant à la méthode *OnNavigatedTo* :
+3. Dans le fichier projet MainPage.xaml.cs, ajoutez le code suivant à la méthode *OnNavigatedTo* :
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -198,7 +198,7 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 ##Exécution de l’application et génération de notifications
 
-1. Dans Visual Studio, appuyez sur la touche F5 pour compiler et démarrer l’application.
+1. Dans Visual Studio, appuyez sur la touche F5 pour compiler et démarrer l’application.
 
 	![][1]
 
@@ -210,11 +210,11 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 	![][19]
 
-4. Envoyez une nouvelle notification depuis le serveur principal de l’une des manières suivantes :
+4. Envoyez une nouvelle notification depuis le serveur principal de l’une des manières suivantes :
 
-	+ **Application console :** démarrez l'application console.
+	+ **Application console :** démarrez l'application console.
 
-	+ **Java/PHP :** exécutez votre application/script.
+	+ **Java/PHP :** exécutez votre application/script.
 
 	Les notifications pour les catégories sélectionnées apparaissent comme notifications toast.
 
@@ -222,7 +222,7 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 ##Étapes suivantes
 
-Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d’autres scénarios avancés Notification Hubs :
+Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d’autres scénarios avancés Notification Hubs :
 
 + [Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]
 
@@ -258,4 +258,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

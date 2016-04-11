@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/25/2016" 
 	ms.author="szark"/>
 
 
@@ -55,4 +55,4 @@ Dans ce cas, l'utilisateur **n'est pas** invité à fournir un mot de passe. Une
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

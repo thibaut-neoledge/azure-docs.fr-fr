@@ -14,18 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/28/2016"
    ms.author="larryfr"/>
 
 # Informations sur l’utilisation de HDInsight sous Linux
 
 Les clusters Azure HDInsight sous Linux fournissent Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure. En principe, il fonctionne comme tout autre Hadoop sur une installation Linux. Ce document présente des différences spécifiques que vous devriez connaître.
 
+##Composants requis
+
+La plupart des étapes décrites dans ce document utilisent les utilitaires ci-après, que vous pouvez avoir besoin d’installer sur votre système.
+
+* [cURL](https://curl.haxx.se/) : permet de communiquer avec les services Web.
+* [jq](https://stedolan.github.io/jq/) : permet d’analyser des documents JSON.
+
 ## Noms de domaine
 
 Le nom de domaine complet (FQDN) à utiliser pour se connecter au cluster depuis Internet est **&lt;clustername>.azurehdinsight.net** ou (pour SSH exclusivement) **&lt;clustername-ssh>.azurehdinsight.net**.
 
-En interne, chaque nœud du cluster porte un nom qui est attribué pendant la configuration du cluster. Pour trouver les noms de cluster, vous pouvez consulter la page __Hôtes__ à partir de l’interface utilisateur Web d’Ambari ou utiliser ce qui suit pour obtenir la liste des hôtes à partir de l’API REST Ambari en utilisant [cURL](http://curl.haxx.se/) et [jq](https://stedolan.github.io/jq/) :
+En interne, chaque nœud du cluster porte un nom qui est attribué pendant la configuration du cluster. Pour trouver les noms de cluster, vous pouvez consulter la page __Hôtes__ de l’interface utilisateur Web d’Ambari, ou utiliser ce qui suit pour obtenir la liste des hôtes à partir de l’API REST Ambari :
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -98,7 +105,7 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 
 À la création du cluster, vous pouvez choisir d’utiliser un compte Azure Storage et un conteneur existants ou d’en créer de nouveaux. Vous avez peut-être oublié cela par la suite. Vous pouvez trouver le conteneur et le compte de stockage par défaut à l’aide de l’API REST Ambari.
 
-1. Utilisez la commande suivante pour récupérer les informations de configuration HDFS à l'aide de curl, puis filtrez ces informations avec [jq](https://stedolan.github.io/jq/) :
+1. Utilisez la commande suivante pour récupérer les informations de configuration HDFS à l’aide de curl, puis filtrez ces informations avec [jq](https://stedolan.github.io/jq/) :
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
@@ -108,7 +115,7 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 
         wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-1. Récupérez le groupe de ressources du compte de stockage, utilisez l'[interface de ligne de commande Azure](../xplat-cli-install.md). Dans la commande suivante, remplacez __ACCOUNTNAME__ par le nom du compte de stockage récupéré à partir d'Ambari :
+1. Récupérez le groupe de ressources du compte de stockage en utilisant l’[interface de ligne de commande Azure](../xplat-cli-install.md). Dans la commande suivante, remplacez __ACCOUNTNAME__ par le nom du compte de stockage récupéré à partir d’Ambari :
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
@@ -242,8 +249,9 @@ Si le cluster fournit déjà une version d’un composant sous la forme d’un f
 
 ## Étapes suivantes
 
+* [Effectuer la migration de HDInsight Windows vers HDInsight Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

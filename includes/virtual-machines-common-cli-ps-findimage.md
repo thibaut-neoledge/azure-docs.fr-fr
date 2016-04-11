@@ -1,33 +1,5 @@
 
 
-
-
-
-## Tableau des images couramment utilisées
-
-
-| PublisherName | Offer | Sku |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7\.1 |
-| CoreOS | CoreOS | Bêta |
-| CoreOS | CoreOS | Stable |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Standard |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Entreprise |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour l’entrepôt de données |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour le traitement transactionnel en ligne |
-| Canonical | UbuntuServer | 12\.04.5-LTS |
-| Canonical | UbuntuServer | 14\.04.2-LTS |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
-| MicrosoftWindowsServer | WindowsServer | Windows Server Technical Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
-
-
 ## Interface de ligne de commande Azure
 
 > [AZURE.NOTE] Cet article explique comment parcourir et sélectionner des images de machine virtuelle, à l’aide d’une installation récente d’Azure PowerShell ou de l’interface de ligne de commande Azure. Vous devez au préalable passer en mode Resource Manager. Avec l'interface CLI Azure, entrez ce mode en tapant `azure config mode arm`.
@@ -118,18 +90,11 @@ Avec ces informations, vous pouvez maintenant trouver exactement l’image souha
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’URN que vous venez de trouver, ou pour utiliser un modèle avec ces informations d’URN, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](xplat-cli-azure-resource-manager.md).
-
-### Vidéo de procédure pas à pas
-
-Cette vidéo illustre les étapes ci-dessus à l'aide de l'interface de ligne de commande
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
-
+Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’URN que vous venez de trouver, ou pour utiliser un modèle avec ces informations d’URN, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](../articles/xplat-cli-azure-resource-manager.md).
 
 ## PowerShell
 
-Avec PowerShell, tapez `Switch-AzureMode AzureResourceManager`. Consultez les rubriques [Utiliser l’interface de ligne de commande Azure avec Resource Manager](xplat-cli-azure-resource-manager.md) et [Utiliser Azure PowerShell avec Resource Manager](../powershell-azure-resource-manager.md) pour obtenir des informations complètes sur la mise à jour et la configuration.
+Avec PowerShell, tapez `Switch-AzureMode AzureResourceManager`. Consultez les rubriques [Utiliser l’interface de ligne de commande Azure avec Resource Manager](../articles/xplat-cli-azure-resource-manager.md) et [Utiliser Azure PowerShell avec Resource Manager](../articles/powershell-azure-resource-manager.md) pour obtenir des informations complètes sur la mise à jour et la configuration.
 
 > [AZURE.NOTE] L’applet de commande `Switch-AzureMode` a été supprimée dans les modules Azure PowerShell supérieurs à 1.0. Avec cette version et les plus récentes, remplacez les commandes ci-dessous par la portion `Azure` partie remplacée par `AzureRm`. Si vous utilisez les modules Azure PowerShell antérieurs à 1.0, utilisez les commandes ci-dessous. Cependant, vous devez d’abord `Switch-AzureMode AzureResourceManager`.
 
@@ -229,4 +194,4 @@ Cette vidéo illustre les étapes ci-dessus à l'aide de PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Surveiller et gérer un pool de bases de données élastique (PowerShell) 
+# Surveiller, gérer et dimensionner un pool de base de données élastique avec PowerShell 
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-elastic-pool-manage-portal.md)
@@ -35,7 +35,7 @@ Vous devez utiliser Azure PowerShell 1.0 ou une version supérieure. Pour plus d
 
 
 
-## Créer une base de données élastique dans un pool de bases de données élastique
+## Créer une base de données élastique dans un pool
 
 Pour créer une base de données directement à l’intérieur d’un pool, utilisez l’applet de commande [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) et définissez le paramètre **ElasticPoolName**.
 
@@ -43,34 +43,34 @@ Pour créer une base de données directement à l’intérieur d’un pool, util
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Déplacer une base de données autonome dans un pool de bases de données élastique
+## Déplacer une base de données autonome vers un pool
 
 Pour placer une base de données dans un pool, utilisez l’applet de commande [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) et définissez le paramètre **ElasticPoolName**.
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Modifier les paramètres de performances d'un pool de bases de données élastiques
+## Modifier les paramètres de performances d’un pool
 
-Pour modifier les paramètres de performances d’un pool de base de données élastique, utilisez l’applet de commande [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
+Pour modifier les paramètres de performances d’un pool, utilisez l’applet de commande [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## Obtenir l'état d'opérations de pools élastiques de bases de données
+## Obtenir l’état des opérations de pool
 
-Vous pouvez suivre l’état d’opérations de pools de bases de données élastiques, notamment la création et les mises à jour, à l’aide de l’applet de commande [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
+Vous pouvez suivre l’état des opérations de pool, notamment la création et les mises à jour, à l’aide de l’applet de commande [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-## Obtenir l'état du déplacement d'une base de données élastique vers et depuis un pool élastique de bases de données
+## Obtenir l’état du déplacement d’une base de données élastique en direction et à partir d’un pool
 
 Vous pouvez suivre l’état d’opérations de bases de données élastiques, notamment la création et les mises à jour, à l’aide de l’applet de commande [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx).
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Obtenir des données d’utilisation pour un pool de bases de données élastique
+## Obtenir les données d’utilisation d’un pool
 
 Mesures récupérables sous la forme d'un pourcentage de la limite de pool de ressources :
 
@@ -113,7 +113,7 @@ Exportez vers un fichier CSV :
 
 Ces API sont les mêmes que les API actuelles (V12) utilisées pour surveiller l'utilisation des ressources d'une base de données autonome, à l'exception de la différence sémantique suivante :
 
-* Dans ce cas, les métriques d'API sont obtenues sous forme de pourcentage de DTU MAX par base de données (databaseDtuMax) (ou le nombre maximal équivalent pour la métrique sous-jacente telle que le processeur, les E/S, etc.) défini pour ce pool de bases de données élastiques. Par exemple, une utilisation de 50 % de l'une de ces métriques indique que la consommation des ressources spécifiques est de 50 % de la limite supérieure par base de données définie pour cette ressource dans le pool de bases de données élastiques parent. 
+* dans ce cas, les mesures d'API sont obtenues sous forme de pourcentage de DTU MAX par base de données (databaseDtuMax) (ou le nombre maximal équivalent pour la mesure sous-jacente telle que le processeur, les E/S, etc.) défini pour ce pool. Par exemple, une utilisation de 50 % de l'une de ces mesures indique que la consommation des ressources spécifiques est de 50 % de la limite supérieure par base de données définie pour cette ressource dans le pool parent. 
 
 Obtenez les métriques :
 
@@ -132,7 +132,7 @@ Exportez vers un fichier CSV :
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## Surveiller et gérer un exemple de pool de bases de données élastique PowerShell
+## Exemple PowerShell de surveillance et de gestion d’un pool
 
 
     $subscriptionId = '<Azure subscription id>'
@@ -171,11 +171,11 @@ Exportez vers un fichier CSV :
 
 ## Étapes suivantes
 
-- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques facilitent l’exécution des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
+- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
 
 
 ## Référence des bases de données élastiques
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2016" 
+	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
 
@@ -23,7 +23,7 @@
 ## Questions à propos des concepts de base de Microsoft Azure DocumentDB
 
 ### Qu'est-ce que Microsoft Azure DocumentDB ? 
-Microsoft Azure DocumentDB est un service de base de données NoSQL orienté documents très évolutif qui propose des requêtes enrichies plutôt que des données sans schéma. Il offre des options de configuration et des performances fiables, tout en permettant un développement rapide. Tout cela est rendu possible grâce à une plateforme gérée, soutenue par la puissance et la portée de Microsoft Azure. DocumentDB est la solution idéale pour les applications web et mobiles lorsque le débit, la faible latence et le modèle de données sans schéma sont primordiaux. DocumentDB offre une flexibilité des schémas et une indexation riche par le biais d'un modèle de données JSON natif. Il inclut également un support transactionnel multi-documents avec JavaScript intégré.
+Microsoft Azure DocumentDB est un service de base de données NoSQL orienté documents très évolutif qui propose des requêtes enrichies plutôt que des données sans schéma. Il offre des options de configuration et des performances fiables, tout en permettant un développement rapide. Tout cela est rendu possible grâce à une plateforme gérée, soutenue par la puissance et la portée de Microsoft Azure. DocumentDB est la solution idéale pour les applications web, mobiles, de jeu et IoT lorsque le débit, la faible latence et le modèle de données sans schéma sont primordiaux. DocumentDB offre une flexibilité des schémas et une indexation riche par le biais d'un modèle de données JSON natif. Il inclut également un support transactionnel multi-documents avec JavaScript intégré.
   
 Pour plus de questions, de réponses et d’instructions sur le déploiement et l’utilisation de ce service, consultez la [page de documentation de DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
@@ -37,19 +37,27 @@ Non, DocumentDB stocke les données dans des collections sous forme de documents
 Oui, DocumentDB permet aux applications de stocker des documents JSON arbitrairement sans définition de schéma ni indice. Les données peuvent être interrogées immédiatement via l'interface de requête SQL de DocumentDB.
 
 ### DocumentDB prend-il en charge les transactions ACID ?
-Oui, DocumentDB prend en charge les transactions entre documents exprimées en procédures stockées et déclencheurs JavaScript. Les transactions sont étendues à une seule collection et exécutées intégralement avec des sémantiques ACID, isolées du code et des requêtes utilisateur en cours d'exécution. Si des exceptions surviennent lors de l'exécution du code d'application JavaScript côté serveur, la transaction entière est annulée.
+Oui, DocumentDB prend en charge les transactions entre documents exprimées en procédures stockées et déclencheurs JavaScript. Les transactions sont étendues à une seule partition au sein de chaque collection et exécutées intégralement avec des sémantiques ACID, isolées du code et des requêtes utilisateur en cours d’exécution. Si des exceptions surviennent lors de l'exécution du code d'application JavaScript côté serveur, la transaction entière est annulée.
 
 ### Dans quels cas utilise-t-on généralement DocumentDB ?  
-DocumentDB est le choix idéal pour les nouvelles applications web et mobiles lorsque l'évolutivité, les performances et la possibilité d'interroger des données sans schéma sont primordiales. DocumentDB permet un développement rapide et prend en charge l'itération continue des modèles de données d'application. Les applications qui gèrent du contenu généré par l’utilisateur et des données sont [communément utilisées dans DocumentDB](documentdb-use-cases.md).
+DocumentDB est une option conseillée pour les nouvelles applications web, mobiles, de jeu et IoT dans lesquelles la mise à l’échelle automatique, les performances prévisibles, la commande rapide de temps de réponse en millisecondes, et la capacité à interroger sur des données sans schéma sont importants. DocumentDB permet un développement rapide et prend en charge l'itération continue des modèles de données d'application. Les applications qui gèrent du contenu généré par l’utilisateur et des données sont [communément utilisées dans DocumentDB](documentdb-use-cases.md).
+
+### Comment DocumentDB offre-t-il des performances prévisibles ?
+Une unité de requête (RU) est la mesure du débit dans DocumentDB. 1 RU correspond au débit de la requête GET d’un document d’1 Ko. Chaque opération dans DocumentDB, y compris les lectures, les écritures, les requêtes SQL et les exécutions de procédures stockées, comporte une valeur d’unité de requête déterministe basée sur le débit nécessaire pour terminer l’opération. Au lieu de penser à l’UC, à l’E/S et à la mémoire, et à la façon dont ils impactent le débit de votre application, vous pouvez penser en termes de mesure d’unité de requête unique.
+
+Chaque collection DocumentDB peut être réservée avec un débit approvisionné en termes d’unités de requête de débit par seconde. Pour les applications quelle que soit leur échelle, vous pouvez évaluer les requêtes individuelles pour mesurer leur valeur d’unités de requête, et approvisionner les collections pour gérer la somme totale des unités de requête sur l’ensemble des requêtes. Vous pouvez également mettre à l’échelle le débit de votre collection à mesure de l’évolution des besoins de votre application. Pour plus d’informations sur les unités de requête et pour obtenir de l’aide afin de déterminer vos besoins en collections, consultez l’article [Gérer les performances et les capacités](documentdb-manage.md).
 
 ### DocumentDB est-il conforme à HIPAA ?
 Oui, DocumentDB est conforme à HIPAA. HIPAA établit les conditions requises pour l’utilisation, la divulgation et la protection des informations de santé identifiables de façon individuelle. Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/fr-FR/TrustCenter/Compliance/HIPAA).
 
-### Quelles sont les limites de mise à l’échelle de DocumentDB ?
-Les comptes DocumentDB peuvent être mis à l’échelle en termes de stockage et de débit en ajoutant des collections. Consultez la rubrique [Limites de DocumentDB](documentdb-limits.md) pour connaître les quotas de service du nombre de collections. S’il vous faut des collections supplémentaires, [contactez le support technique](documentdb-increase-limits.md) pour augmenter le quota de votre compte.
+### Quelles sont les limites de stockage de DocumentDB ? 
+Il n’existe aucune limite théorique à la quantité totale de données qu’une collection peut stocker dans DocumentDB. Si vous souhaitez stocker plus de 250 Go de données dans une seule collection, [contactez le support technique](documentdb-increase-limits.md) pour augmenter le quota de votre compte.
+
+### Quelles sont les limites de débit de DocumentDB ? 
+Il n’existe aucune limite théorique à la quantité totale de débit qu’une collection peut prendre en charge dans DocumentDB, si votre charge de travail peut être distribuée à peu près uniformément entre un nombre suffisant de clés de partition. Si vous devez dépasser 250 000 unités de requêtes/seconde par collection ou compte, [contactez le support technique](documentdb-increase-limits.md) pour augmenter le quota de votre compte.
 
 ### Combien coûte Microsoft Azure DocumentDB ?
-Pour plus d’informations, consultez la page [Tarification de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317). Les frais d’utilisation de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne et le [niveau de performances](documentdb-performance-levels.md) de chaque collection.
+Pour plus d’informations, consultez la page [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Les frais d’utilisation de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne, le stockage utilisé et le débit approvisionné pour chaque collection.
 
 ### Un compte gratuit est-il disponible ?
 Si vous débutez avec Azure, vous pouvez vous inscrire pour bénéficier d’un [compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/), qui vous offre 30 jours et 200 USD pour essayer tous les services Azure. Ou, si vous possédez un abonnement Visual Studio, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n’importe quel service Azure.
@@ -69,12 +77,9 @@ Une clé principale est un jeton de sécurité permettant d'accéder à toutes l
 Vous pouvez créer des bases de données à l’aide du [portail Azure](), comme décrit dans la rubrique [Création d’une base de données DocumentDB](documentdb-create-database.md), à l’aide d’un des [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou au moyen des [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Qu'est-ce qu'une collection ?
-Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Les requêtes et les transactions sont étendues vers les collections. Vous pouvez stocker un ensemble de documents JSON hétérogènes dans une seule collection. Tous seront indexés automatiquement.
+Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Une collection est une entité facturable, où le [coût](documentdb-performance-levels.md) est déterminé par le niveau de performances associé à la collection. Les collections peuvent couvrir une ou plusieurs partitions/serveurs et peuvent être mises à l’échelle pour gérer des volumes de stockage ou de débit quasi-illimités.
 
-Les collections sont également les entités de facturation de DocumentDB. Vos frais d’utilisation mensuels de DocumentDB sont déterminés par le nombre de collections utilisées, le nombre d’heures durant lequel les collections sont en ligne et le [niveau de performances](documentdb-performance-levels.md) de chaque collection. Pour plus d’informations, consultez [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/).
-
-### Quelles sont les limites des bases de données et des collections ?
-Chaque collection est fournie avec une allocation de stockage de base de données et de débit configuré à l’un des [niveaux de performances](documentdb-performance-levels.md) pris en charge. Des quotas existent également pour chaque ressource gérée par le service. Pour obtenir la liste de toutes les limites, consultez la rubrique [Limites de DocumentDB](documentdb-limits.md). Pour demander une modification des limites de votre compte, consultez la rubrique [Demande d’augmentation des limites de compte DocumentDB](documentdb-increase-limits.md).
+Les collections sont également les entités de facturation de DocumentDB. Chaque collection est facturée sur la base du débit approvisionné et de l’espace de stockage utilisé. Pour plus d’informations, consultez [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/).
 
 ### Comment configurer des utilisateurs et des autorisations ?
 Vous pouvez créer des utilisateurs et des autorisations en utilisant un [Kit de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou des [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
@@ -84,7 +89,7 @@ Vous pouvez créer des utilisateurs et des autorisations en utilisant un [Kit de
 ### Comment développer avec DocumentDB ?
 Des [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) sont disponibles pour .NET, Python, Node.js, JavaScript et Java. Les développeurs peuvent également utiliser les [API RESTful HTTP](https://msdn.microsoft.com/library/azure/dn781481.aspx) pour interagir avec les ressources DocumentDB sur de nombreuses plateformes et dans de nombreux langages.
 
-Des exemples de kits de développement logiciel (SDK) DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples) et [Python](https://github.com/Azure/azure-documentdb-python) sont disponibles sur GitHub.
+Des exemples de kits de développement logiciel (SDK) DocumentDB [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md) et [Python](documentdb-python-samples.md) sont disponibles sur GitHub.
 
 ### DocumentDB prend-il en charge SQL ?
 Le langage de requête SQL DocumentDB est un sous-ensemble amélioré des fonctionnalités de requête prises en charge par SQL. Le langage de requête SQL de DocumentDB fournit des opérateurs relationnels et hiérarchiques enrichis, ainsi qu'une extensibilité, via des fonctions JavaScript définies par l'utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes en tant que nœuds d'arborescence. Cette capacité est exploitée par les techniques d'indexation automatique de DocumentDB et le langage de requête SQL de ce dernier. Pour plus d’informations sur l’utilisation de la syntaxe SQL, consultez l’article [Interrogation de DocumentDB][query].
@@ -96,7 +101,7 @@ Les types de données primitifs pris en charge dans DocumentDB sont identiques �
 DocumentDB prend en charge le contrôle d'accès concurrentiel optimiste via les balises d'entité HTTP ou ETags. Chaque ressource DocumentDB dispose d'un ETag et les clients DocumentDB incluent leur dernière version lue dans les requêtes en écriture. Si l'ETag est actuel, la modification est effectuée. Si la valeur a été modifiée en externe, le serveur rejette l'écriture avec un code de réponse « HTTP 412 Échec de la condition préalable ». Les clients doivent lire la dernière version de la ressource et relancer la requête.
 
 ### Comment effectuer des transactions dans DocumentDB ?
-DocumentDB prend en charge les transactions intégrées au langage via les déclencheurs et procédures stockées JavaScript. Toutes les opérations de la base de données dans les scripts sont exécutées avec un isolement de capture instantanée sur la collection. Une capture instantanée des versions des documents (ETags) est prise au début de la transaction et validée uniquement si le script fonctionne. Si le JavaScript renvoie une erreur, la transaction est annulée. Pour plus d’informations, consultez la rubrique [Programmation côté serveur dans DocumentDB](documentdb-programming.md).
+DocumentDB prend en charge les transactions intégrées au langage via les déclencheurs et procédures stockées JavaScript. Toutes les opérations de base de données dans les scripts sont exécutées avec l’isolement de capture instantanée étendu à la collection s’il s’agit d’une collection à partition unique, ou à des documents ayant la même valeur de clé de partition au sein d’une collection, si la collection est partitionnée. Une capture instantanée des versions des documents (ETags) est prise au début de la transaction et validée uniquement si le script fonctionne. Si le JavaScript renvoie une erreur, la transaction est annulée. Pour plus d’informations, consultez la rubrique [Programmation côté serveur dans DocumentDB](documentdb-programming.md).
 
 ### Comment insérer des documents en bloc dans DocumentDB ? 
 Il existe trois façons d’insérer des documents en bloc dans DocumentDB :
@@ -115,4 +120,4 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

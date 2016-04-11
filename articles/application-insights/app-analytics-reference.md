@@ -17,7 +17,7 @@
 
 # Application Insights : documents de référence Analytics
 
-[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-analytics.md) vous permet d’exécuter de puissantes requêtes sur les données de télémétrie collectées par [Application Insights](app-insights-overview.md) à partir de votre application. Ces pages décrivent son langage de requête.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -25,12 +25,11 @@
 ## Expressions régulières
 
 
-
 [Description générale des expressions régulières](https://github.com/google/re2/wiki/Syntax).
 
 Cette page répertorie la syntaxe des expressions régulières acceptée par RE2. Elle répertorie également la syntaxe acceptée par PCRE, PERL et VIM.
 
-||
+|
 |---|---
 |Caractères uniques : | 
 |. |n’importe quel caractère, y compris éventuellement un caractère de nouvelle ligne (s=vrai) 
@@ -44,7 +43,7 @@ Cette page répertorie la syntaxe des expressions régulières acceptée par RE2
 |\\p{Greek} |classe de caractères Unicode 
 |\\PN |classe de caractères Unicode exclue (nom d’une lettre) 
 |\\P{Greek} |classe de caractères Unicode exclue 
-|Composites : | 
+|Composites: | 
 |xy |x suivi de y 
 |x&#124;y |x ou y (préférer x) 
 | 
@@ -414,4 +413,4 @@ Cette page répertorie la syntaxe des expressions régulières acceptée par RE2
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

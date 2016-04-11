@@ -42,7 +42,7 @@
 
 Cet article repose sur un déploiement identique à un déploiement de service cloud avec une seule machine virtuelle Linux dans un sous-réseau de réseau virtuel. Il décrit la totalité du déploiement de base de manière impérative, commande par commande, jusqu’à ce que vous disposiez d’une machine virtuelle Linux sécurisée opérationnelle à laquelle vous pouvez vous connecter à partir de n’importe quel emplacement d’Internet.
 
-Au cours de ce processus, vous découvrirez la hiérarchie des dépendances et la puissance que vous offre le modèle de déploiement de Resource Manager. Une fois que vous aurez compris la façon dont le système est créé, vous pourrez le reconstruire beaucoup plus rapidement à l’aide de commandes d’interface de ligne de commande Azure plus directes (voir [cet article](insertlinktonewdoc) décrivant à peu près le même déploiement à l’aide de la commande `azure vm quick-create`), ou vous pourrez apprendre à concevoir et automatiser l’ensemble des déploiements du réseau et des applications et à les mettre à jour au moyen des [modèles Azure Resource Manager](../resource-group-authoring-templates.md). Dès que vous avez compris la façon dont les différentes parties de votre déploiement s’imbriquent, la création de modèles pour automatiser ces dernières se révèle plus simple.
+Au cours de ce processus, vous découvrirez la hiérarchie des dépendances et la puissance que vous offre le modèle de déploiement de Resource Manager. Une fois que vous aurez compris la façon dont le système est créé, vous pourrez le reconstruire beaucoup plus rapidement à l’aide de commandes d’interface de ligne de commande Azure plus directes (voir [cet article](virtual-machines-linux-quick-create-cli.md) décrivant à peu près le même déploiement à l’aide de la commande `azure vm quick-create`), ou vous pourrez apprendre à concevoir et automatiser l’ensemble des déploiements du réseau et des applications et à les mettre à jour au moyen des [modèles Azure Resource Manager](../resource-group-authoring-templates.md). Dès que vous avez compris la façon dont les différentes parties de votre déploiement s’imbriquent, la création de modèles pour automatiser ces dernières se révèle plus simple.
 
 Commençons par la procédure de création d’un réseau simple avec une machine virtuelle à des fins de développement et de calcul élémentaire, que nous décrirons étape par étape. Vous serez ensuite en mesure de créer des réseaux et déploiements plus complexes.
 
@@ -95,7 +95,7 @@ azure network public-ip create -d testsubdomain testrg testpip westeurope
 azure network public-ip show testrg testpip --json | jq '.'
 
 # Associate the Public IP to the NIC
-azure network nic set --public-ip-name test pip
+azure network nic set --public-ip-name testpip testrg testnic
 
 # Bind the NSG to the NIC
 azure network nic set --network-security-group-name testnsg testrg testnic
@@ -528,7 +528,7 @@ Et, comme toujours, vous pouvez examiner les détails de la ressource, y compris
 
 ### Associer l’adresse IP publique et le Groupe de sécurité réseau à la NIC
 
-        azure network nic set --public-ip-name test pip
+        azure network nic set --public-ip-name testpip testrg testnic
 
 Liez le NSG à la NIC :
 
@@ -667,4 +667,4 @@ Et vous pouvez à présent utiliser la commande `azure vm show testrg testvm` po
 
 Vous voici en mesure de commencer à utiliser plusieurs composants réseau et machines virtuelles.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

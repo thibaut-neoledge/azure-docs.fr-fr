@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mingzhan"/>
+	ms.date="03/14/2016" 
+	ms.author="szark"/>
 
 
 
@@ -26,6 +26,8 @@
 ##Introduction
 
 L’agent Linux Azure (/usr/sbin/waagent) gère l’interaction entre la machine virtuelle et le contrôleur de structure Microsoft Azure. Il effectue les opérations suivantes :
+
+> [AZURE.NOTE] Pour découvrir la dernière version de ce guide, consultez le fichier [README](https://github.com/Azure/WALinuxAgent/blob/2.0/README) (Lisez-moi) de l’agent Linux Azure.
 
 * **Approvisionnement d’image**
   - Création d'un compte d'utilisateur
@@ -201,13 +203,13 @@ Si le chemin d'un programme exécutable est spécifié, il est appelé lorsque w
 
 Type : String Valeur par défaut : Aucun
 
-Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'un fichier de configuration est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que le fichier de configuration est modifié. Un exemple de fichier est fourni dans l'Annexe. Le chemin actuel de ce fichier est /var/lib/waagent/HostingEnvironmentConfig.xml.
+Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'un fichier de configuration est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que le fichier de configuration est modifié. Le chemin actuel de ce fichier est /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer :**
 
 Type : String Valeur par défaut : Aucun
 
-Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'une nouvelle configuration de topologie de réseau est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que la topologie de réseau est modifiée (en raison d'une réparation du service par exemple). Un exemple de fichier est fourni dans l'Annexe. Le chemin actuel de ce fichier est /var/lib/waagent/SharedConfig.xml.
+Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'une nouvelle configuration de topologie de réseau est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que la topologie de réseau est modifiée (en raison d'une réparation du service par exemple). Le chemin actuel de ce fichier est /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled :**
 
@@ -321,4 +323,4 @@ Notez que les images cloud Ubuntu utilisent [Cloud-init](https://launchpad.net/u
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

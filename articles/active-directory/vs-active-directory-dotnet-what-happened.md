@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
-# Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ?
+# Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> - [What Happened](vs-active-directory-dotnet-what-happened.md)
+> - [Prise en main](vs-active-directory-dotnet-getting-started.md)
+> - [Que s'est-il passé ?](vs-active-directory-dotnet-what-happened.md)
 
 
 
@@ -76,7 +76,7 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 ### Une application Azure Active Directory (AD) a été créée
 Une application Azure AD a été créée dans le répertoire que vous avez sélectionné dans l’Assistant.
 
-##Si j'ai coché *Désactiver l'authentification des comptes d'utilisateur individuels*, quelles autres modifications ont été apportées à mon projet ?
+##Si j'ai coché *Désactiver l'authentification des comptes d'utilisateur individuels*, quelles autres modifications ont été apportées à mon projet ?
 Des références du package NuGet ont été supprimées, et des fichiers ont été supprimés et sauvegardés. Selon l’état de votre projet, vous pouvez avoir besoin de supprimer manuellement d’autres références ou fichiers, ou de modifier le code le cas échéant.
 
 ### Références du package NuGet supprimées (pour celles présentes)
@@ -87,7 +87,7 @@ Des références du package NuGet ont été supprimées, et des fichiers ont ét
 
 ### Fichiers de code sauvegardés et supprimés (pour ceux présents)
 
-Chacun des fichiers suivants a été sauvegardé et supprimé du projet. Les fichiers de sauvegarde sont situés dans un dossier « Backup » à la racine du répertoire du projet.
+Chacun des fichiers suivants a été sauvegardé et supprimé du projet. Les fichiers de sauvegarde sont situés dans un dossier « Backup » à la racine du répertoire du projet.
 
 - **App\_Start\\IdentityConfig.cs**
 - **Controllers\\ManageController.cs**
@@ -96,14 +96,14 @@ Chacun des fichiers suivants a été sauvegardé et supprimé du projet. Les fic
 
 ### Fichiers de code sauvegardés (pour ceux présents)
 
-Chacun des fichiers suivants a été sauvegardé avant d’être remplacé. Les fichiers de sauvegarde sont situés dans un dossier « Backup » à la racine du répertoire du projet.
+Chacun des fichiers suivants a été sauvegardé avant d’être remplacé. Les fichiers de sauvegarde sont situés dans un dossier « Backup » à la racine du répertoire du projet.
 
 - **Startup.cs**
 - **App\_Start\\Startup.Auth.cs**
 - **Controllers\\AccountController.cs**
 - **Views\\Shared\_LoginPartial.cshtml**
 
-## Si j'ai coché *Lire les données de l'annuaire*, quelles autres modifications ont été apportées à mon projet ?
+## Si j'ai coché *Lire les données de l'annuaire*, quelles autres modifications ont été apportées à mon projet ?
 
 Des références supplémentaires ont été ajoutées.
 
@@ -131,7 +131,7 @@ Des références supplémentaires ont été ajoutées.
 
 ###Des fichiers de code supplémentaires ont été ajoutés à votre projet
 
-Deux fichiers ont été ajoutés pour prendre en charge la mise en cache de jeton : **Models\\ADALTokenCache.cs** et **Models\\ApplicationDbContext.cs**. Un contrôleur et une vue supplémentaires ont été ajoutés pour illustrer l’accès aux informations de profil utilisateur à l’aide des API graphiques Azure. Ces fichiers sont **Controllers\\UserProfileController.cs** et **Views\\UserProfile\\Index.cshtml**.
+Deux fichiers ont été ajoutés pour prendre en charge la mise en cache de jeton : **Models\\ADALTokenCache.cs** et **Models\\ApplicationDbContext.cs**. Un contrôleur et une vue supplémentaires ont été ajoutés pour illustrer l’accès aux informations de profil utilisateur à l’aide des API graphiques Azure. Ces fichiers sont **Controllers\\UserProfileController.cs** et **Views\\UserProfile\\Index.cshtml**.
 
 ###Un code de démarrage a été ajouté à votre projet
 
@@ -167,8 +167,8 @@ Les sections de configuration et la chaîne de connexion suivantes ont été ajo
 
 
 ###Votre application Azure Active Directory a été mise à jour
-Votre application Azure Active Directory a été mise à jour pour inclure l'autorisation *Lire les données de l'annuaire*, et une clé supplémentaire a été créée pour être ensuite utilisée comme *ida:ClientSecret* dans le fichier **web.config**.
+Votre application Azure Active Directory a été mise à jour pour inclure l'autorisation *Lire les données de l'annuaire*, et une clé supplémentaire a été créée pour être ensuite utilisée comme *ida:ClientSecret* dans le fichier **web.config**.
 
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

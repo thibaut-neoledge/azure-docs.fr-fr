@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Créer une API Office 365 Users dans PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/create-api-office365-users.md)
+- [Logic Apps](../articles/connectors/connectors-create-api-office365-users.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
 
 Ajoutez l’API Office 365 Users à l’environnement de service d’application (locataire) de votre organisation.
@@ -107,7 +107,7 @@ Pour obtenir des informations intéressantes sur les applications AAD, consultez
 
 ## Consulter les API REST
 
-Informations de référence sur l’[API REST Office 365 Users](../connectors/create-api-office365-users.md).
+Informations de référence sur l’[API REST Office 365 Users](../connectors/connectors-create-api-office365-users.md).
 
 ## Résumé et étapes suivantes
 Dans cette rubrique, vous avez vu comment ajouter l’API Office 365 Users à PowersApps Enterprise. Ensuite, donnez accès à l’API pour les utilisateur afin qu’ils puissent l’ajouter à leurs applications :
@@ -128,4 +128,4 @@ Dans cette rubrique, vous avez vu comment ajouter l’API Office 365 Users à Po
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!-----------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

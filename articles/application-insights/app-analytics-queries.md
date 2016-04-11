@@ -15,12 +15,10 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
-
 # Requêtes dans Analytics
 
 
-[Analytics](app-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-analytics.md) vous permet d’exécuter de puissantes requêtes sur les données de télémétrie collectées par [Application Insights](app-insights-overview.md) à partir de votre application. Ces pages décrivent son langage de requête.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -676,8 +674,8 @@ Prend deux tables ou plus et retourne les lignes de toutes les tables.
  *  Expression de requête, telle que `(events | where id==42)`
  *  Ensemble de tables spécifié par un caractère générique. Par exemple, `E*` assure l’union de toutes les tables dans la base de données dont le nom commence par `E`.
 * `kind` : 
- * `inner` - Le résultat comporte le sous-ensemble de colonnes qui sont communes à toutes les tables d’entrée.
- * `outer` - Le résultat comporte toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée sont définies sur `null`.
+ * `inner` -Le résultat comporte le sous-ensemble de colonnes qui sont communes à toutes les tables d’entrée.
+ * `outer` -Le résultat comporte toutes les colonnes qui apparaissent dans les entrées. Les cellules qui n’ont pas été définies par une ligne d’entrée sont définies sur `null`.
 * `withsource=`*ColumnName :* si spécifiée, la sortie va inclure une colonne appelée *ColumnName* dont la valeur indique la table source correspondant à chaque ligne.
 
 **Retourne**
@@ -766,4 +764,4 @@ Notez que nous plaçons la comparaison entre deux colonnes à la fin, car elle n
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

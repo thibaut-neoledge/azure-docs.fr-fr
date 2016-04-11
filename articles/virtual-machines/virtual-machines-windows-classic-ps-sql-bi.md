@@ -1,13 +1,13 @@
-<properties 
+<properties
 	pageTitle="Business Intelligence de SQL Server | Microsoft Azure"
 	description="Cette rubrique utilise des ressources créées avec le modèle de déploiement classique et décrit les fonctionnalités de Business Intelligence (BI) disponibles pour SQL Server s’exécutant sur Azure Virtual Machines."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -19,8 +19,8 @@
 # Business Intelligence de SQL Server dans les machines virtuelles Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
- 
- 
+
+
 La galerie de machines virtuelles Microsoft Azure inclut des images qui contiennent des installations de SQL Server. Les éditions de SQL Server prises en charge dans les images de la galerie sont les mêmes fichiers d’installation que vous pouvez installer sur les ordinateurs locaux et sur les machines virtuelles. Cette rubrique résume les fonctionnalités de SQL Server Business Intelligence (BI) installées sur les images, et les étapes de configuration requises après la configuration d’une machine virtuelle. Elle décrit également les topologies de déploiement prises en charge pour les fonctionnalités et les meilleures pratiques en matière de décisionnel (BI).
 
 ## Remarques sur la licence
@@ -42,18 +42,18 @@ La galerie de machines virtuelles Microsoft Azure inclut plusieurs images qui co
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Le script PowerShell suivant renvoie la liste des images Azure dont le nom ImageName contient « SQL Server » :
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
-	
+
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
 	$thumbPrint = "" # REQUIRED: Provide your certificate thumbprint.
 	$certificate = Get-Item cert:\currentuser\my\$thumbPrint # REQUIRED: If your certificate is in a different store, provide it here.-Ser  store is the one specified with the -ss parameter on MakeCert
-	
+
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
@@ -99,7 +99,7 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 - La meilleure pratique de gestion du disque consiste à stocker les fichiers de données, de journal et de sauvegarde sur des lecteurs autres que **C**: et **D**:. Par exemple, créez des disques de données **E**: et **F**:.
 
 	- La stratégie de mise en cache du lecteur **C**: par défaut n’est pas optimale pour l’utilisation de données.
-	
+
 	- Nous vous déconseillons d’utiliser le lecteur **D**: qui est un disque temporaire principalement utilisé pour le fichier d’échange. Nous vous déconseillons d’utiliser le lecteur **D**: qui n’est pas persistant et n’est pas stocké dans le stockage d’objets blob. Les tâches de gestion telles qu’une simple modification de la taille d’une machine virtuelle réinitialisent le lecteur **D**:. Nous vous **DÉCONSEILLONS** d’utiliser le lecteur **D**: pour les fichiers de base de données, y compris tempdb.
 
 	Pour plus d’informations sur la création et l’attachement de disques, consultez la page [Procédure d’attachement d’un disque de données à une machine virtuelle](virtual-machines-windows-classic-attach-disk.md).
@@ -165,11 +165,11 @@ Il existe deux flux de travail courants pour la connexion à une machine virtuel
 - Connectez-vous à la machine virtuelle avec une connexion Bureau à distance Windows. Dans l’interface utilisateur du Bureau à distance :
 
 	1. Tapez le **nom du service cloud** comme nom d’ordinateur.
-	
+
 	1. Appuyez sur la touche deux-points (:), puis entrez le numéro de port public qui est configuré pour le point de terminaison Bureau à distance TCP.
-		
+
 		Myservice.cloudapp.net:63133
-		
+
 		Pour plus d’informations, consultez [Présentation d’un service cloud](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 **Démarrez le Gestionnaire de configuration Reporting Services.**
@@ -279,11 +279,11 @@ Si vous souhaitez vous connecter au Gestionnaire de rapports sur la machine virt
 Le tableau suivant résume certaines des options disponibles pour publier des rapports existants à partir d’un ordinateur local vers le serveur de rapports hébergé sur la machine virtuelle Microsoft Azure :
 
 - **Générateur de rapports** : la machine virtuelle inclut la version un clic du Générateur de rapports Microsoft SQL Server. Pour démarrer le Générateur de rapports la première fois sur la machine virtuelle:
-											
+
 	1. Démarrez votre navigateur avec des privilèges administratifs.
-	
+
 	1. Accédez au Gestionnaire de rapports sur la machine virtuelle et cliquez sur **Générateur de rapports** dans le ruban.
-	
+
 	Pour plus d’informations, consultez la page [Installer, désinstaller et prendre en charge le Générateur de rapports](https://technet.microsoft.com/library/dd207038.aspx).
 
 - **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
@@ -295,11 +295,11 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 - Créez un disque dur .VHD qui contient des rapports, puis téléchargez et attachez le lecteur.
 
 	1. Créez un disque dur .VHD sur votre ordinateur local qui contient vos rapports.
-	
+
 	1. Créez et installez un certificat de gestion.
-	
+
 	1. Téléchargez le fichier VHD sur Azure à l’aide de l’applet de commande Add-AzureVHD en procédant de la manière décrite dans [Créer et charger un disque dur virtuel Windows Server dans Azure](virtual-machines-windows-classic-createupload-vhd.md).
-	
+
 	1. Attachez le disque à la machine virtuelle.
 
 ## Installation d’autres services et fonctionnalités SQL Server
@@ -375,13 +375,13 @@ Cette section résume les points de terminaison de machine virtuelle Microsoft A
 - Si vous utilisez une seule machine virtuelle et si les deux affirmations suivantes sont vraies, vous n’avez pas besoin de créer des points de terminaison de machine virtuelle, ni d’ouvrir les ports dans le pare-feu sur la machine virtuelle.
 
 	- Vous ne vous connectez pas à distance aux fonctionnalités SQL Server sur la machine virtuelle. L’établissement d’une connexion Bureau à distance vers la machine virtuelle et l’accès aux fonctionnalités de SQL Server localement sur la machine virtuelle ne sont pas considérés comme une connexion distante aux fonctionnalités de SQL Server.
-	
+
 	- Vous ne joignez pas la machine virtuelle à un domaine local via le réseau virtuel Azure ou via une autre solution de tunneling VPN.
 
 - Si la machine virtuelle n’est pas jointe à un domaine mais que vous souhaitez vous connecter à distance aux fonctionnalités SQL Server sur la machine virtuelle :
 
 	- Ouvrez les ports dans le pare-feu sur la machine virtuelle.
-	
+
 	- Créez des points de terminaison de machine virtuelle pour les ports notés (*).
 
 - Si la machine virtuelle est jointe à un domaine avec un tunnel VPN tel que le réseau virtuel Azure, les points de terminaison ne sont pas requis. Ouvrez toutefois les ports dans le pare-feu sur la machine virtuelle.
@@ -397,7 +397,7 @@ Pour plus d’informations sur la création de points de terminaison, consultez 
 
 - Créer des points de terminaison : [Comment configurer des points de terminaison sur une machine virtuelle](virtual-machines-windows-classic-setup-endpoints.md).
 
-- SQL Server : Consultez la section « Procédure de configuration complète pour la connexion à la machine virtuelle en utilisant SSMS (SQL Server Management Studio) sur un autre ordinateur » dans [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-windows-classic-portal-sql.md).
+- SQL Server : Consultez la section « Procédure de configuration complète pour la connexion à la machine virtuelle en utilisant SSMS (SQL Server Management Studio) sur un autre ordinateur » dans [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine virtuelle pour autoriser l’accès à distance aux fonctionnalités et aux composants de la machine virtuelle.
 
@@ -411,7 +411,7 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 
 - [Machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-- [Configuration d'une machine virtuelle SQL Server sur Azure](virtual-machines-windows-classic-portal-sql.md)
+- [Configuration d'une machine virtuelle SQL Server sur Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
 - [Association d’un disque de données à une machine virtuelle](virtual-machines-windows-classic-attach-disk.md)
 
@@ -431,4 +431,4 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 
 - [Gestion de base de données SQL Azure avec PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

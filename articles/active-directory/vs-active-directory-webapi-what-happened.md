@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
-# Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio) ?
+# Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio) ?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [Prise en main](vs-active-directory-webapi-getting-started.md)
+> - [Que s'est-il passé ?](vs-active-directory-webapi-what-happened.md)
 
 ##Des références ont été ajoutées.
 
@@ -59,7 +59,8 @@ Si vous disposiez déjà d’une classe de démarrage dans votre projet, la mét
 
 ###Votre fichier app.config ou web.config comporte de nouvelles valeurs de configuration.
 
-Les entrées de configuration suivantes ont été ajoutées. ```
+Les entrées de configuration ci-dessous ont été ajoutées.
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -73,7 +74,7 @@ Une application Azure AD a été créée dans le répertoire que vous avez séle
 
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-##Si j’ai coché *Désactiver l’authentification des comptes d’utilisateur individuels*, quelles autres modifications ont été apportées à mon projet ?
+##Si j’ai coché *Désactiver l’authentification des comptes d’utilisateur individuels*, quelles autres modifications ont été apportées à mon projet ?
 Des références du package NuGet ont été supprimées, et des fichiers ont été supprimés et sauvegardés. Selon l’état de votre projet, vous pouvez avoir besoin de supprimer manuellement d’autres références ou fichiers, ou de modifier le code le cas échéant.
 
 ###Références du package NuGet supprimées (pour celles présentes)
@@ -84,7 +85,7 @@ Des références du package NuGet ont été supprimées, et des fichiers ont ét
 
 ###Fichiers de code sauvegardés et supprimés (pour ceux présents)
 
-Chacun des fichiers suivants a été sauvegardé et supprimé du projet. Les fichiers de sauvegarde sont situés dans un dossier « Backup » à la racine du répertoire du projet.
+Chacun des fichiers suivants a été sauvegardé et supprimé du projet. Les fichiers de sauvegarde sont situés dans un dossier « Backup » à la racine du répertoire du projet.
 
 - `App_Start\IdentityConfig.cs`
 - `Controllers\AccountController.cs`
@@ -94,12 +95,12 @@ Chacun des fichiers suivants a été sauvegardé et supprimé du projet. Les fic
 
 ###Fichiers de code sauvegardés (pour ceux présents)
 
-Chacun des fichiers suivants a été sauvegardé avant d’être remplacé. Les fichiers de sauvegarde sont situés dans un dossier « Backup » à la racine du répertoire du projet.
+Chacun des fichiers suivants a été sauvegardé avant d’être remplacé. Les fichiers de sauvegarde sont situés dans un dossier « Backup » à la racine du répertoire du projet.
 
 - `Startup.cs`
 - `App_Start\Startup.Auth.cs`
 
-##Si j’ai coché *Lire les données de l’annuaire*, quelles autres modifications ont été apportées à mon projet ?
+##Si j’ai coché *Lire les données de l’annuaire*, quelles autres modifications ont été apportées à mon projet ?
 
 ###Des modifications supplémentaires ont été apportées à votre fichier app.config ou web.config
 
@@ -116,4 +117,4 @@ Votre application Azure Active Directory a été mise à jour pour inclure l’a
 
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

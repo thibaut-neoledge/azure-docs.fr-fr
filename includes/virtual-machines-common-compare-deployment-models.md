@@ -35,7 +35,7 @@ Dans cette section, nous allons découvrir certaines des principales différence
 | Service cloud pour machines virtuelles |	Le service cloud était un conteneur pour les machines virtuelles nécessitant la disponibilité de la plateforme et l’équilibrage de charge. | Le service cloud n’est plus un objet nécessaire à la création des machines virtuelles avec le nouveau modèle. |
 | Groupes à haute disponibilité | La disponibilité de la plateforme était indiquée en configurant le même « AvailabilitySetName » sur les machines virtuelles. Le nombre maximal de domaines d’erreur était de 2. | Le groupe à haute disponibilité est une ressource exposée par le fournisseur Microsoft.Compute. Les machines virtuelles qui nécessitent une haute disponibilité doivent faire partie du groupe à haute disponibilité. Le nombre maximal de domaines d’erreur est maintenant de 3. |
 | Groupe d'affinités |	Les groupes d’affinités étaient nécessaires pour créer des réseaux virtuels. Toutefois, avec l’introduction des réseaux virtuels régionaux, ils ne sont plus nécessaires. |Pour simplifier, le concept de groupe d’affinités n’existe pas dans les API exposées par le Gestionnaire de ressources Azure. |
-| Équilibrage de la charge. | La création d’un service cloud fournit un équilibrage de la charge implicite pour les machines virtuelles déployées. | L’équilibrage de la charge est une ressource exposée par le fournisseur Microsoft.Network. La principale interface réseau des machines virtuelles dont la charge doit être équilibrée doit faire référence à l’équilibrage de la charge. Ces éléments d’équilibrage de la charge peuvent être internes ou externes. [En savoir plus.](resource-groups-networking.md) |
+| Équilibrage de la charge. | La création d’un service cloud fournit un équilibrage de la charge implicite pour les machines virtuelles déployées. | L’équilibrage de la charge est une ressource exposée par le fournisseur Microsoft.Network. La principale interface réseau des machines virtuelles dont la charge doit être équilibrée doit faire référence à l’équilibrage de la charge. Ces éléments d’équilibrage de la charge peuvent être internes ou externes. [En savoir plus.](../articles/resource-groups-networking.md) |
 |Adresse IP virtuelle | Les services cloud obtiennent une adresse IP virtuelle par défaut lorsqu’une machine virtuelle est ajoutée à un service cloud. L’adresse IP virtuelle est l’adresse associée à l’équilibrage de charge implicite. | L’adresse IP est une ressource exposée par le fournisseur Microsoft.Network. L’adresse IP publique peut être statique (réservée) ou dynamique. Les adresses IP publiques dynamiques peuvent être attribuées à un équilibrage de charge. Les adresses IP publiques peuvent être sécurisées à l’aide de groupes de sécurité. |
 |Adresses IP réservées|	Vous pouvez réserver une adresse IP dans Azure et l’associer à un service cloud pour vous assurer que l’adresse IP est permanente. | L’adresse IP publique peut être créée en mode « Statique ». Elle offre les mêmes fonctionnalités qu’une « Adresse IP réservée ». Les adresses IP publiques statiques peuvent être attribuées dès maintenant à un équilibrage de la charge. |
 |Adresse IP publique par machine virtuelle | Les adresses IP publiques peuvent également être associées directement à une machine virtuelle. | L’adresse IP est une ressource exposée par le fournisseur Microsoft.Network. L’adresse IP publique peut être statique (réservée) ou dynamique. Toutefois, seules les adresses IP dynamiques publiques peuvent être affectées à une interface réseau pour obtenir une adresse IP publique par machine virtuelle. |
@@ -53,11 +53,11 @@ Le portail Azure continuera à bénéficier de l'option de déploiement de machi
 
 ### Azure PowerShell
 
-Azure PowerShell aura deux modes de déploiement : le mode **AzureServiceManagement** et le mode **AzureResourceManager**. Le mode AzureResourceManager contiendra désormais également les applets de commande nécessaires à la gestion des machines virtuelles, des réseaux virtuels et des comptes de stockage. Pour plus d'informations à ce sujet, cliquez [ici](../powershell-azure-resource-manager.md).
+Azure PowerShell aura deux modes de déploiement : le mode **AzureServiceManagement** et le mode **AzureResourceManager**. Le mode AzureResourceManager contiendra désormais également les applets de commande nécessaires à la gestion des machines virtuelles, des réseaux virtuels et des comptes de stockage. Pour plus d'informations à ce sujet, cliquez [ici](../articles/powershell-azure-resource-manager.md).
 
 ### Interface de ligne de commande Azure
 
-L’interface de ligne de commande Azure (Azure CLI) aura deux modes de déploiement : le mode **AzureServiceManagement** et le mode **AzureResourceManager**. Le mode AzureResourceManager contiendra désormais également les commandes nécessaires à la gestion des machines virtuelles, des réseaux virtuels et des comptes de stockage. Pour plus d'informations à ce sujet, cliquez [ici](xplat-cli-azure-resource-manager.md).
+L’interface de ligne de commande Azure (Azure CLI) aura deux modes de déploiement : le mode **AzureServiceManagement** et le mode **AzureResourceManager**. Le mode AzureResourceManager contiendra désormais également les commandes nécessaires à la gestion des machines virtuelles, des réseaux virtuels et des comptes de stockage. Pour plus d'informations à ce sujet, cliquez [ici](../articles/xplat-cli-azure-resource-manager.md).
 
 ### Visual Studio
 
@@ -79,11 +79,11 @@ Cette opération n’est pas possible pour le moment. Toutefois, vous pouvez cop
 
 **Quel est l’impact sur le quota pour mon abonnement ?**
 
-Les quotas pour les machines virtuelles, les réseaux virtuels et les comptes de stockage créés via les nouvelles API Gestionnaire de ressources Azure sont distincts des quotas dont vous disposez. Chaque abonnement obtient de nouveaux quotas pour créer les ressources avec les nouvelles API. Plus d’informations sur les quotas supplémentaires sont disponibles [ici](../azure-subscription-service-limits.md).
+Les quotas pour les machines virtuelles, les réseaux virtuels et les comptes de stockage créés via les nouvelles API Gestionnaire de ressources Azure sont distincts des quotas dont vous disposez. Chaque abonnement obtient de nouveaux quotas pour créer les ressources avec les nouvelles API. Plus d’informations sur les quotas supplémentaires sont disponibles [ici](../articles/azure-subscription-service-limits.md).
 
 **Puis-je continuer à utiliser mes scripts automatisés pour approvisionner des machines virtuelles, des réseaux virtuels, des comptes de stockage, etc. avec les nouvelles API Gestionnaire de ressources Azure ?**
 
-Toutes les automatisations et tous les scripts que vous avez créés continueront à fonctionner pour les machines virtuelles et les réseaux virtuels existants créés en mode Gestion des services Azure. Cependant, les scripts doivent être mis à jour afin qu’ils utilisent le nouveau schéma pour créer les mêmes ressources via le nouveau mode Gestionnaire de ressources Azure. En savoir plus sur la modification de vos [scripts d’interface CLI Azure](virtual-machines-linux-cli-manage.md).
+Toutes les automatisations et tous les scripts que vous avez créés continueront à fonctionner pour les machines virtuelles et les réseaux virtuels existants créés en mode Gestion des services Azure. Cependant, les scripts doivent être mis à jour afin qu’ils utilisent le nouveau schéma pour créer les mêmes ressources via le nouveau mode Gestionnaire de ressources Azure. En savoir plus sur la modification de vos [scripts d’interface CLI Azure](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
 
 **Les réseaux virtuels créés avec les nouvelles API Gestionnaire de ressources Azure peuvent-ils être connectés à mon circuit Express Route ?**
 
@@ -93,4 +93,4 @@ Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connect
 
 Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

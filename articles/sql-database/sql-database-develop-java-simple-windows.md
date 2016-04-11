@@ -24,21 +24,20 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-Cette rubrique présente un exemple de code Java que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. L'exemple Java s'appuie sur le Kit de développement Java (JDK) version 1.8. L'exemple se connecte à une base de données SQL Azure en utilisant le pilote JDBC.
+Cette rubrique présente un exemple de code Java que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. L'exemple Java s'appuie sur le Kit de développement Java (JDK) version 1.8. L'exemple se connecte à une base de données SQL Azure en utilisant le pilote JDBC.
 
+## Étape 1 : configurer l’environnement de développement
 
-## Composants requis
+Installez les pilotes et les bibliothèques :
 
-### Pilotes et bibliothèques
+- [Pilote Microsoft JDBC pour SQL Server - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
+- N'importe quelle plateforme de système d'exploitation qui exécute le [Kit de développement Java 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-- [Pilote Microsoft JDBC pour SQL Server - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
-- N'importe quelle plateforme de système d'exploitation qui exécute le [Kit de développement Java 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-
-### Base de données SQL
+## Étape 2 : créer une base de données SQL
 
 Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre à créer une base de données.
 
-### Table SQL
+## Étape 3 : créer une table SQL
 
 L'exemple de code Java dans cette rubrique suppose que le tableau de test suivant existe déjà dans votre base de données SQL Azure.
 
@@ -56,17 +55,17 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Étape 1 : obtenir la chaîne de connexion
+## Étape 4 : obtenir la chaîne de connexion
 
 [AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
-> [AZURE.NOTE]Si vous utilisez le pilote JTDS JDBC, vous devez ajouter « ssl=require » à l’URL de la chaîne de connexion et vous devez définir l’option suivante pour l’environnement JVM : « -Djsse.enableCBCProtection=false ». Cette option JVM désactive un correctif pour un problème de sécurité. Par conséquent, assurez-vous que vous savez quels risques vous prenez avant de définir cette option.
+> [AZURE.NOTE] Si vous utilisez le pilote JTDS JDBC, vous devez ajouter « ssl=require » à l’URL de la chaîne de connexion et vous devez définir l’option suivante pour l’environnement JVM : « -Djsse.enableCBCProtection=false ». Cette option JVM désactive un correctif pour un problème de sécurité. Par conséquent, assurez-vous que vous savez quels risques vous prenez avant de définir cette option.
 
 
-## Étape 2 : compiler l’exemple de code Java
+## Étape 5 : compiler l’exemple de code Java
 
 
-La section contient l'essentiel de l'exemple de code Java. Il comporte des commentaires indiquant l'emplacement où vous devez copier et coller les segments Java plus petits qui sont présentés dans les sections suivantes. L'exemple de cette section pourrait être compilé et exécuté même sans les opérations de copier-coller près des commentaires, mais il ne ferait que se connecter et se terminer. Vous trouverez les commentaires suivants :
+La section contient l'essentiel de l'exemple de code Java. Il comporte des commentaires indiquant l'emplacement où vous devez copier et coller les segments Java plus petits qui sont présentés dans les sections suivantes. L'exemple de cette section pourrait être compilé et exécuté même sans les opérations de copier-coller près des commentaires, mais il ne ferait que se connecter et se terminer. Vous trouverez les commentaires suivants :
 
 
 1. `// INSERT two rows into the table.`
@@ -127,7 +126,7 @@ Voici l'essentiel de l'exemple de code Java. L'exemple inclut la fonction `main`
 	}
 
 
-Bien entendu, pour réellement exécuter l'exemple de code Java précédent, vous devez placer les valeurs réelles dans la chaîne de connexion pour remplacer les espaces réservés :
+Bien entendu, pour réellement exécuter l'exemple de code Java précédent, vous devez placer les valeurs réelles dans la chaîne de connexion pour remplacer les espaces réservés :
 
 
 - your\_server
@@ -136,10 +135,10 @@ Bien entendu, pour réellement exécuter l'exemple de code Java précédent, vou
 - your\_password
 
 
-## Étape 3 : insérer des lignes
+## Étape 6 : insérer des lignes
 
 
-Ce segment Java émet une instruction INSERT Transact-SQL pour insérer deux lignes dans le tableau Person. La séquence générale est la suivante :
+Ce segment Java émet une instruction INSERT Transact-SQL pour insérer deux lignes dans le tableau Person. La séquence générale est la suivante :
 
 
 1. Générez un objet `PreparedStatement` à l'aide de l'objet `Connection`.
@@ -169,9 +168,9 @@ Copiez et collez ce court segment Java dans l'exemple de code principal où vous
 	}
 
 
-## Étape 4 : valider une transaction
+## Étape 7 : valider une transaction
 
-Le segment suivant de code Java émet une instruction UPDATE Transact-SQL pour augmenter la valeur `age` pour chaque ligne du tableau Person. La séquence générale est la suivante :
+Le segment suivant de code Java émet une instruction UPDATE Transact-SQL pour augmenter la valeur `age` pour chaque ligne du tableau Person. La séquence générale est la suivante :
 
 
 1. La méthode `setAutoCommit` est appelée pour empêcher que des mises à jour ne soient automatiquement validées dans la base de données.
@@ -199,10 +198,10 @@ Copiez et collez ce court segment Java dans l'exemple de code principal où vous
 	connection.setAutoCommit(true);
 
 
-## Étape 4 : exécuter une requête
+## Étape 8 : exécuter une requête
 
 
-Ce segment Java exécute une instruction SELECT Transact-SQL pour afficher toutes les lignes mises à jour du tableau Person. La séquence générale est la suivante :
+Ce segment Java exécute une instruction SELECT Transact-SQL pour afficher toutes les lignes mises à jour du tableau Person. La séquence générale est la suivante :
 
 
 1. Générez un objet `Statement` à l'aide de l'objet `Connection`.
@@ -228,4 +227,4 @@ Copiez et collez ce court segment Java dans l'exemple de code principal où vous
 
 Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

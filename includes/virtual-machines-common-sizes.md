@@ -1,10 +1,5 @@
 
-
-## Vue d’ensemble
-
-Cet article décrit les tailles et options disponibles pour les ressources de calcul des machines virtuelles que vous pouvez utiliser pour exécuter vos applications et charges de travail. Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources. Pour plus d'informations sur la tarification des différentes tailles, consultez [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
-
-Pour connaître les limites générales des machines virtuelles Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+Pour connaître les limites générales des machines virtuelles Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
 
 Les tailles standard sont constituées de plusieurs séries : A, D, DS, G et GS. Voici des considérations quant à certaines de ces tailles :
 
@@ -14,7 +9,8 @@ Les tailles standard sont constituées de plusieurs séries : A, D, DS, G et GS.
 
 *   Les machines virtuelles de la série G offrent le plus de mémoire et s’exécutent sur des hôtes équipés de processeurs de la famille Intel Xeon E5 V3.
 
-*   Les machines virtuelles de la série DS et GS peuvent utiliser un stockage Premium, qui offre un stockage hautes performances à faible latence pour les charges de travail impliquant des E/S intensives. Ces machines virtuelles utilisent des disques SSD pour héberger les disques de la machine virtuelle et offrent également un cache de disque SSD local. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
+
+*   Les machines virtuelles des séries DS, DSv2 et GS peuvent utiliser Premium Storage, qui offre un stockage hautes performances à faible latence pour les charges de travail impliquant de nombreuses E/S. Ces machines virtuelles utilisent des disques SSD pour héberger les disques de la machine virtuelle et offrent également un cache de disque SSD local. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 *   Les machines virtuelles de la série A peuvent être déployées sur différents types de matériels et processeurs. La taille est limitée, en fonction du matériel, pour offrir des performances de processeur cohérentes pour l’instance en cours d’exécution, quel que soit le matériel sur lequel elle est déployée. Pour déterminer le matériel physique sur lequel cette taille est déployée, interrogez le matériel virtuel à partir de la machine virtuelle.
@@ -22,13 +18,13 @@ Les tailles standard sont constituées de plusieurs séries : A, D, DS, G et GS.
 *   La taille A0 est trop sollicitée sur le matériel physique. Pour cette taille spécifique uniquement, les autres déploiements de clients peuvent affecter les performances de la charge de travail en cours d’exécution. Les performances relatives sont décrites ci-dessous comme référence attendue, soumises à une variation approximative de 15 pour cent.
 
 
-La taille de la machine virtuelle a une incidence sur la tarification. La taille influe également sur les capacités de traitement, de mémoire et de stockage de la machine virtuelle. Les coûts de stockage sont calculés séparément en fonction des pages utilisées dans le compte de stockage. Pour plus d’informations, voir les pages [Machines virtuelles Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur le stockage pour les machines virtuelles, consultez [À propos des disques et des disques durs virtuels pour les machines virtuelles](virtual-machines-linux-about-disks-vhds.md).
+La taille de la machine virtuelle a une incidence sur la tarification. La taille influe également sur les capacités de traitement, de mémoire et de stockage de la machine virtuelle. Les coûts de stockage sont calculés séparément en fonction des pages utilisées dans le compte de stockage. Pour plus d’informations, voir les pages [Machines virtuelles Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 
-* Les tailles A8 à A11 sont également connues comme étant des *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+* Les tailles A8 à A11 sont également connues comme étant des *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [About the A8, A9, A10, and A11 compute intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) (À propos des instances A8, A9, A10 et A11 nécessitant beaucoup de ressources système).
 
 
 *	Les séries Dv2, D, G et DS/GS sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
@@ -46,20 +42,13 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 
 |Famille de références |ACU/Cœur |
 |---|---|
-|[Standard\_A0](#standard-tier-a-series)	|50 |
-|[Standard\_A1-4](#standard-tier-a-series)	|100 |
-|[Standard\_A5-7](#standard-tier-a-series)	|100 |
-|[A8-A11](#standard-tier-a-series)	|225 *|
-|[D1-14](#standard-tier-d-series)	|160 |
-|[D1-14v2](#standard-tier-dv2-series)	|210 - 250 *|
-|[DS1-14](#standard-tier-ds-series)	|160 |
-|[G1-5](#standard-tier-g-series)	|180 - 240 *|
-|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+|[Standard\_A0](#standard-tier-a-series) |50 |
+|[Standard\_A1-4](#standard-tier-a-series) |100 |
+|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-15v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[DS1-14v2](#standard-tier-dsv2-series) |210-250* | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances. Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
-
-
 
 ## Tableaux des tailles
 
@@ -84,9 +73,10 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |Standard\_A7 |8|56 Go|4|Temporaire = 605 Go |16|16 x 500| élevé |
 
 
+
 ## Niveau standard : série A : instances nécessitant beaucoup de ressources système
 
-Remarque : pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Remarque : pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [About the A8, A9, A10, and A11 compute intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) (À propos des instances A8, A9, A10 et A11 nécessitant beaucoup de ressources système).
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
 |---|---|---|---|---|---|---|---|
@@ -108,6 +98,7 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |D13 standard |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
 |D14 standard |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
 
+
 ## Niveau standard : série Dv2
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
@@ -121,6 +112,8 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_D12\_v2 |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
 |Standard\_D13\_v2 |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
 |Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
+|Standard\_D15\_v2 |20|140 Go|10|Temporaire (SSD) = 1 To |40|40 x 500| très élevé |
+
 
 ## Niveau standard : série DS*
 
@@ -135,7 +128,26 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_DS13 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 256 Mo par seconde | élevé |
 |Standard\_DS14 |16|112|8|Disque SSD local = 224 Go |32|576| 50 000 512 Mo par seconde | très élevé |
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d'informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+
+
+## Niveau standard : série DSv2*
+
+|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
+|---|---|---|---|---|---|---|---|---|
+|Standard\_DS1\_v2 |1|3,5|1|Disque SSD local = 7 Go |2|43| 3 200 48 Mo par seconde | Modéré |
+|Standard\_DS2\_v2 |2|7|2|Disque SSD local = 14 Go |4|86| 6 400 96 Mo par seconde | élevé |
+|Standard\_DS3\_v2 |4|14|4|Disque SSD local = 28 Go |8|172| 12 800 192 Mo par seconde | élevé |
+|Standard\_DS4\_v2 |8|28|8|Disque SSD local = 56 Go |16|344| 25 600 384 Mo par seconde | élevé |
+|Standard\_DS5\_v2 |16|56|8|Disque SSD local = 112 Go |16|688| 50 000 768 Mo par seconde | élevé |
+|Standard\_DS11\_v2 |2|14|2|Disque SSD local = 28 Go |4|72| 6 400 96 Mo par seconde | élevé |
+|Standard\_DS12\_v2 |4|28|4|Disque SSD local = 56 Go |8|144| 12 800 192 Mo par seconde | élevé |
+|Standard\_DS13\_v2 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 384 Mo par seconde | élevé |
+|Standard\_DS14\_v2 |16|112|8|Disque SSD local = 224 Go |32|576| 50 000 768 Mo par seconde | très élevé |
+
+
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d'informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+
 
 ## Niveau standard : série G
 
@@ -157,8 +169,8 @@ Remarque : pour plus d’informations et pour connaître les éléments à prend
 |Standard\_GS4|16|224|8|Disque SSD local = 448 Go |32|2 112| 40 000 1 000 Mo par seconde | extrêmement élevé |
 |Standard\_GS5|32|448|8|Disque SSD local = 896 Go |64|4 224| 80 000 2 000 Mo par seconde | extrêmement élevé |
 
-
 ## Remarques : Standard A0 - A4 à l’aide de l’interface de ligne de commande et Powershell 
+
 
 Dans le modèle de déploiement classique, certains noms des tailles de machines virtuelles sont légèrement différents dans Powershell et l’interface de ligne de commande :
 
@@ -168,9 +180,10 @@ Dans le modèle de déploiement classique, certains noms des tailles de machines
 * Standard\_A3 est Large (Grand)
 * Standard\_A4 est ExtraLarge (Très grand)
 
+
 ## Étapes suivantes
 
-- En savoir plus sur les [limites, quotas et contraintes des abonnements et services Azure](../azure-subscription-service-limits.md).
-- En savoir plus [les instances de calcul intensif A8, A9, A10 et A11](virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que HPC (High-performance Computing).
+- En savoir plus sur les [limites, quotas et contraintes des abonnements et services Azure](../articles/azure-subscription-service-limits.md).
+- En savoir plus sur [les instances A8, A9, A10 et A11 nécessitant beaucoup de ressources système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que HPC (High-performance Computing).
 
-<!-----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gérer le décalage de la distribution de table
@@ -27,7 +27,7 @@ Cet article est conçu pour vous aider à identifier le décalage des données d
 
 Une requête telle que la vue ci-dessous peut vous aider à identifier les tables décalées.
 
-```
+```sql
 CREATE VIEW dbo.vDistributionSkew
 AS
 WITH base
@@ -113,7 +113,7 @@ FROM	size
 
 Une fois que la vue a été créée, nous pouvons simplement l’interroger pour valider le décalage dans nos tables à l’aide d’une requête similaire à celle ci-dessous.
 
-```
+```sql
 SELECT	[two_part_name]
 ,		[distribution_id]
 ,		[row_count]
@@ -151,4 +151,4 @@ Pour en savoir plus sur la distribution des tables, consultez les articles suiva
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

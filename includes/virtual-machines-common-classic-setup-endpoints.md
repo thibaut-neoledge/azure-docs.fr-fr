@@ -1,10 +1,4 @@
 
-
-
-Toutes les machines virtuelles créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer sur un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle.
-
-Quand vous créez une machine virtuelle dans le portail Azure Classic, les points de terminaison courants, notamment ceux pour le Bureau à distance, l’accès distant Windows PowerShell et Secure Shell (SSH), sont généralement créés pour vous automatiquement selon le système d’exploitation que vous choisissez. Vous pouvez configurer des points de terminaison supplémentaires lors de la création de la machine virtuelle, ou ultérieurement si nécessaire.
-
 Chaque point de terminaison possède un *port public* et un *port privé* :
 
 - Le port public est utilisé par l'équilibreur de charge Azure pour écouter le trafic entrant dans la machine virtuelle à partir d'Internet.
@@ -12,9 +6,9 @@ Chaque point de terminaison possède un *port public* et un *port privé* :
 
 Les valeurs par défaut pour le protocole IP et les ports TCP ou UDP pour des protocoles réseau bien connus sont fournies lorsque vous créez des points de terminaison avec le portail Azure Classic. Pour les points de terminaison personnalisés, vous devrez spécifier le protocole IP correct (TCP ou UDP) et les ports publics et privés. Pour distribuer le trafic entrant au hasard entre plusieurs machines virtuelles, vous devrez créer un jeu d'équilibrage de la charge composé de plusieurs points de terminaison.
 
-Après avoir créé un point de terminaison, vous pouvez utiliser une liste de contrôle d’accès (ACL) pour définir des règles permettant d’autoriser ou de refuser le trafic entrant vers le port public du point de terminaison en fonction de son adresse IP source. Toutefois, si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](virtual-networks-nsg.md).
+Après avoir créé un point de terminaison, vous pouvez utiliser une liste de contrôle d’accès (ACL) pour définir des règles permettant d’autoriser ou de refuser le trafic entrant vers le port public du point de terminaison en fonction de son adresse IP source. Toutefois, si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 
-> [AZURE.NOTE]\: la configuration du pare-feu pour les machines virtuelles Azure est effectuée automatiquement pour les ports associés au Bureau à distance et à Secure Shell (SSH) ainsi que pour l'accès distant Windows PowerShell dans la plupart des cas. Pour les ports spécifiés pour tous les autres points de terminaison, aucune configuration n'est effectuée automatiquement pour le pare-feu de la machine virtuelle. Lorsque vous créez un point de terminaison pour la machine virtuelle, vous devez vous assurer que le pare-feu de la machine autorise également le trafic du protocole et le port privé correspondant à la configuration du point de terminaison.
+> [AZURE.NOTE]la configuration du pare-feu pour les machines virtuelles Azure est effectuée automatiquement pour les ports associés au Bureau à distance et à Secure Shell (SSH) ainsi que pour l'accès distant Windows PowerShell dans la plupart des cas. Pour les ports spécifiés pour tous les autres points de terminaison, aucune configuration n'est effectuée automatiquement pour le pare-feu de la machine virtuelle. Lorsque vous créez un point de terminaison pour la machine virtuelle, vous devez vous assurer que le pare-feu de la machine autorise également le trafic du protocole et le port privé correspondant à la configuration du point de terminaison.
 
 ## Création d’un point de terminaison
 
@@ -40,7 +34,7 @@ Le nouveau point de terminaison est répertorié dans la page **Points de termin
 
 ![Création du point de terminaison réussie](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-Pour configurer ce paramètre à l’aide d’une applet de commande Azure PowerShell, consultez l’article [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Si vous utilisez l’interface de ligne de commande Azure en mode Gestion des services, utilisez la commande **azure vm endpoint create**.
+ 
 
 ## Gestion de l’ACL sur un point de terminaison
 
@@ -48,7 +42,7 @@ Pour définir l'ensemble des ordinateurs qui peuvent envoyer du trafic, l'ACL su
 
 > [AZURE.NOTE] si le point de terminaison fait partie d’un jeu d’équilibrage de charge, chaque modification faite sur l’ACL pour un point de terminaison est appliquée à tous les points de terminaison du jeu.
 
-Si la machine virtuelle se trouve dans un réseau virtuel Azure, nous vous recommandons d’utiliser les groupes de sécurité réseau à la place des ACL. Pour plus d’informations, consultez [À propos des groupes de sécurité réseau](virtual-networks-nsg.md).
+Si la machine virtuelle se trouve dans un réseau virtuel Azure, nous vous recommandons d’utiliser les groupes de sécurité réseau à la place des ACL. Pour plus d’informations, consultez [À propos des groupes de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 
 1.	Si ce n’est pas déjà fait, connectez-vous au portail Azure Classic.
 2.	Cliquez sur **Machines virtuelles**, puis sur le nom de la machine virtuelle à configurer.
@@ -64,13 +58,6 @@ Si la machine virtuelle se trouve dans un réseau virtuel Azure, nous vous recom
 
 Vous pouvez utiliser des règles pour autoriser uniquement le trafic provenant de certains ordinateurs correspondant à vos ordinateurs sur Internet ou refuser le trafic provenant de plages d'adresses spécifiques et connues.
 
-Les règles sont évaluées dans l’ordre, en commençant par la première règle et en terminant par la dernière. Cela signifie que les règles doivent être répertoriées de la moins restrictive à la plus restrictive. Pour plus d’informations et obtenir des exemples, consultez [Qu’est-ce qu’une liste de contrôle d’accès réseau ?](../virtual-network/virtual-networks-acl/).
+Les règles sont évaluées dans l’ordre, en commençant par la première règle et en terminant par la dernière. Cela signifie que les règles doivent être répertoriées de la moins restrictive à la plus restrictive. Pour plus d’informations et obtenir des exemples, consultez [Qu’est-ce qu’une liste de contrôle d’accès réseau ?](../articles/virtual-network/virtual-networks-acl.md).
 
-Pour effectuer cette configuration avec une applet de commande Azure PowerShell, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
-
-
-## Ressources supplémentaires
-
-[Création d’un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell](load-balancer-get-started-internet-arm-ps.md)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Conception de tables dans SQL Data Warehouse #
@@ -59,7 +59,7 @@ SQL Data Warehouse prend en charge les types de données métiers les plus coura
 
 Dans votre entrepôt de données, vous pouvez identifier les colonnes qui contiennent des types incompatibles, via la requête suivante :
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -138,7 +138,7 @@ Ce type de distribution permet de répartir les données de manière aussi équi
 
 Voici un exemple de table avec distribution par tourniquet (round robin) :
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 En voici un autre :
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -205,7 +205,7 @@ Comme vous le verrez ci-dessous, la distribution par hachage peut être très ef
 
 Voici une table dont les données ont été distribuées par hachage, via le paramètre ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -230,7 +230,7 @@ Les partitions de table sont prises en charge ; elles sont simples à définir.
 
 Exemple de commande `CREATE TABLE` partitionnée par SQL Data Warehouse :
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -306,4 +306,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

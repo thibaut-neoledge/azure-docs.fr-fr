@@ -15,10 +15,9 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
 # Exemples Analytics pour Application Insights
 
-[Analytics](app-analytics.md) est un moteur de recherche puissant pour vos données de télémétrie [Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics. Pour une bonne prise en main, vous pouvez également consulter une [présentation du langage](app-analytics-tour.md).
+[Analytics](app-analytics.md) vous permet d’exécuter de puissantes requêtes sur les données de télémétrie collectées par [Application Insights](app-insights-overview.md) à partir de votre application. Ces pages décrivent son langage de requête. Pour une bonne prise en main, vous pouvez également consulter une [présentation du langage](app-analytics-tour.md).
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -437,4 +436,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

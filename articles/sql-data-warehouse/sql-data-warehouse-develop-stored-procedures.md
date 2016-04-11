@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Procédures stockées dans SQL Data Warehouse
@@ -38,11 +38,11 @@ SQL Data Warehouse prend en charge un maximum de 8 niveaux d’imbrication. En c
 
 L’appel de procédure stockée de premier niveau correspond au niveau d’imbrication 1.
 
-```
+```sql
 EXEC prc_nesting
 ```
 Si la procédure stockée effectue également un autre appel EXEC, le niveau d’imbrication passe à 2.
-```
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
@@ -50,7 +50,7 @@ GO
 EXEC prc_nesting
 ```
 Si la deuxième procédure exécute du code SQL dynamique, ce niveau monte à 3.
-```
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -97,4 +97,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

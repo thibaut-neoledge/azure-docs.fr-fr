@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/28/2016"
 	ms.author="v-shysun"/>
 
 # Dépannage des performances de base de données à l’aide de la base de données SQL Azure
@@ -30,4 +30,4 @@ Vous pouvez modifier le [niveau de service](sql-database-service-tiers.md) d’u
 
 En cas de persistance des problèmes de performance, contactez l’assistance pour ouvrir un numéro d’assistance.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

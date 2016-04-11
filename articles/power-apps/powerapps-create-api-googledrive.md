@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Créer une API Google Drive dans PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/create-api-googledrive.md)
+- [Logic Apps](../articles/connectors/connectors-create-api-googledrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 Ajoutez l’API Google Drive à l’environnement de service d’application (locataire) de votre organisation.
@@ -89,7 +89,7 @@ Une nouvelle application Google Drive est créée. Vous pouvez utiliser cette ap
 
 ## Consulter les API REST
 
-Informations de référence sur l’[API REST Google Drive](../connectors/create-api-googledrive.md).
+Informations de référence sur l’[API REST Google Drive](../connectors/connectors-create-api-googledrive.md).
 
 ## Résumé et étapes suivantes
 Vous venez de voir comment ajouter l’API Google Drive à PowersApps Enterprise. Ensuite, donnez accès à l’API pour les utilisateur afin qu’ils puissent l’ajouter à leurs applications :
@@ -115,4 +115,4 @@ Vous venez de voir comment ajouter l’API Google Drive à PowersApps Enterprise
 [15]: ./media/powerapps-create-api-googledrive/browseall.png
 [16]: ./media/powerapps-create-api-googledrive/allresources.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

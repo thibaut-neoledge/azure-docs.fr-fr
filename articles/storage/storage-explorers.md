@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="03/30/2016"
 	ms.author="micurd"/>
 
 # Explorateurs du stockage Azure
@@ -52,7 +52,7 @@ Ceci n’est qu’un aperçu des explorateurs Azure Storage disponibles. Ces out
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>Version d’évaluation</td>
+    <td>O</td>
     <td>X</td>
     <td></td>
     <td></td>
@@ -63,8 +63,8 @@ Ceci n’est qu’un aperçu des explorateurs Azure Storage disponibles. Ces out
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td></td>
+    <td>X</td>
+    <td>X</td>
     <td></td>
     <td>O</td>
     <td></td>
@@ -252,4 +252,4 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des explorateur
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

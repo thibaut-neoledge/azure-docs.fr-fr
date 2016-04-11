@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Tables temporaires dans SQL Data Warehouse
@@ -24,7 +24,7 @@ Cet article contient des conseils de base pour l’utilisation des tables tempor
 ## Création de tables temporaires
 La création d’une table temporaire est très simple. Il vous suffit d’ajouter # en préfixe au nom de la table, comme dans l’exemple ci-dessous :
 
-```
+```sql
 CREATE TABLE #stats_ddl
 (
 	[schema_name]			NVARCHAR(128) NOT NULL
@@ -44,7 +44,7 @@ WITH
 
 Vous pouvez également utiliser `CTAS` pour créer des tables temporaires à l’aide de la même approche.
 
-```
+```sql
 CREATE TABLE #stats_ddl
 WITH
 (
@@ -102,7 +102,7 @@ FROM    t1
 
 Pour vous assurer que vos instructions `CREATE TABLE` réussissent, il est important de vous assurer que la table n’existe pas déjà dans la session. Pour ce faire, utilisez une vérification d’existence préalable simple avec le modèle suivant :
 
-```
+```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
 	DROP TABLE #stats_ddl
@@ -113,7 +113,7 @@ END
 
 Il est également judicieux d’utiliser `DROP TABLE` pour supprimer les tables temporaires lorsque vous avez terminé de les utiliser dans votre code.
 
-```
+```sql
 DROP TABLE #stats_ddl
 ```
 
@@ -127,7 +127,7 @@ Prenons un exemple pratique.
 
 La procédure stockée ci-dessous réunit les exemples mentionnés ci-dessus. Le code peut être utilisé pour générer le DDL nécessaire pour mettre à jour les statistiques dans chaque colonne de la base de données :
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
 	,@sample_pct     tinyint
@@ -209,7 +209,7 @@ Dans SQL Data Warehouse, il est possible d’utiliser la table temporaire en deh
 
 Cela peut optimiser la facilité de gestion et la modularité du code. Examinez l’exemple ci-dessous :
 
-```
+```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
 
 DECLARE @i INT              = 1
@@ -254,4 +254,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

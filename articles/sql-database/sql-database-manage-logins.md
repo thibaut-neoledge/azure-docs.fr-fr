@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/08/2016"
+   ms.date="03/22/2016"
    ms.author="rickbyh"/>
 
 # Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données  
@@ -28,7 +28,7 @@ Dans la base de données SQL Azure de Microsoft, lorsque vous vous inscrivez pou
 
 Le compte principal au niveau du serveur de base de données SQL Azure est autorisé à gérer l’ensemble de la sécurité au niveau du serveur et au niveau de la base de données. Cette rubrique explique comment utiliser le principal au niveau du serveur et d’autres comptes pour gérer les connexions et bases de données dans la base de données SQL
 
-Les utilisateurs Azure qui accèdent à la Base de données SQL par le biais du contrôle d’accès en fonction du rôle Azure et de l’API REST Azure Resource Manager reçoivent les autorisations de leurs rôles Azure. Les actions des membres de rôle Azure sont exécutées pour eux par le moteur de base de données. Celles-ci ne sont pas affectées par le modèle d’autorisations du moteur de base de données et ne sont pas abordées dans cette rubrique. Pour plus d’informations, consultez [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles/#sql-db-contributor).
+Les utilisateurs Azure qui accèdent à la Base de données SQL par le biais du contrôle d’accès en fonction du rôle Azure (RBAC) et de l’API REST Azure Resource Manager reçoivent les autorisations de leurs rôles Azure. Ces rôles permettent d'accéder aux opérations du plan de gestion, mais pas aux opérations du plan de données. Ces opérations du plan de gestion incluent la possibilité de lire différentes propriétés et divers éléments de schéma dans SQL Database. Et elles permettent la création, la suppression et la configuration de certaines fonctionnalités au niveau du serveur qui sont liées à SQL Database. La plupart de ces opérations du plan de gestion représentent les éléments que vous pouvez afficher et configurer lors de l'utilisation du portail Azure. Lorsque vous utilisez les rôles RBAC, les actions des membres de rôle Azure à l'intérieur de la base de données (telles que la création d’une liste des tables) sont exécutées pour elles par le moteur de base de données afin qu'elles ne soient pas affectées par le système d'autorisation SQL Server standard des instructions GRANT/REVOKE/DENY. Les rôles RBAC n'incluent pas la possibilité de lire ou de modifier les données car ce sont des opérations du plan de données. Pour plus d’informations, consultez [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
 
 > [AZURE.IMPORTANT] La base de données SQL V12 permet aux utilisateurs de s’authentifier pour la base de données à l’aide des utilisateurs de base de données contenu. Les utilisateurs de base de données contenu n’exige pas de connexion. Cela rend les bases de données plus portables, mais réduit la capacité du principal de niveau serveur à contrôler l’accès à la base de données. L’activation des utilisateurs contenus dans la base de données à des impacts de sécurité. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx), [Bases de données à relation contenant-contenu](https://technet.microsoft.com/library/ff929071.aspx), [CRÉER UN UTILISATEUR (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
 
@@ -176,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md) [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

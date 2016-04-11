@@ -10,7 +10,7 @@ Chaque machine virtuelle dispose d’un disque de système d’exploitation atta
 
 Le disque temporaire est automatiquement créé pour vous. Sur les machines virtuelles Windows, ce disque porte le nom de lecteur D: et est utilisé pour le stockage de pagefile.sys. Sur les machines virtuelles Linux, le disque se nomme généralement /dev/sdb et il est formaté et monté sur /mnt/resource par l’agent Linux Azure.
 
->[AZURE.WARNING] Ne stockez pas de données sur le disque temporaire. Il assure un stockage temporaire pour les applications et les processus et est destiné à stocker uniquement des données telles que les fichiers d’échange. Pour remapper ce disque pour une machine virtuelle Windows, consultez la page [Modifier la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-classic-change-drive-letter.md).
+>[AZURE.WARNING] Ne stockez pas de données sur le disque temporaire. Il assure un stockage temporaire pour les applications et les processus et est destiné à stocker uniquement des données telles que les fichiers d’échange. Pour remapper ce disque pour une machine virtuelle Windows, consultez la page [Modifier la lettre de lecteur du disque temporaire Windows](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
 
 Pour plus d’informations sur l’utilisation du disque temporaire par Azure, consultez [Présentation du lecteur temporaire sur Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
@@ -18,7 +18,7 @@ Pour plus d’informations sur l’utilisation du disque temporaire par Azure, c
 
 Un disque de données est un VHD attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous souhaitez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données possède une capacité maximale de 1 023 gigaoctets. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
 
->[AZURE.NOTE] Pour plus d’informations sur les capacités des machines virtuelles, consultez la page [Tailles des machines virtuelles](virtual-machines-linux-sizes.md).
+>[AZURE.NOTE] Pour plus d’informations sur les capacités des machines virtuelles, consultez la page [Tailles des machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 Lorsque vous créez une machine virtuelle à partir d’une image, Azure crée un disque de système d’exploitation. Si vous utilisez une image incluant des disques de données, Azure crée également ces derniers lors de la création de la machine virtuelle. (Vous pouvez utiliser une image d’Azure, d’un partenaire ou vous appartenant.) Vous pouvez également ajouter des disques de données après avoir créé la machine virtuelle.
 
@@ -26,7 +26,7 @@ Vous pouvez ajouter des disques de données à une machine virtuelle à tout mom
 
 ## À propos des VHD
 
-Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. (Le stockage Premium est disponible dans certaines régions uniquement.) Pour des informations sur les objets blob de pages, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](https://msdn.microsoft.com/library/ee691964.aspx). Pour des informations sur le stockage Premium, consultez la page [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
+Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. (Le stockage Premium est disponible dans certaines régions uniquement.) Pour des informations sur les objets blob de pages, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](https://msdn.microsoft.com/library/ee691964.aspx). Pour des informations sur le stockage Premium, consultez la page [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 Azure prend en charge les disques fixes au format VHD. Le format fixe définit linéairement le disque logique dans le fichier de façon que l'offset du disque X soit stocké à l'offset de l'objet blob X. Un petit pied de page à la fin de l'objet blob décrit les propriétés du disque dur virtuel. Souvent, le format fixe gaspille de l'espace du fait que la plupart des disques comportent de grandes plages inutilisées. Cependant, Azure stocke les fichiers .vhd dans un format fragmenté : vous profitez donc en même temps de disques fixes et dynamiques. Pour plus d’informations, consultez la page [Prise en main des disques durs virtuels](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -38,4 +38,4 @@ Avant de pouvoir supprimer un fichier .vhd source, vous devrez supprimer le bail
 
 >[AZURE.WARNING] Si vous supprimez un fichier .vhd source d’un stockage ou que vous supprimez votre compte de stockage, Microsoft ne pourra pas récupérer ces données pour vous.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

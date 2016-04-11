@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse
@@ -54,7 +54,7 @@ Sélectionnez le module Lecteur et renseignez le panneau des propriétés.
 7. Requête de base de données : tapez une instruction SQL qui décrit les données que vous souhaitez lire. Dans ce cas, nous lirons les données de la table Product à l’aide de la requête suivante.
 
 
-```
+```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
         Class, Style, Color
@@ -149,4 +149,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

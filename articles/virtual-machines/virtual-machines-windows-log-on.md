@@ -51,7 +51,7 @@ Sur le portail Azure, vous utilisez le bouton **Connecter** pour démarrer une s
 
  	Dans la plupart des cas, les informations d’identification correspondent au nom d’utilisateur et au mot de passe du compte local que vous avez spécifiés quand vous avez créé la machine virtuelle. Le domaine correspond au nom de la machine virtuelle entrée sous la forme *nom\_machine\_virtuelle*&#92;*nom\_utilisateur*.
 	
-	Si la machine virtuelle appartient à un domaine de votre organisation, assurez-vous que le nom d’utilisateur inclut le nom du domaine sous la forme *domaine*&#92;*nom\_utilisateur*. Le compte doit être membre du groupe Administrateurs ou bénéficier de privilèges d’accès à distance à la machine virtuelle.
+	Si la machine virtuelle appartient à un domaine de votre organisation, assurez-vous que le nom d’utilisateur inclut le nom du domaine sous la forme *domaine*&#92;*nom\_utilisateur*. Le compte doit être membre du groupe ADministrateurs ou bénéficier de privilèges d’accès à distance à la machine virtuelle.
 	
 	Si la machine virtuelle est un contrôleur de domaine, tapez le nom d’utilisateur et le mot de passe d’un compte d’administrateur de domaine pour ce domaine.
 
@@ -63,4 +63,4 @@ Sur le portail Azure, vous utilisez le bouton **Connecter** pour démarrer une s
 
 En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

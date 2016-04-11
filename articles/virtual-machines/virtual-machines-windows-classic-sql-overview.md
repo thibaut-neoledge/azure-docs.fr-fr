@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
+	ms.date="03/24/2016"
 	ms.author="jroth"/>
 
 # Vue d’ensemble de SQL Server dans Azure Virtual Machines
@@ -26,13 +26,15 @@ Vous pouvez héberger [SQL Server dans Azure Virtual Machines](https://azure.mic
 
 Pour créer une machine virtuelle SQL Server dans Azure, vous devez d’abord obtenir un abonnement à la plateforme Azure. Vous pouvez acheter un abonnement Azure sur la page [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/). Pour un essai gratuit, consultez la page [Évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
+Pour une vue d’ensemble, regardez la vidéo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure VM : Une excellente plateforme pour SQL Server 2016).
+
 ### Déploiement d’une instance de SQL Server sur une seule machine virtuelle
 
 Après avoir souscrit un abonnement, le moyen le plus simple de déployer une machine virtuelle SQL Server dans Azure consiste à [approvisionner une image de la galerie de machines SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md). Ces images comprennent les frais de licence de SQL Server dans la tarification relative à la machine virtuelle.
 
 Il est important de noter qu’il existe deux modèles pour créer et gérer les machines virtuelles Azure : le modèle classique et Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Une partie de la documentation SQL Server pour les machines virtuelles Azure continue de faire exclusivement référence au modèle classique. Ces rubriques sont mises à jour au fil du temps pour utiliser le nouveau portail Azure et le modèle Resource Manager. Pour plus d’informations, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
 
->[AZURE.NOTE] Si possible, utilisez le [portail Azure](https://portal.azure.com/) pour mettre en service et gérer les machines virtuelles SQL Server. Il utilise Premium Storage par défaut et propose des configurations de la mise à jour corrective automatisée, de la sauvegarde automatisée et AlwaysOn.
+>[AZURE.NOTE] Si possible, utilisez le tout dernier [portail Azure](https://portal.azure.com/) pour approvisionner et gérer les machines virtuelles SQL Server. Il utilise Premium Storage par défaut et propose des configurations de la mise à jour corrective automatisée, de la sauvegarde automatisée et AlwaysOn.
 
 Le tableau suivant récapitule les images liées à SQL Server actuellement disponibles dans la galerie de machines virtuelles Azure.
 
@@ -147,4 +149,4 @@ Si vous créez une machine virtuelle à l'aide d'une image SQL Server fournie pa
 - [Modèles d'application et stratégies de développement pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 - [Azure Virtual Machines](virtual-machines-linux-about.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

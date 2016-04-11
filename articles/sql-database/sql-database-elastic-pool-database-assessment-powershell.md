@@ -16,8 +16,6 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
-
-
 # Script PowerShell pour identifier les bases de données adaptées à un pool de bases de données élastique
 
 L’exemple de script PowerShell de cet article estime les valeurs d’eDTU globales pour les bases de données utilisateur sur un serveur de base de données SQL. Le script collecte des données pendant son exécution et, pour une charge de travail de production classique, vous devez exécuter le script pendant au moins un jour. Idéalement, exécutez le script pendant une durée qui représente la charge de travail classique de vos bases de données, autrement dit suffisamment longtemps pour capturer des données représentant une utilisation normale et une utilisation maximale des bases de données. L’exécution du script pendant une semaine ou même plus longtemps donnera probablement une estimation plus précise.
@@ -268,4 +266,4 @@ Une fois le script terminé, il génère le nombre d’eDTU estimé nécessaire 
     }
         
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

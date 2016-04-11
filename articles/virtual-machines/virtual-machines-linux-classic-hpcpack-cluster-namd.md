@@ -6,73 +6,33 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="12/02/2015"
+ ms.date="03/22/2016"
  ms.author="danlep"/>
 
 # Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure
 
 Cet article vous explique comment déployer un cluster Microsoft HPC Pack sur Azure avec plusieurs nœuds de calcul Linux et exécuter une tâche [NAMD](http://www.ks.uiuc.edu/Research/namd/) avec **charmrun** pour calculer et visualiser la structure d’un système biomoléculaire étendu.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
-
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
 NAMD (programme Nanoscale Molecular Dynamics) est un package de dynamique moléculaire parallèle, conçu pour la simulation hautes performances des systèmes biomoléculaires étendus contenant jusqu’à plusieurs millions d’atomes, comme les virus, les structures de cellules et les protéines volumineuses. NAMD s’adapte à des centaines de cœurs pour les simulations classiques et à plus de 500 000 cœurs pour les simulations les plus étendues.
 
-Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éventail d’applications HPC à grande échelle et parallèles, y compris des applications MPI, sur des clusters de machines virtuelles Microsoft Azure. À partir de Microsoft HPC Pack 2012 R2 Update 2, HPC Pack prend également en charge l’exécution d’applications HPC Linux sur les machines virtuelles de nœuds de calcul Linux déployées dans un cluster HPC Pack. Consultez la présentation [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éventail d’applications HPC à grande échelle et parallèles, y compris des applications MPI, sur des clusters de machines virtuelles Microsoft Azure. Développée à l’origine comme solution pour les charges de travail Windows HPC, HPC Pack prend désormais en charge l’exécution d’applications HPC Linux sur les machines virtuelles de nœuds de calcul Linux déployées dans un cluster HPC Pack. Consultez la présentation [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
 
 ## Composants requis
 
-* **Cluster HPC Pack avec nœuds de calcul Linux** : voir [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md) pour connaître la configuration requise et les étapes de déploiement d'un cluster HPC Pack avec les nœuds de calcul Linux dans Azure à l'aide d'un script Azure PowerShell et d'images HPC Pack d'Azure Marketplace.
-
-    Voici un exemple de fichier de configuration XML que vous pouvez utiliser avec le script pour déployer un cluster HPC Pack basé sur Azure composé d’un nœud principal Windows Server 2012 R2 et de 4 grands nœuds de calcul CentOS 6.6 (A3). Remplacez les valeurs appropriées pour les noms de vos abonnement et service.
-
-    ```
-    <?xml version="1.0" encoding="utf-8" ?>
-    <IaaSClusterConfig>
-      <Subscription>
-        <SubscriptionName>Subscription-1</SubscriptionName>
-        <StorageAccount>mystorageaccount</StorageAccount>
-      </Subscription>
-      <Location>West US</Location>  
-      <VNet>
-        <VNetName>MyVNet</VNetName>
-        <SubnetName>Subnet-1</SubnetName>
-      </VNet>
-      <Domain>
-        <DCOption>HeadNodeAsDC</DCOption>
-        <DomainFQDN>hpclab.local</DomainFQDN>
-      </Domain>
-      <Database>
-        <DBOption>LocalDB</DBOption>
-      </Database>
-      <HeadNode>
-        <VMName>CentOS66HN</VMName>
-        <ServiceName>MyHPCService</ServiceName>
-        <VMSize>Large</VMSize>
-        <EnableRESTAPI />
-        <EnableWebPortal />
-      </HeadNode>
-      <LinuxComputeNodes>
-        <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
-        <ServiceName>MyLnxCNService</ServiceName>
-        <VMSize>Large</VMSize>
-        <NodeCount>4</NodeCount>
-        <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
-      </LinuxComputeNodes>
-    </IaaSClusterConfig>    
-```
+* **Cluster HPC Pack avec nœuds de calcul Linux** : déployez un cluster HPC Pack avec des nœuds de calcul Linux dans Azure à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script Powershell, consultez l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article pour déployer un cluster HPC Pack basé sur Azure constitué d’un nœud principal Windows Server 2012 R2 et de 4 nœuds de calcul CentOS 6.6 de grande taille (A3). Adaptez ces éléments à votre environnement si nécessaire.
 
 
-* **Logiciel NAMD et fichiers du didacticiel** : téléchargez le logiciel NAMD pour Linux à partir du site [NAMD](http://www.ks.uiuc.edu/Research/namd/). Cet article est basé sur NAMD version 2.10 et utilise l'archive [Linux-x86\_64 (Intel/AMD 64 bits avec Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310), que vous utiliserez pour exécuter NAMD sur plusieurs nœuds de calcul Linux dans un réseau en cluster. Téléchargez également les [fichiers du didacticiel NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Suivez les instructions ultérieures de cet article pour extraire l’archive et les exemples du didacticiel sur le nœud principal du cluster.
+* **Logiciel NAMD et fichiers du didacticiel** : téléchargez le logiciel NAMD pour Linux à partir du site [NAMD](http://www.ks.uiuc.edu/Research/namd/) (inscription obligatoire). Cet article est basé sur NAMD version 2.10 et utilise l'archive [Linux-x86\_64 (Intel/AMD 64 bits avec Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310), que vous utiliserez pour exécuter NAMD sur plusieurs nœuds de calcul Linux dans un réseau en cluster. Téléchargez également les [fichiers du didacticiel NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Les fichiers ayant pour extension .tar, vous devrez utiliser un outil Windows pour les extraire sur le nœud principal du cluster. Pour ce faire, suivez les instructions données plus loin dans cet article.
 
 * **VMD** (facultatif) : pour afficher les résultats de votre tâche NAMD, téléchargez et installez le programme de visualisation moléculaire [VMD](http://www.ks.uiuc.edu/Research/vmd/) sur un ordinateur de votre choix. La version actuelle est 1.9.2. Consultez le site de téléchargement de VMD pour commencer.
 
@@ -104,6 +64,8 @@ Générer une paire de clés RSA, contenant une clé publique et une clé privé
 
 2. Utilisez les procédures standard Windows Server pour créer un compte d’utilisateur de domaine dans le domaine Active Directory du cluster. Par exemple, utilisez l’outil Utilisateurs et ordinateurs Active Directory sur le nœud principal. Les exemples de cet article supposent que vous créez un utilisateur de domaine nommé hpclab\\hpcuser.
 
+3. Ajoutez l’utilisateur de domaine au cluster HPC Pack en tant qu’utilisateur de cluster. Consultez la page [Ajouter ou supprimer des utilisateurs du cluster](https://technet.microsoft.com/library/ff919330.aspx).
+
 2.	Créez un fichier nommé C:\\cred.xml et copiez-y les données de clé RSA. Vous trouverez un exemple dans les exemples de fichiers à la fin de cet article.
 
     ```
@@ -127,7 +89,7 @@ Générer une paire de clés RSA, contenant une clé publique et une clé privé
 
 ## Configuration d’un partage de fichiers pour les nœuds Linux
 
-À présent, configurez un partage SMB standard sur un dossier sur le nœud principal et montez le dossier partagé sur tous les nœuds Linux pour leur permettre d’accéder aux fichiers NAMD avec un chemin d’accès commun. Consultez les options et les étapes de partage des fichiers sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). (Dans cet article, nous vous conseillons de monter un dossier partagé sur le nœud principal parce que les nœuds Linux CentOS 6.6 ne prennent actuellement pas en charge le service de fichiers Azure, qui propose des fonctionnalités similaires. Pour plus d’informations sur le montage d’un partage de fichiers Azure, voir [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).)
+À présent, configurez un partage de fichiers SMB et montez le dossier partagé sur tous les nœuds Linux pour leur permettre d’accéder aux fichiers NAMD avec un chemin d’accès commun. Consultez les options et les étapes de partage des fichiers sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Voici les étapes pour monter un dossier partagé sur le nœud principal, opération recommandée pour les distributions telles que CentOS 6.6 qui ne prennent actuellement pas en charge le service de fichiers Azure. Si vos nœuds Linux prennent en charge un partage de fichiers Azure, consultez [Utilisation d’Azure File Storage avec Linux](../storage/storage-how-to-use-files-linux.md).
 
 1.	Créez un dossier sur le nœud principal et partagez-le avec tout le monde en définissant des privilèges de lecture/écriture. Dans cet exemple, \\\CentOS66HN\\Namd est le nom du dossier (où CentOS66HN est le nom d’hôte du nœud principal).
 
@@ -146,45 +108,15 @@ La première commande crée un dossier nommé /namd2 sur tous les nœuds dans le
 >[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (une virgule) est une partie de la commande.
 
 
-## Préparation à l’exécution d’une tâche NAMD
+## Créer un script Bash pour exécuter une tâche NAMD
 
- Votre tâche NAMD requiert un fichier *nodelist* pour que **charmrun** connaisse le nombre de nœuds à utiliser lors du démarrage des processus NAMD. Vous écrirez un script Bash qui génère le fichier de liste de nœuds et exécute **charmrun** avec ce fichier de liste de nœuds. Vous pouvez ensuite envoyer une tâche NAMD dans HPC Cluster Manager qui appelle ce script.
+Votre tâche NAMD requiert un fichier *nodelist* pour que **charmrun** détermine le nombre de nœuds à utiliser lors du démarrage des processus NAMD. Vous allez utiliser un script Bash qui génère le fichier nodelist et exécuter **charmrun** avec ce fichier. Vous pouvez ensuite envoyer une tâche NAMD dans HPC Cluster Manager qui appelle ce script.
 
-### Variables d’environnement et fichier de liste de nœuds
-Des informations sur les nœuds et les cœurs sont disponibles dans la variable d’environnement $CCP\_NODES\_CORES, qui est automatiquement définie par le nœud principal HPC Pack lorsque la tâche est activée. Le format de la variable $CCP\_NODES\_CORES est le suivant :
-
-```
-<Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
-```
-
-Ceci répertorie le nombre total de nœuds, les noms des nœuds et le nombre de cœurs sur chaque nœud qui sont alloués à la tâche. Par exemple, si la tâche requiert 10 cœurs pour s’exécuter, la valeur de $CCP\_NODES\_CORES doit ressembler à ceci :
-
-```
-3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
-```
-
-Voici les informations contenues dans le fichier de liste de nœuds qui sera généré par le script :
-
-```
-group main
-host <Name of node1> ++cpus <Cores of node1>
-host <Name of node2> ++cpus <Cores of node2>
-…
-```
-
-Par exemple :
-
-```
-group main
-host CENTOS66LN-00 ++cpus 4
-host CENTOS66LN-01 ++cpus 4
-host CENTOS66LN-03 ++cpus 2
-```
-### Script Bash pour créer un fichier de liste de nœuds
-
-À l’aide de l’éditeur de texte de votre choix, créez le script Bash suivant dans le dossier contenant les fichiers du programme NAMD et nommez-le hpccharmrun.sh. Vous trouverez un exemple complet dans les exemples de fichiers à la fin de cet article. Ce script Bash effectue les opérations suivantes.
+À l’aide de l’éditeur de texte de votre choix, créez un script Bash dans le dossier contenant les fichiers du programme NAMD et nommez-le hpccharmrun.sh. Vous pouvez simplement copier l’exemple fourni dans les exemples de fichiers à la fin de cet article.
 
 >[AZURE.TIP] Enregistrez votre script en tant que fichier texte avec des fins de ligne Linux (LF uniquement, pas CR LF). Cela garantit qu’il s’exécute correctement sur les nœuds Linux.
+
+Voici les détails des actions du script Bash. Si vous effectuez une preuve de concept et souhaitez simplement exécuter une tâche NAMD, enregistrez votre script hpccharmrun.sh sur le partage de fichiers et accédez à [Envoi d’une tâche NAMD](#submit-a-namd-job).
 
 1.	Définir des variables.
 
@@ -202,14 +134,24 @@ host CENTOS66LN-03 ++cpus 2
     ```
 
 2.	Obtenir des informations de nœud dans les variables d’environnement. $NODESCORES stocke une liste de mots de fractionnement à partir de $CCP\_NODES\_CORES. $COUNT représente la taille de $NODESCORES.
-
     ```
     # Get node information from the environment variables
-    # CCP_NODES_CORES=3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 4
     NODESCORES=(${CCP_NODES_CORES})
     COUNT=${#NODESCORES[@]}
+    ```    
+    
+    Le format de la variable $CCP\_NODES\_CORES est le suivant :
+
+    ```
+    <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
     ```
 
+    Ceci répertorie le nombre total de nœuds, les noms des nœuds et le nombre de cœurs sur chaque nœud qui sont alloués à la tâche. Par exemple, si la tâche requiert 10 cœurs pour s’exécuter, la valeur de $CCP\_NODES\_CORES doit ressembler à ceci :
+
+    ```
+    3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
+    ```
+        
 3.	Si la variable $CCP\_NODES\_CORES n’est pas définie, lancer **charmrun** directement. (Cela doit uniquement se produire lorsque vous exécutez ce script directement sur vos nœuds Linux.)
 
     ```
@@ -258,13 +200,33 @@ host CENTOS66LN-03 ++cpus 2
     exit ${RTNSTS}
     ```
 
+
+
+Voici les informations contenues dans le fichier de liste de nœuds qui sera généré par le script :
+
+```
+group main
+host <Name of node1> ++cpus <Cores of node1>
+host <Name of node2> ++cpus <Cores of node2>
+…
+```
+
+Par exemple :
+
+```
+group main
+host CENTOS66LN-00 ++cpus 4
+host CENTOS66LN-01 ++cpus 4
+host CENTOS66LN-03 ++cpus 2
+```
+
 ## Envoi d’une tâche NAMD
 
 Vous êtes maintenant prêt à envoyer une tâche NAMD dans HPC Cluster Manager.
 
 1.	Connectez-vous à votre nœud principal de cluster et démarrez HPC Cluster Manager.
 
-2.  Dans **Gestion des nœuds**, assurez-vous que les nœuds de calcul Linux sont à l'état **En ligne**. Si ce n'est pas le cas, sélectionnez-les et cliquez sur **Mettre en ligne**.
+2.  Dans **Gestion des ressources**, assurez-vous que les nœuds de calcul Linux ont l’état **En ligne**. Si ce n'est pas le cas, sélectionnez-les et cliquez sur **Mettre en ligne**.
 
 2.  Dans **Gestion des tâches**, cliquez sur **Nouvelle tâche**.
 
@@ -276,9 +238,14 @@ Vous êtes maintenant prêt à envoyer une tâche NAMD dans HPC Cluster Manager.
 
     ![Ressources de la tâche][job_resources]
 
-5.	Sur la page **Détails de la tâche et Redirection d’E/S**, ajoutez une nouvelle tâche à la tâche et définissez les valeurs suivantes.
+5. Cliquez sur **Modifier des tâches** dans le volet de navigation gauche, puis sur **Ajouter** pour ajouter une tâche à la tâche.
+
+
+6. Sur la page **Détails de la tâche et redirection d’E/S**, définissez les valeurs suivantes.
 
     * **Ligne de commande** : `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
+
+    >[AZURE.TIP] La ligne de commande précédente est une commande unique sans saut de ligne. Un retour à la ligne sera appliqué pour qu’elle apparaisse sur plusieurs lignes sous **Ligne de commande**.
 
     * **Répertoire de travail** : /namd2
 
@@ -309,6 +276,79 @@ Vous êtes maintenant prêt à envoyer une tâche NAMD dans HPC Cluster Manager.
     ![Résultats de la tâche][vmd_view]
 
 ## Exemple de fichiers
+
+### Exemple de fichier de configuration XML pour le déploiement de clusters par script PowerShell
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<IaaSClusterConfig>
+  <Subscription>
+    <SubscriptionName>Subscription-1</SubscriptionName>
+    <StorageAccount>mystorageaccount</StorageAccount>
+  </Subscription>
+      <Location>West US</Location>  
+  <VNet>
+    <VNetName>MyVNet</VNetName>
+    <SubnetName>Subnet-1</SubnetName>
+  </VNet>
+  <Domain>
+    <DCOption>HeadNodeAsDC</DCOption>
+    <DomainFQDN>hpclab.local</DomainFQDN>
+  </Domain>
+  <Database>
+    <DBOption>LocalDB</DBOption>
+  </Database>
+  <HeadNode>
+    <VMName>CentOS66HN</VMName>
+    <ServiceName>MyHPCService</ServiceName>
+    <VMSize>Large</VMSize>
+    <EnableRESTAPI />
+    <EnableWebPortal />
+  </HeadNode>
+  <LinuxComputeNodes>
+    <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
+    <ServiceName>MyLnxCNService</ServiceName>
+     <VMSize>Large</VMSize>
+     <NodeCount>4</NodeCount>
+    <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
+  </LinuxComputeNodes>
+</IaaSClusterConfig>    
+```
+
+### Exemple de fichier cred.xml
+
+```
+<ExtendedData>
+  <PrivateKey>-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAxJKBABhnOsE9eneGHvsjdoXKooHUxpTHI1JVunAJkVmFy8JC
+qFt1pV98QCtKEHTC6kQ7tj1UT2N6nx1EY9BBHpZacnXmknpKdX4Nu0cNlSphLpru
+lscKPR3XVzkTwEF00OMiNJVknq8qXJF1T3lYx3rW5EnItn6C3nQm3gQPXP0ckYCF
+Jdtu/6SSgzV9kaapctLGPNp1Vjf9KeDQMrJXsQNHxnQcfiICp21NiUCiXosDqJrR
+AfzePdl0XwsNngouy8t0fPlNSngZvsx+kPGh/AKakKIYS0cO9W3FmdYNW8Xehzkc
+VzrtJhU8x21hXGfSC7V0ZeD7dMeTL3tQCVxCmwIDAQABAoIBAQCve8Jh3Wc6koxZ
+qh43xicwhdwSGyliZisoozYZDC/ebDb/Ydq0BYIPMiDwADVMX5AqJuPPmwyLGtm6
+9hu5p46aycrQ5+QA299g6DlF+PZtNbowKuvX+rRvPxagrTmupkCswjglDUEYUHPW
+05wQaNoSqtzwS9Y85M/b24FfLeyxK0n8zjKFErJaHdhVxI6cxw7RdVlSmM9UHmah
+wTkW8HkblbOArilAHi6SlRTNZG4gTGeDzPb7fYZo3hzJyLbcaNfJscUuqnAJ+6pT
+iY6NNp1E8PQgjvHe21yv3DRoVRM4egqQvNZgUbYAMUgr30T1UoxnUXwk2vqJMfg2
+Nzw0ESGRAoGBAPkfXjjGfc4HryqPkdx0kjXs0bXC3js2g4IXItK9YUFeZzf+476y
+OTMQg/8DUbqd5rLv7PITIAqpGs39pkfnyohPjOe2zZzeoyaXurYIPV98hhH880uH
+ZUhOxJYnlqHGxGT7p2PmmnAlmY4TSJrp12VnuiQVVVsXWOGPqHx4S4f9AoGBAMn/
+vuea7hsCgwIE25MJJ55FYCJodLkioQy6aGP4NgB89Azzg527WsQ6H5xhgVMKHWyu
+Q1snp+q8LyzD0i1veEvWb8EYifsMyTIPXOUTwZgzaTTCeJNHdc4gw1U22vd7OBYy
+nZCU7Tn8Pe6eIMNztnVduiv+2QHuiNPgN7M73/x3AoGBAOL0IcmFgy0EsR8MBq0Z
+ge4gnniBXCYDptEINNBaeVStJUnNKzwab6PGwwm6w2VI3thbXbi3lbRAlMve7fKK
+B2ghWNPsJOtppKbPCek2Hnt0HUwb7qX7Zlj2cX/99uvRAjChVsDbYA0VJAxcIwQG
+TxXx5pFi4g0HexCa6LrkeKMdAoGAcvRIACX7OwPC6nM5QgQDt95jRzGKu5EpdcTf
+g4TNtplliblLPYhRrzokoyoaHteyxxak3ktDFCLj9eW6xoCZRQ9Tqd/9JhGwrfxw
+MS19DtCzHoNNewM/135tqyD8m7pTwM4tPQqDtmwGErWKj7BaNZARUlhFxwOoemsv
+R6DbZyECgYEAhjL2N3Pc+WW+8x2bbIBN3rJcMjBBIivB62AwgYZnA2D5wk5o0DKD
+eesGSKS5l22ZMXJNShgzPKmv3HpH22CSVpO0sNZ6R+iG8a3oq4QkU61MT1CfGoMI
+a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
+-----END RSA PRIVATE KEY-----</PrivateKey>
+  <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
+</ExtendedData>
+```
 
 ### Exemple de script hpccharmrun.sh
 
@@ -361,40 +401,7 @@ exit ${RTNSTS}
 ```
 
  
-### Exemple de fichier cred.xml
 
-```
-<ExtendedData>
-  <PrivateKey>-----BEGIN RSA PRIVATE KEY-----
-MIIEpQIBAAKCAQEAxJKBABhnOsE9eneGHvsjdoXKooHUxpTHI1JVunAJkVmFy8JC
-qFt1pV98QCtKEHTC6kQ7tj1UT2N6nx1EY9BBHpZacnXmknpKdX4Nu0cNlSphLpru
-lscKPR3XVzkTwEF00OMiNJVknq8qXJF1T3lYx3rW5EnItn6C3nQm3gQPXP0ckYCF
-Jdtu/6SSgzV9kaapctLGPNp1Vjf9KeDQMrJXsQNHxnQcfiICp21NiUCiXosDqJrR
-AfzePdl0XwsNngouy8t0fPlNSngZvsx+kPGh/AKakKIYS0cO9W3FmdYNW8Xehzkc
-VzrtJhU8x21hXGfSC7V0ZeD7dMeTL3tQCVxCmwIDAQABAoIBAQCve8Jh3Wc6koxZ
-qh43xicwhdwSGyliZisoozYZDC/ebDb/Ydq0BYIPMiDwADVMX5AqJuPPmwyLGtm6
-9hu5p46aycrQ5+QA299g6DlF+PZtNbowKuvX+rRvPxagrTmupkCswjglDUEYUHPW
-05wQaNoSqtzwS9Y85M/b24FfLeyxK0n8zjKFErJaHdhVxI6cxw7RdVlSmM9UHmah
-wTkW8HkblbOArilAHi6SlRTNZG4gTGeDzPb7fYZo3hzJyLbcaNfJscUuqnAJ+6pT
-iY6NNp1E8PQgjvHe21yv3DRoVRM4egqQvNZgUbYAMUgr30T1UoxnUXwk2vqJMfg2
-Nzw0ESGRAoGBAPkfXjjGfc4HryqPkdx0kjXs0bXC3js2g4IXItK9YUFeZzf+476y
-OTMQg/8DUbqd5rLv7PITIAqpGs39pkfnyohPjOe2zZzeoyaXurYIPV98hhH880uH
-ZUhOxJYnlqHGxGT7p2PmmnAlmY4TSJrp12VnuiQVVVsXWOGPqHx4S4f9AoGBAMn/
-vuea7hsCgwIE25MJJ55FYCJodLkioQy6aGP4NgB89Azzg527WsQ6H5xhgVMKHWyu
-Q1snp+q8LyzD0i1veEvWb8EYifsMyTIPXOUTwZgzaTTCeJNHdc4gw1U22vd7OBYy
-nZCU7Tn8Pe6eIMNztnVduiv+2QHuiNPgN7M73/x3AoGBAOL0IcmFgy0EsR8MBq0Z
-ge4gnniBXCYDptEINNBaeVStJUnNKzwab6PGwwm6w2VI3thbXbi3lbRAlMve7fKK
-B2ghWNPsJOtppKbPCek2Hnt0HUwb7qX7Zlj2cX/99uvRAjChVsDbYA0VJAxcIwQG
-TxXx5pFi4g0HexCa6LrkeKMdAoGAcvRIACX7OwPC6nM5QgQDt95jRzGKu5EpdcTf
-g4TNtplliblLPYhRrzokoyoaHteyxxak3ktDFCLj9eW6xoCZRQ9Tqd/9JhGwrfxw
-MS19DtCzHoNNewM/135tqyD8m7pTwM4tPQqDtmwGErWKj7BaNZARUlhFxwOoemsv
-R6DbZyECgYEAhjL2N3Pc+WW+8x2bbIBN3rJcMjBBIivB62AwgYZnA2D5wk5o0DKD
-eesGSKS5l22ZMXJNShgzPKmv3HpH22CSVpO0sNZ6R+iG8a3oq4QkU61MT1CfGoMI
-a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
------END RSA PRIVATE KEY-----</PrivateKey>
-  <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
-</ExtendedData>
-```
 
 
 
@@ -408,4 +415,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

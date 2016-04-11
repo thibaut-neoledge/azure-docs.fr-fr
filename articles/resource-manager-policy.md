@@ -62,7 +62,12 @@ Essentiellement, une stratégie contient les éléments suivants :
         "effect" : "deny | audit"
       }
     }
+    
+## Évaluation de a stratégie
 
+Une stratégie doit être évaluée lors de la création d’une ressource ou du déploiement d’un modèle à l'aide de HTTP PUT. En cas de déploiement d’un modèle, la stratégie doit être évaluée lors de la création de chaque ressource dans le modèle.
+
+Remarque : les types de ressources qui ne prennent pas en charge les champs tags, kind et location ne sont pas évalués par la stratégie, par exemple Microsoft.Resources/deployments. La prise en charge sera ajoutée prochainement. Pour éviter des problèmes de compatibilité descendante, il est recommandé de spécifier explicitement le type lors de la création de stratégies. Par exemple, une stratégie de balises sans spécification des types sera appliquée à tous les types, et le déploiement du modèle risque donc d’échouer s'il existe une ressource imbriquée ne prenant pas en charge les champs tags lorsque le type de ressource sera ajouté à l'évaluation.
 
 ## Opérateurs logiques
 
@@ -176,19 +181,19 @@ L’exemple ci-dessous illustre l’utilisation de la source. Il indique que seu
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -207,14 +212,14 @@ L'exemple ci-dessous illustre l'utilisation d'alias de propriété pour restrein
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -302,8 +307,6 @@ Avec un corps de demande semblable au suivant :
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -350,8 +353,6 @@ Avec un corps de demande semblable au suivant :
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 
@@ -386,4 +387,4 @@ Pour afficher tous les événements liés au résultat « audit », vous pouvez 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

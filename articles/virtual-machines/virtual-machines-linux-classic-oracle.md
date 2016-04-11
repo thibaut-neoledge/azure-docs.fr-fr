@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Oracle sur des machines virtuelles Azure | Microsoft Azure"
-	description="Recherchez les articles qui décrivent l’installation du logiciel Oracle sur une machine virtuelle Linux."
+	pageTitle="Oracle sur des machines virtuelles Linux | Microsoft Azure"
+	description="Recherchez les articles qui décrivent la procédure de configuration du logiciel Oracle sur des machines virtuelles Linux."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="bbenz"
@@ -17,10 +17,12 @@
 	ms.date="01/12/2016"
 	ms.author="bbenz"/>
 
-# Logiciel Oracle hébergé sur des machines virtuelles Azure
+# Logiciel Oracle hébergé sur des machines virtuelles Linux dans Azure
+
+Configurez votre première ou votre prochaine base de données Oracle de développement/test ou de production en vue de son exécution sur une machine virtuelle Linux dans les services d’infrastructure Azure. Tirez parti de la facilité de configuration et de la possibilité d’étendre rapidement la charge de travail de la base de données Oracle pour inclure de nouvelles capacités. Vous pouvez également configurer le logiciel Oracle sur des [machines virtuelles Windows](virtual-machines-windows-classic-oracle.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 [AZURE.INCLUDE [virtual-machines-common-classic-oracle](../../includes/virtual-machines-common-classic-oracle.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

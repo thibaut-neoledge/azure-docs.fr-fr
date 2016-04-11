@@ -19,7 +19,9 @@ Pour vous assurer qu’aucun message n’est renvoyé en dehors de la fenêtre d
 ### Approvisionner un compte Azure Storage et une file d’attente Service Bus
 Pour pouvoir utiliser la classe [EventProcessorHost], vous devez disposer d’un compte Azure Storage pour permettre à l’**EventProcessorHost** d’enregistrer les informations de point de contrôle. Vous pouvez utiliser un compte de stockage existant, ou suivre les instructions figurant dans [À propos d’Azure Storage] pour en créer un. Notez la chaîne de connexion du compte de stockage.
 
-Vous avez également besoin d’une file d’attente Service Bus pour permettre un traitement fiable des messages interactifs. Vous pouvez créer une file d’attente par programmation avec une fenêtre de déduplication de 1 heure, comme expliqué dans [Utilisation des files d’attente Service Bus][Service Bus Queue] ou utiliser le [portail Azure Classic] en procédant comme suit :
+> [AZURE.NOTE] Lorsque vous copiez et collez la chaîne de connexion du compte de stockage, assurez-vous que la chaîne de connexion ne contient aucun espace.
+
+Vous avez également besoin d’une file d’attente Service Bus pour permettre un traitement fiable des messages interactifs. Vous pouvez créer une file d’attente par programmation avec une fenêtre de déduplication de 1 heure, comme expliqué dans [Utilisation des files d’attente Service Bus][Service Bus Queue] ou utilisez le [portail Azure Classic] en procédant comme suit :
 
 1. Cliquez sur **NOUVEAU** dans le coin inférieur gauche, puis sur **App Services**, **Service Bus**, **File d’attente** et **Création personnalisée**. Entrez le nom **d2ctutorial**, sélectionnez une région, utilisez un espace de noms existant ou créez-en un nouveau. Ensuite, sur la page suivante, sélectionnez **Activer la détection dupliquée** et définissez l’option **Fenêtre d’heures de l’historique des détections dupliquées** sur une heure. Cliquez ensuite sur la coche pour enregistrer votre configuration de la file d’attente.
 
@@ -312,4 +314,4 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

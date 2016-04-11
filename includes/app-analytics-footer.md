@@ -10,5 +10,7 @@
  - Utilisé pour calculer des statistiques sur des groupes d’enregistrements
 - [Données scalaires](../articles/application-insights/app-analytics-scalars.md)
  - Nombres, chaînes et autres expressions utilisés pour former les paramètres de requête.
+- [L'utilisation de](../articles/application-insights/app-analytics-using.md)
+ - Utilisation d’Analytics.
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

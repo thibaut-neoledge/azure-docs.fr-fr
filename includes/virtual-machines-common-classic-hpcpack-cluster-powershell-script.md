@@ -13,10 +13,10 @@ Pour des informations générales sur la planification d’un cluster HPC Pack, 
 
 ## Configuration requise
 
-* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Vos limites d’abonnement affecteront le nombre et le type de nœuds de cluster que vous pouvez déployer. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Vos limites d’abonnement affecteront le nombre et le type de nœuds de cluster que vous pouvez déployer. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
 
 
-* **Ordinateur client Windows avec Azure PowerShell 0.8.7 ou version ultérieure installé et configuré**. Consultez [Installer et configurer Azure PowerShell](../powershell-install-configure.md). Le script s’exécute dans Azure Service Management.
+* **Ordinateur client Windows avec Azure PowerShell 0.8.7 ou ultérieur installé et configuré**. Consultez l’article [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md). Le script s’exécute dans Azure Service Management.
 
 
 * **Script de déploiement du HPC Pack IaaS** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.0 du script.
@@ -362,4 +362,4 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
     Pour contourner ce problème, vérifiez tout d’abord l’état de l’extension dans les machines virtuelles. Si l’extension n’est pas installée correctement, essayez de supprimer les nœuds de cluster HPC, puis ajoutez de nouveau les nœuds. Par exemple, vous pouvez ajouter des machines virtuelles à nœud de calcul en exécutant le script Add-HpcIaaSNode.ps1 sur le nœud principal.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

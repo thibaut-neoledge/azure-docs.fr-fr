@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Créer et gérer la base de données SQL Azure avec C#" 
-   description="Cet article vous montre comment créer et gérer une base de données SQL Azure à l’aide de la bibliothèque de base de données SQL Azure pour .NET." 
+   pageTitle="Créer et gérer la base de données SQL Azure avec C#" 
+   description="Cet article vous montre comment créer et gérer une base de données SQL Azure à l’aide de la bibliothèque de base de données SQL Azure pour .NET." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,36 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="03/23/2016"
    ms.author="sstein"/>
 
 # Créer et gérer la base de données SQL avec C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-elastic-pool-portal.md)
+- [Portail Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Cet article fournit des commandes permettant d’effectuer de nombreuses tâches de gestion de base de données SQL Azure à l’aide de la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
+Cet article fournit des commandes permettant d’effectuer de nombreuses tâches de gestion de base de données SQL Azure à l’aide de la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 
 Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
 
-La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](../resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
-> [AZURE.NOTE]La bibliothèque SQL Database pour .NET est actuellement en version préliminaire.
+> [AZURE.NOTE] La bibliothèque SQL Database pour .NET est actuellement en version préliminaire.
 
 <br>
 
-Si vous n’avez pas d’abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article. Pour une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Si vous n’avez pas d’abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article. Pour une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Installation des bibliothèques nécessaires
 
-Obtenez les bibliothèques de gestion nécessaires en installant les packages suivants à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) :
+Obtenez les bibliothèques de gestion nécessaires en installant les packages suivants à l’aide de la [console du gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) :
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -53,13 +53,13 @@ Obtenez les bibliothèques de gestion nécessaires en installant les packages su
 
 Vous devez d’abord autoriser votre application à accéder à l’API REST en configurant l’authentification nécessaire.
 
-Les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) utilisent Azure Active Directory pour l’authentification, plutôt que les certificats utilisés par les API REST de gestion des services Azure antérieures.
+Les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) utilisent Azure Active Directory pour l’authentification, plutôt que les certificats utilisés par les API REST de gestion des services Azure antérieures.
 
 Pour authentifier votre application cliente en fonction de l’utilisateur actuel, vous devez d’abord inscrire celle-ci dans le domaine AAD associé à l’abonnement sous lequel les ressources Azure ont été créées. Si votre abonnement Azure a été créé avec un compte Microsoft, plutôt qu’avec un compte professionnel ou scolaire, vous disposez déjà d’un domaine AAD par défaut. L’inscription de l’application peut être effectuée dans le [Portail Classic](https://manage.windowsazure.com/).
 
-Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
+Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
 
-1. Faites défiler le menu situé à gauche pour localiser le service **Active Directory**, puis ouvrez ce dernier.
+1. Faites défiler le menu situé à gauche pour localiser le service **Active Directory**, puis ouvrez ce dernier.
 
     ![AAD][1]
 
@@ -71,17 +71,17 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
     ![Applications][5]
 
-4. Cliquez sur **AJOUTER** pour ajouter une nouvelle application.
+4. Cliquez sur **AJOUTER** pour créer une application.
 
     ![Ajouter l’application][6]
 
 5. Sélectionnez **Ajouter une application développée par mon organisation**.
 
-5. Fournissez un **NOM** pour l’application et sélectionnez **APPLICATION CLIENTE NATIVE**.
+5. Spécifiez un **NOM** pour l’application et sélectionnez **APPLICATION CLIENTE NATIVE**.
 
     ![Ajouter l’application][7]
 
-6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
+6. Fournissez un **URI DE REDIRECTION**. Il n’est pas nécessaire que celui-ci soit un point de terminaison réel ; un URI valide suffit.
 
     ![Ajouter l’application][8]
 
@@ -93,7 +93,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 1. En bas de la page, cliquez sur **Ajouter une application**.
 1. Sélectionnez **Applications Microsoft**.
 1. Sélectionnez **API de gestion des services Azure**, puis terminez l’Assistant.
-2. Vérifiez que cette API est sélectionnée, puis, pour accorder les autorisations permettant d’y accéder, sélectionnez **Accéder à la gestion des services Azure (version préliminaire)**.
+2. Vérifiez que cette API est sélectionnée puis, pour accorder les autorisations permettant d’y accéder, sélectionnez **Accéder à la gestion des services Azure (version préliminaire)**.
 
     ![Autorisations][2]
 
@@ -103,7 +103,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
 ### Identifier le nom de domaine
 
-Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le nom de domaine correct, procédez comme suit :
+Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le nom de domaine correct, procédez comme suit :
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Pointez sur votre nom dans le coin supérieur droit et notez le domaine qui apparaît dans la fenêtre contextuelle.
@@ -116,7 +116,7 @@ Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le 
 
 **Ressources AAD supplémentaires**
 
-Pour plus d’informations sur l’utilisation d’Azure Active Directory pour l’authentification, consultez [ce billet de blog utile](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
+Pour plus d’informations sur l’utilisation d’Azure Active Directory pour l’authentification, consultez [ce billet de blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
 ### Récupérer le jeton d’accès pour l’utilisateur actuel 
@@ -148,7 +148,7 @@ Pour créer des scripts entièrement automatisés, vous pouvez vous authentifier
 
 
 
-> [AZURE.NOTE]Les exemples de cet article utilisent une forme synchrone de chaque bloc et demande d’API jusqu’à la fin de l’appel REST sur le service sous-jacent. Des méthodes asynchrones sont disponibles.
+> [AZURE.NOTE] Les exemples de cet article utilisent une forme synchrone de chaque bloc et demande d’API jusqu’à la fin de l’appel REST sur le service sous-jacent. Des méthodes asynchrones sont disponibles.
 
 
 
@@ -198,7 +198,7 @@ Les bases de données SQL se trouvent sur des serveurs. Le nom du serveur doit �
 
 ## Créer une règle de pare-feu de serveur pour autoriser l’accès au serveur
 
-Par défaut, un serveur n’est pas accessible depuis n’importe quel emplacement. Pour vous connecter à un serveur à l’aide de TDS et y exécuter des instructions T-SQL, ou à des bases de données sur le serveur, une [règle de pare-feu](https://msdn.microsoft.com/library/azure/ee621782.aspx) qui autorise l’accès à partir de l’adresse IP du client doit être définie.
+Par défaut, un serveur n’est pas accessible depuis n’importe quel emplacement. Pour vous connecter à un serveur à l’aide de TDS et y exécuter des instructions T-SQL, ou à des bases de données sur le serveur, une [règle de pare-feu](https://msdn.microsoft.com/library/azure/ee621782.aspx) doit être définie qui autorise l’accès à partir de l’adresse IP du client.
 
 L’exemple suivant crée une règle qui ouvre l’accès au serveur à partir de n’importe quelle adresse IP. En guise de défense principale contre les intrusions, nous vous recommandons de créer des connexions SQL et des mots de passe appropriés pour sécuriser votre base de données et de ne pas compter sur des règles de pare-feu.
 
@@ -218,12 +218,12 @@ L’exemple suivant crée une règle qui ouvre l’accès au serveur à partir d
 
 
 
-Pour autoriser d’autres services Azure à accéder à un serveur, ajoutez une règle de pare-feu et définissez les paramètres StartIpAddress et EndIpAddress sur 0.0.0.0. Notez que cette configuration autorise le trafic Azure depuis *tout* abonnement Azure à accéder au serveur.
+Pour autoriser d’autres services Azure à accéder à un serveur, ajoutez une règle de pare-feu et définissez les paramètres StartIpAddress et EndIpAddress sur 0.0.0.0. Notez que cette configuration autorise le trafic Azure à accéder au serveur depuis *n’importe quel* abonnement Azure.
 
 
 ## Créer une base de données
 
-La commande suivante crée une base de données de base si aucune base de données portant le même nom n’existe sur le serveur ; dans le cas contraire, la base de données existante est mise à jour.
+La commande suivante crée une base de données de base si aucune base de données portant le même nom n’existe sur le serveur ; dans le cas contraire, la base de données existante est mise à jour.
 
         // Create a database
 
@@ -251,7 +251,7 @@ La commande suivante crée une base de données de base si aucune base de donné
 
 Pour mettre à jour une base de données (par exemple, en modifiant les niveaux de performances et de service), vous appelez la méthode **Databases.CreateOrUpdate**, comme dans le cas de la création ou de la mise à jour d’une base de données ci-dessus. Définissez les propriétés **Edition** et **RequestedServiceObjectiveName** sur les niveaux de performances et de service souhaités. Notez que si vous attribuez à la propriété Edition la valeur **Premium** ou qu’elle était initialement définie sur cette valeur, la mise à jour peut prendre un certain temps selon la taille de votre base de données.
 
-La commande suivante met à jour une base de données SQL en lui attribuant le niveau Standard (S0) :
+La commande suivante met à jour une base de données SQL en lui attribuant le niveau Standard (S0) :
 
     // Retrieve current database properties 
     var currentDatabase = sqlClient.Databases.Get("resourecegroup-name", "server-name", "Database1").Database;
@@ -275,7 +275,7 @@ La commande suivante met à jour une base de données SQL en lui attribuant le n
 
 ## Répertorier toutes les bases de données sur un serveur
 
-Pour répertorier toutes les bases de données sur un serveur, transmettez les noms du serveur et du groupe de ressources à la méthode Databases.List :
+Pour répertorier toutes les bases de données sur un serveur, transmettez les noms du serveur et du groupe de ressources à la méthode Databases.List :
 
     // List databases on the server
     DatabaseListResponse dbListOnServer = sqlClient.Databases.List("resourcegroup-name", "server-name");
@@ -289,7 +289,7 @@ Pour répertorier toutes les bases de données sur un serveur, transmettez les n
 
 ## Créer un pool de base de données élastique
 
-Pour créer un pool sur un serveur :
+Pour créer un pool sur un serveur :
 
 
 
@@ -335,9 +335,9 @@ Pour créer un pool sur un serveur :
 
 ## Déplacer une base de données existante vers un pool élastique de bases de données
 
-*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour supprimer les nouvelles bases de données élastiques dans et hors d’un pool. Pour plus d’informations, consultez [élastique de base de pool de référence - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour déplacer des bases de données existantes dans et hors d’un pool. Pour plus d’informations, consultez [élastique de base de pool de référence - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
-Pour déplacer une base de données existante vers un pool :
+Pour déplacer une base de données existante vers un pool :
 
     
     // Update database service objective to add the database to a pool
@@ -367,9 +367,9 @@ Pour déplacer une base de données existante vers un pool :
 
 ## Créer une base de données dans un pool de base de données élastique
 
-*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour la création de nouvelles bases de données élastiques dans le pool. Pour plus d’informations, consultez [élastique de base de pool de référence - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour la création de bases de données élastiques dans le pool. Pour plus d’informations, consultez [élastique de base de pool de référence - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
-Pour créer une base de données directement dans un pool :
+Pour créer une base de données directement dans un pool :
 
     
     // Create a new database in the pool
@@ -394,7 +394,7 @@ Pour créer une base de données directement dans un pool :
 
 ## Répertorier toutes les bases de données dans un pool de base de données élastique
 
-Pour répertorier toutes les bases de données dans un pool :
+Pour répertorier toutes les bases de données dans un pool :
 
     //List databases in the elastic pool
     DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
@@ -406,14 +406,14 @@ Pour répertorier toutes les bases de données dans un pool :
 
 ## Supprimer un serveur
 
-Pour supprimer un serveur (et, ce faisant, les bases de données et tous les pools de bases de données élastiques sur le serveur), exécutez le code suivant :
+Pour supprimer un serveur (et, ce faisant, les bases de données et tous les pools de bases de données élastiques sur le serveur), exécutez le code suivant :
 
     var serverOperationResponse = sqlClient.Servers.Delete("resourcegroup-name", "server-name");
 
 
 ## Supprimer un groupe de ressources
 
-Pour supprimer un groupe de ressources :
+Pour supprimer un groupe de ressources :
 
     // Delete the resource group
     var resourceOperationResponse = resourceClient.ResourceGroups.Delete("resourcegroup-name");
@@ -784,7 +784,7 @@ Pour supprimer un groupe de ressources :
 
 [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
+[Référence du pool de base de données élastique](sql-database-elastic-pool-reference.md).
 
 
 <!--Image references-->
@@ -798,4 +798,4 @@ Pour supprimer un groupe de ressources :
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->
