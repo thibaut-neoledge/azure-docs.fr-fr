@@ -94,13 +94,13 @@ Vérifiez ensuite que le fichier MySetup.bat est inclus dans le package de servi
 Ouvrez maintenant le fichier MySetup.bat et ajoutez les commandes suivantes :
 
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Définissez une variable d'environnement système. Cela requiert des privilèges d'administrateur
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > out.txt
-echo %TestVariable% >> out.txt
+echo System TestVariable définie sur > test.txt
+echo %TestVariable% >> test.txt
 
-REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM Pour supprimer cette variable système utilisez
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
 Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l’Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez :

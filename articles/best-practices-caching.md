@@ -564,7 +564,7 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
   ...
-  // Create a list of key-value pairs
+  // Create a list of key/value pairs
   var keysAndValues =
       new List<KeyValuePair<RedisKey, RedisValue>>()
       {
@@ -573,7 +573,7 @@ Redis prend en charge une série d'opérations get et set atomiques sur les vale
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
 
-  // Store the list of key-value pairs in the cache
+  // Store the list of key/value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...
   // Find all values that match a list of keys

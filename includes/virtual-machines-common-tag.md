@@ -9,7 +9,7 @@ Cliquez sur le bouton **Déployer sur Azure** à partir du [lien du modèle](htt
 
 ![Déploiement simple avec des balises](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Ce modèle inclut les balises suivantes :*Service**Application* et *Créé par*. Vous pouvez ajouter/modifier ces balises directement dans le modèle si vous voulez d’autres noms de balises.
+Ce modèle inclut les balises suivantes :*Service* *Application* et *Créé par*. Vous pouvez ajouter/modifier ces balises directement dans le modèle si vous voulez d’autres noms de balises.
 
 ![Balises Azure dans un modèle](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 

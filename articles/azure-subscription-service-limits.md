@@ -130,7 +130,7 @@ Pour plus d'informations sur les limites des comptes de stockage, consultez [Obj
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Pour plus d'informations, consultez [Tailles des machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md).
+Pour plus d'informations, consultez [Tailles des machines virtuelles](../articles/virtual-machines/virtual-machines-size-specs.md).
 
 **Comptes de stockage standard**
 

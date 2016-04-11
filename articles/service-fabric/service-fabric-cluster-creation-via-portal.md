@@ -147,7 +147,7 @@ Une fois la configuration du cluster terminée, vous pouvez vous connecter et co
 
 ### Se connecter à un cluster sécurisé
 
-    1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
+    1. Exécutez la commande suivante pour configurer le certificat sur la machine que vous souhaitez utiliser pour exécuter la cmd PS « Connect-serviceFabricCluster »
 
         ```powershell
         Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -155,7 +155,7 @@ Une fois la configuration du cluster terminée, vous pouvez vous connecter et co
                 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
         ```
 
-    2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
+    2. Exécutez la PS suivante pour vous connecter à un cluster sécurisé. Les détails du certificat sont les mêmes que ceux que vous avez donnés sur le portail.
 
         ```powershell
         Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -165,7 +165,7 @@ Une fois la configuration du cluster terminée, vous pouvez vous connecter et co
                   -StoreLocation CurrentUser -StoreName My
         ```
 
-        For example, the PowerShell command above should look similar to the following:
+	Par exemple, la commande PS ci-dessus doit ressembler à ce qui suit.
 
         ```powershell
         Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `

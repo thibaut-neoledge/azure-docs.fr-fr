@@ -34,7 +34,8 @@ Comme l'illustre le schéma suivant, le **modèle de ressources** hiérarchique 
 
 >[AZURE.NOTE] DocumentDB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modèle de ressources hiérarchique de DocumentDB][1] **Modèle de ressource hiérarchique**
+![Modèle de ressources hiérarchique de DocumentDB][1] 
+**Modèle de ressource hiérarchique**
 
 Pour commencer à travailler avec des ressources, vous devez [créer un compte de base de données DocumentDB](documentdb-create-account.md) à l’aide de votre abonnement Azure. Un compte de base de données peut être composé d'un jeu de **bases de données**. Chacune d'elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l'utilisateur, des documents** et des **pièces jointes** associées (fonctionnalité en version préliminaire). La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble d’**autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l'utilisateur.
 

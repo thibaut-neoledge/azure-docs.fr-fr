@@ -39,7 +39,8 @@ Les expressions scalaires sont distinctes des [requêtes](app-analytics-queries.
 
 ## Valeurs scalaires
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons)
+<br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Les types pris en charge sont :
 
@@ -157,7 +158,9 @@ Cette fonction retourne la valeur de *ifTrue* si *predicate* prend la valeur `tr
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
+<a name="isnull"/></a>
+<a name="isnotnull"/></a>
+<a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -185,7 +188,7 @@ True ou false selon si la valeur est null ou not null.
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **Exemple**
@@ -217,7 +220,8 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 
 ## Nombres
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) |
+[tolong](#tolong)
 
 ### Littéraux numériques
 
@@ -231,7 +235,17 @@ Notez qu’il existe d’autres façons d’obtenir cet effet :
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
+| - | Soustraire |
+| * | Multiplier |
+| / | Diviser |
+| % | Modulo |
+||
+|`<` |Inférieur à
+|`<=`|Inférieur ou égal à
+|`>` |Supérieur à
+|`>=`|Supérieur ou égal à
+|`<>`|Non égal à
+|`!=`|Non égal à
 
 
 
@@ -530,7 +544,7 @@ Les règles sont les mêmes que dans JavaScript.
 
 Les chaînes peuvent être placées entre guillemets simples ou doubles.
 
-La barre oblique inverse (``) est utilisée pour échapper les caractères tels que `\t` (tabulation), `\n` (renvoi à la ligne) et les instances de guillemets englobants.
+La barre oblique inverse (`\`) est utilisée pour échapper les caractères tels que `\t` (tabulation), `\n` (renvoi à la ligne) et les instances de guillemets englobants.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -649,12 +663,15 @@ Cet exemple est équivalent à `substring(Text, 2, 4)` :
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
+<a name="notempty"></a>
+<a name="isnotempty"></a>
+<a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
 
-True si l’argument est une chaîne vide ou s’il a la valeur null. Voir aussi [isnull](#isnull).
+True si l’argument est une chaîne vide ou s’il a la valeur null.
+Voir aussi [isnull](#isnull).
 
 
 **Syntaxe**
@@ -676,7 +693,7 @@ Indique si l’argument est une chaîne vide ou s’il a la valeur isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 
@@ -823,7 +840,9 @@ Convertit une chaîne en majuscules.
 
 ## Tableaux et objets - types dynamiques
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
+<br/>
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Voici le résultat d’une requête sur une exception d’Application Insights. La valeur de `details` est un tableau.

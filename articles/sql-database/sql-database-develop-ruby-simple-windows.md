@@ -22,7 +22,8 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-Cette rubrique présente un exemple de code Ruby qui s’exécute sur un ordinateur Windows exécutant Windows 8.1 pour la connexion à une base de données SQL Azure.
+
+Cette rubrique présente un exemple de code Ruby qui s’exécute sur un ordinateur Windows exécutant Windows 8.1, pour la connexion à une base de données SQL Azure.
 
 
 ## Étape 1 : configurer l’environnement de développement
